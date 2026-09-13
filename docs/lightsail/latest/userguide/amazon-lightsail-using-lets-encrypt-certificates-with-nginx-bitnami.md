@@ -45,14 +45,14 @@ Certbot is a client used to request a certificate from Let's Encrypt and deploy 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
 1. On the Instances home page, choose the SSH quick connect icon for the instance that you want to connect to. For example, with a WordPress instance named *Example*:  
-![SSH quick connect on the Lightsail home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/resource_cards/ssh-quick-connect.png)
+![SSH quick connect on the Lightsail home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/resource_cards/ssh-quick-connect.png)
 
 1. After your Lightsail browser-based SSH session is connected, enter the following command to update the packages on your instance:
 
    ```
    sudo apt-get update
    ```  
-![Update the packages on your instance.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-nginx-update-packages.png)
+![Update the packages on your instance.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-nginx-update-packages.png)
 
 1. Enter the following command to install the software properties package. Certbot's developers use a Personal Package Archive (PPA) to distribute Certbot. The software properties package makes it more efficient to work with PPAs.
 
@@ -120,7 +120,7 @@ Begin the process of requesting a certificate from Let's Encrypt. Using Certbot,
    ```
 
    You should see a result similar to the following:  
-![Confirm the domain environment variables.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-confirm-variables.png)
+![Confirm the domain environment variables.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-confirm-variables.png)
 
 1. Enter the following command to start Certbot in interactive mode. This command tells Certbot to use a manual authorization method with DNS challenges to verify domain ownership. It requests a wildcard certificate for your top-level domain, as well as its subdomains.
 
@@ -137,7 +137,7 @@ Begin the process of requesting a certificate from Let's Encrypt. Using Certbot,
 1. Let's Encrypt now prompts you to verify that you own the domain specified. You do this by adding TXT records to the DNS records for your domain. A set of TXT record values are provided as shown in the following example:
 **Note**  
 Let's Encrypt may provide a single or multiple TXT records that you must use for verification. In this example, we were provided with two TXT records to use for verification.  
-![TXT records for Let's Encrypt certificates.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/get-TXT-records.png)
+![TXT records for Let's Encrypt certificates.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/get-TXT-records.png)
 
 1. Keep the Lightsail browser-based SSH session open—you return to it later in this tutorial. Continue to the [next section](#add-txt-records-nginx-bitnami) of this tutorial.
 
@@ -191,13 +191,13 @@ Use the MxToolbox utility to confirm that the TXT records have propagated to the
    ```
    _acme-challenge.example.com
    ```  
-![MXToolbox TXT record lookup.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-text-record-lookup.png)
+![MXToolbox TXT record lookup.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-text-record-lookup.png)
 
 1. Choose **TXT Lookup** to run the check.
 
 1. One of the following responses occurs:
    + If your TXT records have propagated to the internet's DNS, you see a response similar to the one shown in the following screenshot. Close the browser window and continue to the next section of this tutorial.  
-![Confirmation that TXT records propagated.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
+![Confirmation that TXT records propagated.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
    + If your TXT records have not propagated to the internet's DNS, you see a **DNS Record not found** response. Confirm that you added the correct DNS records to your domains' DNS zone. If you added the correct records, wait a while longer to let your domain's DNS records propagate, and run the TXT lookup again.
 
 ## Step 6: Complete the Let's Encrypt SSL certificate request
@@ -208,12 +208,12 @@ Go back to the Lightsail browser-based SSH session for your Nginx instance and c
 **To complete the Let's Encrypt SSL certificate request**
 
 1. In the Lightsail browser-based SSH session for your Nginx instance, press **Enter** to continue your Let's Encrypt SSL certificate request. If successful, a response similar to the one shown in the following screenshot appears:  
-![Successful Let's Encrypt certificate request.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-certificate-request-success.png)
+![Successful Let's Encrypt certificate request.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-certificate-request-success.png)
 
    The message confirms that your certificate, chain, and key files are stored in the `/etc/letsencrypt/live/{{domain}}/` directory. Make sure to replace `{{domain}}` with your domain, such as `/etc/letsencrypt/live/{{example.com}}/`.
 
 1. Make note of the expiration date specified in the message. You use it to renew your certificate by that date.  
-![Let's Encrypt certificate renewal date.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/certificate-renewal-date.png)
+![Let's Encrypt certificate renewal date.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/certificate-renewal-date.png)
 
 1. Now that you have the Let's Encrypt SSL certificate, continue to the [next section](#link-certificate-files-nginx-bitnami) of this tutorial.
 
@@ -231,7 +231,7 @@ Create links to the Let's Encrypt SSL certificate files in the Nginx server dire
    ```
 
    You should see a response similar to the following:  
-![Instance services stopped.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-nginx-stop-services.png)
+![Instance services stopped.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-nginx-stop-services.png)
 
 1. Enter the following commands individually to rename your existing certificate files as backups. Refer to the **Important** block at the beginning of this tutorial for information about the different distributions and file structures.
    + For Debian Linux distributions
@@ -306,7 +306,7 @@ If you closed your browser-based SSH terminal window since setting the `DOMAIN` 
    ```
 
    You should see a result similar to the following:  
-![Instance services started.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-nginx-start-services.png)
+![Instance services started.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-nginx-start-services.png)
 
    Your Nginx instance is now configured to use SSL encryption. However, traffic is not automatically redirected from HTTP to HTTPS.
 
@@ -332,7 +332,7 @@ This tutorial uses Vim for demonstration purposes; however, you can use any text
 1. Press `i` to enter insert mode in the Vim editor.
 
 1. Edit the file with the information from the following example:  
-![Application server block configuration file.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/using-le-certs-1.png)
+![Application server block configuration file.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/using-le-certs-1.png)
 
 1. Press the **ESC** key, and then enter `:wq` to write (save) your edits, and quit Vim.
 
@@ -345,7 +345,7 @@ This tutorial uses Vim for demonstration purposes; however, you can use any text
 1. Press `i` to enter insert mode in the Vim editor.
 
 1. Edit the file with the information from the following example:  
-![Nginx configuration file.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/using-le-certs-2.png)
+![Nginx configuration file.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/using-le-certs-2.png)
 
 1. Press the **ESC** key, and then enter `:wq` to write (save) your edits, and quit Vim.
 
@@ -366,7 +366,7 @@ This tutorial uses Vim for demonstration purposes; however, you can use any text
 1. Press `i` to enter insert mode in the Vim editor.
 
 1. Edit the file with the information from the following example:  
-![Nginx configuration file.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/using-le-certs-2.png)
+![Nginx configuration file.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/using-le-certs-2.png)
 
 1. Press the **ESC** key, and then enter `:wq` to write (save) your edits, and quit Vim.
 
@@ -393,7 +393,7 @@ This tutorial uses Vim for demonstration purposes; however, you can use any text
    ```
 
    The result should look like the following:  
-![Nginx configuration file edited for HTTP to HTTPS redirection.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-nginx-config-file.png)
+![Nginx configuration file edited for HTTP to HTTPS redirection.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-nginx-config-file.png)
 
 1. Press the **ESC** key, and then enter `:wq` to write (save) your edits, and quit Vim.
 

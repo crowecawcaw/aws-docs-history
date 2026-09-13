@@ -35,7 +35,7 @@ Complete the following procedure to create an AlmaLinux instance by using the [L
 1. Choose the Linux platform.
 
 1. Choose **Operating System (OS) only**, then pick the **AlmaLinux** blueprint.  
-![The platform picker in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-almalinux-qs-guide-01.png)
+![The platform picker in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-almalinux-qs-guide-01.png)
 
 1. Optionally, you can:
 
@@ -46,7 +46,7 @@ Complete the following procedure to create an AlmaLinux instance by using the [L
    1. Enable **Automatic Snapshots** for your instance and the attached disks by selecting **Enable Automatic Snapshots**. For more information, see [Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md).
 
 1. Choose your instance plan. You can choose whether your instance uses dual-stack (IPv4 and IPv6), or IPv6-only networking. The AlmaLinux blueprint supports both dual-stack and IPv6-only bundles. To learn more about IPv6-only networking, see [Configure IPv6-only networking for Lightsail instances](amazon-lightsail-ipv6-only-plans.md).  
-![The instance plan picker in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-almalinux-qs-guide-02.png)
+![The instance plan picker in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-almalinux-qs-guide-02.png)
 
 1. Enter a name for your instance.
 
@@ -55,15 +55,15 @@ Complete the following procedure to create an AlmaLinux instance by using the [L
    + Must contain 2 to 255 characters.
    + Must start and end with an alphanumeric character or number.
    + Can include alphanumeric characters, numbers, periods, dashes, and underscores.  
-![The instance plan picker in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-almalinux-qs-guide-03.png)
+![The instance plan picker in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-almalinux-qs-guide-03.png)
 
 1. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For more information on tag usage, see [Tags](amazon-lightsail-tags.md).
 
    1. For **Key**, enter a tag key.  
-![A tag with only the tag key specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
+![A tag with only the tag key specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
 
    1. (Optional) For **Value**, enter a tag value.  
-![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
+![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
 
 1. Choose **Create instance**.
 
@@ -78,7 +78,7 @@ Here are a few steps you should take to get started after your AlmaLinux instanc
   The default dynamic public IP address attached to your instance changes every time you stop and start the instance. You can create a static IP address and attach it to your instance to keep the public IP address from changing. Later, when you use your domain name with your instance, you don’t have to update your domain’s DNS records each time you stop and start the instance. You can attach only one static IP address to each instance.
 
   On the instance management page, under the **Networking** tab, choose **Create a static IP** or **Attach static IP** (if you previously created a static IP that you can attach to your instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).  
-![Attach static IP address in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
+![Attach static IP address in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 + **Register a domain in Lightsail** Register and manage domain names in Lightsail. Lightsail uses Amazon Route 53, a highly available and scalable Domain Name System (DNS) web service, to register domains for you. After your domain is registered, you can assign it to your Lightsail resources or manage DNS records for it. For more information, see [Register and manage domains for your website in Lightsail](amazon-lightsail-domain-registration.md).
 + **Map your domain name to your instance** – To map your domain name, such as `example.com`, to your instance, you add a record to the domain name system (DNS) of your domain. DNS records are typically managed and hosted at the registrar where you registered your domain. However, we recommend that you transfer management of your domain's DNS records to Lightsail so that you can administer it using the Lightsail console.
 

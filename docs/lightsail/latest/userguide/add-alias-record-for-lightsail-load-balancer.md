@@ -61,7 +61,7 @@ Allow time for the change to propagate through the internet's DNS. This may take
 1. Choose **Create record**.
 
    The **Quick create record** page appears.  
-![Create a record in Route 53 to point an alias to your Lightsail load balancer](http://docs.aws.amazon.com/lightsail/latest/userguide/images/create-record-set-alias-record-route-53-blank.png)
+![Create a record in Route 53 to point an alias to your Lightsail load balancer](https://docs.aws.amazon.com/lightsail/latest/userguide/images/create-record-set-alias-record-route-53-blank.png)
 **Note**  
 If you see the **Choose routing policy** page, then choose **Switch to quick create** to switch to the quick create wizard before continuing with the following steps.
 
@@ -84,7 +84,7 @@ If you see the **Choose routing policy** page, then choose **Switch to quick cre
    Lightsail already performs health checks on your load balancer. For more information, see [Health checks for your load balancer](enable-set-up-health-checking-for-lightsail-load-balancer-metrics.md).
 
    Your record should look like the following example.  
-![Create a record in Route 53 to point an alias to your Lightsail load balancer](http://docs.aws.amazon.com/lightsail/latest/userguide/images/create-record-set-alias-record-route-53.png)
+![Create a record in Route 53 to point an alias to your Lightsail load balancer](https://docs.aws.amazon.com/lightsail/latest/userguide/images/create-record-set-alias-record-route-53.png)
 
 1. Choose **Create records** to add the record to your hosted zone.
 **Note**  

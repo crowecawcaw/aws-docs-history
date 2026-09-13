@@ -22,7 +22,7 @@ After you choose to create an instance in Amazon EC2 using the Lightsail console
 1. Choose **Exports** in the left navigation pane.
 
 1. To access a CloudFormation stack for a previously created Amazon EC2 instance, choose **View details** for a task labeled with **Created EC2 resources**.  
-![The task history in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-task-manager-cloud-formation-stack.png)
+![The task history in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-task-manager-cloud-formation-stack.png)
 
 1. The confirmation page that appears lists the CloudFormation stack for the task. Choose the stack name to open the stack details in the CloudFormation console.
 
@@ -33,4 +33,4 @@ You can also access your stack details through the [CloudFormation console](http
 
 Stacks with a **CREATE\_IN\_PROGRESS** status are in the process of creating Amazon EC2 resources from your exported Lightsail snapshots. Stacks with a **CREATE\_COMPLETED** status have completed the process of creating Amazon EC2 resources. To view the resources created by a stack, choose the checkbox next to the stack name, and then choose the **Resources** tab.
 
-![CloudFormation stack details.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cloud-formation-stack-details.png)
+![CloudFormation stack details.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cloud-formation-stack-details.png)

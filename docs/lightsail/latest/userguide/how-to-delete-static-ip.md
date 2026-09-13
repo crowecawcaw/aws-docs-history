@@ -18,7 +18,7 @@ Complete the following procedure to delete a static IP using the Lightsail conso
 1. In the left navigation pane, choose **Networking**.
 
 1. On the **Networking** page choose the vertical ellipsis (⋮) icon next to the static IP address that you want to delete, and then choose **Delete**.  
-![Delete a static IP in the Networking page](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-delete-static-ip-from-manage-static-ip-menu.png)
+![Delete a static IP in the Networking page](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-delete-static-ip-from-manage-static-ip-menu.png)
 
 ## Delete a static IP using the AWS CLI
 <a name="delete-static-ip-using-aws-cli"></a>

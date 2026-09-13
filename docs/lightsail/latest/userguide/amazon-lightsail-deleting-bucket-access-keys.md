@@ -24,7 +24,7 @@ After you delete an access key, it's gone forever and can't be restored. You can
 1. Choose the **Permissions** tab.
 
 1. Under **Access keys**, choose the remove icon for the access key that you want to delete.  
-![Displays how to delete an access key for a Lightsail object storage bucket.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-keys-delete.png)
+![Displays how to delete an access key for a Lightsail object storage bucket.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-keys-delete.png)
 
 1. Choose **Yes, delete** to proceed with deleting the access key.
 

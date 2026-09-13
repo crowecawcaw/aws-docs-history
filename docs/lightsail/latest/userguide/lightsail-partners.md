@@ -63,19 +63,19 @@ The following diagrams illustrate how Lightsail partner benefits and increased d
 **Single AWS account**  
 The following diagram details what occurs when a single account outside of AWS Organizations becomes a Lightsail partner.
 
-![How Lightsail partner benefits apply for single accounts outside of AWS Organizations.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-benefits-quotas-account-no-organization.png)
+![How Lightsail partner benefits apply for single accounts outside of AWS Organizations.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-benefits-quotas-account-no-organization.png)
 
 
 **AWS accounts in Organizations**  
 The following diagram details what occurs when a management account in AWS Organizations becomes a Lightsail partner.
 
-![How Lightsail partner benefits apply for management and member accounts in AWS Organizations.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-benefits-quotas-account-within-organization.png)
+![How Lightsail partner benefits apply for management and member accounts in AWS Organizations.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-benefits-quotas-account-within-organization.png)
 
 
 **AWS accounts in Organizations that are added after becoming a partner**  
 The following diagram details what occurs when a new member account is added to your organization whose management account has already registered as a Lightsail partner.
 
-![How Lightsail partner benefits apply for new member accounts added in AWS Organizations.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-benefits-quotas-new-member-account-within-organization.png)
+![How Lightsail partner benefits apply for new member accounts added in AWS Organizations.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-benefits-quotas-new-member-account-within-organization.png)
 
 
 ## How to become a Lightsail partner

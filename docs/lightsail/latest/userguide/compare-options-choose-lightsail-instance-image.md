@@ -171,7 +171,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 [Launch and configure a LAMP packaged by Bitnami instance](amazon-lightsail-quick-start-guide-lamp-bitnami.md)  
 Learn more about the [Bitnami LAMP stack](https://bitnami.com/stack/lamp) at the *Bitnami* website.
 
-** **LAMP** **  
+** **LAMP stack** **  
  The LAMP blueprint provides a complete production environment with PHP, Apache, and MariaDB on Linux. This blueprint also includes phpMyAdmin, PHP core modules, and Composer.   
 Lightsail instances launched from LAMP will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
 [Launch and configure a LAMP instance](amazon-lightsail-launch-and-configure-lamp.md)
@@ -208,7 +208,7 @@ Bitnami NGINX Stack provides a complete PHP, MySQL, and NGINX development enviro
 [Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md)  
 Learn more about the [NGINX stack](https://bitnami.com/stack/nginx) at the *Bitnami* website.
 
-** **Nginx** **  
+** **Nginx (LEMP stack)** **  
  The Nginx blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and NGINX. Lightsail packages blueprints to be secure and up-to-date using industry best practices.   
 Lightsail instances launched from Nginx will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  

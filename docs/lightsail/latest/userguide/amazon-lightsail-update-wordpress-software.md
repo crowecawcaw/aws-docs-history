@@ -40,12 +40,12 @@ Before you update any software, create a backup of your instance. If an update f
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
 1. Open the instance management page for your WordPress instance.  
-![Instance management page for a WordPress instance in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-instance-page.png)
+![Instance management page for a WordPress instance in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-instance-page.png)
 
 1. Choose the **Snapshots** tab.
 
 1. Under **Manual snapshots**, choose **Create snapshot**, enter a name, and then choose **Create**.  
-![Creating a manual snapshot of a WordPress instance in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-create-snapshot.png)
+![Creating a manual snapshot of a WordPress instance in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-create-snapshot.png)
 
 For more information, see [Back up Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md) and [Configure automatic snapshots](amazon-lightsail-configuring-automatic-snapshots.md).
 
@@ -66,20 +66,20 @@ The simplest way to update WordPress core, themes, and plugins is the one-click 
 1. Navigate to the administration dashboard of your WordPress website at `https://{{your-ip}}/wp-admin`, and sign in with the user name **user** and your administrator password. If you don't have your administrator password, see [Get the admin password for your WordPress website](amazon-lightsail-launch-and-configure-wordpress.md#launch-configure-wp-get-password).
 
 1. In the left navigation pane, choose **Dashboard**, and then choose **Updates**. A number badge on the menu item indicates how many updates are available.  
-![WordPress Updates page showing the current version and available plugin updates.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-updates-dashboard.png)
+![WordPress Updates page showing the current version and available plugin updates.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-updates-dashboard.png)
 
 1. Under **Current version**, if a newer version of WordPress is available, choose **Update to version {{X.X.X}}**.
 
    WordPress places your website in maintenance mode, downloads the new version, and installs it. Visitors briefly see a maintenance message while the update runs.  
-![WordPress Updates page showing an available core update and the update button.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-core.png)
+![WordPress Updates page showing an available core update and the update button.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-core.png)
 
 1. If prompted, choose **Update WordPress Database**. WordPress stores your content, settings, and user data in a database. A core update sometimes requires changes to how that data is organized. For example, adding new columns or tables. Choosing this button applies those structural changes so the new version of WordPress works correctly.
 
 1. Under the **Plugins** section of the Updates page, select the plugins to update, and then choose **Update Plugins**.  
-![Plugins section of the WordPress Updates page with a plugin selected for update.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-plugins.png)
+![Plugins section of the WordPress Updates page with a plugin selected for update.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-plugins.png)
 
 1. Under the **Themes** section, select the themes to update, and then choose **Update Themes**.  
-![Themes section of the WordPress Updates page with themes selected for update.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-themes.png)
+![Themes section of the WordPress Updates page with themes selected for update.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-update-themes.png)
 
 1. After the updates complete, browse your website and confirm your pages, themes, and plugins work as expected.
 

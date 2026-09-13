@@ -5,7 +5,7 @@
 
 Health checking starts as soon as you attach your Lightsail instances to your load balancer, and it occurs every 30 seconds thereafter. You can see the health check status on the load balancer management page.
 
-![Health check status indicator](http://docs.aws.amazon.com/lightsail/latest/userguide/images/target-instances-health-check-passed.png)
+![Health check status indicator](https://docs.aws.amazon.com/lightsail/latest/userguide/images/target-instances-health-check-passed.png)
 
 
 ## Customize your health check path
@@ -20,7 +20,7 @@ You might want to customize your health check path. For example, if your home pa
 1. On the **Target instances** tab, choose **Customize health checking**.
 
 1. Type a valid path for your health check, and then choose **Save**.  
-![Customize the health check path](http://docs.aws.amazon.com/lightsail/latest/userguide/images/customize-health-checking-path.png)
+![Customize the health check path](https://docs.aws.amazon.com/lightsail/latest/userguide/images/customize-health-checking-path.png)
 
 ## Health check metrics
 <a name="health-check-metrics"></a>

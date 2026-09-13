@@ -61,3 +61,6 @@ Lightsail object storage is intentionally built with a minimal feature set that 
 + **Change the storage plan** – Upsize your bucket if it's being over-utilized, or downsize it if it's being under-utilized. For more information, see [Change the plan of your bucket](amazon-lightsail-changing-bucket-plans.md).
 + **Connect your bucket** – Connect your Lightsail bucket to your WordPress website to store website images and attachments. You can also specify your bucket as the origin of a Lightsail content delivery network (CDN) distribution. This speeds up the delivery of objects in your bucket to your users around the world. For more information, see [Tutorial: Connect a bucket to your WordPress instance](amazon-lightsail-connecting-buckets-to-wordpress.md) and [Tutorial: Use a bucket with a content delivery network distribution](amazon-lightsail-using-distributions-with-buckets.md).
 + **Delete your bucket** – Delete your bucket if you are no longer using it. For more information, see [Delete a bucket](amazon-lightsail-deleting-buckets.md).
+
+**Did you know?**  
+ You can host a static website on Lightsail using a bucket and a distribution. For more information, see [ Host a static website using an Amazon Lightsail bucket and distribution ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-static-site-hosting-tutorial.html) . 

@@ -5,7 +5,7 @@
 
 The **Exports** section on the Amazon Lightsail console, is where you can track the status of exporting Lightsail snapshots to Amazon EC2, or creating new EC2 instances from exported instance snapshots. Export tasks can take a while depending on the size and configuration of the source instance or block storage disk. **Exports** can be accessed from the left navigation pane on all pages of the Lightsail console.
 
-![The exports section of the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-task-monitor.png)
+![The exports section of the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-task-monitor.png)
 
 
 For more information about exporting Lightsail snapshots to Amazon EC2, or creating EC2 instances from exported snapshots, see the following guides:

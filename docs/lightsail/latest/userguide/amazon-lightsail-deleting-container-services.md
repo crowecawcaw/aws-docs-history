@@ -17,7 +17,7 @@ Complete the following procedure to delete your container service.
 1. Choose the name of the container service you want to delete.
 
 1. Choose the ellipsis icon in the tab menu, then choose the **Delete**.  
-![Delete tab for the container service in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/continer-service-delete-tab.png)
+![Delete tab for the container service in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/continer-service-delete-tab.png)
 
 1. Choose **Delete container service** to delete your service.
 

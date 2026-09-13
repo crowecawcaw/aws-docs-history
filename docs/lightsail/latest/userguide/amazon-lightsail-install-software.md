@@ -69,7 +69,7 @@ Complete the following procedure to install the lightsailctl plugin on Windows.
 1. Choose the **Windows Start** button, and then search for `cmd`.
 
 1. Right-click the **Command Prompt** application in the results, and choose **Run as administrator**.  
-![Run Command Prompt as administrator](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsailctl-cmd-run-as-administrator.png)
+![Run Command Prompt as administrator](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsailctl-cmd-run-as-administrator.png)
 **Note**  
 You may see a prompt that asks if you want to allow Command Prompt to make changes to your device. You must choose **Yes** to continue with the installation.
 
@@ -80,7 +80,7 @@ You may see a prompt that asks if you want to allow Command Prompt to make chang
    ```
 
    You should see a result similar to the following example.  
-![Command line response to setx command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lighstailctl-setx-command.png)
+![Command line response to setx command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lighstailctl-setx-command.png)
 
 The `setx` command will truncate beyond 1024 characters. Use the following procedure to manually set the path environment variable if you already have multiple variables set in your PATH. 
 
@@ -95,10 +95,10 @@ The `setx` command will truncate beyond 1024 characters. Use the following proce
 1. In the **System Variables** box of the **Environment Variables** dialog box, select **Path**.
 
 1. Choose the **Edit** button located under the **System Variables** box.  
-![Windows system variables](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-windows-system-variables.png)
+![Windows system variables](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-windows-system-variables.png)
 
 1. Choose **New**, then enter the following path: `C:\Temp\lightsailctl\`  
-![Windows environment variables](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-windows-edit-env-variable.png)
+![Windows environment variables](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-windows-edit-env-variable.png)
 
 1. Choose **OK** in three successive dialog boxes, and then close the **System** dialog box.
 

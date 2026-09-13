@@ -29,7 +29,7 @@ Read the Bitnami documentation to learn how to configure your GitLab CE applicat
 Complete the following procedure to get the default application password required to access the admin area for your GitLab CE website. For more information, see [Getting the application user name and password for your Bitnami instance in Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md).
 
 1. On your instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect using SSH in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
+![Connect using SSH in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
 
 1. After you're connected, enter the following command to get the application password:
 
@@ -38,7 +38,7 @@ Complete the following procedure to get the default application password require
    ```
 
    You should see a response similar to the following example, which contains the default application password:  
-![Bitnami default application password.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png)
+![Bitnami default application password.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png)
 
 ## Step 3: Attach a static IP address to your instance
 <a name="amazon-lightsail-attach-static-ip-gitlab"></a>
@@ -47,16 +47,16 @@ The default dynamic public IP address attached to your instance changes every ti
 
 On the instance management page, under the **Networking** tab, choose **Create a static IP** or **Attach static IP** (if you previously created a static IP that you can attach to your instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
 
-![Attach static IP address in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
+![Attach static IP address in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 
 
 After the new static IP address is attached to your instance, you must complete the following steps to make the application aware of the new static IP address.
 
 1. Make a note of the static IP address of your instance. It's listed in the header section of your instance management page.  
-![Public or static IP address of a Lightsail instance](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-static-ip.png)
+![Public or static IP address of a Lightsail instance](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-static-ip.png)
 
 1. On the instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect to your instance using SSH](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png)
+![Connect to your instance using SSH](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png)
 
 1. After you're connected, enter the following command. Replace {{<StaticIP>}} with the new static IP address of your instance.
 
@@ -71,7 +71,7 @@ After the new static IP address is attached to your instance, you must complete 
    ```
 
    You should see a response similar to the following example. The application on your instance should now be aware of the new static IP address.  
-![Result of the domain configuration tool](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain-ip-gitlab.png)
+![Result of the domain configuration tool](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain-ip-gitlab.png)
 
 ## Step 4: Sign in to the admin area of your Gitlab CE website
 <a name="amazon-lightsail-sign-in-gitlab"></a>
@@ -79,7 +79,7 @@ After the new static IP address is attached to your instance, you must complete 
 Now that you have the default user password, navigate to your GitLab CE website's home page, and sign in to the admin area. After you’re signed in, you can start customizing your website and making administrative changes. For more information about what you can do in GitLab CE, see the [Step 7: Read the GitLab CE documentation and continue configuring your website](#amazon-lightsail-read-documentation-gitlab) section later in this guide.
 
 1. On your instance management page, under the **Connect** tab, make note of the public IP address of your instance. The public IP address is also displayed in the header section of your instance management page.  
-![Public IP address of an instance](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-ip.png)
+![Public IP address of an instance](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-ip.png)
 
 1. Browse to the public IP address of your instance, for example by going to `http://203.0.113.0`.
 
@@ -88,7 +88,7 @@ Now that you have the default user password, navigate to your GitLab CE website'
 1. Sign in using the default user name (`root`) and the default password retrieved earlier in this guide.
 
    The Gitlab CE administration dashboard appears.  
-![The Gitlab CE administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-gitlab-dashboard.png)
+![The Gitlab CE administration dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-gitlab-dashboard.png)
 
 ## Step 5: Route traffic for your registered domain name to your GitLab CE website
 <a name="amazon-lightsail-map-your-domain-to-your-instance-gitlab"></a>
@@ -97,13 +97,13 @@ To route traffic for your registered domain name, such as `example.com`, to yo
 
 On the Lightsail console home page, under the **Networking** tab, choose **Create DNS zone**, then follow the instructions on the page. For more information, see [Create a DNS zone to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md).
 
-![Create a DNS zone in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-create-dns-zone.png)
+![Create a DNS zone in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-create-dns-zone.png)
 
 
 After your domain name is routing traffic to your instance, you must complete the following procedure to make GitLab CE aware of the domain name.
 
 1. On the instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect to your instance using SSH](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png)
+![Connect to your instance using SSH](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png)
 
 1. After you're connected, enter the following command. Replace {{<DomainName>}} with the domain name that is routing traffic to your instance.
 
@@ -118,7 +118,7 @@ After your domain name is routing traffic to your instance, you must complete th
    ```
 
    You should see a response similar to the following example. Your GitLab CE instance should now be aware of the domain name.  
-![Result of the domain configuration tool](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain-example-gitlab.png)
+![Result of the domain configuration tool](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain-example-gitlab.png)
 **Note**  
 If that command fails, you might be using an older version of the GitLab CE instance. Try running the following command instead. Replace {{<DomainName>}} with the domain name that is routing traffic to your instance.  
 
@@ -144,7 +144,7 @@ Before starting with this procedure, make sure that you configured your domain t
 On the Lightsail console home page, under the **Domains & DNS** tab, choose **Create DNS zone**, then follow the instructions on the page. For more information, see [Creating a DNS zone to manage your domain’s DNS records in Lightsail](lightsail-how-to-create-dns-entry.md).
 
 1. On your instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect using SSH in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
+![Connect using SSH in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
 
 1. After you're connected, enter the following command to change directory to the temporary (/tmp) directory.
 
@@ -211,7 +211,7 @@ On the Lightsail console home page, under the **Domains & DNS** tab, choose **Cr
 1. Press **Y** and **Enter** when to accept the terms of service when prompted.
 
    You should see a response similar to the following example.  
-![Successful Lego client response to certificate request](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain-cert-response-gitlab.png)
+![Successful Lego client response to certificate request](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain-cert-response-gitlab.png)
 
    If successful, a set of certificates are saved to the `/opt/bitnami/letsencrypt/certificates` directory. This set includes the server certificate file (for example, `example.com.crt`) and the server certificate key file for (example, `example.com.key`).
 
@@ -266,7 +266,7 @@ After you configure your GitLab CE website the way you want it, create periodic 
 
 On the instance management page, under the **Snapshot** tab, choose **Create a snapshot** or choose to enable automatic snapshots.
 
-![Create an instance snapshot in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)
+![Create an instance snapshot in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)
 
 
 For more information, see Creating a snapshot of your [Linux or Unix instance in Amazon Lightsail](lightsail-how-to-create-a-snapshot-of-your-instance.md) or [Enabling or disabling automatic snapshots for instances or disks in Amazon Lightsail](amazon-lightsail-configuring-automatic-snapshots.md).

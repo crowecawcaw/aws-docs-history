@@ -88,7 +88,7 @@ Complete the following procedure to create a Dockerfile, and build a `mystaticwe
    ```
 
    You should see a result similar to the following example, showing the new container image created.  
-![Result of docker images command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/docker-images-command-result.png)
+![Result of docker images command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/docker-images-command-result.png)
 
    Your newly built container image is ready to be tested by using it to run a new container on your local machine. Continue to the next [Step 3: Run your new container image](#create-container-image-run-container) section of this guide.
 
@@ -110,10 +110,10 @@ Complete the following steps to run the new container image you created.
    ```
 
    You should see a result similar to the following example, showing the new running container.  
-![Result of docker container command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/docker-container-command-result.png)
+![Result of docker container command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/docker-container-command-result.png)
 
 1. To confirm that the container is up and running, open a new browser window and browse to `http://localhost:8080`. You should see a message similar to the following example. This confirms that your container is up and running on your local machine.  
-![Static website running on a Docker container](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-mystaticsite-hello-world.png)
+![Static website running on a Docker container](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-mystaticsite-hello-world.png)
 
    Your newly built container image is ready to be pushed to your Lightsail account so that you can deploy it to your Lightsail container service. For more information, see [Pushing and managing container images on your Amazon Lightsail container services](amazon-lightsail-pushing-container-images.md).
 
@@ -131,7 +131,7 @@ Complete the following steps to clean up the containers running on your local ma
    ```
 
    You should see a result similar to the following, which lists the names of the containers running on your local machine.  
-![Result of docker container command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/docker-container-command-result.png)
+![Result of docker container command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/docker-container-command-result.png)
 
 1. Run the following command to remove the running container that you created earlier in this guide. This forces the container to be stopped, and permanently deletes it.
 

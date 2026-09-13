@@ -79,7 +79,7 @@ You must install the AWS CLI and configure it for Lightsail and Amazon S3 before
    ```
 
    You should see a result similar to the following example:  
-![Result of the delete bucket request](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-delete-bucket-cli.png)
+![Result of the delete bucket request](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-delete-bucket-cli.png)
 
 ## Manage buckets and objects
 <a name="deleting-buckets-managing-buckets-and-objects"></a>

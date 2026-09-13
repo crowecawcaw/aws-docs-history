@@ -24,7 +24,7 @@ Here are a few steps you should complete to get started after your Magento insta
 Complete the following steps to get the default application password for your Magento website. For more information, see [Getting the application user name and password for your Bitnami instance in Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md).
 
 1. On the instance management page, under the **Connect** tab, choose **Connect using SSH.**  
-![Connect using SSH in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
+![Connect using SSH in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
 
 1. After you're connected, enter the following command to get the default application password:
 
@@ -33,7 +33,7 @@ Complete the following steps to get the default application password for your Ma
    ```
 
    You should see a response similar to the following example, which contains the default application password. Store this password in a safe place. You will use it in the next section of this tutorial to sign in to the administration dashboard of your Magento website.  
-![Default application password for Bitnami instances](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-ssh-default-application-password.png)
+![Default application password for Bitnami instances](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-ssh-default-application-password.png)
 
 ## Step 2: Attach a static IP address to your Magento instance
 <a name="amazon-lightsail-magento-attach-static-ip"></a>
@@ -42,16 +42,16 @@ The default dynamic public IP address attached to your instance changes every ti
 
 On the instance management page, under the **Networking** tab, choose **Create a static IP** or **Attach static IP** (if you previously created a static IP that you can attach to your instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
 
-![Attach static IP address in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
+![Attach static IP address in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 
 
 After the new static IP address is attached to your instance, you must complete the following steps to make the Magento software aware of the new static IP address.
 
 1. Make a note of the static IP address of your instance. It's listed in the header section of your instance management page.  
-![Public or static IP address of a Lightsail instance](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-static-ip.png)
+![Public or static IP address of a Lightsail instance](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-static-ip.png)
 
 1. On the instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect to your instance using SSH](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png)
+![Connect to your instance using SSH](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png)
 
 1. After you're connected, enter the following command. Be sure to replace {{<StaticIP>}} with the new static IP address of your instance.
 
@@ -66,7 +66,7 @@ After the new static IP address is attached to your instance, you must complete 
    ```
 
    You should see a response similar to the following example. The Magento software should now be aware of the new static IP address.  
-![Result of the domain configuration tool](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain-ip.png)
+![Result of the domain configuration tool](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain-ip.png)
 
 **Note**  
 Magento does not currently support IPv6 addresses. You can enable IPv6 for the instance, but the Magento software will not respond to requests over the IPv6 network.
@@ -77,7 +77,7 @@ Magento does not currently support IPv6 addresses. You can enable IPv6 for the i
 Complete the following step to access your Magento website and sign in to its administration dashboard. To sign in, you will use the default user name (`user`) and the default application password that you got earlier in this guide.
 
 1. In the Lightsail console, make note of the public or static IP address that is listed in the header area of the instance management page.  
-![Public or static IP address of a Lightsail instance](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-static-ip.png)
+![Public or static IP address of a Lightsail instance](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-static-ip.png)
 
 1. Browse to the following address to access the sign in page for the administration dashboard of your Magento website. Be sure to replace {{<InstanceIpAddress>}} with the public or static IP address of your instance.
 
@@ -94,14 +94,14 @@ Complete the following step to access your Magento website and sign in to its ad
 You might need to reboot the instance if you can't access the sign in page for the Magento administration dashboard.
 
 1. Enter the default user name (`user`), the default application password you got earlier in this guide, and choose **Sign in**.  
-![The Magento administration dashboard sign in page](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-sign-in-page.png)
+![The Magento administration dashboard sign in page](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-sign-in-page.png)
 
    The Magento administration dashboard appears.  
-![Magento administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-administration-dashboard.png)
+![Magento administration dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-administration-dashboard.png)
 
 To change the default user name or password that you use to sign in to the administration dashboard of your Magento website, choose **System** in the navigation pane, and then choose **All Users**. For more information, see [Adding users](https://docs.magento.com/user-guide/system/permissions-users-all.html) in the *Magento documentation*.
 
-![All users option in the Magento navigation pane](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-all-users.png)
+![All users option in the Magento navigation pane](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-all-users.png)
 
 
 For more information about the administration dashboard, see [Magento 2.4 User Guide](https://docs.magento.com/user-guide/) .
@@ -116,7 +116,7 @@ On the Lightsail console home page, under the **Domains & DNS** tab, choose�
 After your domain name is routing traffic to your instance, you must complete the following steps to make the Magento software aware of the domain name.
 
 1. On the instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect to your instance using SSH](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png)
+![Connect to your instance using SSH](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-using-ssh.png)
 
 1. After you're connected, enter the following command. Be sure to replace {{<DomainName>}} with the domain name that is routing traffic to your instance.
 
@@ -131,7 +131,7 @@ After your domain name is routing traffic to your instance, you must complete th
    ```
 
    You should see a response similar to the following example. The Magento software should now be aware of the domain name.  
-![Result of the domain configuration tool](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain.png)
+![Result of the domain configuration tool](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-configure-domain.png)
 
 ## Step 5: Configure HTTPS for your Magento website
 <a name="amazon-lightsail-magento-https"></a>
@@ -142,7 +142,7 @@ Complete the following steps to configure HTTPS on your Magento website. These s
 The bncert tool will issue certificates only for domains that are currently routing traffic to the public IP address of your Magento instance. Before starting with these steps, make sure that you add DNS records to the DNS of all domains that you want to use with your Magento website.
 
 1. On the instance management page, under the Connect tab, choose **Connect using SSH**.  
-![Connect using SSH in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
+![Connect using SSH in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
 
 1. After you're connected, enter the following command to start the bncert-tool.
 
@@ -151,25 +151,25 @@ The bncert tool will issue certificates only for domains that are currently rout
    ```
 
    You should see a response similar to the following example:  
-![Running the bncert tool](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-run-bncert-tool-success.png)
+![Running the bncert tool](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-run-bncert-tool-success.png)
 
 1. Enter your primary domain name and alternate domain names separated by a space as shown in the following example.  
-![Entering the primary and alternate domain names](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-domain-names.png)
+![Entering the primary and alternate domain names](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-domain-names.png)
 
 1. The changes that are going to be made are listed. Type `Y` and press **Enter** to confirm and continue.  
-![Confirming the changes](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-confirm-changes.png)
+![Confirming the changes](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-confirm-changes.png)
 
 1. Enter your email address to associate with your Let's Encrypt certificate and press **Enter**.  
-![Associating your email address with your Let's Encrypt certificate](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-email-address.png)
+![Associating your email address with your Let's Encrypt certificate](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-email-address.png)
 
 1. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press **Enter** to accept the agreement and continue.  
-![Review the Let's Encrypt subscriber agreement](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-lets-ecrypt-agreement.png)
+![Review the Let's Encrypt subscriber agreement](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-lets-ecrypt-agreement.png)
 
    The actions are performed to enable HTTPS on your instance, including requesting the certificate and configuring the redirections you specified.  
-![Actions being performed](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-performing-actions.png)
+![Actions being performed](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-performing-actions.png)
 
    Your certificate is successfully issued and validated, and the redirections are successfully configured on your instance if you see a message similar to the following example.  
-![Actions successfully completed](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-success-conf.png)
+![Actions successfully completed](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-bncert-success-conf.png)
 
    The `bncert` tool will perform an automatic renewal of your certificate every 80 days before it expires. Continue to the next set of steps to finish enabling HTTPS on your Magento website.
 
@@ -186,26 +186,26 @@ The bncert tool will issue certificates only for domains that are currently rout
    ```
 
 1. Enter the default user name (`user`), the default application password you got earlier in this guide, and choose **Sign in**.  
-![The Magento administration dashboard sign in page](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-sign-in-page.png)
+![The Magento administration dashboard sign in page](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-sign-in-page.png)
 
    The Magento administration dashboard appears.  
-![Magento administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-administration-dashboard.png)
+![Magento administration dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-administration-dashboard.png)
 
 1. Choose **Stores** in the navigation pane, and then choose **Configuration**.  
-![Magento administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-configuration.png)
+![Magento administration dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-configuration.png)
 
 1. Choose **Web**, and then expand the **Base URLs** node.
 
 1. In the **Base URL** text box, enter the full URL of your website, for example `https://www.example.com/`.  
-![Magento administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-base-urls.png)
+![Magento administration dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-base-urls.png)
 
 1. Expand the Base URLs (Secure) node.
 
 1. In the **Secure Base URL** text box, enter the full URL of your website, for example `https://www.example.com/`.  
-![Magento administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-base-urls-secure.png)
+![Magento administration dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-base-urls-secure.png)
 
 1. Choose **Yes** for the **Use Secure URLs on Storefront**, **Use Secure URLs in Admin**, and **Upgrade Insecure Requests** options.  
-![Magento administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-base-urls-secure-options.png)
+![Magento administration dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/magento-quick-start-magento-base-urls-secure-options.png)
 
 1. Choose **Save Config**.
 
@@ -236,4 +236,4 @@ You can create [snapshots manually](https://docs.aws.amazon.com/lightsail/latest
 
 You can work with snapshots on your instance's management page on the **Snapshots** tab. For more information, see [Snapshots in Amazon Lightsail](understanding-snapshots-in-amazon-lightsail.md).
 
-![Create an instance snapshot in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)
+![Create an instance snapshot in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)

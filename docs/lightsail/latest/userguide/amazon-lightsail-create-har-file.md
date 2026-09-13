@@ -24,7 +24,7 @@ These instructions were last tested on Google Chrome version 101.0.4951.64, Micr
 **Google Chrome**
 
 1. In the browser, choose the **Customize and control Google Chrome** menu.  
-![Google Chrome customize and control menu.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-har-tutorial-chrome.png)
+![Google Chrome customize and control menu.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-har-tutorial-chrome.png)
 
 1. Pause on **More tools**, and then choose **Developer tools**.
 
@@ -45,7 +45,7 @@ For more information, see [Open Chrome DevTools](https://developers.google.com/w
 **Microsoft Edge (Chromium)**
 
 1. In the browser, choose the **Settings and more** menu.  
-![Microsoft Edge settings and more menu.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-har-tutorial-edge.png)
+![Microsoft Edge settings and more menu.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-har-tutorial-edge.png)
 
 1. Pause on **More tools**, and then choose **Developer tools**.
 
@@ -64,7 +64,7 @@ For more information, see [Open Chrome DevTools](https://developers.google.com/w
 **Mozilla Firefox**
 
 1. In the browser, choose **Open Application Menu**.  
-![Mozilla Firefox open application menu.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-har-tutorial-firefox.png)
+![Mozilla Firefox open application menu.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-har-tutorial-firefox.png)
 
 1. Choose **More tools**, and then choose **Web Developer tools**.
 

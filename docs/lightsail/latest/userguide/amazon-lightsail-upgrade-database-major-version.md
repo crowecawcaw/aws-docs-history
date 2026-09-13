@@ -34,7 +34,7 @@ Complete the following procedure to upgrade the database major version for your 
 1. In the left navigation pane, choose **Databases**.
 
 1. Note of the name and AWS Region for the database instance that you want to upgrade.  
-![The name and Region of the new database instance in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/mysql80-upgrade-dbname-endpoint.png)
+![The name and Region of the new database instance in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/mysql80-upgrade-dbname-endpoint.png)
 
 1. On the Console Toolbar, choose **CloudShell**. A CloudShell terminal will open in the same browser tab. When the command prompt displays, the shell is ready for interaction.
 
@@ -45,7 +45,7 @@ Complete the following procedure to upgrade the database major version for your 
    ```
 
 1. Note of the blueprint ID for the major version that you're upgrading to. For example, `mysql_8_0`.  
-![The response of the get-relational-database-blueprints command in the CloudShell window.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/mysql80-upgrade-get-blueprints.png)
+![The response of the get-relational-database-blueprints command in the CloudShell window.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/mysql80-upgrade-get-blueprints.png)
 
 1. Enter the following command to upgrade the major version of your database. The upgrade will take place during the next maintenance window for your database. In the command, replace {{DatabaseName}} with the name of your database, {{blueprintId}} with the blueprint id of the major version that you are upgrading to, and {{DatabaseRegion}} with the AWS Region that your database is in.
 
@@ -57,7 +57,7 @@ Complete the following procedure to upgrade the database major version for your 
    ```
 
    (Optional) To apply the upgrade immediately, include the `--apply-immediately` parameter in the command. You will see a response similar to the following example, and your database will become unavailable while the upgrade is being applied. For more information, see [update-relational-database](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateRelationalDatabase.html) in the Lightsail API Reference.   
-![The successful result of the update-relational-database --apply-immediately command in the CloudShell window.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/mysql80-upgrade-successful.png)
+![The successful result of the update-relational-database --apply-immediately command in the CloudShell window.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/mysql80-upgrade-successful.png)
 
 1. Enter the following command to verify that the major version upgrade is scheduled for the next database maintenance window. In the command, replace {{DatabaseName}} with the name of your database, and {{DatabaseRegion}} with the AWS Region that your database is in.
 

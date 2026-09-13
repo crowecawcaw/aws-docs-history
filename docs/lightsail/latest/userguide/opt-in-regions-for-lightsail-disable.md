@@ -43,10 +43,10 @@ This procedure can be used to disable an opt-in Region. Ensure you have first re
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. On the **Profile** tab, under **Support opt-in Regions**, choose **Manage Region**.  
-![Displays an enabled opt-in Region.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-region-is-enabled.png)
+![Displays an enabled opt-in Region.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-region-is-enabled.png)
 
 1. Review the message about first deleting resources within the Region. If you are ready to proceed, choose **Manage AWS profile**.
 
@@ -55,10 +55,10 @@ This procedure can be used to disable an opt-in Region. Ensure you have first re
 1. Under the AWS Regions section, select the Region to disable, and then choose **Disable**.
 **Note**  
 The Region names in Lightsail vary slightly as compared to the Region names in other AWS services. For example, *Jakarta (ap-southeast-3)* in the Lightsail console is the same as *Asia Pacific (Jakarta)* in the AWS Account Management console.  
-![Displays how to disable an opt-in Region.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-disable-region.png)
+![Displays how to disable an opt-in Region.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-disable-region.png)
 
 1. Review any additional information that is displayed, then enter **disable** and choose **Disable Region** to proceed with the operation.  
-![Displays the confirmation to disable an opt-in Region.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-disable-region-confirmation.png)
+![Displays the confirmation to disable an opt-in Region.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-disable-region-confirmation.png)
 
 1. Return to your account page in the Lightsail console to periodically check the **Opt-in status** value for the Region. The Opt-in status should show as **Disabling** until the process completes and updates to **Disabled**.  
-![Displays a disabled opt-in Region.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-region-is-disabled.png)
+![Displays a disabled opt-in Region.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-region-is-disabled.png)

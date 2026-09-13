@@ -5,9 +5,9 @@
 
 An Amazon Lightsail container service is a highly scalable compute and networking resource on which you can deploy, run, and manage containers. For more information, see [Deploy and manage containers on Amazon Lightsail](amazon-lightsail-container-services.md).
 
-An Lightsail database is a fully managed relational database that runs MySQL or PostgreSQL. For more information, see [Create and manage relational databases in Amazon Lightsail](amazon-lightsail-databases.md).
+A Lightsail database is a fully managed relational database that runs MySQL or PostgreSQL. For more information, see [Create and manage relational databases in Amazon Lightsail](amazon-lightsail-databases.md).
 
-In this tutorial, you learn how to configure a Lightsail container service to connect to a Lightsail database. You configure the container to connect to a Lightsail MySQL database. When you finish, you have a Lightsail container that stores its data in a Lightsail database.
+In this tutorial, you learn how to configure a Lightsail container service to connect to a Lightsail MySQL database. When you finish, you have a Lightsail container that stores its data in a Lightsail database.
 
 This tutorial takes approximately 20–30 minutes to complete.
 
@@ -45,10 +45,10 @@ Complete the following procedure to create a deployment on your container servic
 1. In the left navigation pane, choose **Containers** to go to the container services home page and view your container services.
 
 1. Choose the container service that you created in the prerequisites step, for example `ls-container-service`.  
-![Container services home page in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-containers-home-page.png)
+![Container services home page in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-containers-home-page.png)
 
 1. On the container service management page, choose the **Deployments** tab, and then choose **Create your first deployment**. For more information, see [Creating and managing deployments for your Amazon Lightsail container services](amazon-lightsail-container-services-deployments.md).  
-![Deployments tab of a container service with no current deployment.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-deployments-tab.png)
+![Deployments tab of a container service with no current deployment.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-deployments-tab.png)
 
 1. Fill out the deployment configuration as follows:
 
@@ -66,26 +66,26 @@ If you want to use an image from your local machine, choose **Choose stored imag
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-connecting-container-service-to-database.html)
 
       The following screenshot shows the location of these values on the database management page.  
-![Database management page showing where to find the DB_NAME, DB_HOST, DB_USER, DB_PASSWORD, and DB_PORT values.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-database-variable-values.png)
+![Database management page showing where to find the DB_NAME, DB_HOST, DB_USER, DB_PASSWORD, and DB_PORT values.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-database-variable-values.png)
 
       Using the values from your database management page, enter the environment variables as shown in the following screenshot.  
-![Environment variables entered in the deployment configuration.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-environment-variables.png)
+![Environment variables entered in the deployment configuration.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-environment-variables.png)
 
    1. **Open ports** – Choose **Add open ports**, and then open port `3001` with the **HTTP** protocol.  
-![Open ports section with port 3001 configured for HTTP.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-open-ports.png)
+![Open ports section with port 3001 configured for HTTP.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-open-ports.png)
 
    1. **Public endpoint** – Select the name of your container from the dropdown menu. The container in this tutorial is `tutorialapp`.  
-![Public endpoint section with the tutorialapp container selected.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-public-endpoint.png)
+![Public endpoint section with the tutorialapp container selected.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-public-endpoint.png)
 
 1. Choose **Save and deploy**. Wait a few minutes for the deployment to finish. You can monitor the deployment status under **Deployment versions**. When the deployment is complete, the status changes to **Active**.  
-![Deployment versions section showing an Active deployment.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-deployment-active.png)
+![Deployment versions section showing an Active deployment.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-deployment-active.png)
 
 ## Step 4: Test your application with your Lightsail database
 <a name="connecting-container-to-database-test-application"></a>
 
 Your Uptime Kuma application now runs on your Lightsail container service and connects to your Lightsail database. To connect to your application, choose the **Public domain** link on your container service detail page. The link opens the Uptime Kuma setup page, where you create an account.
 
-![Uptime Kuma dashboard showing a running monitor.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-kuma-dashboard.png)
+![Uptime Kuma dashboard showing a running monitor.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-kuma-dashboard.png)
 
 
 After you sign up, Uptime Kuma redirects you to the dashboard. On the dashboard, you can create a new monitor. Uptime Kuma stores the monitor's data in your Lightsail database.
@@ -95,7 +95,7 @@ Now that Uptime Kuma is running, you can use it to monitor your applications. Fo
 **Note**  
 The default public IP address for your instance changes if you stop and start the instance. When you attach a static IP address, it stays the same even if you stop and start the instance, so your monitor continues to track the correct address. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
 
-![Uptime Kuma add monitor page showing a static IP address configured to monitor a Lightsail WordPress instance.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-kuma-monitor.png)
+![Uptime Kuma add monitor page showing a static IP address configured to monitor a Lightsail WordPress instance.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-kuma-monitor.png)
 
 
 To add a monitor for your WordPress instance, complete the following steps in the Uptime Kuma dashboard:

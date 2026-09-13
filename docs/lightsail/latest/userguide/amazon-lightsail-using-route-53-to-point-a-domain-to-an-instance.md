@@ -33,7 +33,7 @@ This procedure is also documented in the Route 53 Developer Guide. For more info
 1. Choose **Create record**.
 
    The **Quick create record** page appears.  
-![Create a record in Route 53 to point an alias to your Lightsail load balancer](http://docs.aws.amazon.com/lightsail/latest/userguide/images/create-record-set-alias-record-route-53-blank.png)
+![Create a record in Route 53 to point an alias to your Lightsail load balancer](https://docs.aws.amazon.com/lightsail/latest/userguide/images/create-record-set-alias-record-route-53-blank.png)
 **Note**  
 If you see the **Choose routing policy** page, then choose **Switch to quick create** to switch to the quick create wizard before continuing with the following steps.
 
@@ -44,7 +44,7 @@ If you see the **Choose routing policy** page, then choose **Switch to quick cre
 1. Enter the static IP address (public IP address) of your Lightsail instance in the **Value** text box.
 
 1. Keep the TTL of 300, and the routing policy as **Simple routing**.  
-![Address record example in a Route 53 hosted zone.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-route-53-hosted-zone-a-record.png)
+![Address record example in a Route 53 hosted zone.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-route-53-hosted-zone-a-record.png)
 
 1. Choose **Create records** to add the record to your hosted zone.
 **Note**  

@@ -25,4 +25,4 @@ Complete the following procedure to test your distribution. We use the Chrome we
 1. Choose a static object, such as an image file (.jpg, .png, .gif).
 
 1. In the **Header** panel that appears, you should see that the `via` and `x-cache` headers both mention CloudFront. This confirms that your distribution is caching and serving content from your origin. your   
-![Distribution test result](http://docs.aws.amazon.com/lightsail/latest/userguide/images/distribution-test-result.png)
+![Distribution test result](https://docs.aws.amazon.com/lightsail/latest/userguide/images/distribution-test-result.png)

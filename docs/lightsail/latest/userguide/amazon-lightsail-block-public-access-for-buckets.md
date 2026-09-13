@@ -16,12 +16,12 @@ If you turn on account-level **Block *all* public access** in Amazon S3, your pu
 
 You can use the Amazon S3 console, AWS Command Line Interface (AWS CLI), AWS SDKs, and REST API to configure block public access settings. You can access the account-level block public access feature in the navigation pane of the Amazon S3 console as shown in the following example.
 
-![Block public access navigation pane option in the Amazon S3 console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3-block-public-access-navigation-pane.png)
+![Block public access navigation pane option in the Amazon S3 console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3-block-public-access-navigation-pane.png)
 
 
 The Amazon S3 console offers settings to block all public access, block public access granted through new or any access control lists, and block public access to buckets and objects granted through new or any public bucket or access point policies.
 
-![Block public access options in the Amazon S3 console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3-block-public-access-in-s3-console.png)
+![Block public access options in the Amazon S3 console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3-block-public-access-in-s3-console.png)
 
 
 You can turn each setting **On** or **Off** in the Amazon S3 console. In the API, the corresponding setting is `TRUE` (On) or `FALSE` Off). The following sections describe each setting's effects on S3 buckets and Lightsail buckets.

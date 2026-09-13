@@ -17,12 +17,12 @@ This procedure details how to enable an opt-in Region starting from the Lightsai
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. On the account page, choose the **Profile** tab.
 
 1. In the **Supported opt-in Regions** section, choose **Start opt-in** for the Region that you want to enable.  
-![Displays an opt-in Region in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-region-is-disabled.png)
+![Displays an opt-in Region in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-region-is-disabled.png)
 
 1. Review the opt-in information and choose **Start Opt-in**.
 
@@ -31,9 +31,9 @@ This procedure details how to enable an opt-in Region starting from the Lightsai
 1. In the AWS Regions section, select the Region that you want to enable, then choose **Enable**.
 **Note**  
 The Region names in Lightsail vary slightly as compared to the Region names in other AWS services. For example, *Jakarta (ap-southeast-3)* in the Lightsail console is the same as *Asia Pacific (Jakarta)* in the AWS Account Management console.  
-![Displays how to start enabling an opt-in Region from your AWS profile.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-enable-region.png)
+![Displays how to start enabling an opt-in Region from your AWS profile.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-enable-region.png)
 
 1. Review any additional information that is displayed, then choose **Enable Region** to proceed with the operation.
 
 1. Return to your account page in the Lightsail console to periodically check the **Opt-in status** value for the Region. The **Opt-in status** should show as **Enabling** until the process completes and updates to **Enabled**. You can now provision resources in the new Region.  
-![Displays how to start enabling an opt-in Region from your AWS profile.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-region-is-enabled.png)
+![Displays how to start enabling an opt-in Region from your AWS profile.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/opt-in-regions-region-is-enabled.png)

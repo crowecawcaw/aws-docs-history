@@ -32,7 +32,7 @@ We recommend keeping your Windows Server-based Lightsail instances updated with 
 1. Type `sconfig`, and then press `Enter`.
 
    Windows Update Settings (number 5) are at `Automatic` by default.  
-![Server configuration in Windows Server 2016](http://docs.aws.amazon.com/lightsail/latest/userguide/images/configure-server-windows-based-lightsail.png)
+![Server configuration in Windows Server 2016](https://docs.aws.amazon.com/lightsail/latest/userguide/images/configure-server-windows-based-lightsail.png)
 
 1. To download and install new updates, type `6`, and then press `Enter`.
 
@@ -41,7 +41,7 @@ We recommend keeping your Windows Server-based Lightsail instances updated with 
 1. Type `A` again to install **(A)ll updates**, and then press `Enter`.
 
    When finished, you see a message with the installation results and more instructions (if those apply).  
-![Successfully downloaded and updated Windows Server 2016 security patch](http://docs.aws.amazon.com/lightsail/latest/userguide/images/download-install-updates-configure-server-windows-based-lightsail.png)
+![Successfully downloaded and updated Windows Server 2016 security patch](https://docs.aws.amazon.com/lightsail/latest/userguide/images/download-install-updates-configure-server-windows-based-lightsail.png)
 
 ## Enable the Account Lockout Policy in Windows Server
 <a name="best-practices-windows-security-enable-lockout"></a>
@@ -55,7 +55,7 @@ For more information, see [Account Lockout Policy](https://technet.microsoft.com
 
 By default, we open the following ports on your Windows Server-based instances.
 
-![Firewall settings](http://docs.aws.amazon.com/lightsail/latest/userguide/images/windows-ports-firewall-open-by-default.png)
+![Firewall settings](https://docs.aws.amazon.com/lightsail/latest/userguide/images/windows-ports-firewall-open-by-default.png)
 
 
 The ports you enable are exposed to the world and can't be restricted by source IP. To restrict access to your instance, you can turn off these ports and only enable them when you need to access your instance. Here's how:
@@ -67,6 +67,6 @@ The ports you enable are exposed to the world and can't be restricted by source 
 1. On the **Networking** page for your instance, choose **Edit rules**.
 
 1. Delete the RDP/TCP/3389 rule by choosing the orange "x" next to the rule.  
-![Close your RDP port by deleting this rule](http://docs.aws.amazon.com/lightsail/latest/userguide/images/windows-ports-firewall-delete-rdp-port.png)
+![Close your RDP port by deleting this rule](https://docs.aws.amazon.com/lightsail/latest/userguide/images/windows-ports-firewall-delete-rdp-port.png)
 
 1. Choose **Save**.

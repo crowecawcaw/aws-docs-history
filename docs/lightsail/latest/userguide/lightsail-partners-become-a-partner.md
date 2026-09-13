@@ -36,19 +36,19 @@ If you are using AWS Organizations, you should perform this procedure as the man
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. On the **Profile & preferences** tab, under the **Lightsail Partner Program** section, choose **Become a Lightsail partner**.  
-![How to open the request form to become a Lightsail partner.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-account-console-section-become-a-partner-initial.png)
+![How to open the request form to become a Lightsail partner.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-account-console-section-become-a-partner-initial.png)
 
 1. On the registration form, enter your information into the fields and choose **Submit**.
 
-![Lightsail partner request form.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-request-form.png)
+![Lightsail partner request form.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-request-form.png)
 
 
 You will receive a confirmation of your submission to your account's email regarding your interest in becoming a partner. If your request is approved, you are enrolled in a partner tier based on your usage and your **Account** page in the Lightsail console displays your partner status, including your current tier. The **Lightsail Partner Program** section on the **Profile & preferences** tab shows options to manage your partner accounts and contact the Lightsail team for feedback or queries as a Lightsail partner. This section is only visible to the account that submitted the request to become a Lightsail partner. You will also receive the higher instance quotas for Lightsail.
 
-![Lightsail Partner Program section in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-account-console-section.png)
+![Lightsail Partner Program section in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-account-console-section.png)
 
 
 ## Request additional accounts to become Lightsail partners
@@ -66,16 +66,16 @@ If you are using AWS Organizations, you should specify your management accounts 
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. On the **Profile & preferences** tab, in the **Lightsail Partner Program** section, choose **Add accounts**.
 **Important**  
 The **Add accounts** action is only available to the account that requested to become a Lightsail partner and was accepted.  
-![Add additional accounts to become Lightsail partners.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-add-additional-accounts.png)
+![Add additional accounts to become Lightsail partners.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-add-additional-accounts.png)
 
 1. In the registration form, enter any additional AWS account IDs or management accounts for your organizations that you'd like to register.
 **Note**  
 If you are using Organizations, you don't need to request your member accounts.  
-![Register additional accounts to become Lightsail partners.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-register-additional-accounts.png)
+![Register additional accounts to become Lightsail partners.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-register-additional-accounts.png)
 
 1. Choose **Submit**.

@@ -5,7 +5,7 @@
 
 After you verify that you control your domain, the certificate's status will change to **Valid**.
 
-![Successful validation of domain](http://docs.aws.amazon.com/lightsail/latest/userguide/images/example-com-verified-and-ready-to-use.png)
+![Successful validation of domain](https://docs.aws.amazon.com/lightsail/latest/userguide/images/example-com-verified-and-ready-to-use.png)
 
 
 Your next step is to attach the certificate to your Lightsail load balancer.

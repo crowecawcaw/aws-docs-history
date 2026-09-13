@@ -166,6 +166,6 @@ You must install the AWS CLI and configure it for Lightsail and Route 53 before 
    ```
 
    You should see a result similar to the following example:  
-![Result of the change resource record sets request](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-route-53-record-set.png)
+![Result of the change resource record sets request](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-route-53-record-set.png)
 
    Allow time for the change to propagate through the internet's DNS, which might take several hours. After that is completed, internet traffic for your registered domain in Route 53 should begin routing to your Lightsail container service.

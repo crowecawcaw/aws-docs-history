@@ -5,7 +5,7 @@
 
 This tutorial describes the steps required to configure your Amazon Lightsail bucket as the origin of a Lightsail content delivery network (CDN) distribution. It also describes how to configure your WordPress website to upload and store media (such as images and movies files) on your bucket, and deliver media from your distribution. One example of how to do this is with the [WP Offload Media Lite plugin](https://deliciousbrains.com/wp-offload-media/). The following diagram illustrates this configuration.
 
-![The WP Offload Media Lite plugin workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-bucket-cdn.png)
+![The WP Offload Media Lite plugin workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-bucket-cdn.png)
 
 
 Storing website media in a Lightsail bucket takes the load off your instance from having to store and serve those files. Caching and serving media from a Lightsail distribution speeds up the delivery of those files to your website visitors, and can improve overall website performance. For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md). For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
@@ -35,28 +35,28 @@ Complete the following procedure to give your WordPress instance and the WP Offl
 1. In the left navigation pane, choose **Storage**.
 
 1. Choose the name of the bucket that you want to use with your WordPress website.  
-![The Lightsail bucket.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-name-storage-tab.png)
+![The Lightsail bucket.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-name-storage-tab.png)
 
 1. Choose the **Permissions** tab on the **Bucket management** page.
 
 1. Choose **Change permissions** under the **Bucket access permissions** section of the page.  
-![The Change permissions button.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions.png)
+![The Change permissions button.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions.png)
 
 1. Choose **Individual objects can be made public and read only**.  
-![The Individual objects can be made public and read only option.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions-options.png)
+![The Individual objects can be made public and read only option.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions-options.png)
 
 1. Choose **Save**.
 
 1. Choose **Yes, save** in the confirmation prompt that appears.  
-![The Yes, save button.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions-confirmation.png)
+![The Yes, save button.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions-confirmation.png)
 
    After a few moments, your bucket will be configured to allow for individual object access. This ensures that objects uploaded to your bucket from your WordPress website using the Offload Media Lite plugin are readable to your customers.
 
 1. Scroll to the **Resource access** section of the page, and choose **Attach instance**.  
-![The Attach instance option.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-resource-access.png)
+![The Attach instance option.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-resource-access.png)
 
 1. Choose the name of your WordPress instance in the drop-down that appears, and then choose **Attach**.  
-![The Attach option.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-attach-resource-access.png)
+![The Attach option.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-attach-resource-access.png)
 
    After a few moments, your WordPress instance is attached to your bucket. This gives your WordPress instance access to manage your bucket and its objects.
 
@@ -70,22 +70,22 @@ Complete the following procedure to create a Lightsail distribution and choose y
 1. In the left navigation pane, choose **Networking**.
 
 1. Choose **Create distribution**.  
-![The Create distribution button in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-create-distribution.png)
+![The Create distribution button in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-create-distribution.png)
 
 1. In the **Choose your origin** section of the page, choose the AWS Region in which you created your bucket.
 
    Distributions are global resources. They can reference a bucket in any AWS Region, and distribute its content globally.  
-![The AWS Region selector in the Choose your origin pane.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-choose-origin-region.png)
+![The AWS Region selector in the Choose your origin pane.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-choose-origin-region.png)
 
 1. Choose your bucket as the origin.  
-![The bucket dropdown list in the Choose your origin pane.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-choose-origin.png)
+![The bucket dropdown list in the Choose your origin pane.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-choose-origin.png)
 **Note**  
 The permissions of your bucket must be set to **Individual objects can be made public (read only)**. Only individual objects that are public will be cached and served by the distribution. When you choose a bucket as the origin of a distribution, the options to specify the origin protocol policy, caching behavior, default behavior, and directory and file overrides become unavailable and cannot be edited. The origin protocol policy defaults to **HTTPS only** for buckets, and the caching behavior defaults to **Cache everything**. You can change the advanced cache settings of the distribution after it's created.
 
 1. Choose your distribution plan.
 
 1. Enter a name for your distribution.  
-![The name input field for your distribution.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-name-distribution.png)
+![The name input field for your distribution.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-name-distribution.png)
 
    Distribution names:
    + Must be unique within each AWS Region in your Lightsail account.
@@ -94,7 +94,7 @@ The permissions of your bucket must be set to **Individual objects can be made p
    + Can include alphanumeric characters, numbers, periods, dashes, and underscores.
 
 1. Choose **Create distribution**.  
-![The Create distribution button.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-create-distribution-button.png)
+![The Create distribution button.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-create-distribution-button.png)
 
    Your distribution is created after a few moments. When your new distribution reaches an **Enabled** state, it is ready to serve and cache objects that are in your bucket.
 
@@ -121,49 +121,49 @@ Complete the following procedure to install the WP Offload Media Lite plugin on 
    For more information, see [Getting the application user name and password for your Bitnami instance in Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md).
 
 1. Pause on **Plugins** in the left navigation menu, and choose **Add New**.  
-![Add new plugin menu item in the WordPress dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-plugin-add-new.png)
+![Add new plugin menu item in the WordPress dashboard.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-plugin-add-new.png)
 
 1. Search for **WP Offload Media Lite**.
 
 1. In the search results, choose **Install Now** next to the **WP Offload Media Lite** plugin.  
-![WP Offload Media Lite plugin for WordPress.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-plugin-install-now.png)
+![WP Offload Media Lite plugin for WordPress.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-plugin-install-now.png)
 
 1. Choose **Activate** after the plugin is done installing.  
-![Activate the WP Offload Media Lite plugin for WordPress.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-plugin-activate.png)
+![Activate the WP Offload Media Lite plugin for WordPress.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-plugin-activate.png)
 
 1. In the left navigation menu, choose **Settings**, then choose **Offload Media**.  
-![Wordpress dashboard settings.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-settings-menu.png)
+![Wordpress dashboard settings.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-settings-menu.png)
 
 1. In the **Offload Media Lite** page, choose **Amazon S3** as the storage provider.  
-![WP Offload Media page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-storage-provider.png)
+![WP Offload Media page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-storage-provider.png)
 
 1. Choose **My server is on Amazon Web Services and I'd like to use IAM Roles**.  
-![WP Offload Media page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-iam-roles.png)
+![WP Offload Media page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-iam-roles.png)
 
 1. Choose **Next**.
 
 1. Choose **Browse existing buckets** in the **What bucket would you like to use?** page that appears.  
-![WP Offload Media page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-browse-buckets.png)
+![WP Offload Media page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-browse-buckets.png)
 
 1. Choose the name of the bucket that you created to use with your WordPress instance.  
-![WP Offload Media page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-offload-media-existing-buckets.png)
+![WP Offload Media page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-offload-media-existing-buckets.png)
 
 1. In the **Offload Media Lite Settings** page that appears, turn on **Force HTTPS** and **Remove Files From Server**.
    + The **Force HTTPS** setting must be turned on because Lightsail buckets use HTTPS by default to serve media files. If you don't turn this feature on, media files that are uploaded to your Lightsail bucket from your WordPress website won't be served correctly to your website visitors.
 
      The **Remove Files From Server** setting ensures that media that is uploaded to your Lightsail bucket isn't also stored on your instance's disk. If you don't turn this feature on, media files that are uploaded to your Lightsail bucket are also stored on the local storage of your WordPress instance.  
-![WP Offload Media page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-options.png)
+![WP Offload Media page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-options.png)
 
 1. Under the **Delivery** section of the page, choose **Change** next to the Amazon S3 label.  
-![The Change option.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-change-delivery.png)
+![The Change option.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-change-delivery.png)
 
 1. In the **How would you like to deliver your media?** page that appears, select **Amazon CloudFront**.  
-![The Amazon CloudFront option.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-amazon-cloudfront.png)
+![The Amazon CloudFront option.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-amazon-cloudfront.png)
 
 1. Choose **Save Delivery Provider**.
 
 1. In the **Offload Media Lite Settings** page that appears, turn on **Custom Domain (CNAME)**. Then, enter the domain of your Lightsail distribution into the text box. This could be the default domain of your distribution (for example, `123abc.cloudfront.net`) or the custom domain for your distribution (for example, `media.mycustomdomain.com`), if you enabled it.  
-![The Turn on Custom Domain (CNAME) option.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-custom-domain.png)
+![The Turn on Custom Domain (CNAME) option.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-offload-media-custom-domain.png)
 
 1. Choose **Save Changes**.
 **Note**  
@@ -177,25 +177,25 @@ To return to the **Offload Media Lite Settings** page later, pause on **Settings
 Complete the following procedure to upload a media file to your WordPress instance and confirm that it is uploaded to your Lightsail bucket and is served from your distribution.
 
 1. Pause on **Media** in the left navigation menu of the WordPress dashboard, and choose **Add New**.  
-![The add new media file menu item in the WordPress dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-media-add-new.png)
+![The add new media file menu item in the WordPress dashboard.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-media-add-new.png)
 
 1. Choose **Select Files** on the **Upload New Media** page that appears.  
-![The Select files button in the WordPress dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-select-files.png)
+![The Select files button in the WordPress dashboard.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-select-files.png)
 
 1. Choose a media file to upload from your local computer, and choose **Open**.  
-![The Open button in the WordPress dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-open-file.png)
+![The Open button in the WordPress dashboard.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-open-file.png)
 
 1. When the file is done uploading, choose **Library** under **Media** in the left navigation menu.  
-![The Library menu item in the WordPress dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-library.png)
+![The Library menu item in the WordPress dashboard.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-library.png)
 
 1. Choose the file that you recently uploaded.  
-![The selected file.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-media-library.png)
+![The selected file.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-media-library.png)
 
 1. In the details panel of the file, the name of your bucket appears in the **Bucket** field. The URL of your distribution appears in the **File URL** field.  
-![The name of your bucket and it's URL in the Attachment details panel.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-media-details.png)
+![The name of your bucket and it's URL in the Attachment details panel.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-wordpress-media-details.png)
 
 1. If you go to the **Objects** tab of the Lightsail bucket management page, you should see a **wp-content** folder. This folder is created by the Offload Media Lite plugin, and is used to store your uploaded media files.  
-![The wp-content folder in a bucket](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-objects-wp-content-folder.png)
+![The wp-content folder in a bucket](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-objects-wp-content-folder.png)
 
 ## Manage buckets and objects
 <a name="connecting-to-distribution-managing-buckets-and-objects"></a>

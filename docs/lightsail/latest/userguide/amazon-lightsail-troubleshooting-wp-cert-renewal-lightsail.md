@@ -8,12 +8,12 @@ Lightsail Setup configures automatic renewal of your Let's Encrypt SSL/TLS certi
 **Important**  
 If your certificate was issued before August 9, 2026, your certificate will not renew automatically. Restart Lightsail Setup (Option 1) to renew your certificate and restore automatic renewal. You can find when your certificate was issued on your WordPress instance's **Connect** tab.  
 
-![Certificate issue date displayed on the Connect tab in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup-cert-issue-date.png)
+![Certificate issue date displayed on the Connect tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup-cert-issue-date.png)
 
 
 The following image shows an example of a certificate error in Chrome (this might vary for different browsers).
 
-![SSL certificate error displayed in a web browser.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup-cert-error.png)
+![SSL certificate error displayed in a web browser.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup-cert-error.png)
 
 
 ## Option 1: Restart Lightsail Setup (Recommended)
@@ -26,7 +26,7 @@ Restart Lightsail Setup with the same domain and DNS configuration as your previ
 1. Choose your WordPress instance from the instance list.
 
 1. Choose the **Connect** tab and choose **Restart setup**.  
-![The Restart setup button on the Connect tab in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup-restart.png)
+![The Restart setup button on the Connect tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup-restart.png)
 
 1. Complete the setup using the same domain and DNS configuration as your previous setup.
 
@@ -61,7 +61,7 @@ $ sudo systemctl status certbot-renew.timer
 
 If the timer is active, you should see output similar to the following:
 
-![Output of the certbot-renew.timer status command showing the timer is active.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-cert-renewal-timer-status.png)
+![Output of the certbot-renew.timer status command showing the timer is active.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-cert-renewal-timer-status.png)
 
 
 If the timer is not active or the command returns an error, run the following command to re-enable it:

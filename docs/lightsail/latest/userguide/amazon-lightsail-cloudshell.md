@@ -19,12 +19,12 @@ If you stop using AWS CloudShell in an AWS Region, data is retained in the persi
 
 In Lightsail, a CloudShell session will open in the AWS Region that provides the least latency to your physical location. This means that AWS Regions can change between sessions. Take note of which AWS Region--> your CloudShell session is located in so that you can use the 1 GB persistent storage. To change the session’s AWS Region, choose the **Open in new browser tab** icon. This provides the option to access your CloudShell session in a new browser window.
 
-![CloudShell open in new browser tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-cloudshell-new-browser-tab.png)
+![CloudShell open in new browser tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-cloudshell-new-browser-tab.png)
 
 
 In the navigation bar of the new browser tab, choose the name of the AWS Region that's currently displayed. Then choose the AWS Region that you want to switch to.
 
-![Change the AWS Region in CloudShell.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-cloudshell-region-select.png)
+![Change the AWS Region in CloudShell.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-cloudshell-region-select.png)
 
 
 For more information about CloudShell, see the *[CloudShell User Guide](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html)*.
@@ -43,7 +43,7 @@ Complete the following steps to launch a new AWS CloudShell session in Lightsail
 1. Sign in to the Lightsail console at [https://lightsail.aws.amazon.com/](https://lightsail.aws.amazon.com/).
 
 1. Choose **CloudShell** on the Console Toolbar. When the command prompt displays, the shell is ready for interaction.  
-![AWS CloudShell on the Lightsail console toolbar.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-cloudshell-console-toolbar.png)
+![AWS CloudShell on the Lightsail console toolbar.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-cloudshell-console-toolbar.png)
 
 1. (Optional) To choose a pre-installed shell to work with, enter one of the following program names at the command line prompt:  
 **Bash: `bash`**  
@@ -68,7 +68,7 @@ There are multiple command line tools that are pre-installed on the CloudShell s
 
    You should now see a complete list of instances that are in your Lightsail account.
 
-![Amazon Lightsail get instances API command output.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-cloudshell-getinstances-api.png)
+![Amazon Lightsail get instances API command output.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-cloudshell-getinstances-api.png)
 
 
 ## Additional information

@@ -13,7 +13,7 @@ For more information about tags, what resources can be tagged, and tag restricti
 
 Instances, container services, CDN distributions, buckets, databases, disks, DNS zones, and load balancers can be tagged using the Lightsail console and therefore contain a **Tags** tab. That tab is accessible through the resource’s management page, as shown in the following example for an instance resource. On the **Tags** tab, you can add, edit, or delete tags. For more information, see [Add tags to a resource](amazon-lightsail-adding-tags-to-a-resource.md), and [Delete tags](amazon-lightsail-deleting-tags.md).
 
-![Viewing tags for a resource in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-viewing-tags-for-a-resource.png)
+![Viewing tags for a resource in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-viewing-tags-for-a-resource.png)
 
 
 **Note**  
@@ -27,6 +27,6 @@ The following options are available in the Lightsail console to filter your reso
 **Note**  
 These filtering options are persistent. If you filter by a tag, and then navigate between sections of the Lightsail home page, the filter is still applied.
 + On the Lightsail home page, enter the key-only tag or the value that you want to filter by into the **Search** text box, and press **Enter**.  
-![Searching for a tag in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-searching-for-a-tag.png)
+![Searching for a tag in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-searching-for-a-tag.png)
 + Choose a tag that is displayed under a resource on the Lightsail home page.  
-![Choosing a tag in the Lightsail home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-choosing-a-tag.png)
+![Choosing a tag in the Lightsail home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-choosing-a-tag.png)

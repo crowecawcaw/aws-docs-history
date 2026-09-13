@@ -27,4 +27,4 @@ Before you begin, confirm which vendor packaged your instance blueprint. Navigat
 
 The following example shows an instance that uses WordPress packaged by Lightsail:
 
-![Blueprint vendor on the instance management page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/headers/blueprint-vendor.png)
+![Blueprint vendor on the instance management page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/headers/blueprint-vendor.png)

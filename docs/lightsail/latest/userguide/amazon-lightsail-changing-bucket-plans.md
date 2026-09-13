@@ -57,4 +57,4 @@ You must install the AWS CLI and configure it for Lightsail and Amazon S3 before
    ```
 
    You should see a result similar to the following example:  
-![Result of the update bucket bundle request](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-update-bucket-bundle-cli.png)
+![Result of the update bucket bundle request](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-update-bucket-bundle-cli.png)

@@ -45,7 +45,7 @@ An *origin* is the definitive source of content for your distribution. When you 
 
 You can choose only one origin per distribution. You can change the origin at any time after you create your distribution. For more information, see [Change the origin of your distribution](amazon-lightsail-changing-distribution-origin.md).
 
-![Distribution origin selector](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-distribution-choose-origin.png)
+![Distribution origin selector](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-distribution-choose-origin.png)
 
 
 ## Origin protocol policy
@@ -251,7 +251,7 @@ If you choose a Lightsail container service as the origin of your distribution, 
    This option is listed in the **Choose your origin** section of the page, under the origin resource you selected for your distribution.
 **Note**  
 When you select a Lightsail bucket as the origin of your distribution, the **Origin protocol policy** defaults to **HTTPS only**. You cannot change the origin protocol policy when a bucket is the origin of your distribution.  
-![Origin protocol policy](http://docs.aws.amazon.com/lightsail/latest/userguide/images/origin-protocol-policy.png)
+![Origin protocol policy](https://docs.aws.amazon.com/lightsail/latest/userguide/images/origin-protocol-policy.png)
 
 1. Choose the caching behavior (also known as a caching preset) for your distribution. For more information, see [Caching behavior and caching preset](#distribution-caching-preset).
 **Note**  

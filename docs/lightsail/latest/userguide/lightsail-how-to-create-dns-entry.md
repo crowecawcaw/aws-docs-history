@@ -134,7 +134,7 @@ Complete the following steps to transfer management of your domain's DNS records
 If web traffic is currently being routed to your domain, make sure that all of the existing DNS records are present in the Lightsail DNS zone before changing the name servers at your domain’s current DNS hosting provider. This way, traffic continually flows uninterrupted after the transfer to the Lightsail DNS zone.
 
 1. Write down the Lightsail name servers that are listed on your domain's DNS zone management page. The name servers are located on the **Domains** tab of your Lightsail DNS zone.  
-![The DNS zone name servers in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-dns-zone-name-servers.png)
+![The DNS zone name servers in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-dns-zone-name-servers.png)
 
 1. Sign in to your domain’s current DNS hosting provider’s website.
 

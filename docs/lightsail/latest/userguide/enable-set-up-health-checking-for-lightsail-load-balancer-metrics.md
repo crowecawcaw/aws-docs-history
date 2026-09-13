@@ -23,4 +23,4 @@ You might want to customize your health check path. For example, if your home pa
 1. On the **Target instances** tab, choose **Customize health checking**.
 
 1. Type a valid path for your health check, and then choose **Save**.  
-![Customize the health check path](http://docs.aws.amazon.com/lightsail/latest/userguide/images/customize-health-checking-path.png)
+![Customize the health check path](https://docs.aws.amazon.com/lightsail/latest/userguide/images/customize-health-checking-path.png)

@@ -27,14 +27,14 @@ Complete the following procedure to view your default and custom keys from the L
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **SSH keys** tab.
 
    The **SSH keys** page lists:
    + **Custom keys** – These are keys that you create either using the Lightsail console or a third-party tool such as ssh-keygen. You can have many custom keys in each AWS Region.
    + **Default keys** – These are keys that Lightsail creates for you. You can have only one default key in each AWS Region.  
-![SSH keys page](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-02.png)
+![SSH keys page](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-02.png)
 
 Custom and default keys are Regional. For example, keys in the US West (Oregon) AWS Region can be configured only on instances created in that Region. For more information about keys, see [Key pairs and connecting to instances in Amazon Lightsail](understanding-ssh-in-amazon-lightsail.md).
 
@@ -53,12 +53,12 @@ Complete the following procedure to download the private key of a default key pa
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **SSH keys** tab.
 
 1. Under the **Default keys** section of the page, choose the download icon for the key that you want to download.  
-![Default keys download icon](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-download-default-key.png)
+![Default keys download icon](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-download-default-key.png)
 **Important**  
 Store the private key in a secure location. Don't share it publicly because it can be used to connect to your instances.
 
@@ -74,12 +74,12 @@ Complete the following procedure to delete a custom key in the Lightsail console
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **SSH keys** tab.
 
 1. Under the **Custom keys** section of the page, choose the delete icon for the key that you want to delete.  
-![Custom keys delete icon](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-06.png)
+![Custom keys delete icon](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-06.png)
 
    This doesn't remove the public key of the custom key pair from instances that were previously created and are currently running. To remove a previously configured public key stored on a running instance, see [Manage keys stored on an instance in Amazon Lightsail](amazon-lightsail-remove-ssh-key-on-instance.md).
 
@@ -93,25 +93,25 @@ Complete the following procedure to delete a default key in the Lightsail consol
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **SSH keys** tab.
 
 1. Under the **Default keys** section of the page, choose the delete icon for the default key that you want to delete.  
-![Default keys delete icon](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-delete-default-key.png)
+![Default keys delete icon](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-delete-default-key.png)
 **Important**  
 Deleting a default key doesn't remove the public key of the custom key pair from instances that were previously created and are currently running. For more information, see [Manage keys stored on an instance in Amazon Lightsail](amazon-lightsail-remove-ssh-key-on-instance.md).
 
 1. The default key is used to generate the administrator password for Windows instances. Before you delete the default key, you should retrieve and save the administrator password from any Windows instances that use the default key you want to delete.
 
 1. Choose **Continue** to delete the default key.  
-![Before you delete this key prompt](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-09.png)
+![Before you delete this key prompt](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-09.png)
 
 1. You must download the default key before you can delete it. After you download the default key, you will be able to choose **Yes, delete** to permanently delete the default key.  
-![Download default key prompt](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-10.png)
+![Download default key prompt](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-10.png)
 
 1. The default key has been deleted. Choose **Okay**.  
-![Default key deleted prompt](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-11.png)
+![Default key deleted prompt](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-11.png)
 
    The following steps are optional and you should only complete them if you want to replace the default key pair you deleted.
 
@@ -124,10 +124,10 @@ Using these steps, you can create default key pairs only in AWS Regions where yo
 1. Download the private key and store it in a safe location.
 
 1. Choose **Ok, got it\!** to continue.  
-![Key pair created](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-13.png)
+![Key pair created](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-13.png)
 
 1. Confirm the new default key on the Lightsail console SSH keys page.  
-![Default keys list](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-14.png)
+![Default keys list](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-14.png)
 
    You can configure your new default key on new instances that you create in Lightsail. To configure your new default key on instances that were previously created and are currently running, see [Manage keys stored on an instance in Amazon Lightsail](amazon-lightsail-remove-ssh-key-on-instance.md).
 
@@ -141,30 +141,30 @@ Complete the following procedure to create a custom key pair using the Lightsail
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **SSH keys** tab.
 
 1. Choose **Create key pair** under the **Custom keys** section of the page.  
-![Create custom key](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-create-custom-key.png)
+![Create custom key](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-create-custom-key.png)
 
 1. In the **Select a region** prompt that appears, choose the AWS Region in which you want to create your new custom key. You will be able to configure your new custom key on new instances in the same AWS Region.  
-![AWS Region list](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-17.png)
+![AWS Region list](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-17.png)
 
 1. In the **Create a new SSH key pair** prompt that appears, give your custom key a name, and choose **Generate key pair**.  
-![Create a new SSH key pair](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-18.png)
+![Create a new SSH key pair](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-18.png)
 
 1. In the **Key pair created\!** prompt that appears, choose **Download private key** to save the private key to your local computer.
 **Important**  
 Store the private key in a secured location. Don't share it publicly because it can be used to connect to your instances.  
 This is the only time you can download the private key of the custom key pair. Lightsail does not store the private key of custom key pairs. After you close this prompt, you will not be able to download it again.  
-![Download private key prompt](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-19.png)
+![Download private key prompt](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-19.png)
 
 1. Choose **Ok, got it\!** to close the prompt.  
-![You can only download private key once prompt](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-20.png)
+![You can only download private key once prompt](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-20.png)
 
 1. Your new custom key is listed under the Custom keys section of the page.  
-![Custom keys list](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-21.png)
+![Custom keys list](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-21.png)
 
    You can configure your new custom key on new instances that you create in Lightsail. To configure your new custom key on instances that were previously created and are currently running, see [Manage keys stored on an instance in Amazon Lightsail](amazon-lightsail-remove-ssh-key-on-instance.md).
 
@@ -192,18 +192,18 @@ Complete the following procedure to create a custom key pair on your local compu
    Replace `{{<UserName>}}` with the name of the user you're currently signed in as, and replace `{{<KeyPairName>}}` with the name of your new key pair.
 
    In the following example, we specified the `C:\Keys` directory on our Windows computer, and gave the new key a name of `MyNewLightsailCustomKey`.  
-![ssh-keygen](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-22.png)
+![ssh-keygen](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-22.png)
 
 1. Enter a passphrase for your key and press **Enter**. You will not see the passphrase as you enter it.
 
    You will need this passphrase later when configuring the private key of the key pair on an SSH client to connect to an instance that has the public key of the key pair configured on it.  
-![passphrase](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-23.png)
+![passphrase](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-23.png)
 
 1. Enter the passphrase again to confirm it and press **Enter**. You will not see the passphrase as you enter it.  
-![passphrase](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-24.png)
+![passphrase](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-24.png)
 
 1. A prompt confirms that your private key and public key have been saved to the specified directory.  
-![key pair save location](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-25.png)
+![key pair save location](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-25.png)
 
    Next you will upload the public key of the key pair to the Lightsail console.
 
@@ -212,28 +212,28 @@ Complete the following procedure to create a custom key pair on your local compu
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **SSH keys** tab.
 
 1. Choose **Upload key** under the **Custom keys** section of the page.  
-![Upload custom key](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-27.png)
+![Upload custom key](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-27.png)
 
 1. In the **Select a region** prompt that appears, choose the AWS Region in which you want to upload your new custom key. You will be able to configure your new custom key on new instances in the same AWS Region.  
-![AWS Region list](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-28.png)
+![AWS Region list](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-28.png)
 
 1. Choose **Upload**.
 
 1. Click **Choose File** in the **Upload a public key** prompt that appears.  
-![Choose public key file location](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-29.png)
+![Choose public key file location](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-29.png)
 
 1. Find the public key of the key pair you created earlier in this procedure, on your local computer, and choose **Open**. The public key of the key pair is the file with a .PUB file extension.  
-![Select public key](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-30.png)
+![Select public key](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-30.png)
 
 1. Choose **Upload key**.  
-![Choose upload key button](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-31.png)
+![Choose upload key button](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-31.png)
 
 1. Your new custom key is listed in the **Custom keys** section of the page.  
-![Custom keys list](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-21.png)
+![Custom keys list](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-21.png)
 
    You can configure your new custom key on new instances that you create in the AWS Region where you uploaded your key. To configure your new custom key on instances that were previously created and are currently running, see [Manage keys stored on an instance in Amazon Lightsail](amazon-lightsail-remove-ssh-key-on-instance.md).

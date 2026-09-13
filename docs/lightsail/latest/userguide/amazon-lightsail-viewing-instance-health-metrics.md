@@ -35,7 +35,7 @@ Lightsail uses burstable instances which provide a baseline amount of CPU perfor
 
 On the CPU utilization metric graph for your instances, you will see a sustainable zone, and a burstable zone. Your Lightsail instance can operate in the sustainable zone indefinitely with no impact to the operation of your system.
 
-![Sustainable and burstable zones on the CPU utilization graph.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-utilization-burstable-zone.png)
+![Sustainable and burstable zones on the CPU utilization graph.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-utilization-burstable-zone.png)
 
 
 Your instance may begin operating in the burstable zone when under heavy load, such as when compiling code, installing new software, running a batch job, or serving peak load requests. While operating in the burstable zone, your instance is consuming a higher amount of CPU cycles. Therefore, it can only operate in this zone for a limited period of time.

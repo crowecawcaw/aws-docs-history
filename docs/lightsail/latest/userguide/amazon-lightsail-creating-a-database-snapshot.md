@@ -28,10 +28,10 @@ When you create a snapshot of a standard database, the database becomes unavaila
 1. Choose **Create**.
 
    The snapshot creation process begins and a status of **Snapshot in progress** is shown.  
-![Database snapshot in progress](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-database-snapshot-in-progress.png)
+![Database snapshot in progress](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-database-snapshot-in-progress.png)
 
    After the snapshot creation process is complete, the new snapshot is listed under the **Recent snapshots** section. You can also view all of the snapshots for your account in the Lightsail home page, under the **Snapshots** tab.  
-![Recent database snapshots in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-database-recent-snapshots.png)
+![Recent database snapshots in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-database-recent-snapshots.png)
 
 ## Next steps
 <a name="creating-a-database-snapshot-next-steps"></a>

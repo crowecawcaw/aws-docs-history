@@ -15,7 +15,7 @@ The default dynamic public IP address attached to your instance changes every ti
 
 On the instance management page, under the **Networking** tab, choose **Create a static IP** or **Attach static IP** (if you previously created a static IP that you can attach to your instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
 
-![Attach static IP address in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
+![Attach static IP address in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 
 
 ## Step 2: Visit your Ruby on Rails instance welcome page
@@ -49,4 +49,4 @@ You can create [snapshots manually](https://docs.aws.amazon.com/lightsail/latest
 
 You can work with snapshots on your instance's management page on the **Snapshots** tab. For more information, see [Snapshots in Amazon Lightsail](understanding-snapshots-in-amazon-lightsail.md).
 
-![Create an instance snapshot in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)
+![Create an instance snapshot in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)

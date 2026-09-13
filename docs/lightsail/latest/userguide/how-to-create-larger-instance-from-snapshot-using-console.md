@@ -24,7 +24,7 @@ You will need a snapshot of your Lightsail instance, block storage disk, or data
 1. Find the Lightsail resource whose snapshot you want to use to create a new, larger resource, and choose the right-arrow to expand the list of snapshots.
 
 1. Choose the ellipsis icon next to the snapshot you want to use, and choose **Create new instance**.  
-![Create new resource from a snapshot in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-resource-from-snapshot-menu-option.png)
+![Create new resource from a snapshot in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-resource-from-snapshot-menu-option.png)
 
 1. On the **Create** page, you have a few optional settings to choose from. For example, you can change the Availability Zone. For instances, you can [add a launch script](lightsail-how-to-configure-server-additional-data-shell-script.md), or [change the SSH key you use to connect to it](understanding-ssh-in-amazon-lightsail.md).
 

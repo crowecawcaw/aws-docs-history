@@ -10,7 +10,7 @@ Two types of error messages can appear during the WordPress setup workflow in Am
 
 These errors appear immediately in a banner at the top of the Lightsail console after you choose **Create certificate** in the final step of the workflow.
 
-![WordPress setup failure message in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-setup-error-message.png)
+![WordPress setup failure message in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-setup-error-message.png)
 
 
 To begin troubleshooting, match the error that appeared in the message with one of the following errors.
@@ -26,7 +26,7 @@ To begin troubleshooting, match the error that appeared in the message with one 
 
 These errors appear within a few minutes in the **Set up your WordPress website** section of the instance **Connect** tab. They're caused when the Let's Encrypt HTTPS certificate cannot be configured on your instance.
 
-![WordPress setup failure message in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-setup-failure-message.png)
+![WordPress setup failure message in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-setup-failure-message.png)
 
 
 From the failure message, choose the **Download the error log** link to download and view the error logs. Match the error with one of the following:

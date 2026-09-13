@@ -29,7 +29,7 @@ Complete the following procedure to transfer your WordPress website data to your
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
 1. In the **Instances** tab, choose the browser-based SSH client icon for your WordPress instance.  
-![The browser-based SSH client icon in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-quick-connect.png)
+![The browser-based SSH client icon in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-quick-connect.png)
 
 1. After the browser-based SSH client is connected to your WordPress instance, enter the following command to transfer the data in the `wordpress` database that is on your instance to your MySQL managed database. Be sure to replace {{DbUserName}} with the user name of your managed database, and replace {{DbEndpoint}} with the endpoint address of your managed database.
 

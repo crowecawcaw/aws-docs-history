@@ -33,26 +33,26 @@ Complete the following steps to configure RDC and connect to your Windows instan
 1. Open the Windows menu, and then search for `Remote Desktop Connection` or `RDC`.
 
 1. Choose **Remote Desktop Connection** in the search results.  
-![RDC in the start menu search results.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-rdc-in-start-menu.png)
+![RDC in the start menu search results.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-rdc-in-start-menu.png)
 
 1. In the **Computer** text box, enter your Windows instance’s public IP address.  
-![RDC configuration.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-remote-desktop-connection-configuration.png)
+![RDC configuration.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-remote-desktop-connection-configuration.png)
 
    The public IP is displayed next to your instance in the Lightsail console, as shown in the following example:  
-![Public IP address of an instance in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-public-ip-address.png)
+![Public IP address of an instance in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-public-ip-address.png)
 
 1. Choose **Show Options** to view additional connection options.
 
 1. In the **User Name** text box, enter `Administrator`, which is the default user name for all Windows instances in Lightsail.  
-![RDC options.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-remote-desktop-connection-options.png)
+![RDC options.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-remote-desktop-connection-options.png)
 
 1. Choose **Connect**.
 
 1. In the prompt that appears, enter or paste the default administrator password that you copied from the Lightsail console earlier in this procedure, and then choose **OK**.  
-![Credentials for RDC connection.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-rdc-credentials.png)
+![Credentials for RDC connection.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-rdc-credentials.png)
 
 1. In the prompt that appears, choose **Yes** to connect to the Windows instance despite certificate errors.  
-![RDC certificate confirmation.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-rdc-certificate-confirmation.png)
+![RDC certificate confirmation.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-rdc-certificate-confirmation.png)
 
    After you’re connected to the instance, you should see a screen similar to the following example:  
-![The desktop background for a Lightsail Windows instance in the Microsoft Remote Desktop application.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-08.png)
+![The desktop background for a Lightsail Windows instance in the Microsoft Remote Desktop application.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-08.png)

@@ -29,7 +29,7 @@ Read the Bitnami documentation to learn how to configure your Drupal application
 Complete the following procedure to get the default application password required to access the administration dashboard for your Drupal website. For more information, see [Getting the application user name and password for your Bitnami instance in Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md).
 
 1. On your instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect using SSH in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
+![Connect using SSH in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
 
 1. After you're connected, enter the following command to get the application password:
 
@@ -38,7 +38,7 @@ Complete the following procedure to get the default application password require
    ```
 
    You should see a response similar to the following example, which contains the default application password:  
-![Bitnami default application password.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png)
+![Bitnami default application password.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png)
 
 ## Step 3: Attach a static IP address to your instance
 <a name="amazon-lightsail-attach-static-ip-drupal"></a>
@@ -47,7 +47,7 @@ The default dynamic public IP address attached to your instance changes every ti
 
 On the instance management page, under the **Networking** tab, choose **Create a static IP** or **Attach static IP** (if you previously created a static IP that you can attach to your instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
 
-![Attach static IP address in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
+![Attach static IP address in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 
 
 ## Step 4: Sign in to the administration dashboard of your Drupal website
@@ -56,7 +56,7 @@ On the instance management page, under the **Networking** tab, choose **Create a
 Now that you have the default user password, navigate to your Drupal website's home page, and sign in to the administration dashboard. After you’re signed in, you can start customizing your website and making administrative changes. For more information about what you can do in Drupal, see the [Step 7: Read the Drupal documentation and continue configuring your website](#amazon-lightsail-read-documentation-drupal) section later in this guide.
 
 1. On your instance management page, under the **Connect** tab, make note of the public IP address of your instance. The public IP address is also displayed in the header section of your instance management page.  
-![Public IP address of an instance](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-ip.png)
+![Public IP address of an instance](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-public-ip.png)
 
 1. Browse to the public IP address of your instance, for example by going to `http://203.0.113.0`.
 
@@ -69,7 +69,7 @@ Now that you have the default user password, navigate to your Drupal website's h
 1. Sign in using the default user name (`user`) and the default password retrieved earlier in this guide.
 
    The Drupal administration dashboard appears.  
-![The Drupal administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-drupal-dashboard.png)
+![The Drupal administration dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-drupal-dashboard.png)
 
 ## Step 5: Route traffic for your registered domain name to your Drupal website
 <a name="amazon-lightsail-map-your-domain-to-your-instance-drupal"></a>
@@ -89,7 +89,7 @@ Complete the following procedure to configure HTTPS on your Drupal website. Thes
 Before starting with this procedure, make sure that you configured your domain to route traffic to your Drupal instance. Otherwise, the SSL/TLS certificate validation process will fail.
 
 1. On your instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect using SSH in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
+![Connect using SSH in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
 
 1. After you're connected, enter the following command to confirm the bncert tool is installed on your instance.
 
@@ -137,7 +137,7 @@ Before starting with this procedure, make sure that you configured your domain t
 1. Enter your primary domain name and alternate domain names separated by a space as shown in the following example.
 
    If your domain is not configured to route traffic to the public IP address of your instance, the `bncert` tool will ask you to make that configuration before continuing. Your domain must be routing traffic to the public IP address of the instance from which you are using the `bncert` tool to enable HTTPS on the instance. This confirms that you own the domain, and serves as the validation for your certificate.  
-![Entering the primary and alternate domain names](http://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-domain-names.png)
+![Entering the primary and alternate domain names](https://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-domain-names.png)
 
 1. The `bncert` tool will ask you how you want your website's redirection to be configured. These are the options available: 
    + **Enable HTTP to HTTPS redirection** - Specifies whether users who browse to the HTTP version of your website (i.e., `http://example.com`) are automatically redirected to the HTTPS version (i.e., `https://example.com`). We recommend enabling this option because it forces all visitors to use the encrypted connection. Type `Y` and press **Enter** to enable it.
@@ -145,22 +145,22 @@ Before starting with this procedure, make sure that you configured your domain t
    + **Enable www to non-www redirection** - Specifies whether users who browse to your domain's `www` subdomain (i.e., `https://www.example.com`) are automatically redirected to the apex of your domain (i.e., `https://example.com`). We recommend disabling this, if you enabled non-`www` redirection to `www`. Type `N` and press **Enter** to disable it.
 
    Your selections should look like the following example.  
-![Website redirection options](http://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-enable-disable-redirection.png)
+![Website redirection options](https://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-enable-disable-redirection.png)
 
 1. The changes that are going to be made are listed. Type `Y` and press **Enter** to confirm and continue.  
-![Confirming the changes](http://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-confirm-changes.png)
+![Confirming the changes](https://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-confirm-changes.png)
 
 1. Enter your email address to associate with your Let's Encrypt certificate and press **Enter**.  
-![Associating your email address with your Let's Encrypt certificate](http://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-email-address.png)
+![Associating your email address with your Let's Encrypt certificate](https://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-email-address.png)
 
 1. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press **Enter** to accept the agreement and continue.  
-![Review the Let's Encrypt subscriber agreement](http://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-lets-ecrypt-agreement.png)
+![Review the Let's Encrypt subscriber agreement](https://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-lets-ecrypt-agreement.png)
 
    The actions are performed to enable HTTPS on your instance, including requesting the certificate and configuring the redirections you specified.  
-![Actions being performed](http://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-performing-actions.png)
+![Actions being performed](https://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-performing-actions.png)
 
    Your certificate is successfully issued and validated, and the redirections are successfully configured on your instance if you see a message similar to the following example.  
-![Actions successfully completed](http://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-success-conf.png)
+![Actions successfully completed](https://docs.aws.amazon.com/lightsail/latest/userguide/images/bncert-success-conf.png)
 
    The `bncert` tool will perform an automatic renewal of your certificate every 80 days before it expires. Repeat the above steps if you wish to use additional domains and subdomains with your instance, and you want to enable HTTPS for those domains.
 
@@ -180,4 +180,4 @@ You can create [snapshots manually](https://docs.aws.amazon.com/lightsail/latest
 
 You can work with snapshots on your instance's management page on the **Snapshots** tab. For more information, see [Snapshots in Amazon Lightsail](understanding-snapshots-in-amazon-lightsail.md).
 
-![Create an instance snapshot in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)
+![Create an instance snapshot in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)

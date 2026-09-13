@@ -30,13 +30,13 @@ Use the following procedure to move a secondary block storage disk from your Cen
 If your CentOS instance is running, you will need to stop it before you can detach the disk. For more information, see [Stop a running instance](https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.html#lightsail-instance-stop).
 
 1. From the **Storage** section of the Lightsail console, select the disk that you want to detach from your CentOS instance.  
-![The storage section in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-migrate-alma-01.png)
+![The storage section in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-migrate-alma-01.png)
 
 1. On the **Details** tab, choose **Detach**.  
-![The disk details in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-migrate-alma-02.png)
+![The disk details in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-migrate-alma-02.png)
 
 1. From the disk **Details** page, choose the **Attach to an instance** dropdown menu. Then choose the name of your AlmaLinux instance.  
-![The attach disk dropdown menu in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-migrate-alma-03.png)
+![The attach disk dropdown menu in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-migrate-alma-03.png)
 
 1. Choose **Attach**.
 

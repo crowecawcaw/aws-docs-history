@@ -14,7 +14,7 @@ Use the following tutorials to learn how to configure and manage your instances 
 
  Here are a few steps you should take to get started after your Nginx instance is up and running on Amazon Lightsail. Before you get started, identify your blueprint vendor on your instance management page: 
 
-![Nginx blueprint vendor on the instance management page](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/headers/nginx-blueprint-vendor.png)
+![Nginx blueprint vendor on the instance management page](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/headers/nginx-blueprint-vendor.png)
 
 
 Select the appropriate guide for your Nginx instance:

@@ -88,10 +88,10 @@ Some instance plans aren't available for some blueprints. For example, the SQL S
 1. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For more information on tag usage, see [Tags](amazon-lightsail-tags.md).
 
    1. For **Key**, enter a tag key.  
-![A tag with only the tag key specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
+![A tag with only the tag key specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
 
    1. (Optional) For **Value**, enter a tag value.  
-![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
+![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
 
 1. Choose **Create instance**.
 
@@ -149,7 +149,7 @@ After you create your instance, you may need to wait up to 15 minutes before you
 **To connect using the Lightsail browser-based RDP client**
 
 1. On the home page, choose the **Connect using RDP** icon next to your instance.  
-![Lightsail connect.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-to-windows-instance-using-rdp-connection-shortcut.png)
+![Lightsail connect.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-to-windows-instance-using-rdp-connection-shortcut.png)
 
 1. Alternately, you can connect to your instance from the shortcut menu or the instance management page.
 
@@ -164,7 +164,7 @@ After you create your instance, you may need to wait up to 15 minutes before you
 1. Paste the IP address into the **Computer** field.
 
 1. Choose **Show Options**, and then type `Administrator` for your **User name**.  
-![Remote Desktop Connection application.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/remote-desktop-connection-windows-server-based-instance-lightsail.png)
+![Remote Desktop Connection application.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/remote-desktop-connection-windows-server-based-instance-lightsail.png)
 
 1. Choose **Connect**.
 
@@ -177,7 +177,7 @@ After you create your instance, you may need to wait up to 15 minutes before you
 1. Copy the default password to the clipboard.
 
 1. Paste your password into **Remote Desktop Connection**, and then choose **Remember me** to prevent this dialog box from appearing in the future.  
-![Remote Desktop Connection settings.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/remote-desktop-connection-enter-credentials-lightsail-windows.png)
+![Remote Desktop Connection settings.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/remote-desktop-connection-enter-credentials-lightsail-windows.png)
 
 1. Choose **OK**.
 

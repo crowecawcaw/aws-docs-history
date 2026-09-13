@@ -12,14 +12,14 @@ You must have a snapshot of an instance before you can create another instance f
 1. Choose the **Snapshots** tab.
 
 1. In the **Manual snapshots** section, choose the actions menu icon (⋮) next to the snapshot and choose **Create new instance**.  
-![The Manage snapshots menu showing the cursor choosing Create new instance.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-new-linux-unix-based-lightsail-instance-from-snapshot.png)
+![The Manage snapshots menu showing the cursor choosing Create new instance.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-new-linux-unix-based-lightsail-instance-from-snapshot.png)
 
 1. The **Create an instance from a snapshot** page opens. Choose the optional settings that you want to use. For example, you can change the Availability Zone, [add a launch script](lightsail-how-to-configure-server-additional-data-shell-script.md), or [change the way you connect to your instance](understanding-ssh-in-amazon-lightsail.md).
 
 1. Choose a plan (or *bundle*) for your new instance. You can choose to create an instance that uses a dual-stack (IPv4 and IPv6) instance plan, or an IPv6-only plan. You can also choose a larger bundle size than that of the original instance. For more information about IPv6-only instance plans, see [Configure IPv6-only networking for Lightsail instances](amazon-lightsail-ipv6-only-plans.md).
 **Note**  
 You can't create an instance that uses a smaller bundle size than that of the original instance.  
-![The Choose a new instance plan page showing dual stack and IPv6 address types.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-plan-area.png)
+![The Choose a new instance plan page showing dual stack and IPv6 address types.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-plan-area.png)
 
 1. Enter a name for your instance.
 
@@ -32,10 +32,10 @@ You can't create an instance that uses a smaller bundle size than that of the or
 1. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For more information on tag usage, see [Tags](amazon-lightsail-tags.md).
 
    1. For **Key**, enter a tag key.  
-![A tag with only the tag key specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
+![A tag with only the tag key specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
 
    1. (Optional) For **Value**, enter a tag value.  
-![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
+![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
 
 1. Choose **Create instance**.
 

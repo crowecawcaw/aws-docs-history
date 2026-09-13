@@ -32,10 +32,10 @@ Complete the following procedure to get the CNAME records that you must add to y
 1. In the left navigation pane, choose **Networking**.
 
 1. Choose the name of the distribution for which want to get the CNAME record values of a certificate.  
-![Networking section of the Lightsail home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-home-page-networking.png)
+![Networking section of the Lightsail home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-home-page-networking.png)
 
 1. Choose the **Custom domains** tab on your distribution's management page.  
-![Custom domains tab of a Lightsail distribution.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-distribution-custom-domains-tab.png)
+![Custom domains tab of a Lightsail distribution.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-distribution-custom-domains-tab.png)
 
 1. Scroll down to the **Attached certificates** section of the page.
 
@@ -80,15 +80,15 @@ Complete the following procedure to view the status of your SSL/TLS certificate 
 1. In the left navigation pane, choose **Networking**.
 
 1. Choose the name of the distribution for which you want to view a certificate's status.  
-![Networking section of the Lightsail home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-home-page-networking.png)
+![Networking section of the Lightsail home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-home-page-networking.png)
 
 1. Choose the **Custom domains** tab on your distribution's management page.  
-![Custom domains tab of a Lightsail distribution.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-distribution-custom-domains-tab.png)
+![Custom domains tab of a Lightsail distribution.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-distribution-custom-domains-tab.png)
 
 1. Scroll down to the **Attached certificates** section of the page.
 
    All of your distribution certificates are listed under the **Attached certificates** section of the page, including certificates with **Pending validation** and **Valid** statuses.  
-![Validated SSL/TLS certificate](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-validated-certificate.png)
+![Validated SSL/TLS certificate](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-validated-certificate.png)
 
    A **Valid** status confirms that you successfully validated your certificate with the CNAME records that you added to your domains. Choose **Details** to view your certificate's important dates, encryption details, identification, and validation records. Your certificates are valid for 13 months from the date on which you validated them, after which time Lightsail attempts to automatically re-validate them. Don't delete the CNAME records that you added to your domain because they are required when your certificate is re-validated on the **Valid until** date listed.
 

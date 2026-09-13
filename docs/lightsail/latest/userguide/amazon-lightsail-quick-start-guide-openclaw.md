@@ -24,7 +24,7 @@ In this step, you create a Lightsail instance running OpenClaw.
 1. Choose the image for your instance as follows:
    + Under **Select a platform**, choose **Linux/Unix**.
    + Under **Select a blueprint**, choose **OpenClaw**.  
-![Select the OpenClaw blueprint.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/blueprint_selection.png)
+![Select the OpenClaw blueprint.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/blueprint_selection.png)
 
 1. Under **Choose your instance plan**, select an instance plan (4 GB memory plan is recommended for optimal performance).
 
@@ -50,25 +50,25 @@ The default public IP address for your OpenClaw instance changes if you stop and
 1. On the **Instances** section of the Lightsail console, choose the name of your OpenClaw instance to open the instance management page.
 
 1. In the **Getting started** tab, under **Pair your browser to OpenClaw**, choose **Connect using SSH**. A browser-based SSH terminal opens.  
-![The OpenClaw Getting Started tab.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/getting_started_tab.png)
+![The OpenClaw Getting Started tab.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/getting_started_tab.png)
 **Did you know?**  
 The Message of the Day (MOTD) service running on your OpenClaw instance manages several automated configuration tasks, including origin detection, certificate management, and token rotation. You can check your MOTD version by connecting to your instance via SSH.
 
    Your OpenClaw instance automatically configures the gateway to accept connections from the instance’s IP address. MOTD version 2.0.0 includes an automatic origin detection feature that runs during instance startup and configures the allowed origin to be the instance's current IP address. When you attach a static IP address to your instance, the system automatically updates the allowed origin to use the static IP address instead.  
-![The OpenClaw Getting Started tab.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/motd_welcome_message.png)
+![The OpenClaw Getting Started tab.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/motd_welcome_message.png)
 
 1. In the SSH terminal, locate the **Dashboard URL** displayed in the welcome message. Copy this URL and open it in a new browser tab.  
-![Pairing a device with OpenClaw using sample data](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/device_pairing.png)
+![Pairing a device with OpenClaw using sample data](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/device_pairing.png)
 
 1. In the OpenClaw dashboard that opens, locate the **Gateway Token** field.
 
 1. Back in the SSH terminal, copy the **Access Token** displayed.
 
 1. Paste the copied access token into the **Gateway Token** field in the OpenClaw dashboard, then click **Connect**.  
-![Entering a token for the OpenClaw Gateway using sample data](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/gateway_access.png)
+![Entering a token for the OpenClaw Gateway using sample data](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/gateway_access.png)
 
 1. Return to the SSH terminal. When prompted, press **y** to approve the OpenClaw CLI. This will allow the SSH terminal to manage OpenClaw running on your instance.  
-![Approve OpenClaw CLI with a sample data](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/cli_approval.png)
+![Approve OpenClaw CLI with a sample data](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/cli_approval.png)
 
 1. Then, press **y** again when prompted, to continue with device pairing.
 
@@ -76,7 +76,7 @@ The Message of the Day (MOTD) service running on your OpenClaw instance manages 
 
 When pairing is complete, the status in the OpenClaw dashboard will show **OK**. Your browser is now connected to your OpenClaw instance.
 
-![Your browser is successfully connected to the OpenClaw Gateway.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/gateway_success.png)
+![Your browser is successfully connected to the OpenClaw Gateway.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/gateway_success.png)
 
 
 **Tip**  
@@ -94,7 +94,7 @@ Your Lightsail OpenClaw instance is configured to use Amazon Bedrock to power it
 1. Under **Enable Amazon Bedrock as your model provider**, click the **Copy the script** button. Then click the **Launch CloudShell** button to open CloudShell.
 **What does the setup script do?**  
 The setup script performs the following actions: creates an IAM role specifically for your OpenClaw instance, attaches a policy granting access to Amazon Bedrock APIs, attaches a policy granting AWS Marketplace permissions (required for third-party models), and configures the instance profile to use this role. You can review the IAM policy details in the [IAM console](https://console.aws.amazon.com/iam/) after running the script. The IAM role will be named `LightsailRoleFor-[your-instance-id]`.  
-![Copy the Bedrock script for IAM role creation using test data.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/bedrock_script.png)
+![Copy the Bedrock script for IAM role creation using test data.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/bedrock_script.png)
 
 1. Paste the copied command into the CloudShell terminal and press Enter.
 
@@ -117,7 +117,7 @@ You can extend OpenClaw to work with messaging apps like Telegram and WhatsApp, 
 1. Open Telegram and search for `@BotFather`.
 
 1. Send the command `/newbot` and follow the prompts to create a new bot. BotFather will provide a **bot token** and a **deep link** for your bot.  
-![BotFather on Telegram.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/botfather.png)
+![BotFather on Telegram.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/botfather.png)
 
 1. Connect to your OpenClaw instance using SSH. A browser-based SSH terminal opens.
 
@@ -128,12 +128,12 @@ You can extend OpenClaw to work with messaging apps like Telegram and WhatsApp, 
    ```
 
 1. Select **Telegram** from the list of available channels.  
-![Select Telegram from the channel selection menu.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/channel_selection.png)
+![Select Telegram from the channel selection menu.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/channel_selection.png)
 
 1. When prompted, enter the **bot token** you received from BotFather in step 2.
 
 1. In the OpenClaw dashboard, navigate to the **Channels** section, and add your **Telegram user ID** to the allow list.  
-![Allow your bot to receive messages from your Telegram ID.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/telegram_allow_from.png)
+![Allow your bot to receive messages from your Telegram ID.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/telegram_allow_from.png)
 
 1. Test the integration by sending a message to your bot in Telegram in Step 2.
 
@@ -142,10 +142,10 @@ You can extend OpenClaw to work with messaging apps like Telegram and WhatsApp, 
    ```
    openclaw pairing approve telegram [pairing code]
    ```  
-![Telegram pairing information using sample data](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/telegram_pairing.png)
+![Telegram pairing information using sample data](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/telegram_pairing.png)
 
 1. Test the integration again by sending a message to the bot you created in Telegram in Step 2  
-![Telegram is paired with your OpenClaw instance](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/telegram_successful_message.png)
+![Telegram is paired with your OpenClaw instance](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/telegram_successful_message.png)
 
 ### Connect WhatsApp
 <a name="amazon-lightsail-openclaw-connect-whatsapp"></a>
@@ -169,7 +169,7 @@ You can extend OpenClaw to work with messaging apps like Telegram and WhatsApp, 
 1. Complete the pairing on your phone.
 
 1. Test the integration by sending a message to your OpenClaw assistant directly through WhatsApp by messaging the contact number you paired in above steps.  
-![WhatsApp is paired with your OpenClaw instance](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/whatsapp_successful_message.png)
+![WhatsApp is paired with your OpenClaw instance](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/whatsapp_successful_message.png)
 
 ## Step 5: Create a snapshot of your instance (optional)
 <a name="amazon-lightsail-openclaw-create-snapshot"></a>
@@ -305,7 +305,7 @@ MOTD 2.0.0 includes automatic token rotation that enhances security by rotating 
 
 If you don't want the token to be rotated, you can disable it in the MOTD by changing the security settings.
 
-![Setting to rotate tokens.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/token_rotation.png)
+![Setting to rotate tokens.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/openclaw/token_rotation.png)
 
 
 **How do I rotate my messaging channel credentials (Telegram, WhatsApp, Slack)?**

@@ -21,16 +21,16 @@ The following procedure explains the different ways that you can force stop a Li
 1. Choose the **Instances** tab.
 
 1. Locate the instance that's stuck in the `Stopping` state. Then, choose the actions menu icon (⋮) displayed next to the instance name.  
-![Lightsail instance actions menu.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-force-stop-actions-menu.png)
+![Lightsail instance actions menu.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-force-stop-actions-menu.png)
 
 1. Choose **Force stop** in the dropdown list that appears.  
-![Lightsail instance actions menu force stop option.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-force-stop-choose-am-option.png)
+![Lightsail instance actions menu force stop option.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-force-stop-choose-am-option.png)
 
    Alternatively, you can choose the instance name to access the instance management page. Then, choose the **Force stop** button.  
-![Lightsail instance management page force stop button.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-force-stop-button-instance.png)
+![Lightsail instance management page force stop button.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-force-stop-button-instance.png)
 
 1. Review the considerations for this operation. To proceed, choose **Force stop**.  
-![Lightsail instance management page force stop button.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-force-stop-considerations-modal.png)
+![Lightsail instance management page force stop button.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-force-stop-considerations-modal.png)
 
 **Force stop an instance with the AWS CLI**
 

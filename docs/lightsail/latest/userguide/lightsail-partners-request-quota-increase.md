@@ -18,12 +18,12 @@ For multiple member accounts that are linked to the Lightsail partner account, y
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **Service quotas** tab.
 
 1. For the quota you want to increase, choose **Request a quota increase**.  
-![Lightsail account page with service quotas tab selected.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-account-service-quotas.png)
+![Lightsail account page with service quotas tab selected.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-account-service-quotas.png)
 
 1. On the Service Quotas console, choose **Request increase at account level**.
 

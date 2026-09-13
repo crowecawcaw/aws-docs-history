@@ -41,7 +41,7 @@ Complete the following procedure to view the custom domains that are currently e
 1. Choose the name of the container service for which you want to view the enabled custom domains.
 
 1. Locate the custom domain values in the heading of the container service management page, as shown in the following example. These are the custom domains that are currently enabled for the container service.  
-![Custom domains for a container service in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-custom-domains-heading.png)
+![Custom domains for a container service in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-custom-domains-heading.png)
 
 1. On the container service management page, choose the **Custom domains** tab.
 

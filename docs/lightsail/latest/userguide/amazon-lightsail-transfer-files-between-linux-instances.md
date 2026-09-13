@@ -38,7 +38,7 @@ If you’re using your own key pair, or you created a key pair using the Lightsa
 1. Scroll down to the **Default keys** section of the page.
 
 1. Choose **Download** next to the default private key for the AWS Region where the instance that you want to transfer the files to is located.  
-![SSH key pairs in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-download-default-key.png)
+![SSH key pairs in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-download-default-key.png)
 
 1. Save your private key in a secured location on your local drive.
 
@@ -77,12 +77,16 @@ In the following procedure you will transfer the private key to your source inst
 1. Determine the location of the private key file on your computer and the destination path on the instance. In the following examples, the name of the private key file is {{private-key.pem}}, the user name for the source instance is {{ec2-user}}, the IPv4 address of the source instance is {{public-ipv4-address}}, and the IPv6 address of the source instance is {{public-ipv6-address}}. The {{destination-path/}} is the location on source instance where you are transferring the private key to.
 **Note**  
 You can specify one of the following user names depending on the blueprint that is used by your instance:  
-AlmaLinux OS 9, Amazon Linux 2, Amazon Linux 2023, CentOS Stream 9, FreeBSD, and openSUSE instances: `ec2-user`
+AlmaLinux, Amazon Linux 2, Amazon Linux 2023, CentOS Stream 9, FreeBSD, and openSUSE instances: `ec2-user`
 Debian instances: `admin`
 Ubuntu instances: `ubuntu`
 Bitnami instances: `bitnami`
+Lightsail packaged versions of WordPress, Nginx, WordPress Multisite, LAMP, Node.js instances: `admin`
+Ruby on Rails instances: `ec2-user`
+OpenClaw instances: `ubuntu`
 Plesk instances: `ubuntu`
-cPanel & WHM instances: `centos`
+cPanel & WHM (AlmaLinux) instances: `ec2-user`
+cPanel & WHM (CentOS 7) instances: `centos`
    + (**IPv4**) To transfer the private key file to the instance, enter the following command from your computer.
 
      ```

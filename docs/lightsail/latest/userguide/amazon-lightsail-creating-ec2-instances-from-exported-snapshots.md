@@ -75,7 +75,7 @@ The **Create an Amazon EC2 instance** page in the Lightsail console can be acces
 1. From the top navigation pane, choose the **Task monitor** icon.
 
 1. Locate the completed instance snapshot export in the **Task history** section, then choose **Create instance in EC2**.  
-![Task monitor in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-task-monitor-create-instance.png)
+![Task monitor in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-task-monitor-create-instance.png)
 
    The **Create an Amazon EC2 instance** page appears. Continue to the following [Create an Amazon EC2 instance](#create-new-instances) section of this guide to learn how to configure and create an EC2 instance using this page.
 
@@ -87,15 +87,15 @@ Use the **Create an Amazon EC2 instance** page to create an EC2 instance. To cre
 **To create an Amazon EC2 instance**
 
 1. On the **Amazon EC2 AMI details** section of the page, confirm that the Amazon Machine Image (AMI) details displayed match the specifications of the source Lightsail instance.  
-![Amazon EC2 AMI details on the Create an Amazon EC2 instance page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-ami-details.png)
+![Amazon EC2 AMI details on the Create an Amazon EC2 instance page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-ami-details.png)
 
 1. On the **Resource location** section of the page, change the Availability Zone of your instance if necessary. The Amazon EC2 resources are created in the same AWS Region as the source Lightsail snapshot.
 **Note**  
 Not all Availability Zones may be available for all users. Choosing an unavailable Availability Zone will result in an error when creating the EC2 instance.  
-![Resource location options on the Create an Amazon EC2 instance page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-resource-location.png)
+![Resource location options on the Create an Amazon EC2 instance page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-resource-location.png)
 
 1. On the **Compute resource** section of the page, choose one of the following options:  
-![Compute resource options on the Create an Amazon EC2 instance page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-compute-resource.png)
+![Compute resource options on the Create an Amazon EC2 instance page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-compute-resource.png)
 
    1. **Find closest match** to automatically select an Amazon EC2 instance type that closely matches the specifications of the source Lightsail instance.
 
@@ -107,10 +107,10 @@ Some Lightsail instances are incompatible with the current generation EC2 instan
 To use the latest generation EC2 instance types when the source Lightsail instance is incompatible, you need to create the new EC2 instance using a previous generation instance type (T2, M4, C4, or R4), update the networking driver, and then upgrade the instance to the desired current generation instance type. For more information, see [Update Amazon EC2 instances for enhanced networking](amazon-lightsail-updating-ec2-instances.md).
 
 1. On the **Optional** section of the page:  
-![Optional settings on the Create an Amazon EC2 instance page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-optional-settings.png)
+![Optional settings on the Create an Amazon EC2 instance page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-optional-settings.png)
 
    1. Choose **Specify port configuration** to select the firewall settings for your Amazon EC2 instance, then choose one of the following options:  
-![Security group settings on the Create an Amazon EC2 instance page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-security-groups.png)
+![Security group settings on the Create an Amazon EC2 instance page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-security-groups.png)
 
       1. **Use the default firewall settings from the Lightsail image** to configure the default ports from the source Lightsail blueprint on your new EC2 instance. For more information about the default ports for Lightsail blueprints, see [Firewalls and ports](understanding-firewall-and-port-mappings-in-amazon-lightsail.md).
 
@@ -129,7 +129,7 @@ The default Lightsail key pair is always used on Windows Server instances in Lig
 Lightsail does not store your personal private keys. Therefore; the option to download your private key is not provided. If you are unable to locate your private key, then you will not be able to connect to your EC2 instance.
 
 1. On the **Storage resources** section of the page, confirm that the EBS volumes being created match the system disk and any attached block storage disks for the source Lightsail instance.  
-![Storage resources on the Create an Amazon EC2 instance page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-storage-resources.png)
+![Storage resources on the Create an Amazon EC2 instance page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-an-ec2-instance-storage-resources.png)
 
 1. Review the important details about creating resources outside of Lightsail.
 

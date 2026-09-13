@@ -16,14 +16,18 @@ You can use the default private key that Lightsail provides, a new private key f
 
    If you don't have a saved session, see [Step 4: Finish configuring PuTTY with your private key and instance information](lightsail-how-to-set-up-putty-to-connect-using-ssh.md).
 
-1. Log in using one of the following default user names depending on your instance operating system:
+1. Log in using one of the following default user names depending on the blueprint of your instance:
    + AlmaLinux, Amazon Linux 2, Amazon Linux 2023, CentOS Stream 9, FreeBSD, and openSUSE instances: `ec2-user`
    + Debian instances: `admin`
    + Ubuntu instances: `ubuntu`
    + Bitnami instances: `bitnami`
+   + Lightsail packaged versions of WordPress, Nginx, WordPress Multisite, LAMP, Node.js instances: `admin`
+   + Ruby on Rails instances: `ec2-user`
+   + OpenClaw instances: `ubuntu`
    + Plesk instances: `ubuntu`
-   + cPanel & WHM instances: `centos`
+   + cPanel & WHM (AlmaLinux) instances: `ec2-user`
+   + cPanel & WHM (CentOS 7) instances: `centos`
 
-   For more information about instance operating systems, see [Choosing an image in Lightsail](compare-options-choose-lightsail-instance-image.md).
+   For more information about instance blueprints (operating systems and application stacks), see [Choosing an image in Lightsail](compare-options-choose-lightsail-instance-image.md).
 
 To learn more about SSH, see [SSH and connecting to your Amazon Lightsail instance](understanding-ssh-in-amazon-lightsail.md).

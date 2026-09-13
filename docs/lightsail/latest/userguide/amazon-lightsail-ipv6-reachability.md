@@ -24,10 +24,10 @@ Complete the following procedure to enable IPv6 on your dual-stack instance if i
 1. Choose the **Networking** tab from the instance management page.
 
 1. Enable IPv6 on the **IPv6 Networking** section of the page.  
-![Lightsail IPv6 toggle showing the off position with the cursor about to turn it on.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-enable-ipv6.png)
+![Lightsail IPv6 toggle showing the off position with the cursor about to turn it on.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-enable-ipv6.png)
 
    After you enable IPv6, a public IPv6 address is assigned to your instance, and the IPv6 firewall becomes available.  
-![Lightsail IPv6 firewall showing applications, protocols, ports, and IPv6 address restrictions.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-ipv6-firewall.png)
+![Lightsail IPv6 firewall showing applications, protocols, ports, and IPv6 address restrictions.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-ipv6-firewall.png)
 
 1. <a name="step_copy_ip"></a>Take note of the instance's **Public IPv4** and **Public IPv6** addresses. You will use them in the following sections.
 
@@ -83,12 +83,12 @@ Complete the following procedure to test IPv4 or IPv6 reachability from your loc
 
 The ping command returns successful replies from your instance’s IPv4 address if it’s successful. The result should look like the following example.
 
-![Successful IPv4 ping command.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-reachability-test-linux-ipv4-success.png)
+![Successful IPv4 ping command.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-reachability-test-linux-ipv4-success.png)
 
 
 The ping6 command returns successful replies from your instance’s IPv6 address if it’s successful. The result should look like the following example.
 
-![Successful IPv6 ping command.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-reachability-test-linux-ipv6-success.png)
+![Successful IPv6 ping command.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-reachability-test-linux-ipv6-success.png)
 
 
 Both commands return **Request timeout** if your instance can't be reached.
@@ -116,12 +116,12 @@ Both commands return **Request timeout** if your instance can't be reached.
 
 The ping command returns successful replies from your instance’s IPv4 address if it’s successful. The result should look like the following example.
 
-![Successful IPv4 ping command.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-reachability-test-windows-ipv4-success.png)
+![Successful IPv4 ping command.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-reachability-test-windows-ipv4-success.png)
 
 
 The ping command returns successful replies from your instance’s IPv6 address if it’s successful. The result should look like the following example.
 
-![Successful IPv6 ping command.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-reachability-test-windows-ipv6-success.png)
+![Successful IPv6 ping command.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-reachability-test-windows-ipv6-success.png)
 
 
 Both commands return **Request timeout** if your instance can't be reached.

@@ -31,19 +31,19 @@ In the following steps, we will show you how to get the CNAME records and add th
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **Certificates** tab.
 
 1. Find the certificate that you want to verify, and make note of the **Name** and **Value** of the CNAME records that you must add for each domain
 
    Press **Ctrl\+C** if you’re using Windows, or **Cmd\+C** if you’re using Mac, to copy them to your clipboard.  
-![Certificate pending validation with domains and subdomains.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/example.certificate-validation-with-subdomains.png)
+![Certificate pending validation with domains and subdomains.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/example.certificate-validation-with-subdomains.png)
 
 1. Open a text editor, such as Notepad if you're using Windows, or TextEdit if you're using Mac. In the text file, press **Ctrl\+V** if you’re using Windows, or **Cmd\+V** if you’re using Mac, to paste the values into the text file.
 
    Leave this text file open; you will need these CNAME values when adding the records to your domain's DNS zone later in this guide.  
-![Text file with certificate CNAME records.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-ssl-tls-cname-records-text-file.png)
+![Text file with certificate CNAME records.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-ssl-tls-cname-records-text-file.png)
 
 1. Choose **Home** on the top navigation bar of the Lightsail console.
 
@@ -78,10 +78,10 @@ Adding a CNAME record that contains the domain name (such as `.example.com`) wil
    You can also [add an alias (A) record to point to your load balancer](add-alias-record-for-lightsail-load-balancer.md), or other Lightsail resources while you're on the DNS zone management page.
 
    When finished, your DNS zone should look like the following screenshot.  
-![CNAMES in Lightsail ready to be submitted for validation.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/dns-validation-cname-with-alternate-names.png)
+![CNAMES in Lightsail ready to be submitted for validation.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/dns-validation-cname-with-alternate-names.png)
 
    After some time, your domain is verified and you will see the following message on the certificate.  
-![Successful validation of domain.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/example-com-verified-and-ready-to-use.png)
+![Successful validation of domain.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/example-com-verified-and-ready-to-use.png)
 
 ## Next step
 <a name="verify-ssl-tls-next-step"></a>

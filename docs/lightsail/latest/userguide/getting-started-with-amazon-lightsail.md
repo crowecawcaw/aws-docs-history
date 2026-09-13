@@ -48,10 +48,10 @@ As part of the AWS Free Tier, you can get started with Amazon Lightsail for free
 1. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For more information on tag usage, see [Tags](amazon-lightsail-tags.md).
 
    1. For **Key**, enter a tag key.  
-![A tag with only the tag key specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
+![A tag with only the tag key specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
 
    1. (Optional) For **Value**, enter a tag value.  
-![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
+![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
 
 1. Choose **Create instance**.
 
@@ -63,15 +63,15 @@ Within minutes, your Lightsail instance is ready and you can connect to it via S
 <a name="getting-started-connect-to-your-instance"></a>
 
 1. On the Lightsail home page, choose the menu on the right of your instance's name, and then choose **Connect**.  
-![Instance connect.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance.png)
+![Instance connect.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance.png)
 
    Alternately, you can open your instance management page, choose the **Connect** tab, then choose **Connect using SSH**.  
-![Instance connect.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance-from-instance-management-page.png)
+![Instance connect.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance-from-instance-management-page.png)
 **Note**  
 To connect to your instance using an SSH client such as PuTTY, you can follow this procedure: [Set up PuTTY to connect to your Lightsail instance](lightsail-how-to-set-up-putty-to-connect-using-ssh.md).
 
 1. Now you can type commands into the terminal and manage your Lightsail instance without setting up an SSH client.  
-![Browser-based SSH terminal.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
+![Browser-based SSH terminal.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
 
 ## Next steps
 <a name="linux-unix-next-steps"></a>

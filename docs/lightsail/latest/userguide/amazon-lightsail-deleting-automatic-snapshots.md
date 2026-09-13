@@ -23,12 +23,12 @@ Complete the following steps to delete automatic snapshots of an instance using 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
 1. In the left navigation pane, choose **Instances**.  
-![The Lightsail home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-home-page-instances-storage.png)
+![The Lightsail home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-home-page-instances-storage.png)
 
 1. Choose the name of the instance for which you want to delete automatic snapshots.
 
 1. On the instance management page, choose the **Snapshots** tab.  
-![The instance management page in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-management-snapshots.png)
+![The instance management page in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-management-snapshots.png)
 
 1. Under the **Automatic snapshots** section, choose the ellipsis icon next to the automatic snapshot that you want to delete, then choose **Delete snapshot**.
 
@@ -62,7 +62,7 @@ Complete the following steps to delete automatic snapshots of an instance or blo
    ```
 
    You should see a result similar to the following, which lists the available automatic snapshots:  
-![Get auto snapshots operation results containing the available auto snapshots for an instance.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-available-auto-backups-operation.png)
+![Get auto snapshots operation results containing the available auto snapshots for an instance.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-available-auto-backups-operation.png)
 
 1. Enter the following command to delete an automatic snapshot:
 
@@ -82,7 +82,7 @@ Complete the following steps to delete automatic snapshots of an instance or blo
    ```
 
    You should see a result similar to the following example:  
-![Delete auto snapshot operation result.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-delete-auto-backup-operation.png)
+![Delete auto snapshot operation result.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-delete-auto-backup-operation.png)
 
    The automatic snapshot is deleted after a few moments.
 **Note**  

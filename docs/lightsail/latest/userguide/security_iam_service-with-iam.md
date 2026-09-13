@@ -33,7 +33,7 @@ You can specify multiple actions using wildcards (\*). For example, to specify a
 "Action": "lightsail:Create*"
 ```
 
-To see a list of Lightsail actions, see [Actions Defined by Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-actions-as-permissions) in the *IAM User Guide*.
+To see a list of Lightsail actions, see [Actions defined by Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-actions-as-permissions) in the *IAM User Guide*.
 
 ### Resources
 <a name="security_iam_service-with-iam-id-based-policies-resources"></a>
@@ -83,7 +83,7 @@ Many Lightsail API actions involve multiple resources. For example, `AttachDisk`
       "resource2"
 ```
 
-To see a list of Lightsail resource types and their ARNs, see [Resources Defined by Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-resources-for-iam-policies) in the *IAM User Guide*. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-actions-as-permissions).
+To see a list of Lightsail resource types and their ARNs, see [Resources defined by Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-resources-for-iam-policies) in the *IAM User Guide*. To learn with which actions you can specify the ARN of each resource, see [Actions defined by Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-actions-as-permissions).
 
 ### Condition Keys
 <a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
@@ -94,7 +94,7 @@ The `Condition` element specifies when statements execute based on defined crite
 
 Lightsail does not provide any service-specific condition keys, but it does support using some global condition keys. To see all AWS global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
-To see a list of Lightsail condition keys, see [Condition Keys for Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-policy-keys) in the *IAM User Guide*. To learn with which actions and resources you can use a condition key, see [Actions Defined by Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-actions-as-permissions).
+To see a list of Lightsail condition keys, see [Condition keys for Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-policy-keys) in the *IAM User Guide*. To learn with which actions and resources you can use a condition key, see [Actions defined by Amazon Lightsail ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lightsail.html#list_lightsail-actions-as-permissions).
 
 ### Examples
 <a name="security_iam_service-with-iam-id-based-policies-examples"></a>

@@ -64,7 +64,7 @@ Complete the following procedure to change your distribution's origin.
    This option is listed in the **Choose your origin** section of the page, under the origin resource you selected for your distribution.
 **Note**  
 When you select a Lightsail bucket as the origin of your distribution, the **Origin protocol policy** defaults to **HTTPS only**. You cannot change the origin protocol policy when a bucket is the origin of your distribution.  
-![Origin protocol policy](http://docs.aws.amazon.com/lightsail/latest/userguide/images/origin-protocol-policy.png)
+![Origin protocol policy](https://docs.aws.amazon.com/lightsail/latest/userguide/images/origin-protocol-policy.png)
 
 1. Choose **HTTP only** or **HTTPS only**, then choose **Save** to save the origin protocol policy.
 
@@ -73,7 +73,7 @@ When you select a Lightsail bucket as the origin of your distribution, the **Ori
    This option is listed in the **Choose your origin** section of the page, under the origin resource you selected for your distribution.
 **Note**  
 The Origin IP address type setting is only available for instance origins. When you select a bucket, container service, or load balancer as the origin, the **Origin IP address type** defaults to **IPv4-only** and cannot be changed.  
-![Origin IP address type](http://docs.aws.amazon.com/lightsail/latest/userguide/images/origin-ip-address-type.png)
+![Origin IP address type](https://docs.aws.amazon.com/lightsail/latest/userguide/images/origin-ip-address-type.png)
 
 1. Choose **IPv4-only**, **Dual-stack**, or **IPv6-only**, then choose **Save** to save the origin IP address type.
 

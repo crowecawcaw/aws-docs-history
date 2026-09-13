@@ -11,7 +11,7 @@ You can export instance snapshots and block storage disk snapshots. However, sna
 
 Exporting a Lightsail instance snapshot results in an Amazon Machine Image (AMI) and an Amazon Elastic Block Store (Amazon EBS) snapshot being created in Amazon EC2. This is because Lightsail instances consist of an image and a system disk, which are grouped together as a single instance entity in the Lightsail console for more efficient management. If the source Lightsail instance had one or more block storage disks attached to it when the snapshot was created, then additional EBS snapshots for each attached disk will be created in Amazon EC2. Exporting a Lightsail block storage disk snapshot results in a single EBS snapshot being created in Amazon EC2. All exported resources in Amazon EC2 have their own distinct unique identifiers that are different than their Lightsail counterparts.
 
-![Exporting Lightsail snapshots to Amazon EC2.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-export-snapshot-diagram.png)
+![Exporting Lightsail snapshots to Amazon EC2.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-export-snapshot-diagram.png)
 
 
 **Note**  
@@ -31,7 +31,7 @@ Lightsail can be used to create Amazon EC2 instances from exported instance snap
 
 Creating an Amazon EC2 instance from an exported instance snapshot (AMI and EBS snapshot) results in a single EC2 instance being launched. The AMI and EBS snapshot that resulted from exporting the Lightsail instance snapshot are automatically linked together to form the EC2 instance. The exported Lightsail block storage disk snapshot (EBS snapshot) can be used to create an EBS volume in Amazon EC2.
 
-![Exporting Lightsail snapshots to Amazon EC2.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-resources-diagram.png)
+![Exporting Lightsail snapshots to Amazon EC2.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-resources-diagram.png)
 
 
 **Note**  

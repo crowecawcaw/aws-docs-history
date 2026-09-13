@@ -19,7 +19,7 @@ Instances, container services, CDN distributions, buckets, databases, disks, DNS
 1. Choose the resource that you want to tag.
 
 1. On the management page for the resource that you selected, choose the **Tags** tab.  
-![Tags tab in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-tags-tab.png)
+![Tags tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-tags-tab.png)
 
 1. Choose **Manage tags**.
 
@@ -31,7 +31,7 @@ Instances, container services, CDN distributions, buckets, databases, disks, DNS
      1. Enter a value for the **Key** for each tag that you want to create.
 
      1. Choose **Save** when you're done entering your tags, or choose **Cancel** to not add them.  
-![Key-only tags in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-key-only-tags.png)
+![Key-only tags in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-key-only-tags.png)
    + Create key-value tags
 
      1. Choose **Add new tag**.
@@ -39,7 +39,7 @@ Instances, container services, CDN distributions, buckets, databases, disks, DNS
      1. Enter a value for the **Key** and **Value** for each tag that you want to create.
 
      1. Choose **Save** when you're done entering your tags, or choose **Cancel** to not add them.  
-![Key-value tags in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-key-value-tag.png)
+![Key-value tags in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-key-value-tag.png)
 
 ## Next steps
 <a name="adding-tags-to-a-resource-next-steps"></a>

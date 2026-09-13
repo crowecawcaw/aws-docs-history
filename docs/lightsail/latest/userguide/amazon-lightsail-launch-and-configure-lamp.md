@@ -22,7 +22,7 @@ You need the default application password to access pre-installed applications o
    ```
 
    You should see a response similar to this, which contains the default application password:  
-![Default application password.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-application-password.png)
+![Default application password.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-application-password.png)
 
 ## Step 2: Attach a static IP address to your LAMP instance
 <a name="lamp-lightsail-attach-static-ip"></a>
@@ -31,7 +31,7 @@ The default dynamic public IP address attached to your instance changes every ti
 
 On the instance management page, under the **Networking** tab, choose **Create a static IP** or **Attach static IP** (if you previously created a static IP that you can attach to your instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
 
-![Attach static IP address in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
+![Attach static IP address in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 
 
 ## Step 3: Visit your LAMP instance welcome page
@@ -40,7 +40,7 @@ On the instance management page, under the **Networking** tab, choose **Create a
 Navigate to the static IP address of your instance to access the application installed on your instance.
 
 1. On your instance management page, copy the static IP address:  
-![Copy static IP](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/headers/lamp-copy-static-ip.png)
+![Copy static IP](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/headers/lamp-copy-static-ip.png)
 
 1. Paste the static IP address into your browser address, for example `http://192.0.0.1`.
 
@@ -75,4 +75,4 @@ You can create [snapshots manually](https://docs.aws.amazon.com/lightsail/latest
 
 You can work with snapshots on your instance's management page on the **Snapshots** tab. For more information, see [Snapshots in Amazon Lightsail](understanding-snapshots-in-amazon-lightsail.md).
 
-![Create an instance snapshot in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)
+![Create an instance snapshot in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-instance-snapshots.png)

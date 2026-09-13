@@ -102,26 +102,26 @@ Complete the following procedure to use the Lightsail console to manage access f
 1. In the left navigation pane, choose **Containers**.
 
 1. Choose the name of the container service for which you want to configure access to an Amazon ECR private repository.  
-![Container service in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-card.png)
+![Container service in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-card.png)
 
 1. Choose the **Images** tab.  
-![Images tab in the container service management page of the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-images-tab.png)
+![Images tab in the container service management page of the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-images-tab.png)
 
 1. Choose **Add repository** to grant access for your container service to an Amazon ECR private repository.
 **Note**  
 You can choose **Remove** to remove access for your container service from a previously added Amazon ECR private repository.  
-![Amazon ECR private repositories section of the Images tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-ecr-repos-section.png)
+![Amazon ECR private repositories section of the Images tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-ecr-repos-section.png)
 
 1. In the dropdown that appears, select the private repository that you would like to access, and then choose **Add**.  
-![Amazon ECR private repositories dropdown selection](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-ecr-repos-selection.png)
+![Amazon ECR private repositories dropdown selection](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-ecr-repos-selection.png)
 
    Lightsail takes a few moments to activate the Amazon ECR image puller IAM role for your container service, which includes a principal Amazon Resource Name (ARN). Lightsail then automatically adds the IAM role principal ARN to the permissions policy of the Amazon ECR private repository that you selected. This grants your container service access to the private repository and its images. Don't close the browser window until the modal that appears indicates that the process is completed and you can choose **Continue**.  
-![Modal confirming that permissions are being added to Amazon ECR private repository](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-ecr-repos-confirmation-modal.png)
+![Modal confirming that permissions are being added to Amazon ECR private repository](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-ecr-repos-confirmation-modal.png)
 
 1. Choose **Continue** when the activation is completed.
 
    After the selected Amazon ECR private repository is added it is listed in the **Amazon ECR private repositories** section of the page. The page includes instructions for how to deploy an image from the private repository to your Lightsail container service. To use an image from your private repository, specify the URI format that is displayed on the page as the **Image** value when creating your container service deployment. In the URI that you specify, replace the example {{{image tag}}} with the tag of the image you want to deploy. For more information, see [Create and manage container service deployments](amazon-lightsail-container-services-deployments.md).  
-![Next steps after adding an Amazon ECR private repository](http://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-ecr-repos-next-steps.png)
+![Next steps after adding an Amazon ECR private repository](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-service-ecr-repos-next-steps.png)
 
 ## Use the AWS CLI to manage access to private repositories
 <a name="ecr-private-repo-access-cli"></a>
@@ -224,9 +224,9 @@ You must install the AWS CLI and configure it for Amazon ECR before you can cont
 
    You should see one of the following responses:
    + **RepositoryPolicyNotFoundException** — Your private repository does not have a policy statement. If your repository doesn't have a policy statement, follow the steps in the [Add a policy to a private repository that doesn't have a policy statement](#ecr-private-repo-add-policy-no-policy) section later in this guide.  
-![Response to the get-repository-policy command for a private repository that doesn't have a policy statement](http://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-no-policy-statement.png)
+![Response to the get-repository-policy command for a private repository that doesn't have a policy statement](https://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-no-policy-statement.png)
    + **A repository policy was found** - Your private repository has a policy statement, and it is displayed in the response of your request. If your repository has a policy statement, copy the existing policy and then follow the steps in the [Add a policy to a private repository that has a policy statement](#ecr-private-repo-add-policy-existing-policy) section later in this guide.  
-![Response to the get-repository-policy command for a private repository that has a policy statement](http://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-statement.png)
+![Response to the get-repository-policy command for a private repository that has a policy statement](https://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-statement.png)
 
 ### Add a policy to a private repository that doesn't have a policy statement
 <a name="ecr-private-repo-add-policy-no-policy"></a>
@@ -352,17 +352,17 @@ You must install the AWS CLI and configure it for Amazon ECR before you can cont
 1. In the response, copy the existing policy and continue to the next step.
 
    You should copy only the content of the `policyText` that appears between the double quotes, as highlighted in the following example.  
-![Response to the get-repository-policy command for a private repository that doesn't have a policy statement](http://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-copy-statement.png)
+![Response to the get-repository-policy command for a private repository that doesn't have a policy statement](https://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-copy-statement.png)
 
 1. Open a text editor, and paste the existing policy from your private repository that you copied in the previous step.
 
    The result should look like the following example.  
-![Example policy statement JSON file](http://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-statement-json.png)
+![Example policy statement JSON file](https://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-statement-json.png)
 
 1. In the text that you pasted, replace `\n` with line breaks and delete the remaining `\`.
 
    The result should look like the following example.  
-![Example edited policy statement JSON file](http://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-statement-json-edited.png)
+![Example edited policy statement JSON file](https://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-statement-json-edited.png)
 
 1. Paste the following policy statement at the end of the text file.
 
@@ -395,7 +395,7 @@ You must install the AWS CLI and configure it for Amazon ECR before you can cont
 1. In the text, replace {{IamRolePrincipalArn}} with the Amazon ECR image puller IAM role principal ARN of your container service that you got earlier in this guide.
 
    The result should look like the following example.  
-![Example complete policy statement JSON file](http://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-statement-json-completed.png)
+![Example complete policy statement JSON file](https://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-existing-policy-statement-json-completed.png)
 
 1. Save the file as `ecr-policy.json` to an accessible location on your computer (for example, `C:\Temp\ecr-policy.json` on Windows or `/tmp/ecr-policy.json` on macOS or Linux).
 
@@ -427,7 +427,7 @@ You must install the AWS CLI and configure it for Amazon ECR before you can cont
      ```
 
    You should see a response similar to the following example.  
-![Response to the set-repository-policy command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-set-policy-statement-response.png)
+![Response to the set-repository-policy command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/ecr-set-policy-statement-response.png)
 
    If you run the `get-repository-policy` command again, you should see the new additional policy statement on your private repository. Your container service is now able to access your private repository and its images. To use an image from your repository, specify the following URI as the **Image** value for your container service deployment. In the URI, replace the example {{tag}} with the tag of the image you want to deploy. For more information, see [Create and manage container service deployments](amazon-lightsail-container-services-deployments.md).
 

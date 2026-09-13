@@ -17,7 +17,7 @@ You can also adjust the cookie duration using the AWS Command Line Interface (AW
 1. Choose the **Inbound traffic** tab.
 
 1. Choose **Enable session persistence**.  
-![Session persistence enabled](http://docs.aws.amazon.com/lightsail/latest/userguide/images/session-persistence-enabled.png)
+![Session persistence enabled](https://docs.aws.amazon.com/lightsail/latest/userguide/images/session-persistence-enabled.png)
 
 ## Adjust the cookie duration
 <a name="adjust-cookie-duration"></a>

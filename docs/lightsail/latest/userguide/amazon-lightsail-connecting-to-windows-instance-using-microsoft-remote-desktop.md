@@ -25,10 +25,10 @@ Complete the following procedure to get the required information.
 1. Choose the **Connect** tab.
 
 1. Choose **Show default password** to obtain the Windows administrator password for your instance.  
-![The Show default password option in the Lightsail Instance Connect tab.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-01.png)
+![The Show default password option in the Lightsail Instance Connect tab.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-01.png)
 
    The prompt displays the default administrator password for your Windows instance.  
-![The default administrator password.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-default-admin-password.png)
+![The default administrator password.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-default-admin-password.png)
 
 1. Copy the administrator password. You will use it to sign in to your instance using the Microsoft Remote Desktop client later in this guide.
 
@@ -40,26 +40,26 @@ Complete the following procedure to install the Microsoft Remote Desktop client 
 1. Open the App Store on your Mac, and search for **Microsoft Remote Desktop**.
 
 1. Find the **Microsoft Remote Desktop** app in the search results, and choose **GET** to install the application.  
-![The Microsoft Remote Desktop application.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-03.png)
+![The Microsoft Remote Desktop application.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-03.png)
 
 1. Open **Microsoft Remote Desktop** after the installation is complete.
 
 1. Choose the **plus (\+)** icon, and choose **Add PC**.  
-![The Add PC option in the Microsoft Remote Desktop application.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-04.png)
+![The Add PC option in the Microsoft Remote Desktop application.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-04.png)
 
 1. In the **PC name** text box, paste the public IP address of your instance.
 
 1. Choose **Add**.  
-![The Add button.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-05.png)
+![The Add button.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-05.png)
 
 1. Right-click the icon for your instance, and choose **Connect**.  
-![The Connect option in the Microsoft Remote Desktop application.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-06.png)
+![The Connect option in the Microsoft Remote Desktop application.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-06.png)
 
 1. Enter **Administrator** into the **Username** text box, and enter the default administrator password that you got earlier in this guide into the **Password** text box.
 
 1. Choose **Continue** to connect to your instance.  
-![The Continue button.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-07.png)
+![The Continue button.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-07.png)
 
 You are now connected to your Lightsail Windows instance.
 
-![The desktop background for a Lightsail Windows instance in the Microsoft Remote Desktop application.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-08.png)
+![The desktop background for a Lightsail Windows instance in the Microsoft Remote Desktop application.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-using-remote-desktop-mac-08.png)

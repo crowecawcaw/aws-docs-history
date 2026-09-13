@@ -34,7 +34,7 @@ $ sudo grep le-cert-renewal /etc/crontab
 
 If the cron job is active, you should see output similar to the following:
 
-![Output of the grep le-cert-renewal command showing the cron job is active.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-cert-renewal-cron-status.png)
+![Output of the grep le-cert-renewal command showing the cron job is active.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-cert-renewal-cron-status.png)
 
 
 If no output is returned, the cron job is missing. Run the following command to recreate it:

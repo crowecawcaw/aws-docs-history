@@ -14,4 +14,4 @@ Complete the following procedure to disable IPv6 for instances, CDN distribution
 1. Choose the **Networking** tab in the resource's management page.
 
 1. In the **IPv6 Networking** section of the page, choose the toggle to disable IPv6 for the resource.  
-![Disable IPv6 in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-disable-ipv6.png)
+![Disable IPv6 in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-disable-ipv6.png)

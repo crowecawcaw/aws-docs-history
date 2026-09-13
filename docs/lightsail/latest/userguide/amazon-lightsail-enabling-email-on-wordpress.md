@@ -20,7 +20,7 @@ For more information, see [Using the Amazon SES SMTP Interface to Send Email](ht
 
 New Amazon Web Services (AWS) accounts that are in the Amazon SES sandbox can send email only to verified addresses and domains. If this is the case for your account, then we recommend that you verify your website’s domain, and verify the email addresses of your WordPress administrators. To get their email addresses, sign in to your WordPress website’s dashboard, and choose **Users** in the left-navigation menu. You’ll see the administrator email addresses listed in the **Email** column as shown in the following example:
 
-![Administrator email addresses in the WordPress dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-dashboard-administrators.png)
+![Administrator email addresses in the WordPress dashboard.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-dashboard-administrators.png)
 
 
 **Note**  
@@ -52,15 +52,15 @@ Creating SMTP credentials in your Amazon SES account is required to configure th
 1. From the left-navigation menu, choose **SMTP settings**.
 
    The **SMTP settings** page displays your SMTP server name, ports, and TLS setting. Note these values because you need them later in this guide when configuring the WP Mail SMTP plugin on your WordPress instance.  
-![The SMTP settings displayed in the Amazon SES console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-smtp-settings-page.png)
+![The SMTP settings displayed in the Amazon SES console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-smtp-settings-page.png)
 
 1. Choose **Create SMTP credentials**.
 
 1. In the **IAM User Name** text box, leave the default user name, then choose **Create**.  
-![IAM user name for SMTP credentials in the Amazon SES console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-iam-user-name.png)
+![IAM user name for SMTP credentials in the Amazon SES console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-iam-user-name.png)
 
 1. Choose **Show User SMTP Security Credentials** to view the SMTP username and password, or choose **Download Credentials** to download a CSV file containing the same information. You need these credentials later when configuring the WP Mail SMTP plugin on your WordPress instance.  
-![SMTP security credentials in the Amazon SES console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-smtp-security-credentials.png)
+![SMTP security credentials in the Amazon SES console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-smtp-security-credentials.png)
 **Note**  
 The credentials created in the Amazon SES console are automatically added to AWS Identity and Access Management (IAM) for your account.
 
@@ -81,7 +81,7 @@ Amazon SES requires that you verify your domain to confirm that you own it and t
 **Important**  
 Legacy TXT records  
  Domain verification in Amazon SES is now based on DomainKeys Identified Mail (DKIM), an email authentication standard that receiving mail servers use to validate an email’s authenticity. Configuring DKIM in your domain’s DNS settings confirms to SES that you’re the identity owner, eliminating the need for TXT records. Domain identities that were verified using TXT records do not need to be reverified; however, we still recommend enabling DKIM signatures to enhance the deliverability of your mail with DKIM-compliant email providers.  
-![Verify a new domain in the Amazon SES console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-verify-a-new-domain.png)
+![Verify a new domain in the Amazon SES console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-verify-a-new-domain.png)
 
 1. After you’ve created your domain identity with Easy DKIM, you must complete the verification process with DKIM authentication by copying the following generated CNAME records to publish to your domain’s DNS provider. Detection of these records can take up to 72 hours. For more information, see [Verifying a domain identity with DKIM](https://docs.aws.amazon.com/console/ses/verified-identities/verify/domain) and [Easy DKIM](https://docs.aws.amazon.com/console/ses/authentication/dkim/easy)
 
@@ -92,14 +92,14 @@ Legacy TXT records
 1. Add the DNS records from the Amazon SES console. For more information about editing a DNS zone in Lightsail, see the [Edit a DNS zone in Amazon Lightsail](amazon-lightsail-edit-or-delete-a-dns-zone.md).
 
    The result should look like the following example.  
-![Lightsail DNS zone records for Amazon SES SMTP.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-dns-zone-records.png)
+![Lightsail DNS zone records for Amazon SES SMTP.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-dns-zone-records.png)
 **Note**  
 Enter an `@` symbol in the **Subdomain** text box to use the apex of your domain for an MX record. Additionally, the MX record value provided by Amazon SES is `10 inbound-smtp.us-west-2.amazonaws.com`. Enter `10` as the **Priority** and `inbound-smtp.us-west-2.amazonaws.com` as the **Maps to** domain.
 
 1. In the [Amazon SES console](https://console.aws.amazon.com/ses/), close the **Verify a New Domain** page.
 
    After a few minutes, your domain listed in the Amazon SES console is labeled as verified and enabled for sending, as shown in the following example:  
-![Verified domains in the Amazon SES console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-verified-domains-list.png)
+![Verified domains in the Amazon SES console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-verified-domains-list.png)
 
    Your SMTP service in Amazon SES is now ready to send emails from your domain.
 
@@ -131,7 +131,7 @@ Repeat the steps 1 through 4 for every email address that you want to verify. A 
 
 1. Open the email and click the link to complete the verification process for the email address. After it's complete, the **Identity** status updates to **Verified**.
 
-![Verified email identities list in the Amazon SES console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-verified-email-identities-list.png)
+![Verified email identities list in the Amazon SES console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-amazon-ses-verified-email-identities-list.png)
 
 
 ## Step 6: Configure the WP Mail SMTP plugin on your WordPress instance
@@ -146,10 +146,10 @@ The final step is to configure the WP Mail SMTP plugin on your WordPress instanc
 1. From the left-navigation menu, choose **Plugins**, then choose **Installed Plugins**.
 
 1. Scroll down to the WP Mail SMTP plugin, then choose **Activate**. If there is a new version of the plugin, make sure to update it before continuing to the next step.  
-![The WP Mail SMTP plugin in the WordPress dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-activation.png)
+![The WP Mail SMTP plugin in the WordPress dashboard.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-activation.png)
 
 1. After the WP Mail SMTP plugin is activated, choose **Settings**. You may need to scroll back down to find the plugin.  
-![The WP Mail SMTP plugin in the WordPress dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-settings.png)
+![The WP Mail SMTP plugin in the WordPress dashboard.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-settings.png)
 
 1. In the **From Email Address** text box, enter the email address that you want emails to originate from. The email address that you enter must be confirmed in Amazon SES using the steps earlier in this guide.
 
@@ -162,7 +162,7 @@ The final step is to configure the WP Mail SMTP plugin on your WordPress instanc
 1. In the mailer section of the page, choose **Other SMTP**.
 
 1. Choose **Set the return-path to match the From Email** to have non-delivery receipts sent to the email address that you enter in the **From Email Address** text box.  
-![Configuration settings for the WP Mail SMTP plugin.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-configuration.png)
+![Configuration settings for the WP Mail SMTP plugin.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-configuration.png)
 
 1. In the **SMTP Host** text box, enter the SMTP server name that you got earlier in this guide from the **SMTP Settings** page in the Amazon SES console. 
 
@@ -171,7 +171,7 @@ The final step is to configure the WP Mail SMTP plugin on your WordPress instanc
 1. In the **SMTP Port** text box, leave the default value of **587**.
 
 1. Switch the **Authentication** toggle to **ON**, then enter the SMTP username and password that you got earlier in this guide from the Amazon SES console.  
-![SMTP settings for the WP Mail SMTP plugin.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-smtp-settings.png)
+![SMTP settings for the WP Mail SMTP plugin.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-smtp-settings.png)
 
 1. Choose **Save Settings**. A prompt appears confirming that the settings were successfully saved.
 
@@ -183,7 +183,7 @@ The final step is to configure the WP Mail SMTP plugin on your WordPress instanc
 
    There are two possible results that you should see.
    + If you see a success confirmation, then your WordPress website is enabled for email. Confirm that the following test email arrives at the specified mailbox:  
-![Test email success confirmation.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-success-confirmation.png)
+![Test email success confirmation.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-wp-mail-smtp-plugin-success-confirmation.png)
 
      You can now choose **Lost your password?** on the sign-in page for your WordPress website’s dashboard. A new password is emailed to you if the email address on your WordPress user profile is confirmed in Amazon SES.
    + If you see a failure notice, confirm that the SMTP settings that you entered into the WP Mail SMTP plugin match those of the SMTP service in your Amazon SES account. Also confirm that you are using an email address that you verified in Amazon SES.

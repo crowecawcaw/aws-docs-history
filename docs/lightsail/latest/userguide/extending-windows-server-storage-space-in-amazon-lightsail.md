@@ -13,10 +13,10 @@ This scenario happens only when you create a Windows Server instance using a sna
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
 1. On the Lightsail home page, choose the RDP client icon for the instance you want to connect to.  
-![Open the browser-based RDP client with quick connect.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-to-windows-instance-using-rdp-connection-shortcut.png)
+![Open the browser-based RDP client with quick connect.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/connect-to-windows-instance-using-rdp-connection-shortcut.png)
 
    The browser-based RDP client window opens, as shown in the following example:  
-![Browser-based RDP client in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-web-based-rdp-client.png)
+![Browser-based RDP client in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-web-based-rdp-client.png)
 
 1. On the taskbar, choose the Windows icon, then choose one of the following options:
 
@@ -29,17 +29,17 @@ This scenario happens only when you create a Windows Server instance using a sna
 1. On the **Actions** menu, choose **Rescan Disks**.
 
    You may see unallocated space associated with a disk. Extend the active volume on the disk to use the unallocated space.  
-![Unallocated disk space in Windows Disk Management](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-unallocated-space.png)
+![Unallocated disk space in Windows Disk Management](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-unallocated-space.png)
 
 1. Right-click the active volume on the same disk as the unallocated space, then choose **Extend Volume**.  
-![Extend volume in Windows Disk Management](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-extend-volume.png)
+![Extend volume in Windows Disk Management](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-extend-volume.png)
 
 1. When the Extend Volume wizard opens, choose **Next**.
 
 1. In the **Select the amount of space in MB** field, enter the number of megabytes by which to extend the volume. Normally, you set this to the maximum unallocated space. The value you enter is the amount of space that you are adding, not the final size of the volume.  
-![Select unallocated space in the Windows Extend Volume wizard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-select-unallocated-space.png)
+![Select unallocated space in the Windows Extend Volume wizard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-select-unallocated-space.png)
 
 1. Complete the Extend Volume wizard.
 
    The active volume is extended to use the unallocated space that you specified. The following example shows all of the unallocated space chosen.  
-![Allocated disk space in Windows Disk Management](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-allocated-space.png)
+![Allocated disk space in Windows Disk Management](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-windows-allocated-space.png)

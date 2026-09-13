@@ -29,7 +29,7 @@ To disable the point-in-time backups for your managed database in Lightsail, you
 
 You should see an operation response with a status of `Succeeded`. The status of your database will change to **Modifying** for a short period of time while it's being updated. When the status of your database changes back to **Available**, the point-in-time restore options will be disabled as shown in the following example.
 
-![AWS CLI command to disable point-in-time backup.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/database-disable-backup-output-cli.png)
+![AWS CLI command to disable point-in-time backup.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/database-disable-backup-output-cli.png)
 
 
 **Note**  

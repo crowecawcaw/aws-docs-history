@@ -17,7 +17,7 @@ The `TLS-2016-08` security policy is configured by default when you enable HTTPS
 
 Lightsail load balancers can be configured with the following security policies and protocols:
 
-![Supported TLS security policies](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lighstail-load-balancer-tls-protocols.png)
+![Supported TLS security policies](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lighstail-load-balancer-tls-protocols.png)
 
 
 ## Complete the prerequisites

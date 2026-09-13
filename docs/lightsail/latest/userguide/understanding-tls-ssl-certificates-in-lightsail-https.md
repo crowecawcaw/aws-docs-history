@@ -34,7 +34,7 @@ The process to use a Lightsail certificate is simple. It involves the following 
 
 1. Modify the DNS of your domain to route traffic to your Lightsail resource.
 
-![HTTPS process overview](http://docs.aws.amazon.com/lightsail/latest/userguide/images/create-certificate-process-summary.png)
+![HTTPS process overview](https://docs.aws.amazon.com/lightsail/latest/userguide/images/create-certificate-process-summary.png)
 
 
 After the certificate is attached to the resource, the traffic that is routed to that resource through the domain is encrypted using HTTPS.

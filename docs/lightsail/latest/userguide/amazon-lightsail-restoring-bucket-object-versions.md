@@ -60,7 +60,7 @@ You must install the AWS CLI and configure it for Lightsail and Amazon S3 before
    ```
 
    You should see a result similar to the following example:  
-![Result of the AWS CLI copy-object-version command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3api-copy-object-version-result.png)
+![Result of the AWS CLI copy-object-version command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3api-copy-object-version-result.png)
 
 ## Manage buckets and objects
 <a name="restoring-versions-managing-buckets-and-objects"></a>

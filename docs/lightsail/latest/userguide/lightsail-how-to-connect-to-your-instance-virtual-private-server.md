@@ -15,14 +15,14 @@ To connect to a Windows Server instance in Lightsail, see [Connect to your Windo
 
 1. Access the browser-based SSH client for the instance that you want to connect to by using any of the following:
    + Choose the quick connect icon, as shown in the following example.  
-![Open the browser-based SSH client with quick connect.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-quick-connect-to-your-instance-button.png)
+![Open the browser-based SSH client with quick connect.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-quick-connect-to-your-instance-button.png)
    + Choose the actions menu icon (⋮), then choose **Connect**.  
-![Open the browser-based SSH client with the actions menu.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-linux-2023-instance-home-connect.png)
+![Open the browser-based SSH client with the actions menu.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-linux-2023-instance-home-connect.png)
    + Choose the name of the instance, and on the **Connect** tab, choose **Connect using SSH**.  
-![Open the browser-based SSH client through the Connect tab.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-using-ssh-button.png)
+![Open the browser-based SSH client through the Connect tab.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-using-ssh-button.png)
 
    You can start interacting with your instance when the browser-based SSH client opens, and a terminal screen is displayed as shown in the following example:  
-![Browser-based SSH client in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-web-based-ssh-terminal.png)
+![Browser-based SSH client in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-web-based-ssh-terminal.png)
 **Note**  
 The **Connect** tab also provides the information required to connect using your own SSH client. For more information, see [Download and set up PuTTY](lightsail-how-to-set-up-putty-to-connect-using-ssh.md)
 
@@ -40,7 +40,7 @@ Type Linux or Unix commands directly into the terminal screen, paste text into t
 1. Click into the text box, then press **Ctrl\+V** or **Cmd\+V** to paste the contents from your local clipboard into the browser-based SSH client clipboard.
 
 1. Right-click any area on the SSH terminal screen to paste the text from the browser-based SSH client clipboard to the terminal screen.  
-![Paste text into the browser-based SSH client in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/animated-gif-lightsail-paste-into-browser-terminal.gif)
+![Paste text into the browser-based SSH client in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/animated-gif-lightsail-paste-into-browser-terminal.gif)
 
 **To copy text from the browser-based SSH client**
 
@@ -49,4 +49,4 @@ Type Linux or Unix commands directly into the terminal screen, paste text into t
 1. Choose the clipboard icon in the browser-based SSH client. The browser-based SSH client clipboard text box appears.
 
 1. Highlight the text that you want to copy, then press **Ctrl\+C** or **Cmd\+C** to copy the text to your local clipboard. You can now paste the copied text anywhere in your local desktop.  
-![Copy text from the browser-based SSH client in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/animated-gif-lightsail-copy-from-browser-terminal.gif)
+![Copy text from the browser-based SSH client in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/animated-gif-lightsail-copy-from-browser-terminal.gif)

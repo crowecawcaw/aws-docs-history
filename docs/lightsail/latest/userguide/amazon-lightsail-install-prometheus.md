@@ -36,7 +36,7 @@ These user accounts are created for the sole purpose of management and therefore
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
 1. On your instance management page, under the **Connect** tab, choose **Connect using SSH**.  
-![Connect using SSH in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
+![Connect using SSH in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-connect-to-your-instance.png)
 
 1. After you're connected, enter the following commands one by one to create two Linux user accounts, `prometheus` and `exporter`.
 
@@ -70,10 +70,10 @@ Complete the following procedure to download the Prometheus binary packages to y
 1. Open a web browser on your local computer and browse to the [Prometheus downloads page](https://prometheus.io/download/).
 
 1. At the top of the page, for the **Operating system** dropdown, select **linux**. For **Architecture**, select **amd64**.  
-![Select download filters for Prometheus](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-download-filters.png)
+![Select download filters for Prometheus](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-download-filters.png)
 
 1. Choose or right-click the **Prometheus** download link that appears, and copy the link address to a text file on your computer. Do the same for the **node\_exporter** download link that appears. You will use both copied addresses later in this procedure.  
-![Copy download link for Prometheus](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-copy-download-link.png)
+![Copy download link for Prometheus](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-copy-download-link.png)
 
 1. Connect to your Lightsail instance using SSH.
 
@@ -200,7 +200,7 @@ Complete the following procedure to configure Prometheus. In this procedure, you
    + `scrape_interval` — Located under the `global` header, this parameter defines the time interval (in seconds) for how often Prometheus will collect or *scrape* metric data for a given target. As indicated by the `global` tag, this setting is universal for all resources that Prometheus monitors. This setting also applies for exporters, unless an individual exporter provides a different value that overrides the global value. You can keep this parameter set to its current value of 15 seconds.
    + `job_name` — Located under the `scrape_configs` header, this parameter is a label that identifies exporters in the result set of a data query or visual display. You can specify the value of a job name to best reflect the resources that are being monitored in your environment. For example, you can label a job for managing a website as `business-web-app`, or you can label a database as `mysql-db-1`. In this initial setup, you are only monitoring the Prometheus server, so you can keep the current `prometheus` value.
    + `targets` — Located under the `static_configs` header, the `targets` setting uses an `ip_addr:port` key-value pair to identify the location where a given exporter is running. You will change the default setting in steps 4–7 of this procedure.  
-![Prometheus YAML file](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-yaml-file.png)
+![Prometheus YAML file](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-yaml-file.png)
 **Note**  
 For this initial setup, you don't need to configure the `alerting` and `rule_files` parameters.
 
@@ -209,7 +209,7 @@ For this initial setup, you don't need to configure the `alerting` and `rule_fil
 1. Scroll and find the `targets` parameter located under the `static_configs` header.
 
 1. Change the default setting to `{{<ip_addr>}}:9090`. Replace `{{<ip_addr>}}` with the static IP address of the instance. The modified parameter should look like the following example.  
-![Prometheus YAML file modified static_configs parameter](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-static-configs.png)
+![Prometheus YAML file modified static_configs parameter](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-static-configs.png)
 
 1. Press the **Esc** key to exit insert mode, and type **:wq\!** to save your changes and quit Vim.
 
@@ -233,7 +233,7 @@ Complete the following procedure to start the Prometheus service on your instanc
    ```
 
    The command line outputs details on the startup process and other services. It should also indicate that the service is listening on port 9090.  
-![Prometheus start output](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-start-output.png)
+![Prometheus start output](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-start-output.png)
 
    If the service doesn't start, see the [Step 1: Complete the prerequisites](#prometheus-prerequisites) section of this tutorial for information about creating instance firewall rules to allow traffic on this port. For other errors, review the `prometheus.yml` file to confirm that there are no syntax errors.
 
@@ -290,7 +290,7 @@ Complete the following procedure to start the Prometheus service on your instanc
    ```
 
    If the service launched properly, you receive an output similar to the following example.  
-![Prometheus status output](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-status-output.png)
+![Prometheus status output](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-status-output.png)
 
 1. Press **Q** to exit the status command.
 
@@ -307,7 +307,7 @@ Complete the following procedure to start the Prometheus service on your instanc
    ```
 
    Replace {{<ip\_addr>}} with the static IP address of your Lightsail instance. You should see a dashboard similar to the following example.  
-![The Prometheus dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-dashboard.png)
+![The Prometheus dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-dashboard.png)
 
 ## Step 6: Start Node Exporter
 <a name="prometheus-start-node-exporter"></a>
@@ -368,7 +368,7 @@ These instructions disable default machine metrics for Node Exporter. For a comp
    ```
 
    If the service launched successfully, you receive an output similar to the following example.  
-![Node exporter status output](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-status-node-exporter.png)
+![Node exporter status output](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-status-node-exporter.png)
 
 1. Press **Q** to exit the status command.
 
@@ -403,7 +403,7 @@ Complete the following procedure to configure Prometheus with the Node Exporter 
    ```
 
    The modified parameter in the `prometheus.yml` file should look like the following example.  
-![Static configuration for Node Exporter](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-node_exporter-static-configs.png)
+![Static configuration for Node Exporter](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-node_exporter-static-configs.png)
 
    Note the following:
    + Node Exporter listens to port 9100 for the `prometheus` server to scrape the data. Confirm that you followed the steps for creating instance firewall rules as outlined in the [Step 1: Complete the prerequisites](#prometheus-prerequisites) section of this tutorial.
@@ -424,7 +424,7 @@ Complete the following procedure to configure Prometheus with the Node Exporter 
    ```
 
    If the service restarted properly, you receive output similar to the following.  
-![Prometheus status output](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-status-output2.png)
+![Prometheus status output](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-status-output2.png)
 
 1. Press **Q** to exit the status command.
 
@@ -435,14 +435,14 @@ Complete the following procedure to configure Prometheus with the Node Exporter 
    ```
 
    Replace {{<ip\_addr>}} with the static IP address of your Lightsail instance. You should see a dashboard similar to the following example.  
-![The Prometheus dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-dashboard2.png)
+![The Prometheus dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-dashboard2.png)
 
 1. In the main menu, choose the **Status** dropdown and select **Targets**.  
-![Targets menu option on the Prometheus dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-dashboard-targets.png)
+![Targets menu option on the Prometheus dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-dashboard-targets.png)
 
 On the next screen, you should see two targets. The first target is for the **node\_exporter** metrics collector job, and the second target is for the **prometheus** job.
 
-![Targets on the Prometheus dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-dashboard-targets2.png)
+![Targets on the Prometheus dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-prometheus-dashboard-targets2.png)
 
 
 The environment is now properly set up for collecting metrics and monitoring the server.

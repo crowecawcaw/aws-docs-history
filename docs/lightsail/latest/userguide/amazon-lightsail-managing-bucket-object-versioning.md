@@ -25,7 +25,7 @@ The versioning state applies to all (not some) of the objects in that bucket. Wh
 
 If you enable versioning for a bucket, the Lightsail object storage service automatically generates a unique version ID for the object that is being stored. For example, in one bucket you can have two objects with the same key but different version IDs, such as `photo.gif` (version 111111) and `photo.gif` (version 121212).
 
-![Bucket versioning enabled](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-versioning-versioning-enabled.png)
+![Bucket versioning enabled](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bucket-versioning-versioning-enabled.png)
 
 
 Version IDs cannot be edited. They are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long. The following is an example of a version ID:
@@ -80,7 +80,7 @@ You must install the AWS CLI and configure it for Lightsail and Amazon S3 before
    ```
 
    You should see a result similar to the following example:  
-![Response to the update bucket request](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-update-bucket-objects-versioning-cli.png)
+![Response to the update bucket request](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-update-bucket-objects-versioning-cli.png)
 
 ## Manage buckets and objects
 <a name="versioning-managing-buckets-and-objects"></a>

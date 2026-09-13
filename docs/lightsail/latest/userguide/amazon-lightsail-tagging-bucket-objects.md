@@ -76,7 +76,7 @@ You must install the AWS CLI and configure it for Lightsail and Amazon S3 before
    ```
 
    You should see a result similar to the following example:  
-![Result of the AWS CLI put-object-tagging command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3api-put-object-tagging-result.png)
+![Result of the AWS CLI put-object-tagging command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3api-put-object-tagging-result.png)
 
 ## Manage buckets and objects
 <a name="tagging-objects-managing-buckets-and-objects"></a>

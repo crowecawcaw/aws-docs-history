@@ -37,12 +37,12 @@ Your database may become unavailable during maintenance or backup operations. Th
    ```
 
    You should see a result similar to the following example:  
-![The get-relational-databases response.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-database-get-relational-databases-reponse.png)
+![The get-relational-databases response.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-database-get-relational-databases-reponse.png)
 **Note**  
 If the database that you want to modify is not listed, confirm that your AWS CLI is configured for the AWS Region where the database is located. For more information, see [Configure the AWS CLI](lightsail-how-to-set-up-and-configure-aws-cli.md).
 
 1. Highlight the name of the database that you want to modify and press **Ctrl\+C** if you’re using Windows, or **Cmd\+C** if you’re using macOS, to copy it to your clipboard so that you can use it in the next step.  
-![Copy the database name.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-copy-database-name-cli.png)
+![Copy the database name.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-copy-database-name-cli.png)
 
 1. Enter one of the following commands depending on the preferred window that you are changing.
    + Enter the following command to change the database maintenance window.
@@ -81,7 +81,7 @@ If the database that you want to modify is not listed, confirm that your AWS CLI
      ```
 
    You should see a result similar to the following example:  
-![Database preferred maintenance window update result.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-update-database-preferred-maintenance-window-response.png)
+![Database preferred maintenance window update result.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-update-database-preferred-maintenance-window-response.png)
 
 ## Next steps
 <a name="changing-preferred-maintenance-and-backup-windows-next-steps"></a>

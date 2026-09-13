@@ -8,7 +8,7 @@
 
 The CPU overview page in the Lightsail console displays your instance's CPU utilization in comparison to its available CPU burst capacity. In the following CPU overview example, the CPU burst capacity percentage has increased because the instance has continuously operated below its baseline in the sustainable zone.
 
-![CPU overview page in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-overview-page.png)
+![CPU overview page in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-overview-page.png)
 
 
 The remaining CPU burst capacity graph view can be switched between CPU burst capacity percentage and minutes. Your instance consumes more CPU burst capacity when operating in the bursting zone. The CPU burst capacity minutes metric is the amount of time available for your instance to burst at 100% CPU utilization, It is consumed at the same rate as your instance's current CPU utilization percentage when operating in the burstable zone. For example, a Linux or Unix-based $7 USD/month instance has a CPU utilization baseline of 10%, and accrues 6 minutes of CPU burst capacity minutes per hour. Therefore, if the instance operates at:

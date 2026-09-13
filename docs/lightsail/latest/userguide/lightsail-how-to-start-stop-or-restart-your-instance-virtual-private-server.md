@@ -5,7 +5,7 @@
 
 When Amazon Lightsail creates your instance, your machine goes into a **Pending** state before it starts **Running**. After your instance is running, you can reboot it or stop and then start it. The cycle looks like this:
 
-![Instance states](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-state-cycle.png)
+![Instance states](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-state-cycle.png)
 
 
 You can see the instance state when you manage your instance or view your instance on the home page.
@@ -16,7 +16,7 @@ The default public IPv4 address that is assigned to your instance when you creat
 ## Reboot your instance while it's running
 <a name="lightsail-instance-restart"></a>
 + On the home page, choose the instance you want to reboot, or choose **Reboot** from the manage instance menu.  
-![Reboot your instance from the manage instance menu](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-restart-instance-from-manage-instance-menu.png)
+![Reboot your instance from the manage instance menu](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-restart-instance-from-manage-instance-menu.png)
 
   If you're viewing your instance from the instance management page, choose **Reboot**, and then choose **Confirm** when prompted.
 **Note**  
@@ -25,7 +25,7 @@ To **Reboot** your instance, it must be in a **Running** state.
 ## Stop a running instance
 <a name="lightsail-instance-stop"></a>
 + On the home page, choose the instance you want to stop, or choose **Stop** from the manage instance menu.  
-![Stop your instance from the manage instance menu](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-stop-instance-from-manage-instance-menu.png)
+![Stop your instance from the manage instance menu](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-stop-instance-from-manage-instance-menu.png)
 
   If you're viewing your instance from the instance management page, choose **Stop**, and then choose **Confirm** when prompted.
 **Note**  
@@ -34,7 +34,7 @@ To **Stop** your instance, it must be in a **Running** state.
 ## Start your instance after it's stopped
 <a name="lightsail-instance-start"></a>
 + On the home page, choose the instance you want to start, or choose **Start** from the manage instance menu.  
-![Start your instance from the manage instance menu](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-start-instance-from-manage-instance-menu.png)
+![Start your instance from the manage instance menu](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-start-instance-from-manage-instance-menu.png)
 
   If you're viewing your instance from the instance management page, choose **Start**.
 **Note**  

@@ -11,7 +11,7 @@ Creating a Lightsail WordPress instance only takes a few minutes. Follow this tu
 
 Here's a quick overview of the process:
 
-![Overview of the process to convert your existing WordPress blog to Amazon Lightsail](http://docs.aws.amazon.com/lightsail/latest/userguide/images/steps-for-migrating-your-existing-wordpress-blog-to-amazon-lightsail.png)
+![Overview of the process to convert your existing WordPress blog to Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/images/steps-for-migrating-your-existing-wordpress-blog-to-amazon-lightsail.png)
 
 
 Continue reading to get started.
@@ -39,7 +39,7 @@ You can use WordPress to back up your existing blog. You will just need to be ab
 1. On the WordPress **Dashboard**, choose **Tools**, and then choose **Export**.
 
 1. On the **Export** page, choose **All content** to export everything as an XML file.  
-![Export your WordPress blog using the export tools](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-blog-export-file.png)
+![Export your WordPress blog using the export tools](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-blog-export-file.png)
 
 1. Choose **Download export file** to download your old blog as an XML file.
 
@@ -59,7 +59,7 @@ You can create a new WordPress instance in Lightsail in just a few minutes. Here
    You can choose the default Availability Zone or change that once you select an AWS Region.
 
 1. Select a **WordPress** blueprint.  
-![Pick WordPress as your Lightsail instance image](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-pick-your-instance-image.png)
+![Pick WordPress as your Lightsail instance image](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-pick-your-instance-image.png)
 
 1. Select **Lightsail** as the **Blueprint provider**.
 
@@ -78,10 +78,10 @@ You can create a new WordPress instance in Lightsail in just a few minutes. Here
 1. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For more information on tag usage, see [Tags](amazon-lightsail-tags.md).
 
    1. For **Key**, enter a tag key.  
-![A tag with only the tag key specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
+![A tag with only the tag key specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-only-tags.png)
 
    1. (Optional) For **Value**, enter a tag value.  
-![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
+![A tag with the tag key and tag value specified in the Lightsail create instance workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-instance-key-name-and-value-tags.png)
 
 1. Choose **Create instance**.
 
@@ -95,14 +95,14 @@ Now that you have a new blog in Lightsail, you will need to access the WordPress
 1. Open the instance management page for your WordPress instance.
 
 1. On the **WordPress** panel, choose **Retrieve default password**. This expands **Access default password** at the bottom of the page.  
-![Accessing WordPress admin password in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-retrieve-password.png)
+![Accessing WordPress admin password in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-retrieve-password.png)
 
 1. Choose **Launch CloudShell**. This opens a panel at the bottom of the page.
 
 1. Choose **Copy** and then paste the contents into the CloudShell window. You can either put your cursor at the CloudShell prompt and press Ctrl\+V, or you can right-click to open the menu and then choose **Paste**.
 
 1. Make a note of the password displayed in the CloudShell window. You need this to sign in to the administration dashboard of your WordPress website.  
-![Viewing WordPress admin password in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/amazon-wordpress-lightsail-viewing-admin-password.png)
+![Viewing WordPress admin password in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/amazon-wordpress-lightsail-viewing-admin-password.png)
 
 Now that you have the password for the administration dashboard of your WordPress website, you can sign in. In the administration dashboard, you can change your user password, install plugins, change the theme of your website, and more.
 
@@ -123,10 +123,10 @@ Complete the following steps to sign in to the administration dashboard of your 
 1. For **Password**, enter the password obtained in the previous step.
 
 1. Choose **Log in**.  
-![Launching and configuring WordPress in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-07.png)
+![Launching and configuring WordPress in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-07.png)
 
    You are now signed in to the administration dashboard of your WordPress website where you can perform administrative actions. For more information about administering your WordPress website, see the [WordPress Codex](https://codex.wordpress.org/) in the WordPress documentation.  
-![Launching and configuring WordPress in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-08.png)
+![Launching and configuring WordPress in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-08.png)
 
 ## Step 4: Import your XML file into your new Lightsail blog
 <a name="migrate-wordpress-blog-in-wordpress"></a>
@@ -136,7 +136,7 @@ Once you have successfully logged into the WordPress Dashboard on your new Light
 1. From the WordPress **Dashboard** on your new Lightsail instance, choose **Tools**.
 
 1. Choose **Import**, and then choose **Install Now** to install the WordPress import tool.  
-![Install the Import tool in the WordPress Dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-dashboard-install-import-tool.png)
+![Install the Import tool in the WordPress Dashboard](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-dashboard-install-import-tool.png)
 
 1. Once the tool is done installing, choose **Run Importer** to run the import tool.
 

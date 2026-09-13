@@ -78,7 +78,7 @@ Snapshots are exported to the same AWS Region from Lightsail to Amazon EC2. To e
 1. Locate the instance or block storage disk that you want to export, and expand the node to view the available snapshots for that resource. 
 
 1. Choose the **Action** menu for the desired snapshot, then choose **Export to Amazon EC2**.  
-![Export snapshot in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-action-menu-export-snapshot.png)
+![Export snapshot in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-action-menu-export-snapshot.png)
 **Note**  
 Snapshots of cPanel & WHM (CentOS 7) instances cannot be exported to Amazon EC2.
 

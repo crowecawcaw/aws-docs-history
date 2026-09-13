@@ -21,7 +21,7 @@ Complete the following procedure to download objects from a bucket using the Lig
 1. Add a check mark next to the object that you want to download.
 
 1. In the **Object information** pane, choose the download icon.  
-![Download icon for an object in a bucket](http://docs.aws.amazon.com/lightsail/latest/userguide/images/bucket-object-download-icon.png)
+![Download icon for an object in a bucket](https://docs.aws.amazon.com/lightsail/latest/userguide/images/bucket-object-download-icon.png)
 
    Depending on the configuration of your browser, the file that you chose is either displayed on the page or is downloaded to your computer. If the file is displayed on the page, you can right-click it and choose **Save as** to save it to your computer.
 
@@ -53,7 +53,7 @@ You must install the AWS CLI and configure it for Lightsail and Amazon S3 before
    ```
 
    You should see a result similar to the following example:  
-![Result of the AWS CLI download-object command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3api-download-object-result.png)
+![Result of the AWS CLI download-object command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3api-download-object-result.png)
 
 ## Manage buckets and objects
 <a name="downloading-objects-managing-buckets-and-objects"></a>

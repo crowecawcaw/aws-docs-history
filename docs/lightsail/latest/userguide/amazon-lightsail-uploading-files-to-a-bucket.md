@@ -76,7 +76,7 @@ You must install the AWS CLI and configure it for Lightsail and Amazon S3 before
      ```
 
    You should see a result similar to the following example:  
-![Result of the AWS CLI put-object command](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3api-put-object-result.png)
+![Result of the AWS CLI put-object command](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-s3api-put-object-result.png)
 
 ## Configure the AWS CLI for IPv6-only requests
 <a name="uploading-files-over-ipv6-only"></a>

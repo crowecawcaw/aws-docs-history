@@ -16,7 +16,7 @@ In the following diagram:
 + 2 represents your distribution, or the edge locations that pull, cache, and serve content from your origin.
 + 3 represents your users who are served content from the edge locations.
 
-![Lightsail distribution diagram](http://docs.aws.amazon.com/lightsail/latest/userguide/images/distribution-diagram.png)
+![Lightsail distribution diagram](https://docs.aws.amazon.com/lightsail/latest/userguide/images/distribution-diagram.png)
 
 
 **Note**  
@@ -28,7 +28,7 @@ When your visitor isn't nearby, things get a little difficult.
 
 If a person from Australia wants to view your content, the browser will have to fetch it from a server that is located in France and then show it to that user thousands of miles away. If users from different countries request the same content at the same time, the server becomes clogged with requests and takes longer to load and serve the content. This affects the speed at which the content loads for the end user.
 
-![Lightsail distribution example](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-use-cases.png)
+![Lightsail distribution example](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-use-cases.png)
 
 
 A CDN resolves this situation by caching your website content at edge locations. This method of serving content is faster and more efficient than the traditional method of serving content from one central resource. When a viewer makes a request on your website or through your application, DNS routes the request to the location that can best serve the user’s request. Your users access your content from locations that are nearby, as opposed to all of your users accessing the same central resource that may be far away.
@@ -44,6 +44,9 @@ Strengthen your website and increase its performance by taking advantage of TLS 
 
 **Application optimization**  
 Easily optimize your distributions for a variety of applications, including WordPress and static websites. Using a distribution to cache and serve your content also reduces the load on your origin, because most requests are served by your distribution and not your instance, container service, load balancer, or bucket.
+
+**Did you know?**  
+ You can host a static website on Lightsail using a bucket and a distribution. For more information, see [ Host a static website using an Amazon Lightsail bucket and distribution ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-static-site-hosting-tutorial.html) . 
 
 ## Configure your distribution
 <a name="configure-distribution"></a>

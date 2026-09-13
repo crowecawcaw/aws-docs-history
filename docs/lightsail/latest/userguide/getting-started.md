@@ -61,13 +61,13 @@ Within minutes, your Lightsail instance is ready and you can connect to it.
 <a name="getting-started-step3"></a>
 
 1. From the Lightsail home page, choose the actions menu icon (⋮), then choose **Connect**.  
-![Animation showing how to connect to an instance from the Lightsail console home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/animation_connect_instance.gif)
+![Animation showing how to connect to an instance from the Lightsail console home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/animation_connect_instance.gif)
 
    Alternatively, you can connect from your instance's management page. Select your instance's name, choose the **Connect** tab, then choose **Connect using SSH**.  
-![Image showing how to connect to your instance from the instance's management page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance-from-instance-management-page.png)
+![Image showing how to connect to your instance from the instance's management page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance-from-instance-management-page.png)
 
 1. You can now type commands into the terminal and manage your Lightsail instance without setting up an SSH client.  
-![Browser-based SSH terminal in Amazon Lightsail](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
+![Browser-based SSH terminal in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
 
 To learn how to connect to add additional storage to your virtual computer, continue to the next step of this tutorial.
 
@@ -108,7 +108,7 @@ Deleting a Lightsail resource is a permanent action. The deleted data cannot be 
 1. Choose **Instances** in the navigation pane.
 
 1. For the instance you want to delete, choose the actions menu icon (⋮), then choose **Delete**.  
-![Animation showing how to delete an instance from the Lightsail console home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/animation_delete_instance.gif)
+![Animation showing how to delete an instance from the Lightsail console home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/animation_delete_instance.gif)
 
 1. Choose **Yes, delete** to confirm the deletion.
 

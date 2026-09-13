@@ -35,13 +35,13 @@ You have several options for getting your private key. You might want to use the
 1. On the Lightsail home page, choose your user or role on the top navigation menu.
 
 1. Choose **Account** in the dropdown menu.  
-![Lightsail account tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
+![Lightsail account tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-console-account-menu.png)
 
 1. Choose the **SSH Keys** tab.
 
 1. Choose one of the following options depending on which private key you prefer to use:
    + **To use the default private key that Lightsail generates**, in the **Default keys** section of the page, choose the download icon next to the default private key for the AWS Region where your instance is located.  
-![SSH key pairs in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-download-default-key.png)
+![SSH key pairs in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/managing-key-pairs-download-default-key.png)
    + **To create a new key pair in Lightsail**, in the **Custom keys** section of the page, choose **Create key pair**. Choose the AWS Region where your instance is located, and choose **Create**. Enter a name, and choose **Generate key pair**. You will be given the option to download the private key.
 **Important**  
 You can only download the private key once. Save it in a secured location.
@@ -90,21 +90,25 @@ You're almost there\! Hang on while we make one last change.
 Port 22 is already open for SSH on your Lightsail instance, so accept the default port.
 
 1. Under **Connection**, expand **SSH** and **Auth**, and then choose **Credentials**.  
-![PuTTY and the SSH Auth-Credentials option in the configuration dialog](http://docs.aws.amazon.com/lightsail/latest/userguide/images/putty-configuration-connection-ssh-auth.png)
+![PuTTY and the SSH Auth-Credentials option in the configuration dialog](https://docs.aws.amazon.com/lightsail/latest/userguide/images/putty-configuration-connection-ssh-auth.png)
 
 1. Choose **Browse** to navigate to the `.ppk` file that you created in the previous step, and then choose **Open**.
 
 1. Choose **Open** again, and then choose **Accept** to trust this connection in the future.
 
-1. Log in using one of the following default user names depending on your instance operating system:
+1. Log in using one of the following default user names depending on the blueprint of your instance:
    + AlmaLinux, Amazon Linux 2, Amazon Linux 2023, CentOS Stream 9, FreeBSD, and openSUSE instances: `ec2-user`
    + Debian instances: `admin`
    + Ubuntu instances: `ubuntu`
    + Bitnami instances: `bitnami`
+   + Lightsail packaged versions of WordPress, Nginx, WordPress Multisite, LAMP, Node.js instances: `admin`
+   + Ruby on Rails instances: `ec2-user`
+   + OpenClaw instances: `ubuntu`
    + Plesk instances: `ubuntu`
-   + cPanel & WHM instances: `centos`
+   + cPanel & WHM (AlmaLinux) instances: `ec2-user`
+   + cPanel & WHM (CentOS 7) instances: `centos`
 
-   For more information about instance operating systems, see [Choose an image](compare-options-choose-lightsail-instance-image.md).
+   For more information about instance blueprints (operating systems and application stacks), see [Choose an image](compare-options-choose-lightsail-instance-image.md).
 
 1. Be sure to save your connection for future use.
 

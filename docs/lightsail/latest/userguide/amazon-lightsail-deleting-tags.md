@@ -19,11 +19,11 @@ Instances, container services, CDN distributions, buckets, databases, disks, DNS
 1. Choose the resource that you want to delete tags from.
 
 1. On the management page for the resource you selected, choose the **Tags** tab.  
-![Tags tab in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-tags-tab-with-examples.png)
+![Tags tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-tags-tab-with-examples.png)
 
 1. Choose **Manage tags**.
 
 1. Choose **Remove** for the tags that you want to delete from the resource.
 
 1. Choose **Save** to delete the selected tags from the resource, or choose **Cancel** to keep them.  
-![Deleting a tag in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-delete-tag.png)
+![Deleting a tag in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-delete-tag.png)

@@ -55,7 +55,7 @@ You must install the AWS CLI and configure it for Lightsail before continuing wi
    In the example, {{amzn-s3-demo-bucket1}} is the source bucket for which access logs will be created, {{amzn-s3-demo-bucket2}} is the destination bucket where the access logs will be saved, and {{logs/amzn-s3-demo-bucket1/}} is the object key name prefix for the access logs.
 
    You should see a result similar to the following example after running the command. The source bucket is updated, and the access logs should begin generating and being stored on the destination bucket.  
-![Access logging for a bucket enabled](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-enable-access-logging-for-a-bucket.png)
+![Access logging for a bucket enabled](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-enable-access-logging-for-a-bucket.png)
 
 ## Disabling access logging using the AWS CLI
 <a name="disabling-access-logging"></a>
@@ -82,4 +82,4 @@ You must install the AWS CLI and configure it for Lightsail before continuing wi
    ```
 
    You should see a result similar to the following example after running the command.  
-![Access logging for a bucket disabled](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-disable-access-logging-for-a-bucket.png)
+![Access logging for a bucket disabled](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-disable-access-logging-for-a-bucket.png)

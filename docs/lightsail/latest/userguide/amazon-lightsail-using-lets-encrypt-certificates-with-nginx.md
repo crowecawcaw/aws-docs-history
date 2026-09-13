@@ -37,7 +37,7 @@ Certbot is a client used to request a certificate from Let's Encrypt and deploy 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
 1. On the Instances tab of the Lightsail home page, choose the SSH quick connect icon for the instance that you want to connect to.  
-![SSH quick connect on the Lightsail home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/resource_cards/ssh-quick-connect.png)
+![SSH quick connect on the Lightsail home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/resource_cards/ssh-quick-connect.png)
 
 1. After your Lightsail browser-based SSH session is connected, enter the following command to update the packages on your instance:
 
@@ -95,7 +95,7 @@ Begin the process of requesting a certificate from Let's Encrypt. Using Certbot,
    ```
 
    You should see a result similar to the following:  
-![Confirm the domain environment variables.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/confirm-domain-and-wildcard-variables.png)
+![Confirm the domain environment variables.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/confirm-domain-and-wildcard-variables.png)
 
 1. Enter the following command to start Certbot in interactive mode. This command tells Certbot to use a manual authorization method with DNS challenges to verify domain ownership. It requests a wildcard certificate for your top-level domain, as well as its subdomains.
 
@@ -112,7 +112,7 @@ Begin the process of requesting a certificate from Let's Encrypt. Using Certbot,
 1. Let's Encrypt now prompts you to verify that you own the domain specified. You do this by adding TXT records to the DNS records for your domain. A set of TXT record values are provided as shown in the following example:
 **Note**  
 Let's Encrypt may provide a single or multiple TXT records that you must use for verification. In this example, we were provided with two TXT records to use for verification.  
-![TXT records for Let's Encrypt certificates.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/get-TXT-records.png)
+![TXT records for Let's Encrypt certificates.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/get-TXT-records.png)
 
 ## Step 4: Add TXT records to your domain’s DNS zone
 <a name="add-a-text-record-to-your-domains-dns-zone-lets-encrypt"></a>
@@ -164,13 +164,13 @@ Let's Encrypt may provide a single or multiple TXT records that you must use for
    ```
    _acme-challenge.{{example.com}}
    ```  
-![MxToolbox TXT record lookup.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-text-record-lookup.png)
+![MxToolbox TXT record lookup.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-text-record-lookup.png)
 
 1. Choose **TXT Lookup** to run the check.
 
 1. One of the following responses occurs:
    +  If your TXT records have propagated to the Internet’s DNS, you see a response similar to the one shown in the following screenshot. Close the browser window and continue to the [next section](#complete-the-lets-encrypt-certificate-request) of this tutorial.   
-![Confirmation that TXT records propagated.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
+![Confirmation that TXT records propagated.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
    +  If your TXT records have not propagated to the Internet’s DNS, you see a **DNS Record not found** response. Confirm that you added the correct DNS records to your domains’ DNS zone. If you added the correct records, wait a while longer to let your domain’s DNS records propagate, and run the TXT lookup again. 
 
 ## Step 6: Complete the Let’s Encrypt SSL certificate request
@@ -181,12 +181,12 @@ Let's Encrypt may provide a single or multiple TXT records that you must use for
 **To complete the Let’s Encrypt SSL certificate request**
 
 1.  In the Lightsail browser-based SSH session for your instance, press **Enter** to continue your Let’s Encrypt SSL certificate request. If successful, a response similar to the one shown in the following screenshot appears:   
-![Successful Let’s Encrypt certificate request.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/certificate-request-success.png)
+![Successful Let’s Encrypt certificate request.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/certificate-request-success.png)
 
     The message confirms that your certificate, chain, and key files are stored in the `/etc/letsencrypt/live/{{domain}}/` directory. Make sure to replace `{{domain}}` with your domain, such as `/etc/letsencrypt/live/{{example.com}}/`. 
 
 1.  Make note of the expiration date specified in the message. You use it to renew your certificate by that date.   
-![Let’s Encrypt certificate renewal date.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/certificate-renewal-date.png)
+![Let’s Encrypt certificate renewal date.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/certificate-renewal-date.png)
 
 ## Step 7: Update SSL configuration in Nginx and redirect traffic from HTTP to HTTPS
 <a name="update-ssl-configuration"></a>
@@ -202,7 +202,7 @@ Let's Encrypt may provide a single or multiple TXT records that you must use for
    ```
 
    You should see a response similar to the following:  
-![Nginx instance services stopped.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/nginx-stop-services.png)
+![Nginx instance services stopped.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/nginx-stop-services.png)
 
 1.  Enter the following command to set an environment variable for your domain. You can more efficiently copy and paste commands to link the certificate files. Be sure to replace `{{domain}}` with the name of your registered domain. 
 
@@ -223,7 +223,7 @@ Let's Encrypt may provide a single or multiple TXT records that you must use for
    ```
 
    You should see a result similar to the following:  
-![Confirm the domain environment variable.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/confirm-domain-variable.png)
+![Confirm the domain environment variable.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/confirm-domain-variable.png)
 
 1. Run the command below to change the SSL configuration:
 **Note**  
@@ -246,7 +246,7 @@ If you closed your browser-based SSH terminal window since setting the `DOMAIN` 
    ```
 
    You should see a result similar to the following:  
-![Nginx instance services started.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/nginx-start-services.png)
+![Nginx instance services started.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/lets-encrypt/nginx-start-services.png)
 
     Your Nginx instance is now configured to use SSL encryption and traffic is redirected from HTTP to HTTPS 
 

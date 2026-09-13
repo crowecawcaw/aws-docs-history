@@ -9,7 +9,7 @@ With Amazon Lightsail, you can assign labels to your resources as tags. Each tag
 
 A key without a value is referred to as a key-only tag in Lightsail. A key with a value is referred to as a key-value tag. The following diagram illustrates how tagging works. In this example, each resource has a set of key-value and key-only tags. The key-value tags identify projects and priorities, and key-only tags identify customers and application versions.
 
-![Tagging in Amazon Lightsail](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-tags.png)
+![Tagging in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-tags.png)
 
 
 ## Use tags to organize billing and control access

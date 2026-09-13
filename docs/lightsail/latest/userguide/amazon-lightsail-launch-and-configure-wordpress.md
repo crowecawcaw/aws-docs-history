@@ -25,10 +25,10 @@ Complete the following steps to get your WordPress instance up and running. For 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
 1. On the **Instances** section of the Lightsail home page, choose **Create instance**.  
-![Launching WordPress in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-01.png)
+![Launching WordPress in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-01.png)
 
 1. Choose the AWS Region and Availability Zone for your instance.  
-![Launching WordPress in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/create-instance-select-region-az.png)
+![Launching WordPress in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/create-instance-select-region-az.png)
 
 1. Choose the image for your instance as follows:
 
@@ -72,7 +72,7 @@ While setup is in progress, do not stop or make changes to your instance. It can
 **To configure your instance using the website setup wizard**
 
 1. On the instance management page, on the **Connect** tab, choose **Set up your website**.  
-![Launching WordPress setup in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-gf-01.png)
+![Launching WordPress setup in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-gf-01.png)
 
 1. For **Specify a domain name**, use an existing Lightsail managed domain, register a new domain with Lightsail, or use a domain that you registered by using another domain registrar. Choose **Use this domain** to go to the next step.
 
@@ -102,14 +102,14 @@ The default password to sign in to the administration dashboard of your WordPres
 1. Open the instance management page for your WordPress instance.
 
 1. On the **WordPress** panel, choose **Retrieve default password**. This expands **Access default password** at the bottom of the page.  
-![Accessing WordPress admin password in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-retrieve-password.png)
+![Accessing WordPress admin password in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-retrieve-password.png)
 
 1. Choose **Launch CloudShell**. This opens a panel at the bottom of the page.
 
 1. Choose **Copy** and then paste the contents into the CloudShell window. You can either put your cursor at the CloudShell prompt and press Ctrl\+V, or you can right-click to open the menu and then choose **Paste**.
 
 1. Make a note of the password displayed in the CloudShell window. You need this to sign in to the administration dashboard of your WordPress website.  
-![Viewing WordPress admin password in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/amazon-wordpress-lightsail-viewing-admin-password.png)
+![Viewing WordPress admin password in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/amazon-wordpress-lightsail-viewing-admin-password.png)
 
 ## Step 5: Sign in to the administration dashboard of your WordPress website
 <a name="launch-configure-wp-sign-in-dashboard"></a>
@@ -133,10 +133,10 @@ Complete the following steps to sign in to the administration dashboard of your 
 1. For **Password**, enter the password obtained in the previous step.
 
 1. Choose **Log in**.  
-![Launching and configuring WordPress in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-07.png)
+![Launching and configuring WordPress in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-07.png)
 
    You are now signed in to the administration dashboard of your WordPress website where you can perform administrative actions. For more information about administering your WordPress website, see the [WordPress Codex](https://codex.wordpress.org/) in the WordPress documentation.  
-![Launching and configuring WordPress in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-08.png)
+![Launching and configuring WordPress in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-08.png)
 
 ## Additional information
 <a name="launch-configure-wp-next-steps"></a>

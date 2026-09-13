@@ -13,15 +13,15 @@ Complete the following steps to access the CPU overview page, and view your inst
 1. On the Lightsail home page, choose the name of the instance for which you want to view CPU utilization and burst capacity.
 
 1. Choose the **Metrics** tab on the instance management page.  
-![Metrics tab in the instance management page](http://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-utilization-metrics-tab.png)
+![Metrics tab in the instance management page](https://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-utilization-metrics-tab.png)
 
 1. Choose **CPU overview** in the drop-down menu under the **Metrics graphs** heading.  
-![CPU overview option in the metrics tab](http://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-utilization-cpu-overview.png)
+![CPU overview option in the metrics tab](https://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-utilization-cpu-overview.png)
 
    The page displays **Average CPU utilization per 5 minutes** and **Remaining CPU burst capacity** graphs.
 **Note**  
 The **Remaining CPU burst capacity** graph might display a **Launch mode** zone for a short period of time after you create an instance. Some Lightsail instances start in launch mode, which temporarily removes some of the performance limitations that are typically present on burstable instances. Launch mode allows you to run resource-intensive scripts at launch without affecting the overall performance of your instance.  
-![CPU overview page in the Lightsail console](http://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-overview-page.png)
+![CPU overview page in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/cpu-overview-page.png)
 
 1. You can perform the following actions on the metric graphs:
    + For the burst capacity graph, select **Show capacity as percentage of total** to change the view from burst capacity minutes available to burst capacity percentage available.

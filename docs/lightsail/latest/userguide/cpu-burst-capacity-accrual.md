@@ -14,7 +14,7 @@ Amazon Lightsail instance plans accrue 4.17% of CPU burst capacity per hour, exc
 **Instances created on or after June 29, 2023** – CPU burst capacity persists for seven days between instance stops and starts.
 Accrued CPU burst capacity on a running instance does not expire.
 
-![CPU burst capacity accrual and consumption](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cpu-burst-capacity-consumption.png)
+![CPU burst capacity accrual and consumption](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cpu-burst-capacity-consumption.png)
 
 
 Lightsail instances receive additional CPU burst capacity at launch, this is called launch CPU burst capacity. Launch CPU burst capacity allows instances to burst immediately after launch before they have accrued additional burst capacity. Launch CPU burst capacity does not count towards the burst capacity limit. If your instance has not spent its launch CPU burst capacity, and remains idle over a 24-hour period while accruing more burst capacity, its CPU burst capacity (percentage) metric graph will appear as over 100%.
