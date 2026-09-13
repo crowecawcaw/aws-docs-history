@@ -10,7 +10,7 @@ With this architecture, you can deploy computer vision-based quality detection a
 ## DT4o Faktory Vision architecture diagram
 <a name="dfv-diagram"></a>
 
-![Architecture diagram for DT4o Faktory Vision quality insights on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/dt4o-faktory-vision/images/DT4o-faktory-vision-ra.png)
+![Architecture diagram for DT4o Faktory Vision quality insights on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/dt4o-faktory-vision/images/DT4o-faktory-vision-ra.png)
 
 
 The following steps describe the architecture:
