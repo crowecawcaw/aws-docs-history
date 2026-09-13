@@ -5,7 +5,7 @@
 
 With this architecture, you can minimize latency by cross-replicating storage across Regions. This deployment uses [Amazon WorkSpaces Applications](https://docs.aws.amazon.com/appstream2/latest/developerguide/), [Amazon Elastic Compute Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) (Amazon EC2), and [Amazon FSx](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/).
 
-![Reference architecture for Siemens NX multi-Region deployment on Amazon WorkSpaces Applications.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/siemens-nx-appstream/images/siemens-nx-architecture-diagram-ra-3.png)
+![Reference architecture for Siemens NX multi-Region deployment on Amazon WorkSpaces Applications.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/siemens-nx-appstream/images/siemens-nx-architecture-diagram-ra-3.png)
 
 
 The following steps describe the architecture:
