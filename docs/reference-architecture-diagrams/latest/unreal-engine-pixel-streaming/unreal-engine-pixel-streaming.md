@@ -10,7 +10,7 @@ This architecture shows a simple implementation of Unreal Engine's Pixel Streami
 ## Unreal Engine's Pixel Streaming on AWS diagram
 <a name="pixel-diagram"></a>
 
-![Reference architecture diagram showing how to deploy Unreal Engine's Pixel Streaming on AWS by using a serverless matchmaker with Amazon SQS, Lambda, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/unreal-engine-pixel-streaming/images/unreal-engine-pixel-streaming.png)
+![Reference architecture diagram showing how to deploy Unreal Engine's Pixel Streaming on AWS by using a serverless matchmaker with Amazon SQS, Lambda, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/unreal-engine-pixel-streaming/images/unreal-engine-pixel-streaming.png)
 
 
 The following steps describe the architecture:
