@@ -10,7 +10,7 @@ With this architecture, you can integrate your applications with Infor CloudSuit
 ## Producing data to InforOS architecture diagram
 <a name="pdi-diagram"></a>
 
-![Architecture diagram for producing data to Infor CloudSuite over SFTP with AWS Transfer Family on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/producing-data-to-inforos/images/producing-data-to-infor-over-sftp-ra.png)
+![Architecture diagram for producing data to Infor CloudSuite over SFTP with AWS Transfer Family on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/producing-data-to-inforos/images/producing-data-to-infor-over-sftp-ra.png)
 
 
 The following steps describe the architecture:
