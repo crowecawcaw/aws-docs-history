@@ -10,7 +10,7 @@ With this architecture, you can improve hold time prediction and departure clear
 ## Flight planning data lakes diagram
 <a name="flight-planning-diagram"></a>
 
-![Architecture for flight planning using Amazon S3, AWS Glue, Amazon EMR, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/flight-planning-data-lakes/images/flight-planning-using-data-lakes-and-ai-ml-ra.png)
+![Architecture for flight planning using Amazon S3, AWS Glue, Amazon EMR, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/flight-planning-data-lakes/images/flight-planning-using-data-lakes-and-ai-ml-ra.png)
 
 
 The following steps describe the architecture:
