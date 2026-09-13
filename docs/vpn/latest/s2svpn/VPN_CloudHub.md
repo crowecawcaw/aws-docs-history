@@ -10,7 +10,7 @@ If you have multiple AWS Site-to-Site VPN connections, you can provide secure co
 
 The following diagram shows the VPN CloudHub architecture. The dashed lines show network traffic between remote sites being routed over the VPN connections. The sites must not have overlapping IP ranges.
 
-![CloudHub architecture diagram](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/AWS_VPN_CloudHub-diagram.png)
+![CloudHub architecture diagram](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/AWS_VPN_CloudHub-diagram.png)
 
 
 For this scenario, do the following:

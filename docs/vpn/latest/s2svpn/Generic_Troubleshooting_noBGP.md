@@ -5,7 +5,7 @@
 
 The following diagram and table provide general instructions for troubleshooting a customer gateway device that does not use Border Gateway Protocol (BGP). We also recommend that you enable the debug features of your device. Consult your gateway device vendor for details.
 
-![Flow chart for troubleshooting generic customer gateway device](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/troubleshooting-cgw-flow-nobgp-diagram.png)
+![Flow chart for troubleshooting generic customer gateway device](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/troubleshooting-cgw-flow-nobgp-diagram.png)
 
 
 

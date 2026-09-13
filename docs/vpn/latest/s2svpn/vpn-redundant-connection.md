@@ -7,7 +7,7 @@ To protect against a loss of connectivity in case your customer gateway device b
 
 The following diagram shows two VPN connections. Each VPN connection has its own tunnels and its own customer gateway.
 
-![Redundant VPN connections to two customer gateways for the same on-premises network.](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/Multiple_Gateways_diagram.png)
+![Redundant VPN connections to two customer gateways for the same on-premises network.](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/Multiple_Gateways_diagram.png)
 
 
 For this scenario, do the following:

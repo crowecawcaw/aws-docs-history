@@ -18,7 +18,7 @@ The following diagrams illustrate single and multiple Site-to-Site VPN connectio
 
 The VPC has an attached virtual private gateway, and your on-premises (remote) network includes a customer gateway device, which you must configure to enable the VPN connection. You must update the VPC route tables so that any traffic from the VPC bound for your network goes to the virtual private gateway.
 
-![A VPC with an attached virtual private gateway and a VPN connection to your on-premises network.](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-vgw.png)
+![A VPC with an attached virtual private gateway and a VPN connection to your on-premises network.](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-vgw.png)
 
 
 For steps to set up this scenario, see [Get started with AWS Site-to-Site VPN](SetUpVPNConnections.md).
@@ -28,7 +28,7 @@ For steps to set up this scenario, see [Get started with AWS Site-to-Site VPN](S
 
 The VPC has an attached transit gateway, and your on-premises (remote) network includes a customer gateway device, which you must configure to enable the VPN connection. You must update the VPC route tables so that any traffic from the VPC bound for your network goes to the transit gateway.
 
-![A single Site-to-Site VPN connection with a transit gateway.](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-tgw.png)
+![A single Site-to-Site VPN connection with a transit gateway.](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-tgw.png)
 
 
 For steps to set up this scenario, see [Get started with AWS Site-to-Site VPN](SetUpVPNConnections.md).
@@ -38,7 +38,7 @@ For steps to set up this scenario, see [Get started with AWS Site-to-Site VPN](S
 
 The VPC has an attached virtual private gateway, and you have multiple Site-to-Site VPN connections to multiple on-premises locations. You set up the routing so that any traffic from the VPC bound for your networks is routed to the virtual private gateway.
 
-![Multiple Site-to-Site VPN layout](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/branch-offices-vgw.png)
+![Multiple Site-to-Site VPN layout](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/branch-offices-vgw.png)
 
 
 When you create multiple Site-to-Site VPN connections to a single VPC, you can configure a second customer gateway to create a redundant connection to the same external location. For more information, see [Redundant AWS Site-to-Site VPN connections for failover](vpn-redundant-connection.md).
@@ -50,7 +50,7 @@ You can also use this scenario to create Site-to-Site VPN connections to multipl
 
 The VPC has an attached transit gateway, and you have multiple Site-to-Site VPN connections to multiple on-premises locations. You set up the routing so that any traffic from the VPC bound for your networks is routed to the transit gateway.
 
-![Multiple Site-to-Site VPN connections with a transit gateway](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/branch-offices-tgw.png)
+![Multiple Site-to-Site VPN connections with a transit gateway](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/branch-offices-tgw.png)
 
 
 When you create multiple Site-to-Site VPN connections to a single transit gateway, you can configure a second customer gateway to create a redundant connection to the same external location.
@@ -62,7 +62,7 @@ You can also use this scenario to create Site-to-Site VPN connections to multipl
 
 The VPC has an attached virtual private gateway, and connects to your on-premises (remote) network through AWS Direct Connect. You can configure an Direct Connect public virtual interface to establish a dedicated network connection between your network to public AWS resources through a virtual private gateway. You set up the routing so that any traffic from the VPC bound for your network routes to the virtual private gateway and the Direct Connect connection. 
 
-![Site-to-Site VPN connection with Direct Connect](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-direct-connect.png)
+![Site-to-Site VPN connection with Direct Connect](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-direct-connect.png)
 
 
 When both Direct Connect and the VPN connection are set up on the same virtual private gateway, adding or removing objects might cause the virtual private gateway to enter the ‘attaching’ state. This indicates a change is being made to internal routing that will switch between Direct Connect and the VPN connection to minimize interruptions and packet loss. When this is complete, the virtual private gateway returns to the ‘attached’ state.
@@ -72,7 +72,7 @@ When both Direct Connect and the VPN connection are set up on the same virtual p
 
 With a private IP Site-to-Site VPN you can encrypt Direct Connect traffic between your on-premises network and AWS without the use of public IP addresses. Private IP VPN over Direct Connect ensures that traffic between AWS and on-premises networks is both secure and private, allowing customers to comply with regulatory and security mandates.
 
-![Private IP Site-to-Site VPN connection with Direct Connect](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/private-ip-dx.png)
+![Private IP Site-to-Site VPN connection with Direct Connect](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/private-ip-dx.png)
 
 
 For guidance on choosing the right VPN solution, see [Selecting the right AWS VPN solution: a decision framework](https://aws.amazon.com/blogs/networking-and-content-delivery/selecting-the-right-aws-vpn-solution-a-decision-framework/).

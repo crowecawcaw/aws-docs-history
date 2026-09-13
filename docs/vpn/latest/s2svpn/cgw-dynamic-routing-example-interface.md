@@ -99,7 +99,7 @@ Next, create a network object for each VPN tunnel, specifying the public (outsid
 1. For **Name**, enter the name that you provided for your tunnel in step 1, for example, `AWS_VPC_Tunnel_1` or `AWS_VPC_Tunnel_2`.
 
 1. For **IPv4 Address**, enter the outside IP address of the virtual private gateway provided in the configuration file, for example, `54.84.169.196`. Save your settings and close the dialog box.  
-![Check Point Interoperable Device dialog box](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/check-point-network-device.png)
+![Check Point Interoperable Device dialog box](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/check-point-network-device.png)
 
 1. In the left category pane, choose **Topology**. 
 
@@ -149,7 +149,7 @@ You must select the **IKEv1 for IPv4 and IKEv2 for IPv6** option for IKEv1 funct
 1. Select the peer name for the first tunnel, choose **Edit**, and then enter the pre-shared key as specified in the configuration file in the `IPSec Tunnel #1` section.
 
 1. Select the peer name for the second tunnel, choose **Edit**, and then enter the pre-shared key as specified in the configuration file in the `IPSec Tunnel #2` section.  
-![Check Point Interoperable Shared Secret dialog box](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/check-point-shared-secret.png)
+![Check Point Interoperable Shared Secret dialog box](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/check-point-shared-secret.png)
 
 1. Still in the **Advanced Settings** category, choose **Advanced VPN Properties**, configure the properties as follows, and then choose **OK** when you're done:
    + IKE (Phase 1):
@@ -244,7 +244,7 @@ In the options that display, choose **1** to verify the IKE associations and **2
 
 You can also use the Check Point Smart Tracker Log to verify that packets over the connection are being encrypted. For example, the following log indicates that a packet to the VPC was sent over tunnel 1 and was encrypted.
 
-![Check Point log file](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/check-point-log.png)
+![Check Point log file](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/check-point-log.png)
 
 
 ------

@@ -7,7 +7,7 @@ You use a Site-to-Site VPN connection to connect your remote network to a VPC. E
 
 The following diagram shows the two tunnels of a VPN connection. Each tunnel terminates in a different Availability Zone to provide increased availability. Traffic from the on-premises network to AWS uses both tunnels. Traffic from AWS to the on-premises network prefers one of the tunnels, but can automatically fail over to the other tunnel if there is a failure on the AWS side.
 
-![The two tunnels of a VPN connection between a virtual private gateway and a customer gateway.](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/Multiple_VPN_Tunnels_diagram.png)
+![The two tunnels of a VPN connection between a virtual private gateway and a customer gateway.](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/Multiple_VPN_Tunnels_diagram.png)
 
 
 When you create a Site-to-Site VPN connection, you download a configuration file specific to your customer gateway device that contains information for configuring the device, including information for configuring each tunnel. You can optionally specify some of the tunnel options yourself when you create the Site-to-Site VPN connection. Otherwise, AWS provides default values.

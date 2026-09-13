@@ -19,7 +19,7 @@ A *virtual private gateway* is the Site-to-Site VPN Concentrator on the Amazon s
 
 The following diagram shows a VPN connection between a VPC and your on-premises network using a virtual private gateway.
 
-![A VPC with an attached virtual private gateway and a VPN connection to your on-premises network.](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-vgw.png)
+![A VPC with an attached virtual private gateway and a VPN connection to your on-premises network.](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-vgw.png)
 
 
 When you create a virtual private gateway, you can specify the private Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN (64512). You cannot change the ASN after you've created the virtual private gateway. To check the ASN for your virtual private gateway, view its details in the **Virtual private gateways** page in the Amazon VPC console, or use the [describe-vpn-gateways](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpn-gateways.html) AWS CLI command.
@@ -34,7 +34,7 @@ A transit gateway is a transit hub that you can use to interconnect your VPCs an
 
 The following diagram shows a VPN connection between multiple VPCs and your on-premises network using a transit gateway. The transit gateway has three VPC attachments and a VPN attachment.
 
-![A transit gateway with three VPC attachments and one VPN attachment.](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-tgw.png)
+![A transit gateway with three VPC attachments and one VPN attachment.](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-tgw.png)
 
 
 Your Site-to-Site VPN connection on a transit gateway can support IPv4 or IPv6 traffic inside the VPN tunnels (inner IP addresses). Additionally, transit gateways support IPv6 addresses for the outer tunnel IP addresses. For more information, see [IPv4 and IPv6 traffic in AWS Site-to-Site VPN](ipv4-ipv6.md).
@@ -55,7 +55,7 @@ If you're using IPv6 for the outer tunnel IP addresses, your customer gateway de
 
 A *customer gateway* is a resource that you create in AWS that represents the customer gateway device in your on-premises network. When you create a customer gateway, you provide information about your device to AWS. For more information, see [Customer gateway options for your AWS Site-to-Site VPN connection](cgw-options.md).
 
-![A customer gateway and customer gateway device.](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-cgw.png)
+![A customer gateway and customer gateway device.](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/vpn-how-it-works-cgw.png)
 
 
 To use Amazon VPC with a Site-to-Site VPN connection, you or your network administrator must also configure the customer gateway device or application in your remote network. When you create the Site-to-Site VPN connection, we provide you with the required configuration information and your network administrator typically performs this configuration. For information about the customer gateway requirements and configuration, see [AWS Site-to-Site VPN customer gateway devices](your-cgw.md).

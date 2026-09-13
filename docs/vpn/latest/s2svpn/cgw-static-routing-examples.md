@@ -22,7 +22,7 @@ In addition to providing placeholder values, the files specify the minimum requi
 
 The following diagram provides an overview of the different components that are configured on the customer gateway device. It includes example values for the tunnel interface IP addresses.
 
-![Customer gateway device with static routing](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/cgw-static-routing.png)
+![Customer gateway device with static routing](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/cgw-static-routing.png)
 
 
 ## Cisco devices: additional information

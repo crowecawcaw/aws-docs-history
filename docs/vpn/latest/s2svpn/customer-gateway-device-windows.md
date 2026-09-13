@@ -266,7 +266,7 @@ If you are repeating this procedure for Tunnel 2, be sure to select the endpoint
 1. Under **Which computers are in Endpoint 2**, choose **Add**. In the **This IP address or subnet field**, enter the CIDR block of your VPC, and then choose **OK**.
 **Important**  
 You must scroll in the dialog box until you locate **Which computers are in Endpoint 2**. Do not choose **Next** until you have completed this step, or you won't be able to connect to your server.  
-![New Connection Security Rule Wizard: Tunnel Endpoints](http://docs.aws.amazon.com/vpn/latest/s2svpn/images/tunnelendpoints_complete_win2012.png)
+![New Connection Security Rule Wizard: Tunnel Endpoints](https://docs.aws.amazon.com/vpn/latest/s2svpn/images/tunnelendpoints_complete_win2012.png)
 
 1. Confirm that all of the settings you've specified are correct and then choose **Next**.
 
