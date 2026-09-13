@@ -7,7 +7,7 @@ When you receive a message from an Amazon SQS queue, it remains in the queue but
 + **Manual deletion** – You explicitly delete messages using the [`DeleteMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html) action.
 + **Automatic deletion** – Supported in certain AWS SDKs, messages are automatically deleted upon successful processing, simplifying workflows.
 
-![Time line graph displaying how requests are processed during visibility timeout](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-visibility-timeout-diagram.png)
+![Time line graph displaying how requests are processed during visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-visibility-timeout-diagram.png)
 
 
 ## Visibility timeout use cases

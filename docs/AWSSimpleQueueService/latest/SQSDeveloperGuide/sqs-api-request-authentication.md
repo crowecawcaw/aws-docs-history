@@ -53,7 +53,7 @@ If you use .NET, you must not send overly specific timestamps (because of differ
 
 The following is the process you must follow to authenticate AWS requests using an HMAC-SHA request signature.
 
-![Diagram describing the request from the user.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-basic-authentication-process-hmac-user.png)
+![Diagram describing the request from the user.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-basic-authentication-process-hmac-user.png)
 
 
 1. Construct a request to AWS. 
@@ -67,7 +67,7 @@ The following is the process you must follow to authenticate AWS requests using 
 
 AWS begins the following process in response.
 
-![Diagram describing the response from AWS.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-basic-authentication-process-hmac-aws.png)
+![Diagram describing the response from AWS.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-basic-authentication-process-hmac-aws.png)
 
 
 1. AWS uses the Access Key ID to look up your Secret Access Key.

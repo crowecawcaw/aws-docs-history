@@ -24,10 +24,10 @@ For standard and FIFO queues, you can include structured metadata to messages, i
    1. (Optional) Enter a custom data type. For example, you could add **byte**, **int**, or **float** as custom data types for **Number**. 
 
    1. In the value text box, enter the message attribute value.   
-![The Amazon SQS console displaying the Message attributes section.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-tutorials-sending-message-with-attributes.png)
+![The Amazon SQS console displaying the Message attributes section.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-tutorials-sending-message-with-attributes.png)
 
 1. To add another message attribute., choose **Add new attribute**.  
-![The Amazon SQS console displaying the Remove button in the Message attributes section.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-tutorials-sending-message-with-attributes-custom-attribute.png)
+![The Amazon SQS console displaying the Remove button in the Message attributes section.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-tutorials-sending-message-with-attributes-custom-attribute.png)
 
 1. You can modify the attribute values any time before sending the message. 
 

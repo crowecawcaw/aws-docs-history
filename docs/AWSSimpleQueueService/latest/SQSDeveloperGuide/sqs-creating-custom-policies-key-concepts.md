@@ -38,7 +38,7 @@ The concept of allowing or disallowing access to a resource using a [Condition](
 **Policy**  <a name="policy"></a>
 The document that acts as a container for one or more **[statements](#statement)**.  
 
-![Policy A containing statement 1 and statement 2 is equivalent to policy A that contains statement 1, and Policy B that contains statement 2.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/AccessPolicyLanguage_Statement_and_Policy.png)
+![Policy A containing statement 1 and statement 2 is equivalent to policy A that contains statement 1, and Policy B that contains statement 2.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/AccessPolicyLanguage_Statement_and_Policy.png)
 
 Amazon SQS uses the policy to determine whether to grant access to a user for a resource.
 

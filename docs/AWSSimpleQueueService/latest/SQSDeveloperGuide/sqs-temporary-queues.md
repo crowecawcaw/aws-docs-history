@@ -50,7 +50,7 @@ The most common use case for temporary queues is the *request-response* messagin
 
 The following diagram shows a common configuration using this pattern.
 
-![A diagram of the request-response pattern used with Amazon SQS.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-request-response-pattern.png)
+![A diagram of the request-response pattern used with Amazon SQS.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-request-response-pattern.png)
 
 
 ## Example scenario: Processing a login request

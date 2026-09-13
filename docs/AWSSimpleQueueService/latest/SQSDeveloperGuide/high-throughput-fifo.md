@@ -42,7 +42,7 @@ To add a message to a FIFO queue, Amazon SQS uses the value of each message’s 
 
 The following diagram shows a queue that spans multiple partitions. The queue’s message group ID is based on item number. Amazon SQS uses its hash function to determine where to store a new item; in this case, it's based on the hash value of the string `item0`. Note that the items are stored in the same order in which they are added to the queue. Each item's location is determined by the hash value of its message group ID.
 
-![A queue spans multiple partitions.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/fifo-documentation-single.png)
+![A queue spans multiple partitions.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/fifo-documentation-single.png)
 
 
 **Note**  
@@ -61,7 +61,7 @@ To optimize partition utilization for the `DeleteMessageBatch` and `ChangeMessag
 
 In the following example, a batch of messages with various message group IDs is sent. The batch is split into three groups, each of which counts against the quota for the partition.
 
-![A batch of messages with different message group IDs is stored in partitions.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/fifo-documentation-batch.png)
+![A batch of messages with different message group IDs is stored in partitions.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/fifo-documentation-batch.png)
 
 
 **Note**  

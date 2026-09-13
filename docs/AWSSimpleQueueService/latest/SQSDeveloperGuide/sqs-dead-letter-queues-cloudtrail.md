@@ -79,7 +79,7 @@ The following managed policies contain the required updated permissions:
 + **AmazonSQSFullAccess** – Includes the following dead-letter queue redrive tasks: start, cancel, and list.
 + **AmazonSQSReadOnlyAccess** – Provides read-only access, and includes the list dead-letter queue redrive task.
 
-![Amazon SQS showing the permission policy AmazonSQSFullAccess to start, cancel and list tasks for dead-letter queue redrive tasks, and AmazonSQSReadOnlyAccess for read-only access.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-dlq-cloudtrail.png)
+![Amazon SQS showing the permission policy AmazonSQSFullAccess to start, cancel and list tasks for dead-letter queue redrive tasks, and AmazonSQSReadOnlyAccess for read-only access.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-dlq-cloudtrail.png)
 
 
 **Permission Policy that uses sqs\* wildcard**

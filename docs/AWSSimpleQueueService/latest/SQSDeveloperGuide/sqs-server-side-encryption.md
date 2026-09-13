@@ -11,7 +11,7 @@ Server-side encryption (SSE) lets you transmit sensitive data in encrypted queue
 + [Using server-side encryption with Amazon SQS queues](sqs-java-configure-sse.md)
 + [Configuring KMS permissions for AWS services](sqs-key-management.md#compatibility-with-aws-services)
 
-[![AWS Videos](http://img.youtube.com/vi/Mw1NVpJsOZc?rel=0&amp;controls=0&amp;showinfo=0/0.jpg)](http://www.youtube.com/watch?v=Mw1NVpJsOZc?rel=0&amp;controls=0&amp;showinfo=0)
+[![AWS Videos](https://img.youtube.com/vi/Mw1NVpJsOZc?rel=0&amp;controls=0&amp;showinfo=0/0.jpg)](https://www.youtube.com/watch?v=Mw1NVpJsOZc?rel=0&amp;controls=0&amp;showinfo=0)
 
 
 SSE encrypts messages as soon as Amazon SQS receives them. The messages are stored in encrypted form and Amazon SQS decrypts messages only when they are sent to an authorized consumer.

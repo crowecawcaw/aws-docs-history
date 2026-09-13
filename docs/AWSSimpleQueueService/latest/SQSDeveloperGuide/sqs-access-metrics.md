@@ -18,7 +18,7 @@ Use the Amazon SQS console to access and analyze metrics for up to 10 Amazon SQS
 
    Various graphs are displayed in the **SQS metrics** section.
 
-1. To understand what a particular graph represents, hover over ![Information icon.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/information.png) next to the desired graph, or see [Available CloudWatch metrics for Amazon SQS](sqs-available-cloudwatch-metrics.md).
+1. To understand what a particular graph represents, hover over ![Information icon.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/information.png) next to the desired graph, or see [Available CloudWatch metrics for Amazon SQS](sqs-available-cloudwatch-metrics.md).
 
 1. To change the time range for all of the graphs at the same time, for **Time Range**, choose the desired time range (for example, **Last Hour**). 
 
@@ -40,16 +40,16 @@ Use the CloudWatch console to access and analyze Amazon SQS metrics.
 1. On the navigation panel, choose **Metrics**.
 
 1. Select the **SQS** metric namespace.  
-![The CloudWatch console displaying the All Metrics tab with Amazon SQS highlighted.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-cloudwatch-queue-metrics-namespace.png)
+![The CloudWatch console displaying the All Metrics tab with Amazon SQS highlighted.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-cloudwatch-queue-metrics-namespace.png)
 
 1. Select the **Queue Metrics** metric dimension.  
-![The CloudWatch console displaying the All Metrics tab with Queue Metrics highlighted.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-cloudwatch-queue-metrics-dimension.png)
+![The CloudWatch console displaying the All Metrics tab with Queue Metrics highlighted.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-cloudwatch-queue-metrics-dimension.png)
 
 1. You can now examine your Amazon SQS metrics:
    + To sort the metrics, use the column heading.
    + To graph a metric, select the check box next to the metric.
    + To filter by metric, choose the metric name and then choose **Add to search**.  
-![The CloudWatch console displaying the with Add to search highlighted in the metric name menu.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-cloudwatch-queue-metrics-examine.png)
+![The CloudWatch console displaying the with Add to search highlighted in the metric name menu.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-cloudwatch-queue-metrics-examine.png)
 
 For more information and additional options, see [Graph Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph_metrics.html) and [Using Amazon CloudWatch Dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) in the *Amazon CloudWatch User Guide*.
 

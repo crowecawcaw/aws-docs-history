@@ -105,19 +105,19 @@ The following diagram illustrates the concept of one of these basic Amazon SQS p
 **Note**  
 The resource in the policy is specified as `123456789012/queue_xyz`, where `123456789012` is the AWS Account ID of the account that owns the queue.
 
-![An Amazon SQS policy that covers the subset of actions](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/SQS_BasicPolicy.png)
+![An Amazon SQS policy that covers the subset of actions](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/SQS_BasicPolicy.png)
 
 
 With the introduction of IAM and the concepts of *Users* and *Amazon Resource Names (ARNs)*, a few things have changed about SQS policies. The following diagram and table describe the changes.
 
-![IAM and Amazon Resource Names added to the Amazon SQS policy.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/SQS_PolicyWithNewFeatures.png)
+![IAM and Amazon Resource Names added to the Amazon SQS policy.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/SQS_PolicyWithNewFeatures.png)
 
 
-![Number one in the diagram.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-1-red.png) For information about giving permissions to users in different accounts, see [Tutorial: Delegate Access Across AWS Accounts Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) in the *IAM User Guide*.
+![Number one in the diagram.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-1-red.png) For information about giving permissions to users in different accounts, see [Tutorial: Delegate Access Across AWS Accounts Using IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) in the *IAM User Guide*.
 
-![Number two in the diagram.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png) The subset of actions included in `*` has expanded. For a list of allowed actions, see [Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md).
+![Number two in the diagram.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png) The subset of actions included in `*` has expanded. For a list of allowed actions, see [Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md).
 
-![Number three in the diagram.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png) You can specify the resource using the Amazon Resource Name (ARN), the standard means of specifying resources in IAM policies. For information about the ARN format for Amazon SQS queues, see [Amazon Simple Queue Service resource and operations](#sqs-resource-and-operations).
+![Number three in the diagram.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png) You can specify the resource using the Amazon Resource Name (ARN), the standard means of specifying resources in IAM policies. For information about the ARN format for Amazon SQS queues, see [Amazon Simple Queue Service resource and operations](#sqs-resource-and-operations).
 
 For example, according to the Amazon SQS policy in the preceding diagram, anyone who possesses the security credentials for AWS Account 1 or AWS Account 2 can access `queue_xyz`. In addition, Users Bob and Susan in your own AWS Account (with ID `123456789012`) can access the queue.
 

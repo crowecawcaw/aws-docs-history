@@ -28,7 +28,7 @@ There are three main parts in a distributed messaging system: the **components o
 
 In the following scenario, your system has several *producers* (components that send messages to the queue) and *consumers* (components that receive messages from the queue). The queue (which holds messages A through E) redundantly stores the messages across multiple Amazon SQS servers.
 
-![Three main parts in a distributed messaging system: the components of your distributed system, your queue (distributed on Amazon SQS servers), and the messages in the queue.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/ArchOverview.png)
+![Three main parts in a distributed messaging system: the components of your distributed system, your queue (distributed on Amazon SQS servers), and the messages in the queue.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/ArchOverview.png)
 
 
 ### Message lifecycle
@@ -36,14 +36,14 @@ In the following scenario, your system has several *producers* (components that 
 
 The following scenario describes the lifecycle of an Amazon SQS message in a queue, from creation to deletion.
 
-![The lifecycle of an Amazon SQS message in a queue, from creation to deletion.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-message-lifecycle-diagram.png)
+![The lifecycle of an Amazon SQS message in a queue, from creation to deletion.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-message-lifecycle-diagram.png)
 
 
-![Section one description for the previous lifecycle diagram.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-1-red.png) A producer (Component 1) sends message A to a queue, and the message is distributed across the Amazon SQS servers redundantly.
+![Section one description for the previous lifecycle diagram.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-1-red.png) A producer (Component 1) sends message A to a queue, and the message is distributed across the Amazon SQS servers redundantly.
 
-![Section two description for the previous lifecycle diagram.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png) When a consumer (Component 2) is ready to process messages, it consumes messages from the queue, and message A is returned. While message A is being processed, it remains in the queue and isn't returned to subsequent receive requests for the duration of the [visibility timeout](sqs-visibility-timeout.md).
+![Section two description for the previous lifecycle diagram.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png) When a consumer (Component 2) is ready to process messages, it consumes messages from the queue, and message A is returned. While message A is being processed, it remains in the queue and isn't returned to subsequent receive requests for the duration of the [visibility timeout](sqs-visibility-timeout.md).
 
-![Section three description for the previous lifecycle diagram.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png) The consumer (Component 2) deletes message A from the queue to prevent the message from being received and processed again when the visibility timeout expires.
+![Section three description for the previous lifecycle diagram.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png) The consumer (Component 2) deletes message A from the queue to prevent the message from being received and processed again when the visibility timeout expires.
 
 **Note**  
 Amazon SQS automatically deletes messages that have been in a queue for more than the maximum message retention period. The default message retention period is 4 days. However, you can set the message retention period to a value from 60 seconds to 1,209,600 seconds (14 days) using the `[SetQueueAttributes](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html)` action.

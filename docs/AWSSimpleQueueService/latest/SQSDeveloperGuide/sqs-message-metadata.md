@@ -79,7 +79,7 @@ The following is an overview of the MD5 message digest calculation algorithm:
 
 The following diagram shows the encoding of the MD5 message digest for a single message attribute:
 
-![Encoding of the MD5 message digest for a single message attribute.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-msg-attrib-md5.png)
+![Encoding of the MD5 message digest for a single message attribute.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-msg-attrib-md5.png)
 
 
 #### To encode a single Amazon SQS message attribute

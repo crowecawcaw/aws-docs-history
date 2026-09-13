@@ -64,6 +64,6 @@ The name of a FIFO queue must end with the `.fifo` suffix.
 1. On the **Review** page, choose **Create**.
 
    CloudFormation begins to create the `MyQueue` stack and displays the **CREATE\_IN\_PROGRESS** status. When the process is complete, CloudFormation displays the **CREATE\_COMPLETE** status.  
-![The CloudFormation console displaying the CREATE_COMPLETE status.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-tutorials-creating-queue-cfn-create-complete.png)
+![The CloudFormation console displaying the CREATE_COMPLETE status.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-tutorials-creating-queue-cfn-create-complete.png)
 
 1. (Optional) To display the name, URL, and ARN of the queue, choose the name of the stack and then on the next page expand the **Outputs** section.

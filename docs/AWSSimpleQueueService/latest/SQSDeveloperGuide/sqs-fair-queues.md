@@ -9,7 +9,7 @@
 
  The following diagram illustrates a multi-tenant queue containing messages from four distinct tenants (labeled **A**, **B**, **C**, and **D**). The queue operates in a steady state, and there is no message backlog as consumers receive messages as soon as they appear in the queue. All tenants experience low dwell times. Not all consumer capacity is fully utilized in this steady state. 
 
-![A multi-tenant queue that contains messages from four different tenants (represented by A,B,C,D). The queue is in a steady-state with in-flight messages evenly distributed among tenants, with no backlog and low dwell time for all tenants.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/FQ1_updated_aligned.png)
+![A multi-tenant queue that contains messages from four different tenants (represented by A,B,C,D). The queue is in a steady-state with in-flight messages evenly distributed among tenants, with no backlog and low dwell time for all tenants.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/FQ1_updated_aligned.png)
 
 
 **Noisy neighbor impact**
@@ -18,7 +18,7 @@
 
  This diagram illustrates how increased traffic from **Tenant A** creates a backlog in the queue. Consumers are busy processing the messages from only **Tenant A**, while messages from other tenants wait in the backlog, leading to higher dwell times for all tenants. 
 
-![The result when tenant A increases traffic and creates a backlog in the queue. Tenant A’s messages are over-represented in the in-flight state and messages from other tenants are stuck in the backlog leading to a higher dwell time.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/FQ2_updated_again_aligned.png)
+![The result when tenant A increases traffic and creates a backlog in the queue. Tenant A’s messages are over-represented in the in-flight state and messages from other tenants are stuck in the backlog leading to a higher dwell time.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/FQ2_updated_again_aligned.png)
 
 
 **Mitigation with fair queues**
@@ -27,7 +27,7 @@
 
 This diagram illustrates how Amazon SQS fair queues addresses the noisy neighbor problem. When one tenant (**Tenant A**) becomes noisy, Amazon SQS prioritizes returning messages from other tenants (**B**, **C**, and **D**). This prioritization helps maintain low dwell times for quiet tenants **Tenants B**, **C**, and **D**, while the dwell time for **Tenant A's** messages is elevated until the queue backlog is consumed without impacting other tenants.
 
-![An illustration of how fair queues addresses the noisy neighbor problem by monitoring the in-flight state. When tenant A becomes noisy, SQS aims to return messages from other tenants (B,C,D) so that in-flight messages are evenly distributed among tenants. The dwell time for tenants (B,C,D) will remain low, while the dwell time for tenant A’s messages will be elevated until the queue backlog is consumed.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/FQ3_updated_aligned.png)
+![An illustration of how fair queues addresses the noisy neighbor problem by monitoring the in-flight state. When tenant A becomes noisy, SQS aims to return messages from other tenants (B,C,D) so that in-flight messages are evenly distributed among tenants. The dwell time for tenants (B,C,D) will remain low, while the dwell time for tenant A’s messages will be elevated until the queue backlog is consumed.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/FQ3_updated_aligned.png)
 
 
 **Note**  
@@ -69,7 +69,7 @@ Consider using fair queues when all of the following apply to your queue:
 
  Below you can find an example where the standard queue backlog metric (ApproximateNumberOfMessagesVisible) increases due to a noisy tenant while the backlog for non-noisy tenants (ApproximateNumberOfMessagesVisibleInQuietGroups) remains low. 
 
-![Graph showing queue backlog spike for noisy groups while quiet groups remain low.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/fair_queues_cw_metrics.png)
+![Graph showing queue backlog spike for noisy groups while quiet groups remain low.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/fair_queues_cw_metrics.png)
 
 
 For a complete list of Amazon SQS CloudWatch metrics and their descriptions, see [CloudWatch metrics for Amazon SQS](sqs-available-cloudwatch-metrics.md#sqs-metrics).

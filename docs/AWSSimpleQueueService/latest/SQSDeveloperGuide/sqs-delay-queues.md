@@ -11,7 +11,7 @@ For FIFO queues, the per-queue delay setting is **retroactive**—changing the s
 
 Delay queues are similar to [visibility timeouts](sqs-visibility-timeout.md) because both features make messages unavailable to consumers for a specific period of time. The difference between the two is that, for delay queues, a message is hidden when it is first added to queue, whereas for visibility timeouts a message is hidden only after it is consumed from the queue. The following diagram illustrates the relationship between delay queues and visibility timeouts. 
 
-![An illustration of the relationship between delay queues and visibility timeouts.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-delay-queues-diagram.png)
+![An illustration of the relationship between delay queues and visibility timeouts.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-delay-queues-diagram.png)
 
 
 **Extended scheduling options**

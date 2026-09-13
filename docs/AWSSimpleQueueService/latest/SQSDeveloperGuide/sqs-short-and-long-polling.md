@@ -16,7 +16,7 @@ When you consume messages from a queue (FIFO or standard) using short polling, A
 
 The following diagram shows the short-polling behavior of messages returned from a standard queue after one of your system components makes a receive request. Amazon SQS samples several of its servers (in gray) and returns messages A, C, D, and B from these servers. Message E isn't returned for this request, but is returned for a subsequent request.
 
-![Message sampling using short (standard) polling](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/ArchOverview_Receive.png)
+![Message sampling using short (standard) polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/ArchOverview_Receive.png)
 
 
 ## Consuming messages using long polling

@@ -7,7 +7,7 @@ When you open the Amazon SQS console, choose **Queues** from the navigation pane
 
 Each queue entry provides essential information about the queue, including its type and key attributes. [Standard queues](standard-queues.md), optimized for maximum throughput and best-effort message ordering, are distinguished from [First-In-First-Out (FIFO)](sqs-fifo-queues.md) queues, which prioritize message ordering and uniqueness for applications requiring strict message sequencing.
 
-![Queues page in the Amazon SQS console.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-config-queue-list.png)
+![Queues page in the Amazon SQS console.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/sqs-config-queue-list.png)
 
 
 **Interactive elements and actions**
@@ -18,7 +18,7 @@ From the Queues page, you have multiple options for managing your queues:
 
 1. **Detailed View and Configuration** – Clicking on a queue name opens its Details page, where you can delve deeper into queue settings and configurations. Here, you can adjust parameters like message retention period, visibility timeout, and maximum message size to tailor the queue to your application's requirements.
 
-![Queue details page in the Amazon SQS console.](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/queue-details-page.png)
+![Queue details page in the Amazon SQS console.](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/queue-details-page.png)
 
 
 **Region selection and resource tags**
