@@ -54,7 +54,7 @@ Before you create an ML-based matching workflow, you must:
 1. For **Step 2: Choose matching technique**:
 
    1. For **Matching method**, choose **Machine learning-based matching**.  
-![AWS Entity Resolution matching workflow creation interface with options for rule-based or machine learning matching.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-machine-learning.PNG)
+![AWS Entity Resolution matching workflow creation interface with options for rule-based or machine learning matching.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-machine-learning.PNG)
 
    1. For **Processing cadence**, select one of the following options.
       + Choose **Manual** to run a Batch matching workflow, which processes the entire data in your S3 bucket.

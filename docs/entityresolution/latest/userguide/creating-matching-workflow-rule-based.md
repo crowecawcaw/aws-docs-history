@@ -18,21 +18,21 @@ You can use the following chart to compare the two **Rule types** and determine 
 
 | Use case | Advanced rule type | Simple rule type | 
 | --- |--- |--- |
-| Schema mappings mapped one-to-one with input types | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | No | 
+| Schema mappings mapped one-to-one with input types | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | No | 
 | --- |--- |--- |
-| Schema mapping with multiple data columns mapped to the same input types | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/negative_icon.png) No | Yes | 
+| Schema mapping with multiple data columns mapped to the same input types | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/negative_icon.png) No | Yes | 
 | --- |--- |--- |
-| Supports Exact and Fuzzy matching | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | No (Exact matching only) | 
+| Supports Exact and Fuzzy matching | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | No (Exact matching only) | 
 | --- |--- |--- |
-| Supports AND, OR, and parentheses operators | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | No (AND operator only) | 
+| Supports AND, OR, and parentheses operators | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | No (AND operator only) | 
 | --- |--- |--- |
-| Supports batch workflows | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | Yes | 
+| Supports batch workflows | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | Yes | 
 | --- |--- |--- |
-| Supports incremental workflows | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | Yes | 
+| Supports incremental workflows | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | Yes | 
 | --- |--- |--- |
-| Supports real-time workflows | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/negative_icon.png)No | Yes | 
+| Supports real-time workflows | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/negative_icon.png)No | Yes | 
 | --- |--- |--- |
-| Supports ID mapping workflows | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/negative_icon.png) No | Yes | 
+| Supports ID mapping workflows | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/negative_icon.png) No | Yes | 
 | --- |--- |--- |
 
 After you have determined which rule type you want to use, use the following topics to create a rule-based matching workflow with either the **Advanced** or **Simple** rule type.

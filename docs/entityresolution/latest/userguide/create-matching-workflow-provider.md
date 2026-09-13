@@ -139,12 +139,12 @@ Ensure that your data input file format and normalization is aligned with the pr
 For more information about input file formatting guidelines for the matching workflow, see [Perform Identity Resolution Through ADX](https://docs.liveramp.com/identity/en/perform-identity-resolution-through-adx.html) in the LiveRamp documentation. 
 
    1. For **LiveRamp products**, choose a product from the dropdown list.  
-![Provider services options with the LiveRamp provider service selected.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-liveramp.png)
+![Provider services options with the LiveRamp provider service selected.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-liveramp.png)
 **Note**  
 If you choose **Assignment PII,** then you must provide at least one non-identifier column when performing entity resolution. For example, GENDER.
 
    1. For **LiveRamp configuration**, enter a **Client ID manager ARN** and a **Client secret manager ARN**.  
-![LiveRamp configuration form with fields for Client ID manager ARN and Client secret manager ARN.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-liveramp-config.png)
+![LiveRamp configuration form with fields for Client ID manager ARN and Client secret manager ARN.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-liveramp-config.png)
 
    1. For **Data staging**, choose the **Amazon S3 location** for the temporary storage of your data while it processes. 
 
@@ -166,7 +166,7 @@ If you choose **Assignment PII,** then you must provide at least one non-identif
 **Note**  
 If you have chosen **LiveRamp**, due to LiveRamp privacy filters that remove Personally Identifiable Information (PII), some fields will display an **Output** state of **Unavailable**.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html)  
-![AWS Entity Resolution ID mapping workflow creation interface with options to specify data output location.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-data-output.PNG)
+![AWS Entity Resolution ID mapping workflow creation interface with options to specify data output location.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-data-output.PNG)
 
    1. Choose **Next**.
 
@@ -303,7 +303,7 @@ If the following **Phone** sub-types are grouped: **Phone number**, **Phone coun
    1. For **Provider services**, choose **TransUnion**.
 **Note**  
 Ensure that your data input file format and normalization is aligned with the provider service's guidelines.   
-![Provider services options with the TransUnion provider service selected.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-transunion.PNG)
+![Provider services options with the TransUnion provider service selected.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-transunion.PNG)
 
    1. For **Data staging**, choose the **Amazon S3 location** for the temporary storage of your data while it processes. 
 
@@ -403,7 +403,7 @@ Before you create a matching workflow with UID 2.0, you must:
    1. For **Matching method**, choose **Provider services**.
 
    1. For **Provider services**, choose **Unified ID 2.0**.  
-![Provider services options with the Unified ID provider service selected.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-uid.PNG)
+![Provider services options with the Unified ID provider service selected.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-uid.PNG)
 
    1. Choose **Next**.
 

@@ -17,13 +17,13 @@ This topic describes the process of creating an ID mapping workflow for one AWS 
 
    1. Enter an **ID mapping workflow name** and an optional **Description**.
 
-      ![The name and description fields on the Specify ID mapping workflow page](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png)
+      ![The name and description fields on the Specify ID mapping workflow page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png)
 
    1. For the **ID mapping method**, choose **Rule-based**.
 
    1. (Optional) To process only new, updated, or deleted records in the workflow, select **Enable incremental processing**.
 
-      ![The ID mapping section of the Specify ID mapping workflow page with the Enable incremental process checkbox selected.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/id-mapping-method-enable-inc-proc.png)
+      ![The ID mapping section of the Specify ID mapping workflow page with the Enable incremental process checkbox selected.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/id-mapping-method-enable-inc-proc.png)
 
       AWS Entity Resolution processes only new, updated, or deleted records in either the Source or Target ID namespace, rather than recreating the entire ID mapping table.
 
@@ -60,7 +60,7 @@ You must specify compatible limitations for the source and target ID namespaces.
 
    1. To specify the **Service access** permissions, choose an option and take the recommended action.
 
-      ![The Service access options on the Specify source and target page](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)    
+      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-rule-based-one-acct.html)
 
 1. Choose **Next**.

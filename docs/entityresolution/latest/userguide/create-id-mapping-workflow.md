@@ -18,7 +18,7 @@ You can perform ID mapping between two datasets in either of the following scena
 
 The following diagram summarizes how to set up an ID mapping workflow.
 
-![A summary of the four steps to create an ID mapping workflow in AWS Entity Resolution](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/HIW-ID-Mapping-Workflow.png)
+![A summary of the four steps to create an ID mapping workflow in AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/HIW-ID-Mapping-Workflow.png)
 
 **Topics**
 + [ID mapping workflow for one AWS account](creating-id-mapping-workflow-same-account.md)

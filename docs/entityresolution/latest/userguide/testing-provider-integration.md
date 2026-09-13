@@ -16,7 +16,7 @@ Providers need to provide AWS Entity Resolution the AWS account ID (`accountId)`
 
 The following diagram shows a typical end-to-end workflow test case.
 
-![A diagram of an end-to-end test workflow for a new provider integrating with AWS Data Exchange.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/provider-test-diagram.png)
+![A diagram of an end-to-end test workflow for a new provider integrating with AWS Data Exchange.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/provider-test-diagram.png)
 
 **To test a provider integration**
 

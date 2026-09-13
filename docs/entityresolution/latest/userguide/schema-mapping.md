@@ -7,7 +7,7 @@ A *schema mapping* defines the input data that you want to resolve. It also prov
 
 When you create a schema mapping, you first define your input fields and attribute types, and then define your match keys and group related data. The following diagram summarizes how to create a schema mapping.
 
-![A summary of the four steps to create a schema mapping in AWS Entity Resolution](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/HIW-Schema-Mappings.png)
+![A summary of the four steps to create a schema mapping in AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/HIW-Schema-Mappings.png)
 
 Before you create a schema mapping, you must first set up AWS Entity Resolution and prepare your data tables. For more information, see [Set up AWS Entity Resolution](setting-up.md) and [Prepare input data tables](prepare-data-tables.md).
 

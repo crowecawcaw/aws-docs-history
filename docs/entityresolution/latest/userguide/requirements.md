@@ -27,7 +27,7 @@ As a third-party provider, you must list your product on the [AWS Data Exchange 
 
    The following image shows an example of an available product in the AWS Data Exchange Product Catalog.
 
-    ![An example of a published product in the AWS Data Exchange Product Catalog.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/ADX-catalog-example.png)
+    ![An example of a published product in the AWS Data Exchange Product Catalog.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/ADX-catalog-example.png)
 
 1. After the product is available on the AWS Data Exchange Product Catalog, the subscriber can subscribe to the product in the following ways.
    + Subscribe the public product.

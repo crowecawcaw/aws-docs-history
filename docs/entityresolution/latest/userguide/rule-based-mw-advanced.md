@@ -61,7 +61,7 @@ If the following **Phone** sub-types are grouped: **Phone number**, **Phone coun
    1. For **Matching method**, choose **Rule-based matching**.
 
    1. For **Rule type**, choose **Advanced**.  
-![Choose matching technique screen with the Advanced rule-based matching option selected.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-rule-based-advanced.PNG)
+![Choose matching technique screen with the Advanced rule-based matching option selected.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-rule-based-advanced.PNG)
 
    1. For **Processing cadence**, select one of the following options.
       + Choose **Manual** to run a workflow on demand for a bulk update 
@@ -84,7 +84,7 @@ AWS Entity Resolution also supports [transitive matching](transitive-matching.md
       The following is an example of a rule condition that matches records on phone numbers (**Phone** match key) and email addresses (**Email address** match key):
 
       `Exact(Phone,EmptyValues=Process) AND Levenshtein("Email address",2)`  
-![Example of a rule condition that matches records on phone numbers and email addresses.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/matching-rule-condition-example.png)
+![Example of a rule condition that matches records on phone numbers and email addresses.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/matching-rule-condition-example.png)
 
       The **Phone** match key uses the **Exact** matching function to match identical strings. The **Phone** match key processes empty values in matching using the **EmptyValues=Process** modifier.
 

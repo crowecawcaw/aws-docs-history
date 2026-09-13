@@ -51,7 +51,7 @@ If the following **Phone** sub-types are grouped: **Phone number**, **Phone coun
    1. For **Matching method**, choose **Rule-based matching**.
 
    1. For **Rule type**, choose **Simple**.  
-![Choose matching technique screen with the Simple rule-based matching option selected.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-rule-based-simple.PNG)
+![Choose matching technique screen with the Simple rule-based matching option selected.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/choose-matching-method-rule-based-simple.PNG)
 
    1. For **Processing cadence**, select one of the following options.
       + Choose **Manual** to run a workflow on demand for a bulk update 
@@ -66,11 +66,11 @@ If you choose **Automatic**, ensure that you have Amazon EventBridge notificatio
    1. For **Matching rules**, enter a **Rule name** and then choose the **Match keys** for that rule.
 
       You can create up to 15 rules and you can apply up to 15 different match keys across your rules to define match criteria.  
-![Matching rules interface with fields to enter rule name and select match keys.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/matching-rules.PNG)
+![Matching rules interface with fields to enter rule name and select match keys.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/matching-rules.PNG)
 
    1. For **Comparison type**, choose one of the following options based on your goal.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/rule-based-mw-simple.html)  
-![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/comparison-type.PNG)
+![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/comparison-type.PNG)
 
    1. Choose **Next**.
 

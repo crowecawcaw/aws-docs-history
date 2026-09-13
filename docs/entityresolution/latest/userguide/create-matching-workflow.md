@@ -7,7 +7,7 @@ A *matching workflow* is a data processing job that combines and compares data f
 
 The following diagram summarizes how to create a matching workflow.
 
-![A summary of the four steps to create a matching workflow in AWS Entity Resolution](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/HIW-Matching-Workflow.png)
+![A summary of the four steps to create a matching workflow in AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/HIW-Matching-Workflow.png)
 
 **Topics**
 + [Matching workflow types](#matching-workflow-types)
@@ -54,9 +54,9 @@ The following table shows the three types of matching workflows and their suppor
 
 | Matching type | S3 output | Customer Profiles Output | 
 | --- | --- | --- | 
-| [rule-based](creating-matching-workflow-rule-based.md) | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | 
-| [machine learning-based](create-matching-workflow-ml.md) | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | 
-| [provider service-based](create-matching-workflow-provider.md) | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/negative_icon.png)No | 
+| [rule-based](creating-matching-workflow-rule-based.md) | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | 
+| [machine learning-based](create-matching-workflow-ml.md) | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | 
+| [provider service-based](create-matching-workflow-provider.md) | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/negative_icon.png)No | 
 
 ## Matching workflow results
 <a name="matching-workflow-results"></a>

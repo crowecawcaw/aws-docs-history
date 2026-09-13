@@ -13,7 +13,7 @@ You can deﬁne the input data that you want to resolve across two AWS accounts 
 
 The following diagram summarizes how to create an ID namespace to use in an ID mapping workflow.
 
-![A summary of the four steps to create an ID namespace in AWS Entity Resolution](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/HIW-ID-Namespace.png)
+![A summary of the four steps to create an ID namespace in AWS Entity Resolution](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/HIW-ID-Namespace.png)
 
 The following sections describe how to create an ID namespace source and an ID namespace target. 
 

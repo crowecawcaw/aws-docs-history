@@ -17,13 +17,13 @@ This topic describes the process of creating an ID mapping workflow for one AWS 
 
    1. Enter an **ID mapping workflow name** and an optional **Description**.
 
-      ![The name and description fields on the Specify ID mapping workflow page](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png)
+      ![The name and description fields on the Specify ID mapping workflow page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png)
 
    1. For the **ID mapping method**, choose **Provider services**.
 
       AWS Entity Resolution currently offers the LiveRamp provider service as an ID mapping method. If you have a subscription to LiveRamp, then the status appears as **Subscribed**. For more information about how to subscribe to LiveRamp, see [Step 1: Subscribe to a provider service on AWS Data Exchange](prepare-third-party-input-data.md#subscribe-provider-service).
 
-      ![The Subscribed status for the LiveRamp ID mapping method on the Specify ID mapping workflow page](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/id-mapping-method.PNG)
+      ![The Subscribed status for the LiveRamp ID mapping method on the Specify ID mapping workflow page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/id-mapping-method.PNG)
 **Note**  
 Ensure that your data input file format aligns with the provider service's guidelines. For more information about LiveRamp's input file formatting guidelines, see [Perform Translation Through ADX](https://docs.liveramp.com/identity/en/perform-transcoding-through-adx.html) on the LiveRamp documentation website.
 
@@ -31,7 +31,7 @@ Ensure that your data input file format aligns with the provider service's guide
       + **Client ID manager ARN**
       + **Client secret manager ARN**
 
-      ![The LiveRamp configuration fields on the Specify ID mapping workflow page](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/liveramp-configuration.PNG)
+      ![The LiveRamp configuration fields on the Specify ID mapping workflow page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/liveramp-configuration.PNG)
 
    1. (Optional) To enable **Tags** for the resource, choose **Add new tag**, and then enter the **Key** and **Value** pair.
 
@@ -47,11 +47,11 @@ Ensure that your data input file format aligns with the provider service's guide
 
    1. For **Data staging**, choose the **Amazon S3 location** where you want to temporarily write the ID mapping workflow output.
 
-      ![The Data staging field on the Specify source and target page](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/data-staging.PNG)
+      ![The Data staging field on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/data-staging.PNG)
 
    1. To specify the **Service access** permissions, choose an option and take the recommended action.
 
-      ![The Service access options on the Specify source and target page](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)    
+      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-provider-services-one-acct.html)
 
 1. Choose **Next**.
@@ -68,7 +68,7 @@ Ensure that your data input file format aligns with the provider service's guide
 
    1. Choose **Next**.
 
-      ![The Data output destination fields on the Specify data output location page](http://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-data-ouput-IDM.PNG)
+      ![The Data output destination fields on the Specify data output location page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-data-ouput-IDM.PNG)
 
 1. For **Step 4: Review and create**, do the following.
 
