@@ -10,7 +10,7 @@ This architecture uses [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemak
 ## Player Churn Prediction and Retention diagram
 <a name="churn-diagram"></a>
 
-![Reference architecture diagram showing how to use SageMaker AI to predict player churn and trigger retention actions in free-to-play games.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/player-churn-prediction-retention/images/player-churn-prediction-retention.png)
+![Reference architecture diagram showing how to use SageMaker AI to predict player churn and trigger retention actions in free-to-play games.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/player-churn-prediction-retention/images/player-churn-prediction-retention.png)
 
 
 The following steps describe the architecture:
