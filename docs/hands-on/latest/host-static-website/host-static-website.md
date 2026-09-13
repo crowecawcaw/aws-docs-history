@@ -55,7 +55,7 @@ Want to deploy without connecting to a Git provider? [Follow these instructions]
    npm install
    npm run dev
    ```  
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/resource-creation-interface.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/resource-creation-interface.png)
 
 1. View the application
 
@@ -67,7 +67,7 @@ Want to deploy without connecting to a Git provider? [Follow these instructions]
    npm install
    npm run dev
    ```  
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/resource-creation-interface-1.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/resource-creation-interface-1.png)
 
 ### Step 2: Initialize GitHub Repository
 <a name="initialize-github-repository"></a>
@@ -80,14 +80,14 @@ If you have never used GitHub on your computer, follow [the steps](https://docs.
 1. Open GitHub
 
    **Sign in** to GitHub at [https://github.com/](https://github.com/).   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/navigation-interface.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/navigation-interface.png)
 
 1. Create a repository
 
    In the **Start a new repository** section, make the following selections: 
    + For **Repository name**, enter **staticwebsite**, and choose the **Public** radio button. 
    + Then select, **Create a new repository**.   
-![Form for creating a new repository with "staticwebsite" as the name, set to public, and a green button labeled "Create a new repository.".](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/form-creating-new-repository-staticwebsite.png)
+![Form for creating a new repository with "staticwebsite" as the name, set to public, and a green button labeled "Create a new repository.".](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/form-creating-new-repository-staticwebsite.png)
 
 1. Push the application to GitHub
 
@@ -103,7 +103,7 @@ Replace the **SSH GitHub UR**L in the command with your SSH GitHub URL.
    git branch -M main
    git push -u origin main
    ```  
-![Terminal window showing Git commands to initialize a repository, make a first commit, add a remote, and push to the main branch, with details of created files.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/terminal-window-git-commands-initialize.png)
+![Terminal window showing Git commands to initialize a repository, make a first commit, add a remote, and push to the main branch, with details of created files.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/terminal-window-git-commands-initialize.png)
 
 ### Step 3: Deploy your app with AWS Amplify
 <a name="deploy-your-app-with-aws-amplify"></a>
@@ -115,7 +115,7 @@ In this step, you will connect the GitHub repository you just created to AWS Amp
    **Sign in** to the AWS Management Console in a new browser window, and open the AWS Amplify console at [https://console.aws.amazon.com/amplify/apps](https://console.aws.amazon.com/amplify/apps). 
 
    Choose **Create new app.**   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/resource-creation-interface-2.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/resource-creation-interface-2.png)
 
 1. Choose the GitHub repository
 
@@ -124,30 +124,30 @@ In this step, you will connect the GitHub repository you just created to AWS Amp
 If you are using an existing repository, connect your GitHub, Bitbucket, GitLab, or AWS CodeCommit repositories. 
 You also have the option of manually uploading your build artifacts without connecting a Git repository (see [Manual Deploys](https://docs.aws.amazon.com/amplify/latest/userguide/manual-deploys.html)). 
 After you authorize the Amplify console, Amplify fetches an access token from the repository provider, but it doesn’t store the token on the AWS servers. Amplify accesses your repository using deploy keys installed in a specific repository only.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/navigation-interface-1.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/navigation-interface-1.png)
 
 1. Select repository branch
 
    When prompted, **authenticate** with GitHub. You will be automatically redirected back to the Amplify console. Choose the **repository** and **main branch** you created earlier. Then select **Next**.   
-![Interface for selecting a GitHub repository and branch in AWS Amplify, with fields for repository name and branch set to 'staticwebsite' and 'main' respectively, and a highlighted 'Next' button.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/interface-selecting-github-repository.png)
+![Interface for selecting a GitHub repository and branch in AWS Amplify, with fields for repository name and branch set to 'staticwebsite' and 'main' respectively, and a highlighted 'Next' button.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/interface-selecting-github-repository.png)
 
 1. Review build settings
 
    Leave the default **build settings** and select **Next**. 
    + Amplify inspects your repository to automatically detect the sequence of build commands to be invoked.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/interface-controls-buttons.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/interface-controls-buttons.png)
 
 1. Deploy the app
 
    Review the inputs selected, and choose **Save and deploy** to deploy your web app to a global content delivery network (CDN).    
-![Review page showing repository details, app settings, and advanced settings for deployment, with a highlighted 'Save and deploy' button.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/page-repository-details-settings-advanced.png)
+![Review page showing repository details, app settings, and advanced settings for deployment, with a highlighted 'Save and deploy' button.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/page-repository-details-settings-advanced.png)
 
 1. View your deployed app
 
    AWS Amplify will now build your source code and deploy your app at **https://...amplifyapp.com**, and on every git push your deployment instance will update. It may take 2-5 minutes to deploy your app based on the size. 
 
    Once the build completes, select the **Visit deployed URL** button to see your web app up and running live.    
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/interface-controls-buttons-1.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/interface-controls-buttons-1.png)
 
 ### Clean up resources
 <a name="clean-up-resources"></a>
@@ -158,7 +158,7 @@ It is recommended that you delete the app and the backend resources that you cre
   In the Amplify console, in the left-hand navigation for the **staticwebsite** app, choose **App settings**, and select **General settings**. 
 
   In the General settings section, choose **Delete app**.   
-![The navigation menu interface.](http://docs.aws.amazon.com/hands-on/latest/host-static-website/images/navigation-menu-interface.png)
+![The navigation menu interface.](https://docs.aws.amazon.com/hands-on/latest/host-static-website/images/navigation-menu-interface.png)
 
 ## Congratulations
 <a name="congratulations"></a>
