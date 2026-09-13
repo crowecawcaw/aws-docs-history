@@ -10,7 +10,7 @@ This architecture enables customers to build data analytics pipelines using a Mo
 ## Modern Data Analytics Reference Architecture on AWS
 <a name="modern-data-analytics-on-aws"></a>
 
-![Reference architecture diagram showing how to build data analytics pipelines using a Modern Data Analytics approach to derive insights from the data.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/modern-data-analytics-on-aws/images/modern-data-analytics-on-aws.png)
+![Reference architecture diagram showing how to build data analytics pipelines using a Modern Data Analytics approach to derive insights from the data.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/modern-data-analytics-on-aws/images/modern-data-analytics-on-aws.png)
 
 
 1. Data is collected from multiple data sources across the enterprise, SaaS applications, edge devices, logs, streaming media, flat files, and social networks. 
