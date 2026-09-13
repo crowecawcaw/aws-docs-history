@@ -10,7 +10,7 @@ With this architecture, you can predict fine-grained return on investment (ROI) 
 ## Predictive modeling for automotive retail diagram
 <a name="auto-predict-diagram"></a>
 
-![Reference architecture diagram showing how to predict ROI for automotive sales incentives by using SageMaker AI, AWS Glue, Step Functions, and Lake Formation.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/predictive-modeling-automotive-retail/images/predictive-modeling-automotive-retail.png)
+![Reference architecture diagram showing how to predict ROI for automotive sales incentives by using SageMaker AI, AWS Glue, Step Functions, and Lake Formation.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/predictive-modeling-automotive-retail/images/predictive-modeling-automotive-retail.png)
 
 
 The following steps describe the architecture:
