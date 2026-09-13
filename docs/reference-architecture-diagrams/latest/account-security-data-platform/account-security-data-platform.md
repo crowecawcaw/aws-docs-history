@@ -12,7 +12,7 @@ This architecture shows how to organize AWS accounts for a serverless data platf
 ## Account and security strategy diagram
 <a name="account-security-diagram"></a>
 
-![Multi-account security architecture for a serverless data platform on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/account-security-data-platform/images/travel-hospitality-account-security-ra.png)
+![Multi-account security architecture for a serverless data platform on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/account-security-data-platform/images/travel-hospitality-account-security-ra.png)
 
 
 The following steps describe the architecture:
