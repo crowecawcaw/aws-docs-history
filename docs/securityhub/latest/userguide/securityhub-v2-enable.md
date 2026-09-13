@@ -7,7 +7,7 @@
 
 For a brief demonstration of how to enable Security Hub watch the following video:
 
-[![AWS Videos](http://img.youtube.com/vi/prtnhCfjUpM/0.jpg)](http://www.youtube.com/watch?v=prtnhCfjUpM)
+[![AWS Videos](https://img.youtube.com/vi/prtnhCfjUpM/0.jpg)](https://www.youtube.com/watch?v=prtnhCfjUpM)
 
 
 ## Enable Security Hub for an AWS Organization

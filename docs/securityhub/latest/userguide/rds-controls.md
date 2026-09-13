@@ -1041,14 +1041,16 @@ To publish Aurora MySQL DB cluster audit logs to CloudWatch Logs, see [Publishin
 
 **Parameters:** None
 
-This control checks if automatic minor version upgrade is enabled for an Amazon RDS Multi-AZ DB cluster. The control fails if automatic minor version upgrade isn't enabled for the Multi-AZ DB cluster. This control does not apply to Aurora DB clusters.
+This control checks if automatic minor version upgrade is enabled for an Amazon RDS DB cluster, including Aurora DB clusters. The control fails if automatic minor version upgrade isn't enabled for the DB cluster.
 
-RDS provides automatic minor version upgrade so that you can keep your Multi-AZ DB cluster up to date. Minor versions can introduce new software features, bug fixes, security patches, and performance improvements. By enabling automatic minor version upgrade on RDS database clusters, the cluster, along with the instances in the cluster, will receive automatic updates to the minor version when new versions are available. The updates are applied automatically during the maintenance window.
+With automatic minor version upgrade, you can keep your DB cluster up to date. Minor versions can introduce new software features, bug fixes, security patches, and performance improvements. By enabling automatic minor version upgrade on RDS database clusters, the cluster, along with the instances in the cluster, will receive automatic updates to the minor version when new versions are available. The updates are applied automatically during the maintenance window.
 
 ### Remediation
 <a name="rds-35-remediation"></a>
 
 To enable automatic minor version upgrade on Multi-AZ DB clusters, see [Modifying a Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/modify-multi-az-db-cluster.html) in the *Amazon RDS User Guide*.
+
+To enable automatic minor version upgrade on Aurora DB clusters, see [Modifying an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Modifying.html) in the *Amazon Aurora User Guide*.
 
 ## [RDS.36] RDS for PostgreSQL DB instances should publish logs to CloudWatch Logs
 <a name="rds-36"></a>

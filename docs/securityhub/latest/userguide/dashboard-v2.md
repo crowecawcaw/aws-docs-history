@@ -33,7 +33,7 @@
 #### Trends overview widget
 <a name="w2aab7c29b7b5b5"></a>
 
-![Example of trends overview widget.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/trends-overview-widget.png)
+![Example of trends overview widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/trends-overview-widget.png)
 
 
  This widget displays an overview of your exposures, threats, resources, and findings in the following time periods: 
@@ -52,7 +52,7 @@
 #### Exposure finding trends widget
 <a name="w2aab7c29b7b5b7"></a>
 
-![Example of exposure finding trends widget.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/exposure-finding-trends-widget.png)
+![Example of exposure finding trends widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/exposure-finding-trends-widget.png)
 
 
  This widget displays the severity of your exposure findings in the following time periods: 
@@ -85,7 +85,7 @@
 #### Threat finding trends widget
 <a name="w2aab7c29b7b5b9"></a>
 
-![Example of threat finding trends widget.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/threat-finding-trends-widget.png)
+![Example of threat finding trends widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/threat-finding-trends-widget.png)
 
 
  This widget displays the severity of your threat findings in the following time periods: 
@@ -118,7 +118,7 @@
 #### Resource trends widget
 <a name="w2aab7c29b7b5c11"></a>
 
-![Example of resource trends widget.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/resource-trends-widget.png)
+![Example of resource trends widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/resource-trends-widget.png)
 
 
  This widget displays an inventory of your resources in the following time periods: 
@@ -159,7 +159,7 @@
 #### Exposure summary widget
 <a name="security-hub-v2-dashboard-exposure-widget"></a>
 
-![Example of exposure summary coverage widget.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/exposure-summary-widget-operations.png)
+![Example of exposure summary coverage widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/exposure-summary-widget-operations.png)
 
 
  This widget displays your exposures by severity. An exposure is based on an analysis of findings and traits from Security Hub and other AWS security services, such as Amazon Inspector. The list of exposures in this widget is limited to the eight exposures with the highest severity. Exposures with greater severity appear first in the list. If two or more exposures are of equal severity, the list automatically groups those exposures behind more recent exposures. Choosing **View all exposures** directs you to the **Exposure** dashboard. 
@@ -170,7 +170,7 @@
 #### Threat summary widget
 <a name="security-hub-v2-dashboard-threat-widget"></a>
 
-![Example of threat summary widget.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/threat-summary-widget-operations.png)
+![Example of threat summary widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/threat-summary-widget-operations.png)
 
 
  This widget displays your threats by severity. A threat refers to malicious activity or suspicious activity that can compromise the security of your environment. The list of threats in this widget is limited to the eight threats with the highest severity. Threats with greater severity appear first in the list. If two or more threats are of equal severity, the list automatically groups those threats behind more recent threats. Choosing **View all threats** directs you to the **Threats** dashboard. 
@@ -181,7 +181,7 @@
 #### Resource summary widget
 <a name="security-hub-v2-dashboard-resource-widget"></a>
 
-![Example of resource summary widget.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/resource-summary-widget-operations.png)
+![Example of resource summary widget.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/resource-summary-widget-operations.png)
 
 
  This widget displays resources by type and findings associated with resources. Resources are prioritized by exposures and attack sequences. Choosing **View all resources** directs you to the **Resource** dashboard. 
@@ -189,7 +189,7 @@
 #### Security coverage widget
 <a name="security-hub-v2-dashboard-coverage-widget"></a>
 
-![Screenshot of the Security Hub Advanced security coverage widget showing account coverage percentages by security capability.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/security-coverage-widget2.png)
+![Screenshot of the Security Hub Advanced security coverage widget showing account coverage percentages by security capability.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/security-coverage-widget2.png)
 
 
  The widget displays a summary of your account coverage for the following security capabilities: 
@@ -213,7 +213,7 @@
 
  You can apply filters to security widgets using the **Add filter bar**. 
 
-![Example of summary filters.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/summary-filters.png)
+![Example of summary filters.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/summary-filters.png)
 
 
  Filters are organized in the following categories: 
@@ -246,7 +246,7 @@
 ### Filters not applied to widgets
 <a name="w2aab7c29b9c17"></a>
 
-![Example of summary filter that cannot be applied.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/filter-not-applied.png)
+![Example of summary filter that cannot be applied.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/filter-not-applied.png)
 
 
  If a widget does not support a filter, the filter is not applied to the widget. In this case, the widget displays a warning message letting you know how many filters were not applied and lists the names of which filters it does not support. 

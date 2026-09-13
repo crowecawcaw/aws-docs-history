@@ -625,7 +625,7 @@ To disable a security control in Security Hub CSPM, you must disable all standar
 | CIS v1.4.0 | 1.7 Eliminate use of the root user for administrative and daily tasks | [[CloudWatch.1] A log metric filter and alarm should exist for usage of the "root" user](cloudwatch-controls.md#cloudwatch-1) | 
 | CIS v1.4.0 | 1.8 Ensure IAM password policy requires minimum length of 14 or greater | [[IAM.15] Ensure IAM password policy requires minimum password length of 14 or greater](iam-controls.md#iam-15) | 
 | CIS v1.4.0 | 1.9 Ensure IAM password policy prevents password reuse | [[IAM.16] Ensure IAM password policy prevents password reuse](iam-controls.md#iam-16) | 
-| CIS v1.4.0 | 2.1.2 Ensure S3 Bucket Policy is set to deny HTTP requests | [[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5) | 
+| CIS v1.4.0 | 2.1.2 Ensure S3 Bucket Policy is set to deny HTTP requests | [[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5) | 
 | CIS v1.4.0 | 2.1.5.1 S3 Block Public Access setting should be enabled | [[S3.1] S3 general purpose buckets should have block public access settings enabled](s3-controls.md#s3-1) | 
 | CIS v1.4.0 | 2.1.5.2 S3 Block Public Access setting should be enabled at the bucket level | [[S3.8] S3 general purpose buckets should block public access](s3-controls.md#s3-8) | 
 | CIS v1.4.0 | 2.2.1 Ensure EBS volume encryption is enabled | [[EC2.7] EBS default encryption should be enabled](ec2-controls.md#ec2-7) | 
@@ -689,7 +689,7 @@ To disable a security control in Security Hub CSPM, you must disable all standar
 | PCI DSS v3.2.1 | PCI.S3.1 S3 buckets should prohibit public write access | [[S3.3] S3 general purpose buckets should block public write access](s3-controls.md#s3-3) | 
 | PCI DSS v3.2.1 | PCI.S3.2 S3 buckets should prohibit public read access | [[S3.2] S3 general purpose buckets should block public read access](s3-controls.md#s3-2) | 
 | PCI DSS v3.2.1 | PCI.S3.3 S3 buckets should have cross-region replication enabled | [[S3.7] S3 general purpose buckets should use cross-Region replication](s3-controls.md#s3-7) | 
-| PCI DSS v3.2.1 | PCI.S3.5 S3 buckets should require requests to use Secure Socket Layer | [[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5) | 
+| PCI DSS v3.2.1 | PCI.S3.5 S3 buckets should require requests to use Secure Socket Layer | [[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5) | 
 | PCI DSS v3.2.1 | PCI.S3.6 S3 Block Public Access setting should be enabled | [[S3.1] S3 general purpose buckets should have block public access settings enabled](s3-controls.md#s3-1) | 
 | PCI DSS v3.2.1 | PCI.SageMaker.1 Amazon SageMaker notebook instances should not have direct internet access | [[SageMaker.1] Amazon SageMaker notebook instances should not have direct internet access](sagemaker-controls.md#sagemaker-1) | 
 | PCI DSS v3.2.1 | PCI.SSM.1 EC2 instances managed by Systems Manager should have a patch compliance status of COMPLIANT after a patch installation | [[SSM.2] Amazon EC2 instances managed by Systems Manager should have a patch compliance status of COMPLIANT after a patch installation](ssm-controls.md#ssm-2) | 

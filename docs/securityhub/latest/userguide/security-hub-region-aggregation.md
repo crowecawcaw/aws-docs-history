@@ -25,7 +25,7 @@ When removing a linked Region, any findings or resources for that Region remain 
 
 Trends data is based on findings and resources that are present within the Region that the trend is for. Trends data in a home Region reflects the current state of findings and resources that have been synced to the home Region.
 
-![When cross-Region aggregation is enabled, Security Hub CSPM replicates new and updated findings between the linked Regions and home Region.](http://docs.aws.amazon.com/securityhub/latest/userguide/images/security-hub-region-aggregation-diagram.png)
+![When cross-Region aggregation is enabled, Security Hub CSPM replicates new and updated findings between the linked Regions and home Region.](https://docs.aws.amazon.com/securityhub/latest/userguide/images/security-hub-region-aggregation-diagram.png)
 
 
 Cross-Region aggregation does not add to the cost of Security Hub. You are not charged when Security Hub replicates new data or updates.

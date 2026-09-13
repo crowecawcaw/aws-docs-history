@@ -92,7 +92,7 @@ The following list specifies which Security Hub CSPM controls apply to PCI DSS v
 
  [[S3.3] S3 general purpose buckets should block public write access](s3-controls.md#s3-3) 
 
- [[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5) 
+ [[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5) 
 
  [[S3.7] S3 general purpose buckets should use cross-Region replication](s3-controls.md#s3-7) 
 
@@ -365,7 +365,7 @@ The following list specifies which Security Hub CSPM controls apply to PCI DSS v
 
 [[S3.24] S3 Multi-Region Access Points should have block public access settings enabled](s3-controls.md#s3-24)
 
-[[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5)
+[[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5)
 
 [[S3.8] S3 general purpose buckets should block public access](s3-controls.md#s3-8)
 

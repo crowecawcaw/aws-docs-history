@@ -99,7 +99,7 @@ Some use cases require that everyone on the internet be able to write to your S3
 
 To block public write access on your Amazon S3 buckets, see [Configuring block public access settings for your S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-block-public-access-bucket.html) in the *Amazon Simple Storage Service User Guide*.
 
-## [S3.5] S3 general purpose buckets should require requests to use SSL
+## [S3.5] S3 general purpose buckets should require requests to use TLS
 <a name="s3-5"></a>
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.1.1, CIS AWS Foundations Benchmark v3.0.0/2.1.1, CIS AWS Foundations Benchmark v1.4.0/2.1.2, NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.8, NIST.800-171.r2 3.13.15, PCI DSS v3.2.1/4.1, PCI DSS v4.0.1/4.2.1
@@ -116,7 +116,7 @@ To block public write access on your Amazon S3 buckets, see [Configuring block p
 
 **Parameters:** None
 
-This control checks whether an Amazon S3 general purpose bucket has a policy that requires requests to use SSL. The control fails if the bucket policy doesn't require requests to use SSL.
+This control checks whether an Amazon S3 general purpose bucket has a policy that requires requests to use TLS. The control fails if the bucket policy doesn't require requests to use TLS.
 
 S3 buckets should have policies that require all requests (`Action: S3:*`) to only accept transmission of data over HTTPS in the S3 resource policy, indicated by the condition key `aws:SecureTransport`.
 

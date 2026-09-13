@@ -87,7 +87,7 @@ Security Hub CSPM supports version 5.0.0 (v5.0.0) of the CIS AWS Foundations Ben
 
 [[S3.1] S3 general purpose buckets should have block public access settings enabled](s3-controls.md#s3-1)
 
-[[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5)
+[[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5)
 
 [[S3.8] S3 general purpose buckets should block public access](s3-controls.md#s3-8)
 
@@ -171,7 +171,7 @@ Security Hub CSPM supports version 3.0.0 (v3.0.0) of the CIS AWS Foundations Ben
 
 [[S3.1] S3 general purpose buckets should have block public access settings enabled](s3-controls.md#s3-1)
 
-[[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5)
+[[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5)
 
 [[S3.8] S3 general purpose buckets should block public access](s3-controls.md#s3-8)
 
@@ -261,7 +261,7 @@ Security Hub CSPM supports version 1.4.0 (v1.4.0) of the CIS AWS Foundations Ben
 
  [[S3.1] S3 general purpose buckets should have block public access settings enabled](s3-controls.md#s3-1) 
 
- [[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5) 
+ [[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5) 
 
  [[S3.8] S3 general purpose buckets should block public access](s3-controls.md#s3-8) 
 
@@ -436,7 +436,7 @@ Understand which controls each version of the CIS AWS Foundations Benchmark supp
 | [[RDS.13] RDS automatic minor version upgrades should be enabled](rds-controls.md#rds-13) | 2.2.2 | 2.3.2 | Not supported – CIS added this requirement in later versions | Not supported – CIS added this requirement in later versions | 
 | [[RDS.15] RDS DB clusters should be configured for multiple Availability Zones](rds-controls.md#rds-15) | 2.2.4 | Not supported – CIS added this requirement in later versions | Not supported – CIS added this requirement in later versions | Not supported – CIS added this requirement in later versions | 
 | [[S3.1] S3 general purpose buckets should have block public access settings enabled](s3-controls.md#s3-1) | 2.1.4 | 2.1.4 | 2.1.5 | Not supported – CIS added this requirement in later versions | 
-| [[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5) | 2.1.1 | 2.1.1 | 2.1.2 | Not supported – CIS added this requirement in later versions | 
+| [[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5) | 2.1.1 | 2.1.1 | 2.1.2 | Not supported – CIS added this requirement in later versions | 
 | [[S3.8] S3 general purpose buckets should block public access](s3-controls.md#s3-8) | 2.1.4 | 2.1.4 | 2.1.5 | Not supported – CIS added this requirement in later versions | 
 | [[S3.20] S3 general purpose buckets should have MFA delete enabled](s3-controls.md#s3-20) | 2.1.2 | 2.1.2 | 2.1.3 | Not supported – CIS added this requirement in later versions | 
 

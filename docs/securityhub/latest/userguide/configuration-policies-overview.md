@@ -78,7 +78,7 @@ Only one configuration policy can be associated with an account or OU at a given
 
 The following diagram illustrates how policy application and inheritance work in central configuration.
 
-![Applying and inheriting Security Hub CSPM configuration policies](http://docs.aws.amazon.com/securityhub/latest/userguide/images/sechub-diagram-central-configuration-association.png)
+![Applying and inheriting Security Hub CSPM configuration policies](https://docs.aws.amazon.com/securityhub/latest/userguide/images/sechub-diagram-central-configuration-association.png)
 
 
 In this example, a node highlighted in green has a configuration policy that's been applied to it. A node highlighted in blue has no configuration policy that's been applied to it. A node highlighted in yellow has been designated as self-managed. Each account and OU uses the following configuration:

@@ -243,6 +243,8 @@ To enable encryption in transit for private connections in an API Gateway v2 Int
 
 This control checks whether an API Gateway domain name is configured to encrypt data in transit by using a recommended security policy. The control fails if the API Gateway domain name isn't configured to use a recommended security policy.
 
+This control generates a `FAILED` finding for custom domain names that are attached to HTTP APIs. If you have a legitimate use case for HTTP APIs, you can suppress the finding.
+
 A security policy is a predefined combination of minimum TLS version and cipher suites offered by API Gateway. When your clients establish a TLS handshake to your API or custom domain name, the security policy enforces the TLS version and cipher suite accepted by API Gateway. Security policies protect your APIs and custom domain names from network security problems such as tampering and eavesdropping between a client and server. Using a recommended security policy helps ensure that API Gateway domain names use modern, secure TLS configurations that protect data in transit between clients and your API.
 
 ### Remediation

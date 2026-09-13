@@ -102,7 +102,7 @@ The following list specifies the controls that support NIST SP 800-171 Revision 
 + [[NetworkFirewall.3] Network Firewall policies should have at least one rule group associated](networkfirewall-controls.md#networkfirewall-3)
 + [[NetworkFirewall.5] The default stateless action for Network Firewall policies should be drop or forward for fragmented packets](networkfirewall-controls.md#networkfirewall-5)
 + [[NetworkFirewall.6] Stateless Network Firewall rule group should not be empty](networkfirewall-controls.md#networkfirewall-6)
-+ [[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5)
++ [[S3.5] S3 general purpose buckets should require requests to use TLS](s3-controls.md#s3-5)
 + [[S3.6] S3 general purpose bucket policies should restrict access to other AWS accounts](s3-controls.md#s3-6)
 + [[S3.9] S3 general purpose buckets should have server access logging enabled](s3-controls.md#s3-9)
 + [[S3.11] S3 general purpose buckets should have event notifications enabled](s3-controls.md#s3-11)
