@@ -21,4 +21,4 @@ After you create the required AWS resources, configure data forwarding from the 
 
 1. Choose **Save**.
 
-After you configure data forwarding, check the **Data forwarding** section on the **Dashboard** page. Make sure that your database and analytics data collection module displays **![](http://docs.aws.amazon.com/application-discovery/latest/userguide/images/success_icon.png) Connected** for **Access to DMS** and **Access to S3**.
+After you configure data forwarding, check the **Data forwarding** section on the **Dashboard** page. Make sure that your database and analytics data collection module displays **![](https://docs.aws.amazon.com/application-discovery/latest/userguide/images/success_icon.png) Connected** for **Access to DMS** and **Access to S3**.
