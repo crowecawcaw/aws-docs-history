@@ -32,7 +32,7 @@ Initially displays the list of IP addresses used to issue API calls.
 You can expand each IP address to display the list of API calls that were issued from that IP address. The API calls are grouped by the services that called them. For S3 buckets, the service is always Amazon S3. If Detective cannot determine the service that issued a call, the call is listed under **Unknown service**.  
 You can then expand each API call to display the list of callers from that IP address. Depending on the profile, the caller might be a user, role, role session, or AKID.  
 
-![View of the Observed IP addresses tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of IP address, API calls, and AKIDs. API calls are grouped by service.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_ipaddress.png)
+![View of the Observed IP addresses tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of IP address, API calls, and AKIDs. API calls are grouped by service.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_ipaddress.png)
 
 
 **API method by service**  
@@ -40,7 +40,7 @@ Initially displays the list of API calls that were issued. The API calls are gro
 You can expand each API method to display the list of IP addresses from which the calls were issued.  
 You can then expand each IP address to display the list of AKIDs that issued that API call from that IP address.  
 
-![View of the API method by service tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of API calls, IP addresses, and AKIDs. API calls are grouped by service.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_apimethods.png)
+![View of the API method by service tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of API calls, IP addresses, and AKIDs. API calls are grouped by service.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_apimethods.png)
 
 
 **Resource or Access Key ID**  
@@ -48,7 +48,7 @@ Initially displays the list of users, roles, role sessions, or AKIDs that were u
 You can expand each caller to display the list of IP addresses from which the caller issued API calls.  
 You can then expand each IP address to display the list of API calls that were issued from that IP address by that caller. The API calls are grouped by the services that issued the calls. For S3 buckets, the service is always Amazon S3. If Detective cannot determine the service that issued a call, the call is listed under** Unknown service**.  
 
-![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_resource.png)
+![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_resource.png)
 
 
 ## Content of the activity details (IP addresses)
@@ -65,14 +65,14 @@ Initially displays the list of resources that issued API calls from the IP addre
 For each resource, the list includes the resource name, the type, and the AWS account.  
 You can expand each resource to display the list of API calls that the resource issued from the IP address. The API calls are grouped by the services that issued the calls. If Detective cannot determine the service that issued a call, the call is listed under **Unknown service**.  
 
-![View of the Resource tab of the activity details on the Overall API call volume profile panel for an IP address.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_ip_resource.png)
+![View of the Resource tab of the activity details on the Overall API call volume profile panel for an IP address.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_ip_resource.png)
 
 
 **API method by service**  
 Initially displays the list of API calls that were issued. The API calls are grouped by the services that issued the calls. If Detective cannot determine the service that issued a call, the call is listed under **Unknown service**.  
 You can expand each API call to display the list of resources that issued the API call from the IP address during the selected time period.  
 
-![View of the API method by service tab of the activity details of the Overall API call volume profile panel for an IP address.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_ip_apimethods.png)
+![View of the API method by service tab of the activity details of the Overall API call volume profile panel for an IP address.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_ip_apimethods.png)
 
 
 ## Sorting the activity details
@@ -104,7 +104,7 @@ On all of the tabs, you can filter the list by any of the values in the first co
    For **CIDR patterns**, you can choose to include only public IP addresses, private IP addresses, or IP addresses that match a specific CIDR pattern.
 
 1. Choose a Boolean option {{Resource}} or {{Service}}** : Contains** or **\!: Does not contain**; or {{API method}} or {{IP address}}** = Equals** or **\!: Does not equal** to set filters.  
-![List of available filters for the activity details filter.](http://docs.aws.amazon.com/detective/latest/userguide/images/api-volume-search.png)
+![List of available filters for the activity details filter.](https://docs.aws.amazon.com/detective/latest/userguide/images/api-volume-search.png)
 
 To remove a filter, choose the **x** icon in the top-right corner.
 
@@ -127,7 +127,7 @@ To clear all of the filters, choose **Clear filter**.
 
 The time range for the activity details is highlighted on the profile panel charts.
 
-![Highlighted time window for the Overall API call volume profile panel](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_timehighlight.png)
+![Highlighted time window for the Overall API call volume profile panel](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_timehighlight.png)
 
 
 ## Querying raw logs

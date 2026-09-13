@@ -7,7 +7,7 @@ To populate a behavior graph, Amazon Detective uses source data from the behavio
 
 With Detective, you can access up to a year of historical event data. This data is available through a set of visualizations that show changes in the type and volume of activity over a selected time window. Detective links these changes to GuardDuty findings.
 
-![Diagram showing how a behavior graph uses data from the administrator account and member accounts, and uses the behavior graph data structure.](http://docs.aws.amazon.com/detective/latest/userguide/images/diagram_graph_structure_overview.png)
+![Diagram showing how a behavior graph uses data from the administrator account and member accounts, and uses the behavior graph data structure.](https://docs.aws.amazon.com/detective/latest/userguide/images/diagram_graph_structure_overview.png)
 
 
 For details about the behavior graph data structure, see [Overview of the behavior graph data structure](https://docs.aws.amazon.com/detective/latest/userguide/graph-data-structure-overview.html) in *Detective User Guide*.

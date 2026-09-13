@@ -15,7 +15,7 @@ You might have an existing behavior graph with member accounts that accepted a m
 
 The following diagram shows an overview of a behavior graph structure before the transition, the configuration in Organizations, and the behavior graph account structure after the transition.
 
-![This diagram shows the process of making the transition to use AWS Organizations to manage member accounts in the organization behavior graph.](http://docs.aws.amazon.com/detective/latest/userguide/images/diagram_account_transition.png)
+![This diagram shows the process of making the transition to use AWS Organizations to manage member accounts in the organization behavior graph.](https://docs.aws.amazon.com/detective/latest/userguide/images/diagram_account_transition.png)
 
 
 ## Designate a Detective administrator account for your organization

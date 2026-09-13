@@ -27,4 +27,4 @@ Use the AWS CloudFormation template to set up the parameters required to create 
 
 For a demonstration of how to integrate Amazon Detective with Amazon Security Lake using the Detective console, watch the following video: 
 
-[![AWS Videos](http://img.youtube.com/vi/73ZurSZCZwA/0.jpg)](http://www.youtube.com/watch?v=73ZurSZCZwA)
+[![AWS Videos](https://img.youtube.com/vi/73ZurSZCZwA/0.jpg)](https://www.youtube.com/watch?v=73ZurSZCZwA)

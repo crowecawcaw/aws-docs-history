@@ -32,7 +32,7 @@ On the details page, you can use the **Summary** pane to review a generated, des
 **Note**  
 If you provide feedback about the finding group summary, your feedback is not used for model tuning. We use it only to help facilitate that the prompts in Detective are crafted effectively.
 
-![The Summary pane, with a generated descriptive summary of the top findings in a finding group and an analysis of the top threat events in the group.](http://docs.aws.amazon.com/detective/latest/userguide/images/Detective-assistant.png)
+![The Summary pane, with a generated descriptive summary of the top findings in a finding group and an analysis of the top threat events in the group.](https://docs.aws.amazon.com/detective/latest/userguide/images/Detective-assistant.png)
 
 
 ## Opting out of finding group summary

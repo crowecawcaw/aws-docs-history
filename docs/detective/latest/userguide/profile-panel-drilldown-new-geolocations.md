@@ -31,7 +31,7 @@ Initially displays the list of IP addresses that were used to issue API calls fr
 You can expand each IP address to display the resources that issued API calls from that IP address. The list displays the resource name. To see the principal ID, hover over the name.  
 You can then expand each resource to display the specific API calls that were issued from that IP address by that resource. The API calls are grouped by the services that issued the calls. For S3 buckets, the service is always Amazon S3. If Detective cannot determine the service that issued a call, the call is listed under **Unknown service**.  
 
-![View of the Observed IP addresses tab of the Newly observed geolocations panel with an entry expanded to show the hierarchy of IP address, resources, and API methods.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_geo_ips.png)
+![View of the Observed IP addresses tab of the Newly observed geolocations panel with an entry expanded to show the hierarchy of IP address, resources, and API methods.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_geo_ips.png)
 
 
 **Resource**  
@@ -39,7 +39,7 @@ Initially displays the list of resources that issued API calls from the selected
 You can expand each user or role to display the list of API calls that were issued by that resource. The API calls are grouped by the services that issued the calls. For S3 buckets, the service is always Amazon S3. If Detective cannot determine the service that issued a call, the call is listed under **Unknown service**.  
 You can then expand each API call to display the list of IP addresses from which the resource issued the API call.  
 
-![View of the Resource tab of the Newly observed geolocations panel, with an entry expanded to show the hierarchy of user or role, API methods, and IP addresses.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_geo_resources.png)
+![View of the Resource tab of the Newly observed geolocations panel, with an entry expanded to show the hierarchy of user or role, API methods, and IP addresses.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_geo_resources.png)
 
 
 ## Sorting the activity details
@@ -71,7 +71,7 @@ On all of the tabs, you can filter the list by any of the values in the first co
    For **CIDR patterns**, you can choose to include only public IP addresses, private IP addresses, or IP addresses that match a specific CIDR pattern.
 
 1. If you have multiple filters, choose a Boolean option to set how those filters are connected.  
-![List of available connectors between individual filters for the activity details filter.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_geo_filterconnectors.png)
+![List of available connectors between individual filters for the activity details filter.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_geo_filterconnectors.png)
 
 1. To remove a filter, choose the **x** icon in the top-right corner.
 

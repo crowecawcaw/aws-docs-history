@@ -24,7 +24,7 @@ For an IP address, the activity details contain an entry for each unique combina
 
 Each entry displays the volume of inbound traffic, the volume of outbound traffic, and whether the access request was accepted or rejected. On finding profiles, the **Annotations** column indicates when an IP address is related to the current finding.
 
-![Activity details for the Overall VPC flow volume profile panel.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_initial.png)
+![Activity details for the Overall VPC flow volume profile panel.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_initial.png)
 
 
 ## Sorting the activity details
@@ -57,7 +57,7 @@ To focus on specific activity, you can filter the activity details by the follow
    For **CIDR patterns**, you can choose to include only public IP addresses, private IP addresses, or IP addresses that match a specific CIDR pattern.
 
 1. If you have multiple filters, choose a Boolean option to set how those filters are connected.  
-![List of available connectors between individual filters for the activity details filter.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_filterconnectors.png)
+![List of available connectors between individual filters for the activity details filter.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_filterconnectors.png)
 
 1. To remove a filter, choose the **x** icon in the top-right corner.
 
@@ -80,7 +80,7 @@ To focus on specific activity, you can filter the activity details by the follow
 
 The time range for the activity details is highlighted on the profile panel charts.
 
-![Highlighted time window for the activity details on the Overall VPC flow volume profile panel.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_timehighlight.png)
+![Highlighted time window for the activity details on the Overall VPC flow volume profile panel.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_timehighlight.png)
 
 
 ## Displaying the volume of traffic for selected rows
@@ -90,12 +90,12 @@ When you identify rows that are of interest, you can display on the main charts 
 
 For each row to add to the charts, select the check box. For each selected row, the volume is displayed as a line on the inbound or outbound charts.
 
-![Traffic for selected activity details rows displayed on the main charts for the Overall VPC flow volume profile panel.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_select_rows.png)
+![Traffic for selected activity details rows displayed on the main charts for the Overall VPC flow volume profile panel.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_select_rows.png)
 
 
 To focus on the traffic volume for the selected entries, you can hide the overall volume. To show or hide the overall traffic volume, toggle **Overall traffic**.
 
-![Traffic for selected activity details rows displayed on the main charts on the Overall VPC flow volume profile panel. Overall traffic is hidden.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_overall_off.png)
+![Traffic for selected activity details rows displayed on the main charts on the Overall VPC flow volume profile panel. Overall traffic is hidden.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_vpc_overall_off.png)
 
 
 ## Displaying the VPC flow traffic for EKS clusters

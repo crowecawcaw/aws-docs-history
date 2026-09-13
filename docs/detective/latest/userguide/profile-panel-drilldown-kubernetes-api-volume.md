@@ -31,7 +31,7 @@ You can expand each service account and user to display the list of IP addresses
 You can then expand each IP address to show the Kubernetes API calls that were made by that account or user from that IP address.   
 Expand the Kubernetes API call to see the `requestURI `to identify the action that was done.  
 
-![View of the Subjects tab of the Overall Kubernetes API call volume panel, with an entry expanded to show the hierarchy of IP address, and API calls.](http://docs.aws.amazon.com/detective/latest/userguide/images/kube-subject-drilldown.png)
+![View of the Subjects tab of the Overall Kubernetes API call volume panel, with an entry expanded to show the hierarchy of IP address, and API calls.](https://docs.aws.amazon.com/detective/latest/userguide/images/kube-subject-drilldown.png)
 
 
 **IP Address**  
@@ -40,7 +40,7 @@ You can expand each call to display the list of Kubernetes subjects (service acc
 You can then expand each subject to a list of API call types made by the subject during the scope time.  
 Expand the API call type to see the requestURI to identify the action that was done.  
 
-![View of the IP address tab of the Overall Kubernetes API call volume panel, with an entry expanded to show the hierarchy of API calls, IP addresses, and AKIDs. API calls are grouped by service](http://docs.aws.amazon.com/detective/latest/userguide/images/kube-ip-drilldown.png)
+![View of the IP address tab of the Overall Kubernetes API call volume panel, with an entry expanded to show the hierarchy of API calls, IP addresses, and AKIDs. API calls are grouped by service](https://docs.aws.amazon.com/detective/latest/userguide/images/kube-ip-drilldown.png)
 
 
 **Kubernetes API call**  
@@ -49,7 +49,7 @@ You can expand each API verb to display the requestURIs associated with that act
 You can then expand each requestURI to see Kubernetes subject (service accounts and users) that made the API call.  
 Expand the subject to see which IPs that subject used to make the API call.  
 
-![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_resource.png)
+![View of the Resource tab of the Overall API call volume panel, with an entry expanded to show the hierarchy of AKIDs, IP addresses, and API calls grouped by service.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_resource.png)
 
 
 ## Sorting the activity details
@@ -83,7 +83,7 @@ On all of the tabs, you can filter the list by any of the values in the first co
 
 The time range for the activity details is highlighted on the profile panel charts.
 
-![Highlighted time window for the Overall API call volume profile panel](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_timehighlight.png)
+![Highlighted time window for the Overall API call volume profile panel](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_panel_drilldown_api_timehighlight.png)
 
 
 ## Using profile panel guidance during an investigation

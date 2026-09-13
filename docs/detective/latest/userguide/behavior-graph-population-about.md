@@ -15,7 +15,7 @@ To learn more about the source data used in a behavior graph, see [Source data u
 
 As new data comes in, Detective uses a combination of extraction and analytics to populate the behavior graph.
 
-![Diagram showing the flow of incoming source data into Detective, where it is used to populate the behavior graph.](http://docs.aws.amazon.com/detective/latest/userguide/images/diagram_graph_ingest_analytics.png)
+![Diagram showing the flow of incoming source data into Detective, where it is used to populate the behavior graph.](https://docs.aws.amazon.com/detective/latest/userguide/images/diagram_graph_ingest_analytics.png)
 
 
 ## Detective extraction

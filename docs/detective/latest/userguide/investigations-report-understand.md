@@ -13,7 +13,7 @@ To view an investigations report for a specific investigation ID.
 
 1. In the **Reports** table, select an investigation **ID**.
 
-![Investigations reports lets you review the generated Reports for investigations that you have run previously in Detective.](http://docs.aws.amazon.com/detective/latest/userguide/images/detective-investigations-report.png)
+![Investigations reports lets you review the generated Reports for investigations that you have run previously in Detective.](https://docs.aws.amazon.com/detective/latest/userguide/images/detective-investigations-report.png)
 
 
 Detective generates the report for the selected **Scope** time and **User**. The report contains an **Indicators of Compromise** section that includes details regarding one or more of the indicators of compromise listed below. As you review each indicator of compromise, optionally choose an item to drill down and review its details.

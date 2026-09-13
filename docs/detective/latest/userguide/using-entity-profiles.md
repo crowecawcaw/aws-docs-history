@@ -68,4 +68,4 @@ As you scroll down through a profile tab, the following information remains visi
 + Entity identifier
 + Scope time
 
-![Profile header with the menu of available tabs.](http://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_header_tab_menu.png)
+![Profile header with the menu of available tabs.](https://docs.aws.amazon.com/detective/latest/userguide/images/screen_profile_header_tab_menu.png)

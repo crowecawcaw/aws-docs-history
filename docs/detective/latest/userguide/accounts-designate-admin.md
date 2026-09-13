@@ -17,7 +17,7 @@ If the Detective administrator account is an administrator account for an existi
 
 The Detective administrator account chooses organization accounts to enable as member accounts in the organization behavior graph.
 
-![This diagram shows how the organization management account chooses the Detective administrator account. The Detective administrator account is the administrator account for the organization behavior graph and the delegated administrator account in Organizations. The Detective administrator account has access to all of the organization accounts.](http://docs.aws.amazon.com/detective/latest/userguide/images/diagram_account_delegation.png)
+![This diagram shows how the organization management account chooses the Detective administrator account. The Detective administrator account is the administrator account for the organization behavior graph and the delegated administrator account in Organizations. The Detective administrator account has access to all of the organization accounts.](https://docs.aws.amazon.com/detective/latest/userguide/images/diagram_account_delegation.png)
 
 
 The Detective administrator account can also send invitations to accounts that do not belong to the organization. For more information, see [Managing organization accounts as Detective member accounts](accounts-orgs-members.md) and [Managing invited member accounts in Detective](accounts-invited-members.md).

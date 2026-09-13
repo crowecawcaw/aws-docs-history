@@ -70,7 +70,7 @@ You can use Amazon Detective to investigate an entity such as an EC2 instance or
 
 At a high level, the following image shows the process for a Detective Investigation.
 
-![Diagram that shows the Detective Investigation process.](http://docs.aws.amazon.com/detective/latest/userguide/images/diagram_investigation_flow_entity.png)
+![Diagram that shows the Detective Investigation process.](https://docs.aws.amazon.com/detective/latest/userguide/images/diagram_investigation_flow_entity.png)
 
 
 **Step 1: Select the entity to investigate**  

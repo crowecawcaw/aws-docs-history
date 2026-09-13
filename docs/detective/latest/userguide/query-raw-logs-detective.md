@@ -29,7 +29,7 @@ Amazon VPC FLow Logs are available for the following profiles:
 
 For a demonstration of how to use Amazon Detective with Amazon Security Lake using the Detective console, watch the following video: 
 
-[![AWS Videos](http://img.youtube.com/vi/A_EWd2lvVW0/0.jpg)](http://www.youtube.com/watch?v=A_EWd2lvVW0)
+[![AWS Videos](https://img.youtube.com/vi/A_EWd2lvVW0/0.jpg)](https://www.youtube.com/watch?v=A_EWd2lvVW0)
 
 
 **To query raw logs for an AWS account**
@@ -42,12 +42,12 @@ For a demonstration of how to use Amazon Detective with Amazon Security Lake usi
 
 1. From here, you can start to **Query raw logs**. 
 
-![In the Raw log preview table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena.](http://docs.aws.amazon.com/detective/latest/userguide/images/query-raw-logs-awsaccount.png)
+![In the Raw log preview table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena.](https://docs.aws.amazon.com/detective/latest/userguide/images/query-raw-logs-awsaccount.png)
 
 
 In the **Raw log preview** table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena. 
 
-![In the Raw log preview table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena.](http://docs.aws.amazon.com/detective/latest/userguide/images/query-raw-log-table.png)
+![In the Raw log preview table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena.](https://docs.aws.amazon.com/detective/latest/userguide/images/query-raw-log-table.png)
 
 
 From the Query raw logs table, you can **Cancel query request**, **See results in Amazon Athena**, and **Download results** as a comma-separated values (.csv) file. 
@@ -79,7 +79,7 @@ If you want to understand the activity of an AWS role in a new geolocation, you 
 1.  For the AWS role, expand the resource to display the specific API calls that were issued from that IP address by that resource.
 
 1. Choose the magnifier icon next to the API call that you want to investigate to open the **Raw log preview** table.   
-![In the Raw log preview table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena.](http://docs.aws.amazon.com/detective/latest/userguide/images/query-raw-logs-awsrole.png)
+![In the Raw log preview table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena.](https://docs.aws.amazon.com/detective/latest/userguide/images/query-raw-logs-awsrole.png)
 
 ## Querying raw logs for an Amazon EKS cluster
 <a name="query-log-eks-cluster"></a>
@@ -106,7 +106,7 @@ If you want to understand the activity of an AWS role in a new geolocation, you 
 1. In the **Overall VPC Flow volume** section, choose the magnifier icon next to the API call that you want to investigate to open the **Raw log preview** table. 
 
 1. From here, you can start to **Query raw logs**.   
-![In the Raw log preview table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena.](http://docs.aws.amazon.com/detective/latest/userguide/images/query-raw-log-vpc.png)
+![In the Raw log preview table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena.](https://docs.aws.amazon.com/detective/latest/userguide/images/query-raw-log-vpc.png)
 
 In the **Raw log preview** table, you can view the logs and events retrieved by querying data from Security Lake. For more details about the raw event logs, you can view the data displayed in Amazon Athena. 
 
