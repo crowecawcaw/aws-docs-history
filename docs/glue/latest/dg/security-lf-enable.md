@@ -23,7 +23,7 @@ Using AWS Glue with Lake Formation lets you enforce a layer of permissions on ea
 
 The following is a high-level overview of how AWS Glue gets access to data protected by Lake Formation security policies.
 
-![The diagram shows how fine-grained access control works with the AWS Glue StartJobRun API.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-50-fgac-start-job-run-api-diagram.png)
+![The diagram shows how fine-grained access control works with the AWS Glue StartJobRun API.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-50-fgac-start-job-run-api-diagram.png)
 
 
 1. A user calls the `StartJobRun` API on an AWS Lake Formation-enabled AWS Glue job.

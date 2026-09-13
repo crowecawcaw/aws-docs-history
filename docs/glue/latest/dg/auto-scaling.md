@@ -34,7 +34,7 @@ On the **Job details** tab in AWS Glue Studio, choose the type as **Spark** or *
 + Select the **Automatically scale the number of workers** option.
 + Set the **Maximum number of workers** to define the maximum number of workers that can be vended to the job run.
 
-![Enabling and configuring Auto Scaling in AWS Glue Studio.](http://docs.aws.amazon.com/glue/latest/dg/images/auto-scaling-enable-studio.png)
+![Enabling and configuring Auto Scaling in AWS Glue Studio.](https://docs.aws.amazon.com/glue/latest/dg/images/auto-scaling-enable-studio.png)
 
 
 ## Enabling Auto Scaling with the AWS CLI or SDK
@@ -98,7 +98,7 @@ For more details on these metrics, see [Monitoring for DPU capacity planning](mo
 **Note**  
  CloudWatch executor metrics are not available for interactive sessions. 
 
-![Monitoring Auto Scaling with Amazon CloudWatch metrics.](http://docs.aws.amazon.com/glue/latest/dg/images/auto-scaling-monitor-metrics.png)
+![Monitoring Auto Scaling with Amazon CloudWatch metrics.](https://docs.aws.amazon.com/glue/latest/dg/images/auto-scaling-monitor-metrics.png)
 
 
 ## Monitoring Auto Scaling with Amazon CloudWatch Logs
@@ -115,7 +115,7 @@ For more details on these metrics, see [Monitoring for DPU capacity planning](mo
 
  In the Amazon CloudWatch Logsevents, search "executor"in the logs: 
 
-![Monitoring Auto Scaling with Amazon CloudWatch metrics.](http://docs.aws.amazon.com/glue/latest/dg/images/cloudwatch-metrics-search-executor.png)
+![Monitoring Auto Scaling with Amazon CloudWatch metrics.](https://docs.aws.amazon.com/glue/latest/dg/images/cloudwatch-metrics-search-executor.png)
 
 
 ## Monitoring Auto Scaling with Spark UI
@@ -132,7 +132,7 @@ For more details on these metrics, see [Monitoring for DPU capacity planning](mo
 }
 ```
 
-![Monitoring Auto Scaling with Spark UI.](http://docs.aws.amazon.com/glue/latest/dg/images/auto-scaling-monitor-spark-ui.png)
+![Monitoring Auto Scaling with Spark UI.](https://docs.aws.amazon.com/glue/latest/dg/images/auto-scaling-monitor-spark-ui.png)
 
 
 ## Monitoring Auto Scaling job run DPU usage

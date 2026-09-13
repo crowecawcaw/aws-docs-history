@@ -10,7 +10,7 @@ The transform evaluates the current data against the trained model based on labe
 **Note**  
 The version of AWS Glue used by the visual job must match the version that AWS Glue used to create the Record Matching transform.
 
-![The screenshot shows a data preview for the transform.](http://docs.aws.amazon.com/glue/latest/dg/images/recording-matching-transform-1.png)
+![The screenshot shows a data preview for the transform.](https://docs.aws.amazon.com/glue/latest/dg/images/recording-matching-transform-1.png)
 
 
 **To add a Record Matching transform node to your job diagram**
@@ -20,6 +20,6 @@ The version of AWS Glue used by the visual job must match the version that AWS G
 1. In the node properties panel, you can enter a name for the node in the job diagram. If a node parent isn't already selected, choose a node from the **Node parents** list to use as the input source for the transform.
 
 1. On the **Transform** tab, enter the ID taken from the **Machine learning transforms** page:  
-![The screenshot shows the ID from the Machine learning transforms page.](http://docs.aws.amazon.com/glue/latest/dg/images/recording-matching-transform-2.png)
+![The screenshot shows the ID from the Machine learning transforms page.](https://docs.aws.amazon.com/glue/latest/dg/images/recording-matching-transform-2.png)
 
 1. (Optional) On the **Transform** tab, you can check the option to add the confidence scores. At the cost of extra computing, the model will estimate a confidence score for each match as an additional column.

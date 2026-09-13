@@ -33,7 +33,7 @@ A join can have only two parent nodes.
 
 1. On the **Transform** tab, under the heading **Join conditions**, choose **Add condition**. Choose a property key from each dataset to compare. Property keys on the left side of the comparison operator are referred to as the left dataset and property keys on the right are referred to as the right dataset. 
 
-   For more complex join conditions, you can add additional matching keys by choosing **Add condition** more than once. If you accidentally add a condition, you can choose the delete icon (![An outline of a trash can](http://docs.aws.amazon.com/glue/latest/dg/images/delete-icon-black.png)) to remove it.
+   For more complex join conditions, you can add additional matching keys by choosing **Add condition** more than once. If you accidentally add a condition, you can choose the delete icon (![An outline of a trash can](https://docs.aws.amazon.com/glue/latest/dg/images/delete-icon-black.png)) to remove it.
 
 1. (Optional) After configuring the transform node properties, you can view the modified schema for your data by choosing the **Output schema** tab in the node details panel. The first time you choose this tab for any node in your job, you are prompted to provide an IAM role to access the data. If you have not specified an IAM role on the **Job details** tab, you are prompted to enter an IAM role here.
 

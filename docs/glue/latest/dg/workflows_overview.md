@@ -36,7 +36,7 @@ To share and manage state throughout a workflow run, you can define default work
 **Workflow graph**  
 The following image shows the graph of a very basic workflow on the AWS Glue console. Your workflow could have dozens of components.
 
-![Console screenshot that shows the Graph tab of a workflow. The graph contains five icons that represent a schedule trigger, two jobs, an event success trigger, and a crawler that updates the schema.](http://docs.aws.amazon.com/glue/latest/dg/images/graph-complete-with-tabs.png)
+![Console screenshot that shows the Graph tab of a workflow. The graph contains five icons that represent a schedule trigger, two jobs, an event success trigger, and a crawler that updates the schema.](https://docs.aws.amazon.com/glue/latest/dg/images/graph-complete-with-tabs.png)
 
 
 This workflow is started by a schedule trigger, `Month-close1`, which starts two jobs, `De-duplicate` and `Fix phone numbers`. Upon successful completion of both jobs, an event trigger, `Fix/De-dupe succeeded`, starts a crawler, `Update schema`.

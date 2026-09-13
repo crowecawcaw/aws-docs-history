@@ -24,12 +24,12 @@ data.write.format("parquet").save(output_path)
 
 The following graph shows the memory usage as a percentage for the driver and executors. This usage is plotted as one data point that is averaged over the values reported in the last minute. You can see in the memory profile of the job that the [driver memory](monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.jvm.heap.usage) crosses the safe threshold of 50 percent usage quickly. On the other hand, the [average memory usage](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.usage) across all executors is still less than 4 percent. This clearly shows abnormality with driver execution in this Spark job. 
 
-![The memory usage in percentage for the driver and executors.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-memoryprofile.png)
+![The memory usage in percentage for the driver and executors.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-memoryprofile.png)
 
 
 The job run soon fails, and the following error appears in the **History** tab on the AWS Glue console: Command Failed with Exit Code 1. This error string means that the job failed due to a systemic error—which in this case is the driver running out of memory.
 
-![The error message shown on the AWS Glue console.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-errorstring.png)
+![The error message shown on the AWS Glue console.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-errorstring.png)
 
 
 On the console, choose the **Error logs** link on the **History** tab to confirm the finding about driver OOM from the CloudWatch Logs. Search for "**Error**" in the job's error logs to confirm that it was indeed an OOM exception that failed the job:
@@ -58,12 +58,12 @@ You can monitor the memory profile and the ETL data movement in the AWS Glue job
 
 The driver runs below the threshold of 50 percent memory usage over the entire duration of the AWS Glue job. The executors stream the data from Amazon S3, process it, and write it out to Amazon S3. As a result, they consume less than 5 percent memory at any point in time.
 
-![The memory profile showing the issue is fixed.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-memoryprofile-fixed.png)
+![The memory profile showing the issue is fixed.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-memoryprofile-fixed.png)
 
 
 The data movement profile below shows the total number of Amazon S3 bytes that are [read](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.read_bytes) and [written](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.write_bytes) in the last minute by all executors as the job progresses. Both follow a similar pattern as the data is streamed across all the executors. The job finishes processing all one million files in less than three hours.
 
-![The data movement profile showing the issue is fixed.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-etlmovement.png)
+![The data movement profile showing the issue is fixed.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-etlmovement.png)
 
 
 ## Debugging an executor OOM exception
@@ -86,22 +86,22 @@ dfSpark.write.format("parquet").save(output_path)
 
 If the slope of the memory usage graph is positive and crosses 50 percent, then if the job fails before the next metric is emitted, then memory exhaustion is a good candidate for the cause. The following graph shows that within a minute of execution, the [average memory usage](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.usage) across all executors spikes up quickly above 50 percent. The usage reaches up to 92 percent and the container running the executor is stopped by Apache Hadoop YARN. 
 
-![The average memory usage across all executors.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-memoryprofile.png)
+![The average memory usage across all executors.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-memoryprofile.png)
 
 
 As the following graph shows, there is always a [single executor](monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.ExecutorAllocationManager.executors.numberAllExecutors) running until the job fails. This is because a new executor is launched to replace the stopped executor. The JDBC data source reads are not parallelized by default because it would require partitioning the table on a column and opening multiple connections. As a result, only one executor reads in the complete table sequentially.
 
-![The job execution shows a single executor running until the job fails.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-execution.png)
+![The job execution shows a single executor running until the job fails.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-execution.png)
 
 
 As the following graph shows, Spark tries to launch a new task four times before failing the job. You can see the [memory profile](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.used) of three executors. Each executor quickly uses up all of its memory. The fourth executor runs out of memory, and the job fails. As a result, its metric is not reported immediately.
 
-![The memory profiles of the executors.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-exec-memprofile.png)
+![The memory profiles of the executors.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-exec-memprofile.png)
 
 
 You can confirm from the error string on the AWS Glue console that the job failed due to OOM exceptions, as shown in the following image.
 
-![The error message shown on the AWS Glue console.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-errorstring.png)
+![The error message shown on the AWS Glue console.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-errorstring.png)
 
 
 **Job output logs:** To further confirm your finding of an executor OOM exception, look at the CloudWatch Logs. When you search for **Error**, you find the four executors being stopped in roughly the same time windows as shown on the metrics dashboard. All are terminated by YARN as they exceed their memory limits.
@@ -160,4 +160,4 @@ glueContext.write_dynamic_frame.from_options(frame = df, connection_type = "s3",
 
 **Normal profiled metrics:** The [executor memory](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.usage) with AWS Glue dynamic frames never exceeds the safe threshold, as shown in the following image. It streams in the rows from the database and caches only 1,000 rows in the JDBC driver at any point in time. An out of memory exception does not occur.
 
-![AWS Glue console showing executor memory below the safe threshold.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-memoryprofile-fixed.png)
+![AWS Glue console showing executor memory below the safe threshold.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-debug-oom-2-memoryprofile-fixed.png)

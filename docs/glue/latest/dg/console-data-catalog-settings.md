@@ -5,7 +5,7 @@
 
  The Data Catalog settings contains options to set encryption and permissions options for the Data Catalog in your account. 
 
-![The screenshot shows the Data Catalog settings modal.](http://docs.aws.amazon.com/glue/latest/dg/images/data_catalog_settings.png)
+![The screenshot shows the Data Catalog settings modal.](https://docs.aws.amazon.com/glue/latest/dg/images/data_catalog_settings.png)
 
 
 **To change the fine-grained access control of the Data Catalog**

@@ -14,7 +14,7 @@
 
  AWS Glue streaming jobs operate on the Spark streaming paradigm and leverage structured streaming from the Spark framework. Streaming jobs constantly poll on the streaming data source, at a specific interval of time, to fetch records as micro batches. The following sections examine the different parts of a AWS Glue streaming job. 
 
-![The screenshot shows a Amazon CloudWatch Monitoring log, AWS Glue for the example provided above and looks at the number of needed executors (Orange Line) and scales the executors (blue line) to match that without needing manual adjustment.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-anatomy.png)
+![The screenshot shows a Amazon CloudWatch Monitoring log, AWS Glue for the example provided above and looks at the number of needed executors (Orange Line) and scales the executors (blue line) to match that without needing manual adjustment.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-anatomy.png)
 
 
 ### forEachBatch

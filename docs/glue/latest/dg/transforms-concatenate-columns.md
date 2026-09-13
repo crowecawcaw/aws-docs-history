@@ -20,7 +20,7 @@
 1. (Optional) On the **Node properties** tab, you can enter a name for the node in the job diagram. If a node parent is not already selected, then choose a node from the Node parents list to use as the input source for the transform.
 
 1. On the **Transform** tab, enter the name of the column that will hold the concatenated string as well as the columns to concatenate. The order in which you check the columns in the dropdown will be the order used.  
-![The screenshot shows the Transform tab for the Concatenate transform.](http://docs.aws.amazon.com/glue/latest/dg/images/transforms-concatenate-transform-tab.png)
+![The screenshot shows the Transform tab for the Concatenate transform.](https://docs.aws.amazon.com/glue/latest/dg/images/transforms-concatenate-transform-tab.png)
 
 1. **Spacer - optional** – Enter a string to place betwen the concatenated fields. By default, there is no spacer.
 

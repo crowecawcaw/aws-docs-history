@@ -157,4 +157,4 @@ teradata_read_table = spark.read.format("teradatanos").option(**options).load()
 
  You can provide all above options in your visual ETL job UI. For connectionName option, you should choose it from the Teradata Vantage NOS connection drop down list. For all other options, you should provide them through the Custom Teradata Vantage NOS properties as key value pairs. 
 
-![The window pane displays the Teradata NOS Vantage connection is selected.](http://docs.aws.amazon.com/glue/latest/dg/images/teradata-nos-vantage-connection-options.png)
+![The window pane displays the Teradata NOS Vantage connection is selected.](https://docs.aws.amazon.com/glue/latest/dg/images/teradata-nos-vantage-connection-options.png)

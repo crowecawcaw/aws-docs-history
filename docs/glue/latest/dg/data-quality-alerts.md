@@ -84,7 +84,7 @@ For Data Quality evaluation runs both in the Data Catalog and in ETL jobs, the *
 
 **Setting up EventBridge notifications**
 
-![Data quality properties in AWS CloudFormation](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-properties-cfn.png)
+![Data quality properties in AWS CloudFormation](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-properties-cfn.png)
 
 
 To receive the emitted events and define targets, you must configure Amazon EventBridge rules. To create rules:
@@ -205,7 +205,7 @@ To capture events with a score under a specific threshold (e.g. 70%):
 
 Sometimes you need to send a well-formatted email notification to your business teams. You can use Amazon EventBridge and AWS Lambda to achieve this.
 
-![Data quality notification formatted as an email](http://docs.aws.amazon.com/glue/latest/dg/images/data_quality_sample_email.png)
+![Data quality notification formatted as an email](https://docs.aws.amazon.com/glue/latest/dg/images/data_quality_sample_email.png)
 
 
 The following sample code can be used to format your data quality notifications to generate emails.

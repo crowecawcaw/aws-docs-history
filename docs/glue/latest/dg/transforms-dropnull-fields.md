@@ -10,7 +10,7 @@
 1.  Add a DropNullFields node to the job diagram. 
 
 1.  On the **Node properties** tab, choose additional values that represent a null value. You can choose to select none or all of the values:   
-![The screenshot shows the Transform tab for the DropNullFields node.](http://docs.aws.amazon.com/glue/latest/dg/images/DropNullFields-transform-tab.png)
+![The screenshot shows the Transform tab for the DropNullFields node.](https://docs.aws.amazon.com/glue/latest/dg/images/DropNullFields-transform-tab.png)
    +  Empty String ("" or '') - fields that contain empty strings will be removed 
    +  "null string" - fields that contain the string with the word 'null' will be removed 
    +  -1 integer - fields that contain a -1 (negative one) integer will be removed 

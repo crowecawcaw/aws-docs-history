@@ -10,4 +10,4 @@
 1. (Optional) On the **Node properties** tab, you can enter a name for the node in the job diagram. If a node parent is not already selected, then choose a node from the Node parents list to use as the input source for the transform.
 
 1. (Optional) On the **Transform** tab, you can enter a number of partitions. In general, it’s recommended that you let the system decide this value, however you can tune the multiplier or enter a specific value if you need to control this. If you are going to save the data partitioned by columns, you can choose the same columns as repartition columns. This way it will minimize the number of files on each partition and avoid having many files per partitions, which would hinder the performance of the tools querying that data.  
-![The screenshot shows the Transform tab for the Autobalance Processing transform.](http://docs.aws.amazon.com/glue/latest/dg/images/transforms-autobalance-processing-transform-tab.png)
+![The screenshot shows the Transform tab for the Autobalance Processing transform.](https://docs.aws.amazon.com/glue/latest/dg/images/transforms-autobalance-processing-transform-tab.png)

@@ -31,7 +31,7 @@
    1. On the Create policy page, choose the JSON tab. Copy the JSON code shown in the Prerequisites into the policy editor field.
 
 1. If you prefer to set the values for the **Snapshot retention configuration** manually, choose **Customize settings**.   
-![Apache Iceberg table details page with Enable retention>Customize settings option.](http://docs.aws.amazon.com/glue/latest/dg/images/table-enable-retention.png)
+![Apache Iceberg table details page with Enable retention>Customize settings option.](https://docs.aws.amazon.com/glue/latest/dg/images/table-enable-retention.png)
 
 1. Choose the box **Apply the selected IAM role to the selected optimizers** option to use a single IAM role for all enabling all optimizers.
 

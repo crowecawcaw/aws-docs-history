@@ -18,9 +18,9 @@ Perform the following tasks to run a crawler on the data store:
 Check that you have met these prerequisites for setting up your Amazon S3 data store or Amazon S3 backed Data Catalog tables to be accessed through an Amazon Virtual Private Cloud environment (Amazon VPC).
 + A configured VPC. For example: vpc-01685961063b0d84b. For more information, see [Getting started with Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-getting-started.html) in the *Amazon VPC User Guide*.
 + An Amazon S3 endpoint attached to the VPC. For example: vpc-01685961063b0d84b. For more information, see [Endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html) in the *Amazon VPC User Guide*.  
-![Example of an Amazon S3 endpoint attached to a VPC.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_s3_endpoint_attached.png)
+![Example of an Amazon S3 endpoint attached to a VPC.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_s3_endpoint_attached.png)
 + A route entry pointing to the VPC endpoint. For example vpce-0ec5da4d265227786 in the route table used by the VPC endpoint(vpce-0ec5da4d265227786).  
-![Example of a route entry pointing to the VPC endpoint.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_route_entry.png)
+![Example of a route entry pointing to the VPC endpoint.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_route_entry.png)
 + A network ACL attached to the VPC allows the traffic.
 + A security group attached to the VPC allows the traffic.
 
@@ -37,18 +37,18 @@ To set up a `Network` connection:
 1. Choose **Add connection** in the navigation pane of the AWS Glue console.
 
 1. Enter the connection name, choose **Network** as the connection type. Choose **Next**.  
-![Selecting the connection type.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_network_1.png)
+![Selecting the connection type.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_network_1.png)
 
 1. Configure the VPC, Subnet and Security groups information.
    + VPC: choose the VPC name that contains your data store.
    + Subnet: choose the subnet within your VPC.
    + Security groups: choose one or more security groups that allow access to the data store in your VPC.  
-![Selecting the connection type.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_network_2.png)
+![Selecting the connection type.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_network_2.png)
 
 1. Choose **Next**.
 
 1. Verify the connection information and choose **Finish**.  
-![Selecting the connection type.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_network_3.png)
+![Selecting the connection type.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_network_3.png)
 
 ## Testing the connection to Amazon S3
 <a name="connection-S3-VPC-test-connection"></a>
@@ -73,7 +73,7 @@ To test a `Network` connection:
 
 1. Choose **Test connection** to start the test. It might take few moments to show the result. 
 
-![Testing the connection.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_test_network.png)
+![Testing the connection.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_test_network.png)
 
 
  If you receive an error, check the following:
@@ -96,17 +96,17 @@ You can now create a crawler that specifies the `Network` connection you've crea
 1. Specify the crawler name and choose **Next**.
 
 1. When asked for the data source, choose **S3**, and specify the Amazon S3 bucket prefix and the connection you created earlier.  
-![Testing the connection.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_crawler_1.png)
+![Testing the connection.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_crawler_1.png)
 
 1. If you need to, add another data store on the same network connection.
 
 1. Choose IAM role. The IAM role must allow access to the AWS Glue service and the Amazon S3 bucket. For more information, see [Configuring a crawler](define-crawler.md).  
-![Testing the connection.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_crawler_2.png)
+![Testing the connection.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_crawler_2.png)
 
 1. Define the schedule for the crawler.
 
 1. Choose an existing database in the Data Catalog, or create a new database entry.  
-![Testing the connection.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_crawler_3.png)
+![Testing the connection.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_add_crawler_3.png)
 
 1. Finish the remaining setup.
 
@@ -122,7 +122,7 @@ You can now create a crawler that specifies the `Network` connection you've crea
 1. Specify the crawler name and choose **Next**.
 
 1. When asked for the crawler source type, choose **Existing catalog tables**, and specify the existing catalog tables to crawl from the list of available tables.  
-![Selecting the crawler source type.](http://docs.aws.amazon.com/glue/latest/dg/images/catalog-vpc-1.png)
+![Selecting the crawler source type.](https://docs.aws.amazon.com/glue/latest/dg/images/catalog-vpc-1.png)
 
 1. Choose IAM role. The IAM role must allow access to the AWS Glue service and the Amazon S3 bucket. For more information, see [Configuring a crawler](define-crawler.md).
 
@@ -131,14 +131,14 @@ You can now create a crawler that specifies the `Network` connection you've crea
 1. Choose an existing database in the Data Catalog, or create a new database entry.
 
 1. Finish the remaining setup and review your steps.  
-![Selecting the crawler source type.](http://docs.aws.amazon.com/glue/latest/dg/images/catalog-vpc-2.png)
+![Selecting the crawler source type.](https://docs.aws.amazon.com/glue/latest/dg/images/catalog-vpc-2.png)
 
 ## Running a crawler
 <a name="connection-S3-VPC-run-crawler"></a>
 
 Run your crawler.
 
-![Running your crawler on demand.](http://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_s3_endpoint_run_crawler.png)
+![Running your crawler on demand.](https://docs.aws.amazon.com/glue/latest/dg/images/network_s3_vpc_s3_endpoint_run_crawler.png)
 
 
 ## Troubleshooting

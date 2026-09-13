@@ -19,14 +19,14 @@
 **To add a FindMatches transform:**
 
 1.  In the AWS Glue Studio job editor, open the Resource panel by clicking on the cross symbol in the upper left-hand corner of the visual job graph and choose a Data source by choosing the **Data tab**. This is the data source you want to check for matches.   
-![The screenshot shows a cross symbol inside a circle. When you click on this in the visual job editor, the resource panel opens.](http://docs.aws.amazon.com/glue/latest/dg/images/resource-panel-blank-canvas.png)
+![The screenshot shows a cross symbol inside a circle. When you click on this in the visual job editor, the resource panel opens.](https://docs.aws.amazon.com/glue/latest/dg/images/resource-panel-blank-canvas.png)
 
 1.  Choose the data source node, then open the Resource panel by clicking on the cross symbol in the upper left-hand corner of the visual job graph and search for 'custom transform'. Choose the **Custom Transform** node to add it to the graph. The **Custom Transform** is linked to the data source node. If it is not, you can click on the **Custom Transform ** node and choose the **Node properties** tab, then under **Node parents**, choose the data source. 
 
 1.  Click the **Custom Transform** node in the visual graph, then choose the **Node properties** tab and name the custom transform. It is recommended that you rename the transform so that the transform name is easily identifiable in the visual graph. 
 
 1.  Choose the **Transform** tab, where you can edit the code block. This is where the code to invoke the FindMatches API can be added.   
-![The screenshot shows the code block in the Transform tab when the Custom Transform node is selected.](http://docs.aws.amazon.com/glue/latest/dg/images/custom-transform-code-block.png)
+![The screenshot shows the code block in the Transform tab when the Custom Transform node is selected.](https://docs.aws.amazon.com/glue/latest/dg/images/custom-transform-code-block.png)
 
     The code block contains pre-populated code to get you started. Overwrite the pre-populated code with the template below. The template has a placeholder for the **transformId**, which you can provide. 
 

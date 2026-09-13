@@ -91,7 +91,7 @@ job.commit()
 1. Complete the AWS Glue Studio tutorial. To complete this tutorial, see [Creating a job in AWS Glue Studio from an example job](https://docs.aws.amazon.com/glue/latest/dg/edit-nodes-chapter.html#create-jobs-start.html).
 
 1. Navigate to the **Script** tab on the job page, as shown in the following screenshot:   
-![The Script tab for an AWS Glue job.](http://docs.aws.amazon.com/glue/latest/dg/images/programming-intro-generated-script.png)
+![The Script tab for an AWS Glue job.](https://docs.aws.amazon.com/glue/latest/dg/images/programming-intro-generated-script.png)
 
 1. Copy the complete contents of the **Script** tab. By setting the script language in **Job details**, you can switch back and forth between generating Python or Scala code.
 

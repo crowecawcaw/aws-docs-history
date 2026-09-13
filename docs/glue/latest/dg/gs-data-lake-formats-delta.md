@@ -16,7 +16,7 @@
 1.  AWS Glue Studio displays the format as Delta Lake and the Amazon S3 URL. 
 
 1.  Choose **Additional options** to enter a key-value pair. For example, a key-value pair could be: **key**: timestampAsOf and **value**: 2023-02-24 14:16:18.   
-![The screenshot shows the Additional options section in the Data source properties tab for an Amazon S3 data source node.](http://docs.aws.amazon.com/glue/latest/dg/images/data_lake_formats_additional_options.png)
+![The screenshot shows the Additional options section in the Data source properties tab for an Amazon S3 data source node.](https://docs.aws.amazon.com/glue/latest/dg/images/data_lake_formats_additional_options.png)
 
 1.  If you choose Amazon S3 location as the **Amazon S3 source type**, choose the Amazon S3 URL by clicking **Browse Amazon S3**. 
 

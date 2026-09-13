@@ -10,4 +10,4 @@
 1.  From the **Action** menu, choose the custom visual transform. It is named with the transform `displayName` or name that you specified in the .json config file. 
 
 1.  Enter values for any parameters that were configured in the config file.   
-![The screenshot shows a custom visual transform with parameters for the user to complete in the Transform tab.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-parameters.png)
+![The screenshot shows a custom visual transform with parameters for the user to complete in the Transform tab.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-parameters.png)

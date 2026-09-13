@@ -26,7 +26,7 @@ You can run and monitor a workflow by using the AWS Glue console, API, or AWS Co
       The workflow runtime graph shows the current run status.
 
    1. Choose any node in the graph to view details and status of the node.  
-![The run graph shows a start trigger, which starts a job. Another trigger watches for job completion. The job node (a rectangle that encloses a clipboard icon and a job name) is selected, and the job details are shown in a pane at the right. The job details include job run ID and status.](http://docs.aws.amazon.com/glue/latest/dg/images/workflow-pre-select-resume.png)
+![The run graph shows a start trigger, which starts a job. Another trigger watches for job completion. The job node (a rectangle that encloses a clipboard icon and a job name) is selected, and the job details are shown in a pane at the right. The job details include job run ID and status.](https://docs.aws.amazon.com/glue/latest/dg/images/workflow-pre-select-resume.png)
 
 **To run and monitor a workflow (AWS CLI)**
 

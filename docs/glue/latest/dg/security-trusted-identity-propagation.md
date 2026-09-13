@@ -35,7 +35,7 @@ The AWS Glue interactive sessions integration with IAM Identity Center [ Trusted
 ## How it works
 <a name="security-trusted-identity-propagation-how-it-works"></a>
 
-![Architecture diagram showing AWS Glue Interactive Sessions workflow. A user logs into client-facing applications (SageMaker Unified Studio, or custom applications) through IAM Identity Center. The user's identity is propagated to AWS Glue Interactive Sessions, which connects to access control services including IAM Identity Center, AWS Lake Formation, AWS Glue Data Catalog, and Amazon S3 Access Grant, before finally accessing S3 Storage.](http://docs.aws.amazon.com/glue/latest/dg/images/GlueISSMAI.png)
+![Architecture diagram showing AWS Glue Interactive Sessions workflow. A user logs into client-facing applications (SageMaker Unified Studio, or custom applications) through IAM Identity Center. The user's identity is propagated to AWS Glue Interactive Sessions, which connects to access control services including IAM Identity Center, AWS Lake Formation, AWS Glue Data Catalog, and Amazon S3 Access Grant, before finally accessing S3 Storage.](https://docs.aws.amazon.com/glue/latest/dg/images/GlueISSMAI.png)
 
 
  A user logs into client-facing applications (SageMaker AI, or custom applications) using their corporate identity through IAM Identity Center. This identity is then propagated through the entire data access pipeline. 

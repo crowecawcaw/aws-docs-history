@@ -15,7 +15,7 @@ Consider the situation where you have two AWS Glue Spark jobs in a single AWS Ac
 
 The following diagram illustrates an example of this situation.
 
-![AWS Glue job Job-1 in Cluster-1 and Job-2 in Cluster-2 are communicating with an Amazon Redshift instance in Subnet-1 within a VPC. Data is being transferred from Amazon S3 Bucket-1 and Bucket-2 to Amazon Redshift.](http://docs.aws.amazon.com/glue/latest/dg/images/escalation-of-privs.png)
+![AWS Glue job Job-1 in Cluster-1 and Job-2 in Cluster-2 are communicating with an Amazon Redshift instance in Subnet-1 within a VPC. Data is being transferred from Amazon S3 Bucket-1 and Bucket-2 to Amazon Redshift.](https://docs.aws.amazon.com/glue/latest/dg/images/escalation-of-privs.png)
 
 
 In the diagram, AWS Glue `Job-1` is running in `Cluster-1`, and Job-2 is running in `Cluster-2`. Both jobs are working with the same instance of Amazon Redshift, which resides in `Subnet-1` of a VPC. `Subnet-1` could be a public or private subnet. 

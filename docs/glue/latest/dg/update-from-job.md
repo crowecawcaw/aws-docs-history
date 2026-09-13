@@ -144,7 +144,7 @@ Take note of the following restrictions:
 + Only the following formats are supported: `json`, `csv`, `avro`, and `parquet`.
 + To create or update tables with the `parquet` classification, you must utilize the AWS Glue optimized parquet writer for DynamicFrames. This can be achieved with one of the following:
   + If you're updating an existing table in the catalog with `parquet` classification, the table must have the `"useGlueParquetWriter"` table property set to `true` before you update it. You can set this property via the AWS Glue APIs/SDK, via the console or via an Athena DDL statement.   
-![Catalog table property edit field in AWS Glue console.](http://docs.aws.amazon.com/glue/latest/dg/images/edit-table-property.png)
+![Catalog table property edit field in AWS Glue console.](https://docs.aws.amazon.com/glue/latest/dg/images/edit-table-property.png)
 
     Once the catalog table property is set, you can use the following snippet of code to update the catalog table with the new data:
 

@@ -19,7 +19,7 @@ You specify the `TableThreshold` as an integer value greater than 0. This value 
 1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/).
 
 1. When configuring a crawler, in **Output and scheduling**, set the **Maximum table threshold** to the number of tables the crawler is allowed generate.  
-![The Output and scheduling section of the AWS console showing the Maximum table threshold parameter.](http://docs.aws.amazon.com/glue/latest/dg/images/crawler-max-tables.png)
+![The Output and scheduling section of the AWS console showing the Maximum table threshold parameter.](https://docs.aws.amazon.com/glue/latest/dg/images/crawler-max-tables.png)
 
 ------
 #### [ AWS CLI ]

@@ -25,7 +25,7 @@ Follow these steps to generate column statistics on demand for the Data Catalog 
 1. Follow steps 7 - 11 in the [Generating column statistics on a schedule](generate-column-stats.md) to generate column statistics for the table.
 
 1. On the **Generate statistics** page, specify the following options:   
-![The screenshot shows the options available to generate column stats.](http://docs.aws.amazon.com/glue/latest/dg/images/generate-column-stats.png)
+![The screenshot shows the options available to generate column stats.](https://docs.aws.amazon.com/glue/latest/dg/images/generate-column-stats.png)
    + **All columns** – Choose this option to generate statistics for all columns in the table.
    + **Selected columns** – Choose this option to generate statistics for specific columns. You can select the columns from the drop-down list.
    + **IAM role** –Choose **Create a new IAM role** that has the required permission policies to run the column statistics generation task. Choose View permission details to review the policy statement. You can also select an IAM role from the list. For more information about the required permissions, see [Prerequisites for generating column statistics](column-stats-prereqs.md).

@@ -226,18 +226,18 @@ tests/test_sample.py .                                                   [100%]
 1.  Choose **Remote Explorer** on the left menu, and choose `amazon/aws-glue-libs:glue_libs_4.0.0_image_01`. 
 
 1.  Right-click and choose **Attach in Current Window**.   
-![When right-click, a window with the option to Attach in Current Window is presented.](http://docs.aws.amazon.com/glue/latest/dg/images/vs-code-other-containers.png)
+![When right-click, a window with the option to Attach in Current Window is presented.](https://docs.aws.amazon.com/glue/latest/dg/images/vs-code-other-containers.png)
 
 1.  If the following dialog appears, choose **Got it**.   
-![A window warning with message "Attaching to a container may execute arbitrary code".](http://docs.aws.amazon.com/glue/latest/dg/images/vs-code-warning-got-it.png)
+![A window warning with message "Attaching to a container may execute arbitrary code".](https://docs.aws.amazon.com/glue/latest/dg/images/vs-code-warning-got-it.png)
 
 1. Open `/home/handoop/workspace/`.  
-![A window drop-down with the option 'workspace' is highlighted.](http://docs.aws.amazon.com/glue/latest/dg/images/vs-code-open-workspace.png)
+![A window drop-down with the option 'workspace' is highlighted.](https://docs.aws.amazon.com/glue/latest/dg/images/vs-code-open-workspace.png)
 
 1.  Create a AWS Glue PySpark script and choose **Run**. 
 
    You will see the successful run of the script.  
-![The successful run of the script.](http://docs.aws.amazon.com/glue/latest/dg/images/vs-code-run-successful-script.png)
+![The successful run of the script.](https://docs.aws.amazon.com/glue/latest/dg/images/vs-code-run-successful-script.png)
 
 ## Changes between AWS Glue 4.0 and AWS Glue 5.0 Docker image
 <a name="develop-local-docker-glue4-glue5-changes"></a>

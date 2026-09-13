@@ -23,7 +23,7 @@ Glue console UI currently does not support creating a DynamoDB connection. You c
 
 Upon creating the DynamoDB connection, you can attach it to your Glue job via CLI ([CreateJob](https://docs.aws.amazon.com/cli/latest/reference/glue/create-job.html), [UpdateJob](https://docs.aws.amazon.com/cli/latest/reference/glue/update-job.html) ) or directly in the "Job details" page:
 
-![Job details page showing my-dynamodb-connection selected in Additional network connections.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamodb-dataframe-connector.png)
+![Job details page showing my-dynamodb-connection selected in Additional network connections.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamodb-dataframe-connector.png)
 
 
 Upon ensuring a connection with DYNAMODB Type is attached to your Glue job, you can utilize the following read, write, and export operations from the DataFrame-based connector.

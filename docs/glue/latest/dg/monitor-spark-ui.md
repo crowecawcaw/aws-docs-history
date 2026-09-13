@@ -112,12 +112,12 @@ job.commit()
 
 The following DAG visualization shows the different stages in this Spark job.
 
-![Screenshot of Spark UI showing 2 completed stages for job 0.](http://docs.aws.amazon.com/glue/latest/dg/images/spark-ui1.png)
+![Screenshot of Spark UI showing 2 completed stages for job 0.](https://docs.aws.amazon.com/glue/latest/dg/images/spark-ui1.png)
 
 
 The following event timeline for a job shows the start, execution, and termination of different Spark executors.
 
-![Screenshot of Spark UI showing the completed, failed, and active stages of different Spark executors.](http://docs.aws.amazon.com/glue/latest/dg/images/spark-ui2.png)
+![Screenshot of Spark UI showing the completed, failed, and active stages of different Spark executors.](https://docs.aws.amazon.com/glue/latest/dg/images/spark-ui2.png)
 
 
 The following screen shows the details of the SparkSQL query plans:
@@ -126,7 +126,7 @@ The following screen shows the details of the SparkSQL query plans:
 + Optimized logical plan
 + Physical plan for execution
 
-![SparkSQL query plans: parsed, analyzed, and optimized logical plan and physical plans for execution.](http://docs.aws.amazon.com/glue/latest/dg/images/spark-ui3.png)
+![SparkSQL query plans: parsed, analyzed, and optimized logical plan and physical plans for execution.](https://docs.aws.amazon.com/glue/latest/dg/images/spark-ui3.png)
 
 
 **Topics**

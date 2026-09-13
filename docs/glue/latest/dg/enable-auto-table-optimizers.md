@@ -21,10 +21,10 @@
 1. Choose the account-level catalog.
 
 1. Choose **Table optimizations**, **Edit** under **Table optimizations** tab. You can also choose **Edit optimizations** from **Actions**.  
-![The screenshot shows the edit option to enable optimizations at the catalog-level.](http://docs.aws.amazon.com/glue/latest/dg/images/catalog-edit-optimizations.png)
+![The screenshot shows the edit option to enable optimizations at the catalog-level.](https://docs.aws.amazon.com/glue/latest/dg/images/catalog-edit-optimizations.png)
 
 1. On the **Table optimization** page, configure the following options:  
-![The screenshot shows the optimization options at the catalog-level.](http://docs.aws.amazon.com/glue/latest/dg/images/catalog-optimization-options.png)
+![The screenshot shows the optimization options at the catalog-level.](https://docs.aws.amazon.com/glue/latest/dg/images/catalog-optimization-options.png)
 
    1. Configure **Compaction** settings:
       + Enable/disable compaction.

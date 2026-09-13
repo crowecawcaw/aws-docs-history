@@ -47,4 +47,4 @@
 1. (Optional) On the **Node properties** tab, you can enter a name for the node in the job diagram. If a node parent is not already selected, then choose a node from the Node parents list to use as the input source for the transform.
 
 1. On the **Transform** tab, enter the new columns to be created to hold the names and values of the columns chosen to unpivot.  
-![The screenshot shows the Transform tab for the Unpivot Columns To Rows transform.](http://docs.aws.amazon.com/glue/latest/dg/images/transforms-unpivot-columns-to-rows-transform-tab.png)
+![The screenshot shows the Transform tab for the Unpivot Columns To Rows transform.](https://docs.aws.amazon.com/glue/latest/dg/images/transforms-unpivot-columns-to-rows-transform-tab.png)

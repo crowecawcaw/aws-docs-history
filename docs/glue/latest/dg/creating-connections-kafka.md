@@ -14,7 +14,7 @@
 1.  Choose the cluster location. You can choose from an **Amazon managed streaming for Apache Kafka (MSK) ** cluster or a **Customer managed Apache Kafka** cluster. For more information on Amazon Managed streaming for Apache Kafka, see [Amazon managed streaming for Apache Kafka (MSK)](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html). 
 **Note**  
  Amazon Managed Streaming for Apache Kafka only supports TLS and SASL/SCRAM-SHA-512 authentication methods.   
-![The screenshot shows the Kafka cluster details section with options to select a Cluster location and to enter Kafka boostrap server URLs.](http://docs.aws.amazon.com/glue/latest/dg/images/kafka-cluster-details.png)
+![The screenshot shows the Kafka cluster details section with options to select a Cluster location and to enter Kafka boostrap server URLs.](https://docs.aws.amazon.com/glue/latest/dg/images/kafka-cluster-details.png)
 
 1.  Enter the URLs for your Kafka bootstrap servers. You may enter more than one by separating each server by a comma. Include the port number at the end of the URL by appending `:<port number>`. 
 
@@ -22,7 +22,7 @@
 
  **Select authentication method** 
 
-![The screenshot shows the drop-down menu for selecting a Kafka authentication method.](http://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-authentication.png)
+![The screenshot shows the drop-down menu for selecting a Kafka authentication method.](https://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-authentication.png)
 
 
 AWS Glue supports the Simple Authentication and Security Layer (SASL) framework for authentication. The SASL framework supports various mechanisms of authentication, and AWS Glue offers the SCRAM (username and password), GSSAPI (Kerberos protocol), and PLAIN (username and password) protocols.
@@ -31,7 +31,7 @@ When choosing an authentication method from the drop-down menu, the following cl
 + None - No authentication. This is useful if you create a connection for testing purposes. 
 + SASL/SCRAM-SHA-512 - Choose this authentication method to specify authentication credentials. There are two options available: 
   + Use AWS Secrets Manager (recommended) - if you select this option, you can store your credentials in AWS Secrets Manager and let AWS Glue access the information when needed. Specify the secret that stores the SSL or SASL authentication credentials.  
-![The screenshot shows the options for authentication credentials if the authentication method is SASL/SCRAM-SHA-512.](http://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-authentication-sha-512.png)
+![The screenshot shows the options for authentication credentials if the authentication method is SASL/SCRAM-SHA-512.](https://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-authentication-sha-512.png)
   + Provide username and password directly.
 +  SASL/GSSAPI (Kerberos) - if you select this option, you can select the location of the keytab file, krb5.conf file and enter the Kerberos principal name and Kerberos service name. The locations for the keytab file and krb5.conf file must be in an Amazon S3 location. Since MSK does not yet support SASL/GSSAPI, this option is only available for customer managed Apache Kafka clusters. For more information, see [MIT Kerberos Documentation: Keytab ](https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html). 
 +  SASL/PLAIN - Choose this authentication method to specify authentication credentials. There are two options available: 
@@ -39,7 +39,7 @@ When choosing an authentication method from the drop-down menu, the following cl
   + Provide username and password directly.
 +  SSL Client Authentication - if you select this option, you can you can select the location of the Kafka client keystore by browsing Amazon S3. Optionally, you can enter the Kafka client keystore password and Kafka client key password. 
 
-![The screenshot shows the encryption option if SSL is the authentication method.](http://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-authentication-ssl.png)
+![The screenshot shows the encryption option if SSL is the authentication method.](https://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-authentication-ssl.png)
 
 
  **Configure encryption settings** 
@@ -55,7 +55,7 @@ When choosing an authentication method from the drop-down menu, the following cl
    +  SHA384withRSA 
    +  SHA512withRSA 
 
-![The screenshot shows the options for configuring encryption, including whether or not to require SSL connection, the option to select the location of the private certificate from certificate authority (CA), and the option to skip validation of certificate from certificate authority (CA).](http://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-encryption.png)
+![The screenshot shows the options for configuring encryption, including whether or not to require SSL connection, the option to select the location of the private certificate from certificate authority (CA), and the option to skip validation of certificate from certificate authority (CA).](https://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-encryption.png)
 
 
  **(Optional) Network options** 
@@ -68,4 +68,4 @@ When choosing an authentication method from the drop-down menu, the following cl
 
 1.  Choose one or more security groups to allow access to the data store in your VPC subnet. Security groups are associated to the ENI attached to your subnet. You must choose at least one security group with a self-referencing inbound rule for all TCP ports. 
 
-![The screenshot shows the optional network options for VPC, Subnet and Security groups.](http://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-network-options.png)
+![The screenshot shows the optional network options for VPC, Subnet and Security groups.](https://docs.aws.amazon.com/glue/latest/dg/images/kafka-connection-network-options.png)

@@ -35,7 +35,7 @@ Request a developer instance after logging in to ServiceNow.
 1. At the [ServiceNow login page](https://signon.service-now.com/x_snc_sso_auth.do?pageId=username), enter your account credentials.
 
 1. Choose the **ServiceNow Developer Program**.  
-![The screen shot shows accessing the ServiceNow developer program.](http://docs.aws.amazon.com/glue/latest/dg/images/servicenow-dev-program.png)
+![The screen shot shows accessing the ServiceNow developer program.](https://docs.aws.amazon.com/glue/latest/dg/images/servicenow-dev-program.png)
 
 1. Choose **Request Instance** in the top right.
 

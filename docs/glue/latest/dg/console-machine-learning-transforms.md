@@ -189,7 +189,7 @@ You can tune this filtering method primarily by specifying the **Lower Cost-Accu
 
  You can teach your ML transform using labels (examples) by choosing **Teach transform** from the ML transform details page. When you teach your machine learning algorithm by providing examples (called labels), you can choose existing labels to use, or create a labeling file. 
 
-![The screenshot shows a wizard screen for Teach the transform using labels.](http://docs.aws.amazon.com/glue/latest/dg/images/machine-learning-teach-transform.png)
+![The screenshot shows a wizard screen for Teach the transform using labels.](https://docs.aws.amazon.com/glue/latest/dg/images/machine-learning-teach-transform.png)
 
 +  **Labeling** – If you have labels, choose **I have labels**. If you do not have labels, you can still continue with the next step in generating a labeling file. 
 +  **Generate labeling file** – AWS Glue extracts records from your source data and suggest potential matching records. You choose the Amazon S3 bucket to store the generated label file. Choose **Generate labeling file** to start the process. When done, choose **Download labeling file**. The downloaded file will have a column for labels where you can fill in the labels. 

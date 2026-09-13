@@ -13,7 +13,7 @@ With the Data Quality Definition Language (DQDL) rule builder, you can create da
  When you're working with the **Evaluate Data Quality** transform node and the DQDL rule builder, you can expand the working space. 
 +  To expand the **Transform** tab to fill the entire screen, choose the expand icon in the upper-right hand corner of the node details panel. 
 +  To expand the DQDL rule editor, choose the ** <<** icon to expand the rule editor and collapse the **Rule types** and **Schema** tabs.   
-![The screenshot shows a job diagram with the Evaluate Data Quality node.](http://docs.aws.amazon.com/glue/latest/dg/images/data_quality_example.png)
+![The screenshot shows a job diagram with the Evaluate Data Quality node.](https://docs.aws.amazon.com/glue/latest/dg/images/data_quality_example.png)
 
 ## Components
 <a name="gs-data-quality-rule-builder-components"></a>
@@ -30,7 +30,7 @@ With the Data Quality Definition Language (DQDL) rule builder, you can create da
 
  The **Schema** tab displays the column names and data type from the parent node. Schemas from multiple nodes are displayed. You can view the input schema, search by column name, and insert the column into the rule editor. 
 
-![The screenshot shows the rule editor with a complete rule that uses the Completeness rule type.](http://docs.aws.amazon.com/glue/latest/dg/images/data_quality_schema.png)
+![The screenshot shows the rule editor with a complete rule that uses the Completeness rule type.](https://docs.aws.amazon.com/glue/latest/dg/images/data_quality_schema.png)
 
 
 ### Rule editor
@@ -45,7 +45,7 @@ With the Data Quality Definition Language (DQDL) rule builder, you can create da
 +  The rule editor displays the number of errors next to the red error icon. 
 +  When you choose the line with the error, descriptions of the error and location (line and column) are displayed at the bottom of the rule editor. 
 
-![The screenshot shows the DQDL rule editor with error indicators on line 1 and at the bottom of the rule editor with the number of errors. Below this is the description of the error.](http://docs.aws.amazon.com/glue/latest/dg/images/data_quality_rule_editor_error.png)
+![The screenshot shows the DQDL rule editor with error indicators on line 1 and at the bottom of the rule editor with the number of errors. Below this is the description of the error.](https://docs.aws.amazon.com/glue/latest/dg/images/data_quality_rule_editor_error.png)
 
 
 ## 

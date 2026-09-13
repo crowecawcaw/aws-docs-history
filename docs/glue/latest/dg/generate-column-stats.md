@@ -25,7 +25,7 @@ Follow these steps to configure a schedule for generating column statistics in t
    A cron expression is a string representing a schedule pattern, consisting of 6 fields separated by spaces: \* \* \* \* \* <minute> <hour> <day of month> <month> <day of week> <year> For example, to run a task every day at midnight, the cron expression would be: 0 0 \* \* ? \*
 
    For more information, see [Cron expressions](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html#CronExpressions).  
-![The screenshot shows the options available to generate column stats.](http://docs.aws.amazon.com/glue/latest/dg/images/generate-column-stats-schedule.png)
+![The screenshot shows the options available to generate column stats.](https://docs.aws.amazon.com/glue/latest/dg/images/generate-column-stats-schedule.png)
 
 1. Next, choose the column option to generate statistics.
    + **All columns** – Choose this option to generate statistics for all columns in the table.

@@ -77,7 +77,7 @@ FileMatch in ["3ee0d8617ac041793154713e5ef8f319"]
 
  If the supplied checksum is different than what’s computed, FileMatch will alert you to the difference. 
 
-![The screenshot shows a rule with the DQ status of Rule failed. FileMatch explains the failure.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-file-match.png)
+![The screenshot shows a rule with the DQ status of Rule failed. FileMatch explains the failure.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-file-match.png)
 
 
  **Optional File-based Rule Tags:** 
@@ -128,6 +128,6 @@ FileMatch "s3://amzn-s3-demo-bucket/file.json" in ["3ee0d8617ac04179sam4713e5ef8
  There are a few considerations: 
 
 1.  In AWS Glue ETL, you must have the **EvaluateDataQuality** Transform immediately after an Amazon S3 or AWS Glue Data Catalog transform.   
-![The screenshot shows a rule with the DQ status of Rule failed. FileMatch explains the failure.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-file-match-transform.png)
+![The screenshot shows a rule with the DQ status of Rule failed. FileMatch explains the failure.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-file-match-transform.png)
 
 1.  This rule will not work in AWS Glue Interactive Sessions. 

@@ -207,7 +207,7 @@ Add the following trust policy to allow the AWS Glue service to assume the role:
 
 Associate the above target role with the target resource i.e. AWS Glue Database. Optionally, KMS for encrypting the data before storing in target iceberg table and Connection ARN for accessing the S3 bucket can be configured for the target AWS Glue database. This will allow AWS Glue to access data on the target S3 location using the provided role and optionally encrypt using the provided KMS key. If the target S3 bucket is configured to be accessible using a certain VPC, the connection ARN can be associated to allow AWS Glue to run the processing inside that VPC. For more information on setting up a VPC, see [Create a VPC](https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html).
 
-![The screenshot shows configuring a target in a zero-ETL integration.](http://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-target-selection.png)
+![The screenshot shows configuring a target in a zero-ETL integration.](https://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-target-selection.png)
 
 
 Or using the AWS Glue CLI / API:
@@ -226,12 +226,12 @@ Optionally, target table properties can be configured for the target tables that
 
 You can configure these settings in the **Output settings** section of the integration creation workflow in the AWS Glue console:
 
-![The screenshot shows the Output settings section with schema unnesting options, data partitioning options, and target table name configuration.](http://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-output-settings-unnesting.png)
+![The screenshot shows the Output settings section with schema unnesting options, data partitioning options, and target table name configuration.](https://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-output-settings-unnesting.png)
 
 
 When you select **Specify custom partition keys**, you can configure partition keys and their function and conversion specs:
 
-![The screenshot shows the Output settings with custom partition keys configuration and Partition Spec Configuration table.](http://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-output-settings-partitioning.png)
+![The screenshot shows the Output settings with custom partition keys configuration and Partition Spec Configuration table.](https://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-output-settings-partitioning.png)
 
 
 If the source and target are in the same account, then this configuration can be done as part of integration creation workflow from the AWS Glue console UI. But if the target is in different account, then this configuration is required to be complete before creating the integration. When using the CLI or API, this should be done before invoking the Create-Integration API even when both source and target are in the same account. AWS Glue console UI just encapsulates this API call for the same account scenario.

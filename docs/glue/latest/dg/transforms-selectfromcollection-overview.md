@@ -15,4 +15,4 @@ The parent node for this transform must be a node that returns a collection of `
 
 Similarly, if you use a *SelectFromCollection* node in your job diagram as the parent for a transform that expects a single `DynamicFrame` as input, your job returns an error.
 
-![The screenshot shows the Node parents field on the Node properties tab of the node details panel. The selected node parent is SplitFields and the error message displayed reads "Parent node Split Fields outputs a collection, but node Drop Fields does not accept a collection."](http://docs.aws.amazon.com/glue/latest/dg/images/screenshot-edit-splitfields-wrong-parent.png)
+![The screenshot shows the Node parents field on the Node properties tab of the node details panel. The selected node parent is SplitFields and the error message displayed reads "Parent node Split Fields outputs a collection, but node Drop Fields does not accept a collection."](https://docs.aws.amazon.com/glue/latest/dg/images/screenshot-edit-splitfields-wrong-parent.png)

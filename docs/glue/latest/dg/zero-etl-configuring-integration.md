@@ -12,7 +12,7 @@ You can configure the Refresh interval for integration for SaaS sources at the t
 
 This can be done through console, by updating the refresh interval within Replication Settings.
 
-![The screenshot shows the refreshInterval parameter configuration in the zero-ETL integration settings.](http://docs.aws.amazon.com/glue/latest/dg/images/refreshinterval.png)
+![The screenshot shows the refreshInterval parameter configuration in the zero-ETL integration settings.](https://docs.aws.amazon.com/glue/latest/dg/images/refreshinterval.png)
 
 
 The time increment can be set from 15 minutes to 8640 minutes (six days), allowing you to balance between data freshness and system resource utilization. Currently, the refresh interval is customizable for both DynamoDB and SaaS sources:
@@ -50,7 +50,7 @@ For example, if you set a refresh interval of 8640 minutes (6 days), the integra
 
 Zero-ETL by default includes continuous data capture (CDC) but if you have use cases to replicate full data once you can do so by using the On-demand Snapshot feature. The feature currently supported for only SaaS sources can be used to replicate data once without continuous synchronization. This option provides one-time data replication with no ongoing updates, and requires manual cleanup. Once replication is complete, we recommend deleting the integration resource to avoid reaching the account integration limit.
 
-![The screenshot shows the On-demand Snapshot setting configuration.](http://docs.aws.amazon.com/glue/latest/dg/images/ContinuousSync.png)
+![The screenshot shows the On-demand Snapshot setting configuration.](https://docs.aws.amazon.com/glue/latest/dg/images/ContinuousSync.png)
 
 
 Or through API by setting the `ContinuousSync` parameter to `false` within [IntegrationConfig](https://docs.aws.amazon.com/glue/latest/webapi/API_IntegrationConfig.html) as part of CreateIntegration Request.

@@ -172,7 +172,7 @@ FileFreshness > (now() - 24 hours)
  This rule will find the folder path or files that are used to populate the dynamic frame or data frame. This works for Amazon S3 paths or Amazon S3-based AWS Glue Data Catalog tables. There are a few considerations: 
 
 1.  In AWS Glue ETL, you must have the **EvaluateDataQuality** Transform immediately after an Amazon S3 or AWS Glue Data Catalog transform.   
-![The screenshot shows an Evaluate Data Quality node connected to an Amazon S3 node.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-file-freshness.png)
+![The screenshot shows an Evaluate Data Quality node connected to an Amazon S3 node.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-file-freshness.png)
 
 1.  This rule will not work in AWS Glue Interactive Sessions. 
 

@@ -32,7 +32,7 @@ If you want to write your data to an existing bucket that you control, you can s
   + For other configuration, the suggested settings provided in the Amazon S3 console should work fine in this tutorial.
 
   As an example, the bucket creation dialog box might look like this in the Amazon S3 console.  
-![A dialog box in the Amazon S3 console that is used in configuring a new bucket.](http://docs.aws.amazon.com/glue/latest/dg/images/ray-tutorial-create-bucket.jpg)
+![A dialog box in the Amazon S3 console that is used in configuring a new bucket.](https://docs.aws.amazon.com/glue/latest/dg/images/ray-tutorial-create-bucket.jpg)
 
 ## Step 2: Create an IAM role and policy for your Ray job
 <a name="edit-script-ray-intro-tutorial-iam"></a>
@@ -95,7 +95,7 @@ ds.write_parquet("s3://{{yourBucketName}}/ray/tutorial/output/")
 1. In the side navigation pane, choose **ETL Jobs**.
 
 1. In **Create job**, choose **Ray script editor**, and then choose **Create**, as in the following illustration.  
-![A dialog box in the AWS Glue console used to create a Ray job.](http://docs.aws.amazon.com/glue/latest/dg/images/edit-script-ray-create.png)
+![A dialog box in the AWS Glue console used to create a Ray job.](https://docs.aws.amazon.com/glue/latest/dg/images/edit-script-ray-create.png)
 
 1. Paste the full text of the script into the **Script** pane, and replace any existing text.
 

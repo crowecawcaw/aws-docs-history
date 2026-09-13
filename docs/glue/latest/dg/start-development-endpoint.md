@@ -41,7 +41,7 @@ To enable AWS Glue to access required resources, add a row in your subnet route 
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/start-development-endpoint.html)
 
    The following shows an example of a self-referencing inbound rule:  
-![Image showing an example of a self-referencing inbound rule.](http://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroup-Start.png)
+![Image showing an example of a self-referencing inbound rule.](https://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroup-Start.png)
 
 1. Add a rule to for outbound traffic also. Either open outbound traffic to all ports, or create a self-referencing rule of **Type** `All TCP`, **Protocol** is `TCP`, **Port Range** includes all ports, and whose **Source** is the same security group name as the **Group ID**. 
 
@@ -67,4 +67,4 @@ To enable AWS Glue to access required resources, add a row in your subnet route 
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/start-development-endpoint.html)
 
    The following shows an example of the inbound rules for the security group:  
-![Image showing an example of the inbound rules for the security group.](http://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroupNotebook-Start.png)
+![Image showing an example of the inbound rules for the security group.](https://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroupNotebook-Start.png)

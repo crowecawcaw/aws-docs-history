@@ -31,7 +31,7 @@ You can add or delete configurations in the **Security configurations** section 
 
  To add a security configuration using the AWS Glue console, on the **Security configurations** page, choose **Add security configuration**. 
 
-![The screenshot shows the Add security configuration page.](http://docs.aws.amazon.com/glue/latest/dg/images/add_security_configuration.png)
+![The screenshot shows the Add security configuration page.](https://docs.aws.amazon.com/glue/latest/dg/images/add_security_configuration.png)
 
 
  **Security configuration properties** 

@@ -84,7 +84,7 @@ To add a new schema using the AWS Glue console:
    + *Disabled* — prevent any versioning for this schema.
 
 1. Enter an optional **Description** for the registry of up to 250 characters.  
-![Example of a creating a schema.](http://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_create_schema.png)
+![Example of a creating a schema.](https://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_create_schema.png)
 
 1. Optionally, apply one or more tags to your schema. Choose **Add new tag** and specify a **Tag key** and optionally a **Tag value**.
 
@@ -98,7 +98,7 @@ To add a new schema using the AWS Glue console:
 
 1. Choose **Create schema and version**.
 
-![Example of a creating a schema.](http://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_create_schema2.png)
+![Example of a creating a schema.](https://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_create_schema2.png)
 
 
 The schema is created and appears in the list under **Schemas**.

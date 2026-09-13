@@ -211,7 +211,7 @@ To get step-by-step guidance for viewing the details of a table, see the **Explo
  To compare versions 
 
 1.  From the AWS Glue console, choose **Tables**, then **Actions** and choose **Compare versions**.   
-![The screenshot shows the Actions button when selected. The drop-down menu displays the Compare versions option.](http://docs.aws.amazon.com/glue/latest/dg/images/catalog-table-compare-versions.png)
+![The screenshot shows the Actions button when selected. The drop-down menu displays the Compare versions option.](https://docs.aws.amazon.com/glue/latest/dg/images/catalog-table-compare-versions.png)
 
 1.  Choose a version to compare by choosing the version drop-down menu. When comparing schemas, the Schema tab is highlighted in orange. 
 
@@ -220,7 +220,7 @@ To get step-by-step guidance for viewing the details of a table, see the **Explo
    +  Edited or Moved – displayed by a blue icon indicates where the column was modified or moved in a newer version of the table schema. 
    +  Added – displayed by a green icon indicates where the column was added to a newer version of the table schema. 
    +  Nested changes – displayed by a yellow icon indicates where the nested column contains changes. Choose the column to expand and view the columns that have either been deleted, edited, moved, or added.   
-![The screenshot shows the table schema comparison between two versions. On the left side is the older version. On the right side is the newer version. The delete icon is next to a column that was removed from the older version and is no longer in the newer version.](http://docs.aws.amazon.com/glue/latest/dg/images/catalog-table-version-comparison.png)
+![The screenshot shows the table schema comparison between two versions. On the left side is the older version. On the right side is the newer version. The delete icon is next to a column that was removed from the older version and is no longer in the newer version.](https://docs.aws.amazon.com/glue/latest/dg/images/catalog-table-version-comparison.png)
 
 1.  Use the filter fields search bar to display fields based on the characters you enter here. If you enter a column name in either table version, the filtered fields are displayed in both table versions to show you where the changes have occurred. 
 

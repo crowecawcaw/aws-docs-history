@@ -35,7 +35,7 @@
 1.  Complete the fields for **Connection properties** and choose JDBC for **Connection type**. 
 
 1.  In **Connection access**, enter the **JDBC URL** and **JDBC Driver Class name** – *optional*. The driver class name must be for a datasource supported by AWS Glue crawlers.   
-![The screenshot shows a data source with JDBC selected and a connection in the Add data source window.](http://docs.aws.amazon.com/glue/latest/dg/images/add-connection-connection-access.png)
+![The screenshot shows a data source with JDBC selected and a connection in the Add data source window.](https://docs.aws.amazon.com/glue/latest/dg/images/add-connection-connection-access.png)
 
 1.  Choose the Amazon S3 path where the JDBC driver is located in the **JDBC Driver Amazon S3 Path** – *optional* field. 
 
@@ -46,7 +46,7 @@
 1.  Add the newly created connection to a crawler. In the AWS Glue console, choose **Crawlers** in the left-hand menu under **Data Catalog**, then create a new crawler. 
 
 1.  In the **Add crawler** wizard, in Step 2 choose **Add a data source**.   
-![The screenshot shows a data source with JDBC selected and a connection in the Add data source window.](http://docs.aws.amazon.com/glue/latest/dg/images/add-crawler-add-data-source.png)
+![The screenshot shows a data source with JDBC selected and a connection in the Add data source window.](https://docs.aws.amazon.com/glue/latest/dg/images/add-crawler-add-data-source.png)
 
 1.  Choose **JDBC** as the data source and choose the the connection that was created in the previous steps. Complete 
 

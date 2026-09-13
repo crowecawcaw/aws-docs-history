@@ -29,7 +29,7 @@ AWS Glue Observability metrics is available on AWS Glue 4.0 and later versions.
 1. Choose the **Job details** tab.
 
 1. Scroll to the bottom and choose **Advanced properties**, then **Job observability metrics**.  
-![The screenshot shows the Job details tab Advanced properties. The Job observability metrics option is highlighted.](http://docs.aws.amazon.com/glue/latest/dg/images/job-details-observability-metrics.png)
+![The screenshot shows the Job details tab Advanced properties. The Job observability metrics option is highlighted.](https://docs.aws.amazon.com/glue/latest/dg/images/job-details-observability-metrics.png)
 
 **To enable AWS Glue Observability metrics using AWS CLI:**
 +  Add to the `--default-arguments` map the following key-value in the input JSON file: 
@@ -57,7 +57,7 @@ AWS Glue Observability metrics is available on AWS Glue 4.0 and later versions.
 1. Search for the specific metric name, job name, job run ID, and select them.
 
 1. Under the **Graphed metrics** tab, configure your preferred statistic, period, and other options.  
-![The screenshot shows the Amazon CloudWatch console and metrics graph.](http://docs.aws.amazon.com/glue/latest/dg/images/cloudwatch-console-metrics.png)
+![The screenshot shows the Amazon CloudWatch console and metrics graph.](https://docs.aws.amazon.com/glue/latest/dg/images/cloudwatch-console-metrics.png)
 
 **To query an Observability metric using AWS CLI:**
 

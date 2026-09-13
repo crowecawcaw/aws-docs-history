@@ -18,7 +18,7 @@
 1.  Choose **Advanced properties**. 
 
 1.  In the Job parameters section, enter a key value. For example, `--db.source` would be the parameter for a database source. You can enter any name for the key, as long as the key name is followed by the 'dash dash'.   
-![The screenshot shows the job parameters section in the Job details tab. You can define parameters to use during runtime for the Database and Table.](http://docs.aws.amazon.com/glue/latest/dg/images/Data_Catalog_node_job_details_job_parameters.png)
+![The screenshot shows the job parameters section in the Job details tab. You can define parameters to use during runtime for the Database and Table.](https://docs.aws.amazon.com/glue/latest/dg/images/Data_Catalog_node_job_details_job_parameters.png)
 
 1.  Enter the value. For example, `databasename` would be the value for database being parameterized. 
 
@@ -32,7 +32,7 @@
 1.  Choose the AWS Glue Data Catalog node as either the source node or the target node. 
 
 1.  In the **Data source properties - Data Catalog** tab, under **Database**, choose **Use runtime parameters**.   
-![The screenshot shows the runtime parameter drop-down menu. You can select any defined parameters to use during runtime for the Database and Table.](http://docs.aws.amazon.com/glue/latest/dg/images/Data_Catalog_node_select_runtime_parameters.png)
+![The screenshot shows the runtime parameter drop-down menu. You can select any defined parameters to use during runtime for the Database and Table.](https://docs.aws.amazon.com/glue/latest/dg/images/Data_Catalog_node_select_runtime_parameters.png)
 
 1.  Choose a parameter from the drop-down menu. For example, when you select a parameter you defined for a source database, the database will automatically populate in the database drop-down menu when you choose **Apply**. 
 

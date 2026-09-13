@@ -30,7 +30,7 @@ AWS Glue for Ray is available in US East (N. Virginia), US East (Ohio), US West 
 
 On the **Jobs** page in the AWS Glue Studio console, you can select a new option when you're creating a job in AWS Glue Studio—**Ray script editor**. Choose this option to create a Ray job in the console. For more information about jobs and how they're used, see [Building visual ETL jobs](author-job-glue.md).
 
-![The Jobs page in AWS Glue Studio with the Ray script editor option selected.](http://docs.aws.amazon.com/glue/latest/dg/images/ray_job_setup.png)
+![The Jobs page in AWS Glue Studio with the Ray script editor option selected.](https://docs.aws.amazon.com/glue/latest/dg/images/ray_job_setup.png)
 
 
 ### Ray jobs in the AWS CLI and SDK

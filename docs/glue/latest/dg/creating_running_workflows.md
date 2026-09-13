@@ -51,7 +51,7 @@ You build out your workflow by adding triggers to the workflow graph, and defini
      The trigger appears on the graph, along with a placeholder node (labeled **Add node**). In the example below, the start trigger is a schedule trigger named `Month-close1`. 
 
      At this point, the trigger isn't saved yet.  
-![A graph with two rectangular nodes: a trigger, and a placeholder node. An arrow points from the trigger node to the placeholder node.](http://docs.aws.amazon.com/glue/latest/dg/images/graph-start-trigger.png)
+![A graph with two rectangular nodes: a trigger, and a placeholder node. An arrow points from the trigger node to the placeholder node.](https://docs.aws.amazon.com/glue/latest/dg/images/graph-start-trigger.png)
 
 1. If you added a new trigger, complete these steps:
 
@@ -94,7 +94,7 @@ There is no action to save the workflow. After you add your last trigger and ass
    1. Select the new trigger.
 
       As the following graph shows, the trigger `De-dupe/fix succeeded` is selected, and placeholder nodes appear for (1) events to watch and (2) actions.  
-![A graph with many nodes, two of which are placeholder nodes that are called out as numbers 1 and 2.](http://docs.aws.amazon.com/glue/latest/dg/images/graph-dual-placeholders.png)
+![A graph with many nodes, two of which are placeholder nodes that are called out as numbers 1 and 2.](https://docs.aws.amazon.com/glue/latest/dg/images/graph-dual-placeholders.png)
 
    1. (Optional if the trigger already watches an event and you want to add more jobs or crawlers to watch.) Choose the events-to-watch placeholder node, and in the **Add job(s) and crawler(s) to watch** dialog box, select one or more jobs or crawlers. Choose an event to watch (SUCCEEDED, FAILED, etc.), and choose **Add**.
 

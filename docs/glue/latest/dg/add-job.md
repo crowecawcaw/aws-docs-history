@@ -84,7 +84,7 @@ If this job-level setting differs from the job run-level setting specified when 
 When you configure a job using AWS Studio or the API you may specify a standard or flexible job execution class. Your jobs may have varying degrees of priority and time sensitivity. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.  
 The flexible execution class is appropriate for non-urgent jobs such as pre-production jobs, testing, and one-time data loads. Flexible job runs are supported for jobs using AWS Glue version 3.0 or later and `G.1X` or `G.2X` worker types. The new worker types (`G.12X`, `G.16X`, and `R.1X` through `R.8X`) do not support flexible execution.  
 
-[![AWS Videos](http://img.youtube.com/vi/FnHCoTuDLXU/0.jpg)](http://www.youtube.com/watch?v=FnHCoTuDLXU)
+[![AWS Videos](https://img.youtube.com/vi/FnHCoTuDLXU/0.jpg)](https://www.youtube.com/watch?v=FnHCoTuDLXU)
 
 Flex job runs are billed based on the number of workers running at any point in time. Number of workers may be added or removed for a running flexible job run. Instead of billing as a simple calculation of `Max Capacity` \* `Execution Time`, each worker will contribute for the time it ran during the job run. The bill is the sum of (`Number of DPUs per worker` \* `time each worker ran`).  
 For more information, see the help panel in AWS Studio, or [Jobs](aws-glue-api-jobs-job.md) and [Job runs](aws-glue-api-jobs-runs.md).

@@ -42,4 +42,4 @@
 1. (Optional) On the **Node properties** tab, you can enter a name for the node in the job diagram. If a node parent is not already selected, then choose a node from the Node parents list to use as the input source for the transform.
 
 1. On the **Transform** tab, choose the numeric column which will be aggregated to produce the values for the new columns, the aggregation function to apply and the column(s) to convert its unique values into new columns.  
-![The screenshot shows the Transform tab for the Pivot Rows To Columns transform.](http://docs.aws.amazon.com/glue/latest/dg/images/transforms-pivot-rows-to-columns-transform-tab.png)
+![The screenshot shows the Transform tab for the Pivot Rows To Columns transform.](https://docs.aws.amazon.com/glue/latest/dg/images/transforms-pivot-rows-to-columns-transform-tab.png)

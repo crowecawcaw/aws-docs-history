@@ -126,7 +126,7 @@ In this step, you create a rule using DQDL. For this tutorial, you create a sing
 
  When you create a AWS Glue ETL job with Amazon S3 as the target, AWS Glue ETL automatically enables a Data Quality rule that checks if the data being loaded has at least one column. This rule is designed to ensure that the data being loaded is not empty or corrupted. However, if this rule fails, the job will not fail; instead, you will notice a reduction in your data quality score. Additionally, Anomaly Detection is enabled by default, which monitors the number of columns in the data. If there are any variations or abnormalities in the column count, AWS Glue ETL will inform you about these anomalies. This feature helps you identify potential issues with the data and take appropriate actions. To view the Data Quality rule and its configuration, you can click on the Amazon S3 target in your AWS Glue ETL job. The rule's configuration will be displayed, as shown in the provided screenshot. 
 
-![The screenshot shows the automatic data quality options available for selection.](http://docs.aws.amazon.com/glue/latest/dg/images/automatic-data-quality.png)
+![The screenshot shows the automatic data quality options available for selection.](https://docs.aws.amazon.com/glue/latest/dg/images/automatic-data-quality.png)
 
 
  You can add additional data quality rules by selecting **Edit data quality configuration**. 
@@ -167,7 +167,7 @@ When `additionalOptions` `"publishAggregatedMetrics.status": "ENABLED"`, you can
    + Total Rules Processed
    + Total Rules Passed
    + Total Rules Failed  
-![The screenshot shows the aggregated metrics and rule metrics structure for AWS Glue Data Quality evaluations.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-aggregated-metrics.png)
+![The screenshot shows the aggregated metrics and rule metrics structure for AWS Glue Data Quality evaluations.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-aggregated-metrics.png)
 
    Also, at a rule level, the following metrics are provided:
 

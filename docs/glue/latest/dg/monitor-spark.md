@@ -31,7 +31,7 @@ The ETL Data Movement graph shows the following metrics:
 + The number of bytes read from Amazon S3 by all executors—[`glue.ALL.s3.filesystem.read_bytes`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.read_bytes)
 + The number of bytes written to Amazon S3 by all executors—[`glue.ALL.s3.filesystem.write_bytes`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.write_bytes)
 
-![The graph for ETL Data Movement in the Metrics tab of the AWS Glue console.](http://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_etl.png)
+![The graph for ETL Data Movement in the Metrics tab of the AWS Glue console.](https://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_etl.png)
 
 
 **Example Memory profile graph**  
@@ -41,7 +41,7 @@ The Memory Profile graph shows the following metrics:
   + [`glue.executorId.jvm.heap.usage`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.executorId.jvm.heap.usage)
   + [`glue.ALL.jvm.heap.usage`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.usage)
 
-![The graph for Memory Profile in the Metrics tab of the AWS Glue console.](http://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_mem.png)
+![The graph for Memory Profile in the Metrics tab of the AWS Glue console.](https://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_mem.png)
 
 
 **Example Data shuffle across executors graph**  
@@ -49,7 +49,7 @@ The Data Shuffle Across Executors graph shows the following metrics:
 + The number of bytes read by all executors to shuffle data between them—[`glue.driver.aggregate.shuffleLocalBytesRead`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.aggregate.shuffleLocalBytesRead)
 + The number of bytes written by all executors to shuffle data between them—[`glue.driver.aggregate.shuffleBytesWritten`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.aggregate.shuffleBytesWritten)
 
-![The graph for Data Shuffle Across Executors in the Metrics tab of the AWS Glue console.](http://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_data.png)
+![The graph for Data Shuffle Across Executors in the Metrics tab of the AWS Glue console.](https://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_data.png)
 
 
 **Example CPU load graph**  
@@ -59,7 +59,7 @@ The CPU Load graph shows the following metrics:
   + [`glue.executorId.system.cpuSystemLoad`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.executorId.system.cpuSystemLoad)
   + [`glue.ALL.system.cpuSystemLoad`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.system.cpuSystemLoad)
 
-![The graph for CPU Load in the Metrics tab of the AWS Glue console.](http://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_cpu.png)
+![The graph for CPU Load in the Metrics tab of the AWS Glue console.](https://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_cpu.png)
 
 
 **Example Job execution graph**  
@@ -68,4 +68,4 @@ The Job Execution graph shows the following metrics:
 + The number of completed stages—[`glue.aggregate.numCompletedStages`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.aggregate.numCompletedStages)
 + The number of maximum needed executors—[`glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors`](monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors)
 
-![The graph for Job Execution in the Metrics tab of the AWS Glue console.](http://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_exec.png)
+![The graph for Job Execution in the Metrics tab of the AWS Glue console.](https://docs.aws.amazon.com/glue/latest/dg/images/job_detailed_exec.png)

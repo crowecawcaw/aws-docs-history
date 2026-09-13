@@ -27,7 +27,7 @@ You can enable job run insights through AWS Glue Studio or the CLI.
 
 When creating a job via AWS Glue Studio, you can enable or disable job run insights under the **Job Details** tab. Check that the **Generate job insights** box is selected.
 
-![Enabling job run insights in AWS Glue Studio.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-job-run-insights-1.png)
+![Enabling job run insights in AWS Glue Studio.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-job-run-insights-1.png)
 
 
 ### Command line
@@ -56,7 +56,7 @@ The first stream will exist only if any exception Spark events are available for
 
 If the job is created from AWS Glue Studio, the links to the above streams are also available under the job run details tab (Job run insights) as "Concise and consolidated error logs" and "Error analysis and guidance".
 
-![The Job Run Details page containing links to the log streams.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-job-run-insights-2.png)
+![The Job Run Details page containing links to the log streams.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-job-run-insights-2.png)
 
 
 ## Example for AWS Glue job run insights
@@ -109,9 +109,9 @@ The message is ambiguous and limits your debugging experience. In this case, thi
 1. The `job-insights-rca-driver` log stream:
    + *Exception events*: This log stream provides you the Spark exception events related to the failure collected from the Spark driver and different distributed workers. These events help you understand the time-ordered propagation of the exception as faulty code executes across Spark tasks, executors, and stages distributed across the AWS Glue workers.
    + *Line numbers*: This log stream identifies line 21, which made the call to import the missing Python module that caused the failure; it also identifies line 24, the call to Spark Action `collect()`, as the last executed line in your script.  
-![The job-insights-rca-driver log stream.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-job-run-insights-3.png)
+![The job-insights-rca-driver log stream.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-job-run-insights-3.png)
 
 1. The `job-insights-rule-driver` log stream:
    + *Root cause and recommendation*: In addition to the line number and last executed line number for the fault in your script, this log stream shows the root cause analysis and recommendation for you to follow the AWS Glue doc and set up the necessary job parameters in order to use an additional Python module in your AWS Glue job. 
    + *Basis event*: This log stream also shows the Spark exception event that was evaluated with the service-defined rule to infer the root cause and provide a recommendation.  
-![The job-insights-rule-driver log stream.](http://docs.aws.amazon.com/glue/latest/dg/images/monitor-job-run-insights-4.png)
+![The job-insights-rule-driver log stream.](https://docs.aws.amazon.com/glue/latest/dg/images/monitor-job-run-insights-4.png)

@@ -21,7 +21,7 @@
    The **Enable optimization** option is also available when you create a new Iceberg table in the Data Catalog.
 
 1. On the **Enable optimization** page, choose **Compaction** under **Optimization options**.  
-![Apache Iceberg table details page with Enable compaction option.](http://docs.aws.amazon.com/glue/latest/dg/images/table-enable-compaction.png)
+![Apache Iceberg table details page with Enable compaction option.](https://docs.aws.amazon.com/glue/latest/dg/images/table-enable-compaction.png)
 
 1. Next, select an IAM role from the drop down with the permissions shown in the [Table optimization prerequisites](optimization-prerequisites.md) section. 
 

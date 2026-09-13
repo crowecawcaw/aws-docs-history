@@ -19,7 +19,7 @@ For more information about VPC endpoints, see [VPC Endpoints](https://docs.aws.a
 
 The following diagram shows how AWS Glue can use a VPC endpoint to access Amazon S3.
 
-![Network traffic flow showing VPC connection to Amazon S3.](http://docs.aws.amazon.com/glue/latest/dg/images/PopulateCatalog-vpc-endpoint.png)
+![Network traffic flow showing VPC connection to Amazon S3.](https://docs.aws.amazon.com/glue/latest/dg/images/PopulateCatalog-vpc-endpoint.png)
 
 
 **To set up access for Amazon S3**

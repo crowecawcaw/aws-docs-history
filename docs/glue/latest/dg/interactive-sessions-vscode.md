@@ -16,13 +16,13 @@
     On MacOS, go to **Code** > **Settings** > **Extensions** > **Jupyter** > right-click on Jupyter then choose **Extension Settings**. 
 
     Scroll down until you see **Jupyter: Disable Jupyter Auto Start**. Check the box "When true, disables Jupyter from being automatically started for you. You must instead run a cell to start Jupyter."   
-![The screenshot shows the checkbox enabled in for the Jupyter Extension in VS Code.](http://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step1.png)
+![The screenshot shows the checkbox enabled in for the Jupyter Extension in VS Code.](https://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step1.png)
 
 1.  Go to File > New File > Save to save this file with name of your choice as an `.ipynb` extension or select **jupyter** under **select a language** and save the file.   
-![The screenshot shows the file being saved with a new name.](http://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step2.gif)
+![The screenshot shows the file being saved with a new name.](https://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step2.gif)
 
 1.  Double-click on the file. The Jupyter shell will display and a notebook will be opened.   
-![The screenshot shows the open notebook.](http://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step3.png)
+![The screenshot shows the open notebook.](https://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step3.png)
 
 1.  On Windows, when you first create a file, by default no kernel is selected. Click on **Select Kernel** and a list of available kernels is displayed. Choose **Glue PySpark**. 
 
@@ -45,10 +45,10 @@
       If you receive an error message, see the [ VS Code Jupyter wiki ](https://github.com/microsoft/vscode-jupyter/wiki/Connecting-to-a-remote-Jupyter-server-from-vscode.dev). 
 
    1. If successful, this will set the kernel to **Glue PySpark**.  
-![The screenshot shows the Select Kernel button highlighted.](http://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step4a.png)
+![The screenshot shows the Select Kernel button highlighted.](https://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step4a.png)
 
     Choose the **Glue PySpark** or **Glue Spark** kernel (for Python and Scala respectively).   
-![The screenshot shows the selection for AWS Glue PySpark.](http://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step4b.png)
+![The screenshot shows the selection for AWS Glue PySpark.](https://docs.aws.amazon.com/glue/latest/dg/images/IS_vscode_step4b.png)
 
     If you don't see **AWS Glue PySpark** and **AWS Glue Spark** kernels in the drop-down list, please ensure you have installed the AWS Glue kernel in the step above, or that your `python.defaultInterpreterPath` setting in Visual Studio Code is correct. For more information, see [ python.defaultInterpreterPath setting description ](https://github.com/microsoft/vscode-python/wiki/Setting-descriptions#pythondefaultinterpreterpath). 
 

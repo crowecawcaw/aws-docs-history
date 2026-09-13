@@ -19,7 +19,7 @@
 
 This video demonstrates how you can integrate AWS Glue with Git and build a continuous and collaborative code pipeline.
 
-[![AWS Videos](http://img.youtube.com/vi/XRlZq2kvE4U/0.jpg)](http://www.youtube.com/watch?v=XRlZq2kvE4U)
+[![AWS Videos](https://img.youtube.com/vi/XRlZq2kvE4U/0.jpg)](https://www.youtube.com/watch?v=XRlZq2kvE4U)
 
 
 ## IAM permissions
@@ -107,7 +107,7 @@ This video demonstrates how you can integrate AWS Glue with Git and build a cont
  To connect a Git version control system: 
 
 1.  In AWS Glue Studio, start a new job and choose the **Version Control** tab.   
-![The screenshot shows a job with the Version Control tab selected.](http://docs.aws.amazon.com/glue/latest/dg/images/editing-nodes-version-control-tab.png)
+![The screenshot shows a job with the Version Control tab selected.](https://docs.aws.amazon.com/glue/latest/dg/images/editing-nodes-version-control-tab.png)
 
 1.  In **Version control system**, choose the Git Service from the available options by clicking on the drop-down menu. 
    +  AWS CodeCommit 
@@ -172,7 +172,7 @@ This video demonstrates how you can integrate AWS Glue with Git and build a cont
  In order to push your job to a repository, you need to enter the details of your version control system and save your job. 
 
 1.  In the AWS Glue Studiojob, choose **Actions**. This will open additional menu options.   
-![The screenshot shows a job with the Actions menu opened. The Push to repository option is visible.](http://docs.aws.amazon.com/glue/latest/dg/images/editing-nodes-actions-push-to-repository.png)
+![The screenshot shows a job with the Actions menu opened. The Push to repository option is visible.](https://docs.aws.amazon.com/glue/latest/dg/images/editing-nodes-actions-push-to-repository.png)
 
 1.  Choose **Push to repository**. 
 
@@ -186,7 +186,7 @@ This video demonstrates how you can integrate AWS Glue with Git and build a cont
  Once you've entered details of your Git repository into the **Version control** tab, you can also pull jobs from your repository and edit them in AWS Glue Studio. 
 
 1.  In the AWS Glue Studio job, choose **Actions**. This will open additional menu options.   
-![The screenshot shows a job with the Actions menu opened. The Push to repository option is visible.](http://docs.aws.amazon.com/glue/latest/dg/images/editing-nodes-actions-push-to-repository.png)
+![The screenshot shows a job with the Actions menu opened. The Push to repository option is visible.](https://docs.aws.amazon.com/glue/latest/dg/images/editing-nodes-actions-push-to-repository.png)
 
 1.  Choose **Pull from repository**. 
 

@@ -13,7 +13,7 @@ This section describes the general steps to create an integration. This example 
 1. On the AWS Glue console home page, select **Zero-ETL integrations**.
 
 1. You can view all your integrations on the Zero ETL integration home page. To create a new integration, select **Create zero-ETL integration**.   
-![The screenshot shows the main zero-ETL integration page.](http://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-main.png)
+![The screenshot shows the main zero-ETL integration page.](https://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-main.png)
 
 1. You are prompted to select a **Source Type**. Select your source and click **Next**. Refer to the source configuration sections for SaaS integration sources.
 

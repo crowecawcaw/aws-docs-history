@@ -15,7 +15,7 @@
 
 Consider the workflow W1 in the following diagram.
 
-![Triggers are shown in rectangles and jobs are shown in circles. Trigger T1 at the left starts the workflow by running job J1. Subsequent triggers and jobs exist, but jobs J2 and J3 fail, so downstream triggers and jobs are shown as not run.](http://docs.aws.amazon.com/glue/latest/dg/images/workflow_W1.png)
+![Triggers are shown in rectangles and jobs are shown in circles. Trigger T1 at the left starts the workflow by running job J1. Subsequent triggers and jobs exist, but jobs J2 and J3 fail, so downstream triggers and jobs are shown as not run.](https://docs.aws.amazon.com/glue/latest/dg/images/workflow_W1.png)
 
 
 The workflow run proceeds as follows:
@@ -30,7 +30,7 @@ The workflow run proceeds as follows:
 
 Now assume that the issues that caused J2 and J3 to fail are corrected. J2 and J3 are selected as the starting points to resume the workflow run from.
 
-![Jobs J2 and J3 are flagged as nodes to be resumed. Downstream triggers and jobs are shown as successfully run.](http://docs.aws.amazon.com/glue/latest/dg/images/workflow_W1_resumed.png)
+![Jobs J2 and J3 are flagged as nodes to be resumed. Downstream triggers and jobs are shown as successfully run.](https://docs.aws.amazon.com/glue/latest/dg/images/workflow_W1_resumed.png)
 
 
 The workflow run resumes as follows:
@@ -43,7 +43,7 @@ The workflow run resumes as follows:
 
 The resumed workflow run is tracked as a separate workflow run with a new run ID. When you view the workflow history, you can view the previous run ID for any workflow run. In the example in the following screenshot, the workflow run with run ID `wr_c7a22...` (the second row) had a node that did not complete. The user fixed the problem and resumed the workflow run, which resulted in run ID `wr_a07e55...` (the first row).
 
-![A table under the History tab for a workflow contains two rows, one for each workflow run. The first row has both a run ID and previous run ID. The second row has only a run ID. The previous run ID in the first row is the same as the run ID in the 2nd row.](http://docs.aws.amazon.com/glue/latest/dg/images/previous-run-id.png)
+![A table under the History tab for a workflow contains two rows, one for each workflow run. The first row has both a run ID and previous run ID. The second row has only a run ID. The previous run ID in the first row is the same as the run ID in the 2nd row.](https://docs.aws.amazon.com/glue/latest/dg/images/previous-run-id.png)
 
 
 **Note**  
@@ -81,10 +81,10 @@ To resume workflow runs, you need the `glue:ResumeWorkflowRun` AWS Identity and 
 1. In the run graph, select the first (or only) node that you want to restart and that you want to resume the workflow run from.
 
 1. In the details pane to the right of the graph, select the **Resume** check box.  
-![The run graph shows three nodes, including a failed job node. The job details pane at the right includes a Resume check box.](http://docs.aws.amazon.com/glue/latest/dg/images/workflow-pre-select-resume.png)
+![The run graph shows three nodes, including a failed job node. The job details pane at the right includes a Resume check box.](https://docs.aws.amazon.com/glue/latest/dg/images/workflow-pre-select-resume.png)
 
    The node changes color and shows a small resume icon at the upper right.  
-![The change to the run graph is described in the text. The Resume check box is selected.](http://docs.aws.amazon.com/glue/latest/dg/images/workflow-post-select-resume.png)
+![The change to the run graph is described in the text. The Resume check box is selected.](https://docs.aws.amazon.com/glue/latest/dg/images/workflow-post-select-resume.png)
 
 1. Complete the previous two steps for any additional nodes to restart.
 

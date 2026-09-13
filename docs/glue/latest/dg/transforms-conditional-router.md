@@ -12,16 +12,16 @@
 1.  Choose a node where you will perform the conditional router transformation. This can be a source node or another transform. 
 
 1.  Choose **Action**, then use the search bar to find and choose 'Conditional Router'. A ** Conditional Router** transform is added along with two output nodes. One output node, 'Default group', contains records which do not meet any of the conditions defined in the other output node(s). The default group cannot be edited.   
-![The screenshot shows the conditional router transform node connected to a source node. Output nodes are shown branching from the conditional router node.](http://docs.aws.amazon.com/glue/latest/dg/images/transform-conditional-router-node.png)
+![The screenshot shows the conditional router transform node connected to a source node. Output nodes are shown branching from the conditional router node.](https://docs.aws.amazon.com/glue/latest/dg/images/transform-conditional-router-node.png)
 
     You can add additional output groups by choosing **Add group**. For each output group, you can name the group and add filter conditions and a logical operator.   
-![The screenshot shows the conditional router transform tab with options to name the output group, logical operator and conditional filter(s).](http://docs.aws.amazon.com/glue/latest/dg/images/transform-conditional-router-tab.png)
+![The screenshot shows the conditional router transform tab with options to name the output group, logical operator and conditional filter(s).](https://docs.aws.amazon.com/glue/latest/dg/images/transform-conditional-router-tab.png)
 
 1.  Rename the output group name by entering a new name for the group. AWS Glue Studio will automatically name your groups for you (for example, 'output\_group\_1'). 
 
 1.  Choose a logical operator (**AND**, **OR**) and add a **Filter condition** by specifying the **Key**, **Operation**, and **Value**. Logical operators allow you to implement more than one filter condition and perform the logical operator on each filter condition you specify. 
 
     When specifying the key, you can choose from available keys in your schema. You can then choose the available operation depending on the type of key you selected. For example, if the key type is 'string', then the available operation to choose from is 'matches'.   
-![The screenshot shows the conditional router transform tab with the filter condition fields for key, operation and value.](http://docs.aws.amazon.com/glue/latest/dg/images/transform-conditional-router-filter-condition.png)
+![The screenshot shows the conditional router transform tab with the filter condition fields for key, operation and value.](https://docs.aws.amazon.com/glue/latest/dg/images/transform-conditional-router-filter-condition.png)
 
 1.  Enter the value in the **Value** field. To add additional filter conditions, choose **Add condition**. To remove filter conditions, choose the trash can icon. 

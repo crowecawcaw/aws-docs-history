@@ -28,7 +28,7 @@ Use these steps to configure and run a crawler that extracts the metadata from a
 1. On the AWS Glue service console, on the left-side menu, choose **Crawlers**.
 
 1. On the Crawlers page, choose **Create crawler**. This starts a series of pages that prompt you for the crawler details.  
-![The screenshot shows the crawler page. From here you can create a crawler or edit, duplicate, delete, view an existing crawler.](http://docs.aws.amazon.com/glue/latest/dg/images/crawlers-create_crawler.png)
+![The screenshot shows the crawler page. From here you can create a crawler or edit, duplicate, delete, view an existing crawler.](https://docs.aws.amazon.com/glue/latest/dg/images/crawlers-create_crawler.png)
 
 1. In the Crawler name field, enter **Flights Data Crawler**, and choose **Next**.
 

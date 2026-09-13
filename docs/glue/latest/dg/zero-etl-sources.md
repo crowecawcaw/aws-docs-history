@@ -85,7 +85,7 @@ To create a connection for a Salesforce source, see [Connecting to Salesforce](h
 
 Once you've created the connection, you can specify the source data to replicate.
 
-![The screenshot shows selecting Salesforce source data to replicate in a zero-ETL integration.](http://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-salesforce-source-data.png)
+![The screenshot shows selecting Salesforce source data to replicate in a zero-ETL integration.](https://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-salesforce-source-data.png)
 
 
 Using your zero-ETL integration you can perform DDL operations for supported entities. For a list of entities which are not supported, see [Unsupported entities and fields for Salesforce](#zero-etl-config-source-salesforce-unsupported).
@@ -146,7 +146,7 @@ While ingesting data from SAP entities using AWS Glue zero-ETL, the following th
 + For non-ODP SAP entities, if a timestamp field is not selected for incremental updates, AWS Glue zero-ETL supports a full data extraction and replication with upserts only (no deletions).
 + For ODP extractor entities, we determine the valid primary key sets during data processing. Other SAP entities require an extra step of providing the valid primary key set as input, specifically SAP entities that start with `EntityOf`. When an `EntityOf` entity is selected, you will be directed to provide the set of primary keys.
 
-![The screenshot shows configuring EntityOf primary key set for SAP OData source.](http://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-settings-configure-entityof-primary-key-set.png)
+![The screenshot shows configuring EntityOf primary key set for SAP OData source.](https://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-settings-configure-entityof-primary-key-set.png)
 
 
 ### Configuring a ServiceNow source

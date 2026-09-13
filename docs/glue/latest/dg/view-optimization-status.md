@@ -10,7 +10,7 @@ You can view the optimization status for Apache Iceberg tables in the AWS Glue c
 
 **To view the optimization status for Iceberg tables (console)**
 + You can view optimization status for Iceberg tables on the AWS Glue console by choosing an Iceberg table from the **Tables** list under **Data Catalog**. Under **Table optimization**. Choose the **View all**  
-![Apache Iceberg table details page with Enable compaction option.](http://docs.aws.amazon.com/glue/latest/dg/images/table-list-compaction-status.png)
+![Apache Iceberg table details page with Enable compaction option.](https://docs.aws.amazon.com/glue/latest/dg/images/table-list-compaction-status.png)
 
 ------
 #### [  AWS CLI  ]

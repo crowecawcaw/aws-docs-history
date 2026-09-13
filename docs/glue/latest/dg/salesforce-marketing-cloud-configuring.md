@@ -37,14 +37,14 @@ To get a project and OAuth 2.0 credentials:
 1. Click on your profile at the top right corner and then go to **Setup**.
 
 1. Under **Platform Tools** choose **Apps** and then choose **Installed Packages**.  
-![The screen shot shows how to access the Installed Packages page.](http://docs.aws.amazon.com/glue/latest/dg/images/sfmc-platform-tools.png)
+![The screen shot shows how to access the Installed Packages page.](https://docs.aws.amazon.com/glue/latest/dg/images/sfmc-platform-tools.png)
 
 1. On the **Installed Packages** page, click **New** at the top right corner. Provide the name and description of the package.
 
    Save the package. After the package is saved, you can view the package details.
 
 1. On the **Details** page of the package, under the **Component** section, choose **Add Component**.   
-![The screen shot shows how to add a component from the Details page of the package.](http://docs.aws.amazon.com/glue/latest/dg/images/sfmc-add-component.png)
+![The screen shot shows how to add a component from the Details page of the package.](https://docs.aws.amazon.com/glue/latest/dg/images/sfmc-add-component.png)
 
 1. Select the **Component Type** as 'API Integration' and click **Next**.
 

@@ -499,13 +499,13 @@ You can use Managed Service for Apache Flink for Apache Flink, with Kafka as a s
 **Kafka as a source**  
 The following diagram shows integrating Kinesis Data Streams with Managed Service for Apache Flink for Apache Flink, with Kafka as a source.
 
-![Kafka as a source.](http://docs.aws.amazon.com/glue/latest/dg/images/gsr-kafka-source.png)
+![Kafka as a source.](https://docs.aws.amazon.com/glue/latest/dg/images/gsr-kafka-source.png)
 
 
 **Kafka as a sink**  
 The following diagram shows integrating Kinesis Data Streams with Managed Service for Apache Flink for Apache Flink, with Kafka as a sink.
 
-![Kafka as a sink.](http://docs.aws.amazon.com/glue/latest/dg/images/gsr-kafka-sink.png)
+![Kafka as a sink.](https://docs.aws.amazon.com/glue/latest/dg/images/gsr-kafka-sink.png)
 
 
 To integrate Kafka (or Amazon MSK) with Managed Service for Apache Flink for Apache Flink, with Kafka as a source or Kafka as a sink, make the code changes below. Add the bolded code blocks to your respective code in the analogous sections.
@@ -551,13 +551,13 @@ You can use Managed Service for Apache Flink for Apache Flink with Kinesis Data 
 **Kinesis Data Streams as a source**  
 The following diagram shows integrating Kinesis Data Streams with Managed Service for Apache Flink for Apache Flink, with Kinesis Data Streams as a source.
 
-![Kinesis Data Streams as a source.](http://docs.aws.amazon.com/glue/latest/dg/images/gsr-kinesis-source.png)
+![Kinesis Data Streams as a source.](https://docs.aws.amazon.com/glue/latest/dg/images/gsr-kinesis-source.png)
 
 
 **Kinesis Data Streams as a sink**  
 The following diagram shows integrating Kinesis Data Streams with Managed Service for Apache Flink for Apache Flink, with Kinesis Data Streams as a sink.
 
-![Kinesis Data Streams as a sink.](http://docs.aws.amazon.com/glue/latest/dg/images/gsr-kinesis-sink.png)
+![Kinesis Data Streams as a sink.](https://docs.aws.amazon.com/glue/latest/dg/images/gsr-kinesis-sink.png)
 
 
 To integrate Kinesis Data Streams with Managed Service for Apache Flink for Apache Flink, with Kinesis Data Streams as a source or Kinesis Data Streams as a sink, make the code changes below. Add the bolded code blocks to your respective code in the analogous sections.
@@ -785,7 +785,7 @@ Records after filtering:
 
 The integration of Apache Kafka Connect with the AWS Glue Schema Registry enables you to get schema information from connectors. The Apache Kafka converters specify the format of data within Apache Kafka and how to translate it into Apache Kafka Connect data. Every Apache Kafka Connect user will need to configure these converters based on the format they want their data in when loaded from or stored into Apache Kafka. In this way, you can define your own converters to translate Apache Kafka Connect data into the type used in the AWS Glue Schema Registry (for example: Avro) and utilize our serializer to register its schema and do serialization. Then converters are also able to use our deserializer to deserialize data received from Apache Kafka and convert it back into Apache Kafka Connect data. An example workflow diagram is given below.
 
-![Apache Kafka Connect workflow.](http://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_int_kafka_connect.png)
+![Apache Kafka Connect workflow.](https://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_int_kafka_connect.png)
 
 
 1. Install the `aws-glue-schema-registry` project by cloning the [Github repository for the AWS Glue Schema Registry](https://github.com/awslabs/aws-glue-schema-registry).

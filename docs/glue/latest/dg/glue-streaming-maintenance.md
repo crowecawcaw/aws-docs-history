@@ -21,7 +21,7 @@ You can set up a maintenance window using AWS Glue Studio or APIs.
 
 You can specify a maintenance window in the **Job Details** page of your AWS Glue Streaming job. You can specify the day and time in GMT. AWS Glue will restart your job within the specified time window.
 
-![Specifying a maintenance window in AWS Glue Studio](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-maintenance-windows-1.png)
+![Specifying a maintenance window in AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-maintenance-windows-1.png)
 
 
 ### Setting up a maintenance windows in the API
@@ -62,13 +62,13 @@ You can monitor the jobs in the AWS Glue Studio **Monitoring** page.
 To see the expected next restart time of streaming jobs, show the column on the Job runs table on the **Monitoring** page.
 
 1. Click the Gear icon in the top right of the table.  
-![Specifying a maintenance window in AWS Glue Studio](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-maintenance-windows-2.png)
+![Specifying a maintenance window in AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-maintenance-windows-2.png)
 
 1. Scroll down, and turn on the **Expected restart time** column. Both UTC and Local time options are available.  
-![Specifying a maintenance window in AWS Glue Studio](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-maintenance-windows-3.png)
+![Specifying a maintenance window in AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-maintenance-windows-3.png)
 
 1. You can then view the columns in the table.  
-![Specifying a maintenance window in AWS Glue Studio](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-maintenance-windows-4.png)
+![Specifying a maintenance window in AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-maintenance-windows-4.png)
 
 The original job will have an "EXPIRED" status and the new job instance will have a "RUNNING" status. The new job run that was restarted will have a job run ID as a concatenation of initial job run ID plus the prefix "restart\_" representing the restart count. For example, if the initial job run ID is `jr_1234`, then the restarted job run will have the ID `jr1234_restart_1` for the first restart. The second restart will be `jr1234_restart_2` for the second restart and so on. 
 

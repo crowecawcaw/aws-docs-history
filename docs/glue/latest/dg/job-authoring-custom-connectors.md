@@ -22,7 +22,7 @@ When you create a new job, you can choose a connector for the data source and da
 1. On the **Connectors** page, in the **Your connections** resource list, choose the connection you want to use in your job, and then choose **Create job**. 
 
    Alternatively, on the AWS Glue Studio **Jobs** page, under **Create job**, choose **Source and target added to the graph**. In the **Source** drop-down list, choose the custom connector that you want to use in your job. You can also choose a connector for **Target**.  
-![The image is a screenshot of the Jobs page, with the Source drop-down list selected, showing the various data sources that can be selected for the job, including connectors.](http://docs.aws.amazon.com/glue/latest/dg/images/create-job-data-sources-screenshot.png)
+![The image is a screenshot of the Jobs page, with the Source drop-down list selected, showing the various data sources that can be selected for the job, including connectors.](https://docs.aws.amazon.com/glue/latest/dg/images/create-job-data-sources-screenshot.png)
 
 1. Choose **Create** to open the visual job editor.
 
@@ -42,7 +42,7 @@ After you create a job that uses a connector for the data source, the visual job
 **To configure the properties for a data source node that uses a connector**
 
 1. Choose the connector data source node in the job graph or add a new node and choose the connector for the **Node type**. Then, on the right-side, in the node details panel, choose the **Data source properties** tab, if it's not already selected.  
-![The image is a screenshot of the AWS Glue Studio visual job editor page, with a data source node selected in the graph. The Data source properties tab on the right is selected. The fields displayed for the data source properties are Connection (a drop-down list of available connections, followed by a Refresh button) and an Add schema button. An additional Connection options section is shown in its collapsed state.](http://docs.aws.amazon.com/glue/latest/dg/images/data-source-properties-connector-screenshot2.png)
+![The image is a screenshot of the AWS Glue Studio visual job editor page, with a data source node selected in the graph. The Data source properties tab on the right is selected. The fields displayed for the data source properties are Connection (a drop-down list of available connections, followed by a Refresh button) and an Add schema button. An additional Connection options section is shown in its collapsed state.](https://docs.aws.amazon.com/glue/latest/dg/images/data-source-properties-connector-screenshot2.png)
 
 1. In the **Data source properties** tab, choose the connection that you want to use for this job. 
 

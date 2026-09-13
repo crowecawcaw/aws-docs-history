@@ -37,7 +37,7 @@
 
  By default, parameters are required unless mark as `isOptional` in the .json file. In AWS Glue Studio, parameters are displayed in the **Transform** tab. The example shows user-defined parameters such as Email Address, Phone Number, Your age, Your gender and Your origin country. 
 
-![The screenshot shows a custom visual transform selected and the Transform tab with user-defined parameters.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-parameters.png)
+![The screenshot shows a custom visual transform selected and the Transform tab with user-defined parameters.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-parameters.png)
 
 
  You can enforce some validations in AWS Glue Studio using regular expressions in the json file by specifying the `validationRule` parameter and specifying a validation message in `validationMessage`. 
@@ -52,19 +52,19 @@
 
  Adding validation will prevent the user from saving the job with incorrect user input. AWS Glue Studio displays the validation message as displayed in the example: 
 
-![The screenshot shows a custom visual transform parameter with a validation error message: Please enter a valid email address.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-validation-message.png)
+![The screenshot shows a custom visual transform parameter with a validation error message: Please enter a valid email address.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-validation-message.png)
 
 
  Parameters are displayed in AWS Glue Studio based on the parameter configuration. 
 +  When `type` is any of the following: `str`, `int` or `float`, a text input field is displayed. For example, the screenshot shows input fields for 'Email Address' and 'Your age' parameters.   
-![The screenshot shows a custom visual transform parameter with text input field.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-email-address.png)  
-![The screenshot shows a custom visual transform parameter with text input field.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-your-age.png)
+![The screenshot shows a custom visual transform parameter with text input field.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-email-address.png)  
+![The screenshot shows a custom visual transform parameter with text input field.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-your-age.png)
 +  When `type` is `bool`, a checkbox is displayed.   
-![The screenshot shows a custom visual transform parameter with text input field.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-bool.png)
+![The screenshot shows a custom visual transform parameter with text input field.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-bool.png)
 +  When `type` is `str` and `listOptions` is provided, a single select list is displayed.   
-![The screenshot shows a custom visual transform parameter with a single select list drop-down.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-single-list.png)
+![The screenshot shows a custom visual transform parameter with a single select list drop-down.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-single-list.png)
 +  When `type` is `list` and `listOptions` and `listType` are provided, a multi-select list is displayed.   
-![The screenshot shows a custom visual transform parameter with a list drop-down.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-list-options.png)
+![The screenshot shows a custom visual transform parameter with a list drop-down.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-list-options.png)
 
 ### Displaying a column selector as parameter
 <a name="custom-visual-transform-parameters-column-selector"></a>
@@ -73,15 +73,15 @@
 
  The following example uses the schema: 
 
-![The screenshot shows a sample output schema.](http://docs.aws.amazon.com/glue/latest/dg/images/custom-visual-transform-example-schema.png)
+![The screenshot shows a sample output schema.](https://docs.aws.amazon.com/glue/latest/dg/images/custom-visual-transform-example-schema.png)
 
 
 **To define your Custom Visual Transform parameter to display a single column:**
 
 1.  In your JSON file, for the `parameters` object, set the `listOptions` value to "column". This allows a user to choose a column from a pick list in AWS Glue Studio.   
-![The screenshot shows a sample JSON file with the listOptions parameter set to "column" and the resulting user interface in In AWS Glue Studio.](http://docs.aws.amazon.com/glue/latest/dg/images/custom-visual-transform-example-listoptions-column.png)
+![The screenshot shows a sample JSON file with the listOptions parameter set to "column" and the resulting user interface in In AWS Glue Studio.](https://docs.aws.amazon.com/glue/latest/dg/images/custom-visual-transform-example-listoptions-column.png)
 
 1.  You can also allow multiple columns selection by defining the parameter as: 
    +  `listOptions: "column"` 
    +  `type: "list"`   
-![The screenshot shows a sample JSON file with the listOptions parameter set to "column" and the type set to "list", and resulting user interface in AWS Glue Studio.](http://docs.aws.amazon.com/glue/latest/dg/images/custom-visual-transform-example-listoptions-column-type-list.png)
+![The screenshot shows a sample JSON file with the listOptions parameter set to "column" and the type set to "list", and resulting user interface in AWS Glue Studio.](https://docs.aws.amazon.com/glue/latest/dg/images/custom-visual-transform-example-listoptions-column-type-list.png)

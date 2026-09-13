@@ -26,4 +26,4 @@ Ray automates the work of scaling Python code by distributing the processing acr
 
 In addition to cost savings, you can use native auto scaling to run Ray workloads without investing time into cluster maintenance, tuning, and administration. You can use familiar open-source libraries out of the box, such as pandas, and the AWS SDK for Pandas. These improve iteration speed while you're developing on AWS Glue for Ray. When you use AWS Glue for Ray, you will be able to rapidly develop and run cost-effective data integration workloads.
 
-[![AWS Videos](http://img.youtube.com/vi/OJ3ZngYTyNE/0.jpg)](http://www.youtube.com/watch?v=OJ3ZngYTyNE)
+[![AWS Videos](https://img.youtube.com/vi/OJ3ZngYTyNE/0.jpg)](https://www.youtube.com/watch?v=OJ3ZngYTyNE)

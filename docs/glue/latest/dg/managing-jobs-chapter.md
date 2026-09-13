@@ -99,7 +99,7 @@ You can also use the Monitoring dashboard to view all your jobs. You can access 
 
 You can customize how the jobs are displayed in the **Your jobs** section of the **Jobs** page. Also, you can enter text in the search text field to display only jobs with a name that contains that text.
 
-If you choose the settings icon ![A gear symbol](http://docs.aws.amazon.com/glue/latest/dg/images/manage-console-icon-settings.png) in the **Your jobs** section, you can customize how AWS Glue Studio displays the information in the table. You can choose to wrap the lines of text in the display, change the number of jobs displayed on the page, and specify which columns to display.
+If you choose the settings icon ![A gear symbol](https://docs.aws.amazon.com/glue/latest/dg/images/manage-console-icon-settings.png) in the **Your jobs** section, you can customize how AWS Glue Studio displays the information in the table. You can choose to wrap the lines of text in the display, change the number of jobs displayed on the page, and specify which columns to display.
 
 ## View information for recent job runs
 <a name="view-job-run-details"></a>
@@ -208,7 +208,7 @@ Also, the shuffle service does not clean the files after the job finishes runnin
 
 A red **Job has not been saved** callout is displayed to the left of the **Save** button until you save the job. 
 
-![A red oval with the label "Job has not been saved" to the left of the Save button.](http://docs.aws.amazon.com/glue/latest/dg/images/edit-graph-callout-not-saved_GA.png)
+![A red oval with the label "Job has not been saved" to the left of the Save button.](https://docs.aws.amazon.com/glue/latest/dg/images/edit-graph-callout-not-saved_GA.png)
 
 
 **To save your job**
@@ -226,16 +226,16 @@ If you exit AWS Glue Studio before saving your job, the next time you sign in to
 
 If you choose the **Save** button, but your job is missing some required information, then a red callout appears on the tab where the information is missing. The number in the callout indicates how many missing fields were detected.
 
-![A screenshot showing the tabs for the visual editor pane for a job named "Untitled job" with a callout labeled 2 on the Visual tab and a callout labeled 1 on the Job details tab.](http://docs.aws.amazon.com/glue/latest/dg/images/screenshot-save-job-error-in-graph-GA2.png)
+![A screenshot showing the tabs for the visual editor pane for a job named "Untitled job" with a callout labeled 2 on the Visual tab and a callout labeled 1 on the Job details tab.](https://docs.aws.amazon.com/glue/latest/dg/images/screenshot-save-job-error-in-graph-GA2.png)
 
-+ If a node in the visual editor isn't configured correctly, the **Visual** tab shows a red callout, and the node with the error displays a warning symbol ![A red triangle with an exclamation point in the center](http://docs.aws.amazon.com/glue/latest/dg/images/edit-graph-warning_icon.png).
++ If a node in the visual editor isn't configured correctly, the **Visual** tab shows a red callout, and the node with the error displays a warning symbol ![A red triangle with an exclamation point in the center](https://docs.aws.amazon.com/glue/latest/dg/images/edit-graph-warning_icon.png).
 
   1. Choose the node. In the node details panel, a red callout appears on the tab where the missing or incorrect information is located. 
 
   1. Choose the tab in the node details panel that shows a red callout, and then locate the problem fields, which are highlighted. An error message below the fields provides additional information about the problem.  
-![A screenshot showing the Visual tab in the job editor, which is marked with a callout labeled 2. The data source node, which is marked with a warning label, is selected. In the node details panel, the Data source properties tab has a callout labeled 2, and is selected. Two fields, Database and Table are outlined in red and have messages beneath them indicating a value is required in those fields.](http://docs.aws.amazon.com/glue/latest/dg/images/screenshot-save-job-error-in-graph2.png)
+![A screenshot showing the Visual tab in the job editor, which is marked with a callout labeled 2. The data source node, which is marked with a warning label, is selected. In the node details panel, the Data source properties tab has a callout labeled 2, and is selected. Two fields, Database and Table are outlined in red and have messages beneath them indicating a value is required in those fields.](https://docs.aws.amazon.com/glue/latest/dg/images/screenshot-save-job-error-in-graph2.png)
 + If there is a problem with the job properties, the **Job details** tab shows a red callout. Choose that tab and locate the problem fields, which are highlighted. The error messages below the fields provide additional information about the problem.  
-![A screenshot showing the Job details tab in the job editor, which is marked with a callout labeled 1. The "IAM Role" field is outlined in red and has a message beneath it indicating a value is required.](http://docs.aws.amazon.com/glue/latest/dg/images/screenshot-save-job-error-in-job-details.png)
+![A screenshot showing the Job details tab in the job editor, which is marked with a callout labeled 1. The "IAM Role" field is outlined in red and has a message beneath it indicating a value is required.](https://docs.aws.amazon.com/glue/latest/dg/images/screenshot-save-job-error-in-job-details.png)
 
 ## Clone a job
 <a name="clone-jobs"></a>

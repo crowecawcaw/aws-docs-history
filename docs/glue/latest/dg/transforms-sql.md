@@ -31,8 +31,8 @@ If you use a Spark SQL transform with a data source located in a VPC, add an AWS
    Specify the schema using the following actions in the **Output schema** section of the page:
    + To rename a column, place the cursor in the **Key** text box for the column (also referred to as a *field* or *property key*) and enter the new name.
    + To change the data type for a column, select the new data type for the column from the drop-down list.
-   + To add a new top-level column to the schema, choose the Overflow (![A rectangle with an ellipsis (...) in the center](http://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) button, and then choose **Add root key**. New columns are added at the top of the schema.
-   + To remove a column from the schema, choose the delete icon (![An outline of a trash can](http://docs.aws.amazon.com/glue/latest/dg/images/delete-icon-black.png)) to the far right of the Key name. 
+   + To add a new top-level column to the schema, choose the Overflow (![A rectangle with an ellipsis (...) in the center](https://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) button, and then choose **Add root key**. New columns are added at the top of the schema.
+   + To remove a column from the schema, choose the delete icon (![An outline of a trash can](https://docs.aws.amazon.com/glue/latest/dg/images/delete-icon-black.png)) to the far right of the Key name. 
 
 1. When you finish specifying the output schema, choose **Apply** to save your changes and exit the schema editor. If you do not want to save you changes, choose **Cancel** to edit the schema editor.
 

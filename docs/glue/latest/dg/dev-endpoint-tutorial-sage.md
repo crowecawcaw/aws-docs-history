@@ -32,7 +32,7 @@
 1. Create a new notebook: On the **jupyter** page, choose **New**, and then choose **Sparkmagic (PySpark)**.
 
    Your screen should now look like the following:  
-![The jupyter page has a menu bar, toolbar, and a wide text field into which you can enter statements.](http://docs.aws.amazon.com/glue/latest/dg/images/sagemaker-notebook.png)
+![The jupyter page has a menu bar, toolbar, and a wide text field into which you can enter statements.](https://docs.aws.amazon.com/glue/latest/dg/images/sagemaker-notebook.png)
 
 1. (Optional) At the top of the page, choose **Untitled**, and give the notebook a name.
 
@@ -43,7 +43,7 @@
    ```
 
    After a short delay, you should see the following response:  
-![The system response shows Spark application status and outputs the following message: SparkSession available as 'spark'.](http://docs.aws.amazon.com/glue/latest/dg/images/spark-command-response.png)
+![The system response shows Spark application status and outputs the following message: SparkSession available as 'spark'.](https://docs.aws.amazon.com/glue/latest/dg/images/spark-command-response.png)
 
 1. Create a dynamic frame and run a query against it: Copy, paste, and run the following code, which outputs the count and schema of the `persons_json` table.
 

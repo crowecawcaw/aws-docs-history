@@ -40,4 +40,4 @@
 1. On the **Transform** tab, choose the column to explode (it must be an array or map type). Then enter a name for the column for the items of the array or the names of the columns for the keys and values if you are exploding a map.
 
 1. (Optional) On the **Transform** tab, by default if the column to explode is NULL or has an empty structure, it will be omitted on the exploded dataset. If you want to keep the row (with the new columns as NULL) then check “Include NULLs”.  
-![The screenshot shows the Transform tab for the Explode Array or Map Into Rows transform.](http://docs.aws.amazon.com/glue/latest/dg/images/transforms-explode-array-transform-tab.png)
+![The screenshot shows the Transform tab for the Explode Array or Map Into Rows transform.](https://docs.aws.amazon.com/glue/latest/dg/images/transforms-explode-array-transform-tab.png)

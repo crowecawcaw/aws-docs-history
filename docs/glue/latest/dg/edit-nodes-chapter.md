@@ -24,7 +24,7 @@ On the **Jobs** page, you can see all the jobs that you have created either with
 1.  Choose **ETL jobs ** from the navigation pane. 
 
 1.  In the **Create job** section, select a configuration option for your job.   
-![The screen shot shows the Jobs page of AWS Glue Studio. In the "Create job" section, the create job options are displayed. In the "Example jobs" section, choose an option and then choose Create sample job to start a sample job.](http://docs.aws.amazon.com/glue/latest/dg/images/sample-jobs.png)
+![The screen shot shows the Jobs page of AWS Glue Studio. In the "Create job" section, the create job options are displayed. In the "Example jobs" section, choose an option and then choose Create sample job to start a sample job.](https://docs.aws.amazon.com/glue/latest/dg/images/sample-jobs.png)
 
     Options to create a job from scratch: 
    +  **Visual ETL** – author in a visual interface focused on data flow 

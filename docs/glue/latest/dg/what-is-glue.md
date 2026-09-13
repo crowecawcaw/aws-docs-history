@@ -11,7 +11,7 @@
 
  Also, AWS Glue makes it easy to integrate data across your architecture. It integrates with AWS analytics services and Amazon S3 data lakes. AWS Glue has integration interfaces and job-authoring tools that are easy to use for all users, from developers to business users, with tailored solutions for varied technical skill sets. 
 
-[![AWS Videos](http://img.youtube.com/vi/u14iVEc-C6E/0.jpg)](http://www.youtube.com/watch?v=u14iVEc-C6E)
+[![AWS Videos](https://img.youtube.com/vi/u14iVEc-C6E/0.jpg)](https://www.youtube.com/watch?v=u14iVEc-C6E)
 
 
  With the ability to scale on demand, AWS Glue helps you focus on high-value activities that maximize the value of your data. It scales for any data size, and supports all data types and schema variances. To increase agility and optimize costs, AWS Glue provides built-in high availability and pay-as-you-go billing. 
@@ -66,12 +66,12 @@ AWS Glue features fall into three major categories:
 
 Learn about the latest innovations in AWS Glue and hear how customers use AWS Glue to enable self-service data preparation across their organization.
 
-[![AWS Videos](http://img.youtube.com/vi/cDDPg_XxPqc/0.jpg)](http://www.youtube.com/watch?v=cDDPg_XxPqc)
+[![AWS Videos](https://img.youtube.com/vi/cDDPg_XxPqc/0.jpg)](https://www.youtube.com/watch?v=cDDPg_XxPqc)
 
 
 Learn about how customers scale AWS Glue beyond the traditional setup and how they configure AWS Glue for job monitoring and performance.
 
-[![AWS Videos](http://img.youtube.com/vi/ce6t3FqB_Z4/0.jpg)](http://www.youtube.com/watch?v=ce6t3FqB_Z4)
+[![AWS Videos](https://img.youtube.com/vi/ce6t3FqB_Z4/0.jpg)](https://www.youtube.com/watch?v=ce6t3FqB_Z4)
 
 
 ## Getting started with AWS Glue

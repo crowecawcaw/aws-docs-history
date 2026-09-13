@@ -13,7 +13,7 @@ AWS Glue uses crawlers to infer schemas for semi-structured data. It then transf
 
 This diagram shows how AWS Glue transforms a semi-structured schema to a relational schema.
 
-![Flow showing conversion from semi-structured to relational schema.](http://docs.aws.amazon.com/glue/latest/dg/images/HowItWorks-schemaconversion.png)
+![Flow showing conversion from semi-structured to relational schema.](https://docs.aws.amazon.com/glue/latest/dg/images/HowItWorks-schemaconversion.png)
 
 
 The diagram illustrates the following:

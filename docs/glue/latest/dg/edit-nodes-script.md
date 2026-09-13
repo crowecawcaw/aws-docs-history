@@ -34,7 +34,7 @@ Until you save the job, the conversion to a script-only job is not permanent. If
    When you are done editing the script, choose **Save** to save the job and permanently convert the job from visual to script-only.
 
 1. (Optional) You can download the script from the AWS Glue Studio console by choosing the **Download** button on the **Script** tab. When you choose this button, a new browser window opens, displaying the script from its location in Amazon S3. The **Script filename** and **Script path** parameters in the **Job details** tab of the job determine the name and location of the script file in Amazon S3.   
-![The screen shot shows the visual editor in AWS Glue Studio with the Job details tab selected. The Advanced properties section on the page is expanded, and the parameters Script filename and Script path are displayed. The Script filename field shows Join test job.py and the Script path field shows s3://aws-glue-assets-111122223333-u.](http://docs.aws.amazon.com/glue/latest/dg/images/job-details-script-location-params-screenshot.png)
+![The screen shot shows the visual editor in AWS Glue Studio with the Job details tab selected. The Advanced properties section on the page is expanded, and the parameters Script filename and Script path are displayed. The Script filename field shows Join test job.py and the Script path field shows s3://aws-glue-assets-111122223333-u.](https://docs.aws.amazon.com/glue/latest/dg/images/job-details-script-location-params-screenshot.png)
 
    When you save the job, AWS Glue save the job script at the location specified by these fields. If you modify the script file at this location within Amazon S3, AWS Glue Studio will load the modified script the next time you edit the job.
 

@@ -20,7 +20,7 @@
 **To create a client app and OAuth 2.0 credentials**
 
 1.  In the developer dashboard, choose create app integration.   
-![The screenshot shows the Create OAuth client ID page and the Authorised redirect URIs section. Here, add the URIs and choose ADD URI if needed. Once done, choose CREATE.](http://docs.aws.amazon.com/glue/latest/dg/images/create-client-app-step-1.png)
+![The screenshot shows the Create OAuth client ID page and the Authorised redirect URIs section. Here, add the URIs and choose ADD URI if needed. Once done, choose CREATE.](https://docs.aws.amazon.com/glue/latest/dg/images/create-client-app-step-1.png)
 
 1.  The **Create a new app Integration** window will appear and present various sign-in methods. Select **OIDC –OpenID Connect**. 
 

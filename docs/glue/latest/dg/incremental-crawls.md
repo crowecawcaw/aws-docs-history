@@ -12,7 +12,7 @@ Incremental crawls don't detect modifications or deletions of existing partition
 
 The following diagram shows that with the incremental crawl setting enabled, the crawler will only detect and add the newly added folder, month=March, to the catalog.
 
-![The following diagram shows that files for the month of March have been added.](http://docs.aws.amazon.com/glue/latest/dg/images/crawlers-s3-folders-new.png)
+![The following diagram shows that files for the month of March have been added.](https://docs.aws.amazon.com/glue/latest/dg/images/crawlers-s3-folders-new.png)
 
 
 Follow these steps to update your crawler to perform incremental crawls:

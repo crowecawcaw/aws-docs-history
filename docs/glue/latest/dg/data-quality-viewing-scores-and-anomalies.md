@@ -10,7 +10,7 @@
 
  Once your job is successful, choose the **Data Quality ** tab to view data quality scores and anomalies. 
 
-![The screenshot shows the Data quality tab selected and the scores and metrics.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-visualize-data-quality-metrics.png)
+![The screenshot shows the Data quality tab selected and the scores and metrics.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-visualize-data-quality-metrics.png)
 
 
  The following components in the Data quality tab provide useful information. 
@@ -36,7 +36,7 @@
 ## Viewing anomalies and training anomaly detection algorithm
 <a name="data-quality-visualize-anomalies"></a>
 
-![The screenshot shows the Anomalies tab with metrics.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-visualize-anomaly-detection.png)
+![The screenshot shows the Anomalies tab with metrics.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-visualize-anomaly-detection.png)
 
 
  Call outs for the image above: 
@@ -56,12 +56,12 @@
 
  Sometimes, you may want to view data statistics or data profiles and view how they are progressing over time. To do this, choose **Statistics** or open the **Statistics** tab. You can then view the latest data statistics gathered by AWS Glue Data Quality. 
 
-![The screenshot shows the Statistics tab with dataset and column statistics.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-visualize-data-statistics-over-time.png)
+![The screenshot shows the Statistics tab with dataset and column statistics.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-visualize-data-statistics-over-time.png)
 
 
  Clicking **View Trends** shows you how each of the statistics are progressing over time. 
 
-![The screenshot shows the Statistics tab with dataset and column statistics.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-view-trends-over-time.png)
+![The screenshot shows the Statistics tab with dataset and column statistics.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-view-trends-over-time.png)
 
 
 1.  You can select the statistic for a specified column 

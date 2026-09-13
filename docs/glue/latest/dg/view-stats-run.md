@@ -19,7 +19,7 @@ After you run a column statistics task, you can explore the task run details for
 1. Choose **View runs**.
 
    You can see information about all runs associated with the specified table.  
-![The screenshot shows the options available to generate column stats.](http://docs.aws.amazon.com/glue/latest/dg/images/view-column-stats-task-runs.png)
+![The screenshot shows the options available to generate column stats.](https://docs.aws.amazon.com/glue/latest/dg/images/view-column-stats-task-runs.png)
 
 ------
 #### [ AWS CLI ]

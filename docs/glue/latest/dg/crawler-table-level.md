@@ -7,7 +7,7 @@ By default, when a crawler defines tables for data stored in Amazon S3 the crawl
 
 The table level crawler option provides you the flexibility to tell the crawler where the tables are located, and how you want partitions created. When you specify a **Table level**, the table is created at that absolute level from the Amazon S3 bucket.
 
-![Crawler grouping with table level specified as level 2.](http://docs.aws.amazon.com/glue/latest/dg/images/crawler-table-level1.jpg)
+![Crawler grouping with table level specified as level 2.](https://docs.aws.amazon.com/glue/latest/dg/images/crawler-table-level1.jpg)
 
 
  When configuring the crawler on the console, you can specify a value for the **Table level** crawler option. The value must be a positive integer that indicates the table location (the absolute level in the dataset). The level for the top level folder is 1. For example, for the path `mydataset/year/month/day/hour`, if the level is set to 3, the table is created at location `mydataset/year/month`. 
@@ -21,7 +21,7 @@ The table level crawler option provides you the flexibility to tell the crawler 
 
 1. When you configure a crawler, under **Output and scheduling**, choose **Table level** under **Advance options**.
 
-![Specifying a table level in the crawler configuration.](http://docs.aws.amazon.com/glue/latest/dg/images/crawler-configuration-console.png)
+![Specifying a table level in the crawler configuration.](https://docs.aws.amazon.com/glue/latest/dg/images/crawler-configuration-console.png)
 
 
 ------

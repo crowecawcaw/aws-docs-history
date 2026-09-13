@@ -12,7 +12,7 @@
 
  There are four notions of time when processing streams: 
 
-![The screenshot shows a Amazon CloudWatch Monitoring log, AWS Glue for the example provided above and looks at the number of needed executors (Orange Line) and scales the executors (blue line) to match that without needing manual adjustment.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-advanced-concepts.png)
+![The screenshot shows a Amazon CloudWatch Monitoring log, AWS Glue for the example provided above and looks at the number of needed executors (Orange Line) and scales the executors (blue line) to match that without needing manual adjustment.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-advanced-concepts.png)
 
 +  **Event-time** – The time at which the event occurred. In most cases, this field is embedded into the event-data itself, at the source. 
 +  **Event-time-window** – The time frame between two event-times. As shown in the above diagram, **W1** is an event-time-window from 17:00 to 17:10. Each event-time-window is a grouping of multiple events. 
@@ -34,7 +34,7 @@
 
  Tumbling window is a series of non-overlapping fixed size event-time-windows over which you aggregate. Lets understand this with a real world example. 
 
-![The screenshot shows a Amazon CloudWatch Monitoring log, AWS Glue for the example provided above and looks at the number of needed executors (Orange Line) and scales the executors (blue line) to match that without needing manual adjustment.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-advanced-concepts.png)
+![The screenshot shows a Amazon CloudWatch Monitoring log, AWS Glue for the example provided above and looks at the number of needed executors (Orange Line) and scales the executors (blue line) to match that without needing manual adjustment.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-advanced-concepts.png)
 
 
  Company ABC Auto wants to do a marketing campaign for a new brand of sports car. They want to pick a city where they have biggest sports car fans. To achieve this goal, they showcase a short 15 second advertisement introducing the car on their website. All the “clicks“ and the corresponding ”city“ are recorded and streamed to Amazon Kinesis Data Streams. We want to count the number of clicks in a 10 minute window and group it by city to see which city has the highest demand. The following is the output of the aggregation. 
@@ -96,7 +96,7 @@
 
  Sliding windows are similar to the tumbling windows from the point of being “fixed-sized”, but windows can overlap or slide as long as the duration of slide is smaller than the duration of window itself. Due to the nature of sliding, an input can be bound to the multiple windows. 
 
-![The screenshot shows sliding window example.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-sliding-window-example.png)
+![The screenshot shows sliding window example.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-sliding-window-example.png)
 
 
  To better understand, lets consider the example of a bank that want to detect potential credit card fraud. A streaming application could monitor a continuous stream of credit card transactions. These transactions could be aggregated into windows of 10 minutes duration and every 5 minutes, the window would slide forward, eliminating the oldest 5 minutes of data and adding the latest 5 minutes of new data. Within each window, the transactions could be grouped by country checking for suspicious patterns, such as a transaction in the US immediately followed by another in Australia. For simplicity, lets us categorize such transactions as fraud when the total transactions amount is greater than $100. If such a pattern is detected, it signals potential fraud and the card could be frozen. 
@@ -130,7 +130,7 @@ grouped_df = parsed_df \
 
  Unlike the above two windows that have a fixed-size, session window can have a static or dynamic size of the window length, depending on the inputs. A session window starts with an input data event and continues to expands itself as long as it receives input within a gap or duration of inactivity. 
 
-![The screenshot shows sliding window example.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-session-window-example.png)
+![The screenshot shows sliding window example.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-session-window-example.png)
 
 
  Lets take an example. Company ABC hotel wants to find out when is the busiest time in a week and provide better deals for their guests. As soon as a guest checks-in, a session window is started and spark maintains a state with aggregation for that event-time-window. Every time a guests checks in, an event is generated and sent to Amazon Kinesis Data Streams. The hotel makes a decision that if there is no check-ins for a period of 15 minutes, the event-time-window can be closed. The next event-time-window will start again when there is a new check-in. The output looks as follows. 
@@ -173,7 +173,7 @@ Output mode = "update" is not supported for session windows.
 
  With reference to our stock ticker example above, lets consider the allowed threshold for the late data as no more than 10 minutes. To keep it simple we will assume tumbling window, ticker as AMZ, trade as BUY. 
 
-![The screenshot shows an example input stream and resulting table when late data is added to the data set.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-late-data-and-watermark.png)
+![The screenshot shows an example input stream and resulting table when late data is added to the data set.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-streaming-late-data-and-watermark.png)
 
 
  In the above diagram, we are calculating the total volume over a tumbling 10 minute window. We have the trigger at 17:00, 17:10 and 17:20. Above the timeline arrow, we have the input data stream and below is the unbounded results table. 

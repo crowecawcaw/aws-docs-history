@@ -132,7 +132,7 @@
 
 1.  Select your KMS key or choose **Create an AWS KMS key** 
 
-![The screenshot shows the Add security configuration page. The Enable DataQuality encryption option is selected.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-add-security-configuration.png)
+![The screenshot shows the Add security configuration page. The Enable DataQuality encryption option is selected.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-add-security-configuration.png)
 
 
 ## AWS Glue Data Quality encryption context

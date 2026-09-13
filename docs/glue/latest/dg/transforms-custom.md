@@ -91,20 +91,20 @@ A custom code node can have any number of parent nodes, each providing a `Dynami
 
 1. Choose **Edit** to make changes to the schema. 
 
-   If you have nested data property keys, such as an array or object, you can choose the **Expand-Rows** icon (![A double-ended arrow pointing upwards and downwards between two parallel lines](http://docs.aws.amazon.com/glue/latest/dg/images/expand-rows-icon.png)) on the top right of each schema panel to expand the list of child data property keys. After you choose this icon, it changes to the **Collapse-Rows** icon (![Two arrows, one pointing up to a line and one pointing down to the same line](http://docs.aws.amazon.com/glue/latest/dg/images/collapse-rows-icon.png)), which you can choose to collapse the list of child property keys.
+   If you have nested data property keys, such as an array or object, you can choose the **Expand-Rows** icon (![A double-ended arrow pointing upwards and downwards between two parallel lines](https://docs.aws.amazon.com/glue/latest/dg/images/expand-rows-icon.png)) on the top right of each schema panel to expand the list of child data property keys. After you choose this icon, it changes to the **Collapse-Rows** icon (![Two arrows, one pointing up to a line and one pointing down to the same line](https://docs.aws.amazon.com/glue/latest/dg/images/collapse-rows-icon.png)), which you can choose to collapse the list of child property keys.
 
 1. Modify the schema using the following actions in the section on the right side of the page:
    + To rename a property key, place the cursor in the **Key** text box for the property key, then enter the new name.
    + To change the data type for a property key, use the list to choose the new data type for the property key.
-   + To add a new top-level property key to the schema, choose the **Overflow** (![An ellipsis (...)](http://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) icon to the left of the **Cancel** button, and then choose **Add root key**.
-   + To add a child property key to the schema, choose the **Add-Key** icon ![A rectangle with a plus sign in the bottom left corner](http://docs.aws.amazon.com/glue/latest/dg/images/filter-add-icon.png)associated with the parent key. Enter a name for the child key and choose the data type.
-   + To remove a property key from the schema, choose the **Remove** icon (![An outline of a trash can](http://docs.aws.amazon.com/glue/latest/dg/images/delete-icon-black.png)) to the far right of the key name. 
+   + To add a new top-level property key to the schema, choose the **Overflow** (![An ellipsis (...)](https://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) icon to the left of the **Cancel** button, and then choose **Add root key**.
+   + To add a child property key to the schema, choose the **Add-Key** icon ![A rectangle with a plus sign in the bottom left corner](https://docs.aws.amazon.com/glue/latest/dg/images/filter-add-icon.png)associated with the parent key. Enter a name for the child key and choose the data type.
+   + To remove a property key from the schema, choose the **Remove** icon (![An outline of a trash can](https://docs.aws.amazon.com/glue/latest/dg/images/delete-icon-black.png)) to the far right of the key name. 
 
 1. If your custom transform code uses multiple `DynamicFrames`, you can add additional output schemas. 
-   + To add a new, empty schema, choose the **Overflow** (![An ellipsis (...)](http://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) icon, and then choose **Add output schema**.
-   + To copy an existing schema to a new output schema, make sure the schema you want to copy is displayed in the schema selector. Choose the **Overflow** (![An ellipsis (...)](http://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) icon, and then choose **Duplicate**.
+   + To add a new, empty schema, choose the **Overflow** (![An ellipsis (...)](https://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) icon, and then choose **Add output schema**.
+   + To copy an existing schema to a new output schema, make sure the schema you want to copy is displayed in the schema selector. Choose the **Overflow** (![An ellipsis (...)](https://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) icon, and then choose **Duplicate**.
 
-   If you want to remove an output schema, make sure the schema you want to copy is displayed in the schema selector. Choose the **Overflow** (![An ellipsis (...)](http://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) icon, and then choose **Delete**.
+   If you want to remove an output schema, make sure the schema you want to copy is displayed in the schema selector. Choose the **Overflow** (![An ellipsis (...)](https://docs.aws.amazon.com/glue/latest/dg/images/edit-schema-actions-button.png)) icon, and then choose **Delete**.
 
 1. Add new root keys to the new schema or edit the duplicated keys. 
 

@@ -35,7 +35,7 @@ AWS Glue Data Quality evaluates objects that are stored in the AWS Glue Data Cat
 
 
 
-[![AWS Videos](http://img.youtube.com/vi/rK1NGQu4Sgg/0.jpg)](http://www.youtube.com/watch?v=rK1NGQu4Sgg)
+[![AWS Videos](https://img.youtube.com/vi/rK1NGQu4Sgg/0.jpg)](https://www.youtube.com/watch?v=rK1NGQu4Sgg)
 
 
 
@@ -55,7 +55,7 @@ To get started with AWS Glue Data Quality for the AWS Glue Data Catalog see [Get
 
 AWS Glue Data Quality for AWS Glue ETL jobs lets you perform *proactive* data quality tasks. Proactive tasks help you identify and filter out bad data *before* you load a data set into your data lake.
 
-[![AWS Videos](http://img.youtube.com/vi/DUd5s_CFtBM/0.jpg)](http://www.youtube.com/watch?v=DUd5s_CFtBM)
+[![AWS Videos](https://img.youtube.com/vi/DUd5s_CFtBM/0.jpg)](https://www.youtube.com/watch?v=DUd5s_CFtBM)
 
 
 You might choose data quality for ETL jobs for the following use cases:

@@ -35,7 +35,7 @@ Summary of matched records:
 
 Details:
 
-![An example of a route table with an internet gateway.](http://docs.aws.amazon.com/glue/latest/dg/images/match_score1.png)
+![An example of a route table with an internet gateway.](https://docs.aws.amazon.com/glue/latest/dg/images/match_score1.png)
 
 
 From this example, we can see that two records are very similar and share `display_position`, `primary_name`, and `street name`. 
@@ -55,7 +55,7 @@ Summary of matched records:
 
 Details:
 
-![An example of a route table with an internet gateway.](http://docs.aws.amazon.com/glue/latest/dg/images/match_score2.png)
+![An example of a route table with an internet gateway.](https://docs.aws.amazon.com/glue/latest/dg/images/match_score2.png)
 
 
 From this example, we can see that these records share the same `primary_name`, and `country`.
@@ -75,7 +75,7 @@ Summary of matched records:
 
 Details:
 
-![An example of a route table with an internet gateway.](http://docs.aws.amazon.com/glue/latest/dg/images/match_score3.png)
+![An example of a route table with an internet gateway.](https://docs.aws.amazon.com/glue/latest/dg/images/match_score3.png)
 
 
 From this example, we can see that these records share only the same `primary_name`.

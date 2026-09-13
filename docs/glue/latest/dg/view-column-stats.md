@@ -10,7 +10,7 @@ After generating the statistics successfully, Data Catalog stores this informati
 
 **To view column statistics for a table**
 + After running column statistics task, the **Column statistics** tab on the **Table details** page shows the statistics for the table.   
-![The screenshot shows columns generated from the most recent run.](http://docs.aws.amazon.com/glue/latest/dg/images/view-column-stats.png)
+![The screenshot shows columns generated from the most recent run.](https://docs.aws.amazon.com/glue/latest/dg/images/view-column-stats.png)
 
   The following statistics are available:
   + Column name: Column name used to generate statistics

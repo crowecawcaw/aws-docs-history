@@ -14,7 +14,7 @@ AWS Glue bills hourly for streaming ETL jobs while they are running.
 
 This video discusses streaming ETL cost challenges, and cost-saving features in AWS Glue.
 
-[![AWS Videos](http://img.youtube.com/vi/6ggTFOtfUxU/0.jpg)](http://www.youtube.com/watch?v=6ggTFOtfUxU)
+[![AWS Videos](https://img.youtube.com/vi/6ggTFOtfUxU/0.jpg)](https://www.youtube.com/watch?v=6ggTFOtfUxU)
 
 
 Creating a streaming ETL job involves the following steps:
@@ -247,7 +247,7 @@ The following notes and restrictions apply for streaming sources in the Avro for
   + `UnionType => StructType`
 + If you define the table schema using the **Define a schema** page in the console, the implied root element type for the schema is `record`. If you want a root element type other than `record`, for example `array` or `map`, you can't specify the schema using the **Define a schema** page. Instead you must skip that page and specify the schema either as a table property or within the ETL script.
   + To specify the schema in the table properties, complete the create table wizard, edit the table details, and add a new key-value pair under **Table properties**. Use the key `avroSchema`, and enter a schema JSON object for the value, as shown in the following screenshot.  
-![Under the Table properties heading, there are two columns of text fields. The left-hand column heading is Key, and the right-hand column heading is Value. The key/value pair in the first row is classification/avro. The key/value pair in the second row is avroSchema/{"type":"array","items":"string"}.](http://docs.aws.amazon.com/glue/latest/dg/images/table_properties_avro.png)
+![Under the Table properties heading, there are two columns of text fields. The left-hand column heading is Key, and the right-hand column heading is Value. The key/value pair in the first row is classification/avro. The key/value pair in the second row is avroSchema/{"type":"array","items":"string"}.](https://docs.aws.amazon.com/glue/latest/dg/images/table_properties_avro.png)
   + To specify the schema in the ETL script, modify the `datasource0` assignment statement and add the `avroSchema` key to the `additional_options` argument, as shown in the following Python and Scala examples.
 
 ------
@@ -277,7 +277,7 @@ For information about Grok patterns and custom pattern string values, see [Writi
 
 **To add grok patterns to the Data Catalog table (console)**
 + Use the create table wizard, and create the table with the parameters specified in [Creating a Data Catalog table for a streaming source](#create-table-streaming). Specify the data format as Grok, fill in the **Grok pattern** field, and optionally add custom patterns under **Custom patterns (optional)**.  
-![*](http://docs.aws.amazon.com/glue/latest/dg/images/grok-data-format-create-table.png)
+![*](https://docs.aws.amazon.com/glue/latest/dg/images/grok-data-format-create-table.png)
 
   Press **Enter** after each custom pattern.
 

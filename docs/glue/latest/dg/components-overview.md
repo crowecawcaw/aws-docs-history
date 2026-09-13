@@ -77,7 +77,7 @@ For more information about using the AWS Glue Jobs system, see [Monitoring AWS G
 
  AWS Glue allows you to create ETL jobs through a visual canvas that you can manipulate. 
 
-![The screenshot shows the resource panel is closed.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-studio-canvas.png)
+![The screenshot shows the resource panel is closed.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-studio-canvas.png)
 
 
 ### ETL job menu
@@ -115,7 +115,7 @@ For more information about using the AWS Glue Jobs system, see [Monitoring AWS G
 
  When you work with nodes on the canvas, you have a toolbar that can help you zoom in and out, remove nodes, make or edit connections between nodes, change the job flow orientation, and undo or redo an action. 
 
-![The screenshot shows the resource panel is closed.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-studio-canvas-toolbar.png)
+![The screenshot shows the resource panel is closed.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-studio-canvas-toolbar.png)
 
 
  The floating toolbar is anchored to the upper right-hand size of the canvas and contains several images that perform actions: 
@@ -129,7 +129,7 @@ For more information about using the AWS Glue Jobs system, see [Monitoring AWS G
 
  **Using the mini-map** 
 
-![The screenshot shows a close up of the mini-map.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-studio-canvas-minimap.png)
+![The screenshot shows a close up of the mini-map.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-studio-canvas-minimap.png)
 
 
 ### Resource panel
@@ -139,7 +139,7 @@ For more information about using the AWS Glue Jobs system, see [Monitoring AWS G
 
  To close the resource panel, click the **X** in the upper-right hand corner of the resource panel. This will hide the panel until you're ready to open it again. 
 
-![The screenshot shows the resource panel when open.](http://docs.aws.amazon.com/glue/latest/dg/images/resource-panel-open.png)
+![The screenshot shows the resource panel when open.](https://docs.aws.amazon.com/glue/latest/dg/images/resource-panel-open.png)
 
 
 #### Popular transforms & data

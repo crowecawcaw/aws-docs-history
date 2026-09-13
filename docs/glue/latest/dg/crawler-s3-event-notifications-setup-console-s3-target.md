@@ -17,7 +17,7 @@ Follow these steps to set up a crawler for Amazon S3 event notifications for an 
     By default **Not yet** is already selected. Leave this as the default as you are using an Amazon S3 data source and the data is not already mapped to AWS Glue tables. 
 
 1.  In the section **Data sources**, choose **Add a data source**.   
-![Data source configuration section showing Add a data source button with empty data sources table.](http://docs.aws.amazon.com/glue/latest/dg/images/crawler-s3-event-console1.png)
+![Data source configuration section showing Add a data source button with empty data sources table.](https://docs.aws.amazon.com/glue/latest/dg/images/crawler-s3-event-console1.png)
 
 1.  In the **Add data source** modal, configure the Amazon S3 data source: 
    +  **Data source**: By default, Amazon S3 is selected. 
@@ -28,7 +28,7 @@ Follow these steps to set up a crawler for Amazon S3 event notifications for an 
    +  **Include SQS ARN**: Specify the data store parameters including the a valid SQS ARN. (For example, `arn:aws:sqs:region:account:sqs`). 
    +  **Include dead-letter SQS ARN** (Optional): Specify a valid Amazon dead-letter SQS ARN. (For example, `arn:aws:sqs:region:account:deadLetterQueue`). 
    +  Choose **Add an Amazon S3 data source**.   
-![Add data source dialog showing S3 configuration with path s3://test and crawl based on events selected.](http://docs.aws.amazon.com/glue/latest/dg/images/crawler-s3-event-console2.png)
+![Add data source dialog showing S3 configuration with path s3://test and crawl based on events selected.](https://docs.aws.amazon.com/glue/latest/dg/images/crawler-s3-event-console2.png)
 
 ------
 #### [ AWS CLI ]

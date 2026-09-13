@@ -39,7 +39,7 @@ Admins should create usage profiles and then assign them to the various users. W
 1. Define any optional tags that apply to the usage profile.
 
 1. Choose **Save**.  
-![An example of an admin creating a usage profile in AWS Glue.](http://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-2-create.png)
+![An example of an admin creating a usage profile in AWS Glue.](https://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-2-create.png)
 
 **To create a usage profile (AWS CLI)**
 
@@ -213,7 +213,7 @@ To edit a usage profile:
 1. Make changes as needed to the profile. By default, the parameters that already have values are expanded.
 
 1. Choose **Save Edits**.  
-![An example of a user editing a usage profile in AWS Glue.](http://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-4-edit.png)
+![An example of a user editing a usage profile in AWS Glue.](https://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-4-edit.png)
 
 **To edit a usage profile (AWS CLI)**
 + Enter the following command. The same `--configuration` file syntax is used as shown above in the create command.
@@ -268,7 +268,7 @@ To assign a usage profile to a user/role:
 1. Add a tag with the **Key** of `glue:UsageProfile` and the **Value** of the name of your usage profile.
 
 1. Choose **Save changes**  
-![An example of an adding a tag to an IAM role.](http://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-iam-role-tagged.png)
+![An example of an adding a tag to an IAM role.](https://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-iam-role-tagged.png)
 
 ## Viewing your assigned usage profile
 <a name="w2aac15c15c19b9"></a>
@@ -283,4 +283,4 @@ To view an assigned usage profile:
 
 1. Choose a usage profile that you have permissions to view.
 
-![An example of a user viewing their assigned usage profile in AWS Glue.](http://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-3-view.png)
+![An example of a user viewing their assigned usage profile in AWS Glue.](https://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-3-view.png)

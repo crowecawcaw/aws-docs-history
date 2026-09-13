@@ -54,7 +54,7 @@ The tutorial uses Amazon S3 as a data source. If you want to use a JDBC data sou
    + Navigate to the location where you saved `PyGlue.zip`, select it, then choose **Apply**.
 
     The **Settings** screen should look something like the following:  
-![The PyCharm Settings screen with PyGlue.zip added as a content root.](http://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_AddContentRoot.png)
+![The PyCharm Settings screen with PyGlue.zip added as a content root.](https://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_AddContentRoot.png)
 
    Leave the **Settings** dialog box open after you choose **Apply**.
 
@@ -71,7 +71,7 @@ The tutorial uses Amazon S3 as a data source. If you want to use a JDBC data sou
    + Choose **Test connection**, and allow the connection to be tested. If the connection succeeds, choose **Apply**.
 
     The **Settings** screen should now look something like the following:  
-![The PyCharm Settings screen with an SFTP server defined.](http://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_SFTP.png)
+![The PyCharm Settings screen with an SFTP server defined.](https://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_SFTP.png)
 
    Again, leave the **Settings** dialog box open after you choose **Apply**.
 
@@ -81,7 +81,7 @@ The tutorial uses Amazon S3 as a data source. If you want to use a JDBC data sou
    + Choose **Apply**.
 
     The **Settings** screen should now look something like the following:  
-![The PyCharm Settings screen after a deployment mapping.](http://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_Mapping.png)
+![The PyCharm Settings screen after a deployment mapping.](https://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_Mapping.png)
 
    Choose **OK** to close the **Settings** dialog box.
 
@@ -89,10 +89,10 @@ The tutorial uses Amazon S3 as a data source. If you want to use a JDBC data sou
 <a name="dev-endpoint-tutorial-pycharm-deploy"></a>
 
 1. Choose **Tools**, **Deployment**, and then choose the name under which you set up your development endpoint, as shown in the following image:  
-![The menu item for deploying your script.](http://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_Deploy.png)
+![The menu item for deploying your script.](https://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_Deploy.png)
 
    After your script has been deployed, the bottom of the screen should look something like the following:  
-![The bottom of the PyCharm screen after a successful deployment.](http://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_Deployed.png)
+![The bottom of the PyCharm screen after a successful deployment.](https://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_Deployed.png)
 
 1. On the menu bar, choose **Tools**, **Deployment**, **Automatic Upload (always)**. Ensure that a check mark appears next to **Automatic Upload (always)**.
 
@@ -114,7 +114,7 @@ Configure PyCharm to use the Python interpreter on the development endpoint.
 1. Choose **Existing server configuration**, and in the **Deployment configuration** list, choose your configuration.
 
    Your screen should look something like the following image.  
-![In the left pane, SSH Interpreter is selected, and in the right pane, the Existing server configuration radio button is selected. The Deployment configuration field contains the configuration name and the message "Remote SDK is saved in IDE settings, so it needs the deployment server to be saved there too. Which do you prefer?" The following are the choices beneath that message: "Create copy of this deployment server in IDE settings" and "Move this server to IDE settings."](http://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_Interpreter1.png)
+![In the left pane, SSH Interpreter is selected, and in the right pane, the Existing server configuration radio button is selected. The Deployment configuration field contains the configuration name and the message "Remote SDK is saved in IDE settings, so it needs the deployment server to be saved there too. Which do you prefer?" The following are the choices beneath that message: "Create copy of this deployment server in IDE settings" and "Move this server to IDE settings."](https://docs.aws.amazon.com/glue/latest/dg/images/PyCharm_Interpreter1.png)
 
 1. Choose **Move this server to IDE settings**, and then choose **Next**.
 

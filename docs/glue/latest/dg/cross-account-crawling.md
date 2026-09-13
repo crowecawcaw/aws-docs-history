@@ -35,7 +35,7 @@ You can complete the following steps using the AWS Management Console or AWS CLI
    1.  In the AWS Glue console ([https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/)), while configuring the crawler, select the option **Use Lake Formation credentials for crawling Amazon S3 data source**.
 
       For cross-account crawling, specify the AWS account ID where the target Amazon S3 location is registered with Lake Formation. For in-account crawling, the accountId field is optional.   
-![Lake Formation configuration section with Account ID field showing 111111111111.](http://docs.aws.amazon.com/glue/latest/dg/images/cross-account-crawler.png)
+![Lake Formation configuration section with Account ID field showing 111111111111.](https://docs.aws.amazon.com/glue/latest/dg/images/cross-account-crawler.png)
 
 ------
 #### [ AWS CLI ]

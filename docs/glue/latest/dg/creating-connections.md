@@ -19,12 +19,12 @@ An AWS Glue connection is a Data Catalog object that stores connection informati
 1. Configure the connection in Step 2 in the wizard. 
 
    Enter the connection details. Depending on the type of connector you selected, you're prompted to enter additional information:  
-![The screenshot shows the Connectors page and the Connections section. The Create connection button is enclosed in a red box. Choose Create connection to start the Connection wizard.](http://docs.aws.amazon.com/glue/latest/dg/images/connections-create-connection.png)
+![The screenshot shows the Connectors page and the Connections section. The Create connection button is enclosed in a red box. Choose Create connection to start the Connection wizard.](https://docs.aws.amazon.com/glue/latest/dg/images/connections-create-connection.png)
 
 1.  Choose the data source you want to create a connection for in step 1 of the **Create data connection** wizard. There are several ways to view the available data sources. By default, you will see all available data sources in a grid layout. You can also:
    + Toggle **List** to view the data sources as a list or toggle back to **Grid** to view the available connectors in the grid layout.
    + Use the search bar to narrow the list of data sources. As you type, search matches are displayed and non-matching sources are removed from view.  
-![The screenshot shows the search bar and Grid-List toggle.](http://docs.aws.amazon.com/glue/latest/dg/images/connections-create-step-1-view.png)
+![The screenshot shows the search bar and Grid-List toggle.](https://docs.aws.amazon.com/glue/latest/dg/images/connections-create-step-1-view.png)
 
     Once you've chosen the data source, choose **Next**. 
 
@@ -32,7 +32,7 @@ An AWS Glue connection is a Data Catalog object that stores connection informati
 
    Enter the connection details. Depending on the type of connector you selected, you may be required to enter additional connection information. This can include:
    +  **Connection details** – these fields will change depending on the data source you are connecting to. For example, if you are connecting to Amazon DocumentDB databases, you will enter the Amazon DocumentDB URL. If you are connecting to Amazon Aurora, you will choose the database instance and enter the database name. The following is the Connection details required for Amazon Aurora:   
-![The screenshot shows the connection details required for configuring Amazon Aurora as a data source.](http://docs.aws.amazon.com/glue/latest/dg/images/connections-create-step-2-configure.png)
+![The screenshot shows the connection details required for configuring Amazon Aurora as a data source.](https://docs.aws.amazon.com/glue/latest/dg/images/connections-create-step-2-configure.png)
    +  Credential type – choose between **Username and password** or ** AWS Secrets Manager**. Enter the requested authentication information.
    + For connectors that use JDBC, enter the information required to create the JDBC URL for the data store.
    + If you use a virtual private cloud (VPC), then enter the network information for your VPC.

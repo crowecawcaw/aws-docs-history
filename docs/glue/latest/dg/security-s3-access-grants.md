@@ -14,7 +14,7 @@ AWS Glue versions 5.0 and higher provide a native integration with S3 Access Gra
 
 The following is a high-level overview of how AWS Glue gets access to data that S3 Access Grants manages access to.
 
-![The diagram shows a high-level overview of how AWS Glue gets access to data that S3 Access Grants manages access to.](http://docs.aws.amazon.com/glue/latest/dg/images/glue50-s3-access-grants.png)
+![The diagram shows a high-level overview of how AWS Glue gets access to data that S3 Access Grants manages access to.](https://docs.aws.amazon.com/glue/latest/dg/images/glue50-s3-access-grants.png)
 
 
 1. A user submits an AWS Glue Spark job that uses data stored in Amazon S3.

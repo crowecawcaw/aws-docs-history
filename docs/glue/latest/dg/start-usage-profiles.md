@@ -17,7 +17,7 @@ When user B runs the job, it run with whatever values were saved for it. If user
 **Usage profile as a resource**  
 An AWS Glue usage profile is a resource identified by an Amazon Resource Name (ARN). All the default IAM (Identity and Access Management) controls apply, including action-based and resource-based authorization. Admins should update the IAM policy of users who create AWS Glue resources, granting them access to use the profiles.
 
-![An example of usage profiles configured in AWS Glue.](http://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-1.png)
+![An example of usage profiles configured in AWS Glue.](https://docs.aws.amazon.com/glue/latest/dg/images/usage-profiles-1.png)
 
 
 **Topics**

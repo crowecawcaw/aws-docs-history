@@ -82,7 +82,7 @@ DynamicFrame.myTransform = myTransform
    ```
 
 1.  Test to validate the “custom\_filter\_state” with different arguments:   
-![The screenshot shows a cell in a AWS Glue notebook with the arguments passed to the dynamicFrame.show function.](http://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-notebook-test-python.png)
+![The screenshot shows a cell in a AWS Glue notebook with the arguments passed to the dynamicFrame.show function.](https://docs.aws.amazon.com/glue/latest/dg/images/dynamic-transform-notebook-test-python.png)
 
 1.  After running several tests, save the code with the .py extension and name the .py file with a name that mirrors the .json file name. The .py and .json files should be in the same transform folder. 
 

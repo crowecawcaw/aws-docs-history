@@ -27,12 +27,12 @@
 
  When you've selected the **Data Preparation Recipe** transform, you have the ability to take additional actions after choosing **Author recipe**. 
 +  Add step – you can add additional steps to a recipe as needed by choosing the add step icon, or use the toolbar in the Preview pane by choosing an action.   
-![The screenshot shows the add recipe icon.](http://docs.aws.amazon.com/glue/latest/dg/images/add-recipe-icon.png)  
-![The screenshot shows the add recipe icon.](http://docs.aws.amazon.com/glue/latest/dg/images/author-recipe-toolbar.png)
+![The screenshot shows the add recipe icon.](https://docs.aws.amazon.com/glue/latest/dg/images/add-recipe-icon.png)  
+![The screenshot shows the add recipe icon.](https://docs.aws.amazon.com/glue/latest/dg/images/author-recipe-toolbar.png)
 +  Import recipe – choose **More** then **Import recipe** to use in your AWS Glue Studio job.   
-![The screenshot shows the more icon.](http://docs.aws.amazon.com/glue/latest/dg/images/data-preparation-recipe-node-more-icon.png)  
-![The screenshot shows the more icon.](http://docs.aws.amazon.com/glue/latest/dg/images/data-preparation-recipe-node-more-features.png)
+![The screenshot shows the more icon.](https://docs.aws.amazon.com/glue/latest/dg/images/data-preparation-recipe-node-more-icon.png)  
+![The screenshot shows the more icon.](https://docs.aws.amazon.com/glue/latest/dg/images/data-preparation-recipe-node-more-features.png)
 +  Download as YAML – choose **More** then **Download as YAML** to download your recipe to save outside of AWS Glue Studio. 
 +  Download as JSON – choose **More** then **Download as JSON** to download your recipe to save outside of AWS Glue Studio. 
 +  Undo and redo recipe steps – You can undo and redo recipe steps in the Preview pane when working with data in the grid.   
-![The screenshot shows the more icon.](http://docs.aws.amazon.com/glue/latest/dg/images/author-recipe-toolbar-undo-redo.png)
+![The screenshot shows the more icon.](https://docs.aws.amazon.com/glue/latest/dg/images/author-recipe-toolbar-undo-redo.png)

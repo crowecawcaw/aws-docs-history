@@ -36,7 +36,7 @@ You can add Data Catalog metrics to your CloudWatch dashboard by following these
 1. Select the metrics you want to add to your dashboard.
 
 1. Add metrics for catalogs, databases, tables, partitions, and connections to your CloudWatch graph.  
-![AWS Glue Data Catalog metrics in CloudWatch dashboard](http://docs.aws.amazon.com/glue/latest/dg/images/glue-cloudwatch-metrics.png)
+![AWS Glue Data Catalog metrics in CloudWatch dashboard](https://docs.aws.amazon.com/glue/latest/dg/images/glue-cloudwatch-metrics.png)
 
 You can configure custom alarms that trigger automatically when API usage exceeds your defined thresholds to identify abnormalities in your data catalog usage.
 

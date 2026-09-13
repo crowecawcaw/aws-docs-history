@@ -3,7 +3,7 @@
 # Anomaly detection in AWS Glue Data Quality
 <a name="data-quality-anomaly-detection"></a>
 
-[![AWS Videos](http://img.youtube.com/vi/IWHzrupqlGM/0.jpg)](http://www.youtube.com/watch?v=IWHzrupqlGM)
+[![AWS Videos](https://img.youtube.com/vi/IWHzrupqlGM/0.jpg)](https://www.youtube.com/watch?v=IWHzrupqlGM)
 
 
 
@@ -22,7 +22,7 @@
 **Note**  
  Anomaly detection is supported in both AWS Glue ETL and the AWS Glue Data Catalog. You can enable anomaly detection for tables registered in the Data Catalog by running evaluation runs with anomaly detection enabled (`ObservationScope: ALL`). 
 
-![The screenshot shows the data quality anomaly detection process.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-anomaly-detection-process.png)
+![The screenshot shows the data quality anomaly detection process.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-anomaly-detection-process.png)
 
 
  AWS Glue Data Quality combines the power of rule-based data quality and anomaly detection capabilities to deliver high-quality data. To get started, you must first configure rules and analyzers, and then enable anomaly detection. 
@@ -72,7 +72,7 @@ Analyzers = [
 
  Here is an example of data statistics stored over time. 
 
-![The screenshot shows a line graph of data quality statistics over time.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-data-statistics-over-time.png)
+![The screenshot shows a line graph of data quality statistics over time.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-data-statistics-over-time.png)
 
 
 **Note**  
@@ -83,7 +83,7 @@ Analyzers = [
 
  AWS Glue Data Quality requires a minimum of three data points to detect anomalies. It utilizes a machine learning algorithm to learn from past trends and then predict future values. When the actual value does not fall within the predicted range, AWS Glue Data Quality creates an Anomaly Observation. It provides a visual representation of the actual value and the trends. Four values are displayed on the graph below. 
 
-![The screenshot shows a line graph of data quality anomaly detection events over time.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-anomaly-detection-trend.png)
+![The screenshot shows a line graph of data quality anomaly detection events over time.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-anomaly-detection-trend.png)
 
 
 1.  The actual statistic and its trend over time. 
@@ -176,7 +176,7 @@ If you do not specify a mode, anomaly detection uses the `LINEAR` mode by defaul
 
  AWS Glue Data Quality's anomaly detection algorithm can capture seasonal patterns. For example, it can understand that weekday patterns differ from weekend patterns. This can be seen in the example below, where AWS Glue Data Quality detects a seasonal trend in the data values. You don't need to do anything specific to enable this capability. Over time, AWS Glue Data Quality learns seasonal trends and detects anomalies when these patterns break. 
 
-![The screenshot shows a data quality tab with data that shows anomalies when capturing seasonal trends.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-capturing-seasonality.png)
+![The screenshot shows a data quality tab with data that shows anomalies when capturing seasonal trends.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-capturing-seasonality.png)
 
 
 ### Cost

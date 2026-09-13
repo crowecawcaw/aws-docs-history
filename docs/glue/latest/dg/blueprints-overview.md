@@ -15,7 +15,7 @@ The following are example use cases for blueprints:
 + You want to snapshot an Amazon DynamoDB table into a SQL data store like Amazon Redshift. The input parameters to the blueprint are the DynamoDB table name and an AWS Glue connection, which designates an Amazon Redshift cluster and destination database.
 + You want to convert CSV data in multiple Amazon S3 paths to Parquet. You want the AWS Glue workflow to include a separate crawler and job for each path. The input parameters are the destination database in the AWS Glue Data Catalog and a comma-delimited list of Amazon S3 paths. Note that in this case, the number of crawlers and jobs that the workflow creates is variable.
 
-[![AWS Videos](http://img.youtube.com/vi/s3Bm8ay53Ms/0.jpg)](http://www.youtube.com/watch?v=s3Bm8ay53Ms)
+[![AWS Videos](https://img.youtube.com/vi/s3Bm8ay53Ms/0.jpg)](https://www.youtube.com/watch?v=s3Bm8ay53Ms)
 
 
 **Blueprint components**  
@@ -30,13 +30,13 @@ A blueprint is a ZIP archive that contains the following components:
 
   As an advanced use case, you can parameterize the location of the ETL scripts that your jobs use. You can include job script files in the ZIP archive and specify a blueprint parameter for an Amazon S3 location where the scripts are to be copied to. The layout generator script can copy the ETL scripts to the designated location and specify that location as the job script location property. You can also include any libraries or other supporting files, provided that your script handles them.
 
-![Box labeled Blueprint contains two smaller boxes, one labeled Python Script and the other labeled Config File.](http://docs.aws.amazon.com/glue/latest/dg/images/blueprint.png)
+![Box labeled Blueprint contains two smaller boxes, one labeled Python Script and the other labeled Config File.](https://docs.aws.amazon.com/glue/latest/dg/images/blueprint.png)
 
 
 **Blueprint runs**  
 When you create a workflow from a blueprint, AWS Glue runs the blueprint, which starts an asynchronous process to create the workflow and the jobs, crawlers, and triggers that the workflow encapsulates. AWS Glue uses the blueprint run to orchestrate the creation of the workflow and its components. You view the status of the creation process by viewing the blueprint run status. The blueprint run also stores the values that you supplied for the blueprint parameters.
 
-![Box labeled Blueprint run contains icons labeled Workflow and Parameter Values.](http://docs.aws.amazon.com/glue/latest/dg/images/blueprint-run.png)
+![Box labeled Blueprint run contains icons labeled Workflow and Parameter Values.](https://docs.aws.amazon.com/glue/latest/dg/images/blueprint-run.png)
 
 
 You can view blueprint runs using the AWS Glue console or AWS Command Line Interface (AWS CLI). When viewing or troubleshooting a workflow, you can always return to the blueprint run to view the blueprint parameter values that were used to create the workflow.

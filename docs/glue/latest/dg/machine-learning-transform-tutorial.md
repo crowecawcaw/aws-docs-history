@@ -182,7 +182,7 @@ In this step, you check the output of the job run in the Amazon S3 bucket that y
 1. Download the target output file of the job `demo-etl-dblp-acm`. Open the file in a spreadsheet application (you might need to add a file extension `.csv` for the file to properly open).
 
    The following image shows an excerpt of the output in Microsoft Excel.  
-![Excel spreadsheet showing the output of the transform.](http://docs.aws.amazon.com/glue/latest/dg/images/demo_output_dblp_acm.png)
+![Excel spreadsheet showing the output of the transform.](https://docs.aws.amazon.com/glue/latest/dg/images/demo_output_dblp_acm.png)
 
    The data source and target file both have 4,911 records. However, the `Find matches` transform adds another column named `match_id` to identify matching records in the output. Rows with the same `match_id` are considered matching records. The `match_confidence_score` is a number between 0 and 1 that provides an estimate of the quality of matches found by `Find matches`.
 

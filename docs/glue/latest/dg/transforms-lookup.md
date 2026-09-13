@@ -18,4 +18,4 @@
 1. Finally, enter the columns to bring from the row matched in the lookup table to incorporate them into the data. If no match was found those columns will be set to NULL.
 **Note**  
 Underneath the **Lookup** transform, it is using a left join in order to be efficient. If the lookup table has a composite key, ensure the columns to match are setup to match all the key columns so that only one match can occur. Otherwise, multiple lookup rows will match and this will result in extra rows added for each of those matches.  
-![The screenshot shows the Transform tab for the Lookup transform.](http://docs.aws.amazon.com/glue/latest/dg/images/transforms-lookup-transform-tab.png)
+![The screenshot shows the Transform tab for the Lookup transform.](https://docs.aws.amazon.com/glue/latest/dg/images/transforms-lookup-transform-tab.png)

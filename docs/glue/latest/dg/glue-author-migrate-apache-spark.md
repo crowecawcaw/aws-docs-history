@@ -19,22 +19,22 @@ Native Spark code can be run in a AWS Glue environment out of the box. Scripts a
    A **File upload** section will appear. Under **File upload**, click **Choose file**. Your system file chooser will appear. Navigate to the location where you saved `binarizer_example.py`, select it and confirm your selection.
 
    A **Create** button will appear on the header for the **Create job** panel. Click it.  
-![The AWS Glue Studio Jobs page with Spark script editor pane selected.](http://docs.aws.amazon.com/glue/latest/dg/images/migrate-apache-spark-01-upload-job.png)
+![The AWS Glue Studio Jobs page with Spark script editor pane selected.](https://docs.aws.amazon.com/glue/latest/dg/images/migrate-apache-spark-01-upload-job.png)
 
 1. Your browser will navigate to the script editor. On the header, click the **Job details** tab. Set the **Name** and **IAM Role**. For guidance around AWS Glue IAM roles, consult [Setting up IAM permissions for AWS Glue](set-up-iam.md).
 
    Optionally - set **Requested number of workers** to `2` and **Number of retries** to `1`. These options are valuable when running production jobs, but turning them down will streamline your experience while testing out a feature.
 
    In the title bar, click **Save**, then **Run**  
-![The job details page with options set as instructed.](http://docs.aws.amazon.com/glue/latest/dg/images/migrate-apache-spark-02-job-details.png)
+![The job details page with options set as instructed.](https://docs.aws.amazon.com/glue/latest/dg/images/migrate-apache-spark-02-job-details.png)
 
 1. Navigate to the **Runs** tab. You will see a panel corresponding to your job run. Wait a few minutes and the page should automatically refresh to show **Succeeded** under **Run status**.  
-![The job runs page with a successful job run.](http://docs.aws.amazon.com/glue/latest/dg/images/migrate-apache-spark-03-job-runs.png)
+![The job runs page with a successful job run.](https://docs.aws.amazon.com/glue/latest/dg/images/migrate-apache-spark-03-job-runs.png)
 
 1. You will want to examine your output to confirm that the Spark script ran as intended. This Apache Spark sample script should write a string to the output stream. You can find that by navigating to **Output logs** under **Cloudwatch logs** in the panel for the successful job run. Note the job run id, a generated id under the **Id** label beginning with `jr_`.
 
    This will open the CloudWatch console, set to visualize the contents of the default AWS Glue log group `/aws-glue/jobs/output`, filtered to the contents of the log streams for the job run id. Each worker will have generated a log stream, shown as rows under the **Log streams** . One worker should have run the requested code. You will need to open all the log streams to identify the correct worker. Once you find the right worker, you should see the output of the script, as seen in the following image:   
-![The CloudWatch console page with the Spark program output.](http://docs.aws.amazon.com/glue/latest/dg/images/migrate-apache-spark-04-log-output.png)
+![The CloudWatch console page with the Spark program output.](https://docs.aws.amazon.com/glue/latest/dg/images/migrate-apache-spark-04-log-output.png)
 
 ## Common procedures needed for migrating Spark programs
 <a name="glue-author-migrate-apache-spark-migrate"></a>

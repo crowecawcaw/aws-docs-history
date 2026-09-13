@@ -21,7 +21,7 @@
 
  When you scan your dataset for sensitive data like personally identifiable information (PII), you can choose to detect PII in each row or detect the columns that contain PII data. 
 
-![The screen shot shows the options in the Detect PII transform when selecting to detect fields that contain PII in the data source.](http://docs.aws.amazon.com/glue/latest/dg/images/detect-fields-PII.png)
+![The screen shot shows the options in the Detect PII transform when selecting to detect fields that contain PII in the data source.](https://docs.aws.amazon.com/glue/latest/dg/images/detect-fields-PII.png)
 
 
  When you choose **Detect PII in each cell**, you’re choosing to scan all rows in the data source. This is a comprehensive scan to ensure that PII entities are identified. 
@@ -47,7 +47,7 @@
 
  If you choose **All available PII patterns**, select entities pre-defined by AWS. You can select one, more than one, or all entities. 
 
-![The screen shot shows the options in the list of pre-defined AWS entities.](http://docs.aws.amazon.com/glue/latest/dg/images/pii-select-entities-to-detect.png)
+![The screen shot shows the options in the list of pre-defined AWS entities.](https://docs.aws.amazon.com/glue/latest/dg/images/pii-select-entities-to-detect.png)
 
 
 ### Select categories
@@ -109,7 +109,7 @@
  
 
 1.  To create a new pattern, click the **Create new** button.   
-![The screen shot shows the Select patterns section.](http://docs.aws.amazon.com/glue/latest/dg/images/detectpii-create-new.png)
+![The screen shot shows the Select patterns section.](https://docs.aws.amazon.com/glue/latest/dg/images/detectpii-create-new.png)
 
 1.  In the Create detection entity page, enter the entity name and a regular expression. The regular expression (Regex) is what AWS Glue will use to match entities. 
 
@@ -128,7 +128,7 @@
 +  **High** – (Default) Detects more entities for use cases that require a higher level of sensitivity. All AWS Glue jobs created after November 2023 are automatically opted-in to this setting. 
 +  **Low** – Detects fewer entities and reduces false positives. 
 
-![The screen shot shows the global detection sensitivity options. There is a low option, which is for better precision, but is more strict and can result in lower overall detection. The second option is a high sensitivity setting, which is for broader detection and is better suited if you need higher PII detection.](http://docs.aws.amazon.com/glue/latest/dg/images/detect-sensitve-data-sensitvity-new.png)
+![The screen shot shows the global detection sensitivity options. There is a low option, which is for better precision, but is more strict and can result in lower overall detection. The second option is a high sensitivity setting, which is for broader detection and is better suited if you need higher PII detection.](https://docs.aws.amazon.com/glue/latest/dg/images/detect-sensitve-data-sensitvity-new.png)
 
 
 ## Choosing what to do with identified PII data
@@ -140,7 +140,7 @@
 +  **Partially redact detected text:** You can replace part of the detected PII value with a string you choose. There are two possible options: to either leave the ends unmasked or to mask by providing an explicit regex pattern. This feature is not available in AWS Glue 2.0. 
 +  **Apply cryptographic hash:** You can pass the detected PII value to a SHA-256 cryptographic hash function and replace the value with the function’s output. 
 
-![The screen shot shows the options in the Detect PII transform when selecting all rows in the data source to detect PII.](http://docs.aws.amazon.com/glue/latest/dg/images/detect-sensitive-data-global-action.png)
+![The screen shot shows the options in the Detect PII transform when selecting all rows in the data source to detect PII.](https://docs.aws.amazon.com/glue/latest/dg/images/detect-sensitive-data-global-action.png)
 
 
 ### Differences between AWS Glue versions 2.0 and 3.0\+
@@ -158,4 +158,4 @@
 +  **Specify specific settings that are more fine-grained than using global actions** – For example, you can specify different redaction text settings for different entity types. 
 +  **Specify a different action than the global action** – If a different action wants to be applied on a different sensitive data type, that can be done here. Note that two different edit-in-place actions (redaction and hashing) cannot be used on the same column, but detect can always be used. 
 
-![The screen shot shows the fine-grained action overrides. You can add, edit, delete or edit as JSON any action overrides for the job.](http://docs.aws.amazon.com/glue/latest/dg/images/detect-sensitive-data-fga-overrides.png)
+![The screen shot shows the fine-grained action overrides. You can add, edit, delete or edit as JSON any action overrides for the job.](https://docs.aws.amazon.com/glue/latest/dg/images/detect-sensitive-data-fga-overrides.png)

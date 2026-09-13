@@ -22,6 +22,6 @@
 1. (Optional) On the Node properties tab, you can enter a name for the node in the job diagram. If a node parent is not already selected, then choose a node from the Node parents list to use as the input source for the transform.
 
 1. On the **Transform** tab, choose the column to split and enter the pattern to use to split the string. In most cases you can just enter the character(s) unless it has a special meaning as a regular expression and needs to be escaped. The characters that need escaping are: `\.[]{}()<>*+-=!?^$|` by adding a backslash in front of the character. For instance if you want to separate by a dot ('.') you need to enter `\.`. However, a comma doesn’t have a special meaning and can just be specified as is: `,`.  
-![The screenshot shows the Transform tab for the Split String transform.](http://docs.aws.amazon.com/glue/latest/dg/images/transforms-split-string-transform-tab.png)
+![The screenshot shows the Transform tab for the Split String transform.](https://docs.aws.amazon.com/glue/latest/dg/images/transforms-split-string-transform-tab.png)
 
 1. (Optional) If you want to keep the original string column, then you can enter a name for a new array column, this way keeping both the original string column and the new tokenized array column.

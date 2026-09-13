@@ -7,7 +7,7 @@ You can use AWS Glue for Spark to read from and write to tables in Amazon Redshi
 
 Learn about how AWS Glue is making it easier than ever for Amazon Redshift users to migrate to AWS Glue for serverless data integration and ETL.
 
-[![AWS Videos](http://img.youtube.com/vi/ZapycBq8TKU/0.jpg)](http://www.youtube.com/watch?v=ZapycBq8TKU)
+[![AWS Videos](https://img.youtube.com/vi/ZapycBq8TKU/0.jpg)](https://www.youtube.com/watch?v=ZapycBq8TKU)
 
 
 ## Configuring Redshift connections
@@ -41,7 +41,7 @@ For more information about configuring roles for Amazon Redshift, see [Authorizi
 1. In the Amazon Redshift console, associate the role with your Amazon Redshift cluster. Follow the instructions in [the Amazon Redshift documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/copy-unload-iam-role.html).
 
    Select the highlighted option in the Amazon Redshift console to configure this setting:  
-![An example of where to manage IAM permissions in the Amazon Redshift console.](http://docs.aws.amazon.com/glue/latest/dg/images/RS-role-config.png)
+![An example of where to manage IAM permissions in the Amazon Redshift console.](https://docs.aws.amazon.com/glue/latest/dg/images/RS-role-config.png)
 
 **Note**  
  By default, AWS Glue jobs pass Amazon Redshift temporary credentials that are created using the role that you specified to run the job. We do not recommend using these credentials. For security purposes, these credentials expire after 1 hour. 
@@ -70,7 +70,7 @@ The AWS Glue job needs a role to access the Amazon S3 bucket. You do not need IA
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect-redshift-home.html)
 
    For example:  
-![An example of a self-referencing inbound rule.](http://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroup-Start.png)
+![An example of a self-referencing inbound rule.](https://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroup-Start.png)
 
 1. Add a rule for outbound traffic also. Either open outbound traffic to all ports, for example:    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect-redshift-home.html)

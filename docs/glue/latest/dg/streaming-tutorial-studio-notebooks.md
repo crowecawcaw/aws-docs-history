@@ -29,7 +29,7 @@ If you have already completed our previous [Tutorial: Build your first streaming
 
 You can synthetically generate sample data in JSON format using the Kinesis Data Generator (KDG). You can find full instructions and details in the [tool documentation](https://awslabs.github.io/amazon-kinesis-data-generator/web/help.html).
 
-1. To get started, click [![Orange button labeled "Launch Stack" with an arrow icon.](http://docs.aws.amazon.com/glue/latest/dg/images/cloudformation-launch-stack-button.png)](https://aws-data-analytics-workshops.s3.amazonaws.com/aws_glue/aws_glue_streaming/docs/glue-stream.yaml) to run an AWS CloudFormation template on your AWS environment.
+1. To get started, click [![Orange button labeled "Launch Stack" with an arrow icon.](https://docs.aws.amazon.com/glue/latest/dg/images/cloudformation-launch-stack-button.png)](https://aws-data-analytics-workshops.s3.amazonaws.com/aws_glue/aws_glue_streaming/docs/glue-stream.yaml) to run an AWS CloudFormation template on your AWS environment.
 **Note**  
 You may encounter a CloudFormation template failure because some resources, such as the Amazon Cognito user for Kinesis Data Generator already exist in your AWS account. This could be because you already set that up from another tutorial or blog. To address this, you can either try the template in a new AWS account for a fresh start, or explore a different AWS Region. These options let you run the tutorial without conflicting with existing resources.
 
@@ -91,10 +91,10 @@ AWS Glue Studio is a visual interface that simplifies the process of designing, 
 1. Download the provided [notebook file](https://aws-data-analytics-workshops.s3.amazonaws.com/aws_glue/aws_glue_streaming/docs/glue_streaming_tutorial_notebook.ipynb) and save it to a local directory
 
 1. Open the AWS Glue Console and on the left pane click **Notebooks** > **Jupyter Notebook** > **Upload and edit an existing notebook**. Upload the notebook from the previous step and click **Create**.  
-![The screenshot shows creating a Jupyter Notebook job.](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2a.png)
+![The screenshot shows creating a Jupyter Notebook job.](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2a.png)
 
 1. Provide the job a name, role and select the default Spark kernel. Next click **Start notebook**. For the **IAM Role**, select the role provisioned by the CloudFormation template. You can see this in the **Outputs** tab of CloudFormation.  
-![The screenshot shows the Notebook setup dialog.](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2b.png)
+![The screenshot shows the Notebook setup dialog.](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2b.png)
 
 The notebook has all necessary instructions to continue the tutorial. You can either run the instructions on the notebook or follow along with this tutorial to continue with the job development.
 
@@ -106,15 +106,15 @@ The notebook has all necessary instructions to continue the tutorial. You can ei
 1. Start with the next code block `%streaming`. This magic sets the job type to streaming which lets you develop, debug and deploy an AWS Glue streaming ETL job.
 
 1. Run the next cell to create an AWS Glue interactive session. The output cell has a message that confirms the session creation.  
-![The screenshot shows starting an interactive session.](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2c.png)
+![The screenshot shows starting an interactive session.](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2c.png)
 
 1. The next cell defines the variables. Replace the values with ones appropriate to your job and run the cell. For example:  
-![The screenshot shows defining variables in an interactive session.](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2d.png)
+![The screenshot shows defining variables in an interactive session.](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2d.png)
 
 1. Since the data is being streamed already to Kinesis Data Streams, your next cell will consume the results from the stream. Run the next cell. Since there are no print statements, there is no expected output from this cell.
 
 1. In the following cell, you explore the incoming stream by taking a sample set and print its schema and the actual data. For example:  
-![The screenshot shows sampling and printing the incoming records in an interactive session.](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2e.png)
+![The screenshot shows sampling and printing the incoming records in an interactive session.](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2e.png)
 
 1. Next, define the actual data transformation logic. The cell consists of the `processBatch` method that is triggered during every micro-batch. Run the cell. At a high level, we do the following to the incoming stream:
 
@@ -129,7 +129,7 @@ The notebook has all necessary instructions to continue the tutorial. You can ei
 1. In the last cell, you trigger the process batch every 10 seconds. Run the cell and wait for about 30 seconds for it to populate the Amazon S3 bucket and the AWS Glue catalog table.
 
 1. Finally, browse the stored data using the Amazon Athena query editor. You can see the renamed column and also the new partitions.  
-![The screenshot shows browsing the stored data in the Amazon Athena query editor.](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2f.png)
+![The screenshot shows browsing the stored data in the Amazon Athena query editor.](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2f.png)
 
 The notebook has all necessary instructions to continue the tutorial. You can either run the instructions on the notebook or follow along with this tutorial to continue with the job development.
 
@@ -138,7 +138,7 @@ The notebook has all necessary instructions to continue the tutorial. You can ei
 
 With the development and testing of your application complete using the interactive sessions notebook, click **Save** at the top of the notebook interface. Once saved you can also run the application as a job.
 
-![The screenshot shows saving the notebook as an AWS Glue job.](http://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2g.png)
+![The screenshot shows saving the notebook as an AWS Glue job.](https://docs.aws.amazon.com/glue/latest/dg/images/streaming-tutorial-2g.png)
 
 
 ### Clean up

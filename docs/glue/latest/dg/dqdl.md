@@ -188,7 +188,7 @@ object GlueApp {
 
  In AWS Glue Data Catalog, you can easily configure this option in the user interface as shown below. 
 
-![The screenshot shows a composite rule settings window where you can choose the rule evaluation configuration between row and column. If you choose Row, the composite rules will behave as a single rule evaluating entire row. If you choose Column, the composite rules will evaluate individual rules across the entire dataset and combine the results.](http://docs.aws.amazon.com/glue/latest/dg/images/composite-rule-settings.png)
+![The screenshot shows a composite rule settings window where you can choose the rule evaluation configuration between row and column. If you choose Row, the composite rules will behave as a single rule evaluating entire row. If you choose Column, the composite rules will evaluate individual rules across the entire dataset and combine the results.](https://docs.aws.amazon.com/glue/latest/dg/images/composite-rule-settings.png)
 
 
  Once set, the composite rules will behave as a single rule evaluating the entire row. The following example illustrates this behaviour. 
@@ -560,7 +560,7 @@ Dynamic Rules are only supported in AWS Glue ETL and is not supported in AWS Glu
 
  Sometimes, you will need to exclude data statistics from your dynamic rule calculations. Lets say you did a historical data load and you don’t want that to impact your averages. To do this, open the job in AWS Glue ETL and choose the **Data Quality** Tab, then choose **Statistics** and select the statistics that you want to exclude. You will be able to see a trend chart along with a table of statistics. Select the values you want to exclude and choose **Exclude Statistics**. Now the excluded statistics will not be included in the dynamic rule calculations. 
 
-![The screenshot shows the option to exclude or include statistics from the drop-down menu after selecting a statistic.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-excluding-statistics-from-dynamic-rules.png)
+![The screenshot shows the option to exclude or include statistics from the drop-down menu after selecting a statistic.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-excluding-statistics-from-dynamic-rules.png)
 
 
 ### Analyzers

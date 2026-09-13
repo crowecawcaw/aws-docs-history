@@ -5,7 +5,7 @@
 
  Spark Upgrades in AWS Glue enables data engineers and developers to upgrade and migrate their existing AWS Glue Spark jobs to the latest Spark releases using generative AI. Data engineers can use it to scan their AWS Glue Spark jobs, generate upgrade plans, execute plans, and validate outputs. It reduces the time and cost of Spark upgrades by automating the undifferentiated work of identifying and updating Spark scripts, configurations, dependencies, methods, and features. 
 
-![The GIF shows an end to end implementation of a sample upgrade analysis workflow.](http://docs.aws.amazon.com/glue/latest/dg/images/demo_lumos.gif)
+![The GIF shows an end to end implementation of a sample upgrade analysis workflow.](https://docs.aws.amazon.com/glue/latest/dg/images/demo_lumos.gif)
 
 
 ## How it works
@@ -227,10 +227,10 @@
  You can run an upgrade analysis, which will generate an upgrade plan on a job you select from the **Jobs** view. 
 
 1.  From **Jobs**, select a AWS Glue 2.0 job, then choose **Run upgrade analysis** from the **Actions** menu.   
-![The screenshot shows the Upgrade analysis with AI from the action menu.](http://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-run-action-menu.png)
+![The screenshot shows the Upgrade analysis with AI from the action menu.](https://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-run-action-menu.png)
 
 1.  In the modal, select a path to store your generated upgrade plan in the **Result path**. This must be an Amazon S3 bucket you can access and write to.   
-![The screenshot shows the completed upgrade analysis. The button for Apply upgraded script is visible.](http://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-configuration-options.png)
+![The screenshot shows the completed upgrade analysis. The button for Apply upgraded script is visible.](https://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-configuration-options.png)
 
 1.  Configure additional options, if needed: 
    +  **Run configuration** – optional: The run configuration is an optional setting that allows you to customize various aspects of the validation runs performed during the upgrade analysis. This configuration is utilized to execute the upgraded script and allows you to select the compute environment properties (worker type, number of workers, etc). Note you should use your non-production developer accounts to run the validations on sample datasets before reviewing, accepting the changes and applying them to production environments. The run configuration includes the following customizable parameters: 
@@ -252,7 +252,7 @@
 1.  When the upgrade analysis is completed successfully, you can apply the upgrade script to automatically upgrade your job by choosing **Apply upgraded script**. 
 
     Once applied, the AWS Glue version will be updated to 4.0. You can view the new script in the **Script** tab.   
-![The screenshot shows the completed upgrade analysis. The button for Apply upgraded script is visible.](http://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-analysis-details-preview.png)
+![The screenshot shows the completed upgrade analysis. The button for Apply upgraded script is visible.](https://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-analysis-details-preview.png)
 
 ## Understanding your upgrade summary
 <a name="auto-upgrade-analysis-summary"></a>
@@ -408,7 +408,7 @@ job.commit()
 ### Explanation of analysis summary
 <a name="upgrade-analysis-explanation-summary"></a>
 
-![The screenshot shows the Upgrade analysis summary.](http://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-explanation-summary.png)
+![The screenshot shows the Upgrade analysis summary.](https://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-explanation-summary.png)
 
 
  Based on the summary, there are four changes proposed by AWS Glue in order to successfully upgrade the script from AWS Glue 2.0 to AWS Glue 4.0: 
@@ -429,7 +429,7 @@ job.commit()
 1.  Choose the **Upgrade Analysis** tab. 
 
 1.  Select the job that is running, then choose **Stop**. This will stop the analysis. You can then run another upgrade analysis on the same job.   
-![The screenshot shows the Upgrade analysis tab with a job selected. The job is still running.](http://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-tab.png)
+![The screenshot shows the Upgrade analysis tab with a job selected. The job is still running.](https://docs.aws.amazon.com/glue/latest/dg/images/upgrade-analysis-tab.png)
 
 ## Considerations
 <a name="upgrade-analysis-considerations"></a>

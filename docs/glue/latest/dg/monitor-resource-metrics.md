@@ -27,7 +27,7 @@ Service: Glue
 Class: None
 ```
 
-![Resource metrics](http://docs.aws.amazon.com/glue/latest/dg/images/resource_monitoring_1.png)
+![Resource metrics](https://docs.aws.amazon.com/glue/latest/dg/images/resource_monitoring_1.png)
 
 
 To create an alarm on a metric in the CloudWatch console:

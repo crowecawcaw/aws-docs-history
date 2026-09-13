@@ -38,7 +38,7 @@ This section describes new features and advantages of AWS Glue version 5.0.
 + AWS Glue 5.0 supports data lineage in Amazon DataZone. You can configure AWS Glue to automatically collect lineage information during Spark job runs and send the lineage events to be visualized in Amazon DataZone. For more information, see [Data lineage in Amazon DataZone](https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html).
 
   To configure this on the AWS Glue console, turn on **Generate lineage events**, and enter your Amazon DataZone domain ID on the **Job details** tab.  
-![The screenshot shows turning on Amazon DataZone date lineage for AWS Glue.](http://docs.aws.amazon.com/glue/latest/dg/images/glue-50-data-lineage.png)
+![The screenshot shows turning on Amazon DataZone date lineage for AWS Glue.](https://docs.aws.amazon.com/glue/latest/dg/images/glue-50-data-lineage.png)
 
   Alternatively, you can provide the following job parameter (provide your DataZone domain ID):
   + Key: `--conf`

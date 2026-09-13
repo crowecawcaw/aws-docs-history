@@ -15,12 +15,12 @@
 **To enable anomaly detection in AWS Glue Studio:**
 
 1.  Choose the **Data Quality** node in your job, then choose the **Anomaly detection** tab. Toggle to turn on **Enable Anomaly Detection**.   
-![The screenshot shows the toggle for "Enable anomaly detection" on. This can be toggled on or off.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-enable-anomaly-detection.png)
+![The screenshot shows the toggle for "Enable anomaly detection" on. This can be toggled on or off.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-enable-anomaly-detection.png)
 
 1.  Define the data to monitor for anomalies by choosing **Add analyzer**. There are two fields that you can populate: Statistics and Data. 
    +  **Statistics** are information about your data’s shape and other properties. You can choose one or more statistics at a time, or choose **All statistics**. Statistics include: Completeness, Uniqueness, Mean, Sum, StandardDeviation, Entropy, DistinctValuesCount, UniqueValueRatio and more. Refer to the [Analyzers](dqdl.md#dqdl-analyzers) documentation for more details. 
    +  **Data** is the columns in your dataset. You can choose all columns or individual columns.   
-![The screenshot shows the fields for Statistics and Data. You can choose which statistics you want to apply to your dataset and on which columns.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-add-analyzer.png)
+![The screenshot shows the fields for Statistics and Data. You can choose which statistics you want to apply to your dataset and on which columns.](https://docs.aws.amazon.com/glue/latest/dg/images/data-quality-add-analyzer.png)
 
 1.  Choose **Add anomaly detection scope** to save your changes. After you’ve added analyzers, you can see them in the **Anomaly detection scope** section. 
 

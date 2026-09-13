@@ -37,7 +37,7 @@ aws glue register-schema-version --schema-definition "{\"type\": \"record\", \"n
 
 1. Choose **Register version**.
 
-![Adding a schema version.](http://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_add_schema_version.png)
+![Adding a schema version.](https://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_add_schema_version.png)
 
 
 The schema(s) version appears in the list of versions. If the version changed the compatibility mode, the version will be marked as a checkpoint.
@@ -52,4 +52,4 @@ When you choose to **Compare with previous version**, you will see the previous 
 
 You can also compare against earlier versions.
 
-![Example of a schema version comparison.](http://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_version_comparison.png)
+![Example of a schema version comparison.](https://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_version_comparison.png)

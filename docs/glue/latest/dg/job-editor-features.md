@@ -26,7 +26,7 @@ Before you can see the schema, the job editor needs permissions to access the da
 
 
 
-[![AWS Videos](http://img.youtube.com/vi/EqmljEWlp0c/0.jpg)](http://www.youtube.com/watch?v=EqmljEWlp0c)
+[![AWS Videos](https://img.youtube.com/vi/EqmljEWlp0c/0.jpg)](https://www.youtube.com/watch?v=EqmljEWlp0c)
 
 
 
@@ -50,12 +50,12 @@ Data previews help you create and test your job using a sample of your data with
 
  When the session is ready, AWS Glue Studio will load the data for the node you selected. You can view the **% complete** as it progresses. 
 
-![The screenshot shows the Data preview tab for a node that has started.](http://docs.aws.amazon.com/glue/latest/dg/images/data-preview-progress.png)
+![The screenshot shows the Data preview tab for a node that has started.](https://docs.aws.amazon.com/glue/latest/dg/images/data-preview-progress.png)
 
 
  As you author your visual job, AWS Glue Studio will automatically update the schema for the selected node when you toggle **Infer schema from session** in the **Output schema** tab. 
 
-![The screenshot shows the Data preview tab for a node that has started.](http://docs.aws.amazon.com/glue/latest/dg/images/data-preview-output-schema.png)
+![The screenshot shows the Data preview tab for a node that has started.](https://docs.aws.amazon.com/glue/latest/dg/images/data-preview-output-schema.png)
 
 
  To configure your data preview preferences: 
@@ -72,7 +72,7 @@ Choose the settings icon (a gear symbol) to configure your preferences for data 
 + Choose the **Previewing x of y fields** button to select which columns (fields) to preview. When you preview you data using the default settings, the job editor shows the first 5 columns of your dataset. You can change this to show all or none (not recommended). 
 + Scroll through the data preview window both horizontally and vertically. 
 + Use the maximize button to expand the Data preview tab to over-lay the job graph to better view the data and data structures. Similarly, use the minimize button to minimize the Data preview tab. You can also grab the handle pane and drag up to expand the **Data preview** tab.  
-![The screenshot shows the data preview pane with the minimize and maximize buttons highlighted, as well as the handle pane that you can use to extend the data preview pane vertically.](http://docs.aws.amazon.com/glue/latest/dg/images/data-preview-maximize-handle.png)
+![The screenshot shows the data preview pane with the minimize and maximize buttons highlighted, as well as the handle pane that you can use to extend the data preview pane vertically.](https://docs.aws.amazon.com/glue/latest/dg/images/data-preview-maximize-handle.png)
 + Use **End session** to stop the data preview. When you stop the session, you can choose a new IAM role, and set additional settings (such as turn on or off settings to automatically start a new session, infer schema, or import AWS Glue libraries, and start the session again.
 
 ## Restrictions when using data previews

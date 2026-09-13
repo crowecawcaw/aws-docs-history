@@ -23,7 +23,7 @@
 
  The following diagram shows the architecture of an AWS Glue environment. 
 
-![The basic concepts populating your Data Catalog and processing ETL dataflow in AWS Glue.](http://docs.aws.amazon.com/glue/latest/dg/images/HowItWorks-overview.png)
+![The basic concepts populating your Data Catalog and processing ETL dataflow in AWS Glue.](https://docs.aws.amazon.com/glue/latest/dg/images/HowItWorks-overview.png)
 
 
 You define *jobs* in AWS Glue to accomplish the work that's required to extract, transform, and load (ETL) data from a data source to a data target. You typically perform the following actions:

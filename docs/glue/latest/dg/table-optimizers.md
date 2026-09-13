@@ -14,7 +14,7 @@ Catalog-level optimization configuration is available through the Lake Formation
 
  The following video demonstrates how to configure optimizers for Iceberg tables in the Data Catalog. 
 
-[![AWS Videos](http://img.youtube.com/vi/xOXE7AS-pNA?si=lKvt_TSlPkoc6OXn/0.jpg)](http://www.youtube.com/watch?v=xOXE7AS-pNA?si=lKvt_TSlPkoc6OXn)
+[![AWS Videos](https://img.youtube.com/vi/xOXE7AS-pNA?si=lKvt_TSlPkoc6OXn/0.jpg)](https://www.youtube.com/watch?v=xOXE7AS-pNA?si=lKvt_TSlPkoc6OXn)
 
 
 **Topics**

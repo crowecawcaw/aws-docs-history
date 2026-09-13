@@ -10,10 +10,10 @@
 1.  On the **Node properties** tab, choose fields to group together by selecting the drop-down field (optional). You can select more than one field at a time or search for a field name by typing in the search bar. 
 
     When fields are selected, the name and datatype are shown. To remove a field, choose 'X' on the field.   
-![The screenshot shows the Transform tab for the Aggregate node.](http://docs.aws.amazon.com/glue/latest/dg/images/Aggregate-transform-tab.png)
+![The screenshot shows the Transform tab for the Aggregate node.](https://docs.aws.amazon.com/glue/latest/dg/images/Aggregate-transform-tab.png)
 
 1.  Choose **Aggregate another column**. It is required to select at least one field.   
-![The screenshot shows the fields when choosing Aggregate another column.](http://docs.aws.amazon.com/glue/latest/dg/images/Aggregate-fieldtoaggregate.png)
+![The screenshot shows the fields when choosing Aggregate another column.](https://docs.aws.amazon.com/glue/latest/dg/images/Aggregate-fieldtoaggregate.png)
 
 1.  Choose a field in the **Field to aggregate** drop-down. 
 

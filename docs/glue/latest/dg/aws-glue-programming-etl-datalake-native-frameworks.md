@@ -14,7 +14,7 @@ When you manage datasets through the AWS Glue Data Catalog, you can use AWS Glue
 
 In this video, you can learn about the basics of how Apache Hudi, Apache Iceberg, and Delta Lake work. You'll see how to insert, update, and delete data in your data lake and how each of these frameworks works.
 
-[![AWS Videos](http://img.youtube.com/vi/fryfx0Zg7KA/0.jpg)](http://www.youtube.com/watch?v=fryfx0Zg7KA)
+[![AWS Videos](https://img.youtube.com/vi/fryfx0Zg7KA/0.jpg)](https://www.youtube.com/watch?v=fryfx0Zg7KA)
 
 
 **Topics**

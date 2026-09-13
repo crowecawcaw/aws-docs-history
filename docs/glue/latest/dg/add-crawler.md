@@ -10,7 +10,7 @@ You can use an AWS Glue crawler to populate the AWS Glue Data Catalog with datab
 
 The following workflow diagram shows how AWS Glue crawlers interact with data stores and other elements to populate the Data Catalog.
 
-![Workflow showing how AWS Glue crawler populates the Data Catalog in 5 basic steps.](http://docs.aws.amazon.com/glue/latest/dg/images/PopulateCatalog-overview.png)
+![Workflow showing how AWS Glue crawler populates the Data Catalog in 5 basic steps.](https://docs.aws.amazon.com/glue/latest/dg/images/PopulateCatalog-overview.png)
 
 
 The following is the general workflow for how a crawler populates the AWS Glue Data Catalog:
@@ -69,7 +69,7 @@ When an AWS Glue crawler scans Amazon S3 data store and detects multiple folders
 
 For example, consider the following Amazon S3 folder structure.
 
-![Rectangles at multiple levels represent a folder hierarchy in Amazon S3. The top rectangle is labeled Sales. Rectangle below that is labeled year=2019. Two rectangles below that are labeled month=Jan and month=Feb. Each of those rectangles has two rectangles below them, labeled day=1 and day=2. All four "day" (bottom) rectangles have either two or four files under them. All rectangles and files are connected with lines.](http://docs.aws.amazon.com/glue/latest/dg/images/crawlers-s3-folders.png)
+![Rectangles at multiple levels represent a folder hierarchy in Amazon S3. The top rectangle is labeled Sales. Rectangle below that is labeled year=2019. Two rectangles below that are labeled month=Jan and month=Feb. Each of those rectangles has two rectangles below them, labeled day=1 and day=2. All four "day" (bottom) rectangles have either two or four files under them. All rectangles and files are connected with lines.](https://docs.aws.amazon.com/glue/latest/dg/images/crawlers-s3-folders.png)
 
 
 The paths to the four lowest level folders are the following:

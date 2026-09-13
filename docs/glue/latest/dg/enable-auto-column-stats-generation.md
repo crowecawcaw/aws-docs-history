@@ -17,10 +17,10 @@ You can enable the automatic column statistics generation for all new Apache Ice
 1. On the left navigation bar, choose **Catalogs**.
 
 1. On the **Catalog summary** page, choose **Edit** under **Optimization configuration**.   
-![The screenshot shows the options available to generate column stats.](http://docs.aws.amazon.com/glue/latest/dg/images/edit-column-stats-auto.png)
+![The screenshot shows the options available to generate column stats.](https://docs.aws.amazon.com/glue/latest/dg/images/edit-column-stats-auto.png)
 
 1. On the **Table optimization configuration** page, choose the **Enable automatic statistics generation for the tables of the catalog** option.  
-![The screenshot shows the options available to generate column stats.](http://docs.aws.amazon.com/glue/latest/dg/images/edit-optimization-option.jpg)
+![The screenshot shows the options available to generate column stats.](https://docs.aws.amazon.com/glue/latest/dg/images/edit-optimization-option.jpg)
 
 1. Choose an existing IAM role or create a new one that has the necessary permissions to run the column statistics task.
 

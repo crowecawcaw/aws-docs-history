@@ -39,7 +39,7 @@ To add a new registry in the AWS Glue console:
 
 1. Choose **Add registry**.
 
-![Example of a creating a registry.](http://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_create_registry.png)
+![Example of a creating a registry.](https://docs.aws.amazon.com/glue/latest/dg/images/schema_reg_create_registry.png)
 
 
 When your registry is created it is assigned an Amazon Resource Name (ARN), which you can view by choosing the registry from the list in **Schema registries**. Now that you've created a registry, create one or more schemas for that registry.

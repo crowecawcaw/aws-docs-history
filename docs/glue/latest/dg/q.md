@@ -31,7 +31,7 @@ In the Amazon Q panel you can request Amazon Q generate code for an AWS Glue ETL
 
 For example, you can ask Amazon Q to "*Please provide a Glue script that reads from Snowflake, renames the fields, and writes to Redshift*" and in response, Amazon Q data integration in AWS Glue will return an AWS Glue job script that can perform the requested action. You can review the generated code to ensure that it fulfills the requested intent. If satisfied, you can deploy it as an AWS Glue job in production. You can troubleshoot jobs by asking the integration to explain errors and failures, and to propose solutions. Amazon Q can answer questions about AWS Glue or data integration best practices.
 
-![An example of using Amazon Q data integration in AWS Glue.](http://docs.aws.amazon.com/glue/latest/dg/images/q-chat-experience-1.gif)
+![An example of using Amazon Q data integration in AWS Glue.](https://docs.aws.amazon.com/glue/latest/dg/images/q-chat-experience-1.gif)
 
 
 The following are example questions that demonstrate how Amazon Q data integration in AWS Glue can help you build on AWS Glue:

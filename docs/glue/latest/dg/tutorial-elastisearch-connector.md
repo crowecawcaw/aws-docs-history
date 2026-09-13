@@ -82,7 +82,7 @@ The AWS Glue Connector for Elasticsearch is available for free from [AWS Marketp
 
 1. Open the AWS Glue Studio console at [https://console.aws.amazon.com/gluestudio/](https://console.aws.amazon.com/gluestudio/).
 
-1. In the AWS Glue Studio console, expand the menu icon (![3 short, horizontal lines in a vertical stack](http://docs.aws.amazon.com/glue/latest/dg/images/nav-menu-icon.png)), and then choose **Connectors** in the navigation pane.
+1. In the AWS Glue Studio console, expand the menu icon (![3 short, horizontal lines in a vertical stack](https://docs.aws.amazon.com/glue/latest/dg/images/nav-menu-icon.png)), and then choose **Connectors** in the navigation pane.
 
 1. On the **Connectors** page, choose **Go to AWS Marketplace**.
 

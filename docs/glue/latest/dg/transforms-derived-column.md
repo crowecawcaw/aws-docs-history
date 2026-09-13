@@ -21,4 +21,4 @@
 1. (Optional) On the **Node properties** tab, you can enter a name for the node in the job diagram. If a node parent is not already selected, then choose a node from the Node parents list to use as the input source for the transform.
 
 1. On the **Transform** tab, enter the name of the column and the expression for its content.  
-![The screenshot shows the Transform tab for the Derived Column transform.](http://docs.aws.amazon.com/glue/latest/dg/images/transforms-dervied-column-transform-tab.png)
+![The screenshot shows the Transform tab for the Derived Column transform.](https://docs.aws.amazon.com/glue/latest/dg/images/transforms-dervied-column-transform-tab.png)
