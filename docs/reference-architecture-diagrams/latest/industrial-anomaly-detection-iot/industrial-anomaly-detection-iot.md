@@ -10,7 +10,7 @@ With this architecture, you can detect performance anomalies through hot, warm, 
 ## Industrial anomaly detection architecture diagram
 <a name="iad-diagram"></a>
 
-![Reference architecture diagram for industrial anomaly detection using AWS IoT with hot, warm, and cold analysis paths.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-anomaly-detection-iot/images/iot-industrial-anomaly-detection-ra.png)
+![Reference architecture diagram for industrial anomaly detection using AWS IoT with hot, warm, and cold analysis paths.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-anomaly-detection-iot/images/iot-industrial-anomaly-detection-ra.png)
 
 
 The following steps describe the architecture:
