@@ -10,7 +10,7 @@ This architecture enables you to manage and operate services required for unmann
 ## Flight Information Management System (FIMS) Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can manage and operate services required for unmanned aerial systems on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/flight-information-management-system/images/flight-information-management-system.png)
+![Reference architecture diagram showing how you can manage and operate services required for unmanned aerial systems on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/flight-information-management-system/images/flight-information-management-system.png)
 
 
 1. Operators access the FIMS services through a web-based portal for flight planning and additional services.
