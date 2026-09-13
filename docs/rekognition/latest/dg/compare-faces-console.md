@@ -13,12 +13,12 @@ For more information, see [Comparing faces in images](faces-comparefaces.md).
 
 For example, with the sample image shown on the left as a source image and the sample image on the right as a target image, Rekognition detects the face in the source image, compares it with each face detected in the target image, and displays a similarity score for each pair.
 
-![Young girls laughing and embracing each other, with one girl in the center and a comparison showing same faces detected.](http://docs.aws.amazon.com/rekognition/latest/dg/images/sample-compare-faces.png)
+![Young girls laughing and embracing each other, with one girl in the center and a comparison showing same faces detected.](https://docs.aws.amazon.com/rekognition/latest/dg/images/sample-compare-faces.png)
 
 
 The following shows the faces detected in the target image and the similarity score for each face.
 
-![Three sets of face images with similarity scores: 92% similarity for the first pair, 0% for the second and third pairs.](http://docs.aws.amazon.com/rekognition/latest/dg/images/sample-compare-faces-score.png)
+![Three sets of face images with similarity scores: 92% similarity for the first pair, 0% for the second and third pairs.](https://docs.aws.amazon.com/rekognition/latest/dg/images/sample-compare-faces-score.png)
 
 
 ## Compare faces in an image you provide

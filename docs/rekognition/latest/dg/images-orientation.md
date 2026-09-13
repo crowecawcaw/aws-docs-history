@@ -20,12 +20,12 @@ Because the code used to rotate and display images and bounding boxes depends on
 
 To display an image correctly in your application, you might need to rotate it. The following image is oriented to 0 degrees and is displayed correctly.
 
-![Generic profile icon representing a user account or profile image.](http://docs.aws.amazon.com/rekognition/latest/dg/images/00face.png)
+![Generic profile icon representing a user account or profile image.](https://docs.aws.amazon.com/rekognition/latest/dg/images/00face.png)
 
 
 However, the following image is rotated 90 degrees counterclockwise. To display it correctly, you need to find the orientation of the image and use that information in your code to rotate the image to 0 degrees. 
 
-![Generic profile icon representing a user account or profile image, rotated 90-degress counterclockwise.](http://docs.aws.amazon.com/rekognition/latest/dg/images/90face.png)
+![Generic profile icon representing a user account or profile image, rotated 90-degress counterclockwise.](https://docs.aws.amazon.com/rekognition/latest/dg/images/90face.png)
 
 
 Some images in .jpg format contain orientation information in Exif metadata. If available, the Exif metadata for the image contains the orientation. In the Exif metadata, you can find the image's orientation in the `orientation` field. Although Amazon Rekognition Image identifies the presence of image orientation information in Exif metadata, it does not provide access to it. To access the Exif metadata in an image, use a third-party library or write your own code. For more information, see [Exif Version 2.32](http://cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
@@ -45,7 +45,7 @@ To display a bounding box around a face, similar to the box shown in the followi
 
 
 
-![Profile icon with the face highlighted in red square.](http://docs.aws.amazon.com/rekognition/latest/dg/images/00facebounding.png)
+![Profile icon with the face highlighted in red square.](https://docs.aws.amazon.com/rekognition/latest/dg/images/00facebounding.png)
 
 
 

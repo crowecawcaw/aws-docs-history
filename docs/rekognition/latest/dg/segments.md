@@ -72,7 +72,7 @@ After Amazon Rekognition Video finishes detecting all of the content segments, y
 
 The following diagram shows technical cue segments on a show or movie's timeline. Note the color bars and opening credits, content segments such as the recap and main program, black frames throughout the video, and the end credits. 
 
-![Color bars, recap segment, two program content segments, and black frames representing a show or movie timeline.](http://docs.aws.amazon.com/rekognition/latest/dg/images/technical-cue.png)
+![Color bars, recap segment, two program content segments, and black frames representing a show or movie timeline.](https://docs.aws.amazon.com/rekognition/latest/dg/images/technical-cue.png)
 
 
 ## Shot detection
@@ -87,7 +87,7 @@ A shot detection is marked at the exact frame where there is a hard cut to a dif
 
 The following diagram illustrates shot detection segments on a strip of film. Note that each shot is identified by a cut from one camera angle or location to the next. 
 
-![Seven numbered shots showing city streets, car dashboard, forest path, a child, a baby chick, sunset lake with photographer silhouette.](http://docs.aws.amazon.com/rekognition/latest/dg/images/shot-detection.png)
+![Seven numbered shots showing city streets, car dashboard, forest path, a child, a baby chick, sunset lake with photographer silhouette.](https://docs.aws.amazon.com/rekognition/latest/dg/images/shot-detection.png)
 
 
 ## About the Amazon Rekognition Video Segment detection API

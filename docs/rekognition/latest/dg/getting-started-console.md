@@ -16,7 +16,7 @@ This section also shows you how to see aggregated Amazon CloudWatch metrics for 
 + [Exercise 3: Compare faces in images (console)](compare-faces-console.md)
 + [Exercise 4: See aggregated metrics (console)](aggregated-metrics.md)
 
-![Amazon Rekognition deep learning-based image analysis product page with "Try Demo" and "Download SDKs" buttons.](http://docs.aws.amazon.com/rekognition/latest/dg/images/amazon-rekognition-start-page.png)
+![Amazon Rekognition deep learning-based image analysis product page with "Try Demo" and "Download SDKs" buttons.](https://docs.aws.amazon.com/rekognition/latest/dg/images/amazon-rekognition-start-page.png)
 
 
 ## Set up console permissions

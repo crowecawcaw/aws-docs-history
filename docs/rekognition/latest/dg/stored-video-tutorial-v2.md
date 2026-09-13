@@ -7,7 +7,7 @@ You can create a Java web application that analyzes videos for label detection b
 
 The following illustration shows a report that is generated after the application completes analyzing the video. The columns in the table below show Age Range, Beard, Eye glasses, and Eyes open, as well as confidence values for different attribute predictions.
 
-![Table with columns for Age Range, Beard, Eye glasses, and Eyes open, showing confidence values for different attribute predictions.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-video-tutorial-table.png)
+![Table with columns for Age Range, Beard, Eye glasses, and Eyes open, showing confidence values for different attribute predictions.](https://docs.aws.amazon.com/rekognition/latest/dg/images/v2-video-tutorial-table.png)
 
 
 In this tutorial, you create a Spring Boot application that invokes various AWS services. The Spring Boot APIs are used to build a model, different views, and a controller. For more information, see [Spring Boot](https://spring.io/projects/spring-boot).

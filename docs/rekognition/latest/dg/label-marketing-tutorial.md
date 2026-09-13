@@ -317,7 +317,7 @@ In this function, the `ExtraArgs` parameter in the `upload_fileobj` method is us
 
 Save and run the script. This will upload the image. 
 
-![Screenshot of an IDE with the result of running the previously mentioned code displayed.](http://docs.aws.amazon.com/rekognition/latest/dg/images/marketing-tuts-image-uploaded.png)
+![Screenshot of an IDE with the result of running the previously mentioned code displayed.](https://docs.aws.amazon.com/rekognition/latest/dg/images/marketing-tuts-image-uploaded.png)
 
 
 A few minutes after uploading the image, you should receive an email at the address you previously associated with the account specified here. 
@@ -358,7 +358,7 @@ for log in logs:
 
 Running the code should print out the logs and you should be able to see that the user was notified via an email containing the relevant travel information.
 
-![Screenshot of an IDE displaying the results of running the previously mentioned code, with information from a Cloudwatch log displayed.](http://docs.aws.amazon.com/rekognition/latest/dg/images/marketing-tuts-cloudwatch-poll.png)
+![Screenshot of an IDE displaying the results of running the previously mentioned code, with information from a Cloudwatch log displayed.](https://docs.aws.amazon.com/rekognition/latest/dg/images/marketing-tuts-cloudwatch-poll.png)
 
 
 You have successfully created an application capable of detecting labels in images uploaded to an Amazon S3 bucket and then emailing the user who uploaded the image with a promotional message. Be sure to delete any resources you no longer need so you aren't charged for them.

@@ -7,12 +7,12 @@ In this tutorial, you create an AWS Lambda function that automatically tags digi
 
 For example, assume you run the Lambda function and you have this image in an Amazon S3 bucket.
 
-![Volcano erupting with molten lava streaming down its sides against a cloudy sky.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-picture.png)
+![Volcano erupting with molten lava streaming down its sides against a cloudy sky.](https://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-picture.png)
 
 
 The application then automatically creates tags and applies them to the image.
 
-![Table showing tags for tracking storage costs, including Nature, Volcano, Eruption, Lava, Mountain, and Outdoors with numerical values.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-results.png)
+![Table showing tags for tracking storage costs, including Nature, Volcano, Eruption, Lava, Mountain, and Outdoors with numerical values.](https://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-results.png)
 
 
 **Note**  
@@ -199,7 +199,7 @@ Create a new Java project, then configure the Maven pom.xml with the required se
 
 Use the AWS Lambda runtime Java API to create the Java class that defines the Lambda function. In this example, there is one Java class for the Lambda function named **Handler** and additional classes required for this use case. The following figure shows the Java classes in the project. Notice that all Java classes are located in a package named **com.example.tags**.
 
-![Project structure showing Java classes for workflow tagging assets like AnalyzePhotos, BucketItem, Handler, S3Service, and WorkItem.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-files.png)
+![Project structure showing Java classes for workflow tagging assets like AnalyzePhotos, BucketItem, Handler, S3Service, and WorkItem.](https://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-files.png)
 
 
 Create the following Java classes for the code:
@@ -628,7 +628,7 @@ mvn package
 
 The JAR file is located in the **target** folder (which is a child folder of the project folder).
 
-![File explorer window showing target folder with JAR files like WorkflowTagAssets-1.0-SNAPSHOT.jar and other project files and folders.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-folder.png)
+![File explorer window showing target folder with JAR files like WorkflowTagAssets-1.0-SNAPSHOT.jar and other project files and folders.](https://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-folder.png)
 
 
 **Note**  
@@ -671,12 +671,12 @@ At this point in the tutorial, you can test the Lambda function.
    "flag": "true"
     }
    ```  
-![Test event JSON editor with a flag key-value pair, Delete and Format buttons, and Invoke button.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-test.png)
+![Test event JSON editor with a flag key-value pair, Delete and Format buttons, and Invoke button.](https://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-test.png)
 **Note**  
 Passing **true** tags the digital assets and passing **false** deletes the tags.
 
 1. Choose the **Invoke** button. After the Lambda function is invoked, you see a successful message.  
-![Execution result message indicating the operation succeeded, with a Details button.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-success.png)
+![Execution result message indicating the operation succeeded, with a Details button.](https://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-success.png)
 
 Congratulations, you have created an AWS Lambda function that automactially applies tags to difital assets located in an Amazon S3 bucket. As stated at the beginning of this tutorial, be sure to terminate all of the resources you created while going through this tutorial to ensure that you’re not charged.
 

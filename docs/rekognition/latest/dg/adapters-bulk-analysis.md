@@ -9,7 +9,7 @@ With this approach, you upload a large number of images you want to use as train
 
  The following video demonstrates how to use Rekognition's Bulk Analysis capability to obtain and verify predictions for a large number of images, and then train an adapter with those predictions. 
 
-[![AWS Videos](http://img.youtube.com/vi/IGGMHPnPZLs?si=5eoidzFPbL6i5FfY/0.jpg)](http://www.youtube.com/watch?v=IGGMHPnPZLs?si=5eoidzFPbL6i5FfY)
+[![AWS Videos](https://img.youtube.com/vi/IGGMHPnPZLs?si=5eoidzFPbL6i5FfY/0.jpg)](https://www.youtube.com/watch?v=IGGMHPnPZLs?si=5eoidzFPbL6i5FfY)
 
 
 ## Upload images for bulk analysis

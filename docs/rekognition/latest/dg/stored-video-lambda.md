@@ -12,7 +12,7 @@ You can use Lambda functions with Amazon Rekognition Video operations. For examp
 
 A second Lambda function is triggered when the analysis completion status is sent to the registered Amazon SNS topic. The second Lambda function calls [GetLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html) to get the analysis results. The results are then stored in a database in preparation for displaying on a webpage. This second lambda function is the focus of this tutorial.
 
-![Diagram showing a video processing worfkflow for Amazon Rekognition Video, from uploading a video to storing results in Amazon DynamoDB to display on a website.](http://docs.aws.amazon.com/rekognition/latest/dg/images/VideoRekognitionLambda.png)
+![Diagram showing a video processing worfkflow for Amazon Rekognition Video, from uploading a video to storing results in Amazon DynamoDB to display on a website.](https://docs.aws.amazon.com/rekognition/latest/dg/images/VideoRekognitionLambda.png)
 
 
 In this tutorial, the Lambda function is triggered when Amazon Rekognition Video sends the completion status for the video analysis to the registered Amazon SNS topic. It then collects video analysis results by calling [GetLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html). For demonstration purposes, this tutorial writes label detection results to a CloudWatch log. In your application's Lambda function, you should store the analysis results for later use. For example, you can use Amazon DynamoDB to save the analysis results. For more information, see [Working with DynamoDB](url-ddb-dev;WorkingWithDynamo.html). 
@@ -323,6 +323,6 @@ Use the following AWS CLI command to test the Lambda function by starting the la
 1. Choose the Lambda function to see the log streams.
 
 1. Choose the latest log stream to see the log entries made by the Lambda function. If the operation succeeded, it looks similar to the following output, which shows the details of video recognition operation, including the job ID, operation type "StartLabelDetection", and a list of detected label categories like Bottle, Clothing, Crowd, and Food:  
-![Log output showing details of a video recognition operation.](http://docs.aws.amazon.com/rekognition/latest/dg/images/log.png)
+![Log output showing details of a video recognition operation.](https://docs.aws.amazon.com/rekognition/latest/dg/images/log.png)
 
    The value of **Job id** should match the value of `JobId` that you noted in step 3.

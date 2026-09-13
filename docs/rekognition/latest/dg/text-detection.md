@@ -26,7 +26,7 @@ A *line* is a string of equally spaced words. A line isn't necessarily a complet
 
 Consider the following image.
 
-![Coffee mug with smiley face and text "It's Monday but keep smiling", with bounding boxes and extracted text..](http://docs.aws.amazon.com/rekognition/latest/dg/images/text.png)
+![Coffee mug with smiley face and text "It's Monday but keep smiling", with bounding boxes and extracted text..](https://docs.aws.amazon.com/rekognition/latest/dg/images/text.png)
 
 
 The blue boxes represent information about the detected text and the location of the text that's returned by the `DetectText` operation. In this example, Amazon Rekognition detects "IT'S", "MONDAY", "but", "keep", and "Smiling" as words. Amazon Rekognition detects "IT'S", "MONDAY", "but keep", and "Smiling" as lines. To be detected, text must be within \+/- 90 degrees orientation of the horizontal axis.

@@ -57,7 +57,7 @@ For information about the summary response from `DetectProtectiveEquipment`, see
 
 `DetectProtectiveEquipment` returns an array of persons detected in the input image. For each person, information about detected body parts and detected items of PPE is returned. The JSON for the following image of a worker wearing a head cover, hand cover, and a face cover is as follows.
 
-![Construction worker wearing checkered shirt, hard hat and face mask holding a power tool. Green boxes highlight face, hard hat, gloved hand, and tool.](http://docs.aws.amazon.com/rekognition/latest/dg/images/worker-with-bb.png)
+![Construction worker wearing checkered shirt, hard hat and face mask holding a power tool. Green boxes highlight face, hard hat, gloved hand, and tool.](https://docs.aws.amazon.com/rekognition/latest/dg/images/worker-with-bb.png)
 
 
 In the JSON, note the following.

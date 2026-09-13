@@ -20,7 +20,7 @@ Amazon Rekognition Video can search faces in a collection that match faces that 
 
 The following diagram shows how Amazon Rekognition Video detects and recognizes faces in a streaming video.
 
-![Diagram of workflow for using Amazon Rekognition Video to process video streams from Amazon Kinesis.](http://docs.aws.amazon.com/rekognition/latest/dg/images/VideoRekognitionStream.png)
+![Diagram of workflow for using Amazon Rekognition Video to process video streams from Amazon Kinesis.](https://docs.aws.amazon.com/rekognition/latest/dg/images/VideoRekognitionStream.png)
 
 
 ## Creating the Amazon Rekognition Video face search stream processor

@@ -34,12 +34,12 @@ The following diagrams shows the order for calling operations, based on your goa
 
 **For maximum accuracy matching with User Vectors:**
 
-![Diagram depicting storing and searching user facial vectors in a collection, lists operations like CreateCollection, IndexFaces, CreateUser, AssociateFaces, SearchUsersByImage, and SearchUsers.](http://docs.aws.amazon.com/rekognition/latest/dg/images/uservectorsCollection.png)
+![Diagram depicting storing and searching user facial vectors in a collection, lists operations like CreateCollection, IndexFaces, CreateUser, AssociateFaces, SearchUsersByImage, and SearchUsers.](https://docs.aws.amazon.com/rekognition/latest/dg/images/uservectorsCollection.png)
 
 
 **For high accuracy matching with individual Face Vectors:**
 
-![Diagram depicting storing and searching faces in a collection, lists operations like CreateCollection, IndexFaces, StartFaceSearch, CreateStreamProcessor, SearchFacesByImage, and SearchFaces.](http://docs.aws.amazon.com/rekognition/latest/dg/images/facevectorsCollection.png)
+![Diagram depicting storing and searching faces in a collection, lists operations like CreateCollection, IndexFaces, StartFaceSearch, CreateStreamProcessor, SearchFacesByImage, and SearchFaces.](https://docs.aws.amazon.com/rekognition/latest/dg/images/facevectorsCollection.png)
 
 
 You can use collections in a variety of scenarios. For example, you might create a face collection which stores detected faces from scanned employee badge images and government issued IDs by using the `IndexFaces` and `AssociateFaces` operations. When an employee enters the building, an image of the employee's face is captured and sent to the `SearchUsersByImage` operation. If the face match produces a sufficiently high similarity score (say 99%), you can authenticate the employee. 

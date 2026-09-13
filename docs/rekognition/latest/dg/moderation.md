@@ -22,4 +22,4 @@ You can enhance the accuracy of the moderation deep learning model with the Cust
 
 The following diagram shows shows the order for calling operations, depending on your goals for using the image or video components of Content Moderation: 
 
-![Flow diagram depicting steps for image and video moderation.](http://docs.aws.amazon.com/rekognition/latest/dg/images/Moderation workflow.png)
+![Flow diagram depicting steps for image and video moderation.](https://docs.aws.amazon.com/rekognition/latest/dg/images/Moderation workflow.png)

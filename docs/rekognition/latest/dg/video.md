@@ -38,7 +38,7 @@ Amazon Rekognition Video processes a video that's stored in an Amazon S3 bucket.
 
 The following diagram shows the process for detecting labels in a video that's stored in an Amazon S3 bucket. In the diagram, an Amazon SQS queue gets the completion status from the Amazon SNS topic. Alternatively, you can use an AWS Lambda function. 
 
-![Flow diagram depicting the steps for video analysis using Amazon Rekognition Video, Amazon SNS, and Amazon SQS, with components like StartLabelDetection, GetLabelDetection job, and publishing completion status to respective queues.](http://docs.aws.amazon.com/rekognition/latest/dg/images/VideoRekognition.png)
+![Flow diagram depicting the steps for video analysis using Amazon Rekognition Video, Amazon SNS, and Amazon SQS, with components like StartLabelDetection, GetLabelDetection job, and publishing completion status to respective queues.](https://docs.aws.amazon.com/rekognition/latest/dg/images/VideoRekognition.png)
 
 
 The process is the same for other Amazon Rekognition Video operations. The following table lists the `Start` and `Get` operations for each of the non-storage Amazon Rekognition operations.

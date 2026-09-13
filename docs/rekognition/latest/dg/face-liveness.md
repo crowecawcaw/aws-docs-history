@@ -32,4 +32,4 @@ You can set thresholds for Face Liveness and face match confidence scores. Your 
 
 The following graphic demonstrates the user flow, from instructions to liveness check to returned result:
 
-![User flow showing face centering, moving closer, holding still for liveness check, and successful result with confidence score.](http://docs.aws.amazon.com/rekognition/latest/dg/images/mobile-flow.png)
+![User flow showing face centering, moving closer, holding still for liveness check, and successful result with confidence score.](https://docs.aws.amazon.com/rekognition/latest/dg/images/mobile-flow.png)

@@ -5,7 +5,7 @@
 
 Amazon Rekognition Image operations can return bounding boxes coordinates for items that are detected in images. For example, the [DetectFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html) operation returns a bounding box ([BoundingBox](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_BoundingBox.html)) for each face detected in an image. You can use the bounding box coordinates to display a box around detected items. For example, the following image shows a bounding box surrounding a face.
 
-![Smiling young woman wearing glasses, with bubbles around her.](http://docs.aws.amazon.com/rekognition/latest/dg/images/face.png)
+![Smiling young woman wearing glasses, with bubbles around her.](https://docs.aws.amazon.com/rekognition/latest/dg/images/face.png)
 
 
 A `BoundingBox` has the following properties:
@@ -18,7 +18,7 @@ Each BoundingBox property has a value between 0 and 1. Each property value is a 
 
 The following diagram shows the range of an image that each bounding box property covers.
 
-![A graphic depicting how a bounding box relates to the dimensions of an image.](http://docs.aws.amazon.com/rekognition/latest/dg/images/bounding-box.png)
+![A graphic depicting how a bounding box relates to the dimensions of an image.](https://docs.aws.amazon.com/rekognition/latest/dg/images/bounding-box.png)
 
 
 To display the bounding box with the correct location and size, you have to multiply the BoundingBox values by the image width or height (depending on the value you want) to get the pixel values. You use the pixel values to display the bounding box. For example, the pixel dimensions of the previous image are 608 width x 588 height. The bounding box values for the face are: 

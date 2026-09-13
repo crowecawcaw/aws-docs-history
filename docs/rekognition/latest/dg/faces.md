@@ -7,7 +7,7 @@ Amazon Rekognition provides you with APIs you can use to detect and analyze face
 
 Amazon Rekognition can identify facial landmarks (e.g., eye position), detect emotions (e.g., happiness or sadness), and other attributes (e.g., glasses presence, face occlusion). When a face is detected, the system analyzes facial attributes and returns a confidence score for each attribute.
 
-![Smiling woman wearing sunglasses and driving a vintage yellow car on an open road.](http://docs.aws.amazon.com/rekognition/latest/dg/images/sample-detect-faces.png)
+![Smiling woman wearing sunglasses and driving a vintage yellow car on an open road.](https://docs.aws.amazon.com/rekognition/latest/dg/images/sample-detect-faces.png)
 
 
 This section contains examples for both image and video operations. 

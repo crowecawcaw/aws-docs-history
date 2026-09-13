@@ -22,7 +22,7 @@ The following diagram shows shows the order for calling operations, depending on
 
 
 
-![Diagram showing image and video analysis workflows with stored and streaming video processing.](http://docs.aws.amazon.com/rekognition/latest/dg/images/LabelDetectionWorkflow.png)
+![Diagram showing image and video analysis workflows with stored and streaming video processing.](https://docs.aws.amazon.com/rekognition/latest/dg/images/LabelDetectionWorkflow.png)
 
 
 ## Label Response Objects
@@ -35,7 +35,7 @@ Amazon Rekognition Image and Amazon Rekognition Video can return the bounding bo
 
 For example, in the following image, Amazon Rekognition Image is able to detect the presence of a person, a skateboard, parked cars and other information. Amazon Rekognition Image also returns the bounding box for a detected person, and other detected objects such as cars and wheels. 
 
-![Person doing a skateboard stunt between parked cars on a city street.](http://docs.aws.amazon.com/rekognition/latest/dg/images/detect-scenes.jpg)
+![Person doing a skateboard stunt between parked cars on a city street.](https://docs.aws.amazon.com/rekognition/latest/dg/images/detect-scenes.jpg)
 
 
 ### Confidence Score
@@ -69,12 +69,12 @@ If you need to transform the current response from the GetLabelDetection API (fo
 
 Amazon Rekognition Image returns information about image quality (sharpness, brightness, and contrast) for the entire image. Sharpness and brightness are also returned for the foreground and background of the image. Image Properties can also be used to detect dominant colors of the entire image, foreground, background, and objects with bounding boxes.
 
-![An image of a green car on a city street, with the car surrounded by a bounding box.](http://docs.aws.amazon.com/rekognition/latest/dg/images/car_bb.png)
+![An image of a green car on a city street, with the car surrounded by a bounding box.](https://docs.aws.amazon.com/rekognition/latest/dg/images/car_bb.png)
 
 
  The following is an example of the ImageProperties data contained in the response of a DetectLabels operation for the proceeding image:
 
-![Table showing dominant colors and image quality metrics for an entire image, foreground, background, and an example object with a bounding box.](http://docs.aws.amazon.com/rekognition/latest/dg/images/image_properties_table.png)
+![Table showing dominant colors and image quality metrics for an entire image, foreground, background, and an example object with a bounding box.](https://docs.aws.amazon.com/rekognition/latest/dg/images/image_properties_table.png)
 
 
 Image Properties isn't available for Amazon Rekognition Video.

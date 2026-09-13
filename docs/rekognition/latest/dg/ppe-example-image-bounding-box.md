@@ -11,7 +11,7 @@ The example displays a bounding box around detected face covers. The bounding bo
 
 The image output is similar to the following. 
 
-![Four workers at a warehouse, wearing high visibility vests, helmets, safety goggles, and masks. The masks are surrounded by bounding boxes.](http://docs.aws.amazon.com/rekognition/latest/dg/images/workers-with-bb.png)
+![Four workers at a warehouse, wearing high visibility vests, helmets, safety goggles, and masks. The masks are surrounded by bounding boxes.](https://docs.aws.amazon.com/rekognition/latest/dg/images/workers-with-bb.png)
 
 
 **To display bounding boxes on detected face covers**

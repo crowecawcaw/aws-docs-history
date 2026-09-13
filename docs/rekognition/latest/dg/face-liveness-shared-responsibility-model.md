@@ -19,7 +19,7 @@ The 'FaceMovementAndLightChallenge' setting delivers the highest accuracy for Re
 
 The following flow diagram shows which calls are authenticated by the AWS service or by the customer:
 
-![Liveness detection flow showing interactions between client app, face liveness detector component, customer's backend, Rekognition service, and Rekognition streaming service for secure face liveness session.](http://docs.aws.amazon.com/rekognition/latest/dg/images/SequenceDiagramLivenessFlow-v5.png)
+![Liveness detection flow showing interactions between client app, face liveness detector component, customer's backend, Rekognition service, and Rekognition streaming service for secure face liveness session.](https://docs.aws.amazon.com/rekognition/latest/dg/images/SequenceDiagramLivenessFlow-v5.png)
 
 
 All calls to the Amazon Rekognition Face Liveness service are protected by AWS Auth (using AWS signing mechanism). This includes the following calls:

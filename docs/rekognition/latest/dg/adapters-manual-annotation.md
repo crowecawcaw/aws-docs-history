@@ -10,7 +10,7 @@ With this approach, you create your training data by uploading and annotating im
 
 To train the adapter, you’ll need to upload a set of sample images representative of your use case. For best results, provide as many images for training as possible up to the limit of 10000, and ensure the images are representative of all aspects of your use-case. 
 
-![Interface showing options to import training images, with options to import a manifest file, import from S3 bucket, or upload images from computer. Includes an S3 URI field and note about ensuring read/write permissions.](http://docs.aws.amazon.com/rekognition/latest/dg/images/adapters-11-traiing-dataset.png)
+![Interface showing options to import training images, with options to import a manifest file, import from S3 bucket, or upload images from computer. Includes an S3 URI field and note about ensuring read/write permissions.](https://docs.aws.amazon.com/rekognition/latest/dg/images/adapters-11-traiing-dataset.png)
 
 
 When using the AWS Console you can upload images directly from your computer, provide a manifest file, or provide an Amazon S3 bucket that stores your images.

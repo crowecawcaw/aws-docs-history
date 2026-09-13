@@ -5,10 +5,10 @@
 
  The following diagrams detail how Amazon Rekognition Face Liveness operates regarding the feature's architecture and sequence of operations: 
 
-![Liveness detection flow diagram showing interactions between end user, client app, FaceLivenessDetector component, customer's backend, Rekognition service, and Rekognition streaming service for liveness session setup, video analysis, and result retrieval.](http://docs.aws.amazon.com/rekognition/latest/dg/images/SequenceDiagramLivenessFlowGuide-v5.png)
+![Liveness detection flow diagram showing interactions between end user, client app, FaceLivenessDetector component, customer's backend, Rekognition service, and Rekognition streaming service for liveness session setup, video analysis, and result retrieval.](https://docs.aws.amazon.com/rekognition/latest/dg/images/SequenceDiagramLivenessFlowGuide-v5.png)
 
 
-![Customer application workflow for Face Liveness check involving Amplify FaceLivenessDetector component, Rekognition service, customer backend, and Amazon S3 bucket storing reference and audit images.](http://docs.aws.amazon.com/rekognition/latest/dg/images/RekognitionLivenessArchitectureDeveloperGuide_v2.jpg)
+![Customer application workflow for Face Liveness check involving Amplify FaceLivenessDetector component, Rekognition service, customer backend, and Amazon S3 bucket storing reference and audit images.](https://docs.aws.amazon.com/rekognition/latest/dg/images/RekognitionLivenessArchitectureDeveloperGuide_v2.jpg)
 
 
 The Face Liveness check process involves several steps as outlined in the following:

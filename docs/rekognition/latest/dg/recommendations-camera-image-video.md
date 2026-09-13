@@ -5,7 +5,7 @@
 
 The following recommendations are in addition to [Recommendations for facial comparison input images](recommendations-facial-input-images.md). 
 
-![Diagram showing the three axes of aircraft motion: pitch, roll, and yaw, with arrows indicating the direction of each axis around a gray human head icon.](http://docs.aws.amazon.com/rekognition/latest/dg/images/RPY-diagram.png)
+![Diagram showing the three axes of aircraft motion: pitch, roll, and yaw, with arrows indicating the direction of each axis around a gray human head icon.](https://docs.aws.amazon.com/rekognition/latest/dg/images/RPY-diagram.png)
 
 + Image Resolution – There is no minimum requirement for image resolution, as long as the face resolution is 50 x 50 pixels for images with a total resolution up to 1920 x 1080. Higher-resolution images require a larger minimum face size.
 **Note**  

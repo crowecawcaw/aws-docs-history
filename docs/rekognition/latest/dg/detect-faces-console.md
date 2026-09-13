@@ -7,12 +7,12 @@ This section shows you how to use the Amazon Rekognition console to detect faces
 
 For example, if you choose the following sample image as input, Amazon Rekognition detects it as a face and returns confidence scores for the face and the facial attributes detected.
 
-![Smiling woman wearing sunglasses driving a yellow vintage car with open road ahead.](http://docs.aws.amazon.com/rekognition/latest/dg/images/sample-detect-faces.png)
+![Smiling woman wearing sunglasses driving a yellow vintage car with open road ahead.](https://docs.aws.amazon.com/rekognition/latest/dg/images/sample-detect-faces.png)
 
 
 The following shows the sample response.
 
-![Smiling young woman wearing sunglasses and looking happy, with confidence values for labels.](http://docs.aws.amazon.com/rekognition/latest/dg/images/detect-faces-confidence-score.png)
+![Smiling young woman wearing sunglasses and looking happy, with confidence values for labels.](https://docs.aws.amazon.com/rekognition/latest/dg/images/detect-faces-confidence-score.png)
 
 
 If there are multiple faces in the input image, Rekognition detects up to 100 faces in the image. Each face detected is marked with a square. When you click the area marked with a square on a face, Rekognition displays the confidence score of that face and its attributes detected in the **Faces \| Confidence** pane. 

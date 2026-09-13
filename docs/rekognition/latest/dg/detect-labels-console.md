@@ -7,12 +7,12 @@ This section shows how, at a very high level, Amazon Rekognition's objects and s
 
 For example, Amazon Rekognition detects the following objects and scenes in the sample image: skateboard, sport, person, auto, car and vehicle.
 
-![Person doing a stunt on a skateboard in the middle of a city street between parked cars.](http://docs.aws.amazon.com/rekognition/latest/dg/images/detect-scenes.png)
+![Person doing a stunt on a skateboard in the middle of a city street between parked cars.](https://docs.aws.amazon.com/rekognition/latest/dg/images/detect-scenes.png)
 
 
 Amazon Rekognition also returns a confidence score for each object detected in the sample image, as shown in the following sample response. 
 
-![Graph displaying scores for labels like Skateboard, Sport, People, Person, Human, and Parking with high confidence values around 99%.](http://docs.aws.amazon.com/rekognition/latest/dg/images/labels-confidence-score.png)
+![Graph displaying scores for labels like Skateboard, Sport, People, Person, Human, and Parking with high confidence values around 99%.](https://docs.aws.amazon.com/rekognition/latest/dg/images/labels-confidence-score.png)
 
 
 To see all the confidence scores shown in the response, choose **Show more** in the **Labels \| Confidence** pane.
