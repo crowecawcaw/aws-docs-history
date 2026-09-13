@@ -38,7 +38,7 @@ If you place the **End flow / Resume** block in an inbound flow or disconnect fl
 
 The following image shows the **Properties** page of the **End flow / Resume** block.
 
-![The properties page of the End flow Resume block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/end-flow-properties.png)
+![The properties page of the End flow Resume block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/end-flow-properties.png)
 
 
 ## Configured block
@@ -46,4 +46,4 @@ The following image shows the **Properties** page of the **End flow / Resume** b
 
 The following image shows an example of what this block looks like when it is configured. It does not have any The End flow / Resume termination event branches.
 
-![The properties page of the End flow Resume block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/end-flow-configured.png)
+![The properties page of the End flow Resume block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/end-flow-configured.png)

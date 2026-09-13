@@ -15,7 +15,7 @@ We recommend using a split CCP model with a medialess CCP running in the VDI and
 
 The following diagram shows how the agent workstation is comprised of a local browser and virtual desktop. It connects to Connect Customer through WebRTC, and connects to the corporate virtual infrastructure through a VDI connection.
 
-![The agent workstation, virtual desktop, corporate virtual infrastructure, and Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/use-split-ccp.png)
+![The agent workstation, virtual desktop, corporate virtual infrastructure, and Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/use-split-ccp.png)
 
 
 ## Cloud desktops

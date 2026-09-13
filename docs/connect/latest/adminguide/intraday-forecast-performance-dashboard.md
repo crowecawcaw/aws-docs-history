@@ -28,7 +28,7 @@ The **Intraday trailing performance overview** chart that provides aggregated me
 
 The following image shows an example **Intraday trailing performance overview** chart: 
 
-![The performance overview chart in the dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-overview-chart.png)
+![The performance overview chart in the dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-overview-chart.png)
 
 
 This chart shows the following information:
@@ -55,7 +55,7 @@ These trend graphs provide data only for the next 24 hours and the past 24 hours
 
 The following image shows an example of a **Contact volume** trend graph.
 
-![The Contact volume trend graph.](http://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-trend-graph.png)
+![The Contact volume trend graph.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-trend-graph.png)
 
 
 ## Comparison against short term forecasts
@@ -69,7 +69,7 @@ For historical widgets, it compares against the same time range as the widget, w
 
 This is the new default comparison for this dashboard. 
 
-![The Short-term published forecast option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-shortterm.png)
+![The Short-term published forecast option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-shortterm.png)
 
 
 ## Daily projection chart
@@ -83,4 +83,4 @@ The **Daily projection** chart provides a projection of how the day will end by 
 
 This widget only supports comparing against short term forecasts for **Contact volume** and **Average handle time**.
 
-![The Daily projection chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-daily-projection.png)
+![The Daily projection chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-daily-projection.png)

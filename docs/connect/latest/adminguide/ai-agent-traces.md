@@ -42,7 +42,7 @@ You can drill down into AI agent trace details in two ways:
 + **From the AI agent performance dashboard:** Navigate to the AI agent performance widget and drill into the AI agent of your interest. This automatically redirects you to the Contact search page, pre-filtered to the AI agent and time range you selected. You see all contacts handled by that AI agent. Choose the **Contact ID** hyperlink to open Contact details.
 + **From Contact search:** Search for a contact directly through Contact search. For more information, see [Search for completed and in-progress contacts](contact-search.md).
 
-![Contact search page showing contacts handled by an AI agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-contact-search.png)
+![Contact search page showing contacts handled by an AI agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-contact-search.png)
 
 
 On the **Contact details** page, under the **Automated Interaction** tab, toggle **Show flow & trace details** to show or hide automated interaction details for Flows, Lex bots, and AI agents.
@@ -50,12 +50,12 @@ On the **Contact details** page, under the **Automated Interaction** tab, toggle
 **Note**  
 Please allow up to 30 minutes after a contact terminates for the Automated Interaction Log to become available, and the toggle to be activated.
 
-![Toggle to show flow and trace details on the Contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-toggle-details.png)
+![Toggle to show flow and trace details on the Contact details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-toggle-details.png)
 
 
 The following image shows an example of AI agent trace details on the **Contact details** page.
 
-![An example of AI agent trace details on the Contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-example.png)
+![An example of AI agent trace details on the Contact details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-example.png)
 
 
 ## AI agent performance metrics
@@ -94,7 +94,7 @@ If no audio recording is available, the Play option does not appear.
 + You can choose to expand all trace details using the (\+) icon, and collapse all trace details with (-) icon. You can also manually refresh your traces.
 + Choose an AI agent invocation activity to see AI agent trace details.
 
-![AI agent invocation activity showing trace details.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-invocation.png)
+![AI agent invocation activity showing trace details.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-invocation.png)
 
 + When your AI agent calls a Prompt (executed through an inference span), the AI agent is invoking an LLM through Amazon Bedrock. The trace details show model reasoning and tool call information.
 + Knowledge base citation reference is available under the Prompt (inference span) under Span details, when configured and available. To make sure you have your citations configured, see [Knowledge base retrieval configuration](https://docs.aws.amazon.com/connect/latest/adminguide/multiple-knowledge-base-setup-and-content-segmentation.html#add-citation-data-ai-agent-trace).
@@ -102,10 +102,10 @@ If no audio recording is available, the Play option does not appear.
 + Latency for each span is displayed on the right to each activity.
 + Choose the **AI agent** or **Prompt** hyperlink to navigate to the AI agent configuration page or the AI agent prompt page, respectively.
 
-![AI agent prompt and inference span trace details.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-prompt-details.png)
+![AI agent prompt and inference span trace details.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-prompt-details.png)
 
 
-![AI agent span details with knowledge base citations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-prompt-details-2.png)
+![AI agent span details with knowledge base citations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-traces-prompt-details-2.png)
 
 
 The following labels might appear in the trace:

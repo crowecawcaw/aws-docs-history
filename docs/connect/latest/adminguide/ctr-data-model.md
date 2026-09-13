@@ -10,6 +10,8 @@ This article describes the data model for Connect Customer contact records. Cont
 
 ## Important things to know
 <a name="important-things-to-know-ctr-data-model"></a>
+
+Keep the following in mind when you work with Connect Customer contact records:
 + We continually release new features that result in the addition of new fields to the contact records data model. Any changes we make to the data model are backward compatible. When you develop applications, we recommend that you build them to ignore the addition of new fields in the contact records data model. This will help ensure your applications are resilient.
 + Connect Customer delivers contact records at least once. Contact records might be delivered again for multiple reasons, such as new information arriving after initial delivery. For example, when you use the [update-contact-attributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/update-contact-attributes.html) CLI command to update a contact record, Connect Customer delivers a new contact record. This contact record is available for 24 months from the time the associated contact was initiated.
 

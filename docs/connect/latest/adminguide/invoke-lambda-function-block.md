@@ -42,7 +42,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **AWS Lambda function** block.
 
-![The properties page of the AWS Lambda function block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/aws-lamdba-function-properties.png)
+![The properties page of the AWS Lambda function block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/aws-lamdba-function-properties.png)
 
 
 In the **Select an action** box, choose from the following options:
@@ -52,7 +52,7 @@ In the **Select an action** box, choose from the following options:
 ### Invoke Lambda
 <a name="properties-invoke-lamdba"></a>
 
-![The Select an action box set to Invoke Lambda, the Execution mode options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/invoke-lambda-properties2.png)
+![The Select an action box set to Invoke Lambda, the Execution mode options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/invoke-lambda-properties2.png)
 
 
 When **Select an action** is set to **Invoke Lambda**, note the following properties: 
@@ -73,7 +73,7 @@ When **Select an action** is set to **Invoke Lambda**, note the following proper
 ### Load Lambda Result
 <a name="properties-load-lamdba"></a>
 
-![The Load Lambda Result action on the AWS Lambda Config tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/load-lambda-result.png)
+![The Load Lambda Result action on the AWS Lambda Config tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/load-lambda-result.png)
 
 
 When **Select an action** is set to **Load Lambda Result**, note the following properties: 
@@ -95,7 +95,7 @@ When you choose the **Load Lambda Result** action, choose the following options 
 
 The following image shows an example of what this block looks like when it is configured. It has two branches: **Success** and **Error**. It is configured for **Asynchronous** execution mode. When it's configured for **Synchronous** execution mode, it has a **Timeout** branch.
 
-![A configured AWS Lambda function block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/invoke-lambda-configured.png)
+![A configured AWS Lambda function block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/invoke-lambda-configured.png)
 
 
 ## Sample flows

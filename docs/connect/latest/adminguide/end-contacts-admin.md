@@ -28,7 +28,7 @@ To end contacts programmatically, use the [StopContact](https://docs.aws.amazon.
 1. **Restrict contact access** (Optional): Restrict a user's access to contacts on the **Contact search** and **Contact details** pages within their own hierarchy group or any hierarchy groups below them. For more information about these permissions, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts).
 
 1. **End Contact**: Enables a user to end contacts on the **Analytics & Optimization** pages. The following image shows the **Contact Actions - End contact** permission.  
-![The end contact permission.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-end-permissions.png)
+![The end contact permission.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-end-permissions.png)
 
 ## How to end an in-progress contact
 <a name="howto-end-inprogress-contacts"></a>
@@ -42,7 +42,7 @@ To end contacts programmatically, use the [StopContact](https://docs.aws.amazon.
 1. Choose an in-progress contact to view its details.
 
 1. On the **Contact details** page choose **Actions**, **End**.  
-![The contact details page, the end option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-end-action.png)
+![The contact details page, the end option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-end-action.png)
 
 1. Confirm the action to end the contact by choosing **End**.
 

@@ -35,7 +35,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Loop prompts** block. It shows there are three types of prompts you can choose from the dropdown list: **Audio recording**, **Text to Speech**, **S3 file path**.
 
-![The properties page of the Loop prompts block, the dropdown list of prompt types.](http://docs.aws.amazon.com/connect/latest/adminguide/images/loop-prompts-properties.png)
+![The properties page of the Loop prompts block, the dropdown list of prompt types.](https://docs.aws.amazon.com/connect/latest/adminguide/images/loop-prompts-properties.png)
 
 
 ### How the Interrupt option works
@@ -53,7 +53,7 @@ This scenario is especially possible when using the default audio prompts that C
 
 In the Loop prompts block, you can choose to enable the **Continue prompts during interrupt** option.
 
-![Loop prompts interrupt option widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/loop-prompts-interrupt-1.png)
+![Loop prompts interrupt option widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/loop-prompts-interrupt-1.png)
 
 
 Consider a scenario where you've configured three 40-second prompts in this loop, with an Interrupt set to 60 seconds. Here's what happens in each case:
@@ -93,12 +93,12 @@ If you enable **Continue prompts during interrupt**:
 
 The following image shows what this block looks like when it is configured to play a prompt from the Connect Customer library. Choose \+ next to **Audio Recording** to view the full name of the file. The configured block has two branches: **Timeout** and **Error**.
 
-![A Loop prompts block configured to play a prompt from the Connect Customer library.](http://docs.aws.amazon.com/connect/latest/adminguide/images/loop-prompts-configured.png)
+![A Loop prompts block configured to play a prompt from the Connect Customer library.](https://docs.aws.amazon.com/connect/latest/adminguide/images/loop-prompts-configured.png)
 
 
 The following image shows what this block looks like when it is configured to play a prompt from Amazon S3. Choose \+ next to **S3 path** to view the full path. The configured block has two branches: **Timeout** and **Error**.
 
-![A Loop prompts block configured to play a prompt from Amazon S3.](http://docs.aws.amazon.com/connect/latest/adminguide/images/loop-prompts-configured2.png)
+![A Loop prompts block configured to play a prompt from Amazon S3.](https://docs.aws.amazon.com/connect/latest/adminguide/images/loop-prompts-configured2.png)
 
 
 ## Sample flows

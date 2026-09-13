@@ -10,7 +10,7 @@ You can select, cut, copy, and paste a complete flow or multiple blocks within o
 
 The following image shows the copy item on the flow designer toolbar.
 
-![The copy item on the toolbar.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-copytoolbar.png)
+![The copy item on the toolbar.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-copytoolbar.png)
 
 
 Or, if desired, use the shortcut keys. 

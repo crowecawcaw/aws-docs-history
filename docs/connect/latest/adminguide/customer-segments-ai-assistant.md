@@ -21,7 +21,7 @@ While these AI-powered tools offer valuable suggestions, it's important to revie
 
 Inspiration Cards are an AI-powered feature on the **Customer segments** page. They simplify and enhance the segment creation process. The following image shows an example of three inspiration cards. 
 
-![An example of inspiration cards on the Customer segments page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/inspiration-cards-for-segment-creation-1.png)
+![An example of inspiration cards on the Customer segments page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/inspiration-cards-for-segment-creation-1.png)
 
 
 These cards generate up to three categories of segment ideas each time, based on the Connect Customer Customer Profile data to inspire and streamline your segment creation process.  
@@ -60,7 +60,7 @@ The trend data is based on event ingestion dates of default calculated attribute
 
 The following image shows an example of a segment AI assistant prompt.
 
-![An example of segment AI assistant prompts.](http://docs.aws.amazon.com/connect/latest/adminguide/images/generating-a-segment-by-prompt-1.png)
+![An example of segment AI assistant prompts.](https://docs.aws.amazon.com/connect/latest/adminguide/images/generating-a-segment-by-prompt-1.png)
 
 
  **To access this feature:** 
@@ -69,7 +69,7 @@ The following image shows an example of a segment AI assistant prompt.
 
 1.  Locate the segment AI assistant panel on the right side of the page, as shown in the following image. 
 
-![An example of the segment AI assistant panel on the right side of the page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/generating-a-segment-by-prompt-2.png)
+![An example of the segment AI assistant panel on the right side of the page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/generating-a-segment-by-prompt-2.png)
 
 
  **Use the segment AI assistant** 
@@ -104,7 +104,7 @@ The segment AI assistant is designed to work with general descriptors and criter
 
  After a segment is generated, users are encouraged to evaluate the feature's performance and provide feedback. This feedback mechanism helps improve the segment generation process and makes sure it meets business needs effectively. The following image shows a feedback page.
 
-![An example of a message that your feedback has been recorded.](http://docs.aws.amazon.com/connect/latest/adminguide/images/providing-feedback-on-generated-segments-1.png)
+![An example of a message that your feedback has been recorded.](https://docs.aws.amazon.com/connect/latest/adminguide/images/providing-feedback-on-generated-segments-1.png)
 
 
  The feedback process consists of two stages: 
@@ -126,7 +126,7 @@ When using the segment AI assistant to generate customer segments, you might occ
 
 The following image shows an example of this error message.
 
-![An example of an error message that Connect Customer cannot process your request.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-ai-error-handling-1.png)
+![An example of an error message that Connect Customer cannot process your request.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-ai-error-handling-1.png)
 
 
  Use the following steps help you understand and troubleshoot this error.

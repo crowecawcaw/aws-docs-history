@@ -15,7 +15,7 @@ When a short-term or long-term forecast is created for the first time, it is typ
 
 The following image shows three short-term forecasts on the **Forecasting** page.
 
-![The Forecasting page, the Forecasts tab, three short-term forecasts.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-lastupdated-date.png)
+![The Forecasting page, the Forecasts tab, three short-term forecasts.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-lastupdated-date.png)
 
 
 **Important**  

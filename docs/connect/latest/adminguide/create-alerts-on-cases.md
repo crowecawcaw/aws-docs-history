@@ -25,18 +25,18 @@ A developer needs to enable this feature. For instructions, see [Allow Connect C
 1. On the navigation menu, choose **Analytics and optimization**, **Rules**.
 
 1. Select **Create a rule**, **Cases**.  
-![The Create a rule dropdown menu on the Rules page, the Cases option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conditions-alerts-on-cases-1.png)
+![The Create a rule dropdown menu on the Rules page, the Cases option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conditions-alerts-on-cases-1.png)
 
 1. Under **When**, use the dropdown list to choose from two event sources: **A new case is created**, **A case is updated**, or **A case service level agreement is breached**. These options are shown in the following image.  
-![The option When a case rule is available.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conditions-alerts-on-cases-2.png)
+![The option When a case rule is available.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conditions-alerts-on-cases-2.png)
 
 1. Choose **Add condition**. You can define conditions based on the case template value, such as when the case template equals **Billing**, or based on case field values, such as when Priority equals **high**.  
-![The condition for when a real-time metric is updated.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conditions-alerts-on-cases-3.png)
+![The condition for when a real-time metric is updated.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conditions-alerts-on-cases-3.png)
 
    You can combine multiple conditions to build very specific rules.
 
    The following image shows a sample rule with multiple conditions:  
-![The condition for when a real-time metric is updated.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conditions-alerts-on-cases-4.png)
+![The condition for when a real-time metric is updated.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conditions-alerts-on-cases-4.png)
 
 1. Choose **Next**.
 
@@ -49,7 +49,7 @@ A developer needs to enable this feature. For instructions, see [Allow Connect C
    + [End tasks](contact-lens-rules-ends-tasks.md)
    + [Update case](contact-lens-rules-update-case.md)
    + [Send email notification](contact-lens-rules-email.md)  
-![The add action dropdown menu, a list of actions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rule-actions-alerts-on-cases.png)
+![The add action dropdown menu, a list of actions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rule-actions-alerts-on-cases.png)
 
 1. Choose **Next**.
 

@@ -57,7 +57,7 @@ Before you configure rule-based redaction, complete the following.
 
 1. Save and publish the flow.
 
-![The Redaction configuration panel in the Set recording, analytics, and processing behavior flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/configure-rule-based-redaction-flow-block.png)
+![The Redaction configuration panel in the Set recording, analytics, and processing behavior flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/configure-rule-based-redaction-flow-block.png)
 
 
 **Important**  

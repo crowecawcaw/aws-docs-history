@@ -14,7 +14,7 @@ The following steps explain how to add user-defined attributes to quick response
 1. Log in to the Connect Customer admin website at https://*instance name*.my.connect.aws/. Use an **Admin** account, or an account assigned to a security profile that has **Flows - Edit or Create** permissions.
 
 1. On the navigation bar, choose **Routing**, then **Flows**.  
-![Menu showing Routing and Flows.](http://docs.aws.amazon.com/connect/latest/adminguide/images/routing-flows.png)
+![Menu showing Routing and Flows.](https://docs.aws.amazon.com/connect/latest/adminguide/images/routing-flows.png)
 
 1. On the **Flows** page, the **Type** column lists each type of flow. Choose the flow that you want to add attributes to.
 
@@ -31,7 +31,7 @@ You can follow these steps when creating or updating a quick response.
 1. Log in to the Connect Customer admin website at https://*instance name*.my.connect.aws/. Use an **Admin** account, or an account assigned to a security profile that has **Content Management - Quick responses - Create or Edit** permission.
 
 1. On the left navigation bar, choose **Content Management**, then **Quick responses**.  
-![Menu showing Content Management and Quick responses.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-1.png)
+![Menu showing Content Management and Quick responses.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-1.png)
 
 1. Choose **Add response** to create a response.
 
@@ -42,7 +42,7 @@ You can follow these steps when creating or updating a quick response.
 1. Choose the content section, enter the quick response content, then use handlebar syntax to enter a user-defined attribute. Make sure you include the `Attributes` namespace prefix. For example, **{{Attributes.Customer}}**.
 
    The following image shows a quick response for an email.   
-![A quick response with an attribute for the customer name.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-quick-response-attributes.png)
+![A quick response with an attribute for the customer name.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-quick-response-attributes.png)
 
 1. Choose **Save**.
 

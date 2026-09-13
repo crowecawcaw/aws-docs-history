@@ -20,10 +20,10 @@ You can create rules that automatically send emails or tasks to supervisors and 
 1. Select **Create a rule**, **Evaluation forms**.
 
 1. Under **When**, use the dropdown list to choose **A conversational analytics evaluation result is available**, as shown in the following image.  
-![The option When an evaluation result is available.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-rule-condition.png)
+![The option When an evaluation result is available.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-rule-condition.png)
 
 1. Choose **Add condition**.   
-![The list of conditions for when an evaluation result is available.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-rule-condition-all.png)
+![The list of conditions for when an evaluation result is available.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-rule-condition-all.png)
 
    You can combine criteria from a set of conditions to build very specific conversational analytics rules. The following are some of the available conditions: 
    + **Evaluation - Form score**: Build rules that run when the score for a specific evaluation form is met. 
@@ -53,7 +53,7 @@ You can create rules that automatically send emails or tasks to supervisors and 
    + [Create Task](contact-lens-rules-create-task.md)
    + [Send email notification](contact-lens-rules-email.md)
    + [Generate an EventBridge event](contact-lens-rules-eventbridge-event.md)  
-![The add action dropdown menu, a list of actions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-action-no-wisdom.png)
+![The add action dropdown menu, a list of actions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-action-no-wisdom.png)
 
 1. Choose **Next**.
 
@@ -66,7 +66,7 @@ You can create rules that automatically send emails or tasks to supervisors and 
 
 The following image shows a sample rule with six conditions. If any of these conditions are met, the action is triggered.
 
-![A rule with six conditions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-multiple-conditions.png)
+![A rule with six conditions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-multiple-conditions.png)
 
 
 1. **Evaluation - Form score**: Does the Compliance Form have a score greater than or equal to 50%?

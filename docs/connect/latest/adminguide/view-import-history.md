@@ -12,6 +12,6 @@ This topic explains how to use the Connect Customer admin website to view import
 1. Log in to the Connect Customer admin website at https://*instance name*.my.connect.aws/. Use an **Admin** account, or an account assigned to a security profile that has **Content Management - Quick responses - View** permission.
 
 1. On the left navigation bar, choose **Content Management**, then **Quick responses**.  
-![Menu showing Content Management and Quick responses.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-1.png)
+![Menu showing Content Management and Quick responses.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-1.png)
 
 1. On the **Quick responses** page, choose the **View import** history link.

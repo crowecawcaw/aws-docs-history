@@ -36,7 +36,7 @@ Use the following instructions to configure a third-party text-to-speech (TTS) p
 
 In the **Voice provider** dropdown, choose the third-party text-to-speech provider you want to use.
 
-![The Set voice configuration pane showing a drop-down list of voice providers.](http://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/08-set-voice-amazon.png)
+![The Set voice configuration pane showing a drop-down list of voice providers.](https://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/08-set-voice-amazon.png)
 
 
 ## Step 4: Specify model, voice, Secrets Manager ARN, and language
@@ -52,7 +52,7 @@ In the **Voice provider** dropdown, choose the third-party text-to-speech provid
    + AWS Secrets Manager and KMS policies must permit retrieval and decryption. For more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md).
 
 1. Under **Language**, choose **Set manually** and choose a language that is supported by the provider voice.  
-![The Voice provider configuration pane showing the ElevenLabs third-party voice provider.](http://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/09-voice-provider-elevenlabs.png)
+![The Voice provider configuration pane showing the ElevenLabs third-party voice provider.](https://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/09-voice-provider-elevenlabs.png)
 
 ## Step 5: Save and publish the flow
 <a name="tts-step5"></a>

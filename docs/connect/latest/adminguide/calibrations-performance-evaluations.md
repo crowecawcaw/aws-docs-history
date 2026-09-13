@@ -28,13 +28,13 @@ In addition, for both sets of users, you also need permissions to search and vie
 1. On the **Contact details** page of a contact, choose **Evaluations** on the top right to open the **Evaluations** side panel.
 
 1. In the side panel, select the **Calibration session** radio button, choose the desired form for the calibration using the dropdown menu, and then choose the **Setup calibration session** button.  
-![A diagram of the calibrations session setup.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calibrations-setup1.png)
+![A diagram of the calibrations session setup.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calibrations-setup1.png)
 
 1. Enter a title for the calibration session, select the participants, and optionally designate an expert participant and set a due date.  
-![A diagram of the calibrations session setup with participants and due date.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calibration-setup2.png)
+![A diagram of the calibrations session setup with participants and due date.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calibration-setup2.png)
 
 1. After creation, the calibration session will appear in the side panel. An evaluation will be automatically generated for each participant.  
-![A diagram of the created calibrations session for each participant.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calibration-setup3.png)
+![A diagram of the created calibrations session for each participant.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calibration-setup3.png)
 
 ## Edit a calibration session
 <a name="calibrations-performance-evaluations-edit"></a>
@@ -42,7 +42,7 @@ In addition, for both sets of users, you also need permissions to search and vie
 **To edit a calibration session**
 
 1. On the side panel locate the calibration sessions and choose **Edit**.  
-![A diagram of choosing to edit a calibrations session.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calibrations-edit1.png)
+![A diagram of choosing to edit a calibrations session.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calibrations-edit1.png)
 
 1. In the form that opens in the side panel you can modify the calibration session title, add or remove participants, optionally designate an expert participant, and set or adjust the due date.
 
@@ -56,10 +56,10 @@ Use the following procedure to perform evaluations as a part of a calibration se
 **To perform evaluations**
 
 1. On the side panel locate the **Calibration evaluations assigned to you** section to view your calibration evaluations.  
-![A diagram of calibration evaluations assigned to you.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calibration-evaluations1.png)
+![A diagram of calibration evaluations assigned to you.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calibration-evaluations1.png)
 
 1. Choose an evaluation to open it. You can respond to these evaluations in the same manner as standard evaluations, with options to save your progress or submit the completed evaluation. Automation is disabled on calibration sessions.  
-![A diagram of responding to calibration evaluations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calibration-evaluations2.png)
+![A diagram of responding to calibration evaluations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calibration-evaluations2.png)
 
 1. Calibration managers can access a list of all evaluations associated with a specific calibration session by viewing the calibration session details in the side panel. Calibration managers will also be able to view evaluations submitted by participants.
 
@@ -69,7 +69,7 @@ Use the following procedure to perform evaluations as a part of a calibration se
 **To finalize a calibration**
 
 1. Access the calibration session details view and choose **Finalize**.  
-![A diagram showing the finalize button for calibrations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calibrations-finalize.png)
+![A diagram showing the finalize button for calibrations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calibrations-finalize.png)
 
 1. Confirm the finalization when prompted. After a session is finalized, neither the session nor its evaluations can be edited.
 

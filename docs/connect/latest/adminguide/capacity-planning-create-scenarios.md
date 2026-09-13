@@ -61,7 +61,7 @@ When you generate a plan, Connect Customer saves a snapshot of the selected hour
 1. In the **Optimization inputs** section, configure an optimization target for each channel that you want FTE estimates for. You can configure one target per channel, for up to four channels: Voice, Chat, Task, and Email. The targets do not have to be the same type. For example, you can use service level for Voice and average time to complete for Task.
 
    The following image shows the **Optimization inputs** section with a different target type configured for each channel.  
-![The Optimization inputs section with a different target type configured for each channel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-optimization-inputs.png)
+![The Optimization inputs section with a different target type configured for each channel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-optimization-inputs.png)
 
    1. **Service level**: The percentage of contacts answered within a defined target time threshold. Service level is available for all channels.
 

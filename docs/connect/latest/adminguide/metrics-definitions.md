@@ -1593,7 +1593,7 @@ This metric measures the average time between when a callback contact is initiat
 
 **Calculation logic**:
 + The following image shows the five parts that go into calculating this metric: Connect Customer assign work item to agent, agent accepts work item, connection build time, network connection time, rings for customer. It also shows what is in the agent event stream: Connecting, Connected or no answer.  
-![The five parts used to calculate average callback connecting time.](http://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-agent-callback-connection-time.png)
+![The five parts used to calculate average callback connecting time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-agent-callback-connection-time.png)
 
 ## Average agent concurrency
 <a name="average-agent-concurrency"></a>
@@ -1690,7 +1690,7 @@ This metric measures the average time between when contact is initiated by Conne
 + In the agent event stream, this time is calculated by averaging the duration between the contact state of STATE\_CHANGE event changes from CONNECTING to CONNECTED/MISSED/ERROR. 
 
   The following image shows the three parts that go into calculating this metric: connection build time, network connection time, and requesting agent to accept. It also shows what is in the agent event stream: Connecting, Connected, Missed, or Rejected.  
-![The three parts used to calculate average incoming connecting time.](http://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-agent-inbound-connection-time.png)
+![The three parts used to calculate average incoming connecting time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-agent-inbound-connection-time.png)
 
 ## Average agent interaction and customer hold time
 <a name="average-agent-interaction-and-customer-hold-time"></a>
@@ -1858,7 +1858,7 @@ This metric measures the average time between when an outbound contact is initia
 
 **Calculation logic**:
 + The following image shows the four parts that go into calculating this metric: agent call customer, connection build time, network connection time, rings for customer. It also shows what is in the agent event stream: Connecting, Connected or No answer.  
-![The four parts used to calculate average outbound connecting time.](http://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-agent-outbound-connection-time.png)
+![The four parts used to calculate average outbound connecting time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-agent-outbound-connection-time.png)
 
 ## Average agent pause time
 <a name="average-agent-pause-time"></a>
@@ -3907,7 +3907,7 @@ To learn how this is different from Scheduled contacts in a callback scenario, s
 
 In the real-time metrics report, when queue size is greater than 95% of capacity, a message is displayed, as shown in the following image. For more information about queue capacity, see [Set queue capacity](set-maximum-queue-limit.md).
 
-![A message that queue size is greater than 95 percent of total capacity.](http://docs.aws.amazon.com/connect/latest/adminguide/images/inqueue-rtm-capacity.png)
+![A message that queue size is greater than 95 percent of total capacity.](https://docs.aws.amazon.com/connect/latest/adminguide/images/inqueue-rtm-capacity.png)
 
 
 **Metric type**: COUNT
@@ -4424,7 +4424,7 @@ An estimate, in seconds, of how long a contact will wait in queue before being c
 + [GetCurrentMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetCurrentMetricData.html) API identifier: `ESTIMATED_WAIT_TIME`
 
 **Requirements**:
-+ To use Estimated Wait Time you must enable [Next Generation Connect Customer](enable-nextgeneration-amazonconnect.md) for your instance.
++ To use Estimated Wait Time you must enable [Connect Customer](enable-nextgeneration-amazonconnect.md) for your instance.
 
 **Notes**:
 + Estimated Wait Time (EWT) is an approximation of how long a contact will wait in queue before being connected to an agent. 

@@ -51,7 +51,7 @@ This topic explains how to use the Connect Customer admin website to create prom
 
 Use the filters on the **Prompts** page to filter the list of prompts by **Name**, **Description**, and **Tags**. To copy the full Amazon Resource Name (ARN) of a prompt with just one choose, choose the **Copy** icon. When you [set up dynamic prompts in a flow](dynamically-select-prompts.md), you'll need to enter the full ARN of the prompt. 
 
-![The prompts page, the filter options, the copy ARN option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/Prompt_cloudscape_Landing_page.png)
+![The prompts page, the filter options, the copy ARN option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/Prompt_cloudscape_Landing_page.png)
 
 
 ## Supported file types

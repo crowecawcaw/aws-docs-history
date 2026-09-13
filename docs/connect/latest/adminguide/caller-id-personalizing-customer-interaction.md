@@ -46,8 +46,8 @@ Before opening an AWS Support case:
     + Describe the telecoms metadata issue you are encountering.
 
   The following images show an example case and where you enter this information.  
-![The AWS Support case for requesting third-party number mapping.](http://docs.aws.amazon.com/connect/latest/adminguide/images/3rd-party-mapping.png)  
-![The case description box for requesting help with third-party number mapping.](http://docs.aws.amazon.com/connect/latest/adminguide/images/case-description.png)
+![The AWS Support case for requesting third-party number mapping.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3rd-party-mapping.png)  
+![The case description box for requesting help with third-party number mapping.](https://docs.aws.amazon.com/connect/latest/adminguide/images/case-description.png)
 + If you're getting partial data on a percent of calls as part of normal service calls: Note that data is not available on all calls. 
 
   Certain fields, such as ISUP-OLI, are only present based on specific routes through networks. It's not possible to guarantee data will be available for all calls.

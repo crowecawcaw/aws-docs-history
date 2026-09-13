@@ -99,5 +99,5 @@ After the profiles are matched, the Identity Resolution Job can optionally merge
 You cannot undo the consolidation process. It is recommended to turn on matching only first to evaluate the match result using the ListMatches and GetSimiliarProfiles APIs. You can turn on merging by setting the [MaxAllowedRuleLevelForMerging](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_RuleBasedMatchingRequest.html) using the [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html) API.
 
 **Note**  
-When merging two profiles, profile fields manually populated through an API call or the Agent Workspace will not be overwritten by profile fields automatically ingested from an integration or custom object type mapping.  
-For example, suppose a profile is created with FirstName “John” manually by an agent in the Agent Workspace. Another profile is created using an S3 integration with FirstName “Peter”. If these profiles are automatically merged, the FirstName “John” will be preserved.
+When merging two profiles, profile fields manually populated through an API call or in the agent workspace will not be overwritten by profile fields automatically ingested from an integration or custom object type mapping.  
+For example, suppose a profile is created with FirstName “John” manually by an agent in the agent workspace. Another profile is created using an S3 integration with FirstName “Peter”. If these profiles are automatically merged, the FirstName “John” will be preserved.

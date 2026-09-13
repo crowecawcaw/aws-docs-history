@@ -21,4 +21,4 @@ You can list the phone numbers claimed to your Connect Customer instance by usin
    + ALL of the phone numbers listed on that page are downloaded to the CSV file, regardless of which ones are selected.
    + It does not download all of the phone numbers claimed by your Connect Customer instance.
    + To download numbers listed on a page 2 of results, you need to paginate to page 2 and then choose **Download CSV** again.  
-![The Phone numbers page, the Download CSV button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/download-phonenumbers-csv.png)
+![The Phone numbers page, the Download CSV button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/download-phonenumbers-csv.png)

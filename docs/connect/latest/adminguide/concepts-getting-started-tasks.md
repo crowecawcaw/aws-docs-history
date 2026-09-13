@@ -12,7 +12,7 @@
    For example, an agent has a **Maximum tasks per agent** setting to handle 5 active tasks simultaneously. This means they can pause up to 5 tasks, which allows them to free up their active slots to take in new more critical tasks. However, it also means that agents can have twice the number of tasks in their workspace at any point in time. In our example, this agent can have 10 tasks in their workspace: 5 paused and 5 active. 
 
    The following image shows the **Tasks** option on the **Routing profile** page.  
-![The Tasks option, max tasks per agent set to 5, queue set to voice, chat, task.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-routing-profile-2.png)
+![The Tasks option, max tasks per agent set to 5, queue set to voice, chat, task.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-routing-profile-2.png)
 
 1. [Create quick connects](quick-connects.md) so that agents can create/assign tasks to themselves, or other agents or shared queues.
 

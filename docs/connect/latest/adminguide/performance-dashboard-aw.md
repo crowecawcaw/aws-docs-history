@@ -15,7 +15,7 @@ You can customize what metrics and widgets appear on the agent's dashboard. You 
 
 The following image shows an example of the **Agent workspace performance dashboard** as it appears in the agent workspace. Notice it appears on the **Performance metrics** tab.
 
-![The agent workspace, the Performance metrics tab, the Agent workspace performance metrics dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-workspace-perf-dashboard.png)
+![The agent workspace, the Performance metrics tab, the agent workspace performance metrics dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-workspace-perf-dashboard.png)
 
 
 ## Assign permissions
@@ -29,7 +29,7 @@ Assign users the following permissions in their security profile so they can acc
   + **Analytics and Optimization** - **Dashboards** - **Access**: Grants access to only the **Dashboards** tab.
   + OR, **Analytics and Optimization** - **Access metrics** - **Access**: Grants access to all the tabs on the **Dashboards and reports** page.
 
-## View the Agent workspace performance dashboard
+## View the agent workspace performance dashboard
 <a name="view-perf-metrics"></a>
 
 1. Access the agent workspace using the following URL:
@@ -41,7 +41,7 @@ Assign users the following permissions in their security profile so they can acc
 1. In the agent workspace, choose the **Apps** dropdown menu, and then choose **Performance metrics** to display the **Agent workspace performance dashboard**.
 
    The following image shows the **Apps** option and the **Performance metrics** tab on the agent workspace.  
-![The Agent workspace performance dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/perf-metrics.png)
+![The agent workspace performance dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/perf-metrics.png)
 
 ## Limitations
 <a name="limitations"></a>

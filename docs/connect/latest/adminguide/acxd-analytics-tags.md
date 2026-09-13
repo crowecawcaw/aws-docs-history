@@ -18,7 +18,7 @@ Use analytics tags to track moments such as:
 
 Analytics tags do not automatically determine whether a conversation was successful, helpful, or automated. They mark the points you choose so you can measure and review them later.
 
-To access analytics tags, select **Analytics** from your workspace menu then choose **Analytics tags**.
+To access analytics tags, select **Resources** from your workspace menu then choose **Analytics tags**.
 
 ## Strategic tag placement
 <a name="acxd-analytics-tags-placement"></a>
@@ -30,13 +30,13 @@ By placing analytics tags at strategic points in a flow, you can better understa
 For example:
 
 
-| Tag placement | What it tells you | 
-| --- | --- | 
-| First node in a booking flow | How many users begin the booking process. | 
-| Confirmation node | How many users complete the booking. | 
-| Fallback or recovery path | How often users hit an error or unsupported path. | 
-| Human handoff node | How often users request or require escalation. | 
-| Decline path after an offer | How often users reject an offer. | 
+| Tag | Where you might place it | What it helps track | 
+| --- | --- | --- | 
+| booking\_started | First node in a booking flow | How many users begin the booking process. | 
+| booking\_completed | Confirmation node | How many users complete the booking. | 
+| fallback\_reached | Fallback or recovery path | How often users hit an error or unsupported path. | 
+| escalation\_requested | Human handoff node | How often users request or require escalation. | 
+| offer\_declined | Decline path after an offer | How often users reject an offer. | 
 
 These tags can help you identify completion rates, drop-off points, repeated issues, and opportunities to improve the experience.
 
@@ -44,13 +44,13 @@ These tags can help you identify completion rates, drop-off points, repeated iss
 <a name="acxd-analytics-tags-system"></a>
 
 Agentic CX designer includes default system tags that can be used in flows:
-+ Automated
-+ Not helpful
-+ Escalated
++ automated
++ helpful
++ not\_helpful
 
 These tags are available by default, but they do not automatically classify a conversation. You decide where to place them based on what each point in your flow represents.
 
-For example, you might place Automated on a node reached after the application completes a task without human handoff, or Not helpful on a path where the user indicates the answer did not solve their issue.
+For example, you might place automated on a node reached after the application completes a task without human handoff, or not\_helpful on a path where the user indicates the answer did not solve their issue.
 
 ## Custom analytics tags
 <a name="acxd-analytics-tags-custom"></a>
@@ -59,11 +59,11 @@ You can create custom analytics tags for the milestones, outcomes, or events tha
 
 **To add a custom analytics tag**
 
-1. Open **Analytics**.
+1. Open **Resources**.
 
 1. Select **Analytics tags**.
 
-1. Choose **Create tag**.
+1. Choose **Add tag**.
 
 1. Enter the tag details.
 
@@ -74,8 +74,8 @@ Custom tag fields include:
 
 |  |  | 
 | --- |--- |
-| **Name** | The name of the tag that appears when tagging nodes in a flow. Use a clear, descriptive name. | 
-| **Category** | Categorizes the tag for analytics reporting, if available. | 
+| **Label** | The name of the tag that appears when tagging nodes in a flow. Use a clear, descriptive name. | 
+| **Type** | Categorizes the tag for analytics reporting, if available. | 
 | **Description** | Explains what the tag is intended to track. This description is visible from the Analytics tags resource page. | 
 
 Tag labels should be easy to understand and consistent across the workspace. Use names that describe the event clearly, such as booking\_completed, escalation\_requested, or payment\_started.
@@ -91,7 +91,7 @@ After a tag is created, you can apply it to nodes in a flow.
 
 1. Select the node you want to track.
 
-1. Open the node's **Add functionality** menu.
+1. Open the node's **Functionality** menu.
 
 1. Choose **Analytics tags**.
 
@@ -107,7 +107,7 @@ You can review tag activity in several places:
 |  |  | 
 | --- |--- |
 | **In-Canvas analytics** | Filter the flow view to conversations that reached tagged nodes. | 
-| **Conversation history** | Filter transcripts by selected tags to review sessions where a milestone occurred. | 
+| **Conversation transcripts** | Filter transcripts by selected tags to review sessions where a milestone occurred. | 
 | **Analytics dashboards** | Create dashboard charts that track tag activity over time. | 
 
 Use tags when you want to move beyond general conversation volume and monitor specific outcomes or checkpoints inside the experience.
@@ -117,13 +117,13 @@ Use tags when you want to move beyond general conversation volume and monitor sp
 
 **To delete a custom tag**
 
-1. Open **Analytics**.
+1. Open **Resources**.
 
 1. Select **Analytics tags**.
 
 1. Expand the tag details.
 
-1. Choose **Delete**.
+1. Choose **Delete tag**.
 
 Before deleting a tag, confirm that it is no longer needed for active reporting or flow analysis.
 

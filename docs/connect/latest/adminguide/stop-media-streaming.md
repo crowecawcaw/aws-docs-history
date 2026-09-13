@@ -51,7 +51,7 @@ This block doesn't have any properties.
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**.
 
-![A configured Stop media streaming block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stop-media-streaming-configured.png)
+![A configured Stop media streaming block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stop-media-streaming-configured.png)
 
 
 ## Sample flows

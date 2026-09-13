@@ -50,7 +50,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set disconnect flow** block.
 
-![The properties page of the set disconnect flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-disconnect-flow-properties.png)
+![The properties page of the set disconnect flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-disconnect-flow-properties.png)
 
 
 ## Configured block
@@ -58,7 +58,7 @@ The following image shows the **Properties** page of the **Set disconnect flow**
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**.
 
-![A configured set disconnect flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-disconnect-flow-configured.png)
+![A configured set disconnect flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-disconnect-flow-configured.png)
 
 
 ## Sample flows

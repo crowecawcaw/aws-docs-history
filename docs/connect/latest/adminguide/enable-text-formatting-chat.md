@@ -14,7 +14,7 @@ With Connect Customer message formatting, you can enable your customers and agen
 ## Supported formatting types
 <a name="supported-format-types"></a>
 
-You can provide the following types of formatting on both the chat user interface and the agent application using markdown:
+You can provide the following types of formatting on both the chat user interface and the agent workspace using markdown:
 + Bold
 + Italic
 + Bulleted list
@@ -124,22 +124,22 @@ When you enable markdown for chat messages, you can use rich text formatting for
 
 The following image shows how to enable a prompt manually in a [Play prompt](play.md) flow block:
 
-![Flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chat-rtf-play-prompt-flow-1.png)
+![Flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chat-rtf-play-prompt-flow-1.png)
 
 
 The following image shows how to enable a prompt manually in the a [Get customer input](get-customer-input.md) flow block, then associate the flow block with an Amazon Lex bot:
 
-![Flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chat-rtf-get-customer-flow.png)
+![Flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chat-rtf-get-customer-flow.png)
 
 
 The following image shows how the prompt appears in the SYSTEM\_MESSAGE and various BOT message types:
 
-![Image showing Review our FAQ and give us a call links in SYSTEM and BOT messages.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chat-rtf-sys-bot-messages.png)
+![Image showing Review our FAQ and give us a call links in SYSTEM and BOT messages.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chat-rtf-sys-bot-messages.png)
 
 
 The following image shows how to set up a prompt in an Amazon Lex bot intent:
 
-![An Amazon Lex intent containing a prompt with 2 links, one for an FAQ and another for a phone number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chat-rtf-lex-flow.png)
+![An Amazon Lex intent containing a prompt with 2 links, one for an FAQ and another for a phone number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chat-rtf-lex-flow.png)
 
 
 For more information about intents, see [Adding intents](https://docs.aws.amazon.com/lexv2/latest/dg/add-intents.html) in the *Amazon Lex V2 Developer Guide*. For more information about Lambda messages, see [Enabling custom logic with AWS Lambda functions](https://docs.aws.amazon.com/lexv2/latest/dg/lambda.html), also in the *Amazon Lex V2 Developer Guide*.

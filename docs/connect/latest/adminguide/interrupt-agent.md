@@ -43,7 +43,7 @@ There are two ways to specify the target agent in this block.
 
 Select an agent from the instance-level user list in the block's properties panel.
 
-![The Interrupt agent block configured with a manually selected agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interrupt-agent-properties-manually.png)
+![The Interrupt agent block configured with a manually selected agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/interrupt-agent-properties-manually.png)
 
 
 ### Set dynamically
@@ -54,7 +54,7 @@ Pass the agent's identity as a contact attribute. The following values are accep
 + User ID
 + Username
 
-![The Interrupt agent block configured with a dynamically set agent attribute.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interrupt-agent-properties-dynamically.png)
+![The Interrupt agent block configured with a dynamically set agent attribute.](https://docs.aws.amazon.com/connect/latest/adminguide/images/interrupt-agent-properties-dynamically.png)
 
 
 ## Block branches
@@ -71,7 +71,7 @@ This block has the following branches:
 **Note**  
 After the **Success** branch is taken, the caller remains in the queue flow while the agent decides whether to accept or reject the contact. The caller's experience while waiting depends on how you have configured the queue flow.
 
-![A configured Interrupt agent block showing Success and Error branches.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interrupt-agent-flowblock.png)
+![A configured Interrupt agent block showing Success and Error branches.](https://docs.aws.amazon.com/connect/latest/adminguide/images/interrupt-agent-flowblock.png)
 
 
 ## Configuration tips
@@ -115,7 +115,7 @@ The ring tone for an interrupt call is a subtle "call waiting" style tone, disti
 
 An interrupt call is **never auto-accepted** when the agent is already on a call, regardless of the agent's auto-accept setting.
 
-In Agent Workspace, contextual apps such as Customer Profiles continue to display context for the original contact while the interrupt call is being offered.
+In the agent workspace, contextual apps such as Customer Profiles continue to display context for the original contact while the interrupt call is being offered.
 
 ### Accepting the interrupt contact
 <a name="interrupt-agent-dual-calls-accept"></a>
@@ -147,7 +147,7 @@ If a supervisor is actively barging a contact and receives a second call, they c
 
 ## Limitations and requirements
 <a name="interrupt-agent-limitations"></a>
-+ **Softphone required.** This feature is supported only for agents using the Connect Customer softphone (Agent Workspace, standalone CCP, or custom CCP integrations through StreamsJS or ConnectSDK). It is not supported for agents using deskphone or mobile device forwarding. If an agent has deskphone forwarding enabled and is already on a call, the block takes the **Error** branch. If the agent is fully idle, a single call can still be forwarded to a deskphone as usual.
++ **Softphone required.** This feature is supported only for agents using the Connect Customer softphone (agent workspace, standalone CCP, or custom CCP integrations through StreamsJS or ConnectSDK). It is not supported for agents using deskphone or mobile device forwarding. If an agent has deskphone forwarding enabled and is already on a call, the block takes the **Error** branch. If the agent is fully idle, a single call can still be forwarded to a deskphone as usual.
 + **Maximum concurrency.** An agent can be offered at most 1 contact past their normal maximum concurrency using this feature. This means an agent can handle at most 2 concurrent voice calls. If an agent is already handling 2 calls when this block is executed, the block takes the **Error** branch.
 + **Connecting and preview dialer states.** If the agent's existing contact is in a Connecting state or the agent is in preview dialer mode, a second call cannot be offered. The block takes the **Error** branch.
 + **In-app, web, and video calling.** In-app/web calling, video, and screen share contacts cannot be set as interrupt contacts. If an agent is handling an in-app or web calling contact, they cannot be offered a second call even if it is a standard voice call. The block takes the **Error** branch.

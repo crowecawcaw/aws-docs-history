@@ -19,11 +19,11 @@ These sections outline troubleshooting scenarios and address frequently asked qu
   To see the most recent forecasts, check the **Last computed** column.
 
   New forecasts are generated the following day after a user uploads or deletes historical data using the **Import data** tab or adds/removes queues from a forecast group.  
-![Data on the Forecasts tab, the Last computed column.](http://docs.aws.amazon.com/connect/latest/adminguide/images/faq-adhoc-forecast.png)
+![Data on the Forecasts tab, the Last computed column.](https://docs.aws.amazon.com/connect/latest/adminguide/images/faq-adhoc-forecast.png)
 + **When I import historical data it returns errors.**
 
   Select **download details** to make sure that the imported data is in the correct format: If there are any errors, check the error details. It provides additional details for the specific error. You must make sure that your file is in `.csv` format, contains no decimals, no extra rows, or column fields. For more information on the required format, see [Import historical data for forecasting](https://docs.aws.amazon.com/connect/latest/adminguide/import-data-for-forecasting.html).  
-![Failed status message, download details link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/faq-import-historical-data.png)
+![Failed status message, download details link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/faq-import-historical-data.png)
 + **Forecast failed due to error: Insufficient data in Connect Customer.**
 
   When you receive this error, it could be due to three different reasons:
@@ -56,7 +56,7 @@ Only the latest uploaded .csv file is used, and the previous uploaded files are 
 + **How can I see data from a previous period?**
 
   You are able to view forecasts in a specified period that occurred in the past.  
-![Short term tab, calendar to choose the duration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/faq-past-forecast.png)
+![Short term tab, calendar to choose the duration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/faq-past-forecast.png)
 + **Can I see past forecast data?**
 
   You can see the last published and the last computed forecast. The last computed forecast is overwritten after the next forecast is computed. If you want to retain this data, you can download the `.csv` file that contains the last computed and published forecasts.
@@ -133,7 +133,7 @@ Only the latest uploaded .csv file is used, and the previous uploaded files are 
   The shift profile operation hours apply to staffing groups. If you don't set the staffing groups rule for **shift start time**, Connect Customer optimizes your agent start time based on the forecasted workload. 
 
   For example, the shift profile has 8 AM - 6 PM Monday - Friday, and the workload is light in the morning, and heavier in the afternoon. Each agent has a minimum of 6 hours and a maximum of 8 hours per day. To save agent cost, Connect Customer would schedule fewer agents in the morning and more agents in the afternoon. Some agents could start at 8 AM, some could start at 8:30 AM, and some could start in the afternoon. Some agents could have 6 hour schedules and some could have 8 hour schedules. In this way, you can maximize your agent resources to meet the service goal. If you want every agent to start at the same time and work an exact number of hours, you can set the rule in the staffing group **shift start time** to **start at the same time** and set the **working hour** to 10 hours every day. In this case, savings on agent cost is less due to less flexibility to optimize based on forecasts.  
-![Rules for working time, minimum staff required, and shift start time.](http://docs.aws.amazon.com/connect/latest/adminguide/images/faq-different-schedule-rules.png)
+![Rules for working time, minimum staff required, and shift start time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/faq-different-schedule-rules.png)
 + **My agents are all full-time employees and they work 8 hours per day. How can I set this up in my schedule?**
 
   Set your staffing group's and staff's maximum and minimum working hours to 8 hours a day.

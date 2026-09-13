@@ -9,7 +9,7 @@ Connect Customer Customer Profiles Explorer is a dynamic, all-in-one dashboard t
 + **Access complete customer context** including demographic data, communication history, behavioral interactions, and segment membership with interactive visualizations and data displays.
 + **Use AI-powered insights** with customer summaries highlighting key patterns, and personalized behavioral inferences.
 
-![The Profile explorer dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-profile-explorer-1.png)
+![The Profile explorer dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-profile-explorer-1.png)
 
 
 **Topics**

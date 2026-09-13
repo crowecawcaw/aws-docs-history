@@ -17,7 +17,7 @@ Following is an overview of the steps:
 1.  Turn on **Enable automated submission of evaluations** before activating the evaluation form.
 
 1.  When you activate the evaluation form with automation configured, a prompt is displayed for you to create a rule, as shown in the following image.   
-![A prompt to create a rule.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-a-rule-to-submit-automated-evaluations-1.png)
+![A prompt to create a rule.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-a-rule-to-submit-automated-evaluations-1.png)
 
 1.  Choose **Create a rule**. 
 
@@ -36,7 +36,7 @@ You can trigger automated evaluations with two types of rules:
 This is the default rule type that is selected when you create a rule to submit an automated evaluation during form activation. You can also create such a rule by selecting **Create a rule**, **Conversational analytics** on the **Rules** page.
 
 1. Choose **A conversational analytics post-call analysis is available** or **A conversational analytics post-chat analysis is available** as the event source. These two options are highlighted in the following image.  
-![The post-call analysis and post-chat analysis options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/defined-conditions-evaluations.png)
+![The post-call analysis and post-chat analysis options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/defined-conditions-evaluations.png)
 
 1. Define conditions to identify contacts to be automatically evaluated, and then choose **Next**.
 
@@ -72,9 +72,9 @@ You cannot apply rules to past, stored conversations.
 
 1. Choose **Add condition** to trigger a situation-specific evaluation. For example:
    + A specific answer on another evaluation, shown in the following image.  
-![A specific answer on another evaluation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-condition-1.png)
+![A specific answer on another evaluation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-condition-1.png)
    + The score of another evaluation form, shown in the following image.  
-![The score of another evaluation form.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-condition-2.png)
+![The score of another evaluation form.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-condition-2.png)
 
 1. Choose **Add action**, select **Submit automated evaluation**, and select the form that you want to use for automatically submitting an evaluation.
 

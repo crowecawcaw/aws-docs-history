@@ -21,14 +21,14 @@ In a [real-time metrics report](real-time-metrics-reports.md), you can monitor h
 + **Agents** table, which shows the agent John has set his CCP to **Available** and is ready to take contacts. A supervisor can change an agent's status from here. For example, set to **Offline**.
 + **Agent queues** table, which shows John's agent queue. It shows John is online and can take contact from this queue, too.
 
-![A queues report with Agents table and Agent queues table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-standard-and-agent-queues.png)
+![A queues report with Agents table and Agent queues table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-standard-and-agent-queues.png)
 
 
 When an agent gets a contact from a standard queue, the contact never appears in the agent queue. It just goes directly to the agent. 
 
 In a [historical metrics report](historical-metrics.md), by default agent queues don't appear in a Queues table. To show them, choose the **Settings** icon, then choose **Show agent queues**. 
 
-![The agent queues dropdown menu on the Table settings page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-queues-settings-agent-queues.png)
+![The agent queues dropdown menu on the Table settings page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-queues-settings-agent-queues.png)
 
 
 **Tip**  

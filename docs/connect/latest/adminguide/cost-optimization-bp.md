@@ -27,7 +27,7 @@ With Connect Customer, you can configure your instance and flows to store call r
 
 Connect Customer’s pay-as-you-go pricing model can result in lower costs as compared to traditional licensing-based contact centers. However, the traditional contact center infrastructure that spans automatic call distribution (ACD) systems, IVR, telephony and work force management (WFM) systems plays a proportionately small contribution to the overall cost of contact center operations. The largest contributor to the cost of the contact center often comes from human capital and the real estate required to provide an operating environment for your agents. Connect Customer flows can be used natively with Amazon Lex for NLU, NLP, and ASR and Amazon Polly for lifelike Text-to-Speech (TTS) to build highly engaging user experiences and natural conversational interactions across voice and text. By using an Amazon Lex chatbot in your Connect Customer call center, callers can perform tasks such as changing a password, requesting a balance on an account, or scheduling an appointment, without needing to speak to an agent. These self-service options result in better customer experience and lowers your cost per contact.
 
-![Self-service options reducing costs and improving customer experience.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/selfservice.png)
+![Self-service options reducing costs and improving customer experience.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/selfservice.png)
 
 
 ## Click-to-call

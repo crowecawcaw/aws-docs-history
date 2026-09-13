@@ -15,15 +15,15 @@ Pro Tip: Use generative AI-powered Natural language- Semantic match if you previ
 1. On the navigation menu, choose **Analytics and optimization**, and then **Rules**.
 
 1. Then select **Create a Rule** and choose **Conversational analytics**.  
-![Import from word collection option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-natural-semantic-match-rule.png)
+![Import from word collection option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-natural-semantic-match-rule.png)
 
 1. Select either "A conversational analytics post-call analysis is available" or "A conversational analytics post-chat analysis is available".
 
 1. Select **Add condition** and then choose **Natural language - semantic match**.  
-![Import from word collection option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/choose-natural-semantic-match.png)
+![Import from word collection option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/choose-natural-semantic-match.png)
 
 1. Enter a natural language statement that can be evaluated by Generative AI as true or false by matching with the conversation transcript.  
-![Import from word collection option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enter-natural-language-statement.png)
+![Import from word collection option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enter-natural-language-statement.png)
 
 1. Add any additional conditions, for example, queues, custom contact attributes.
 

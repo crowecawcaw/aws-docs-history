@@ -11,13 +11,13 @@ You can monitor failures of automated evaluations as well as S3 exports of conta
 This is a guide on how to create an EventBridge rule to log Connect Customer failed auto-evaluation submission events and failed S3 exports of contact evaluations in your AWS console.
 
 1. Log into your AWS account and navigate to the EventBridge console. Choose **Rules** under the **Buses** section.  
-![The Rules tab under the Buses section in the EventBridge console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-eventbridge-rules-tab.png)
+![The Rules tab under the Buses section in the EventBridge console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-eventbridge-rules-tab.png)
 
 1. Choose **Create rule** with the default Event bus selected.  
-![The Create rule button with the default Event bus selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-eventbridge-create-rule.png)
+![The Create rule button with the default Event bus selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-eventbridge-create-rule.png)
 
 1. Give the rule a name and select **Rule with an event pattern** for the Rule type. Choose **Next**.  
-![The rule name and Rule with an event pattern option selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-eventbridge-rule-name.png)
+![The rule name and Rule with an event pattern option selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-eventbridge-rule-name.png)
 
 1. With **AWS events or EventBridge partner events** selected under **Events**, select the **Use pattern form** option under **Event pattern**. This is where you will define the pattern to match for triggering the rule.
 
@@ -28,15 +28,15 @@ This is a guide on how to create an EventBridge rule to log Connect Customer fai
    + `"detail-type"` can be one of the following:
      + `"Contact Lens Automated Evaluation Submission Failed"`
      + `"Contact Lens Evaluation Export Failed"`  
-![The event pattern with Amazon Connect selected as the AWS service.](http://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-eventbridge-event-pattern.png)
+![The event pattern with Amazon Connect selected as the AWS service.](https://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-eventbridge-event-pattern.png)
 
 1. In the next step, you can configure the target(s) to process/receive the matched events. For simplicity, select the **CloudWatch log group** option under **Select a target** and choose a log group.
 
 1. Choose **Next** and advance to the final **Review and create** step. Choose **Create rule** once more to complete the rule creation process.
 
 1. Now, if the rule is in the **Enabled** state and a matching event occurs, corresponding logs should show up in the configured CloudWatch log group with the relevant IDs under the metadata section and the failure reason under the data section.  
-![CloudWatch log group showing matched EventBridge events.](http://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-cloudwatch-log-group.png)  
-![CloudWatch log detail showing metadata and failure reason.](http://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-cloudwatch-log-detail.png)
+![CloudWatch log group showing matched EventBridge events.](https://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-cloudwatch-log-group.png)  
+![CloudWatch log detail showing metadata and failure reason.](https://docs.aws.amazon.com/connect/latest/adminguide/images/perf-eval-cloudwatch-log-detail.png)
 
 ## Example EventBridge payload
 <a name="performance-evaluation-events-payload"></a>

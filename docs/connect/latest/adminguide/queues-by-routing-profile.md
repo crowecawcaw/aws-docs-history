@@ -8,7 +8,7 @@ This topic explains how to display a list of queues organized by routing profile
 1. On the Connect Customer admin website, choose **Analytics and optimization**, **Real-time metrics**, **Queues**.
 
 1. Access the **Settings** menu: look for and choose the "Settings" icon.  
-![The settings icon for the queues table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-settings.png)
+![The settings icon for the queues table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-settings.png)
 
 1. In the Settings menu, select the **Groupings** tab. 
 

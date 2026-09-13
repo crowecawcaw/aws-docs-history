@@ -17,10 +17,10 @@ Contact center managers can use this information to perform internal audits and 
 1. Access a contact with an evaluation that was edited after it was submitted.
 
 1. Choose the evaluation you want to investigate. The following image shows the **Evaluations** page with a link to a completed evaluation.  
-![A link to a completed evaluation that you can choose to view the audit trail.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluation-audit-example.png)
+![A link to a completed evaluation that you can choose to view the audit trail.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluation-audit-example.png)
 
 1. The **Overview** section of the evaluation contains **Change history**. It indicates the number of times the evaluation has been submitted. Choose the link as shown in the following image.  
-![The Change history property.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluation-audit-change-history.png)
+![The Change history property.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluation-audit-change-history.png)
 
 1. You can view the audit trail of subsequent submissions after the initial submission. Choose the arrow next to a re-submission to view details of the edits. The following image shows an example of an audit trail of the edits that were made to an evaluation after it was submitted.  
-![An audit trail of an evaluation that was changed after it was submitted.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluation-audit.png)
+![An audit trail of an evaluation that was changed after it was submitted.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluation-audit.png)

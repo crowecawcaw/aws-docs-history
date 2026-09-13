@@ -27,7 +27,7 @@ You can add up to four additional participants to an ongoing customer service ch
 
 The following image shows the contact and you (the agent) connected on a chat. The customer always appears at the top of the CCP.
 
-![The CCP, the agent and the customer connected on a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-chat-two-people.png)
+![The CCP, the agent and the customer connected on a chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-chat-two-people.png)
 
 
 **To add participants**
@@ -36,7 +36,7 @@ The following image shows the contact and you (the agent) connected on a chat. T
 Your admin can add a message in the flow to be played before the third party is added to the session. 
 
   The following image shows the CCP after you invite a third participant to join the chat.  
-![The CCP, messages displayed to the agent and customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/multi-party-chat3.png)
+![The CCP, messages displayed to the agent and customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/multi-party-chat3.png)
 
   1. **Inviting new agent ...** - This is an example of a custom message that an Admin or Contact Center Manager can configure in the [Play prompt](play.md) block.
 
@@ -51,7 +51,7 @@ The following image shows Agent2's CCP. From the perspective of Agent2, the cust
 
 Every agent on a chat can disconnect other individual participants.
 
-![The CCP, multiple participants on a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/multi-party-chat2.png)
+![The CCP, multiple participants on a chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/multi-party-chat2.png)
 
 
 1. The customer and Agent1 are the other participants on the chat.
@@ -62,7 +62,7 @@ You can transfer a multi-party chat to another agent, or disconnect yourself fro
 
 **To transfer**
 + Choose the **More** button, and then choose **Quick connect**.  
-![A chat contact on the CCP, the More button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chat-more-button.png)
+![A chat contact on the CCP, the More button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chat-more-button.png)
 
 **To disconnect**
 + Choose **Leave chat**.

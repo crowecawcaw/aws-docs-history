@@ -32,7 +32,7 @@ Use the block counter to track how many blocks are in a flow. The block counter 
 
 The following image shows an example flow with the block counter. It displays a warning that 201 blocks are used.
 
-![The block counter, a warning that 201 blocks are used.](http://docs.aws.amazon.com/connect/latest/adminguide/images/block-counter.png)
+![The block counter, a warning that 201 blocks are used.](https://docs.aws.amazon.com/connect/latest/adminguide/images/block-counter.png)
 
 
 ## Flows are exported to JSON files

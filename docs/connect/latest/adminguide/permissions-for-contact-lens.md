@@ -13,8 +13,8 @@ Following is a description of the required security profile permissions, as well
   + On the **Contact details** page you can view graphs that summarize conversational analytics (customer sentiment, talk time for voice contacts), as well as sentiment colors and indicators for each conversation turn on transcripts and recordings. For example, the following image shows how this information is displayed on the **Contact details** page for a voice contact.
 
     **conversational analytics - View** permission is also required to view sentiment indicators on conversation recordings and transcripts.   
-![Graphs on the contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-conversationalanalytics-permission.png)  
-![Graphs on the contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-conversationalanalytics-permission-2.png)
+![Graphs on the contact details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-conversationalanalytics-permission.png)  
+![Graphs on the contact details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-conversationalanalytics-permission-2.png)
 + **Call recordings (unredacted)**
 
   On the **Contact details** and **Contact search** pages for a contact, view unredacted audio recordings.
@@ -60,9 +60,9 @@ If both **Contact search** and **View my contacts** permissions are granted, the
   For more information, see [Search for sentiment score/shift](search-conversations.md#sentiment-search), [Search for non-talk time](search-conversations.md#nontalk-time-search), and [Search a contact category](search-conversations.md#contact-category-search).
 
   The following image shows of the **Filters** section of the **Contact Search** page, and the **Filters** dropdown menu. Filters with **CL** next to them are only available to users who have this security profile permission.   
-![The add filters dropdown menu, filters with CL next to them.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-search-contact-category-3.png)
+![The add filters dropdown menu, filters with CL next to them.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-search-contact-category-3.png)
 + **Search contacts by keywords**
 
   This permission isn't required by conversational analytics but it's helpful as it provides more search options.
   + On the **Contact Search** page, you can access additional filters that you can use to search contacts by **Words or phrases**, such as "*thank you for your business*." For more information, see [Search for words or phrases](search-conversations.md#keyword-search).  
-![The add filters dropdown menu, the Words or phrases CL filter.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-search-words-phrases.png)
+![The add filters dropdown menu, the Words or phrases CL filter.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-search-words-phrases.png)

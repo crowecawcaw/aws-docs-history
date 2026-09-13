@@ -3,11 +3,11 @@
 # Add Profile explorer to the agent workspace
 <a name="add-profileexplorer-to-agentworkspace"></a>
 
-By default users who have the appropriate [security profile permissions](enabling-profile-explorer.md) can view Profile explorer on the Connect Customer admin website. You might also want your agents to have access to Profile explorer in their agent workspace. This topic explains how to do that.
+By default users who have the appropriate [security profile permissions](enabling-profile-explorer.md) can view Profile explorer on the Connect Customer admin website. You might also want your agents to have access to Profile explorer in the agent workspace. This topic explains how to do that.
 
 The following image shows an example of Profile explorer in the agent workspace. 
 
-![The agent workspace, the Profile explorer tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/profile-explorer-agent-workspace.png)
+![The agent workspace, the Profile explorer tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/profile-explorer-agent-workspace.png)
 
 
 ## Create the Profile explorer layout you want to share with agents
@@ -23,7 +23,7 @@ Here's a high-level overview:
 <a name="add-pe-console"></a>
 
 1. On the Connect Customer console, in the left navigation, choose **Integrations**, as shown in the following image.   
-![The Connect Customer console, the Integrations menu item.](http://docs.aws.amazon.com/connect/latest/adminguide/images/integrations.png)
+![The Connect Customer console, the Integrations menu item.](https://docs.aws.amazon.com/connect/latest/adminguide/images/integrations.png)
 
 1. On the **Integrations** page, choose **Add integration**.
 
@@ -42,7 +42,7 @@ Here's a high-level overview:
    1. **Initialization timeout**: The maximum time, in milliseconds, allowed to establish a connection with the workspace. 
 
    The following image shows the configuration of these fields. Initialization timeout is set to 5 seconds.   
-![The Integration information section, configured for the Profile explorer in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-integration.png)
+![The Integration information section, configured for the Profile explorer in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-integration.png)
 
 1. In the **Access** section, complete the following fields:
 
@@ -75,14 +75,14 @@ In this step you need to assign agents permissions to access the new integration
    + **Agent Applications** - **name of your integration** - **Access**
 
    The following image shows an example of permissions added for a new integration named **Profile explorer**.  
-![Security profile permissions for the new integration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/profile-explorer-securityperms.png)
+![Security profile permissions for the new integration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/profile-explorer-securityperms.png)
 
 ## Tell agents to pin the new application
 <a name="assign-pe-agent-permissions"></a>
 
-Using your normal communication method, tell agents to pin the new application to their agent workspace. This allows them to access Profile explorer across workspace instances.
+Using your normal communication method, tell agents to pin the new application to the agent workspace. This allows them to access Profile explorer across workspace instances.
 + In the agent workspace, choose the more icon, then choose **Pin tab**, as shown in the following image.  
-![The agent workspace, the Pin tab option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/pin-tab.png)
+![The agent workspace, the Pin tab option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/pin-tab.png)
 
 ## Supported functionality
 <a name="supported-pe-functionality"></a>

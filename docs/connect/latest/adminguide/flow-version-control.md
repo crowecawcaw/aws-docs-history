@@ -13,7 +13,7 @@ This procedure is especially useful if you want to research how a flow has been 
 1. Choose the **Latest: Published** dropdown to view a list of previously published versions of the flow.
 
    For default flows that are provided with your Connect Customer instance, the oldest flow in the list is the original version. The date matches when your Connect Customer instance was created. For example, in the following image, the original default flow is dated 07/21/22.  
-![The Latest published dropdown box listing the dates the default agent hold was published.](http://docs.aws.amazon.com/connect/latest/adminguide/images/default-agent-hold-versioning.png)
+![The Latest published dropdown box listing the dates the default agent hold was published.](https://docs.aws.amazon.com/connect/latest/adminguide/images/default-agent-hold-versioning.png)
 **Note**  
 For users with tag-based access controls configured on their security profile, the dropdown will be restricted to **Latest: Published** and **Latest: Saved** versions. To learn more about tag-based access controls in Connect Customer, see [Apply tag-based access control in Connect Customer](tag-based-access-control.md).
 
@@ -22,7 +22,7 @@ For users with tag-based access controls configured on their security profile, t
 1. Next, you can do one of the following: 
    + To return to the most recently published version, choose it from the **Latest: Published** dropdown list. 
    + Make changes to the previous version and choose **Save as** from the dropdown to save it with a new name. Or choose **Save** from the dropdown to assign the same name.   
-![The Save dropdown box, the Save as option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/default-agent-hold-saveas.png)
+![The Save dropdown box, the Save as option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/default-agent-hold-saveas.png)
    + Or, choose **Publish** to return the previous version to production. 
 
 ## Roll back a flow

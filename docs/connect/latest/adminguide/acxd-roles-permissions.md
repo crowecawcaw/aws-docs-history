@@ -3,7 +3,7 @@
 # User roles and permissions
 <a name="acxd-roles-permissions"></a>
 
-Access in agentic CX designer is managed through roles and permissions and controlled at the workspace level.
+Access in agentic CX designer is managed through Amazon Connect Customer and controlled at the workspace level.
 
 This means users do not create standalone agentic CX designer accounts manually. Instead, Account Administrators select from the user profiles already available in the connected Connect Customer instance, add those users to the appropriate agentic CX designer workspace, and assign each user a workspace role.
 
@@ -17,8 +17,8 @@ Agentic CX designer uses a workspace-based access model.
 
 |  |  | 
 | --- |--- |
-| **Account-level access** | Determines whether a user can access Connect Customer and, depending on their permissions, launch or administer agentic CX designer. | 
-| **Workspace assignment** | Determines which workspace or workspaces a user can open. | 
+| **Connect Customer access** | Determines whether a user can access Connect Customer and, depending on their permissions, launch or administer agentic CX designer. | 
+| **Agentic CX designer workspace access** | Determines which workspace or workspaces a user can open. | 
 | **Workspace role** | Determines what the user can do inside a specific workspace. | 
 
 A user may have access to one workspace, multiple workspaces, or no workspaces, depending on how an Account Administrator has configured their access.
@@ -81,8 +81,8 @@ Roles determine what users can do inside a workspace.
 |  |  | 
 | --- |--- |
 | **Account Administrator** | Manages account-level setup, workspaces, user access, and role assignments through the Admin Hub. | 
-| **Workspace Manager** | Manages resources inside an assigned workspace, depending on the permissions granted. | 
+| **Workspace Administrator** | Manages resources inside an assigned workspace, depending on the permissions granted. | 
 | **Builder** | Creates and edits conversational AI resources such as applications, flows, prompts, slots, and knowledge bases. | 
 | **Developer** | Configures technical resources such as integrations, Data requests, APIs, secrets, and environment-specific settings. | 
 | **Analyst** | Reviews analytics, conversation history, dashboards, evaluations, and performance data. | 
-| **Viewer** | Views workspace resources without making changes. | 
+| **Read-only** | Views workspace resources without making changes. | 

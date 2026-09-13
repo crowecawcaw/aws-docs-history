@@ -103,7 +103,7 @@ In addition, attributes and routing criteria must have the following;
 
 You can set the desired routing criteria either manually in the flow block UI or dynamically based on the output from the [AWS Lambda function](invoke-lambda-function-block.md) block. 
 
-![The Set routing criteria properties page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-routing-criteria-using-the-flow-block.png)
+![The Set routing criteria properties page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-routing-criteria-using-the-flow-block.png)
 
 
 ### Set routing criteria manually
@@ -111,7 +111,7 @@ You can set the desired routing criteria either manually in the flow block UI or
 
 Using this option, you can set routing criteria on contacts as specified in the **Set routing criteria** block manually. See the example of a flow below to where the predefined attribute is added to a routing step manually by picking the attribute and value from a dropdown list. 
 
-![Set routing criteria flow block manually.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-routing-criteria-set-manually.png)
+![Set routing criteria flow block manually.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-routing-criteria-set-manually.png)
 
 
  As needed, you can configure predefined attribute value dynamically using JSONPath reference even in this option. For example, you can specify ``$.External.language`` JSONPath reference instead of hard coding a `AWS DynamoDB` value on the ``Technology`` requirement of all of the contacts. For more information about JSONPath reference, see [List of available contact attributes in Connect Customer and their JSONPath references](connect-attrib-list.md). 

@@ -7,7 +7,7 @@ Flow logs are stored in an Amazon CloudWatch log group, in the same AWS Region a
 
 For example, the following image shows the CloudWatch log groups for two test instances.
 
-![The Amazon CloudWatch console, log groups, /aws/connect/mytest88 and mytest89.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cloudwatch-log-group.png)
+![The Amazon CloudWatch console, log groups, /aws/connect/mytest88 and mytest89.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cloudwatch-log-group.png)
 
 
  A log entry added as each block in your flow is triggered. You can configure CloudWatch to send alerts when unexpected events occur during active flows. 

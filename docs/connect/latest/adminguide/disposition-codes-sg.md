@@ -9,8 +9,8 @@ A simple use case of step-by-step guides is to have an agent enter a disposition
 
  In addition, you can also use an [AWS Lambda function](invoke-lambda-function-block.md) block to send the entered data to an external system.
 
-After you've created your flow, you will be able to dynamically determine which one to surface at the end of a contact by setting the **DisconnectFlowForAgentUI** as a custom attribute in your contact flows. As long as this attribute is set before a contact ends, the agent UI will surface this form after a contact ends.
+After you've created your flow, you will be able to dynamically determine which one to surface at the end of a contact by setting the **DisconnectFlowForAgentUI** as a custom attribute in your contact flows. As long as this attribute is set before a contact ends, the agent workspace surfaces this form after a contact ends.
 
 The following image shows the properties page for a [Set contact attributes](set-contact-attributes.md). It is configured to save the response in a user-defined attribute.
 
-![The properties page of the Set contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dispo-codes-sq.png)
+![The properties page of the Set contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dispo-codes-sq.png)

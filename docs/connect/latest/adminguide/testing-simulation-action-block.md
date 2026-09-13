@@ -7,7 +7,7 @@ The Action block defines what your test should do in response to observed events
 
 Think of Action blocks as the "doing" part of your test—they make things happen, whether that's simulating a customer pressing buttons, overriding how system components behave, or controlling the test flow itself.
 
-![Action block configuration panel showing available action types.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-block-intro.png)
+![Action block configuration panel showing available action types.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-block-intro.png)
 
 
 **Topics**

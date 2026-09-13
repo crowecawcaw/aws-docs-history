@@ -59,9 +59,9 @@ Flow testing opens directly from the Canvas and begins from the first turn of th
 
 **To run a flow test**
 
-1. Open **Flows** from the workspace menu.
+1. Open **Resources** from the workspace menu.
 
-1. Select **Canvas**.
+1. Select **Flows**.
 
 1. Choose the flow you want to test.
 
@@ -85,23 +85,23 @@ Common settings include:
 | **Language** | Test language-specific behavior, if available. | 
 | **Environment** | Choose whether Data requests should use Development or Production endpoints, when configured. | 
 
-For example, if a troubleshooting flow expects the user to already be authenticated, you can set an `isAuthenticated` context variable before running the test.
+For example, if a troubleshooting flow expects the user to already be authenticated, you can set an `authenticated` context variable before running the test.
 
-After changing test settings, select **Restart conversation** so the updated settings apply to the session.
+After changing test settings, select **Save and refresh** so the updated settings apply to the session.
 
 ## Routing tests
 <a name="acxd-testing-routing"></a>
 
 Routing tests validate whether user utterances invoke the expected flows.
 
-Routing tests are located in the application's **Test** area under **Routing tests**. They use the AI descriptions added to flows to evaluate whether a test utterance should match a specific flow.
+Routing tests are located in the application's **Settings** area under **Testing**. They use the AI descriptions added to flows to evaluate whether a test utterance should match a specific flow.
 
 Use routing tests when you want to confirm that different ways of asking for help route correctly.
 
 Examples:
 
 
-| Utterance | Expected flow | 
+| Test utterance | Expected flow | 
 | --- | --- | 
 | "I need to change my appointment." | Appointment rescheduling | 
 | "Can I talk to someone?" | Escalation | 
@@ -113,11 +113,11 @@ Examples:
 
 1. Open the application.
 
-1. Select the application **Test**.
+1. Select the application **Settings**.
 
-1. Go to the **Routing tests** section.
+1. Go to the **Testing** section.
 
-1. Under **Routing tests**, select **Create test**.
+1. Under **Routing**, select **New test**.
 
 1. Enter a test name.
 

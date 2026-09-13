@@ -28,12 +28,12 @@ You can delete or add new metrics, define widget level filters and groupings, re
 <a name="dashboard-changing-metrics"></a>
 
 1. In a widget, select the Actions icon and then choose **Edit**. The following image shows the Actions icon for the **Performance overview** widget.   
-![The Edit option for the Performance overview widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-changing-metrics-b.png)
+![The Edit option for the Performance overview widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-changing-metrics-b.png)
 
 1. In the widget's **Edit** pane choose the metric column you want to change; the available metrics for that column appear in the dropdown list. 
 
    The following image shows a widget **Edit** pane, the **Widget name** box (which you can edit), and the dropdown list available for the **Metric 1** column of the **Performance overview** widget.   
-![The Edit pane, the Widget name box, the Metric 1 dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-metrics-list.png)
+![The Edit pane, the Widget name box, the Metric 1 dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-metrics-list.png)
 **Note**  
 In only specific widgets you can select the following real-time queue, routing profile, and agent metrics. You cannot combine these metrics with trailing near real-time metrics or historical metrics.   
 Agents online
@@ -54,12 +54,12 @@ Contacts in queue
 
 In the widget's **Edit** pane you can select custom time thresholds for metrics such as **Service level**, **Contacts answered in X**, and **Contacts abandoned in X**. To select a custom time threshold, choose **Add custom**, as shown in the following image.
 
-![The Add custom option in the Edit pane for the widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-changing-metrics-4.png)
+![The Add custom option in the Edit pane for the widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-changing-metrics-4.png)
 
 
 You can then select and choose which time threshold you want. The limit is between one second and seven days. The following image shows the dialog box for adding custom values for the **Contacts resolved by X** metric.
 
-![The Add custom option for Contacts resolved by X.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-changing-metrics-5.png)
+![The Add custom option for Contacts resolved by X.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-changing-metrics-5.png)
 
 
 ## Re-order the metrics
@@ -67,7 +67,7 @@ You can then select and choose which time threshold you want. The limit is betwe
 
 In the widget's **Edit** pane you can re-order the columns for the metrics by selecting the dots next to the metric and moving the metric up or down the Edit pane. 
 
-![Use the icons to re-order the columns of metrics on the chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-reorder-metric.png)
+![Use the icons to re-order the columns of metrics on the chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-reorder-metric.png)
 
 
 ## Re-size columns
@@ -75,7 +75,7 @@ In the widget's **Edit** pane you can re-order the columns for the metrics by se
 
 To re-size the columns in the dashboard, select the vertical bars in the column headers and drag left or right to re-size. You can also re-size the grouping column. The following image shows a vertical bar on a dashboard.
 
-![An example of the vertical bar you use to resize a column.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-resize-column.png)
+![An example of the vertical bar you use to resize a column.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-resize-column.png)
 
 
 ## Add comparisons to the Trailing performance widgets
@@ -83,7 +83,7 @@ To re-size the columns in the dashboard, select the vertical bars in the column 
 
 In the widget's **Edit** pane you can choose to show the comparisons in your Trailing performance widgets by choosing the **Show comparison** option. With comparisons, you can see how your performance compares to the previous time range. 
 
-![The Show comparison option in the Edit pane, the Prior information on the chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-add-comparisons.png)
+![The Show comparison option in the Edit pane, the Prior information on the chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-add-comparisons.png)
 
 
 ## Configure groupings
@@ -97,7 +97,7 @@ Groupings change the metrics that are available within the widgets.
 
 The following image shows two groupings for the Contact categories widget in the **Edit** pane.
 
-![An example of groupings in the Edit pane for the Contact categories widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-groupings.png)
+![An example of groupings in the Edit pane for the Contact categories widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-groupings.png)
 
 
 ## Configure filters
@@ -109,7 +109,7 @@ The widget-level filters override any page-level filters.
 
 The following image shows filters for the **Trailing agent performance** metrics.
 
-![An example of filters you can add for a widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-configurable-filters.png)
+![An example of filters you can add for a widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-configurable-filters.png)
 
 
 With the **Routing step** and **Proficiency** filters, you can filter metrics by proficiency. To build either filter, you add one or more groups of conditions and choose how each group is matched.
@@ -123,7 +123,7 @@ For example, set the first group to **Match Any** for Language: English or Langu
 
 The Routing step filter is available on Current queue performance and trailing widgets. Each condition consists of a proficiency **key** and **value**, and matches the proficiency criteria used in routing steps.
 
-![The Routing step filter showing two groups with proficiency key and value conditions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/routing-step-filter-key-value.png)
+![The Routing step filter showing two groups with proficiency key and value conditions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/routing-step-filter-key-value.png)
 
 
 ### Proficiency
@@ -133,7 +133,7 @@ The Proficiency filter is available on Current agent performance widgets. In add
 
 For example, you can filter for agents who have the Skill: Finance proficiency at a level greater than or equal to 3. If you leave the operator and level blank, the condition matches all agents who have that proficiency, regardless of level.
 
-![The Proficiency filter showing a condition with Skill: Finance, operator greater than or equal to, and level 3.](http://docs.aws.amazon.com/connect/latest/adminguide/images/proficiency-filter-key-value-operator.png)
+![The Proficiency filter showing a condition with Skill: Finance, operator greater than or equal to, and level 3.](https://docs.aws.amazon.com/connect/latest/adminguide/images/proficiency-filter-key-value-operator.png)
 
 
 ## Filter by queue type
@@ -151,7 +151,7 @@ The **Agent queue** filter is different from the **Agent** filter available in t
 
 The following image shows the agent search dropdown in Agent queue mode.
 
-![Screenshot of the agent queue filter panel in Agent queue mode, showing the agent search dropdown where you can search for and choose individual agents.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-agent-search.png)
+![Screenshot of the agent queue filter panel in Agent queue mode, showing the agent search dropdown where you can search for and choose individual agents.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-agent-search.png)
 
 
 1. On a widget, choose the Queue filter chip (or add a Queue filter if one doesn't exist).
@@ -166,12 +166,12 @@ The following image shows the agent search dropdown in Agent queue mode.
 
 The filter chip updates to show your selection, as shown in the following image.
 
-![Screenshot of an agent queue filter chip displaying a selected agent, showing the label Agent queue: Agent: John Doe.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-chip-agent.png)
+![Screenshot of an agent queue filter chip displaying a selected agent, showing the label Agent queue: Agent: John Doe.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-chip-agent.png)
 
 
 When no specific agents are selected, the chip indicates that metrics include all agent queues, as shown in the following image.
 
-![Screenshot of an agent queue filter chip displaying Agent queue (All), indicating that no specific agents are selected and metrics include all agent queues.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-chip-all.png)
+![Screenshot of an agent queue filter chip displaying Agent queue (All), indicating that no specific agents are selected and metrics include all agent queues.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-chip-all.png)
 
 
 ### Filter Agent queue metrics by agent hierarchy (real-time contact widgets only)
@@ -179,7 +179,7 @@ When no specific agents are selected, the chip indicates that metrics include al
 
 The following image shows the Agent and Agent hierarchy options.
 
-![Screenshot of the agent queue filter panel showing the Agent and Agent hierarchy dropdown options for filtering by agent queue mode.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-hierarchy.png)
+![Screenshot of the agent queue filter panel showing the Agent and Agent hierarchy dropdown options for filtering by agent queue mode.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-hierarchy.png)
 
 
 1. On a widget, choose the Queue filter chip.
@@ -194,7 +194,7 @@ The following image shows the Agent and Agent hierarchy options.
 
 The filter chip updates to show the deepest hierarchy level selected, as shown in the following image.
 
-![Screenshot of an agent queue filter chip displaying the agent hierarchy selection, showing the label Agent queue: Agent hierarchy: Canada (Level 1).](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-chip-hierarchy.png)
+![Screenshot of an agent queue filter chip displaying the agent hierarchy selection, showing the label Agent queue: Agent hierarchy: Canada (Level 1).](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-queue-filter-chip-hierarchy.png)
 
 
 ### Things to know
@@ -208,7 +208,7 @@ The filter chip updates to show the deepest hierarchy level selected, as shown i
 
 You can add color coded thresholds to summary widgets and tables by choosing the **Modify thresholds** option on the widget.
 
-![The Modify threshold menu option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-thresholds-1.png)
+![The Modify threshold menu option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-thresholds-1.png)
 
 
 You can add up to three thresholds per metric (red, yellow, green). You can define the thresholds that cause the metrics to change colors. Thresholds are evaluated in the order they are applied, which means that if you have overlapping thresholds, the first one that triggers, will color the respective metric. This means if you want to create a red/yellow/green configuration for greater than 90% green, between 90%-70% yellow, and less than 70% yellow, you should create three conditions in the following order:
@@ -219,7 +219,7 @@ You can add up to three thresholds per metric (red, yellow, green). You can defi
 
 1. Less than 70% = Red
 
-![The Modify threshold dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-thresholds-2.png)
+![The Modify threshold dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-thresholds-2.png)
 
 
 ## Add or remove widgets on a dashboard
@@ -230,12 +230,12 @@ You add widgets to a dashboard by choosing from a list of pre-configured widgets
 **To add a widget**
 
 1. On the dashboard page, choose **Add widget**, as shown in the following image.   
-![The Add widget button on the dashboards page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-add-widget.png)
+![The Add widget button on the dashboards page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-add-widget.png)
 
 1. On the **Add widget** page, select a widget from the list of pre-configured widgets based on the dashboard you are using. The widget is added to the bottom of the dashboard.
 
    The following example of an **Add widget** page shows five Contact widgets that you can add.  
-![Five Contact widgets on the Add widget page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-widget-choose.png)
+![Five Contact widgets on the Add widget page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-widget-choose.png)
 
 When you add a custom widget to the dashboard, you can apply both a widget-level filter and a page-level filter. 
 
@@ -247,7 +247,7 @@ In this example, the widget would filter by Queue 2 and other widgets on the das
 
 To remove a widget from your dashboard, choose the Actions icon and then choose **Remove**, as shown in the following image. 
 
-![The Actions icon, the Remove option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-remove-widget.png)
+![The Actions icon, the Remove option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-remove-widget.png)
 
 
 ## Move and resize widgets
@@ -255,7 +255,7 @@ To remove a widget from your dashboard, choose the Actions icon and then choose 
 
 You can move charts around by choosing and holding the move icon with your mouse and then moving the widget. You can re-size widgets by choosing and dragging the resize icon with your mouse. These two controls are shown in the following image.
 
-![The controls to move the widget around the page or resize it.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contact-categories-actions-view2.png)
+![The controls to move the widget around the page or resize it.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contact-categories-actions-view2.png)
 
 
 ## Create custom dashboards
@@ -263,7 +263,7 @@ You can move charts around by choosing and holding the move icon with your mouse
 
 To create a custom dashboard, on the **Dashboards** tab choose **Create custom**, as shown in the following image. 
 
-![The Create custom button on the Saved dashboards page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-custom.png)
+![The Create custom button on the Saved dashboards page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-custom.png)
 
 
 A new custom dashboard opens. Use the **Add widget** option to customize the dashboard. 
@@ -282,7 +282,7 @@ Complete the following steps to create a custom calculation.
 1. From any [dashboard widget](#dashboard-changing-metrics), select the **Actions** icon and then choose **Edit**.
 
 1. In the metric selection dropdown, under **Custom metrics**, choose **Add custom service level calculation**, as shown in the following image.  
-![The Add custom service level calculation option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-custom-sl-metrics.png)
+![The Add custom service level calculation option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-custom-sl-metrics.png)
 
 1. In the **Add custom service level calculation** form, configure the following settings:
    + **Metric name**:- Enter a unique name (maximum 128 characters)
@@ -296,7 +296,7 @@ Complete the following steps to create a custom calculation.
      + **Contacts abandoned in X seconds/minutes/hours/days**
 
 1. The service level calculation preview updates automatically as you configure these settings.   
-![The Add a custom service level definition page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-create-custom-sl-calc.png)
+![The Add a custom service level definition page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-create-custom-sl-calc.png)
 
    The preview shows:
    + The calculation formula.
@@ -328,7 +328,7 @@ After creating a custom service level metric, you can add it to any dashboard wi
 You can turn on compact mode to fit more data on the screen. Compact mode reduces the spacing and font sizes on the dashboard so you can see more metrics and table rows without scrolling.
 
 1. On the dashboard page, turn on the **Compact mode** toggle, as shown in the following image.  
-![The Compact mode toggle on the dashboard page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-compact-mode-toggle.png)
+![The Compact mode toggle on the dashboard page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-compact-mode-toggle.png)
 
 1. To return to the default spacing, turn off the toggle.
 
@@ -340,7 +340,7 @@ When compact mode is on, the following changes apply:
 
 The following image shows the filter icon used to show or hide filters for a widget.
 
-![The filter icon used to show or hide filters in compact mode.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-show-hide-filter-toggle.png)
+![The filter icon used to show or hide filters in compact mode.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-show-hide-filter-toggle.png)
 
 
 ## Widget pagination
@@ -348,7 +348,7 @@ The following image shows the filter icon used to show or hide filters for a wid
 
 You can use the pagination controls at the bottom of table widgets to move between pages and to change how many rows the widget displays, as shown in the following image.
 
-![The pagination controls at the bottom of a table widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-widget-pagination.png)
+![The pagination controls at the bottom of a table widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-widget-pagination.png)
 
 
 Note the following behavior when you use pagination controls:

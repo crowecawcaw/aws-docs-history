@@ -25,7 +25,7 @@ To enable granular access control for a given user based on the hierarchy they b
 
   This option makes sure that the user being given access can only manage agents that belong to the hierarchy defined in the security profile. For example, enabling this configuration for a given user enables them to manage other users that either belong to the hierarchy group specified in the security profile or a child hierarchy group.
 
-![The Hierarchy-based access control option, the Targeting dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-hbac-enable.png)
+![The Hierarchy-based access control option, the Targeting dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-hbac-enable.png)
 
 
 ## Assign security profiles permissions to access dashboards, reports, and resources
@@ -49,12 +49,12 @@ OR
 OR
 + **Analytics and Optimization - Login/Logout report - View**
 
-![Tabs on the Dashboards and reports page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-hbac-permissions.png)
+![Tabs on the Dashboards and reports page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-hbac-permissions.png)
 
 
 Additionally, the user will need permissions to access resources. The following image shows an example of security profile permissions that grant users the ability to view routing profiles, queues, and Connect Customer user accounts. **Routing profiles - View**, **Queues - View**, and **Users - View** are selected.
 
-![View permissions for routing profiles, queues, and users.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-hbac-resource-permissions.png)
+![View permissions for routing profiles, queues, and users.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-hbac-resource-permissions.png)
 
 
 ## Limitations

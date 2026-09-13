@@ -22,15 +22,15 @@ To have Connect Customer create transcripts of phone calls, see the conversation
 1. Conversations that were recorded have icons in the **Recording/Transcript** column. If you don't have the appropriate permissions, you won't see these icons.
 
    The following image shows what the icons look like for a voice recording. Note the play icon that indicates it's a voice recording.  
-![The contact search page, the play icon, download icon, and delete icon for a voice recording.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recording-icons.png)
+![The contact search page, the play icon, download icon, and delete icon for a voice recording.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recording-icons.png)
 
 1. Choose the **Download** icon, as shown in the following image.   
-![The contact search page, the download icon for a voice recording.](http://docs.aws.amazon.com/connect/latest/adminguide/images/download-recordings.png)
+![The contact search page, the download icon for a voice recording.](https://docs.aws.amazon.com/connect/latest/adminguide/images/download-recordings.png)
 
 1. A voice recording is saved automatically to your **Downloads** folder as a .wav file. 
 
    The following image shows a list of .wav files in a Downloads folder. The name of the .wav file is the contact ID.  
-![A list of .wav file recordings in the downloads folder.](http://docs.aws.amazon.com/connect/latest/adminguide/images/downloaded-wav-files.png)
+![A list of .wav file recordings in the downloads folder.](https://docs.aws.amazon.com/connect/latest/adminguide/images/downloaded-wav-files.png)
 **Tip**  
 In the recording, you might hear only the agent, only the customer, or both the agent and customer. This is determined by how the [Set recording and analytics behavior](set-recording-behavior.md) block is configured. 
 
@@ -38,17 +38,17 @@ In the recording, you might hear only the agent, only the customer, or both the 
 <a name="downloadchat-recordings"></a>
 
 1. The following image shows what the icons look like for a chat transcript.  
-![The contact search page, the transcript icon, download icon, and delete icon.](http://docs.aws.amazon.com/connect/latest/adminguide/images/download-transcript.png)
+![The contact search page, the transcript icon, download icon, and delete icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/download-transcript.png)
 
    A chat transcript is saved to the Downloads folder as a .json file. 
 
    The following image shows a .json file in the Downloads folder. The name of the .json file is the contact ID.  
-![A json file transcript in the downloads folder.](http://docs.aws.amazon.com/connect/latest/adminguide/images/downloaded-json-file.png)
+![A json file transcript in the downloads folder.](https://docs.aws.amazon.com/connect/latest/adminguide/images/downloaded-json-file.png)
 
 1. To view a downloaded chat transcript, open the context menu for the .json file, and then open it with another app that you can use to view the contents in a readable format. 
 
    The following image shows a sample downloaded transcript that has been opened using Firefox. The image shows the middle of the transcript, where the agent and customer are chatting.   
-![A json file transcript opened with Firefox.](http://docs.aws.amazon.com/connect/latest/adminguide/images/download-transcript-firefox.png)
+![A json file transcript opened with Firefox.](https://docs.aws.amazon.com/connect/latest/adminguide/images/download-transcript-firefox.png)
 
 ## Events in a chat transcript
 <a name="chateventcontenttypes"></a>

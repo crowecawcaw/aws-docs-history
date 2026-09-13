@@ -63,10 +63,10 @@ In-flight sensitive data redaction is powered by Conversational Analytics. To en
 
 1. Under **Configure Conversational Analytics** > **Redaction** > **In-flight message redaction**: Select **Enable in-flight redaction**.
 
-![The Set recording, analytics and processing behavior flow block configured with conversational analytics enabled for chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-processing-enable-analytics.png)
+![The Set recording, analytics and processing behavior flow block configured with conversational analytics enabled for chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-processing-enable-analytics.png)
 
 
-![The in-flight message redaction configuration with redaction enabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-processing-redaction-config.png)
+![The in-flight message redaction configuration with redaction enabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-processing-redaction-config.png)
 
 
 For more information about how Conversational Analytics redacts sensitive data, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction).
@@ -137,7 +137,7 @@ You must grant Connect Customer permission to invoke your Lambda function:
 
 Alternatively, you can use the `CreateIntegrationAssociation` API with `IntegrationType` set to `MESSAGE_PROCESSOR`. For more information, see [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) in the *Connect Customer API Reference*.
 
-![The Lambda section in the Amazon Connect console showing the Custom Processor Lambda usecase selection.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-processing-lambda-integration.png)
+![The Lambda section in the Amazon Connect console showing the Custom Processor Lambda usecase selection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-processing-lambda-integration.png)
 
 
 ### Step 3: Activate your Lambda function
@@ -161,7 +161,7 @@ Configure the **Set recording, analytics and processing behavior** flow block wi
 
 **Option 2: Use the StartContactMediaProcessing API**
 
-![The Set recording, analytics and processing behavior flow block configured with Set message processor action for chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-processing-activate-flow-block.png)
+![The Set recording, analytics and processing behavior flow block configured with Set message processor action for chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-processing-activate-flow-block.png)
 
 
 Alternatively, you can activate message processing by calling the `StartContactMediaProcessing` API. This requires your instance ID, the chat's contact ID, the Lambda processor ARN, and a failure mode. For more information, see [StartContactMediaProcessing](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactMediaProcessing.html) in the *Connect Customer API Reference*.

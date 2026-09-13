@@ -4,27 +4,27 @@
 <a name="guided-campaign-builder"></a>
 
 1.  Open the Connect Customer Outbound campaigns page from the Connect Customer admin website.   
-![The Connect Customer navigation menu showing the Outbound campaigns option left navigation pane.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-1.png)
+![The Connect Customer navigation menu showing the Outbound campaigns option left navigation pane.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-1.png)
 
 1. From the **Output Campaigns**, choose Create Campaign.
 
     You have two options to create an outbound campaigns. Use visual journey builder to create multi-channel and multi-steps using an intuitive drag-and-drop canvas, or use guided campaign builder to create a single-channel using step-by-step guidance.  
-![The Campaign management dashboard showing the Create campaign button in the upper right corner.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-2.png)
+![The Campaign management dashboard showing the Create campaign button in the upper right corner.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-2.png)
 
 1. Enter a campaign **Name**.
 **Note**  
 You can also use your own recipient list or campaign management tool by choosing **Host external campaign**. For more information on setting up a campaign with your own resources, see the [High Volume Outbound Communication with Connect Customer Outbound Campaigns](https://aws.amazon.com/blogs/aws/new-high-volume-outbound-communication-with-amazon-connect-outbound-campaigns/) blog post.  
 
-![Host external campaign link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-external-campaign.png)
+![Host external campaign link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-external-campaign.png)
   
-![The Campaign setup page showing the Name field where users enter the campaign name.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-3.png)
+![The Campaign setup page showing the Name field where users enter the campaign name.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-3.png)
 
 1.  Select a **[Customer Segment](https://docs.aws.amazon.com/connect/latest/adminguide/customer-segments-managing-segments.html)** to use for this campaign.  Recipients for the campaign will be determined at the campaign's scheduled start time using the chosen segment. 
 **Spark SQL segments not supported**  
 Managed campaigns do not support the use of Spark SQL segments. You must use Classic segments.
 
 1.  Choose the **Channel** for the main communication of the campaign. The supported channels include **Agent assisted voice**, **Automated voice**, **Email**, and **SMS**.   
-![The Channel selection interface showing options for Agent assisted voice, Automated voice, Email.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-4.png)
+![The Channel selection interface showing options for Agent assisted voice, Automated voice, Email.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-4.png)
 
 **Note**  
  Recipients with incorrect or invalid endpoints are dropped from the communication. For example, for an Email campaign, a recipient with email address "jane.doe@abc\!com" is not valid and will not be processed. 
@@ -49,7 +49,7 @@ Outbound campaigns supports the following channels. Choose the channel that matc
 1.  Select an **Email Message Template** to use when sending.   
 
 1.  Select the **Template Alias or Version** number to use with the campaign.  If you select an alias, then the contents of emails sent by the campaign might change when the alias is updated to point to a new template version. If you select a version, the campaign will always send the exact same content for the life of the campaign.   
-![Email campaign creation interface with sender, template, and scheduling configuration options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_email-1.png)
+![Email campaign creation interface with sender, template, and scheduling configuration options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_email-1.png)
 
 ------
 #### [ Agent Assisted Voice ]
@@ -81,7 +81,7 @@ Enter the desired **Agent Allocation**.  This allocation is a weight assigned t
  If you disable call classification, and if your flow includes the [Check call progress](https://docs.aws.amazon.com/connect/latest/adminguide/check-call-progress.html) block, the contact is routed down the Error branch. 
 For preview dialing mode, a contact is enqueued only when there is a [Transfer to queue](transfer-to-queue.md) set in the flow. For a list of supported blocks, see **Chat** channel of [Supported channels for flow blocks in Connect Customer](block-support-by-channel.md).
 Preview dialing mode does not support [agent whisper flow](create-contact-flow.md#contact-flow-types), however the [outbound whisper flow](create-contact-flow.md#contact-flow-types) can play the intended whisper to the agent.
-For preview dialing mode, please adjust contact flow to use profile id as the default search key in agent workspace. For more information, see [ Use contact attributes to autopopulate customer profiles](https://docs.aws.amazon.com/connect/latest/adminguide/auto-pop-customer-profile.html).  
+For preview dialing mode, please adjust contact flow to use profile id as the default search key in the agent workspace. For more information, see [ Use contact attributes to autopopulate customer profiles](https://docs.aws.amazon.com/connect/latest/adminguide/auto-pop-customer-profile.html).  
 
   ```
   {
@@ -90,18 +90,18 @@ For preview dialing mode, please adjust contact flow to use profile id as the de
   }
   ```
 
-![Customer Profiles Attributes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-campaign-preview-customer-profiles-attribute.png)
+![Customer Profiles Attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-campaign-preview-customer-profiles-attribute.png)
 
  Ensure **Enable wait for prompt** is selected. If it is not selected, the ML-powered call classifier won't listen for a voicemail prompt, and instead the next block in the flow will be triggered immediately.   
 
-![Agent-assisted voice campaign creation interface with configuration options and settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_agent-assisted-voice-1.png)
+![Agent-assisted voice campaign creation interface with configuration options and settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_agent-assisted-voice-1.png)
 
 
 When you select predictive dialing mode, the **Pacing controls** section helps you configure maximum ring time, dialing capacity allocation, agent allocation, and abandonment rate thresholds:
 
 The following image shows the pacing controls section.
 
-![Pacing controls section showing max ring time, dialing capacity allocation, and agent allocation fields for a predictive voice campaign.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-campaign-pacing-controls.png)
+![Pacing controls section showing max ring time, dialing capacity allocation, and agent allocation fields for a predictive voice campaign.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-campaign-pacing-controls.png)
 
 + **Maximum ring time for unanswered calls** – The maximum number of seconds a call will ring before ending. Valid values: 15 to 60 seconds.
 + **Dialing capacity allocation** – Allocates telecom dialing capacity for this campaign relative to other active campaigns. When multiple campaigns run concurrently, the dialer distributes capacity proportionally based on each campaign's allocation value. Valid values: 1% to 100%.
@@ -111,7 +111,7 @@ For predictive dialing mode, you can enable abandonment controls to automaticall
 
 The following image shows the abandonment controls settings.
 
-![Abandonment controls settings showing abandonment time start point, connection threshold, target abandonment rate, and measurement window.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-campaign-abandonment-controls.png)
+![Abandonment controls settings showing abandonment time start point, connection threshold, target abandonment rate, and measurement window.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-campaign-abandonment-controls.png)
 
 + **Abandonment time start point** – When the abandonment timer starts. The available options depend on whether call classification is enabled:
   + **Greeting start time** – Timer starts when the customer begins speaking.
@@ -141,7 +141,7 @@ Not all phone numbers can be used for Connect Customer Outbound campaigns. Outsi
  Telecom regulations in certain countries dictate use of phone numbers from specific carriers for outbound calling. For more information, see the [Amazon Connect Telecoms Country Coverage Guide](https://d1v2gagwb6hfe1.cloudfront.net/Amazon_Connect_Telecoms_Coverage.pdf) to learn more. 
  Enable call classification if desired.   
 
-![Automated voice campaign creation interface showing configuration options for outbound calls.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_automated-voice-1.png)
+![Automated voice campaign creation interface showing configuration options for outbound calls.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_automated-voice-1.png)
 
 
 ------
@@ -152,7 +152,7 @@ Not all phone numbers can be used for Connect Customer Outbound campaigns. Outsi
 1.  Select an **SMS Message Template** to use when sending.   
 
 1.  Select the **Template alias or version** number to use with the campaign.  If you select an alias, then the contents of SMS sent by the campaign might change when the alias is updated to point to a new template version.  On the other hand, if select a version, the campaign will always send the exact same content for the life of the campaign.   
-![SMS configuration panel showing originator selection, SMS message template dropdown.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_sms-1.png)
+![SMS configuration panel showing originator selection, SMS message template dropdown.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_sms-1.png)
 
 ------
 #### [ WhatsApp ]
@@ -167,7 +167,7 @@ For information about adding tags to your WABA, see [Getting started with AWS En
 1.  Select a **WhatsApp Message Template** to use when sending.   
 
 1.  Select the **Template alias or version** number to use with the campaign. If an alias is selected, then the contents of WhatsApp sent by the campaign might change when the alias is updated to point to a new template version. If a Version is selected, the campaign will always send the exact same content for the life of the campaign.   
-![WhatsApp configuration page showing originator selection, WhatsApp message template dropdown.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_whatsapp-1.png)
+![WhatsApp configuration page showing originator selection, WhatsApp message template dropdown.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create_campaign_whatsapp-1.png)
 
 ------
 
@@ -197,12 +197,12 @@ Any communications sent from a campaign that **ignores total limits** will **not
 
 **Total Communication Limits**
 
-![Total Communication Limits.](http://docs.aws.amazon.com/connect/latest/adminguide/images/communications-per-recipient-1.png)
+![Total Communication Limits.](https://docs.aws.amazon.com/connect/latest/adminguide/images/communications-per-recipient-1.png)
 
 
 **Campaign Communication Limits frames**
 
-![Campaign Communication Limits frames.](http://docs.aws.amazon.com/connect/latest/adminguide/images/communications-per-recipient-1-1.png)
+![Campaign Communication Limits frames.](https://docs.aws.amazon.com/connect/latest/adminguide/images/communications-per-recipient-1-1.png)
 
 
 ### Outbound campaigns reattempt rules
@@ -224,17 +224,17 @@ By default, you can only re-attempt one time unless you configure engagement pre
 
 The following image shows an example of setting the **Retry** rule for **Bounced** email.
 
-![Reattempt rules configuration panel showing retry settings for failed contact attempts.](http://docs.aws.amazon.com/connect/latest/adminguide/images/reattempt-rules-1.png)
+![Reattempt rules configuration panel showing retry settings for failed contact attempts.](https://docs.aws.amazon.com/connect/latest/adminguide/images/reattempt-rules-1.png)
 
 
 The following image shows if you choose **Send email** in response to a **Bounced** email, you are prompted to provide the **Outgoing email address**, **Friendly sender name**, **Email template**, and version.
 
-![The options to configure a new email to send in response to a bounced email.](http://docs.aws.amazon.com/connect/latest/adminguide/images/reattempt-rules-2.png)
+![The options to configure a new email to send in response to a bounced email.](https://docs.aws.amazon.com/connect/latest/adminguide/images/reattempt-rules-2.png)
 
 
 The following image shows if you choose **Send SMS** in response to a **Bounced** email, you are prompted to provide the **Phone number**, **SMS template**, and **Template alias or version**.
 
-![The options to configure an SMS message in response to a bounced email.](http://docs.aws.amazon.com/connect/latest/adminguide/images/reattempt-rules-3.png)
+![The options to configure an SMS message in response to a bounced email.](https://docs.aws.amazon.com/connect/latest/adminguide/images/reattempt-rules-3.png)
 
 
 ## Campaign set up and Cycling through recipient contact types for communication
@@ -250,7 +250,7 @@ Configure engagement preferences and upload data into Customer Profiles. For det
 **Note**  
 You can set the number of retry attempts and next actions, but communications will not exceed the maximum limits set for each recipient.
 
-![You can set the number of retry attempts and next actions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-1.png)
+![You can set the number of retry attempts and next actions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-1.png)
 
 
 **Example scenarios**
@@ -262,7 +262,7 @@ Priority dialing order (in Customer Profile):
 
 **Scenario A - Call Attempts:** All numbers fail with "Busy"- Retry action: Call again. Max dial attempts per number: 0. Toggled to retry all available numbers for the recipient.
 
-![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 0.](http://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-example-A.png)
+![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 0.](https://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-example-A.png)
 
 
 
@@ -274,7 +274,7 @@ Priority dialing order (in Customer Profile):
 
 **Scenario B - Call Attempts:** All numbers fail with "Busy"- Retry action: Call again. Max dial attempts per number: 2. Toggled to retry all available numbers for the recipient.
 
-![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 2.](http://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-example-B.png)
+![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 2.](https://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-example-B.png)
 
 
 
@@ -292,7 +292,7 @@ Priority dialing order (in Customer Profile):
 
 **Scenario C - Call Attempts:** All numbers fail with "Busy"- Retry action: Call again. Max dial attempts per number: 2. Toggled NOT to retry all available numbers for the recipient.
 
-![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 2.](http://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-example-C.png)
+![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 2.](https://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-example-C.png)
 
 
 
@@ -304,7 +304,7 @@ Priority dialing order (in Customer Profile):
 
 **Scenario D - Call Attempts:** Mixed disposition between "Unanswered", "Busy"- Retry action: Call again. Max dial attempts per number: 2. Toggled to retry all available numbers for the recipient.
 
-![Mixed disposition between Unanswered, Busy- Retry action: Call again. Max dial attempts per number: 2.](http://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-example-D.png)
+![Mixed disposition between Unanswered, Busy- Retry action: Call again. Max dial attempts per number: 2.](https://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-set-up-and-cycling-through-recipient-contant-types-example-D.png)
 
 
 
@@ -345,7 +345,7 @@ Priority dialing order (in Customer Profile):
     + **Primary only** — Uses only the primary phone number or address attributes from the recipient's customer profile to determine the time zone.
     + **All available** — Uses all phone number or address attributes from the recipient's customer profile to determine the time zone.
 
-![Time zone configuration panel for setting campaign contact hours by geographic region.](http://docs.aws.amazon.com/connect/latest/adminguide/images/time-zone-1.png)
+![Time zone configuration panel for setting campaign contact hours by geographic region.](https://docs.aws.amazon.com/connect/latest/adminguide/images/time-zone-1.png)
 
 
 ### Active communication time
@@ -363,7 +363,7 @@ Priority dialing order (in Customer Profile):
 Connect Customer Outbound campaigns will evaluate the **From** and **To** times relative to either the **Standard time zone** or the **Recipient's local time zone**, whichever is specified. 
  If you don't provide an **Active communication time**, communications to intended recipients are attempted as soon as the campaign is published.
 
-![Active communication time configuration panel showing day and time selection for campaign outreach.](http://docs.aws.amazon.com/connect/latest/adminguide/images/active-communication-time-1.png)
+![Active communication time configuration panel showing day and time selection for campaign outreach.](https://docs.aws.amazon.com/connect/latest/adminguide/images/active-communication-time-1.png)
 
 
 ### Exceptions to communication time - (optional)
@@ -379,7 +379,7 @@ Connect Customer Outbound campaigns will evaluate the **From** and **To** tim
 **Important**  
 The end date is exclusive. For example, if you select July 12 - 13, it blocks all communications only from 00:00 July 12 to 23:59 July 12. **July 13 would have no exception**.
 
-![Configuration panel for setting exceptions to standard communication time rules.](http://docs.aws.amazon.com/connect/latest/adminguide/images/exceptions-to-communication-time-optional-1.png)
+![Configuration panel for setting exceptions to standard communication time rules.](https://docs.aws.amazon.com/connect/latest/adminguide/images/exceptions-to-communication-time-optional-1.png)
 
 
 ## Review and publish
@@ -392,7 +392,7 @@ The end date is exclusive. For example, if you select July 12 - 13, it blocks al
 
  After you have reviewed your campaign, choose **Publish** to schedule your campaign. 
 
-![Review and publish screen showing campaign configuration summary before final publication.](http://docs.aws.amazon.com/connect/latest/adminguide/images/review-and-publish-1.png)
+![Review and publish screen showing campaign configuration summary before final publication.](https://docs.aws.amazon.com/connect/latest/adminguide/images/review-and-publish-1.png)
 
 
 ## Schedule campaign
@@ -405,12 +405,12 @@ The end date is exclusive. For example, if you select July 12 - 13, it blocks al
 
 The start and end times of a campaign that starts now or a campaign that starts later are based on your local time zone.
 
-![Campaign scheduling options showing start now, start later, and expiry date/time settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-campaign-1.png)
+![Campaign scheduling options showing start now, start later, and expiry date/time settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-campaign-1.png)
 
 
  **Repeats** 
 
-![Campaign frequency configuration with repeating schedule options and publish button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-campaign-2.png)
+![Campaign frequency configuration with repeating schedule options and publish button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-campaign-2.png)
 
 
  If you want your campaign to repeat running, select the **Repeats** radio button and choose a **Frequency**.  Connect Customer Outbound campaigns will then refresh profiles in the segment specified for this campaign at the same frequency you select.  For example, if you schedule your campaign to start at 7:03AM EST and use a Daily Frequency, then profiles will be refreshed in the segment daily at 7:03AM EST. 
@@ -439,7 +439,7 @@ Entry limits control how many times and how often the same profile can enter the
 
 After a campaign is running, you can stop it. You can also delete a campaign at any time.
 
-![Campaign state diagram showing transitions between Active, Paused, Stopped, and Failed states.](http://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-states-1.png)
+![Campaign state diagram showing transitions between Active, Paused, Stopped, and Failed states.](https://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-states-1.png)
 
 
  Following is a description of each campaign state: 
@@ -449,4 +449,4 @@ After a campaign is running, you can stop it. You can also delete a campaign at 
 +  **Error**: An error state caused the campaign to fail. 
 +  **Completed**: The campaign has finished running. All participants have entered the campaign and no participants are waiting to complete the campaign. 
 
-![Detailed view of campaign state options and actions available for campaign management.](http://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-states-2.png)
+![Detailed view of campaign state options and actions available for campaign management.](https://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-states-2.png)

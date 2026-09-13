@@ -25,7 +25,7 @@ After creating a forecast, you do not need to generate it manually.
 1. Select the **Forecast** tab, and then choose **Create Forecast**.
 
 1. On the **Create Forecast** page, choose the forecast groups.  
-![The Create forecast page, the Forecast groups dropdown menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-create-forecast.png)
+![The Create forecast page, the Forecast groups dropdown menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-create-forecast.png)
 
 1. Choose the forecast type. Connect Customer creates a forecast for each type you select.
    + **Long-term** forecasts are used for capacity planning. For example, how many Full Time Equivalent (FTE) agents you need to hire in the next few months, quarter, and year.
@@ -38,4 +38,4 @@ After creating a forecast, you do not need to generate it manually.
     The status is **Complete** when the computation finishes. You can use **Search** to find forecasts by forecast group name.
 
 1. Connect Customer creates a forecast for each forecast type, as shown in the following image.  
-![A list of forecasts, short-term and long-term.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-types.png)
+![A list of forecasts, short-term and long-term.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-types.png)

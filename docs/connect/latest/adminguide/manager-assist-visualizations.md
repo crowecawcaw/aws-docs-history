@@ -5,7 +5,7 @@
 
 You can generate charts and tables to help you understand metric trends and patterns. When you ask a question about your contact center data, the response can be supplemented with an interactive chart or table that is rendered in the chat panel.
 
-![A response in the assistant panel with a combined bar and line chart that shows contacts handled per day and the abandonment rate for the same period.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-visualization.png)
+![A response in the assistant panel with a combined bar and line chart that shows contacts handled per day and the abandonment rate for the same period.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-visualization.png)
 
 
 ## Supported visualizations

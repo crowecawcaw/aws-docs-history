@@ -1,9 +1,9 @@
 
 
-# In-Canvas analytics
+# Flow traffic
 <a name="acxd-in-canvas-analytics"></a>
 
-In-Canvas analytics helps you understand how users move through a deployed flow directly from the Canvas.
+Flow traffic shows how conversations move through a deployed flow — where users continue, drop off, retry, or escalate — with usage displayed on each node directly in the flow's Canvas.
 
 When analytics mode is enabled, each node displays traffic data showing how many unique conversations reached that node. This helps you identify common paths, underused branches, drop-off points, A/B testing results, and whether users are reaching the intended completion steps.
 
@@ -23,9 +23,9 @@ A build that includes the flow must be deployed before In-Canvas analytics can d
 
 **To view In-Canvas analytics**
 
-1. Open **Flows** from the workspace menu.
+1. Open **Resources** from the workspace menu.
 
-1. Select **Canvas**.
+1. Select **Flows**.
 
 1. Choose the flow you want to review.
 
@@ -47,11 +47,11 @@ Use these indicators to quickly compare:
 
 |  |  | 
 | --- |--- |
-| **High traffic** | Many users are reaching this point in the flow. | 
-| **Low traffic** | Users may not be reaching the intended route. | 
-| **Unexpected fallback traffic** | Users may be confused, unsupported, or encountering errors. | 
-| **Drop-off before completion** | The flow may be too long, unclear, or blocked by missing information. | 
-| **Uneven split traffic** | Routing, conditions, or state may need review. | 
+| **High traffic on a node** | Many users are reaching this point in the flow. | 
+| **Low traffic on an expected path** | Users may not be reaching the intended route. | 
+| **High traffic on fallback or escalation paths** | Users may be confused, unsupported, or encountering errors. | 
+| **Drop-off before a completion node** | The flow may be too long, unclear, or blocked by missing information. | 
+| **Unexpected traffic on a branch** | Routing, conditions, or state may need review. | 
 
 In-Canvas analytics is especially useful when you want to connect a performance signal to the exact path users took inside a flow.
 
@@ -65,9 +65,9 @@ Use filters to refine the analytics view and focus on the conversations that mat
 | --- |--- |
 | **Application** | Review data for a specific application, especially when a flow is attached to more than one application. | 
 | **Conversation ID** | View the path taken during one specific conversation retrieved from conversation history. | 
-| **Start date** | Set the beginning of the date and time range. | 
-| **End date** | Set the end of the date and time range. | 
-| **Analytics tags** | Focus on conversations that reached nodes with selected analytics tags. | 
+| **Start time** | Set the beginning of the date and time range. | 
+| **End time** | Set the end of the date and time range. | 
+| **Tag** | Focus on conversations that reached nodes with selected analytics tags. | 
 
 Filters help you narrow your review when investigating a release window, a specific user session, a known issue, or a tagged milestone.
 
@@ -80,7 +80,7 @@ You can use a Conversation ID to inspect the exact path from one conversation:
 
 1. Go to **Observe**.
 
-1. Open a conversation from the **Conversation history** table.
+1. Open a conversation from the **Transcripts** table.
 
 1. Copy the **Conversation ID**.
 

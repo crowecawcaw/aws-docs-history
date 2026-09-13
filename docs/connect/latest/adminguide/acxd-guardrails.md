@@ -9,7 +9,7 @@ They act as a safety, compliance, and brand-control layer for conversations by c
 
 Once created in your workspace, guardrails can be attached to one or more applications.
 
-To access guardrails, select **Guardrails** from your workspace menu, then choose **Guardrails**.
+To access guardrails, select **Resources** from your workspace menu, then choose **Guardrails**.
 
 A guardrail is a reusable resource that evaluates conversation messages at runtime.
 
@@ -59,6 +59,14 @@ Guardrails can include multiple rules, so clear naming is important.
 
 Use descriptive rule names that make the purpose easy to understand at a glance.
 
+Examples:
++ Prompt injection detection
++ PII masking
++ Unsupported financial advice
++ Brand voice compliance
++ Hallucinated claim detection
++ Private account data disclosure
+
 Clear rule names make guardrails easier to review, test, troubleshoot, and maintain over time.
 
 ## Enforcement actions
@@ -99,7 +107,7 @@ Testing helps confirm whether rules detect the correct messages and apply the ex
 
 **To test a guardrail**
 
-1. Open **Guardrails**.
+1. Open **Resources**.
 
 1. Select **Guardrails**.
 
@@ -119,7 +127,7 @@ Test results help show whether each rule was clear or triggered.
 |  |  | 
 | --- |--- |
 | **Clear** | The message did not violate that rule. | 
-| **Triggered** | The rule was triggered for the test message. | 
+| **Violation** | The rule was triggered for the test message. | 
 
 Use a range of sample messages when testing. Include messages that should trigger the rule and messages that should not trigger it.
 
@@ -189,7 +197,7 @@ This is useful for testing, temporary policy changes, troubleshooting, or preser
 
 **To deactivate a rule**
 
-1. Open **Guardrails**.
+1. Open **Resources**.
 
 1. Select **Guardrails**.
 

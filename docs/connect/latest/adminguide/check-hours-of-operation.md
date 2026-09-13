@@ -60,7 +60,7 @@ Select the **Check hours of operation** flow block to view its properties and de
    1. If not specified, Connect Customer will use the hours associated with a contact's queue.
 
 1. If you wish to set up special branching for certain dates, find the **Optional branches** section.  
-![Check hours of operation properties.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-hours-of-operation-properties.png)
+![Check hours of operation properties.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-hours-of-operation-properties.png)
 
 1. Select **Check override**.
 
@@ -69,7 +69,7 @@ Select the **Check hours of operation** flow block to view its properties and de
 1. Select **Confirm** then save your change.
 
 1. Repeat as needed.  
-![Check hours of operation branches.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-hours-of-operation-branches.png)
+![Check hours of operation branches.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-hours-of-operation-branches.png)
 
 1. Build out the desired flow path for each new node.
 

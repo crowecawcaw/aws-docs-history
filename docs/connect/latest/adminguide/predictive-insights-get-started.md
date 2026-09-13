@@ -191,7 +191,7 @@ The implementation supports both chat contacts and voice calls, with customer in
 ### Configuring SalesAgent to be used for Agent Assistance
 <a name="configure-salesagent"></a>
 
-You can configure the SalesAgent to be used within the Q in connect chat widget in Agent Workspace. To do so you need to modify 2 main things. 
+You can configure the SalesAgent to be used within the Q in connect chat widget in the agent workspace. To do so you need to modify 2 main things. 
 
 1. Update the AIAgent prompt with instructions to access the contact transcript. 
 

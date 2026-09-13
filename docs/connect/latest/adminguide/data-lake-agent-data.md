@@ -40,8 +40,8 @@ The following tables contain agent data.
 |  agent\_hierarchy\_level\_3\_id  |  string  |  Yes  |  ID of level 3 Hierarchy Group.  | 
 |  agent\_hierarchy\_level\_4\_id  |  string  |  Yes  |  ID of level 4 Hierarchy Group. | 
 |  agent\_hierarchy\_level\_5\_id  |  string  |  Yes  |  ID of level 5 Hierarchy Group.  | 
-|  interval\_start\_time  |  Timestamp  |  Yes  |  Timestamp of the conversation when interval started.  | 
-|  interval\_end\_time  |  Timestamp  |  Yes  |  Timestamp of the conversation when interval ended.  | 
+|  interval\_start\_time  |  Timestamp  |  No  |  Timestamp of the conversation when interval started.  | 
+|  interval\_end\_time  |  Timestamp  |  No  |  Timestamp of the conversation when interval ended.  | 
 |  published\_date  |  Timestamp  |  Yes  |   | 
 |  aws\_account\_id  |  string  |  Yes  |  The ID of the AWS account that owns the contact.  | 
 |  queue\_id  |  string  |  Yes  |  The identifier of the queue.  | 
@@ -101,8 +101,8 @@ The following tables contain agent data.
 |  agent\_hierarchy\_level\_3\_id  |  string  |  Yes  |  ID of level 3 Hierarchy Group.  | 
 |  agent\_hierarchy\_level\_4\_id  |  string  |  Yes  |  ID of level 4 Hierarchy Group.  | 
 |  agent\_hierarchy\_level\_5\_id  |  string  |  Yes  |  ID of level 5 Hierarchy Group.  | 
-|  interval\_start\_time  |  Timestamp  |  Yes  |  Timestamp of the conversation when interval started.  | 
-|  interval\_end\_time  |  Timestamp  |  Yes  |  Timestamp of the conversation when interval ended.  | 
+|  interval\_start\_time  |  Timestamp  |  No  |  Timestamp of the conversation when interval started.  | 
+|  interval\_end\_time  |  Timestamp  |  No  |  Timestamp of the conversation when interval ended.  | 
 |  published\_date  |  Timestamp  |  Yes  |   | 
 |  aws\_account\_id  |  string  |  Yes  |  The ID of the AWS account that owns the contact.  | 
 |  online\_time  |  bigint  |  Yes  |  Total time that an agent spent with their CCP set to a status other than Offline. This includes any time spent in a custom status. When you create a historical metrics reports, this metric can't be grouped or filtered by queue, phone number, or channels.  | 

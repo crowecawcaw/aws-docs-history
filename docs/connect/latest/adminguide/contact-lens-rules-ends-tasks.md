@@ -6,11 +6,11 @@
 **To create a rule that ends associated tasks**
 
 1. When you create your rule, choose **A new case is updated** as the event source.  
-![The new rule page, the add action dropdown menu, the a case is added option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-update-case-1.png)
+![The new rule page, the add action dropdown menu, the a case is added option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-update-case-1.png)
 
 1. When you create your rule, choose **End tasks** for the action.  
-![The new rule page, the add action dropdown menu, the end tasks option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-ends-tasks-2.png)  
-![The end tasks option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-ends-tasks-3.png)
+![The new rule page, the add action dropdown menu, the end tasks option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-ends-tasks-2.png)  
+![The end tasks option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-ends-tasks-3.png)
 
 1. Choose **Next**. Review and then choose **Save**.
 

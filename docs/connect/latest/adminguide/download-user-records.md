@@ -10,4 +10,4 @@ You can export a list of users from Connect Customer to a CSV file. Use **Select
 1. In Connect Customer, on the left navigation menu, choose **Users**.
 
 1. Select the users you want to export. To select all users from the search results, choose **Select all**. Then choose **Download CSV**.  
-![The User management page with all search results selected and the Download CSV option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-bulk-download.png)
+![The User management page with all search results selected and the Download CSV option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-bulk-download.png)

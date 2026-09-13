@@ -12,4 +12,4 @@ We recommend using loudness scores together with sentiments. Look for areas of t
 
 For example, the following is an image of a recording and transcript analysis. Spiked vertical bars indicate where the customer is talking loudly. The horizontal red bars indicate their sentiment is negative.
 
-![The contact details page, loudness scores.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-amplitude.png)
+![The contact details page, loudness scores.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-amplitude.png)

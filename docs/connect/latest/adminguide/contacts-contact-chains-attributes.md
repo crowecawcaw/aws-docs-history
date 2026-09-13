@@ -26,7 +26,7 @@ Similarly, in email communications, multiple exchanges between customers and bus
 
 The following image illustrates the hierarchical relationship among initial contact ID, related contact ID, and associated contact ID within the Connect Customer contact management framework. With this hierarchical relationship, you can trace and analyze the complete lifecycle of customer interactions.
 
-![The relationship among initial contact ID related contact ID, and associated contact ID.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-chain.png)
+![The relationship among initial contact ID related contact ID, and associated contact ID.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-chain.png)
 
 
 ## Contact attributes

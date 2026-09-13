@@ -42,16 +42,16 @@ For example, if you notice in your [Agent performance evaluations dashboard](age
 1. When creating a new coaching session, first select a participant.
 
 1. Add scored evaluation forms as session topics. For example, select the evaluation form, section, or question that contains the empathy criteria the agent scored low on. Suggestions are based on these evaluation forms.  
-![Adding a scored evaluation form as a coaching session topic.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-add-scored-topic.png)
+![Adding a scored evaluation form as a coaching session topic.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-add-scored-topic.png)
 
 1. Connect Customer automatically suggests evaluations for this participant. You can choose to add suggestions as strengths or opportunities.  
-![Automated evaluation suggestions shown as strengths or opportunities.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-evaluation-suggestions.png)
+![Automated evaluation suggestions shown as strengths or opportunities.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-evaluation-suggestions.png)
 
 1. Select **Show strength suggestions** or **Show opportunity suggestions** to view more suggestions, or filter suggestions based on different criteria, such as score range, date range, or certain topics.  
-![Filtering evaluation suggestions by score range, date range, or topic.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-filter-evaluation-suggestions.png)
+![Filtering evaluation suggestions by score range, date range, or topic.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-filter-evaluation-suggestions.png)
 
 1. You can edit the coaching session by specifying dates, times, and location, providing detailed feedback, and setting improvement goals on coaching topics.  
-![The edit coaching session page with fields for dates, times, location, feedback, and goals.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-edit-coaching-session.png)
+![The edit coaching session page with fields for dates, times, location, feedback, and goals.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-edit-coaching-session.png)
 **Note**  
 **Session due date** is mandatory.
 
@@ -73,25 +73,25 @@ For example, if you notice in your [Agent performance evaluations dashboard](age
 1. Select **Analytics and Optimization** > **Contact search** from the navigation bar on the left.
 
 1. From **Contact Search**, find contacts that have been evaluated for the agent that you want to coach. For example, you can find contacts where the evaluation score is less than 70%:  
-![The Contact Search page with an evaluation score filter applied.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-evaluation-score-filter.png)
+![The Contact Search page with an evaluation score filter applied.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-evaluation-score-filter.png)
 
 1. Open a contact that has been evaluated, and view the evaluations on the right pane.
 
 1. Open an evaluation and choose **Coach on this evaluation**.  
-![The Coach on this evaluation button on an evaluation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-coach-on-this-evaluation-button.png)
+![The Coach on this evaluation button on an evaluation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-coach-on-this-evaluation-button.png)
 
 1. You can add the entire evaluation, a specific section or question to a coaching session:  
-![Adding evaluation items to a coaching session.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-add-evaluation-items.png)
+![Adding evaluation items to a coaching session.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-add-evaluation-items.png)
 
 1. You can link the evaluation, its sections or questions to an existing coaching session, or create a new session. Items can be linked as strength or growth opportunities.  
-![The dialog for adding a question to a coaching session.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-add-question-to-coaching-dialog.png)
+![The dialog for adding a question to a coaching session.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-add-question-to-coaching-dialog.png)
 
 1. After you add an evaluation or its items for coaching, a link will be provided to view the coaching session.
 
 1. You can link up to 10 evaluations or evaluation items to a single coaching session as examples of agent strength or growth opportunities. To link additional evaluations, repeat steps 2 through 7
 
 1. You can edit the coaching session by specifying dates, times, and location, providing detailed feedback, and setting improvement goals on coaching topics.  
-![The edit coaching session page with fields for dates, times, location, feedback, and goals.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-edit-coaching-session.png)
+![The edit coaching session page with fields for dates, times, location, feedback, and goals.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-edit-coaching-session.png)
 **Note**  
 **Session due date** is mandatory.
 
@@ -120,4 +120,4 @@ This page provides advanced search capabilities. You can search for coaching ses
 + That are completed, but not yet acknowledged by the participant
 + And more
 
-![The coaching sessions search page with filter options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-search-filters.png)
+![The coaching sessions search page with filter options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-search-filters.png)

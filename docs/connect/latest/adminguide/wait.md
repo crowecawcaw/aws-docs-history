@@ -37,7 +37,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Config** tab of the **Wait** block.
 
-![The settings the Wait block, the Config tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wait-properties.png)
+![The settings the Wait block, the Config tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wait-properties.png)
 
 
 It has the following properties: 
@@ -55,7 +55,7 @@ It has the following properties:
       + This event is available in the same Regions as Connect Customer Cases. For the list of Regions, see [Cases availability by Region](regions.md#cases_region).
     + **External Tool returned**: Wait for an asynchronous External Tool invocation to complete.
       + This event is available in the same Regions as the [External Tool](external-tool.md) block. For the list of Regions, see [External Tool](regions.md#externaltool_region).  
-![The Wait block configured with event based wait.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wait-event-based.png)
+![The Wait block configured with event based wait.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wait-event-based.png)
 + **Keep running while waiting**: Temporarily route the contact down the **Continue** branch while waiting on the block. This optional branch is available only when **Participant Type** = **Default**.
 
 ## Configuration tips
@@ -81,20 +81,20 @@ If the wrong Invocation ID is provided to the **Wait** block, it continues to wa
   + Compound conditions with **And** or **Or**. A compound condition needs at least two sub-conditions and cannot be nested more than one level deep.
 
   For example, to route a contact only after a case is resolved and a refund has been issued, add a **Case fields updated** branch, provide the **Case ID**, select **Compound Condition** as the condition type, and add two sub-conditions: a **String condition** where **status** **Equals** **resolved**, **And** a **Number condition** where **refund\_amount** **Greater than** 0. The contact routes down this branch only when both conditions are true.  
-![The Wait block's Case fields updated branch with Compound Condition selected as the condition type.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wait-case-fields-example.png)  
-![The Wait block's Case fields updated branch fully configured with the And compound condition checking status equals resolved and refund_amount greater than 0.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wait-case-fields-example-2.png)
+![The Wait block's Case fields updated branch with Compound Condition selected as the condition type.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wait-case-fields-example.png)  
+![The Wait block's Case fields updated branch fully configured with the And compound condition checking status equals resolved and refund_amount greater than 0.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wait-case-fields-example-2.png)
 
 ## Configured block
 <a name="wait-configured"></a>
 
 The following image shows an example of what this block looks like when it is configured with **Participant Type** = **Default**. It has the following branches: **Time Expired** and **Error**. 
 
-![A configured Wait block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wait-configured.png)
+![A configured Wait block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wait-configured.png)
 
 
 The following image shows an example of what this block looks like when it is configured with **Participant Type** = **Bot**. It has the following branches: **Bot participant disconnected**, **Participant not found**, **Time Expired**, and **Error**. 
 
-![A configured Wait block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wait-configured2.png)
+![A configured Wait block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wait-configured2.png)
 
 
 1. **Bot participant disconnected**: The custom participant, such as a third-party bot, has successfully disconnected to the contact. 
@@ -105,7 +105,7 @@ The following image shows an example of what this block looks like when it is co
 
 The following image shows an example of what this block looks like when it is configured with **Set event based wait**. It shows the event branches configured for the block.
 
-![A configured Wait block with event based wait branches.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wait-configured-event-based.png)
+![A configured Wait block with event based wait branches.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wait-configured-event-based.png)
 
 
 ## Sample flows

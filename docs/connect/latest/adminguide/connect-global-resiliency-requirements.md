@@ -20,4 +20,4 @@ Then later use that attribute key in the [AWS Lambda function](invoke-lambda-fun
 + For Amazon Lex bots, you can do one of the following:
   + Use Amazon Lex Global Resiliency to replicate bots across AWS Regions and retain the bot ID.
   + Change your flows to branch based on the AWS Region where the flow is running. At flow runtime, these parameters are replaced with the Region where the flow is run, as shown in the following example.  
-![The properties page of the check contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/acgr-requirements.png)
+![The properties page of the check contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/acgr-requirements.png)

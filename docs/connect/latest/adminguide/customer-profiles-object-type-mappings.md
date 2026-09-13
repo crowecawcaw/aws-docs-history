@@ -52,10 +52,10 @@ For a list of the required IAM permissions needed for Customer Profiles to acces
 For **ProfileType** `PROFILE`, you can ingest and add engagement preferences using the same method.
 
 1. Create two data mappings - one for sub-profiles and one for account-based profiles.  
-![Create two data source integration that will each create a mapping based off the relationship described.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ingesting-account-based-profiles-1.png)
+![Create two data source integration that will each create a mapping based off the relationship described.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ingesting-account-based-profiles-1.png)
 
 1. Next, map customer profile attributes. Note the destination called `ProfileType`.  
-![Next, map customer profile attributes. Note the destination called ProfileType.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ingesting-account-based-profiles-2.png)
+![Next, map customer profile attributes. Note the destination called ProfileType.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ingesting-account-based-profiles-2.png)
 
    **Sample object-type mapping for ingesting profiles referenced in account-based profiles**
 
@@ -117,7 +117,7 @@ For **ProfileType** `PROFILE`, you can ingest and add engagement preferences usi
    ```
 
 1. Repeat the process to ingest account-based profiles. Note EngagementPreferences.Email and EngagementPreference.Phone.  
-![Repeat the process to ingest account-based profiles. Note EngagementPreferences.Email and EngagementPreference.Phone.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ingesting-account-based-profiles-3.png)
+![Repeat the process to ingest account-based profiles. Note EngagementPreferences.Email and EngagementPreference.Phone.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ingesting-account-based-profiles-3.png)
 
    **Sample object-type mapping for ingesting account based profiles**
 

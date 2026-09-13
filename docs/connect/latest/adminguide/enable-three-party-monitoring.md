@@ -42,7 +42,7 @@ Using this block in a queue flow does not always guarantee that calls are record
 1. Log in to your Connect Customer instance using an account that has permissions to edit flows.
 
 1. On the navigation menu, choose **Routing**, **Flows**.   
-![Connect Customer navigation menu, Routing, flows.](http://docs.aws.amazon.com/connect/latest/adminguide/images/menu-contact-flows.png)
+![Connect Customer navigation menu, Routing, flows.](https://docs.aws.amazon.com/connect/latest/adminguide/images/menu-contact-flows.png)
 
 1. Open the flow that handles customer contacts you want to monitor.
 

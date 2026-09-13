@@ -33,12 +33,12 @@ The score exceeds 100% because Q1.2 has a bonus option (which adds 10 extra poin
 
 The following image shows this evaluation with all maximum scores achieved.
 
-![Evaluation preview showing a score of 150/120 (125%) with bonus options and bonus questions contributing extra points.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-pointbased-score-example-full.png)
+![Evaluation preview showing a score of 150/120 (125%) with bonus options and bonus questions contributing extra points.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-pointbased-score-example-full.png)
 
 
 The following image shows the same form with partial scores, resulting in a score of 70/120 (58.3%). In this example, Q1.1 earned 10 out of 20 points, Q1.5 earned 10 out of 20 points, and Q1.6 (multiple selection) earned 0 out of 60 points because "None of the options" was selected.
 
-![Evaluation preview showing a score of 70/120 (58.3%) with partial scores across questions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-pointbased-score-example-partial.png)
+![Evaluation preview showing a score of 70/120 (58.3%) with partial scores across questions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-pointbased-score-example-partial.png)
 
 
 ## Question-level scoring details

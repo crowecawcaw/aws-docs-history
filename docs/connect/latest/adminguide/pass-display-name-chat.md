@@ -7,7 +7,7 @@ To deliver a more personalized experience for both your customers and agents, yo
 
 The following images show the customer's display name in their chat experience, and their name in the agent's CCP.
 
-![The customers name in their chat experience, the customer name in the agents CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-displayname.png)
+![The customers name in their chat experience, the customer name in the agents CCP.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-displayname.png)
 
 
 1. How the customer display name might appear to the customer using the chat user interface.

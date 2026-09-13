@@ -31,7 +31,7 @@ Context variables persist for the duration of the conversation session. They are
 
 Use a Define node for temporary values that do not need to be shared across flows or passed during escalation.
 
-## Creating a context variable
+## Create a context variable
 <a name="acxd-context-variables-create"></a>
 
 **To create a context variable**
@@ -40,7 +40,7 @@ Use a Define node for temporary values that do not need to be shared across flow
 
 1. Select **Context variables**.
 
-1. Select **Create context variable**.
+1. Select **Add context variable**.
 
 1. Enter a variable name.
 
@@ -48,7 +48,7 @@ Use a Define node for temporary values that do not need to be shared across flow
 
 1. Optionally add a description.
 
-1. Confirm whether **Client-side updates** should remain enabled.
+1. Confirm whether **Allow frontend updates** should remain enabled.
 
 1. Save the context variable.
 
@@ -76,17 +76,17 @@ Common types include:
 | **Number** | Numeric values, such as retry count or score. | 
 | **Boolean** | True or false values, such as authentication status. | 
 | **Object** | Structured data, such as a customer profile or reservation. | 
-| **Array** | Multiple values, such as selected items or available options. | 
+| **List** | Multiple values, such as selected items or available options. | 
 
 For complex structures, use auto-generate schema when available to create a schema from sample JSON.
 
-## Client-side updates
+## Allow frontend updates
 <a name="acxd-context-variables-client-side"></a>
 
-The **Client-side updates** setting controls whether values from outside agentic CX designer can update the context variable.
+The **Allow frontend updates** setting controls whether values from outside agentic CX designer can update the context variable.
 
 Keep this setting enabled when the value should be populated from:
-+ Connect Customer
++ Connect Customer flow
 + A frontend client
 + Touchpoint
 
@@ -96,7 +96,7 @@ This setting is especially important when passing data from a flow in Connect Cu
 
 The exception is `nlx_userId`. When `nlx_userId` is passed on the Agentic CX block in a Connect Customer flow, it sets the built-in {System.userId} variable in agentic CX designer. You do not need to create a context variable named `nlx_userId`.
 
-## Referencing context variables
+## Use a context variable in a flow
 <a name="acxd-context-variables-reference"></a>
 
 After a context variable is created, you can reference it in supported fields across flows.
@@ -121,10 +121,10 @@ Context variables can be used in:
 + Modality payloads
 + State modifications
 
-## Receiving context from Connect Customer
+## Passing context from Connect Customer flows
 <a name="acxd-context-variables-from-connect"></a>
 
-Connect Customer can send context into an agentic CX designer session.
+Connect Customer flows can send context into an agentic CX designer application session.
 
 Use this when the contact flow already knows information that the conversational AI should use, such as a phone number, customer ID, claim number, language, account status, or previously collected intent.
 
@@ -134,31 +134,30 @@ In the block's **Context variables** section, add key-value pairs.
 
 Each key should match a context variable created in agentic CX designer. The exception is `nlx_userId`. Passing `nlx_userId` on the Agentic CX block automatically sets {System.userId} in agentic CX designer. No matching context variable is required.
 
-For context variables your team creates in agentic CX designer, you can set values in two ways:
+For context variables your team creates in agentic CX designer, you can set values in two ways in the Connect Customer flow:
 
 
-|  |  | 
-| --- |--- |
-| **Static value** | Enter a fixed value directly in the Agentic CX block. | 
-| **Dynamic value** | Pull a value from the contact flow, contact attributes, or another supported Connect Customer namespace. | 
+| Option | Use | 
+| --- | --- | 
+| **Set manually** | Enter a fixed value directly in the Agentic CX block. | 
+| **Set dynamically** | Pull a value from the contact flow, contact attributes, or another supported Connect Customer namespace. | 
 
 Example:
 
 
-| Key | Value source | 
+| Agentic CX context key | Dynamic value from Connect Customer | 
 | --- | --- | 
-| claimNumber | Existing contact attribute for the user's claim number | 
+| claimNumber | Existing contact variable for the user's claim number | 
 | customerName | Existing customer name value from Profiles | 
 | customerIntent | Intent or reason collected earlier in the contact flow | 
 
 When the conversation reaches the Agentic CX block, the configured key-value pairs are passed into agentic CX designer and populate matching context variables for the session.
 
-When passing context from Connect Customer into agentic CX designer:
+When passing context from Connect Customer flow into agentic CX designer:
 + For standard context variables, the context variable must exist in agentic CX designer.
 + The key name must match exactly.
 + Names are case-sensitive.
-+ **Client-side updates** must be enabled for the context variable.
-+ The value must be available before or when the Agentic CX block invokes the application.
++ **Allow frontend updates** must be enabled for the context variable.
 + You do not need to add a system-internal prefix to the context variable name.
 + The special key `nlx_userId` does not need to be created as a context variable. When passed on the Agentic CX block, it sets {System.userId}.
 
@@ -172,6 +171,12 @@ Not:
 
 ```
 acxd_claimNumber
+```
+
+To set {System.userId} from a Connect Customer flow, use:
+
+```
+nlx_userId
 ```
 
 ## Setting context variables with state modifications
@@ -199,64 +204,31 @@ Common pattern:
 
 Use this pattern when values need to persist across multiple flows.
 
-## Sending context back to Connect Customer
+## Passing context to Connect Customer flows
 <a name="acxd-context-variables-to-connect"></a>
 
-Agentic CX designer can send context back to Connect Customer during escalation events.
+Agentic CX designer can send context back to Connect Customer flows when Escalation or Exit Application nodes are reached in an agentic CX designer flow.
 
-Use this when a conversation transfers to an agent and the Connect Customer flow needs a summary, intent, callback number, customer selection, or other context collected by the AI.
+Use this when a conversation exits from the Agentic CX block in the Connect Customer flow, and the downstream process requires a summary, intent, callback number, customer selection, or other context collected.
 
-To pass data back to Connect Customer, add a Node payload to the Escalate node in your agentic CX designer flow.
+To pass data back, add one or more State modifications to the Escalate node in your agentic CX designer flow that Sets one or more context variables.
 
-The Node payload must use key-value syntax:
+For example, you may set a context variable {summary} to a variable generated upstream by a Generative text node that summarized the system transcript.
 
-```
-summary={transferSummary}
-```
-
-Do not enter only the variable by itself.
-
-Avoid:
-
-```
-{transferSummary}
-```
-
-Use:
-
-```
-summary={transferSummary}
-```
-
-If the payload does not use key={variable} format, the value may not be created as an attribute for the contact flow.
-
-To pass multiple values, separate each key-value pair with &.
-
-Example:
-
-```
-summary={transferSummary}&customerIntent={customerIntent}
-&callbackNumber={callbackNumber}
-```
-
-Each key becomes a separate value that Connect Customer can reference after escalation.
-
-Examples:
-+ summary
-+ customerIntent
-+ callbackNumber
+### Receive returned context in Connect Customer flow
+<a name="acxd-context-variables-return"></a>
 
 After the agentic CX designer escalation occurs, returned values can be used in the Connect Customer flow.
 
 Use a **Set contact attributes** block after the Agentic CX block to store or remap the returned values.
 
-**To store returned values**
+For example:
 
 1. Add a **Set contact attributes** block after the Agentic CX block.
 
-1. Create an output attribute, such as Key: transferSummary.
+1. Create an output attribute, such as Key: `summary`.
 
-1. Set the value dynamically from the Agentic CX returned context.
+1. Set the value dynamically from the agentic CX designer returned context.
 
 1. Select the Agentic CX namespace shown in the Connect Customer block.
 
@@ -267,7 +239,7 @@ Use a **Set contact attributes** block after the Agentic CX block to store or re
 Example mapping:
 
 
-| Contact attribute key | Returned context key | 
+| Contact attribute key | Dynamic value from Agentic CX | 
 | --- | --- | 
 | transferSummary | summary | 
 | customerIntent | customerIntent | 
@@ -279,11 +251,11 @@ Example mapping:
 
 | Issue | Cause | Fix | 
 | --- | --- | --- | 
-| Context variable is not populated in agentic CX designer | Name mismatch or client-side updates disabled | Confirm exact name match and enable Client-side updates in the context variable's Settings. | 
+| Context variable is not populated in agentic CX designer | Name mismatch or frontend updates disabled | Confirm exact name match and enable Allow frontend updates in the context variables Settings. | 
 | {System.userId} is not populated for a chat interaction | nlx\_userId was not passed on the Agentic CX block, or the value was not available in the Connect Customer flow at the time the block was invoked. | In the Agentic CX block's context variables section, pass nlx\_userId and map it to the correct Connect Customer value, such as a contact attribute containing the customer ID. Do not create nlx\_userId as a context variable in agentic CX designer. Simply reference {System.userId} in agentic CX designer. | 
-| Value from Connect Customer is missing | Value was not set before the Agentic CX block or not mapped into context variables | Set the value earlier in the contact flow and map it in the Agentic CX block. | 
-| Returned attribute is not available in Connect Customer | Node payload used {variable} without a key | Use key={variable} format. | 
-| Payload value is empty or null | Variable is not in scope at the Escalate node | Use a context variable, Define output, Generative text output, or captured slot available downstream. | 
+| Value from Connect Customer flow is missing | Value was not set on Agentic CX block or not mapped into context variables | Map the value in the Agentic CX block. | 
+| Returned attribute is not available in Connect Customer flow | Context variable not set | Use a state modification to Set a context variable in the flow of agentic CX designer when Escalate or Exit application nodes are reached. | 
+| Context variable value is empty or null | Variable is not in scope at the Escalate node | Use a context variable, Define output, Generative text output, or captured slot available downstream. | 
 | Generative Journey value is not available later | Value was collected internally but not captured as a slot | Add the value as a required or optional slot in Data capture. | 
 | Value is needed in multiple flows | Slot or local variable is flow-scoped | Copy the value into a context variable with state modifications. | 
-| Returned value is hard to find in Connect Customer | Namespace or key is mismatched | Use the Agentic CX namespace shown in the Connect Customer block and confirm the exact key spelling. | 
+| Returned value is hard to find in Connect Customer flow | Namespace or key is mismatched | Use the Agentic CX namespace and confirm the exact key spelling. | 

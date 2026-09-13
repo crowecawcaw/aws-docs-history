@@ -36,7 +36,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set callback number** block.
 
-![The properties page of the Set callback number block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-callback-number.png)
+![The properties page of the Set callback number block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-callback-number.png)
 
 
 ## Configuration tips
@@ -49,7 +49,7 @@ The following image shows the **Properties** page of the **Set callback number**
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success**, **Invalid number**, and **Not dialable**.
 
-![A configured Set callback number block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-callback-number-configured.png)
+![A configured Set callback number block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-callback-number-configured.png)
 
 
 1. **Invalid number**: The customer entered phone number that is not valid.

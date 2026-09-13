@@ -11,7 +11,7 @@ This topic shows how Voice ID features appear in your Contact Control Panel (CCP
 ## Enroll a caller in Voice ID
 <a name="use-voiceid-notenrolled"></a>
 
-![Voice ID features in a Contact Control Panel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-enrollment.png)
+![Voice ID features in a Contact Control Panel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-enrollment.png)
 
 
 1. You receive an incoming call.
@@ -27,7 +27,7 @@ This topic shows how Voice ID features appear in your Contact Control Panel (CCP
 
 After a customer is enrolled in Voice ID, when they call your contact center again, you can verify they are who they say they are.
 
-![Verify an enrolled caller.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-reenroll.png)
+![Verify an enrolled caller.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-reenroll.png)
 
 
 1. You receive an incoming call.
@@ -43,7 +43,7 @@ After a customer is enrolled in Voice ID, when they call your contact center aga
 
 The following image shows what appears in your CCP when a caller has opted out of Voice ID.
 
-![Caller has opted out.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-optout.png)
+![Caller has opted out.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-optout.png)
 
 
 1. You receive an incoming call.
@@ -57,7 +57,7 @@ The following image shows what appears in your CCP when a caller has opted out o
 
 When an enrolled caller calls your contact center, Voice ID might return a result of **Not authenticated**. This means Voice ID was unable to authenticate a caller's speech. The authentication score for the caller is lower than the configured threshold.
 
-![Caller not authenticated.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-not-authenticated.png)
+![Caller not authenticated.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-not-authenticated.png)
 
 
 The previous images show that the **Fraud risk** can be **High** or **Low**, independent of whether the caller is authenticated. 
@@ -67,4 +67,4 @@ The previous images show that the **Fraud risk** can be **High** or **Low**, ind
 
 When an enrolled customer calls your contact center, Voice ID might return a result of **Inconclusive**: Voice ID was unable to analyze a caller's speech for authentication. This is usually because Voice ID did not get the required 10 seconds to provide a result for verification. 
 
-![Authentication status Inconclusive.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-inconclusive.png)
+![Authentication status Inconclusive.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-inconclusive.png)

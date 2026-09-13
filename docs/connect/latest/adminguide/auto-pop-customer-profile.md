@@ -21,7 +21,7 @@ If you have defined custom keys in your profile objects, you can search by those
 
 The following image shows how you might use these attributes in the [Set contact attributes](set-contact-attributes.md) block. 
 
-![The properties page of the Set contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-attributes1.png)
+![The properties page of the Set contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-attributes1.png)
 
 
 ## Automatically associate a customer profile with a contact

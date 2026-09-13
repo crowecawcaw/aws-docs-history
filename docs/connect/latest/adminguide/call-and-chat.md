@@ -12,16 +12,16 @@ Note the following limitation:
 **To make an external call while you're on a chat**
 
 1. In the CCP, choose the phone tab.  
-![The phone tab at top of ccp.](http://docs.aws.amazon.com/connect/latest/adminguide/images/training-guide-choose-phone-while-on-chat.png)
+![The phone tab at top of ccp.](https://docs.aws.amazon.com/connect/latest/adminguide/images/training-guide-choose-phone-while-on-chat.png)
 
 1. Choose **Number pad**.  
-![The number pad button at bottom of quick connects page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/training-guide-choose-numberpad-while-on-chat.png)
+![The number pad button at bottom of quick connects page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/training-guide-choose-numberpad-while-on-chat.png)
 
 1. Enter the external number you want to call, and then choose **Call**.  
-![The number pad page, the call button on bottom right of page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/training-guide-dial-call-while-on-chat.png)
+![The number pad page, the call button on bottom right of page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/training-guide-dial-call-while-on-chat.png)
 
 1. You'll be connected to the call at the same time the chat is still ongoing, as shown in the following image.  
-![The CCP, a connected call, chat icon with dot.](http://docs.aws.amazon.com/connect/latest/adminguide/images/training-guide-connected-call-while-on-chat.png)
+![The CCP, a connected call, chat icon with dot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/training-guide-connected-call-while-on-chat.png)
 
 1. To go to the chat conversation while you're on the phone, choose the chat tab. 
 

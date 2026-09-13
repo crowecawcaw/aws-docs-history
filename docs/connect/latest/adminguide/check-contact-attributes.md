@@ -38,7 +38,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Check contact attributes** block. In this example, the block is configured to check whether the contact is a **PremiumCustomer**, which is a [user-defined attribute](connect-attrib-list.md#user-defined-attributes). 
 
-![The properties page of the Check contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-properties.png)
+![The properties page of the Check contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-properties.png)
 
 
 ### Conditions to check can be dynamic
@@ -56,7 +56,7 @@ You can set attributes that are **Type** = **Lex** as follows:
 + **Alternative Intents**: Usually you configure flows to branch on the winning Lex intent. However, in some situations, you might want to branch on an alternate intent. That is, what the customer might have meant. 
 
   For example, in the following image of the **Check contact attributes** properties page, it is configured so the alternative intent indicates that if Amazon Lex is more than 70% confident the customer meant *fraud*, the flow should branch accordingly.  
-![The properties page of the Check contact attributes block configured for an alternative intent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-alternate-intents.png)
+![The properties page of the Check contact attributes block configured for an alternative intent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-alternate-intents.png)
 
   1. **Intent name** is the name of an alternate intent in Lex. It's case sensitive and must match what's in Lex exactly.
 
@@ -83,7 +83,7 @@ You can set attributes that are **Type** = **Lex** as follows:
 + If you have multiple conditions to compare, Connect Customer checks them in the order they are listed. 
 
   For example, in the following image of the **Check contact attributes** properties page, it is configured so Connect Customer compares the **greater than 60** condition first and compares **greater than 2** last.   
-![The properties page of the Check contact attributes block set up to compare multiple conditions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-tips-order-conditions-are-checked.png)
+![The properties page of the Check contact attributes block set up to compare multiple conditions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-tips-order-conditions-are-checked.png)
 + This block doesn't support case-insensitive pattern matching. For example, if you're trying to match against the word **green** and the customer types **Green**, it would fail. You would have to include every permutation of upper and lower-case letters.
 
 ## Configured
@@ -91,7 +91,7 @@ You can set attributes that are **Type** = **Lex** as follows:
 
 The following image shows an example of what this block looks like when it is configured. It shows the block has four branches, one for each condition: greater or equal to 60, greater to equal to 10, greater or equal to 2, or **No match**.
 
-![A configured Check contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-configured.png)
+![A configured Check contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-configured.png)
 
 
 ## Compound conditions per branch
@@ -110,10 +110,10 @@ For example, a single branch can check whether `CustomerType` **Equals** "Premiu
 
 A block supports up to 10 compound conditions (**And** or **Or**), and each compound condition supports up to 10 sub-conditions.
 
-![The Check contact attributes block with a compound condition being configured, showing Condition Type set to Compound Condition with And/Or sub-conditions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-compound.png)
+![The Check contact attributes block with a compound condition being configured, showing Condition Type set to Compound Condition with And/Or sub-conditions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-compound.png)
 
 
-![A configured Check contact attributes block with a compound condition branch.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-compound-configured.png)
+![A configured Check contact attributes block with a compound condition branch.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-compound-configured.png)
 
 
 ## Sample flows

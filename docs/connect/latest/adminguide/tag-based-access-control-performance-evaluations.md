@@ -23,17 +23,17 @@ Below are the steps to add tags to an evaluation form.
 
 **While creating an evaluation form**
 + You will be prompted to add tags to an evaluation form when you create it (see [Create an evaluation form](create-evaluation-forms.md)).  
-![The evaluation forms page, the set form title section with tags field.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-title.png)
+![The evaluation forms page, the set form title section with tags field.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-title.png)
 
 **While editing an evaluation form**
 
 1. Open the evaluation form with a security profile that has the permission **Evaluation forms - manage form definitions** - **Edit**.
 
 1. Choose the edit icon next to the Tags.  
-![The edit tags icon in the evaluation form.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-tags-edit-form-tags.png)
+![The edit tags icon in the evaluation form.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-tags-edit-form-tags.png)
 
 1. Update the tags.  
-![The update tags dialog.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-tags-update-form-tags.png)
+![The update tags dialog.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-tags-update-form-tags.png)
 
 **Note**  
 Tag changes are applied immediately to all versions of the form. Updating tags does not require you to save or activate the form.
@@ -60,7 +60,7 @@ Tags are copied over only to new evaluations. If you have existing evaluations, 
 1. Under resources, select **Evaluation forms** and **Contact Evaluations**.
 
 1. Enter the tag that you want to use for restricting access.  
-![The tag-based access control setup screen.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-tags-tbac-setup.png)
+![The tag-based access control setup screen.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-tags-tbac-setup.png)
 
 If you have existing evaluations, then enabling tag-based access to contact evaluations will result in individuals who already have access to evaluations losing access to historical evaluations. To retain access to historical evaluations you can:
 + Start by tagging forms. This would result in any evaluations performed subsequently carrying the same tag. After you have accumulated several months' evaluations you can enable tag-based-access.

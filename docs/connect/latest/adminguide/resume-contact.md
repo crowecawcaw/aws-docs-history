@@ -33,7 +33,7 @@ You can use this block on all flow types.
 
 The following image shows the **Properties** page of the **Resume contact** block.
 
-![The properties page of the resume contact block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/resume-contact.png)
+![The properties page of the resume contact block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/resume-contact.png)
 
 
 ## Configuration tips
@@ -46,4 +46,4 @@ When you design a flow to resume unassigned, paused tasks that are dequeued, be 
 
 The following image shows an example of what this block looks like when it is configured. It has an **Error event** branch.
 
-![A configured Resume contact block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/resume-contact-configured.png)
+![A configured Resume contact block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/resume-contact-configured.png)

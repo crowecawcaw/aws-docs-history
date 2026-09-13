@@ -15,13 +15,13 @@ When you select **Access metrics - Access**:
   + **Agent activity audit - Access**
 
   These permissions are shown in the following image:  
-![The Access option is selected for Access metrics, Real-time metrics, Historical metrics, and Agent activity audit.](http://docs.aws.amazon.com/connect/latest/adminguide/images/permissions-create-and-share-reports.png)
+![The Access option is selected for Access metrics, Real-time metrics, Historical metrics, and Agent activity audit.](https://docs.aws.amazon.com/connect/latest/adminguide/images/permissions-create-and-share-reports.png)
 + **Saved reports - View** permission.
 + You gain access to:
   + All tabs on the **Dashboards and reports** page.
   + All real-time and historical metrics reports.
 
-![The Dashboards and reports page, access is granted to all the tabs on the page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-access-all.png)
+![The Dashboards and reports page, access is granted to all the tabs on the page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-access-all.png)
 
 
 ## Individual feature permissions
@@ -51,12 +51,12 @@ When you select only **Dashboards - Access**:
 + You can view historical metrics displayed on dashboards.
 + You must have the **Real-time metrics - Access** permission to view real-time metrics on dashboards.
 
-![The Dashboards - Access permission on the Security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_dashboards_access.png)
+![The Dashboards - Access permission on the Security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_dashboards_access.png)
 
 
 The following image shows that you only have access to the **Dashboards** tab on the **Dashboards and reports** page. 
 
-![The Dashboards and reports page, access is granted to the Dashboards tab only.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-access.png)
+![The Dashboards and reports page, access is granted to the Dashboards tab only.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-access.png)
 
 
 ## Custom metrics and permissions

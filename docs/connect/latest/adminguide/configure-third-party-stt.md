@@ -23,14 +23,14 @@ Use the following instructions to configure a third-party speech-to-text (STT) p
 1. Choose the locale.
 
 1. In the **Speech model** section, choose **Edit** to open the configuration modal.  
-![The configuration page for your conversational AI bot.](http://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/01-airlinesbot.png)
+![The configuration page for your conversational AI bot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/01-airlinesbot.png)
 
 ## Step 2: Choose the model type
 <a name="stt-step2"></a>
 
 In the **Model type** dropdown, choose **Speech-to-Text (STT)**. This ensures the locale is configured for transcription rather than speech-to-speech.
 
-![The speech model dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/02-speech-model.png)
+![The speech model dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/02-speech-model.png)
 
 
 ## Step 3: Review the default speech model settings
@@ -38,7 +38,7 @@ In the **Model type** dropdown, choose **Speech-to-Text (STT)**. This ensures th
 
 By default, Amazon is selected as the speech-to-text provider. Review the current settings before switching to a third-party provider.
 
-![The speech model dialog box with Amazon selected as the voice provider.](http://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/03-speech-model-amazon.png)
+![The speech model dialog box with Amazon selected as the voice provider.](https://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/03-speech-model-amazon.png)
 
 
 ## Step 4: Choose a third-party STT provider
@@ -46,7 +46,7 @@ By default, Amazon is selected as the speech-to-text provider. Review the curren
 
 Open the **Voice provider** dropdown and choose a supported third-party speech-to-text provider.
 
-![The speech model dialog box with Deepgram selected as the voice provider.](http://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/04-speech-model-deepgram.png)
+![The speech model dialog box with Deepgram selected as the voice provider.](https://docs.aws.amazon.com/connect/latest/adminguide/images/Lex/04-speech-model-deepgram.png)
 
 
 ## Step 5: Enter the model ID and Secrets Manager ARN

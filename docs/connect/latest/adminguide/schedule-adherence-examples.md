@@ -5,7 +5,7 @@
 
 Assume a shift that starts at 9:00 AM and ends at 5:00 PM with a 30-minute break and a 1-hour lunch. This arrangement is shown in the following image of the shift profile.
 
-![A shift that starts at 9:00 AM and ends at 5:00 PM with a 30-minute break and a 1-hour lunch.](http://docs.aws.amazon.com/connect/latest/adminguide/images/adherence-fig1.png)
+![A shift that starts at 9:00 AM and ends at 5:00 PM with a 30-minute break and a 1-hour lunch.](https://docs.aws.amazon.com/connect/latest/adminguide/images/adherence-fig1.png)
 
 
 Also assume that the activities are set up as shown in the following Activity setup table. 

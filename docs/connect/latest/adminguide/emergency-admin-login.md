@@ -21,7 +21,7 @@ However, if there's an emergency, you can log in from the Connect Customer conso
 1. If prompted to login, enter your AWS account credentials.
 
 1. Choose the name of the instance from the **Instance alias** column.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **Overview**.
 

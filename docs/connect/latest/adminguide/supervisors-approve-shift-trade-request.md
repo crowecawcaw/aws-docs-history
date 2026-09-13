@@ -19,9 +19,9 @@ You are always prompted for a comment that is sent to the agent.
 If you accidentally approve a shift trade, you then have to manually edit the shifts to undo it. This is because after a shift is traded, the older shift no longer exists.
 
 1. To view shift trade requests, supervisors or managers view their **Published schedule calendar**. A shift trade notification appears on the request drawer icon, as shown in the following image.  
-![The Scheduling page, the Published schedule calendar, the request drawer icon.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-supervisor-request.png)
+![The Scheduling page, the Published schedule calendar, the request drawer icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-supervisor-request.png)
 
 1. Choose the **Shift trades** tab to view the details of the shift trade requests from all the agents you manage. The following image shows an example with current and past shift trades.   
-![The Requests pane.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-supervisor-request2.png)
+![The Requests pane.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-supervisor-request2.png)
 
 1. Approve or decline the requests. The comment you enter will be sent to the agent.

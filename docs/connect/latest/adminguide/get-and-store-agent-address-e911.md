@@ -5,7 +5,7 @@
 
 The first step in setting up E911 for your Connect Customer instance is to get and store the agent's validated physical address. The following illustration shows the process for storing addresses.
 
-![Connect Customer E911 address storage process.](http://docs.aws.amazon.com/connect/latest/adminguide/images/e911-workflow.png)
+![Connect Customer E911 address storage process.](https://docs.aws.amazon.com/connect/latest/adminguide/images/e911-workflow.png)
 
 
 1. Since agents might be working from different locations (for example, office building, home, or coffee shop), it's critical that the most recently validated address is passed along with the emergency outbound call. 

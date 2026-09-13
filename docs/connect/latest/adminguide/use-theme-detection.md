@@ -14,7 +14,7 @@ Use theme detection to discover previously unknown or emerging contact themes fr
 + The theme detection report is generated for the 3,000 most recent contacts.
 + Theme detection reports are available for 30 days after they are created. After 30 days, the reports are deleted from the database and cannot be retrieved. 
 + The most recent 20 theme reports for a saved search are available in the **View theme reports** dropdown menu, as shown in the following image.  
-![The contact search page, the view theme reports dropdown menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-view-theme-reports.png)
+![The contact search page, the view theme reports dropdown menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-view-theme-reports.png)
 
 ## How to generate a theme report
 <a name="generate-theme-report"></a>
@@ -35,11 +35,11 @@ Your search query must return at least 300 contacts with issues detected by conv
 1. Choose **Generate themes report**.
 
    Conversational analytics applies machine learning to automatically group contacts with similar issues. When the report is generated, a banner displays a link to the theme report. An example banner is shown in the following image.  
-![The contact search page, the theme detection banner.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-theme-detection-banner.png)
+![The contact search page, the theme detection banner.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-theme-detection-banner.png)
 
 1. Choose the link for the theme report.
 
    The theme report is displayed. It includes theme labels and a list of contacts, as shown in the following image.   
-![A theme report with several theme labels.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-theme-detection-drilldown.png)
+![A theme report with several theme labels.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-theme-detection-drilldown.png)
 
 1. Choose the theme labels to view associated contacts, listen to specific recordings, and read transcripts for deeper analysis.

@@ -97,7 +97,7 @@ Let's say `NoIconCardHeading` is set to `No Icon Card`.
 
 **Appearance**
 
-![The agent workspace view card.](http://docs.aws.amazon.com/connect/latest/adminguide/images/view-resources-custom-the-view.png)
+![The agent workspace view card.](https://docs.aws.amazon.com/connect/latest/adminguide/images/view-resources-custom-the-view.png)
 
 
 ## View output example

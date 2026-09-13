@@ -14,7 +14,7 @@ There are two actions supported as part of this block:
 
 \*Unavailable in PDT
 
-![The action dropdown showing the two actions in the block Select action dropdown.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-action-dropdown.png)
+![The action dropdown showing the two actions in the block Select action dropdown.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-action-dropdown.png)
 
 
 The above screenshot shows the two actions in the block's "Select action" dropdown.
@@ -55,12 +55,12 @@ The following image shows a picture of the **Set message processor** action set 
 
 1. **Processing failure handling** - select whether you would like the original, unprocessed message to be delivered or not in case processing fails.
 
-![The Set message processor action configuration with processing enabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-message-processor-enabled.png)
+![The Set message processor action configuration with processing enabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-message-processor-enabled.png)
 
 
 The below screenshot shows the block settings when processing is disabled:
 
-![The Set message processor action configuration with processing disabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-message-processor-disabled.png)
+![The Set message processor action configuration with processing disabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-message-processor-disabled.png)
 
 
 ### Set recording and analytics behavior
@@ -77,7 +77,7 @@ The following guide will discuss the **Set recording and analytics** action in t
 
 This action enables conversational analytics on a contact. For more information, see [Analyze conversations using conversational analytics](analyze-conversations.md). This action currently supports Chat, Email, Voice, and Tasks media channel types. However, for tasks, you are only able to configure screen recording behavior. Therefore, in the channel dropdown for this action, you will see the following options:
 
-![The channel dropdown showing Chat, Email, Screen recording, and Voice options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-channel-dropdown.png)
+![The channel dropdown showing Chat, Email, Screen recording, and Voice options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-channel-dropdown.png)
 
 
 **Note**  
@@ -90,7 +90,7 @@ Let's walk through what each channel's configuration looks like:
 
 As shown in the following image, the chat settings are split into two sections: **Enable** and **configure** conversational analytics.
 
-![The Chat channel configuration showing conversational analytics settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-chat-config.png)
+![The Chat channel configuration showing conversational analytics settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-chat-config.png)
 
 
 Once conversational analytics is enabled, you can configure settings such as language, redaction, and AI features (sentiment analysis, interaction summaries).
@@ -105,7 +105,7 @@ Once conversational analytics is enabled, you can configure settings such as lan
 
 As shown in the following image, when you select the Email channel, you can enable and configure conversational analytics for email contacts. Because email contacts are asynchronous, analysis is initiated when the email contact is received, rather than following the real-time and post-contact model used for voice and chat.
 
-![The Email channel configuration showing conversational analytics settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-email-config.png)
+![The Email channel configuration showing conversational analytics settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-email-config.png)
 
 
 The email analytics settings include:
@@ -121,7 +121,7 @@ Sentiment analysis is not available for email contacts at this time.
 
 As shown in the following image, the voice settings are split into three sections: **Enable** recording, and **Enable** and **configure** conversational analytics.
 
-![The Voice channel configuration showing recording and analytics settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-voice-config.png)
+![The Voice channel configuration showing recording and analytics settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-voice-config.png)
 
 
 **Recording settings:**
@@ -181,11 +181,11 @@ This block has three branches: **Success**, **Error** and **Channel mismatch**
 
 The channel mismatch branch is taken if the media channel that begins the contact is not the same as the media channel selected in the block. In the case of screen recording, this branch is taken when the contact is not a voice contact.
 
-![A configured Set recording.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-configured-recording-action.png)
+![A configured Set recording.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-configured-recording-action.png)
 
 
 In the case where **Set recording and analytics behavior** is selected as the action and **Chat** is selected as the media channel, there will be an additional branch called **In-flight redaction configuration failed**. This branch is taken if in-flight redaction fails to stop or start, but all other configurations are updated correctly.
 
 When the **Set message processor** action is selected, the block shows three branches: **Success**, **Error** and **Channel mismatch**:
 
-![A configured Set recording, analytics and processing behavior block with Set message processor action.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-configured-message-processor.png)
+![A configured Set recording, analytics and processing behavior block with Set message processor action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-analytics-processing-behavior-configured-message-processor.png)

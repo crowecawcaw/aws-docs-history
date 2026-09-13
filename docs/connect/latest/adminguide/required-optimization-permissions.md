@@ -41,7 +41,7 @@ You need the **View** permission and the **Analytics and Optimization** - **Hist
   + **Edit**. Grants permission to upload time off balances. Users can also upload time off balances with **Schedule manager - Edit**.
 
 **Agent Applications**
-+ **Agent application schedule calendar**. Grants permission to agents to **View** or **Edit** their schedule in their agent application. Agents require the **Edit** permission to request time off. 
++ **Agent application schedule calendar**. Grants permission to agents to **View** or **Edit** their schedule. Agents require the **Edit** permission to request time off. 
 
   They can accept or decline VTO.
 

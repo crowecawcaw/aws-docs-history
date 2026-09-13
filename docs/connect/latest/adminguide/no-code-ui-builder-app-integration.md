@@ -47,9 +47,9 @@ Success if website exists!
 
 The following image shows an App Launch component that's been dropped onto the canvas. The **Customize** panel shows an example of specifying the app name and app path.
 
-![The Customize panel, an example app name and app path.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-app-integration-1.png)
+![The Customize panel, an example app name and app path.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-app-integration-1.png)
 
 
 The following image shows an example [Flow block in Connect Customer: Set event flow](set-event-flow.md) block that's added to the flow, and configured to the **DefaultAgentUI** event hook.
 
-![A Set event flow block that is configured to the DefaultAgentUI event hook.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-app-integration-2.png)
+![A Set event flow block that is configured to the DefaultAgentUI event hook.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-app-integration-2.png)

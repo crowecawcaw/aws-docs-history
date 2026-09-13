@@ -63,7 +63,7 @@ Unplanned shrinkage data is applied in two ways:
 
 The following image shows an example of the Headcount popup for an interval where unplanned shrinkage has been applied.
 
-![The Headcount popup showing Forecasted, Forecasted with unplanned shrinkage, Scheduled, Scheduled with unplanned shrinkage, Net, and Net with unplanned shrinkage values.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-unplanned-shrinkage-headcount.png)
+![The Headcount popup showing Forecasted, Forecasted with unplanned shrinkage, Scheduled, Scheduled with unplanned shrinkage, Net, and Net with unplanned shrinkage values.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-unplanned-shrinkage-headcount.png)
 
 
 In this example:

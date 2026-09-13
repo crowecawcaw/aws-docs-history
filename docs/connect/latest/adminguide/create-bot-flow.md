@@ -12,22 +12,22 @@ This topic explains how to add a previously created conversational AI bot to a f
 1. Choose the [Get customer input](get-customer-input.md) block to open it.
 
 1. On the Amazon Lex tab, use the dropdown menus to select the bot you created earlier and the alias, as shown in the following image.  
-![The Get customer input block properties, the Amazon Lex tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-lextab.png)
+![The Get customer input block properties, the Amazon Lex tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-lextab.png)
 
 1. Under **Customer prompt or bot initialization**, choose **Text-to-speech or chat text**.
 
 1. Type a message that provides callers with information about what they can do. For example, use a message that matches the intents used in the bot, such as *To check your account balance, press or say 1. To speak to an agent, press or say 2*. The following image shows this message on the properties page of the [Get customer input](get-customer-input.md) block.  
-![The customer prompt or bot initialization section of the Get customer input block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-prompt-bot-initialization.png)
+![The customer prompt or bot initialization section of the Get customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-prompt-bot-initialization.png)
 
 1. Under **Intents**, choose **Add an intent**, and then enter or search for the customer intents that should trigger the bot.   
-![The Intents section, the Add an intent button, search button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-intent.png)
+![The Intents section, the Add an intent button, search button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-intent.png)
 
    When you search for intents, you can filter by the locale. The locale is only used for filtering, it is not tied to the locale when the bot is triggered. For example, you might find the BookHotel intent by using the English (US) locale. However, the intent can be successfully returned in both English (US) and English (GB).
 
    For more information on finding intents, see [How to find intents](#find-notlisted-intents). 
 
    The following image shows the dialog box to filter intents by locale.  
-![The search option, the Filter using locale to add intent dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/filter-intents.png)
+![The search option, the Filter using locale to add intent dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/filter-intents.png)
 
 1. Choose **Save**.
 
@@ -48,6 +48,6 @@ The **Intents** dropdown box does not list intents for Amazon Lex V1 bots, cross
 + Check if the version is associated with the alias: 
 
   1. In Connect Customer admin website, choose **Routing**, **Flows**, the bot, **Aliases**. Verify that **Use in flow and flow modules** is enabled, as shown in the following image.  
-![The Aliases tab, the Use in flow and flow modules toggle.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-alias-enabled.png)
+![The Aliases tab, the Use in flow and flow modules toggle.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-alias-enabled.png)
 
   1. Refresh the flow designer to see the selections in **Get customer input** block.

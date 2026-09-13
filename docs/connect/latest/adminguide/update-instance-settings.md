@@ -8,7 +8,7 @@ To update the instance settings:
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. Complete the following procedures.
 
@@ -60,7 +60,7 @@ If you enabled chat barge-in before the release of multi-party chats in December
     When this bucket is created, evaluations are enabled at the instance level. The next step for setting up this feature is to [create an evaluation form](create-evaluation-forms.md).
   + **Screen recordings**: Choose **Edit**, specify the bucket and KMS key for recordings of agent screens, and then choose **Save**. 
 
-    When this bucket is created, screen recording is enabled at the instance level. The next step for setting up this functionality is to download and install the agent app, and then enable screen recording in the Set recording and analytics behavior block. For more information, see [Enable screen recording for your Connect Customer instance](enable-sr.md).
+    When this bucket is created, screen recording is enabled at the instance level. The next step for setting up this functionality is to download and install the agent workspace, and then enable screen recording in the Set recording and analytics behavior block. For more information, see [Enable screen recording for your Connect Customer instance](enable-sr.md).
   + **Email messages**: Choose **Edit**, specify the bucket and KMS key for email messages, and then choose **Save**. 
 
     When this bucket is created, the email channel is enabled at the instance level.

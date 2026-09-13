@@ -51,7 +51,7 @@ You can configure adherence thresholds for individual activities like Break, Tra
 
 Each activity can have its own threshold configuration to accommodate different operational needs. For example, you might configure a 5-minute early/late threshold for breaks to accommodate agents who are finishing customer interactions. The following two images show these options.
 
-![Options to configure a 5-minute early/late threshold for breaks.](http://docs.aws.amazon.com/connect/latest/adminguide/images/configure-thresholds.png)
+![Options to configure a 5-minute early/late threshold for breaks.](https://docs.aws.amazon.com/connect/latest/adminguide/images/configure-thresholds.png)
 
 
 ## Configure adherence thresholds
@@ -64,7 +64,7 @@ Complete the following steps to configure activity-based thresholds.
 1. Select an activity, and then choose **Edit**.
 
 1. On the **Add shift activity** page, under **Adherence**, set **Track adherence** to **Yes**.  
-![The Adherence and Thresholds sections of the Add shift activity page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/configure-thresholds-2.png)
+![The Adherence and Thresholds sections of the Add shift activity page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/configure-thresholds-2.png)
 
 1. In the **Thresholds** section, choose **Define thresholds**.
 
@@ -111,7 +111,7 @@ You can view Schedule Adherence metrics on the **Historical metrics** and **Real
 
 The following image shows an example of choosing Schedule Adherence metrics to appear in a historical metrics report.
 
-![The historical metrics page for agents, the table settings box, the schedule adherence metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-adherence-metrics.png)
+![The historical metrics page for agents, the table settings box, the schedule adherence metrics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-adherence-metrics.png)
 
 
 ### Published calendar view
@@ -121,7 +121,7 @@ You can also view schedule adherence data in a calendar view. This view provides
 
 The following image shows an example of adherence on a calendar view. 
 
-![An example of the adherence view where all the agents have breached their schedule during all blocks of time.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-dailyview1.png)
+![An example of the adherence view where all the agents have breached their schedule during all blocks of time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-dailyview1.png)
 
 
 ### Queue and agent performance dashboard
@@ -131,7 +131,7 @@ Real-time agent adherence is available in the **Agent adherence** widget on the 
 
 The following image shows an example of the **Agent adherence** widget. The red highlight is conditional formatting applied on the **Adherence status duration**.
 
-![The Agent adherence widget with conditional formatting.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-adherence-widget.png)
+![The Agent adherence widget with conditional formatting.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-adherence-widget.png)
 
 
 ### Adherence threshold reports
@@ -163,7 +163,7 @@ You can pause on the **Using thresholds** indicator to see details about the thr
 
 The following image shows an example **Queue and agent performance** dashboard, with an **Adherent** status, and the **Using thresholds** message. One message is general, the other message shows X minutes as a placeholder for what would be your adherence threshold.
 
-![The Using thresholds messages.](http://docs.aws.amazon.com/connect/latest/adminguide/images/adherence-thresholds-dashboard.png)
+![The Using thresholds messages.](https://docs.aws.amazon.com/connect/latest/adminguide/images/adherence-thresholds-dashboard.png)
 
 
 ## Set up schedule adherence notifications

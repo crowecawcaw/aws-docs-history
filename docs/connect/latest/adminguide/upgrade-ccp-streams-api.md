@@ -19,10 +19,10 @@ Use the following steps to upgrade to the latest CCP.
    1. Navigate to the Connect Customer console.
 
    1. Check that you're in the correct Region for your Connect Customer instance. Choose your instance.  
-![The Connect Customer virtual contact center instances page, the alias of your instance.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot18.png)
+![The Connect Customer virtual contact center instances page, the alias of your instance.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot18.png)
 
    1. Choose **Application integration**, and then choose **Add origin**.  
-![The left navigation pane, application integration option, Add origin.](http://docs.aws.amazon.com/connect/latest/adminguide/images/upgradeccp-application-integration.png)
+![The left navigation pane, application integration option, Add origin.](https://docs.aws.amazon.com/connect/latest/adminguide/images/upgradeccp-application-integration.png)
 
    1. Enter your domain URL. All domains that embed the CCP for a particular instance to be explicitly added. For more information, see [this article](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#allowlisting) on GitHub. 
 

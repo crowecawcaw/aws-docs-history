@@ -43,7 +43,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Start media streaming** block. It has two options: start the stream from the customer or to the customer. 
 
-![The properties page of the Start media streaming block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/start-media-streaming.png)
+![The properties page of the Start media streaming block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/start-media-streaming.png)
 
 
 ## Configuration tips
@@ -58,7 +58,7 @@ The following image shows the **Properties** page of the **Start media streaming
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**.
 
-![A configured Start media streaming block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/start-media-streaming-configured.png)
+![A configured Start media streaming block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/start-media-streaming-configured.png)
 
 
 ## Sample flows

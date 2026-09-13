@@ -19,7 +19,7 @@ Use this procedure to import day-level Available FTE and shrinkage data for Hiri
 1. On the **Import Data** tab, choose **Upload data**, and then choose **Hiring shrinkage and FTE**.
 
    The .csv file you upload must have the following headings: FORECAST\_GROUP, Date, AVAILABLE\_FTE, IN\_OFFICE\_SHRINKAGE\_OUT\_OFFICE\_SHRINKAGE. These are shown in the following image of a .csv file opened with Excel.  
-![A Hiring plan csv file with correct headings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-csv-template.png)
+![A Hiring plan csv file with correct headings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-csv-template.png)
 
 1. Update values in this template, and then choose `Upload CSV` to upload it. Choose `Upload`.
 

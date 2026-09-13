@@ -17,10 +17,10 @@ You can create rules that automatically send emails or tasks to managers based o
 1. Select **Create a rule**, **Real-time metrics**.
 
 1. Under **When**, use the dropdown list to choose from the following event sources: **There is an update in queue metrics**, **There is in update in routing profile metrics**, ** There is an update in agent metrics**, and **There is an update in flow metrics**. These options are shown in the following image.   
-![The option When a real time metric is available.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-rule-condition.png)
+![The option When a real time metric is available.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-rule-condition.png)
 
 1. Choose **Add condition**. The **Metrics** card is added automatically, as shown in the following image.   
-![The condition for when a real-time metric is updated.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-rule-condition-all.png)
+![The condition for when a real-time metric is updated.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-rule-condition-all.png)
 **Note**  
 You can add up to 2 Metrics cards. With these cards, you can create a condition where one card evaluates real-time metrics and another evaluates trailing windows of time. For example, you might want an alert when several agents on are lunch break (Agent activity = Lunch break for 1 hour) and Average handle time is greater than 5 minutes.
 You can add up to 10 metrics to each **Metrics** card.
@@ -32,7 +32,7 @@ You can add up to 10 metrics to each **Metrics** card.
      + [Agents available](metrics-definitions.md#available-real-time): Build rules that run when the number of agents available to handle contacts reaches a specified value. 
 
      The following image shows a condition that is met when **Contacts in queue** is greater than or equal to 400 AND **Oldest contact agent** is greater than or equal to 10 minutes AND **Agents available** is greater than or equal to 0, for the **Basic Routing Profile**.   
-![Multiple real time metrics in a condition.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-rule-condition-example.png)
+![Multiple real time metrics in a condition.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-rule-condition-example.png)
 
      To evaluate the condition with OR instead of AND, change the **Logic** setting to **Any**. 
    + **There is an update in queue metrics - trailing windows of time**
@@ -69,11 +69,11 @@ You can add up to 10 metrics to each **Metrics** card.
    + [Create Task](contact-lens-rules-create-task.md)
    + [Send email notification](contact-lens-rules-email.md)
    + [Generate an EventBridge event](contact-lens-rules-eventbridge-event.md): Use **Metrics Rules Matched** for the detail type.  
-![The add action dropdown menu, a list of actions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-action-no-wisdom.png)
+![The add action dropdown menu, a list of actions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-action-no-wisdom.png)
 **Note**  
  You can type @ to include the list of **agents, queues, flows or routing profile** that breached the metrics threshold within the **email** and **task** notifications. This list is automatically included within **resources** in EventBridge notifications.   
 
-![The task action with variable injection.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rules-rtm-task-action.png)
+![The task action with variable injection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rules-rtm-task-action.png)
 
 
 1. Choose **Next**.

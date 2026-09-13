@@ -55,7 +55,7 @@ Filtering contacts by task template does not reflect updated templates for in-pr
    For the complete list of conversational analytics filters, see [Search conversations analyzed by conversational analytics](search-conversations.md). You can apply these filters only if your organization has enabled conversational analytics. 
 
   In the **Add filter** drop-down box, the conversational analytics filters have **CL** next to them. You can apply these filters only if your organization has enabled conversational analytics.   
-![The contact search page, the filters section, the filter dropdown menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-search-contact-category-1.png)
+![The contact search page, the filters section, the filter dropdown menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-search-contact-category-1.png)
 
   If you want to remove the conversational analytics filters from a user's drop-down list, remove the following permissions from their security profile: 
   + **Search contacts by conversation**: This controls access to the sentiment scores, non-talk time, and category searches.
@@ -68,7 +68,7 @@ Some Connect Customer features might be unavailable when accessing cross-region 
 + Filters for [Voice ID](voice-id.md). You can search for the Voice ID authentication and fraud detection status of contacts, if your organization has enabled Voice ID. To access this functionality, on your security profile, you need **Analytics and Optimization**, **Voice ID - attributes and search** - **View** permission.
 
   The following image shows the filters available to search Voice ID: **Authentication result**, **Fraud detection result**, **Speaker actions**.  
-![The filter dropdown menu, filters for Voice ID.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-search-filters.png)
+![The filter dropdown menu, filters for Voice ID.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-search-filters.png)
 
 ## Manage who can search for contacts and access detailed information
 <a name="required-permissions-search-contacts"></a>

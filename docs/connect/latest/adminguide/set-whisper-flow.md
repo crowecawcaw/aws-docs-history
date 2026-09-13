@@ -68,7 +68,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set whisper flow** block. It shows the whisper to the agent is set manually to **Default agent whisper**. Use the dropdown box to choose a different whisper flow.
 
-![The properties page of the Set whisper flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-whisper-flow-properties4.png)
+![The properties page of the Set whisper flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-whisper-flow-properties4.png)
 
 
 If you choose to set a flow manually, in the **Search for flow** box, you can only select from flows that are type **Agent Whisper** or **Customer Whisper**.
@@ -89,4 +89,4 @@ To disable a previously set agent or customer whisper, choose the **Disable agen
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**. 
 
-![A configured Set whisper flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-whisper-flow-configured.png)
+![A configured Set whisper flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-whisper-flow-configured.png)

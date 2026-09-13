@@ -10,7 +10,7 @@ The plan output shows a week-by-week or month-by-month calculation. To switch fr
 **Note**  
 The following output description, screenshot, and metrics list apply to Hiring plans only. For Scheduling plan output, see [Review Scheduling plan output](#capacity-planning-scheduling-plan-output).
 
-![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-output3.png)
+![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-output3.png)
 
 
 Following is a description of the metrics in the plan output:
@@ -40,7 +40,7 @@ To review Scheduling plan output, open the plan from the **Capacity Plans** tab.
 
 The **Headcount requirements** graph shows how many agents you need at each interval. The x-axis shows time. The y-axis shows headcount.
 
-![The Headcount requirements graph showing required headcount, available headcount, and net staffing over time intervals.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-scheduling-headcount-graph.png)
+![The Headcount requirements graph showing required headcount, available headcount, and net staffing over time intervals.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-scheduling-headcount-graph.png)
 
 
 The graph plots the following series:
@@ -57,7 +57,7 @@ The graph includes a legend and tooltips. Point to a data point to view details.
 
 The **Optimization target performance** graph shows data for one channel at a time. To change the channel, use the **Channel** selector. You can choose Voice, Chat, Email, or Tasks.
 
-![The Optimization target performance graph showing projected values and goal for the selected channel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-scheduling-optimization-target-graph.png)
+![The Optimization target performance graph showing projected values and goal for the selected channel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-scheduling-optimization-target-graph.png)
 
 
 The y-axis label changes based on the target type for that channel:
@@ -77,7 +77,7 @@ Use the **Date range** picker to choose which days appear in the graphs and tabl
 
 The **Scheduling plan data** table shows one row per interval (15 or 30 minutes). It includes the following columns:
 
-![The Scheduling plan data table with interval-level columns for headcount, shrinkage, and channel metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-scheduling-plan-data-table.png)
+![The Scheduling plan data table with interval-level columns for headcount, shrinkage, and channel metrics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-scheduling-plan-data-table.png)
 
 + Date
 + Time

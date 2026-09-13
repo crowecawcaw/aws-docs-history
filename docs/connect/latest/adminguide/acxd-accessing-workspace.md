@@ -39,14 +39,14 @@ Inside a workspace, users can create and manage resources such as:
 |  |  | 
 | --- |--- |
 | **Applications** | The conversational AI experiences users interact with. | 
-| **Flows** | The conversation paths that guide users through tasks. | 
+| **Agentic CX designer flows** | The conversation paths that guide users through tasks. | 
 | **Canvas** | The visual builder used to create and connect flow nodes. | 
 | **Integrations** | Connections to external tools, APIs, and services. | 
 | **Knowledge bases** | Trusted content the AI can use to answer questions. | 
-| **Variables** | Dynamic values captured, remembered, or referenced during a conversation. | 
+| **Variables and slots** | Dynamic values captured, remembered, or referenced during a conversation. | 
 | **Guardrails** | Safety, brand, and compliance controls. | 
 | **Analytics** | Performance data used to monitor and improve experiences. | 
-| **Roles and permissions** | Access controls that determine what each person can view or manage within that workspace. | 
+| **Users and roles** | Access controls that determine what each person can view or manage within that workspace. | 
 
 ## Switching workspaces
 <a name="acxd-accessing-workspace-switching"></a>

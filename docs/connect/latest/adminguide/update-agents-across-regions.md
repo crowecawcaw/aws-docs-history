@@ -11,7 +11,7 @@ When you shift telephony traffic, also shift agents or agent sign-ins to make su
 After you have added agents to your traffic distribution group, use the [UpdateTrafficDistribution](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistribution.html) API to distribute agents across linked instances in a given traffic distribution group in 10% increments. Your agents will be able to complete active voice contacts before shifting Regions. 
 
 **Note**  
-If an agent gets an error when they try to end a contact before shifting Regions, they need to refresh the agent workspace page. For more information, see [Set up Connect Customer Agent Workspace to support agents shifting across AWS Regions](setup-agentworkspace-switchover.md).
+If an agent gets an error when they try to end a contact before shifting Regions, they need to refresh the agent workspace page. For more information, see [Set up the Connect Customer agent workspace to support agents shifting across AWS Regions](setup-agentworkspace-switchover.md).
 
 **Topics**
 + [Requirements](#update-agent-traffic-distribution-requirements)
@@ -143,13 +143,13 @@ When you call `UpdateTrafficDistribution` from the source AWS Region you can use
 ## Regional switch UI banner
 <a name="regional-switch-ui-banner"></a>
 
-Agent Workspace and CCP will provide a UI banner highlighting region switch.
+The agent workspace and CCP will provide a UI banner highlighting region switch.
 
 If an agent is **on a contact** when their region changes due to traffic distribution group (TDG) adjustments, they will see a banner similar to below. After they complete the voice contact and close the ACW state, the agent will automatically update to the new region—no action is needed. If the agent has trouble closing the contact, they can select **Continue in Backup** and a popup will appear seeking confirmation to switch over to the alternate region.
 
 We recommend you to adjust your run book and agent training guide to reflect this
 
-![The Agent Workspace UI showing a banner that highlights regional failover during TDG adjustments.](http://docs.aws.amazon.com/connect/latest/adminguide/images/acgr-failover-banner.png)
+![The agent workspace UI showing a banner that highlights regional failover during TDG adjustments.](https://docs.aws.amazon.com/connect/latest/adminguide/images/acgr-failover-banner.png)
 
 
-![The confirmation popup that appears when an agent selects Continue in Backup.](http://docs.aws.amazon.com/connect/latest/adminguide/images/acgr-failover-confirmation.png)
+![The confirmation popup that appears when an agent selects Continue in Backup.](https://docs.aws.amazon.com/connect/latest/adminguide/images/acgr-failover-confirmation.png)

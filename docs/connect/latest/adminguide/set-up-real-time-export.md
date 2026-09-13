@@ -17,10 +17,10 @@ To set this up, you need to enable **Data export** in the Customer Profiles cons
 1. Open the Connect Customer Customer Profiles console.
 
 1. Select the **Data export** tab and choose **Enable data streaming**  
-![Real-time data export enable Kinesis data stream.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-real-time-export-1.png)
+![Real-time data export enable Kinesis data stream.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-real-time-export-1.png)
 
 1. Choose **Enable data streaming** and select an existing Kinesis data stream from the drop-down menu, or choose **create a new Kinesis data stream** to open the Kinesis console and create the stream. For more information, see [Creating and Managing Streams](https://docs.aws.amazon.com/streams/latest/dev/working-with-streams.html).  
-![Real-time data export enable Kinesis data stream.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-real-time-export-2.png)
+![Real-time data export enable Kinesis data stream.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-real-time-export-2.png)
 
 1. Choose the **Enable data streaming** button to save your settings.
 
@@ -32,7 +32,7 @@ To set this up, you need to enable **Data export** in the Customer Profiles cons
 1. Open the Connect Customer Customer Profiles console.
 
 1. Select the **Data export** tab and choose **Disable data streaming**.  
-![Real-time data export disable Kinesis data stream.](http://docs.aws.amazon.com/connect/latest/adminguide/images/disable-real-time-export-1.png)
+![Real-time data export disable Kinesis data stream.](https://docs.aws.amazon.com/connect/latest/adminguide/images/disable-real-time-export-1.png)
 
 ## Real-time export Kinesis payload
 <a name="real-time-export-kinesis-payload"></a>

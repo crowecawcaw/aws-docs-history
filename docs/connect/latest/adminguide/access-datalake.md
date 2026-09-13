@@ -17,13 +17,13 @@ If you are unable to access the scheduling tables by using Option 1, try using O
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your instance name, which appears in your Connect Customer URL. The following image shows the Connect Customer virtual contact center instances page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/access-datalake-configure-data-option1-1.png)
+![The Connect Customer virtual contact center instances page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/access-datalake-configure-data-option1-1.png)
 
 1. On the left navigation menu, choose **Analytics Tools** and then choose **Add data share**.  
-![The Connect Customer analytics tools page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/access-datalake-configure-data-option1-2.png)
+![The Connect Customer analytics tools page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/access-datalake-configure-data-option1-2.png)
 
 1. For the **Target AWS account ID** specify the AWS account ID of the account from which you wish to access data (consumer). This can be the same AWS account as hosts your Connect Customer instance or a different AWS account. Select one or multiple data types you wish to access from the consumer account and select **Confirm**.  
-![The Connect Customer analytics tools Add data share page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/access-datalake-configure-data-option1-3.png)
+![The Connect Customer analytics tools Add data share page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/access-datalake-configure-data-option1-3.png)
 
 ## Option 2: Use CLI or CloudShell
 <a name="option2-configure-data-to-be-shared"></a>

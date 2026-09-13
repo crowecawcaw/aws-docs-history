@@ -35,4 +35,4 @@ When mapping a view to a **Show view** block, you will be able to select from a 
 ## Complex JSON Object support
 <a name="step-by-step-guided-experiences-complex-json"></a>
 
-Use the [Show view](show-view-block.md) block to pass complex JSON objects between Connect Customer agent workspaces and flows. Use the [AWS Lambda function](invoke-lambda-function-block.md) block specify JSON objects as input and output parameters. With these blocks, you can pass larger quantities of data with fewer mapping steps.
+Use the [Show view](show-view-block.md) block to pass complex JSON objects between the agent workspace and flows. Use the [AWS Lambda function](invoke-lambda-function-block.md) block specify JSON objects as input and output parameters. With these blocks, you can pass larger quantities of data with fewer mapping steps.

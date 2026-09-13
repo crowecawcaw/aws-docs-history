@@ -123,11 +123,11 @@ You download and upload starting backlog projections on the **Import Data** tab.
    1. **Starting backlog projections (overrides)**: Your current overrides.
 
    The following image shows the **Download data** menu with the starting backlog projection options.  
-![Download data options for starting backlog projections: system, merged system and overrides, and overrides only.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-backlog-download.png)
+![Download data options for starting backlog projections: system, merged system and overrides, and overrides only.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-backlog-download.png)
 
 1. To override projections, enter your values in a .csv file, using the columns described in [Starting backlog projection file format](#backlog-projections-file-format). Choose **Upload data**, **Starting backlog projections**, and then upload the file.
 
    The following image shows the **Upload data** menu with the **Starting backlog projections** option.  
-![Upload data option for Starting backlog projections.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-backlog-upload.png)
+![Upload data option for Starting backlog projections.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-backlog-upload.png)
 
    Each upload merges with your existing overrides at the weekday, queue, and channel level. For more information, see [How overrides work](#how-backlog-overrides-work).

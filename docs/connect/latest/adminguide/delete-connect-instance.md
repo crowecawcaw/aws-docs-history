@@ -23,7 +23,7 @@ You must have the appropriate AWS permissions to delete a Connect Customer insta
 1. Select the radio button for the instance.
 
 1. Choose **Delete**. If you don't see the **Delete** button, you don't have permissions to delete instances. Contact your AWS administrator for help.  
-![The Connect Customer virtual contact center instances page, the delete button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance-delete.png)
+![The Connect Customer virtual contact center instances page, the delete button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance-delete.png)
 
 1. When prompted, enter the name of the instance and then choose **Delete**.
 
@@ -35,7 +35,7 @@ If you get this error message, it means that you selected a Region in the AWS Ma
 **To switch Regions and delete your Connect Customer instance**
 
 1. From the navigation bar, open the Region selector. Select the Region in which you created the Connect Customer instance.  
-![The list of Regions in the Region selector.](http://docs.aws.amazon.com/connect/latest/adminguide/images/aws-management-console-region.png)
+![The list of Regions in the Region selector.](https://docs.aws.amazon.com/connect/latest/adminguide/images/aws-management-console-region.png)
 
 1. From the navigation bar, choose **Connect Customer** from the list of services to open the Connect Customer console. If you don't see the instance, keep selecting from the supported Regions until you find your instance.
 

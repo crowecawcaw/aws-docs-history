@@ -12,7 +12,7 @@ Predictive Insights (preview) uses AI models to analyze customer behavior patter
 + **Step 1: **Add interaction data to profiles using existing data connectors to train AI models with your customer interaction data 
 + **Step 2:** Add item catalog to S3 to allow Customer Profiles to access your item data through the AWS Management Console
 + **Step 3:** Create recommendations by defining recommendation types (similar items, frequently paired items, popular items) 
-+ **Step 4:** Apply recommendations across Connect Customer ecosystem including Agent Workspace, Flows, and Connect AI agents 
++ **Step 4:** Apply recommendations across Connect Customer ecosystem including agent workspace, Flows, and Connect AI agents 
 
 ## Prerequisites
 <a name="predictive-insights-prereqs"></a>

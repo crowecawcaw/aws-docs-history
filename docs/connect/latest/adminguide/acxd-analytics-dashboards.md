@@ -34,9 +34,9 @@ The default views include:
 
 |  |  | 
 | --- |--- |
-| **Overview** | General application usage, conversation volume, traffic, and high-level outcomes. | 
-| **Understanding** | How well the application understands users, invokes flows, and responds to common phrases. | 
-| **Integrations** | Data request usage, success rates, response times, and technical performance indicators. | 
+| **Default** | General application usage, conversation volume, traffic, and high-level outcomes. | 
+| **User experience** | How well the application understands users, invokes flows, and responds to common phrases. | 
+| **Performance** | Data request usage, success rates, response times, and technical performance indicators. | 
 
 These dashboards provide a quick starting point for understanding deployed application health.
 
@@ -58,9 +58,9 @@ Use custom dashboards when your team needs to track specific milestones, flow ou
 
 **To create a custom analytics dashboard**
 
-1. Open **Analytics**.
+1. Open **Resources**.
 
-1. Select **Create dashboard**.
+1. Select **Dashboards > Add dashboard**.
 
 1. Enter a dashboard name > choose visibility.
 
@@ -99,7 +99,7 @@ When configuring a chart, you may define:
 
 |  |  | 
 | --- |--- |
-| **Title** | The title shown on the dashboard. | 
+| **Panel name** | The title shown on the dashboard. | 
 | **Description** | A short explanation of what the panel tracks. | 
 | **Chart type** | The visual format used to display the metric. | 
 | **Metric** | The data being measured. | 
@@ -112,7 +112,7 @@ Different chart types are useful for different kinds of data.
 
 |  |  | 
 | --- |--- |
-| **Scorecard** | Shows a single number, such as total conversations. | 
+| **Value** | Shows a single number, such as total conversations. | 
 | **Gauge** | Shows a value against a defined range. | 
 | **Pie chart** | Shows proportions across a group. | 
 | **Bar chart** | Compares values across categories or time intervals. | 
@@ -133,11 +133,11 @@ Common examples include:
 
 |  |  | 
 | --- |--- |
-| **Conversation metrics** | Conversations, users, messages, messages per conversation, time spent per conversation. | 
-| **Flow metrics** | Flows invoked, flows detected, confidence score, phrase occurrences, phrase trends. | 
-| **Node metrics** | Time spent per flow, time spent per node, tagged milestones, completion or drop-off indicators. | 
-| **Integration metrics** | Data requests invoked, percentage of successful Data requests, Data request response time. | 
-| **Knowledge base metrics** | Knowledge base invoked, knowledge base confidence score, knowledge base response time. | 
+| **Conversation activity** | Conversations, users, messages, messages per conversation, time spent per conversation. | 
+| **Flow recognition** | Flows invoked, flows detected, confidence score, phrase occurrences, phrase trends. | 
+| **User experience** | Time spent per flow, time spent per node, tagged milestones, completion or drop-off indicators. | 
+| **Integrations** | Data requests invoked, percentage of successful Data requests, Data request response time. | 
+| **Knowledge bases** | Knowledge base invoked, knowledge base confidence score, knowledge base response time. | 
 
 Use the metric that most directly answers the question you are trying to investigate.
 
@@ -196,7 +196,7 @@ Use formulas when you need to:
 + Combine multiple datasets into one value
 + Create a custom KPI for your team
 
-For example, you could calculate a completion rate by comparing conversations that reached a "task\_completed" analytics tag against conversations that reached a "task\_started" tag.
+For example, you could calculate a completion rate by comparing conversations that reached a "booking\_completed" analytics tag against conversations that reached a "booking\_started" tag.
 
 **To add a formula**
 
@@ -204,7 +204,7 @@ For example, you could calculate a completion rate by comparing conversations th
 
 1. Add or edit a chart.
 
-1. Choose a supported chart type, such as Scorecard, Line, or Bar.
+1. Choose a supported chart type, such as Value, Line, or Bar.
 
 1. Add one or more datasets or data columns.
 
@@ -216,7 +216,7 @@ For example, you could calculate a completion rate by comparing conversations th
 
 1. To reference an existing metric, type an opening curly bracket { and choose from the available metrics.
 
-1. Choose a **Display unit**, such as percentage, seconds, or another available display unit.
+1. Choose a **Formula unit**, such as percentage, seconds, or another available display unit.
 
 1. Save the panel.
 

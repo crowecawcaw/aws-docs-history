@@ -12,4 +12,4 @@
 1. In the **Queues** table, check the **In queue** column. 
 
    The **In queue** value shows the total number of customers who are waiting for an agent, including those who have requested a callback.  
-![The In queue column in the Queues table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-waiting-in-queue.png)
+![The In queue column in the Queues table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-waiting-in-queue.png)

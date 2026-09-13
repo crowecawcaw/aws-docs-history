@@ -20,7 +20,7 @@ Tag-based access control is not yet supported on contacts.
 
 The following image shows the **Contact Actions - Update contact tags** permission.
 
-![The Contact Actions section with the Update contact tags permission.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-tagging-permission.png)
+![The Contact Actions section with the Update contact tags permission.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-tagging-permission.png)
 
 
 ## How to tag a contact
@@ -35,10 +35,10 @@ The following image shows the **Contact Actions - Update contact tags** permissi
 1. Choose the contact to view its details.
 
 1. On the **Contact details** page, choose **Actions**, **Tag contact**.  
-![The Actions dropdown with the Tag contact option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-tag-action.png)
+![The Actions dropdown with the Tag contact option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-tag-action.png)
 
 1. The **Tag contact** dialog opens. Existing tags on the contact are pre-filled.  
-![The Tag contact dialog showing key-value tag fields.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-tagging-dialog.png)
+![The Tag contact dialog showing key-value tag fields.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-tagging-dialog.png)
 
 1. Enter a **Key** and **Value** for the tag.
 

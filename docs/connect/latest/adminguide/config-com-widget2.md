@@ -23,7 +23,7 @@ See the following Github repository for sample applications: [amazon-connect-in-
 
 The following diagram shows the sequence of events for a client device (mobile application or browser) to initiate an in-app or web call.
 
-![A conceptual diagram that shows how a client devices initiates a call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/netra-gs-diagram.png)
+![A conceptual diagram that shows how a client devices initiates a call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/netra-gs-diagram.png)
 
 
 1. Your customer uses the client application (website or application) to start an in-app or web call.

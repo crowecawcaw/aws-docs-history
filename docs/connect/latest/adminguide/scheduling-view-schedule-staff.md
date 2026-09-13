@@ -12,4 +12,4 @@ Complete the following are steps to view your schedule in the agent workspace.
 1. Choose the Calendar icon on the application navigation bar to launch the staff schedule manager viewer. Otherwise, the staff schedule manager viewer launches automatically.
 
    The following image shows a sample schedule in the agent workspace.  
-![A sample schedule in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-agent-view.png)
+![A sample schedule in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-agent-view.png)

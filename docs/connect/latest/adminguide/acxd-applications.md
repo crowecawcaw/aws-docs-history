@@ -18,13 +18,20 @@ From the agentic CX designer application page, you can:
 
 1. Select **Applications** from the workspace menu.
 
-1. Select **Create application**.
+1. Select **New application**.
 
 1. Enter a clear application name.
 
 1. Select **Create**.
 
 Use a name that helps teammates quickly understand the purpose of the application.
+
+Examples:
++ Hotel Concierge
++ Appointment Scheduler
++ Retail Order Support
++ Internet Troubleshooting Assistant
++ Benefits Enrollment Support
 
 ## Adding flows to an application
 <a name="acxd-applications-flows"></a>
@@ -50,7 +57,7 @@ Default behavior determines which flow runs when the application needs a standar
 
 1. Open the application > Select the **Design** tab.
 
-1. Select the edit icon under the Flows section OR select the three-dot menu beside each attached flow to manage defaults.
+1. Select the Default behavior icon under the Flows section OR select the three-dot menu beside each attached flow to manage defaults.
 
 1. Assign the appropriate flow for each behavior.
 

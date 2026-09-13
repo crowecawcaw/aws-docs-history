@@ -20,7 +20,7 @@ Profiles created or updated by using `PutProfileObject` will always respect the 
 ## Mental model visualized
 <a name="mental-model-visualized"></a>
 
-![A flowchart showing the expiration logic for Customer Profiles.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-expiration-model.png)
+![A flowchart showing the expiration logic for Customer Profiles.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-expiration-model.png)
 
 
 ## Import profile expiration

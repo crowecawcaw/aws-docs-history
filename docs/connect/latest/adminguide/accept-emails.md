@@ -35,7 +35,7 @@ When an email contact is offered to an agent:
 
 1. The agent has a configured amount of time to accept or reject the contact.
 
-![The CCP displaying an incoming email contact notification with sender email address, subject line, and Accept/Reject buttons.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-incoming-notification.png)
+![The CCP displaying an incoming email contact notification with sender email address, subject line, and Accept/Reject buttons.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-incoming-notification.png)
 
 
 ### Accepting an email contact
@@ -49,7 +49,7 @@ To accept an incoming email contact:
 
 1. Review the email details, including sender, recipients, subject, and message body.
 
-![The CCP showing an accepted email contact with email header, message body, and action buttons.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-accepted-contact.png)
+![The CCP showing an accepted email contact with email header, message body, and action buttons.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-accepted-contact.png)
 
 
 **Note**  
@@ -66,7 +66,7 @@ When an agent accepts an email contact, the CCP displays a dedicated email inter
 + **Reply area**: Provides a text editor for composing responses.
 + **Action buttons**: Includes options to send, transfer, or end the contact.
 
-![The email contact interface in the CCP with labeled components including email header, message body, thread view.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-interface-components.png)
+![The email contact interface in the CCP with labeled components including email header, message body, thread view.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-interface-components.png)
 
 
 ## Reading and reviewing email content
@@ -84,7 +84,7 @@ The email header displays key information:
 + **Subject**: The email subject line
 + **Date/Time**: When the email was sent
 
-![The email header section showing From, To, CC, Subject, and Date/Time fields.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-header-details.png)
+![The email header section showing From, To, CC, Subject, and Date/Time fields.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-header-details.png)
 
 
 ### Viewing email threads
@@ -100,7 +100,7 @@ To view an email thread:
 
 1. Expand or collapse individual messages to review their content.
 
-![The email thread view showing the current message at the top and previous messages in chronological order below.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-thread-view.png)
+![The email thread view showing the current message at the top and previous messages in chronological order below.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-thread-view.png)
 
 
 Email threads help agents understand the full context of a customer inquiry, including previous interactions and responses.
@@ -118,7 +118,7 @@ To view or download an attachment:
 
 1. Open the downloaded file using the appropriate application.
 
-![The attachments section displaying attached files with file names, sizes, and download buttons.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-attachments.png)
+![The attachments section displaying attached files with file names, sizes, and download buttons.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-attachments.png)
 
 
 **Important**  
@@ -144,7 +144,7 @@ To compose an email response:
 
 1. If needed, add attachments to your response by choosing the attachment option.
 
-![The email reply area showing To, CC, Subject fields auto-populated, and the text editor for composing a response.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-compose-response.png)
+![The email reply area showing To, CC, Subject fields auto-populated, and the text editor for composing a response.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-ccp-compose-response.png)
 
 
 ### Sending a response

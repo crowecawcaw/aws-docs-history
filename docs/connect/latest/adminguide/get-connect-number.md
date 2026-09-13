@@ -13,14 +13,14 @@ To place or receive calls in your Connect Customer instance, you need to claim a
 1. On the navigation menu, choose **Channels**, **Phone numbers**.
 
 1. Choose **Claim a number**. You can choose a toll-free number or a Direct Inward Dialing (DID) number. If you're in the US, you can specify the area code you want for your number, and only available numbers with that area code will be displayed. When numbers are returned, choose one.   
-![The Claim phone number page, DID (Direct Inward Dialing) tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-claim-number.png)
+![The Claim phone number page, DID (Direct Inward Dialing) tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-claim-number.png)
 **Note**  
 Create a case by choosing the [Account and billing](https://support.console.aws.amazon.com/support/home#/case/create) option for these situations:   
 If you select a country or region, but no numbers display, you can request additional numbers for the country or region. 
 If you want to request a specific area code or prefix that you don't see listed, we'll try to accommodate your request.
 The following image shows the **Account and billing** option on the **Create a case** page of the **Support Center** console.  
 
-![The Account and billing option on the Create a case page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-case-support.png)
+![The Account and billing option on the Create a case page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-case-support.png)
 
 
 1. Enter a description for the number and, if required, attach it to a contact flow in **Flow / IVR**.

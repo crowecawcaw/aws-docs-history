@@ -17,14 +17,14 @@ Creating a new version preserves the current state of your bot configuration. Co
 1. Open the bot for which you want to create a new version.
 
 1. Choose the **Versions** tab, and then choose **Create version**.  
-![The Versions tab, the Create version button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-versionstab.png)
+![The Versions tab, the Create version button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-versionstab.png)
 
 1. In the **Create version** dialog box:
 
    1. Enter a version description (optional, but recommended for tracking changes)
 
    1. Choose **Create**. The following image shows an example **Create version** dialog box.  
-![A Create version dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-version-bot.png)
+![A Create version dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-version-bot.png)
 
 After the version is created, you can associate it with aliases or you can use it to revert to a previous state of your bot.
 
@@ -41,7 +41,7 @@ Complete the following steps to create an alias for your Amazon Lex bot.
 1. Open the bot for which you want to add the alias.
 
 1. Choose the **Aliases** tab, and then choose **Create aliases**.  
-![The Alias tab, the Create aliases button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-aliases-button.png)
+![The Alias tab, the Create aliases button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-aliases-button.png)
 
 1. In the **Create Alias** dialog box:
 
@@ -54,6 +54,6 @@ Complete the following steps to create an alias for your Amazon Lex bot.
    1. (Recommended) Choose **Enable for use in flow and flow modules**. This is required if you want to use the bot in a flow.
 
    1. Choose **Create**. The following image shows an example **Create alias** dialog box.  
-![A Create Alias dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-create-alias.png)
+![A Create Alias dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-create-alias.png)
 
 For more information about versioning and aliasing in Amazon Lex V2, see [Versioning and aliases with your Lex V2 bot](https://docs.aws.amazon.com/lexv2/latest/dg/versions-aliases.html) in the *Amazon Lex V2 Developer Guide*. 

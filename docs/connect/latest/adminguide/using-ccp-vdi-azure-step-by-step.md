@@ -36,7 +36,7 @@ The MMR extension only redirects calls for domains on its `AllowedCallRedirectio
 + **Session host configuration**: Allow the Azure session host to reach Connect Customer over TCP/443 for the domains shown in the following diagram. For more information, see [Set up your network](ccp-networking.md).
 + **Agent local device configuration**: This solution requires a media connection between the agent's local device and Connect Customer over Softphone Media UDP Port 3478. For more information, see [Set up your network](ccp-networking.md).
 
-![Azure session host and agent local device firewall settings for Connect Customer MMR Call Redirection.](http://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-server-firewall.png)
+![Azure session host and agent local device firewall settings for Connect Customer MMR Call Redirection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-server-firewall.png)
 
 
 ## Configure the VDI platform parameter
@@ -76,7 +76,7 @@ If you do not set the `VDIPlatform` parameter, Connect Customer automatically de
    Initiate a call. Confirm that the extension icon shows the call symbol. Speak into the microphone and confirm that the other party hears your audio. Because the agent's local device processes audio rather than the virtual desktop, the call works even though the microphone is disabled for the virtual desktop browser.
 
    If the extension is disabled or call redirection is not working, the agent sees an error banner that states that the microphone is not accessible.  
-![The multimedia redirection extension status showing call redirection active during a call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-call-redirection-active.png)
+![The multimedia redirection extension status showing call redirection active during a call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-call-redirection-active.png)
 
 ### Collect MMR debug logs
 <a name="verify-azure-collect-logs"></a>
@@ -92,7 +92,7 @@ If you need to collect MMR logs for troubleshooting, use the browser extension t
 
 |  | 
 | --- |
-|  ![Collecting logs from the multimedia redirection extension advanced settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-collect-logs.png)  | 
+|  ![Collecting logs from the multimedia redirection extension advanced settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-collect-logs.png)  | 
 
 For more information, see [Troubleshoot multimedia redirection](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-desktop/troubleshoot-multimedia-redirection#collect-logs) in the Microsoft documentation.
 

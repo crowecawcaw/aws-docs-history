@@ -58,7 +58,7 @@ Use the Evaluate action to query data tables and retrieve specific attribute val
 
 The following image shows the **Properties** page of the **Data Table** block configured to evaluate data table values.
 
-![The properties page of the Data Table block configured for Evaluate action.](http://docs.aws.amazon.com/connect/latest/adminguide/images/data-table-evaluate.png)
+![The properties page of the Data Table block configured for Evaluate action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/data-table-evaluate.png)
 
 
 ### Configuration steps
@@ -111,7 +111,7 @@ Use the List action to retrieve whole rows from a data table that match specifie
 
 The following image shows the **Properties** page of the **Data Table** block configured to list data table values.
 
-![The properties page of the Data Table block configured for List action.](http://docs.aws.amazon.com/connect/latest/adminguide/images/data-table-list.png)
+![The properties page of the Data Table block configured for List action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/data-table-list.png)
 
 
 ### Configuration steps
@@ -166,7 +166,7 @@ Use the Write action to create new records or update existing records in a data 
 
 The following image shows the **Properties** page of the **Data Table** block configured to write to a data table.
 
-![The properties page of the Data Table block configured for Write action.](http://docs.aws.amazon.com/connect/latest/adminguide/images/data-table-write.png)
+![The properties page of the Data Table block configured for Write action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/data-table-write.png)
 
 
 ### Configuration steps

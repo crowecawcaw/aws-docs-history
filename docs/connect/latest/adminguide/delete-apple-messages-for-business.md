@@ -20,7 +20,7 @@
    The following image shows an example of a completed ticket:
 
 1. Expand **Contact options**, and then choose your **Preferred contact language**, and then choose **Web** as the contact method, if it's not selected by default.  
-![The contact options page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/abc-contact-support-options.png)
+![The contact options page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/abc-contact-support-options.png)
 
 1. Choose **Submit**.
 

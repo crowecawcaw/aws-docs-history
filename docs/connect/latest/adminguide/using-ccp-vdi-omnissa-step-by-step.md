@@ -47,10 +47,10 @@ Omnissa Horizon Client version 2503 will be available through [Omnissa Customer 
     ```
 
   After Omnissa agent installation, html5server.exe and wsnm.exe processes will always be running in Task Manager, regardless of SDK enablement status. The following image shows the html5server.exe process running in Task Manager.   
-![Task Manager, the html5server.exe process running.](http://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-1.png)
+![Task Manager, the html5server.exe process running.](https://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-1.png)
 
   The following image shows the wsnm.exe process running in Task Manager.   
-![Task Manager, the wsnm.exe process running.](http://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-2.png)
+![Task Manager, the wsnm.exe process running.](https://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-2.png)
 + **Troubleshooting**
   + The Omnissa log file can be found at:
 
@@ -88,7 +88,7 @@ The `{pid}` refers to the horizon client "horizon-protocol.exe" process ID, whic
     This solution requires the media connection between agent thin client to Connect Customer. Follow the [Set up your network](ccp-networking.md) topic to allow the traffic between agent's machine and Connect Customer Softphone Media UDP Port 3478.
 
      The following diagram illustrates the use of UDP Port 3478.  
-![The use of UDP Port 3478.](http://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-3.png)
+![The use of UDP Port 3478.](https://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-3.png)
 
 ## Required code changes on your custom CCP
 <a name="omnissa-required-initccp-changes"></a>
@@ -147,7 +147,7 @@ Implement an API to determine the correct configuration based on user context.
    1. Grey icon indicates Not Ready state and potential issues.
 
    The following image shows what the Omnissa Horizon WebRTC browser extension looks like when it is enabled and in Ready state.  
-![The Omnissa Horizon WebRTC browser extension when it is enabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-4.png)
+![The Omnissa Horizon WebRTC browser extension when it is enabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-4.png)
 
 1. Check process status:
 
@@ -188,7 +188,7 @@ Implement an API to determine the correct configuration based on user context.
 The IP range shown above is for the US East (N. Virginia) AWS Region. For IP ranges of other Regions, see [Set up your network](ccp-networking.md).  
 The following image shows IP ranges for .  
 
-![The Omnissa Horizon WebRTC browser extension when it is enabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-5.png)
+![The Omnissa Horizon WebRTC browser extension when it is enabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/omnissa-5.png)
 
 
 1. Console logging

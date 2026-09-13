@@ -5,7 +5,7 @@
 
 There might be a delay when first exporting events to your Kinesis Data Stream. This is due to the time it takes to propagate IAM permissions for the service-linked role. When an actual issue occurs, the streaming status can enter an error state.
 
-![Events unable to reach the destination Kinesis Data Stream, entering an error state.](http://docs.aws.amazon.com/connect/latest/adminguide/images/real-time-export-troubleshooting.png)
+![Events unable to reach the destination Kinesis Data Stream, entering an error state.](https://docs.aws.amazon.com/connect/latest/adminguide/images/real-time-export-troubleshooting.png)
 
 
 The following sections display the possible error messages that you might encounter. It also provides the cause and resolution for each issue.

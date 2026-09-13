@@ -50,11 +50,13 @@ The format of a notification looks like the following sample:
 | Event reason code | Description | 
 | --- | --- | 
 | INVALID\_ANALYSIS\_CONFIGURATION | Conversational analytics received invalid values when the flow was initiated, such as an unsupported or invalid language code, or an unsupported value for redaction behavior. | 
-| RECORDING\_FILE\_CANNOT\_BE\_READ | Conversational analytics can't get the recording file. This might be because file isn't present in the S3 bucket, or there are problems with permissions. | 
-| RECORDING\_FILE\_TOO\_SMALL | The recording file is too small for analysis (less than 105 ms).<br />If file doesn't have expected format, an INVALID error occurs. Empty JSON is also an unexpected object. | 
+| RECORDING\_FILE\_CANNOT\_BE\_READ | Conversational analytics can't read the recording file. This might be because the file isn't present in the S3 bucket, there are problems with permissions, or an error occurred when conversational analytics tried to read the file. | 
+| RECORDING\_FILE\_TOO\_SMALL | The recording file is too small for analysis (less than 500 ms).<br />If file doesn't have expected format, an INVALID error occurs. Empty JSON is also an unexpected object. | 
 | RECORDING\_FILE\_TOO\_LARGE | The recording file exceeds the duration limit for analysis. +  Voice: More than 14,400 seconds, or 4 hours <br />+  Chat: More than 20K messages in a transcript  | 
 | RECORDING\_FILE\_INVALID | The recording file is invalid. | 
-| RECORDING\_FILE\_CANNOT\_BE\_READ | An error occurred when conversational analytics tried to read the recording file. | 
 | RECORDING\_FILE\_EMPTY | The recording file is empty. | 
 | RECORDING\_SAMPLE\_RATE\_NOT\_SUPPORTED | The sample rate of the audio file is not supported. conversational analytics supports audio files with an 8kHz sample rate. That is the sample rate for Connect Customer recordings. | 
+| UNSUPPORTED\_RECORDING\_FORMAT | The format of the recording file is not supported for analysis. | 
+| ANALYSIS\_FILES\_CANNOT\_BE\_WRITTEN | Conversational analytics could not write the analysis output files. This might be because of problems with permissions on the output S3 bucket. | 
+| MAX\_PACKAGE\_FEATURE\_ONLY | The requested analysis feature is available only for Connect Customer Customer enabled instances. | 
 | INSUFFICIENT\_CONVERSATION\_CONTENT | Conversational analytics did not find enough plain text content in the conversation to generate an analysis. This can occur when the conversation is too short, or the content didn't convert to any plain text. | 

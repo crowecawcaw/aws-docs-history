@@ -51,7 +51,7 @@ Agents might encounter missed call scenarios when the CCP tab has no microphone 
 
 The following image shows an example of a missed call scenario due to the CCP tab not having access to agent's microphone. 
 
-![The CCP, the error message Microphone is not accessible.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-issue-microphone-access.png)
+![The CCP, the error message Microphone is not accessible.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-issue-microphone-access.png)
 
 
 ### How to fix
@@ -70,7 +70,7 @@ The CCP initialization process depends on the API and signalling endpoints. Thes
 
 The following image shows an example of a missed call scenario due to missing allowlisted domains. 
 
-![The CCP, the error message Initialization Failed.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-issues-initialization.png)
+![The CCP, the error message Initialization Failed.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-issues-initialization.png)
 
 
 ### How to fix
@@ -139,7 +139,7 @@ Outbound configuration issues often arise when the instance is not enabled for o
 
 The following image shows an example of a invalid outbound configuration message on the CCP. 
 
-![The CCP, the error message Invalid outbound configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-issues-invalidoutboundconfig.png)
+![The CCP, the error message Invalid outbound configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-issues-invalidoutboundconfig.png)
 
 
 ### How to fix
@@ -157,7 +157,7 @@ Invalid number issues are primarily seen when an agent enters a phone number tha
 
 The following image shows an example of a invalid number message on the CCP. 
 
-![The CCP, the error message Invalid number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-issues-invalidnumber.png)
+![The CCP, the error message Invalid number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-issues-invalidnumber.png)
 
 
 ### How to fix

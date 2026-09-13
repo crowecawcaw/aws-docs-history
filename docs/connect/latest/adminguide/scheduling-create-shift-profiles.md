@@ -21,7 +21,7 @@ Use shift profiles to create templates for weekly shifts. The template includes 
      + **Flex**: This means if Connect Customer predicts enough contact volume to warrant scheduling the agent, it might schedule them to work between the specified hours and minutes.
 
      The following image shows the **Schedule Window** section of the **Add shift profile** page. It shows examples of Flex, Working (with a shift length of 8 hours and 30 minutes), and the Default activity.  
-![The Schedule Window section of the Add shift profile page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-flex.png)
+![The Schedule Window section of the Add shift profile page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-flex.png)
    + **Start Time** and **End Time**: Specify the earliest start time and the latest end time for each day in the selected time zone.
    + **Shift length (Optional)**: Specify the maximum shift length that an agent can be scheduled on a specific day. This option is especially useful if your contact center is open for long periods of time, such as 24 hours, but each shift is shorter than that, such as 8 hours.
    + **Default activity**: Specify the default activity for each day. Only activities set up as work activities can be selected as default activities. For more information about work activities, see [Create shift activities](scheduling-create-shift-activities.md). 
@@ -37,7 +37,7 @@ Use shift profiles to create templates for weekly shifts. The template includes 
 1. Optionally, complete the **Rules** section as follows: 
 **Important**  
 These rules override the settings in the **Schedule Window** section.  
-![The optional Rules section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-rules.png)
+![The optional Rules section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-rules.png)
 
    Choose the **Add rule** dropdown box and choose from the following options:
    + **Minimum break distance**
@@ -46,10 +46,10 @@ These rules override the settings in the **Schedule Window** section.
    + **Days off**: If you list multiple days, they are separated by OR. 
 
 1. In the **Daily shift activities** section, complete the **Default shift activity group** section to specify when activities such as lunch breaks and training should be scheduled during the shift. The shift activities apply to everyone in the shift. In the following image, agents are scheduled for a **Break** 6 hours after starting their shift and within 7 hours.  
-![The default shift activity group.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-dailyshiftactivities.png)
+![The default shift activity group.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-dailyshiftactivities.png)
 
    Optionally, choose **Add new group** to add a subgroup of agents and specify shift activities for them. In the following image, the shift is 2 hours and no activities are specified. This means the agents in **Shift activity group 2** don't get a break.   
-![A shift activity group with no shift activities specified.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-noshiftactivities.png)
+![A shift activity group with no shift activities specified.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-schedule-noshiftactivities.png)
 
 1. After saving the shift profile, you can edit or remove it from the list view.
 

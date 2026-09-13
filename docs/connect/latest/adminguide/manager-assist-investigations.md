@@ -28,17 +28,17 @@ The following example shows an investigation of a service level drop, starting w
 
 When a potential issue is identified, investigation prompts are also suggested. Choosing a prompt starts the multi-step analysis.
 
-![A response that reports a service level of 40.6 percent against an 80 percent target, followed by suggested prompts to investigate the low service level, break it down by queue, and show the trend by day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-investigation-prompts.png)
+![A response that reports a service level of 40.6 percent against an 80 percent target, followed by suggested prompts to investigate the low service level, break it down by queue, and show the trend by day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-investigation-prompts.png)
 
 
 During the investigation, a processing state is displayed while multiple data dimensions are examined. Investigations require more processing time than standard metric lookups, so expect responses to take longer than they do for a simple question.
 
-![An investigation prompt in the chat, with a processing indicator displayed while the analysis runs.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-investigation-progress.png)
+![An investigation prompt in the chat, with a processing indicator displayed while the analysis runs.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-investigation-progress.png)
 
 
 When the investigation is complete, a structured analysis is returned. The format varies with the complexity of the issue, and typically includes the major contributing factors, the factors that were eliminated, and recommended actions.
 
-![Investigation results that list a staffing shortage as the primary driver, abandonment as an amplifying factor, and contact volume and handle time as factors that did not contribute.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-investigation-results.png)
+![Investigation results that list a staffing shortage as the primary driver, abandonment as an amplifying factor, and contact volume and handle time as factors that did not contribute.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-investigation-results.png)
 
 
 Following the analysis of the major contributing factors, prioritized recommended actions are provided. Each recommendation includes the reasoning for why it addresses the identified issue, and might include a confidence indicator that reflects how directly the action addresses that issue. The following table shows example recommended actions for this investigation.

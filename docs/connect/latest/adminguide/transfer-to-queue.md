@@ -77,7 +77,7 @@ Use this configuration tab to transfer the contact to a queue. There are two pos
 + **Contacts are not in any queue yet**: If contacts are not in a queue yet, this configuration simply puts the contacts in the destination queue that you've specified. For contacts not in a queue yet, you must use a [Set working queue](set-working-queue.md) block before a **Transfer to queue** block. 
 
   The following image shows the **Transfer to queue** tab on the **Properties** page for transferring contacts to queue. You don't need to choose any options.  
-![The properties page of the Transfer to queue block, the Transfer to queue tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-properties.png)
+![The properties page of the Transfer to queue block, the Transfer to queue tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-properties.png)
 
   The following code sample shows how this same configuration would be represented by the [TransferContactToQueue ](https://docs.aws.amazon.com/connect/latest/APIReference/contact-actions-transfercontacttoqueue.html) action in the Flow language:
 
@@ -106,7 +106,7 @@ Use this configuration tab to transfer the contact to a queue. There are two pos
   + **At capacity**: If the destination queue cannot accept additional contacts when number of contacts currently in a queue exceeds the maximum contacts allowed for queue, then the contact is routed down the **At Capacity** branch.
   + **Error**: If transfer to queue fails for any other reason apart from capacity constraint (for example, the queue ARN that is specified for the transfer is not valid, the queue does not exist in the current instance, or queue is disabled for routing), then the contact is routed down the **Error** branch. 
 + **Contact already in a queue**: If contacts are already waiting in a queue, then running the **Transfer to queue** block would move contacts from one queue to another. The following image shows how to configure the block to transfer contacts to queue. In this case, the **BasicQueue** is set manually.  
-![The properties page of the Transfer to queue block, the Transfer to callback queue tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-properties1.png)
+![The properties page of the Transfer to queue block, the Transfer to callback queue tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-properties1.png)
 
   The following code sample shows how this same configuration would be represented by the [DequeueContactAndTransferToQueue](https://docs.aws.amazon.com/connect/latest/APIReference/contact-actions-dequeuecontactandtransfertoqueue.html) action in the Flow language:
 
@@ -143,7 +143,7 @@ Use this configuration tab to transfer the contact to a queue. There are two pos
 
 Use this configuration tab to schedule callbacks for contacts at later time. The following image shows a **Properties** page that is configured for scheduling callbacks. 
 
-![The properties page of the Transfer to queue block, the Transfer to Callback tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-properties-callback.png)
+![The properties page of the Transfer to queue block, the Transfer to Callback tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-properties-callback.png)
 
 
 The following properties are available under the **Transfer to Callback** tab:
@@ -174,12 +174,12 @@ If you want to specify the **Set working queue** property, you need to add a **S
 
  When this block is configured to **transfer to queue**, it looks similar to the following image. It has two branches: **At capacity** and **Error**. If a contact is routed down the **At capacity** branch, it remains in the current working queue.
 
-![A configured transfer to queue block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-configured.png)
+![A configured transfer to queue block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-configured.png)
 
 
 When this block is configured to **transfer to callback queue**, it looks similar to the following image. It has two branches: **Success** and **Error**. If a contact is routed down the **Success** branch, it's transferred to the specified queue.
 
-![A configured transfer to callback block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-configured1.png)
+![A configured transfer to callback block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-configured1.png)
 
 
 ### Additional configuration tips

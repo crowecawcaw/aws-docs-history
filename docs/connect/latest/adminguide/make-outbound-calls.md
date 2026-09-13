@@ -15,6 +15,6 @@ For information about the caller ID that's displayed when you make an outbound c
 1. In your Contact Control Panel, choose **Number pad**.
 
 1. Use the dropdown menu to choose the country, then enter the number.   
-![The CCP, the number pad, the Call button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-make-outbound-call.png)
+![The CCP, the number pad, the Call button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-make-outbound-call.png)
 
 1. Choose **Call**.

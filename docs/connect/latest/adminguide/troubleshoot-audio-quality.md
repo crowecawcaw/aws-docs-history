@@ -18,7 +18,7 @@ Collect the following for the affected calls before you start. You need it to in
 + **Description of the symptom**—what the audio sounds like (choppy, robotic, echo, one-way, humming, dead air, delay) and whose voice is affected. You use this in Step 1.
 + **Instance Amazon Resource Name (ARN)**—see [Find your Connect Customer instance ID or ARN](find-instance-arn.md).
 + **ContactId** of each affected call (provide 3–5 examples, none older than 24 hours).
-+ **Time of occurrence**, including time zone (record in Coordinated Universal Time (UTC) where possible).
++ **Time of occurrence**, including time zone (record in UTC where possible).
 + **Call recording** for each example.
 
 If you can't obtain a recording directly, ask the agent or customer to review one and confirm:

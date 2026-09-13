@@ -7,7 +7,7 @@ This topic explains how to set hours of operating by using the Connect Customer 
 
 The first thing you need to do when you set up a queue is to specify the hours of operation and timezone. The hours might be referenced in flows. For example, when routing contacts to agents, you might use the [Check hours of operation](check-hours-of-operation.md) block first, and then route the contact to the appropriate queue. 
 
-![An Hours of operation page with overrides.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hoop-listpage.png)
+![An Hours of operation page with overrides.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hoop-listpage.png)
 
 
 **Topics**
@@ -60,7 +60,7 @@ For example, if you want to set your hours to 10:00AM to midnight, you would ent
 
 **Schedule for 24x7**
 
-![An example of a weekly, 24-hour contact center schedule.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-hours-of-operation-24x7.png)
+![An example of a weekly, 24-hour contact center schedule.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-hours-of-operation-24x7.png)
 
 
 **Schedule for Monday to Friday 9:00 AM to 5:00 PM**
@@ -69,7 +69,7 @@ Select the button to **Expand to individual days**.
 
 Remove Sunday and Saturday from the schedule.
 
-![An example of removing days from a contact center schedule.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-hours-of-operation-closed-weekends-remove.png)
+![An example of removing days from a contact center schedule.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-hours-of-operation-closed-weekends-remove.png)
 
 
 ## Add lunch and other breaks
@@ -77,7 +77,7 @@ Remove Sunday and Saturday from the schedule.
 
 Select **\+ Add more time** at the bottom of the Operational hours section to create more rows, then set the hour ranges within each day. For example, if Saturday the hours are 8-11 then 12-5:
 
-![Lunch breaks in a contact center schedule.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-lunch.png)
+![Lunch breaks in a contact center schedule.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-lunch.png)
 
 
 In most contact centers breaks are staggered. While some agents are at lunch, for example, others are still available to handle contacts. Instead of specifying this in the hours of operation, you [add custom agent statuses](agent-custom.md) that appear in the agent's Contact Control Panel (CCP). 

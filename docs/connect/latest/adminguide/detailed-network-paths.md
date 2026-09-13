@@ -8,7 +8,7 @@
 
 The following diagram shows how voice calls flow through Connect Customer 
 
-![Voice call flow diagram showing browser access, WebRTC, PSTN connectivity, and S3 recording storage.](http://docs.aws.amazon.com/connect/latest/adminguide/images/network-path-voice-calls.png)
+![Voice call flow diagram showing browser access, WebRTC, PSTN connectivity, and S3 recording storage.](https://docs.aws.amazon.com/connect/latest/adminguide/images/network-path-voice-calls.png)
 
 
 1. Users access the Connect Customer application using a web browser. All communications are encrypted in transit using TLS.
@@ -26,7 +26,7 @@ The following diagram shows how voice calls flow through Connect Customer
 
 The following diagram shows using the AD Connector with Directory Service to connect to an existing customer Active Directory installation. The flow is similar to using AWS Managed Microsoft AD.
 
-![Authentication flow diagram showing AD Connector integration with customer Active Directory.](http://docs.aws.amazon.com/connect/latest/adminguide/images/network-path-authentication.png)
+![Authentication flow diagram showing AD Connector integration with customer Active Directory.](https://docs.aws.amazon.com/connect/latest/adminguide/images/network-path-authentication.png)
 
 
 1. The user's web browser initiates authentication to an OAuth gateway over TLS using the public internet with user credentials (Connect Customer login page).

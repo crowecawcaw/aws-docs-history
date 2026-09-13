@@ -53,7 +53,7 @@ In this scenario, the customer eventually sends another message ("Hey, I'm back"
 Here's how you build this scenario:
 
 1. Create a disconnect flow. The following image shows the [Sample disconnect flow in Connect Customer](sample-disconnect.md) in the flow designer. This flow includes the following connected blocks: **Play prompt**, **Wait** which branches to three **Play prompts** (for **Customer returned**, **Time expired**, and **Error**), then **Transfer to queue** and **Disconnect**.  
-![The sample disconnect flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sample-disconnect-flow.png)
+![The sample disconnect flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sample-disconnect-flow.png)
 
 1.  In the disconnect flow, add a [Wait](wait.md) block. The Wait block has two branches: 
    +  **Timeout**: Run this branch if the customer hasn't sent a message after a specified amount of time. The total duration of the chat, including multiple **Wait** blocks, cannot exceed 7 days. 
@@ -64,7 +64,7 @@ Here's how you build this scenario:
 1.  In your inbound flow, add the [Set Disconnect Flow](set-disconnect-flow.md) block. Use it to specify that when the agent or Amazon Lex bot has disconnected from the chat and only the customer remains, the set disconnect flow should run. 
 
     In the following block, for example, we specified that the **Sample disconnect flow** should run.   
-![The Set disconnect flow block, the Select a flow dropdown menu, the sample disconnect flow option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-disconnect-flow.png)
+![The Set disconnect flow block, the Select a flow dropdown menu, the sample disconnect flow option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-disconnect-flow.png)
 
     For an example that uses the **Set disconnect flow** block, see the [Sample inbound flow](sample-inbound-flow.md). 
 

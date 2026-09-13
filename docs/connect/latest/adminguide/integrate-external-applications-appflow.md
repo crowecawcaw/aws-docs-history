@@ -45,33 +45,33 @@ You can add an external application integration to a Connect Customer Customer P
 You can optionally perform data transformations such as `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Truncate`, and `Validate` when using the CloudFormation `AWS::AppFlow::Flow Task` resource before ingestion.
 
 1. Log into your AWS Management Console, select Amazon AppFlow, and choose **Create flow**.  
-![The Amazon AppFlow page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step1.png)
+![The Amazon AppFlow page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step1.png)
 
 1. Enter the flow name and an optional flow description.  
-![The Flow details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step2.png)
+![The Flow details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step2.png)
 
 1. You can leave the **Data encryption** section as it is since your Connect Customer Customer Profiles domain already has an existing AWS KMS key that will be used for this Flow. You can optionally create tags and then choose **Next**.  
-![The data encryption section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step3.png)
+![The data encryption section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step3.png)
 
 1. Select an external application of your choice in the **Source name** dropdown and then select the next relevant field. For example, if you wish to configure Slack, select Slack from the **Source name** dropdown. You can then either select an existing Slack flow or create a new connection.  
-![The configure flow page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step4.png)
+![The configure flow page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step4.png)
 
 1. If you chose to create a new connection, you can then enter the external application's details such as user name, password and subdomain. You can also select the AWS KMS key for data encryption and enter the connection name to identify this connection.  
-![The connect to slack page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step5.png)
+![The connect to slack page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step5.png)
 
 1. If you choose to use an existing connection you can select the specific external application object from dropdown. For example, If choosing an existing Slack connection, you can select **Conversations** as the object and then choose the specific Slack channel that will be used.  
-![The source details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step6.png)
+![The source details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step6.png)
 
 1. In the **Destination details** section, select Connect Customer as the Destination name in the dropdown and select the Customer profile domain created in the previous prerequisite step.  
-![The Destination details section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step7.png)
+![The Destination details section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step7.png)
 
 1. Select a flow trigger by choosing **Run on demand** or **Run flow on schedule**. Choose **Next**.
    + **Run on demand** runs the flow only when you trigger it.
    + **Run flow on schedule** runs the flow at a specific time by using a schedule. The schedule frequency is limited to 5 minutes, 15 minutes, or 1 hour.  
-![The flow trigger section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step8.png)
+![The flow trigger section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step8.png)
 
 1. Choose **Manually map fields** under **Mapping method**. Choose the source fields from external application and then choose **Map fields directly**.   
-![The mapping method section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step9.png)
+![The mapping method section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-create-flow-step9.png)
 
 1. Review and choose **Create flow**.
 
@@ -87,23 +87,23 @@ Once Amazon AppFlow integration has been set up, you need to set up data mapping
 For more detailed information on data mappings, see [Object type mapping](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles-object-type-mapping.html).
 
 1. Log into your AWS Management Console, select **Connect Customer**. and choose Customer Profiles under your connect instance alias.  
-![The Connect Customer Customer Profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step1.png)
+![The Connect Customer Customer Profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step1.png)
 
 1. Choose **Data mappings** and then choose **Create data mapping**. Provide a Data Mapping name and a description.  
-![The data mapping tab, the create data mapping button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step2.png)  
-![The set data mapping page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step2_2.png)
+![The data mapping tab, the create data mapping button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step2.png)  
+![The set data mapping page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step2_2.png)
 
 1. Under **Mapping options**, you can choose your **Data source** as the external application, the **Flow name** that you created in the previous section, and the **Data definition method** as *Mapping destination*. Under **Mapping destination** you can choose the types of customer data that wish to define for your unified customer profiles. Choose **Next**.  
-![The mapping options section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step3.png)
+![The mapping options section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step3.png)
 
 1. Add customer, product, case and order attributes with source, destination, and content type, then choose **Next**.  
-![The map order attributes page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step4.png)
+![The map order attributes page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step4.png)
 
 1. Under **Specify identifiers**, you can select various attributes from your data source object that helps distinguish your data from other data source objects. You can select attributes from unique, customer, product, case and order identifiers. For more information about identifiers, see [Standard identifiers for setting attributes on the key in Customer Profiles](standard-identifiers.md).   
-![The Standard identifiers page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step5.png)
+![The Standard identifiers page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step5.png)
 
 1. Review and choose **Create Data Mapping**. The Data Mapping status will show as *Active*.  
-![Identifiers on the Step 6: Specify identifiers page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step6.png)
+![Identifiers on the Step 6: Specify identifiers page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step6.png)
 
 ### Set up integrations to ingest your customer data from an external application
 <a name="integrate-ea-appflow-integ"></a>
@@ -113,19 +113,19 @@ After the data mapping set up is done for an external application, you will set 
 1. Log into your AWS Management Console, select **Connect Customer**. and choose Customer Profiles under your connect instance alias.
 
 1. Under the **Data source integrations** section choose **Add data source integration**.  
-![Data source integrations tab, add data source integration button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step2.png)
+![Data source integrations tab, add data source integration button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step2.png)
 
 1. Under the **Data source** dropdown, select the external application and choose **Next**. You also have the option to choose **Create new flow** which will open the Amazon AppFlow console in a new tab.  
-![Data source section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step3.png)
+![Data source section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step3.png)
 
 1. Under the **Flow name** dropdown, select the flow you want to use from your data source and choose **Next**.  
-![Selecting a flow name to establish a connection.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step4.png)
+![Selecting a flow name to establish a connection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step4.png)
 
 1. Under the **Data Mapping** dropdown, select the external application data mapping for the object to define how your data source is mapped to profiles. Choose **Next**.  
-![Data mapping page, mapping dropdown box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step5.png)
+![Data mapping page, mapping dropdown box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step5.png)
 
 1. Review and choose **Add data Source Integration**. The datasource integration of the external application will initially show as pending before moving to an active state.  
-![Review and integrate page, add data source integration button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step6.png)
+![Review and integrate page, add data source integration button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-data-source-integ-step6.png)
 
 ### View the unified customer profile in Connect Customer Customer Profile Agent CCP
 <a name="integrate-ea-appflow-view"></a>
@@ -136,4 +136,4 @@ Your agent will need to have the appropriate security profile permissions to vie
 
 For more information on security profile permissions, see [Security profiles](https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html).
 
-Advanced users who want to build their own custom agent application and embedded customer profiles can use [StreamsJS](https://github.com/amazon-connect/amazon-connect-streams) which provides more customization over the agent application.
+Users who want to build their own custom agent application and embed customer profiles can use [StreamsJS](https://github.com/amazon-connect/amazon-connect-streams) which provides more customization over the agent workspace.

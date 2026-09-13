@@ -9,7 +9,7 @@ You can customize the agent workspace by integrating [third-party applications](
 
 The following image shows the parts of the agent workspace:
 
-![The agent workspace, with callouts pointing to each part.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-workspace-intro-sq.png)
+![The agent workspace, with callouts pointing to each part.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-workspace-intro-sq.png)
 
 
 1. The **contact controls**, which agents use to handle calls, chats, emails, and tasks.

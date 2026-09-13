@@ -7,7 +7,7 @@ You can search cases using a keyword match. Connect Customer searches data acros
 
 If you are on a contact, and the contact has been associated to a customer profile, then search automatically filters to cases of current customer.
 
-![The Cases tab, the filter box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-search.png)
+![The Cases tab, the filter box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-search.png)
 
 
 Regardless of whether you are on a contact, you have the option to do a general search. If you are on a contact and want to search beyond the current customer, clear the selection for **Cases of current customer only**.
@@ -19,7 +19,7 @@ When you select any of the cases in the search results to view the case, a new t
 
 If you add a [Cases](cases-block.md) block to a flow, and configure it with **Link contact to case** enabled, then cases will open automatically when the agent accepts the contact. 
 
-![The Cases tab opened for contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-view-multiple-tabs.png)
+![The Cases tab opened for contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-view-multiple-tabs.png)
 
 
 ### Activity feed
@@ -31,7 +31,7 @@ Contacts will have an indicator of Ongoing or Completed. If the contact was comp
 
 Only users who have access to this page will be able to see contact details for a given contact. Even within this page, there are more granular permissions so different users might see different information. Information might include: basic contact details/contact attachments, transcripts and recordings with conversational analytics categories, sentiment, and summaries.
 
-![The activity feed.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-activity-feed.png)
+![The activity feed.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-activity-feed.png)
 
 
 ### More information
@@ -39,4 +39,4 @@ Only users who have access to this page will be able to see contact details for 
 
 There might be additional information for agents to view and populate on the **More information** tab, depending on the case template is designed.
 
-![The More information tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-moreinfo.png)
+![The More information tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-moreinfo.png)

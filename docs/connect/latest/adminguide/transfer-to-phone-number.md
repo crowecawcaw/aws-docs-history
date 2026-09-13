@@ -39,12 +39,12 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Transfer to phone number** block. It shows the **Transfer via** section. The **Country code** is set to \+1 (US). **Set timeout** = 30 seconds.
 
-![The properties page of the Transfer to phone number block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-phone-number-properties.png)
+![The properties page of the Transfer to phone number block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-phone-number-properties.png)
 
 
 The following image shows the **Resume flow after disconnect** section is set to **Yes**. 
 
-![The Resume flow after disconnect section, the Optional parameters section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-phone-number-properties2.png)
+![The Resume flow after disconnect section, the Optional parameters section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-phone-number-properties2.png)
 
 
 Note the following properties:
@@ -73,7 +73,7 @@ When [Transfer to phone number](#transfer-to-phone-number) block is used without
 
 The following image shows an example of what this block looks like when it is configured. It shows the number you are transferring to. It has the following branches: **Success**, **Call Failed**, **Timeout**, **Error**. 
 
-![A configured Transfer to phone number block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-phone-number-configured.png)
+![A configured Transfer to phone number block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-phone-number-configured.png)
 
 
 ## Scenarios

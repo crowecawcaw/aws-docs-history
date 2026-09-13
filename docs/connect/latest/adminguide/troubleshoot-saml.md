@@ -10,7 +10,7 @@ If you're troubleshooting your integration with other identity providers such as
 ## Error Message: Access Denied. Your account has been authenticated, but has not been onboarded to this application.
 <a name="troubleshoot-saml-access-denied"></a>
 
-![The error message: access denied.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saml-troubleshooting-access-denied.png)
+![The error message: access denied.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saml-troubleshooting-access-denied.png)
 
 
 ### What does this mean?
@@ -43,7 +43,7 @@ Use the following steps to check the RoleSessionName SAML attribute specified in
    This script uses a simple python command to decode the SAMLResponse from its original URL encoded format. Then it decodes the response from Base64 and outputs the SAML Response in plain text format.
 
 1. Check the decoded response for the needed attribute. For example, the following image shows how to check `RoleSessionName`:  
-![The grep command to check rolesessionname.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saml-troubleshooting-rolesessionname.png)
+![The grep command to check rolesessionname.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saml-troubleshooting-rolesessionname.png)
 
 1. Check whether the username returned in from the previous step exists as a user in your Connect Customer instance:
 
@@ -56,13 +56,13 @@ Use the following steps to check the RoleSessionName SAML attribute specified in
 
 Following is an image from a sample SAML Response. In this case, the identity provider (IdP) is Azure Active Directory (Azure AD).
 
-![a sample SAML Response.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saml-troubleshooting-saml-response.png)
+![a sample SAML Response.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saml-troubleshooting-saml-response.png)
 
 
 ## Error Message: Access denied, Please contact your AWS account administrator for assistance.
 <a name="troubleshoot-saml-contact-admin"></a>
 
-![Error Message: Access denied.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saml-troubleshooting-access-denied-admin.png)
+![Error Message: Access denied.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saml-troubleshooting-access-denied-admin.png)
 
 
 ### What does this mean?

@@ -48,7 +48,7 @@ Generative Journey uses pathways to determine where the conversation should go a
 |  |  | 
 | --- |--- |
 | **Exit conditions** | Outcomes you define that tell the agent when to leave the node and continue the flow. | 
-| **Data capture complete** | An automatic path triggered when required slots are collected and **Auto-advance** is enabled. | 
+| **Data capture completion** | An automatic path triggered when required slots are collected and **Exit upon completion** is enabled. | 
 | **Failure** | Runs when the agent or one of its required tools fails. | 
 | **Timeout** | Runs when the agent does not respond within the configured timeout period. | 
 
@@ -88,7 +88,7 @@ Examples:
 | **Room selected** | The guest selected a room and is ready to continue to confirmation. | 
 | **No availability** | No matching rooms were available for the requested dates. | 
 | **Escalation requested** | The guest asked to speak with a person. | 
-| **User cancelled** | The user decided not to continue. | 
+| **User declined** | The user decided not to continue. | 
 | **Task complete** | The requested task was completed successfully. | 
 
 **To add an exit condition**
@@ -117,7 +117,7 @@ You can configure:
 | --- |--- |
 | **Required slots** | Values the agent must collect before the task can complete. | 
 | **Optional slots** | Values the agent should collect or use if the user provides them. | 
-| **Auto-advance** | Creates an automatic path that triggers after all required slots are collected. | 
+| **Exit upon completion** | Creates an automatic path that triggers after all required slots are collected. | 
 
 Only slots attached to the current flow are available for selection.
 
@@ -133,7 +133,7 @@ Example optional slots:
 + Pet preference
 + Loyalty number
 
-Use **Auto-advance** when the main purpose of the node is to collect a set of values, then continue to the next deterministic step.
+Use **Exit upon completion** when the main purpose of the node is to collect a set of values, then continue to the next deterministic step.
 
 In the main prompt, refer to slot names in plain language, as the placeholder syntax is empty until a value is given by the user.
 
@@ -209,10 +209,10 @@ For each input field, you can choose how the value should be provided. Simply sw
 |  |  | 
 | --- |--- |
 | **LLM prompt** | Let the agent infer or collect the value from the conversation. | 
-| **Explicit value** | Provide a fixed value that should always be sent. | 
-| **Placeholder variable** | Pass an existing value from the conversation, such as a slot, context variable, system variable, or Data request result. | 
+| **Explicit text** | Provide a fixed value that should always be sent. | 
+| **Variable** | Pass an existing value from the conversation, such as a slot, context variable, system variable, or Data request result. | 
 
-Use *Placeholder variable* when a value already exists and should be passed directly into a tool.
+Use *Variables* when a value already exists and should be passed directly into a tool.
 
 Examples:
 + {CustomerProfile.id}
@@ -258,7 +258,7 @@ Use a Data request tool when the agent needs to call an external system.
 
 1. Configure any required input schema fields.
 
-1. Choose whether each field should come from the LLM prompt, an explicit value, or a placeholder variable.
+1. Choose whether each field should come from the LLM prompt, explicit text, or a variable.
 
 1. Add an optional interim message.
 
@@ -438,8 +438,8 @@ Generative Journey includes settings that control how the agent behaves.
 
 |  |  | 
 | --- |--- |
-| **Max iterations** | Limits how many times the agent can think, call a tool, reassess, and continue within one turn. Use this to prevent long loops and control latency or cost. | 
-| **Auto-advance** | Allows the agent to resolve required values from the latest user utterance and exit automatically when possible. | 
+| **Max steps** | Limits how many times the agent can think, call a tool, reassess, and continue within one turn. Use this to prevent long loops and control latency or cost. | 
+| **Zero-turn mode** | Allows the agent to resolve required values from the latest user utterance and exit automatically when possible. | 
 | **Timeout** | Sets how long the agent has to respond before the timeout path is triggered. | 
 
 Use conservative settings when latency, cost, or predictable behavior is important.

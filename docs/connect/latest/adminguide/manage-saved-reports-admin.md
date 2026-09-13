@@ -20,4 +20,4 @@ To do this, you need the **Analytics and Optimization** - **Saved reports (admin
 
 1. To delete reports, select the reports by using the boxes on the left and then choose **Remove**, as shown in the following image.
 
-![The View reports page, the Remove button. page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-queue-dashboard-saved-reports.png)
+![The View reports page, the Remove button. page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-queue-dashboard-saved-reports.png)

@@ -16,7 +16,7 @@ If you use custom IAM policies to manage access to the Connect Customer console,
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. On the left navigation menu, choose **Applications**, **Customer Authentication**. If you don't see this option, it might not be available in your AWS Region. For information about where customer authentication is available, see [Customer authentication availability by Region](regions.md#customerauthentication_region). 
 

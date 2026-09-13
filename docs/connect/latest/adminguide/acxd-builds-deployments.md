@@ -30,7 +30,7 @@ A build is especially important when you change anything that affects how the ap
 
 At least one build is also needed for test chats to work when testing from a Canvas flow or on the application's Test tab.
 
-From your application's **Builds** tab, you can create a new build, review build history, deploy a build or roll back to a previous build.
+From your application's **Deploy** tab, you can create a new build, review build history, deploy a build or roll back to a previous build.
 
 **To create or manage builds**
 
@@ -38,19 +38,19 @@ From your application's **Builds** tab, you can create a new build, review build
 
 1. Select the application you want to build.
 
-1. Open the **Builds** tab.
+1. Open the **Deploy** tab.
 
 1. Choose whether the build is for a development or production environment.
 
-1. Select **Create build** to start the build process.
+1. Select **Build & deploy** to start the build process.
 
 When you start a build, agentic CX designer walks you through the build process:
 
-1. Review warnings such as disconnected flow paths, incomplete configurations, etc. Critical errors appear in red and should be resolved before creating the build, as they are more likely to cause a failed build. Warnings appear in yellow and should also be reviewed, so you understand the possible impact on the user experience.
+1. Review validation checks such as disconnected flow paths, incomplete configurations, etc. Critical errors appear in red and should be resolved before creating the build, as they are more likely to cause a failed build. Warnings appear in yellow and should also be reviewed, so you understand the possible impact on the user experience.
 
 1. Add a build description as a simple changelog.
 
-1. Select **Create build**.
+1. Select **Build**.
 
 When the build completes, it appears in the builds table. From there, you can review the build version, description, status, and environment usage.
 
@@ -75,21 +75,21 @@ After a build is created, you may use the test chat from a flow's Canvas or use 
 
 Once you are satisfied with testing in your agentic CX designer workspace, you can deploy your application for use in a flow in Amazon Connect Customer.
 
-From the application's **Builds** tab, use the builds table to manage which build becomes active. Only one build can be active in an environment at a time.
+From the application's **Deploy** tab, use the builds table to manage which build becomes active. Only one build can be active in an environment at a time.
 
 **To deploy a build**
 
-1. Open an application and select the **Builds** tab.
+1. Open an application and select the **Deploy** tab.
 
 1. From the builds table, hover over the selected build's status.
 
 1. Choose **Deploy**.
 
-A deployment may take a few minutes. A successful deployment is indicated by a **Deployed** status.
+A deployment may take a few minutes. A successful deployment is indicated by a **Live** status.
 
 After deployment, review the application's **Access** details in the application settings. Your frontend or implementation team may need connection values such as the application URL and API key when configuring the application for the intended frontend experience.
 
-You can also return to a previous build version by hovering over a past build and choosing **Roll back**.
+You can also return to a previous build version by hovering over a past build and choosing **Rollback**.
 
 Select a build from the builds table to review additional details, such as the build ID, deployment key, and deployment management options. If needed, you can delete a deployment to take the application offline until another build is deployed.
 

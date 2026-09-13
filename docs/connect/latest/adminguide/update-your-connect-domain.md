@@ -107,12 +107,12 @@ The Connect Customer access URL and emergency login URLs will be updated in the 
 
 The following image shows the location of the access URL on the **Connect Customer virtual contact center instances** page. Even if you have taken steps to update your domain, this URL will continue to show the old domain. The URL on this page will update automatically when old domain traffic starts to redirect to the new domain. Please **do not use this URL to log in**; rather, communicate to your team the new URL that they should be using.
 
-![The access URL on the Connect Customer console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/access-url.png)
+![The access URL on the Connect Customer console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/access-url.png)
 
 
 The following image shows the location of the emergency login URL on the **Account overview** page. This URL will lead to the old domain until traffic starts to automatically redirect to the new domain. Please **refrain from using this URL to log in unless it is an emergency**. Instead, log in with your username and password from the login page associated with your new domain.
 
-![The emergency login link on the Account overview page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/emergency-login.png)
+![The emergency login link on the Account overview page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/emergency-login.png)
 
 
 ## Personal settings

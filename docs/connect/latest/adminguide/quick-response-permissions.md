@@ -5,7 +5,7 @@
 
 To create and manage quick responses in the Connect Customer admin website, users need the Content Management security profile permissions. The following image shows these permissions on the **Security profiles** page.
 
-![The various quick response permissions, all with green check marks.](http://docs.aws.amazon.com/connect/latest/adminguide/images/content-mgmt-qr.png)
+![The various quick response permissions, all with green check marks.](https://docs.aws.amazon.com/connect/latest/adminguide/images/content-mgmt-qr.png)
 
 
 Following is a description of the Content Management permissions.

@@ -12,7 +12,7 @@ The following illustration shows you can:
 + Assign multiple queues to a routing profile.
 + Assign a queue to multiple routing profiles.
 
-![A graphic of four routing profiles.](http://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-example2.png)
+![A graphic of four routing profiles.](https://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-example2.png)
 
 
 For an overview of the steps to set up queue-based routing, see [Set up queue-based routing](set-up-queue-based-routing.md). 

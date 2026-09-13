@@ -10,17 +10,17 @@ When you create a case template, you choose the name that appears to agents, the
 **Important**  
 Cases are always created based on a template.
 
-## How case templates look in the agent application
+## How case templates look in the agent workspace
 <a name="agent-case-template"></a>
 
-In the agent application, the agent sees the case fields in a Z-formation: case fields are displayed in two columns from left to right, top to bottom.
+In the agent workspace, the agent sees the case fields in a Z-formation: case fields are displayed in two columns from left to right, top to bottom.
 
-![A case in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-side.png)
+![A case in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-side.png)
 
 
-When you're building a case template, think of the information in the agent application as being is divided into two sections where case fields are displayed to the agent: 
+When you're building a case template, think of the information in the agent workspace as being is divided into two sections where case fields are displayed to the agent: 
 
-![A cancellation request section in a case template.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-templates-agent-application.png)
+![A cancellation request section in a case template.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-templates-agent-application.png)
 
 + Top fields: This section is always visible on the case, even when agent is viewing sub-sections of the case (for example, **Activity Feed** or **Comments**).
 + More information: This is a tabbed subsection of the case. It is visible when agent is viewing another subsection, such as **Activity Feed** or **Comments**.
@@ -46,8 +46,8 @@ Each case that is created is connected to a customer profile from your Connect C
 
 1. Choose **\+ New Template**.
 
-1. Assign a name to the template. It will appear to agents in the agent application. The following image shows an example of how templates appear, by default in alphabetical order:  
-![A case template showing how the template name appears to agents in the agent application.](http://docs.aws.amazon.com/connect/latest/adminguide/images/case-templates-in-agent-application.png)
+1. Assign a name to the template. It will appear to agents in the agent workspace. The following image shows an example of how templates appear, by default in alphabetical order:  
+![A case template showing how the template name appears to agents in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/case-templates-in-agent-application.png)
 
 1. In the **Top fields** section, you'll see some system fields already there. Choose **Add fields**, and use the dropdown to choose the field. Fields that are gray-out are already a part of the template. If you want agents to complete the field to save the form, choose **Required**.
 
@@ -55,4 +55,4 @@ Each case that is created is connected to a customer profile from your Connect C
 
 1. Optionally, add **Case tags** to automatically propagate tags to cases created from this template. See [Tag-based access controls](cases-tag-based-access-control.md) for more information.
 
-1. When you're done, choose **Save**. The template is immediately made available to agents in the agent application.
+1. When you're done, choose **Save**. The template is immediately made available to agents in the agent workspace.

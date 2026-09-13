@@ -21,7 +21,7 @@ For the maximum file size that you can upload, see *File size per upload of agen
 1. On the **Scheduling** page, choose the **Staff Rules** tab.
 
 1. Choose **Download template** and store the .csv file on your desktop. It looks similar to the following image.  
-![The timeoff balance file for individuals.](http://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-timeoff-balance-ic.png)
+![The timeoff balance file for individuals.](https://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-timeoff-balance-ic.png)
 
 1. Add data or make changes to the .csv file as needed and then save to your desktop with a new file name. 
 **Tip**  
@@ -74,4 +74,4 @@ Agent 1, 2 and 3 have a 6-hour shift. In these shifts, there is a 30 minute **Br
 + Agent 2 requested time off outside of their shift hours (between **9:15 am** – **10:15 am**). In this case, given the request is outside of the planned schedule, the system will not deduct from the agent's time off balance.
 + Agent 3 requested time off between **2 am** to **4am**, partially outside of their shift and partially overlapping the shift. The **Deduct from time off balance** **Break** activity falls within the time off request. In this scenario, the system will deduct 1 hour 15 minutes for the duration between **2:45 am** to **4:00 am**. The vacation balance for agent 3 would now be 13 hours and 45 minutes.
 
-![The image displays how the 3 agents are configured for time off using vacation time and sick time.](http://docs.aws.amazon.com/connect/latest/adminguide/images/timeoff-deduction-examples.png)
+![The image displays how the 3 agents are configured for time off using vacation time and sick time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/timeoff-deduction-examples.png)

@@ -12,7 +12,7 @@ After you enable conversational analytics, it identifies key parts of a customer
 
 The following example shows the key highlights on the **Contact details** page. 
 
-![Key highlights on the Contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-key-highlights.png)
+![Key highlights on the Contact details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-key-highlights.png)
 
 
 1. Toggle **Show key highlights** on and off as needed.

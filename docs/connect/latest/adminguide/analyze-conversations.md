@@ -25,7 +25,7 @@ You can protect your customer's privacy by redacting sensitive data, such as nam
 
 The following image shows the conversational analytics for a voice call. Notice that it includes **Talk time** metrics.
 
-![A sample contact details page with talk time metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-call1b.png)
+![A sample contact details page with talk time metrics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-call1b.png)
 
 
 1. **Customer sentiment trend**: This graph shows how customer sentiment changes as the contact progresses. For more information, see [Investigate sentiment scores](sentiment-scores.md).
@@ -36,7 +36,7 @@ The following image shows the conversational analytics for a voice call. Notice 
 
 The following image shows the next section on the **Contact details** page for a voice call: the audio analysis and transcript. Notice that personally identifiable information (PII) has been [ redacted from the transcript](sensitive-data-redaction.md). 
 
-![The audio analysis and transcript for the contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-call2b.png)
+![The audio analysis and transcript for the contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-call2b.png)
 
 
 ## Sample Contact details page for real-time chat analytics
@@ -44,7 +44,7 @@ The following image shows the next section on the **Contact details** page for a
 
 The following image shows the conversational analytics for a real-time chat. Notice that it includes Key highlights and customer sentiment.
 
-![A contact details page with conversational analytics for a real-time chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-realtime-chat.png)
+![A contact details page with conversational analytics for a real-time chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-realtime-chat.png)
 
 
 ## Sample Contact details page for post-chat analytics
@@ -52,12 +52,12 @@ The following image shows the conversational analytics for a real-time chat. Not
 
 The following image shows post-chat analytics. Notice that it includes chat response metrics, such as **Agent greeting time** (the time from the agent joining the chat to when they send the first response), **Customer response time**, and **Agent response time**.
 
-![A contact details page with summary and conversational analytics for a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat1b.png)
+![A contact details page with summary and conversational analytics for a chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat1b.png)
 
 
 The following image shows the next section on the **Contact details** page for a chat: the interaction analysis and transcript. Notice that you can investigate the customer's interaction with a bot versus the agent.
 
-![The contact details page, the interaction analysis and transcript for a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat2b.png)
+![The contact details page, the interaction analysis and transcript for a chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat2b.png)
 
 
 ## Sample Contact details page for email analytics
@@ -65,4 +65,4 @@ The following image shows the next section on the **Contact details** page for a
 
 The following image shows the conversational analytics for an email contact. Email analytics includes categorization, sensitive data redaction, and contact summaries. Because email contacts are asynchronous, there are no real-time analytics or sentiment scores.
 
-![A sample contact details page with conversational analytics for an email contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-email.png)
+![A sample contact details page with conversational analytics for an email contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-email.png)

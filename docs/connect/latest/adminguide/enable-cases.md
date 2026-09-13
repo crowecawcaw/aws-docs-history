@@ -29,7 +29,7 @@ For more information, see [Required permissions for using custom IAM policies to
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. On the left navigation menu, choose **Cases** under the **Applications** section. If you don't see this option, it might not be available in your Region. For information about where Cases is available, see [Cases availability by Region](regions.md#cases_region). 
 
@@ -55,7 +55,7 @@ After your cases domain is created, do the following:
 
 1. [Create case fields](case-fields.md). Fields are the building blocks of your case templates.
 
-1. [Create case templates](case-templates.md). Case templates are forms that agents complete and reference in the agent application. Templates ensure the right information is collected and referenced for different types of customer issues.
+1. [Create case templates](case-templates.md). Case templates are forms that agents complete and reference in the agent workspace. Templates ensure the right information is collected and referenced for different types of customer issues.
 
 1. Optionally, [enable attachments](enable-attachments.md) across your Connect Customer instance. This step allows your agents to upload files to cases. For more information on the Files API, see the [StartAttachedFileUpload](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartAttachedFileUpload.html) API documentation.
 **Note**  

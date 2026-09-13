@@ -15,7 +15,7 @@ This topic is for developers who need to investigate issues that might occur whe
 
 If you see the following **Something went wrong** error message when loading your communications widget, open the browser tools to view the error logs. 
 
-![An error message that says Something went wrong.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-error-message.png)
+![An error message that says Something went wrong.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-error-message.png)
 
 
 Following are common issues that cause this error.
@@ -30,7 +30,7 @@ If the logs mention a 400 invalid request, there are a few possible causes:
 ### 401 Unauthorized
 <a name="401-unauthorized"></a>
 
-![The Something went wrong error message.](http://docs.aws.amazon.com/connect/latest/adminguide/images/something-went-wrong.png)
+![The Something went wrong error message.](https://docs.aws.amazon.com/connect/latest/adminguide/images/something-went-wrong.png)
 
 
 If the logs mention a 401 unauthorized, this is a problem with the JSON Web Token (JWT) authentication. It displays the above error page.
@@ -89,7 +89,7 @@ During a chat session, a customer who is using a chat application loses their ne
 
 The following image shows an example of the customer's chat interface and agent's Contact Control Panel side-by-side. A message the agent sent is not rendered in the customer's chat session. However, it appears to the agent as though the customer has received it.
 
-![A message in the CCP that is not sent to the contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tw-cw-001-message-not-sent.png)
+![A message in the CCP that is not sent to the contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tw-cw-001-message-not-sent.png)
 
 
 If the customer's chat application loses it's network/WebSocket connection, the chat user interface must do the following to retrieve future messages as well as messages that were sent to it while disconnected: 

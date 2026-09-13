@@ -10,7 +10,7 @@
 1. On the **Calculated attributes** page, choose a calculated attribute from the **Name** column in the table. 
 
    The following image shows an example of calculated attributes listed in the **Name** column.  
-![A table that lists calculated attributes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calculated-attributes-admin-website-view-1.png)
+![A table that lists calculated attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calculated-attributes-admin-website-view-1.png)
 
 1. You can now view the details of the attribute that you selected. The following image shows a page of details for a calculated attribute.  
-![Detailed view of a calculated attribute.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calculated-attributes-admin-website-view-2.png)
+![Detailed view of a calculated attribute.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calculated-attributes-admin-website-view-2.png)

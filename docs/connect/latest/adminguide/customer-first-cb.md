@@ -22,7 +22,7 @@ If you switch from Connect Customer after you've already activated and started u
 
 The lifecycle for customer first callbacks is spread across three different contacts, as shown in the following diagram. 
 
-![The lifecycle for customer first callbacks, spread across three different contacts.](http://docs.aws.amazon.com/connect/latest/adminguide/images/queued-callback-customer-first-callback-contact-lifecycle-1.png)
+![The lifecycle for customer first callbacks, spread across three different contacts.](https://docs.aws.amazon.com/connect/latest/adminguide/images/queued-callback-customer-first-callback-contact-lifecycle-1.png)
 
 
 Following is a description of each contact.
@@ -213,12 +213,12 @@ The following sample flows show how you can configure a flow for customer first 
 
 The following image shows a [Transfer to queue](transfer-to-queue.md) block in a flow.
 
-![A Transfer to queue block in a customer first callback flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-first-callback-contact-lifecycle-sample-flows-inbound-1.png)
+![A Transfer to queue block in a customer first callback flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-first-callback-contact-lifecycle-sample-flows-inbound-1.png)
 
 
 In this flow, the [Transfer to queue](transfer-to-queue.md) has **Set creation flow** configured and an outbound dial flow is specified.
 
-![A Transfer to queue block, where Set creation flow is configured and the outbound dial flow is specified.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-first-callback-contact-lifecycle-sample-flows-inbound-2.png)
+![A Transfer to queue block, where Set creation flow is configured and the outbound dial flow is specified.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-first-callback-contact-lifecycle-sample-flows-inbound-2.png)
 
 
 ### Sample callback creation flow configuration
@@ -226,7 +226,7 @@ In this flow, the [Transfer to queue](transfer-to-queue.md) has **Set creation f
 
 The following image shows a sample callback creation flow. The [Set customer queue flow](set-customer-queue-flow.md) block is configured so a customer queue flow runs while the callback contact is in queue waiting for agent availability to dial out to customers.
 
-![A sample callback creation flow with a Set customer queue block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-first-callback-contact-lifecycle-sample-flows-creation-1.png)
+![A sample callback creation flow with a Set customer queue block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-first-callback-contact-lifecycle-sample-flows-creation-1.png)
 
 
 ### Example outbound dial flow for callbacks
@@ -234,4 +234,4 @@ The following image shows a sample callback creation flow. The [Set customer que
 
 In the outbound dial flow shown in the following image, Connect Customer evaluates the presence of the customer by using a [Check call progress](check-call-progress.md) block. If voicemail is detected, a callback contact is recreated. If a customer is detected on other end of the call, the call is transferred to queue for the agent to be joined to the customer.
 
-![An outbound dial flow with a Check call progress block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-first-callback-contact-lifecycle-sample-flows-outbound-1.png)
+![An outbound dial flow with a Check call progress block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-first-callback-contact-lifecycle-sample-flows-outbound-1.png)

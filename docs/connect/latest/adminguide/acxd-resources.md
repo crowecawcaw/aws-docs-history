@@ -23,6 +23,7 @@ To access Resources, select it from your workspace navigation and select the res
 + [Context variables](acxd-context-variables.md)
 + [Data requests](acxd-data-requests.md)
 + [Knowledge bases](acxd-knowledge-bases.md)
++ [Live Sync Scripts](acxd-live-sync-scripts.md)
 + [Modalities](acxd-modalities.md)
 + [Secrets](acxd-secrets.md)
 + [Custom slots](acxd-custom-slots.md)

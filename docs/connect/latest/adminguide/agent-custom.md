@@ -20,7 +20,7 @@ You can't delete a status value but you can disable it so it doesn't appear on t
 1. Log in to the Connect Customer admin website at https://{{instance name}}.my.connect.aws/. Use an **Admin** account, or an account that has **Users and permissions** - **Agent status** - **Create** permissions in its security profile.
 
 1. On the Connect Customer admin website, on the navigation menu, choose **Users**, **Agent status**, **Add new agent status**. The following image shows a sample **Manage agent statuses** page.  
-![The Manage agent statuses page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manage-agent-status.png)
+![The Manage agent statuses page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manage-agent-status.png)
 
 1. Enter a status name and description.
 
@@ -34,7 +34,7 @@ Tags cannot be used for access control, for example, if you want to show a diffe
 
 To change the order that the status values appear in the CCP, choose **Reorder agent statuses**. Enter the display order that makes sense for your agents. The following image shows a sample **Reorder agent statuses** page.
 
-![The Reorder agent statuses page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/reorder-agent-status.png)
+![The Reorder agent statuses page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/reorder-agent-status.png)
 
 
 **To edit an agent status**

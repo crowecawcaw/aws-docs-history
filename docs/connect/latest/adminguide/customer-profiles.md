@@ -11,7 +11,7 @@ Currently, Connect Customer Customer Profiles can be used in compliance with [GD
 
 The following image shows the agent workspace; for the purposes of this documentation, an Connect Customer Customer Profiles image is featured. The agent workspace is designed for efficient multi-tasking, enabling simultaneous handling of calls, chats, and tasks, while providing quick access to customer profile information all within the same browser window.
 
-![The customer profile tab in the agent application.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-concepts-intro3.png)
+![The customer profile tab in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-concepts-intro3.png)
 
 
 1. **Cases**: Status, reference Id, title, source, updated date, and more information related to cases ingested from 3P application such as Zendesk and ServiceNow, in addition to cases created and managed using Connect Customer Cases.

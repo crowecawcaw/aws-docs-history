@@ -7,7 +7,7 @@ You can quickly control the flow of contacts to queues by temporarily disabling 
 
 Only users who have a security profile with **Routing** - **Queues** - ** Enable/Disable** permission can disable a queue.
 
-![Security profile permissions table showing Queues row with Create checkbox selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/disable-queue.png)
+![Security profile permissions table showing Queues row with Create checkbox selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/disable-queue.png)
 
 
 **To temporarily disable an active queue**
@@ -17,7 +17,7 @@ Only users who have a security profile with **Routing** - **Queues** - ** Enable
 1. On the Connect Customer admin website, on the navigation menu, choose **Routing**, **Queues**.
 
 1. For the queue you want to disable, toggle the **Status** to **Disabled**, as shown in the following image.  
-![The Queues page, the Status toggle.](http://docs.aws.amazon.com/connect/latest/adminguide/images/disable-queue-power-button.png)
+![The Queues page, the Status toggle.](https://docs.aws.amazon.com/connect/latest/adminguide/images/disable-queue-power-button.png)
 
 1. Choose **Disable** to confirm you want to disable the queue, as shown in the following image. You can immediately re-enable the queue if needed by toggling the button back to **Enabled**.  
-![The Disable queue confirmation box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/disable-queue-confirm.png)
+![The Disable queue confirmation box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/disable-queue-confirm.png)

@@ -5,7 +5,7 @@
 
 The following diagram shows how Customer Profiles processes the standard identifiers to determine whether to persist the key. 
 
-![A flowchart showing the decision process for persisting keys in Customer Profiles based on lookup and new object criteria.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-template2.png)
+![A flowchart showing the decision process for persisting keys in Customer Profiles based on lookup and new object criteria.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-template2.png)
 
 
 The flowchart shows the following steps:

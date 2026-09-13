@@ -20,20 +20,20 @@ After you have that information, here's how to log in and get started.
 1. Using Chrome or Firefox, open the CCP by using the URL that you received from your administrator.
 
 1. Enter your agent ID and password, and then choose **Sign In**.  
-![The login page for Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-login.png)
+![The login page for Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-login.png)
 
 1. If you're prompted to **Allow access to cookies**, choose **Grant access**, and then choose **Allow**.  
-![A Grant access banner.](http://docs.aws.amazon.com/connect/latest/adminguide/images/3pcookies-default-grant-access.png)
+![A Grant access banner.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3pcookies-default-grant-access.png)
 
    OR  
-![A Grant access banner.](http://docs.aws.amazon.com/connect/latest/adminguide/images/3pcookies-custom-grant-access.png)
+![A Grant access banner.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3pcookies-custom-grant-access.png)
 
    Connect Customer uses cookies for authentication. Google Chrome requires you to authorize the use of Connect Customer cookies.
 **Tip**  
 **IT admins**: For more information, see [Using Connect Customer with third-party cookies](admin-3pcookies.md).
 
 1. If you are prompted to allow access to your microphone and speaker, choose **Allow**.   
-![The browser prompt to allow Connect Customer access to your microphone.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-allow-microphone.png)
+![The browser prompt to allow Connect Customer access to your microphone.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-allow-microphone.png)
 
 You're all set to go\!
 
@@ -54,4 +54,4 @@ Closing the CCP window or agent workspace doesn't automatically log out an agent
 1. At the top of the CCP, choose **Settings**. 
 
 1. Choose **Log out**.  
-![The CCP, the settings icon in upper right corner.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-logout.png)
+![The CCP, the settings icon in upper right corner.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-logout.png)

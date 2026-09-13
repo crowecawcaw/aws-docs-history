@@ -10,7 +10,7 @@ You can export contact records and agent events from Connect Customer and perfor
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **Data streaming**.
 
@@ -46,10 +46,10 @@ You can use the Connect Customer console or the AWS CLI to obtain the ARN.
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance name, as shown in the following image.   
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. On the **Account overview** page, in the **Distribution settings** section, the service-linked role is displayed.  
-![The account overview page, the service-linked role ARN.](http://docs.aws.amazon.com/connect/latest/adminguide/images/service-linked-role.png)
+![The account overview page, the service-linked role ARN.](https://docs.aws.amazon.com/connect/latest/adminguide/images/service-linked-role.png)
 
 1. Choose the copy icon to copy the role ARN to your clipboard, and save that ARN. You're going to use it in [Step 2: Construct a policy statement](#step2-sse).
 

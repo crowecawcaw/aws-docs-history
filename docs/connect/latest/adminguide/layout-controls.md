@@ -3,7 +3,7 @@
 # Layout controls
 <a name="layout-controls"></a>
 
-![Add permissions to allow users to view Profile explorer layouts.](http://docs.aws.amazon.com/connect/latest/adminguide/images/layout-controls-1.png)
+![Add permissions to allow users to view Profile explorer layouts.](https://docs.aws.amazon.com/connect/latest/adminguide/images/layout-controls-1.png)
 
 
 Profile explorer welcome console.
@@ -23,7 +23,7 @@ Organize your dashboard into logical sections using tab controls:
 + **1c. Rename Tab**: Customize tab names to reflect their content
 + **1d. Reorder Tabs**: Drag and drop tabs to arrange them in your preferred order
 
-![Edit tabs pop up.](http://docs.aws.amazon.com/connect/latest/adminguide/images/layout-controls-2.png)
+![Edit tabs pop up.](https://docs.aws.amazon.com/connect/latest/adminguide/images/layout-controls-2.png)
 
 
 ## Add widgets
@@ -55,7 +55,7 @@ Simply select a widget you would like to use, and begin exploring
 Manage your overall dashboard configuration:
 + **Save Layout**: Preserve your current dashboard configuration
 
-![Save your layout pop up.](http://docs.aws.amazon.com/connect/latest/adminguide/images/layout-controls-3.png)
+![Save your layout pop up.](https://docs.aws.amazon.com/connect/latest/adminguide/images/layout-controls-3.png)
 
 
 **Note**  

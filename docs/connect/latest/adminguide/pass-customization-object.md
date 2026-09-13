@@ -75,7 +75,7 @@ amazon_connect('customizationObject', {
 
 The following image shows how the customizations look if you use the example:
 
-![The customizable display names, menu locations, icons, and End chat confirmation dialog.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chat-customization-diagram2.png)
+![The customizable display names, menu locations, icons, and End chat confirmation dialog.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chat-customization-diagram2.png)
 
 
 ## Supported options and constraints

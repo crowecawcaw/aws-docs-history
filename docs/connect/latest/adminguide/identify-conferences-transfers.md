@@ -114,7 +114,7 @@ If Agent1 were to initiate a consultative call with another agent (Agent2), it b
   ```
 
   The relationship between the two parts of the contact record is shown in the following diagram:  
-![The relationship between Agent 1 and Agent 2 during a consultative call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call.png)
+![The relationship between Agent 1 and Agent 2 during a consultative call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call.png)
 
   Where Agent1 (A1) and Agent2 (A2) are linked by:
   + N = Next Contact ID. This field appears in the contact record for the initial leg. This is the Contact ID of the last agent that this agent consulted with (in this case, the last agent is A2).
@@ -128,11 +128,11 @@ If Agent1 were to initiate a consultative call with another agent (Agent2), it b
 
 This model can be extended to a consult call that involves multiple agents. Following are example use cases for how it can be extended.
 + **Use case 1**: Agent1 invites Agent2, Agent2 invites Agent3, and Agent3 invites Agent4. The Previous Contact ID is always the previous agent. The following diagram illustrates this use case.  
-![A1 invites A2, A2 invites A3, A3 invites A4, the Previous Contact ID is always the previous agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example1.png)
+![A1 invites A2, A2 invites A3, A3 invites A4, the Previous Contact ID is always the previous agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example1.png)
 + **Use case 2**: Agent1 invites Agent2, Agent1 invites Agent3, and Agent1 invites Agent4. The Previous Contact ID is always Agent1. The following diagram illustrates this use case.  
-![A1 invites Agent2, A1 invites A3 and A1 invites A4, the Previous Contact ID is always A1.](http://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example2.png)
+![A1 invites Agent2, A1 invites A3 and A1 invites A4, the Previous Contact ID is always A1.](https://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example2.png)
 + **Use case 3**: Agent1 invites Agent2, Agent2 invites Agent4 and Agent5, Agent1 invites Agent3. The Previous Contact ID for Agents2 and 3 is Agent1. For Agents4 and 5 the Previous Contact ID is Agent2. The following diagram illustrates this use case.  
-![A1 invites A2, A2 invites A4 and A5, A1 invites A3.](http://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example3.png)
+![A1 invites A2, A2 invites A4 and A5, A1 invites A3.](https://docs.aws.amazon.com/connect/latest/adminguide/images/consultative-call-example3.png)
 
 ## How to identify consultative calls
 <a name="logic-consultative-calls"></a>

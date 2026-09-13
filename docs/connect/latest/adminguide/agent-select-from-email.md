@@ -26,7 +26,7 @@ The available email addresses come from the queue that received the contact. The
 
 1. The remaining additional email addresses configured on the queue
 
-![The From address dropdown when replying to an inbound email.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-from-selector-reply.png)
+![The From address dropdown when replying to an inbound email.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-from-selector-reply.png)
 
 
 ## Selecting a From address when initiating outbound emails
@@ -44,7 +44,7 @@ The available email addresses come from the default outbound queue configured in
 
 1. The remaining additional email addresses configured on the default outbound queue
 
-![The From address dropdown when initiating an outbound email.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-from-selector-initiate.png)
+![The From address dropdown when initiating an outbound email.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-from-selector-initiate.png)
 
 
 ## Using the From address selector
@@ -65,7 +65,7 @@ To select a From email address:
 
 1. Select the appropriate address for your use case.
 
-![The From address selector showing the search box, and email addresses displayed with friendly sender names.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-from-selector-search.png)
+![The From address selector showing the search box, and email addresses displayed with friendly sender names.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-from-selector-search.png)
 
 
 **Note**  

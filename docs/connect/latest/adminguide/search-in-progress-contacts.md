@@ -36,7 +36,7 @@ The ability to search for in-progress contacts varies by channel (see [Contact e
 1. In Connect Customer choose **Analytics and optimization**, **Contact search**.
 
 1. Select the **Contact status** filter and change the selected value to **In progress**. The default Contact status is **Completed**.  
-![The in progress filter.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-in-progress-filter.png)
+![The in progress filter.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-in-progress-filter.png)
 
 ## Filter contacts by using timestamp types
 <a name="filter-by-timestamp"></a>
@@ -54,7 +54,7 @@ Saved searches on **Contact search** created before the launch of the ability to
 
 You can choose a Contact ID within the **Contact search** results to view details of an in-progress contact. 
 
-![View an in-progress contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-in-progress-view.png)
+![View an in-progress contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-in-progress-view.png)
 
 
 ### Important things to know
@@ -73,4 +73,4 @@ Redaction is not supported for in-progress voice contacts. Users with **Contact 
 
 Choose the refresh icon on the bottom of the transcript to pull the latest available turns of the conversation. The following image shows the location of the refresh icon on the page.
 
-![A transcript, the refresh icon at the bottom of the page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-real-time-transcripts.png)
+![A transcript, the refresh icon at the bottom of the page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-real-time-transcripts.png)

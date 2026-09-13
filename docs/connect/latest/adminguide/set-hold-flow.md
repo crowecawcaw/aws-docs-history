@@ -40,7 +40,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set hold flow** block. It shows the dropdown list of namespaces that you can use to set the hold flow dynamically.
 
-![The properties page of the Set hold flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-hold-flow-properties.png)
+![The properties page of the Set hold flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-hold-flow-properties.png)
 
 
 For information about using attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md).
@@ -50,4 +50,4 @@ For information about using attributes, see [Use Connect Customer contact attrib
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**.
 
-![A configured set hold flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-hold-flow-configured.png)
+![A configured set hold flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-hold-flow-configured.png)

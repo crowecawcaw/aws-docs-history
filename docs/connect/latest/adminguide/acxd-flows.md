@@ -13,14 +13,20 @@ A single application can include multiple flows, and a flow can also be reused a
 
 After a flow is attached to an application and included in a deployed build, the application can execute that flow during conversations.
 
-To access flows, select **Flows** from your workspace menu, then choose **Canvas**.
+To access flows, select **Resources** from your workspace menu, then choose **Flows**.
 
 ## User intent and flow routing
 <a name="acxd-flows-intent"></a>
 
 A user's intent is what they are trying to do.
 
-The application can recognize that the user wants to book a room and route the conversation to a flow designed for that purpose, such as a Room Booking flow.
+For example:
+
+```
+"I want to book a room."
+```
+
+The application can recognize that the user wants to book a room and route the conversation to a flow designed for that purpose, such as BookRoom.
 
 Inside that flow, the application may ask for details such as check-in date, checkout date, number of guests, and room preference. The flow defines how those details are collected, what systems are called, and what happens next.
 
@@ -31,26 +37,26 @@ Use routing descriptions, default behavior, and Redirect nodes together to contr
 
 |  |  | 
 | --- |--- |
-| **Default behavior** | A flow runs when assigned as the application's Welcome, Unknown, Fallback, or Escalation behavior. | 
-| **User input routing** | A User input node captures what the user says and attempts to match it to one of the flows attached to the application via provided routing data. | 
-| **User choice routing** | A User choice node can route to another flow if the user's response does not match the expected choices but does match another flow attached to the application via provided routing data. | 
-| **Redirect** | A flow deliberately sends the user to another flow or page. | 
-| **MCP tool** | A flow is exposed as a tool that an agent node can invoke. | 
+| **Application default behavior** | A flow runs when assigned as the application's Welcome, Unknown, Fallback, or Escalation behavior. | 
+| **User input recognition** | A User input node captures what the user says and attempts to match it to one of the flows attached to the application via provided routing data. | 
+| **User choice recognition** | A User choice node can route to another flow if the user's response does not match the expected choices but does match another flow attached to the application via provided routing data. | 
+| **Redirect node** | A flow deliberately sends the user to another flow or page. | 
+| **MCP-enabled flow** | A flow is exposed as a tool that an agent node can invoke. | 
 
 ## Creating a flow
 <a name="acxd-flows-create"></a>
 
 **To create a flow**
 
-1. Open **Flows** from the workspace menu.
+1. Open **Resources** from the workspace menu.
 
-1. Select **Canvas**.
+1. Select **Flows**.
 
-1. Select **Create flow**.
+1. Select **New flow**.
 
 1. Enter a clear flow name (no spaces or special characters).
 
-1. Select **Create**.
+1. Select **Create flow**.
 
 ## The Canvas
 <a name="acxd-flows-canvas"></a>
@@ -76,11 +82,11 @@ Toolbar options include:
 
 |  |  | 
 | --- |--- |
-| **Application selector** | Switch between applications where the flow is attached. | 
-| **Flow selector** | Switch between flows attached to the selected application. | 
-| **Pages** | Create or navigate between pages within the current flow. Pages organize large flows into smaller sections, especially when a flow has many branches, repeated steps, or subprocesses. Use **Move to page** from the canvas shortcut menu to move selected nodes into a separate page and automatically create the Redirect nodes needed to connect the conversation path. | 
+| **Application** | Switch between applications where the flow is attached. | 
+| **Flow** | Switch between flows attached to the selected application. | 
+| **Pages** | Create or navigate between pages within the current flow. Pages organize large flows into smaller sections, especially when a flow has many branches, repeated steps, or subprocesses. Use **Extract to new page** from the canvas shortcut menu to move selected nodes into a separate page and automatically create the Redirect nodes needed to connect the conversation path. | 
 | **Analytics** | View traffic data for deployed applications and review user paths. | 
-| **Issues** | Show issues such as disconnected paths, missing handling, or possible loops. | 
+| **Validation** | Show issues such as disconnected paths, missing handling, or possible loops. | 
 | **Settings** | Configure routing, MCP, attached slots, languages, versions, and flow details. | 
 | **Save** | Save changes made on the Canvas. | 
 | **Test** | Open the test widget to test from the current flow. | 
@@ -114,7 +120,7 @@ You may also duplicate a flow when you want to reuse an existing flow structure 
 
 1. Select the **Advanced** tab.
 
-1. Choose **Duplicate**.
+1. Choose **Duplicate flow**.
 
 1. Enter a name for the duplicated flow.
 
@@ -134,11 +140,11 @@ Common controls include:
 | --- |--- |
 | **Zoom** | Zoom in or out of the Canvas. | 
 | **Pan** | Move around the Canvas. | 
-| **Auto-layout** | Align nodes into a cleaner layout. | 
+| **Magic layout** | Align nodes into a cleaner layout. | 
 | **Search** | Find nodes or trigger quick commands. | 
-| **Notes** | Add internal notes for builders. | 
+| **Add note** | Add internal notes for builders. | 
 | **Undo/Redo** | Reverse or restore recent Canvas changes. | 
-| **Flags** | Mark important nodes or areas for easier review. | 
+| **Bookmark or highlight** | Mark important nodes or areas for easier review. | 
 
 You can also right-click the Canvas or an individual node to open shortcut menu options.
 
@@ -273,7 +279,7 @@ Attach slots when the flow needs to collect or reference structured values from 
 
 1. Open the **Attached slots** tab.
 
-1. Select **Add slot**.
+1. Select **Attach new slot**.
 
 1. Choose a custom or built-in slot.
 
@@ -319,7 +325,7 @@ Use flow-level languages when a flow needs specific localization support or when
 
 1. Open the **Languages** tab.
 
-1. Select **Add language**.
+1. Select **Add new language**.
 
 1. Choose the language or locale.
 
@@ -337,6 +343,120 @@ Variables let your flow use dynamic information instead of hardcoded text.
 A variable may come from user input, a slot, a Data request, a context variable, a system variable, a generated output, a knowledge base response, or an MCP input.
 
 To reference a variable, type { in a supported text field and choose from the placeholder menu.
+
+Use variables in:
++ Messages
++ Data request payloads
++ Split conditions
++ Prompt fields
++ Modality payloads
++ Knowledge base questions
++ Agent instructions
+
+Example:
+
+```
+Thanks, {firstName}. I found your reservation for {checkInDate}.
+```
+
+The following table describes the common variable types.
+
+
+| Variable type | Description | Color | 
+| --- | --- | --- | 
+| **Slot variables** | Values captured from the user through attached slots. | Green | 
+| **Data request variables** | Values returned from a Data request node. | Orange | 
+| **Context variables** | Values available across flows during a conversation session. | Pink | 
+| **Local variables** | Values created inside a flow, such as Define, Loop, Generative text, or Knowledge base outputs. | Purple | 
+| **System variables** | Values tracked automatically by Agentic CX Designer, such as the latest utterance or conversation ID. | Blue | 
+| **MCP input variables** | Values passed into an MCP-enabled flow by an agent. | Pink | 
+| **Secrets** | Reusable secure values that can be referenced in supported Data request fields. | Black | 
+
+### Slot variables
+<a name="acxd-flows-variables-slot"></a>
+
+Slot variables store values captured from user responses.
+
+Examples:
++ `{CheckInDate}`
++ `{CheckoutDate}`
++ `{RoomType}`
++ `{CustomerEmail}`
+
+Slots are local to the flow where they are attached. If the same slot may be captured again later in the same session, clear or update the value using state modifications before asking again.
+
+To make a captured slot available in other flows, set it as a context variable.
+
+### Data request variables
+<a name="acxd-flows-variables-data-request"></a>
+
+Data request variables are returned by a Data request node.
+
+Use them after the Data request node has successfully run.
+
+Examples:
++ `{CustomerProfile.firstName}`
++ `{OrderStatus.status}`
++ `{AppointmentAvailability.times}`
++ `{Reservation.confirmationNumber}`
+
+If the Data request response contains a list, you may need to use a Loop or Transform node before referencing individual values or presenting them in a User choice node or modality.
+
+If the data may change during the session, enable Always retrigger on the Data request node so the latest values are fetched when the node is revisited.
+
+### Context variables
+<a name="acxd-flows-variables-context"></a>
+
+Context variables are available across flows during a conversation session.
+
+Use context variables when a value captured in one flow needs to be referenced later in another flow.
+
+Examples:
++ Authentication status
++ Customer profile
++ Selected reservation
++ Preferred language
++ Current task state
+
+Context variables begin empty unless they are set by another process, such as a Data request, Connect Customer contact flow, or state modification.
+
+### Local variables
+<a name="acxd-flows-variables-local"></a>
+
+Local variables are created inside a flow and are available while the user is active in that flow.
+
+Examples include outputs from:
++ Define nodes
++ Loop nodes
++ Generative text nodes
++ Knowledge base nodes
++ Transform nodes
+
+Use local variables when the value only matters inside the current flow. Use a context variable when the value needs to persist across flows.
+
+### System variables
+<a name="acxd-flows-variables-system"></a>
+
+System variables are tracked automatically by agentic CX designer.
+
+These include:
+
+
+| System variable | Use | 
+| --- | --- | 
+| `{System.utterance}` | The latest message from the user. | 
+| `{System.conversationId}` | The unique ID for the current conversation. | 
+| `{System.userId}` | User identifier for the conversation. Voice interactions use the customer's phone number. Chat interactions can populate this value when `nlx_userId` is passed on the Agentic CX block in a Connect Customer flow. | 
+| `{System.transcript}` | The conversation transcript, with sensitive information redacted where supported. | 
+| `{System.channelType}` | The channel the user is using. | 
+| `{System.isVoice}` | Whether the user is communicating through voice. | 
+| `{System.language}` | The detected or configured language. | 
+| `{System.liveSyncTimeoutType}` | The reason for a Live Sync timeout (sessionStart = user did not engage; inactivity = user did not respond between steps) | 
+| `{System.locale}` | The detected or configured locale. | 
+| `{System.environment}` | The deployment environment. | 
+| `{System.applicationName}` | The application using the flow. | 
+
+Use system variables in Split logic, messages, prompts, and Data request payloads when the flow needs conversation-level context.
 
 **Topics**
 + [User intent and routing](#acxd-flows-intent)

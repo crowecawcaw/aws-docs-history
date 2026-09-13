@@ -1,6 +1,6 @@
 
 
-# Configuring escalations
+# Managing escalations
 <a name="acxd-escalations"></a>
 
 Escalations let an agentic CX designer conversation hand control back to a flow in Amazon Connect Customer when the user needs human support or the application should leave the conversational AI experience.
@@ -23,7 +23,7 @@ A common escalation pattern is:
 
 1. A **Transfer to queue** block transfers the customer to an agent.
 
-## Adding an escalation to a flow
+## Add an Escalate node
 <a name="acxd-escalations-add"></a>
 
 **To add an escalation to a flow**
@@ -34,7 +34,7 @@ A common escalation pattern is:
 
 1. Add a message, if needed.
 
-1. Optionally add a Node payload to pass context back to a flow in Connect Customer.
+1. Optionally add a State modification to set a context variable to pass context back to a flow in Connect Customer.
 
 1. Connect any available failure, timeout, or continuation paths.
 
@@ -48,10 +48,10 @@ Example escalation message:
 Connecting you to an agent now.
 ```
 
-## Passing escalation context
+## Pass context during escalation
 <a name="acxd-escalations-context"></a>
 
-You can pass context back to a Connect Customer flow from the Escalate node using Node payload.
+You can pass context back to a Connect Customer flow from the Escalate node using a context variable.
 
 Use this when you want the human agent or Connect Customer flow to receive information collected or generated during the AI conversation.
 
@@ -65,36 +65,11 @@ Examples of escalation context:
 + Selected product or reservation
 + Reason for escalation
 
-The Node payload must use key-value syntax:
+To pass data, add one or more State modifications to the Escalate node in your agentic CX designer flow that set one or more context variables.
 
-```
-summary={transferSummary}
-```
+For example, you may set a context variable `{summary}` to a variable generated upstream by a Generative text node that summarized the system transcript.
 
-The key on the left becomes the value available to Connect Customer. The value on the right references the agentic CX designer variable.
-
-Do not enter only the variable by itself.
-
-Avoid:
-
-```
-{transferSummary}
-```
-
-Use:
-
-```
-summary={transferSummary}
-```
-
-To pass multiple values, separate them with &:
-
-```
-summary={transferSummary}&customerIntent={customerIntent}
-&callbackNumber={callbackNumber}
-```
-
-## Setting contact attributes in Connect Customer
+## Set returned context as contact attributes
 <a name="acxd-escalations-set-contact-attributes"></a>
 
 After the Agentic CX block's Escalation path, add a **Set contact attributes** block in a flow in Connect Customer.
@@ -109,7 +84,7 @@ Use this block to store the values returned from agentic CX designer so they can
 
 1. Enter the attribute key you want to create, such as `transferSummary`.
 
-1. Choose **Use attribute**.
+1. Choose **Set dynamically**.
 
 1. Select the **Agentic CX** namespace.
 
@@ -120,7 +95,7 @@ Use this block to store the values returned from agentic CX designer so they can
 Example mapping:
 
 
-| Contact attribute key | Returned context key | 
+| Contact attribute key | Returned value from agentic CX designer | 
 | --- | --- | 
 | transferSummary | summary | 
 | customerIntent | customerIntent | 
@@ -140,7 +115,7 @@ A typical queue transfer sequence is:
 
 For example, if the AI determines that the user needs billing support, the escalation path can pass `customerIntent=billingSupport`. The Connect Customer flow can then use that value to route the customer to the correct queue.
 
-## Escalation context for agents
+## Use escalation context for the agent experience
 <a name="acxd-escalations-summary"></a>
 
 Escalation context helps the human agent understand what happened before the transfer.
@@ -163,7 +138,7 @@ requires agent verification. The customer provided their account email
 and confirmed they are the account holder.
 ```
 
-## Escalation design pattern
+## Recommended flow pattern
 <a name="acxd-escalations-design-pattern"></a>
 
 Use this pattern when designing escalation from agentic CX designer to Connect Customer:
@@ -176,7 +151,7 @@ Use this pattern when designing escalation from agentic CX designer to Connect C
 
 1. Add a user-facing escalation message.
 
-1. Add a Node payload using key={variable} syntax.
+1. Add a State modification to the Escalate node that sets a context variable, such as `{summary}`.
 
 1. Build and deploy the application.
 
@@ -186,14 +161,14 @@ Use this pattern when designing escalation from agentic CX designer to Connect C
 
 1. Route the contact with **Set working queue** and **Transfer to queue**.
 
-## Troubleshooting escalations
+## Common issues
 <a name="acxd-escalations-troubleshooting"></a>
 
 
-| Issue | Cause | Fix | 
+| Issue | Likely cause | Fix | 
 | --- | --- | --- | 
 | Escalation does not leave agentic CX designer | The flow did not reach an Escalate node or the deployed build is outdated. | Confirm the Escalate node is connected, then create and deploy a new build. | 
-| Returned context is missing in Connect Customer flow | Node payload was not configured or used the wrong format. | Use key={variable} format in the Escalate node's Node payload. | 
+| Returned context is missing in Connect Customer flow | State modification was not used to set a context variable. | Use a State modification to Set a context variable in the flow of agentic CX designer when the Escalate or Exit application nodes are reached. | 
 | Returned value is empty | The referenced variable was not in scope at the Escalate node. | Store the value as a context variable, Define output, Generative text output, or captured slot before escalation. | 
 | Agent receives no summary | The Set contact attributes block was not added after the Agentic CX escalation path. | Add Set contact attributes before Set working queue or Transfer to queue. | 
 | Wrong queue is selected | Queue routing logic does not use the returned context. | Use returned attributes to determine the correct queue before transfer. | 

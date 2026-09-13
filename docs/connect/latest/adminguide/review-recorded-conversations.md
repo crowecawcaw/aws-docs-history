@@ -27,13 +27,13 @@ This section covers the steps that a manager takes to review past recordings and
 We recommend using the **Contact ID **filter to [search for recordings](search-recordings.md). This is the best way to make sure you get the right recording for the contact. Many recordings have the same name as the contact ID, but not all. 
 
 1. Conversations that were recorded have icons in the **Recording/Transcript** column, as shown in the following image. If you don't have the appropriate permissions, you won't see these icons.  
-![The voice recording icons play, download, and delete on the Contact search results page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recording-icons.png)
+![The voice recording icons play, download, and delete on the Contact search results page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recording-icons.png)
 
 1. To listen to a recording of a voice conversation, or read the transcript of a chat, choose the **Play** icon, as shown in the following image.  
-![The voice recording icons play icon on the Contact search results page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/play-recordings.png)
+![The voice recording icons play icon on the Contact search results page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/play-recordings.png)
 
 1. If you choose the play icon for a transcript, it appears, as shown in the following image.   
-![A sample chat transcript.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sample-chat-transcript.png)
+![A sample chat transcript.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sample-chat-transcript.png)
 
 ### Pause, rewind, or fast-forward a recording
 <a name="pause-rewind-fastforward-recording"></a>
@@ -41,10 +41,10 @@ We recommend using the **Contact ID **filter to [search for recordings](search-r
 Use the following steps to pause, rewind, or fast-forward a voice recording. 
 
 1. On the **Contact search** results, instead of choosing the **Play** icon, choose the contact ID to open the contact record.  
-![The location of the contact ID that you need to choose.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recordings-contactid.png)
+![The location of the contact ID that you need to choose.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recordings-contactid.png)
 
 1. On the **Contact record** page, there are more controls to navigate the recording, as shown in the following image.  
-![The contact record page, additional controls to listen to the recording.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recording-pause-rewind-fastforward.png)
+![The contact record page, additional controls to listen to the recording.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recording-pause-rewind-fastforward.png)
 
    1. Choose or tap to the time you want to investigate.
 
@@ -71,10 +71,10 @@ With IVR recordings and logs, you can monitor and improve your automated experie
 1. Choose the contact ID to view the **Contact details** page.
 
 1. Under **Recording and Transcript** section, select **Automated Interaction (IVR)** that will contain an audio player that you can use to play the IVR recording, as shown in the following image. In this section you can also see the IVR prompts that were played, customers response to those prompts, as well as transcripts of Amazon Lex interactions.   
-![The location of the contact ID that you need to choose.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recordings-ivr.png)
+![The location of the contact ID that you need to choose.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recordings-ivr.png)
 
 1.  If you only wish to view the details on the customer interaction (without seeing additional details on which flow was executed), you can turn off the **Show flow details** toggle. See image below:  
-![The location of the contact ID that you need to choose.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recordings-ivr-no-detail.png)
+![The location of the contact ID that you need to choose.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recordings-ivr-no-detail.png)
 
 **Flow blocks available within the automated interaction logs and transcripts**  
 You can view the following flow blocks within the Connect Customer UI on the contact details page;
@@ -90,10 +90,10 @@ You can view the following flow blocks within the Connect Customer UI on the con
 Use the following steps to pause, rewind, or fast-forward a voice recording. 
 
 1. On the **Contact search** results, instead of choosing the **Play** icon, choose the contact ID to open the contact record.  
-![The location of the contact ID that you need to choose.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recordings-contactid.png)
+![The location of the contact ID that you need to choose.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recordings-contactid.png)
 
 1. On the **Contact record** page, there are more controls to navigate the recording, as shown in the following image.  
-![The contact record page, additional controls to listen to the recording.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recording-pause-rewind-fastforward.png)
+![The contact record page, additional controls to listen to the recording.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recording-pause-rewind-fastforward.png)
 
    1. Choose or tap to the time you want to investigate.
 

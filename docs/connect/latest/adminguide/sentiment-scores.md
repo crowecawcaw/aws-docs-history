@@ -23,7 +23,7 @@ When working to improve your contact center, you might want to focus on the foll
 
 An additional way of looking at sentiment progression is to check the sentiment trendline. You can see the variation in the customer's sentiment as the contact progresses. For example, the following image shows a conversation with a very low sentiment score in the beginning of the conversation, it goes up, and then back down at the end.
 
-![Customer sentiment trend.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-sentiment-trend.png)
+![Customer sentiment trend.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-sentiment-trend.png)
 
 
 For more information, see [Search for sentiment score or evaluate sentiment shift](search-conversations.md#sentiment-search).

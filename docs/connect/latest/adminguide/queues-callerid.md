@@ -21,7 +21,7 @@ You set the outbound caller ID name (such as the name of your company) and calle
 
 The following image shows an **Edit queue** page with an arrow pointing to the **Outbound caller ID name** and **Outbound caller ID number**.
 
-![The Edit queue page, the Outbound caller ID name and number boxes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-callerID-callerName.png)
+![The Edit queue page, the Outbound caller ID name and number boxes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-callerID-callerName.png)
 
 
 ### Outbound caller ID name

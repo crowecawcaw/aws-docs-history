@@ -59,7 +59,7 @@ You need to get the `flowARN` of the step-by-step guide that you want to associa
 1. In the flow designer, choose **About this flow**, then choose **View ARN**.
 
 1. Copy and save the `flowARN`. It is the entire string, as shown in the following image.  
-![Dialog box displaying the complete flowARN (Amazon Resource Name) for a step-by-step guide.](http://docs.aws.amazon.com/connect/latest/adminguide/images/qic-flow-id.png)
+![Dialog box displaying the complete flowARN (Amazon Resource Name) for a step-by-step guide.](https://docs.aws.amazon.com/connect/latest/adminguide/images/qic-flow-id.png)
 
    You'll use the `flowARN` in [Step 2](#associate-guide-content).
 
@@ -147,6 +147,6 @@ aws qconnect list-content-associations \
 
 Assign the following **Agent Applications** security profile permissions to the agents so they can view the knowledge base content and the step-by-step guides.
 + **agent assist - View**: Enables agents to search for and view content. They can also receive automatic recommendations during calls if conversational analytics is enabled.
-+ **Custom views - Access**: Enables agents to see step-by-step guides in their agent workspace.
++ **Custom views - Access**: Enables agents to see step-by-step guides in the agent workspace.
 
 For information about how to add more permissions to an existing security profile, see [Update security profiles in Connect Customer](update-security-profiles.md).

@@ -9,7 +9,7 @@ For example, conversational analytics can automatically send an alert when certa
 
 The following image shows an example of what a supervisor would see on the **Contact details** page when they get an alert for a real-time chat. In this case, conversational analytics has detected an angry customer situation. 
 
-![The contact details page, an alert for an angry real-time chat customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-realtime-alert-chat.png)
+![The contact details page, an alert for an angry real-time chat customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-realtime-alert-chat.png)
 
 
 When the supervisor monitors a chat, conversational analytics provides them with a real-time transcript and customer sentiment trend that helps them understand the situation and assess the appropriate action. The transcript also eliminates the need for customers to repeat themselves if they are transferred to another agent. 
@@ -28,7 +28,7 @@ When the supervisor monitors a chat, conversational analytics provides them with
 1. Under **When**, use the dropdown list to choose **real-time analysis**.
 
 1. Choose **Add condition**, and then choose the type of match. The following image shows a rule configured for a **Sentiment - Time period** condition.   
-![The conditions for a real-time chat analysis rule.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-realtime-chat-rule2.png)
+![The conditions for a real-time chat analysis rule.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-realtime-chat-rule2.png)
 
    Choose from the following options:
    + **Exact Match**: Finds only the exact words or phrases.
@@ -37,15 +37,15 @@ When the supervisor monitors a chat, conversational analytics provides them with
 Semantic Match isn't available for real-time analysis.
 
 1. Enter the words or phrases, separated by a comma, that you want to highlight. Real-time rules only support any keywords or phrases that **were mentioned**.   
-![A words and phrases rule.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-alert-rules-1.png)
+![A words and phrases rule.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-alert-rules-1.png)
 
 1. Choose **Add**. Each word or phrase separated by a comma gets its own line.  
-![A words and phrases rule with multiple phrases, each on its own line.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-alert-rules-2.png)
+![A words and phrases rule with multiple phrases, each on its own line.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-alert-rules-2.png)
 
    The logic that conversational analytics uses to read these words or phrases is: (Talk OR to OR your OR manager) OR (this OR is OR not OR helpful) OR (speak OR to OR your OR supervisor).
 
 1. To add more words or phrases, choose **Add group of words or phrases**. In the following image, the first group of words or phrases are what the agent might mention. The second group is what the customer might mention.  
-![A words and phrases rule with multiple phrases for customer and agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-script3.png)
+![A words and phrases rule with multiple phrases for customer and agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-script3.png)
 
    1. In this first card, conversational analytics reads each line as an OR. For example: (Hello) OR (thank OR you OR for OR calling OR Example OR Corp) OR (we OR value OR your OR business).
 
@@ -59,14 +59,14 @@ Semantic Match isn't available for real-time analysis.
    + When sentiment scores have certain values
 
    For example, the following image shows a rule that applies when an agent is working the BasicQueue or Billing and Payments queues, the customer is for auto insurance, and the agent is located in Seattle.  
-![A words and phrases rule with multiple conditions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-3.png)
+![A words and phrases rule with multiple conditions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-3.png)
 
 1. When done, choose **Next**. 
 
 1. In the **Assign contact category** box, add a name for the category. For example, **Compliant** or **Not\_Compliant**.
 
 1. Choose **Add action** to specify what action Connect Customer should take when the conditions are met. You can configure supervisor alerts by using email notifications or by developing a custom integration with EventBridge.  
-![The Generate an EventBridge event and Send email notification options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-realtime-chat-rule3.png)
+![The Generate an EventBridge event and Send email notification options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-realtime-chat-rule3.png)
 
 1. If you chose **Send email notification**, see [Create rules that send email notifications](contact-lens-rules-email.md) for more details about completing the page and for information about email limits. 
 

@@ -27,13 +27,13 @@ Generative AI powered customer data mapping is available in the following region
 1. On the **Data source integrations** tab, choose **Add data source integration**.
 
 1. Set up the connection. Select the data source from drop-down that has all supported connectors available.  
-![The data source from drop-down that has all supported connectors available.](http://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-1.png)
+![The data source from drop-down that has all supported connectors available.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-1.png)
 
 1. Map data. Select the option to auto-generate data mapping, or select an already existing mapping template or create one from scratch..  
-![Map data.](http://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-2.png)
+![Map data.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-2.png)
 
 1. Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes. Make edits to ingestion keys and confirm before starting data ingestion. For more on field mappings and keys, see [Object type mapping definition details in Connect Customer Customer Profiles](object-type-mapping-definition-details.md).  
-![Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-3.png)
+![Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-3.png)
 
 ## How it works
 <a name="genai-powered-data-mapping-how-it-works"></a>
@@ -60,7 +60,7 @@ There are too many objects in the request. Up to five objects are allowed in a r
 
 Up to 120 attributes are allowed in a JSON object, including nested JSON attributes. Remove some attributes that don't need to be mapped from the JSON object.
 
-![Up to 120 attributes are allowed in a JSON object, including nested JSON attributes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-breached-limit.png)
+![Up to 120 attributes are allowed in a JSON object, including nested JSON attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-breached-limit.png)
 
 
 ### Warning: We couldn't find a **unique key**, which distinguishes your data. We couldn't find a **profile key**, which identifies your profiles.
@@ -68,4 +68,4 @@ Up to 120 attributes are allowed in a JSON object, including nested JSON attribu
 
 The model could not find a valid object type from given object. Change the input or use manual mapping approach as suggested.
 
-![The model could not find a valid object type from given object. Change the input or use manual mapping approach as suggested.](http://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-unique-key-warning.png)
+![The model could not find a valid object type from given object. Change the input or use manual mapping approach as suggested.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-unique-key-warning.png)

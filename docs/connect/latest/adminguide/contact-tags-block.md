@@ -36,12 +36,12 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Contact tags** block. It is configured to set a tag on the current contact with the key **Department** and the value **Finance**.
 
-![The properties page of the Contact tags block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contacttags-properties.png)
+![The properties page of the Contact tags block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contacttags-properties.png)
 
 
 You can also configure the block to untag a contact, as shown in the following image. 
 
-![The properties page of the Contact tags block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contacttags-properties-untag.png)
+![The properties page of the Contact tags block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contacttags-properties-untag.png)
 
 
 ## Configuration tips
@@ -53,4 +53,4 @@ You can also configure the block to untag a contact, as shown in the following i
 
 The following image shows an example of what this block looks like when it is configured. It has two branches: **Success** and **Error**. 
 
-![A configured Contact tags block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contacttaggingblock-config.png)
+![A configured Contact tags block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contacttaggingblock-config.png)

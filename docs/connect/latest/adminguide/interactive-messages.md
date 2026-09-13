@@ -49,7 +49,7 @@ The following images show two examples of how the list picker template renders i
 + One image shows three buttons, each one with the name of a fruit in text: apple, orange, banana.
 + The second image shows a picture of a store and then under it, three buttons, each one with the name, image, and price of the fruit.
 
-![The list picker template rendering information in a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-listpicker-images2.png)
+![The list picker template rendering information in a chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-listpicker-images2.png)
 
 
 The following code is the list picker template that you can use in your Lambda. Note the following:
@@ -186,7 +186,7 @@ The following images show two examples of how the time picker template renders i
 + One image shows one date, and under it, one time slot.
 + The second image shows one date, and under it, two time slots.
 
-![The time picker template rendering information in a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-timepicker.png)
+![The time picker template rendering information in a chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-timepicker.png)
 
 
 The following image shows the time picker with an image
@@ -194,7 +194,7 @@ The following image shows the time picker with an image
 **Note**  
 If you are using this message template with the [Apple Messages for Business](apple-messages-for-business.md) channel and do not add an image, Connect Customer will add a default image in both the reply and response message.
 
-![The time picker with an image.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-timepicker-with-image.png)
+![The time picker with an image.](https://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-timepicker-with-image.png)
 
 
 The following code is the time picker template that you can use in your Lambda. Note the following:
@@ -322,7 +322,7 @@ By using the panel template, you can present the customer with up to 10 choices 
 
 The follow image shows an example of how the panel template renders information in a chat. It shows an image at the top of the message, and under the image it shows a prompt that asks *How can I help? Tap to select option*. Under the prompt three options are displayed to the customer: **Check self-service options**, **Talk to an agent**, **End chat**. 
 
-![The panel template rendering information in a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-panel1.png)
+![The panel template rendering information in a chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/interactive-messages-panel1.png)
 
 
 The following code is the panel template that you can use in your Lambda. Note the following:
@@ -435,7 +435,7 @@ Use quick reply messages to get simple responses from customers, and then to cus
 
 The following image shows an example of how the quick reply template renders information in a chat.
 
-![The panel template rendering information in a chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/quick-reply-template.png)
+![The panel template rendering information in a chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/quick-reply-template.png)
 
 
 The following code is the quick reply template that you can use in your Lambda.
@@ -525,12 +525,12 @@ Use carousels to display up to 5 list pickers or panels to customers in a single
 
 The following GIF shows an example of how the carousel template renders information in a chat. Customers scroll through the carousel of images by using the left and right arrows. 
 
-![A carousel in a customers chat experience.](http://docs.aws.amazon.com/connect/latest/adminguide/images/carousel-interactive.gif)
+![A carousel in a customers chat experience.](https://docs.aws.amazon.com/connect/latest/adminguide/images/carousel-interactive.gif)
 
 
 The following image shows two **Learn More** hyperlinks, which are examples of carousel picker hyperlink elements.
 
-![A carousel picker with hyperlinks.](http://docs.aws.amazon.com/connect/latest/adminguide/images/carousel-interactive1.png)
+![A carousel picker with hyperlinks.](https://docs.aws.amazon.com/connect/latest/adminguide/images/carousel-interactive1.png)
 
 
 The following code is the carousel template that you can use in your Lambda. 
@@ -1212,7 +1212,7 @@ The following example shows a list of options for a banking service.
 
 The following image shows a typical screen before and after a customer opens a list.
 
-![Image showing a list of options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-options-results.png)
+![Image showing a list of options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-options-results.png)
 
 
 ### WhatsApp options limits
@@ -1285,7 +1285,7 @@ You can use the WhatsApp reply button template to present an in-line list of opt
 
 The following image shows a typical user experience.
 
-![Reply in a chat session.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-reply-template.png)
+![Reply in a chat session.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-reply-template.png)
 
 
 ### WhatsApp reply button limits
@@ -1330,7 +1330,7 @@ The following image of a chat box shows an example list picker with rich formatt
 + The subtitle contains italics and bold text, a bulleted list, and a numbered list. It also shows a plain link, text link, and sample code.
 + The bottom of the chat box shows three list picker elements.
 
-![A chat box, a title with a link, a subtitle with lists and links.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rich-link-formatting-example1a.png)
+![A chat box, a title with a link, a subtitle with lists and links.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rich-link-formatting-example1a.png)
 
 
 ### How to format text with markdown

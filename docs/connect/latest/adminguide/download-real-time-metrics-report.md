@@ -17,7 +17,7 @@ All exported times are in seconds.
 
 The following image shows real-time metrics in a Queue table. All times in the online report are in hours:minutes:seconds (hh:mm:ss). Below the image of the Queue table, there is an image of the same data in a downloaded CSV file opened with Excel. All times in the downloaded report are in seconds.
 
-![Data in a queue table and the same data in a CSV file.](http://docs.aws.amazon.com/connect/latest/adminguide/images/example-downloaded-metrics-report.png)
+![Data in a queue table and the same data in a CSV file.](https://docs.aws.amazon.com/connect/latest/adminguide/images/example-downloaded-metrics-report.png)
 
 
 You can convert the seconds to minutes using an Excel formula. Alternatively, if you have a short report, you can copy and paste the data from Connect Customer to Excel and it will preserve the format.

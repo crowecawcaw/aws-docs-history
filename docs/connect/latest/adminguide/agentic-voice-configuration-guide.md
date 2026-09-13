@@ -38,7 +38,7 @@ In the Speech-to-Text configuration:
 
 1. Set **Speech model preference** to **Advanced** to enable the enhanced speech recognition model with lower latency and improved accuracy.
 
-![Speech-to-Text configuration — Amazon Connect agentic voice provider with Advanced model.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-voice-stt-config.png)
+![Speech-to-Text configuration — Amazon Connect agentic voice provider with Advanced model.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-voice-stt-config.png)
 
 
 ### Step 3: Verify configuration
@@ -48,7 +48,7 @@ After saving, verify the configuration on the bot landing page:
 + Confirm that the speech model section displays **Amazon Connect agentic voice** as the provider.
 + Confirm that **Advanced** appears as the speech model preference.
 
-![Bot landing page showing Amazon Connect agentic voice and Advanced speech model.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-voice-bot-landing.png)
+![Bot landing page showing Amazon Connect agentic voice and Advanced speech model.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-voice-bot-landing.png)
 
 
 ## Voice configuration — Set Voice block
@@ -78,7 +78,7 @@ With Amazon Connect agentic voice selected as the provider:
 
 1. Choose **Listen to voice sample** to preview the voice. This opens a new tab playing a recording of the selected voice.
 
-![Set Voice block — Amazon Connect agentic voice provider with language and voice selection.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-voice-set-voice-block.png)
+![Set Voice block — Amazon Connect agentic voice provider with language and voice selection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-voice-set-voice-block.png)
 
 
 1. Choose the **Listen to voice sample** link.

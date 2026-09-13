@@ -10,7 +10,7 @@ This topic describes the security profiles permissions that are required to acce
 
 The following image shows the security permissions used to manage access to [Connect Customer Cases](cases.md) functionality:
 
-![Cases security profile permissions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_cases.png)
+![Cases security profile permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_cases.png)
 
 
 ## Required Customer Profiles permissions
@@ -18,7 +18,7 @@ The following image shows the security permissions used to manage access to [Con
 
 To use Connect Customer Cases, your users also need permissions to Customer Profiles permissions, as shown in the following image.
 
-![Customer Profiles security profile permissions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-customer-profiles-permissions.png)
+![Customer Profiles security profile permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-customer-profiles-permissions.png)
 
 
 ## Required queue, quick connect, and user view permissions
@@ -26,18 +26,18 @@ To use Connect Customer Cases, your users also need permissions to Customer Prof
 
 To be able to assign case ownership to users or queues, agents need permissions to view queues, quick connects, and users. To be able to view the author name on comments, agents need permission to view users. These permissions are shown in the following two images. 
 
-![Queue and quick connect View permissions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-security-queue-permissions.png)
+![Queue and quick connect View permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-security-queue-permissions.png)
 
 
-![User View permissions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-security-user-permissions.png)
+![User View permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-security-user-permissions.png)
 
 
 ## Description of Cases permissions
 <a name="case-permissions-description"></a>
-+ **Audit History**: Manage who can access the audit history of cases in the agent application.
-  + **View Audit History**: Allows the user to view the audit history of cases in the agent application.
-+ **Cases**: Manage who can access cases by using the agent application.
-  + **View case**: Allows the user to view and search cases in the agent application. This includes viewing case data (for example, status, title, summary), contact history (for example, calls, chats, tasks with information such as start time, end time, duration), and comments.
++ **Audit History**: Manage who can access the audit history of cases in the agent workspace.
+  + **View Audit History**: Allows the user to view the audit history of cases in the agent workspace.
++ **Cases**: Manage who can access cases by using the agent workspace.
+  + **View case**: Allows the user to view and search cases in the agent workspace. This includes viewing case data (for example, status, title, summary), contact history (for example, calls, chats, tasks with information such as start time, end time, duration), and comments.
   + **Edit case**: Allows the user to edit cases, which includes editing case data (for example, update case status), add comments, and associate contacts to cases.
   + **Create case**: Allows the user to create new cases, and associate contacts to cases.
   + **Delete case**: Allows the user to delete any case in the domain.
@@ -74,15 +74,15 @@ To be able to assign case ownership to users or queues, agents need permissions 
 
 When users have permissions to **View Case Fields** and **View Case Templates**, they will see the **Case fields** and **Case templates** options in their left navigation menu, as shown in the following image: 
 
-![The navigation menu, the agent applications option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-case-fields-menu.png)
+![The navigation menu, the agent applications option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-case-fields-menu.png)
 
 
 ## Required Agent Application permissions
 <a name="required-agent-application-permissions"></a>
 
-To be able to generate a summary for a case in the agent application, agents need permission to view AI agents in the agent application, as shown in the following image.
+To be able to generate a summary for a case in the agent workspace, agents need permission to view AI agents in the agent workspace, as shown in the following image.
 
-![Screenshot showing AI agent permissions in security profile.](http://docs.aws.amazon.com/connect/latest/adminguide/images/case-summary-ai-agent-permissions.png)
+![Screenshot showing AI agent permissions in security profile.](https://docs.aws.amazon.com/connect/latest/adminguide/images/case-summary-ai-agent-permissions.png)
 
 
 ## Required Cases and Agent Applications permissions to generate AI-powered case summarization
@@ -92,7 +92,7 @@ To generate an AI-powered case summary, agents need View permissions on Cases an
 
 **To save an AI-powered case summary, agents additionally need Edit permission on Cases.**
 
-![Cases permissions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-permissions.png)
+![Cases permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-permissions.png)
 
 
-![Agent Applications permissions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-applications-permissions.png)
+![Agent Applications permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-applications-permissions.png)

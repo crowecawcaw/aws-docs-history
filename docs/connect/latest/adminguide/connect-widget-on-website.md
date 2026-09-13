@@ -35,7 +35,7 @@ In this step, you create and customize a View that determines the behavior for c
    + There are many style options for the View components, allowing you to customize the form to fit your environment.
 
 1. After you’ve added a **Connect Action button** to your form, you can set values for the contacts created by the form by linking them to the options in the Connect Action button. Components that you would like to link must be in the same Form in the View as the **Connect Action button**.   
-![The activation of security for new communication widget requests.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-web-form-components-1.png)
+![The activation of security for new communication widget requests.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-web-form-components-1.png)
 
    The following components are supported for form linking:
    + Form Input
@@ -104,7 +104,7 @@ The banner must be in .svg, .jpg or .png format. The image can be 280px (width) 
 1. Enter the website domains where you want to place the communications widget. The widget loads only on websites that you select in this step. 
 
    Choose **Add domain** to add up to 50 domains.  
-![The add domain option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-add-domain.png)
+![The add domain option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-add-domain.png)
 
    Domain allowlist behavior:
    + Subdomains are automatically included. For example, if you allow example.com, all its subdomains (like sub.example.com) are also allowed.
@@ -115,7 +115,7 @@ Double-check that your website URLs are valid and does not contain errors. Inclu
 We recommend using https:// for your production websites and applications.
 
 1. Under **Add security for your communications widget**, we recommend choosing **Yes**, and working with your website administrator to set up your web servers to issue JSON Web Tokens (JWTs) for new contact requests. This provides you more control when initiating new contacts, including the ability to verify that requests sent to Connect Customer are from authenticated users.  
-![The activation of security for new communication widget requests.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-choose-security.png)
+![The activation of security for new communication widget requests.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-choose-security.png)
 
    Choosing **Yes** results in the following:
    + Connect Customer provides a 44-character security key on the next page that you can use to create JSON Web Tokens (JWTs).
@@ -147,7 +147,7 @@ In this step, you confirm your selections and copy the code for the communicatio
 
 Use this 44-character security key to generate JSON web tokens from your web server. You can also update, or rotate, keys if you need to change them. When you do this, Connect Customer provides you with a new key and maintains the previous key until you have a chance to replace it. After you have the new key deployed, you can come back to Connect Customer and delete the previous key.
 
-![The security key provided by Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-security-key.png)
+![The security key provided by Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-security-key.png)
 
 
 When your customers interact with the communications widget on your website, the widget requests your web server for a JWT. When this JWT is provided, the widget will then include it as part of the end customer's contact request to Connect Customer. Connect Customer then uses the secret key to decrypt the token. If successful, this confirms that the JWT was issued by your web server and Connect Customer routes the contact request to your contact center agents.
@@ -196,7 +196,7 @@ The following image shows an example of the JavaScript that you embed on the web
 **Note**  
 Include the widget script in the HTML element that needs to render the widget when using the Embedded inline style.
 
-![The communications widget script.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-code.png)
+![The communications widget script.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-code.png)
 
 
 When your website loads, customers first see the widget icon. When they choose this icon, the communications widget opens and customers are able to initiate contact with your agents.
@@ -206,7 +206,7 @@ To make changes to the communications widget at any time, choose **Edit**.
 **Note**  
 Saved changes update the customer experience in a few minutes. Confirm your widget configuration before saving it. 
 
-![The edit link on the widget preview.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-edit.png)
+![The edit link on the widget preview.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-edit.png)
 
 
 To make changes to widget icons on the website, you will receive a new code snippet to update your website directly.

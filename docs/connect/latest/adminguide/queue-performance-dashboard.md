@@ -37,7 +37,7 @@ The **Performance overview** chart that provides aggregated metrics based on you
 
 The following image shows an example **Performance overview** chart: 
 
-![An example Performance overview chart in the dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/queue-performance-dashboards-performance-overview-chart.png)
+![An example Performance overview chart in the dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/queue-performance-dashboards-performance-overview-chart.png)
 
 + **Contacts handled** during your time range selection was 126,306, which is down \~13% compared to your benchmark number of contacts handled, 144,647 contacts.
 + The percentages are rounded up or down. 
@@ -51,7 +51,7 @@ The **Current queue overview** widget provides real-time snapshot metrics that d
 
 The following image shows an example **Current queue overview**.
 
-![An example Current queue overview in the dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-current-queue.png)
+![An example Current queue overview in the dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-current-queue.png)
 
 
 ## Current agent performance
@@ -68,7 +68,7 @@ You can't change the grouping of this widget.
 
 The following image shows an example **Current agent performance**.
 
-![An example of Current agent performance in the dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-current-agent-performance.png)
+![An example of Current agent performance in the dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-current-agent-performance.png)
 
 
 ### Thresholds
@@ -82,7 +82,7 @@ You configure custom thresholds based on the state. For example, you can define 
 
 The following image shows an example of thresholds set on the **Activity** metric.
 
-![An example of thresholds set for the Activity metric.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-thresholds-3.png)
+![An example of thresholds set for the Activity metric.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-thresholds-3.png)
 
 
 ### Contact state filtering
@@ -92,7 +92,7 @@ You can filter by contact states to identify specific agents who have a contact 
 
 The following image shows a list of some of the filters available for contact states.
 
-![An example of the filters you can apply to Contact state.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-contact-state-filtering.png)
+![An example of the filters you can apply to Contact state.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-contact-state-filtering.png)
 
 
 ## One-click drill-down
@@ -102,7 +102,7 @@ Use the one-click drill-down feature to quickly create a new widget filtered by 
 
 When viewing a real-time widget grouped by queue or routing profile, a drill-down menu appears next to each resource name. Choose the drill-down menu to select the type of widget you want to create.
 
-![A Current queue performance widget showing the drill-down menu button next to a queue name.](http://docs.aws.amazon.com/connect/latest/adminguide/images/drilldown-more-options-button.png)
+![A Current queue performance widget showing the drill-down menu button next to a queue name.](https://docs.aws.amazon.com/connect/latest/adminguide/images/drilldown-more-options-button.png)
 
 
 ### When grouped by queue
@@ -113,7 +113,7 @@ The following options are available when your widget is grouped by queue:
 + **View routing profile** – Creates a **Current routing profile performance** widget filtered by the selected queue.
 + **View steps** – Creates a **Current routing step expression performance** widget filtered by the selected queue. This displays all the routing steps that are being used on active contacts in that queue.
 
-![The drill-down menu for a queue, showing View agents, View routing profile, and View steps options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/drilldown-grouped-by-queue.png)
+![The drill-down menu for a queue, showing View agents, View routing profile, and View steps options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/drilldown-grouped-by-queue.png)
 
 
 ### When grouped by routing profile
@@ -123,12 +123,12 @@ The following options are available when your widget is grouped by routing profi
 + **View agents** – Creates a **Current agent performance** widget filtered by the selected routing profile.
 + **View queue** – Creates a **Current queue performance** widget filtered by the selected routing profile.
 
-![The drill-down menu for a routing profile, showing View agents and View queue options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/drilldown-grouped-by-routing-profile.png)
+![The drill-down menu for a routing profile, showing View agents and View queue options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/drilldown-grouped-by-routing-profile.png)
 
 
 The new widget is automatically filtered by the selected resource and inserted after the current widget on your dashboard.
 
-![A new widget created by one-click drill-down, filtered by the selected routing profile.](http://docs.aws.amazon.com/connect/latest/adminguide/images/drilldown-new-widget-result.png)
+![A new widget created by one-click drill-down, filtered by the selected routing profile.](https://docs.aws.amazon.com/connect/latest/adminguide/images/drilldown-new-widget-result.png)
 
 
 ### Limitations
@@ -150,12 +150,12 @@ To switch between chart and table views:
 
 1. Choose **Show as table**.
 
-![A chart widget with the Actions menu open, showing the Show as table option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/show-as-table-actions-menu.png)
+![A chart widget with the Actions menu open, showing the Show as table option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/show-as-table-actions-menu.png)
 
 
 A checkmark appears next to the option when table view is active. To return to the chart view, choose **Show as table** again.
 
-![A widget displaying data in table view, with a checkmark next to Show as table in the Actions menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/show-as-table-result.png)
+![A widget displaying data in table view, with a checkmark next to Show as table in the Actions menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/show-as-table-result.png)
 
 
 ## Current agent adherence
@@ -167,17 +167,17 @@ For example, you can filter for agents with a **Non-adherent** status, sort by a
 
 The following image shows an example of the **Current agent adherence** widget. The red highlight is conditional formatting applied on the **Adherence status duration** (Adherence status duration >= 3 hours). The breach in the agent adherence is indicated by the **Non-adherent status**.
 
-![The Current agent adherence widget with conditional formatting.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-adherence-widget.png)
+![The Current agent adherence widget with conditional formatting.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-adherence-widget.png)
 
 
 The following image shows an example of how to set up conditional formatting. 
 
-![How to set up conditional formatting.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-adherence-status.png)
+![How to set up conditional formatting.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-adherence-status.png)
 
 
 The following image shows an example of filtering the **Adherence status duration**. In this case, Connect Customer will display only those agents who are not adherent for longer than 10 minutes. 
 
-![A filter set for Adherence status duration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-agent-adherence-status-duration1.png)
+![A filter set for Adherence status duration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-agent-adherence-status-duration1.png)
 
 
 ## Trailing agent adherence
@@ -194,7 +194,7 @@ Historical adherence metrics data is available from May 6, 2026. Queries for dat
 
 The following image shows an example of the **Trailing agent adherence** widget.
 
-![The Trailing agent adherence widget showing adherence metrics grouped by agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-trailing-agent-adherence.png)
+![The Trailing agent adherence widget showing adherence metrics grouped by agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-trailing-agent-adherence.png)
 
 
 ## Trailing agent performance
@@ -202,12 +202,12 @@ The following image shows an example of the **Trailing agent adherence** widget.
 
 This table provides a historical view of performance over time. 
 
-![An example of Trailing agent performance.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-trailing-agent-performance.png)
+![An example of Trailing agent performance.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-trailing-agent-performance.png)
 
 
 To see how your performance compares to the previous time range, choose **Actions**, **Edit**. On the **Edit** pane, choose **Show comparison**, as shown in the following image. 
 
-![The Show comparison option in the Edit pane, the Prior information on the chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-add-comparisons.png)
+![The Show comparison option in the Edit pane, the Prior information on the chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-add-comparisons.png)
 
 
  You can also change the metrics, configure thresholds, or re-order metrics.
@@ -222,12 +222,12 @@ This widget can support a maximum of two metric types (count, time, percentage).
 
 The following image shows the Contacts queued (blue bars) and Avg queue answer time (red line), for four months.
 
-![An example of Average queue answer time and contacts queued.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-average-queue-answer-time-trend.png)
+![An example of Average queue answer time and contacts queued.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-average-queue-answer-time-trend.png)
 
 
 This next image shows the same data, but with the addition of the **Contacts abandoned** (green) filter.
 
-![An example of Average queue answer time with Contacts abandoned.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-contacts-abandoned.png)
+![An example of Average queue answer time with Contacts abandoned.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-contacts-abandoned.png)
 
 
 ## Contacts handled and average handle time trend
@@ -237,7 +237,7 @@ The **Contacts handled and average handle time trend** is a time-series chart th
 
 To configure different time range intervals, choose **Interval**, as shown in the following image. 
 
-![Contacts handled and average handle time trend chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/queue-performance-dashboards-contacts-handled-average-handle-time.png)
+![Contacts handled and average handle time trend chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/queue-performance-dashboards-contacts-handled-average-handle-time.png)
 
 
 The available intervals depend on the page-level time range filter. For example:
@@ -251,7 +251,7 @@ The **Agent status drill down** widget displays the number of agents logged into
 
 The following image shows an example of the **Agent status drill down** widget. It shows **Agent status** (for example, Training, Lunch) as a secondary grouping. 
 
-![The Agent status drill down widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-status-drill-down.png)
+![The Agent status drill down widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-status-drill-down.png)
 
 
 ## Dashboard functionality limitations

@@ -18,10 +18,10 @@ After you enable Identity Resolution you'll see the option to [create consolidat
 1. In the navigation pane, choose **Customer profiles**.
 
 1. In the **Identity Resolution** section, choose **Enable Identity Resolution**.  
-![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-ir.png)
+![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-ir.png)
 
 1. In the **Identity Resolution** pop-up box, choose **Enable Identity Resolution**.  
-![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-ir-2.png)
+![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-ir-2.png)
 
 1. On the **Enable Identity Resolution** page, specify the date and time when you want the Identity Resolution Job to run.
 

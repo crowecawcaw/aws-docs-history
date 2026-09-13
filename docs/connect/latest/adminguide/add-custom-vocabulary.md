@@ -10,7 +10,7 @@ This topic explains how to add custom vocabularies using the Connect Customer ad
 ## Things to know about custom vocabularies
 <a name="things-to-know-about-cust-vocab"></a>
 + You must set a vocabulary as the **default** for it to be applied to the analyses to generate transcripts. The following image shows the **Custom vocabularies** page. Choose the ellipsis, and then choose **Set as default**.  
-![The custom vocabularies page, the location of the ellipses, the set as default option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-default.png)
+![The custom vocabularies page, the location of the ellipses, the set as default option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-default.png)
 + You can have one vocabulary per language applied to the analyses. This means only one file per language can be in the **Ready (default)** state.
 + You can upload and activate up to 20 vocabulary files. You can activate all 20 files at the same time.
 + Transcription is a one-time event. A newly uploaded vocabulary isn't applied retroactively to existing transcriptions.
@@ -41,16 +41,16 @@ For information about how to add more permissions to an existing security profil
 **Note**  
 The sample vocabulary file can be downloaded only when you choose an English language setting. Otherwise, an error message is displayed, as shown in the following image.  
 
-![The error message that processing the vocabulary file failed.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-sample-error.png)
+![The error message that processing the vocabulary file failed.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-sample-error.png)
 
 
    The following image shows what the sample vocabulary file looks like. The header contains `Phrase`, `IPA`, `SoundsLike`, `DisplayAs`. The header is required.  
-![A sample vocabulary file, the header.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-header.png)
+![A sample vocabulary file, the header.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-header.png)
 
 1. The information in the file is separated by one [TAB] per entry. For details about how to add words and acronyms to your vocabulary file, see [Creating a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create-table.html) in the *Amazon Transcribe Developer Guide*.
 
    The following image shows words in a sample vocabulary file. Words in the Phrase column are required. The `DisplayAs` column is optional. Amazon Transcribe no longer processes the `IPA` and `SoundsLike` columns.  
-![A sample vocabulary file. The Phrase column is required, DisplayAs is optional, and IPA and SoundsLike are deprecated.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-phrase-column.png)
+![A sample vocabulary file. The Phrase column is required, DisplayAs is optional, and IPA and SoundsLike are deprecated.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-phrase-column.png)
 
    To enter multiple words in the **Phrase** column, separate each word with a hyphen (-); do not use spaces. 
 **IPA and SoundsLike columns ignored**  
@@ -75,7 +75,7 @@ To view a custom vocabulary that has been uploaded, you download and open the fi
 1. Navigate to **Analytics and optimization**, **Custom vocabularies**.
 
 1. Choose **More**, **Download**. The location of **Download** is shown in the following image.  
-![The custom vocabularies page, a list of vocabularies, the more dropdown menu, the download option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-download.png)
+![The custom vocabularies page, a list of vocabularies, the more dropdown menu, the download option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-custom-vocab-download.png)
 
 1. Open the download to view the contents.
 

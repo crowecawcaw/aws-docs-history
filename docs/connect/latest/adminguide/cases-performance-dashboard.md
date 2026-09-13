@@ -89,7 +89,7 @@ Each metric shows the current value and the prior period value for comparison.
 
 The following image shows an example **Cases performance summary** widget.
 
-![The Cases performance summary widget showing cases created, resolved, reopened, average resolution time, and first contact resolution percentage.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-performance-summary.png)
+![The Cases performance summary widget showing cases created, resolved, reopened, average resolution time, and first contact resolution percentage.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-performance-summary.png)
 
 
 ## SLAs by status chart
@@ -101,7 +101,7 @@ You can add filters to narrow the view to specific case templates or SLA names.
 
 The following image shows an example **SLAs by status** chart.
 
-![The SLAs by status bar chart showing Cases SLAs created grouped by Active, Overdue, Met, and Not met.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-slas-by-status.png)
+![The SLAs by status bar chart showing Cases SLAs created grouped by Active, Overdue, Met, and Not met.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-slas-by-status.png)
 
 
 ## Cases by template table
@@ -121,7 +121,7 @@ You can sort by any column and add filters to narrow results. You can also set c
 
 The following image shows an example **Cases by template** table.
 
-![The Cases by template table showing metrics for each case template.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-cases-by-template.png)
+![The Cases by template table showing metrics for each case template.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-cases-by-template.png)
 
 
 ## SLAs by name table
@@ -136,7 +136,7 @@ The following columns are displayed:
 
 The following image shows an example **SLAs by name** table.
 
-![The SLAs by name table showing SLA names with Cases SLAs created and Percent SLAs achieved.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-slas-by-name.png)
+![The SLAs by name table showing SLA names with Cases SLAs created and Percent SLAs achieved.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-slas-by-name.png)
 
 
 ## Cases resolution trend chart
@@ -150,7 +150,7 @@ Use the **Interval** selector to change the granularity. You can also add filter
 
 The following image shows an example **Cases resolution trend** chart.
 
-![Cases resolution trend chart showing Resolved case actions (bars) and Percent cases first contact resolved (line) over time.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-resolution-trend.png)
+![Cases resolution trend chart showing Resolved case actions (bars) and Percent cases first contact resolved (line) over time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-resolution-trend.png)
 
 
 ## Case templates by SLA chart
@@ -160,7 +160,7 @@ Use this stacked bar chart to view **Cases SLAs created** for each case template
 
 The following image shows an example **Case templates by SLA** chart.
 
-![The Case templates by SLA stacked bar chart showing Cases SLAs created per template broken down by Active, Overdue, Met, and Not met status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-templates-by-sla.png)
+![The Case templates by SLA stacked bar chart showing Cases SLAs created per template broken down by Active, Overdue, Met, and Not met status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-dashboard-templates-by-sla.png)
 
 
 ## Limitations

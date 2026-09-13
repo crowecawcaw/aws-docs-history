@@ -29,24 +29,24 @@ Forecast groups are a way for you to combine different queues into one forecast.
 1. On the **Create Forecast Groups** page, under **Queues**, you'll see a list of queues that are not yet associated with a forecast group are listed. If no queues are listed, it means they are all associated with a forecast group already.
 
 1. Drag and drop one or more queues to the forecast group, as shown in the following image. You can press and hold CTRL (COMMAND for macOS users) or SHIFT to select multiple queues at a time.  
-![The Create forecast groups page, a list of queues.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-drag-drop-queues-to-forecast-group.png)
+![The Create forecast groups page, a list of queues.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-drag-drop-queues-to-forecast-group.png)
 
 1. Choose **Save**. The following image shows the new forecasting group, along with the number of queues in the group and the date it was last changed.  
-![The Forecasting page, the forecast groups tab, the new forecast group.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-group.png)
+![The Forecasting page, the forecast groups tab, the new forecast group.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-group.png)
 
 1. After creating a forecast group, you can add or remove queues. However, doing so might initiate an immediate change in associated forecasts. 
 
    For example, if you made a change for forecast group today, Connect Customer automatically computes the new short-term and long-term forecasts tomorrow. Your change to the forecast group also impacts downstream capacity plans and schedules that are created based on the forecast group.
 
    The following image shows a sample warning message when adding a queue might trigger an immediate change in associated forecasts. You must choose **Confirm** if you want to continue.  
-![The warning message, a prompt to confirm you want to add the forecast group queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forcasting-create-forecast-group.png)
+![The warning message, a prompt to confirm you want to add the forecast group queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forcasting-create-forecast-group.png)
 
 1. You can remove the forecast group by using the **Remove** function. 
 
    1. delete the forecasts that are associated with the forecast group you want to delete.
 
       For example, in the following image, a forecast group named *Network\_Issues* cannot be deleted because this forecast group was used to create forecasts.  
-![The Forecasting page, the forecasts groups tab, a message that the group cannot be removed.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-delete-forecast-group.png)
+![The Forecasting page, the forecasts groups tab, a message that the group cannot be removed.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-delete-forecast-group.png)
 
       Therefore, go to **Forecasts** tab to delete those associated forecasts.
 

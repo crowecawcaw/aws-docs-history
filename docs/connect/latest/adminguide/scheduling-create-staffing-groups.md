@@ -46,7 +46,7 @@ For example, you might create one staffing group named General Enquiry, and anot
    In the following example, contacts from the queues in the Forecast\_Group\_20220124 will be routed to the agents in this staffing group.
 
 1. Choose **Add staff** to add agents and supervisors to this staffing group. Only names for Connect Customer users appear in the list of staff. The following image shows the name Jane Doe, which can be added to the agent list.   
-![The add staff section, the add to agent list option, the name Doe, Jane.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-add-staff.png)
+![The add staff section, the add to agent list option, the name Doe, Jane.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-add-staff.png)
 
 ## Add rules
 <a name="staffing-groups-add-rules"></a>

@@ -27,9 +27,9 @@ These resources are designed to help you quickly derive value from your customer
 
 1. On the Customer Profiles homepage, locate the Industry templates section.
    + If this is your first time setting up Customer Profiles, an announcement appears at the top of the page.  
-![Banner to enable templates appears if this is your first time using customer profiles.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-industry-resource-templates-1.png)
+![Banner to enable templates appears if this is your first time using customer profiles.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-industry-resource-templates-1.png)
    + If you already have resources in your domain, the list of enabled templates appears in the Industry templates section.  
-![If you have used customer profiles before, then a list of enabled templates appears in the industry templates section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-industry-resource-templates-2.png)
+![If you have used customer profiles before, then a list of enabled templates appears in the industry templates section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-industry-resource-templates-2.png)
 
 1. To enable a template, choose **Enable a template**.
 
@@ -38,14 +38,14 @@ These resources are designed to help you quickly derive value from your customer
    + **Hotel** - For hospitality businesses
 
 1. Review the resources that will be created in the **Review resources** section.  
-![Review the resources that will be created.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-industry-resource-templates-3.png)
+![Review the resources that will be created.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-industry-resource-templates-3.png)
 
 1. Choose **Enable template**.
 
 1. Wait for the resources to be created. Make sure to keep the browser tab open while the resource creation is in progress.
 
 1. Once complete, you'll see a confirmation message and the template will appear in the Industry templates section with the number of resources created.  
-![Successful creation banner appears.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-industry-resource-templates-4.png)
+![Successful creation banner appears.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-industry-resource-templates-4.png)
 
 ## Resources created by industry templates
 <a name="resources-created-by-industry-templates"></a>

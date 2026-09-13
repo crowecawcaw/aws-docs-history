@@ -17,4 +17,4 @@ The following table shows the additional networking requirements for your agents
 
 The following diagram shows the networking requirements for the customers who are using the communications widgets to contact you.
 
-![The networking requirements for customers using web calling or video.](http://docs.aws.amazon.com/connect/latest/adminguide/images/networking-customer.png)
+![The networking requirements for customers using web calling or video.](https://docs.aws.amazon.com/connect/latest/adminguide/images/networking-customer.png)

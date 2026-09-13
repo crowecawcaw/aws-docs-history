@@ -28,7 +28,7 @@ This process ensures efficient handling of contact events, promoting auto-associ
 
 It is recommended to use the CTR-NoInferred template as the default behavior due to its significant advantages, especially in reducing duplicate profiles
 
-![The Contact Record CTR-NoInferred template diagram.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-no-inferred.png)
+![The Contact Record CTR-NoInferred template diagram.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-no-inferred.png)
 
 
 ## Auto-associate profiles only (CTR-AutoAssociateOnly)
@@ -46,7 +46,7 @@ The purpose of using the CTR-AutoAssociateOnly template is to enable automatic a
 
 By using the CTR-AutoAssociateOnly template, organizations can use auto-association while adhering to specific rules regarding profile creation. This approach allows for streamlined contact event handling and precise control over the profile ecosystem, ensuring accurate data representation and facilitating efficient customer management.
 
-![The Contact Record CTR-AutoAssociateOnly template diagram.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-auto-associate.png)
+![The Contact Record CTR-AutoAssociateOnly template diagram.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-auto-associate.png)
 
 
 ## Create inferred profiles only (CTR)
@@ -62,7 +62,7 @@ To address this concern and promote better profile management practices, we high
 
 By adopting the CTR-NoInferred template as the default choice, organizations can optimize their profile management processes, minimize data duplication, and ensure a more reliable representation of customer interactions.
 
-![The Contact Record CTR template diagram.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-inferred-only.png)
+![The Contact Record CTR template diagram.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-inferred-only.png)
 
 
 ## Contact record template usage examples
@@ -94,13 +94,13 @@ For information on using the API, see [PutProfileObjectType](https://docs.aws.am
 <a name="ctr-contact-record-template-usage-examples-console"></a>
 
 1. In the Customer Profiles console, select **View Details** in the **Customer Profiles domain** section.  
-![View details in the Customer Profiles domain section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-1.png)
+![View details in the Customer Profiles domain section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-1.png)
 
 1. On the **Domain details** page, choose **Edit** in the **Profile creation and auto-association** section.  
-![Edit in the Profile creation and auto-association section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-2.png)
+![Edit in the Profile creation and auto-association section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-2.png)
 
 1. Select the desired Contact Record behavior you would like to apply to your Domain and choose **Save**.  
-![The desired Contact Record behavior you would like to apply to your Domain and choose Save.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-3.png)
+![The desired Contact Record behavior you would like to apply to your Domain and choose Save.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-3.png)
 
 ## Automatically add names from email contacts to a profile
 <a name="add-email-names-to-profile"></a>

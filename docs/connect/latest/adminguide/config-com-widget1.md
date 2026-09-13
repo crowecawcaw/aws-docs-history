@@ -19,7 +19,7 @@ Use this option to create communication widgets for desktop and mobile [browsers
 The Name must be unique for each communications widget created in a Connect Customer instance.
 
 1. In the **Communications options** section, choose how your customers can engage with your widget. The following image shows options to allow web calling, video, and screen sharing for customers.   
-![The communication widget page configured for web calling, video, and screen sharing.](http://docs.aws.amazon.com/connect/latest/adminguide/images/comm-widget-page-call.png)
+![The communication widget page configured for web calling, video, and screen sharing.](https://docs.aws.amazon.com/connect/latest/adminguide/images/comm-widget-page-call.png)
 
 1. In the **Web calling** section, choose whether to enable video and screen sharing experiences for your customers. The previous image shows options that customers can see agent video, turn on their video, and allow agents and customers to share their screens. For information about setting restrictions on screen sharing, see [Enable URL restriction for screen sharing](screen-sharing-url-restriction.md).
 
@@ -30,7 +30,7 @@ The Name must be unique for each communications widget created in a Connect Cust
 
 As you choose these options, the widget preview updates automatically so that you can see what the experience will look like for your customers.
 
-![The preview of the communications widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/netra-call-preview.png)
+![The preview of the communications widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/netra-call-preview.png)
 
 
 **Define widget access button styles**
@@ -61,7 +61,7 @@ With this step, you can secure the communications widget so that it can be launc
 1. Enter the website domains where you want to place the communications widget. The communications widget loads only on websites that you select in this step. 
 
    Choose **Add domain** to add up to 50 domains.  
-![The add domain option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-add-domain.png)
+![The add domain option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-add-domain.png)
 **Important**  
 Double-check that your website URLs are valid and does not contain errors. Include the full URL starting with https://.
 We recommend using https:// for your production websites and applications.
@@ -79,16 +79,16 @@ We recommend using https:// for your production websites and applications.
 
 To enable agents to use video calling and screen sharing, assign the ** Contact Control Panel (CCP)**, **Video calls - Access** permissions to their security profile.
 
-The Connect Customer agent workspace supports Connect Customer in-app, web, and video calling, and screen sharing. You can use the same configuration, routing, analytics, and agent application as with telephone calls and chats. To get started, the only step is to enable your agent's security profiles with the permissions to have video calls and screen sharing.
+The Connect Customer agent workspace supports Connect Customer in-app, web, and video calling, and screen sharing. You can use the same configuration, routing, analytics, and agent workspace as with telephone calls and chats. To get started, the only step is to enable your agent's security profiles with the permissions to have video calls and screen sharing.
 
-For custom agent desktops, there are no changes required for the Connect Customer in-app and web calling. Enable your agent's security profiles with the permissions to have video calls and screen sharing, and follow the guide below on how to integrate video calling into your agent desktop.
+For custom agent applications, there are no changes required for the Connect Customer in-app and web calling. Enable your agent's security profiles with the permissions to have video calls and screen sharing, and follow the guide below on how to integrate video calling into your custom agent application.
 
 ## How a client device initiates an in-app or web call
 <a name="diagram-option1"></a>
 
 The following diagram shows the sequence of events for a client device (mobile application or browser) to initiate an in-app or web call.
 
-![A conceptual diagram that shows how a client devices initiates a call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/netra-gs-diagram-option1.png)
+![A conceptual diagram that shows how a client devices initiates a call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/netra-gs-diagram-option1.png)
 
 
 1. (Optional) You can pass attributes captured in the website and validate them with JSON web token (JWT). 

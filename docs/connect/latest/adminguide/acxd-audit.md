@@ -15,7 +15,7 @@ Use Audit to:
 + Monitor adherence to internal change-management processes
 + Provide evidence of workspace activity for audit or compliance reviews
 
-To access Audit, select your username from your workspace menu, choose **Settings**, then select **Audit**.
+To access Audit, select your username from your workspace menu, choose **Workspace settings**, then select **Audit**.
 
 ## Audit events
 <a name="acxd-audit-events"></a>
@@ -25,10 +25,10 @@ Each row in the Audit table provides details about a workspace event.
 
 |  |  | 
 | --- |--- |
-| **Description** | A short description of the change, such as updating a flow or deleting an integration. | 
-| **Source** | The workspace area or system component where the change occurred, such as Canvas, Integrations, or Workspace settings. | 
-| **Action** | The type of action, such as Write or Delete. | 
-| **Timestamp** | When the event occurred. | 
+| **Event** | A short description of the change, such as updating a flow or deleting an integration. | 
+| **Event source** | The workspace area or system component where the change occurred, such as Canvas, Integrations, or Workspace settings. | 
+| **Event type** | The type of action, such as Write or Delete. | 
+| **Time** | When the event occurred. | 
 | **User** | The user who performed the action. | 
 
 ## Filtering audit logs
@@ -41,7 +41,7 @@ Filtering helps you quickly find the most relevant events when investigating a c
 
 |  |  | 
 | --- |--- |
-| **Date range** | Limit results to a specific date and time range. | 
-| **User** | View events performed by a specific user. | 
-| **Action type** | Filter by action type, such as Write or Delete. | 
-| **Event type** | Focus on a specific kind of change, such as a deployment event or resource update. | 
+| **Start/End time** | Limit results to a specific date and time range. | 
+| **Principal email** | View events performed by a specific user. | 
+| **Event type** | Filter by action type, such as Write or Delete. | 
+| **Event name** | Focus on a specific kind of change, such as a deployment event or resource update. | 

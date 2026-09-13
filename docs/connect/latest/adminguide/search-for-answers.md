@@ -19,11 +19,11 @@ You can search for content at any time: while on a contact, on After Contact Wor
 1. In the search box, type words or phrases in natural language. 
 
    The following image shows an example of a natural language query and the solution that is displayed.  
-![A natural language query and an AI generated solution.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-nlu.png)
+![A natural language query and an AI generated solution.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-nlu.png)
 
 1. If more information is needed, choose the article that you want to view. 
 
 1. The article appears in a new tab. For example, the following image shows the Cancellation policy article.  
-![An article appearing in a new tab on the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-agent-asks-question.png)
+![An article appearing in a new tab on the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-agent-asks-question.png)
 
 1. The list of search results is cleared only after you complete ACW and choose **Close contact**, or select the **Close** icon next to the search box. 

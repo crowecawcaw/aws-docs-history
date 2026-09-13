@@ -38,7 +38,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Distribute by percentage** block. It is configured to route 50% of contacts to the test branch.
 
-![The properties page of the Distribute by percentage block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/distribute-by-percentage-properties.png)
+![The properties page of the Distribute by percentage block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/distribute-by-percentage-properties.png)
 
 
 ## How it works
@@ -61,7 +61,7 @@ When contact a is being routed through a flow, Connect Customer generates the ra
 
 The following image shows an example of what this block looks like when it is configured. It shows two branches: **50% test** and **50% default**.
 
-![A configured distribute by percentage block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/distribute-by-percentage-configured.png)
+![A configured distribute by percentage block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/distribute-by-percentage-configured.png)
 
 
 ## Sample flows

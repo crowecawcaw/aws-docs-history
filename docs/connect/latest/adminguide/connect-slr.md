@@ -121,7 +121,7 @@ Having trouble signing in to manage your AWS account? Don't know who manages you
 
 If your Connect Customer instance was created before October 2018, you don't have service-linked roles set up. To create a service-linked role, on the **Account overview** page, choose **Create service-linked role**, as shown in the following image.
 
-![The account overview page, the create service-linked role button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/slr-create-slr.png)
+![The account overview page, the create service-linked role button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/slr-create-slr.png)
 
 
 For a list of the IAM permissions required to create the service-linked role, see [Overview page](security-iam-amazon-connect-permissions.md#overview-page) in the [Required permissions for using custom IAM policies to manage access to the Connect Customer console](security-iam-amazon-connect-permissions.md) topic.
@@ -132,7 +132,7 @@ For a list of the IAM permissions required to create the service-linked role, se
 If your associated Customer Profile domain was created before Jan 31, 2025 and the domain uses a Customer-Managed KMS key (CMK) for encryption, to enable CMK enforcement by the Connect Instance, take the following actions:
 
 1. Provide an Connect Customer instance's Service-Linked Role (SLR) permission to use your Customer Profiles domain's AWS KMS keys by navigating to the Customer Profiles’s page in Connect Customer’s AWS Management Console and choose **Update KMS permission**.  
-![The Update KMS permission button to grant KMS permissions for the Connect Customer instance service-linked role.](http://docs.aws.amazon.com/connect/latest/adminguide/images/kms-permissions-slr-1.png)
+![The Update KMS permission button to grant KMS permissions for the Connect Customer instance service-linked role.](https://docs.aws.amazon.com/connect/latest/adminguide/images/kms-permissions-slr-1.png)
 
 1. Create a [support ticket](https://support.console.aws.amazon.com/support) with the Connect Customer Customer Profiles team to request CMK permission enforcement for your account.
 

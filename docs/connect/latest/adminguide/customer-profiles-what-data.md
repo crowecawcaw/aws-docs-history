@@ -7,7 +7,7 @@ A *customer profile* is a record that stores contact history combined with infor
 
 After you enable Connect Customer Customer Profiles, a unique customer profile is created for every contact. With Connect Customer Customer Profiles, you can create a customer profile that has all the information agents need during customer interactions in a single place at no charge. 
 
-To access customer profiles in your flows, use the [Customer profiles](customer-profiles-block.md) block. [Agents access customer profiles](customer-profile-access.md) in their agent workspace. 
+To access customer profiles in your flows, use the [Customer profiles](customer-profiles-block.md) block. [Agents access customer profiles](customer-profile-access.md) in the agent workspace. 
 
  You can use the paid features of Customer Profiles to enrich your customer profiles by [ingesting data from external applications](integrate-external-apps-customer-profiles.md). See [pricing](https://aws.amazon.com/connect/pricing/) for details. 
 

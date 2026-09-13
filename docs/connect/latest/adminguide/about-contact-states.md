@@ -53,7 +53,7 @@ The following diagram shows when a contact record is created for a contact. It s
 + The second record is created when the contact is transferred to Agent 2.
 + The third record is created when the contact is connected to Agent 3 during a callback.
 
-![Three boxes, one for each contact record that is created.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-diagram.png)
+![Three boxes, one for each contact record that is created.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-diagram.png)
 
 
 Each time a contact is connected to an agent, a new contact record is created. The contact records for a contact are linked together through the contactId fields: original, next, previous, and [`RelatedContactId`](tasks.md#linked-tasks). 

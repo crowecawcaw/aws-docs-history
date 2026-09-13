@@ -186,7 +186,7 @@ An Connect Customer session is defined as a continuous period of authenticated a
 By default, users in your Connect Customer instance remain signed in until the maximum session duration of 12 hours elapses, with no automatic logout for inactivity. However, organizations with stricter security and compliance requirements can use authentication profiles to enable automatic sign-out when users become inactive. Once enabled, this feature monitors user activity patterns and automatically ends sessions after the configured session inactivity duration has passed. 
 
 A contact center user is considered active when performing any of the following actions:
-+ Mouse and keyboard activity on the Contact Control Panel (CCP), Agent Workspace, or Admin Website
++ Mouse and keyboard activity on the Contact Control Panel (CCP), agent workspace, or Admin Website
 + Presence of an active voice contact
 
 If the user is determined to be inactive, a pop-up will appear on the screen warning the user that their session is about to expire due to inactivity. A user can choose to remain logged in or log out.

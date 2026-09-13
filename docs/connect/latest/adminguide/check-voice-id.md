@@ -71,7 +71,7 @@ This block doesn't have any properties that you set. Rather, it creates branches
 
 The following image shows the **Properties** page for the **Check voice ID** block when it's configured to check for Enrollment status. Different status results are returned when it's configured for **Voice authentication** or **Fraud detection**.
 
-![The properties page of the Check voice ID block, with the Enrollment status option selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-voice-id-properties.png)
+![The properties page of the Check voice ID block, with the Enrollment status option selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-voice-id-properties.png)
 
 
 ## Configuration tips
@@ -96,7 +96,7 @@ The following three images show what this block looks like when it's configured 
 
 1. Enrollment status
 
-![Three configured Check voice ID blocks.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-voice-id-configured.png)
+![Three configured Check voice ID blocks.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-voice-id-configured.png)
 
 
 ## More information

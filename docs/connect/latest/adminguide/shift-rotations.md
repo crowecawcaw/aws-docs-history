@@ -28,7 +28,7 @@ For the maximum number of shift rotation patterns per instance and other feature
    + **Define rotation**: In this section, choose the shift profile from the dropdown menu, timezone, and duration.
 
    The following image shows an **Add shift rotation pattern** page. This pattern has two rotation steps, each 1 week long.  
-![The Add shift rotation pattern page with two rotation steps, each one week long.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-add.png)
+![The Add shift rotation pattern page with two rotation steps, each one week long.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-add.png)
 
     For example, if you set the start date to January 1, and the first rotation step is 1 week, the next shift rotation - **Rotation step 2** - will take place on January 7. You can add up to 51 additional steps and each step can be up to 51 weeks. 
 
@@ -49,7 +49,7 @@ These options are discussed next.
 1. On the **Staff rules** page, choose **Shift Profile override**, **Enabled**, and then select the shift rotation pattern.
 
 1. Define the agents shift rotation pattern and starting step. The following image shows a pattern of **2 weeks 4-8, 2 weeks 9-5**.  
-![The Staff details section of the Staff rules page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-apply.png)
+![The Staff details section of the Staff rules page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-apply.png)
 
 1. When complete, choose **Apply to Staff**.
 
@@ -65,7 +65,7 @@ Make sure that your pop-up blocker is off so you can download the .csv file temp
   + **Download template**, **Shift profile override** to download a blank .csv file.
 
   The following image shows the an example **Staff rules** page, and the option to download a snapshot of existing shift rotation pattern assignments for your agents.  
-![The Staff rules page, the Download snapshot, Shift profile override option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-download.png)
+![The Staff rules page, the Download snapshot, Shift profile override option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-download.png)
 
   The .csv templates contain key fields that you can update:
   + Login name
@@ -78,7 +78,7 @@ In the .csv template, you can't populate column B and column C in the same row. 
 To set the shift profile name for the agent, add it to column B and leave columns C and D blank.
 To set the shift rotation pattern for an agent, set columns C and D, and leave column B blank, as shown in the following image. 
 
-![The template with a sample shift rotation pattern name in column C and shift rotation in column D.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-csv.png)
+![The template with a sample shift rotation pattern name in column C and shift rotation in column D.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-csv.png)
 
 
 ### Upload shift rotation and shift profiles
@@ -86,12 +86,12 @@ To set the shift rotation pattern for an agent, set columns C and D, and leave c
 
 To upload a .csv file that contains shift rotation overrides, on the **Staff rules** page, choose **Upload data**, **Shift profile override**, as shown in the following image.
 
-![The Staff rules page, the Upload data option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-upload.png)
+![The Staff rules page, the Upload data option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-upload.png)
 
 
 If there is a problem with your .csv file, Connect Customer displays an error message that indicates which fields have mismatches. This makes it easier for you to troubleshoot your file uploads. The following image shows example error messages.
 
-![Error messages when a .csv file upload does not have the correct format.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-error-handling.png)
+![Error messages when a .csv file upload does not have the correct format.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-error-handling.png)
 
 
 After the .csv file is uploaded, a banner is displayed indicating that the data is being loaded into agent scheduling. That process can take up to 10 minutes for thousands of agents. The banner automatically refreshes when the shift profile override data has been successfully processed. This means the data has been loaded into agent scheduling. 
@@ -106,7 +106,7 @@ After the .csv file is uploaded, a banner is displayed indicating that the data 
 1. In the **Schedule input** section select the forecast group that you want to schedule. 
 
    The **Generate schedule** page is automatically updated with the data for that forecast group. It displays the number of agents, the associated shift profiles, and the shift rotation patterns, as shown in the following image.   
-![The Generate schedule page with shift rotation patterns for the specified forecast group.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-generate.png)
+![The Generate schedule page with shift rotation patterns for the specified forecast group.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shift-rotation-generate.png)
 
 ## Remove a shift rotation pattern
 <a name="remove-shift-rotation-patterns"></a>

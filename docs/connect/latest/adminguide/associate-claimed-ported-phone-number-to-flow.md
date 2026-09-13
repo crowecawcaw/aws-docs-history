@@ -12,7 +12,7 @@ After you publish a flow, you can attach a [claimed](get-connect-number.md) or [
 1. On the navigation menu, choose **Channels**, **Phone numbers**.
 
 1. Locate the phone number to associate with the flow in the list. Choose the phone number to open the **Edit Phone number** page. The following image shows a sample phone number that you would choose.  
-![A sample phone number on the Phone number page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/choose-on-phone-number.png)
+![A sample phone number on the Phone number page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/choose-on-phone-number.png)
 
 1. On the **Edit Phone number** page, do the following:
 

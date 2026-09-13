@@ -41,8 +41,8 @@ After the profiles are matched, the Identity Resolution Job can optionally merge
 You cannot undo the consolidation process. We strongly recommend using the [GetAutoMergingPreview](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetAutoMergingPreview.html) API to do a dry run of the automatic merging process before running the Identity Resolution Job.
 
 **Note**  
-When merging two profiles, profile fields manually populated through an API call or the Agent Workspace will not be overwritten by profile fields automatically ingested from an integration or custom object type mapping.  
-For example, suppose a profile is created with FirstName “John” manually by an agent in the Agent Workspace. Another profile is created using an S3 integration with FirstName “Peter”. If these profiles are automatically merged, the FirstName “John” will be preserved.
+When merging two profiles, profile fields manually populated through an API call or in the agent workspace will not be overwritten by profile fields automatically ingested from an integration or custom object type mapping.  
+For example, suppose a profile is created with FirstName “John” manually by an agent in the agent workspace. Another profile is created using an S3 integration with FirstName “Peter”. If these profiles are automatically merged, the FirstName “John” will be preserved.
 
 ### How the auto-merging process works
 <a name="consolidation-criteria-how-it-works"></a>

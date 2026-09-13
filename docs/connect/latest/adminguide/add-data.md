@@ -10,7 +10,7 @@ You can import a maximum of 100 quick responses at a time from a .csv file. This
 1. Log in to the Connect Customer admin website at https://*instance name*.my.connect.aws/. Use an **Admin** account, or an account assigned to a security profile that has **Content Management - Quick responses - Create** permission.
 
 1. On the navigation bar, choose **Content Management**, then **Quick responses**.  
-![Menu showing Content Management and Quick responses.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-1.png)
+![Menu showing Content Management and Quick responses.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-1.png)
 
 1. On the **Quick responses** page, choose **Import**. 
 

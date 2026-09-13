@@ -79,7 +79,7 @@ Here's what happens when the agent CCP wants to establish a connection with Conn
 
 The following diagram illustrates the communication between CCP and Connect Customer using WebRTC.
 
-![The flow of communication between CCP and Connect Customer using WebRTC.](http://docs.aws.amazon.com/connect/latest/adminguide/images/webrtc-diagram.png)
+![The flow of communication between CCP and Connect Customer using WebRTC.](https://docs.aws.amazon.com/connect/latest/adminguide/images/webrtc-diagram.png)
 
 
 ## Best practices

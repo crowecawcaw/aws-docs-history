@@ -14,4 +14,4 @@ You can customize Connect Customer agentic assistance to meet your business need
 + Customize the default that powers Connect Customer agentic assistance out-of-the-box, including AI prompts, AI guardrails, and AI agents configurations.
 + Embed the Connect Customer Assistant application into your existing employee workspace or CRM system.
 
-Connect agentic assistance is available through an out-of-the-box UI and by API for integration into existing agent workspaces. For more information, see [AI agents API](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html).
+Connect agentic assistance is available in the agent workspace and via API for integration into custom agent applications. For more information, see [AI agents API](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html).

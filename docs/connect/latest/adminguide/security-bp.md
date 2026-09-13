@@ -10,7 +10,7 @@ Security includes the ability to protect information, systems, and assets while 
 
 After you’ve made the decision to move your workload to Connect Customer, in addition to reviewing [Security in Connect Customer](security.md) and [Security Best Practices for Connect Customer](security-best-practices.md), follow these guidelines and steps to understand and implement your security requirements relative to the following core security areas:
 
-![The core security areas to implement in Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/securityjourney.png)
+![The core security areas to implement in Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/securityjourney.png)
 
 
 ### Understanding the AWS Security Model
@@ -18,12 +18,12 @@ After you’ve made the decision to move your workload to Connect Customer, in a
 
 When you move computer systems and data to the cloud, security responsibilities become shared between you and AWS. AWS is responsible for securing the underlying infrastructure that supports the cloud, and you’re responsible for anything you put on the cloud or connect to the cloud.
 
-![Understanding the AWS Security Model.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/shareresponsibilitymodel.png)
+![Understanding the AWS Security Model.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/shareresponsibilitymodel.png)
 
 
 Which AWS services you use will determine how much configuration work you have to perform as part of your security responsibilities. When you use Connect Customer, the shared model reflects AWS and customer responsibilities at a high-level, as shown in the following diagram.
 
-![AWS shared responsibility model for Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/shareresponsibilitymodelforamazonconnect.png)
+![AWS shared responsibility model for Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/shareresponsibilitymodelforamazonconnect.png)
 
 
 ### Compliance Foundations
@@ -69,7 +69,7 @@ Review your workload diagram and architect an optimum solution on AWS. This incl
 
 There are four types of Connect Customer personas, based on the activities being performed.
 
-![Types of Connect Customer personas.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/amazonconnectpersonas.png)
+![Types of Connect Customer personas.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/amazonconnectpersonas.png)
 
 
 1. AWS administrator – AWS administrators create or modify Connect Customer resources and might also delegate administrative access to other principals by using the AWS Identity and Access Management (IAM) service. The scope of this persona is focused on creating and administering your Connect Customer instance.
@@ -157,7 +157,7 @@ Perform input validation to make sure that only properly formed data is entering
 
 Connect Customer security can be divided into three logical layers as illustrated in the following diagram:
 
-![Connect Customer security vectors.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/securityvectors.png)
+![Connect Customer security vectors.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/securityvectors.png)
 
 
 1. **Agent workstation**. The agent workstation layer is not managed by AWS and consists of any physical equipment and third-party technologies, services, and endpoints that help your agent’s voice, data, and access the Connect Customer interface layer.

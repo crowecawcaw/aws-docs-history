@@ -108,7 +108,7 @@ Start a new chat when you want to ask about a different topic. Your previous cha
 
 Starting a new chat clears the conversation from the panel but does not delete it. You can open it again from **History**.
 
-![The assistant panel header, with the New chat icon.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-new-chat.png)
+![The assistant panel header, with the New chat icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-new-chat.png)
 
 
 ### View your chat history
@@ -127,7 +127,7 @@ Your chats from the last 60 days are kept, so you can revisit an earlier respons
 **Note**  
 **History** shows only the chats that you started, and only those that you still have permission to view.
 
-![The History panel, listing chats from the last 60 days grouped by date, with the first question of each chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-chat-history.png)
+![The History panel, listing chats from the last 60 days grouped by date, with the first question of each chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-chat-history.png)
 
 
 ### Resume a chat

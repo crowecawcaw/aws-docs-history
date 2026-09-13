@@ -96,17 +96,17 @@ Here are examples of how to use Customer Profile attributes in prompts:
 + Example - Voicemail with or without beep: "Hello, `$.Customer.FirstName`. This is [your organization] calling to confirm your upcoming appointment on `$.Customer.Attributes.AppointmentDate` at `$.Customer.Attributes.AppointmentTime`. If this is still a good time and date for you, we will see you then. If you would like to modify your appointment, please call us back at `$.SystemEndpoint.Address` to reschedule your appointment"
 + Error branch - Occasionally there could be an issue that causes a call to follow the Error branch. As a best practice, use a [Play prompt](play.md) block with a message that applies to the contact that was dialed, with instruction to "Please call us at `$.SystemEndpoint.Address` to confirm or reschedule your appointment." Do this before the [Disconnect / hang up](disconnect-hang-up.md) block in case the call recipient answered, but an error occurred in the processing.
 
-![Flow block with answered calls transferred to queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/outbound-contact-attributes.png)
+![Flow block with answered calls transferred to queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/outbound-contact-attributes.png)
 
 
 ### Whisper and queue flow best practices
 <a name="whisper-and-queue-oc"></a>
 + Remove the **Loop prompts** from the **Default customer queue** flow and replace them with **End flow / Resume**.  
-![The Default customer queue set to End flow / Resume.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cmpgn-default-customer-queue.png)
+![The Default customer queue set to End flow / Resume.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cmpgn-default-customer-queue.png)
 + If agents don't answer within 2 seconds of calls going to queue, you can minimize silent calls by using **Loop prompts** and play a message for the customer. The following image shows a typical flow block with a Loop prompt.  
-![The Default customer queue with a Loop prompt.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cmpgn-queue-with-loop-prompt.png)
+![The Default customer queue with a Loop prompt.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cmpgn-queue-with-loop-prompt.png)
 + Use the **Disable agent whisper** and **Disable customer whisper** options on the [Set whisper flow](set-whisper-flow.md) block. This is so customers perceive less connection latency as part of an outbound campaign. The following image shows the location of the **Disable agent whisper** setting on the block's properties page.  
-![The Set whisper flow block, the Disable agent whisper setting.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-whisper-flow-properties4.png)
+![The Set whisper flow block, the Disable agent whisper setting.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-whisper-flow-properties4.png)
 
 ### User administration best practices
 <a name="user-admin-oc"></a>
@@ -120,7 +120,7 @@ These options apply to soft phones only.
 
  The following image shows the **Settings** section of the **Edit user** page.
 
-![The Auto-accept calls, After Contact Work timeout, and Enable persistent connection settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cmpgn-user-admin-settings.png)
+![The Auto-accept calls, After Contact Work timeout, and Enable persistent connection settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cmpgn-user-admin-settings.png)
 
 
 ### Workstation and network best practices

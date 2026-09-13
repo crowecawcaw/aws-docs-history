@@ -68,7 +68,7 @@ Follow these steps to enable AI agents for self-service:
    + Route custom tool responses (like TRIP\_BOOKING) to specific workflows.
 
    The following image shows an example of how you can make a routing decision based on what AI agents decides.  
-![Contact routing based on ai agent tool selections for COMPLETE and TRIP_BOOKING paths.](http://docs.aws.amazon.com/connect/latest/adminguide/images/generative-ai-powered-self-service-q-3.png)
+![Contact routing based on ai agent tool selections for COMPLETE and TRIP_BOOKING paths.](https://docs.aws.amazon.com/connect/latest/adminguide/images/generative-ai-powered-self-service-q-3.png)
 
 ## Custom actions for self-service
 <a name="custom-actions-for-connect-ai-agents-self-service"></a>
@@ -84,7 +84,7 @@ You can extend the capabilities of AI agents by adding custom tools. These tools
   + When you configure **Check contact attributes**, in the **Attribute to check** section, enter the name of your custom tool.
 
   The following image shows a custom tool named TRIP\_BOOKING is specified.  
-![A custom tool named TRIP_BOOKING in the Check contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/trip-booking.png)
+![A custom tool named TRIP_BOOKING in the Check contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/trip-booking.png)
 
 ### Example: Disambiguate the customer intent
 <a name="disambiguate-the-customer-intent"></a>

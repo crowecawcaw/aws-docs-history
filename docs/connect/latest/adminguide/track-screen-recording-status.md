@@ -198,7 +198,7 @@ In the AWS Console, create a new rule in Amazon EventBridge → Buses → Rules.
 #### Use the default event bus
 <a name="use-default-event-bus"></a>
 
-![The Create rule page showing the default event bus selection.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-eventbridge-event-rule.png)
+![The Create rule page showing the default event bus selection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-eventbridge-event-rule.png)
 
 
 #### Use a template event pattern
@@ -206,10 +206,10 @@ In the AWS Console, create a new rule in Amazon EventBridge → Buses → Rules.
 
 Select the defined event pattern from the dropdown lists.
 
-![The Event source dropdown showing aws.connect selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-eventbridge-event-source.png)
+![The Event source dropdown showing aws.connect selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-eventbridge-event-source.png)
 
 
-![The Event pattern showing Screen Recording Status Changed selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-eventbridge-event-pattern.png)
+![The Event pattern showing Screen Recording Status Changed selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-eventbridge-event-pattern.png)
 
 
 If the event type is not showing up in the dropdown list, you can alternatively create the same pattern using **Custom pattern (JSON editor)** with:
@@ -249,7 +249,7 @@ Amazon EventBridge supports a number of AWS services as targets. Depending on yo
 
 The following example uses an [Amazon CloudWatch log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) as a target.
 
-![The Target configuration showing CloudWatch log group selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-eventbridge-target-cwl.png)
+![The Target configuration showing CloudWatch log group selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-eventbridge-target-cwl.png)
 
 
 In AWS CDK code, create the resource and add it to the Amazon EventBridge rule:

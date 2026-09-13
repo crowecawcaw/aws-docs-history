@@ -35,7 +35,7 @@ You can add message attributes to a new template you create or to an existing te
 1. In the message details section, determine where you want to add a message variable. For email templates, you can add variables to the message subject or the body. For SMS templates, you can add variables to the body. 
 
 1. Place your cursor where you want the attribute to be in your message. Choose or tap on the **Attribute finder**, and then scroll to the type of attribute that you want to add a message variable for.   
-![The Attribute finder on the Message templates page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-attribute-finder.png)
+![The Attribute finder on the Message templates page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-attribute-finder.png)
 
    You can choose from the following types of attributes:
    + **System attributes**:
@@ -49,14 +49,14 @@ You can add message attributes to a new template you create or to an existing te
      + **Recommendation attributes**: When using Predictive Insights with outbound campaigns, you can include personalized product recommendations in your message templates. These attributes are available when you configure recommendations in an event-triggered campaign.
 
        Each recommendation is accessed using an index, such as `{{Attributes.Customer.Recommendations.[0].CatalogItem.Name}}` for the first recommendation, `{{Attributes.Customer.Recommendations.[1].CatalogItem.Name}}` for the second, and so on.  
-![Email template editor showing recommendation attributes in the Attribute finder and personalized product recommendations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/RecommendationAttributesInTemplate.png)
+![Email template editor showing recommendation attributes in the Attribute finder and personalized product recommendations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/RecommendationAttributesInTemplate.png)
 
        For more information about configuring recommendations in campaigns, see [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md).
 
 1. When you choose an attribute in the Attribute finder, it is automatically placed in your message. You can copy and paste the attribute to another location.
 
    After you paste attribute, Connect Customer displays it enclosed in two sets of curly braces—for example, `{{Attributes.Agent.FirstName}}`. The following image shows an email message with three attributes: the customer's first and last name, and the agent's first name.  
-![An email message with message attributes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-email-attributes.png)
+![An email message with message attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-email-attributes.png)
 
 1. When you finish, do one of the following:
    + If you added message variables to a new template, choose **Save**.

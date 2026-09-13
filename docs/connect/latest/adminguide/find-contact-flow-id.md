@@ -20,10 +20,10 @@ For more information about flows, see [Flows in Connect Customer](connect-contac
 Only choose flows that are type **Flow (inbound)**. Apple Messages for Business doesn't work with other flow types, such as **Customer queue**, **Customer hold**, **Customer whisper**.
 
 1. In the flow designer, expand **Show additional flow information**.  
-![A sample flow, the show additional flow information section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/abc-find-contactflow-id.png)
+![A sample flow, the show additional flow information section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/abc-find-contactflow-id.png)
 
 1. Under the ARN (Amazon Resource Number), copy everything after contact-flow/. For example, in the following image, you would copy the underlined part.   
-![How to copy the key portion of the Amazon Resource Number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/abc-find-contactflow-id-copy.png)
+![How to copy the key portion of the Amazon Resource Number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/abc-find-contactflow-id-copy.png)
 
    1. Notice the **Type** = **Flow (Inbound)**. 
 

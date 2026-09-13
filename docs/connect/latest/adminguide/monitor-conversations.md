@@ -75,7 +75,7 @@ The total number of participants on the chat would look like this:
 1. In the Connect Customer console, on the menu pane, choose **Telephony**.
 
 1. On the **Telephony and chat options** page, scroll to the **Enhanced contact monitoring capabilities** section.  
-![The Telephony and chat options page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/telephony-chat-options.png)
+![The Telephony and chat options page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/telephony-chat-options.png)
 
 1. Choose the options you want to enable, and then choose **Save**.
 

@@ -30,11 +30,11 @@ For for the system-created activity **Work**, the default configuration is **Kee
    + **Remove from shift**: Choose this option to remove the activity from the shift. 
 
    The following image shows the **Trade behavior** dropdown list.  
-![The Edit shift activities page, the Trade behavior dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-tradebehavior.png)
+![The Edit shift activities page, the Trade behavior dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-tradebehavior.png)
 
 1. Choose **Save**.
 
 1. On the **Scheduling** page, choose **Staff rules**. In the **Eligible to trade shifts** box, choose **Yes** to allow agents to trade shift with each other. Default = Yes.
 
    The **Eligible to trade shifts** dropdown box is shown in the following image.   
-![The Scheduling page, the Staff rules tab, the Eligible to trade shift dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-shiftrules.png)
+![The Scheduling page, the Staff rules tab, the Eligible to trade shift dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-shiftrules.png)

@@ -46,7 +46,7 @@ Connect Customer displays up to 500 resources at a time on the real-time metrics
 1. Add one table for each group of 500 resources. For example, you have 2500 agents. You would create 5 Agent tables. 
 
 1. For each table, manually filter to add up to 500 resources. For example, to add agents to the first table, you would choose to filter by **Agents**, and then choose 500 agents to include in the table, as shown in the following image. In table 2, add the next group of 500 agents, and so on.  
-![The table filters page, set to filter by agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/filterbyagent.png)
+![The table filters page, set to filter by agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/filterbyagent.png)
 
 1. You will be able to view the data for all 2500 resources across the 5 tables. When tags are applied to agents, each table will likely display fewer than 500 agents because not all of them might be active at the same time.
 
@@ -74,7 +74,7 @@ You need one of the following **Analytics and Optimization** security profile pe
 + **Access metrics - Access**
 + **Real-time metrics - Access**, as shown in the following image of the **Analytics and Optimization** section of the security profiles page.
 
-![The Real-time metrics - Access permission on the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-tag-based-access-control-perm.png)
+![The Real-time metrics - Access permission on the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-tag-based-access-control-perm.png)
 
 
 When you enable **Access metrics - Access**, permissions are also automatically granted to **Real-time metrics **, ** Historical metrics**, and **Agent activity audit**. The following image shows all of these permissions granted.
@@ -82,7 +82,7 @@ When you enable **Access metrics - Access**, permissions are also automatically 
 **Note**  
 When users have all of these permissions, they can see all data for historical metrics for which tag-based access controls are not currently applied.
 
-![The Access metrics - Access permission on the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-tag-based-access-control-perm-2.png)
+![The Access metrics - Access permission on the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-tag-based-access-control-perm-2.png)
 
 
 ### Permissions to access resources
@@ -90,7 +90,7 @@ When users have all of these permissions, they can see all data for historical m
 
 The following image shows an example of security profile permissions that grant users the ability to view routing profiles, queues, and Connect Customer user accounts. **Routing profiles - View**, **Queues - View**, and **Users - View** are selected.
 
-![The routing section and users and permissions section of the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-tag-based-access-control-perm-3.png)
+![The routing section and users and permissions section of the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-tag-based-access-control-perm-3.png)
 
 
 ## Example report with tag-based access controls applied
@@ -98,9 +98,9 @@ The following image shows an example of security profile permissions that grant 
 
 Without tag-based access controls, all queues, routing profiles, and agents appear on the **Real-time metrics** page, as shown in the following image.
 
-![The real-time metrics page showing all resources.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-based-access-control-metrics-without.png)
+![The real-time metrics page showing all resources.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-based-access-control-metrics-without.png)
 
 
 With tag-based access controls, a limited set of queues, routing profiles, and agents appear on the **Real-time metrics** page, as shown in the following image.
 
-![The real-time metrics page showing a limited set of resources.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-based-access-control-metrics-with.png)
+![The real-time metrics page showing a limited set of resources.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-based-access-control-metrics-with.png)

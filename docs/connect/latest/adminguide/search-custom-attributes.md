@@ -25,16 +25,16 @@ Assign the following permissions to their security profile:
   + **View my contacts**: Allows agents to view only those contacts that they handled.
 + **Contact attributes**: Allows users to view contact attributes. Also controls access to the search filters based on contact attributes.
 + **Configure searchable contact attributes** - **All**: People who have this permission determine what custom data will be searchable (by people who have the **Contact attributes** permission). It allows them to access the following configuration page:   
-![The search customer contact attributes page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-custom-attributes-configuration-page.png)
+![The search customer contact attributes page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-custom-attributes-configuration-page.png)
 
 ## Configure searchable custom contact attributes
 <a name="configure-search-custom-attributes"></a>
 
 1. On the **Contact search** page, choose **Add filter**, **Custom contact attribute**. Only people with **Configure searchable contact attributes** permissions in their security profile see this option.  
-![The contact search page, the filters dropdown menu, the Customer contact attribute option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-custom-attributes-specify1.png)
+![The contact search page, the filters dropdown menu, the Customer contact attribute option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-custom-attributes-specify1.png)
 
 1. The first time you choose **Custom contact attribute**, the following box appears, indicating no attributes have been configured for this Connect Customer instance. Choose **Specify searchable attribute keys**.  
-![The add filter option, a message that no keys have been specified for search.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-custom-attributes-specify2.png)
+![The add filter option, a message that no keys have been specified for search.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-custom-attributes-specify2.png)
 
 1. In the **Attribute key** box, type the name of your custom attribute, and then choose **Add key**.
 **Important**  
@@ -49,7 +49,7 @@ Your users will be able to search on these keys for any future contacts.
 
 To edit, add, or remove keys, choose **Attribute**, **Settings**. If you don't see the **Settings** option, you don't have the required permissions.
 
-![The add filter tab, the settings gear in the upper right corner of the page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-custom-attributes-settings.png)
+![The add filter tab, the settings gear in the upper right corner of the page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-custom-attributes-settings.png)
 
 
 ## Filter contact search results on contact attributes
@@ -70,7 +70,7 @@ After you create predefined attributes and attached them to a contact segment (e
 
 The following image shows the **Contact search** page, and the option to filter contact search results based on custom segment attribute values. 
 
-![The Contact search page, the Segment attributes filter.](http://docs.aws.amazon.com/connect/latest/adminguide/images/attribute-management-4.png)
+![The Contact search page, the Segment attributes filter.](https://docs.aws.amazon.com/connect/latest/adminguide/images/attribute-management-4.png)
 
 
 1. On the **Contact search** page, under the **Add filter** drop-down, select **Custom contact segment attributes**.

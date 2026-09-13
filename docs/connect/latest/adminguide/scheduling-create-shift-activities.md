@@ -17,7 +17,7 @@ You can create multiple shift activities to include as part of your staff shifts
 1. On the Connect Customer navigation menu, select **Analytics and optimization**, **Scheduling**.
 
 1. On the **Scheduling** page, choose the **Shift Activities** tab, and then choose **Add shift activities**. The following image is an example **Add shift activities** page.   
-![The Add shift activities page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-create-shift-activities-description.png)
+![The Add shift activities page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-create-shift-activities-description.png)
 
 1. Complete the following details on the page.
    + **Activity name**: Name of the activity

@@ -9,7 +9,7 @@ For example, let's assume it takes most agents two minutes to process a refund, 
 
 The following diagram shows the high-level components of screen recording. For a sequence diagram that shows the network calls between different components, see [Network requirements](sr-system-req.md#network-requirements). 
 
-![The screen recording flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-flow.png)
+![The screen recording flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-flow.png)
 
 
 **Topics**

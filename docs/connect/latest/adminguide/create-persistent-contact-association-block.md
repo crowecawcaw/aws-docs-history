@@ -41,7 +41,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Create persistent contact association** block.
 
-![The properties page of the Create persistent contact associations block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-persistent-contact-association-properties.png)
+![The properties page of the Create persistent contact associations block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-persistent-contact-association-properties.png)
 
 
 ## Configuration tips
@@ -58,4 +58,4 @@ The following image shows the **Properties** page of the **Create persistent con
 
 The following image shows an example of what this block looks like when it is configured. It has two branches: **Success** and **Error**. 
 
-![A configured Create persistent contact associations block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-persistent-contact-association-configured.png)
+![A configured Create persistent contact associations block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-persistent-contact-association-configured.png)

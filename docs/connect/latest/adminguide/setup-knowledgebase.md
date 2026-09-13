@@ -21,7 +21,7 @@ The following steps explain how to use the Connect Customer admin website to cre
 If the **Get started** button isn't available, sign in with an account that has the admin security profile, or ask another admin for help.
 
 1. Remain on the page until the process ends. Do not refresh the page until the process ends. An indicator shows the status.  
-![A horizontal green status bar.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-3.png)
+![A horizontal green status bar.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-3.png)
 
 The finished knowledge base provides two sample quick responses.
 + The sample responses are associated with the [basic routing profile](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html), if that exists in your Connect Customer instance.

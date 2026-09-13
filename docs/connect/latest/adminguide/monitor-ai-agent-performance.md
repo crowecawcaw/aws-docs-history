@@ -14,7 +14,7 @@ After you set up your AI agents, you can monitor their performance using AI agen
   + [AI Tool](https://docs.aws.amazon.com/connect/latest/adminguide/data-type-definitions.html#data-lake-ai-tool)
 + **CloudWatch Streaming:** CloudWatch Logs into the entire AI journey including the conversation, spans, triggers, intents, recommendations, tools. To learn more, see [Monitor AI agents using CloudWatch](monitor-ai-agents.md).
 + **AI agent performance dashboard:** Pre-built visualizations that you can access from the Connect Customer admin website by choosing Dashboard, AI agent performance dashboard. To learn more, see [AI Agent performance dashboard](ai-agent-performance-dashboard.md).  
-![AI agent performance dashboard in the Connect Customer admin website.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-performance-dashboard-overview.png)
+![AI agent performance dashboard in the Connect Customer admin website.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-performance-dashboard-overview.png)
 
 **Topics**
 + [AI agent metrics](ai-agent-metrics.md)

@@ -10,9 +10,9 @@ Complete the following steps to create a flow that enables conversational analyt
 1. In the Connect Customer admin website, create a flow that uses the [Set recording and analytics behavior](set-recording-behavior.md). Configure the block to enable **Agent and customer voice recording**, **speech analytics**, and **Automated interaction call recording**. End the flow with the [End flow / Resume](end-flow-resume.md) block. This configuration is shown in the following image. 
 
    For a list of blocks you can use in a conversational analytics integration, see [Supported flow blocks for conversational analytics integration](contactlens-integration-supportedflowblocks.md).   
-![The properties page of the Set recording behavior and analytics block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-connector-setblock.png)
+![The properties page of the Set recording behavior and analytics block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-connector-setblock.png)
 
    For detailed instructions, see [Enable conversational analytics](enable-analytics.md).
 
 1. On the navigation menu, choose **Channels**, **conversational analytics connectors**. Choose the conversational analytics integration connector that you want to associate with the flow. In the **Flow name** field, start typing the name of your flow to display a list, and then choose the flow.   
-![The Connectors page, a list of available flows.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-connector-flow.png)
+![The Connectors page, a list of available flows.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-connector-flow.png)

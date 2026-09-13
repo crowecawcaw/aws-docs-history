@@ -131,14 +131,14 @@ All values use the `REG_SZ` type.
 We recommend that you create a new, separate GPO rather than editing your primary domain policy. With a separate GPO, you can link or unlink the Connect Customer extension safely.
 + Open **Group Policy Management** (`gpmc.msc`).
 + Right-click **Group Policy Objects** and select **New**. For the name, enter `PII-AmazonConnect` (or similar).  
-![Creating a new Group Policy Object.](http://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-new.png)
+![Creating a new Group Policy Object.](https://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-new.png)
 + Set the targeting (scope):
   + Select the new GPO.
   + In the **Scope** tab, under **Security Filtering**, remove **Authenticated Users**.
   + Choose **Add** and select the security group containing your target agent computers.  
-![Security filtering on the Scope tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-scope.png)
+![Security filtering on the Scope tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-scope.png)
 + Verify that the security filtering only contains machines that you intend to install extensions on.  
-![Verifying the security filtering.](http://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-verify.png)
+![Verifying the security filtering.](https://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-verify.png)
 
 ### Step 2: Configure the registry injection
 <a name="extension-gpo-step2"></a>
@@ -147,7 +147,7 @@ This step creates the specific registry key that the browser reads to install th
 + Right-click your new GPO and select **Edit**.
 + Navigate to the following path: **User Configuration**, **Preferences**, **Windows Settings**, **Registry**.
 + Right-click in the empty space on the right and select **New**, **Registry Item**.  
-![Creating a new registry item.](http://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-new-registry-item.png)
+![Creating a new registry item.](https://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-new-registry-item.png)
 + Configure the properties as shown in the following tables.
 
 The following values are common to all three browsers.
@@ -185,7 +185,7 @@ For each browser, use the following key path and the two values it needs.
 | installation\_mode | force\_installed | 
 | install\_url | https://screenrecording.connect.aws/firefox/amazon-connect-extension/releases/amazon-connect-extension.xpi | 
 
-![The registry item properties.](http://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-registry-properties.png)
+![The registry item properties.](https://docs.aws.amazon.com/connect/latest/adminguide/images/deploy-browser-extension-gpo-registry-properties.png)
 
 
 ## Verify the extension is installed

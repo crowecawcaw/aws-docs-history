@@ -7,7 +7,7 @@ The Check block validates that specific values or conditions in your contact flo
 
 You can add a Check block. In the interaction group menu (⋮), choose **Add check block**. When you add a Check block, you're essentially asking: "Is this value what I expect it to be?" The test will pass or fail based on whether the actual value meets your defined criteria.
 
-![Check block configuration panel showing assertion options for validating contact flow attributes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-check-block-intro.png)
+![Check block configuration panel showing assertion options for validating contact flow attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-check-block-intro.png)
 
 
 ## How assertions work
@@ -56,7 +56,7 @@ Example: Validating Queue Placement
 
 This checks that the contact was placed in the correct queue.
 
-![Check block configuration showing queue name validation with Equals operator and Basic Queue expected value.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-check-block-example.png)
+![Check block configuration showing queue name validation with Equals operator and Basic Queue expected value.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-check-block-example.png)
 
 
 ## What happens when checks fail?
@@ -70,4 +70,4 @@ When an assertion fails, the test execution stops and provides detailed informat
 
 This information helps you quickly identify and fix issues in your contact flow.
 
-![Check block failure details showing expected versus actual values and the comparison operator used.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-check-block-failures.png)
+![Check block failure details showing expected versus actual values and the comparison operator used.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-check-block-failures.png)

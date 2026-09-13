@@ -10,7 +10,7 @@ This topic explains how to use the Connect Customer admin website to edit a quic
 1. Log in to the Connect Customer admin website at https://*instance name*.my.connect.aws/. Use an **Admin** account, or an account assigned to a security profile that has **Content Management - Quick responses - Edit** permission.
 
 1. On the navigation bar, choose **Content Management**, then **Quick responses**.  
-![Menu showing Content Management and Quick responses.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-1.png)
+![Menu showing Content Management and Quick responses.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-application-1.png)
 
 1. On the **Quick responses** page, choose the name of the quick response that you want to edit. You can also select the checkbox next to the response, then choose **Edit**.
 

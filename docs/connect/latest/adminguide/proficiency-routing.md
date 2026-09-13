@@ -18,7 +18,7 @@ Following is an overview of the steps to set up routing based on agent proficien
 
    Use the [Transfer to queue](transfer-to-queue.md) flow block to transfer the contact to a queue. After the contact is transferred, Connect Customer runs the routing criteria. 
 
-![Proficiency routing 4 step chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/proficiency-routing-chart.png)
+![Proficiency routing 4 step chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/proficiency-routing-chart.png)
 
 
 ## Example of how to use agent proficiencies for routing
@@ -53,7 +53,7 @@ The step durations in this example, such as 30 seconds, are only illustrative. S
    1. Step 3: connect:Language(connect:French) >=3 **AND** Technology (AWS DynamoDB) >=4 **[Never expire]**
 
    The following image shows an example inbound flow that is configured for routing by agent proficiencies. This flow includes the following blocks: [AWS Lambda function](invoke-lambda-function-block.md), [Set routing criteria](set-routing-criteria.md), [Set working queue](set-working-queue.md), [Transfer to queue](transfer-to-queue.md), and [Disconnect / hang up](disconnect-hang-up.md).  
-![A flow that is configured for routing by agent proficiencies.](http://docs.aws.amazon.com/connect/latest/adminguide/images/proficiency-routing-example-flow-block.png)
+![A flow that is configured for routing by agent proficiencies.](https://docs.aws.amazon.com/connect/latest/adminguide/images/proficiency-routing-example-flow-block.png)
 
 1. **Transfer to queue**: After the contact is transferred to the "General Inbound Queue," Connect Customer immediately starts running the routing criteria. The following steps occur before the contact is joined to Agent1.
 

@@ -7,12 +7,12 @@ You can use resource tags and access control tags to apply granular access to us
 
 **Without tag-based access controls, you see all agents:**
 
-![Without tag-based access controls, you see all agents.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-before.png)
+![Without tag-based access controls, you see all agents.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-before.png)
 
 
 **By using tag-based access controls, you can see a limited set of agents:**
 
-![By using tag-based access controls, you can see a limited set of agents.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-after.png)
+![By using tag-based access controls, you can see a limited set of agents.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-after.png)
 
 
 With tag-based access controls, you can configure granular access to specific resources based on assigned resource tags. You can configure tag based access controls by using the API/SDK or the Connect Customer admin website (for supported resources). You must configure user resource tags and access control tags before tag-based access control is applied to users for the agent activity audit report. For more information, see [Add tags to resources in Connect Customer](tagging.md) and [Apply tag-based access control in Connect Customer](tag-based-access-control.md).
@@ -31,10 +31,10 @@ For more information on tagging resources and tag-based access control in Connec
 
 To view agent activity audit reports with tag-based access controls applied, you need to be assigned to a security profile that has Access selected for **Agent Activity Audit** or has Access selected for **Access metrics** permission, along with access to the user resource. Note that if you enable **Access metrics**, then **Real-time metrics**, **Historical Metrics**, and **Agent Activity Audit** will be filled in automatically. You therefore will be enabling users to see all data for historical metrics for which tag-based access controls are not currently applied.
 
-![The Analytics and Optimization section of the security profiles permissions page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-permissions-1.png)
+![The Analytics and Optimization section of the security profiles permissions page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-permissions-1.png)
 
 
-![The Analytics and Optimization section of the security profiles permissions page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-permissions-2.png)
+![The Analytics and Optimization section of the security profiles permissions page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-permissions-2.png)
 
 
-![The Analytics and Optimization section of the security profiles permissions page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-permissions-3.png)
+![The Analytics and Optimization section of the security profiles permissions page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-activity-audit-tag-based-access-control-permissions-3.png)

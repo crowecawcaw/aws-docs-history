@@ -49,12 +49,12 @@ This module shows how to check call back number from customers and allows them t
 
 Following is an image of the customer call back module that invokes the sub module for setting the call back number:
 
-![Flow diagram showing contact attribute check, set contact attributes, get customer input with multiple branches.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-nested-call-back-number-example.png)
+![Flow diagram showing contact attribute check, set contact attributes, get customer input with multiple branches.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-nested-call-back-number-example.png)
 
 
 Following is an image of the set call back number sub module::
 
-![Call flow diagram showing customer input validation, callback confirmation, and caller ID validation steps.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-nested-call-back-number-sub-example.png)
+![Call flow diagram showing customer input validation, callback confirmation, and caller ID validation steps.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-nested-call-back-number-sub-example.png)
 
 
 ## Security profile permissions for modules
@@ -99,12 +99,12 @@ The inbound flows in your instance can invoke this common module and get the fun
 
 Following is an image of the FunFact module:
 
-![The funfact module in the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-example1.png)
+![The funfact module in the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-example1.png)
 
 
 Following is an image of the FunFactSampleFlow that invokes the module:
 
-![The funfactsampleflow in the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-example2.png)
+![The funfactsampleflow in the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-example2.png)
 
 
 ## Module versioning and aliasing
@@ -117,7 +117,7 @@ To improve maintenance efficiency and reduce deployment risks, versioning and al
 
 You can create versions of your modules to track changes and maintain different iterations.
 
-![Creating a version for a module in the console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-create.png)
+![Creating a version for a module in the console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-create.png)
 
 
 ### Create alias for modules
@@ -125,7 +125,7 @@ You can create versions of your modules to track changes and maintain different 
 
 You can create aliases that point to specific module versions for easier management.
 
-![Creating an alias for a module in the console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-alias-create.png)
+![Creating an alias for a module in the console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-alias-create.png)
 
 
 ### View specific version or alias of modules
@@ -133,15 +133,15 @@ You can create aliases that point to specific module versions for easier managem
 
 You can view specific versions or aliases of your modules in read-only mode.
 
-![Viewing module versions in the console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-view1.png)
+![Viewing module versions in the console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-view1.png)
 
 
-![Viewing module aliases in the console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-view2.png)
+![Viewing module aliases in the console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-version-view2.png)
 
 
 Choose on the specific version or alias to view the modules in read-only mode:
 
-![Read-only view of a specific module version.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-readonly-view.png)
+![Read-only view of a specific module version.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-readonly-view.png)
 
 
 ### Use module versions and alias in flows
@@ -149,7 +149,7 @@ Choose on the specific version or alias to view the modules in read-only mode:
 
 You can reference specific module versions or aliases when invoking modules in your flows.
 
-![Using module versions and aliases in flows.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-use-in-flows.png)
+![Using module versions and aliases in flows.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-use-in-flows.png)
 
 
 ## Create custom block module
@@ -164,15 +164,15 @@ You can start creating custom block module by navigating the **Settings** tab of
 
 You can use **Designer** mode to create input and output model structure or you can use **JSON schema** to define them.
 
-![Designer mode for custom block module configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-designer.png)
+![Designer mode for custom block module configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-designer.png)
 
 
-![JSON schema mode for custom block module configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-json.png)
+![JSON schema mode for custom block module configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-json.png)
 
 
 You can define up to 8 custom branches for your module.
 
-![Custom branches configuration for modules.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-branches.png)
+![Custom branches configuration for modules.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-custom-branches.png)
 
 
 ### Accessing module related attributes
@@ -187,21 +187,21 @@ This module shows how to get customers authenticated based on their provided pho
 
 Following is an image of the Authentication module with settings:
 
-![Authentication module settings - input configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings1.png)
+![Authentication module settings - input configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings1.png)
 
 
-![Authentication module settings - output configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings2.png)
+![Authentication module settings - output configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings2.png)
 
 
-![Authentication module settings - branches configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings3.png)
+![Authentication module settings - branches configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings3.png)
 
 
-![Authentication module settings - summary view.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings4.png)
+![Authentication module settings - summary view.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-settings4.png)
 
 
 Following is an image of a sample customer support flow that invokes the module to authenticate the customer using a phone number:
 
-![Sample customer support flow using the authentication module.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-flow-example.png)
+![Sample customer support flow using the authentication module.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-auth-flow-example.png)
 
 
 ## Create module as tools
@@ -212,13 +212,13 @@ To enable Flow Modules to be invoked outside of a Flow by various systems as ind
 ### Create new module as tool
 <a name="create-new-module-as-tool"></a>
 
-![Create new module as tool interface.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-as-tool-create-new.png)
+![Create new module as tool interface.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-as-tool-create-new.png)
 
 
 ### Create module as tool from existing module
 <a name="create-module-tool-from-existing"></a>
 
-![Create module as tool from existing module interface.](http://docs.aws.amazon.com/connect/latest/adminguide/images/module-as-tool-from-existing.png)
+![Create module as tool from existing module interface.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-as-tool-from-existing.png)
 
 
 ### Module as tool supported blocks

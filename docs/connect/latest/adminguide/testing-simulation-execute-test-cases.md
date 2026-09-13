@@ -28,14 +28,14 @@ To prevent simulated contacts from reaching live agents, consider these approach
 **To execute a test case**
 
 1. Choose **Run Test** to execute the test case.   
-![Flow designer showing three connected states: initial setup, welcome prompt, and transfer to queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/GIF/test-execution-trigger-gif.gif)
+![Flow designer showing three connected states: initial setup, welcome prompt, and transfer to queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/GIF/test-execution-trigger-gif.gif)
 
 1. After the test case is running, choose the **Test runs** tab to view a list of in progress and completed test runs for the tests case.   
-![Test runs tab showing three test runs from November 19, 2025 with Passed outcomes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-runs.png)
+![Test runs tab showing three test runs from November 19, 2025 with Passed outcomes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-runs.png)
 
 1. Choose a test run to see the interaction block execution status, the simulated contact ID, and the pass or fail status of each step.   
-![Test run details showing passed status with session metrics, contact flow information, and test steps.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-execution-detail-page.png)
+![Test run details showing passed status with session metrics, contact flow information, and test steps.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-execution-detail-page.png)
 
 You can also view all the test runs across all test cases in the **Test runs** tab. This page lists all of the test executions in the same Connect Customer instance. You will only see the detail test results for the test cases you created or test cases you have permission to view. 
 
-![Test runs tab showing eight test executions with names, dates, and pass or fail outcomes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-run-list-page.png)
+![Test runs tab showing eight test executions with names, dates, and pass or fail outcomes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-run-list-page.png)

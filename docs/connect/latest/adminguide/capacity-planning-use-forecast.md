@@ -19,11 +19,11 @@ Connect Customer uses the forecasts and planning scenarios as inputs for creatin
    For both plan types, you can enter a total shrinkage percentage in the **Shrinkage** field in the **Scenario inputs** section. For more information, see [Create capacity planning scenarios](capacity-planning-create-scenarios.md).
 
 1. Provide the plan name, description, forecast group (which has the published forecasts required for your selected plan type), start/end date, and plan scenario. The following image shows example values for these fields.  
-![The Generate Plan page showing the Plan type tiles and example Plan inputs values.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-create-plan.png)
+![The Generate Plan page showing the Plan type tiles and example Plan inputs values.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-create-plan.png)
 
 1. Choose **Generate Capacity Plan**.
 
 1. To quickly identify the plan that is in processing, choose **Last Computed** to sort the table list. In the following image, the status of the plan is **In Progress**.  
-![The Capacity Plans table showing the Plan Type and Status columns, with Status set to In Progress.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-in-progress.png)
+![The Capacity Plans table showing the Plan Type and Status columns, with Status set to In Progress.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-in-progress.png)
 
    It usually takes between 5-10 minutes for the plan to be generated. If the plan generation fails, check the forecasts for the selected forecast group, and then generate the capacity plan again. For Hiring plans, try publishing the selected long-term forecasts. For Scheduling plans, confirm that a short-term forecast is published and that it covers the plan date range.

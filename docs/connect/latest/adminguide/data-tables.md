@@ -73,7 +73,7 @@ Primary attributes cannot be added or removed if the table contains data. For ex
 
    1. As values are added, they are sorted based on primary value(s), for example if the first column is text, the values (rows) will be sequenced from A-Z.
 
-![Data table management page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/data-table-management.png)
+![Data table management page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/data-table-management.png)
 
 
 Example of a table structure where two primary attributes are used to uniquely identify each record, and two attributes have been defined.

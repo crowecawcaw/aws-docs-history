@@ -18,7 +18,7 @@ You can click or tap the longest response time value on the graph to be directed
 
 The following image of the **Contact details page** shows metrics for chat conversations. Note that **Agent greeting time** = after the agent joined the chat, how long until they sent the first response. 
 
-![The contact details page, chat metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat1b.png)
+![The contact details page, chat metrics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-contactdetails-chat1b.png)
 
 
 For more information, see [Search by response time for chat conversations](search-conversations.md#response-time-search).

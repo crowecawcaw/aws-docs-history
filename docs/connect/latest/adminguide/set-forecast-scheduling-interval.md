@@ -19,7 +19,7 @@ You can set the granularity for your short-term forecasts and your schedules.
 1. On the Connect Customer navigation menu, select **Analytics and optimization**, **Forecasting**.
 
 1. Choose the **Forecast and schedule interval** tab. You'll see this tab only if you have the appropriate security profile permissions.  
-![The Forecasting page, the Forecast and schedule interval tab, the 15 minute interval option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecast-schedule-interval.png)
+![The Forecasting page, the Forecast and schedule interval tab, the 15 minute interval option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecast-schedule-interval.png)
 
 1. Choose one of the following options:
    + **15 minute interval** – Generates short-term forecasts in 15-minute intervals. For example, 20 contacts between 9:00 AM to 9:15 AM, and 30 contacts between 9:15 AM to 9:30 AM.

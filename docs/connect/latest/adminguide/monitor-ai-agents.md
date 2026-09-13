@@ -38,7 +38,7 @@ To enable logging for AI agents, you use the CloudWatch API. Complete the follow
    {
    "logType": "EVENT_LOGS",
    "name": "{{your-assistant-delivery-source}}",
-   "resourceArn": "arn:aws:wisdom:{{your-region}}:{{your-account-id}}:assistant/{{assistant_id}}
+   "resourceArn": "arn:aws:wisdom:{{your-region}}:{{your-account-id}}:assistant/{{assistant_id}}"
    }
    ```
 

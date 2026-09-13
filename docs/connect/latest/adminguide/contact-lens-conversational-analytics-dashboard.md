@@ -32,7 +32,7 @@ Data visualizations such as **Movers and shakers** display the largest changes c
    + **conversational analytics - conversational analytics**: This permission enables users to view data in the conversational analytics dashboard.
 
 1. In the AWS console, make sure that **Analytics tools**, **Enable conversational analytics** is selected, as shown in the following image.  
-![The Enable conversational analytics checkbox in the AWS console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-enable-contact-lens-checkbox.png)
+![The Enable conversational analytics checkbox in the AWS console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-enable-contact-lens-checkbox.png)
 
 1. In your flow, enable conversational analytics so it analyzes your contacts. For instructions, see [Enable call recording and speech analytics](enable-analytics.md#enable-callrecording-speechanalytics).
 
@@ -41,7 +41,7 @@ Data visualizations such as **Movers and shakers** display the largest changes c
 
 There are two performance overview charts that provide aggregated metrics based on your filters. The second chart is further filtered only by contacts analyzed by conversational analytics. Each metric within the charts is compared to your "compare to" benchmark time range filter. 
 
-![The Performance overview charts in the dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-performance-overview.png)
+![The Performance overview charts in the dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-performance-overview.png)
 
 
 This chart shows the following information:
@@ -65,7 +65,7 @@ The contact categories chart shows you Contact Category information. To see all 
 
 1. Contacts transferred in: the count of contacts transferred in for the contacts that have a given category.
 
-![The Contact categories chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contact-categories.png)
+![The Contact categories chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contact-categories.png)
 
 
 ## Movers and shakers
@@ -90,7 +90,7 @@ To see all data, choose the pop-out icon on the chart. To deep dive further into
 
 1. Prior contacts: the count of contacts analyzed by conversational analytics in the "compare to" benchmark time range specified in your dashboard filter. 
 
-![The Movers and shakers chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-movers-shakers.png)
+![The Movers and shakers chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-movers-shakers.png)
 
 
 ## Top contact categories average handle time
@@ -98,7 +98,7 @@ To see all data, choose the pop-out icon on the chart. To deep dive further into
 
 The top contact categories average handle time displays the prior AHT (using the "compare to" benchmark time range) to the current time range AHT for each of your top 10 categories (sorted by count of contacts with a category from left to right). To see all data, choose the pop-out icon on the chart.
 
-![The Top contact categories average handle time chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-top-contact-categories.png)
+![The Top contact categories average handle time chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-top-contact-categories.png)
 
 
 ## Contact count by queue
@@ -109,7 +109,7 @@ This section of the dashboard displays data even when conversational analytics i
 
 The contact count by queue chart displays the count of contacts for each queue, sorted by the highest number of contacts from left to right. You can configure this widget further by filtering for contact categories directly from this chart. This filter overrides the page-level contact category filter on the dashboard.
 
-![The Contact count by queue chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contact-count.png)
+![The Contact count by queue chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contact-count.png)
 
 
 ## Contacts handled and average handle time trend
@@ -124,7 +124,7 @@ For example:
 + If you have a "Today" time range filter on your dashboard, you can only see an interval of 15min for the last 24 hours.
 + If you have a "Day" time range filter on your dashboard, you can see a trailing 8 day interval trend, or a 15min interval trend for the trailing 24 hours.
 
-![The Contacts handled and average handle time trend chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contacts-handled.png)
+![The Contacts handled and average handle time trend chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contacts-handled.png)
 
 
 ## Dashboard functionality limitations

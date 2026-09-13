@@ -262,6 +262,154 @@ Example scope tag:
 
 Use scope tags when different pages or UI states support different actions.
 
+## Navigation actions
+<a name="acxd-live-sync-nav-actions"></a>
+
+Touchpoint can provide automatic handling for supported navigation and input actions.
+
+Navigation actions let the agent move the user through supported destinations in the digital experience.
+
+For example, the user might say "Go back." or "Take me to checkout."
+
+When the appropriate destination is available in the current frontend context, the Live Sync agent can send a navigation action and Touchpoint can perform the corresponding navigation.
+
+Custom navigation behavior can also be implemented when the frontend requires different routing logic.
+
+## Input actions
+<a name="acxd-live-sync-input-actions"></a>
+
+Input actions allow Live Sync to update supported form controls.
+
+For example, the user might say "Change my checkout date to Friday."
+
+The Live Sync agent can identify the applicable field from the current frontend context and send an input action containing the new value.
+
+Touchpoint can apply the value to the matching form control and trigger the corresponding frontend input and change events.
+
+## Register custom action handlers
+<a name="acxd-live-sync-register-handlers"></a>
+
+Your frontend should register application-specific actions using the same action names configured on the Live Sync node.
+
+A custom action that does not need a returned value can simply execute its configured behavior:
+
+```
+setCustomLiveSyncActions([
+  {
+    action: "disable_features",
+    handler: () => {
+      FEATURE_DEFS.forEach((f) => toggleFeature(f.id, false));
+    },
+  },
+]);
+```
+
+If a custom action returns a structured value, its handler can receive the value as a payload:
+
+```
+setCustomLiveSyncActions([
+  {
+    action: "select_room",
+    handler: (payload) => {
+      selectRoomById(payload);
+    },
+  },
+]);
+```
+
+For example:
++ Action: `select_room`
++ Payload: `2`
++ Frontend behavior: Select the room associated with ID 2.
+
+Whether the handler needs a payload depends on the action.
+
+
+| Custom action | Handler pattern | Use | 
+| --- | --- | --- | 
+| disable\_features | handler: () => { ... } | The action itself determines what the frontend should do. | 
+| open\_help\_modal | handler: () => { ... } | No additional value is required. | 
+| select\_room | handler: (payload) => { ... } | The frontend needs the selected room ID. | 
+| apply\_filter | handler: (payload) => { ... } | The frontend needs the selected filter value. | 
+
+When an action includes an output schema, make sure the handler expects the corresponding value type.
+
+## Use automatic frontend context
+<a name="acxd-live-sync-auto-context"></a>
+
+A Live Sync agent needs information about the current digital experience before it can reliably navigate, update fields, or trigger frontend actions.
+
+With the Touchpoint SDK, you can automatically gather this context and send it to the active Live Sync conversation. Automatic context is enabled by default.
+
+For supported web experiences, automatic context can include:
++ Current page or route
++ Supported form controls
++ Current field values
++ Available selections
++ Navigation destinations
++ Registered custom actions
+
+This means most implementations do not need to manually construct and send Context API requests whenever the page changes.
+
+### Automatic form context
+<a name="acxd-live-sync-auto-form"></a>
+
+For supported web experiences, Touchpoint can inspect common form controls including:
++ Text inputs
++ Text areas
++ Select menus
++ Checkboxes
+
+Context can include information such as:
++ Accessible field name
++ Description
++ Input type
++ Current value
++ Placeholder
++ Available options
+
+For example, suppose a checkout page contains:
++ Checkout date
++ Room type
++ Email address
++ Newsletter consent
+
+The user can say "Change my checkout date to Friday and choose the Garden Suite."
+
+The Live Sync agent can use the current form context to determine which controls should change and send the appropriate input actions.
+
+Use meaningful labels, accessible names, descriptions, and option text to help Touchpoint represent frontend controls accurately.
+
+### Automatic navigation context
+<a name="acxd-live-sync-auto-nav"></a>
+
+For supported web experiences, Touchpoint can inspect available links and expose their accessible names as navigation destinations.
+
+For example, if the current page contains:
++ Rooms
++ Checkout
++ Spa
+
+the user can say "Take me to checkout."
+
+The Live Sync agent can determine that Checkout is an available destination and send the appropriate navigation action.
+
+### Automatic context updates
+<a name="acxd-live-sync-auto-updates"></a>
+
+Touchpoint monitors the digital experience for relevant changes.
+
+Updated context can be sent when:
++ The user navigates
++ A form appears
++ Available options change
++ Page elements are added or removed
++ Registered custom actions change
+
+Touchpoint compares newly gathered context with the previous context and updates the active Live Sync conversation when the relevant information changes.
+
+Automatic handling can be customized or disabled when an implementation requires more control.
+
 ## Paths and exit conditions
 <a name="acxd-live-sync-paths"></a>
 
@@ -306,12 +454,58 @@ A Goodbye exit condition might route to an Exit application node that says:
 Thanks for contacting us. Have a great day.
 ```
 
+## Set up the application
+<a name="acxd-live-sync-setup-app"></a>
+
+After configuring the Live Sync flow:
+
+**To set up the application**
+
+1. Open **Applications**.
+
+1. Create an application or open an existing one.
+
+1. Attach the flow containing the Live Sync node.
+
+1. Configure the appropriate default behavior.
+
+1. Configure required guardrails.
+
+1. Save the application.
+
+Create and deploy a build before connecting the deployed application to the Live Sync frontend implementation.
+
+See [Builds and deployments](acxd-builds-deployments.md) for detailed instructions.
+
+## Invoke the application from Connect Customer
+<a name="acxd-live-sync-invoke"></a>
+
+Configure an Agentic CX block in a Connect Customer flow to invoke the deployed agentic CX designer application.
+
+Select:
++ The agentic CX designer workspace
++ The application
++ The appropriate deployed environment
+
+Configure the downstream paths and publish the Connect Customer flow.
+
+For an active Live Sync interaction, the frontend connection must also correspond to the correct Connect Customer contact.
+
+The active Connect Customer contact ID identifies the interaction and associates Live Sync frontend actions with the corresponding conversation.
+
 ## Touchpoint and frontend setup
 <a name="acxd-live-sync-touchpoint"></a>
 
 Touchpoint is the frontend layer that enables voice input, bidirectional Live Sync behavior, and command handling in your web or mobile application.
 
 In your frontend setup, configure Touchpoint using the connection details from your deployed application. You can find these values in the application's settings under the Access section. Your frontend team will need details such as the application URL and API key to initialize Touchpoint and connect the frontend experience to the deployed agentic CX designer application.
+
+A Live Sync connection uses information associated with the deployed application and active interaction, including:
++ Host
++ Deployment key
++ API key
++ Language code
++ Connect Customer contact ID
 
 Common handler categories include:
 
@@ -363,8 +557,12 @@ If the names or schemas do not match, the agent may send the right intent, but t
 | Action name: open\_modal | Handler listens for open\_modal. | 
 | Output schema: modal name | Handler expects a modal name. | 
 
-## Context API
+## Advanced: manual Context API
 <a name="acxd-live-sync-context-api"></a>
+
+Most Live Sync implementations rely on automatic frontend context, which is enabled by default and gathers page, form, and navigation context for you. For more information, see [Use automatic frontend context](#acxd-live-sync-auto-context).
+
+Use the manual Context API for advanced or custom control, when your implementation needs to construct and send context to the active Live Sync conversation directly, or when automatic handling does not cover a specific case.
 
 The Context API lets your frontend send real-time page context to the active Live Sync conversation.
 

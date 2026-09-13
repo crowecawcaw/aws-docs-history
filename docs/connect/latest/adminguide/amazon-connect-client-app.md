@@ -53,7 +53,7 @@ You need to configure an allowlist of Connect Customer domains that are allowed 
 + Download the latest version of the **Amazon.Connect.Client.Service.Setup.msi **file.
 + Choose the installer file.
 + Enter the Connect Customer domains allowlist when prompted. The following image shows an example of how to specify a domain in the allowlist on the **Configure Installation Settings** dialog box. For more examples, see *Guidelines for specifying your Amazon Connect domains allowlist* below.  
-![The Configure Installation Settings dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/domain-allowlist-windows.png)
+![The Configure Installation Settings dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/domain-allowlist-windows.png)
 + Choose **Install** to complete the installation.
 
 #### Verify the Connect Customer Client Application is running and functioning correctly
@@ -65,7 +65,7 @@ You need to configure an allowlist of Connect Customer domains that are allowed 
 + In Windows Task Manager, under **Users processes**, check for another process named **Amazon.Connect.Client.RecordingSession** after the user accepts the very first contact where screen recording is enabled. 
 
   The following image shows **Amazon.Connect.Client.RecordingSession** in Task Manager.  
-![Amazon.Connect.Client.RecordingSession in Task Manager.](http://docs.aws.amazon.com/connect/latest/adminguide/images/taskmanager.png)
+![Amazon.Connect.Client.RecordingSession in Task Manager.](https://docs.aws.amazon.com/connect/latest/adminguide/images/taskmanager.png)
 
 ##### To verify that the application is functioning correctly and creating log files:
 <a name="verify-functioning"></a>
@@ -140,13 +140,13 @@ Complete the following steps on the Google Enterprise Admin Console. Apply the p
    + Update Manifest URL: https://screenrecording.connect.aws/chromeos/amazon-connect-client-iwa/releases/update\_manifest.json
 
    The following image shows an example **Add an Isolated Web App** dialog box that has been completed.  
-![A completed Add an Isolated Web App dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/addisolatedwebapp.png)
+![A completed Add an Isolated Web App dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/addisolatedwebapp.png)
 
 1. Configure **Installation Policy** to `Force Install + Pin to ChromeOS Taskbar` and change **Launch on Login** to `Force Launch and Prevent Closing` to make sure Isolated Web App starts automatically when a computer is logged into and restarts.  
-![The Installation policy and Launch on login sections.](http://docs.aws.amazon.com/connect/latest/adminguide/images/installationpolicy.png)
+![The Installation policy and Launch on login sections.](https://docs.aws.amazon.com/connect/latest/adminguide/images/installationpolicy.png)
 
 1. Configure **Managed configuration** to allowlist your Connect Customer domains that are allowed to initiate screen recording on agent machines. An example of **Managed configuration** is shown in the following image.   
-![The Managed configuration section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/managedconfiguration.png)
+![The Managed configuration section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/managedconfiguration.png)
    + The key name MUST be `allowListedDomain`. Domain names should not include any paths, query strings, or trailing slashes (/).
    + Replace `your-instance-alias-*` with your actual Connect Customer instance alias.
 
@@ -163,11 +163,11 @@ Complete the following steps on the Google Enterprise Admin Console. Apply the p
    + input `ajbye5keylrcyakugr3zttu6f524eoamjc7mc6ubw3x3547xu3hxqaacai`, and then choose **Save**.
 
    The following image shows where Devices, Chrome, and Web capabilities are located in the left navigation menu in Chrome.   
-![The left navigation menu in the Chrome OS.](http://docs.aws.amazon.com/connect/latest/adminguide/images/allorigins.png)
+![The left navigation menu in the Chrome OS.](https://docs.aws.amazon.com/connect/latest/adminguide/images/allorigins.png)
 
 The following image shows the location of **Direct sockets**, **Screen recording**, and **Window management** on the Web capabilities page.
 
-![The location of Direct sockets, Screen recording, and Window management Web capabilities page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/directsockets.png)
+![The location of Direct sockets, Screen recording, and Window management Web capabilities page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/directsockets.png)
 
 
 #### Install Google Chrome Browser Extension
@@ -178,12 +178,12 @@ The following image shows the location of **Direct sockets**, **Screen recording
 **To install Google Chrome Browser Extension**
 
 1. Navigate to **Add Chrome app or extension by ID**, as shown in the following image.  
-![The Add Chrome app or extension by ID option in the left navigation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/appandextensions.png)
+![The Add Chrome app or extension by ID option in the left navigation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/appandextensions.png)
 
 1. In the **Add Chrome app or extension by ID**, choose **From a custom URL** and enter the following information:
    + Extension ID: `cjmichfmnimgeoadokmeaiclklkdccod`
    + Custom URL: `https://screenrecording.connect.aws/chromeos/amazon-connect-extension/releases/updates.xml`  
-![The Add Chrome app or extension by ID dialog box, the From a custom URL option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chromeapp.png)
+![The Add Chrome app or extension by ID dialog box, the From a custom URL option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chromeapp.png)
 
 1. Configure **Installation Policy** to **Force Install**, and then choose **Save**, as shown in the following image.  
-![The Installation Policy option set to Force install.](http://docs.aws.amazon.com/connect/latest/adminguide/images/forceinstall.png)
+![The Installation Policy option set to Force install.](https://docs.aws.amazon.com/connect/latest/adminguide/images/forceinstall.png)

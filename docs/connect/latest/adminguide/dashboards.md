@@ -38,13 +38,13 @@ You can customize the dashboards (for example, re-size and re-arrange the visual
    + Viewing the data on each dashboard requires the appropriate permissions. For example, to view flows data, you need **Flows - View** permissions. See the topics about each dashboard for the specific permissions.
 
 1. In the Connect Customer admin website, navigate to **Analytics and Optimization**, **Dashboards and reports**. Select the Connect Customer dashboard you want to view. The following image shows an example **Dashboards and reports** page with four dashboards you can select.  
-![The Dashboards and reports page, the dashboards available for you to select.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-and-reports.png)
+![The Dashboards and reports page, the dashboards available for you to select.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboards-and-reports.png)
 
 1. When you open a dashboard, use the required filters to specify the time range. For more information, see [Specify time range and "Compare to" benchmark](#required-dashboard-filters).  
-![A widget on a sample dashboard, the Actions icon to edit the widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-requiredfilters.png)
+![A widget on a sample dashboard, the Actions icon to edit the widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-requiredfilters.png)
 
 1. In a widget, you can choose **Actions**, **Edit** to customize the widget to meet your business needs. For more information, see [Customize your dashboard](dashboard-customize-widgets.md).   
-![A widget on a sample dashboard, the Actions icon to edit the widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-parts.png)
+![A widget on a sample dashboard, the Actions icon to edit the widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-parts.png)
 
 ## Specify time range and "Compare to" benchmark
 <a name="required-dashboard-filters"></a>
@@ -70,7 +70,7 @@ All dashboards have the following required filters:
 
 Each dashboard has additional filters specific to that feature. For example, the following image of the **Conversational analytics dashboard** shows the available filters for that widget. **Contact category** is specific to conversational analytics.
 
-![Required dashboard filters.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-performance-overview-filters.png)
+![Required dashboard filters.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-performance-overview-filters.png)
 
 
 ## Save, download, and share your dashboard
@@ -92,4 +92,4 @@ You must publish a dashboard before other users can view it. Sharing a dashboard
 
    The following image shows the actions that you can select on an example dashboard.
 
-![Available actions for the conversational analytics dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contact-categories-actions-view-drop-down.png)
+![Available actions for the conversational analytics dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contact-categories-actions-view-drop-down.png)

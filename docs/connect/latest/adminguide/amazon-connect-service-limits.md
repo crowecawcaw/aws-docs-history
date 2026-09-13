@@ -49,7 +49,7 @@ To request a quota increase, see [Requesting a quota increase](https://docs.aws.
 | Name | Default | Adjustable | Adjustability | 
 | --- | --- | --- | --- | 
 | Active email contact expiry | 14 days (Default)<br />Customizable up to 90 days using the [Flow block in Connect Customer: Set contact attributes](set-contact-attributes.md) flow block or [Expiry](https://docs.aws.amazon.com/connect/latest/APIReference/API_Expiry.html) API to update the connect:ContactExpiry [segment attribute](connect-attrib-list.md#attribs-segment-attributes).<br />This determines how long an email contact can remain active (for example, waiting in queue or assigned to an agent) before expiring and closing automatically. "No" for adjustability means that you cannot customize or increase this attribute to be greater than 90 days. | No | Resource Level | 
-| Active email conversation (thread) expiry | 90 days<br />Meaning if an end customer (using their email client) or an agent (using their agent application) replies to an email as part of an ongoing conversation (thread) within 90 days, the email reply will automatically be included within that same [email conversation (thread)](email-capabilities.md#email-capabilities-howthreadsmanaged) in Connect Customer. If they reply after 90 days, it will start a new [email conversation (thread)](email-capabilities.md#email-capabilities-howthreadsmanaged) in Connect Customer. | No | Resource Level | 
+| Active email conversation (thread) expiry | 90 days<br />Meaning if an end customer (using their email client) or an agent (using the agent workspace) replies to an email as part of an ongoing conversation (thread) within 90 days, the email reply will automatically be included within that same [email conversation (thread)](email-capabilities.md#email-capabilities-howthreadsmanaged) in Connect Customer. If they reply after 90 days, it will start a new [email conversation (thread)](email-capabilities.md#email-capabilities-howthreadsmanaged) in Connect Customer. | No | Resource Level | 
 | AWS Lambda functions per instance | 50 | Yes | Resource Level | 
 | Agent status per instance | 50 | No | Not Adjustable | 
 | Connect Customer instances per Region | 2 | Yes | Account Level | 
@@ -81,7 +81,7 @@ To request a quota increase, see [Requesting a quota increase](https://docs.aws.
 | Prompts per instance | 500 | Yes | Resource Level | 
 | Queues per instance | 100 | Yes | Resource Level | 
 | Maximum contacts in an agent queue per instance | 10<br />This quota applies to the maximum contacts you can have queued at once in a single [agent queue](concepts-queues-standard-and-agent.md). The same quota applies to every agent queue in your instance. | Yes | Resource Level | 
-| Queues per routing profile per instance | 50<br />This quota refers to number of queue/channel combinations per routing profile. For example, in the following image there are two queues, but there are three queue-channel combinations: Escalation queue Voice, Escalation queue Chat, and BasicQueue Voice. This counts three towards the service quota of 50.<br />This same quota also applies to manually assigned queues; each of these two types of queue have up to this limit, independent of each other. For example, it's possible to have a max of 50 queue-channel combinations for queues and another 50 queue-channel combinations for manual assignment queues.![The Routing profiles page, the routing profiles queues section, voice and chat queues.](http://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-queue-channel-combinations.png) | Yes | Resource Level | 
+| Queues per routing profile per instance | 50<br />This quota refers to number of queue/channel combinations per routing profile. For example, in the following image there are two queues, but there are three queue-channel combinations: Escalation queue Voice, Escalation queue Chat, and BasicQueue Voice. This counts three towards the service quota of 50.<br />This same quota also applies to manually assigned queues; each of these two types of queue have up to this limit, independent of each other. For example, it's possible to have a max of 50 queue-channel combinations for queues and another 50 queue-channel combinations for manual assignment queues.![The Routing profiles page, the routing profiles queues section, voice and chat queues.](https://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-queue-channel-combinations.png) | Yes | Resource Level | 
 | Quick connects per instance | 100 | Yes | Resource Level | 
 | Rate of API requests | See [Connect Customer API throttling quotas](#connect-api-quotas). | Yes | Account Level | 
 | Reports per instance | 2,000<br />Personal saved reports count towards the reports per instance. For example, if one of your supervisors saves a report every day, it will count towards your overall number of saved reports per instance.<br />As a best practice, we recommend you implement policies so reports don't pile up.  | Yes | Resource Level | 
@@ -292,7 +292,7 @@ The resulting error message displays your quota as less than the sum of the foll
 
 For example, in the following image from the **Edit queues** page, you add 1 to the error message, to get **Concurrent calls per instance** \+ **Concurrent active chats per instance** \+ **Concurrent active tasks per instance** quota = 3010.
 
-![The edit queue page, Maximum contacts in queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/concurrent-call-quota.png)
+![The edit queue page, Maximum contacts in queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/concurrent-call-quota.png)
 
 
 The error message shows 3009 because you must set always set **Maximum contacts in queue** to a number that is at least 1 *less than* your combined quota (which is the default limit).
@@ -324,14 +324,14 @@ Connect Customer throttling quotas are by account, and per Region, not by user a
 | [StopContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StopContactStreaming.html) | 5 | 8 | 
 | [CreateParticipant](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateParticipant.html) | 5 | 8 | 
 | [GetContactAttributes](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetContactAttributes.html) | 10 | 15 | 
-| [UpdateContactAttributes ](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactAttributes .html) | 10 | 15 | 
-| [DescribeContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContact .html) | 10 | 15 | 
-| [StopContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_StopContact .html) | 10 | 15 | 
-| [UpdateContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContact .html) | 10 | 15 | 
-| [ListContactReferences ](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactReferences .html) | 10 | 15 | 
-| [BatchPutContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_BatchPutContact .html) | 10 | 15 | 
-| [TagContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_TagContact .html) | 20 | 25 | 
-| [UntagContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_UntagContact .html) | 20 | 25 | 
+| [UpdateContactAttributes ](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactAttributes.html) | 10 | 15 | 
+| [DescribeContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContact.html) | 10 | 15 | 
+| [StopContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_StopContact.html) | 10 | 15 | 
+| [UpdateContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContact.html) | 10 | 15 | 
+| [ListContactReferences ](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactReferences.html) | 10 | 15 | 
+| [BatchPutContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_BatchPutContact.html) | 10 | 15 | 
+| [TagContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_TagContact.html) | 20 | 25 | 
+| [UntagContact ](https://docs.aws.amazon.com/connect/latest/APIReference/API_UntagContact.html) | 20 | 25 | 
 | [UpdateContactRoutingData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetContactAttributes.html) | 20 | 20 | 
 | [SendChatIntegrationEvent](https://docs.aws.amazon.com/connect/latest/APIReference/API_SendChatIntegrationEvent) | 17 | 26 | 
 | SendIntegrationEvent (this is a separate permission-only API used by AWS End User Messaging Social) | 10 | 15 | 

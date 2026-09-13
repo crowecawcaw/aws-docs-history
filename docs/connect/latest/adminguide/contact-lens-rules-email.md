@@ -20,14 +20,14 @@ SAML users do not have primary email addresses or passwords. They use a username
 1. Navigate to **Analytics and optimization**, **Rules**.
 
 1. On the **Rules** page, choose **Create a rule**, and then from the dropdown list, choose **Conversational analytics** or **Evaluation forms**.  
-![The rules page, the create a rule dropdown list, the contact lens option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-create-rule.png)
+![The rules page, the create a rule dropdown list, the contact lens option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-create-rule.png)
 
 1. On the **New rule** page, define the conditions for the rule. For more information, see:
    + [Define rule conditions for conversational analytics](build-rules-for-contact-lens.md#rule-conditions)
    + [Define rule conditions for evaluation forms](create-evaluation-rules.md#rule-conditions-eval).
 
 1. When you define actions for the rule, choose **Send email notification** for the action.  
-![The new rule page, the add action dropdown list, the send email notification action.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-email-action.png)
+![The new rule page, the add action dropdown list, the send email notification action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-email-action.png)
 
 1. In the **Send email notification** section, choose who is going to receive the email by using one of these options: 
    + **Select recipients by login**: Routes the email to the specified user.
@@ -37,12 +37,12 @@ SAML users must have a secondary email configured in order to get it. If a secon
    + **Select the agent who handled the contact**. Routes the email to the agent who handled the contact.
 
    In the following image, the rule sends a notification email to the agent who handled the contact.   
-![The Send email notification section, the Select the agent who handled the contact option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-email-tag.png)
+![The Send email notification section, the Select the agent who handled the contact option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-email-tag.png)
 
 1. In **Subject**, add the email subject. In **Body**, add the contents of the email notification.
 
    Use **@ to add dynamic variables** that are populated during execution of the rule. For conversational analytics rules and evaluation forms rules, you can add **rule name, instance URL, contact, agent** and **queue** information for the contact that matched the rule. With evaluation forms rules, you can additionally insert the **evaluation ID**.   
-![The body of the email, the list of available variables.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rules-send-email-dynamic-variables.png)
+![The body of the email, the list of available variables.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rules-send-email-dynamic-variables.png)
 **Note**  
 Other rule types support different variables:  
 With real-time metrics rules, you can enter **rule name, instance URL** and list of **agents, queues, flows or routing profile** that breached the threshold to trigger the alert.

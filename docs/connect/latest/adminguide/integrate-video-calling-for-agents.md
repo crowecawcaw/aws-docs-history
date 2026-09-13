@@ -1,9 +1,9 @@
 
 
-# Integrate video calling and screen sharing into your custom agent desktop by using Connect Customer Streams JS
+# Integrate video calling and screen sharing into your custom agent application by using Connect Customer Streams JS
 <a name="integrate-video-calling-for-agents"></a>
 
-This topic is for developers. For custom agent desktops, you need to make changes to support video calling and screen sharing. Following are high level steps.
+This topic is for developers. For custom agent applications, you need to make changes to support video calling and screen sharing. Following are high level steps.
 
 **Note**  
 If you embed the CCP directly into your custom agent application make sure `allowFramedVideoCall` is set to true when you initiate the CCP using [Connect Customer Streams JS](https://github.com/aws/amazon-connect-streams).
@@ -118,7 +118,7 @@ Complete the following steps to add support for video handling when your custome
 If you use the out-of-box CCP directly in your custom agent application make sure `allowFramedScreenSharing` and `allowFramedScreenSharingPopUp` are set to true when you initiate the CCP using [Connect Customer Streams JS](https://github.com/aws/amazon-connect-streams).   
 Setting `allowFramedScreenSharing` to true enables the screen sharing button on only one CCP in one window or tab. Setting `allowFramedScreenSharingPopUp` to true launches the screen sharing app in a separate window when the agent chooses the screen sharing button. For more detail, see the [Connect Customer Streams JS](https://github.com/aws/amazon-connect-streams) documentation.
 
-Complete the following steps to enable screen sharing on your custom agent desktops. 
+Complete the following steps to enable screen sharing on your custom agent applications. 
 
 1. Check whether a contact has screen sharing capability. 
 

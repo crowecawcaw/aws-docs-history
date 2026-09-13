@@ -17,7 +17,7 @@ Use Scheduling plan output to find staffing gaps across a short horizon. You can
 
 The following diagram shows the Hiring plan flow and the integration among published long-term forecasts, capacity planning, and capacity planning output.
 
-![Hiring plan flow from long-term forecasts through capacity planning inputs to capacity planning output.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-diagram.png)
+![Hiring plan flow from long-term forecasts through capacity planning inputs to capacity planning output.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-diagram.png)
 
 
 ## Getting started

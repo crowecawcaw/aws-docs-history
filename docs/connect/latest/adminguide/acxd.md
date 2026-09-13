@@ -3,7 +3,7 @@
 # Agentic CX designer
 <a name="acxd"></a>
 
-Agentic CX designer is a feature within Amazon Connect Customer and works with flows in Connect Customer for delivering AI-powered customer experiences.
+Agentic CX designer is a service within Amazon Connect Customer and works with flows in Connect Customer for delivering AI-powered customer experiences.
 
 You may hear these experiences described as "bots," but in agentic CX designer, we refer to them as conversational applications because they can do more than respond to simple user messages. A conversational application can guide structured workflows, answer questions from trusted knowledge, connect to APIs, reason through multi-step tasks, and escalate to human agents.
 

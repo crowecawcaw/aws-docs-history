@@ -21,11 +21,11 @@ Run the [Endpoint Test Utility](check-connectivity-tool.md) tool from the affect
 + This tool helps determine the latency between your Connect Customer instance and the agent browser. For a successful test, the status is **Success**. The average latency should not exceed 300 milliseconds (ms). Latency above this threshold might cause audio quality issues. 
 
   The following image shows example results from a latency test.   
-![Endpoint Test Utility latency results showing average latency and a Success status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/latencytest.png)
+![Endpoint Test Utility latency results showing average latency and a Success status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/latencytest.png)
 
   You can also test latency by selecting different AWS Regions to test connectivity from the agent's browser.
 + Check whether the agent's workstation is set up correctly: verify they are using a supported browser and verify network connectivity across required ports for media streams. The following image shows the results for an agent workstation that meets all of the requirements for Connect Customer.  
-![Endpoint Test Utility results showing all checks passing for an agent workstation that meets all requirements.](http://docs.aws.amazon.com/connect/latest/adminguide/images/endpointtestresults.png)
+![Endpoint Test Utility results showing all checks passing for an agent workstation that meets all requirements.](https://docs.aws.amazon.com/connect/latest/adminguide/images/endpointtestresults.png)
 + Higher latency also leads to packet loss.
 
 ## Investigate network components and devices

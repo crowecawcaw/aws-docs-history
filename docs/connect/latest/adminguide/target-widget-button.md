@@ -13,7 +13,7 @@ To update the colors of the widget button, or the styles of the widget itself, u
 
 The following images show how the chat widget button appears on the user's screen. The first image shows Open button to open the chat widget. The second image shows the Close button to close the chat widget.
 
-![Side-by-side images of the chat widget to open and to close the chat window.](http://docs.aws.amazon.com/connect/latest/adminguide/images/widget-elements.png)
+![Side-by-side images of the chat widget to open and to close the chat window.](https://docs.aws.amazon.com/connect/latest/adminguide/images/widget-elements.png)
 
 
 1.  Open widget button: `#amazon-connect-open-widget-button` 

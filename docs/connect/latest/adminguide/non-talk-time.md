@@ -10,7 +10,7 @@ Connect Customer conversational analytics also identifies the amount of *non-tal
 
 The following image shows the location of non-talk time data on the **Contact details **page.
 
-![The contact details page, the talk time section, the non-talk time data.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-nontalk-time-overview.png)
+![The contact details page, the talk time section, the non-talk time data.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-nontalk-time-overview.png)
 
 
 ## How to investigate non-talk time
@@ -25,7 +25,7 @@ You can decide whether to focus on these contacts to improve your contact center
 
  In the following example, the non-talk time occurred when the agent was searching for the caller's trip ID. This could indicate there's an issue with the agent's tools. Or if the agent is new, they need more training.
 
-![The contact audio recording and transcript, the location of non-talk time.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-non-talk-time-transcript.png)
+![The contact audio recording and transcript, the location of non-talk time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-non-talk-time-transcript.png)
 
 
 For more information, see [Search for non-talk time](search-conversations.md#nontalk-time-search).

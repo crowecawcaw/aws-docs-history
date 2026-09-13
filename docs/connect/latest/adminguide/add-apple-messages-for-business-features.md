@@ -71,7 +71,7 @@ Apple Pay allows consumers to complete purchases without having to manage paper 
 
 Apple Pay is a distinct feature, but shares similarities to Apple Pay in-app and Apple Pay on the Web. When a business asks for payment from a customer who is purchasing goods and services through Apple Messages for Business, the customer can use Apple Pay to make the payment.
 
-![Smartphone using Apple Pay.](http://docs.aws.amazon.com/connect/latest/adminguide/images/apple-pay-1.png)
+![Smartphone using Apple Pay.](https://docs.aws.amazon.com/connect/latest/adminguide/images/apple-pay-1.png)
 
 
 To learn more about Apple Pay, see [Apple Pay for developers](https://developer.apple.com/apple-pay/).
@@ -85,7 +85,7 @@ iMessage apps or Apple Custom Interactive Messages (CIM) increase interactivity 
 
 The following figure is an example of an iMessage App sent using an Apple CIM with a detailed map and location pin:
 
-![An iMessage app sent using an Apple CIM with a detailed map and location pin.](http://docs.aws.amazon.com/connect/latest/adminguide/images/imessage-apps-1.png)
+![An iMessage app sent using an Apple CIM with a detailed map and location pin.](https://docs.aws.amazon.com/connect/latest/adminguide/images/imessage-apps-1.png)
 
 
 For information about how to set iMessage Apps using Connect Customer, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md).
@@ -106,7 +106,7 @@ To use rich links in Connect Customer chat messages, your URL and images must me
 **Note**  
 When you first use the rich link feature, we recommend that you send the URL in a message separate from your chat text, as shown in the following example. The first message introduces the URL. The next message includes the URL.  
 
-![URL sent in a chat message.](http://docs.aws.amazon.com/connect/latest/adminguide/images/abc-rich-link.png)
+![URL sent in a chat message.](https://docs.aws.amazon.com/connect/latest/adminguide/images/abc-rich-link.png)
 
 
 ## Use Apple Messages for Business contact attributes in contact flows

@@ -34,7 +34,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set logging behavior** block. It has two options: enable logging behavior, or disable it.
 
-![The properties page of the Set logging behavior block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-logging-behavior-properties.png)
+![The properties page of the Set logging behavior block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-logging-behavior-properties.png)
 
 
 ## Scenarios

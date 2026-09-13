@@ -35,7 +35,7 @@ You can use this block across all [flow types](create-contact-flow.md#contact-fl
 
 The following image shows the **Properties** page of the **Invoke module** block.
 
-![The properties page of the Invoke module block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/invoke-module-properties.png)
+![The properties page of the Invoke module block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/invoke-module-properties.png)
 
 
 ## Configured block
@@ -43,4 +43,4 @@ The following image shows the **Properties** page of the **Invoke module** block
 
 The following image shows an example of what this block looks like when it is configured. It has two branches: **Success** and **Error**.
 
-![A configured Invoke module block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/invoke-module-configured.png)
+![A configured Invoke module block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/invoke-module-configured.png)

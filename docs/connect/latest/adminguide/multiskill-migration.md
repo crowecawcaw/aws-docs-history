@@ -14,7 +14,7 @@ When upgrading from non multi-skill to multi-skill in Amazon Connect forecasting
 + Activate demand groups and notice the queues automatically move into a new demand group.
 
   For more information, see [Multi skill forecasting](multiskill-forecasting.md)  
-![Edit FG.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-migration-editfg.png)
+![Edit FG.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-migration-editfg.png)
 + You might now create additional demand groups and move queues accordingly.
 
 ## Consolidating multiple forecast groups
@@ -24,7 +24,7 @@ When upgrading from non multi-skill to multi-skill in Amazon Connect forecasting
   For more information, see [Assign permissions](required-optimization-permissions.md)
 +  Create your new forecast group.
 +  Go to old forecast groups and remove all queues.  
-![Edit FG.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-migration-removequeues.png)
+![Edit FG.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-migration-removequeues.png)
 +  Go back to new forecast group and create demand groups.
 
   For more information, see [Multi skill forecasting](multiskill-forecasting.md)

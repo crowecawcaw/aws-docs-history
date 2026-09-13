@@ -45,7 +45,7 @@ Audio Enhancement is disabled by default. Administrators must enable it for spec
    + **No enhancement** – Disables Audio Enhancement capability. This is the default setting.
 **Important**  
 Voice isolation should only be used with a wired headset.  
-![The Audio Enhancement dropdown in the user edit panel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/admin-website-voice-enhancement.png)
+![The Audio Enhancement dropdown in the user edit panel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/admin-website-voice-enhancement.png)
 
 1. Choose **Save**.
 
@@ -66,13 +66,13 @@ To let agents adjust their own Audio Enhancement settings during work sessions, 
 1. Expand **Contact Control Panel (CCP)** permissions.
 
 1. Select **Audio device settings**.  
-![The Audio device settings permission in the Contact Control Panel (CCP) section of the security profile.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_audio_device_settings.png)
+![The Audio device settings permission in the Contact Control Panel (CCP) section of the security profile.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_audio_device_settings.png)
 
 1. Choose **Save**.
 
 After enabling this permission, agents will see Audio Enhancement controls in their CCP.
 
-![The Audio Enhancement controls in the CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-audio-enhancement-dropdown.png)
+![The Audio Enhancement controls in the CCP.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-audio-enhancement-dropdown.png)
 
 
 **Important notes about agent control**  

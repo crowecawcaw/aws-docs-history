@@ -3,7 +3,13 @@
 # Connect Customer
 <a name="enable-nextgeneration-amazonconnect"></a>
 
-Connect Customer is an AI-native solution that helps companies of any scale deliver exceptional customer experiences at every touchpoint. You can use fully autonomous AI agents, a blend of AI and human agents working together, or fully human-supported experiences. AI is embedded across all channels for every customer, with simple per-channel pricing. For more information, visit [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/).
+Connect Customer is an agentic AI solution for customer experience. It supports the full lifecycle of customer interactions — from proactive outreach to self-service resolution to agent assistance — across any channel. For more information about pricing, see [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/).
+
+**Agentic AI:** Connect Customer uses agentic AI, an approach where AI reasons, decides, and acts autonomously rather than following a script or waiting for triggers. At the center are AI agents that handle customer interactions from start to finish. They understand intent, maintain context across channels, and retrieve knowledge. They can also take action, such as processing a return, updating an account, or rebooking a flight. Conversations stay natural, while tasks that must go exactly right, such as identity verification and compliance disclosures, run as structured, rule-based steps. AI agents resolve customer requests and work alongside human agents in real time. They provide step-by-step guidance and suggested responses, so your customers get what they need faster and at lower cost.
+
+**Every channel:** Connect Customer delivers the same AI, routing, and customer context across every channel — voice, chat, email, SMS, web, WhatsApp, Apple Messages, and more — so your customers can move between channels without repeating themselves. With live sync, Connect Customer synchronizes a voice conversation with an on-screen interface, so your customers can see options, fill forms, and complete transactions while they speak. Adding a new channel takes configuration, not a new project.
+
+**Speed to launch:** Connect Customer reduces implementation time from months to weeks. Business and customer experience teams design conversational experiences directly on a visual no-code canvas, with no engineering handoff required for the conversation design itself. Pre-built templates get your first use case live in weeks, not months. Start with a single workflow and expand over time. For teams that want more architectural control, a developer-first path is also available.
 
 **Topics**
 + [AI capabilities](#customer-ai-capabilities)

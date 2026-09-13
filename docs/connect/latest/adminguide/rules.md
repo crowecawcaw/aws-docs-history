@@ -5,7 +5,7 @@
 
 With Conversational analytics, you can automatically categorize contacts to identify top drivers, customer experience, and agent behavior for your contacts. On the **Contact details** page for a chat, categories appear above the transcript, as shown in the following image. 
 
-![The Contact details page, the Categories section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-category-overview-chat2.png)
+![The Contact details page, the Categories section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-category-overview-chat2.png)
 
 
 Following are some of the key things you can do when you categorize contacts:
@@ -43,7 +43,7 @@ In this section:
 1. Assign a name to the rule.
 
 1. Under **When**, use the dropdown list to choose **post-call analysis**, **real-time analysis**, **post-chat analysis**, **real-time chat analysis**, or **email analysis**.  
-![The new rule page, the When dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rule-define-conditions.png)
+![The new rule page, the When dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rule-define-conditions.png)
 
 1. Choose **Add condition**, and then choose the type of match: 
    + **Words or Phrases - Exact Match**: Finds contacts that match with the exact words or phrases. Enter the words or phrases, separated by a comma.
@@ -64,16 +64,16 @@ To create rules that use generative AI requires an additional permission: **Rule
      This removes the need to define an exhaustive list of keywords while creating categories, and provides you the ability to cast a wider net for searching similar phrases that are important to you. For best semantic matching results, provide keywords or phrases with similar meaning within a semantic matching card. Currently, you can provide a maximum of four keywords and phrases per semantic matching card.
 
 1. Using **Words or Phrases - Exact Match** as an example, enter the words or phrases, separated by a comma, that you want to highlight and choose **Add**. Each word or phrase separated by a comma gets its own line in the card.   
-![The new rules page, the Words or phrases - Exact match section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-script.png)  
-![The new rules page, the Words or phrases - Exact match section, the Add button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-script2.png)
+![The new rules page, the Words or phrases - Exact match section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-script.png)  
+![The new rules page, the Words or phrases - Exact match section, the Add button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-script2.png)
 
    The logic that conversational analytics uses to read these phrases is: (Hello AND thank AND you AND for AND calling AND Example AND Corp) OR (we AND value AND your AND business) OR (how AND might AND I AND assist AND you).
 
    Alternatively, use a **Natural Language - Semantic Match** condition and enter a natural language statement in the textbox, that Generative AI should be able to evaluate as either True or False.  
-![The new rules page, the Natural language - Semantic match section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-natural-language-semantic.png)
+![The new rules page, the Natural language - Semantic match section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-natural-language-semantic.png)
 
 1. To add more words or phrases, choose **Add group of words or phrases**. In the following image, the first group of words or phrases are what the agent might utter. The second group is what the customer might utter.  
-![A Words or phrases - Exact match for agent, the word AND, a Words or phrases section for the customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-script3.png)
+![A Words or phrases - Exact match for agent, the word AND, a Words or phrases section for the customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-script3.png)
 
    1. The logic that conversational analytics uses to read these phrases is: (Hello AND thank AND you AND for AND calling AND Example AND Corp) OR (we AND value AND your AND business) OR (how AND may AND I AND assist AND you).
 
@@ -87,7 +87,7 @@ To create rules that use generative AI requires an additional permission: **Rule
    + When sentiment scores have certain values
 
    For example, the following image shows a rule that applies when an agent is working the BasicQueue or Billing and Payments queues, the customer is for auto insurance, and the agent is located in Seattle.  
-![A rule with multiple conditions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-3.png)
+![A rule with multiple conditions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-category-rules-3.png)
 
 ### Step 2: Define actions
 <a name="add-category-rules-define-actions"></a>

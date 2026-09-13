@@ -36,7 +36,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
  The following image shows the **Properties** page of the **Loop** block. It is configured to repeat three times, and then it branches. 
 
-![The properties page of the Loop block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set number of loops.png)
+![The properties page of the Loop block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set number of loops.png)
 
 
 In the **Select an action** dropdown, choose from the following options:
@@ -46,7 +46,7 @@ In the **Select an action** dropdown, choose from the following options:
 ## Set number of loops
 <a name="w2aac18c17c69b8"></a>
 
-![Loop configuration dialog with Select an action dropdown set to Set number of loops and Set loop name section highlighted.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set number of loops highlight.png)
+![Loop configuration dialog with Select an action dropdown set to Set number of loops and Set loop name section highlighted.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set number of loops highlight.png)
 
 
 When select an action is set to "Set number of loops", note the following properties:
@@ -57,7 +57,7 @@ When select an action is set to "Set number of loops", note the following proper
 ## Set array for looping
 <a name="w2aac18c17c69c10"></a>
 
-![Loop configuration panel showing action selection, array for looping options, and loop name settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set array for looping.png)
+![Loop configuration panel showing action selection, array for looping options, and loop name settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set array for looping.png)
 
 
 When select an action is set to "Set array for looping", note the following properties : 
@@ -80,4 +80,4 @@ When select an action is set to "Set array for looping", note the following prop
 
 The following image shows an example of what this block looks like when it is configured. It has three branches: **Looping**, **Complete**, and **Error** .
 
-![A configured Loop block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/new loop block.png)
+![A configured Loop block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/new loop block.png)

@@ -21,6 +21,6 @@ You can only delete the last conversational analytics connector in your Connect 
 If you attempt to delete the last conversational analytics connector without first removing the conversational analytics connectors access from the users of that instance, the following error message is displayed: **error - Failed to delete connector {connector-name} with error: An analytics connector permissions is being used in a security profile**.
 
 1. After you apply the permission, users who have it will be able to see the **conversational analytics connectors** option in the Connect Customer admin website left navigation menu, as shown in the following image.  
-![The left menu on the Connect Customer admin website, the conversational analytics option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-connector-menuitem.png)
+![The left menu on the Connect Customer admin website, the conversational analytics option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-connector-menuitem.png)
 
 1. You're done enabling the conversational analytics connector. Continue to the next step: [associate a conversational analytics connector with a flow](associate-contactlens-integration.md).

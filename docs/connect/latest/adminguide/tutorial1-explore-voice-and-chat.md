@@ -26,24 +26,24 @@ This tutorial is part of a series. If you performed Tutorial 1, you're ready to 
 <a name="tutorial1-explore-voice"></a>
 
 1. On the Connect Customer navigation menu, choose **Dashboard**.   
-![The dashboard icon on the navigation menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-dashboard-menu.png)
+![The dashboard icon on the navigation menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-dashboard-menu.png)
 
 1. On the **Dashboard** page, choose **Test chat**.   
-![The dashboard page, the text chat link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-chat.png)
+![The dashboard page, the text chat link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-chat.png)
 **Note**  
 If you do not see **Test chat** on the **Dashboard** page, choose **Channels** on the navigation menu, and then choose **Test chat**. For more information, see [Test voice, chat, and task experiences in Connect Customer](chat-testing.md).
 
 1. On the **Test Chat** page, choose **Activate Contact Control Panel**.  
-![The test chat page, the Activate Contact Control Panel link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-activate-ccp.png)
+![The test chat page, the Activate Contact Control Panel link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-activate-ccp.png)
 
 1. If your browser prompts you to grant microphone access, choose **Allow**.  
-![The browser prompts to allow your instance to access your microphone.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-allow-microphone.png)
+![The browser prompts to allow your instance to access your microphone.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-allow-microphone.png)
 
 1. If your browser prompts you to allow notifications, choose **Allow**.  
-![The browser prompts to allow notifications.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-allow-notifications.png)
+![The browser prompts to allow notifications.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-allow-notifications.png)
 
 1. In the test CCP, set your status to **Available**.  
-![The CCP, the Available status setting.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-testccp-available.png)
+![The CCP, the Available status setting.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-testccp-available.png)
 
 1. Use your mobile phone to call the phone number that you claimed earlier. If you didn't write down the number, you can find it by going to **Channels**, **Phone numbers**.
 
@@ -52,15 +52,15 @@ If you do not see **Test chat** on the **Dashboard** page, choose **Channels** o
 1. You can play around with the different options in the Sample inbound flow. To connect to an agent, press **1**, **1**, **1**.
 
 1. In the CCP, choose **Accept call**.   
-![The CCP, an incoming call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-accept-call.png)
+![The CCP, an incoming call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-accept-call.png)
 
 1. You'll see what the CCP looks like when an agent is connected to a customer.   
-![The CCP, a connected call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-first-call.png)
+![The CCP, a connected call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-first-call.png)
 
 1. Choose **End call**. 
 
    Now the contact is in the After Contact Work (ACW) state. This is when the agent might enter some notes about the contact.  
-![The CCP, after call work, the close contact button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-acw.png)
+![The CCP, after call work, the close contact button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-acw.png)
 
 1. Choose **Close contact**. This frees the agent to take another incoming contact. 
 
@@ -69,7 +69,7 @@ Well done\! You've handled your first voice contact\!
 **Tip**  
 As an administrator, you can launch the CCP from anywhere on the Connect Customer console by choosing the phone icon on the top of the page.  
 
-![The phone icon at the top of the Connect Customer console that launches the CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-phone-icon.png)
+![The phone icon at the top of the Connect Customer console that launches the CCP.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-phone-icon.png)
 
 
 ### Next step
@@ -85,13 +85,13 @@ In Step 1, you used the Contact Control Panel (CCP) to manage a voice contact. I
 1. This procedure assumes you've completed [Step 1: Handle a voice contact](#tutorial1-explore-voice). If you haven't, please do so now.
 
 1. On the **Test chat** page, choose the chat bubble to start a chat.  
-![The test chat page, the chat bubble.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-chat-bubble.png)
+![The test chat page, the chat bubble.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-chat-bubble.png)
 
 1. The Sample inbound flow automatically transfers to you a queue. However, you can type a message as the customer and the agent receives it. For example, *I need help resetting my password*.  
-![A chat conversation in the CCP, showing messages from the flow, and customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-start-chat.png)
+![A chat conversation in the CCP, showing messages from the flow, and customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-start-chat.png)
 
 1. In the CCP, accept the incoming chat.   
-![The CCP, an incoming chat, the button to accept the chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-accept-chat.png)
+![The CCP, an incoming chat, the button to accept the chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-accept-chat.png)
 
 1. Use the CCP to send chat messages to the customer. 
 

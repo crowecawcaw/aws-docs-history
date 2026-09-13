@@ -79,7 +79,7 @@ The following image shows an example of a Customer Profiles **Properties** page 
 
 The example block is configured to search for profiles that either match the caller's **Phone** number or share the same **Account** number stored in the user-defined attribute named "Account." When one profile is located, the following fields are stored in the contact attributes for that specific customer: **Response fields** - **AccountNumber**, **FirstName**, **LastName**, **PhoneNumber**, and **Attributes.LoyaltyPoints**.
 
-![The properties page of the Customer Profiles GetProfile block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-profile.png)
+![The properties page of the Customer Profiles GetProfile block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-profile.png)
 
 
 ## Properties: Create profile
@@ -95,7 +95,7 @@ When configuring properties for **Create profile**, consider the following:
 
 The following example block is configured to create a profile with a **PhoneNumber** and a custom attribute named "Language". Following the profile creation, the **Attributes.Language** response field is stored in contact attributes, making it available for use in subsequent blocks.
 
-![The properties page of the Customer Profiles CreateProfile block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-create-profile.png)
+![The properties page of the Customer Profiles CreateProfile block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-create-profile.png)
 
 
 ## Properties: Update profile
@@ -103,7 +103,7 @@ The following example block is configured to create a profile with a **PhoneNumb
 
 When configuring properties to **Update profile**, consider the following:
 + Before using an **Update profile** block, use a **Get profile** block, as shown in the following image. Use the **Get profile** block to locate the specific profile you intend to update.  
-![The properties page of the Customer Profiles UpdateProfile block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-update-profile-1.png)
+![The properties page of the Customer Profiles UpdateProfile block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-update-profile-1.png)
 + Provide the attributes and values you wish to update the profile with **Request fields** and **Request field values**. 
 + Define attributes to persist in subsequent blocks, storing them in contact attributes under **Response fields**.
 
@@ -113,7 +113,7 @@ When configuring properties to **Update profile**, consider the following:
 
 The displayed block below is configured to update a Profile with a **MailingAddress1** with user input as value. When a profile is updated, the **MailingAddress1** response field is stored in contact attributes, making it available for use in subsequent blocks.
 
-![The properties page of the Customer Profiles UpdateProfiles block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-update-profile-2.png)
+![The properties page of the Customer Profiles UpdateProfiles block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-update-profile-2.png)
 
 
 ## Properties: Check segment membership
@@ -130,14 +130,14 @@ If you are checking segment membership for a segment powered by Spark SQL, the s
   +  You have the option to manually input the Profile ID or use a pre-defined value stored in a pre-defined or user attribute.
 
     The following image shows an example flow configured to get profile, and then check segment membership.  
-![A flow with a Get profile action and then a Check segment membership action.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-check-segment-membership-1.png)
+![A flow with a Get profile action and then a Check segment membership action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-check-segment-membership-1.png)
 +  You must provide a value for segment. You have the option to manually select the segment or set dynamically by using a pre-defined value stored in a pre-defined or user attribute. 
 +  When you set a segment dynamically, provide an attribute that refers to the customer segment's identifier. You can find the identifier on the **View segment detail** page or as SegmentDefinitionName in the [ListSegmentDefinitions](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListSegmentDefinitions.html) operation in the Customer Profiles API. 
 
   The following image shows the location of **Segment ID** on the **View segment details** page.  
-![The Segment details section, the Segment ID.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-check-segment-membership-2.png)
+![The Segment details section, the Segment ID.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-check-segment-membership-2.png)
 + The following image shows an example of checking segment membership. **Profile ID** is set to be checked dynamically and **Segment** manually.   
-![The Customer profiles block configured to check segment membership.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-check-segment-membership-3.png)
+![The Customer profiles block configured to check segment membership.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-check-segment-membership-3.png)
 
 **Contacts can be routed down the following branches**
 +  **In segment**: The profile belongs to the customer segment. 
@@ -150,7 +150,7 @@ If you are checking segment membership for a segment powered by Spark SQL, the s
 When configuring properties to **Get profile object**, consider the following:
 + **Mandatory Profile ID:** A Profile ID is required for this block to function. The **Get profile object** action retrieves an object associated with the provided **ProfileID**. Make sure you provide the **ProfileID** by using a preceding **Get profile** block, as illustrated in the following image. Use the **Get profile** block to pinpoint the specific profile before moving forward to retrieve the profile's object in the subsequent block.
   + You have the option to manually input the Profile ID or use a pre-defined value stored in a pre-defined or user attribute.  
-![The properties page of the Customer Profiles GetProfileOject block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-profile-object-1.png)
+![The properties page of the Customer Profiles GetProfileOject block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-profile-object-1.png)
 + You must indicate the object type from which you intend to retrieve information.
 + You must choose one of the following options for object retrieval:
   +  **Use latest profile object:** This option consistently retrieves the most recent object.
@@ -164,7 +164,7 @@ When configuring properties to **Get profile object**, consider the following:
 
 The displayed block below is configured to retrieve a profile object of type "Asset" associated with the **ProfileId** saved under the "Customer" namespace. In this specific scenario, the block is will search for an Asset using the Asset ID. After the Asset is located, **Asset.Price** and **Asset.PurchaseDate** are stored in contact attributes, making them available for subsequent blocks.
 
-![The properties page of the Customer Profiles GetProfileObject block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-profile-object-2.png)
+![The properties page of the Customer Profiles GetProfileObject block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-profile-object-2.png)
 
 
 ## Properties: Get calculated attributes
@@ -176,7 +176,7 @@ To use this action, your Connect Customer instance must have permission for the 
 When configuring properties to **Get calculated attributes**, consider the following:
 + **Mandatory Profile ID:** A Profile ID is required for this block to function. The **Get calculated attributes** action retrieves an object associated with the provided **ProfileID**. Make sure you provide the **ProfileID** by using a preceding **Get profile** block, as illustrated in the following image. Use the **Get profile** block to pinpoint the specific profile before moving forward to retrieve the profile's calculated attributes in the subsequent block.
   + You have the option to manually input the Profile ID or use a pre-defined value stored in a pre-defined or user attribute.  
-![The properties page of the Customer Profiles GetCalculatedAttributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-calculated-attributes-1.png)
+![The properties page of the Customer Profiles GetCalculatedAttributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-calculated-attributes-1.png)
 + Define attributes to persist in subsequent blocks, storing them in contact attributes under **Response fields**.
   + The options under **Response fields** are the Calculated Attribute definitions defined for your Customer Profiles domain
   + If the definition of calculated attributes uses a threshold, the calculated attribute value with be a Boolean and either return a True/False. Otherwise, they will return a numeric or string value. The return value of the calculated attribute can be used for branching purposes in a **Check Contact Attributes** block by using conditions such as **Equals** , **Is greater than** , **Is less than** , and **Contains**.
@@ -188,7 +188,7 @@ When configuring properties to **Get calculated attributes**, consider the follo
 
 The displayed block below is configured to get calculated attributes belonging to the provided **ProfileId** in contact attributes. The following **Response fields** will be retrieved and stored in contact attributes: **Average Call Duration**, and **Frequent Caller**.
 
-![The properties page of the Customer Profiles GetCalculatedAttributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-calculated-attributes-2.png)
+![The properties page of the Customer Profiles GetCalculatedAttributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-get-calculated-attributes-2.png)
 
 
 ## Properties: Associate contact to profile
@@ -203,7 +203,7 @@ When configuring properties to **Associate contact to profile**, consider the fo
 +  Add a **Get profile** block before an ** Associate contact to profile** , as shown in the following image. Use the **Get profile** block to find the profile first, then associate the contact and profile in the next block.
 + **Mandatory Profile ID:** A Profile ID is required for this block to function. Make sure you provide the **ProfileID** by using a preceding **Get profile** block, as illustrated in the following image. Use the **Get profile** block to pinpoint the specific profile you wish to associate the contact to in the next block.
   + You have the option to manually input the Profile ID or use a pre-defined value stored in a pre-defined or user attribute.  
-![The properties page of the Customer Profiles AssociateContactToProfile block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-associate-1.png)
+![The properties page of the Customer Profiles AssociateContactToProfile block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-associate-1.png)
 +  You must provide a value for Contact ID.
 
  Contacts can be routed down the following branches:
@@ -212,7 +212,7 @@ When configuring properties to **Associate contact to profile**, consider the fo
 
 The following block is configured to associate the profile with **Profile ID** stored in contact attributes to the current Contact ID stored in contact attributes.
 
-![The properties page of the Customer Profiles AssociateContactToProfile block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-associate-2.png)
+![The properties page of the Customer Profiles AssociateContactToProfile block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-properties-associate-2.png)
 
 
 ## Properties: Get profile recommendations
@@ -231,14 +231,14 @@ Let's say you want customers to interact with your contact center and learn the 
 In these scenarios, the IVR needs to fetch the relevant information about the customer. This is achieved through the Customer Profiles block. Secondly, the IVR needs to use this customer data in other Flow blocks to personalize the experience and proactively service the customer. 
 
 1.  Use **Play Prompt** to personalize the experience by greeting the customer by name and informing them of their status.   
-![Use Play Prompt to personalize the experience by greeting the customer by name and informing them of their status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-persist-fields-1.png)
+![Use Play Prompt to personalize the experience by greeting the customer by name and informing them of their status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-persist-fields-1.png)
 
 1. Use **Check contact attributes** to conditionally route customers based on their Average Hold Time from previous interactions  
-![Use Check contact attributes to conditionally route customers based on their Average Hold Time from previous interactions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-persist-fields-2.png)
+![Use Check contact attributes to conditionally route customers based on their Average Hold Time from previous interactions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-persist-fields-2.png)
 
 ## Configured block
 <a name="customer-profiles-block-configured"></a>
 
 The following image shows an example of what this block looks like when it is configured. It shows four branches: **Success**, **Error**, **Multiple found**, and **None found**.
 
-![A configured Customer profiles block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-configured.png)
+![A configured Customer profiles block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-block-configured.png)

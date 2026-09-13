@@ -10,7 +10,7 @@ Migrating a contact center from an external system to the cloud can be complicat
 
 The following diagram shows how the voice call audio flows between your external voice system and conversational analytics. You use the conversational analytics Connector to send a replica of your contact center audio to conversational analytics. The external call flow continues to operate as normal for your agents, while conversational analytics provides real-time and post-call analytics using the replicated call audio. 
 
-![A conceptual diagram that shows how the voice call audio flows between your external voice system and conversational analytics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-connector-diagram.png)
+![A conceptual diagram that shows how the voice call audio flows between your external voice system and conversational analytics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contactlens-connector-diagram.png)
 
 
 1. A call sent through PSTN lands on your external voice system.

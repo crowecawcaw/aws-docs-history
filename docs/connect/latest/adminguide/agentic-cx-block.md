@@ -46,7 +46,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 When you add an Agentic CX Flow block to your flow, you configure the following properties.
 
-![The Config tab of the Agentic CX Flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-cx-block-config.png)
+![The Config tab of the Agentic CX Flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-cx-block-config.png)
 
 
 ### Application
@@ -87,7 +87,7 @@ Select the speech recognition engine that converts customer speech to text.
 Configure how long the system waits for customer input before timing out. This setting is available under **Optional settings**.
 + **Idle chat timeout** — The maximum time to wait for customer input before following the **Idle chat timeout** branch. Set manually or set dynamically using a contact attribute.
 
-![The Optional settings of the Agentic CX Flow block, showing the Idle chat timeout configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-cx-block-optional-settings.png)
+![The Optional settings of the Agentic CX Flow block, showing the Idle chat timeout configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-cx-block-optional-settings.png)
 
 
 ### Context variables
@@ -120,7 +120,7 @@ This block supports the following branches:
 | Idle chat timeout | The customer did not provide input within the configured **Idle chat timeout**. This branch applies to chat only. | 
 | Escalation | The Agentic CX application determined that the contact should be escalated to a live agent. Connect this branch to a **Transfer to queue** or **Set working queue** block to route the contact to a live agent. | 
 
-![A configured Agentic CX Flow block showing the Default, Error, Idle chat timeout, and Escalation branches.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-cx-block-branches.png)
+![A configured Agentic CX Flow block showing the Default, Error, Idle chat timeout, and Escalation branches.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-cx-block-branches.png)
 
 
 ## How it works

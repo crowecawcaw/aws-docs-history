@@ -43,7 +43,7 @@ To keep customer data secure, you can set up permissions to have granular contro
 
 The following image shows an example of an automated interaction log on the **Contact details** page on the Connect Customer admin website.
 
-![An example of an automated interaction log.](http://docs.aws.amazon.com/connect/latest/adminguide/images/automated-interaction-log.png)
+![An example of an automated interaction log.](https://docs.aws.amazon.com/connect/latest/adminguide/images/automated-interaction-log.png)
 
 
 **Note**  

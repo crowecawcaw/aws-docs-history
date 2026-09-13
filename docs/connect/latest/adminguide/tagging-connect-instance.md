@@ -13,21 +13,21 @@ Instance Tagging provides the ability for you to tag Connect Customer instances 
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. Choose **Add an instance**.  
-![Add an instance that you would like to tag.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-1.png)
+![Add an instance that you would like to tag.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-1.png)
 
 1. Under **Set identity**, select the type of **Identity management** that you would like to use, enter a customer **Access URL**, and choose **Next**.  
-![Set identity management options and enter a customer access URL.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-2.png)
+![Set identity management options and enter a customer access URL.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-2.png)
 
 1. Under the **Add administrator** section, you can choose the **Add new tag** option if you would like to add tags to your instance.  
-![You can chose to add tags on this step of instance creation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-3.png)
+![You can chose to add tags on this step of instance creation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-3.png)
 
 1. Enter a `Key` and `Value` pair and choose **Next**.
 
 1. After you have made your desired configurations under the **Set telephony** and **Data storage** steps, review your configurations and choose **Create instance**.  
-![Create you instance after reviewing your desired configurations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-4.png)
+![Create you instance after reviewing your desired configurations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-4.png)
 
 1. After the instance has been created, navigate to the **Account overview** page of the instance and the tags that you added will appear in the **Tags** section.  
-![The characters after the last /.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-5.png)
+![The characters after the last /.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-instance-at-creation-5.png)
 
 ## Tagging an existing Connect Customer instance
 <a name="tagging-existing-connect-instance"></a>
@@ -35,16 +35,16 @@ Instance Tagging provides the ability for you to tag Connect Customer instances 
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. Select an existing instance that you would like to add tags too.  
-![An instance that you would like to tag.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-existing-instance-1.png)
+![An instance that you would like to tag.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-existing-instance-1.png)
 
 1. On the **Account overview**, choose **Add new tag**.  
-![The add tag button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-existing-instance-2.png)
+![The add tag button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-existing-instance-2.png)
 
 1. Enter a `Key` and `Value` pair and choose **Next**. You can add up to 50 tags on a single instance.  
-![Add key and value pairs for your tags.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-existing-instance-3.png)
+![Add key and value pairs for your tags.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-existing-instance-3.png)
 
 1. Choose **Save** to add your tags to your instance.  
-![Save to add your tags to your instance.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-existing-instance-4.png)
+![Save to add your tags to your instance.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-existing-instance-4.png)
 
 ## Tagging an Connect Customer instance using the API
 <a name="tagging-connect-instance-api"></a>

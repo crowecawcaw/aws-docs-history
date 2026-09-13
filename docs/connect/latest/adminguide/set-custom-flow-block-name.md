@@ -13,6 +13,6 @@ The following strings are not allowed in the block name or `Identifier` field: \
 
 There are two ways you can specify a custom block name:
 + On the block, choose **...**, and then choose **Add block name**, as shown in the following GIF.  
-![A block with a custom name.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-custom-flow-block-name-1.gif)
+![A block with a custom name.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-custom-flow-block-name-1.gif)
 + You can also customize the name of the block on the **Property** page, as shown in the following GIF.  
-![A block with a custom name.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-custom-flow-block-name-2.gif)
+![A block with a custom name.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-custom-flow-block-name-2.gif)

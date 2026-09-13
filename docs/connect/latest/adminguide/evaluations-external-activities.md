@@ -82,7 +82,7 @@ The following steps are typically performed by managers.
 
 The following image shows a search for `Completed` contacts, with `Attribute` = `ExternalContactType`.
 
-![A contact search for completed contacts with Attribute = ExternalContactType.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluate-external-activities1.png)
+![A contact search for completed contacts with Attribute = ExternalContactType.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluate-external-activities1.png)
 
 
 The following image shows an example of what contact details look like for a completed external contact. In this image: 
@@ -90,4 +90,4 @@ The following image shows an example of what contact details look like for a com
 + Initiation method = API
 + References includes the URL to the third-party system
 
-![Contact details for an external contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluate-external-activities2.png)
+![Contact details for an external contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluate-external-activities2.png)

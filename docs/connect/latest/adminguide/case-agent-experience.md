@@ -1,9 +1,9 @@
 
 
-# Access Connect Customer Cases in the agent application
+# Access Connect Customer Cases in the agent workspace
 <a name="case-agent-experience"></a>
 
-After you enable Connect Customer Cases, you need to take steps to make the functionality available through the agent application. This topic explains your options.
+After you enable Connect Customer Cases, you need to take steps to make the functionality available through the agent workspace. This topic explains your options.
 
 **Tip**  
 Make sure your agents have **Cases** permissions in their security profile so they can access Cases. For more information, see [Security profile permissions for Connect Customer Cases](assign-security-profile-cases.md).
@@ -24,7 +24,7 @@ For help finding your instance name, see [Find your Connect Customer instance na
 
 When you embed your Contact Control Panel (CCP), you have the option of showing or hiding the pre-built CCP user interface. For example, you might want to develop a custom agent application that has a user interface you design, with customized buttons to accept and reject calls. Or, you might want to embed the pre-built CCP that's included with Connect Customer into another custom app.
 
- You can display the pre-built CCP user interface, or hide it and build your own. In both scenarios, you can incorporate Cases into your agent application by using public APIs provided by Connect Customer. These APIs are built to provide you the flexibility to create the functionality and user experience that you want. For more information, see the [Cases API documentation](https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html). 
+ You can display the pre-built CCP user interface, or hide it and build your own. In both scenarios, you can incorporate Cases into your custom agent application by using public APIs provided by Connect Customer. These APIs are built to provide you the flexibility to create the functionality and user experience that you want. For more information, see the [Cases API documentation](https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html). 
 
 **Tip**  
-When you customize the agent's application, you determine what URL agents will use to access their agent application. This might be very different from the one provided by Connect Customer. For example, your URL could be https://example-corp.com/agent-support-app. 
+When you customize the agent's application, you determine what URL agents will use to access your custom agent application. This might be very different from the one provided by Connect Customer. For example, your URL could be https://example-corp.com/agent-support-app. 

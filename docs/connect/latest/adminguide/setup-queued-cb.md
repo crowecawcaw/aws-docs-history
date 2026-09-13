@@ -79,7 +79,7 @@ The following procedure shows how to:
 
 At the basic level, here's what this queued callback flow looks like, without any of the alternative branches or error handling configured. The following image shows a flow with the following blocks: **Get customer input**, **Store customer input**, **Set callback number**, **Play prompt**, **Transfer to queue**, and **Disconnect/hang up**.
 
-![A queued callback flow in the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/queued-callback-flow.png)
+![A queued callback flow in the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/queued-callback-flow.png)
 
 
 Following are the steps to create this flow.
@@ -95,15 +95,15 @@ You can create this flow using different flow types: Customer queue flow, Transf
 1. Add a [Get customer input](get-customer-input.md) block.
 
 1. Configure the block to prompt the customer for a callback. The following image shows a message in the **Text-to-speech** box: **Press 1 to receive a callback. Press 2 to stay in queue**.   
-![The properties page of the Get customer input block, configured for text-to-speech or chat text.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-callback.png)
+![The properties page of the Get customer input block, configured for text-to-speech or chat text.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-callback.png)
 
 1. At the bottom of the block, choose **Add another condition**, and add options 1 and 2, as shown in the following image.   
-![Option 1 and option 2.](http://docs.aws.amazon.com/connect/latest/adminguide/images/options-1-and-2.png)
+![Option 1 and option 2.](https://docs.aws.amazon.com/connect/latest/adminguide/images/options-1-and-2.png)
 
 1. Add a [Store customer input](store-customer-input.md) block.
 
 1. Configure the block to prompt customers for their callback number, such as "Please enter your phone number." The following image shows the **Properties** page of the **Store customer input **block.  
-![The text to speech box, contains the message Please enter your phone number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/store-customer-input.png)
+![The text to speech box, contains the message Please enter your phone number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/store-customer-input.png)
 
 1. In the **Customer input** section, select **Phone number**, and then choose one of the following: 
    + **Local format**: Your customers are calling from phone numbers that are in the same country as the AWS Region where you created your Connect Customer instance.
@@ -112,12 +112,12 @@ You can create this flow using different flow types: Customer queue flow, Transf
 1. Add a [Set callback number](set-callback-number.md) block to your flow.
 
 1. Configure the block to set **Type** to **System**, as shown in the following image. For **Attribute**, choose **Store customer input**. This attribute stores the customer's phone number.   
-![The Properties page of the set callback number block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-callback-number2.png)
+![The Properties page of the set callback number block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-callback-number2.png)
 
 1. Add a [Transfer to queue](transfer-to-queue.md) block. 
 
 1. In the **Transfer to queue** block, configure the **Transfer to callback queue** tab as shown in the following image. Set **Initial delay** to 99. Set **Max number of retries** to 2. Set **Minimum time between attempts** to 10 minutes.   
-![The Transfer to callback queue tab on the Properties page of the Transfer to queue block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-callback-queue-tab.png)
+![The Transfer to callback queue tab on the Properties page of the Transfer to queue block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-callback-queue-tab.png)
 
    The following properties are available:
    + **Initial delay**: Specify how much time has to pass between a callback contact being initiated in the flow, and the customer is put in queue for the next available agent. In the previous example, the time is 99 seconds.
@@ -129,19 +129,19 @@ We strongly recommend that you double-check the number entered in **Maximum numb
    + **Minimum time between attempts**: If the customer doesn't answer the phone, this is how long to wait until trying again. In the previous example, we wait 10 minutes between attempts.
 
 1. In the **Optional parameters** section, choose **Set working queue** if you want to transfer the contact to a queue that you set up specifically for callbacks. This option is shown in the following image.  
-![The optional parameters, set a queue set to callback queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-callback-queue-tab-set-working-queue.png)
+![The optional parameters, set a queue set to callback queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-callback-queue-tab-set-working-queue.png)
 
    By creating a queue just for callbacks, you can view in your real-time metrics reports how many customers are waiting for callbacks.
 
    If you don't set a working queue, Connect Customer uses the queue that was set previously in the flow.
 
 1. You can optionally specify the caller ID that customers see when they receive the callback by configuring the **Caller ID number to display** option in the [Transfer to queue](transfer-to-queue.md) block, as shown in the following image.  
-![The optional parameters section showing Caller ID number to display options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-callback-caller-id-display.png)
+![The optional parameters section showing Caller ID number to display options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-callback-caller-id-display.png)
 
 1. The callback is a new contact, separate from the original inbound voice contact. You can optionally choose which flow runs when this callback contact is created. To do so, set the **Set creation flow** option in the [Transfer to queue](transfer-to-queue.md) block, as shown in the following image.  
-![The properties page of the Transfer to queue block, the Transfer to Callback tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-properties1a.png)
+![The properties page of the Transfer to queue block, the Transfer to Callback tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-queue-properties1a.png)
    + In [Connect Customer](enable-nextgeneration-amazonconnect.md) instances, you can choose either agent first callback mode (the default) or customer first callback mode. For more information about these options, see [Use customer first callback mode](customer-first-cb.md).  
-![The dial mode, either agent first callback (the default) or customer first callback mode.](http://docs.aws.amazon.com/connect/latest/adminguide/images/first-callbacks-choose-dial-mode-agent-and-customer.png)
+![The dial mode, either agent first callback (the default) or customer first callback mode.](https://docs.aws.amazon.com/connect/latest/adminguide/images/first-callbacks-choose-dial-mode-agent-and-customer.png)
    + (Optional) Create a callback creation flow. Use the **Set creation flow** dropdown menu to select the flow to be run when a callback contact is created. 
 
      The callback creation flow that you select must meet the following requirements: 

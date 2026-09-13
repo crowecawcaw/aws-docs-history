@@ -34,7 +34,7 @@ Rather than setting up a list of dates and times directly, you can link to the o
 
 1. Select **Save** at the top right of the hours of operation resource page.
 
-![Hours of operations overrides table actions dropdown.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operations-overrides.png)
+![Hours of operations overrides table actions dropdown.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operations-overrides.png)
 
 
 **Recurring events**  
@@ -52,12 +52,12 @@ These dates are used by Flows to determine if this override should be considered
 
 In this example, operations are closed on a specific date each year, no matter what day of the week it falls on:
 
-![Dialog to add a recurring event for any day of the week.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-annual-recurring-hours-of-operation-override.png)
+![Dialog to add a recurring event for any day of the week.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-annual-recurring-hours-of-operation-override.png)
 
 
 In this example, extended hours have been set up for every other week:
 
-![Dialog to add a recurring event for every other week.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-daily-recurring-hours-of-operation-override.png)
+![Dialog to add a recurring event for every other week.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-daily-recurring-hours-of-operation-override.png)
 
 
 **Temporary hours**  
@@ -75,7 +75,7 @@ Recurring open/closed overrides take precedence over temporary hours.
 
 In this example, operations are only open every other day and for partial hours:
 
-![Dialog to create temporary hours for every other day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-temporary-hours-of-operations.png)
+![Dialog to create temporary hours for every other day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-temporary-hours-of-operations.png)
 
 
 **Copy overrides**  
@@ -85,7 +85,7 @@ If you choose **Copy from another Hours of Operations**:
 
 1. Next, choose to **Save link**.
 
-![Dialog to copy overrides from a different hours of operation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/copy-hours-of-operation-overrides.png)
+![Dialog to copy overrides from a different hours of operation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/copy-hours-of-operation-overrides.png)
 
 
 After copying a list, the override records are *distinct from their source*. They are unaffected by changes made to that original list (for example, if Labor Day changes from closed to a half day).
@@ -99,7 +99,7 @@ If you want to instead rely on a global list and ensure your override dates and 
 **Link overrides**  
 An alternative to setting up a list of overrides within an hours of operation record is to link to another resource that contains a master list. For example, you can set up a “parent” hours of operations to house a list of global corporate holidays, and another for regional blocked dates, and so on. Each “child” that is linked to a parent record inherits its overrides. As changes are made to the parent, the child automatically benefits without additional effort.
 
-![Link overrides from a different hours of operation table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/linked-hours-of-operations.png)
+![Link overrides from a different hours of operation table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/linked-hours-of-operations.png)
 
 
 To create a link so overrides are inherited from another hours of operations:
@@ -107,7 +107,7 @@ To create a link so overrides are inherited from another hours of operations:
 1. Open a record and navigating to the **Linked hours of operations** section.
 
 1. Select the button to **Add link**.  
-![Dialog to link overrides from a different hours of operation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/link-hours-of-operation-overrides.png)
+![Dialog to link overrides from a different hours of operation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/link-hours-of-operation-overrides.png)
 
 1. Choose the link mode titled **Inherit**.
 
@@ -158,17 +158,17 @@ There might be times where the overrides on a given hours of operation resource 
 
 In the following example, there are numerous competing configurations, but because the recurring closed hours cover the entire day, the other overrides and operating hours are ignored. The contact center is closed for the full day.
 
-![Hours of operation override example to close for the day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-overrides-example-1.png)
+![Hours of operation override example to close for the day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-overrides-example-1.png)
 
 
 In a different example, the standard operating hours would normally not be open on a Sunday. However, this is a special exception, as the company prides itself on supporting its customers on one of the busiest shopping days of the year. In this case, the contact center is open from 10am - 10pm.
 
-![Hours of operation override example to open on a normally closed day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-overrides-example-2.png)
+![Hours of operation override example to open on a normally closed day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-overrides-example-2.png)
 
 
 In a final example, the contact center opens at 8am, then closes from noon to 4pm, then reopens for two hours before closing at 8pm.
 
-![Hours of operation override example with multiple override types.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-overrides-example-3.png)
+![Hours of operation override example with multiple override types.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-overrides-example-3.png)
 
 
 **Note**  
@@ -177,7 +177,7 @@ Test any configuration that will impact your customers, to be sure they produce 
 **View audit history for overrides**  
 An audit history of overrides appears on the **Hours of operation** page, distinct from the standard hours of operations audit history. Each audit record refers to the ID of the related hours of operation record.
 
-![Hours of operation overrides audit history table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-overrides-audit-history.png)
+![Hours of operation overrides audit history table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hours-of-operation-overrides-audit-history.png)
 
 
 **Note**  

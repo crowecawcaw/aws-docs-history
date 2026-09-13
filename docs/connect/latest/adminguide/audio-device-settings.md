@@ -14,7 +14,7 @@ If you move to a different computer or browser, you will need to change these se
 <a name="change-audio-device-settings"></a>
 
 1. In the CCP or agent workspace, choose **Settings**. The **Settings** dialog box appears, similar to the following image.   
-![The CCP, the settings icon in upper right corner, the settings page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-audio-settings.png)
+![The CCP, the settings icon in upper right corner, the settings page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-audio-settings.png)
 
 1. Under **Audio devices**, use the dropdown to select your **Speaker**, **Microphone**, **Ringer**, and **Audio Enhancement**. For more information about Audio Enhancement, see [Enable Audio Enhancement for agents in Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/audio-enhancement.html).
 

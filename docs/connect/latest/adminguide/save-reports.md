@@ -38,7 +38,7 @@ We recommend establishing a naming convention for reports in your organization, 
 1. To view to the saved report at a later time, on the navigation menu, choose **Analytics and optimization**, **Dashboards and reports**.
 
 1. Choose **All reports** to search for and view your saved report, or choose the tab for the type of report you saved. For example, you can choose **Real-time metrics** to view your saved real-time metrics reports, as shown in the following image.   
-![A saved real-time metrics report on the Real-time metrics report page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saved-reports.png)
+![A saved real-time metrics report on the Real-time metrics report page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saved-reports.png)
 
 ## How to delete saved reports
 <a name="how-to-delete-saved-reports"></a>
@@ -50,4 +50,4 @@ We recommend establishing a naming convention for reports in your organization, 
 1. Choose the **Historical metrics** tab. 
 
 1. Go to the row that has the report you want to delete, and choose the **Delete** icon, as shown in the following image. If you don't have permissions in your security profile to delete reports, this option won't be available.  
-![The Delete icon next to a report.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-delete-saved-report.png)
+![The Delete icon next to a report.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-delete-saved-report.png)

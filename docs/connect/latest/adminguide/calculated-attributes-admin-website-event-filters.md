@@ -10,7 +10,7 @@ You cannot edit event filters after creating a calculated attribute definition.
 
 When you create a calculated attribute, you can create one or more event filters. An event filter consists of the following components:
 
-![Event filter components.](http://docs.aws.amazon.com/connect/latest/adminguide/images/calculated-attributes-admin-website-event-filters-1.png)
+![Event filter components.](https://docs.aws.amazon.com/connect/latest/adminguide/images/calculated-attributes-admin-website-event-filters-1.png)
 
 +  **Filter groups**: Group of filters that you apply to the profile objects. You can add multiple filter groups which are connected by OR relationships. 
 +  **Filters**: Filters the profile objects that are included in the calculation of the calculated attribute by specifying attributes, operators, and values. You can add as many filters as needed for your use case. 

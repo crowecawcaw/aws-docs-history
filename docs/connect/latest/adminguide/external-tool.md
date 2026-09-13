@@ -60,10 +60,10 @@ The block supports the following actions. Select an action using **Select an act
 
 The following images show the Invoke tool action configuration in the External Tool block properties.
 
-![The External Tool block showing the Invoke tool action with the Application name and Tool name fields.](http://docs.aws.amazon.com/connect/latest/adminguide/images/external-tool-invoke.png)
+![The External Tool block showing the Invoke tool action with the Application name and Tool name fields.](https://docs.aws.amazon.com/connect/latest/adminguide/images/external-tool-invoke.png)
 
 
-![The External Tool block showing the Execution mode and Timeout settings for the Invoke tool action.](http://docs.aws.amazon.com/connect/latest/adminguide/images/external-tool-invoke-2.png)
+![The External Tool block showing the Execution mode and Timeout settings for the Invoke tool action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/external-tool-invoke-2.png)
 
 + **Application name** (required): The external application to call. You can set this manually or dynamically. Only applications associated with your instance appear.
 + **Tool name** (required): The tool to invoke within the application. You can set this manually or dynamically; the manual list updates by application. Input fields are generated from the tool schema, and tool inputs can be provided manually, dynamically, or as raw JSON.
@@ -80,7 +80,7 @@ The following images show the Invoke tool action configuration in the External T
 
 The following image shows the Load tool result action configuration in the External Tool block properties.
 
-![The External Tool block configured for the Load tool result action.](http://docs.aws.amazon.com/connect/latest/adminguide/images/external-tool-load.png)
+![The External Tool block configured for the Load tool result action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/external-tool-load.png)
 
 + **External tool invocation ID**: The invocation ID of the External Tool that was run in **Asynchronous** mode. `$.ExternalTool.InvocationId` contains the invocation ID of the most recent asynchronously run External Tool.
 + For the **Load tool result** action, set **Namespace** = `ExternalTool` and **Key** = **Invocation ID**.
@@ -110,4 +110,4 @@ When a customer contacts a financial institution about a recent transaction, a f
 
 After you configure the block, it shows the **Success** and **Error** branches. For a **Load tool result** action, it also shows the **In progress** branch.
 
-![The External Tool block configured with Success and Error branches after being added to a flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/external-tool-configured.png)
+![The External Tool block configured with Success and Error branches after being added to a flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/external-tool-configured.png)

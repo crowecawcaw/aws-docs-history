@@ -49,7 +49,7 @@ The following system attributes are available:
 1. In Connect Customer, on the left navigation menu, choose **Routing**, **Predefined attributes**. 
 
 1. On the **Attribute management** page choose **Add attribute**, as shown in the following image.  
-![The Attribute management page, the Add attribute button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-attribute.png)
+![The Attribute management page, the Add attribute button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-attribute.png)
 
 1. On the **Add predefined attribute** page, in the **Details** section, complete the following fields as needed:
 
@@ -66,7 +66,7 @@ The following system attributes are available:
    1. **Enforce valid values**: Choose to allow only predefined values when using this attribute as a contact segment attribute.
 
 1. Choose **Add value** to add values to the attribute. For example, you might enter Sales, Marketing, and Accounts for Business units.   
-![Save to save the attribute and values.](http://docs.aws.amazon.com/connect/latest/adminguide/images/predefined-attribute-add.png)
+![Save to save the attribute and values.](https://docs.aws.amazon.com/connect/latest/adminguide/images/predefined-attribute-add.png)
 
 1. Choose **Save** to save the predefined attribute and values.
 

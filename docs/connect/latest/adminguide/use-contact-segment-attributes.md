@@ -23,10 +23,10 @@ To implement contact segment attributes, you first create predefined attributes,
 1. In Connect Customer, on the left navigation menu, choose **Routing**, **Predefined attributes**. 
 
 1. On the **Attribute management** page, choose **Add attribute**, as shown in the following image.  
-![The Attribute management page, the Add attribute option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/attribute-management-1.png)
+![The Attribute management page, the Add attribute option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/attribute-management-1.png)
 
 1. On the **Add predefined attributes** page, add the name in the **Predefined attribute** box and the value in the **Value** box. The following example image shows a predefined attribute named **Business Unit**, and three values: Sales, Marketing, and Accounts.  
-![The Add predefined attribute page, a predefined attribute named Business Unit, and three sample values.](http://docs.aws.amazon.com/connect/latest/adminguide/images/attribute-management-2.png)
+![The Add predefined attribute page, a predefined attribute named Business Unit, and three sample values.](https://docs.aws.amazon.com/connect/latest/adminguide/images/attribute-management-2.png)
 
 1. Choose **Add value** to add more values to the predefined attribute.
 
@@ -43,7 +43,7 @@ To implement contact segment attributes, you first create predefined attributes,
 
 The following image shows the properties panel of the [Set contact attributes](set-contact-attributes.md) block. 
 
-![The Set contact attributes block properties.](http://docs.aws.amazon.com/connect/latest/adminguide/images/attribute-management-3.png)
+![The Set contact attributes block properties.](https://docs.aws.amazon.com/connect/latest/adminguide/images/attribute-management-3.png)
 
 
 When **Namespace ** = **Segment attributes**, the **Key** dropdown menu lists the predefined attributes. 

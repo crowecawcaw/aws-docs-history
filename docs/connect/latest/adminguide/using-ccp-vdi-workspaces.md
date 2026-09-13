@@ -27,7 +27,7 @@ This section describes the system requirements for using Connect Customer with W
   + **Agent machine configuration**
 
     This solution requires a media connection between the agent thin client to Connect Customer. To allow traffic between the agent's machine and Connect Customer Softphone Media UDP Port 3478, see [Set up your network](ccp-networking.md).  
-![Workspace VDI and agent machine firewall settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/vdi-workspaces.png)
+![Workspace VDI and agent machine firewall settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/vdi-workspaces.png)
 + **Unsupported CCP Deployment**
   + Native CCP
 

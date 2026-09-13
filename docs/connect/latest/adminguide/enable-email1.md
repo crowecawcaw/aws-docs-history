@@ -28,10 +28,10 @@ These steps only apply if you already created a Connect Customer instance but di
 1. In the Connect Customer console, on the left navigation menu, choose **Email**, and then choose **Create service role**. This role needs to be created only once for your account. It allows Amazon SES to route emails to Connect Customer.
 
 1.  Choose **Add Domain** as shown in the following image.  
-![The Manage email page, the Add domain button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-aws-console1.png)
+![The Manage email page, the Add domain button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-aws-console1.png)
 
 1. In the **Add email domain** box, choose **Connect Customer email domain**, as shown in the following image. When you choose this option, the name of the domain is auto-generated: *{{instance-alias}}.email.connect.aws*. You cannot change this email address.  
-![The Add email domain box, the Connect Customer email domain option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-add-email-domain.png)
+![The Add email domain box, the Connect Customer email domain option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-add-email-domain.png)
 
 ## (Optional) Step 3: Use your own custom email domains
 <a name="use-custom-email"></a>
@@ -39,10 +39,10 @@ These steps only apply if you already created a Connect Customer instance but di
 You can import up to five custom domains that have been [onboarded to Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#just-verify-domain-proc).
 
 1. In the Connect Customer console, on the left navigation menu, choose **Email**, and then choose **Add Domain** as shown in the following image.  
-![The Email channel on the Connect Customer console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-aws-console.png)
+![The Email channel on the Connect Customer console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-aws-console.png)
 
 1. Choose **Use custom email domain**. Use the dropdown box to choose custom domains that have been [verified by Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#just-verify-domain-proc).  
-![The Use custom email domain option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-add-custom-domain.png)
+![The Use custom email domain option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-add-custom-domain.png)
 
 ## Step 4: Enable email and create an Amazon S3 bucket for storing email and attachments
 <a name="enable-email-buckets"></a>
@@ -57,18 +57,18 @@ If you choose **Enable Attachments sharing** for your instance, you must create 
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. On the left navigation menu, choose **Data storage**, **Email messages**, **Edit**, **Enable exporting email messages to S3**, and then choose **Save**. 
 
 1. Complete the **Email messages** page to create or select an S3 bucket where email messages are stored. The following image shows an example of a completed page.   
-![The Data storage menu option, the Email messages page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-messages-export-to-s3.png)
+![The Data storage menu option, the Email messages page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-messages-export-to-s3.png)
 
 1.  If you want to allow email attachments, choose **Attachments** as well. The following image shows these options.
 
 The following image of the **Data storage** page shows the Amazon S3 bucket for email messages and attachments. 
 
-![The Amazon S3 bucket to store emails and attachments.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-s3-bucket.png)
+![The Amazon S3 bucket to store emails and attachments.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-s3-bucket.png)
 
 
 ## Step 5: Configure a CORS policy on your attachments bucket

@@ -32,7 +32,7 @@ For information about enabling Object Lock on an existing bucket, see [ Enable O
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **Data storage**.
 
@@ -52,11 +52,11 @@ For information about enabling Object Lock on an existing bucket, see [ Enable O
 1. Choose **Analytics and optimization**, **Contact search**. Search for your call recording to find the contact ID. Copy the contact ID. You're going to use it in the next step to locate the call recording in your S3 bucket.
 
 1. Open the Amazon S3 console, select the bucket you created in Step 1, and follow the path prefix. The path to the call recording includes the year, month, and day the recording was made. After you're in the correct path prefix, search for the contact ID of the call recording.   
-![The Amazon S3 console, the search box, the path prefix.](http://docs.aws.amazon.com/connect/latest/adminguide/images/s3-objectlock-pathprefix.png)
+![The Amazon S3 console, the search box, the path prefix.](https://docs.aws.amazon.com/connect/latest/adminguide/images/s3-objectlock-pathprefix.png)
 
 1. Select the **Show versions** toggle next to the **Search** box. With this option, you can attempt to delete the object instead of only applying a delete marker. Applying a delete marker is the standard behavior when you delete an object from an S3 bucket with versioning enabled.
 
 1. Select the call recording (the box to the left of the recording name), and then choose **Delete**. In the confirmation box, enter **permanently delete** and select **Delete objects**.
 
 1. Review the **Delete objects: status** notification to confirm that the delete operation has been blocked due to the Object Lock policy.   
-![The Amazon S3 console, Delete objects status notification.](http://docs.aws.amazon.com/connect/latest/adminguide/images/s3-objectlock-failed.png)
+![The Amazon S3 console, Delete objects status notification.](https://docs.aws.amazon.com/connect/latest/adminguide/images/s3-objectlock-failed.png)

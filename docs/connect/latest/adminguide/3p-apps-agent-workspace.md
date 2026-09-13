@@ -8,7 +8,7 @@
 
 Agents access third-party applications in the agent workspace with the **Apps** launcher, shown in the following image. The launcher appears in the agent workspace after you [onboard](3p-apps.md) your third-party app.
 
-![The Apps launcher in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-workspace-apps-launcher.png)
+![The Apps launcher in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-workspace-apps-launcher.png)
 
 
 The **Apps** launcher lists the applications that the agent can access.
@@ -27,7 +27,7 @@ Agents need the following security profile permissions to access third-party app
 
 Agents can pin an app so that it stays open. On the app's tab, choose the more options icon, and then choose **Pin tab**, as shown in the following image.
 
-![The Pin tab option on an app's tab in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-agent-workspace-pinned-1.png)
+![The Pin tab option on an app's tab in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-agent-workspace-pinned-1.png)
 
 
 After an agent pins an app, the app stays open while the agent is idle and opens automatically for incoming contacts. The app stays pinned for that user and browser until the user clears the browser cookies.
@@ -36,12 +36,12 @@ An agent can unpin the tab at any time and then open and close the app as needed
 
 The following image shows a third-party app named NoteTest pinned in the agent workspace.
 
-![A third-party note test app that is pinned to the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-agent-workspace-notes-app.png)
+![A third-party note test app that is pinned to the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-agent-workspace-notes-app.png)
 
 
 The following image shows a third-party app named Maps pinned in the agent workspace.
 
-![A third-party maps app that is pinned to the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-agent-workspace-maps-app.png)
+![A third-party maps app that is pinned to the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-agent-workspace-maps-app.png)
 
 
 ## Important things to know

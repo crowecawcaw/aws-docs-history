@@ -29,4 +29,4 @@ With standard identifiers, you can set attributes on the key. Decide which ident
 ## Compatible identifiers
 <a name="standard-identifiers-compatibility"></a>
 
-![Matrix showing allowed and restricted identifiers and key names for different data types.](http://docs.aws.amazon.com/connect/latest/adminguide/images/standard-identifiers-compatibility-image.png)
+![Matrix showing allowed and restricted identifiers and key names for different data types.](https://docs.aws.amazon.com/connect/latest/adminguide/images/standard-identifiers-compatibility-image.png)

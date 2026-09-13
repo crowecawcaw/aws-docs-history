@@ -25,12 +25,12 @@ If you are not using the hosted communications widget, you need to update your c
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. On the **Data storage** page, under the **Attachments**, choose **Edit**, select **Enable Attachments sharing**, and then choose **Save**.
 
    Storage options appear, similar to the following image.  
-![The attachment section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/attachments-enable.png)
+![The attachment section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/attachments-enable.png)
 
 1. You can change the Amazon S3 bucket location where attachments are stored. By default, your existing Connect Customer bucket is used, with a new prefix for attachments. 
 **Note**  
@@ -64,7 +64,7 @@ To allow administrators to view or modify file attachment settings, assign the a
 
 1. Choose **Save**.
 
-![The Edit security profile page with the Settings section expanded, showing the File attachments permission.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_settings.png)
+![The Edit security profile page with the Settings section expanded, showing the File attachments permission.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_settings.png)
 
 
 Users assigned a security profile with file attachment permissions see a **Settings** icon in the left navigation menu, below **Channels**. From there, they can view or edit file attachment settings based on their assigned permissions.
@@ -81,7 +81,7 @@ After you enable attachments and assign permissions, you can configure allowed f
 1. On the **Attachments** page, choose **Edit**.
 
    The following image shows the Attachments page in read-only mode.  
-![The Attachments page showing the current configuration in read-only mode, with the Edit button in the upper right.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-attachments-config-view.png)
+![The Attachments page showing the current configuration in read-only mode, with the Edit button in the upper right.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-attachments-config-view.png)
 
 1. Under **Channels**, choose **Configure each channel and service individually** to set different file types and size limits per channel. Alternatively, choose **Apply one configuration to all channels and services** to use the same settings across your entire instance.
 
@@ -94,7 +94,7 @@ After you enable attachments and assign permissions, you can configure allowed f
    + For Email, the maximum file size is 20 MB. You can reduce this limit but cannot exceed 20 MB.
 
    The following image shows the attachment configuration in edit mode.  
-![The Attachments page in edit mode, showing channel tabs, allowed file types, and the maximum file size slider.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-attachments-config-edit.png)
+![The Attachments page in edit mode, showing channel tabs, allowed file types, and the maximum file size slider.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-attachments-config-edit.png)
 
 1. Choose **Save**.
 
@@ -170,7 +170,7 @@ To allow customers and agents to upload and download files, update your cross-or
 ## Step 5 (Optional): Integrate with the APIs to enhance your custom UIs
 <a name="step5-update-chat-ui"></a>
 
-If you are skipping the out-of-the-box Chat UI or Agent workspace, you can use the Connect Customer Participant attachments APIs, or Connect Customer attached files APIs to build your own UIs and provide attachments support for Cases and Chats. For the general steps in working with both sets of APIs, see [Working with attachments](https://docs.aws.amazon.com/connect/latest/APIReference/working-with-acps-api).
+If you are skipping the out-of-the-box Chat UI or agent workspace, you can use the Connect Customer Participant attachments APIs, or Connect Customer attached files APIs to build your own UIs and provide attachments support for Cases and Chats. For the general steps in working with both sets of APIs, see [Working with attachments](https://docs.aws.amazon.com/connect/latest/APIReference/working-with-acps-api).
 
 ## Next step
 <a name="nextsteps-attachments"></a>

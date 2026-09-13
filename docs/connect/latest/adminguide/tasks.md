@@ -17,7 +17,7 @@ In a business a *task* is a unit of work that an agent must complete. This inclu
 
 Agents handle tasks in their Contact Control Panel (CCP), again just like any other contact. When assigned a task, agents see a notification with the description of the task, information associated with the tasks, and links to any applications that they might need to complete the task. The following image shows what an agent's CCP might look like when they manage tasks.
 
-![A task in the Contact Control Panel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-introduction.png)
+![A task in the Contact Control Panel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-introduction.png)
 
 
 ## How to create tasks
@@ -133,7 +133,7 @@ While agents are **actively working on a task**, the **Number pad** appears on t
 
 The following image of the CCP shows the **Number pad** is available while the agent works on a task.
 
-![The number pad on the CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-linked-outboundcall.png)
+![The number pad on the CCP.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-linked-outboundcall.png)
 
 
 ## Link task to contact by using the Create task block
@@ -143,7 +143,7 @@ With the Create task block, you can automatically link the task to the current c
 
 The following image of the Properties page of the **Create task** block shows the **Link to contact** option.
 
-![The link to contact option on the Create task block properties page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-properties-manually.png)
+![The link to contact option on the Create task block properties page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-properties-manually.png)
 
 
 ## Track who created a task
@@ -153,7 +153,7 @@ Agents who create tasks through CCP automatically have their agent resource ARN 
 
 The `CreatedByUser` segment attribute is available to you on the [Create task](create-task-block.md) block. You can set the segment attribute of **Created By User**, which represents the ARN of the user who created the task. The following image shows a section of the **Create task** properties page where this attribute is available.
 
-![The Create task properties page, the Create By User attribute.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-expiry.png)
+![The Create task properties page, the Create By User attribute.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-expiry.png)
 
 
  You can also set this value manually for tasks that are created through the [StartTaskContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html) API.
@@ -240,7 +240,7 @@ Use the [Contact search](contact-search.md) page to search for and review comple
 
 The following image is an example of what the **Contact Summary** and **References** look like in a contact record for a task.
 
-![A contact record page for a task.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-sample-ctr.png)
+![A contact record page for a task.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-sample-ctr.png)
 
 
 The following data is appended to the contact record but not stored with it. The data is included in an export. 

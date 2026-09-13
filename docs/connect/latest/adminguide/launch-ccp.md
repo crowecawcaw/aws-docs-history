@@ -8,7 +8,7 @@ The URL to launch the CCP is:
 
 Where {{instance name}} is provided by your IT department or whoever set up Connect Customer for your business. The following image shows an example URL for the CCP.
 
-![The contact control panel, the URL.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-login-url.png)
+![The contact control panel, the URL.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-login-url.png)
 
 
 With this updated CCP, your agents can manage voice, chat, and tasks from this single interface.

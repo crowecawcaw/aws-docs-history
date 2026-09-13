@@ -91,7 +91,7 @@ aws events put-targets --rule case-events-to-sqs-queue --target "[{
 ## Step 5: Test case event streams
 <a name="step5-case-event-streams-enable"></a>
 
-Use the Connect Customer agent application to: 
+Use the Connect Customer agent workspace to: 
 
 1. Accept a chat contact.
 

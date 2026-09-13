@@ -23,7 +23,7 @@ You can define custom criteria to evaluate self-service interactions. These crit
 **How to set the contact interaction type**  
 When creating or editing an evaluation form, choose **Additional settings**, then under **Contact interaction type**, select **Automated interaction**. If you do not set this, the form defaults to agent interaction and cannot be used to evaluate automated (self-service) contacts.
 
-![Additional settings tab showing Form language dropdown and Contact interaction type with Automated interaction selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-form-configuration.png)
+![Additional settings tab showing Form language dropdown and Contact interaction type with Automated interaction selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-form-configuration.png)
 
 
 An example evaluation form is as follows:
@@ -54,7 +54,7 @@ Type in the question, questions instructions and answer options to be used by AI
 
 Use @ to enter keywords that generative AI can understand - the words system, AI agent and bot refer to any non-human participant that is interacting with the customer. You can use these words interchangeably. 
 
-![Automation tab showing Option 3: Generative AI selected for evaluating AI agent behavior.](http://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-question-gen-ai-automation.png)
+![Automation tab showing Option 3: Generative AI selected for evaluating AI agent behavior.](https://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-question-gen-ai-automation.png)
 
 
 ### Automation using rules
@@ -80,11 +80,11 @@ Connect Customer understands the following keywords within semantic match rules:
 + **Automated interaction:** Part of the customer interaction where human agent was not present on the conversation, including self-service interaction with bot or AI agent, and wait time in the queue
 + **Human agent interaction:** Customer interaction with the human agent
 
-![Rule configuration interface showing conditions for conversational analytics post-chat analysis, queue assignment.](http://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-containment-rule.png)
+![Rule configuration interface showing conditions for conversational analytics post-chat analysis, queue assignment.](https://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-containment-rule.png)
 
 + If you are using a Connect Customer AI agent, you can also check if the AI agent for self-service escalated to a human or not.
 
-![Define conditions step showing AI Agent Escalation condition with Self service, SalesAgent, and Escalated to human dropdowns.](http://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-ai-agent-escalation-check.png)
+![Define conditions step showing AI Agent Escalation condition with Self service, SalesAgent, and Escalated to human dropdowns.](https://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-ai-agent-escalation-check.png)
 
 
 Self-service success for at least one intent  
@@ -101,7 +101,7 @@ Create a rule using **natural language - semantic match** condition:
 
 After you set up a rule you can use it to answer single selection or multiple selection questions in your evaluation form. For example, if you created a rule to check for self-service containment, then you can use that to answer a question on whether the contact was handled during self-service.
 
-![Automation tab showing Option 2 Contact categories selected with condition and default answer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-use-rules-in-form.png)
+![Automation tab showing Option 2 Contact categories selected with condition and default answer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-use-rules-in-form.png)
 
 
 ### Automation using metrics
@@ -109,7 +109,7 @@ After you set up a rule you can use it to answer single selection or multiple se
 
 You can use contact metrics to automatically answer questions on the self-service experience. For example, you can check for customer sentiment during the automated interaction. To use metrics, make sure that the Question Type is chosen as Number.
 
-![Automation tab showing Option 2: Contact metrics selected with customer sentiment score field.](http://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-metrics-automation.png)
+![Automation tab showing Option 2: Contact metrics selected with customer sentiment score field.](https://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-metrics-automation.png)
 
 
 After you have set up automation on every question, you toggle on **Enable automated submission of evaluations** and activate the form. You would then be guided to create a rule to automatically submit the evaluation form.
@@ -124,13 +124,13 @@ You can use the following conditions to identify specific self-service interacti
 AI Agent  
 To trigger a self-service interaction evaluation, you can identify if specific AI agent(s) were active on the contact. You can also check for a specific AI agent version.  
 
-![AI Agent condition with Self service selected and SalesAgent specified as the AI agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-ai-agent-identification.png)
+![AI Agent condition with Self service selected and SalesAgent specified as the AI agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-ai-agent-identification.png)
 
 
 Custom contact attributes and contact segment attributes  
 You can also use **custom contact attributes** and **contact segment attributes** set within flows to identify specific workflows, bots, customer intents or outcomes. For example, you might set a contact attribute within flows, `pizzaOrderBot = true` if a Lex bot called "Pizza Order Bot" is invoked during the conversation.  
 
-![Define conditions page showing pizzaOrderBot contact attribute equals true condition.](http://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-custom-contact-attributes.png)
+![Define conditions page showing pizzaOrderBot contact attribute equals true condition.](https://docs.aws.amazon.com/connect/latest/adminguide/images/self-service-eval-custom-contact-attributes.png)
 
 
 After you have defined conditions:

@@ -10,7 +10,7 @@ Assigning a case owner does not route the case to the queue or the individual.
 
 The following image shows the **Case list** view in the agent workspace. You can filter by unassigned cases, for example, and assign ownership as needed. The default view is set to cases assigned to the agent who is viewing the list.
 
-![The case list view in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-caselistview.png)
+![The case list view in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-caselistview.png)
 
 
 **Topics**
@@ -42,7 +42,7 @@ To enable case assignment in your Connect Customer instance, configure the follo
 
 The following image shows the agent workspace. Agents choose the **Assign to** dropdown box to assign ownership of a case to themselves (the default option), a queue, or another user.
 
-![The Assign to dropdown box in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/case-assignment-example.png)
+![The Assign to dropdown box in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/case-assignment-example.png)
 
 
 If agents assign ownership of a case to a queue or another user, they are presented with a prompt to choose from a filtered list of queues or users. The filtered list of available queues or users is based on the quick connects in the agent's routing profile.
@@ -52,7 +52,7 @@ If agents assign ownership of a case to a queue or another user, they are presen
 
 The following image shows an example dropdown list of queues in the agent workspace. For this list of queues to be displayed to an agent: create a quick connect for each queue, and then add the queue to the agent's routing profile.
 
-![The Assign to queue box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-assignqueue-dropdown.png)
+![The Assign to queue box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-assignqueue-dropdown.png)
 
 
 ### Assign to user
@@ -60,7 +60,7 @@ The following image shows an example dropdown list of queues in the agent worksp
 
 The following image shows an example dropdown list of users in the agent workspace. For this list of users to be displayed to an agent: create a quick connect for each user, assign the quick connects to the queue, add the queue to the agent's routing profile.
 
-![The Assign to user box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/case-assignment-userexample.png)
+![The Assign to user box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/case-assignment-userexample.png)
 
 
 ## How to configure the Cases block to assign case ownership in a flow
@@ -70,7 +70,7 @@ You can configure the [Cases](cases-block.md) block to automatically populate th
 
 The following image shows an example of the Properties page for the **Cases** block. The **Request Fields** section is configured to **Set manually**, **Assigned queue**. You must enter the full ARN of the queue.
 
-![The Cases block with request field set to Assigned queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-block-assigned-queue.png)
+![The Cases block with request field set to Assigned queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-block-assigned-queue.png)
 
 
 There are situations where you might want to set the assigned queue or assigned user dynamically. For example, when the customer enters a DTMF number for a fraud issue, you can create cases where the Fraud department is automatically set as the case owner. 

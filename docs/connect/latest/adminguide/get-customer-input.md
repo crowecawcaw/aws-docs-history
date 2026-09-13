@@ -73,7 +73,7 @@ You can configure the Get customer input block by using the Connect Customer adm
 
 The following image shows the **Properties** page of the **Get customer input** block. It is manually configured to play an audio prompt that says "Welcome to Example Corp." 
 
-![The properties page of the Get customer input block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties1a.png)
+![The properties page of the Get customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties1a.png)
 
 
 Choose from the following options to select a prompt to be played to the customer:
@@ -86,7 +86,7 @@ Choose from the following options to select a prompt to be played to the custome
 
 The following image shows the DTMF section of the **Properties** page. Two conditions have been added to determine the appropriate branching, depending whether the customer presses 1 or 2. It times out after 5 seconds if the customer doesn't enter anything.
 
-![The DTMF section of properties page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties2a.png)
+![The DTMF section of properties page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties2a.png)
 
 
 Choose the following options:
@@ -156,7 +156,7 @@ The following code example shows how a DTMF configuration would be represented b
 + **Select a Lex bot**: After you create your Amazon Lex bot, choose the name of the bot from the drop-down list. Only built bots appear in the drop-down list. 
 + Enter an ARN: Specify the Amazon Resource Name of the Amazon Lex bot. 
 + **Session attributes**: Specify [Amazon Lex session attributes](connect-attrib-list.md#attribs-lex-table) that apply to the current contact's session only. The following image shows the session attributes configured for a max speech duration of 8000 milliseconds (8 seconds).  
-![The properties page of the Get customer input block, the session attributes section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties3.png)
+![The properties page of the Get customer input block, the session attributes section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties3.png)
 + **Intents**
   + **Add intent**: Choose to enter the name of the Amazon Lex bot intent to compare against.
 
@@ -179,7 +179,7 @@ The following code example shows how a DTMF configuration would be represented b
     + Check if the version is associated with the alias: 
 
       1. In Connect Customer admin website, choose **Routing**, **Flows**, the bot, **Aliases**. Verify that **Use in flow and flow modules** is enabled, as shown in the following image.  
-![The Aliases tab, the Use in flow and flow modules toggle.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-alias-enabled.png)
+![The Aliases tab, the Use in flow and flow modules toggle.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-alias-enabled.png)
 
       1. Refresh the flow designer to see the selections in **Get customer input** block.
   + **Use sentiment override**: Branch based on sentiment score, before the Amazon Lex intent. 
@@ -189,7 +189,7 @@ The following code example shows how a DTMF configuration would be represented b
     For example, a customer calls and they have a negative sentiment because their preferred appointment time isn't available. You can branch the flow based on their negative sentiment score, for example, if their negative sentiment is more than 80%. Or, a customer calls and has a positive sentiment of more than 80%, you can branch to upsell them on services.
 
     The following image shows the Intents section of the Amazon Lex tab. It is configured to route the contact when their negative sentiment score is 80%.  
-![The properties page of the Get customer input block, the Intents section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties5.png)
+![The properties page of the Get customer input block, the Intents section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties5.png)
 
     If you add both negative and positive sentiment scores, the negative score is always evaluated first. 
 
@@ -219,7 +219,7 @@ To have separate flow configurations for different messaging types, such as web 
 
 The following image shows a **Get customer input** block. **Initialize bot with message** and **Set manually** are selected.
 
-![The Get customer input block, the Initialize bot with message option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties-initialize-bot-1.png)
+![The Get customer input block, the Initialize bot with message option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties-initialize-bot-1.png)
 
 
 #### Configurable time-outs for voice input
@@ -290,7 +290,7 @@ Use the **Chat timeout** field under **Intents** to configure timeouts for chat 
 
 The following image shows the **Get customer input** block configured to timeout chats when the customer is inactive for 2 minutes.
 
-![The Intents section of the properties page, the Chat timeout option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-chattimeout.png)
+![The Intents section of the properties page, the Chat timeout option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-chattimeout.png)
 
 
 For information about setting up chat timeouts when all participants are human, see [Set up chat timeouts for chat participants](setup-chat-timeouts.md). 
@@ -315,7 +315,7 @@ You can allow customers to interrupt the Amazon Lex bot mid-sentence using their
   Barge-in is disabled globally by default. You must set the session attribute in the **Get customer input** block that calls your Lex bot to enable it at the global, bot, or slot levels. This attribute only controls Amazon Lex barge-in; it doesn't control DTMF barge-in. For more information, see [How flow blocks use Amazon Lex session attributes](how-to-use-session-attributes.md).
 
   The following image shows the **Session attributes** section with barge-in enabled.  
-![The session attributes section of the properties page, Value set to true.](http://docs.aws.amazon.com/connect/latest/adminguide/images/barge-in-session-attribute.png)
+![The session attributes section of the properties page, Value set to true.](https://docs.aws.amazon.com/connect/latest/adminguide/images/barge-in-session-attribute.png)
 
 ------
 
@@ -432,7 +432,7 @@ The following code sample represents a fragmented [Compare](https://docs.aws.ama
 
 The following image shows an example of what this block looks like when it is configured for DTMF input. It shows two branches for input: **Pressed 1** and **Pressed 2**. It also shows branches for **Timeout**, **Default**, and **Error**.
 
-![A configured Get customer input block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-branches.png)
+![A configured Get customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-branches.png)
 
 
 1. **Timeout**: What to do when no input is provided by the customer for the specified chat timeout in Amazon Lex or the **Set timeout** value specified for DTMF.

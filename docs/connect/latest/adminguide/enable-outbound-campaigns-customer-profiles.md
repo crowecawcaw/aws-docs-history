@@ -7,7 +7,7 @@
 
 1.  When creating a Connect Customer instance, when you get to **Step 4 - Data storage**, keep **Enable Customer Profiles** selected, as shown in the following image. This option enables  Connect Customer Customer Profiles and outbound campaigns.
 
-![The Data storage page the Enable Customer Profiles option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-outbound-campaigns-customer-profiles-1.png)
+![The Data storage page the Enable Customer Profiles option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-outbound-campaigns-customer-profiles-1.png)
 
 
 1.  Select **Customize data storage (advanced)** to select a customer managed key for Customer Profiles and outbound campaigns from a dropdown list. An AWS owned key is used if you don't provide a custom key.  
@@ -24,20 +24,20 @@
 1.  Choose **Outbound campaigns** in the left navigation pane.
 
 1.  If you are setting up outbound campaigns for the first time, you will see an **Enable** button.  
-![Outbound campaigns page showing the Enable button for first-time setup.](http://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-1.png)
+![Outbound campaigns page showing the Enable button for first-time setup.](https://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-1.png)
 
 1.  Choose **Enable** to go to the KMS configuration page for outbound campaigns.    
-![KMS configuration page for outbound campaigns showing encryption options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-2.png)
+![KMS configuration page for outbound campaigns showing encryption options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-2.png)
 **Note**  
 The KMS configuration will only be used for the outbound campaigns configuration and the KMS key cannot be updated after it is created.
 
 1. Choose **Enable outbound campaigns**. Upon enabling outbound campaigns, a Customer Profiles domain, and an agent assist knowledge base with KnowledgeType `MESSAGE_TEMPLATES` will be created if none existed previously.
 
 1. You will be redirected to the home page and see a notification bar indicating that resources are being created.  
-![Notification banner indicating resources are being created for outbound campaigns.](http://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-3.png)
+![Notification banner indicating resources are being created for outbound campaigns.](https://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-3.png)
 
 1. A success banner will be display upon successfully enabling outbound campaigns.  
-![Success banner confirming outbound campaigns have been successfully enabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-4.png)
+![Success banner confirming outbound campaigns have been successfully enabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-4.png)
 
 1.  After successfully enabling an outbound campaign, and configuring a KMS key, the KMS (AWS Key Management Service) key that was previously selected for the campaign will be displayed.
 
@@ -58,12 +58,12 @@ The KMS configuration will only be used for the outbound campaigns configuration
  By upgrading outbound campaigns, you can use segmentation and orchestration capabilities in the Connect Customer admin website
  Upgrading outbound campaigns will update the current outbound campaigns page to new experience.
 
-![Outbound campaigns page showing the Upgrade button for previously enabled campaigns.](http://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-5.png)
+![Outbound campaigns page showing the Upgrade button for previously enabled campaigns.](https://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-5.png)
 
 
 1. Choose **Upgrade**.
 
-![Upgrade confirmation dialog for outbound campaigns explaining new capabilities.](http://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-6.png)
+![Upgrade confirmation dialog for outbound campaigns explaining new capabilities.](https://docs.aws.amazon.com/connect/latest/adminguide/images/existing-customers-enable-outbound-campaigns-6.png)
 
 
 1.  After successfully upgrading an outbound campaign, the KMS (AWS Key Management Service) key that was previously selected for the campaign will be displayed. 
@@ -84,21 +84,21 @@ The KMS configuration will only be used for the outbound campaigns configuration
 
  When creating instance if you see a warning banner, you are either missing some permissions to enable these features or some failed to be created. You can configure those permissions at a different time.  
 
-![Warning banner showing permission issues or failed resource creation during instance setup.](http://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-1.png)
+![Warning banner showing permission issues or failed resource creation during instance setup.](https://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-1.png)
 
 
 If you navigate to the Outbound campaigns **Settings** page and see the following banner, you do not have the required permissions to access total communications limits.
 
-![Warning banner showing total communications limits permission issues.](http://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-4.png)
+![Warning banner showing total communications limits permission issues.](https://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-4.png)
 
 
 To enable total limits permissions, you can navigate to the Connect Customer admin website and under **Outbound campaigns**, choose **Upgrade permission**.
 
-![Upgrade permission button in the Outbound campaigns section of the Connect Customer admin website.](http://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-5.png)
+![Upgrade permission button in the Outbound campaigns section of the Connect Customer admin website.](https://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-5.png)
 
 
 
 |  **Error message**  |  **Cause**  |  **Resolution**  |  **Screenshot**  | 
 | --- | --- | --- | --- | 
-|  Already associated with another customer profiles domain, cannot be associated with multiple domains. |  An Outbound campaign can only be associated to one customer profile or one knowledge base at a time.   | You can either use the associated Customer Profiles domain, go back to the Customer Profiles domain page, and re-associate the domain, or you can find out which domain is associated by using the connect-campaign:ListConnectInstanceIntegrations API to find the Customer Profiles domain Arn. If needed, you can delete the integration between Outbound campaigns and Customer Profiles and re-associate it by deleting the integration by using the connect-campaigns:DeleteConnectInstanceIntegration API. |  ![Error message indicating a campaign is already associated with another customer profiles domain.](http://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-2.png)  | 
-|  Outbound campaigns has been created. However, some features might not work as expected. Please check your settings and try again. |  A resource failed to configure correctly. However, some resources succeeded. The error message will help indicate to the customer what went wrong. |  Follow the instructions on the warn/error banner. |  ![Warning message showing partial success with outbound campaigns creation but with potential issues.](http://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-3.png)  | 
+|  Already associated with another customer profiles domain, cannot be associated with multiple domains. |  An Outbound campaign can only be associated to one customer profile or one knowledge base at a time.   | You can either use the associated Customer Profiles domain, go back to the Customer Profiles domain page, and re-associate the domain, or you can find out which domain is associated by using the connect-campaign:ListConnectInstanceIntegrations API to find the Customer Profiles domain Arn. If needed, you can delete the integration between Outbound campaigns and Customer Profiles and re-associate it by deleting the integration by using the connect-campaigns:DeleteConnectInstanceIntegration API. |  ![Error message indicating a campaign is already associated with another customer profiles domain.](https://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-2.png)  | 
+|  Outbound campaigns has been created. However, some features might not work as expected. Please check your settings and try again. |  A resource failed to configure correctly. However, some resources succeeded. The error message will help indicate to the customer what went wrong. |  Follow the instructions on the warn/error banner. |  ![Warning message showing partial success with outbound campaigns creation but with potential issues.](https://docs.aws.amazon.com/connect/latest/adminguide/images/error-state-and-troubleshooting-3.png)  | 

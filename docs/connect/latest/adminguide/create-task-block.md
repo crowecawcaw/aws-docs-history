@@ -53,7 +53,7 @@ When you configure a **Create task** block, you choose either **Create manually*
 
 The following image shows the **Properties** page when **Create manually** is selected. All settings on the page can be specified manually or dynamically.
 
-![The properties page of the Create task block, the Create manually option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-properties-manually.png)
+![The properties page of the Create task block, the Create manually option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-properties-manually.png)
 
 
 If you choose **Use template** at bottom of the page, the entire page switches to that option. If needed, you can toggle back to **Create manually** and continue with your manual settings.
@@ -67,7 +67,7 @@ The following image shows the **Properties** page when **Use template** is selec
 + If the selected template does not include a flow, you must specify the flow that you want the task to run.
 + You cannot overwrite the settings of any fields on the page that are populated by the template.
 
-![The Properties page, the Use template option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-properties-template.png)
+![The Properties page, the Use template option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-properties-template.png)
 
 
 ## Configuration tips
@@ -95,7 +95,7 @@ The following image shows the **Properties** page when **Use template** is selec
 
 The following image shows an example of what this block looks like when it is configured. It has two branches: **Success** and **Error**. 
 
-![A configured Create task block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-configured.png)
+![A configured Create task block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-task-configured.png)
 
 
 ## Sample flows

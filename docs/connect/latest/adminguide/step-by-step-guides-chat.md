@@ -11,10 +11,10 @@ You can enable step-by-step Guides within Connect Customer chats to create inter
 1. Make sure that you have enabled and configured [step-by-step Guides](step-by-step-guided-experiences.md) for agents. After you configure the guides, confirm that they pop up when a contact is reserved for an agent to answer.
 
 1. Set up your flow to invoke Views in the chat flow by using the Show View Block, in the same way that you would configure this for your agent. The following example will trigger the guide when the chat bubble is chosen by the customer. The flow will go through two views before transferring the chat to an agent.  
-![Set up your flow to invoke Views in the chat flow using Show View Block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/step-by-step-guides-chat-enable-1.png)
+![Set up your flow to invoke Views in the chat flow using Show View Block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/step-by-step-guides-chat-enable-1.png)
 
 1. Create a hosted chat widget from the admin page. Set the chat flow to the one you created.  
-![Create a hosted chat widget from the admin page. Set chat flow to the one you created..](http://docs.aws.amazon.com/connect/latest/adminguide/images/step-by-step-guides-chat-enable-2.png)
+![Create a hosted chat widget from the admin page. Set chat flow to the one you created..](https://docs.aws.amazon.com/connect/latest/adminguide/images/step-by-step-guides-chat-enable-2.png)
 
    This hosted chat will generate a script similar to the following:
 

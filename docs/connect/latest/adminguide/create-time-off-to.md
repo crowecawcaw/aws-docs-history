@@ -9,7 +9,7 @@ Time off requests can be created by supervisors, managers, or agents in the publ
 <a name="to-supervisor"></a>
 
 1. Supervisors or managers can create a time off request by choosing the requests icon and then selecting **Request Time off**.  
-![The Published schedule calendar tab, the request time off section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-time-off-to.png)
+![The Published schedule calendar tab, the request time off section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-time-off-to.png)
 
 1. Select **Staff** and the time off **Type**. To select a time off range, you can either select **All day** or select specific start and end date times. Select **Override time off rules** if you wish to override the system and allow time off while dismissing group allowance and other rules specified in Staff, Staffing Group or Shift profile rules. Enter a **Reason** and choose **Request**.
 
@@ -30,4 +30,4 @@ When Connect Customer evaluates time off requests, it factors in the [Forecast g
 
 Agents can go to the schedule calendar view and choose the floating icon to create a time off request. The request drawer opens and allows the agent to enter details related to their time off request.
 
-![The schedule calendar view, the request time off section for agents.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-time-off-to-agent.png)
+![The schedule calendar view, the request time off section for agents.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-time-off-to-agent.png)

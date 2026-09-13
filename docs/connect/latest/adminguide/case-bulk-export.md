@@ -26,7 +26,7 @@ To export cases, the agent's security profile must include the **Cases** - **Exp
 ## Choose columns to export
 <a name="case-bulk-export-choose-columns"></a>
 
-![The Export cases modal showing the Columns to export multiselect dropdown with case fields selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/export-cases-select-columns.png)
+![The Export cases modal showing the Columns to export multiselect dropdown with case fields selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/export-cases-select-columns.png)
 
 
 In the export modal, you can select which columns to include in the CSV file:

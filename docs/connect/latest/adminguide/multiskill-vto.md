@@ -12,4 +12,4 @@ For information on multi-skill, see [Multi skill scheduling](multiskill-scheduli
 
 Mention the demand group while requesting for voluntary time off. Only agents who are associated with the demand group will be approved for voluntary time off slots
 
-![Restrict voluntary time off by demand group.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-vto-multiskill.png)
+![Restrict voluntary time off by demand group.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-vto-multiskill.png)

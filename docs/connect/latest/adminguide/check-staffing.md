@@ -37,7 +37,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Check staffing** block. It is configured to check whether agents in the BasicQueue are available so they can be routed contacts.
 
-![The properties page of the Check staffing block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-staffing-properties.png)
+![The properties page of the Check staffing block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-staffing-properties.png)
 
 
 In the **Status to check** dropdown box, choose one of the following options:
@@ -56,7 +56,7 @@ In the **Status to check** dropdown box, choose one of the following options:
 
 The following image shows an example of what this block looks like when it is configured. It has three branches: **True**, **False**, and **Error**. 
 
-![A configured Check staffing block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-staffing-configured.png)
+![A configured Check staffing block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-staffing-configured.png)
 
 
 ## Scenarios

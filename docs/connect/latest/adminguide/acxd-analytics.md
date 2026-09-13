@@ -16,13 +16,13 @@ Use the various analytics features in agentic CX designer to monitor application
 
 |  |  | 
 | --- |--- |
-| **Analytics dashboards** | View high-level performance metrics and trends across your applications and conversations. | 
+| **Dashboards** | View high-level performance metrics and trends across your applications and conversations. | 
 | **Analytics tags** | Mark important points in a flow so you can track custom events, outcomes, or user paths. | 
-| **In-Canvas analytics** | Understand how users move through flows and where they continue, drop off, retry, or escalate. | 
-| **Conversation history** | Review individual conversation records to troubleshoot behavior and understand the user experience. | 
+| **Flow traffic** | Understand how users move through flows and where they continue, drop off, retry, or escalate. | 
+| **Conversation transcripts** | Review individual conversation records to troubleshoot behavior and understand the user experience. | 
 
 **Topics**
 + [Analytics dashboards](acxd-analytics-dashboards.md)
 + [Analytics tags](acxd-analytics-tags.md)
-+ [In-Canvas analytics](acxd-in-canvas-analytics.md)
-+ [Conversation history](acxd-conversation-history.md)
++ [Flow traffic](acxd-in-canvas-analytics.md)
++ [Conversation transcripts](acxd-conversation-history.md)

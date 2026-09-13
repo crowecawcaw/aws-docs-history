@@ -74,7 +74,7 @@ Default messages (in all supported languages) are displayed to agents in the Con
 
 The following image show examples of default idleness messages that the agent would see in the CCP. For example, *Agent has become idle*.
 
-![The ccp, the default idleness messages.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chat-timeout-message.png)
+![The ccp, the default idleness messages.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chat-timeout-message.png)
 
 
 ## Recommended usage

@@ -14,7 +14,7 @@ Some actions depend on other actions. When you choose an action that depends on 
 
 Before you can create a new security profile, you must be logged in with a Connect Customer account that has **Security profiles - Create** permissions, as shown in the following image. 
 
-![The users and permissions section of the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_sp_create.png)
+![The users and permissions section of the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_sp_create.png)
 
 
 By default, the Connect Customer **Admin** security profile has these permissions.
@@ -44,7 +44,7 @@ You can configure tag-based access controls on a security profile. Use these ste
 1. On the security profile detail page, choose the **Access control** tab.
 
 1. In the **Tag-based access control** section, choose **Edit**. In the **Resources** box, enter the resources to be restricted using tags.  
-![The access control section of the security profile page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_access_control_tab.png)
+![The access control section of the security profile page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_access_control_tab.png)
 
 1. Enter the **Key** and **Value** combination for the resource tags that you want to restrict access to.
 
@@ -63,7 +63,7 @@ You can add resource tags to a security profile. Use these steps to add a resour
 1. On the security profile detail page, choose the **Tags** tab.
 
 1. Choose **Manage tags**. Enter a **Key** and **Value** combination to tag the resource, as shown in the following image.  
-![The tags section of the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_tags_tab.png)
+![The tags section of the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_tags_tab.png)
 
 1. Choose **Save**.
 

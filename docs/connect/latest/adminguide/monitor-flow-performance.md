@@ -35,7 +35,7 @@ Flows designer analytics displays metrics in three places:
 
 The following GIF shows how analytics mode works:
 
-![Analytics mode in the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-button.gif)
+![Analytics mode in the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-button.gif)
 
 
 ## Display metrics for a flow
@@ -50,7 +50,7 @@ Complete the following steps to display metrics for a flow.
 1. On the toolbar, choose **Show Metrics**.
 
 1. Choose the **Show Metrics** dropdown arrow to open the **Metric Controls** panel. The following image shows an example panel.  
-![The Metric Controls panel with sample settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/metric-controls.png)
+![The Metric Controls panel with sample settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/metric-controls.png)
 
 1. In the **Metric Controls** panel, you can configure the following settings:
    + **Date range**: You can set the following types of date ranges:
@@ -58,7 +58,7 @@ Complete the following steps to display metrics for a flow.
      + **Absolute range**: Displays flow metrics that are captured between a date range.
 **Important**  
 Historical data is retained and available for the last 30 days from the current date.  
-![The options for choosing relative or absolute range.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-metrics-date-range.png)
+![The options for choosing relative or absolute range.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-metrics-date-range.png)
    + **Visual options**
      + **Highlight incompletes**: Displays **Incomplete: X%** on the affected blocks.
      + **Highlight errors**: Adds amber color highlight (1-4% errors) or red color highlight (≥5% errors) indicators to density of error branches.
@@ -75,7 +75,7 @@ Flows metrics appear directly on block branches and at the entry point of each b
 
 The following GIF shows an example of choosing the entry point and the metrics displaying.
 
-![Metrics for blocks on the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-choose-badge.gif)
+![Metrics for blocks on the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-choose-badge.gif)
 
 
 ## Block Metrics table
@@ -83,12 +83,12 @@ The following GIF shows an example of choosing the entry point and the metrics d
 
 When you enable metrics, a floating block metrics palette appears that you can drag anywhere on the canvas. To open the **Block Metrics** table, choose the arrow on the right side as shown in the following image.
 
-![The Block Metrics table on the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/block-metrics.png)
+![The Block Metrics table on the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/block-metrics.png)
 
 
 The following image shows an example of metrics on the **Block Metrics** table:
 
-![An example Block Metrics table for a flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/block-metrics-table.png)
+![An example Block Metrics table for a flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/block-metrics-table.png)
 
 
 The following information is displayed on the table:
@@ -100,7 +100,7 @@ The following information is displayed on the table:
 + **Incomplete**: The contact traffic that entered but did not exit through any block branch. This occurs when customers are disconnected, timeouts expired, transfers failed, or error handling is missing.
 
   The following image shows an example of an **Incomplete** metric on the **Play prompt** block.  
-![An example Incomplete metric.](http://docs.aws.amazon.com/connect/latest/adminguide/images/incomplete-metrics.png)
+![An example Incomplete metric.](https://docs.aws.amazon.com/connect/latest/adminguide/images/incomplete-metrics.png)
 
 To work with the palette, you can:
 + Drag it using the handle (⋮⋮) in the header.

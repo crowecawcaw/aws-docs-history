@@ -12,19 +12,19 @@ When scoring is enabled for the evaluation form, you can assign *weights* to sec
 
 Let's say you are assigning the score to a question that is critically important to your business. If the answer is a Yes, the agent gets 10 points. For No they get 0 points. This is shown in the following image.
 
-![The evaluation form page, the scoring tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-scoringexample1.png)
+![The evaluation form page, the scoring tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-scoringexample1.png)
 
 
 The answer to first question is more important to your business than the answer to *Did the agent close with "Is there anything else I can assist you with today?"*, which is also worth 0-10 points, as shown in the following image. 
 
-![The evaluation form page, the scoring tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-scoringexample2.png)
+![The evaluation form page, the scoring tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-scoringexample2.png)
 
 
 To differentiate scores of the questions, you indicate that weight of one question is more than the other. 
 
 The following image shows that the answer to *Did the agent recite the compliance script for the medication* is 50% of the agent's score. Whereas the answer to *Did the agent close with "Is there anything else I can assist you with today"* weighs only 5% of the score.
 
-![The evaluation form page, the scoring tab, the score weights section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-scoringexample3.png)
+![The evaluation form page, the scoring tab, the score weights section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-scoringexample3.png)
 
 
 The total weight must always equal 100%.
@@ -40,7 +40,7 @@ When you change a weight of a section or question, the other weights are automat
 
 For example, in the following image, three of the questions were manually set to 10 percent. The weights that display in italics were adjusted automatically. 
 
-![Score weights for a question.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-weightdistribution3.png)
+![Score weights for a question.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-weightdistribution3.png)
 
 
 ## Weights of optional questions
@@ -48,7 +48,7 @@ For example, in the following image, three of the questions were manually set to
 
 When a question is optional or applicable only in certain scenarios, choose **Enable "Not Applicable"** as an answer option to the question. The following image shows this setting on the **Answers** tab.
 
-![The Answers tab, the Enable "Not Applicable" option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-weightsoptional.png)
+![The Answers tab, the Enable "Not Applicable" option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-weightsoptional.png)
 
 
 After an evaluation is completed, Connect Customer calculates the evaluation score:

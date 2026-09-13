@@ -15,4 +15,4 @@ Each time an Identity Resolution Job runs, it displays metrics on the **Customer
 
 Additional charges might apply for enabling Identity Resolution. For more information, see [Connect Customer pricing](https://aws.amazon.com/connect/pricing/). 
 
-![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-ir.png)
+![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-ir.png)

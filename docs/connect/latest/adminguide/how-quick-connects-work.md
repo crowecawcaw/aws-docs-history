@@ -20,7 +20,7 @@ Here's what John and Maria do, and what flow blocks are triggered:
    When John does this, his CCP banner changes to **Connected**. However, the call isn't actually connected to Maria yet. 
 
 1. In our example scenario, Connect Customer triggers an agent transfer flow that looks like the following image. It has the following blocks connected by **Success** branches: a **Play prompt**, a **Set whisper flow**, another **Set whisper flow**, and then a **Transfer to agent** block.  
-![An agent transfer flow in the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-flow-transfer-agent-transfer-flow.png)
+![An agent transfer flow in the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-flow-transfer-agent-transfer-flow.png)
 
    The call is not yet connected to Maria.
 
@@ -58,7 +58,7 @@ Here's what John and Maria do, and what flow blocks are triggered:
 1. John chooses the **Quick Connect** button on his CCP. (On the earlier CCP, the button is named **Transfer**). He chooses to transfer the contact to the PasswordReset queue. As soon as John chooses the PasswordReset quick connect, his CCP banner shows **Connecting**. 
 **Important**  
 Even though the status of the transferred call (internal-transfer) shows on John's CCP banner as **Connecting**, the contact is not yet transferred to the PasswordReset queue.  
-![The CCP, the status banner says Internal transfer Connecting.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-flow-transfer-transfer-connecting.png)
+![The CCP, the status banner says Internal transfer Connecting.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-flow-transfer-transfer-connecting.png)
 
 1. Connect Customer invokes the queue transfer flow that's associated with the PasswordReset quick connect. In this flow, the [Transfer to queue](transfer-to-queue.md) block transfers the contact to the PasswordReset queue since it's specified in the block. The contact is now in the PasswordReset queue.
 

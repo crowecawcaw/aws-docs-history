@@ -39,10 +39,10 @@ Outbound telephony charges occur when using a desk phone to answer inbound calls
      + The following image shows the **Contact Handling** section of the **User Management** page. Each channel has a separate **Auto-accept** and **ACW timeout** setting.
        + Note -To configure auto-accept or ACW timeouts for Outbound Campaigns calls or customer-first callbacks, use the "Voice" settings.
        +   
-![The Edit User page, the contact handling section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-contact-handling-config.png)
+![The Edit User page, the contact handling section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-contact-handling-config.png)
 
 1. If desired, choose **Show advanced settings** to access the following additional properties.  
-![The Hide advance settings option on the User management page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/configure-agents-advanced-settings.png)
+![The Hide advance settings option on the User management page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/configure-agents-advanced-settings.png)
 
 1. See the following topics:
    + [Assign proficiencies to agents in your Connect Customer instance](assign-proficiencies-to-agents.md)

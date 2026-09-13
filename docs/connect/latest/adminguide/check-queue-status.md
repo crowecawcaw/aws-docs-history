@@ -40,7 +40,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Check queue status** block. In this example, it checks whether a contact has been in the BasicQueue longer than 2 minutes.
 
-![The properties page of the Check queue status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-queue-status-properties.png)
+![The properties page of the Check queue status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-queue-status-properties.png)
 
 
 ## Configuration tips
@@ -73,7 +73,7 @@ In this next example, all contacts with a wait time in queue of 90 or less (<=90
 
 The following image shows an example of what this block looks like when it is configured. It has three branches: the **Time in Queue** condition, **No Match**, and **Error**. 
 
-![A configured check queue status block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-queue-status-configured.png)
+![A configured check queue status block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-queue-status-configured.png)
 
 
 ## Scenarios

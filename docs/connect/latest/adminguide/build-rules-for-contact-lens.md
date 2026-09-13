@@ -18,7 +18,7 @@ For a list of rules feature specifications (for example, how many rules you can 
 1. Select **Create a rule**, **Conversational analytics**.
 
 1. Under **When**, use the dropdown list to choose **post-call analysis**, **real-time analysis**, **post-chat analysis**, or **email analysis**.  
-![The new rule page, the when dropdown menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rule-define-conditions.png)
+![The new rule page, the when dropdown menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rule-define-conditions.png)
 
 1. Choose **Add condition**. 
 
@@ -73,12 +73,12 @@ For a list of rules feature specifications (for example, how many rules you can 
    + **Agent interaction duration**: Build rules to identify contacts that had an agent interaction longer or shorter than what was expected. This feature applies to calls only.
 
    The following image shows a sample rule with multiple conditions for a voice contact.  
-![A sample rule with multiple conditions for a voice contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-conditions.png)
+![A sample rule with multiple conditions for a voice contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-conditions.png)
 
    The following image shows a sample rule with multiple conditions for a chat contact. The rule is triggered when the **First** response time is greater than or equal to 1 minute, and the agent did not mention any of the listed greeting words or phrases in their first response.
 
    **First response time** = after the agent has joined the chat, how long until they sent the first message to the customer.   
-![A sample rule with multiple conditions for a chat contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-conditions-chat.png)
+![A sample rule with multiple conditions for a chat contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-conditions-chat.png)
 
 1. Choose **Next**.
 
@@ -89,7 +89,7 @@ For a list of rules feature specifications (for example, how many rules you can 
    + [Create Task](contact-lens-rules-create-task.md): this option is not available for real-time chat
    + [Send email notification](contact-lens-rules-email.md)
    + [Generate an EventBridge event](contact-lens-rules-eventbridge-event.md)  
-![The add action dropdown menu, a list of actions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-action-no-wisdom.png)
+![The add action dropdown menu, a list of actions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-action-no-wisdom.png)
 
 1. Choose **Next**.
 

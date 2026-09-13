@@ -20,7 +20,7 @@ Connect Customer provides you with the following channels for interacting with y
 
 Customers can interact with your agents on voice, chat, SMS, web calling/video, and email channels based on factors such as personal preferences and wait times. Customers can keep working with the same agent across channels, but if it's a different agent their interaction history is preserved, so they don't have to repeat themselves. The omnichannel contact center improves customer experiences while reducing resolution time. 
 
-![The Connect Customer customer experience, seamless, personalized, and proactive across channels.](http://docs.aws.amazon.com/connect/latest/adminguide/images/omnichannel-diagram.png)
+![The Connect Customer customer experience, seamless, personalized, and proactive across channels.](https://docs.aws.amazon.com/connect/latest/adminguide/images/omnichannel-diagram.png)
 
 
 **Topics**
@@ -84,14 +84,14 @@ You can use Connect Customer email capabilities to receive and respond to emails
 
 Agents have access to a rich text editor to respond to emails and to create personalized email templates and signatures. They can also create quick responses to answer frequently asked questions. The following image shows an example of where you can create a basic agent signature template in the Connect Customer admin website. When agents use this template, it will automatically populate their name and add the logo to their emails.
 
-![An email signature template.](http://docs.aws.amazon.com/connect/latest/adminguide/images/overviewemailtemplate.png)
+![An email signature template.](https://docs.aws.amazon.com/connect/latest/adminguide/images/overviewemailtemplate.png)
 
 
 Both agents and contact center managers can easily view an entire email thread. Email threading makes sure that outgoing emails and incoming responses related to a customer inquiry are associated with each other in a [chronological and organized fashion](email-capabilities.md#email-capabilities-howthreadsmanaged). Agents can view an email thread in the agent workspace and CCP, and for added security, when they reply to an email, they can't manipulate what the customer wrote as part of their email. 
 
 The following image shows an example of an email contact being handled by an agent within the CCP in the agent workspace. In this example they have associated the email contact to a case and are using the rich text editor and quick responses to respond.
 
-![An email thread on the CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/limaoverview.png)
+![An email thread on the CCP.](https://docs.aws.amazon.com/connect/latest/adminguide/images/limaoverview.png)
 
 
 To get started, [set up the email channel](setup-email-channel.md) in your instance right alongside your voice, chat, and task channels. Connect Customer email integrates with Amazon Simple Email Service (SES) for the sending, receiving, and monitoring (such as for spam and virus detection) of emails. Connect Customer provides you with an email domain that you can use to create your email addresses, or you can easily associate up to five of your own custom domains using Amazon SES. After you have domains associated with your instance, you can [create](create-email-address1.md) up to 100 email addresses that can be used to send and receive emails (for example, support@example.com, sales@example.com, and reservations@example.com).
@@ -127,7 +127,7 @@ You can also easily integrate other applications directly into the agent workspa
 
 The following image shows the agent workspace with callouts indicating the features on the page.
 
-![The agent workspace with callouts that point to the features on the page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-aw-callouts.png)
+![The agent workspace with callouts that point to the features on the page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-aw-callouts.png)
 
 
 ### Step-by-step guides
@@ -137,17 +137,17 @@ You can customize the agent workspace by creating [step-by-step guides](step-by-
 
 Guides can be used for various types of customer interactions. They are presented to the agent in the agent workspace based on context like call queue, customer information, or customer self-service responses. For example, there are six step-by-step guides on the agent workspace in the following image.
 
-![The agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-aw2.png)
+![The agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-aw2.png)
 
 
 In the following image the **Review transaction history** guide is open. The first step is displayed for the agent to choose **View transaction details** or **Choose a different account**. 
 
-![The agent workspace, step-by-step guides.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-aw1.png)
+![The agent workspace, step-by-step guides.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-aw1.png)
 
 
 In the following image of the agent workspace, the agent is on a chat with Nikki. At the bottom of the chat pane, the agent can search for [quick responses](create-quick-responses.md) that they can type in the chat. For example, they can type **brb** to respond in the chat with *Give me a couple of minutes while I investigate the issue*. 
 
-![The agent workspace, chatting with a contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-chat.png)
+![The agent workspace, chatting with a contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-chat.png)
 
 
 ### Generative AI-powered agent assist
@@ -155,9 +155,9 @@ In the following image of the agent workspace, the agent is on a chat with Nikki
 
 You can use [Connect Customer agent assist](connect-ai-agent.md) to automatically detect customer intent during calls and chats. agent assist uses the real-time conversation with the customer, along with relevant company content, to automatically recommend what to say or what actions an agent should take to better assist the customer. This improves both agent productivity and customer satisfaction. Agents can also use natural language to search across connected knowledge sources to receive generated responses, recommended actions, and links to more information.
 
-The following image shows how an article might appear in the agent application when the agent is on a call. 
+The following image shows how an article might appear in the agent workspace when the agent is on a call. 
 
-![The agent application with an article displayed in it.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-concepts-intro2.png)
+![The agent workspace with an article displayed in it.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-concepts-intro2.png)
 
 
 ### Generative AI-powered post-contact summaries
@@ -165,7 +165,7 @@ The following image shows how an article might appear in the agent application w
 
 To help agents perform their After contact work (ACW), Connect Customer displays a [generative AI-powered post-contact summary](view-generative-ai-contact-summaries.md) on their CCP for voice contacts. The summary provides essential information from customer conversations in a structured, concise, and easy to read format. The following image shows an example summary for a voice contact.
 
-![A generative AI-powered post-contact summary for a voice contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/genai-post-contact-summary-ccp.png)
+![A generative AI-powered post-contact summary for a voice contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-post-contact-summary-ccp.png)
 
 
 ### Unified customer view
@@ -177,10 +177,10 @@ With a single view of customer information, including their product, case, and c
 
 The following image shows the **Customer profile** tab in the agent workspace. It shows all of the recent cases associated with customer that the agent is currently talking to. 
 
-![The agent workspace, customer profiles tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-profiles.png)
+![The agent workspace, customer profiles tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-profiles.png)
 
 
-You can use Customer Profiles to access information during a self-service experience (for example, IVR or bot), or in other agent applications, or you can use it as a standalone service separate from Connect Customer. 
+You can use Customer Profiles to access information during a self-service experience (for example, IVR or bot), or in custom agent applications, or you can use it as a standalone service separate from Connect Customer. 
 
 ### Case management
 <a name="connect-intro-cm"></a>
@@ -189,7 +189,7 @@ Agents use [Connect Customer Cases](cases.md) to efficiently manage customer iss
 
 The following image shows the agent workspace. The agent is talking to the contact on the phone and viewing a closed case for windshield damage. The case is associated with the customer's profile.
 
-![The agent workspace, a case.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-case.png)
+![The agent workspace, a case.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-case.png)
 
 
 ### Efficient contact routing
@@ -213,12 +213,12 @@ Give your managers the actionable insights and capabilities they need to optimiz
 
 Understanding your contact center at the most granular level is key to improving performance and lowering costs. Connect Customer provides powerful analytics tools, including visual [dashboards](dashboards.md) with customizable real-time and historical metrics.
 
-![A couple of the ready-made dashboards for you to start using.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-dashboard-intro.png)
+![A couple of the ready-made dashboards for you to start using.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-dashboard-intro.png)
 
 
 The following image shows an example of the [Conversational analytics dashboard](contact-lens-conversational-analytics-dashboard.md). This dashboard helps you understand why customers are contacting you, the trends of contact drivers over time, and the performance of each of those call drivers. 
 
-![A conversational analytics dashboard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-dashboard.png)
+![A conversational analytics dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-dashboard.png)
 
 
 You can use Connect Customer data lake as a central location to query various types of data from Connect Customer. This data includes contact records, conversational analytics data, performance evaluations, and more. You can use data lake to create custom reports, run SQL queries, or use the BI tools of your choice to analyze the information that matters most to improving customer experience and operational efficiency. 
@@ -233,12 +233,12 @@ You can review the following out-of-the-box reports, and customize them to add m
 
 The following image shows an example of a section of the Real-time metrics page for Queues.
 
-![The Real-time metrics page for Queues.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-rtm-overview.png)
+![The Real-time metrics page for Queues.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-rtm-overview.png)
 
 
 This next image shows a drill down into the real-time activity for Queue 4. 
 
-![Details about a queue on the real-time metrics report.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-rtm-queues.png)
+![Details about a queue on the real-time metrics report.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-rtm-queues.png)
 
 
 ### Real-time conversational analytics
@@ -248,12 +248,12 @@ With [real-time speech and chat analytics](analyze-conversations.md), you can un
 
 The following image shows post-contact conversational analytics on the **Contact details** page. It includes a [generative AI-powered contact summary](view-generative-ai-contact-summaries.md) to help you quickly understand essential information about the contact, how customer sentiment changes as the contact progresses, and the distribution of talk time between the agent and customer.
 
-![A contact details page with conversational analytics for a real-time chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-contactlens-analytics.png)
+![A contact details page with conversational analytics for a real-time chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-contactlens-analytics.png)
 
 
 You can [search for contacts](contact-search.md) as far back as two years ago. Choose from an extensive list of filters to quickly find the contacts you need. For example, you can search by custom attributes specific to your business, such as MVP, and search for in-progress contacts, as shown in the following image.
 
-![The in-progress filter on the Contact search page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-in-progress-filter.png)
+![The in-progress filter on the Contact search page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-search-in-progress-filter.png)
 
 
 Managers can view the **Contact details** page for an in-progress contact, and the real-time transcript. In addition, they can [transfer](transfer-contacts-admin.md), [reschedule](reschedule-contacts-admin.md), or [end](end-contacts-admin.md) in-progress contacts.
@@ -265,7 +265,7 @@ To [evaluate agent performance](evaluations.md) you can review conversations alo
 
 Managers can perform evaluations faster and more accurately with [generative AI-powered recommendations](generative-ai-performance-evaluations.md) for answers to questions in agent evaluation forms. For example, the following image shows the **Recording and transcript** section of the **Contact details** page. On the right side of the page is the evaluation, which includes generative AI-powered evaluation recommendations. 
 
-![Generative AI-powered recommendations displayed on the agent evaluation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-generative-ai-powered-recommendations-performance.png)
+![Generative AI-powered recommendations displayed on the agent evaluation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-generative-ai-powered-recommendations-performance.png)
 
 
 To assess a very large number of agent conversations, or all of them, your contact center can use [automated evaluations](generative-ai-performance-evaluations.md). 
@@ -274,19 +274,19 @@ To assess a very large number of agent conversations, or all of them, your conta
 
 Managers use the **Recording** section of the **Contact details** page to view the screen recording, as shown in the following image.
 
-![The Recording and transcripts section of the Contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-screenrecording.png)
+![The Recording and transcripts section of the Contact details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatisconnect-screenrecording.png)
 
 
 You can [monitor live voice and chat conversations](monitoring-amazon-connect.md) to listen in, coach the agent, and barge into live voice conversations. This is especially helpful for agents in training.
 
 Managers use the **Real-time metrics** page to choose the contacts they want to monitor. For example, in the following image the manager can choose the eye icon to start monitoring a specific voice conversation.
 
-![The Real-time metrics page, the eye icon next to a Voice channel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-voice-channel.png)
+![The Real-time metrics page, the eye icon next to a Voice channel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-voice-channel.png)
 
 
 Selecting the eye icon takes the manager to CCP section of the agent workspace, as shown in the following image. They can monitor the call and toggle between the **Monitor** and **Barge** states. The following image shows the **Monitor** state.
 
-![The CCP, the Monitor and Barge toggles.](http://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-voice-channel-ccp.png)
+![The CCP, the Monitor and Barge toggles.](https://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-voice-channel-ccp.png)
 
 
 ### Forecasting & agent scheduling
@@ -296,11 +296,11 @@ Forecasting & agent scheduling are machine learning (ML)–powered features that
 +  [Forecasting](forecasting.md): A forecast is the starting point for any scheduling and capacity planning activities. Before you can generate a schedule or capacity plan, you must create a corresponding forecast. A forecast attempts to predict future contact volume and average handle time by using historical metrics.
 
   Forecast data is displayed in graphs, as shown in the following image.  
-![Forecasts in a graph.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-inspect.png)
+![Forecasts in a graph.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-inspect.png)
 +  [Capacity planning](capacity-planning.md): A capacity plan helps you estimate the long-term FTE (full-time equivalent) requirements for your contact center, up to 18 months. It specifies how many FTE agents are required to meet the service level target for a certain period of time.
 
   The following image shows the plan output. It shows a week-by-week or month-by-month calculation. To switch from weekly to monthly view, select **Monthly** from the dropdown.   
-![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-output3.png)
+![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-output3.png)
 +  [Scheduling](scheduling.md): Contact center schedulers or managers need to create agent schedules for day-to-day workloads that are flexible and meet business and compliance requirements. Connect Customer helps you create efficient schedules that are optimized for per-channel Service Level or Average speed of answer targets. You can generate and manage agent schedules based on the following: 
   + A short-term published forecast
   + Shift profiles (templates for weekly shifts)
@@ -308,10 +308,10 @@ Forecasting & agent scheduling are machine learning (ML)–powered features that
   + Human resources and business rules
 
   The following image shows a sample schedule in the Connect Customer admin website for a supervisor's team.  
-![A sample schedule for the supervisor team.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-view-schedule-supervisors-filter2.png)
+![A sample schedule for the supervisor team.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-view-schedule-supervisors-filter2.png)
 
   The following image shows a sample schedule that agents see in the agent workspace.  
-![A sample schedule in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-agent-view.png)
+![A sample schedule in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-agent-view.png)
 
 ## Administrators: Configuration and flexibility
 <a name="connect-intro-admins"></a>

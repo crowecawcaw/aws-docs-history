@@ -19,7 +19,7 @@ If you have more than one year of historical data in Connect Customer, you can c
 + The data file must be a CSV file and it must be in the required format. If the file format and data don't meet the requirements, the upload does not work. We recommend downloading and using the template provided through the Connect Customer admin website (see step 4 in [How to import historical data](#how-import-data-for-forecasting)) to help you prepare the historical data. 
 
   The following image shows an example of the CSV template. There are headings in the first row for `QueueName`, `QueueId`, `ChannelType`, and so on.  
-![The CSV template for historical data, headings in the first row, no other data in the file.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-import-template.png)
+![The CSV template for historical data, headings in the first row, no other data in the file.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-import-template.png)
 
   Following are the requirements for imported data: 
   + `QueueName`: Enter the Connect Customer queue name.
@@ -50,7 +50,7 @@ For example, if you only upload data in 15- or 30-minute interval, you won't be 
 
 The following image shows an example of what the data looks like in a CSV file that has been opened with Excel.
 
-![Example data in an CSV file, opened in Excel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-import-table.png)
+![Example data in an CSV file, opened in Excel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-import-table.png)
 
 
 ## How to import historical data
@@ -69,10 +69,10 @@ The following image shows an example of what the data looks like in a CSV file t
 1. Add historical data to the CSV file, and then choose **Upload file** to upload it. Choose **Apply**.
 
 1. If the upload fails, choose **download details** to view the error log message for more information. The following image of the **Forecasts** page shows the location of the **download details** link, next to the **Failed** status message.  
-![The forecasts page, the status column, a Failed status, the download details link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-import-historical-data-error.png)
+![The forecasts page, the status column, a Failed status, the download details link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-import-historical-data-error.png)
 
    The following image shows the download details file opened by using Notepad. It indicates the error is in Row 2, the QueueId is not valid.   
-![The download details file opened in Notepad.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-import-historical-data-error-message.png)
+![The download details file opened in Notepad.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-import-historical-data-error-message.png)
 
 1. If the forecast was uploaded successfully, its **Status** = **Complete** and **Date uploaded** = today. 
 
@@ -86,7 +86,7 @@ Deleting or adding historical data triggers an immediate change in associated fo
 
 The following image shows an example warning message about the consequences of removing data. 
 
-![A warning message that removing data trigger an immediate change in associated forecasts.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-delete-imported-data.png)
+![A warning message that removing data trigger an immediate change in associated forecasts.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-delete-imported-data.png)
 
 
 After the imported historical data is deleted, the last previously uploaded data is used for the baseline. Take the previous example: 

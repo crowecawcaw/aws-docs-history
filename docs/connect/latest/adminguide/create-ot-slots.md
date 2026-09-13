@@ -7,12 +7,12 @@ You can create overtime slots for specific activities. This feature applies to a
 
 For example, the following image shows three different **Productive** shifts: Overtime, Training, and Work. The activity named Work has the sub-type **Work**.
 
-![The Scheduling page, the shift-activities tab, the sub-type Work.](http://docs.aws.amazon.com/connect/latest/adminguide/images/overtime-slots-1.png)
+![The Scheduling page, the shift-activities tab, the sub-type Work.](https://docs.aws.amazon.com/connect/latest/adminguide/images/overtime-slots-1.png)
 
 
 The following image shows that while requesting Overtime, in the Activity dropdown, only Overtime and Training activities are shown. The productive activity Work with the sub-type **Work** is not shown. 
 
-![The Request Overtime pane, the Activity dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/overtime-slots-2.png)
+![The Request Overtime pane, the Activity dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/overtime-slots-2.png)
 
 
 **To create overtime slots**

@@ -22,7 +22,7 @@ The **Test Execution Summary Chart** provides aggregated metrics based on your s
 
 The following image shows an example of this chart.
 
-![The Test Execution Summary Chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-summary.png)
+![The Test Execution Summary Chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-summary.png)
 
 
 The following metrics are displayed on this chart
@@ -36,7 +36,7 @@ The following metrics are displayed on this chart
 
 The **Top Failing Tests** chart displays the test cases with the highest failure rates.
 
-![The Top Failing Tests chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-failure-testcase.png)
+![The Top Failing Tests chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-failure-testcase.png)
 
 
 The following metrics are displayed on this chart
@@ -47,7 +47,7 @@ The following metrics are displayed on this chart
 
 The **Top Failing Step Type** chart shows the breakdown of failures by test case step type. There are five step types: test initialization, observe event, send instruction, assert data, and override system behavior. Each step type represents the detailed configuration for interactions you are simulating within your test cases.
 
-![The Top Failing Step Type chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-failure-steptype.png)
+![The Top Failing Step Type chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-failure-steptype.png)
 
 
 The following metrics are displayed on this chart
@@ -64,7 +64,7 @@ You can configure different time range intervals using the "Interval" button dir
 For example:
 + With a "Daily" time range filter at the widget level, you can view a 7-day trailing interval trend.
 + With a "Weekly" time range filter at the widget level, you can view an 13-week trailing interval trend.  
-![The Average Execution Duration chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-duration.png)
+![The Average Execution Duration chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-duration.png)
 
 The following metrics are displayed on this chart
 + **Average test run duration:** The average duration of all test runs that successfully started and completed within a given interval.
@@ -74,7 +74,7 @@ The following metrics are displayed on this chart
 
 The **Flows with Most Failures** chart displays the flows with the highest failure rates from test cases testing those specific flows.
 
-![The Flows with Most Failures chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-failures-flow.png)
+![The Flows with Most Failures chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-simulate-dashboard-failures-flow.png)
 
 
 The following metrics are displayed on this chart

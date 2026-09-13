@@ -44,7 +44,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Config** tab of the **Connect assistant** block setting. It specifies the full Amazon Resource Name (ARN) of the Connect assistant domain to associate to the contact. It also specifies the Orchestration AI agent to use for Agent Assistance.
 
-![The Config tab of the Connect assistant block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/connect-assistant-block-config.png)
+![The Config tab of the Connect assistant block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/connect-assistant-block-config.png)
 
 
 ## Configuration tips
@@ -59,4 +59,4 @@ The following image shows the **Config** tab of the **Connect assistant** block 
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**. 
 
-![A configured Connect assistant block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/connect-assistant-block-configured.png)
+![A configured Connect assistant block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/connect-assistant-block-configured.png)

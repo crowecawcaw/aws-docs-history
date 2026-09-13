@@ -78,7 +78,7 @@ To allow read-only access, you need to attach only the `AmazonConnectReadOnlyAcc
 
 The following image shows a sample Connect Customer console home page, with an arrow pointing to the instance alias. Choose the instance alias to navigate to the detailed instance pages.
 
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 
 Use the permissions listed in the following table to manage access to this page.
@@ -97,7 +97,7 @@ Use the permissions listed in the following table to manage access to this page.
 
 The following image shows the navigation menu you use to access each of the detailed instance pages.
 
-![The navigation menu on the Connect Customer instances page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/iam-custom-permissions-admin-console-telephony-page.png)
+![The navigation menu on the Connect Customer instances page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/iam-custom-permissions-admin-console-telephony-page.png)
 
 
 To access the detailed instance pages, you need permissions to the Connect Customer console home page (describe/list). Or, use the `AmazonConnectReadOnlyAccess` policy.

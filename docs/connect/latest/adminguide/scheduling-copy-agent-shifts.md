@@ -29,4 +29,4 @@ Contact center managers, supervisors, and schedulers can copy shifts from one ag
 Time-off, Overtime, and, Voluntary time-off are not copied.
 If one or more agents in **Copy To** have Time-off, Overtime, or, Voluntary time-off, copy will fail on those specific days. **Override rules check** does not override these validations.
 
-![The Copy shift page which you can use to copy one agent shift to another agent, or to the same agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-copy-agent-shifts-1.png)
+![The Copy shift page which you can use to copy one agent shift to another agent, or to the same agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-copy-agent-shifts-1.png)

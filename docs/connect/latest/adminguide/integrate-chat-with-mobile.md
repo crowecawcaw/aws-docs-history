@@ -56,7 +56,7 @@ This integration uses native bridges to access advanced features and ensures con
 
 The following diagram shows the programming flow between a customer using a mobile app and an agent. Numbered text in the diagram corresponds to numbered text below the image.
 
-![The Connect Customer chat program flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/integrate-chat-mobile-diagram.png)
+![The Connect Customer chat program flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/integrate-chat-mobile-diagram.png)
 
 
 **In the diagram**

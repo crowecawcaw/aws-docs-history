@@ -73,12 +73,12 @@ After you create a Lambda for attachment scanning, you need to add the Lambda to
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **Data storage**.
 
 1. On the **Data storage** page, in the **Attachments** section, choose **Edit**, and then select **Enable attachments scanning**, as shown in the following image.  
-![The attachments page, the enable attachments scanning option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scanner.png)
+![The attachments page, the enable attachments scanning option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scanner.png)
 
 1. Use the **Lambda Functions** drop-down box to select the Lambda function that you added in [Step 1: Create a Lambda function that handles scanning](#lambda-scanning).
 

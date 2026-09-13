@@ -21,7 +21,7 @@ It's technically possible for any field that is both visible and hidden to an ag
 
 For example, look at the **AttributesBar** component in the following image. 
 
-![An Attributes bar component, with the Value set to dynamic.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-attributebar-example.png)
+![An Attributes bar component, with the Value set to dynamic.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-attributebar-example.png)
 
 + The Label of Attribute 1 is statically defined as **Customer Name**.
 + The **Value** of the attribute is set to dynamic (the lightning bolt icon is selected).
@@ -32,7 +32,7 @@ When a field is set to dynamic, its static value is replaced with a dynamic refe
 
 The dynamic reference reflects the data structure expected by the [Show view](show-view-block.md) block when setting up runtime data. For example, consider the **Value** of Attribute 1 in the [AttributesBar](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/ui-component-attributebar--with-attributes) component, shown in the following image.
 
-![The Value of Attribute 1 in the AttributesBar component when it is dynamic.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-dynamicicon.png)
+![The Value of Attribute 1 in the AttributesBar component when it is dynamic.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-dynamicicon.png)
 
 +  When set to dynamic, the field becomes `$.AttributeBar_1.Attributes[0].Value` where `AttributeBar_1` is the Id of the component.
 + This indicates that in the [Show view](show-view-block.md) block, the `AttributeBar_1` field should receive an object. 
@@ -40,20 +40,20 @@ The dynamic reference reflects the data structure expected by the [Show view](sh
 
 You can edit dynamic references for clarity or reusability. Dynamic references can be shared across multiple fields and components within the View. For example, in the following image of the [AttributeBar](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/ui-component-attributebar--with-attributes) component, we update its dynamic reference to `$.myAttributeValue`. The [Show view](show-view-block.md) block now has a `myAttributeValue` field that expects a string input.
 
-![The Properties of the AttributeBar component, a Value that is dynamic.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-dynamic-example2.png)
+![The Properties of the AttributeBar component, a Value that is dynamic.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-dynamic-example2.png)
 
 
 **Important**  
 The type of the dynamic reference must match the expected type of the field. For example, you can't use a string-based dynamic reference in a Boolean field. The following image shows an example error message when the dynamic reference doesn't match.  
 
-![The Customize panel, an error message because the dynamic reference does not match the expected type in the field.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-dynamic-fields-example-4.png)
+![The Customize panel, an error message because the dynamic reference does not match the expected type in the field.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-dynamic-fields-example-4.png)
 
 
 You also have the option to set all properties of an attribute in a component as dynamic. In the following image, everything about this attribute, including the label, is determined at runtime based on the values passed into the [Show view](show-view-block.md) block. For example, **Customer Name** is now sample data that you can use to get a sense of what the agent will see when they use a guide. However, this value is not viewable to the agent.
 
-![The Customize panel, Customer Name as sample data.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-dynamic-fields-example-5.png)
+![The Customize panel, Customer Name as sample data.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-dynamic-fields-example-5.png)
 
 
 For certain components, such as [AttributesBar](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/ui-component-attributebar--with-attributes), you can also set all properties of the component as dynamic. For example, with the AttributeBar, you can set choose the dynamic icon (the lightning bolt) to make all of the attributes dynamic. The attributes are determined by whatever is passed to the [Show view](show-view-block.md) block at runtime. 
 
-![All properties of the AttributeBar are set to dynamic.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-dynamic-6.png)
+![All properties of the AttributeBar are set to dynamic.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-dynamic-6.png)

@@ -29,22 +29,22 @@ You can configure multiple Retrieve tools to query different knowledge bases. De
 Both configurations require the same initial setup. Complete these steps first, then follow the instructions for your specific use case.
 
 1. From the AWS Console, you can add additional knowledge bases by choosing Add Integration and following the guided experience. In this example, we added demo-byobkb as the additional knowledge base.  
-![Multiple integrations shown on AI agents domain page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-showing-multi-kbs-in-domain-page.png)
+![Multiple integrations shown on AI agents domain page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-showing-multi-kbs-in-domain-page.png)
 
 1. From AI Agent Designer, create a new Orchestration AI agent, and edit the default Retrieve tool  
-![AI Agents builder page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-ai-agent-builder.png)
+![AI Agents builder page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-ai-agent-builder.png)
 
 1. Associate existing knowledge base to the Retrieve Tool. AI agent will use this knowledge base as the default  
-![Choosing the assistant association for the retrieve tool.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-picking-assistant-association-in-retrieve-tool.png)
+![Choosing the assistant association for the retrieve tool.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-picking-assistant-association-in-retrieve-tool.png)
 
 1. Add an additional Tool, choose Amazon Connect as the namespace and choose Retrieve type of AI Tool  
-![Selecting the retrieve tool.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-choosing-retrieve-tool.png)
+![Selecting the retrieve tool.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-choosing-retrieve-tool.png)
 
 1. Now select the additional knowledge base that you want to associate beyond the default knowledge base  
-![Choosing the assistant association for the retrieve tool.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-picking-assistant-association-in-retrieve-tool2.png)
+![Choosing the assistant association for the retrieve tool.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-picking-assistant-association-in-retrieve-tool2.png)
 
 1. Name each additional Retrieve tool starting with "Retrieve" (for example, Retrieve2, Retrieve3, RetrieveProducts, RetrievePolicies).  
-![Naming the retrieve tool.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-naming-the-retrieve-tool.png)
+![Naming the retrieve tool.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-naming-the-retrieve-tool.png)
 
 1. Next, configure the tool instructions and examples. The configuration varies depending on your use case. The following sections cover two scenarios: querying all knowledge bases simultaneously and querying knowledge bases selectively.
 
@@ -57,10 +57,10 @@ Use this configuration when you want the agent to search all knowledge bases sim
 <a name="ai-agents-parallel-tool-instructions"></a>
 
 1. Fill in the tool instructions by copying over the instructions and examples from the default Retrieve tool.  
-![Retrieve tool instructions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-instructions.png)
+![Retrieve tool instructions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-instructions.png)
 
 1. Choose the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.  
-![Tool list containing multiple retrieve tools.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-multiple-retrieve-tools-list.png)
+![Tool list containing multiple retrieve tools.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-multiple-retrieve-tools-list.png)
 
    You now have a second Retrieve tool. To use all Retrieve tools together, you must modify the prompt with instructions to invoke them simultaneously. Without this change, only one Retrieve tool will be used.
 
@@ -70,7 +70,7 @@ Use this configuration when you want the agent to search all knowledge bases sim
 1. Modify the prompt to instruct it to use multiple Retrieve tools. Default orchestration prompts cannot be edited directly, so you'll need to create a copy with your changes.
 
    Create a new prompt by copying the default orchestration prompt that matches your use case. In this example, we copy from the AgentAssistanceOrchestration prompt.  
-![Creating new AI Prompt screen.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-creating-new-prompt.png)
+![Creating new AI Prompt screen.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-creating-new-prompt.png)
 
 1. Choose the **Create button** and you will be taken to a page where you can modify the prompt.
 
@@ -105,10 +105,10 @@ Use this configuration when you want the agent to select the appropriate knowled
 Unlike parallel invocation, each Retrieve tool needs distinct instructions that describe when it should be used. This includes the default Retrieve tool—you must update its instructions to differentiate it from the additional Retrieve tools. Use descriptive names that reflect each knowledge base's content (for example, RetrieveProducts, RetrievePolicies) to help the model select the correct tool.
 
 1. For each Retrieve tool, including the default, write specific instructions that describe the content of its associated knowledge base and when to use it.  
-![Retrieve tool instructions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-instructions.png)
+![Retrieve tool instructions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-instructions.png)
 
 1. Choose the Add button to create the new Retrieve tool. Your tool list should now have the new Retrieve tool.  
-![Tool list containing multiple retrieve tools.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-multiple-retrieve-tools-list.png)
+![Tool list containing multiple retrieve tools.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-multiple-retrieve-tools-list.png)
 
    You now have a second Retrieve tool. To have the agent select the appropriate tool based on context, you must modify the prompt with instructions on when to use each tool.
 
@@ -118,7 +118,7 @@ Unlike parallel invocation, each Retrieve tool needs distinct instructions that 
 1. Modify the prompt to instruct it to choose the appropriate Retrieve tool based on context. Default orchestration prompts cannot be edited directly, so you'll need to create a copy with your changes.
 
    Create a new prompt by copying the default orchestration prompt that matches your use case. In this example, we copy from the AgentAssistanceOrchestration prompt.  
-![Creating new AI Prompt screen.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-creating-new-prompt.png)
+![Creating new AI Prompt screen.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-creating-new-prompt.png)
 
 1. Choose the **Create button** and you will be taken to a page where you can modify the prompt.
 
@@ -181,13 +181,13 @@ After your content is tagged, you can filter retrieval results by specifying tag
 
 1. Add key-value pairs to define your tag filter. You need two overrides to filter by a single tag. In this example, we use `equals` as the filter operator:
    + Set the Property Key to `retrievalConfiguration.filter.equals.key` with the value as your tag name (for example, `number`).  
-![Setting the filter key override.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-filter-key.png)
+![Setting the filter key override.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-filter-key.png)
    + Set the Property Key to `retrievalConfiguration.filter.equals.value` with the value as your tag value (for example, `one`).  
-![Setting the filter value override.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-filter-value.png)
+![Setting the filter value override.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-filter-value.png)
 
 You can use any filter configuration that starts with `retrievalConfiguration.filter` to define your tag filtering criteria.
 
-![Completed tag filter configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-filter-complete.png)
+![Completed tag filter configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-retrieve-tool-filter-complete.png)
 
 
 #### Bedrock knowledge base

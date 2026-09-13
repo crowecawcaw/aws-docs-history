@@ -185,6 +185,94 @@ The following tables contain contact data.
 | quality\_metrics\_agent\_reported\_issue | string |  Yes  | The call-quality issue self-reported by the agent, such as AUDIO\_DROPPED or NO\_AUDIO. | 
 | task\_template\_arn | string |  Yes  | The Amazon Resource Name (ARN) of the task template used to create the contact. | 
 | task\_template\_name | string |  Yes  | The name of the task template used to create the contact. | 
+| routing\_criteria | array(struct) |  Yes  | The routing criteria associated with the contact. Each object includes an activation timestamp, index, and a list of routing steps. Each step includes a status, expiry duration, and an expression stored as a JSON string. For more information, see [RoutingCriteria](https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingCriteria.html). | 
+
+### Sample queries when routing based on proficiencies
+<a name="data-lake-contact-record-sample-queries"></a>
+
+The following example query in Amazon Athena creates a view with one row for each routing criteria for each contact:
+
+```
+CREATE OR REPLACE VIEW routing_criteria AS
+SELECT
+    instance_id,
+    aws_account_id,
+    contact_id,
+    instance_arn,
+
+    rc_item.index AS routing_criteria_index,
+    rc_item.activation_timestamp
+
+FROM "{{contact-record-resource-link-table-name}}"
+CROSS JOIN UNNEST(routing_criteria) AS t(rc_item)
+WHERE routing_criteria IS NOT NULL;
+```
+
+The following example query in Amazon Athena creates a view with one row for each routing step for each routing criteria:
+
+```
+CREATE OR REPLACE VIEW routing_steps AS
+SELECT
+    instance_id,
+    aws_account_id,
+    contact_id,
+    instance_arn,
+
+    rc_item.index AS routing_criteria_index,
+    rc_item.activation_timestamp,
+    step_ordinal,
+    step_item.status,
+    step_item.expiry.expiry_duration_in_seconds,
+    step_item.expiry.expiry_timestamp,
+    step_item.expression
+
+FROM "{{contact-record-resource-link-table-name}}"
+CROSS JOIN UNNEST(routing_criteria) AS t(rc_item)
+CROSS JOIN UNNEST(rc_item.steps) WITH ORDINALITY AS s(step_item, step_ordinal)
+WHERE routing_criteria IS NOT NULL;
+```
+
+The following example query in Amazon Athena creates a view that extracts individual attribute conditions from routing step expressions, producing one row for each skill requirement for each step:
+
+```
+CREATE OR REPLACE VIEW routing_attribute_conditions AS
+
+SELECT ctr.instance_id, ctr.aws_account_id, ctr.instance_arn,
+       ctr.contact_id, rc.index AS routing_criteria_index, s.step_ordinal, step.status,
+       step.expiry.expiry_duration_in_seconds AS expiry_duration_in_seconds,
+
+       -- Whether this step uses a NOT (exclusion) condition.
+       strpos(step.expression, '"notAttributeCondition":{') > 0 AS negated,
+
+       CASE WHEN raw_name <> 'null'
+            THEN regexp_extract(raw_name, '"([^"]+)"', 1) END AS attribute_name,
+       CASE WHEN raw_value <> 'null'
+            THEN regexp_extract(raw_value, '"([^"]+)"', 1) END AS attribute_value,
+       CASE WHEN raw_prof <> 'null'
+            THEN CAST(raw_prof AS DOUBLE) END AS proficiency_level,
+       CASE WHEN raw_comp <> 'null'
+            THEN regexp_extract(raw_comp, '"([^"]+)"', 1) END AS comparison_operator,
+
+       CASE WHEN regexp_extract(raw_comp, '"([^"]+)"', 1) = 'Match'
+            THEN regexp_extract_all(step.expression, '([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})')
+       END AS match_criteria_agent_ids,
+
+       CAST(regexp_extract(step.expression, '"minProficiencyLevel":([0-9.]+)', 1) AS DOUBLE) AS range_min_proficiency_level,
+       CAST(regexp_extract(step.expression, '"maxProficiencyLevel":([0-9.]+)', 1) AS DOUBLE) AS range_max_proficiency_level
+
+FROM "{{contact-record-resource-link-table-name}}" ctr
+CROSS JOIN UNNEST(ctr.routing_criteria) AS t(rc)
+CROSS JOIN UNNEST(rc.steps) WITH ORDINALITY AS s(step, step_ordinal)
+CROSS JOIN UNNEST(
+    regexp_extract_all(step.expression, '"name":(null|"[^"]*")', 1),
+    regexp_extract_all(step.expression, '"comparisonOperator":(null|"[^"]*")', 1),
+    regexp_extract_all(step.expression, '"proficiencyLevel":(null|[0-9.]+)', 1),
+    regexp_extract_all(step.expression, '"value":(null|"[^"]*")', 1)
+) AS t2(raw_name, raw_comp, raw_prof, raw_value)
+
+WHERE ctr.routing_criteria IS NOT NULL
+  AND step.expression IS NOT NULL;
+```
 
 ## Contact statistic record
 <a name="data-lake-contact-statistic-record"></a>

@@ -12,7 +12,7 @@ The steps in this topic are optional but recommended. With these steps, you can 
 1. In the **Domain & Security** section, choose **Edit**. 
 
 1. Under **Add security for your communications widget requests**, choose **Yes**.  
-![The Yes option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-choose-security.png)
+![The Yes option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-choose-security.png)
 
 1. Choose **Save and continue**. Connect Customer creates the widget along with the following:
    + Connect Customer provides a 44-character security key on the next page that you can use to create JWTs.
@@ -62,7 +62,7 @@ The following example shows how to pass contact attributes directly from snippet
 
 The [Check contact attributes](check-contact-attributes.md) flow block provides access to these attributes through the **User defined** namespace, as shown in the following image. You can use the flow block to add branching logic. The full path is `$Attribute.HostedWidget-{{attributeName}}`. 
 
-![Image showing a flow block branching to Valid and Invalid prompts.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-check-contact-attrib.png)
+![Image showing a flow block branching to Valid and Invalid prompts.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-check-contact-attrib.png)
 
 
 ## Copy communications widget code and security keys
@@ -75,7 +75,7 @@ In this step, you confirm your selections and copy the code for the communicatio
 
 Use this 44-character security key to generate JSON web tokens from your web server. You can also update, or rotate, keys if you need to change them. When you do this, Connect Customer provides you with a new key and maintains the previous key until you have a chance to replace it. After you have the new key deployed, you can come back to Connect Customer and delete the previous key.
 
-![The security key.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-security-key.png)
+![The security key.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-security-key.png)
 
 
 When your customers interact with the start call icon on your website, the communications widget requests your web server for a JWT. When this JWT is provided, the widget will then include it as part of the end customer’s call to Connect Customer. Connect Customer then uses the secret key to decrypt the token. If successful, this confirms that the JWT was issued by your web server and Connect Customer routes the call to your contact center agents.
@@ -116,7 +116,7 @@ The following image shows an example of the JavaScript that you embed on the web
 
 The following image shows an example of where to find your widgetId.
 
-![The communications widget script.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-code.png)
+![The communications widget script.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-code.png)
 
 
 When your website loads, customers first see the **Start** icon. When they choose this icon, the communications widget opens and customers are able to call your agents.
@@ -126,7 +126,7 @@ To make changes to the communications widget at any time, choose **Edit**.
 **Note**  
 Saved changes update the customer experience in a few minutes. Confirm your widget configuration before saving it. 
 
-![The edit link on the widget preview.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-call-edit.png)
+![The edit link on the widget preview.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-call-edit.png)
 
 
 To make changes to widget icons on the website, you will receive a new code snippet to update your website directly.

@@ -9,7 +9,7 @@ This topic explains how to investigate device problems:
 + To investigate platform issues, do the following:
   + Run the [Endpoint Test Utility](check-connectivity-tool.md) from the affected agent's machine and check the results.
   + Check whether the agent workstation meets [minimum hardware requirements](ccp-agent-hardware.md) for Connect Customer. For a workstation that meets the requirements, the results are similar to those in the following image.  
-![Endpoint Test Utility results showing a workstation that meets all Connect Customer requirements.](http://docs.aws.amazon.com/connect/latest/adminguide/images/endpoint-test.png)
+![Endpoint Test Utility results showing a workstation that meets all Connect Customer requirements.](https://docs.aws.amazon.com/connect/latest/adminguide/images/endpoint-test.png)
   + Review the [DeviceInfo](ctr-data-model.md#ctr-deviceinfo) field in the contact record, which shows the participant's platform, platform version, and operating system. Use the `deviceInfo` parameter to identify the agent's workstation settings. 
 
     `"deviceInfo": { "platformName": "Chrome", "platformVersion": "116", "operatingSystem": "Windows" },`

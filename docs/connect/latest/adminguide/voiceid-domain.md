@@ -22,7 +22,7 @@ Following are guidelines for creating Voice ID domains:
 Only existing Voice ID domains in the same Region in your Connect Customer account can be shared across Connect Customer instances in that Region.
 + You can change the association of your Connect Customer instance from your current domain to a new domain at any time, by choosing a different domain. 
 + To delete a Voice ID domain, use the [DeleteDomain](https://docs.aws.amazon.com/voiceid/latest/APIReference/API_DeleteDomain.html) Voice ID API. `DeleteDomain` soft deletes the domain. Connect Customer waits 30 days before completely erasing the domain data. During this period, Voice ID; is disabled for all the Connect Customer instances it is associated with. To restore a domain during this window, submit an Support ticket and provide the domain ID. You can find the domain ID on the Voice ID section of the Connect Customer console, as shown in the following example:  
-![The Voice ID section of the Connect Customer console displaying the domain ID field which is needed for domain restoration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-domain.png)
+![The Voice ID section of the Connect Customer console displaying the domain ID field which is needed for domain restoration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-domain.png)
 
   Deleting a Voice ID domain deletes all stored customer data, such as audio recordings, voiceprints, and speaker identifiers, as well as any fraudster watchlists that you managed.
 

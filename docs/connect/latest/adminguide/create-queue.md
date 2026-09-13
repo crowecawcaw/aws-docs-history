@@ -16,7 +16,7 @@ This topic explains how to create a queue using the Connect Customer admin websi
 1. Add the appropriate information about your queue and choose **Add new queue**.
 
    The following image shows the queue information for the BasicQueue.  
-![The Edit queue page for the Basic queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-a-new-queue.png)
+![The Edit queue page for the Basic queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-a-new-queue.png)
 
    See the following topics for detailed information about each of the above areas:
 

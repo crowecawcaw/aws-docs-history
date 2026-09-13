@@ -34,7 +34,7 @@ To improve Citrix connectivity and reduce dropped calls and missed calls, use `C
     + `msedge.exe`
 
   After you configure the registry successfully, restart the `CitrixHdxWebSocketService` using **Task Manager** to finish the setup.  
-![Using task manager in Windows to restart CitrixHdxWebSocketService.](http://docs.aws.amazon.com/connect/latest/adminguide/images/using-ccp-vdi-citrix-server-setup.png)
+![Using task manager in Windows to restart CitrixHdxWebSocketService.](https://docs.aws.amazon.com/connect/latest/adminguide/images/using-ccp-vdi-citrix-server-setup.png)
 + **Networking/Firewall Configurations**
   + **Citrix server configuration**
 
@@ -42,7 +42,7 @@ To improve Citrix connectivity and reduce dropped calls and missed calls, use `C
   + **Agent machine configuration**
 
     This solution requires a media connection between the agent's thin client and Connect Customer. To allow traffic between the agent's machine and Connect Customer's Softphone Media UDP Port 3478, see [Set up your network](ccp-networking.md).  
-![Citrix server and agent machine firewall settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/using-ccp-vdi-citrix-server-firewall.png)
+![Citrix server and agent machine firewall settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/using-ccp-vdi-citrix-server-firewall.png)
 + **Unsupported CCP Deployment**
   + Native CCP
 
@@ -51,4 +51,4 @@ To improve Citrix connectivity and reduce dropped calls and missed calls, use `C
 + **Use Task Manager (Windows) to verify**
 
   Launch the **Task Manager** on the agent's thin client and check to see if the HDX service is running or not. If it is running, then it means that the media is being redirected as expected.  
-![Using task manager in Windows.](http://docs.aws.amazon.com/connect/latest/adminguide/images/using-ccp-vdi-citrix-confirm-media-flow-windows.png)
+![Using task manager in Windows.](https://docs.aws.amazon.com/connect/latest/adminguide/images/using-ccp-vdi-citrix-confirm-media-flow-windows.png)

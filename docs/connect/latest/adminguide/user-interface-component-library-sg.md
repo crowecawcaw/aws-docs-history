@@ -7,7 +7,7 @@ All of the UI builder components are described in the [Connect Customer UI compo
 
 You access the library components in the UI builder in the **Create** panel, the **Library** tab. The following image shows an example of the **Library** tab and the **Container** components. 
 
-![The UI builder Create panel, the Library tab, the UI components.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-interface-component-library-example.png)
+![The UI builder Create panel, the Library tab, the UI components.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-interface-component-library-example.png)
 
 
 ## Use Containers to move and organize components
@@ -28,4 +28,4 @@ A [Form](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-fo
 
 The following image shows an example **Form** component with placeholder labels and a Submit Button.
 
-![A Form component with placeholder labels and a Submit Button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-interface-component-library-form-section-example.png)
+![A Form component with placeholder labels and a Submit Button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-interface-component-library-form-section-example.png)

@@ -10,7 +10,7 @@ On a Mac, Ctrl\+Y opens the history page instead of performing a redo.
 
 To access a history of your actions that you can undo, choose the **Undo** dropdown button on the toolbar, as shown in the following image.
 
-![The undo dropdown.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-undo.png)
+![The undo dropdown.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-undo.png)
 
 
 ## Limits

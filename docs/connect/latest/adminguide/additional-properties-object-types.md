@@ -13,5 +13,5 @@ It also contains how long data of this object type should be retained in Custome
 Retention on individual objects is set at the time of ingestion of data. Changing the retention for a specific object type only applies to new data being ingested. It does not apply to existing data already ingested.
 
 **Note**  
-If this object matches with an existing profile, it will not overwrite fields manually populated through an API call or the Agent Workspace, to prevent automated ingestions from overwriting manual ones.  
-For example, suppose a profile is created with FirstName “John” manually by an agent in the Agent Workspace. An object mapping data to the Standard Profile’s FirstName field is ingested. If this object associates with the profile, it will not overwrite the FirstName “John”.
+If this object matches with an existing profile, it will not overwrite fields manually populated through an API call or in the agent workspace, to prevent automated ingestions from overwriting manual ones.  
+For example, suppose a profile is created with FirstName “John” manually by an agent in the agent workspace. An object mapping data to the Standard Profile’s FirstName field is ingested. If this object associates with the profile, it will not overwrite the FirstName “John”.

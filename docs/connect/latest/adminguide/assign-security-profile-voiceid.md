@@ -18,7 +18,7 @@ The functionality to enter or update the `SpeakerID` is not available with the d
 
 The following image shows an example of these controls on the CCP:
 
-![Contact Control Panel (CCP) showing Voice ID controls including enrollment status, authentication result.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-controls.png)
+![Contact Control Panel (CCP) showing Voice ID controls including enrollment status, authentication result.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ccp-controls.png)
 
 
 For information about how to add more permissions to an existing security profile, see [Update security profiles in Connect Customer](update-security-profiles.md).

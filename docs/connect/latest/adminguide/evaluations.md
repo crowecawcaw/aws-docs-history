@@ -20,18 +20,18 @@ To perform manual evaluations, you can search for a contact, choose the appropri
 1. Access the contact that you want to evaluate. There are a few ways you can do this. For example, someone might have shared the contact URL with you, or assigned you a task that has the URL. Or, you might have the contact ID, which you can use to search for the contact record by doing the following: on the navigation pane, choose **Analytics and optimization**, **Contact search**, and then search for the contact that you want to evaluate.
 
 1. On the **Contact details** page, choose **Evaluations** or the **<** icon.  
-![The Contact details page, the Evaluations button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-evaluatebutton.png)
+![The Contact details page, the Evaluations button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-evaluatebutton.png)
 
 1. The **Evaluations** panel lists any evaluations that are in progress or completed for the contact.  
-![The evaluations pane, the status of two evaluations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-startevaluation.png)
+![The evaluations pane, the status of two evaluations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-startevaluation.png)
 
 1. To start an evaluation, choose an evaluation form from the dropdown menu, and then choose **Start evaluation**. If you have not set up an evaluation form yet, then you will need to do so beforehand. For more information, see [Create an evaluation form](create-evaluation-forms.md).
 
 1. To navigate an especially long evaluation form, use the arrows next to each section to collapse or expand it.   
-![The evaluations pane, the arrow to collapse or expand a section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-exampleevaluation.png)
+![The evaluations pane, the arrow to collapse or expand a section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-exampleevaluation.png)
 
 1. Choose **Save** to save a form in progress. The status of the form becomes **Draft**. You can return to it any time to continue, or you can delete it and start over.  
-![The evaluations pane, the status of an evaluation set to draft.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-draft.png)
+![The evaluations pane, the status of an evaluation set to draft.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-draft.png)
 
 1. When you're done, choose **Submit**. If you have skipped optional questions in the form, you will see a warning asking you to confirm that you want to submit the evaluation. Choose **Yes**. The evaluation is now **Completed**.  
-![Skip optional questions and submit the evaluation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-draft-submit.png)
+![Skip optional questions and submit the evaluation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-draft-submit.png)

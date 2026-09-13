@@ -39,7 +39,7 @@ A total of only 6 participants (customers and agents) can join an active call at
    Additionally, each contact record has the display name provided in `CreateParticipant`. Agent information is not populated for any additional user contact. This is to avoid the duplication of agent information.
 
    The following diagram illustrates how previous and next contact IDs are mapped in a scenario where multiple participants and agents are added in a web, in-app or video call.  
-![Contact IDs are mapped for multi-party WebRTC calls.](http://docs.aws.amazon.com/connect/latest/adminguide/images/multiparty-webrtc-contact-mapping.png)
+![Contact IDs are mapped for multi-party WebRTC calls.](https://docs.aws.amazon.com/connect/latest/adminguide/images/multiparty-webrtc-contact-mapping.png)
 
 ## Handling concurrent user joins
 <a name="handling-concurrent-joins"></a>
@@ -66,7 +66,7 @@ If the field exists, the backend should call [CreateParticipant](https://docs.aw
 
 The backend flow should look like the following.
 
-![Backend flow diagram for handling concurrent user joins.](http://docs.aws.amazon.com/connect/latest/adminguide/images/multiparty-backend-flow.png)
+![Backend flow diagram for handling concurrent user joins.](https://docs.aws.amazon.com/connect/latest/adminguide/images/multiparty-backend-flow.png)
 
 
 You can refer to the [Connect Customer in-app calling examples](https://github.com/amazon-connect/amazon-connect-in-app-calling-examples/tree/main/Web) on GitHub for implementation.

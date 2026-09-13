@@ -17,7 +17,7 @@ There are two ways to get a summary:
 
 Summaries reflect the same underlying data as the corresponding dashboard, scoped by the configuration of that dashboard. You can summarize only the dashboards that you have permission to view.
 
-![A dashboard with the Dashboard summary panel expanded next to the assistant panel. The summary panel includes the generation time, a refresh icon, and a Learn more button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-dashboard-summary.png)
+![A dashboard with the Dashboard summary panel expanded next to the assistant panel. The summary panel includes the generation time, a refresh icon, and a Learn more button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-dashboard-summary.png)
 
 
 ## Request a summary
@@ -44,7 +44,7 @@ For the **Dashboard summary** panel, the saved configuration of the dashboard, i
 
 Summaries are delivered as short narrative paragraphs rather than as lists of numbers. Summaries highlight notable trends, outliers, and anomalies instead of restating every data point. The following image shows an example summary.
 
-![An example Dashboard summary that describes agent error states, contacts handled, average handle time, and available capacity for a queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-summary-example.png)
+![An example Dashboard summary that describes agent error states, contacts handled, average handle time, and available capacity for a queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/manager-assistant-summary-example.png)
 
 
 **Important**  

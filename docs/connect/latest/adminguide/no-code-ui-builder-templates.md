@@ -20,4 +20,4 @@ If you have already placed UI components onto the canvas, these components are o
 
 The following image shows an example of a few of the templates available in the **Create** panel: Screen Pop, Disposition, Payment
 
-![A few of the templates that are available in the Create panel: Screen Pop, Disposition, Payment.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-templates-example.png)
+![A few of the templates that are available in the Create panel: Screen Pop, Disposition, Payment.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-templates-example.png)

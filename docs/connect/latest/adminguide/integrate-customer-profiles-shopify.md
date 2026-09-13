@@ -11,20 +11,20 @@ To provide periodic updates to Connect Customer Customer Profiles, you can integ
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **Customer profiles**.
 
 1. On the **Customer profiles configuration** page, choose **Add integration**.  
-![The Customer profiles configuration page, the Add integration button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-addintegration.png)
+![The Customer profiles configuration page, the Add integration button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-addintegration.png)
 
 1. On the **Select source** page, choose **Shopify**. Review the application requirements that are listed on the **Select application** page.  
-![The select source page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-cp-shopify-source.png)
+![The select source page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-cp-shopify-source.png)
 
 1. On the **Establish connection** page, choose one of the following: 
    + **Use existing connection**: This allows you to reuse existing Amazon EventBridge resources that you might have created in your AWS account.
    + **Create new connection**: Enter the information required by the external application.  
-![The Establish connection page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-shopify-establish-connection.png)
+![The Establish connection page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-shopify-establish-connection.png)
      + **Connection name**: Provide a name for your connection. The connection name is referenced by integrations that use this connection.
      + **Connection URL**: Enter your application connection URL. This URL is used for deep-linking into the objects created in your external application. The connection URL is the Shopify Partner app URL available on the application website. 
 
@@ -54,7 +54,7 @@ To provide periodic updates to Connect Customer Customer Profiles, you can integ
 1. On the **Integration options** page, choose which source objects you want to ingest and select their object type. 
 
    Object types store your ingested data. They also define how objects from your integrations are mapped to profiles when they are ingested. Customer Profiles provides default object type templates you can use that define how attributes in your source objects are mapped to the standard objects in Customer Profiles. You can also use the object mappings that you've created from the [PutProfileObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutProfileObjectType.html).   
-![The Integration options page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-integration-options-shopify.png)
+![The Integration options page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-integration-options-shopify.png)
 
 1. For the **Ingestion start date**, Customer Profiles starts ingesting records created after the integration is added. 
 **Note**  
@@ -63,10 +63,10 @@ If you need historical records, you can [use Amazon S3 as an integration source 
 1. On the **Review and integrate** page, check that the **Connection status** says **Connected**, and then choose **Add integration**. 
 **Note**  
  After adding this integration, you need to [set up webhook subscriptions](#shopify-webhook-subscriptions) to allow events to start flowing into this integration.   
-![The Review and integrate page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-shopify-webhook.png)
+![The Review and integrate page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-shopify-webhook.png)
 
 1. After the integration is set up, back on the **Customer profiles configuration** page, the **Integrations** section displays which integrations are currently set up. The **Last run** and **Integration health** are not currently available for this type of integration.   
-![The Integrations section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-shopify-integrations-view-card.png)
+![The Integrations section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-shopify-integrations-view-card.png)
 
    To see what data is being sent, choose the integration and then choose **View objects**.
 
@@ -89,7 +89,7 @@ If you need historical records, you can [use Amazon S3 as an integration source 
    + `nonce` can be any unique value to identify a given authorization request from others. We recommend using a timestamp.
 
    After you have constructed the URL, paste it into your browser. An installation/authorization page similar to the following image is displayed, asking the store owner to give permissions for the defined scope.  
-![A shopify page example for installing and authorizing the app.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-shopify-webhook-embedded-app.png)
+![A shopify page example for installing and authorizing the app.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-shopify-webhook-embedded-app.png)
 
 1. Choose **Install unlisted app** to install and authorize the app on behalf of your store. 
 
@@ -178,7 +178,7 @@ You're now all set to receive events from your Shopify store. Next, verify your 
 
 1. The event delivery should be almost instantaneous but allow a minute for it to be delivered and to create a customer profile.
 
-1. Open the Connect Customer agent experience and look up the user by the email or phone number you entered into the Shopify Store. You should be able to see the customer profile with the same email or phone number.
+1. Open the Connect Customer agent workspace and look up the user by the email or phone number you entered into the Shopify Store. You should be able to see the customer profile with the same email or phone number.
 
 1. If you cannot see the customer profile, then there is a problem with your integration. To troubleshoot:
 

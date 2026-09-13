@@ -18,6 +18,6 @@ Even though many call recordings for specific contact IDs might be named with th
 1. In the **Contact ID** box, enter the contact ID, and then choose **Search**.
 
 1. Conversations that were recorded have icons in the **Recording/Transcript** column. The following image shows the play, download, and delete icons. If you don't have the appropriate permissions, you won't see these icons.   
-![The contact search page, the play, download, and delete recording icons.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recording-icons.png)
+![The contact search page, the play, download, and delete recording icons.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recording-icons.png)
 
 To learn more about searching, see [Search for completed and in-progress contacts in Connect Customer](contact-search.md).

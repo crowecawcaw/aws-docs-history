@@ -7,12 +7,12 @@ Some security profiles included inherited permissions: when you give a user expl
 
 For example, assume you explicitly grant someone permission to **Edit/View** queues, as shown in the following image: 
 
-![The security profile permissions section of the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_edit_view_queues.png)
+![The security profile permissions section of the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_edit_view_queues.png)
 
 
 By doing this you also implicitly grant them permissions to **View** a list of all phone numbers and hours of operation in your Connect Customer instance, **when they add them to the queue**. On the **Add new queue** page, the available phone numbers and hours of operation appear in dropdown lists, as shown in the following image. 
 
-![The add new queue page, the hours of operation dropdown list, the outbound caller id number dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_add_queue_dropdowns.png)
+![The add new queue page, the hours of operation dropdown list, the outbound caller id number dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_add_queue_dropdowns.png)
 
 
 However, they don't have permissions to **Edit** the phone numbers and hours of operation. 

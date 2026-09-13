@@ -23,7 +23,7 @@ For an agent to be able receive a task, they need a quick connect created for th
 1. Choose **Save**.
 
    The following image shows a quick connect for Jane Doe on the **Quick connects** page.  
-![The quick connects page, a sample quick connect.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-agent-quick-connect.png)
+![The quick connects page, a sample quick connect.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tasks-agent-quick-connect.png)
 
 ## Step 2: Create a queue for the agent and associate the quick connect
 <a name="create-queue-for-agent"></a>

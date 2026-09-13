@@ -32,7 +32,7 @@ You can do character matching quick search on the metric name or description by 
 
 You can select a metric to edit, delete or clone. Choosing on the metric name in the listing page leads you to the full view of the custom metric.
 
-![The Custom metrics table with search functionality in Dashboards and reports.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-custom-metric-table-with-search.png)
+![The Custom metrics table with search functionality in Dashboards and reports.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-custom-metric-table-with-search.png)
 
 
 ## Create or edit a custom metric
@@ -72,7 +72,7 @@ When creating a custom metric, you need to choose if the metric is for Service l
   + A plain language explanation of what the metric measures.
   + The percentage of contacts answered within your target time, excluding any contact types you specified.
 
-![The Service Level Configuration editor showing configuration options for custom service level metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-service-level-editor.png)
+![The Service Level Configuration editor showing configuration options for custom service level metrics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-service-level-editor.png)
 
 
 ### Metrics builder
@@ -163,7 +163,7 @@ Typical callouts when using the editor
 + The metric builder is only available on [Connect Customer](enable-nextgeneration-amazonconnect.md) instances.
 + Metrics created using metric builder will not be accessible for editing if the instance is switched from Connect Customer to [Customer Basic](enable-nextgeneration-amazonconnect.md#how-to-disable-ac).
 
-![The Metric Builder editor showing components, definition, and configuration options for creating advanced custom metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-metric-builder-editor.png)
+![The Metric Builder editor showing components, definition, and configuration options for creating advanced custom metrics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-metric-builder-editor.png)
 
 
 ## View a custom metric

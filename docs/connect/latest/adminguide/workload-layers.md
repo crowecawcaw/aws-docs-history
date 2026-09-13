@@ -8,7 +8,7 @@ You can separate Connect Customer workloads into the following layers: telephony
 ## Telephony
 <a name="workload-layers-telephony"></a>
 
-![A graphic showing how telephony works for Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/telephony.png)
+![A graphic showing how telephony works for Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/telephony.png)
 
 
 **Important**  
@@ -16,7 +16,7 @@ TFN connecting to multiple carriers is only available in the US.
 
  Connect Customer is integrated with multiple telephony providers with redundant dedicated network paths to three or more Availability Zones in every Region where the service is offered today. Capacity, platform resiliency, and scaling are handled as part of the managed service, allowing you to efficiently ramp from 10 to 10,000\+ agents without worrying about the management or configuration of underlying platform and telephony infrastructure. Workloads are load balanced across a fleet of telephony media servers, allowing new updates and features to be delivered to you with no downtime required for maintenance or upgrades. If a particular component, data center, or an entire Availability Zone experiences failure, the affected endpoint is taken out of rotation, allowing you to continue to provide a consistent quality experience for your customers.
 
-![A graphic showing how telephony works for Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/telephony2.png)
+![A graphic showing how telephony works for Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/telephony2.png)
 
 
 When a voice call is placed to a Connect Customer instance, the telephony layer is responsible for controlling the endpoint that your customer calls into through their carrier, across the PSTN and into Connect Customer. This layer represents the audio path established between Connect Customer and the customer. Through the Connect Customer interface layer, you can configure things like outbound caller ID, assign flow/IVRs to phone numbers, enable live media streaming, enable call recording, and the ability to claim phone numbers without any prior traditional telephony knowledge or experience. Additionally, when migrating workloads to Connect Customer, you have the option to port your existing phone numbers by opening a support case in your AWS Management Console. You can also forward your existing phone numbers to numbers that you’ve claimed in your Connect Customer instance until you are fully migrated.
@@ -33,7 +33,7 @@ The Connect Customer interface layer is the access point that your agents and co
 
 Anything your agents, managers, supervisors, or contacts use to access, configure, or manage Connect Customer components from a web browser or API is considered the Connect Customer interface layer.
 
-![A graphic showing Connect Customer interface and API.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/connectinterface.png)
+![A graphic showing Connect Customer interface and API.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/connectinterface.png)
 
 
 ### Flow / IVR
@@ -50,7 +50,7 @@ The Flow/IVR layer is the primary architectural vehicle for Connect Customer and
 
 With flows, you can dynamically prompt contacts, collect and store contact attributes, and route appropriately. You can assign a flow to multiple phone numbers, and manage and configure it through Connect Customer.
 
-![A graphic showing flows and IVR.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/contactflowivr.png)
+![A graphic showing flows and IVR.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/contactflowivr.png)
 
 
 ## Agent workstation
@@ -67,7 +67,7 @@ The agent workstation layer is not managed by AWS. It consists of any physical e
 + Internet Service Provider (ISP) or Direct Connect dedicated network path to AWS. 
 + All other aspects of your agent’s operating environment including power, facilities, security, and ambient noise. 
 
-![A graphic agent workstation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/agentworkstation.png)
+![A graphic agent workstation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/agentworkstation.png)
 
 
 ## Metric and reporting
@@ -79,4 +79,4 @@ The metric and reporting layer includes the components responsible for deliverin
 + Real-time dashboards you create with Amazon OpenSearch Service and Kibana.
 + Amazon CloudWatch metrics generated that you can use to set alarms based on static thresholds, set up Amazon SNS notifications to alert to your administrators and supervisors, or launch AWS Lambda functions in response to the event. 
 
-![A graphic metrics and reporting.](http://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/metricandreporting.png)
+![A graphic metrics and reporting.](https://docs.aws.amazon.com/connect/latest/adminguide/images/architecture/metricandreporting.png)

@@ -7,17 +7,17 @@ To add notes to a block, on the toolbar choose **Annotation**. Or, with your cur
 
 The following image shows the flow designer toolbar, the annotation box, and an annotation that is attached to a block.
 
-![A block with annotations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-annotations.png)
+![A block with annotations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-annotations.png)
 
 
 The following GIF shows how to move notes around the flow designer and attach them to a block.
 
-![Notes on the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-annotationsGIF.gif)
+![Notes on the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-annotationsGIF.gif)
 
 
 The following image shows the dropdown menu that you can use to view a list of all the notes in a flow. Choose a note to navigate to it. Use the search box to search notes across the flow.
 
-![The list note menu item.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-annotations2.png)
+![The list note menu item.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-annotations2.png)
 
 
 Note the following functionality:

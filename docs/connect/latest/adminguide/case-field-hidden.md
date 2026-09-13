@@ -42,7 +42,7 @@ You can apply hidden field conditions to multiple fields on a template.
 1. Choose the operator and the value to check.
 
 1. You can add up to 5 field conditions and choose whether they are fulfilled by AND or OR conditions, by choosing the Add Condition button.  
-![A hidden field condition with 3 conditions configured.](http://docs.aws.amazon.com/connect/latest/adminguide/images/conditionally-hidden-with-3-conditions.png)
+![A hidden field condition with 3 conditions configured.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conditionally-hidden-with-3-conditions.png)
 
 1. Choose **Save**, and then proceed to the next step to add the condition to your template.
 

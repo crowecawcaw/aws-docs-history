@@ -15,7 +15,7 @@ Following are the possible category outcomes when a rule or category is evaluate
 
 The following image shows that failed categories are denoted with their dashed borders, transparent backgrounds, error icons, and failed prefixes. When you pause on a failed category, details about why the category failed to evaluate are displayed.
 
-![The failed categories on the Contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/failed-categories1.png)
+![The failed categories on the Contact details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/failed-categories1.png)
 
 
 These failed categories only exist from rules with the semantic match condition. The two possible reasons are:

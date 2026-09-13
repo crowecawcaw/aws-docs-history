@@ -28,7 +28,7 @@ Editing a forecast is not available when viewing data at the demand group level.
 1. Choose the forecast to edit, and then choose **Actions**, **Edit forecast**.
 
 1. The **Edit forecast** pane opens. It displays pre-filled values based on your selections from the currently selected forecast, as shown in the following image.  
-![A long-term forecast for the BasicQueue, Voice and Chat channels.](http://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit1.png)
+![A long-term forecast for the BasicQueue, Voice and Chat channels.](https://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit1.png)
 
    For example, the preceding image shows a long-term forecast selected with **BasicQueue** and the **Voice** and **Chat** channels. The **Edit forecast** pane is automatically populated with these selections. 
 
@@ -40,7 +40,7 @@ Editing a forecast is not available when viewing data at the demand group level.
         You can also limit the edits to a specific time range by clearing **All day** and instead selecting a start and end time. With this feature, you can adjust the forecast for a specific time window. 
 
         The following image shows the **Data range** section of the **Edit forecast - Short term** pane.   
-![The Edit forecast pane, the Date range section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit2.png)
+![The Edit forecast pane, the Date range section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit2.png)
       + For long-term forecasts, you can select a date range of up to 64 weeks. Edits are applied at a daily granularity.
 
    1. **Queues and channels**: You can choose **All queues** or search and add individual queues one by one. You also have the option of removing any selected queues. Similarly, you can select channels such as **Voice** or **Chat** as needed.
@@ -48,7 +48,7 @@ Editing a forecast is not available when viewing data at the demand group level.
    1. **Metrics**: With metrics, you can apply specific operations to your selection based on the type of edit you want to make. You can apply these operations to either [Contact volume](metrics-definitions.md#contact-volume), [Average handle time](metrics-definitions.md#average-handle-time), or both, depending on your needs. 
 
       The following image shows the location of **Metrics** on the page, and the dropdown list of options.  
-![The dropdown list of Metrics options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit3.png)
+![The dropdown list of Metrics options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit3.png)
 
       Choose from the following operation types:
       + **Decrease by percentage**: The percentage decrease is applied based on the distribution of the last computed forecast value across the selected time range intervals. 
@@ -70,21 +70,21 @@ Editing a forecast is not available when viewing data at the demand group level.
 Any operation resulting in a value of less than 0 will automatically set the value to 0.
 
 1. After you've made your selection, choose **Preview** to view the changes on your screen, as shown in the following image  
-![A preview of the forecast changes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit4.png)
+![A preview of the forecast changes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit4.png)
 
 1. Choose **Save** to apply your changes. Your edits are reflected as overrides. You can make edits as many times as needed. 
    + For overlapping intervals, the most recent edit persists. 
    + For non-overlapping intervals, all interval edits persist.
 
    The following image shows an example of edits saved to the UAT-FG forecast.   
-![A forecast after edits have been saved.](http://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit5.png)
+![A forecast after edits have been saved.](https://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit5.png)
 
 ## Important things to know about using a CSV file to edit forecasts
 <a name="important-things-to-know-edit-forecast"></a>
 + The override data file be must a CSV file and it must be in the required format. If the file format and data don't meet the requirements, the upload does not work. We recommend downloading and using the template provided to help you prepare the historical data. 
 
   The following image shows an example CSV file with data in it.   
-![CSV file opened in Excel, historical data that is properly formatted.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-override-table.png)
+![CSV file opened in Excel, historical data that is properly formatted.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-override-table.png)
 
   Following are the requirements for imported data: 
   + `QueueName`: Enter the Connect Customer queue name.
@@ -129,6 +129,6 @@ When you choose to download forecast edits, you will receive the file that was p
    + You can apply multiple edits across different time ranges, and all changes will be applied.
 
    The following image shows an example **Remove forecasts** pane. Edits made between 2025/06/06 and 2026/08/30 for all queues, for the voice and chat channels, and for only the **Contact volume** metric will be removed.  
-![The Remove forecasts pane.](http://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit6.png)
+![The Remove forecasts pane.](https://docs.aws.amazon.com/connect/latest/adminguide/images/forecasts-edit6.png)
 
 1. Choose **Remove** to apply the changes.

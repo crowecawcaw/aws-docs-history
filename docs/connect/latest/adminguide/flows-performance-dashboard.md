@@ -46,28 +46,28 @@ Following are a few use cases that help explain how to configure the **Time rang
   + Time range = Trailing
   + Time = 2h
   + Compare to = Prior 2h  
-![Time range = Trailing, Time = 2h, Compare to = Prior 2h.](http://docs.aws.amazon.com/connect/latest/adminguide/images/timerange1.png)
+![Time range = Trailing, Time = 2h, Compare to = Prior 2h.](https://docs.aws.amazon.com/connect/latest/adminguide/images/timerange1.png)
 + **Use case 2**: I want to get all the flows dropped in the last 2 hours and compare that to the flows dropped yesterday from 00:00:00 to 23:59:59.
 
   Configure the dashboard as follows:
   + Time range = Trailing
   + Time = 2h
   + Compare to = Prior day  
-![Time range = Trailing, Time = 2h, Compare to = Prior day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/timerange2.png)
+![Time range = Trailing, Time = 2h, Compare to = Prior day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/timerange2.png)
 + **Use case 3**: I want to get all the flows dropped in the last 24 hours and compare that to the flows dropped on the same day last week.
 
   Configure the dashboard as follows:
   + Time range = Trailing
   + Time = Custom 24h
   + Compare to = Prior week same day  
-![Time range = Trailing, Time = Custom 24h, Compare to = Prior week same day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/timerange3.png)
+![Time range = Trailing, Time = Custom 24h, Compare to = Prior week same day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/timerange3.png)
 + **Use case 4**: I want to get all the flows dropped since 12 am today and compare that to all the flows dropped last week.
 
   Configure the dashboard as follows:
   + Time range = Trailing
   + Time = Custom: Today (since 12am)
   + Compare to = Prior week  
-![Time range = Trailing, Time = Custom: Today (since 12am), Compare to = Prior week.](http://docs.aws.amazon.com/connect/latest/adminguide/images/timerange4.png)
+![Time range = Trailing, Time = Custom: Today (since 12am), Compare to = Prior week.](https://docs.aws.amazon.com/connect/latest/adminguide/images/timerange4.png)
 
 ## Performance overview chart
 <a name="flows-dashboard-performance-overview-chart"></a>
@@ -76,7 +76,7 @@ Following are a few use cases that help explain how to configure the **Time rang
 
 The following image shows an example of this chart.
 
-![The Performance overview chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flows-dashboard-performance-overview-chart.png)
+![The Performance overview chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flows-dashboard-performance-overview-chart.png)
 
 
 The following metrics are displayed on this chart:
@@ -94,7 +94,7 @@ The following metrics are displayed on this chart:
 
 To see all data, choose the More icon on the chart, and then choose **Expand**. The following image shows the **Top flows by dropped in flow rate**. An arrow points to the location of the More icon.
 
-![The Top flows by dropped in flow rate.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flows-dashboard-comparison-to-prior-period-charts.png)
+![The Top flows by dropped in flow rate.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flows-dashboard-comparison-to-prior-period-charts.png)
 
 
 ## Failed bot intents movers and shakers
@@ -104,7 +104,7 @@ The **Failed bot intents movers and shakers** chart shows you the bot intents wi
 
 The following image shows an example of this chart.
 
-![The Failed bot intents movers and shakers chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/failed-bot-intents-movers-shakers.png)
+![The Failed bot intents movers and shakers chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/failed-bot-intents-movers-shakers.png)
 
 
 The following metrics are displayed on this chart:
@@ -120,7 +120,7 @@ The **Bot conversations and success rate** over time trend is a time-series char
 
 To configure different time range intervals, choose **Interval**, as shown in the following image.
 
-![The Bot conversations and success rate over time chart, the Interval box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-conversations-success-rate.png)
+![The Bot conversations and success rate over time chart, the Interval box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-conversations-success-rate.png)
 
 
 ## Bot conversations overview table
@@ -128,7 +128,7 @@ To configure different time range intervals, choose **Interval**, as shown in th
 
 The **Bot conversations** overview table displays a snapshot of bot conversation metrics aggregated over the selected time range. The following image shows an example of this table.
 
-![The Bot conversations overview table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-conversations-overview-table.png)
+![The Bot conversations overview table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-conversations-overview-table.png)
 
 
 The following metrics are displayed on this table:
@@ -144,7 +144,7 @@ The following metrics are displayed on this table:
 
 The **Bot intent** overview table displays a snapshot of bot intent metrics table aggregated over the selected time range. The following image shows an example of this table.
 
-![The Bot intent overview table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-intent-overview-table.png)
+![The Bot intent overview table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-intent-overview-table.png)
 
 
 The following metrics are displayed on this table:
@@ -164,7 +164,7 @@ You can configure different time range intervals by using the "Interval" button 
 + If you have a "Today" time range filter on your dashboard, you can only see an interval of 15min for the last 24 hours.
 +  If you have a "Day" time range filter on your dashboard, you can see a trailing 8 day interval trend, or a 15min interval trend for the trailing 24 hours.
 
-![The Flow outcomes over time comparison chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-outcomes-over-time-comparison-chart.png)
+![The Flow outcomes over time comparison chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-outcomes-over-time-comparison-chart.png)
 
 
 ## Flow durations over time comparison chart
@@ -178,7 +178,7 @@ For example:
 + If you have a "Today" time range filter on your dashboard, you can only see an interval of 15min for the last 24 hours.
 +  If you have a "Day" time range filter on your dashboard, you can see a trailing 8 day interval trend, or a 15min interval trend for the trailing 24 hours.
 
-![The Flow durations over time comparison chart.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-duration-over-time-comparison-chart.png)
+![The Flow durations over time comparison chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-duration-over-time-comparison-chart.png)
 
 
 ## Flows and Flow modules overview tables
@@ -186,12 +186,12 @@ For example:
 
 The **Flows** and **Flow modules** overview tables display a snapshot of metrics aggregated over the selected time range. The following image shows an example of the **Flows** overview table.
 
-![The Flows overview table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-and-flow-module-overview-tables.png)
+![The Flows overview table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-and-flow-module-overview-tables.png)
 
 
 The following image shows an example of the **Flow modules** overview table.
 
-![The Flow modules overview table.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-and-flow-module-overview-tables-2.png)
+![The Flow modules overview table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-and-flow-module-overview-tables-2.png)
 
 
 The following metrics are displayed on these tables: 

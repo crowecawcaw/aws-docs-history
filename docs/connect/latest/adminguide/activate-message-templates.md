@@ -20,7 +20,7 @@ Log in to Connect Customer admin website with an Admin account or a user account
 1. On the **Messaging templates** page re-open the template you just saved.
 
 1. Use the dropdown menu to choose the version of the template to activate.  
-![The Version number for a template.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-version.png)
+![The Version number for a template.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-version.png)
 
 1. Choose **Activate**.  
-![The Activate button on the message template page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-version-activate.png)
+![The Activate button on the message template page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-version-activate.png)

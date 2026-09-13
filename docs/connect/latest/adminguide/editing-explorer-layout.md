@@ -12,7 +12,7 @@ Each widget features a three-dot menu in the upper right corner, providing two p
 + **1A Edit**: Opens the configuration panel for that specific widget
 + **1B Remove**: Deletes the widget from your layout
 
-![Edit or remove pop up for your explorer layout.](http://docs.aws.amazon.com/connect/latest/adminguide/images/widget-controls-1.png)
+![Edit or remove pop up for your explorer layout.](https://docs.aws.amazon.com/connect/latest/adminguide/images/widget-controls-1.png)
 
 
 ## Widget customization
@@ -21,7 +21,7 @@ Each widget features a three-dot menu in the upper right corner, providing two p
 + **Resize**: Chose and drag widget borders to adjust dimensions
 + **Configuration**: Access detailed settings through the edit panel specific to each widget type
 
-![Customize and re-order your widgets in the explorer layout.](http://docs.aws.amazon.com/connect/latest/adminguide/images/widget-customization-1.png)
+![Customize and re-order your widgets in the explorer layout.](https://docs.aws.amazon.com/connect/latest/adminguide/images/widget-customization-1.png)
 
 
 **Note**  

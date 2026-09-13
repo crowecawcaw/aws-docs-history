@@ -9,12 +9,12 @@ For example, you might scan the transcript of the contact and see a red sentimen
 
 The following image shows an example of a voice contact.
 
-![An analysis of a voice contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-category-hit.png)
+![An analysis of a voice contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-category-hit.png)
 
 
 The following image shows an example of a chat contact. **System Message** applies to chat, where the participant might be a Lex bot or prompt.
 
-![An analysis of a chat contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-category-hit-chat.png)
+![An analysis of a chat contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-category-hit-chat.png)
 
 
 **To review analyzed conversations**

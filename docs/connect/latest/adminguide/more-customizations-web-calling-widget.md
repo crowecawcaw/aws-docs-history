@@ -90,12 +90,12 @@ amazon_connect('webCallingCustomizationObject', {
 
 The following image shows how the customizations look when not in full-screen mode. 
 
-![Customizations when not in full-screen model.](http://docs.aws.amazon.com/connect/latest/adminguide/images/fullscreenmode.png)
+![Customizations when not in full-screen model.](https://docs.aws.amazon.com/connect/latest/adminguide/images/fullscreenmode.png)
 
 
 The following image shows how the customizations look when in full-screen mode.
 
-![Customizations when in full-screen mode.](http://docs.aws.amazon.com/connect/latest/adminguide/images/nonfullscreenmode.png)
+![Customizations when in full-screen mode.](https://docs.aws.amazon.com/connect/latest/adminguide/images/nonfullscreenmode.png)
 
 
 ## Supported options and constraints

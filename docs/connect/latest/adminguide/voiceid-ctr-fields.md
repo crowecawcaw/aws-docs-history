@@ -29,4 +29,4 @@ Use the [Contact search](contact-search.md) page to search for and review the re
 
 After you search for a contact, you can choose an ID to view their contact record. The following image shows an example of the fields in the Voice ID section of the contact record: 
 
-![Voice ID section of a contact record showing authentication results, fraudster detection status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ctr-nospoofing.png)
+![Voice ID section of a contact record showing authentication results, fraudster detection status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-ctr-nospoofing.png)

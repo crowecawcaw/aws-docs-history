@@ -48,14 +48,14 @@ You can use rules to filter out conversations where you expect these scenarios t
    1.  You can get generative AI-powered recommendations by choosing **Ask AI** for up to 10 questions per contact. For more information, see [Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas).
 
 1.  You can choose the time associated with a transcript reference to be directed to the point in the conversation   
-![Generative AI-powered recommendations while evaluating agent performance.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-generative-ai-powered-recommendations-performance.png)
+![Generative AI-powered recommendations while evaluating agent performance.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-generative-ai-powered-recommendations-performance.png)
 
 ## Provide additional criteria for answering evaluation form questions using generative AI
 <a name="provide-criteria-for-answering-evaluation-form-questions"></a>
 
  While configuring an evaluation form, you can provide criteria for answering questions within the **instructions to evaluators** associated with each evaluation form question. Apart from driving consistency in evaluations by evaluators, these instructions are also used to provide generative AI-powered evaluations. 
 
-![New account opening scorecard.](http://docs.aws.amazon.com/connect/latest/adminguide/images/provide-criteria-for-answering-evaluation-form-questions.png)
+![New account opening scorecard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/provide-criteria-for-answering-evaluation-form-questions.png)
 
 
 **AI answer mapping and scoring**  
@@ -83,7 +83,7 @@ To set the language of the evaluation form:
 
 1. Ensure your form's questions, instructions and answer choices are in the same language as the selected **Form language**, for optimal AI performance.
 
-![The evaluation form page, the Additional settings tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-languageexample1.png)
+![The evaluation form page, the Additional settings tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-languageexample1.png)
 
 
 ## Guidelines to improve generative AI accuracy
@@ -144,4 +144,4 @@ To set the language of the evaluation form:
 
 The following example shows a generative AI-answered question that follows these guidelines. The question title is a complete sentence, the instructions to evaluators define each answer option and explain the Not Applicable scenario, and the answer options are short.
 
-![An evaluation form question configured with a full-sentence title, detailed instructions to evaluators, and short Yes and No answer options with the Not Applicable option enabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-genai-question-example.png)
+![An evaluation form question configured with a full-sentence title, detailed instructions to evaluators, and short Yes and No answer options with the Not Applicable option enabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-genai-question-example.png)

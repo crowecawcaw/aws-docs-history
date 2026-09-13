@@ -21,7 +21,7 @@ Where {{instance name}} is provided by your IT department or the individuals tha
 
 The following image shows the agent workspace with the CCP, Customer Profiles, Cases, and agent assist.
 
-![The agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-intro-agent-app.png)
+![The agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-intro-agent-app.png)
 
 
 1. Set your status.
@@ -54,7 +54,7 @@ Large businesses often choose to customize their CCP. For example, they might wa
 
 The following image shows the CCP.
 
-![The contact control panel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-intro.png)
+![The contact control panel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-intro.png)
 
 
 1. Set your status.

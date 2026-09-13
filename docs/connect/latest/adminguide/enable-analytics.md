@@ -11,7 +11,7 @@ You can enable conversational analytics in a few steps:
 
 The following image shows a block that's configured for call recording and speech analytics. The **Call recording** option is set to **Agent and customer**. In the **Analytics** section, the options are selected for automated interactions and agent interactions.
 
-![The properties page for a set recording and analytics behavior block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-and-analytics-behavior.png)
+![The properties page for a set recording and analytics behavior block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-and-analytics-behavior.png)
 
 
 The procedures in this topic describe the steps to enable conversational analytics for calls, chats, or emails.
@@ -49,7 +49,7 @@ Before you can enable conversational analytics, you first need to enable convers
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the Connect Customer console, in the navigation pane, choose **Analytics tools**, and then choose **Enable conversational analytics**.
 
@@ -147,7 +147,7 @@ When you configure the [Set recording and analytics behavior](set-recording-beha
 
 If you accept the default settings, conversational analytics redacts all personally identifiable information (PII) it identifies, and replaces it with **[PII]** in the transcript. The default settings are shown in the following image because the following options are selected: **Redact sensitive data**, **Redact All PII data**, and **Replace with placeholder PII**.
 
-![The default settings for sensitive data redaction.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-enable-redaction-default.png)
+![The default settings for sensitive data redaction.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-enable-redaction-default.png)
 
 
 ### Select PII entities to redact
@@ -155,7 +155,7 @@ If you accept the default settings, conversational analytics redacts all persona
 
 Under the **Data redaction** section, you can select specific PII entities to redact. The following image shows that **Credit/Debit Card Number** is going to be redacted.
 
-![The data redaction section, a list of entities you can redact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-select-entities-to-redact.png)
+![The data redaction section, a list of entities you can redact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-select-entities-to-redact.png)
 
 
 ### Choose data redaction replacement
@@ -163,7 +163,7 @@ Under the **Data redaction** section, you can select specific PII entities to re
 
 Under the **Data redaction replacement** section, you can choose the mask to be used as data redaction replacement. For example, in the following image, the **Replace with placeholder PII** option indicates that **PII** will replace the data.
 
-![The option to replace data with PII.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-dataredactionreplacement.png)
+![The option to replace data with PII.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-dataredactionreplacement.png)
 
 
 For more information about using redaction, see [Use sensitive data redaction](sensitive-data-redaction.md).
@@ -185,17 +185,17 @@ When you choose a language that is supported by sentiment analysis, AND choose *
 
 The following image shows the sentiment analysis option is enabled on the **Set recording and analytics behavior** block. 
 
-![The Sentiment analysis option when it is enabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sentiment-analysis-enabled.png)
+![The Sentiment analysis option when it is enabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sentiment-analysis-enabled.png)
 
 
 The following image shows a language that is not supported by sentiment analysis. We recommend opening the **Sentiment** section to verify whether it is enabled or disabled. 
 
-![The Sentiment analysis option when it is disable because the language is not supported.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sentiment-analysis-verify.png)
+![The Sentiment analysis option when it is disable because the language is not supported.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sentiment-analysis-verify.png)
 
 
 To disable sentiment analysis for all agents and customers, deselect the **Enable Sentiment Analysis** option, as shown in the following image.
 
-![The sentiment analysis option when it is disabled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sentiment-analysis-disabled.png)
+![The sentiment analysis option when it is disabled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sentiment-analysis-disabled.png)
 
 
 ## Dynamically enable redaction based on the customer's language
@@ -214,10 +214,10 @@ You can set these attributes in the following ways:
   The following image shows an example of how you can configure the **Set contact attributes** block to use contact attributes for redaction. Choose the **Use text** option, set **Destination key** to **redaction\_option**, and set **Value** to **RedactedAndOriginal**. 
 **Note**  
  **Value** is case sensitive.   
-![The set contact attributes block, the use text option, the value is case sensitive.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-contact-attributes-enable-redaction1.png)
+![The set contact attributes block, the use text option, the value is case sensitive.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-contact-attributes-enable-redaction1.png)
 
   The following image show how to use contact attributes for language. Choose the Use text option, set Destination key to language, set **Value** to **en-US**.  
-![The set contact attributes block, the use text option, the value is case sensitive.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-contact-attributes-enable-redaction2.png)
+![The set contact attributes block, the use text option, the value is case sensitive.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-contact-attributes-enable-redaction2.png)
 + [Use a Lambda function](attribs-with-lambda.md). This is similar to how you set up user-defined contact attributes. An AWS Lambda function can return the result as a key-value pair, depending on the language of the Lambda response. The following example shows a Lambda response in JSON: 
 
   ```
@@ -239,19 +239,19 @@ This section provides three use cases for enabling conversational analytics in t
 + A contact enters the inbound flow, and there are no call transfers. Following is the agent experience:
 
   The agent receives the full transcript during After Contact Work (ACW). The transcript includes everything said by the agent and the customer, from the moment the agent accepts the initial call, until the call has ended, as shown in the following image.  
-![The contact control panel, the transcript of the conversation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use1.png)
+![The contact control panel, the transcript of the conversation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use1.png)
 + A contact enters the inbound flow, and there is a call transfer. Following is the agent experience:
   + Agent 1 receives a call transcript after they leave the conference/warm transfer, during ACW.
 
     The transcript includes everything said by agent 1 and the customer, from the moment the agent accepts the initial call, until the agent 1 leaves the conference/warm transfer portion of the call. The transcript includes the flow (transfer/queue flow) prompt messages, as shown in the following image.   
-![The flow transfer prompt in the transcript.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use2.png)
+![The flow transfer prompt in the transcript.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use2.png)
   + Agent 2 receives a call transcript at the time of accepting the conference/warm transfer call from agent 1.
 
     The transcript includes everything said by agent 1 and the customer, from the moment agent 1 accepts the initial call until the agent 1 leaves the conference/warm transfer portion of the call. The transcript includes the flow (transfer/queue flow) prompt messages, and the warm transfer conversation, as shown in the following image.   
-![The transcript, the flow transfer prompt and the warm transfer between two agents.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use2b.png)
+![The transcript, the flow transfer prompt and the warm transfer between two agents.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use2b.png)
 
     Because conversational analytics is not enabled in the transfer flow, agent 2 doesn't see the remainder of the transcript when the call has ended and they enter ACW. The following image of ACW for agent 2 shows the transcript is empty.   
-![An empty transcript.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use2c.png)
+![An empty transcript.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use2c.png)
 
 ### Use case 2: Conversational analytics is enabled in an inbound flow and a transfer flow (quick connect)
 <a name="call-summarization-inbound-transfer2"></a>
@@ -259,21 +259,21 @@ This section provides three use cases for enabling conversational analytics in t
   + Agent 1 receives a full call transcript (unredacted) during ACW. 
 
     The transcript includes everything said by agent 1 and the customer from the moment the agent accepts the call, until the call has ended. This is shown in the following image of the CCP for agent 1.  
-![The CCP for agent 1, a full call transcript.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use3.png)
+![The CCP for agent 1, a full call transcript.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use3.png)
 + A contact enters the inbound flow, and there is a call transfer. Following is the agent experience:
   + Agent 1 receives a call transcript after they leave the conference/warm transfer, during ACW.
 
     The transcript includes everything said by agent 1 and the customer from the moment agent 1 accepts the call, until agent 1 leaves the conference/warm transfer portion of the call. The transcript includes flow (transfer/queue flow) prompt messages.
 
     The full call transcript until warm transfer is shown in the following image.  
-![A full call transcript until agent 1 leaves the conference.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use2b.png)
+![A full call transcript until agent 1 leaves the conference.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use2b.png)
   + Agent 2 receives a call transcript at the time of accepting the conference/warm transfer call from agent 1.
 
     The transcript includes everything said by agent 1 and the customer, from the moment agent 1 accepts the call, until agent 1 leaves the conference/warm transfer portion of the call. The transcript includes the flow (transfer/queue flow) prompt messages. 
   + Because conversational analytics is enabled in the transfer flow, agent 2 receives a call transcript after the call is completed, during ACW. 
 
     The transcript includes only the remaining portion of the call between agent 2 and customer, after agent 1 has left the call. The transcript includes everything said by agent 2 and the customer, from the moment they are conferenced/warm transferred in, until the call has ended. An example transcript is shown in the following image.  
-![A transcript of the call between agent 2 and the customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use3b.png)
+![A transcript of the call between agent 2 and the customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-summarization-use3b.png)
 
 ## What if the flow block fails to enable conversational analytics?
 <a name="troubleshoot-contactlens-enablement"></a>

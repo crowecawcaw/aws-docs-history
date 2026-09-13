@@ -51,7 +51,7 @@ Another way to think about types of contact attributes is to categorize them bas
 
 The following illustration lists the types of available contact attributes, and maps them to the three sources for the values: Connect Customer, external process such as Amazon Lex, and user-defined.
 
-![The types of available contact attributes, the sources for their values.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-attributes-types.png)
+![The types of available contact attributes, the sources for their values.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-attributes-types.png)
 
 
 ## Contact attributes in the contact record
@@ -92,7 +92,7 @@ Be sure to implement logic to handle if the attribute doesn't exist and the cont
 
 Let's say you add an attribute to the Store customer input block. The **Namespace** is **Agent** and the **Key** is **User name**, as shown in the following example. 
 
-![Store customer input block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-attributes-errorbranch.png)
+![Store customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-attributes-errorbranch.png)
 
 
 If the flow runs and the agent user name is not available, then the contact is routed down the error branch. 

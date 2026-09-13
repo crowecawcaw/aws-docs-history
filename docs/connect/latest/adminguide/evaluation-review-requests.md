@@ -26,7 +26,7 @@ With Connect Customer, you can specify which evaluation forms support review req
 
 1. After you **Activate** the form, subsequent evaluations performed using the form will support review requests.
 
-![Additional settings tab showing Allow review requests option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-enable.png)
+![Additional settings tab showing Allow review requests option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-enable.png)
 
 
 ## Who can request reviews of an evaluation?
@@ -54,13 +54,13 @@ Users with the permission **Evaluation forms - review evaluations - Create and V
 
 1. You can cancel a request if the review is yet to be started
 
-![Request a review button on evaluation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-request.png)
+![Request a review button on evaluation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-request.png)
 
 
-![Request review dialog with explanation field.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-requestcomment.png)
+![Request review dialog with explanation field.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-requestcomment.png)
 
 
-![Evaluation showing Review requested status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-requested.png)
+![Evaluation showing Review requested status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-requested.png)
 
 
 ## Searching for pending reviews
@@ -78,7 +78,7 @@ As described previously, you can configure in the evaluation form, who would be 
 
 1. Use the evaluation status filter with the value **Under review** to search for contacts with evaluations that are picked up for review
 
-![Contact search with evaluation status filter.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-searchrequested.png)
+![Contact search with evaluation status filter.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-searchrequested.png)
 
 
 ## Starting and completing reviews
@@ -96,4 +96,4 @@ As described previously, you can configure in the evaluation form, who would be 
 
 1. This will send an automated email notification to the user who had requested the review.
 
-![Evaluation review in progress.](http://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-view.png)
+![Evaluation review in progress.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-review-view.png)

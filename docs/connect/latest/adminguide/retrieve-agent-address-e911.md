@@ -5,7 +5,7 @@
 
 To retrieve an agent's validated address from the Connect Customer, create an outbound whisper flow that calls a Lambda function. Code the Lambda function to retrieve the address from the agent's customer profile, as shown in the following illustration:
 
-![Connect Customer E911 address retrieval process.](http://docs.aws.amazon.com/connect/latest/adminguide/images/e911-workflow-2.png)
+![Connect Customer E911 address retrieval process.](https://docs.aws.amazon.com/connect/latest/adminguide/images/e911-workflow-2.png)
 
 
 1. Create an AWS Lambda function that uses the [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) API to retrieve the physical address for a given agent from Customer Profiles.
@@ -27,10 +27,10 @@ For outbound voice calls within Connect Customer, an [outbound whisper flow](cre
 
 The following illustration shows an example [outbound whisper flow](create-contact-flow.md#contact-flow-types). It is configured to inspect the outbound call string from an agent, and retrieve the stored physical address for that agent by using a Lambda function. It includes the following blocks in sequence: [AWS Lambda function](invoke-lambda-function-block.md), [Set contact attributes](set-contact-attributes.md), and [Call phone number](call-phone-number.md).
 
-![An outbound whisper flow to detect a 911 or 933 call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/e911-example-outbound-whisper.png)
+![An outbound whisper flow to detect a 911 or 933 call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/e911-example-outbound-whisper.png)
 
 + Step 1: Call a Lambda function that retrieves the location for an agent (Input parameter = Agent User Name). The following image shows how to configure an [AWS Lambda function](invoke-lambda-function-block.md) block is so the agent **username** is passed to the Lambda function.  
-![The properties page of an Invoke AWS Lambda function block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/e911-invoke-lambda-block.png)
+![The properties page of an Invoke AWS Lambda function block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/e911-invoke-lambda-block.png)
 + Step 2: Attach the location received to a contact attribute (see [Format a physical address for E911 to pass to Connect Customer](connect-format-physical-address-e911.md) for the required format).
 + Step 3: Update the call origination to the agent's phone number and continue with the outbound call. 
 **Note**  
@@ -46,9 +46,9 @@ When an agent calls 911 it is important to notify in real time the appropriate p
 
 The following image shows an example of a [Create task](create-task-block.md) block in an [outbound whisper flow](create-contact-flow.md#contact-flow-types). It is located after the **Set contact attributes** block and before the **Call phone number** block.
 
-![C create task block in an outbound whisper flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/e911-create-task-flow.png)
+![C create task block in an outbound whisper flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/e911-create-task-flow.png)
 
 
 The following image shows the **Properties** page for a [Create task](create-task-block.md) block. It is configured to notify corporate security that an agent from the contact center has placed an E911 call. 
 
-![The properties page of a create task block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/e911-create-task-config.png)
+![The properties page of a create task block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/e911-create-task-config.png)

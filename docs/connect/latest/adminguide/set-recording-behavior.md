@@ -61,7 +61,7 @@ You can configure the **Set recording and analytics behavior** block by using th
 
 The following image shows the **Set recording and analytics behavior** properties page in the Connect Customer admin website. It is divided two sections: Enable recording and analytics, and Configure analytics settings. These sections are divided in subsections. Each subsection can be expanded and collapsed and summary is displayed in its header.
 
-![The properties page of the Set recording and analytics behavior block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-behavior-properties.png)
+![The properties page of the Set recording and analytics behavior block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-behavior-properties.png)
 
 
 ### Enable recording and analytics
@@ -131,7 +131,7 @@ This block supports one output branch: **Success**.
 
 The following image shows what a **Set recording and analytics behavior** block looks like when it's configured for both voice and automated interaction recording, along with speech analytics and screen recording enabled. 
 
-![A configured Set recording and analytics behavior block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-and-analytics-behavior-configured.png)
+![A configured Set recording and analytics behavior block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-recording-and-analytics-behavior-configured.png)
 
 
 ## Sample flows

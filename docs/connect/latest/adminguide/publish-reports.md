@@ -17,7 +17,7 @@ Only people who have permissions in their security profile to **Create** or **Ed
 1. On the Real-time metrics, Historical metrics, Login/logout report, or Saved reports page, choose **Share report**.
 
 1. In the **Share report** dialog box, toggle **Publish report** to **On**, and then choose **Save**. This toggle is shown in the following image of the dialog box.  
-![The share report dialog box, the Publish report to organization toggle.](http://docs.aws.amazon.com/connect/latest/adminguide/images/publish-a-report.png)
+![The share report dialog box, the Publish report to organization toggle.](https://docs.aws.amazon.com/connect/latest/adminguide/images/publish-a-report.png)
 
    The report appears in the list of Saved reports for everyone who has appropriate permissions in their security profile.
 
@@ -35,7 +35,7 @@ To view published reports, at minimum you need the following permissions in your
 
 These permissions are shown in the following image of the **Analytics and Optimization** section of the security profiles page.
 
-![The Analytics and optimization section of the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/permissions-view-saved-metrics-reports.png)
+![The Analytics and optimization section of the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/permissions-view-saved-metrics-reports.png)
 
 
 **To view published reports**

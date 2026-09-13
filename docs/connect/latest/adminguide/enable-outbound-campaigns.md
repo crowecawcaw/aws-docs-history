@@ -40,7 +40,7 @@ To switch the KMS key that is associated with outbound campaigns, first you need
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **Channels and communications**, **Outbound campaigns**.
 
@@ -50,14 +50,14 @@ To switch the KMS key that is associated with outbound campaigns, first you need
 
    If you choose **Create an AWS KMS key**:
    + A new tab in your browser opens for the Key Management Service (KMS) console. On the **Configure key** page, choose **Symmetric**, and then choose **Next**, as shown in the following image.  
-![The Configure key page, Symmetric option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-configure-key.png)
+![The Configure key page, Symmetric option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-configure-key.png)
    + On the **Add labels** page, add a name and description for the key, and then choose **Next**.
    + On the **Define key administrative permissions** page, choose **Next**.
    + On the **Define key usage permissions** page, choose **Next**.
    + On the **Review and edit key policy** page, choose **Finish**.
 
      In the following example, the key ID starts with **bcb6fdd**:  
-![The Review and edit key policy page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-note-key.png)
+![The Review and edit key policy page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-note-key.png)
    + Return to the tab in your browser for the Connect Customer console, **Enable outbound campaigns** page. Choose or tap in the **AWS KMS key** for the key you created to appear in a dropdown list. Choose the key you created.
 
 1. Choose **Enable outbound campaigns**. 

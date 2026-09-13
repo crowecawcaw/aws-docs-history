@@ -11,7 +11,7 @@ When you explore the chat experience for the first time, you'll notice that chat
 
 The following image of a contact record shows the *Initiation Method* set to *API*. 
 
-![A contact record, the initiation method set to API.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-api.png)
+![A contact record, the initiation method set to API.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-api.png)
 
 
 After a chat is transferred to an agent, the **Contacts Incoming** metric is incremented. The contact record for the transfer no longer increments the API, but it does increment **Contacts Incoming**. 

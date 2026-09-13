@@ -57,7 +57,7 @@ For a detailed example of how Connect Customer routes contacts when cross-channe
 
 When you set up a routing profile that has queues and channels listed for manual assignment, Connect Customer does not automatically route these contacts.
 
-Agents with this routing profile can view queued contacts (currently only supported for Tasks, Emails, and Chats) in the worklist app in their agent workspaces based on their security profile settings and determine the next important work item to assign to themselves.
+Agents with this routing profile can view queued contacts (currently only supported for Tasks, Emails, and Chats) in the worklist app on the agent workspace based on their security profile settings and determine the next important work item to assign to themselves.
 
 ## Learn more about routing
 <a name="learn-more-about-routing"></a>

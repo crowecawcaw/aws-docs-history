@@ -10,13 +10,13 @@ You can use themes to customize the visual appearance of a workspace, so it alig
 
 Themes consist of a logo, a favicon, a font family, and a set of colors. By default, your workspace will use the Connect Customer theme. In this example, the default settings have been replaced for AnyCompany, including the logo and color palette.
 
-![Workspace with a custom logo and color scheme.](http://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme.png)
+![Workspace with a custom logo and color scheme.](https://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme.png)
 
 + **Logo** – You can replace the default Connect Customer logo that appears at the top left of a workspace. To set a new logo, prepare and upload an image file in the specified dimensions and format.
 + **Favicon** – You can also replace the default Connect Customer favicon that commonly appears in your browser's tab and bookmark bars, history, and search results. To set a new favicon, prepare and upload an image file in the specified dimensions and format.
 + **Font family** – Change the typography used throughout your workspace. To use a different font family, select one of the options from the drop-down menu.
 
-![Workspace theme customization form.](http://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-form.png)
+![Workspace theme customization form.](https://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-form.png)
 
 
 ## Actions
@@ -36,27 +36,27 @@ You can customize the palette of colors that are applied throughout a workspace.
 **Note**  
 Default colors provide sufficient contrast to make sure that content is readable and usable by all individuals, including those with visual impairments. *If colors are changed, they should be tested for accessibility*.
 
-![Workspace theme customization form for color scheme.](http://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-color-form.png)
+![Workspace theme customization form for color scheme.](https://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-color-form.png)
 
 
 Colors for the **canvas** will apply to the background elements on your workspace.
 
-![Workspace theme for canvas color scheme.](http://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-canvas-color.png)
+![Workspace theme for canvas color scheme.](https://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-canvas-color.png)
 
 
 Colors for **primary actions** will apply to buttons, links, and other key interactive elements.
 
-![Workspace theme for primary actions color scheme.](http://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-primary-actions-color.png)
+![Workspace theme for primary actions color scheme.](https://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-primary-actions-color.png)
 
 
 Colors for the **header** will apply to elements of the header bar and settings menu at the top of a workspace.
 
-![Workspace theme for header color scheme.](http://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-header-color.png)
+![Workspace theme for header color scheme.](https://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-header-color.png)
 
 
 Colors for the **navigation** will apply to the navigation bar on the left side of a workspace.
 
-![Workspace theme for navigation color scheme.](http://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-navigation-color.png)
+![Workspace theme for navigation color scheme.](https://docs.aws.amazon.com/connect/latest/adminguide/images/workspace-theme-navigation-color.png)
 
 
 ## Important considerations

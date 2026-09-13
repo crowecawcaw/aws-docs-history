@@ -18,7 +18,7 @@ Live media streaming (customer audio streams) is not enabled by default. You can
 1. Enter a prefix for the Kinesis Video Streams created for your customer audio. This prefix makes it easier for you to identify the stream with the data.
 
 1. Data is encrypted before it's written to the Kinesis Video Streams stream storage layer, and it's decrypted after it's retrieved from storage. As a result, your data is always encrypted at rest within the Kinesis Video Streams service. Choose the KMS key used to encrypt the data within Kinesis Video Streams as shown in the following image.  
-![The Encryption section where you choose the KMS key.](http://docs.aws.amazon.com/connect/latest/adminguide/images/streaming-encryption.png)
+![The Encryption section where you choose the KMS key.](https://docs.aws.amazon.com/connect/latest/adminguide/images/streaming-encryption.png)
 
    When you choose to enter your own key, make note of the following restrictions:
 

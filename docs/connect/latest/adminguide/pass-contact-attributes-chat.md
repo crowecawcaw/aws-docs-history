@@ -73,7 +73,7 @@ The following example shows how to pass contact attributes directly from snippet
 
 The [Check contact attributes](check-contact-attributes.md) flow block provides access to these attributes by using the **User defined** namespace, as shown in the following image. You can use the flow block to add branching logic. The full path is `$.Attributes.HostedWidget-{{attributeName}}`.
 
-![Image showing a flow block branching to Valid and Invalid prompts.](http://docs.aws.amazon.com/connect/latest/adminguide/images/flow-check-contact-attrib.png)
+![Image showing a flow block branching to Valid and Invalid prompts.](https://docs.aws.amazon.com/connect/latest/adminguide/images/flow-check-contact-attrib.png)
 
 
 ## Things you need to know
@@ -93,4 +93,4 @@ The [Check contact attributes](check-contact-attributes.md) flow block provides 
 + Using a JWT to pass contact attributes ensures the integrity of the data. If you safeguard the shared secret and follow appropriate security practices, you can help make sure that the data cannot be manipulated by a bad actor.
 + Contact attributes are only encoded in the JWT, not encrypted, so it's possible to decode and read the attributes.
 + If you want to test the chat experience with the [simulated chat experience](chat-testing.md#test-chat) and include contact attributes, be sure to enclose both the key and value in quotes, as shown in the following image.  
-![The test settings page, a contact attribute key in quotes, a value in quotes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-chat-contact-attributes.png)
+![The test settings page, a contact attribute key in quotes, a value in quotes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-chat-contact-attributes.png)

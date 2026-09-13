@@ -11,4 +11,4 @@ The following image shows part of a contact record in the UI, for a chat convers
 + For chats, the initiation method is always **API**.
 + The chat transcript is visible in the UI.
 
-![The Contact Record page, a chat transcript.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sample-ctr.png)
+![The Contact Record page, a chat transcript.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sample-ctr.png)

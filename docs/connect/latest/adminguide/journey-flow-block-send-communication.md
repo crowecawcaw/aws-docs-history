@@ -121,6 +121,6 @@ You can use an **Invoke Lambda** block earlier in the journey flow to determine 
 1. The returned value becomes available in the flow at `$.LambdaInvocation.ResultData.{{key}}`. In this example, the value is at `$.LambdaInvocation.ResultData.sourcePhoneNumber`.
 
 1. In the **Send communication** block, set the **From** field to **Set dynamically** and reference the Lambda output. Set the **Namespace** to `Lambda invocation` and the **Key** to the field name your Lambda returns.  
-![The From field set dynamically with Namespace set to Lambda invocation, Key set to Result data, and Attribute set to sourcePhoneNumber.](http://docs.aws.amazon.com/connect/latest/adminguide/images/send-communication-dynamic-from-lambda.png)
+![The From field set dynamically with Namespace set to Lambda invocation, Key set to Result data, and Attribute set to sourcePhoneNumber.](https://docs.aws.amazon.com/connect/latest/adminguide/images/send-communication-dynamic-from-lambda.png)
 
 Your Lambda function can use any logic to determine the source address. Use any field name in the Lambda response, as long as it matches what you specify in the **From** field's dynamic reference.

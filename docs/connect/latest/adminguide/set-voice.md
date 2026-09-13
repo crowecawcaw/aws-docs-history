@@ -59,7 +59,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set voice** block. It is configured for English, the voice is Joanna, and the speech style is Conversational.
 
-![The properties page of the Set voice block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-config-neural.png)
+![The properties page of the Set voice block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-config-neural.png)
 
 
 **Tip**  
@@ -111,7 +111,7 @@ If you're using an Amazon Lex V2 bot, your language attribute in Connect Custome
 + If you're not using an en-US voice with an Amazon Lex V2 bot and don't choose **Set language attribute**, the [Get customer input](get-customer-input.md) block results in an error.
 + For bots with multiple languages (for example, en\_AU and en\_GB) choose **Set language attribute** for one of the languages, as shown in the following image.
 
-![The properties page of the Set voice block configured for English (Australia).](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-config-neural-arrows.png)
+![The properties page of the Set voice block configured for English (Australia).](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-config-neural-arrows.png)
 
 
 ## Configuration tips
@@ -123,7 +123,7 @@ If you're using an Amazon Lex V2 bot, your language attribute in Connect Custome
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**. 
 
-![A configured Set voice block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-configured.png)
+![A configured Set voice block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-configured.png)
 
 
 ## Scenarios

@@ -12,7 +12,7 @@ Use the following procedure.
 1. Go to **Analytics and optimization**, **Real-time metrics**, **Queues.**
 
 1. Choose **New table**, **Agent queues** as shown in the following image.  
-![The Agent queues option in the New table dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-agent-queues.png)
+![The Agent queues option in the New table dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-agent-queues.png)
 
    The **In queue** column displays how many contacts are in the agent's queue.
 
@@ -26,12 +26,12 @@ An agent is included in the **Agent queues** table only if they are online or th
 If **In queue** or **Queue** don't appear in your **Agent queue** table, use the following steps to add them.
 
 1. On the **Agent queues** table, choose **Settings**, as shown in the following image.  
-![The Agent queues table, the settings icon.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-settings2.png)
+![The Agent queues table, the settings icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-settings2.png)
 
 1. Choose the **Metrics** tab.
 
 1. Scroll to the **Performance** section and choose **In queue** and **Queued**, and then **Apply**, as shown in the following table.  
-![Queued and In queue options on the table settings page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-metrics-in-queue.png)
+![Queued and In queue options on the table settings page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-metrics-in-queue.png)
 
    The changes appear in your table immediately.
 

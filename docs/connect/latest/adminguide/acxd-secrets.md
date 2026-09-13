@@ -35,7 +35,7 @@ Secrets help reduce exposure of sensitive information and make it easier to upda
 
 1. Select **Secrets**.
 
-1. Select **Create Secret**.
+1. Select **Add secret**.
 
 1. Enter a clear name.
 
@@ -45,9 +45,17 @@ Secrets help reduce exposure of sensitive information and make it easier to upda
 
 1. Keep **Sensitive** enabled if the value should be hidden and redacted.
 
-1. Select **Save**.
+1. Select **Create secret**.
 
 Use a clear name that helps teammates understand what the Secret is used for.
+
+Examples:
++ `prod_api_key`
++ `dev_api_key`
++ `authorization_token`
++ `mcp_server_token`
++ `webhook_secret`
++ `customer_profile_base_url`
 
 ## Sensitive setting
 <a name="acxd-secrets-sensitive"></a>

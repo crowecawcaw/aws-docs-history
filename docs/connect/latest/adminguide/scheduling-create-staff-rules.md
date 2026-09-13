@@ -26,7 +26,7 @@ For example, you might set up the staffing group to generate a schedule where ev
 1. On the **Scheduling** page, choose the **Staff rules** tab, and then search and choose one or more staff from the list. Every time staff is selected, the staff count is displayed in the **Apply to Staff** button.
 
    The following image of the **Scheduling** page shows you **Staff rules** tab, the list of agents, and the **Apply to Staff** button.  
-![The Staff rules tab, the list of agents, the Apply to Staff button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/staff-rules-page1.png)
+![The Staff rules tab, the list of agents, the Apply to Staff button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/staff-rules-page1.png)
 
 1. In the **Staff details** section, specify optional details such as:
    + **Time zone**: Render schedules in the local time zone of the agent.
@@ -55,7 +55,7 @@ For the maximum file size that you can upload, see *File size per upload of agen
 1. On the **Scheduling** page, choose the **Staff Rules** tab.
 
 1. Choose Download template and store the .csv file on your desktop. It looks similar to the following image.  
-![The timeoff balance file for individuals.](http://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-timeoff-balance-ic.png)
+![The timeoff balance file for individuals.](https://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-timeoff-balance-ic.png)
 
 1. Add data or make changes to the .csv file as needed and then save to your desktop with a new file name.
 

@@ -24,7 +24,7 @@ A work activity cannot be replaced with a non-work activity.
 1. Choose the **Actions** drop-down and select **Add Shift Activity**. The **Add Shift Activity** page is displayed, populated with all the agents you selected in the previous step.
 
    1. An alternative way to access the **Add Shift Activity** page is as follows: choose any agent's shift, then select **Add**, followed by **Activity**. The **Add Shift Activity** pop-up is displayed, showing the shift of the agent you initially chose. To include additional agents in the activity, choose **Edit staff**.  
-![Displays how the Add Shift Activity page is accessed.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-add-shift-activities-1.png)
+![Displays how the Add Shift Activity page is accessed.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-add-shift-activities-1.png)
 
 1. Select a shift activity from the drop-down.
 
@@ -108,7 +108,7 @@ When a series is edited, any occurrences that are in the past are not modified. 
    1. From here, you can: change the date or time of the activity, apply the **Override rules check**, and add or update **Comments**.
 
    1. Choose **Apply** to commit the changes.  
-![Displays the edit shift activity menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-edit-shift-activities.png)
+![Displays the edit shift activity menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-edit-shift-activities.png)
 
 ## Remove a shift activity
 <a name="scheduling-remove-shift-activities-calendar-view"></a>
@@ -124,4 +124,4 @@ When a series is removed, any occurrences that are in the past are not modified.
 1. Choose the **Override rules check** option as needed.
 
 1. Choose **Remove** to remove the activity.  
-![The Remove shift option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-remove-shift-activities.png)
+![The Remove shift option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-remove-shift-activities.png)

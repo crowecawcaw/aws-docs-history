@@ -27,7 +27,7 @@ Mobile number is not currently used by Connect Customer.
 1. Optionally, add tags to identify, organize, search for, filter, and control who can access this user. For more information, see [Add tags to resources in Connect Customer](tagging.md).
 
 1. Choose **Save**. The user detail page opens, where you can configure additional settings.  
-![The user creation form showing name, login, routing profile, and security profile fields.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-create.png)
+![The user creation form showing name, login, routing profile, and security profile fields.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-create.png)
 
 1. To configure agent-specific settings, such as phone type, auto-accept, and the After Contact Work (ACW) timeout, edit the user after you create it. You set auto-accept and the ACW timeout separately for each channel in the agent Contact Handling settings. For more information, see [Configure agent settings in Connect Customer](configure-agents.md).
 
@@ -47,7 +47,7 @@ Use these steps to add several users from a CSV file such as an Excel spreadshee
 1. In Connect Customer, on the left navigation menu, choose **Users**.
 
 1. Next to **Add new users**, choose the dropdown, and then choose **Import users**.  
-![The Add new users dropdown showing the Import users option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import1.png)
+![The Add new users dropdown showing the Import users option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import1.png)
 
 1. Download the **.csv template**. Use it as the basis for your import file.
 
@@ -66,43 +66,43 @@ Use these steps to add several users from a CSV file such as an Excel spreadshee
    + audio enhancement(none/isolate voice/suppress noise)
 
    The following image shows a sample of what the CSV template looks like in an Excel spreadsheet. The first row in the spreadsheet contains the column headings, and the second row contains sample user data.  
-![The CSV template in an Excel spreadsheet.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-bulk-users-2.png)
+![The CSV template in an Excel spreadsheet.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-bulk-users-2.png)
 
 1. Add your users to the template and upload it to Connect Customer. Choose the file to upload.  
-![The CSV import page with a file selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import2.png)
+![The CSV import page with a file selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import2.png)
 
 1. Review the users in the table. You can edit, remove, or add rows before importing.  
-![The Review and edit users to import table showing uploaded user data.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import3.png)
+![The Review and edit users to import table showing uploaded user data.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import3.png)
 
 1. Choose **Validate and import**. If there are no errors, the import runs automatically. You can view the progress on the **Activity** page.
 **Activity data is stored locally**  
 Your browser stores activity data locally for 7 days. This data isn't shared or synchronized across users.
 
    If there are errors, they appear in the table. Fix the errors directly in the table and choose **Validate and import** again.  
-![The import table showing validation errors that can be corrected inline.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import-error.png)
+![The import table showing validation errors that can be corrected inline.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import-error.png)
 
    If the service fails to create some users after validation passes, the operation banner shows a warning status when the process completes. Choose **View results**, and then from the **Select rows** dropdown, choose **Edit failed rows in table** to correct the failed entries without re-uploading the file.  
-![The Activity page showing failed rows with the Edit failed rows in table option in the Select rows dropdown.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import-error-server.png)
+![The Activity page showing failed rows with the Edit failed rows in table option in the Select rows dropdown.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import-error-server.png)
 **Tip**  
 Although the import is running, you can continue working on the **User management** page. You can create, edit, or delete other user records while you wait.
 **Stay on the page**  
 Navigating away from the **User management** page interrupts the import. Stay on this page until the import completes.
 
 1. Choose **Refresh** to see the newly created users on the **User management** page.  
-![The User management page showing successfully imported users.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import4.png)
+![The User management page showing successfully imported users.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import4.png)
 
 1. The CSV import excludes some user settings, such as contact handling and proficiencies. To configure these settings, choose **View results** in the import banner. From the **Select rows** dropdown, choose **Succeeded**.  
-![The bulk import banner with the View results button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import5.png)
+![The bulk import banner with the View results button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import5.png)
 
 1. Choose an action from the **Actions** dropdown to configure the additional settings in bulk.  
-![The Activity page showing Succeeded users selected for a bulk edit operation.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import6.png)
+![The Activity page showing Succeeded users selected for a bulk edit operation.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-csv-import6.png)
 
 ## Required permissions for adding users
 <a name="required-permissions-add-user"></a>
 
 Before you can add users to Connect Customer, you need the following permissions assigned to your security profile: **Users - Create**. The following image shows that this security profile permission is in the **Users and permissions** section of the **Add/Edit security profile** page. 
 
-![The Users and permissions section of the security profile page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_users_create.png)
+![The Users and permissions section of the security profile page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_users_create.png)
 
 
 By default, the Connect Customer **Admin** security profile has these permissions.

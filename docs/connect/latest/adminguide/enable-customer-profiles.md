@@ -27,7 +27,7 @@ When you enable customer profiles, you are prompted to provide a friendly domain
 ### Data store
 <a name="enable-customer-profiles-data-store"></a>
 
-Data store is a long-term, service-managed data store of Customer Profiles data. It retains Customer Profiles data updated over the past 10 years. You must enable it to use segmentation powered by Spark SQL and predictive insights. Data store does not compute calculated attributes or populate Agent Workspace.
+Data store is a long-term, service-managed data store of Customer Profiles data. It retains Customer Profiles data updated over the past 10 years. You must enable it to use segmentation powered by Spark SQL and predictive insights. Data store does not compute calculated attributes or populate the agent workspace.
 
 After you enable Data store, it automatically stores the data you ingest into Customer Profiles. You cannot disable Data store after you enable it. To delete data from Data store, use the DeleteProfile API, or delete the object types or the Customer Profiles domain.
 
@@ -107,31 +107,31 @@ You can't enable Data Store if Customer Profiles detects naming conflicts. After
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **Customer profiles**.
 
    The **Customer profiles domain** page lists the applications that are available for integration. In the following image, the page shows no customer profile domains have been enabled.  
-![The customer profile page, the Enable customer profiles button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-domains-page.png)
+![The customer profile page, the Enable customer profiles button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-domains-page.png)
 
 1. Choose **Enable customer profiles** to get started.
 
 1. At the **Customer profiles enable** page, choose **Create new domain**. Under **Specify a domain**, enter a friendly name that's meaningful to you, such as your organization name, for example, *CustomerProfiles-ExampleCorp*.   
-![The customer profiles enable page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-domain.png)
+![The customer profiles enable page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-domain.png)
 
 1. Under **Specify dead-letter queue**, choose whether to send failed events to a dead-letter queue. This is helpful if you want to get visibility into data that failed to be ingested. It also gives you the option to retry these failed data ingestions in the future. 
 
    Following are the steps to create a dead-letter queue:
    + On the **Customer profiles enable** page, choose **Create new or select existing SQS queue** and then choose **Create a new Dead Letter Queue**.  
-![The option for Create new or select existing SQS queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-choose.png)
+![The option for Create new or select existing SQS queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-choose.png)
    + A new tab in your browser opens for the Amazon SQS console. Choose **Create queue**.
    + On the **Create queue** page, choose **Standard**, then assign a name to your queue.  
-![The Create queue page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-name.png)
+![The Create queue page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-name.png)
    + In the **Access policy** section, choose **Advanced**.
 
      The Version name, policy ID, and Statement appear. If needed, update this section to give access to only the appropriate roles.
    + At the end of the Statement section (line 15 in the following image) add a comma after }, and press `Enter`.   
-![The Access policy section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-statement.png)
+![The Access policy section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-statement.png)
    +  Then copy and paste the following code:
 
      ```
@@ -146,26 +146,26 @@ You can't enable Data Store if Customer Profiles detects naming conflicts. After
      }
      ```
    + To replace {{region}}, {{accountID}}, and {{YourQueueName}} with your information, copy and paste the `Resource` information from line 14.  
-![The Access policy section, the Resource information.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-copyandpaste.png)
+![The Access policy section, the Resource information.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-copyandpaste.png)
    + Choose **Create queue**.
    + Return to the tab in your browser for the Connect Customer console, **Customer profiles enable** page. Choose or tap in the **Choose existing SQS queue** box to select the queue you just created from the dropdown list.   
-![The SQS queue from the dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-final.png)
+![The SQS queue from the dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-final.png)
 
 1. Under **Specify KMS key**, create or enter your own AWS KMS key for encryption. Following are the steps to create your AWS KMS key:
    + On the **Customer profiles enable** page, choose **Create an AWS KMS key**.  
-![The Customer profiles enable page, the Create an AWS KMS key button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key.png)
+![The Customer profiles enable page, the Create an AWS KMS key button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key.png)
    + A new tab in your browser opens for the Key Management Service (KMS) console. On the **Configure key** page, choose **Symmetric**, and then choose **Next**.  
-![The configure key page, the Symmetric option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-configure-key.png)
+![The configure key page, the Symmetric option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-configure-key.png)
    + On the **Add labels** page, add a name and description for the key, and then choose **Next**.  
-![The Add labels page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-add-labels.png)
+![The Add labels page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-add-labels.png)
    + On the **Define key administrative permissions** page, choose **Next**.
    + On the **Define key usage permissions** page, choose **Next**.
    + On the **Review and edit key policy** page, choose **Finish**.
 
      In the following example, the key ID starts with **bcb6fdd**:  
-![The customer managed keys page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-note-key.png)
+![The customer managed keys page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-note-key.png)
    + Return to the tab in your browser for the Connect Customer console, **Customer profiles enable** page. Choose or tap in the **Specify KMS key box** for the key you created to appear in a dropdown list. Choose the key you created.  
-![The Specify KMS key section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-choose-key.png)
+![The Specify KMS key section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-choose-key.png)
 
 1. Under **Data store**, choose whether to enable Data store. It is required to use segmentation powered by Spark SQL and predictive insights. If you choose not to enable Data store when creating a domain, you can enable it after the domain is created and being used. You cannot turn off Data store after it has been enabled.
 
@@ -174,7 +174,7 @@ You can't enable Data Store if Customer Profiles detects naming conflicts. After
    Data store requires a Customer Managed Key (CMK) and will prompt you to create a Customer Managed Key (CMK) if you have not already enabled one for your domain.
 
 1. Choose **Submit**. The completed page looks similar to the following image. It shows the name of the customer profiles domain, the dead-letter queue, and the KMS key.  
-![The completed customer profiles domain page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-final.png)
+![The completed customer profiles domain page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-final.png)
 
 You're done\! Connect Customer Customer Profiles is enabled. Now with every new contact that comes in, Connect Customer creates a customer profile record. It then tracks the contact history for that phone number (voice) or email address (chat).
 
@@ -183,9 +183,9 @@ Your agents can [create new customer profiles](ag-cp-create.md) and view contact
 ## Next steps
 <a name="cp-setup-nextsteps"></a>
 
-1.  [Make Customer Profiles available through the agent application](customer-profile-access.md). 
+1.  [Make Customer Profiles available through the agent workspace](customer-profile-access.md). 
 
-1.  [Assign agents permissions to access Customer Profiles in the agent application](assign-security-profile-customer-profile.md). 
+1.  [Assign agents permissions to access Customer Profiles in the agent workspace](assign-security-profile-customer-profile.md). 
 
 1. [Integrate with external applications that profile customer profile data (optional)](integrate-external-apps-customer-profiles.md). 
 

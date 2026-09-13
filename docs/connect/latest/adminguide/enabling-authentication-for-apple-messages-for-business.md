@@ -33,7 +33,7 @@ You must select **Don't generate a client secret**  when configuring the Amazo
 
  On **Integrated OAuth2 Authentication**, configure your Amazon Cognito app client client ID as the **Client Identifier** and your Amazon Cognito user pool domain's [authorization endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) as the **OAuth URL**.
 
-![Customer authentication for Amazon Cognito user pools.](http://docs.aws.amazon.com/connect/latest/adminguide/images/configuring-your-cognito-app-client-with-the-apple-messages-for-business-portal.png)
+![Customer authentication for Amazon Cognito user pools.](https://docs.aws.amazon.com/connect/latest/adminguide/images/configuring-your-cognito-app-client-with-the-apple-messages-for-business-portal.png)
 
 
 ## Configure your user pools with Connect Customer
@@ -41,7 +41,7 @@ You must select **Don't generate a client secret**  when configuring the Amazo
 
  On the **Customer authentication** page on the Connect Customer console associate the user pool that will be used for the authentication. 
 
-![Customer authentication for Amazon Cognito user pools.](http://docs.aws.amazon.com/connect/latest/adminguide/images/configuring-your-user-pools-with-connect.png)
+![Customer authentication for Amazon Cognito user pools.](https://docs.aws.amazon.com/connect/latest/adminguide/images/configuring-your-user-pools-with-connect.png)
 
 
 ## Enable Connect Customer Customer Profiles
@@ -51,13 +51,13 @@ You must select **Don't generate a client secret**  when configuring the Amazo
 
  On the **Customer Profiles** page in Connect Customer console, make sure that Customer Profiles is enabled for your instance. If **No Customer Profiles domain associated with this instance of Connect Customer.** is displayed, then see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md).
 
-![Enable customer profiles in the Connect Customer console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/apple-messages-for-business-configuring-amazon-connect-customer-profiles.png)
+![Enable customer profiles in the Connect Customer console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/apple-messages-for-business-configuring-amazon-connect-customer-profiles.png)
 
 
 ### Grant Customer Profile permission(s) to security profiles (optional)
 <a name="apple-messages-for-business-grant-customer-profile-permissions"></a>
 
- To grant users (agent, admin) permissions to view/edit/publish Customer Profiles in Agent Workspace, see [Update Customer Profiles permissions for agents](security-profile-customer-profile-agent.md). After permission(s) are granted to security profile(s), users should be able to access the features in the Agent Workspace. 
+ To grant users (agent, admin) permissions to view/edit/publish Customer Profiles in the agent workspace, see [Update Customer Profiles permissions for agents](security-profile-customer-profile-agent.md). After permission(s) are granted to security profile(s), users should be able to access the features in the agent workspace. 
 
  For a detailed list of permissions, see [Customer Profiles security profile permissions](security-profile-list.md#customerprofiles-permissions-list). 
 

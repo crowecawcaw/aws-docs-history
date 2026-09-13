@@ -21,9 +21,9 @@ The multi-skill feature optimizes staffing by scheduling agents based on their s
 
   For more information, see [Create forecast groups](create-forecast-groups.md) 
 + Choose on Activate demand groups.  
-![Image to activate demand groups.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-activatedemandgroups.png)
+![Image to activate demand groups.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-activatedemandgroups.png)
 + Create demand groups by searching and adding queues and channels.  
-![The Edit Forecast Group page showing demand groups with queues and channels (Voice, Chat, Email, Tasks) assigned to each group.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-createdemandgroups-multichannel.png)
+![The Edit Forecast Group page showing demand groups with queues and channels (Voice, Chat, Email, Tasks) assigned to each group.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-createdemandgroups-multichannel.png)
 
 ## Generate and publish forecast
 <a name="generate-publish-mutliskill-forecasting"></a>
@@ -32,4 +32,4 @@ Generate and publish your forecast. Forecasting requires additional configuratio
 
 For more information, see [Publish a forecast](publish-forecast.md)
 
-![The forecast view showing demand groups with Voice, Chat, Email, and Task channels, a demand groups filter dropdown, and weekly forecast data.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-viewdemandgroupforecast.png)
+![The forecast view showing demand groups with Voice, Chat, Email, and Task channels, a demand groups filter dropdown, and weekly forecast data.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-viewdemandgroupforecast.png)

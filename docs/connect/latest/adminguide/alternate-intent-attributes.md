@@ -7,7 +7,7 @@ Usually you configure flows to branch on the winning Lex intent. However, in som
 
 The following image shows the **Properties** page of the **Check contact attributes** block. It is configured to check a Lex attribute. 
 
-![The properties page of the Check contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-alternate-intents.png)
+![The properties page of the Check contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/check-contact-attributes-alternate-intents.png)
 
 
 1. **Intent name** is the name of an alternate intent in Lex. It's case sensitive and must match what's in Lex exactly.

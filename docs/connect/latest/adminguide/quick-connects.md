@@ -96,7 +96,7 @@ In this example, you create a phone number quick connect to a person's mobile ph
 1. For **Type**, select **Phone number**.
 
 1. For **Phone number**, enter the mobile phone number, starting with the country code. In the US, the country code is 1, as shown in the following image.  
-![The phone number on the Add quick connect dialog.](http://docs.aws.amazon.com/connect/latest/adminguide/images/QuickConnect_cloudscape_addQuickConnect.png)
+![The phone number on the Add quick connect dialog.](https://docs.aws.amazon.com/connect/latest/adminguide/images/QuickConnect_cloudscape_addQuickConnect.png)
 
 1. Choose **Save**.
 
@@ -109,7 +109,7 @@ In this example, you create a phone number quick connect to a person's mobile ph
 1. At the bottom of the page, in the **Quick connect** box, search for the quick connect you created, for example, **John Doe's cell phone**.
 
 1. Select the quick connect. In the following image of the **Edit queue** page, a phone number has been selected for the **Outbound caller ID number**, and **John Doe's cell phone** has been selected as the quick connect.  
-![The Edit queue page, the quick connect for the John Doe cell phone number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/QuickConnect_cloudscape_queue.png)
+![The Edit queue page, the quick connect for the John Doe cell phone number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/QuickConnect_cloudscape_queue.png)
 
 1. Choose **Save**.
 
@@ -120,7 +120,7 @@ In this example, you create a phone number quick connect to a person's mobile ph
 1. Choose **Quick connects**.
 
 1. Select the quick connect you created, and then choose **Call**.  
-![The quick connects page in the CCP, an entry for John Does cell phone.](http://docs.aws.amazon.com/connect/latest/adminguide/images/quick-connect-johndoe-call.png)
+![The quick connects page in the CCP, an entry for John Does cell phone.](https://docs.aws.amazon.com/connect/latest/adminguide/images/quick-connect-johndoe-call.png)
 
 ## More examples
 <a name="quick-connect-types"></a>

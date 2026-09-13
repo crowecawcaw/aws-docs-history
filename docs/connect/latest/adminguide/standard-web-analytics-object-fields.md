@@ -13,7 +13,7 @@
 <tbody>
   <tr><td colspan="3">Event Attributes</td></tr>
   <tr><td>EventId</td><td>String</td><td>Unique identifier for a web analytics event.</td></tr>
-  <tr><td>EventType</td><td>String</td><td>Type of the web analytics event, like - Page View, form submission, button choose, sPull up mainline<br />\u0000<br />earch bar interaction, app error prompts, cart interactions, purchases, scrolls.</td></tr>
+  <tr><td>EventType</td><td>String</td><td>Type of the web analytics event, such as page views, form submissions, button selections, search bar interactions, app error prompts, cart interactions, purchases, and scrolls.</td></tr>
   <tr><td>EventTimestamp</td><td>Number</td><td>Epoch millisecond timestamp of the event.</td></tr>
   <tr><td>EventDuration</td><td>Number</td><td>EventDuration represents the amount of time a user spent during a particular interaction, measured in seconds. Common use cases include: Time spent viewing a product, Length of a browsing session on a particular page, Time spent on a feature.</td></tr>
   <tr><td>EventValue</td><td>Number</td><td>EventValue is a numerical attribute that represents the value or importance of an interaction event. Common use cases include: Purchase amount for transaction events, Rating values for product ratings, Percentage completion for video views.</td></tr>

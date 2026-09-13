@@ -43,23 +43,23 @@ This step assumes it's the first time you've opened the Amazon Lex console. If y
 1. Choose the following link to open the Amazon Lex console, or enter the URL in your web browser: **[https://console.aws.amazon.com/lex/](https://console.aws.amazon.com/lex/)**.
 
 1. If this is the first time you've created Amazon Lex bot, choose **Get Started**. Otherwise, you're already in the Amazon Lex dashboard.  
-![The Amazon Lex console, the bots page, the create bot button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-console1.png)
+![The Amazon Lex console, the bots page, the create bot button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-console1.png)
 
 1. Choose **Create a blank bot**.  
-![The configure bot settings page, the create a blank bot option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot.png)
+![The configure bot settings page, the create a blank bot option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot.png)
 
 1. Enter the following information:
    + **Bot name **— For this tutorial, name the bot **HelpDesk**.  
-![The the bot configuration section, the bot name box, the description box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config1.png)
+![The the bot configuration section, the bot name box, the description box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config1.png)
    + IAM permissions: Choose **Create a role with basic Amazon Lex permissions**.  
-![The IAM permissions section, the option to Create a role with basic Amazon Lex permissions.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-iam-permissions.png)
+![The IAM permissions section, the option to Create a role with basic Amazon Lex permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-iam-permissions.png)
    + **COPPA**— Choose whether the bot is subject to the [Children's Online Privacy Protection Act](https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/childrens-online-privacy-protection-rule).
    + **Idle session timeout**— Choose how long the bot should wait to get input from a caller before ending the session.
 
 1. Choose **Next**.
 
 1. On the **Add language to bot** page, choose the language and voice for your bot to use when speaking to callers. The default voice for Connect Customer is Joanna.  
-![The Add language to bot page, the select language dropdown menu set to English.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config2.png)
+![The Add language to bot page, the select language dropdown menu set to English.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config2.png)
 
 1. Choose **Done**.
 
@@ -71,10 +71,10 @@ Go to [Part 2: Add intents to your Amazon Lex bot](#tutorial-lex-bot-intents).
 An intent is the action the user wants to perform. In this part, add two intents to the bot. Each intent represents a reason that users call the Help Desk: password reset and network issues.
 
 1. In the Amazon Lex console, in the **Intent details** section, enter **PasswordReset** as the name of your intent.  
-![The Amazon Lex console, the Intent page, the Intent details section, the intent name.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot4.png)
+![The Amazon Lex console, the Intent page, the Intent details section, the intent name.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot4.png)
 
 1. Scroll to the **Sample utterances** section.  
-![The sample utterances section, the box to add utterances, the add utterance button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-utterances.png)
+![The sample utterances section, the box to add utterances, the add utterance button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-utterances.png)
 
 1. Type **I forgot my password**, and then choose **Add utterance**. Then add **reset my password** and choose **Add utterance** again.
 
@@ -83,7 +83,7 @@ An intent is the action the user wants to perform. In this part, add two intents
 1. On the left navigation menu, choose **All intents list**.
 
 1. On the left navigation menu, choose **Back to intents list**.  
-![The Amazon Lex navigation menu, the back to intents list link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config3.png)
+![The Amazon Lex navigation menu, the back to intents list link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config3.png)
 
 1. Choose **Add intent**, **Add empty intent**, and assign the name **NetworkIssue**. Scroll down the page and add the following sample utterances:
    + **I can't access the internet**
@@ -97,18 +97,18 @@ When you're done, go to [Part 3: Build and test the Amazon Lex bot](#tutorial-le
 Build and test your bot to make sure that it works as intended before you publish it.
 
 1. In the Amazon Lex console, choose **Build**. The build might take a minute or two.  
-![The Amazon Lex console, the Build button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot11.png)
+![The Amazon Lex console, the Build button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot11.png)
 
 1. When it's finished building, choose **Test**.
 
 1. Test the **PasswordReset** intent. In the **Test Draft version** pane, type **I forgot my password**, and press **Enter**.   
-![The test draft version page, the box to enter an intent such as I forgot my password.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot12.png)
+![The test draft version page, the box to enter an intent such as I forgot my password.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot12.png)
 
 1. The verification looks like what's shown in the following image.   
-![The verification message from Amazon Lex, Intent PasswordReset is fullfilled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot13.png)
+![The verification message from Amazon Lex, Intent PasswordReset is fullfilled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot13.png)
 
 1. To confirm that the **NetworkIssue** intent is working, type **my email is down**. The verification looks like what's shown in the following image.   
-![The verification message from Amazon Lex, Intent NetworkIssue is fullfilled.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot14.png)
+![The verification message from Amazon Lex, Intent NetworkIssue is fullfilled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot14.png)
 
 Go to [Step 2: Add permissions to Amazon Lex bot](#tutorial1-add-permissions-for-bot).
 
@@ -120,19 +120,19 @@ To use a bot in your flow, add it to your Connect Customer instance.
 1. Open the [Connect Customer console (https://console.aws.amazon.com/connect/).](https://console.aws.amazon.com/connect/)
 
 1. Choose the name of the instance that you created.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot18.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot18.png)
 
 1. Do not log in on the name page (this method of logging in is for emergency access only). Rather, choose **Flows**.  
-![The Connect Customer left-side navigation pane, the flows option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot19.png)
+![The Connect Customer left-side navigation pane, the flows option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot19.png)
 
 1. Under **Amazon Lex**, use the drop-down arrow to choose **HelpDesk**. Under **Alias**, choose **TestBotAlias**, and then choose **\+ Add Lex Bot**, and then choose **Add Amazon Lex Bot**.  
-![The flows page, the Amazon Lex section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot20.png)
+![The flows page, the Amazon Lex section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot20.png)
 
 1. When you're done, choose Connect Customer to navigate back to instances page.  
-![The instance name in a breadcrumb at the top of the Contact flows page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial-connect-instances2.png)
+![The instance name in a breadcrumb at the top of the Contact flows page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial-connect-instances2.png)
 
 1. Choose the access URL of your instance.  
-![The Connect Customer console, the Account overview page, the Access information section, the Access URL.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-instance-url.png)
+![The Connect Customer console, the Account overview page, the Access information section, the Access URL.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-instance-url.png)
 
    The **Access URL** takes you back to the Connect Customer dashboard.
 
@@ -142,50 +142,50 @@ To use a bot in your flow, add it to your Connect Customer instance.
 In this step, you start at the Connect Customer console for your instance. This step shows how to set up your queues, create a routing profile, and then assign your user account to the profile. 
 
 1. On the navigation menu, go to **Routing**, **Queues**.   
-![The Connect Customer navigation menu, the Routing icon, the Queues option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-routing-queues.png)
+![The Connect Customer navigation menu, the Routing icon, the Queues option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-routing-queues.png)
 
 1. Choose **Add queue**.  
-![The Queues page, the Add queue button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-new-queue-button.png)
+![The Queues page, the Add queue button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-new-queue-button.png)
 
 1. Complete the **Add queue** page, as shown in the following image, to add a queue named **PasswordReset**. When done, choose **Save**.  
-![The Add queue page, Queue details section and Hours of operation section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-create-queue.png)
+![The Add queue page, Queue details section and Hours of operation section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-create-queue.png)
 
    The following image shows the **Settings** section of the **Add queue** page. Add your default caller ID name and outbound caller ID number.  
-![The Add queue page, settings section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-create-queue1.png)
+![The Add queue page, settings section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-create-queue1.png)
 
    For the purposes of this tutorial, leave the following empty: Outbound whisper flow, Quick connect, and Maximum contact in queue. 
 
 1. Add a queue named **NetworkIssue**. Complete the **Add queue** page like you did for the **PasswordReset** queue.
 
    When done, you'll have three queues.  
-![The Queues page, the Basic queue, the Network Issue queue, and the Password Reset queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-queues.png)
+![The Queues page, the Basic queue, the Network Issue queue, and the Password Reset queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-queues.png)
 
 1. On the navigation menu, go to **Users**, **Routing Profiles**.   
-![The Connect Customer navigation menu, the Users icon, the Routing profiles option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-routing-profiles.png)
+![The Connect Customer navigation menu, the Users icon, the Routing profiles option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-routing-profiles.png)
 
 1. Choose **Add routing profile**.   
-![The Routing profiles page, the Add routing profile button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-new-profile.png)
+![The Routing profiles page, the Add routing profile button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-new-profile.png)
 
 1. Assign a name to the new profile (for example, **Test routing profile**). Enter a description, select **Voice**, **Chat**, and set **Maximum chats** to **1.**  
-![The Routing profile details section, and settings section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-profiles1.png)
+![The Routing profile details section, and settings section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-profiles1.png)
 
 1. In the **Queues** section, use the drop-down arrow to search for the queues you just created. Choose **NetworkIssue**, select **Voice** and **Chat**. Choose **Add Queue**.  
-![The Queues section, the Add queue button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-queue-button.png)
+![The Queues section, the Add queue button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-queue-button.png)
 
 1. Add the **PasswordReset** queue. Select **Voice** and **Chat**, and then choose **Save**.
 
 1. Under **Default outbound queue**, use the drop-down arrow to choose **BasicQueue**.  
-![The Default outbound queue section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-outbound-queue.png)
+![The Default outbound queue section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-outbound-queue.png)
 
 1. When done, scroll to the top of the page, and choose **Save** to save the profile.
 
 1. On the navigation menu, go to **Users**, **User management**.   
-![The Connect Customer navigation menu, Users icon, User management option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-user-management.png)
+![The Connect Customer navigation menu, Users icon, User management option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-user-management.png)
 
 1. On the **User management** page, select your login name.
 
 1. On the **Edit** page, in the **Settings** section, in the **Routing profile** dropdown menu, choose the routing profile you created, for example, **Test routing profile**. Choose **Save**.  
-![The settings section, routing profile dropdown menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-edit-user2.png)
+![The settings section, routing profile dropdown menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-edit-user2.png)
 
 Routing is all set up and ready to go. 
 
@@ -197,46 +197,46 @@ Although Connect Customer comes with a set of [built-in flows](contact-flow-defa
 In this step, create a flow that's specific to the IT Help Desk experience that you're creating.
 
 1. On the Connect Customer navigation menu, go to **Routing**, **Flows**.  
-![The navigation menu, Routing icon, flows option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-routing-contact-flows.png)
+![The navigation menu, Routing icon, flows option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-routing-contact-flows.png)
 
 1. Choose **Create flow**.  
-![On flows and flow modules page the create flow button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-create-contact-flow.png)
+![On flows and flow modules page the create flow button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-create-contact-flow.png)
 
 1. The flow designer opens. Enter a name for the flow, such as **Test flow**.  
-![The flow designer, the option to edit the name of the flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-name-contact-flow.png)
+![The flow designer, the option to edit the name of the flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-name-contact-flow.png)
 
 1. Use the search box to search for the following block, and drag them onto the grid: [Set logging behavior](set-logging-behavior.md), [Set voice](set-voice.md), and [Play prompt](play.md).   
-![The flow designer, set logging behavior block, set voice block, play prompt block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-blocks1.png)
+![The flow designer, set logging behavior block, set voice block, play prompt block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-blocks1.png)
 
 1. Use your mouse to drag an arrow from the **Entry** block to the **Set logging behavior** block.   
-![The flow designer, set logging behavior block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-connect-blocks1.png)
+![The flow designer, set logging behavior block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-connect-blocks1.png)
 
 1. Connect the remaining blocks, as shown in the following image.   
-![The flow designer, set logging behavior block, set voice block, play prompt block all connected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-connect-blocks2.png)
+![The flow designer, set logging behavior block, set voice block, play prompt block all connected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-connect-blocks2.png)
 
 1. Choose the **Play prompt** title to open its properties page.   
-![The flow designer, play prompt block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-play-prompt-title.png)
+![The flow designer, play prompt block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-play-prompt-title.png)
 
 1. Configure the **Play prompt** block, as shown in the following image, and then choose **Save**. Choose **Text-to-speech or chat text**, choose **Set manually**, enter *Welcome to the IT Help desk*.   
-![The play prompt block, properties page, text-to-speech or chat text, set manually, Welcome to the IT help desk.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-play-prompt1.png)
+![The play prompt block, properties page, text-to-speech or chat text, set manually, Welcome to the IT help desk.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-play-prompt1.png)
 
 1. Add a [Get customer input](get-customer-input.md) block and connect to the **Play prompt** block.  
-![The play prompt success branch connected to the Get customer input block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-get-customer-input3.png)
+![The play prompt success branch connected to the Get customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-get-customer-input3.png)
 
 1. Choose the title of the [Get customer input](get-customer-input.md) block to open the properties page.  
-![The Get customer input block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-get-customer-input.png)
+![The Get customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-add-get-customer-input.png)
 
 1.  Configure the **Get customer input** block, as shown in the following images. Choose **Text-to-speech or chat text**, **Set manually**, and enter *How can I help* in the text box. Set the **Interpret as** dropdown box to **Text**.  
-![The Properties page of the Get customer input block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input1.png)
+![The Properties page of the Get customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input1.png)
 
    The following image shows the Amazon Lex tab. Choose the name of your Amazon Lex bot from the dropdown list. For **Alias** enter **$LATEST**.  
-![The Amazon Lex tab, the name and alias of the bot.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input2.png)
+![The Amazon Lex tab, the name and alias of the bot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input2.png)
 
 1. While still in the **Get customer input** block, choose **Add an intent**.  
-![The Intents section, the Add an intent option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input4.png)
+![The Intents section, the Add an intent option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input4.png)
 
 1. Enter the names of the intents that you created in the Amazon Lex bot, such as PasswordReset and NetworkIssue. They are case sensitive\!  
-![The Intents section, the PasswordReset intent and NetworkIssue intent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input3.png)
+![The Intents section, the PasswordReset intent and NetworkIssue intent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input3.png)
 
 1. Choose **Save**.
 
@@ -251,13 +251,13 @@ In this step, create a flow that's specific to the IT Help Desk experience that 
 1. Add a [Disconnect / hang up](disconnect-hang-up.md) block to the grid. Connect the **Default** and **Error** branches to it.
 
 1. Add a [Set working queue](set-working-queue.md) block to the grid. Connect the **Play prompt** block for PasswordReset.  
-![Flow designer with Play prompt connected to PasswordReset queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-set-working-queue1b.png)
+![Flow designer with Play prompt connected to PasswordReset queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-set-working-queue1b.png)
 
 1. Choose the **Set working queue** title to open its properties page. Configure the **Set working queue** block by using the drop-down arrow to choose the **PasswordReset** queue. Choose **Save**  
-![Set working queue properties with PasswordReset queue selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-set-working-queue2.png)
+![Set working queue properties with PasswordReset queue selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-set-working-queue2.png)
 
 1. Add a **Set working queue** block for NetworkIssue, and configure it with the NetworkIssue queue.  
-![Flow designer with Play prompt connected to NetworkIssue queue.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-set-working-queue3.png)
+![Flow designer with Play prompt connected to NetworkIssue queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-set-working-queue3.png)
 
 1. Drag two **Transfer to queue** blocks (from the **Terminate/Transfer** group) onto the grid.
 
@@ -266,15 +266,15 @@ In this step, create a flow that's specific to the IT Help Desk experience that 
 1. Drag another **Disconnect/hang up** block onto the grid. Connect all of the remaining **Error** and **At capacity** branches to it.
 
 1. The completed flow looks similar to the following image.  
-![Complete flow with Entry point, prompts, customer input branches, and queue transfers.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-contact-flow-finisheda.png)
+![Complete flow with Entry point, prompts, customer input branches, and queue transfers.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-contact-flow-finisheda.png)
 
 1. Choose **Save**, and then choose **Publish**.  
-![The Publish and Save buttons on the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-save-publish.png)
+![The Publish and Save buttons on the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-save-publish.png)
 **Tip**  
 Any blocks that aren't connected or configured correctly generate an error. If this happens, double-check that all branches are connected.
 
 1. When the flow publishes, it displays the message that it saved successfully.  
-![The message Flow saved successfully.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-contact-flow-published.png)
+![The message Flow saved successfully.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-contact-flow-published.png)
 
    If the flow doesn't save, double-check that all the branches are connected to blocks. That's the most common reason flows don't publish. 
 
@@ -284,10 +284,10 @@ Any blocks that aren't connected or configured correctly generate an error. If t
 1. On the navigation menu, go to **Channels**, **Phone Numbers**.
 
 1. On the **Manage Phone numbers** page, choose your phone number.  
-![The manage phone numbers page, your phone number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-choose-on-phone-number.png)
+![The manage phone numbers page, your phone number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-choose-on-phone-number.png)
 
 1. Use the drop-down box to choose the flow you just created, and then choose **Save**.  
-![The edit phone numbers page, the flow dropdown box, the flow you created.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-assign-contact-flow-to-phone-number.png)
+![The edit phone numbers page, the flow dropdown box, the flow you created.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-assign-contact-flow-to-phone-number.png)
 
 Everything is all set up\! Now you're ready to test your IT Help Desk. Continue on to [Step 6: Test a custom voice and chat experience](#tutorial1-try-it).
 
@@ -299,22 +299,22 @@ You're ready to try out the Amazon Lex bot, routing, and flow. The first step is
 1. On the navigation menu, go to the **Dashboard** and choose **Test chat**.
 
 1. Choose **Test Settings**.  
-![The test chat page, test settings option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-settings1.png)
+![The test chat page, test settings option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-settings1.png)
 
 1. Use the drop-down box to choose the flow you created, for example, **Test flow**. Choose **Apply**.  
-![The system settings section, the flow dropdown menu, your flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-settings2.png)
+![The system settings section, the flow dropdown menu, your flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-settings2.png)
 
 ### Test a custom chat experience
 <a name="tutorial1-try-it-chat"></a>
 
 1. If needed, choose the chat bubble to start a chat.  
-![The test chat page, the chat bubble.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-chat-bubble.png)
+![The test chat page, the chat bubble.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-chat-bubble.png)
 
 1. Connect Customer automatically detects a contact and runs the flow that you created. It displays messages from the flow.  
-![Chat widget showing automated messages from the bot.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-chat2.png)
+![Chat widget showing automated messages from the bot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-chat2.png)
 
 1. Enter that you need help resetting a password. Then accept the incoming chat. The following image shows you what the chat and agent interfaces look like when you're trying them.  
-![Chat widget with password reset request and agent CCP view.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-chat3.png)
+![Chat widget with password reset request and agent CCP view.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-test-chat3.png)
 
 1. In the customer pane on the right, choose **End chat** to close the chat window.
 

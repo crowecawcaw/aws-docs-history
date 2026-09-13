@@ -35,7 +35,7 @@ Test Configuration:
 
 What happens: Even though you configured two overrides for the same Lambda function, each override is consumed only once, in sequential order of configuration. With sequential overrides, you can test how your flow handles different responses from the same resource at different points in the test.
 
-![Test case designer showing three interaction groups with Lambda function overrides configured in sequence.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-example.png)
+![Test case designer showing three interaction groups with Lambda function overrides configured in sequence.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-example.png)
 
 
 ## Override resources and actions supported
@@ -68,7 +68,7 @@ Configuration options for Error Response:
 + **Response** – Select "Error"
 + **Delay** – Specify how many seconds to wait before returning the response
 
-![Action block configuration showing Lambda function override with mock response options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-lambda.png)
+![Action block configuration showing Lambda function override with mock response options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-lambda.png)
 
 
 ### Hours of operation override
@@ -91,7 +91,7 @@ Configuration options for Response:
 + **Option** – Choose "Mock Response"
 + **Response** – Choose either "InHours" or "OutOfHours" or "Error"
 
-![Action block configuration showing Hours of operation override with mock response options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-hours.png)
+![Action block configuration showing Hours of operation override with mock response options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-hours.png)
 
 
 ### Lex bot override
@@ -116,7 +116,7 @@ Configuration options for Response:
 + **Delay** – Specify how many seconds to wait before returning the response
 + **Raw JSON** (optional) – Enter the data that should be returned (in JSON format)
 
-![Action block configuration showing Lex bot override with mock response options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-lex.png)
+![Action block configuration showing Lex bot override with mock response options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-lex.png)
 
 
 **Lex V2 bot intent resolution might differ during simulation**  
@@ -143,4 +143,4 @@ Configuration options:
 + **Option** – Choose "Mock Response"
 + **Response** – Choose either "Queue at capacity" or "Error"
 
-![Action block configuration showing Queue override with mock response options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-queue.png)
+![Action block configuration showing Queue override with mock response options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-override-queue.png)

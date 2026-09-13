@@ -70,7 +70,7 @@ When you enable workload type concurrency for a channel, the channel-level **Max
   See [Example of how a contact is routed with cross-channel concurrency](#example-routing-concurrency).
 + For each queue in the profile, choose whether it's for voice, chat, task, email, or all channels. 
 + If you want a queue to handle voice, chat, task, and email but want to assign a different priority to each channel, add the queue twice. For example, in the following image, voice is priority 1 but chat, task, and email are priority 2.   
-![Queue configuration showing two BasicQueue entries with different channel and priority settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-channels-and-concurrency-2.png)
+![Queue configuration showing two BasicQueue entries with different channel and priority settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-channels-and-concurrency-2.png)
 + When using workload type concurrency, cross-channel behavior is set per workload type, not per channel. A "Fraud Investigation" workload type might block all other channels, while a "Password Reset" on the same task channel might allow concurrent chats.
 + If a contact's workload type doesn't match any entry in the routing profile, the contact stays in queue. Audit your flows to ensure alignment between assigned workload types and routing profile entries.
 
@@ -79,7 +79,7 @@ When you enable workload type concurrency for a channel, the channel-level **Max
 
 For example, assume an agent is assigned to the routing profile that has the channel settings shown in the following image. They can be routed voice, chat, task, and email contacts. They can receive cross-channel contacts when on tasks. 
 
-![The create routing profile page, channel settings section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-cross-channel-concurrency.png)
+![The create routing profile page, channel settings section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-cross-channel-concurrency.png)
 
 
 The agent will experience the following routing behavior:

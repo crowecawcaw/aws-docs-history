@@ -33,11 +33,11 @@ Before you schedule a historical metrics report, here are a few things you need 
     + If today was November 10th, the report would be delivered at 2:00PM EST November 10th and contain data from 2:00 PM EST November 9th to 2:00 PM EST November 10th. This 24 hour interval will appear as two rows in the generated report for every run.
       + Row 1: 2:00PM EST November 9th to midnight (00:00) November 10th
       + Row 2: Midnight (00:00) November 10th to 2:00PM EST November 10th  
-![Settings to create a scheduled report for yesterday that generates a report at 2:00PM EST every day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-scheduled-reports-historical-daily-2pm.png)
+![Settings to create a scheduled report for yesterday that generates a report at 2:00PM EST every day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-scheduled-reports-historical-daily-2pm.png)
   + To create a scheduled report for yesterday that generates only one row for the 24 hour interval in each run, apply the following settings:
     +  Generate this report **Daily**, running every **1 Day**, starting at 12:00 AM in your **required timezone** for the previous **1 Days**.
     + If today was November 10th, the report would be delivered at 12:00 AM EST November 10th and contain data from midnight (00:00) November 9th to midnight (00:00) November 10th with 1 row for the 24 hour interval in each run.  
-![Settings to create a scheduled report for yesterday that generates a report at 12:00AM EST every day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-scheduled-reports-historical-daily-12am.png)
+![Settings to create a scheduled report for yesterday that generates a report at 12:00AM EST every day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/metrics-scheduled-reports-historical-daily-12am.png)
 + A scheduled report with **Generate this report** = **Hourly - - For the Previous 24 Hours** always produces a report where the start time is 24 hours before the set run time. The end time is set to the run time. 
 
   For example, a scheduled report is set to run hourly starting 2:00PM EST on October 5th for the trailing 24 hours. The start and end times are as follows:

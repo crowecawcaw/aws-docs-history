@@ -15,9 +15,9 @@ All three match types are not case sensitive, for example, if you have specified
 
 You can add the keywords or phrases by using either of the following methods:
 + Selecting **Enter keywords or phrases** and entering values manually in the text box. Multiple values can be separated by a comma.  
-![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/exact-match-1.png)
+![Keywords or phrases option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/exact-match-1.png)
 + Selecting **Import from word collection** to import pre-defined words and phrases from word collections.  
-![Import from word collection option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/exact-match-2.png)
+![Import from word collection option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/exact-match-2.png)
 
 Word collections can be categorized into two types: user word collections and system word collections. System word collections are pre-defined by Connect Customer, which are non-editable to users. A user word collection can be created, read, updated, and deleted (CRUD) by users. For more information, see [Manage word collections when you create conversational analytics rules in conversational analytics](manage-word-collections.md).
 

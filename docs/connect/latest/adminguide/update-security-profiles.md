@@ -10,7 +10,7 @@ You can update a security profile at any time to add or remove permissions.
 
 Before you can update permissions in a security profile, you must be logged in with a Connect Customer account that has the following permissions: **Security profiles - Edit**. 
 
-![The users and permissions section of the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_sp_edit.png)
+![The users and permissions section of the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_sp_edit.png)
 
 
 By default, the Connect Customer **Admin** security profile has these permissions.

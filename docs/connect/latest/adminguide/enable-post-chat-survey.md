@@ -34,7 +34,7 @@ If you're using the Connect Customer Communication Widget:
 1. Open the Connect Customer console and navigate to **Communication widgets**.
 
 1. Enable the post-chat survey setting through the Communication Widgets page.  
-![The Communication Widget settings page showing the post-chat survey option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/post-chat-survey-communication-widget.png)
+![The Communication Widget settings page showing the post-chat survey option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/post-chat-survey-communication-widget.png)
 
 ## Update contact flow to add post-chat survey as a disconnect flow
 <a name="post-chat-survey-disconnect-flow"></a>
@@ -50,7 +50,7 @@ There are two ways to implement a survey in your disconnect flow:
 **Note**  
 For supervisor barge-in scenarios, make sure you add a [Flow block in Connect Customer: Set working queue](set-working-queue.md) block before **Transfer to Queue**. Omitting it will cause chat contacts to terminate rather than transfer for this feature.  
 
-![A flow diagram showing the Set Working Queue block before Transfer to Queue for supervisor barge-in scenarios.](http://docs.aws.amazon.com/connect/latest/adminguide/images/post-chat-survey-set-working-queue-block.png)
+![A flow diagram showing the Set Working Queue block before Transfer to Queue for supervisor barge-in scenarios.](https://docs.aws.amazon.com/connect/latest/adminguide/images/post-chat-survey-set-working-queue-block.png)
 
 
 **Contact Trace Records**  
@@ -68,7 +68,7 @@ Example:
 ```
 [How contact attributes work in Connect Customer](what-is-a-contact-attribute.md) will update in Contact Search and Contact Details.  
 
-![Contact details showing the contact attributes for a post-chat survey.](http://docs.aws.amazon.com/connect/latest/adminguide/images/post-chat-survey-contact-attributes.png)
+![Contact details showing the contact attributes for a post-chat survey.](https://docs.aws.amazon.com/connect/latest/adminguide/images/post-chat-survey-contact-attributes.png)
 
 
 ## Additional resources

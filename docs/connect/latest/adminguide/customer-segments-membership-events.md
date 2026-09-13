@@ -24,10 +24,10 @@ Enabling segment membership streaming is a one-time setup that an administrator 
 1. Open the Connect Customer Customer Profiles console.
 
 1. Choose the **Data export** tab, and then choose **Enable event streaming**.  
-![The Data export tab with the Enable event streaming button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/enable-real-time-export-1.png)
+![The Data export tab with the Enable event streaming button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/enable-real-time-export-1.png)
 
 1. Under **Segment membership changes**, choose **Enable data streaming**, and then select an existing Kinesis data stream from the drop-down menu, or choose **create a new Kinesis data stream** to open the Kinesis console and create the stream. For more information, see [Creating and managing streams](https://docs.aws.amazon.com/streams/latest/dev/working-with-streams.html).  
-![The Segment membership changes section showing the Enable data streaming options with a Kinesis data stream selected from the drop-down menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-enable-streaming.png)
+![The Segment membership changes section showing the Enable data streaming options with a Kinesis data stream selected from the drop-down menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-enable-streaming.png)
 
 1. For **Role name**, specify an IAM role that grants Customer Profiles permission to write to your Kinesis data stream, or choose **Create role in IAM** to create one.
 
@@ -76,7 +76,7 @@ The following is a sample of the permissions to grant the Kinesis role.
             "Action": [
                 "kinesis:PutRecord",
                 "kinesis:PutRecords",
-                "kinesis:DescribeStream"
+                "kinesis:DescribeStreamSummary"
             ],
             "Resource": "arn:aws:kinesis:us-west-2:123456789012:stream/my-segment-events-stream"
         }
@@ -102,7 +102,7 @@ If your Kinesis data stream is encrypted with a customer managed AWS KMS key, th
 1. Open the Connect Customer Customer Profiles console.
 
 1. Choose the **Data export** tab, and then choose **Disable segment membership**.  
-![The Event streams section showing the Disable profile changes and Disable segment membership buttons above the active stream details.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-disable-streaming.png)
+![The Event streams section showing the Disable profile changes and Disable segment membership buttons above the active stream details.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-disable-streaming.png)
 
 ## Key concepts
 <a name="customer-segments-membership-events-concepts"></a>
@@ -125,17 +125,17 @@ A `LIVE` event is sent in near real time, outside of the scheduled runs, when me
 
 After a segment is created, you can enable the subscription from the Connect Customer admin website by choosing **Track membership changes**.
 
-![The Segment membership changes section showing no membership changes tracked, with the Track membership changes button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-track-changes.png)
+![The Segment membership changes section showing no membership changes tracked, with the Track membership changes button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-track-changes.png)
 
 
 After you enable tracking, Customer Profiles sends notifications to the Kinesis data stream associated with segment membership changes. If your administrator has not configured a stream, a message prompts you to enable segment membership streaming first.
 
-![A message prompting you to enable segment membership streaming before subscribing to membership events.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-no-stream-warning.png)
+![A message prompting you to enable segment membership streaming before subscribing to membership events.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-no-stream-warning.png)
 
 
 After tracking is enabled, you see messages that provide detail about the initial snapshot.
 
-![The Segment membership changes section with an information message that changes will appear after the initial snapshot completes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-initial-snapshot.png)
+![The Segment membership changes section with an information message that changes will appear after the initial snapshot completes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-initial-snapshot.png)
 
 
 ### Viewing events
@@ -143,7 +143,7 @@ After tracking is enabled, you see messages that provide detail about the initia
 
 Events are published to the Kinesis data stream in your account. After the initial snapshot completes, you can also view streaming events from the same section, and you can view membership event details on individual profiles. There might be a delay between when a membership change occurs and when it appears in the list of streaming events.
 
-![The Segment membership changes table listing timestamps, profile IDs, and Joined membership statuses.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-view-events.png)
+![The Segment membership changes table listing timestamps, profile IDs, and Joined membership statuses.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-view-events.png)
 
 
 ## Stop tracking changes
@@ -151,7 +151,7 @@ Events are published to the Kinesis data stream in your account. After the initi
 
 If you no longer want to receive notifications, choose **Stop tracking changes**.
 
-![The Segment membership changes table with the Stop tracking changes button highlighted.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-stop-tracking.png)
+![The Segment membership changes table with the Stop tracking changes button highlighted.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-stop-tracking.png)
 
 
 ## CloudWatch metrics
@@ -171,7 +171,7 @@ The number of notification events that failed.
 `ScheduledRunsSucceeded`  
 The number of scheduled runs that succeeded.
 
-![The CloudWatch metrics browser filtered to customerProfiles, showing the ProfilesJoined metric by domain and segment.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-cloudwatch-metrics.png)
+![The CloudWatch metrics browser filtered to customerProfiles, showing the ProfilesJoined metric by domain and segment.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-membership-events-cloudwatch-metrics.png)
 
 
 ## Segment membership changes payload

@@ -5,7 +5,7 @@
 
 On the **Forecasting** page, you set the time zone for your forecasts. The following image shows the **Forecast time zone** tab, and the dropdown menu where you choose the time zone.
 
-![The forecasting time zone tab on the Forecasting page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-timezone.png)
+![The forecasting time zone tab on the Forecasting page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-timezone.png)
 
 
 ## Important things to know

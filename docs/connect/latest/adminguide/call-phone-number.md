@@ -33,12 +33,12 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows an example of what the **Call phone number** properties page looks like when you select a phone number manually. The **Select a number from your instance** option is selected, and the dropdown menu displays a list of available phone numbers claimed for your instance.
 
-![The Call phone number properties page. The Select a number from your instance option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number1.png)
+![The Call phone number properties page. The Select a number from your instance option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number1.png)
 
 
 The following image shows an example of what the **Call phone number** properties page looks like when you select a phone number dynamically. The **Use Attribute** option is selected. The **Namespace** box is set to **User-defined**. The **Attribute** box is set to **MainPhoneNumber**. 
 
-![The properties page of the Call phone number block. The Use Attribute option is selected, Namespace is set to User-defined.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number2.png)
+![The properties page of the Call phone number block. The Use Attribute option is selected, Namespace is set to User-defined.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number2.png)
 
 
 Outbound whisper flows run in Connect Customer immediately after an agent accepts the call during direct dial and callback scenarios. When the flow runs: 
@@ -56,7 +56,7 @@ To use a custom caller ID, you must open an Support ticket to enable this featur
 
 The following image shows an example of what this block looks like when it is configured. It shows the **Caller ID** phone number, and a **Success** branch.
 
-![A configured Call phone number block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number-configured.png)
+![A configured Call phone number block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/call-phone-number-configured.png)
 
 
 There is no error branch for the block. If a call is not successfully initiated, the flow ends and the agent is placed in an **AfterContactWork** (ACW). 

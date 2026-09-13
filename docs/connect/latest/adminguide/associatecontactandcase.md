@@ -5,7 +5,7 @@
 
 You can associate the contact to an existing case, such that the contact will appear on the activity feed of the case with indicator **Ongoing**.
 
-![An ongoing contact displaying in the activity feed for a case.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-associate.png)
+![An ongoing contact displaying in the activity feed for a case.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-associate.png)
 
 
-![The activity feed, ongoing status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-associate2.png)
+![The activity feed, ongoing status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-associate2.png)

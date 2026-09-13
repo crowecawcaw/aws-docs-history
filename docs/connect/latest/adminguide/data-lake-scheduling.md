@@ -579,7 +579,7 @@ Following is an entity relationship diagram that shows the structure and relatio
 
  Each table displays its primary keys and attributes with their data types. The diagram illustrates how these tables relate to each other through foreign key relationships, providing a comprehensive view of the scheduling data model.
 
-![An entity relationship diagram that shows the structure and relationships between scheduling tables.](http://docs.aws.amazon.com/connect/latest/adminguide/images/data-lake-scheduling-tables-overview-1.png)
+![An entity relationship diagram that shows the structure and relationships between scheduling tables.](https://docs.aws.amazon.com/connect/latest/adminguide/images/data-lake-scheduling-tables-overview-1.png)
 
 
 ## Sample queries

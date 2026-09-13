@@ -24,7 +24,7 @@ You use a .csv file to quickly specify time off allowances at a hourly level, fo
 1. On the **Download** dropdown menu, choose **Download template**.
 
    The following image shows an example .csv template that contains valid data.  
-![A sample csv file with time off allowances.](http://docs.aws.amazon.com/connect/latest/adminguide/images/group-allowance-csv.png)
+![A sample csv file with time off allowances.](https://docs.aws.amazon.com/connect/latest/adminguide/images/group-allowance-csv.png)
 
 1. When you add your time off data to the template, note the following:
    + Do not change the top row of the .csv file template.
@@ -41,12 +41,12 @@ You use a .csv file to quickly specify time off allowances at a hourly level, fo
 1. Choose one or more forecast groups that you want in the download csv file.
 
 1. On the **Download** dropdown menu, choose **Current group allowance balance**, as shown in the following image.  
-![The scheduling page, the time off tab, the download menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-timeoff-download.png)
+![The scheduling page, the time off tab, the download menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-timeoff-download.png)
 
    The .csv file includes the data that was last uploaded to Connect Customer. For example, the following image shows the download time off allowance .csv file. 
    + **LAST\_UPLOADED\_GROUP\_ALLOWANCE\_IN\_HOURS**: The last upload for Group 1 was 4.4 hours of vacation.
    + **GROUP\_ALLOWANCE\_IN\_HOURS** shows they have 2.4 hours remaining in their allowance, they've already used 2 hours.  
-![The timeoff allowance csv file.](http://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-timeoff-allowance.png)
+![The timeoff allowance csv file.](https://docs.aws.amazon.com/connect/latest/adminguide/images/schedule-timeoff-allowance.png)
 
 ## Import group allowance .csv file
 <a name="upload-timeoff-csv"></a>

@@ -18,16 +18,16 @@ The multi-skill feature moves beyond the previous model, which assumed that all 
 ## Assigning agents to demand groups
 <a name="multiskill-assigning-agents"></a>
 +  Amazon Connect forecasting capacity planning and scheduling uses staffing groups to organize agents into teams. For details please refer to [Create staffing groups and rules](scheduling-create-staffing-groups.md). After you create the staffing group, you can link it to the "forecast group", and then to the corresponding demand groups. You can set priority levels (high/ medium/ low) for each demand group. Higher priority means those agents get scheduled first for that demand group.   
-![Associate demand group to staffing group.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-staffinggroup.png)
+![Associate demand group to staffing group.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-staffinggroup.png)
 +  Demand group assignments can be modified through the Staff Rules page, allowing for customization when agents develop additional skills or when teams consist of members with varied capabilities rather than skill-specific groupings.   
-![Add demand group to agents.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-staffrules.png)
+![Add demand group to agents.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-staffrules.png)
 +  Demand groups can also be defaulted based on routing settings. The system suggests demand groups and priorities according to agent routing profiles.   
-![Default demand group by routing profile.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-rp.png)
+![Default demand group by routing profile.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-rp.png)
 +  These recommendations are available for download in CSV format and can be bulk uploaded for agents. Demand group recommendations can be edited to specify agents before re-uploading.   
-![Modify demand group recommendations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-rpcsv.png)
+![Modify demand group recommendations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-rpcsv.png)
 
 ## Generate and publish schedule
 <a name="multiskill-generate-and-publish-schedule"></a>
 +  Generate your schedule. For detailed configuration instructions, please refer to [Generate, review, and publish a schedule](scheduling-publish-schedule.md). 
 +  Amazon Connect generates a draft schedule that is hidden from agents until it is published. Schedulers can address warnings or failures and regenerate the draft schedule iteratively before publishing the final version. Amazon Connect independently calculates the required agent headcount for each demand group using forecasted contact volumes, then creates agent shifts according to demand group assignments. The calendar allows filtering by demand groups, displaying metrics and agents specific to the selected demand group.   
-![view schedule with demand groups.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-schedule.png)
+![view schedule with demand groups.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-multiskill-schedule.png)

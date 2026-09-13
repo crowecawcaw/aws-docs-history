@@ -18,16 +18,16 @@ IT admins: For important information about enabling this feature, see [Enable en
 <a name="important-things-multi-party-calls"></a>
 + If the primary agent leaves the call, you must have at least three participants on the call to add more participants.
 + When you have multiple agents on the call, such as three agents and a caller, all agents on the call can view all parties and have the option to put any participant or another agent on hold, mute, and disconnect participants from the call.   
-![The CCP, multiple participants on call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-mute-hold-drop1.png)
+![The CCP, multiple participants on call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-mute-hold-drop1.png)
 + Every time you add a new participant to the call, you are prompted to greet and talk to them before adding them to the call. Choose **Join** to take all parties off hold.  
-![The CCP, multiple participants on hold, one on call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-join-third-person.png)
+![The CCP, multiple participants on hold, one on call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-join-third-person.png)
 
 ## How to add participants to a multi-party call
 <a name="add-participants-multi-party-calls"></a>
 
 The following image shows the contact and you (the agent) on a call. The customer always appears at the top.
 
-![The CCP, the agent and contact on a call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-two-people.png)
+![The CCP, the agent and contact on a call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-two-people.png)
 
 
 **To add participants**
@@ -37,7 +37,7 @@ The following image shows the contact and you (the agent) on a call. The custome
    When you add the third participant to the call, you can greet and talk to them before adding them to the call. For example, you can tell explain why you're adding them to the call. 
 
    The following image shows the CCP after you add a third participant to the call. The contact is on hold, and you're talking to the third party.  
-![The CCP, a contact on hold, another contact on call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-join-second-person.png)
+![The CCP, a contact on hold, another contact on call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-join-second-person.png)
 
 1. Choose **Join** to take all parties off hold.
 
@@ -52,14 +52,14 @@ The following image shows the contact and you (the agent) on a call. The custome
 
 Every agent on a call can mute, hold, or disconnect individual participants.
 
-![The CCP, multiple participants on a call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-overview.png)
+![The CCP, multiple participants on a call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-overview.png)
 
 
 You can transfer a multi-party call to another agent, or disconnect yourself from the ongoing call. 
 
 **To transfer or disconnect**
 + Choose the **More** button to open the number pad and to create a task:  
-![The CCP, multiple participants on a call, the More button at the bottom of the CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-more-options.png)
+![The CCP, multiple participants on a call, the More button at the bottom of the CCP.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ccp-multiparty-more-options.png)
 
 ## When do multi-party calls end?
 <a name="end-multi-party-calls"></a>

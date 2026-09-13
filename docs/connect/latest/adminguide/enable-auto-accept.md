@@ -30,9 +30,9 @@ To Edit or Bulk Edit:
 1. Choose **Save**.
 
 **Note**  
-**Firefox users**: If you are using the Firefox browser and using auto-accept for calls, you must keep the CCP or Agent Workspace browser tab in focus when you accept and connect to a voice contact. The CCP conforms to Firefox microphone usage guidance, and only has access to connect to the user's microphone when CCP tab is in focus. 
+**Firefox users**: If you are using the Firefox browser and using auto-accept for calls, you must keep the CCP or agent workspace browser tab in focus when you accept and connect to a voice contact. The CCP conforms to Firefox microphone usage guidance, and only has access to connect to the user's microphone when CCP tab is in focus. 
 
-![Enable auto-accept for existing agents.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-contact-handling-config.png)
+![Enable auto-accept for existing agents.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-contact-handling-config.png)
 
 
 ## Bulk upload new users

@@ -13,7 +13,7 @@ Following are the chat configuration parameters that are required in your websit
 
 For example, the following diagram shows how the chat configuration needs to be updated to point to the API Gateway in the replica Region when chat traffic needs to be moved across Regions.
 
-![A digram that shows the source Region and the replica Region.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatconfig.png)
+![A digram that shows the source Region and the replica Region.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatconfig.png)
 
 
 ## Configure a communication widget in the replica instance
@@ -28,7 +28,7 @@ For example, the following diagram shows how the chat configuration needs to be 
 1. To switch traffic between Regions, replace the source instance communications widget with the replica instance communications widget in your webpage.
 
    The following image shows an example widget script.  
-![A sample communication widget script.](http://docs.aws.amazon.com/connect/latest/adminguide/images/source-comwidget.png)
+![A sample communication widget script.](https://docs.aws.amazon.com/connect/latest/adminguide/images/source-comwidget.png)
 
 1. If you make any changes to the communication widget in the source instance at a later time, you also need to make the same changes in the communication widget in the replica instance.
 

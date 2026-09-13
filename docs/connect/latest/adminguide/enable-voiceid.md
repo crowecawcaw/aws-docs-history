@@ -52,10 +52,10 @@ Reading the Biometric Privacy Act (BIPA) Consent Acknowledgement is a requiremen
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **Voice ID**. Read the BIPA Consent Acknowledgement, and accept if you agree.  
-![The Enable Voice ID page showing the BIPA (Biometric Information Privacy Act) Consent Acknowledgement button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-bipa.png)
+![The Enable Voice ID page showing the BIPA (Biometric Information Privacy Act) Consent Acknowledgement button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-bipa.png)
 
 ## Step 2: Create a new Voice ID domain and encryption key
 <a name="enable-voiceid-step2"></a>
@@ -66,17 +66,17 @@ You can perform this step using the Connect Customer console or by using Connect
 #### [ Connect Customer console instructions ]
 
 1. In the **Domain setup** section, choose **Create a new domain**.  
-![Domain setup interface with options to create a new domain or choose an existing one.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-enable-domain.png)
+![Domain setup interface with options to create a new domain or choose an existing one.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-enable-domain.png)
 
 1. In the **Domain name** box, enter a friendly name that's meaningful to you, such as your organization name, for example, *VoiceID-ExampleCorp*.
 
 1. Under **Encryption**, create or enter your own AWS KMS key for encrypting your Voice ID domain. Following are the steps to create your KMS key key:
 
    1. Choose **Create KMS key**.  
-![Encryption section of the Voice ID setup page showing the Create AWS KMS key button for creating a new encryption key.](http://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-create-kms-key.png)
+![Encryption section of the Voice ID setup page showing the Create AWS KMS key button for creating a new encryption key.](https://docs.aws.amazon.com/connect/latest/adminguide/images/voiceid-create-kms-key.png)
 
    1. A new tab in your browser opens for the Key Management Service (KMS) console. On the **Configure key** page, choose **Symmetric**, and then choose **Next**.  
-![Configure key page with Symmetric key type selected for encryption and decryption.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-configure-key.png)
+![Configure key page with Symmetric key type selected for encryption and decryption.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-configure-key.png)
 
    1. On the **Add labels** page, add a name and description for the KMS key, and then choose **Next**.
 

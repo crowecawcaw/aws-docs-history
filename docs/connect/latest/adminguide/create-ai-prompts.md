@@ -31,7 +31,7 @@ Your first step is to choose the type of prompt you want to create. Each type pr
 1. On the navigation menu, choose **AI agent designer**, **AI prompts**.
 
 1. On the **AI Prompts** page, choose **Create AI Prompt**. The Create AI Prompt dialog is displayed, as shown in the following image.  
-![The Create AI Prompt dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/qic-create-ai-prompt.png)
+![The Create AI Prompt dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/qic-create-ai-prompt.png)
 
 1. In the **AI Prompt type** dropdown box, choose from the following types of prompts:
    + **Orchestration**: Orchestrates different use cases as per customer needs.
@@ -63,7 +63,7 @@ The models listed in the dropdown menu are based on the AWS Region of your Conne
 
 The following image shows **us.amazon.nova-pro-v1:0 (Cross Region)(System Default)** as the model for this AI prompt. 
 
-![A list of AI prompt models, based on your AWS Region.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompt-model.png)
+![A list of AI prompt models, based on your AWS Region.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompt-model.png)
 
 
 ### Remove the assistant message prefill for specific models
@@ -103,17 +103,17 @@ An AI prompt has four elements:
 
 The following image shows the first part of the template for an **Answer** AI prompt.
 
-![An example Answer prompt template.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompt-example.png)
+![An example Answer prompt template.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompt-example.png)
 
 
 Scroll to line 70 of the template to see the output section:
 
-![The output section of the Answer prompt template.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompt-exampleoutputsection.png)
+![The output section of the Answer prompt template.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompt-exampleoutputsection.png)
 
 
 Scroll to line 756 of the template to see the input section, shown in the following image.
 
-![The input section of the Answer prompt template.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompt-exampleinputsection.png)
+![The input section of the Answer prompt template.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompt-exampleinputsection.png)
 
 
 Edit the placeholder prompt to customize it for your business needs. If you change the template in some way that's not supported, an error message is displayed, indicating what needs to be corrected.

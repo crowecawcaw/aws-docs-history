@@ -29,14 +29,14 @@ You can delete users from the user list page or from an individual user's detail
 1. Sign in to Connect Customer using an **Admin** account, or an account assigned to a security profile that has **Users - Remove** permission.
 
 1. In Connect Customer, on the left navigation menu, choose **Users**. Choose one or more users you want to delete.  
-![The User management page with users selected for deletion.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-delete-step1.png)
+![The User management page with users selected for deletion.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-delete-step1.png)
 
 1. Choose **Actions**, and then choose **Delete**.
 
 1. In the confirmation dialog, review the list of users to be deleted, and then choose **Delete** to confirm.
 
 1. The service deletes the users. When the deletion completes, the progress bar shows success and a warning icon appears next to the **Refresh** button to indicate the table needs refreshing.  
-![The User management page after successful deletion.](http://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-delete-step4.png)
+![The User management page after successful deletion.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-cloudscape-delete-step4.png)
 
 1. Refresh the table. The deleted users no longer appear in the list.
 
@@ -54,7 +54,7 @@ You can delete users from the user list page or from an individual user's detail
 
 Before you can update permissions in a security profile, you must be logged in with an Connect Customer account that has the following permissions: **Users - Remove**.
 
-![The users and permissions section of the security profiles page, Users option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_users_edit.png)
+![The users and permissions section of the security profiles page, Users option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_users_edit.png)
 
 
 By default, the Connect Customer **Admin** security profile has these permissions.

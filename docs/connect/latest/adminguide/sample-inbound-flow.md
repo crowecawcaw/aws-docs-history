@@ -16,4 +16,4 @@ It uses the [Check contact attributes](check-contact-attributes.md) block to det
 
 The following image shows the sample inbound flow. We recommend viewing the flow in the flow designer so you can see the details.
 
-![The sample inbound flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sample-inbound-flow.png)
+![The sample inbound flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sample-inbound-flow.png)

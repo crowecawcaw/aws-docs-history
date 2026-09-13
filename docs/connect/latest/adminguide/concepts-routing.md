@@ -7,7 +7,7 @@ A routing profile determines what types of contacts an agent can receive and the
 + Each agent is assigned to one routing profile.
 + A routing profile can have multiple agents assigned to it.
 
-![A graphic that shows a group of agents mapped to one routing profile.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agents-routing-profile.png)
+![A graphic that shows a group of agents mapped to one routing profile.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agents-routing-profile.png)
 
 
 Connect Customer uses routing profiles so that you can manage your contact center at scale. To quickly change what a group of agents does, you only need to make an update in one place: the routing profile.
@@ -27,4 +27,4 @@ When you create a routing profile, you specify:
 
 The following image shows a graphic of a group of agents mapped to a routing profile. The routing profile specifies multiple channels and queues for the agents.
 
-![A graphic that shows a group of agents mapped to a routing profile.](http://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-3.png)
+![A graphic that shows a group of agents mapped to a routing profile.](https://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-3.png)

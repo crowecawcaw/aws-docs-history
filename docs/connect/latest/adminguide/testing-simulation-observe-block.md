@@ -29,7 +29,7 @@ If an active observation's expected event does not occur, the observation will c
 
 When an observation succeeds, which means the event is matched, the observation is marked as inactive, and any Check blocks or Action blocks in the same interaction group will execute before moving to the next connected interaction group.
 
-![Observations transition between active and inactive states during test execution.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-active-observations.png)
+![Observations transition between active and inactive states during test execution.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-active-observations.png)
 
 
 ## What events can you observe?
@@ -47,7 +47,7 @@ Configuration options:
 
 Example Actions: Define what should happen when the test begins (such as overriding system behaviors).
 
-![Observe block configuration showing Test started event type selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-test-initiated.png)
+![Observe block configuration showing Test started event type selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-test-initiated.png)
 
 
 ### Test completed event
@@ -60,7 +60,7 @@ Configuration options:
 
 Example Actions: Specify any final validation or logging actions to perform.
 
-![Observe block configuration showing Test Completed event type selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-test-completed.png)
+![Observe block configuration showing Test Completed event type selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-test-completed.png)
 
 
 ### Message received event
@@ -82,7 +82,7 @@ Configuration options:
 **Important**  
 (Voice) Test results might vary slightly between runs. The system breaks down audio into segments based on pauses and natural speech patterns, which can differ depending on how long someone pauses or how they structure their sentences. This means you might see variations in how prompts appear across test executions.
 
-![Observe block configuration showing Message Received event type with matching criteria options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-message-received.png)
+![Observe block configuration showing Message Received event type with matching criteria options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-message-received.png)
 
 
 ### Flow action started event
@@ -98,7 +98,7 @@ Configuration options:
   + **Queue** – Observes queue transfer actions (select from the dropdown or specify queue ARN)
   + **Lex Bot** – Detects Lex bot connections (select from the dropdown or specify the bot ARN and alias)
 
-![Observe block configuration showing Action Triggered event type with resource type options.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-flow-action-started.png)
+![Observe block configuration showing Action Triggered event type with resource type options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-flow-action-started.png)
 
 
 ## How often should the event occur?
@@ -111,4 +111,4 @@ Each Observe block inherits a default usage setting from the interaction group t
 
 After defining what to observe, add a connector to the interaction group. In the interaction group menu (⋮), choose **Add connector**, then drag the connector to the start of the interaction group that contains the next observation. This creates a logical flow through your test, moving from one checkpoint to another as events occur.
 
-![Interaction groups connected with connectors showing the logical flow between observe checkpoints.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-connecting-groups.png)
+![Interaction groups connected with connectors showing the logical flow between observe checkpoints.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-connecting-groups.png)

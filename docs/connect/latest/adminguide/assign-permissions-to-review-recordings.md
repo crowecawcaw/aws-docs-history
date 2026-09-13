@@ -38,7 +38,7 @@ Complete the following steps to assign permissions to access agent interactions 
 For chat interactions, the same transcript contains the agent interaction and the automated interaction (for example, with chat bots).
 
 1. Assign the **CallCenterManager** security profile so a user can listen to call recordings or review chat transcripts. This security profile also includes a setting that makes the icon to download recordings appear in the results of the **Contact search** page. The following image shows the recording play, download, and delete icons that are displayed to a user who has these permissions.  
-![The Contact search page, showing the options for reviewing recorded conversations.](http://docs.aws.amazon.com/connect/latest/adminguide/images/recording-permissions-listen-download-delete.png)
+![The Contact search page, showing the options for reviewing recorded conversations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/recording-permissions-listen-download-delete.png)
 
 – OR –
 

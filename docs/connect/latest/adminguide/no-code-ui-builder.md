@@ -10,7 +10,7 @@ You can create the view resources used in step-by-step guides by using the UI bu
 
 The following image shows an example of the UI builder page.
 
-![The UI builder user interface.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-updates.png)
+![The UI builder user interface.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-updates.png)
 
 
 1. The **Create** panel, where you choose from the library of UI components, or use one of the available templates.
@@ -22,7 +22,7 @@ The following image shows an example of the UI builder page.
 1. The **Customize** panel, and the global settings icon. This is where you set the global properties for the page, such as columns, alignment, and colors. It's also where you set the properties for the individual components that are on the canvas. 
 
    The following image shows an example of the **Properties** tab for the **Address** component. When you select the dynamic icon (the lightning bolt), the field is populated at runtime.  
-![The Customize panel, the Properties tab, the dynamic icon.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties.png)
+![The Customize panel, the Properties tab, the dynamic icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties.png)
 
 ## Access the UI builder
 <a name="no-code-ui-builder-how-to-access"></a>
@@ -38,4 +38,4 @@ The following image shows an example of the UI builder page.
 1. The UI builder page appears. Quickly start with templates or build your views from scratch. 
 
 1. Choose **Create new**. An empty UI builder page appears, as shown in the following image.  
-![An empty UI builder page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-blank-page.png)
+![An empty UI builder page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-blank-page.png)

@@ -1,9 +1,9 @@
 
 
-# Set up Connect Customer Agent Workspace to support agents shifting across AWS Regions
+# Set up the Connect Customer agent workspace to support agents shifting across AWS Regions
 <a name="setup-agentworkspace-switchover"></a>
 
-Perform the following steps to enable Connect Customer Agent Workspace to embed the Contact Control Panel from the replica AWS Region to the source Region, and shift between them as agent's active Region changes.
+Perform the following steps to enable the Connect Customer agent workspace to embed the Contact Control Panel from the replica AWS Region to the source Region, and shift between them as agent's active Region changes.
 
 If you have not yet created a replica of your source Connect Customer instance or set up a traffic distribution group, see [Get started with Connect Customer Global Resiliency](get-started-connect-global-resiliency.md). 
 

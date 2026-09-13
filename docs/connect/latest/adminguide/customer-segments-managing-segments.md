@@ -9,7 +9,7 @@
 
 1.  On the **Customer segments** page, navigate to the segment that you want to manage, or choose an action. 
 
-![The Customer segments page, a list of segments.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-managing-segments-1.png)
+![The Customer segments page, a list of segments.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segments-managing-segments-1.png)
 
 
 1.  On the **Actions** menu, the following options are available: 

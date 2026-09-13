@@ -72,7 +72,7 @@ The Connect Customer Client Application communicates with the CCP through a loca
 
 The following sequence diagram shows the network calls between different components involved in screen recording.
 
-![A sequence diagram shows the network calls between different components involved in screen recording.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sequence-diagram.png)
+![A sequence diagram shows the network calls between different components involved in screen recording.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sequence-diagram.png)
 
 + In Windows, the Connect Customer Client is the combination of the Amazon.Connect.Client.Service background process and Amazon.Connect.Client.RecordingSession.
 + In ChromeOS, the Connect Customer Client is the combination of Isolated Web App and Browser extension.

@@ -36,4 +36,4 @@ Connect Customer retains only the last published forecast. We strongly advise yo
 1. Choose **Actions**, **Download last published forecast**.
 
 1. We recommend choosing **choose here** as shown in the following image. With this option, you can specify the name of the downloaded file and the location. Otherwise, the file is saved to your **Downloads** folder and its name is a generated number.  
-![The forecast page, the choose here link to start the download.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-download-last-published-choose-here.png)
+![The forecast page, the choose here link to start the download.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-download-last-published-choose-here.png)

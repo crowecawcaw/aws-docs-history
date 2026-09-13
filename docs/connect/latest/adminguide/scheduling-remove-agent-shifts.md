@@ -19,7 +19,7 @@ You can remove up to 30 days of shifts for an agent. You can remove shifts for u
 
 1. Complete the following steps to remove shift(s):
    + **Remove one shift for one agent**: Choose that shift and then choose **Remove Shift**, as shown in the following image.  
-![A shift for one agent, the Remove Shift option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-shifts-remove-one.png)
+![A shift for one agent, the Remove Shift option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-shifts-remove-one.png)
    + **Remove multiple shifts for one agent**: 
 **Note**  
 The following procedure does not remove any time-offs that are scheduled for the selected date range. 
@@ -31,7 +31,7 @@ The following procedure does not remove any time-offs that are scheduled for the
      1.  Select a date range in the **Remove shift** section.
 
      1. Choose **Remove**.  
-![Multiple shifts for one agent, the Remove option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-shifts-remove-multiple-one-agent.png)
+![Multiple shifts for one agent, the Remove option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-shifts-remove-multiple-one-agent.png)
    + **Remove shifts for multiple agents for a single day**:
 **Note**  
 The following procedure does not remove any time-offs that are scheduled for the selected date range. 

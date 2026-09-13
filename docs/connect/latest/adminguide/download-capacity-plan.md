@@ -8,7 +8,7 @@ When you download a capacity plan file, it downloads as a .csv file type with mu
 **Note**  
 The multi-tab workbook format described in this section applies to Hiring plans only. For information about downloading a Scheduling plan, see [Download a Scheduling plan](#download-scheduling-capacity-plan).
 
-![A downloaded capacity plan file opened with Excel showing multiple tabs for metrics, capacity plan details.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-download1.png)
+![A downloaded capacity plan file opened with Excel showing multiple tabs for metrics, capacity plan details.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-download1.png)
 
 
 Following is a description of each worksheet:
@@ -39,7 +39,7 @@ The download runs in the background. You can leave the page while it runs. When 
 
 The following image shows a downloaded Scheduling plan .csv file opened in a spreadsheet application.
 
-![A downloaded Scheduling plan .csv file with one row per interval and per-channel metric columns.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-scheduling-download-csv.png)
+![A downloaded Scheduling plan .csv file with one row per interval and per-channel metric columns.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-scheduling-download-csv.png)
 
 
 **Note**  

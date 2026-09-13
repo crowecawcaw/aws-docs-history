@@ -50,10 +50,10 @@ The communications widget supports browser notifications for desktop devices. Fo
 In this step, you customize the experience of the communications widget for your customers.
 
 1. Log in to the Connect Customer admin website at https://{{instance name}}.my.connect.aws/. Choose **Customize communications widget**.  
-![The configuration guide page, the customize communications widget link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-customize-chat-window-button.png)
+![The configuration guide page, the customize communications widget link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-customize-chat-window-button.png)
 
 1. On the **Communications widgets** page, choose **Add communications widget** to begin customizing a new communications widget experience. To edit, delete, or duplicate an existing communications widget, choose from the options under the **Actions** column, as shown in the following image.   
-![The communications widgets page, add communications widget button link.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-add-chat-widget.png)
+![The communications widgets page, add communications widget button link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-add-chat-widget.png)
 
 1. Enter a **Name** and **Description** for the communications widget. 
 **Note**  
@@ -64,12 +64,12 @@ The Name must be unique for each communications widget created in a Connect Cust
 You can only enable a task or email pre-contact form if chat and voice are not enabled.
 
    The following image shows options to allow chat, message receipts, and create a pre-chat form for customers. To enable a pre chat form, you must first create a [view](view-resources-sg.md) with a connect action button and select the `StartChatContact` action. For more information about pre-chat and pre-contact forms, see [Add the Connect Customer widget to your website](connect-widget-on-website.md).  
-![The communication widget page configured for chat and web calling.](http://docs.aws.amazon.com/connect/latest/adminguide/images/comm-widget-page-chat.png)
+![The communication widget page configured for chat and web calling.](https://docs.aws.amazon.com/connect/latest/adminguide/images/comm-widget-page-chat.png)
 
 1. On the **Create communication widget** page, choose the widget button styles, and display names and styles.
 
    As you choose these options, the widget preview updates automatically so that you can see what the experience will look like for your customers.  
-![The preview of the communications widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/netra-chat-preview.png)
+![The preview of the communications widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/netra-chat-preview.png)
 
 **Button styles**
 
@@ -113,7 +113,7 @@ The communications widget preview in the customization page will not display the
 1. Enter the website domains where you want to place the communications widget. Chat loads only on websites that you select in this step. 
 
    Choose **Add domain** to add up to 50 domains.  
-![The add domain option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-add-domain.png)
+![The add domain option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-add-domain.png)
 
    Domain allowlist behavior:
    + Subdomains are automatically included. For example, if you allow example.com, all its subdomains (like sub.example.com) are also allowed.
@@ -124,7 +124,7 @@ Double-check that your website URLs are valid and does not contain errors. Inclu
 We recommend using https:// for your production websites and applications.
 
 1. Under **Add security for your communications widget**, we recommend choosing **Yes**, and working with your website administrator to set up your web servers to issue JSON Web Tokens (JWTs) for new chat requests. This provides you more control when initiating new chats, including the ability to verify that chat requests sent to Connect Customer are from authenticated users.  
-![The activation of security for new communication widget requests.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-choose-security.png)
+![The activation of security for new communication widget requests.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-choose-security.png)
 
    Choosing **Yes** results in the following:
    + Connect Customer provides a 44-character security key on the next page that you can use to create JSON Web Tokens (JWTs).
@@ -156,7 +156,7 @@ In this step, you confirm your selections and copy the code for the communicatio
 
 Use this 44-character security key to generate JSON web tokens from your web server. You can also update, or rotate, keys if you need to change them. When you do this, Connect Customer provides you with a new key and maintains the previous key until you have a chance to replace it. After you have the new key deployed, you can come back to Connect Customer and delete the previous key.
 
-![The security key provided by Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-security-key.png)
+![The security key provided by Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-security-key.png)
 
 
 When your customers interact with the Start chat icon on your website, the communications widget requests your web server for a JWT. When this JWT is provided, the widget will then include it as part of the end customer’s chat request to Connect Customer. Connect Customer then uses the secret key to decrypt the token. If successful, this confirms that the JWT was issued by your web server and Connect Customer routes the chat request to your contact center agents.
@@ -202,7 +202,7 @@ encoded_token = jwt.encode((payload), CONNECT_SECRET, algorithm="HS256", headers
 
 The following image shows an example of the JavaScript that you embed on the websites where you want customers to chat with agents. This script displays the widget in the bottom-right corner of your website. 
 
-![The communications widget script.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-code.png)
+![The communications widget script.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-code.png)
 
 
 When your website loads, customers first see the **Start** icon. When they choose this icon, the communications widget opens and customers are able to send a message to your agents.
@@ -212,7 +212,7 @@ To make changes to the communications widget at any time, choose **Edit**.
 **Note**  
 Saved changes update the customer experience in a few minutes. Confirm your widget configuration before saving it. 
 
-![he edit link on the widget preview.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-edit.png)
+![he edit link on the widget preview.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-edit.png)
 
 
 To make changes to widget icons on the website, you will receive a new code snippet to update your website directly.

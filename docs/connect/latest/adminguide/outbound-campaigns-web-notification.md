@@ -52,7 +52,7 @@ A view defines the visual layout and content of your notification. Use the notif
 
 1. Publish the view.
 
-For more information about views, see [Views: UI templates to customize an agent's workspace in Connect Customer](view-resources-sg.md).
+For more information about views, see [Views: UI templates to customize the Connect Customer agent workspace](view-resources-sg.md).
 
 ## Step 3: Add a web notification service integration and personalize your view
 <a name="add-web-notification-service-integration"></a>

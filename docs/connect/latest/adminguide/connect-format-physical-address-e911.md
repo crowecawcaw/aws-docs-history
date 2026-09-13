@@ -14,7 +14,7 @@ The address must be attached as a JSON string against the key `CivicAddress`, as
 
 The following illustration shows how an example input address maps to [PSAP](https://en.wikipedia.org/wiki/Public_safety_answering_point) address keys:
 
-![The mapping of a physical address to PSAP address keys.](http://docs.aws.amazon.com/connect/latest/adminguide/images/e911-example-mapping-scheme.png)
+![The mapping of a physical address to PSAP address keys.](https://docs.aws.amazon.com/connect/latest/adminguide/images/e911-example-mapping-scheme.png)
 
 
 The following table shows a complete list of keys.

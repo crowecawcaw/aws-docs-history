@@ -9,7 +9,7 @@
 
 As a prerequisite to building segments in Connect Customer, your administrator must setup your domain in the AWS Management Console and configure integrations to bring profile, order, asset, or case data into Customer Profiles. For more information, see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md). Enabling data integrations will let continue to generate your dynamic segments based on new data coming to your domain
 
-Customer segments only contain customer profiles in your Connect Customer Customer Profiles domain. Customer Profiles can be ingested from S3 or external applications, or created through Agent App, Contact Flows, or API. For more information about customer profiles, see [What is a customer profile in Connect Customer?](customer-profiles-what-data.md).
+Customer segments only contain customer profiles in your Connect Customer Customer Profiles domain. Customer Profiles can be ingested from S3 or external applications, or created through the agent workspace, Contact Flows, or API. For more information about customer profiles, see [What is a customer profile in Connect Customer?](customer-profiles-what-data.md).
 
 **Topics**
 + [Build customer segments](customer-segments-building-segments.md)

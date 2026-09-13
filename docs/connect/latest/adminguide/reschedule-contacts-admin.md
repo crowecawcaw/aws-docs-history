@@ -19,7 +19,7 @@ To reschedule contacts programmatically, use the [UpdateContactSchedule](https:/
 1. **Restrict contact access** (Optional): Restrict a user's access to contacts on the **Contact search** and **Contact details** pages within their own hierarchy group or any hierarchy groups below them. For more information about these permissions, see [Manage who can search for contacts and access detailed information](contact-search.md#required-permissions-search-contacts).
 
 1. **Reschedule contact**: Enables a user to reschedule contacts on the **Analytics & Optimization** pages. The following image shows the **Contact Actions - Reschedule contact** permission.  
-![Security profiles permissions page, reschedule contact permission.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-reschedule-permissions.png)
+![Security profiles permissions page, reschedule contact permission.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-reschedule-permissions.png)
 
 ## How to reschedule a contact
 <a name="howto-reschedule-inprogress-contacts"></a>
@@ -33,12 +33,12 @@ To reschedule contacts programmatically, use the [UpdateContactSchedule](https:/
    1. Select the **Contact status** filter and change the selected value to **In progress**. 
 
    1. Select the **Time range** filter. Set the **Timestamp type** to **Scheduled** to view only scheduled contacts. Filter for the time range. The following image shows these filters.  
-![The contact details page, filters for scheduled timestamp.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-choose.png)
+![The contact details page, filters for scheduled timestamp.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-choose.png)
 
 1. Choose the scheduled contact to view its details. 
 
 1. On the **Contact details** page of the task contact, choose **Actions**, **Reschedule**, as shown in the following image.  
-![The contact details page, Reschedule option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-reschedule-action.png)
+![The contact details page, Reschedule option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-details-contact-reschedule-action.png)
 
 1. Select the time and range to reschedule the contact. The scheduled time must be within 90 days of when the task was initiated, and before the task's expiry time.
 

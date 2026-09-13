@@ -56,7 +56,7 @@ If you are an AWS GovCloud (US) user, also allowlist the following endpoints:
    + `https://{{[instance-alias]}}.awsapps.com/connect`
 
    You can find this in the AWS console as shown in the following image.  
-![The Connect Customer instances page showing the instance access URL.](http://docs.aws.amazon.com/connect/latest/adminguide/images/new-signin-instance-url.png)
+![The Connect Customer instances page showing the instance access URL.](https://docs.aws.amazon.com/connect/latest/adminguide/images/new-signin-instance-url.png)
 
 1. **Add the testing parameter** – To access the new sign-in experience, append `?use-new-experience=true` to your instance's login URL:
    + `https://{{[instance-alias]}}.my.connect.aws/login?use-new-experience=true`
@@ -65,8 +65,8 @@ If you are an AWS GovCloud (US) user, also allowlist the following endpoints:
    + `https://{{[instance-alias]}}.awsapps.com/connect/login?use-new-experience=true`
 
    The new experience looks like the following:  
-![The new sign-in page showing the username field.](http://docs.aws.amazon.com/connect/latest/adminguide/images/new-signin-username.png)  
-![The new sign-in page showing the password field.](http://docs.aws.amazon.com/connect/latest/adminguide/images/new-signin-password.png)
+![The new sign-in page showing the username field.](https://docs.aws.amazon.com/connect/latest/adminguide/images/new-signin-username.png)  
+![The new sign-in page showing the password field.](https://docs.aws.amazon.com/connect/latest/adminguide/images/new-signin-password.png)
 
 1. **Verify access** – Navigate to the modified URL and attempt to sign in using your existing credentials. Confirm that you can successfully access your Connect Customer instance.
 

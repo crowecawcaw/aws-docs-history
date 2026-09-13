@@ -7,7 +7,7 @@ Traditional VoIP solutions require you to allow both inbound and outbound for sp
 
 The following diagram shows you what each port is used for. 
 
-![Connect Customer components and their connections to AWS Cloud services.](http://docs.aws.amazon.com/connect/latest/adminguide/images/networking.png)
+![Connect Customer components and their connections to AWS Cloud services.](https://docs.aws.amazon.com/connect/latest/adminguide/images/networking.png)
 
 
 If your contact center is using the email channel, see the Amazon SES Developer Guide for information. If your business sends a large volume of email, you might want to lease dedicated IP addresses. For more information, see [Dedicated IP addresses for Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip.html). 

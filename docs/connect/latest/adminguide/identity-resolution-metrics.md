@@ -13,7 +13,7 @@ The following metrics are generated each time the Identity Resolution Job runs:
 + **Match Group by rule**: The number of match group that were created by each rule level.
   + Only available for rule-based Identity Resolution.
 
-![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ir-metrics-example-1.png)
+![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ir-metrics-example-1.png)
 
 
-![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-ir.png)
+![The Connect Customer Customer Profiles page, the Enable Identity Resolution button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-enable-ir.png)

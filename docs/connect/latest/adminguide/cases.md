@@ -12,9 +12,9 @@ A *case* represents a customer's issue. It is created to record the customer's i
 
 Without doing any integration work, you can enable Cases for your contact center. You can set up cases to be created when contacts come in, and collect information from the customer to display on the case. Alternatively, agents can manually create cases. When an agent accepts a contact, they have context about an issue and can immediately start solving it. You can create tasks to track and route follow up steps to resolve the case. 
 
-The following image shows an example case as it appears in the agent application.
+The following image shows an example case as it appears in the agent workspace.
 
-![The cases tab in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-intro.png)
+![The cases tab in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cases-agent-application-intro.png)
 
 
 ## Getting started with Cases

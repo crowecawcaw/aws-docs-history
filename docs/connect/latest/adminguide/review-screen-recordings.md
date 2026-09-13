@@ -46,12 +46,12 @@ If you've added a custom attribute to your flows to indicate when screen recordi
 1. Choose or tap the contact ID to view the **Contact details** page.
 
 1. The **Recording** section contains a video player that displays the screen recording, as shown in the following image.  
-![A screen recording.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-show-recording.png)
+![A screen recording.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-show-recording.png)
 **Important**  
 Screen recording playback in the **Contact details** page is not supported in the legacy `https://{{your-instance-alias}}/awsapps.com` domain. We recommend using the `https://{{your-instance-alias}}.my.connect.aws/` domain to play screen recordings. For more information, see [Update your Connect Customer domain](update-your-connect-domain.md) in this guide.
 
 1. Use the right-side controls to zoom in and out, fit the video to the window, download video, expand to full-screen, and play picture-in-picture.  
-![The zoom in and out controls.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-zoom.png)
+![The zoom in and out controls.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-zoom.png)
 
 1. If you don't see a video recording, check that the **Show screen recording** toggle is on. 
 
@@ -63,10 +63,10 @@ Screen recording playback in the **Contact details** page is not supported in th
 You might want to move the video elsewhere on your monitor while you watch it. For example, you can reposition the video so you can read the transcript. Use **Watch in Picture-in-picture** mode to achieve this. 
 
 1. Choose the picture-in-picture button on the right side controls, as shown in the following image.  
-![The picture in picture button the right side of the page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-picture-in-picture.png)
+![The picture in picture button the right side of the page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-picture-in-picture.png)
 
 1. Choose the **X** in the top right corner to pop the window back. The following image shows the video in Picture-in-picture mode, and the location of the **X** to pop the window back.   
-![The video in picture-in-picture mode and the location of the back to tab button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-back-tab.png)
+![The video in picture-in-picture mode and the location of the back to tab button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-recording-back-tab.png)
 
 ## View a redacted screen recording
 <a name="view-redacted-screen-recording"></a>

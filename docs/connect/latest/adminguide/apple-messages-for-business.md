@@ -7,7 +7,7 @@ Your customers can engage directly with your contact center from within their Me
 
 When you enable Apple Messages for Business, your customers can find answers to their questions and request help from agents to resolve issues, while using the familiar Messages application they use every day to chat with friends and family. Any time customers use Search, Safari, Spotlight, Siri, or Maps to call your registered phone number, they will be provided with the option to chat with your contact center. 
 
-Through Apple Messages for Business integration with Connect Customer, you can use the same configuration, analytics, routing, and agent UI that you already use for [Connect Customer Chat](web-and-mobile-chat.md).
+Through Apple Messages for Business integration with Connect Customer, you can use the same configuration, analytics, routing, and agent workspace that you already use for [Connect Customer Chat](web-and-mobile-chat.md).
 
 ## Prerequisites: Determine if Apple Messages for Business is the right channel for your use case
 <a name="apple-messages-for-business-prerequisites"></a>
@@ -90,12 +90,12 @@ Looking for technical support? [Open an Support ticket here](https://console.aws
 This step is required. Your request will not be processed if you do not attach these forms.
 
    The following image shows an example of a completed ticket:  
-![An example completed ticket.](http://docs.aws.amazon.com/connect/latest/adminguide/images/abc-sample-use-case-description.png)
+![An example completed ticket.](https://docs.aws.amazon.com/connect/latest/adminguide/images/abc-sample-use-case-description.png)
 
 1. Choose **Next step**.
 
 1. Choose **Contact us**, choose your **Preferred contact language**, and then choose **Web** as the contact method, if it's not selected by default.  
-![The contact methods.](http://docs.aws.amazon.com/connect/latest/adminguide/images/abc-contact-support-options.png)
+![The contact methods.](https://docs.aws.amazon.com/connect/latest/adminguide/images/abc-contact-support-options.png)
 
 1. Choose **Submit**.
 

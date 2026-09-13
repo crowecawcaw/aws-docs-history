@@ -19,16 +19,16 @@ You can build complete Lex bots in the Connect Customer admin website without ev
    + **Child Online Privacy Protection Act (COPPA)**: Choose whether the bot is subject to the Child Online Privacy Protection Act.
 
    The following image shows the **Details** dialog box and these options.  
-![Bot creation details page with name, description, and COPPA settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-create.png)
+![Bot creation details page with name, description, and COPPA settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-create.png)
 
 1. Choose **Create**. After the bot is successfully created, you are directed to the bot configuration page. The following image shows an example page for a newly created bot named **HotelBookingBot**.  
-![A sample configuration page for an unconfigured bot.](http://docs.aws.amazon.com/connect/latest/adminguide/images/hotelbookingbot.png)
+![A sample configuration page for an unconfigured bot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hotelbookingbot.png)
 
 1. On the bot configuration page, choose **Add language**. Choose the primary language for your bot and your preferred way to create this language.   
-![A sample Define your bot page, the Add language dropdown box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-language-create.png)
+![A sample Define your bot page, the Add language dropdown box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-language-create.png)
 
 1. After you choose your language, you are directed to the **Define your bot** section. An example section is shown in the following image. This section is where you'll add intents.  
-![A sample Define bot section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/define-bot-page.png)
+![A sample Define bot section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/define-bot-page.png)
 
 ## Add intents to your bot
 <a name="define-bot"></a>
@@ -38,7 +38,7 @@ In the **Define your bot** section, you add intents. Intents are the goals that 
 Your bot must have at least one intent. There are two types of intents:
 + Custom intents: Create intents that represent the actions or requests your bot should handle. This topic explains how to create custom intents. 
 + Build-in intents: By default, all bots contain a single built-in intent, the fallback intent. This intent is used when the bot does not recognize any other intent. For example, if a user says "I want to order flowers" to a hotel booking intent, the fallback intent is triggered. The following image shows an example of a built-in intent.  
-![The Use built-in intent dialog box, a built-in intent names AMAZON.HelpIntent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/built-in-intent.png)
+![The Use built-in intent dialog box, a built-in intent names AMAZON.HelpIntent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/built-in-intent.png)
 
 **To create a custom intent**
 

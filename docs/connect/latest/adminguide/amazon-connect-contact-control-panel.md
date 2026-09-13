@@ -29,7 +29,7 @@ Agents use the Contact Control Panel (CCP) to communicate with contacts. But bef
 1. Train your agents on the CCP:
    + Watch [Training video: How to use the Contact Center Panel (CCP) in Connect Customer](ccp-video-training.md)
 
-## Agent workspace: Everything in one place
+## Agent workspace – Everything in one place
 <a name="use-agent-workspace"></a>
 
 Want your agents to handle contacts and access customer profiles, cases, and knowledge all in one place? Use the [agent workspace](agent-user-guide.md)\! 

@@ -20,7 +20,7 @@ To obtain a more detailed view of your bill and usage, you can add cost allocati
 
 The following image shows two user-defined tags on the **Contact details** page: CostCenter and Department. It also shows two system-defined tags: instance ID and the contact center phone number (aws:connect:systemEndpoint). 
 
-![Contact tags on a Contact details page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contactdetails.png)
+![Contact tags on a Contact details page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contactdetails.png)
 
 
 This topic explains how to add tags to contacts, activate the cost allocation tags, and view them in the AWS Billing dashboard. 
@@ -53,7 +53,7 @@ To add user-defined tags like Department and Cost Center to contacts, you have t
 
 The following image shows an example of a **Properties** page of a **Contact tags** block that is configured with a tag named **Department**. Its value is set manually to **Finance**.
 
-![The properties page of a Contact tags block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contacttags-properties.png)
+![The properties page of a Contact tags block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contacttags-properties.png)
 
 
 **Important**  
@@ -74,7 +74,7 @@ To enable AWS billing applications to organize your billing information accordin
 1. Select the system-defined and user-defined tags, and then choose **Activate**. It can take up to 24 hours for tags to activate.
 
    The following image shows an example tag on the **Cost allocation tags** page.  
-![Contact tags on the cost allocation tags page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-costallocationtags.png)
+![Contact tags on the cost allocation tags page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-costallocationtags.png)
 
 ## Step 3: View cost and usage trends using cost allocation tags
 <a name="step3-view-billingapp"></a>
@@ -88,11 +88,11 @@ You can view the month-over-month trends at the granular level by using cost all
 1. On the **Cost Explorer** page, choose **Tags**, and then select the tags you want to view, for example, department or inbound telephone number.
 
    The following image of AWS Cost Explorer shows a sample report where **department** is a filtered cost allocation tag.  
-![The AWS Cost Explorer, Connect Customer cost and usage trends.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-awscostmanagement.png)
+![The AWS Cost Explorer, Connect Customer cost and usage trends.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-awscostmanagement.png)
 
 If you use the AWS account level bill summary to view the service level cost breakdown in the AWS Billing dashboard, you won't see any changes on the dashboard after implementing contact tags. The following image shows an example AWS Billing dashboard.
 
-![The AWS billing dashboard, a sample Connect Customer bill.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-billingdashboard.png)
+![The AWS billing dashboard, a sample Connect Customer bill.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-billingdashboard.png)
 
 
 For more information about using AWS Cost Explorer, see [Analyzing your costs with AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html) in the *AWS Cost Management User Guide*. 
@@ -106,12 +106,12 @@ For instructions, see [Creating Cost and Usage Reports](https://docs.aws.amazon.
 
 The following image shows what a Cost and Usage report looks like with columns for system and user-defined tags.
 
-![An Connect Customer cost and usage report with tags.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-after-cur.png)
+![An Connect Customer cost and usage report with tags.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-after-cur.png)
 
 
 The following image shows what a cost and usage report looks likes without system or user-defined tags.
 
-![An Connect Customer cost and usage report without granular billing.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-before-cur.png)
+![An Connect Customer cost and usage report without granular billing.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-before-cur.png)
 
 
 ## More reporting options
@@ -124,12 +124,12 @@ Including resource IDs creates individual line items for each of your resources.
 
 The following image shows where you enable **Include resource IDs** on the AWS Billing console.
 
-![The AWS Billing console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contactlevel-usagedata.png)
+![The AWS Billing console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-contactlevel-usagedata.png)
 
 
 The following image shows a sample cost and usage report when **Include resource IDs** is enabled.
 
-![A sample cost and usage report with resource IDs.](http://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-includeresourceids.png)
+![A sample cost and usage report with resource IDs.](https://docs.aws.amazon.com/connect/latest/adminguide/images/granularbilling-includeresourceids.png)
 
 
 For instructions for this option, see [Creating Cost and Usage Reports](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) in the *AWS Data Exports User Guide*.

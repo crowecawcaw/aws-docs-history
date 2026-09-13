@@ -7,7 +7,7 @@ Rule-based redaction for agent screen recordings automatically hides sensitive c
 
 Use rule-based redaction to enforce internal privacy policies that prohibit capturing specific applications or pages that contain customer data.
 
-![An example of rule-based redaction applied to an agent screen recording.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rule-based-redaction-overview.png)
+![An example of rule-based redaction applied to an agent screen recording.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rule-based-redaction-overview.png)
 
 
 **Topics**
@@ -37,7 +37,7 @@ Rule-based redaction runs in three stages.
 
 The redacted recording is identical to the unredacted recording except that browser windows and application windows that match a rule are masked. The following image shows the same agent screen recorded with rule-based redaction off (left) and on (right) with a rule that redacts `aws.amazon.com`.
 
-![A side-by-side comparison of an agent screen recording with redaction off and on.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rule-based-redaction-comparison.png)
+![A side-by-side comparison of an agent screen recording with redaction off and on.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rule-based-redaction-comparison.png)
 
 
 ### Redaction modes

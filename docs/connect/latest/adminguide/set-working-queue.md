@@ -36,7 +36,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set working queue** block. It is set to the **BasicQueue**.
 
-![The properties page of the Set working queue block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-working-queue-properties.png)
+![The properties page of the Set working queue block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-working-queue-properties.png)
 
 
 Note the following properties:
@@ -47,7 +47,7 @@ Note the following properties:
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**.
 
-![A configured Set working queue block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-working-queue-configured.png)
+![A configured Set working queue block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-working-queue-configured.png)
 
 
 ## Sample flows

@@ -5,7 +5,7 @@
 
 Any user with the following permission in their security profile has access to read emails that they handle or emails that are part of a thread where they are a participant: **Contact Control Panel (CCP)** - **Access Contact Control Panel** - **Access**.
 
-![The Access Contact Control Panel option on the Security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/access-ccp-perm.png)
+![The Access Contact Control Panel option on the Security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/access-ccp-perm.png)
 
 
 This authorization behavior is enabled by default. It does not require setting up any additional permission or configuration.

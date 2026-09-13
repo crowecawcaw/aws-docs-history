@@ -49,7 +49,7 @@ AI agents use Amazon Bedrock guardrails. You can create and edit these guardrail
     When selecting from the versions dropdown, **Latest:Draft** always returns the saved state of the AI guardrail.
 
 1. Choose **Publish**. Updates to the AI guardrail are saved, the AI guardrail Visibility status is set to **Published**, and a new AI Guardrail version is created.   
-![The AI guardrail page, the Visibility status set to Published.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-created-guardrail.png)
+![The AI guardrail page, the Visibility status set to Published.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-created-guardrail.png)
 
    When selecting from the versions dropdown, **Latest:Published** always returns the saved state of the AI guardrail. 
 
@@ -60,7 +60,7 @@ This section explains how to access the AI guardrail builder and editor in the C
 
 The following image shows an example of the default blocked message that is displayed to a user. The default message is "Blocked input text by guardrail."
 
-![An example of a default guardrail message displayed to a customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-blocked-by-guardrail.png)
+![An example of a default guardrail message displayed to a customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-blocked-by-guardrail.png)
 
 
 **To change the default blocked message**
@@ -72,7 +72,7 @@ The following image shows an example of the default blocked message that is disp
 1. On the **AI Guardrails** page, choose **Create AI Guardrail**. A dialog is displayed for to you assign a name and description.
 
 1. In the **Create AI Guardrail** dialog box, enter a name and description, and then choose **Create**. If your business already has three guardrails, you'll get an error message, as shown in the following image.  
-![A message that your business already has three guardrails.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-guardrail-limit.png)
+![A message that your business already has three guardrails.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-guardrail-limit.png)
 
    If you receive this message, instead of creating another guardrail, consider editing an existing guardrail to meet your needs. Or, delete one so you can create another.
 

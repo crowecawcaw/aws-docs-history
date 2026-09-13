@@ -56,7 +56,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Get metrics** block. It is configured to retrieve metrics for the **Voice** channel.
 
-![The properties page of the Get metrics block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-properties1.png)
+![The properties page of the Get metrics block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-properties1.png)
 
 
 You can retrieve metrics by channel, or by queue or agent.
@@ -66,7 +66,7 @@ You can retrieve metrics by channel, or by queue or agent.
 
 For example, the following image shows the **Properties** page configured for the **Chat** channel and **BasicQueue**. If you choose these settings **Get queue metrics** would return metrics for only the BasicQueue, filtered to include only chat contacts. 
 
-![The optional parameters section of the Properties page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-properties3.png)
+![The optional parameters section of the Properties page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-properties3.png)
 
 
 ## Configuration tips
@@ -81,7 +81,7 @@ Before you use dynamic attributes in the **Get metrics** block, you need to set 
 
 When you set a channel dynamically using text, as shown in the following image, for the attribute value enter **Voice** or **Chat**. This value is not case-sensitive. 
 
-![The properties page of the Set contact attributes block, Value set to chat.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-properties2.png)
+![The properties page of the Set contact attributes block, Value set to chat.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-properties2.png)
 
 
 ### Using the Check contact attributes block after the Get metrics block
@@ -94,7 +94,7 @@ After a **Get metrics** block, add a [Check contact attributes](check-contact-at
 1. In the **Check contact attributes** block, set **Attribute to check** to **Queue metrics**.
 
 1. In the **Value** dropdown box, you see a list of metrics that the **Get metrics** block can check. Choose the metric that you want to use for the routing decision.   
-![Attribute to check section, dropdown list of available metrics.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-block-returned-metrics.png)
+![Attribute to check section, dropdown list of available metrics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-block-returned-metrics.png)
 
 **Contact-level metrics**  
 **Contact estimated wait time** and **Contact position in queue** are contact-level metrics. They appear in the **Queue metrics** namespace only when you turn on **Get contact metrics** in the **Get metrics** block. In a flow, you reference them as `$.Metrics.Contact.EstimatedWaitTime` and `$.Metrics.Contact.PositionInQueue`. For a full list of the returned attributes, see [Contact Metric attributes](connect-attrib-list.md#attribs-contact-metrics-table).  
@@ -116,7 +116,7 @@ The **Get metrics** block throws an error in the following scenario:
 
 The following image shows an example of what this block looks like when it is configured. It has two branches: **Success** and **Error**.
 
-![A configured Get metrics block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-configured.png)
+![A configured Get metrics block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-metrics-configured.png)
 
 
 ## Scenarios

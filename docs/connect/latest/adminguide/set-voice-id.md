@@ -51,7 +51,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set Voice ID** block. It shows the **Voice authentication** section. In this example, the **Authentication Threshold** is set to 90. This is the recommended threshold.
 
-![The properties page of the Set Voice ID block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-id-properties.png)
+![The properties page of the Set Voice ID block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-id-properties.png)
 
 
 ### Start streaming audio for Voice ID
@@ -77,7 +77,7 @@ You can set the authentication response time between 5 and 10 seconds, which det
 
 The following image shows the Authentication Response time section of the block. The response time is set manually to 10 seconds.
 
-![The Authentication Response time section of the Set voice ID block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-id-properties2.png)
+![The Authentication Response time section of the Set voice ID block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-id-properties2.png)
 
 
 Choose **Set dynamically** to set the authentication threshold based on certain criteria. For example, you might want to raise the threshold based on the membership level of the customer, or the type of transaction or information they are calling about.
@@ -89,7 +89,7 @@ The threshold you set for fraud detection is used to measure risk. Scores higher
 
 Choose **Set dynamically** to set the fraud threshold based on certain criteria. For example, you might want to lower the threshold for high wealth customers, or the type of transaction or information they are calling about.
 
-![The Fraud detection section of the Set voice ID block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-id-properties3a.png)
+![The Fraud detection section of the Set voice ID block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-id-properties3a.png)
 
 
 The watch list you select is used when evaluating the voice session. Choose **Use default watch list** to use your domain's default watch list. For **Set manually**, the watch list ID must be 22 alphanumeric characters.
@@ -118,7 +118,7 @@ Similarly for the watch list, choose **Set dynamically** to set the watch list b
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**. 
 
-![A configured set Voice ID block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-id-configured.png)
+![A configured set Voice ID block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-voice-id-configured.png)
 
 
 ## More information

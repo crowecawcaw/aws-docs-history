@@ -29,7 +29,7 @@ Here's what you do:
 
 The following image shows the two blocks, first [Connect assistant](connect-assistant-block.md) and then [AWS Lambda function](invoke-lambda-function-block.md). 
 
-![The Connect assistant block and AWS Lambda function block configured to add session data.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-add-session-data.png)
+![The Connect assistant block and AWS Lambda function block configured to add session data.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-add-session-data.png)
 
 
 ## Use custom data with an AI prompt

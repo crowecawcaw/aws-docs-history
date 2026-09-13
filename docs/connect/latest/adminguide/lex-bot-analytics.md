@@ -20,11 +20,11 @@ The Bot Analytics page shows data for conversations triggered only from flows. Y
 1. In the left navigation menu, choose **Routing**, **Flows**.
 
 1. On the **Flows** page, choose **Bots**, choose the bot whose performance you want to evaluate, and then choose **Analytics**.  
-![The Flows page, the Analytics tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-analytics1.png)
+![The Flows page, the Analytics tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-analytics1.png)
 
  The following image shows sample analytics data.
 
-![The Analytics tab with sample analytics data for a bot.](http://docs.aws.amazon.com/connect/latest/adminguide/images/bot-analytics.png)
+![The Analytics tab with sample analytics data for a bot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-analytics.png)
 
 
 Use these analytics to identify improvement opportunities, refine your bot's responses, and enhance the overall customer experience.

@@ -24,7 +24,7 @@ Inbound (US toll-free) and outbound calls in Connect Customer are processed thro
 
 The following diagram illustrates this process: 
 
-![Single-region telephony and softphone architecture.](http://docs.aws.amazon.com/connect/latest/adminguide/images/disaster-recovery-resiliency.png)
+![Single-region telephony and softphone architecture.](https://docs.aws.amazon.com/connect/latest/adminguide/images/disaster-recovery-resiliency.png)
 
 
 1. Callers reach your contact center using carriers that operate across multiple AZs at all times.

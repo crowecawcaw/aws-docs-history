@@ -79,7 +79,7 @@ To allow Connect Customer to play prompts from an S3 bucket, when you set up you
    ```
 
    The following image shows where you place the code on the **Key policy** tab on the AWS Key Management Service console.  
-![The KMS page where you add the key policy.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-flow-prompts-s3.png)
+![The KMS page where you add the key policy.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-flow-prompts-s3.png)
 
    For information on how to find the key ID, see [Finding the key ID and key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html) in the *AWS Key Management Service Developer Guide*. 
 

@@ -23,7 +23,7 @@ This topic explains how to reduce the allowed number of contacts in a queue for 
 
 To reduce the number of contacts allowed in a [standard queue](concepts-queues-standard-and-agent.md) at the same time, you set the **Maximum contacts in queue** limit for the standard queue. This setting does not apply to [agent queues](concepts-queues-standard-and-agent.md).
 
-![Option to set a maximum limit for contacts in queue across all channels.](http://docs.aws.amazon.com/connect/latest/adminguide/images/maximum-contacts-in-queue3.png)
+![Option to set a maximum limit for contacts in queue across all channels.](https://docs.aws.amazon.com/connect/latest/adminguide/images/maximum-contacts-in-queue3.png)
 
 
 When you enter a number in **Maximum contacts in queue**, Connect Customer validates that the number is less than the sum of your concurrent active contacts service quotas: **Concurrent calls per instance** \+ **Concurrent active chats per instance** \+ **Concurrent active tasks per instance** \+ **Concurrent active emails per instance**. 
@@ -40,7 +40,7 @@ For information about default service quotas and how to request an increase, see
 1. In **Maximum contacts in queue**, choose **Set a limit across all channels**. If the queue is also used for chats, tasks, and email, then all channels will be capped at the same maximum. 
 
 1. In the box, specify how many contacts can be in the queue before it's considered full. The value cannot exceed the sum of **Concurrent active calls per instance** \+ **Concurrent active chats per instance** \+ **Concurrent active tasks per instance** \+**Concurrent active emails per instance**.  
-![Input field for setting maximum contacts in queue, with a value of 7 displayed.](http://docs.aws.amazon.com/connect/latest/adminguide/images/maximum-contacts-in-queue2.png)
+![Input field for setting maximum contacts in queue, with a value of 7 displayed.](https://docs.aws.amazon.com/connect/latest/adminguide/images/maximum-contacts-in-queue2.png)
 
 ## What happens to calls when a queue is full
 <a name="when-queue-full"></a>

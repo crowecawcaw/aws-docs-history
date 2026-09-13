@@ -93,7 +93,7 @@ You can configure the **Play prompt** block by using the Connect Customer admin 
 1. Choose from one of the pre-recorded prompts included with Connect Customer, or use the Connect Customer admin website to [record and upload](prompts.md) your own prompt. There's no way to upload prompts in bulk.
 
    The following image shows the **Properties** page of the **Play prompt** block configured to play an Audio prompt from the prompt library.  
-![The properties page of the Play prompt block, prompt library.](http://docs.aws.amazon.com/connect/latest/adminguide/images/playprompt-properties-library-manually.png)
+![The properties page of the Play prompt block, prompt library.](https://docs.aws.amazon.com/connect/latest/adminguide/images/playprompt-properties-library-manually.png)
 
 The following code sample shows how this same configuration would be represented by the [MessageParticipant](https://docs.aws.amazon.com/connect/latest/APIReference/participant-actions-messageparticipant.html) action in the Flow language:
 
@@ -132,7 +132,7 @@ Store as many prompts as you need in an S3 bucket and then refer to them by spec
 1. Choose **Set manually**, and then specify the S3 file path that points to audio prompt in S3. For example, `https://u1.s3.amazonaws.com/en.lob1/welcome.wav`.
 
    The following image shows the **Properties** page of the **Play prompt** block configured to set the S3 file path manually.  
-![The properties page of the Play prompt block, S3 file path specified manually.](http://docs.aws.amazon.com/connect/latest/adminguide/images/playprompt-properties-s3-manually.png)
+![The properties page of the Play prompt block, S3 file path specified manually.](https://docs.aws.amazon.com/connect/latest/adminguide/images/playprompt-properties-s3-manually.png)
 
    The following code sample shows how this same configuration would be represented by the [MessageParticipant](https://docs.aws.amazon.com/connect/latest/APIReference/participant-actions-messageparticipant.html) action in the Flow language:
 
@@ -161,7 +161,7 @@ Store as many prompts as you need in an S3 bucket and then refer to them by spec
 
 **To use attributes to specify an audio file path from an S3 bucket**
 + You can specify the S3 bucket path using attributes, as shown in the following image:  
-![The S3 file path specified manually using attributes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/playprompt-properties-s3-jsonpath.png)
+![The S3 file path specified manually using attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/playprompt-properties-s3-jsonpath.png)
 
 —OR—
 + You can provide the S3 path with concatenation, as shown in the following example. With concatenation, you can personalize the prompt, for example, by line of business and language. For example: `https://example.s3.amazon.aws.com/$['Attributes']['Language']/$['Attributes']['LOB']/1.wav`
@@ -194,7 +194,7 @@ Store as many prompts as you need in an S3 bucket and then refer to them by spec
 **To specify the S3 path dynamically by using user-defined contact attributes**
 
 1. The following image shows a user-defined attribute named **S3filepath**.  
-![The S3 file path set dynamically, the namespace set to User-defined.](http://docs.aws.amazon.com/connect/latest/adminguide/images/playprompt-properties-s3-attributes.png)
+![The S3 file path set dynamically, the namespace set to User-defined.](https://docs.aws.amazon.com/connect/latest/adminguide/images/playprompt-properties-s3-attributes.png)
 
 The following code sample shows how this same configuration would be represented by the [MessageParticipant](https://docs.aws.amazon.com/connect/latest/APIReference/participant-actions-messageparticipant.html) action in the Flow language:
 
@@ -223,7 +223,7 @@ The following code sample shows how this same configuration would be represented
 
 The following image shows what this block looks like when the S3 path is set dynamically. It shows the S3 path, and it has two branches: **Success** and **Error**.
 
-![A Play prompt block configured for an S3 path.](http://docs.aws.amazon.com/connect/latest/adminguide/images/play-prompt-configured2.png)
+![A Play prompt block configured for an S3 path.](https://docs.aws.amazon.com/connect/latest/adminguide/images/play-prompt-configured2.png)
 
 
 ### Text-to-speech or chat text
@@ -233,7 +233,7 @@ You can enter a prompt in plain text or SSML. These text based prompts are playe
 
 For example, the following image shows a **Play prompt** block that is configured to play the message **Thank you for calling** to the customer. 
 
-![A text-to-speech prompt set manually.](http://docs.aws.amazon.com/connect/latest/adminguide/images/play-prompt-sample-ssml.png)
+![A text-to-speech prompt set manually.](https://docs.aws.amazon.com/connect/latest/adminguide/images/play-prompt-sample-ssml.png)
 
 
 The following code sample shows how this same configuration would be represented by the [MessageParticipant](https://docs.aws.amazon.com/connect/latest/APIReference/participant-actions-messageparticipant.html) action in the Flow language:
@@ -265,7 +265,7 @@ For more information, see [Add text-to-speech to prompts in flow blocks in Amazo
 
 The following image shows what a **Play prompt** block looks like when it's configured for text-to-speech. It shows the text to be played, and it has two branches: **Success** and **Error**.
 
-![A Play prompt block configured for text-to-speech.](http://docs.aws.amazon.com/connect/latest/adminguide/images/play-prompt-configured.png)
+![A Play prompt block configured for text-to-speech.](https://docs.aws.amazon.com/connect/latest/adminguide/images/play-prompt-configured.png)
 
 
 ### Flow block branches

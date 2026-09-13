@@ -7,4 +7,4 @@ When you add a prompt to a flow, you can use SSML tags to provide a more persona
 
 The default setting in a flow block for interpreting text-to-speech is **Text**. To use SSML for text to speech in your flow blocks, set the **Interpret as** field to **SSML** as shown in the following image.
 
-![The settings for a flow block showing the Text to speech Interpret as field set to SSML.](http://docs.aws.amazon.com/connect/latest/adminguide/images/connect-interpret-as-ssml.png)
+![The settings for a flow block showing the Text to speech Interpret as field set to SSML.](https://docs.aws.amazon.com/connect/latest/adminguide/images/connect-interpret-as-ssml.png)

@@ -49,7 +49,7 @@ The following table lists how this block routes a contact who is using the speci
 1. In the Connect Customer admin website choose **Routing**, **Flows**.
 
 1. On the **Flows** page, choose the **Modules** tab, as shown in the following image:  
-![The Flows page, the Modules tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-flow-module.png)
+![The Flows page, the Modules tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-flow-module.png)
 
 1. Choose **Create flow module** or choose the module you want to edit.
 
@@ -60,7 +60,7 @@ The following table lists how this block routes a contact who is using the speci
 
 The following image shows what a **Return** block looks like on the flow editor canvas.
 
-![The properties page of the resume contact block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-configured.png)
+![The properties page of the resume contact block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-configured.png)
 
 
 ### Return block in the Flow language
@@ -75,7 +75,7 @@ For more information, see EndFlowModuleExecution in the *Connect Customer API Re
 
 The following image shows the **Properties** pane of the **Return** block.
 
-![The properties pane of the Return block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-properties.png)
+![The properties pane of the Return block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/return-block-properties.png)
 
 
 1. You don't need to configure this block because it is a terminal block for a flow module.

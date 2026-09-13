@@ -11,17 +11,17 @@ Agents manually set their status in the Contact Control Panel (CCP). However, on
 
 When you choose the **Agent Activity** column, you can select and change an agent's *availability status*, such as **Offline**, **Available**, or **Break**. The following image shows an example where the **Available** and **Offline** statuses, along with some custom statuses, are in the dropdown list of the **Activity** column. After the new status is selected, it will be reflected within the **Activity** column itself after the update has finished.
 
-![The dropdown list of availability statuses for the Agent activity column.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-change-agent-activity-state.png)
+![The dropdown list of availability statuses for the Agent activity column.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-change-agent-activity-state.png)
 
 
 This change also appears in the agent event stream.
 
 When a *contact state* is displayed in the **Agent Activity** column, such as **Incoming** or **On contact**, you can change it to any other availability status and this will be displayed in the **Next activity** column after the update has finished.
 
-![The dropdown list of availability statuses when an agent is on contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-change-agent-activity-state-incoming.png)
+![The dropdown list of availability statuses when an agent is on contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-change-agent-activity-state-incoming.png)
 
 
-![The Next activity column update after another activity was selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-change-agent-activity-state-next-activity.png)
+![The Next activity column update after another activity was selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rtm-change-agent-activity-state-next-activity.png)
 
 
 When a manager changes an agent's activity status from **Missed** contact state to an availability status in the analytics pages, the system behavior differs for single or multiple contact states:
@@ -39,4 +39,4 @@ For someone such as a manager to be able to change an agent's activity status on
 
 The **Agent status - View** permission is shown in the following image of the **Users and permissions** section of the security profile page.
 
-![The Agent status - View permission.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_agent_status_view.png)
+![The Agent status - View permission.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_agent_status_view.png)

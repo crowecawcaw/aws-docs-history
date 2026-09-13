@@ -7,7 +7,7 @@ You can use sample data to see what the view will look like to the user. You can
 
 For example, the following image shows an example of a **Mailing address form**.
 
-![The DefaultValue and Sample data sections of the Customize panel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-sample-data-example.png)
+![The DefaultValue and Sample data sections of the Customize panel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-sample-data-example.png)
 
 + **Street address** is a dynamic default value. It is populated at runtime by the address found in the customer profile.
 + To see how the final UI appears to the agent, you can enter a text default value. 

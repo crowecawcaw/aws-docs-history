@@ -9,7 +9,7 @@ The recommendations point you to information related to the current conversation
 
 The following image shows how an article might appear in the agent workspace when you're on a call. 
 
-![An article displayed in the agent workspace.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-concepts-intro2.png)
+![An article displayed in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-concepts-intro2.png)
 
 
 1. The AI agent toggle button on the top-right can be used to toggle the expansion of the AI agent widget.

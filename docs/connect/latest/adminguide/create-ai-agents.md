@@ -21,7 +21,7 @@ Each use case is configured to use a default AI system agent. This can also be c
 
 For example, the following image shows an AI agents experience that is configured to use a customized AI agent for the Agent Assistance use case and uses the system default AI agents for the rest.
 
-![The default and custom AI agents specified for Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-default.png)
+![The default and custom AI agents specified for Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-default.png)
 
 
 Here's how customized AI agents work:

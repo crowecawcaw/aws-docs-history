@@ -28,7 +28,7 @@ These issues are usually because users are not actually logged out. They aren't 
 
 To log out, in the CCP or the agent workspace, they need to choose **Settings**, scroll down the page, and choose **Logout**. These buttons are shown in the following image.
 
-![The Contact Control Panel, the Settings icon, the Logout option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/logout-ccp.png)
+![The Contact Control Panel, the Settings icon, the Logout option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/logout-ccp.png)
 
 
 A few other reasons a report might appear incorrect:
@@ -47,7 +47,7 @@ A few other reasons a report might appear incorrect:
 
 Before you can generate a Login/Logout report, you need the following permissions assigned to your security profile: **Login/Logout report - View**.
 
-![The metrics and quality section of the security profile permissions page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/login-logout-report-permissions.png)
+![The metrics and quality section of the security profile permissions page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/login-logout-report-permissions.png)
 
 
 By default, the Connect Customer **Admin** security profile has these permissions.
@@ -68,7 +68,7 @@ A Login/Logout report includes only login or logout actions by your users that o
 1. Choose **Analytics and optimization**, **Login/Logout report**.
 
 1. On the **Login/Logout report** page, choose the **Time range** for the records to include in the report. Choose **Custom time range** to specify a range up to 7 days. This configuration is shown in the following image.  
-![The Login/Logout report page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/login-logout-report-custom-time-range.png)
+![The Login/Logout report page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/login-logout-report-custom-time-range.png)
 
 1. Choose the **Time zone** to use for your report.
 
@@ -107,10 +107,10 @@ Only the data that is displayed on the page is downloaded into the CSV file.
 
 For example, if you're displaying a page with 25 rows and there are 26 results, the downloaded CSV file will include only rows 1-25. You need to increase the **Rows per page** to include all results. 
 
-![Use table preferences to increase Rows per page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/login-logout-report-table-preferences.png)
+![Use table preferences to increase Rows per page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/login-logout-report-table-preferences.png)
 
 
-![The number of rows that will be downloaded to the CSV file.](http://docs.aws.amazon.com/connect/latest/adminguide/images/login-logout-report-rows-per-page.png)
+![The number of rows that will be downloaded to the CSV file.](https://docs.aws.amazon.com/connect/latest/adminguide/images/login-logout-report-rows-per-page.png)
 
 
 **To download a report as a CSV file**

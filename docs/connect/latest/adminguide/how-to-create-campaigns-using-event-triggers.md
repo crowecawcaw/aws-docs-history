@@ -6,19 +6,19 @@
 **Set up event triggers in the Connect Customer admin website**
 
 1. On the **Campaign set up** page, select **Customer event** under **Recipients**.  
-![Campaign setup page with Customer event selected under Recipients section for event-triggered campaigns.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-using-event-triggers-1.png)
+![Campaign setup page with Customer event selected under Recipients section for event-triggered campaigns.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-using-event-triggers-1.png)
 
 1. Select an **Event source** to specify where the data originates, and configure the attribute conditions that will activate the event trigger.
 
    Event sources are based on integrations in your Customer Profiles domain. details on setting up your external application, see [Integrate with external applications](integrate-external-apps-customer-profiles.md#setup-integrations-title-menu). You can also integrate with [Kinesis](customer-profiles-kinesis-integration.md) or [S3](customer-profiles-object-type-mappings.md).  
-![Event source selection panel showing integration options and attribute condition configuration.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-using-event-triggers-2.png)
+![Event source selection panel showing integration options and attribute condition configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-using-event-triggers-2.png)
 
 1. Select the **Delivery mode** and additional communication settings.  
-![Delivery mode selection and additional communication settings for event-triggered campaigns.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-using-event-triggers-3.png)
+![Delivery mode selection and additional communication settings for event-triggered campaigns.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-using-event-triggers-3.png)
 **Important**  
 To create a communication widget campaign, you must have a Customer Profiles integration between your Customer Profiles domain and your instance. The required object type name is `Campaign-WebNotification`. You can do this by choosing the upgrade button in the Connect Customer admin website console by selecting your instance and then going to the **Outbound campaigns** subpage.  
-![Communication section showing Delivery mode dropdown with Communication widget selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shows_channel_option.png)  
-![Communication section showing Communication widget dropdown with My-custom-widget selected and Notification type.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shows_channel_option_after_a_widget_is_selected.png)
+![Communication section showing Delivery mode dropdown with Communication widget selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shows_channel_option.png)  
+![Communication section showing Communication widget dropdown with My-custom-widget selected and Notification type.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shows_channel_option_after_a_widget_is_selected.png)
 
    There are two notification types to choose from: **View** and **Action**.  
 **View**  
@@ -35,12 +35,12 @@ Examples:
    + The system immediately connects a high-intent customer on a checkout page to a support agent.
    + The system routes a returning customer with an open case directly into a bot flow to check status.
    + A VIP customer triggers an instant connection to a dedicated agent upon visiting the help page.  
-![View notification type selected, a view with Web Notification Service integration chosen.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shows_view_notification_type_recommender.png)
+![View notification type selected, a view with Web Notification Service integration chosen.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shows_view_notification_type_recommender.png)
 
    Recommenders are only available when you select the **View** notification type and the selected view has a **Web Notification Service** integration type. If you select the **Action** notification type, or if your selected view does not have this integration, the recommender option does not appear.
 
 1. (Optional) Configure the **Recommendations** section to integrate Predictive Insights with your event-triggered campaign. With Predictive Insights, you can deliver personalized template content through email and SMS channels.  
-![Recommendations section in Amazon Connect console showing Recommender dropdown with frequently_paired_items selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-recommendations.png)
+![Recommendations section in Amazon Connect console showing Recommender dropdown with frequently_paired_items selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-recommendations.png)
 
    Configure the following settings:
    + **Recommender name** – Select the name of the recommender you want to use to generate recommendations for the profiles associated with the campaign. You can only use recommenders that are active to generate recommendations.
@@ -55,7 +55,7 @@ Examples:
    For more information about Predictive Insights, see [Get started with Predictive Insights](predictive-insights-get-started.md).
 
 1. Verify your configurations and choose **Publish**.  
-![Final review screen for event-triggered campaign configuration with Publish button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-using-event-triggers-4.png)
+![Final review screen for event-triggered campaign configuration with Publish button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/how-to-create-campaigns-using-event-triggers-4.png)
 
 ## Create outbound campaigns with event triggers using APIs
 <a name="how-to-create-campaigns-using-event-triggers-api"></a>

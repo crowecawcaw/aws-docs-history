@@ -63,7 +63,7 @@ When you create an email message that's based on a template, Connect Customer po
         You can also include personalized content in the subject and body of the template by using attributes. To do this, add message variables that refer to specific attributes that you or Connect Customer created, such as an attribute that stores a user's first name. By using message variables, you can display different content for each recipient of a message that uses the template. 
 
         To use a message variable, choose the name of an existing attribute from the **Attribute finder**. Connect Customer drops it into your message. You can copy and paste it to the location that you want. For more information, see [Add personalized content to message templates](personalize-templates.md).  
-![The Attribute finder on the Message templates page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-attribute-finder.png)
+![The Attribute finder on the Message templates page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/message-template-attribute-finder.png)
 
    1. Under **Headers - *optional***, you can add two static headers to the email message. For example, to add a one-choose unsubscribe link, to a promotional email, add the following two headers:
       + **List-Unsubscribe**: Set to your organization's unsubscribe link. The link must support HTTP POST requests to process the recipients unsubscribe request.

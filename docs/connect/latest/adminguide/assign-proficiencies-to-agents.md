@@ -37,7 +37,7 @@ For example, Agent1 and Agent2 might be proficient in multiple technologies at v
 
 1. You can add up to 10 proficiencies per agent.
 
-![Assigning proficiencies to an agent or user.](http://docs.aws.amazon.com/connect/latest/adminguide/images/assign-proficiencies-to-agents.png)
+![Assigning proficiencies to an agent or user.](https://docs.aws.amazon.com/connect/latest/adminguide/images/assign-proficiencies-to-agents.png)
 
 
 **Agent proficiencies management APIs**

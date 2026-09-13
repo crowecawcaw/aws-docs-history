@@ -13,7 +13,7 @@ A flow is created by placing nodes on the Canvas and connecting them in the orde
 
 1. Open a flow.
 
-1. Select the **Add node** option from the Canvas toolbar, or right-click the Canvas and choose **Add node**.
+1. Select the **Add** option from the Canvas toolbar, or right-click the Canvas and choose **New node**.
 
 1. Choose the node type you want to add.
 
@@ -89,7 +89,7 @@ Available functionality includes:
 |  |  | 
 | --- |--- |
 | **Analytics tags** | Marks a node with system or custom tags to track user paths. | 
-| **Live Sync action** | Triggers a Live Sync action for bidirectional web conversations. | 
+| **Live Sync** | Triggers a Live Sync action for bidirectional web conversations. | 
 | **Modality** | Adds a rich interaction, such as a carousel or date input. Available for Basic, User choice, User input, Generative Journey, and Live Sync nodes. Works with the Touchpoint SDK to render. | 
 | **Node payload** | Triggers custom behaviors or passes custom data in the response using key-value pairs. | 
 | **State modifications** | Applies a state change to variables during the conversation. | 
@@ -104,20 +104,20 @@ Voice settings include two groups: Speech and DTMF.
 
 | Speech setting | What it controls | 
 | --- | --- | 
-| **Interruption** | Lets the caller talk over the message. | 
-| **Speech input** | Lets the caller answer by speaking. | 
-| **No input timeout** | Controls how long the application waits for the user to start talking after the message. | 
-| **End of speech timeout** | Controls how long a pause must last before the application decides the user has finished talking. | 
-| **Max speech timeout** | Controls the maximum amount of time the user can keep speaking. | 
+| **Allow interruption** | Lets the caller talk over the message. ON by default unless toggled OFF. | 
+| **Allow speech input** | Lets the caller answer by speaking. | 
+| **Voice start timeout** | Controls how long the application waits for the user to start talking after the message. | 
+| **Voice end timeout** | Controls how long a pause must last before the application decides the user has finished talking. | 
+| **Maximum utterance length** | Controls the maximum amount of time the user can keep speaking. | 
 
 
 | DTMF setting | What it controls | 
 | --- | --- | 
-| **DTMF input** | Lets the user answer using the keypad. | 
-| **Clear key** | Defines the key the user presses to clear all digits they entered. | 
-| **Submit key** | Defines the key the user presses to submit immediately instead of waiting for timeout. | 
-| **Keypress timeout** | Controls how long to wait after the user's last key press. | 
-| **Max digits** | Controls the maximum number of keys the user can press. | 
+| **Allow DTMF input** | Lets the user answer using the keypad. | 
+| **DTMF deletion key** | Defines the key the user presses to clear all digits they entered. | 
+| **DTMF end key** | Defines the key the user presses to submit immediately instead of waiting for timeout. | 
+| **DTMF end timeout** | Controls how long to wait after the user's last key press. | 
+| **DTMF maximum digits** | Controls the maximum number of keys the user can press. | 
 
 Each node defaults to the name of its node type. Rename nodes to make large flows easier to understand.
 
@@ -137,7 +137,7 @@ Color labels can help visually organize the Canvas.
 
 1. Right-click the node.
 
-1. Select **Color**.
+1. Select **Change color**.
 
 1. Choose a color.
 
@@ -211,8 +211,8 @@ Flow recognition depends on the flows attached to the application and the routin
 
 |  |  | 
 | --- |--- |
-| **Match** | The user's utterance matched a flow attached to the application. | 
-| **No match** | The user's utterance did not match a supported flow. | 
+| **Flow recognized** | The user's utterance matched a flow attached to the application. | 
+| **No flow recognized** | The user's utterance did not match a supported flow. | 
 
 ## User choice node
 <a name="acxd-nodes-user-choice"></a>
@@ -240,7 +240,7 @@ If the node uses values from a Data request, call the Data request before the Us
 | --- |--- |
 | **Match** | The user's response matched the assigned source. | 
 | **No match** | The user's response did not match the assigned source and did not match the routing description of another eligible flow. | 
-| **Slot value paths** | Optional paths that correspond to individual custom slot values. | 
+| **Value paths** | Optional paths that correspond to individual custom slot values. | 
 
 A User choice node also participates in application-level flow routing.
 
@@ -387,14 +387,14 @@ Loop modes include:
 
 |  |  | 
 | --- |--- |
-| **Retry** | Repeats a path a set number of times. | 
-| **For each** | Iterates over values in a list. | 
+| **Range** | Repeats a path a set number of times. | 
+| **List** | Iterates over values in a list. | 
 
 
 |  |  | 
 | --- |--- |
-| **Loop** | Continues through the looped path. | 
-| **Complete** | Runs when the loop has finished or the retry limit is reached. | 
+| **Next** | Continues through the looped path. | 
+| **Completed** | Runs when the loop has finished or the retry limit is reached. | 
 
 Be sure to use state modifications with retry loops when a previous value needs to be cleared before the user tries again.
 
@@ -410,13 +410,13 @@ Split modes include:
 
 |  |  | 
 | --- |--- |
-| **Conditional** | Routes based on defined IF statements or generative conditions. | 
-| **A/B** | Randomly distributes users across paths by percentage. Useful for A/B testing. | 
+| **Conditions** | Routes based on defined IF statements or generative conditions. | 
+| **Chance** | Randomly distributes users across paths by percentage. Useful for A/B testing. | 
 
 
 |  |  | 
 | --- |--- |
-| **Match** | Runs when a defined condition is met. | 
+| **Condition paths** | Runs when a defined condition is met. | 
 | **Else** | Runs when none of the conditions are met. | 
 
 Use Split nodes to:
@@ -444,7 +444,7 @@ If redirecting to another flow, make sure that flow is attached to the applicati
 
 |  |  | 
 | --- |--- |
-| **Return** | Optional path used when the redirected flow returns to the current point. | 
+| **Continuation** | Optional path used when the redirected flow returns to the current point. | 
 
 ## Escalate node
 <a name="acxd-nodes-escalate"></a>
@@ -462,7 +462,7 @@ You can link to the same Escalate node from multiple places in your agentic CX d
 
 |  |  | 
 | --- |--- |
-| **Return** | Runs if the conversation returns to the Agentic CX block after escalation in the Connect Customer flow. | 
+| **Continuation** | Runs if the conversation returns to the Agentic CX block after escalation in the Connect Customer flow. | 
 
 ## Node type summary
 <a name="acxd-nodes-summary"></a>

@@ -62,7 +62,7 @@ You can configure the **Authenticate Customer** block by using the Connect Custo
 
 The following image shows an example of the Properties page for the **Authenticate Customer** block. 
 
-![The properties page of the Authenticate Customer block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/authenticate-customer-properties.png)
+![The properties page of the Authenticate Customer block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/authenticate-customer-properties.png)
 
 
 **Amazon Cognito**
@@ -82,7 +82,7 @@ The following image shows an example of the Properties page for the **Authentica
 
 This block supports the following output branches:
 
-![A configured Authenticate Customer block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/authenticate-customer-configured.png)
+![A configured Authenticate Customer block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/authenticate-customer-configured.png)
 
 + **Success**: The customer was authenticated.
 + **Timeout**: The customer was inactive and did not sign in within the allocated amount of time.

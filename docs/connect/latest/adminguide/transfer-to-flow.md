@@ -35,7 +35,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Transfer to flow** block. You choose the flow from the dropdown box. 
 
-![Transfer to flow dialog with options to set manually or dynamically, showing sample queue customer selection.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-flow-properties.png)
+![Transfer to flow dialog with options to set manually or dynamically, showing sample queue customer selection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-flow-properties.png)
 
 
 Only published flows appear in the dropdown list. 
@@ -45,7 +45,7 @@ Only published flows appear in the dropdown list.
 
 The following image shows an example of what this block looks like when it is configured. It has the following branch: **Error**. 
 
-![A configured Transfer to flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-flow-configured.png)
+![A configured Transfer to flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/transfer-to-flow-configured.png)
 
 
 1. The contact is routed down the **Error** branch if the flow you have specified to transfer to isn't a valid flow, or it's not a valid flow type (Inbound, Transfer to Agent, or Transfer to Queue). 

@@ -5,12 +5,12 @@
 
 To view trade offers, agents go to their schedule calendar, and choose or tap on the request drawer, as shown in the following image. 
 
-![The agent calendar, the request drawer with an offer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-twooffers.png)
+![The agent calendar, the request drawer with an offer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-twooffers.png)
 
 
 Then choose the **Shift trades** tab, as shown in the following image.
 
-![The Requests pane, the Shift trades tab.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-shifttrades-requests-pane.png)
+![The Requests pane, the Shift trades tab.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-shifttrades-requests-pane.png)
 
 
 You can choose on the received trade section to review the incoming trade offers from other agents. You can then select that offer and take one of the following actions. 
@@ -20,12 +20,12 @@ You can choose on the received trade section to review the incoming trade offers
 
 The following image shows the location of these options on the **Shift trade** pane.
 
-![The Shift trade pane, the options to Accept offer, Decline offer, or Cancel trade request.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-acceptoffer.png)
+![The Shift trade pane, the options to Accept offer, Decline offer, or Cancel trade request.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-acceptoffer.png)
 
 
 When you choose **Accept offer**, a dialog box prompts you to confirm your selection. The **Confirm** button is shown in the following image.
 
-![The Accept offer dialog box, the Confirm button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-confirmoffer.png)
+![The Accept offer dialog box, the Confirm button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-confirmoffer.png)
 
 
 **Expired** status means you created an offer for a shift but the **Notice period** specified for your [shift trade group](scheduling-create-shift-trade-groups.md) has passed before the trade was completed. No further actions can be taken on that shift.
@@ -37,4 +37,4 @@ A shift trade request might have a status of **Failed**. The Info icon provides 
 
 The following image shows a **Failed** status.
 
-![The Shift trade pane, a Failed status for a sent offer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-failed.png)
+![The Shift trade pane, a Failed status for a sent offer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/shiftexchange-failed.png)

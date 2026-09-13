@@ -27,7 +27,7 @@ There are three main ways that Connect Customer can receive emails:
 
 The following diagram illustrates how emails sent from your customers are received by Connect Customer using the [StartEmailContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html) API for each of the methods mentioned above.
 
-![How a message is sent as a webform or email to the StartEmailContact API.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-ses-diagram.png)
+![How a message is sent as a webform or email to the StartEmailContact API.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-ses-diagram.png)
 
 
 To integrate Methods 1 or 2, you need to verify an email domain on Amazon SES before you can use the email domain in Connect Customer. For instructions, see [Verifying a DKIM domain identity with your DNS provider](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#just-verify-domain-proc). 
@@ -67,7 +67,7 @@ As part of this, you need to setup your email message and attachment storage for
 
 The following diagram illustrates the flow of the email message from the customer to Amazon SES and then to Connect Customer. It shows the email message content stored in your S3 bucket, and then getting data from that bucket to display it to the agent. 
 
-![Email message content stored in your S3 bucket.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-concepts-translated.png)
+![Email message content stored in your S3 bucket.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-concepts-translated.png)
 
 
 ## Every email message is a unique email contact
@@ -92,12 +92,12 @@ Most email clients such as Gmail, Apple Mail, and Outlook, support email threadi
 
 If your customer replies to the latest email message in the thread, the thread follows a straightforward pattern as shown in the following image:
 
-![The email thread in a straightforward pattern.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-threading.png)
+![The email thread in a straightforward pattern.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-threading.png)
 
 
 If the customer replies to an older message in the email thread, an email thread tree is formed. The email thread pattern looks something like the example in the following image:
 
-![The email thread in a tree pattern.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-threading-tree.png)
+![The email thread in a tree pattern.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-threading-tree.png)
 
 
 In both scenarios Connect Customer keeps a record of each of the email messages that are related to a thread. Each email message can be accessed by the email that succeeded it. 
@@ -109,7 +109,7 @@ All email messages from Connect Customer are sent from Amazon SES directly to yo
 
 The following diagram shows that the [StartOutboundEmailContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundEmailContact.html) API sends email to Amazon SES, and Amazon SES sends it to your customer.
 
-![Email flow from StartOutboundEmailContact API through SES to customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-concepts-sent.png)
+![Email flow from StartOutboundEmailContact API through SES to customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-concepts-sent.png)
 
 
 The [StartOutboundEmailContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundEmailContact.html) API is the primary API of all integration methods for outbound email contacts including agent replies to inbound contact and agent-initiated outbound email contacts.

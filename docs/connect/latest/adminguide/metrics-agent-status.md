@@ -15,7 +15,7 @@ Users with access to the Connect Customer admin website agent status configurati
 
 The following diagram illustrates how the agent's status in the CCP stays constant while they are handling contacts, but in the real-time metrics report, the **Agent activity state** and the **Contact state** change. 
 
-![A mapping of contact states, agent activity states, and agent status.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-acw-contactstate.png)
+![A mapping of contact states, agent activity states, and agent status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-acw-contactstate.png)
 
 
 For example, when the **Agent activity state** = **Incoming**, the **Contact state** = **Incoming contact**.
@@ -71,7 +71,7 @@ In the agent event stream you'll see the **AgentStatus**, for example:
 
 On occasion, in the **Contact summary** the **Agent** field might say **"We couldn't find this agent. Use the agent's user name to identify them." This message is shown in the following image of the **Contact summary**.**
 
-![The contact summary page, the error message in the Agent field.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-status-not-found.png)
+![The contact summary page, the error message in the Agent field.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-status-not-found.png)
 
 
 This is a generic message for contacts that did not get connected to an agent at the time. It usually means that the inbound call was not answered by the agent and the customer disconnected the call. 

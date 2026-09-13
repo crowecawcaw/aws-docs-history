@@ -16,7 +16,7 @@ If you are porting multiple numbers from different carriers and countries, submi
 1. Choose [Account and billing](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=service-connect-number-management) to access a pre-populated form in the AWS Support console. You must be signed in to your AWS account to access the form.
 
 1. For **Service**, **Connect (Number Management)** should be selected, as shown in the following image.  
-![The create case page completed for a porting request.](http://docs.aws.amazon.com/connect/latest/adminguide/images/porting-support1.png)
+![The create case page completed for a porting request.](https://docs.aws.amazon.com/connect/latest/adminguide/images/porting-support1.png)
 
 1. For **Category**, choose **Number Porting North America (US/Canada/Mexico)** or **Number Porting Non-North America**.
 

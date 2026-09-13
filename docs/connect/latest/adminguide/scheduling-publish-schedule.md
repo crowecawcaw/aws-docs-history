@@ -13,7 +13,12 @@ After you create shift activities, shift profiles, staffing groups and staffing 
 
 1. On the Connect Customer navigation menu, select **Analytics and optimization**, **Scheduling**.
 
-1. Choose the **Schedule Manager** tab, and then choose **Generate schedule**. 
+1. Choose the **Schedule Manager** tab, and then choose **Generate new**. You have the following two options:
+   + **Schedule** - Generate a standard schedule that is not a shift bid.
+   + **Shift bid** - Generate a schedule that agents bid on. To learn how to set up and run shift bidding, see [Shift bidding](scheduling-shift-bid.md).  
+![The Generate new menu expanded, showing the Schedule and Shift bid options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-shift-bid-generate-new-menu.png)
+**Note**  
+The rest of this topic describes how to generate a schedule that is not a shift bid. To learn how to do shift bidding, see [Shift bidding](scheduling-shift-bid.md).
 
 1. Enter a name and description for the schedule.
 
@@ -32,7 +37,7 @@ After you create shift activities, shift profiles, staffing groups and staffing 
    For Task and Email: use **Service level** when the work is done synchronously, for example, a Task is picked up within 5 minutes of arriving. Use **Average time to complete** when the work can be deferred and is completed over hours or days.
 **Note**  
 Backlog metrics are only available when **Average time to complete** is selected as the optimization goal.  
-![The Generate schedule page showing channel-based optimization with Voice, Chat, Email, and Task channels and their respective metric and goal settings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-generate-schedule.png)
+![The Generate schedule page showing channel-based optimization with Voice, Chat, Email, and Task channels and their respective metric and goal settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-generate-schedule.png)
 
 1. Choose **Generate schedule**.
 **Note**  
@@ -47,10 +52,10 @@ Connect Customer generates a draft schedule. It will not be visible to agents or
    1.  **MEDIUM** warnings indicate an agent was scheduled but could not meet all the given requirements (for example, an agent's schedule for a day not meeting the minimum working hours required for them).
 
    1.  **LOW** warnings indicate minor problems with the schedule (for example, overstaffing occurring for a given day).  
-![The schedule calendar, the warnings icon, an example of schedule warnings.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-warnings.png)
+![The schedule calendar, the warnings icon, an example of schedule warnings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-warnings.png)
 
 1. When the status is **Complete**, choose the draft schedule to view it. The following image shows a sample schedule for one day, with staffing metrics and individual agent shifts.  
-![A sample draft schedule showing staffing metrics including Occupancy, Headcount, Service Level for Voice and Chat, ATC for Email and Task, and Backlog, along with individual agent shift assignments for the day.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-draft-schedule-view.png)
+![A sample draft schedule showing staffing metrics including Occupancy, Headcount, Service Level for Voice and Chat, ATC for Email and Task, and Backlog, along with individual agent shift assignments for the day.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-draft-schedule-view.png)
 
    Schedulers can:
    + View schedules for all agents.
@@ -59,7 +64,7 @@ Connect Customer generates a draft schedule. It will not be visible to agents or
    + View failed rules and goals.
 
 1. When you're satisfied with the schedule, choose **Publish**. You'll get a confirmation page. Choose **Proceed** to make the schedule official\!   
-![A schedule page, the Publish button, the Proceed button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-publish-confirmation.png)
+![A schedule page, the Publish button, the Proceed button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-publish-confirmation.png)
 
    Staff (agents) and supervisors specified in the staffing groups can now view the schedule. See the following topics to learn about their experience: 
    + [How supervisors view published schedules using the Connect Customer admin website](scheduling-view-schedule-supervisors.md)
@@ -80,7 +85,7 @@ You can:
 
 The following image shows these options in the dropdown list: **Edit**, **Add**, **Replace**, **Remove**, **Copy**.
 
-![A dropdown list of actions you can perform on a schedule before it is published.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-edit-schedule.png)
+![A dropdown list of actions you can perform on a schedule before it is published.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-scheduling-edit-schedule.png)
 
 
 ## Regenerate a schedule
@@ -99,4 +104,4 @@ Managers and supervisors can search and sort schedules from within the schedule 
 
 The following image shows the search box on the **Scheduling** page. Entering **mar** returns schedules that have March in their name.
 
-![The scheduling page, the search box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-manager-search-sort-example.png)
+![The scheduling page, the search box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/scheduling-manager-search-sort-example.png)

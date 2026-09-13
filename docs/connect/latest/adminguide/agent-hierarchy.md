@@ -25,7 +25,7 @@ Since agent hierarchies might include location and skill set data, you also need
 
 The following image shows the **Users and Permissions - Agent hierarchy** permissions on the **Security profile permissions** page.
 
-![The Users and Permissions - Agent hierarchy on the Security profile permissions page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_users_edit.png)
+![The Users and Permissions - Agent hierarchy on the Security profile permissions page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/SecurityProfile_cloudscape_users_edit.png)
 
 
 ## Define your organization's hierarchy levels
@@ -36,13 +36,13 @@ You can specify up to 5 levels or tiers for your organization's hierarchy groups
 1. Log in to the Connect Customer admin website with an **Admin** account, or an account assigned to a security profile that has **Users and Permissions** - **Agent hierarchy** - **Create** permission. 
 
 1. Choose **Users**, **Hierarchies**, and then choose **Add level hierarchy structure**, as shown in the following image.  
-![The Hierarchies page, the Add level hierarchy structure button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-add.png)
+![The Hierarchies page, the Add level hierarchy structure button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-add.png)
 
 1. Enter a name for the first level. Choose the **\+** icon to add another level, such as Level 2, Start or Province. You can add up to five levels. In the following image, we've named Level 1 **Country**.  
-![The Level hierarchy structure section, Level 1.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-level1.png)
+![The Level hierarchy structure section, Level 1.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-level1.png)
 
    The following image shows a hierarchy structure with four levels for Country, State or Province, City, Neighborhood.  
-![The hierarchy structure for Country, State or Province, City, Neighborhood.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-structure.png)
+![The hierarchy structure for Country, State or Province, City, Neighborhood.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-structure.png)
 **Tip**  
 After you [add groups](#add-groups-teams-agents-hierarchy) to these levels, you must delete the groups before you can delete the level.
 
@@ -54,24 +54,24 @@ After you [add groups](#add-groups-teams-agents-hierarchy) to these levels, you 
 After you create hierarchy levels, you can add the groups that call within each, from the top down.
 
 1. Scroll down the **Hierarchies** page to the **Hierarchy groups** section. Choose **Add new {{Level1\_Name}}**. For example, in the following image the name of Level 1 is **Country**.   
-![The Hierarchy groups section, the Add new Level1 button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addnewcountry.png)
+![The Hierarchy groups section, the Add new Level1 button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addnewcountry.png)
 
 1. Enter the name for the group, such as Australia, and then choose **Save**. Choose **Add new Country** to add another country. The following image shows we added Australia and United States.  
-![The Hierarchy groups section, add groups for Level 1.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-us.png)
+![The Hierarchy groups section, add groups for Level 1.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-us.png)
 
 1. Next to the name of the group, choose **Add child State or Province**, as shown in the following image.  
-![The Add child option for level 1.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addchild.png)
+![The Add child option for level 1.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addchild.png)
 
    Choose **Add child State or Province** each time you want to add a group to level 2. When you're done, choose **Save**. 
 
    The following image shows we added New York and California.  
-![The Add child option for level 2 Add a child State or Province.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addstates.png)
+![The Add child option for level 2 Add a child State or Province.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addstates.png)
 
 1. For each state, choose **Add child City** each time you want to add group to level 3. When you're done, choose **Save**. The following image shows we added Los Angeles and San Francisco.  
-![The Add child option for level 3 Add a child City.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addchildcities.png)
+![The Add child option for level 3 Add a child City.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addchildcities.png)
 
 1. Choose **Add child Neighborhood** to add groups to Level 4, as shown in the following image. We added Hollywood to Los Angeles.   
-![The Add child option for level 4 Add a child Neighborhood.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addchild-neighborhood.png)
+![The Add child option for level 4 Add a child Neighborhood.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-hierarchy-addchild-neighborhood.png)
 
 Choose **View historical changes** to view the change history. You can filter changes by date (between two dates) or by user name. If you cannot see the link, make sure that you have the proper permissions to view these changes.
 

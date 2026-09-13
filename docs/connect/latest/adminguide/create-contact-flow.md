@@ -59,7 +59,7 @@ The following flow types are available.
 Use these steps to create an inbound flow. 
 
 1. In the left navigation menu, choose **Routing**, **Flows**.   
-![The Connect Customer navigation menu.](http://docs.aws.amazon.com/connect/latest/adminguide/images/menu-contact-flows.png)
+![The Connect Customer navigation menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/menu-contact-flows.png)
 
 1. Choose **Create flow**. This opens the flow designer and creates an inbound flow (Type = Flow). 
 
@@ -96,10 +96,10 @@ A tag key typically represents a larger category, while a tag value represents a
 You can add resource tags to your flows and flow modules. Use the following steps to add a resource tag from the flow designer.
 
 1. Open the tag section on flow designer page for a chosen flow or flow module.  
-![The flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-flows-and-flow-modules-1.png)
+![The flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-flows-and-flow-modules-1.png)
 
 1. Enter a **Key** and **Value** combination to tag the resource.  
-![Tags section in the flow designer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/tag-flows-and-flow-modules-2.png)
+![Tags section in the flow designer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tag-flows-and-flow-modules-2.png)
 
 1. Choose **Add**. Tags are not persisted until you save or publish the flow.
 

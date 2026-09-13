@@ -102,14 +102,14 @@ The following steps explain how to add a domain to a Connect Customer instance, 
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 
 1. On the **Connect Customer virtual contact center instances** page, under **Instance alias**, choose the name of the instance. The following image shows a typical instance name.  
-![The Connect Customer virtual contact center instances page, the instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
+![The Connect Customer virtual contact center instances page, the instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/instance.png)
 
 1. In the navigation pane, choose **AI Agents**, and then choose **Add domain**.
 
 1. On the **Add domain** page, choose **Create a domain**.
 
 1. In the **Domain name** box, enter a friendly name, such as your organization name.  
-![Add domain page, create a new domain option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-enter-domain-name.png)
+![Add domain page, create a new domain option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agent-enter-domain-name.png)
 
 1. Keep the page open and go to the next step.
 
@@ -177,15 +177,15 @@ The following example shows a typical policy.
 <a name="q-create-key"></a>
 
 1. On the **Add domain** page, under **Encryption**, choose **Create an AWS KMS key**.  
-![The Create an AWS KMS key button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/q-encryption-settings-1.png)
+![The Create an AWS KMS key button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/q-encryption-settings-1.png)
 
    That takes you to the Key Management Service (KMS) console. Follow these steps:
 
    1. In the KMS console, on the **Configure key** page, choose **Symmetric**, and then choose **Next**.  
-![Configure key page, symmetric option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-configure-key.png)
+![Configure key page, symmetric option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-kms-key-configure-key.png)
 
    1. On the **Add labels** page, enter an alias and description for the KMS key, and then choose **Next**.   
-![Add labels page, alias name and a description.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-create-kms-key-add-labels.png)
+![Add labels page, alias name and a description.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-create-kms-key-add-labels.png)
 
    1. On the **Define key administrative permissions** page, choose **Next**, and on the **Define key usage permissions** page, choose **Next** again.
 
@@ -227,10 +227,10 @@ To use agent assist with chats, tasks, and emails, modify the key policy to allo
    1. Choose **Finish**.
 
       In the following example, the name of the KMS key starts with **82af7d87**.  
-![The Customer managed keys page showing a typical key.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-create-kms-key.png)
+![The Customer managed keys page showing a typical key.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-create-kms-key.png)
 
 1. Return to the **agent assist** browser tab, open the **AWS KMS key** list, and select the key that you created in the previous steps.  
-![Encryption settings interface with option to customize and select an AWS KMS key.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-choose-kms-key.png)
+![Encryption settings interface with option to customize and select an AWS KMS key.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-choose-kms-key.png)
 
 1. Choose **Add domain**. 
 
@@ -240,7 +240,7 @@ To use agent assist with chats, tasks, and emails, modify the key policy to allo
 1. On the **AI Agents** page, choose **Add integration**.
 
 1. On the **Add integration** page, choose **Create a new integration**, and then select a source.  
-![The Add integration page, the Create a new integration option, the Source dropdown list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-select-integration.png)
+![The Add integration page, the Create a new integration option, the Source dropdown list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wisdom-select-integration.png)
 
    The steps for creating an integration vary, depending on the source that you choose. Expand the following sections as needed to finish creating an integration.
 
@@ -253,7 +253,7 @@ You follow a multi-step process to create a Salesforce integration. The followin
 <a name="q-salesforce-1"></a>
 
 1. Select all the checkboxes that appear. This acknowledges that you set up your Salesforce account properly:  
-![Salesforce acknowledgements for APIs, using connected apps, and AppFlow access.](http://docs.aws.amazon.com/connect/latest/adminguide/images/q-integration-salesforce-1.png)
+![Salesforce acknowledgements for APIs, using connected apps, and AppFlow access.](https://docs.aws.amazon.com/connect/latest/adminguide/images/q-integration-salesforce-1.png)
 
 1. In the **Integration name** box, enter a name for the integration.
 **Tip**  
@@ -502,10 +502,10 @@ To create a new integration, use the following steps:
 1. Choose **Create a new connection**.
 
 1.  In the **Integration name** box, assign a friendly name to the integration.  
-![Web Crawler integration setup page showing the Integration name field where users enter a name for their new connection.](http://docs.aws.amazon.com/connect/latest/adminguide/images/web-crawler-ai-agent-config-1.png)
+![Web Crawler integration setup page showing the Integration name field where users enter a name for their new connection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/web-crawler-ai-agent-config-1.png)
 
 1.  In the **Connection with Web Crawler > Source URLs** section, provide the **Source URLs** of the URLs you want to crawl. You can add up to 9 additional URLs by selecting **Add Source URLs**. By providing a source URL, you are confirming that you are authorized to crawl its domain.    
-![The Source URLs section for configuring Web Crawler connection with fields to enter URLs to crawl.](http://docs.aws.amazon.com/connect/latest/adminguide/images/web-crawler-q-config-2.png)
+![The Source URLs section for configuring Web Crawler connection with fields to enter URLs to crawl.](https://docs.aws.amazon.com/connect/latest/adminguide/images/web-crawler-q-config-2.png)
 
 1.  Under Advanced settings, you can optionally configure to use the default KMS key or a Customer Managed Key (CMK). 
 
@@ -525,12 +525,12 @@ Make sure you are not crawling potentially excessive web pages. It's not recomme
 Problematic regular expression pattern filters that lead to [catastrophic backtracking](https://docs.aws.amazon.com/codeguru/detector-library/python/catastrophic-backtracking-regex/) and look ahead, are rejected.
 
       1.  The following is an example of a regular expression filter pattern to exclude URLs that end with ".pdf" or PDF web page attachments: `.*\.pdf$`   
-![The URL Regex patterns section showing an example of an exclude pattern for PDF files.](http://docs.aws.amazon.com/connect/latest/adminguide/images/web-crawler-q-config-3.png)
+![The URL Regex patterns section showing an example of an exclude pattern for PDF files.](https://docs.aws.amazon.com/connect/latest/adminguide/images/web-crawler-q-config-3.png)
 
 1. Choose **Next**.
 
 1.  Review all the integration details.   
-![The review page showing all integration details for the Web Crawler configuration before final submission.](http://docs.aws.amazon.com/connect/latest/adminguide/images/web-crawler-q-config-4.png)
+![The review page showing all integration details for the Web Crawler configuration before final submission.](https://docs.aws.amazon.com/connect/latest/adminguide/images/web-crawler-q-config-4.png)
 
 1.  Select **Add integration.** 
 
@@ -548,16 +548,16 @@ The Bedrock knowledge base integration type is only compatible with orchestratio
 The Bedrock knowledge base integration is only available for on-contact calls and does not support off-contact manual search.
 
 1. Add new integration  
-![The Add integration page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/add-integration-page-ai-agents.png)
+![The Add integration page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/add-integration-page-ai-agents.png)
 
 1. Choose Bedrock Knowledge Base  
-![Selecting Bedrock knowledge base from data source list.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-select-byobkb-data-source.png)
+![Selecting Bedrock knowledge base from data source list.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-select-byobkb-data-source.png)
 
 1. Select existing Bedrock Knowledge Base  
-![Selecting existing Bedrock Knowledge Base.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-selecting-bedrock-knowledge-base.png)
+![Selecting existing Bedrock Knowledge Base.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-selecting-bedrock-knowledge-base.png)
 
 1. Review and add integration  
-![BYOBKB review and integrate page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-byobkb-review-and-integrate.png)
+![BYOBKB review and integrate page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-agents-byobkb-review-and-integrate.png)
 
 You have successfully integrated an existing Bedrock Knowledge Base with AI agents
 

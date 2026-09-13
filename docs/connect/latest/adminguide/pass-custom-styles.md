@@ -110,7 +110,7 @@ The following table lists the supported custom style names and recommended value
 
 Following are the elements that make up the communications widget.
 
-![Elements that make up the communications widget.](http://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-elements.png)
+![Elements that make up the communications widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/chatwidget-elements.png)
 
 
 ## How to pass override system and bot display names and logos for the communications widget

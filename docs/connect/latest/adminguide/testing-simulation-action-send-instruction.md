@@ -20,7 +20,7 @@ Use cases:
 + Entering account numbers or reference codes
 + Confirming selections with \# or \*
 
-![Action block configuration showing Send Instruction with DTMF Input type selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-dtmf-input.png)
+![Action block configuration showing Send Instruction with DTMF Input type selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-dtmf-input.png)
 
 
 ## Text and voice input
@@ -37,7 +37,7 @@ Use cases:
 + Responding to bot questions ("I need help with my order")
 + Providing information requested by the system ("My account number is 12345")
 
-![Action block configuration showing Send Instruction with Text/Utterance input type selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-text-voice-input.png)
+![Action block configuration showing Send Instruction with Text/Utterance input type selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-text-voice-input.png)
 
 
 ## Disconnect
@@ -53,4 +53,4 @@ Use cases:
 + Testing disconnect processes when customers hang up
 + Ensuring no errors occur during unexpected disconnections
 
-![Action block configuration showing Send Instruction with Disconnect input type selected.](http://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-disconnect.png)
+![Action block configuration showing Send Instruction with Disconnect input type selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-disconnect.png)

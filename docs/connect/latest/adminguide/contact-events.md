@@ -751,15 +751,15 @@ To subscribe to Connect Customer contact events:
 1. In the Amazon EventBridge console, choose **Create rule**.
 
 1. On the **Default rule detail** page, assign a name to the rule, choose **Rule with an event pattern**, and then choose **Next**, as shown in the following image.  
-![The define rule detail page in the EventBridge console.](http://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-createrule.png)
+![The define rule detail page in the EventBridge console.](https://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-createrule.png)
 
 1. On the **Build event pattern** page, under **Event source**, verify that **AWS events or EventBridge partner events** is selected.
 
 1. Under **Sample event type**, choose **AWS events**, and then choose ** Connect Customer Contact Event** from the dropdown box, as shown in the following image.  
-![The sample event section, sample event type is AWS events.](http://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-sampleevents.png)
+![The sample event section, sample event type is AWS events.](https://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-sampleevents.png)
 
 1. For Creation method choose Use pattern form. In the **Event pattern** section, choose **AWS services**, **Connect Customer**, **Connect Customer Contact Event**, and then choose **Next**, as shown in the following image.  
-![The Creation method and event pattern sections of the default rule detail page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-creationmethod.png)
+![The Creation method and event pattern sections of the default rule detail page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/eventbridge-creationmethod.png)
 
 1. On the Select target(s) page, you can then select a target of your choice, which includes a Lambda function, SQS queue, or SNS topic. For information about configuring targets, [Amazon EventBridge targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html).
 

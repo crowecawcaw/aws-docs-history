@@ -14,10 +14,10 @@ Following are some examples:
 **To create a rule that creates a task**
 
 1. When you create your rule, choose **Create Task** for the action.  
-![The new rule page, the add action dropdown menu, the create task option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-add-task-example1.png)
+![The new rule page, the add action dropdown menu, the create task option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-add-task-example1.png)
 
 1. Complete the task fields as follows:  
-![The new rule page, the assign contact category section, the Create task section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-add-tasks-example2.png)
+![The new rule page, the assign contact category section, the Create task section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-add-tasks-example2.png)
 
    1. **Category name**: The category name appears in the contact record. Max length: 200 characters.
 
@@ -27,7 +27,7 @@ Following are some examples:
 **Note**  
  In Name and Description, use **@ to add dynamic variables** that are populated during execution of the rule. For conversational analytics rules and evaluation forms rules, you can add **rule name, instance URL, contact, agent** and **queue** information for the contact that matched the rule. With evaluation forms rules, you can additionally insert the **evaluation ID**.   
 
-![The task action with dynamic variables.](http://docs.aws.amazon.com/connect/latest/adminguide/images/rules-create-task-dynamic-variables.png)
+![The task action with dynamic variables.](https://docs.aws.amazon.com/connect/latest/adminguide/images/rules-create-task-dynamic-variables.png)
 
 Other rule types support different variables:   
 With real-time metrics rules, you can enter **rule name, instance URL and list of agents, queues, flows or routing profile** that breached the threshold to trigger the alert.
@@ -42,7 +42,7 @@ With rules for cases, you can insert **rule name, instance URL** and **case ID**
    1. **Select a flow**: Choose the flow that is designed to route the task to the appropriate owner of the task. The flow must be saved and published for it to appear in your list of options in the dropdown.
 
 1. The following image shows an example of how this information appears in the agent's CCP.  
-![A task in the agent Contact Control Panel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-add-tasks-ccp.png)
+![A task in the agent Contact Control Panel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-add-tasks-ccp.png)
 
    In this example, the agent sees the following values for **Name**, **Description**, and **Task reference name**:
 
@@ -65,12 +65,12 @@ When a rule creates a task, a contact record is automatically generated for the 
 
 For example, a call comes into your contact center and generates CTR1:
 
-![Information on the initial contact record when a call comes in.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-attributes-example1.png)
+![Information on the initial contact record when a call comes in.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-attributes-example1.png)
 
 
 The Rules engine generates a task. In the contact record for the task, the voice contact record appears as the **Previous contact ID**. In addition, the task contact record inherits contact attributes from the voice contact record, as illustrated in the following image:
 
-![Contact record 2 for the task.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-attributes-example2.png)
+![Contact record 2 for the task.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-attributes-example2.png)
 
 
 ## About dynamic values for ContactId, AgentId, QueueId, RuleName

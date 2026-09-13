@@ -7,7 +7,7 @@ This topic explains how to configure column layouts, colors, and dynamic data fi
 
 In the UI builder, the **Customize** panel is located on the right side, as shown in the following image. 
 
-![An example of the Customize panel in the UI builder, the global settings icon.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-customize-panel-example.png)
+![An example of the Customize panel in the UI builder, the global settings icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-customize-panel-example.png)
 
 
 You use the **Customize** panel to configure:
@@ -26,7 +26,7 @@ You use the **Customize** panel to set a range of settings for your view, includ
 
 To configure global settings, navigate to the **Customize** panel, and then choose the global settings icon, as shown in the following image.
 
-![The Customize panel, the global settings icon.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-global-settings-example.png)
+![The Customize panel, the global settings icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-global-settings-example.png)
 
 
 You use global settings to set the overall layout and colors of your view:
@@ -45,19 +45,19 @@ The view resource uses a flexbox pattern with 12 columns. Components occupy a re
 
 In the global settings you can determine how you want to group your columns. For example, in the **Column** section, you can divide the view into two sections of six columns each, as shown in the following image. 
 
-![A Column section, divided into two sections of six columns each.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-layout-columns-example-1.png)
+![A Column section, divided into two sections of six columns each.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-layout-columns-example-1.png)
 
 
 The following image shows an example of what this layout would look like to an agent.
 
-![A view divided into two sections of six columns, as it would appear to an agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-layout-columns-details-example-1.png)
+![A view divided into two sections of six columns, as it would appear to an agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-layout-columns-details-example-1.png)
 
 
 You can also use the **Customize** slider to alter the ratios of these groupings. For example, you can set it so the left side of the view is four columns and the right side is eight, as shown in the following image:
 
-![A layout with four columns on one side and eight on the other.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-layout-columns-example-2.png)
+![A layout with four columns on one side and eight on the other.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-layout-columns-example-2.png)
 
 
 The following image shows an example of how this layout would appear to the user.
 
-![A view of four columns on one side and either on the other, as it would appear to an agent.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-layout-columns-details-example-2.png)
+![A view of four columns on one side and either on the other, as it would appear to an agent.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-properties-layout-columns-details-example-2.png)

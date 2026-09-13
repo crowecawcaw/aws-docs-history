@@ -11,4 +11,4 @@ In step-by-step guides, users must choose a button to proceed to a new page in g
 
 The following image shows an example of the **Action** section in the **Customize** panel of the no-code builder.
 
-![The Action section of the Customize panel in the no-code UI builder.](http://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-setting-actions-in-flows-example.png)
+![The Action section of the Customize panel in the no-code UI builder.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-setting-actions-in-flows-example.png)

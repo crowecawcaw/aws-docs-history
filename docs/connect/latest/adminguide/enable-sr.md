@@ -25,7 +25,7 @@ The steps in this section explain how to update your instance settings to enable
 1. Choose your instance alias.
 
 1. In the navigation pane, choose **Data storage**, scroll down to **Screen recordings** and choose **Edit**, as shown in the following image.  
-![The Screen recordings section of the Data storage page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/console-screenrecordings.png)
+![The Screen recordings section of the Data storage page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/console-screenrecordings.png)
 
 1. Choose **Enable screen recording**, and then choose **Create a new S3 bucket (recommended)** or **Select an existing S3 bucket**.
 
@@ -48,7 +48,7 @@ Follow the instructions in [Connect Customer Client Application](amazon-connect-
 <a name="configure-recording-block"></a>
 + Add a [Set recording and analytics behavior](set-recording-behavior.md) block immediately after the point of entry to the flow. Add the block to every flow that you want to enable for screen recording.
 + The following image shows the properties page of the [Set recording and analytics behavior](set-recording-behavior.md) block. In the **Screen Recording** section, choose **On**.  
-![The Set recording behavior block, the Screen recording section.](http://docs.aws.amazon.com/connect/latest/adminguide/images/screenrecordingblock.png)
+![The Set recording behavior block, the Screen recording section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screenrecordingblock.png)
 
 ## Configuration tips
 <a name="tips-sr"></a>

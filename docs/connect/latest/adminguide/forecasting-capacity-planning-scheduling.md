@@ -18,4 +18,4 @@ For information about where Connect Customer forecasting & agent scheduling is a
 
 The following diagram shows a typical end-to-end optimization workflow by persona: Connect Customer administrator, forecaster, scheduler, capacity planner, and agent. It lists the tasks performed by each persona. 
 
-![A five column diagram, one column for each persona, the tasks they perform.](http://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-workflow-overview.png)
+![A five column diagram, one column for each persona, the tasks they perform.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-workflow-overview.png)

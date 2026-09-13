@@ -22,7 +22,7 @@ Before you begin, note the following:
 
 The following diagram shows the order in which steps take place for SAML requests to authenticate users and federate with Connect Customer. It is not a flow diagram for a threat model. 
 
-![Overview of the request flow for SAML authentication requests with Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saml-overview.png)
+![Overview of the request flow for SAML authentication requests with Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saml-overview.png)
 
 
 SAML requests go through the following steps:
@@ -53,7 +53,7 @@ The following steps are required to enable and configure SAML authentication for
 **For a list of allowed characters in user names**, see the documentation for the `Username` property in the [CreateUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUser.html) action. 
  Due to the association of a Connect Customer user and an AWS IAM role, the user name must match exactly the RoleSessionName as configured with your AWS IAM federation integration, which typically ends up being the user name in your directory. The format of the username should match the intersection of the format conditions of the [RoleSessionName](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) and an [Connect Customer user](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUser.html#connect-CreateUser-request-DirectoryUserId), as shown in the following diagram:  
 
-![Ven diagram of rolesessionname and Connect Customer user.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saml-ven-diagram.png)
+![Ven diagram of rolesessionname and Connect Customer user.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saml-ven-diagram.png)
 
 
 1. Configure your identity provider for the SAML assertions, authentication response, and relay state. Users log in to your identity provider. When successful, they are redirected to your Connect Customer instance. The IAM role is used to federate with AWS, which allows access to Connect Customer.
@@ -257,7 +257,7 @@ Add users to your connect instance, making sure that the user names exactly matc
 
 When a user logs in to the identity provider, but no account with the same user name is found in Connect Customer, the following **Access denied** message appears.
 
-![An Access denied error for a user whose name is not in Connect Customer.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saml-access-denied.png)
+![An Access denied error for a user whose name is not in Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saml-access-denied.png)
 
 <a name="bulk-user-upload"></a>
 **Bulk upload users with the template**  
@@ -273,7 +273,7 @@ As a best practice, you should also define a process for your Connect Customer u
 **About session expiration**  
 Connect Customer sessions expire 12 hours after a user logs in. After 12 hours, users are automatically logged out, even if they are currently on a call. If your agents stay logged in for more than 12 hours, they need to refresh the session token before it expires. To create a new session, agents need to log out of Connect Customer and your IdP and then log in again. This resets the session timer set on the token so that agents are not logged out during an active contact with a customer. When a session expires while a user is logged in, the following message appears. To use Connect Customer again, you must log in to your identity provider.
 
-![Error message displayed when the session expires for a SAML-based user.](http://docs.aws.amazon.com/connect/latest/adminguide/images/saml-session-expired.png)
+![Error message displayed when the session expires for a SAML-based user.](https://docs.aws.amazon.com/connect/latest/adminguide/images/saml-session-expired.png)
 
 
 **Note**  

@@ -37,7 +37,7 @@ To forward an email contact to an external address:
 
 1. Choose **Send** to forward the email.
 
-![The email forward interface in the CCP.](http://docs.aws.amazon.com/connect/latest/adminguide/images/email-forward-interface.png)
+![The email forward interface in the CCP.](https://docs.aws.amazon.com/connect/latest/adminguide/images/email-forward-interface.png)
 
 
 The forwarded email is sent to the external recipients. The email contact remains active in your CCP until you end it either by responding to it or choosing **Done** to close it.

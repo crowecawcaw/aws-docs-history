@@ -14,19 +14,19 @@ Conversational analytics Rules - Word Collections uses the same set of security 
 <a name="word-collections-how-to-access"></a>
 
 1. When you create or update a conversational analytics rule, choose the gear icon on top right of the **Exact match** condition card, as shown in the following image.  
-![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/word-collections-permissions-how-to-access-1.png)
+![Keywords or phrases option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/word-collections-permissions-how-to-access-1.png)
 
 1. On the **Word collections** management page, you can view existing word collections and create new word collections.  
-![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/word-collections-permissions-how-to-access-2.png)
+![Keywords or phrases option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/word-collections-permissions-how-to-access-2.png)
 
 ## How to create a user word collection
 <a name="create-user-word-collections"></a>
 
 1. On the **Word collections** management page, choose **Create a word collection**.  
-![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-user-word-collections-1.png)
+![Keywords or phrases option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-user-word-collections-1.png)
 
 1. Enter the name of the word collection, add words and phrases, then choose **Save**.  
-![Keywords or phrases option in the UI.](http://docs.aws.amazon.com/connect/latest/adminguide/images/create-user-word-collections-2.png)
+![Keywords or phrases option in the UI.](https://docs.aws.amazon.com/connect/latest/adminguide/images/create-user-word-collections-2.png)
 
 ## Word collection limits
 <a name="word-collections-limits"></a>

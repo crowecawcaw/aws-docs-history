@@ -12,7 +12,7 @@ Build and manage customer communication experiences. Connect customers to agents
 
 Connect Customer helps a variety of personas:
 
-![One application that provides a seamless experience for customers, agents, supervisors and administrators.](http://docs.aws.amazon.com/connect/latest/adminguide/images/firstcallimage.png)
+![One application that provides a seamless experience for customers, agents, supervisors and administrators.](https://docs.aws.amazon.com/connect/latest/adminguide/images/firstcallimage.png)
 
 + **Customers** reach out to your contact center because they are having trouble with some issue they can't resolve for themselves, or resolve easily. They want the ability to contact your contact center using any method they choose. 
 + **Agents** are responsible for helping customers solve general problems, and come to a quick resolution whenever possible. They spend most of their time interacting with customers, whether through voice, chat, SMS, or other channels, and then documenting the interaction.

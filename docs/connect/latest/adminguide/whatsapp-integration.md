@@ -66,7 +66,7 @@ The following steps explain how to use the console.
    + In the navigation pane, choose **Channels**, then **Phone numbers**. 
 
      The **Active Channels** column displays **WhatsApp** for all WhatsApp numbers.   
-![The Phone numbers page showing a WhatsApp number.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whats-app-imported-number.png)
+![The Phone numbers page showing a WhatsApp number.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whats-app-imported-number.png)
 
 ## Step 2: Configure an inbound contact flow on your phone number
 <a name="inbound-contact-flow"></a>
@@ -86,7 +86,7 @@ The following sets of steps explain how to configure an inbound contact flow and
 1. Choose the WhatsApp number, then choose **Edit**.
 
 1. Under **Flow/IVR**, choose the flow you updated.  
-![The Contact flow or IVR section of the Edit page showing a WhatsApp flow.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-flow-ivr.png)
+![The Contact flow or IVR section of the Edit page showing a WhatsApp flow.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-flow-ivr.png)
 
 1. Choose **Save**.
 
@@ -114,7 +114,7 @@ In this step, you use the Contact Control Panel (CCP) and a mobile phone to send
 1. Using WhatsApp on your mobile phone, start a conversation by entering the phone number you added previously. 
 
    The following image shows a message with **Options**, and the resulting list of options.  
-![Mobile phone screen showing an example message.](http://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-options-results.png)
+![Mobile phone screen showing an example message.](https://docs.aws.amazon.com/connect/latest/adminguide/images/whatsapp-options-results.png)
 
 ## Next steps: Prepare to go live
 <a name="whatsapp-next-steps"></a>

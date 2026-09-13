@@ -35,7 +35,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 The following image shows the **Properties** page of the **Set customer queue flow** block.
 
-![The properties page of the Set customer queue flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-customer-queue-properties.png)
+![The properties page of the Set customer queue flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-customer-queue-properties.png)
 
 
 For information about using attributes, see [Use Connect Customer contact attributes](connect-contact-attributes.md).
@@ -45,7 +45,7 @@ For information about using attributes, see [Use Connect Customer contact attrib
 
 The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**.
 
-![A configured set customer queue flow block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/set-customer-queue-configured.png)
+![A configured set customer queue flow block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-customer-queue-configured.png)
 
 
 ## Sample flows

@@ -57,7 +57,7 @@ Orchestrator AI agents require responses to be wrapped in `<message>` tags. With
 1. Build a contact flow that routes contacts to your AI agent. Add a [Get customer input](get-customer-input.md) block that invokes your Conversational AI bot, and a [Check contact attributes](check-contact-attributes.md) block to route based on the Return to Control tool selected by the AI agent. For more information, see [Create a flow and add your conversational AI bot](create-bot-flow.md).
 
    The following image shows an example contact flow for agentic self-service.  
-![Example agentic self-service contact flow with Set logging behavior, Set voice, Get customer input with a Lex bot.](http://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-self-service-contact-flow.png)
+![Example agentic self-service contact flow with Set logging behavior, Set voice, Get customer input with a Lex bot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agentic-self-service-contact-flow.png)
 
 **Tip**  
 If you want to enable chat streaming for agentic self-service, see [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md). For a complete end-to-end chat walkthrough with streaming, see [Set up agentic self service chat end to end](setup-agentic-selfservice-end-to-end.md).

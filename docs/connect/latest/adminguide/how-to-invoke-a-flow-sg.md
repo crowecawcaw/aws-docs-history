@@ -15,4 +15,4 @@ For example, by checking the IVR responses, queue name, and customer info, you c
 
 The following image shows the **Properties** page for the **Set event flow** block. The event hook is set to **Default flow for Agent UI**.
 
-![The Set event flow block, the Default flow for Agent UI event hook.](http://docs.aws.amazon.com/connect/latest/adminguide/images/example-flow-id-sq.png)
+![The Set event flow block, the Default flow for Agent UI event hook.](https://docs.aws.amazon.com/connect/latest/adminguide/images/example-flow-id-sq.png)

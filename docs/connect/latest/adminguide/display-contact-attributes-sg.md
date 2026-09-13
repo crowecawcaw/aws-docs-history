@@ -17,7 +17,7 @@ For interactive documentation that shows a preview of a **Detail view**, see [De
 
 The following image shows an example of a **Detail view**. It has a page heading, description, and four examples.
 
-![The Detail view, with the page heading, description, and four examples with attributes.](http://docs.aws.amazon.com/connect/latest/adminguide/images/details-view-page-heading-sq.png)
+![The Detail view, with the page heading, description, and four examples with attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/details-view-page-heading-sq.png)
 
 
 **Sections**

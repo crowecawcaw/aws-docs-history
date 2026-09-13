@@ -85,7 +85,7 @@ Connect Customer for two-way SMS is available in the AWS Regions listed in [Mess
 1. On the **Two-way SMS** tab choose the **Edit settings** button.
 
 1. On the **Edit settings** page choose **Enable two-way message**, as shown in following image.  
-![The AWS End User Messaging SMS edit settings page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sms-edit-settings.png)
+![The AWS End User Messaging SMS edit settings page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sms-edit-settings.png)
 
 1. For **Destination type** choose **Connect Customer**.
 
@@ -100,12 +100,12 @@ If you can't create a policy or role, double-check that your Connect Customer in
 1. In the **Import Phone Number to Connect Customer** window:
 
    1. For the **Incoming messages destination** drop down choose the Connect Customer instance that will receive incoming messages.  
-![The AWS End User Messaging SMS import phone numbers page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sms-import-phone-number.png)
+![The AWS End User Messaging SMS import phone numbers page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sms-import-phone-number.png)
 
    1. Choose **Import Phone Number**.
 
 1. After the number is successfully imported to Connect Customer, you can view it in the Connect Customer admin website: In the left navigation, choose **Channels**, **Phone numbers**. The SMS number appears on the **Phone numbers** page, as shown in the following image.  
-![The Connect Customer admin website, the Phone numbers page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/golden-sms-channel.png)
+![The Connect Customer admin website, the Phone numbers page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/golden-sms-channel.png)
 
 ## Step 3: Update flows to branch on SMS contacts
 <a name="branch-on-sms-contacts"></a>
@@ -121,13 +121,13 @@ If you have existing flows that you want to branch when a contact uses SMS, add 
 1.  In the **Conditions to check** section, set **condition** to **Equals** and **value** to **connect:SMS**.
 
    The following image of a **Properties** page shows it's configured to branch when the contact comes in on the SMS channel.  
-![The properties page of the check contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/golden-check-attributes-block.png)
+![The properties page of the check contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/golden-check-attributes-block.png)
 
 1. Associate the SMS phone number with the flow: In the left navigation, choose **Channels**, **Phone numbers**, choose the SMS number, and then choose **Edit**.  
-![The Edit phone number page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/golden-sms-number.png)
+![The Edit phone number page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/golden-sms-number.png)
 
 1. Under **Flow/IVR**, choose the flow you updated, and then choose **Save**.  
-![The properties page of the check contact attributes block.](http://docs.aws.amazon.com/connect/latest/adminguide/images/golden-assign-flow-sms-number.png)
+![The properties page of the check contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/golden-assign-flow-sms-number.png)
 
 **Tip**  
 When you first purchase a phone number, the phone number's status is **Pending**. When the phone number is ready to use, the phone number's status is **Active**. If the phone number requires [registration](https://docs.aws.amazon.com/sms-voice/latest/userguide/registrations.html), then you must complete that step before the phone number's status changes to **Active**.
@@ -147,7 +147,7 @@ To route keyword messages to Connect Customer instead, so that you can handle th
 1. Using a mobile device, send an SMS to the phone number that you requested in [Step 1: Request a number in AWS End User Messaging SMS](#get-sms-number). 
 **Tip**  
 If your AWS End User Messaging SMS phone number is still in the SMS sandbox, you can only test sending and receiving SMS messages with verified destination numbers that you have configured. For move instructions, see [Moving from the SMS sandbox to production](https://docs.aws.amazon.com/sms-voice/latest/userguide/registrations.html).   
-![The agent CCP and the customer phone sending SMS messages.](http://docs.aws.amazon.com/connect/latest/adminguide/images/sms-testing2.png)
+![The agent CCP and the customer phone sending SMS messages.](https://docs.aws.amazon.com/connect/latest/adminguide/images/sms-testing2.png)
 
 ## Step 5: Prerequisites for going into production
 <a name="verify-sms-config"></a>

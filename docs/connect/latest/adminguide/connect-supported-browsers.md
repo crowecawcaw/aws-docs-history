@@ -16,7 +16,9 @@ Before you work with Connect Customer, verify that your browser is supported usi
 | Mozilla Firefox | Latest three versions | Open Firefox. On the menu, choose the Help icon and then choose **About Firefox**. The version number is listed under the Firefox name.<br />Please see [Firefox Enhanced Tracking Protection updates](#browsers-firefox-issue). | 
 | Mozilla Firefox ESR | Versions are supported until their Firefox [end-of-life date](https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle). For details, see the [Firefox ESR release calendar](https://wiki.mozilla.org/Release_Management/Calendar).  | Open Firefox. On the menu, choose the Help icon and then choose **About Firefox**. The version number is listed under the Firefox name. | 
 
-Safari is not supported. 
+**Note**  
+Connect Customer tests only the browsers listed in the table above. Other browsers, such as Safari and Island Browser, aren't supported. Unsupported browsers fall outside our testing scope, so we can't determine whether they'll work correctly in a production environment. Before using an unsupported browser in production, we strongly recommend that you conduct comprehensive end-to-end testing and confirm that all your use cases function correctly.  
+Should you encounter issues, we'll provide support on a best-effort basis. Before we investigate the issue, you must reproduce it in a supported browser.
 
  For more requirements, see [Agent headset and workstation requirements for using the Contact Control Panel (CCP)](ccp-agent-hardware.md).
 
@@ -60,13 +62,13 @@ To prevent impacts to your users (agents), we recommend that your users complete
 1. In your Firefox browser, choose **Settings**, **Privacy & Security**
 
 1. In the **Custom** box, for **Cookies** choose **Cross-site tracking cookies**, as shown in the following image.  
-![The Privacy & Security page in Firefox.](http://docs.aws.amazon.com/connect/latest/adminguide/images/cross-site-cookies.png)
+![The Privacy & Security page in Firefox.](https://docs.aws.amazon.com/connect/latest/adminguide/images/cross-site-cookies.png)
 
 ## Firefox browser guidance for Microphone Access
 <a name="firefox-browser-mic"></a>
 
 The Connect Customer CCP conforms to Firefox microphone usage guidance, and only has access to connect to the user's microphone when the CCP tab is in focus. This might lead to missed call scenarios when the CCP tab is not in focus, for example, if the agent focused on a different tab or application. 
-+ Agents must focus on the CCP or Agent Workspace Firefox browser tab when they accept and connect to a voice contact.
++ Agents must focus on the CCP or agent workspace Firefox browser tab when they accept and connect to a voice contact.
 
 ## Microsoft Edge v146 autoplay policy change
 <a name="edge-autoplay-issue"></a>
@@ -126,7 +128,7 @@ If your system has a dedicated GPU, you can improve performance by changing its 
 1. On your computer, open **Windows Settings**.
 
 1. Navigate to **Display**, **Graphics**, **Browse**. The following image shows the **Browse** button.  
-![Windows Settings, Graphics, Browse button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/firefox-display-graphics.png)
+![Windows Settings, Graphics, Browse button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/firefox-display-graphics.png)
 
 1. Navigate to the installation folder:
    + For **Firefox**, it is typically located at path: `C:\Program Files\Mozilla Firefox`
@@ -135,9 +137,9 @@ If your system has a dedicated GPU, you can improve performance by changing its 
 1. Select `firefox.exe` or `chrome.exe`.
 
 1. Choose **Options** under Firefox or Chrome. The following image shows an example of the Firefox High performance **Options** button.  
-![The Options button for Firefox High Performance.](http://docs.aws.amazon.com/connect/latest/adminguide/images/firefox-example.png)
+![The Options button for Firefox High Performance.](https://docs.aws.amazon.com/connect/latest/adminguide/images/firefox-example.png)
 
 1. Choose **High Performance** to use the dedicated GPU. The following image shows an example **Graphics preference** page with the **High performance** option.  
-![The Graphic preference page, the High performance option.](http://docs.aws.amazon.com/connect/latest/adminguide/images/graphics-preference.png)
+![The Graphic preference page, the High performance option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/graphics-preference.png)
 
 1. Save your changes and restart your browser.

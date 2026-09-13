@@ -16,15 +16,15 @@ Following are key features for agents who use multi-party monitoring:
 When calls have three or more participants, agents can add participants to the call even after a caller drops.  
 The following example illustrates how previous and next contact IDs are mapped when an agent performs a series of consults followed by a transfer.  
 
-![Contact IDs are mapped during a multi-party call.](http://docs.aws.amazon.com/connect/latest/adminguide/images/connect-consult-diagram.png)
+![Contact IDs are mapped during a multi-party call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/connect-consult-diagram.png)
 
 The following example illustrates how previous and next contact IDs are mapped in a scenario where agents perform a series of transfers.  
 
-![Previous and next contact IDs are mapped when agents transfer callers.](http://docs.aws.amazon.com/connect/latest/adminguide/images/connect-transfer-diagram.png)
+![Previous and next contact IDs are mapped when agents transfer callers.](https://docs.aws.amazon.com/connect/latest/adminguide/images/connect-transfer-diagram.png)
 
 The following example illustrates how previous and next contact IDs are mapped in a scenario where additional web, in-app, and video calling users are added  
 
-![Contact IDs are mapped when additional web, in-app, and video calling users are added.](http://docs.aws.amazon.com/connect/latest/adminguide/images/webrtc-diagram2.png)
+![Contact IDs are mapped when additional web, in-app, and video calling users are added.](https://docs.aws.amazon.com/connect/latest/adminguide/images/webrtc-diagram2.png)
 
 
 The following table summarizes the differences between the agent's experience using the Contact Control Panel (CCP) for three-party calls and multi-party calls. For more information about the agent's experience with multi-party conversations, see [Host multi-party calls](multi-party-calls.md) and [Host multi-party chats](multi-party-chat.md).

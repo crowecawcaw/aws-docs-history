@@ -7,7 +7,7 @@ Supervisors are often required to review the contacts for many agents, for quali
 
 The following image of a contact record shows features that you can use to quickly navigate transcripts and audio to find areas that need your attention. While the image shows a voice contact, the same features apply to chat contacts.
 
-![An analysis of a voice contact.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-navigate-transcripts2.png)
+![An analysis of a voice contact.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-navigate-transcripts2.png)
 
 
 1. Use [Show key highlights](#contact-lens-contact-summarization) to review only the issue, outcome, or action item.
@@ -58,4 +58,4 @@ When you choose the category tags, conversational analytics auto-navigates to th
 
 The following image shows part of a **Contact details** page for a chat. 
 
-![A transcript of chat, a category, the relevant section of the transcript.](http://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-category-tag-navigation.png)
+![A transcript of chat, a category, the relevant section of the transcript.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-category-tag-navigation.png)

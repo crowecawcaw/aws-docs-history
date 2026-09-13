@@ -14,7 +14,7 @@ When a user who is not the report owner views the **Share report** dialog box, t
 1. After you create and save a Dashboard, Real-time metrics, Historical metrics, or Login/logout report, choose **Actions**, **Share report**.
 
 1. In the **Share report** dialog box, set the **Read-only** toggle to **On**, and then choose **Save**. This toggle is shown in the following image of the **Share report** dialog box.  
-![The toggle to make a report Read-only.](http://docs.aws.amazon.com/connect/latest/adminguide/images/reports-readyonly.png)
+![The toggle to make a report Read-only.](https://docs.aws.amazon.com/connect/latest/adminguide/images/reports-readyonly.png)
 
     When this toggle is **On**, no user—*including the report owner*—can save changes to the report settings: Interval & Time range, Groupings, Filters, and Metrics.
 
@@ -29,9 +29,9 @@ When a user who is not the report owner views the **Share report** dialog box, t
 
 Users can still make changes to the report settings but they won't be able to save them to the report. The **Save** button on the report page is disabled. A message is displayed, **This Report is read-only and cannot be modified**, as shown in the following image. 
 
-![A reports page with the Save button disabled, and a message that the report is Read-only.](http://docs.aws.amazon.com/connect/latest/adminguide/images/reports-readonly-message.png)
+![A reports page with the Save button disabled, and a message that the report is Read-only.](https://docs.aws.amazon.com/connect/latest/adminguide/images/reports-readonly-message.png)
 
 
 When a user who is not the report owner views the **Share report** dialog box, the **Read-Only** toggle is disabled, as shown in the following image.
 
-![The Read-only toggle in the disabled state, in the Share report dialog box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/reports-readonly-disabled.png)
+![The Read-only toggle in the disabled state, in the Share report dialog box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/reports-readonly-disabled.png)

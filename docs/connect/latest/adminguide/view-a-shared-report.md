@@ -11,7 +11,7 @@ To view a report that someone has shared with you, you need the following:
   +  **View** Saved reports
 
   These permissions are shown in the following image of the **Analytics and Optimization** section of the security profiles page.  
-![The Analytics and optimization section of the security profiles page.](http://docs.aws.amazon.com/connect/latest/adminguide/images/permissions-view-saved-metrics-reports.png)
+![The Analytics and optimization section of the security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/permissions-view-saved-metrics-reports.png)
 
 ## Tips for viewing a shared report
 <a name="tips-view-a-shared-report"></a>

@@ -26,7 +26,7 @@ In the Connect Customer console, select the following telephony options:
 
 The following image shows these options on the **Telephony and chat options** page.
 
-![The Telephony options page, the enhanced contact monitoring capabilities.](http://docs.aws.amazon.com/connect/latest/adminguide/images/barge-voice-chat-enable.png)
+![The Telephony options page, the enhanced contact monitoring capabilities.](https://docs.aws.amazon.com/connect/latest/adminguide/images/barge-voice-chat-enable.png)
 
 
 **Note**  
@@ -59,10 +59,10 @@ For the number of supervisors who can monitor a call at the same time, see [Conn
 1. On the Connect Customer admin website navigation menu, choose **Analytics and optimization**, **Real-time metrics**, **Agents**.
 
 1. Choose the eye icon that appears next to the **Voice** channel of the agent that you want to monitor, as shown in the following image. You can barge into a conversation that you had been monitoring already.   
-![The Real-time metrics page, the eye icon next to a Voice channel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-voice-channel.png)
+![The Real-time metrics page, the eye icon next to a Voice channel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-voice-channel.png)
 
 1. This takes you to the open CCP, as shown in the following image. You can monitor the call and toggle between the **Monitor** and **Barge** states. The following image shows the **Monitor** state.  
-![The CCP, the Monitor and Barge toggles.](http://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-voice-channel-ccp.png)
+![The CCP, the Monitor and Barge toggles.](https://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-voice-channel-ccp.png)
 
 ## Barge live chats with contacts
 <a name="barge-chats-how-to-use"></a>
@@ -74,10 +74,10 @@ For the number of supervisors who can monitor a call at the same time, see [Conn
 1. On the Connect Customer admin website navigation menu, choose **Analytics and optimization**, **Real-time metrics**, **Agents**.
 
 1. Choose the eye icon that appears next to the **Chat** channel of the agent that you want to monitor, as shown in the following image. You can barge into a conversation that you had been monitoring already.   
-![The Real-time metrics page, the eye icon next to a chat channel.](http://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-chat-channel.png)
+![The Real-time metrics page, the eye icon next to a chat channel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/monitor-barge-chat-channel.png)
 
 1. This takes you to the open CCP, as shown in the following image. You can monitor the chat conversation and toggle between the **Monitor** and **Barge** states. The following image shows the **Monitor** state.  
-![The CCP, the Monitor and Barge toggles.](http://docs.aws.amazon.com/connect/latest/adminguide/images/barge-chat-ccp.png)
+![The CCP, the Monitor and Barge toggles.](https://docs.aws.amazon.com/connect/latest/adminguide/images/barge-chat-ccp.png)
 
    Following is an example of what the CCP looks like when a supervisor barges into a chat.  
-![The CCP, a barge message from the supervisor.](http://docs.aws.amazon.com/connect/latest/adminguide/images/barge-chat-message.png)
+![The CCP, a barge message from the supervisor.](https://docs.aws.amazon.com/connect/latest/adminguide/images/barge-chat-message.png)

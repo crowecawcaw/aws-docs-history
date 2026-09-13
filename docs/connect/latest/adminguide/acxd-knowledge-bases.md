@@ -37,8 +37,8 @@ Knowledge base settings control how content is matched and returned.
 
 |  |  | 
 | --- |--- |
-| **Confidence threshold** | Determines how confident the match must be before the knowledge base returns an answer. | 
-| **Summarization** | Allows the application to rephrase retrieved content into a more natural response. | 
+| **Minimum confidence score** | Determines how confident the match must be before the knowledge base returns an answer. | 
+| **Summarize** | Allows the application to rephrase retrieved content into a more natural response. | 
 | **Temperature** | Controls how much flexibility the model has when summarizing or rephrasing an answer. Lower values are more conservative; higher values allow more variation. | 
 | **Top P** | Controls how many word choices are considered when generating a summarized response. Lower values generally produce more conventional responses. | 
 
@@ -57,7 +57,7 @@ Use Q&A when your content is already organized as clear questions and approved a
 
 1. Select **Knowledge bases**.
 
-1. Select **Create knowledge base**.
+1. Select **New knowledge base**.
 
 1. Enter a name.
 
@@ -124,7 +124,7 @@ Example metadata schema:
 
 1. Save the schema.
 
-1. Open the **Content** tab.
+1. Open the **Q&A content** tab.
 
 1. Expand the relevant Q&A article.
 
@@ -142,11 +142,11 @@ After creating or updating Q&A content, publish the knowledge base so the change
 
 1. Open the Q&A knowledge base.
 
-1. Select the **Deployments** tab.
+1. Select the **Publish** tab.
 
 1. Enter an optional deployment description.
 
-1. Select **Publish**.
+1. Select **Publish knowledge base**.
 
 Publishing creates a new version of the Q&A knowledge base content. After the initial application deployment, publishing Q&A updates can make content changes available without requiring a new application deployment.
 
@@ -156,11 +156,11 @@ If needed, you can roll back a Q&A knowledge base to a previous published versio
 
 1. Open the Q&A knowledge base.
 
-1. Select the **Deployments** tab.
+1. Select the **Publish** tab.
 
 1. Locate the previous version.
 
-1. Select **Roll back** for the version you want to restore.
+1. Select **Rollback** for the version you want to restore.
 
 Use rollback when a recent content update introduced incorrect or unintended answers.
 
@@ -179,7 +179,7 @@ Document ingestion processes your uploaded files so the application can search a
 
 1. Select **Knowledge bases**.
 
-1. Select **Create knowledge base**.
+1. Select **New knowledge base**.
 
 1. Enter a name.
 
@@ -187,7 +187,7 @@ Document ingestion processes your uploaded files so the application can search a
 
 1. Create the knowledge base.
 
-1. Select **Upload**.
+1. Select **Add documents**.
 
 1. Upload files from your computer (pdf, txt, jpg, png, doc, docx).
 

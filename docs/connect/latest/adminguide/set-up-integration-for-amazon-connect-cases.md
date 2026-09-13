@@ -12,12 +12,12 @@ To update your Connect Customer Cases data in Connect Customer Customer Profiles
 
 1.  On the instances page, choose the instance alias. The instance alias is also your **instance name**, which appears in your Connect Customer URL. The following image shows the **Connect Customer virtual contact center instances** page, with a box around the instance alias. 
 
-![The instance alias.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-1.png)
+![The instance alias.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-1.png)
 
 
 1.  In the navigation pane, choose **Cases** and note your Cases domain ID from the **Domain details** section. 
 
-![The Cases page, the Domain details section showing the domain ID.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-2.png)
+![The Cases page, the Domain details section showing the domain ID.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-2.png)
 
 
 1.  Using the AWS CLI, create a Case event configuration to send Connect Customer Cases Events to the default EventBridge bus for your AWS account. 
@@ -63,20 +63,20 @@ aws connectcases put-case-event-configuration --domain-id <YOUR_CASES_DOMAIN_ID>
 
 1.  Choose **Create event bus**.
 
-![The Event buses page in the Amazon EventBridge console, the Create event bus button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-3.png)
+![The Event buses page in the Amazon EventBridge console, the Create event bus button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-3.png)
 
 
 1.  Create an event bus with name `connect-cases-to-customer-profiles`.
 
-![The Create event bus page, the Name box.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-4.png)
+![The Create event bus page, the Name box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-4.png)
 
 
 1.  Go back to your **default event bus** and create a rule with name `connect-cases-to-customer-profiles-rule`. 
 
-![The default event bus, the Create rule button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-5.png)
+![The default event bus, the Create rule button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-5.png)
 
 
-![The Build event pattern step.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-6.png)
+![The Build event pattern step.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-6.png)
 
 +  Event Pattern snippet: 
 
@@ -89,11 +89,11 @@ aws connectcases put-case-event-configuration --domain-id <YOUR_CASES_DOMAIN_ID>
 }
 ```
 
-![The Creation method section, the Custom pattern (JSON editor) option, the Event pattern code.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-7.png)
+![The Creation method section, the Custom pattern (JSON editor) option, the Event pattern code.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-7.png)
 
 +  Choose **Skip to Review and Create** and then **Create rule**. 
 
-![The Skip to Review and create button.](http://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-8.png)
+![The Skip to Review and create button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/stream-data-from-connect-cases-to-event-bridge-8.png)
 
 
 ## Ingest Event Bridge case data to Customer Profiles by using AppIntegrations
