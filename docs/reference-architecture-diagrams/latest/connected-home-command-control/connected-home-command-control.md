@@ -10,7 +10,7 @@ This reference architecture diagram shows how to integrate Alexa with your conne
 ## Connected Home Command and Control on AWS
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to integrate Alexa with connected home devices by using AWS IoT Core, AWS Lambda, Amazon API Gateway, DynamoDB, and Amazon Kinesis.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-home-command-control/images/connected-home-command-control.png)
+![Reference architecture diagram showing how to integrate Alexa with connected home devices by using AWS IoT Core, AWS Lambda, Amazon API Gateway, DynamoDB, and Amazon Kinesis.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-home-command-control/images/connected-home-command-control.png)
 
 
 1. An Alexa-enabled device running the Alexa Voice Services SDK or an Amazon Echo creates an Alexa invocation.
