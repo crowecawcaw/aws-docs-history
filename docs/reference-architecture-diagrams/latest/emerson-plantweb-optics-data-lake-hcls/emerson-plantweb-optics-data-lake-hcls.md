@@ -10,7 +10,7 @@ With this architecture, you can ingest data from multiple disparate sources into
 ## Emerson Plantweb Optics data lake diagram
 <a name="emerson-diagram"></a>
 
-![Reference architecture diagram showing how to ingest manufacturing and laboratory data into a unified data lake by using Emerson PWODL, Amazon Kinesis, Lambda, and SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/emerson-plantweb-optics-data-lake-hcls/images/emerson-plantweb-optics-data-lake-hcls.png)
+![Reference architecture diagram showing how to ingest manufacturing and laboratory data into a unified data lake by using Emerson PWODL, Amazon Kinesis, Lambda, and SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/emerson-plantweb-optics-data-lake-hcls/images/emerson-plantweb-optics-data-lake-hcls.png)
 
 
 The following steps describe the data flow and ingestion pipeline for this architecture:
