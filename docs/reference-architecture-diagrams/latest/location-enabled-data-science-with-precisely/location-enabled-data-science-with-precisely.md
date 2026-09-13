@@ -10,7 +10,7 @@ This reference architecture shows how customers can deploy [Precisely](https://w
 ## Location-enabled Data Science with Precisely on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how customers can deploy Precisely’s geo addressing capabilities on Amazon SageMaker AI or Amazon EMR Studio to enhance experiments with location-aware data.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/location-enabled-data-science-with-precisely/images/location-enabled-data-science-with-precisely.png)
+![Reference architecture diagram showing how customers can deploy Precisely’s geo addressing capabilities on Amazon SageMaker AI or Amazon EMR Studio to enhance experiments with location-aware data.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/location-enabled-data-science-with-precisely/images/location-enabled-data-science-with-precisely.png)
 
 
 1.  **Amazon CloudWatch** is scheduled to invoke **AWS Lambda** at a set intervals (such as monthly or quarterly). 
