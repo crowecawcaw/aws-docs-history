@@ -20,4 +20,4 @@ App Runner connects directly to your container registry or source code repositor
 
 For concepts, tutorials, and reference materials, see [AWS App Runner Developer Guide](https://docs.aws.amazon.com/apprunner/latest/dg/).
 
-![The App Runner application deployment lifecycle](http://docs.aws.amazon.com/apprunner/latest/relnotes/images/app-deploy-lifecycle.png)
+![The App Runner application deployment lifecycle](https://docs.aws.amazon.com/apprunner/latest/relnotes/images/app-deploy-lifecycle.png)

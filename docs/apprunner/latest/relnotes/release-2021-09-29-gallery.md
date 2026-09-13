@@ -14,7 +14,7 @@ Amazon ECR Public added the ability to launch containers directly to AWS App Run
 
 You can now test popular web frameworks and applications hosted on the [Amazon ECR Public Gallery](https://gallery.ecr.aws). When browsing the gallery, look for **Launch with App Runner** on the gallery page for an image. Choose it to open the App Runner console with most details pre-filled. Add the port number for the application and launch a new service.
 
-![Amazon ECR Public Gallery showing a container image page with a Launch with App Runner button](http://docs.aws.amazon.com/apprunner/latest/relnotes/images/ecr-gallery-image-launch.png)
+![Amazon ECR Public Gallery showing a container image page with a Launch with App Runner button](https://docs.aws.amazon.com/apprunner/latest/relnotes/images/ecr-gallery-image-launch.png)
 
 
 For more information, see [Launch a service directly from Amazon ECR Public](https://docs.aws.amazon.com/apprunner/latest/dg/service-source-image.html#service-source-image.providers.ecrpublic.direct) in the *AWS App Runner Developer Guide*.
