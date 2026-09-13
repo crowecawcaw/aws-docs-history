@@ -34,9 +34,9 @@ Following are some common migration problems that could potentially drain projec
 
 The following image shows a high-level architecture of the AWS DMS replication workflow. AWS DMS migration consists of an EC2 replication instance which hosts the DMS software. The replication instance handles the execution of one or more DMS tasks. Each task replicates a specific set of table data from the SQL Server AlwaysOn primary replica source to the Amazon Aurora PostgreSQL target endpoint. For more information, see [Working with an AWS DMS replication instance](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html). For a complete migration playbook, see [Microsoft SQL Server to Amazon Aurora PostgreSQL Migration Playbook](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/chap-sql-server-aurora-pg.html).
 
-![Migration overview](http://docs.aws.amazon.com/dms/latest/sbs/images/sqlserver2postgresql.png)
+![Migration overview](https://docs.aws.amazon.com/dms/latest/sbs/images/sqlserver2postgresql.png)
 
 
 In the rest of this document, we’ll migrate a sample financial institution database from SQL Server AlwaysOn to Aurora PostgreSQL. The database includes tables containing large object (LOB) data types with either a primary key or unique key. Tables with these characteristics pose different migration challenges which will also be discussed. The entity relationship diagram of the sample database is shown below.
 
-![Entity relationship diagram](http://docs.aws.amazon.com/dms/latest/sbs/images/sqlserver2postgresql_schema.png)
+![Entity relationship diagram](https://docs.aws.amazon.com/dms/latest/sbs/images/sqlserver2postgresql_schema.png)

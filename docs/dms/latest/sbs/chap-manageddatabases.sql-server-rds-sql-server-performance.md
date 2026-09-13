@@ -10,7 +10,7 @@ To compare the full load migration performance for all three methods, we used a 
 
 The following image represents the performance comparison of the three migration methods. We expect similar performance trends for larger datasets.
 
-![performance comparison of the three migration methods](http://docs.aws.amazon.com/dms/latest/sbs/images/sql-server-rds-sql-server-performance.png)
+![performance comparison of the three migration methods](https://docs.aws.amazon.com/dms/latest/sbs/images/sql-server-rds-sql-server-performance.png)
 
 
 The elapsed time shown in the diagram is the actual migration time. It doesn’t include the time spent on implementing prerequisites.

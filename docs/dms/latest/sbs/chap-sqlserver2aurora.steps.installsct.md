@@ -18,6 +18,6 @@ First, install the SQL drivers and the AWS Schema Conversion Tool (AWS SCT) on y
    1. In **Global settings**, choose **Drivers**, and then choose **Browse** for **Microsoft SQL Server driver path**. Locate the JDBC driver for SQL Server, and choose **OK**.
 
    1. Choose **Browse** for **MySQL driver path**. Locate the JDBC driver you downloaded for Aurora MySQL, and choose **OK**.  
-![Locating JDBC Drivers](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-drivers.png)
+![Locating JDBC Drivers](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-drivers.png)
 
    1. Choose **OK** to close the **Global settings** dialog box.

@@ -13,7 +13,7 @@ To convert an Oracle schema to a PostgreSQL schema using AWS Schema Conversion T
 
 1. Enter the following information, and then choose **Test Connection**.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.convertschema.html)  
-![Connecting to an Oracle DB instance](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgresql11.png)
+![Connecting to an Oracle DB instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgresql11.png)
 
 1. Choose **OK** to close the alert box, then choose **Connect** to close the dialog box and to connect to the Oracle DB instance.
 
@@ -25,7 +25,7 @@ To convert an Oracle schema to a PostgreSQL schema using AWS Schema Conversion T
 1. Choose **OK** to close the alert box, then choose **Connect** to connect to the Amazon RDS for PostgreSQL DB instance.
 
 1. In the tree in the left panel, select the schema to migrate. In the tree in the right panel, select your target Amazon RDS for PostgreSQL database. Choose **Create mapping**. For more information, see [Creating mapping rules](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Mapping.html) in the *Schema Conversion Tool User Guide*.  
-![Creating a mapping rule](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgresqlmapping.png)
+![Creating a mapping rule](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgresqlmapping.png)
 
 1. Choose **Main view**. In the tree in the left panel, right-click the schema to migrate and choose **Convert schema**.
 

@@ -7,7 +7,7 @@ We analyzed the Oracle Export/Import, Oracle Data Pump, database link, and SQL\*
 
 We expect the similar trend for larger data sets too. We didn’t include Oracle materialized views or SQL Developer database copy because those tools aren’t recommended for data sets larger than 1 GB.
 
-![Performance comparison of Oracle Export/Import](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle2rds-performance-comparison.png)
+![Performance comparison of Oracle Export/Import](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle2rds-performance-comparison.png)
 
 + 18:08 minutes is the total elapsed time for Oracle Data Pump. This time includes:
   + 3:07 minutes to unload data and metadata using `expdp`.

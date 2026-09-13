@@ -9,7 +9,7 @@ This walkthrough covers all steps in the migration from initial analysis of the 
 
 The following diagram shows the basic architecture for the migration.
 
-![Architecture diagram for SAP ASE migration to Amazon Aurora MySQL](http://docs.aws.amazon.com/dms/latest/sbs/images/sap-ase-to-aurora-mysql-architecture-diagram.png)
+![Architecture diagram for SAP ASE migration to Amazon Aurora MySQL](https://docs.aws.amazon.com/dms/latest/sbs/images/sap-ase-to-aurora-mysql-architecture-diagram.png)
 
 
 We use the **pubs2** database for SAP ASE as the example database in the rest of this document.

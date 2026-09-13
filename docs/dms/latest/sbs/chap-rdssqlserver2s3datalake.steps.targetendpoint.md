@@ -93,7 +93,7 @@ The `TimeStampColumnName` setting adds an additional `STRING` column to the targ
 
 The default format is `yyyy-MM-dd HH:mm:ss.SSSSSS`. This format provides a microsecond precision but depends on the source database transaction log timestamp precision. The following image shows the seven microseconds difference between two operations in the `sourceRecordTime` field.
 
-![Time difference between two operations in the sourceRecordTime field.](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-sourcerecordtime.png)
+![Time difference between two operations in the sourceRecordTime field.](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-sourcerecordtime.png)
 
 
 **Note**  
@@ -128,6 +128,6 @@ To create a target endpoint, do the following:
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdssqlserver2s3datalake.steps.targetendpoint.html)
 
 1. Expand the **Endpoint settings** section, choose **Wizard**, and then choose **Add new setting** to add the settings as shown on the following image.  
-![Target endpoint settings.](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-target-endpoint-settings.png)
+![Target endpoint settings.](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-target-endpoint-settings.png)
 
 1. Choose **Create endpoint**.

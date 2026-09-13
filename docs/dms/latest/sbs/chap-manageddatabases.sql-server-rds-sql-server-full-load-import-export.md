@@ -34,7 +34,7 @@ Then you can use this LSN to set up the change data capture (CDC) task in AWS DM
 
 Open the SQL Server Import and Export Wizard from the Windows Start menu. Connect to your source and target databases and select the source tables and views. The following image shows the SQL Server Import and Export Wizard application window.
 
-![SQL Server Import and Export Wizard application window](http://docs.aws.amazon.com/dms/latest/sbs/images/sql-server-rds-sql-server-full-load-import-export.png)
+![SQL Server Import and Export Wizard application window](https://docs.aws.amazon.com/dms/latest/sbs/images/sql-server-rds-sql-server-full-load-import-export.png)
 
 
 Choose **Next**, then choose **Run immediately**, and then choose **Finish**. The SQL Server Import and Export Wizard starts the migration. You can monitor the progress of your migration using the Performing Operation screen. For more information, see [Performing Operation (SQL Server Import and Export Wizard)](https://docs.microsoft.com/en-us/sql/integration-services/import-export-data/performing-operation-sql-server-import-and-export-wizard?view=sql-server-ver15).

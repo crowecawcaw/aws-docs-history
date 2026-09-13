@@ -27,4 +27,4 @@ We will use the [AWS Management Console](https://console.aws.amazon.com/) to pro
 
 Following is an illustration of the migration architecture for this walkthrough.
 
-![Replication instance](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora1.png)
+![Replication instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora1.png)

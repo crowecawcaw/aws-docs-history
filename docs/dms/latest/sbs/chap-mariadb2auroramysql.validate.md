@@ -9,7 +9,7 @@ After your data is loaded successfully, you can select your task on the AWS DMS 
 
 The following screenshot shows the table statics page and its relevant entries.
 
-![Table statistics](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-mariadb2aurmysql-validation.png)
+![Table statistics](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-mariadb2aurmysql-validation.png)
 
 
  AWS DMS can validate the data between source and target engines. The **Validation state **column helps us to validate the data migration. This ensures that your data was migrated accurately from the source to the target.

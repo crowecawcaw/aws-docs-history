@@ -23,14 +23,14 @@ Now you need to provision the necessary AWS resources for this walkthrough.
 
 1. Choose **Next**. On the **Specify Details** page, provide parameter values as shown following.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2redshift.steps.launchrdswcloudformation.html)  
-![Specify Details page](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift3.png)
+![Specify Details page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift3.png)
 
 1. Choose **Next**. On the **Options** page, choose **Next**.
 
 1. On the **Review** page, review the details, and if they are correct choose **Create**.  
-![replication instance](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift5.png)
+![replication instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift5.png)
 
 1.  AWS can take about 20 minutes or more to create the stack with an Amazon RDS for Oracle instance and an Amazon Redshift cluster.  
-![Create Stack page](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift6.png)
+![Create Stack page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift6.png)
 
 1. After the stack is created, select the **OracletoRedshiftDWusingDMS** stack, and then choose the **Outputs** view. Record the JDBC connection strings, **OracleJDBCConnectionString** and **RedshiftJDBCConnectionString**, for use later in this walkthrough to connect to the Oracle and Amazon Redshift databases.

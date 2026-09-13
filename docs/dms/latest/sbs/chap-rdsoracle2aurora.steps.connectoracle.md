@@ -11,7 +11,7 @@ To test the connection to your Oracle DB instance and create the sample schema, 
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2aurora.steps.connectoracle.html)
 
 1. To test the connection, choose **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.  
-![Connecting to the Oracle DB instance](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora9.png)
+![Connecting to the Oracle DB instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora9.png)
 **Note**  
 If your connection is unsuccessful, ensure that the IP address you assigned when creating the AWS CloudFormation template is the one you are attempting to connect from. This is the most common issue when trying to connect to an instance.
 

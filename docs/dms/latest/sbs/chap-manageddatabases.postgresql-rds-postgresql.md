@@ -12,7 +12,7 @@ Customers looking to migrate self-managed PostgreSQL databases to Amazon RDS for
 
 This document describes the hybrid approach. The following diagram shows the components of the hybrid approach.
 
-![PostgreSQL Databases to Amazon RDS for PostgreSQL hybrid migration approach](http://docs.aws.amazon.com/dms/latest/sbs/images/postgresql-rds-postgresql-migration-approach.png)
+![PostgreSQL Databases to Amazon RDS for PostgreSQL hybrid migration approach](https://docs.aws.amazon.com/dms/latest/sbs/images/postgresql-rds-postgresql-migration-approach.png)
 
 
 The hybrid approach provides the following advantages.

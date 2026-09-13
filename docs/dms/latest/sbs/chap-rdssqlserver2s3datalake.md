@@ -44,12 +44,12 @@ This introductory exercise doesn’t cover all use cases of migrating to Amazon 
 
 The following diagram displays a high-level architecture of the solution, where we use AWS DMS to move data from Microsoft SQL Server databases hosted on Amazon Relational Database Service (Amazon RDS) to Amazon Simple Storage Service (Amazon S3).
 
-![A high-level architecture diagram of the migration solution.](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-solution-overview.png)
+![A high-level architecture diagram of the migration solution.](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-solution-overview.png)
 
 
 The following diagram shows the structure of the Amazon S3 bucket from the preceding diagram.
 
-![bucket structure.](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-s3-bucket-structure.png)
+![bucket structure.](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-s3-bucket-structure.png)
 
 
 To replicate data, you need to create and configure the following artifacts in AWS DMS:

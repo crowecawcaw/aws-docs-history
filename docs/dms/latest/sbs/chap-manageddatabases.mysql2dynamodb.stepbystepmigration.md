@@ -235,10 +235,10 @@ DMS creates the control tables “awsdms\_apply\_exceptions” and “awsdms\_fu
         "dynamodb:UpdateItem"
     ],
     "Resource": [
-    "arn:aws:dynamodb:us-west-2:account-id:table/name1",
-    "arn:aws:dynamodb:us-west-2:account-id:table/OtherName*",
-    "arn:aws:dynamodb:us-west-2:account-id:table/awsdms_apply_exceptions",
-    "arn:aws:dynamodb:us-west-2:account-id:table/awsdms_full_load_exceptions"
+    "arn:aws:dynamodb:us-west-2:111122223333:table/name1",
+    "arn:aws:dynamodb:us-west-2:111122223333:table/OtherName*",
+    "arn:aws:dynamodb:us-west-2:111122223333:table/awsdms_apply_exceptions",
+    "arn:aws:dynamodb:us-west-2:111122223333:table/awsdms_full_load_exceptions"
     ]
     },
     {
@@ -474,7 +474,7 @@ To mitigate this issue, we created the target table as mentioned in Step 4, and 
 
 In this case, the source table contains 22 columns in total, but by using object mapping, we restructured the total number of columns to 6, and concatenated other fields into new columns, as mentioned following. Similarly, you can restructure the target based on your requirements using the object mapping feature. For more information, see [Using object mapping to migrate data to DynamoDB](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping). The following DynamoDB console screenshot shows the records in the table. As you can see, DMS migrated the records based on object mapping configuration.
 
-![Table items](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_tableitems.png)
+![Table items](https://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_tableitems.png)
 
 
 #### Parallel load configuration
@@ -584,12 +584,12 @@ After you started the task, the full load operation starts loading tables. You c
 
 In our use case, the following image shows table statistics for the **dms.c5.12xlarge** replication instance with parallel-load threads option. The full load for migrating 1 billion records completed in 14 hours. This means that we achieved our goal of completing full load in less than 15 hours. Further, if you still want to reduce the full load time, you can distribute the table workload using multiple tasks with DMS source filter conditions and Parallel load threads configurations. Following this approach, you can migrate the data in parallel with better performance.
 
-![Table statistics](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_tablestatistics.png)
+![Table statistics](https://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_tablestatistics.png)
 
 
 A task with instance class “dms.c5.large” and default configuration was able to migrate 1 Billion records in 278 hours. Later, the task moved to the `failed` state due to unavailability of the source binary log from the full load start time. To avoid this issue, ensure that you are retaining the binary log based on the full load completion time. Using these statistics, you can understand the benefits of using a parallel load configuration to speed up the migration phase. See the following screenshot for details.
 
-![Parallel load](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_parallelload.png)
+![Parallel load](https://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_parallelload.png)
 
 
 We also monitored the CloudWatch metrics such as compute, memory, and network to identify the resource usage of the AWS DMS instances. You have to identify the resource constraint and scale-up to the AWS DMS instance class that serves your workloads better. You could also scale-down the AWS DMS instance to a t3 or r5 instance class based on the transaction volume for your ongoing replication task.
@@ -600,7 +600,7 @@ We covered most of the prerequisites that help avoid errors related to configura
 
 Optionally, you could choose to validate the successful completion of the data migration by querying the target DynamoDB table from the console. You can use the “Get live item count” option to get the total table record counts.
 
-![Items Summary](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_itemssummary.png)
+![Items Summary](https://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_itemssummary.png)
 
 
 When you choose "Start scan" from **Get live item count**, you will perform a DynamoDB scan to determine the most-recent item count. This scan might consume additional table read capacity units. Generally, it is not recommended to perform this action on very large tables or tables that serve critical production traffic. You can pause the action at any time to avoid consuming extra read capacity.

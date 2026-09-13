@@ -19,7 +19,7 @@ While your replication instance is being created, you can specify the source and
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.createsourcetargetendpoints.html)
 
    The following is an example of the completed page.  
-![Completed replication task connections page](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgressql19.5.png)
+![Completed replication task connections page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgressql19.5.png)
 
 1. After the endpoints and replication instance have been created, test each endpoint connection by choosing **Run test** for the source and target endpoints.
 

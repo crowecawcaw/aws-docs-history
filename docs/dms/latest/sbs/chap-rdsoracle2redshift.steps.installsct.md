@@ -24,12 +24,12 @@ This walkthrough assumes you will use the SQL Workbench/J client to connect to t
    1. From the list of drivers, choose **Oracle**.
 
    1. Choose the **Open** icon, then choose the `ojdbc.jar` file that you downloaded in the previous step. Choose **OK**.  
-![driver management](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift7.png)
+![driver management](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift7.png)
 
    1. From the list of drivers, choose **Redshift**.
 
    1. Choose the **Open** icon, then choose the Amazon Redshift JDBC driver that you downloaded in the previous step. Choose **OK**.  
-![driver management](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift8.png)
+![driver management](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift8.png)
 
 Next, install AWS SCT and the required JDBC drivers.
 
@@ -44,4 +44,4 @@ Next, install AWS SCT and the required JDBC drivers.
 1. Choose **Settings**, **Global settings**, then choose **Drivers**, and then choose **Browse** for **Oracle driver path**. Locate the Oracle JDBC driver and choose **OK**.
 
 1. Choose **Browse** for **Amazon Redshift driver path**. Locate the Amazon Redshift JDBC driver and choose **OK**. Choose **OK** to close the dialog box.  
-![Connecting to the Oracle DB instance](http://docs.aws.amazon.com/dms/latest/sbs/images/sct-drivers.png)
+![Connecting to the Oracle DB instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sct-drivers.png)

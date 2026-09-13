@@ -32,7 +32,7 @@ In this document, we guide you through the steps that you take to migrate the ex
 
 In this walkthrough, the following is the table information that is used to store the vaccine drive data. As it can be noted that the schema does not completely play out the relational model of normalization, and all data are stored in a single table in a de-normalized way.
 
-![Data set](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_dataset.png)
+![Data set](https://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_dataset.png)
 
 
 Generally, relational tables are used to fetch a fixed data set based on the table definition. However, in this use case, we define the tables in a de-normalized manner, and going forward based on the business requirement schema, growth can be exponential in rate and dynamic in nature. Services like Amazon DynamoDB help application developers and architects to rethink the data model in a key-value format for such use cases, and plan to move the data store on DynamoDB.
@@ -60,7 +60,7 @@ Similarly, if you have the following types of tables, you can consider migrating
 
 The following diagram displays a high-level architecture of the solution, where we use AWS DMS to move data from a MySQL database hosted on RDS to Amazon DynamoDB.
 
-![Data set](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_architecture.png)
+![Data set](https://docs.aws.amazon.com/dms/latest/sbs/images/mysql2dynamodb_architecture.png)
 
 
 To connect to the source database where your data resides and target Amazon DynamoDB, you will create two endpoint resources in AWS DMS. An “endpoint” is a resource for storing connection information such as hostname, username, and password. For DynamoDB, it stores an IAM role name that provides access to resources. Endpoint resources also store unique settings for each endpoint to configure the endpoint behavior.

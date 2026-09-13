@@ -9,7 +9,7 @@ Using an AWS DMS task, you can specify what schema to migrate and the type of mi
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-sqlserver2aurora.steps.createmigrationtask.html)
 
    The page should look similar to the following:  
-![Create task page](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-dmstask.png)
+![Create task page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-dmstask.png)
 
 1. Under **Task settings**, specify the settings. The following table describes the settings.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-sqlserver2aurora.steps.createmigrationtask.html)
@@ -24,7 +24,7 @@ Using an AWS DMS task, you can specify what schema to migrate and the type of mi
 
 The **Tasks** section shows you the status of the migration task.
 
-![Tasks section showing the source, target, type, and completion status for a task](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-dmsmonitor.png)
+![Tasks section showing the source, target, type, and completion status for a task](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-dmsmonitor.png)
 
 
 If you chose **Enable logging** during setup, you can monitor your task. You can then view the Amazon CloudWatch metrics.

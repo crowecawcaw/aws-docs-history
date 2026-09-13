@@ -48,7 +48,7 @@ You may have an Oracle database in Amazon RDS for both production or non-product
 
 Everyone’s Oracle application is special, and nobody has the same setup and needs for the future. To provide a single framework for database migrations, this guide organizes the work in 12 steps. These steps cover what is in scope for most migrations. You can use these steps in sequence for multiple purposes and you shouldn’t see them as a strictly linear process. You can consider these steps as an overall arch of a migration project where individual steps and activities can be overlapped or swapped to fit specific project conditions. The following image shows the 12 steps with an approximate share of effort in a typical project.
 
-![The 12 Step Migration Process](http://docs.aws.amazon.com/dms/latest/sbs/images/12-step-migration-process.png)
+![The 12 Step Migration Process](https://docs.aws.amazon.com/dms/latest/sbs/images/12-step-migration-process.png)
 
 
 Each step will be described at a high level in order to allow the reader to skip to relevant topics in the following chapters.

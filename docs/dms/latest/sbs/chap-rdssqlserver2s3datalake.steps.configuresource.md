@@ -13,7 +13,7 @@ For our source database, we use an `m5.xlarge` Amazon RDS instance running Micro
 
 The following image displays the database settings required for ongoing replication with AWS DMS.
 
-![Database backup settings required for ongoing replication.](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-backup-settings.png)
+![Database backup settings required for ongoing replication.](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-backup-settings.png)
 
 
 To perform the full load phase, AWS DMS requires read privileges to the tables in scope for migration. For more information about required permissions, see [Permissions for full load only tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.Permissions).

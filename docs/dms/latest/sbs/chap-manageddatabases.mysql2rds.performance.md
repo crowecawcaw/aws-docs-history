@@ -5,7 +5,7 @@
 
 We tested these three full load options using a Mysql 5.7 database on EC2 as the source and Aurora MySQL 5.7 as the target. The source database contained the AWS DMS [sample database](https://github.com/aws-samples/aws-database-migration-samples/tree/master/mysql/sampledb/v1) with a total of 9 GB of data. The following image shows the performance results.
 
-![Performance comparison of mysqldump](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-mysql2rds-performance-comparison.png)
+![Performance comparison of mysqldump](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-mysql2rds-performance-comparison.png)
 
 
 Percona XtraBackup performed 4x faster than mysqldump and 2x faster than mydumper backups. We tested larger datasets, for example with a total of 400 GB of data, and found that the performance scaled proportionally to the dataset size.

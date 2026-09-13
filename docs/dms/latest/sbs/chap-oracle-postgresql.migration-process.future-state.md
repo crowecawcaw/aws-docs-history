@@ -24,7 +24,7 @@ A **data flow diagram** is useful because it directly shows parts of the value c
 
 The following image shows a simple network diagram that can help easily communicate current architecture.
 
-![A simple network diagram](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle-postgresql-current-architecture.png)
+![A simple network diagram](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle-postgresql-current-architecture.png)
 
 
 ## Future State Architecture
@@ -39,7 +39,7 @@ Depending on how involved your migration is, you may need a transition architect
 
 The following image shows a transition architecture diagram.
 
-![A transition architecture diagram](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle-postgresql-transition-architecture.png)
+![A transition architecture diagram](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle-postgresql-transition-architecture.png)
 
 
 For more information, see [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html).

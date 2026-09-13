@@ -12,7 +12,7 @@ A customer used AWS DMS to migrate data from a SQL Server 2017 source database. 
 
 The following diagram displays the customer’s existing architecture.
 
-![Existing architecture](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-aws-dms-direct-ip-connection.png)
+![Existing architecture](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-aws-dms-direct-ip-connection.png)
 
 
 ## Issues with This Approach
@@ -31,7 +31,7 @@ To address connectivity design deficiencies, AWS DMS recommended to configure th
 
 The following diagram displays the proposed architecture.
 
-![Listener IP connection](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-aws-dms-listener-ip-connection.png)
+![Listener IP connection](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-aws-dms-listener-ip-connection.png)
 
 
  AWS DMS recommended to set the extra connection attribute `MultiSubnetFailover=Yes` in the customer’s AWS DMS endpoint. This ODBC driver attribute helps AWS DMS connect to the new primary in case of an Availability Group failover. This attribute is designed for situations when the connection is broken. In these situations, AWS DMS attempts to connect to all IP addresses associated with the AAG listener. For more information, see [Multi-subnet failovers](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-2017#SupportAgMultiSubnetFailover).

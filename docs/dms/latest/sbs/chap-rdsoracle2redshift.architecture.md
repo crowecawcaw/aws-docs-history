@@ -26,4 +26,4 @@ We use the [AWS Management Console](https://console.aws.amazon.com/) to provisio
 
 Following is an illustration of the migration architecture for this walkthrough.
 
-![replication instance](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2RedshiftMigrationArchitecture.png)
+![replication instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2RedshiftMigrationArchitecture.png)

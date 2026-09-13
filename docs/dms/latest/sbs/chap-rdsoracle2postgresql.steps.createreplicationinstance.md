@@ -5,7 +5,7 @@
 
 After validating the schema structure between source and target databases, continue with the core part of this walkthrough, which is the data migration. The following illustration shows a high-level view of the migration process.
 
-![Migration process](http://docs.aws.amazon.com/dms/latest/sbs/images/datarep-conceptual2.png)
+![Migration process](https://docs.aws.amazon.com/dms/latest/sbs/images/datarep-conceptual2.png)
 
 
 An AWS DMS replication instance performs the actual data migration between source and target. The replication instance also caches the transaction logs during the migration. How much CPU and memory capacity a replication instance has influences the overall time required for the migration.

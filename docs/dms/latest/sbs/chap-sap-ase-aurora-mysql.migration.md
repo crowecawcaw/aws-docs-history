@@ -42,7 +42,7 @@ Create a source endpoint for SAP ASE and test the connection using the preceding
 + Choose **Create endpoint**.
 + For **Endpoint type**, select **Source endpoint**.
 + Enter your desired endpoint configuration.  
-![Source endpoint configuration](http://docs.aws.amazon.com/dms/latest/sbs/images/sap-ase-to-aurora-mysql-endpoint-configuration.png)
+![Source endpoint configuration](https://docs.aws.amazon.com/dms/latest/sbs/images/sap-ase-to-aurora-mysql-endpoint-configuration.png)
 
   You can use your own on-premises name server and a hostname instead of the IP address. For more information, see [Using your own on-premises name server](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.html#CHAP_BestPractices.Rte53DNSResolver).
 + Select the endpoint that you created, and choose **Test connection** from the **Actions** drop-down menu.
@@ -63,7 +63,7 @@ Create a target endpoint for your Amazon Aurora MySQL database.
 + Choose **Create endpoint**.
 + For **Endpoint type**, select **Target endpoint**.
 + Enter your desired endpoint configuration.  
-![Target endpoint configuration](http://docs.aws.amazon.com/dms/latest/sbs/images/sap-ase-to-aurora-mysql-target-endpoint-configuration.png)
+![Target endpoint configuration](https://docs.aws.amazon.com/dms/latest/sbs/images/sap-ase-to-aurora-mysql-target-endpoint-configuration.png)
 + Test the connection using the preceding replication instance.
 
 To establish the connection, make sure that you edit the security group for your Amazon Aurora DB instance. Also, open the 3306 port on your MySQL database to the private IP or IP range of the replication instance.

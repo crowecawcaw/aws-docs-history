@@ -139,7 +139,7 @@ Expand the **Endpoint settings** section, choose **Wizard**, and then choose **A
 
 When using AWS DMS to migrate data to an Amazon Simple Storage Service (Amazon S3) data lake, you can change the default task behavior, such as file formats, partitioning, file sizing, and so on. This helps reduce post-migration processing so that consuming applications can access the data with lower latency. You can customize task behavior using endpoint settings and extra connection attributes (ECAs). Most of the Amazon S3 endpoint settings and ECA settings overlap, except for a few parameters. In this walkthrough, we will configure Amazon S3 endpoint settings.
 
-![Endpoint settings](http://docs.aws.amazon.com/dms/latest/sbs/images/postgresql2s3datalake_endpointsettings.png)
+![Endpoint settings](https://docs.aws.amazon.com/dms/latest/sbs/images/postgresql2s3datalake_endpointsettings.png)
 
 
 ### File Format and Data Partitioning
@@ -429,7 +429,7 @@ In this scenario, we had one task migrating the insurance claim schema which was
 
 The screenshot below shows table statistics with a r5.4xlarge replication instance with the parallel-load ranges option set. We were able to improve the performance of the task, and it completed in one hour and 32 minutes with the parallelism. In case you have a data set which is taking too long to migrate, using parallel-load and increasing the `MaxFullLoadSubTasks` setting could be a way to improve performance.
 
-![Table statistics](http://docs.aws.amazon.com/dms/latest/sbs/images/postgresql2s3datalake_tablestatistics.png)
+![Table statistics](https://docs.aws.amazon.com/dms/latest/sbs/images/postgresql2s3datalake_tablestatistics.png)
 
 
 We covered most prerequisites that help avoid configuration related errors. If you observe issues when running the task, see [Troubleshooting migration tasks in AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Troubleshooting.html), [Best practices for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.html), or reach out to AWS Support for further assistance.

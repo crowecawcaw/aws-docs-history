@@ -32,7 +32,7 @@ This section provides high-level guidance for customers looking for a way to mig
 
 The following illustration demonstrates the migration architecture for this walkthrough.
 
-![Migrate a snapshot into Amazon Aurora MySQL](http://docs.aws.amazon.com/dms/latest/sbs/images/bigquery-redshift-migration-architecture.png)
+![Migrate a snapshot into Amazon Aurora MySQL](https://docs.aws.amazon.com/dms/latest/sbs/images/bigquery-redshift-migration-architecture.png)
 
 
 First, you create a service account to connect to your BigQuery project. Then you create an Amazon Redshift database, as well as the buckets in Cloud Storage and Amazon S3. After this setup, you use AWS SCT to convert source database schemas and apply them to your target database. Finally, you install and configure a data extraction agent to migrate data, upload it to your S3 bucket, and then copy to Amazon Redshift. For big datasets, you can use several data extraction agents to increase the speed of data migration.

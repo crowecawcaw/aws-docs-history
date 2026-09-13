@@ -12,7 +12,7 @@ Customers looking to migrate self-managed SQL Server databases to Amazon RDS for
 
 The following diagram shows the hybrid approach. Here, we use one of the three native tools for full load, and AWS DMS for ongoing replication.
 
-![Hybrid approach for SQL Server to Amazon RDS for SQL Server migration](http://docs.aws.amazon.com/dms/latest/sbs/images/sql-server-rds-sql-server-hybrid-migration.png)
+![Hybrid approach for SQL Server to Amazon RDS for SQL Server migration](https://docs.aws.amazon.com/dms/latest/sbs/images/sql-server-rds-sql-server-hybrid-migration.png)
 
 
 The hybrid approach provides the simplicity of the native tools with additional built-in capabilities of AWS DMS. These include:

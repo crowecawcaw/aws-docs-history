@@ -34,7 +34,7 @@ At a high level, DMS Schema Conversion operates with the following three compone
 
 The following diagram illustrates the DMS Schema Conversion process for this walkthrough.
 
-![SQL Server to PostgreSQL migration architecture in DMS Schema Conversion](http://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-sql-server-aurora-postgresql-migration-architecture.png)
+![SQL Server to PostgreSQL migration architecture in DMS Schema Conversion](https://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-sql-server-aurora-postgresql-migration-architecture.png)
 
 
 Start the walkthrough by [creating the required resources](schema-conversion-sql-server-aurora-postgresql-step-1.md).

@@ -13,7 +13,7 @@ To convert an Oracle schema to an Amazon Redshift schema using AWS Schema Conver
 
 1. Enter the following information, and then choose **Test Connection**.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2redshift.steps.convertschema.html)  
-![Connecting to an Amazon RDS for Oracle DB instance](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift11.png)
+![Connecting to an Amazon RDS for Oracle DB instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift11.png)
 
 1. Choose **OK** to close the alert box, then choose **Connect** to close the dialog box and to connect to the Oracle DB instance.
 
@@ -25,7 +25,7 @@ To convert an Oracle schema to an Amazon Redshift schema using AWS Schema Conver
 1. Choose **OK** to close the alert box, then choose **Connect** to connect to the Amazon Redshift DB instance.
 
 1. In the tree in the left panel, select only the **SH** schema. In the tree in the right panel, select your target Amazon Redshift database. Choose **Create mapping**.  
-![Creating a mapping rule](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift12.png)
+![Creating a mapping rule](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift12.png)
 
 1. Choose **Main view**.
 
@@ -36,7 +36,7 @@ If the **SH** schema does not appear in the list, choose **Actions**, then choos
 1. In the tree in the left panel, right-click the **SH** schema and choose **Create report**. AWS SCT analyzes the **SH** schema and creates a database migration assessment report for the conversion to Amazon Redshift.
 
 1. Check the report and the action items it suggests. The report discusses the type of objects that can be converted by using AWS SCT, along with potential migration issues and actions to resolve these issues. For this walkthrough, you should see something like the following:  
-![Database migration report](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift13.png)
+![Database migration report](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift13.png)
 
 1. Review the report summary. To save the report, choose either **Save to CSV** or **Save to PDF**.
 

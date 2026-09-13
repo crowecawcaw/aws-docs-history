@@ -45,7 +45,7 @@ For this walkthrough we will use Insurance schema which includes 9 tables. The l
 
 The following diagram displays a high-level architecture of the solution, where we use AWS DMS to move data from PostgreSQL databases hosted on Amazon RDS to Amazon S3.
 
-![Solution overview](http://docs.aws.amazon.com/dms/latest/sbs/images/postgresql2s3datalake_overview.png)
+![Solution overview](https://docs.aws.amazon.com/dms/latest/sbs/images/postgresql2s3datalake_overview.png)
 
 
 Nowadays, most organizations prefer to first create a data lake containing all the data, and then transform and move this data to their respective targets. Based on the use case, we will configure AWS DMS to replicate data from a single database instance containing multiple tables to an S3 bucket and folder.

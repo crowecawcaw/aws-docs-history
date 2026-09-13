@@ -307,11 +307,11 @@ Use the following steps to migrate the `sporting_event_ticket` table to the targ
 
 1. Select the appropriate options to migrate the tables in your source database.
 
-    ![Using the Oracle SQL Developer Database Copy](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle2rds-load-copy.png) 
+    ![Using the Oracle SQL Developer Database Copy](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle2rds-load-copy.png) 
 
 1. On the next page, choose the `sporting_event_ticket` table, and then choose **Finish** to start the migration.
 
-    ![Oracle SQL Developer database copy wizard](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle2rds-load-copy-wizard.png) 
+    ![Oracle SQL Developer database copy wizard](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle2rds-load-copy-wizard.png) 
 
 ## Oracle Materialized Views
 <a name="chap-manageddatabases.oracle2rds.load.materializedviews"></a>

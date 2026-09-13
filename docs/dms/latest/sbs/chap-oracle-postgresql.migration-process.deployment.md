@@ -57,4 +57,4 @@ The process is arranged in a series of [Groovy](http://groovy-lang.org/semantics
 
 An example pipeline you might run on Jenkins: use git to pull configuration scripts for the pipeline, then use a Terraform job from the cloned codebase to deploy a server, use Ansible to install and configure a database, then push a status file with information on the pipeline run back to git all while using Vault to manage the secrets for both access right for Jenkins and configuration of users on the database.
 
-![Orchestration](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle-postgresql-orchestration.png)
+![Orchestration](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle-postgresql-orchestration.png)

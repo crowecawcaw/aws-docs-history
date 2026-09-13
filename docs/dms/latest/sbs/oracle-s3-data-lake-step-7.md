@@ -9,7 +9,7 @@ After you started the task, the full load operation starts loading tables. You c
 
 The following image shows table statistics with c5.12xlarge replication instance with parallel-load ranges option. The full load completed in 6.5 hours. This means that we achieved our goal of completing full load in less than 8 hours.
 
-![The results of the migration from Oracle to an Amazon S3 data lake.](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle-s3-data-lake-migration-results.png)
+![The results of the migration from Oracle to an Amazon S3 data lake.](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle-s3-data-lake-migration-results.png)
 
 
 We also monitored the CloudWatch metrics such as compute, memory, network to identify the resource usage of AWS DMS instances. You have to identify the resource constraint and scale-up to the AWS DMS instance class that serves your workloads better. You could also scale-down the AWS DMS instance to a t3 or r5 instance class based on the transaction volume for your ongoing replication task.

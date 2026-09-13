@@ -7,7 +7,7 @@ We analyzed the performance of pg\_dump and pg\_restore, publisher and subscribe
 
 The following image represents the performance comparison of the three migration methods. We expect similar performance trends for larger datasets.
 
-![Full load performance comparison](http://docs.aws.amazon.com/dms/latest/sbs/images/postgresql-rds-postgresql-performance.png)
+![Full load performance comparison](https://docs.aws.amazon.com/dms/latest/sbs/images/postgresql-rds-postgresql-performance.png)
 
 
 We performed this test to provide a basic overview of the full load performance. This performance may vary because it depends on such factors as network bandwidth, data structure, data size, and so on.

@@ -15,7 +15,7 @@ For homogeneous data migrations of the change data capture type, AWS DMS configu
 
 The following diagram illustrates how AWS DMS migrates data from PostgreSQL databases with homogeneous data migrations.
 
-![Migration architecture of homogeneous data migrations for PostgreSQL databases.](http://docs.aws.amazon.com/dms/latest/sbs/images/dm-postgresql-migration-architecture.png)
+![Migration architecture of homogeneous data migrations for PostgreSQL databases.](https://docs.aws.amazon.com/dms/latest/sbs/images/dm-postgresql-migration-architecture.png)
 
 
 Start the walkthrough by [creating the required resources](dm-postgresql-step-1.md).

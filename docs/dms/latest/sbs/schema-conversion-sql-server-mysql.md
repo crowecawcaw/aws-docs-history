@@ -40,7 +40,7 @@ At a high level, DMS Schema Conversion operates with the following three compone
 
 The following diagram illustrates the DMS Schema Conversion process for this walkthrough.
 
-![SQL Server to MySQL migration architecture in DMS Schema Conversion](http://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-sql-server-mysql-migration-architecture.png)
+![SQL Server to MySQL migration architecture in DMS Schema Conversion](https://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-sql-server-mysql-migration-architecture.png)
 
 
 Start the walkthrough by [creating the required resources](schema-conversion-sql-server-mysql-step-1.md).

@@ -9,14 +9,14 @@ Using an AWS DMS task, you can specify which schema to migrate and the type of m
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.createmigrationtask.html)
 
    The page should look like the following:  
-![Create task page](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgressql23.png)
+![Create task page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgressql23.png)
 
 1. Under **Task Settings**, choose **Do nothing** or **Truncate** for **Target table preparation mode**, because you have already created the tables using the AWS Schema Conversion Tool.
 
    If the Oracle database has LOBs, then for **Include LOB columns in replication**, select **Full LOB mode** if you want to replicate the entire LOB for all tables. Select **Limited LOB mode** if you want to replicate the LOBs only up to a certain size. You specify the size of the LOB to migrate in **Max LOB size (kb)**.
 
    It is best to select **Enable logging**. If you enable logging, then you can see any errors or warnings that the task encounters, and you can troubleshoot those issues.  
-![Task Settings section](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgresql23.5.png)
+![Task Settings section](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgresql23.5.png)
 
 1. Leave the Advanced settings at their default values.
 
@@ -56,7 +56,7 @@ Using an AWS DMS task, you can specify which schema to migrate and the type of m
 
 The Tasks section shows you the status of the migration task.
 
-![Migration task status](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgressql25.png)
+![Migration task status](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgressql25.png)
 
 
 You can monitor your task if you chose **Enable logging** when you set up your task. You can then view the CloudWatch metrics by doing the following:

@@ -40,7 +40,7 @@ At a high level, DMS Schema Conversion operates with the following three compone
 
 The following diagram illustrates the DMS Schema Conversion process.
 
-![Oracle to PostgreSQL migration architecture in DMS Schema Conversion](http://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-oracle-postgresql-migration-architecture.png)
+![Oracle to PostgreSQL migration architecture in DMS Schema Conversion](https://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-oracle-postgresql-migration-architecture.png)
 
 
 Start the walkthrough by [creating the required resources](schema-conversion-oracle-postgresql-step-1.md).

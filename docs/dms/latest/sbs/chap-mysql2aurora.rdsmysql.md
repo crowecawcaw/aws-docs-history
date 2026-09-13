@@ -143,7 +143,7 @@ You can also choose for your new Aurora MySQL DB cluster to be encrypted "at res
 1. On the **Snapshots** page, choose the snapshot that you want to migrate into an Aurora MySQL DB cluster.
 
 1. Choose **Migrate Database**.  
-![Migrate a snapshot into Amazon Aurora MySQL](http://docs.aws.amazon.com/dms/latest/sbs/images/AuroraMigrate02.png)
+![Migrate a snapshot into Amazon Aurora MySQL](https://docs.aws.amazon.com/dms/latest/sbs/images/AuroraMigrate02.png)
 
 1. Set the following values on the **Migrate Database** page:
    +  **DB Instance Class**: Select a DB instance class that has the required storage and capacity for your database, for example `db.r3.large`. Aurora MySQL cluster volumes automatically grow as the amount of data in your database increases, up to a maximum size of 64 terabytes (TB). So you only need to select a DB instance class that meets your current storage requirements.
@@ -171,9 +171,9 @@ You might be behind a corporate firewall that doesn’t allow access to default 
    +  ** **Auto Minor Version Upgrade**:** Select **Yes** if you want to enable your Aurora MySQL DB cluster to receive minor MySQL DB engine version upgrades automatically when they become available.
 
      The **Auto Minor Version Upgrade** option only applies to upgrades to MySQL minor engine versions for your Amazon Aurora MySQL DB cluster. It doesn’t apply to regular patches applied to maintain system stability.  
-![Migrate a snapshot into Amazon Aurora MySQL](http://docs.aws.amazon.com/dms/latest/sbs/images/AuroraMigrate03.png)
+![Migrate a snapshot into Amazon Aurora MySQL](https://docs.aws.amazon.com/dms/latest/sbs/images/AuroraMigrate03.png)
 
 1. Choose **Migrate** to migrate your DB snapshot.
 
 1. Choose **Instances**, and then choose the arrow icon to show the DB cluster details and monitor the progress of the migration. On the details page, you will find the cluster endpoint used to connect to the primary instance of the DB cluster. For more information about connecting to an Amazon Aurora MySQL DB cluster, see the [Amazon RDS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connect.html).  
-![DB Cluster Details](http://docs.aws.amazon.com/dms/latest/sbs/images/AuroraMigrate04.png)
+![DB Cluster Details](https://docs.aws.amazon.com/dms/latest/sbs/images/AuroraMigrate04.png)

@@ -18,7 +18,7 @@ While your replication instance is being created, you can specify the source and
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-sqlserver2aurora.steps.createsourcetargetendpoints.html)
 
    The following is an example of the completed page.  
-![Completed Replication Task Page showing Replication instance created successfully](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-dmsconnect.png)
+![Completed Replication Task Page showing Replication instance created successfully](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-dmsconnect.png)
 
    For information about extra connection attributes, see [Using Extra Connection Attributes](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
 

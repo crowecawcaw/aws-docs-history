@@ -10,7 +10,7 @@ To specify source or target database endpoints, do the following:
 1. In the AWS DMS console, choose **Endpoints** on the navigation pane.
 
 1. Choose **Create endpoint**. The **Create database endpoint page** appears, as shown following.  
-![Create source and target DB endpoints](http://docs.aws.amazon.com/dms/latest/sbs/images/datarep-gs-wizard3.png)
+![Create source and target DB endpoints](https://docs.aws.amazon.com/dms/latest/sbs/images/datarep-gs-wizard3.png)
 
 1. Specify your connection information for the source Oracle database. The following table describes the source settings.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-on-premoracle2aurora.steps.createoracle.html)

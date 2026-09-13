@@ -27,7 +27,7 @@ Depending on the type of data in the database, you may need to optimize AWS DMS 
 
 Normally you just fall back to the old system if a migration fails during smoke testing, and in most cases you may decide to fix forward after cutover, in which case you fix any unforeseen bugs in the migrated system. But in some cases you may decide to have the option of migrating production data back from the new system to the original system after having been in production for a time. In those cases, a reverse data migration mechanism must be configured.
 
-![Reverse Migration](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle-postgresql-reverse-migration.png)
+![Reverse Migration](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle-postgresql-reverse-migration.png)
 
 
 For more information, see [What is Database Migration Service?](https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html) and [Migrating Oracle databases with near-zero downtime](https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/).

@@ -31,7 +31,7 @@ In the rest of this document, we guide you through the steps that you take to mi
 
 For this walkthrough, we use the [Sales History Oracle sample data set](https://docs.oracle.com/en/database/oracle/oracle-database/19/comsc/introduction-to-sample-schemas.html#GUID-5EAB7534-C5BA-47F8-BEFD-7803C078304B). The Sales History schema includes 8 tables. The largest table is the sales table which is a fact table with 5 billion rows. The total size of this source database is about 200 GB and has about 20 years worth of sales history data in 96 partitions. The remaining tables are mostly smaller dimension tables. The following diagram shows the data model for our sample use case.
 
-![A high-level diagram of the source data set.](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-oracle-s3-data-lake-data-set.png)
+![A high-level diagram of the source data set.](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-oracle-s3-data-lake-data-set.png)
 
 
 Note that the costs and sales tables don’t have primary keys. However, the sales table is partitioned on a date column. This date column is important to sequence the latest version of a sales record for analysis purposes.
@@ -49,7 +49,7 @@ The business also requires that the initial transfer of data from Oracle to Amaz
 
 The following diagram shows the architecture of a migration from RDS for Oracle to Amazon S3 using AWS DMS.
 
-![An architecture diagram of the migration from Oracle to an Amazon S3 data lake.](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle-s3-data-lake-architecture-diagram.png)
+![An architecture diagram of the migration from Oracle to an Amazon S3 data lake.](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle-s3-data-lake-architecture-diagram.png)
 
 
 The Amazon RDS for Oracle database contains the example sales history data set. AWS Database Migration Service (AWS DMS) contains several components used to host the replication engine. Amazon S3 provides storage for the data lake tables and downstream applications for machine learning and analytics consume the data lake information.

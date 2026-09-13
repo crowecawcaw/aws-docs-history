@@ -10,7 +10,7 @@ When the migration task completes, you can compare your task results with the ex
 1. Choose your migration task (`migratehrschema`).
 
 1. Choose the **Table statistics** tab, shown following.  
-![Table statistics tab](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora26.png)
+![Table statistics tab](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora26.png)
 
 1. Connect to the Amazon Aurora MySQL instance by using SQL Workbench/J, and then check if the database tables were successfully migrated from Oracle to Aurora MySQL by running the SQL script shown following.
 
@@ -19,7 +19,7 @@ When the migration task completes, you can compare your task results with the ex
        FROM INFORMATION_SCHEMA.TABLES
        WHERE TABLE_SCHEMA = 'HR' and TABLE_TYPE='BASE TABLE' order by 1;
    ```  
-![Table statistics tab](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora27.png)
+![Table statistics tab](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora27.png)
 
 1. Run the following query to check the relationship in tables; this query checks the departments with employees greater than 10.
 

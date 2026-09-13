@@ -40,7 +40,7 @@ At a high level, DMS Schema Conversion operates with the following three compone
 
 The following diagram illustrates the DMS Schema Conversion process for this walkthrough.
 
-![Oracle to MySQL migration architecture in DMS Schema Conversion](http://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-oracle-aurora-mysql-migration-architecture.png)
+![Oracle to MySQL migration architecture in DMS Schema Conversion](https://docs.aws.amazon.com/dms/latest/sbs/images/schema-conversion-oracle-aurora-mysql-migration-architecture.png)
 
 
 Start the walkthrough by [creating the required resources](schema-conversion-oracle-aurora-mysql-step-1.md).

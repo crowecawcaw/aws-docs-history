@@ -25,7 +25,7 @@ In this document, we will describe the process of setting up an AWS data lake us
 
 The following diagram displays a high-level architecture of the solution, where we use AWS DMS to move data from two MySQL databases hosted on Amazon RDS to Amazon S3.
 
-![Solution overview](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2s3datalake_overview.png)
+![Solution overview](https://docs.aws.amazon.com/dms/latest/sbs/images/mysql2s3datalake_overview.png)
 
 
 This walkthrough assumes that the source data is sharded over two MySQL instances with identical schemas. Note that the only difference from having a single source instance is that you will create an additional endpoint and task. Therefore, this walkthrough can be applied even if the source is single instance. The schema and table structures used in this walkthrough will be explained in further detail later in the use case section.
@@ -41,7 +41,7 @@ In this walkthrough, you will set up the following resources in AWS DMS:
 
 The source MySQL engine version that we will use in this walkthrough is 8.0.31. AWS DMS supports Amazon RDS for MySQL 5.6 or higher as a source. There are three tables under the `dms_sample` schema in the two MySQL databases. The total size is about **220 GiB**. We assume a data change amount of about tens of GiB per day. A similar size of data exists in both instances. The primary keys of the `posts` and `post_history` tables are `id` and `creation_date`, and the tables are partitioned with 180 partitions on the `creation_date` column. The `votes` table is not partitioned and the `id` column is the primary key.
 
-![Schema](http://docs.aws.amazon.com/dms/latest/sbs/images/mysql2s3datalake_schema.png)
+![Schema](https://docs.aws.amazon.com/dms/latest/sbs/images/mysql2s3datalake_schema.png)
 
 
 ## Limitations

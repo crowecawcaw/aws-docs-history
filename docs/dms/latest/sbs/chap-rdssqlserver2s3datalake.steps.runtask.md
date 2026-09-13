@@ -9,12 +9,12 @@ After you started the task, the full load operation starts loading tables. You c
 
 After the AWS DMS task completes full load, the status changes to the **Load complete, replication ongoing** phase. The following image shows the updated status of the task.
 
-![Load complete](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-load-complete-replication-ongoing.png)
+![Load complete](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-load-complete-replication-ongoing.png)
 
 
 During this phase, AWS DMS partitions data by the year, month, and day of generation. The following image shows the structure of folders.
 
-![the structure of folders after partitioning.](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-partitioning.png)
+![the structure of folders after partitioning.](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-partitioning.png)
 
 
 Following, find some of the common errors and unexpected results you might see while following this walkthrough.

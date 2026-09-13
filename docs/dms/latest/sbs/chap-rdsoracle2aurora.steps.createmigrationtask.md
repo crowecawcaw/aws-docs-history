@@ -9,25 +9,25 @@ Using a AWS DMS task, you can specify what schema to migrate and the type of mig
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2aurora.steps.createmigrationtask.html)
 
    The page should look like the following:  
-![Create task page](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora23.png)
+![Create task page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora23.png)
 
 1. Under **Task Settings**, choose **Do nothing** for **Target table preparation mode**, because you have already created the tables through Schema Migration Tool. Because this migration doesn’t contain any LOBs, you can leave the LOB settings at their defaults.
 
    Optionally, you can select **Enable logging**. If you enable logging, you will incur additional Amazon CloudWatch charges for the creation of CloudWatch logs. For this walkthrough, logs are not necessary.  
-![Task Settings section](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora24.png)
+![Task Settings section](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora24.png)
 
 1. Leave the Advanced settings at their default values.
 
 1. Choose **Table mappings**, choose **Default** for **Mapping method**, and then choose `HR` for **Schema to migrate**.
 
    The completed section should look like the following.  
-![Completed Table mappings section](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora25.png)
+![Completed Table mappings section](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora25.png)
 
 1. Choose **Create task**. The task will begin immediately.
 
 The Tasks section shows you the status of the migration task.
 
-![Table statistics tab](http://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora25.5.png)
+![Table statistics tab](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora25.5.png)
 
 
 You can monitor your task if you choose **Enable logging** when you set up your task. You can then view the CloudWatch metrics by doing the following:

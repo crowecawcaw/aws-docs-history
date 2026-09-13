@@ -10,7 +10,7 @@ You can use these three main approaches to migrate self-managed Oracle databases
 
 This document describes the third strategy — we call this the hybrid approach. The following diagram shows the components of the hybrid approach.
 
-![Hybrid migration approach](http://docs.aws.amazon.com/dms/latest/sbs/images/oracle2rds-migration-approach.png)
+![Hybrid migration approach](https://docs.aws.amazon.com/dms/latest/sbs/images/oracle2rds-migration-approach.png)
 
 
 The hybrid approach provides the following advantages.

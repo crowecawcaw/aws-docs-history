@@ -30,7 +30,7 @@ The following example shows how to migrate the `dms_sample` database using Gener
 
 Generate a Transact-SQL script for the source database tables. You can save the script as single file or save in a new query window.
 
-![Microsoft Generate and Publish Scripts wizard](http://docs.aws.amazon.com/dms/latest/sbs/images/sql-server-rds-sql-server-full-load-bcp.png)
+![Microsoft Generate and Publish Scripts wizard](https://docs.aws.amazon.com/dms/latest/sbs/images/sql-server-rds-sql-server-full-load-bcp.png)
 
 
 Next, create database objects on the target database using the script that you generated in the previous step.
