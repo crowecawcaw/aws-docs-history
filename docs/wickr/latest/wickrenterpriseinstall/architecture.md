@@ -9,11 +9,11 @@ This guide provides documentation for Wickr Enterprise. If you're using AWS Wick
 
 The diagram below shows Wickr Enterprise configured as recommended for production, with both MySQL and Object Storage services situated outside of the Kubernetes cluster.
 
-![The architecture diagram.](http://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/images/wickr-enterprise-ha.png)
+![The architecture diagram.](https://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/images/wickr-enterprise-ha.png)
 
 
 **Internal or Test Architecture**
 
 The diagram below displays the configuration of Wickr Enterprise, utilizing the internal MYSQL and Object Storage services. Although it may satisfy the specific needs of certain deployments, it is not recommended for general production use.
 
-![The architecture diagram.](http://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/images/wickr-enterprise-ha-mysql.png)
+![The architecture diagram.](https://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/images/wickr-enterprise-ha-mysql.png)

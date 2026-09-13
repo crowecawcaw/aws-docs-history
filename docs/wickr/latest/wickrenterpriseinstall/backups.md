@@ -9,7 +9,7 @@ Wickr Enterprise utilizes Velero for Backup purposes. Velero provides the necess
 
 **Velero backups with Minio**: Currently Velero backups are only enabled for Minio in Low Resource Mode. 
 
-![Velero installation image.](http://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/images/wickr-enterprise-velero.png)
+![Velero installation image.](https://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/images/wickr-enterprise-velero.png)
 
 
 ## Installation using Velero documentation

@@ -30,4 +30,4 @@ In the **Custom installation** section, you will learn how to install Wickr Ente
 
 The Wickr Admin Console interface is used for administering the Wickr Enterprise application itself. It can be used to set up networks, users, federation, and more. It's accessible over HTTPS at the DNS name that you configured to point to your Load Balancer. The default username is admin, with the password Password123. You will be required to change this password on first log in.
 
-![Wickr Enterprise console sign in image.](http://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/images/wickr-enterprise-console.png)
+![Wickr Enterprise console sign in image.](https://docs.aws.amazon.com/wickr/latest/wickrenterpriseinstall/images/wickr-enterprise-console.png)
