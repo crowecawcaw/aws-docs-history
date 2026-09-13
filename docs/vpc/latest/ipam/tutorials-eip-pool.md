@@ -128,7 +128,7 @@ Complete the steps in this section to create an IPAM pool from which you'll allo
 
 1. Under **Public IP source**, choose **Amazon-owned**.
 
-1. Under **CIDR to provision**, choose **Add Amazon-owned public CIDR**. Choose a **Netmask** length between `/29` (8 IP addresses) and `/30` (4 IP addresses). You can add up to 2 CIDRs by default. For information about increasing the limits on Amazon-provided contiguous public IPv4 CIDRs, see [Quotas for your IPAM](quotas-ipam.md).
+1. Under **CIDR to provision**, choose **Add Amazon-owned public CIDR**. Choose a **Netmask** length between `/28` (16 IP addresses) and `/30` (4 IP addresses). You can add up to 2 CIDRs by default. For information about increasing the limits on Amazon-provided contiguous public IPv4 CIDRs, see [Quotas for your IPAM](quotas-ipam.md).
 
 1. Leave **Configure this pool's allocation rule settings** unselected.
 
@@ -205,7 +205,7 @@ Ensure that this CIDR has been provisioned before you continue. You can see the 
    }
    ```
 
-1. Provision a CIDR to the pool with the [provision-ipam-pool-cidr](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/provision-ipam-pool-cidr.html) command. Choose a `--netmask-length` between `/29` (8 IP addresses) and `/30` (4 IP addresses). You can add up to 2 CIDRs by default. For information about increasing the limits on Amazon-provided contiguous public IPv4 CIDRs, see [Quotas for your IPAM](quotas-ipam.md).
+1. Provision a CIDR to the pool with the [provision-ipam-pool-cidr](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/provision-ipam-pool-cidr.html) command. Choose a `--netmask-length` between `/28` (16 IP addresses) and `/30` (4 IP addresses). You can add up to 2 CIDRs by default. For information about increasing the limits on Amazon-provided contiguous public IPv4 CIDRs, see [Quotas for your IPAM](quotas-ipam.md).
 
    ```
    aws ec2 provision-ipam-pool-cidr --region us-east-1 --ipam-pool-id ipam-pool-07ccc86aa41bef7ce --netmask-length 29

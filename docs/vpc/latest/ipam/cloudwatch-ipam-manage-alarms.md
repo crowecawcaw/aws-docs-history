@@ -11,7 +11,7 @@ The **Alarms** tab displays all CloudWatch alarms associated with the selected r
 
 The following screenshot shows the alarm management interface in the IPAM console:
 
-![Alarms tab showing one alarm named nowalarm with ALARM state for SubnetIPUsage metric on subnet-0.](http://docs.aws.amazon.com/vpc/latest/ipam/images/alarms.png)
+![Alarms tab showing one alarm named nowalarm with ALARM state for SubnetIPUsage metric on subnet-0.](https://docs.aws.amazon.com/vpc/latest/ipam/images/alarms.png)
 
 
 The **Alarms** tab provides a detailed summary of the CloudWatch alarms in the `AWS/IPAM` Amazon CloudWatch namespace in the home Region of your IPAM:

@@ -16,12 +16,12 @@ The diagrams in this section demonstrate two use cases for adding OU exclusions 
 
 The first diagram shows the impact of adding an organization unit (OU) exclusion on a parent OU only. As a result, IPAM will not manage the IP addresses in accounts in the parent OU. IPAM will manage the IP addresses in accounts in the other OUs outside the exclusion.
 
-![Diagram of OU exclusion on parent OU.](http://docs.aws.amazon.com/vpc/latest/ipam/images/ipam-ou-1.png)
+![Diagram of OU exclusion on parent OU.](https://docs.aws.amazon.com/vpc/latest/ipam/images/ipam-ou-1.png)
 
 
 The second diagram shows the impact of adding an organization unit (OU) exclusion on a parent OU *and* all child OUs. As a result, IPAM will not manage the IP addresses in accounts in the parent OU or in accounts in any child OUs. IPAM will manage the IP addresses in accounts in the OUs outside of the exclusion.
 
-![Diagram of OU exclusion on parent OU and all child OUs.](http://docs.aws.amazon.com/vpc/latest/ipam/images/ipam-ou-2.png)
+![Diagram of OU exclusion on parent OU and all child OUs.](https://docs.aws.amazon.com/vpc/latest/ipam/images/ipam-ou-2.png)
 
 
 ## Add or remove OU exclusions

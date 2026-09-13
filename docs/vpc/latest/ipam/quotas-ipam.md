@@ -9,7 +9,7 @@ This section lists the quotas related to IPAM. The Service Quotas console also p
 | Name | Default | Adjustable | 
 | --- | --- | --- | 
 | Amazon-provided contiguous public IPv4 CIDR blocks | 2 | Yes. Contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 
-| Amazon-provided contiguous public IPv4 CIDR block netmask length | /29 | Acceptable size is between /29 and /30. To request an increase, contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 
+| Amazon-provided contiguous public IPv4 CIDR block netmask length | /28 | Acceptable size is between /28 and /30. To request an increase, contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 
 | Amazon-provided IPv6 CIDR block netmask length | /52 | Yes. Contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 
 | Amazon-provided IPv6 CIDR blocks per Regional pool | 1 | Yes. Contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 
 | Autonomous System Numbers (ASNs) that you can bring to IPAM | 5 | Yes. Contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 

@@ -7,7 +7,7 @@ This topic explains some of the key concepts to help you get started with IPAM.
 
 The following diagram shows an IPAM pool hierarchy for multiple AWS Regions within a top-level IPAM pool. Each AWS Regional pool has two IPAM development pools within it, one pool for pre-production and one pool production resources. For more information about IPAM concepts, see the descriptions below the diagram.
 
-![IPAM pool how it works.](http://docs.aws.amazon.com/vpc/latest/ipam/images/ipam-example-1-570px.png)
+![IPAM pool how it works.](https://docs.aws.amazon.com/vpc/latest/ipam/images/ipam-example-1-570px.png)
 
 
 To use Amazon VPC IP Address Manager, you first create an IPAM. 
