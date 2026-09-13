@@ -10,7 +10,7 @@ This architecture shows how to build customizable serverless workflows for relia
 ## Content Moderation and Compliance Using AWS AI Services
 <a name="diagram1"></a>
 
-![Architecture diagram showing content moderation and compliance by using AWS AI services.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/content-moderation-compliance/images/content-moderation-compliance.png)
+![Architecture diagram showing content moderation and compliance by using AWS AI services.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/content-moderation-compliance/images/content-moderation-compliance.png)
 
 
 The following steps describe the architecture:
