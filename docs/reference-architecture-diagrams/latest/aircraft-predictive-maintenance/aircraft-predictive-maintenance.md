@@ -14,7 +14,7 @@ This architecture uses [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemak
 ## Aircraft predictive maintenance diagram
 <a name="predictive-maintenance-diagram"></a>
 
-![Architecture for aircraft predictive maintenance using Amazon SageMaker AI on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aircraft-predictive-maintenance/images/travel-ra-predictive-maintenance.png)
+![Architecture for aircraft predictive maintenance using Amazon SageMaker AI on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aircraft-predictive-maintenance/images/travel-ra-predictive-maintenance.png)
 
 
 The following steps describe the architecture:
