@@ -12,7 +12,7 @@ Using AWS's low-latency, high-bandwidth global fiber network, you can begin proc
 ## Common use cases
 <a name="what-is.common-use-cases"></a>
 
- ![Common use cases for AWS Ground Station include the following: onboard and schedule, command, control, and downlink, receive data, and process and distribute data.](http://docs.aws.amazon.com/ground-station/latest/ug/images/what-is-gs.png) 
+ ![Common use cases for AWS Ground Station include the following: onboard and schedule, command, control, and downlink, receive data, and process and distribute data.](https://docs.aws.amazon.com/ground-station/latest/ug/images/what-is-gs.png) 
 
 AWS Ground Station allows you to communicate with your satellites bi-directionally and supports the following use cases: 
 +  **Downlink data** – Receive data from your satellites, transmitting X-band and S-band frequencies, delivered to an Amazon EC2 instance in real-time (VITA-49 format), or directly to an Amazon S3 bucket in your account ([PCAP format](https://wiki.wireshark.org/Development/LibpcapFileFormat)). Additionally, for satellites that use a supported modulation and encoding scheme, you can choose between receiving data that is demodulated and decoded, or the raw digital intermediate frequency (DigIF) samples (VITA-49 format). 

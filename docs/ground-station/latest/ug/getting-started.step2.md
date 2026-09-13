@@ -10,7 +10,7 @@
 
  With data delivery to Amazon S3, your contact data is delivered asynchronously to an Amazon S3 bucket in your account. Your contact data is delivered as packet capture (pcap) files to allow replaying the contact data into a Software Defined Radio (SDR) or to extract the payload data from the pcap files for processing. The pcap files are delivered to your Amazon S3 bucket every 30 seconds as contact data is received by the antenna hardware to allow processing contact data during the contact if desired. Once received, you can process the data using your own post-processing software or use other AWS services like Amazon SageMaker AI or Amazon Rekognition. Data delivery to Amazon S3 is only available for downlinking data from your satellite; it is not possible to uplink data to your satellite from Amazon S3. 
 
-![Data flow from satellite to AWS Ground Station to S3 bucket.](http://docs.aws.amazon.com/ground-station/latest/ug/images/s3-data-delivery.png)
+![Data flow from satellite to AWS Ground Station to S3 bucket.](https://docs.aws.amazon.com/ground-station/latest/ug/images/s3-data-delivery.png)
 
 
  To utilize this path, you will use need to create an Amazon S3 bucket for AWS Ground Station to deliver the data into. In the next step, you'll also need to create a *S3 Recording Config* in the next step. Please reference the [Amazon S3 Recording Config](how-it-works.config.md#how-it-works.config-s3-recording) for restrictions on bucket naming and how to specify the naming convention used for your files. 
@@ -24,9 +24,9 @@
 
  The following shows the communication path if you are using the dataflow endpoint configuration. 
 
-![Data flow from satellite through AWS Ground Station to Elastic Network Interface and receiver.](http://docs.aws.amazon.com/ground-station/latest/ug/images/ec2-data-delivery.png)
+![Data flow from satellite through AWS Ground Station to Elastic Network Interface and receiver.](https://docs.aws.amazon.com/ground-station/latest/ug/images/ec2-data-delivery.png)
 
 
 The following shows the communication path if you are using the AWS Ground Station Agent configuration.
 
-![Communication flow between AWS Ground Station antenna and customer destination region components.](http://docs.aws.amazon.com/ground-station/latest/ug/images/digif-data-delivery-overview.png)
+![Communication flow between AWS Ground Station antenna and customer destination region components.](https://docs.aws.amazon.com/ground-station/latest/ug/images/digif-data-delivery-overview.png)

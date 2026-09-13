@@ -58,7 +58,7 @@ The AWS Ground Station telemetry feature can also be used to receive near real-t
 
  In addition, any data captured within the first 60 seconds will not contain enough information to produce meaningful metrics, and will likely not be displayed. In order to view meaningful metrics, it is recommended to view your data after 60 seconds has passed. 
 
- ![Graph showing pass metrics with dBm and error rate lines over time during 11 minutes of a contact.](http://docs.aws.amazon.com/ground-station/latest/ug/images/viewing-metrics.png) 
+ ![Graph showing pass metrics with dBm and error rate lines over time during 11 minutes of a contact.](https://docs.aws.amazon.com/ground-station/latest/ug/images/viewing-metrics.png) 
 
  For more information about graphing AWS Ground Station metrics in CloudWatch, see [Graphing Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph_metrics.html). 
 
@@ -73,11 +73,11 @@ The AWS Ground Station telemetry feature can also be used to receive near real-t
 
 1.  Select the **GroundStation** namespace.
 
-    ![Interface showing metrics categorized by AWS services used, including a tile for AWS Ground Station, which will appear after metrics have been emitted from the service.](http://docs.aws.amazon.com/ground-station/latest/ug/images/GroundStation-namespace.png) 
+    ![Interface showing metrics categorized by AWS services used, including a tile for AWS Ground Station, which will appear after metrics have been emitted from the service.](https://docs.aws.amazon.com/ground-station/latest/ug/images/GroundStation-namespace.png) 
 
 1.  Select your desired metric dimensions (for example, **Channel, Polarization, SatelliteId**).
 
-    ![Metrics interface showing "All metrics" tab with metrics grouped by dimensions, "Channel, Polarization, SatelliteId" and "Polarization, SatelliteId."](http://docs.aws.amazon.com/ground-station/latest/ug/images/metric-dimensions.png) 
+    ![Metrics interface showing "All metrics" tab with metrics grouped by dimensions, "Channel, Polarization, SatelliteId" and "Polarization, SatelliteId."](https://docs.aws.amazon.com/ground-station/latest/ug/images/metric-dimensions.png) 
 
 1.  The **All metrics** tab displays all metrics for that dimension in the namespace. You can do the following:
 

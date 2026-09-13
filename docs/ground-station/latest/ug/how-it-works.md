@@ -32,7 +32,7 @@
 +  Synchronous downlink of demodulated and decoded data to an Amazon EC2 instance that you manage. Denoted by the name *demodDecodeDownlink*. 
 +  Synchronous uplink of data from an Amazon EC2 instance that you manage to a AWS Ground Station managed antenna. Denoted by the name *digIfUplink*. 
 
- ![An example mission profile and additional resources needed.](http://docs.aws.amazon.com/ground-station/latest/ug/images/mission-profile-composition.png) 
+ ![An example mission profile and additional resources needed.](https://docs.aws.amazon.com/ground-station/latest/ug/images/mission-profile-composition.png) 
 
 ## Contact scheduling
 <a name="how-it-works.contact-scheduling"></a>
@@ -41,7 +41,7 @@
 
  This asynchronous scheduling process will finish within five minutes of the request, but typically finishes within one minute. Please review [Automate AWS Ground Station with Events](monitoring.automating-events.md) for event-based monitoring during scheduling time. 
 
- ![The contact reservation request is asynchronous to allow time for the global antenna service to achieve a consistent schedule across all AWS Regions involved.](http://docs.aws.amazon.com/ground-station/latest/ug/images/scheduling.png) 
+ ![The contact reservation request is asynchronous to allow time for the global antenna service to achieve a consistent schedule across all AWS Regions involved.](https://docs.aws.amazon.com/ground-station/latest/ug/images/scheduling.png) 
 
  Contacts which can be performed and have availability result in *SCHEDULED* contacts. With a scheduled contact, the resources which are needed to perform your contact have been reserved across the needed AWS Regions as defined by your mission profile. Contacts which cannot be performed, or have unavailable parts will result in *FAILED\_TO\_SCHEDULE* contacts. See [Troubleshoot FAILED\_TO\_SCHEDULE contacts](troubleshooting-failed-to-schedule-contacts.md) for debugging details. 
 
@@ -57,7 +57,7 @@
 **Note**  
  Not all the antenna capabilities were used in this example. For instance, there are more than a dozen antenna downlink capabilities available at each antenna that support multiple frequencies and polarizations. For more details about the number of each capability type available from AWS Ground Station antennas, and their supported frequencies and polarizations, see [AWS Ground Station Site Capabilities](locations.capabilities.md). 
 
- ![Resources from the previous example orchestrated during the contact.](http://docs.aws.amazon.com/ground-station/latest/ug/images/contact-orchestration-simplified.png) 
+ ![Resources from the previous example orchestrated during the contact.](https://docs.aws.amazon.com/ground-station/latest/ug/images/contact-orchestration-simplified.png) 
 
  At the end of your contact, AWS Ground Station will assess the performance of your contact and will determine a final contact status. Contacts where no errors are detected will result in a *COMPLETED* contact status. Contacts where service errors have caused data delivery issues during the contact will result in an *AWS\_FAILED* status. Contacts where client or user errors have caused data delivery issues during the contact will result in a *FAILED* status. Errors outside a contact time, that is during pre-pass or post-pass, are not taken into account during the adjudication. 
 

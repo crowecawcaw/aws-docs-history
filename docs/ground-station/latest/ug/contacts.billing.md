@@ -46,7 +46,7 @@ When you stop a contact, you are billed for the portion of the contact that exec
 
  You schedule a 150-minute contact on Ground Station Anytown 1 to begin at 14:00 and end at 16:30. 
 
- ![Timeline showing a 150-minute contact from 14:00 to 16:30 running to scheduled completion.](http://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_1.png) 
+ ![Timeline showing a 150-minute contact from 14:00 to 16:30 running to scheduled completion.](https://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_1.png) 
 
 Billing breakdown:
 + First contact: 150 minutes (full duration)
@@ -58,7 +58,7 @@ Billing breakdown:
 
  You schedule a 150-minute contact on Ground Station Anytown 1 to begin at 14:00 and end at 16:30. At 15:00, you call the CancelContact API to stop your contact. 
 
- ![Timeline showing a contact stopped at 15:00 with no duplicate contacts scheduled for remaining time.](http://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_2.png) 
+ ![Timeline showing a contact stopped at 15:00 with no duplicate contacts scheduled for remaining time.](https://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_2.png) 
 
 Billing breakdown:
 + First contact: 150 minutes (full original duration)
@@ -70,7 +70,7 @@ Billing breakdown:
 
  You schedule a 150-minute contact on Ground Station Anytown 1 to begin at 14:00 and end at 16:30. At 15:00, you call the CancelContact API to stop your first contact. After calling CancelContact, you schedule another contact on the same Ground Station starting at 15:10 for 150 minutes. 
 
- ![Timeline showing a stopped contact at 15:00 with a duplicate contact scheduled at 15:10 covering remaining time.](http://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_3.png) 
+ ![Timeline showing a stopped contact at 15:00 with a duplicate contact scheduled at 15:10 covering remaining time.](https://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_3.png) 
 
 Billing breakdown:
 + First contact: 70 minutes (60 minutes executed \+ 10 minutes of downtime before the second contact starts)
@@ -83,7 +83,7 @@ Billing breakdown:
 
  You schedule a 150-minute contact on Ground Station Anytown 1 to begin at 14:00 and end at 16:30. At 15:00, you call the CancelContact API to stop your first contact. After calling CancelContact, you schedule a 30-minute contact on the same Ground Station starting at 15:10. 
 
- ![Timeline showing a short 30-minute duplicate contact that doesn't cover the full 90 minutes of remaining time.](http://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_4.png) 
+ ![Timeline showing a short 30-minute duplicate contact that doesn't cover the full 90 minutes of remaining time.](https://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_4.png) 
 
 Billing breakdown:
 + First contact: 120 minutes (60 minutes executed \+ 10 minutes of downtime before the second contact starts \+ 50 minutes of remaining time that the duplicate didn't cover)
@@ -96,7 +96,7 @@ Billing breakdown:
 
  You schedule a 150-minute contact on Ground Station Anytown 1 to begin at 14:00 and end at 16:30. At 15:00, you call the CancelContact API to stop your first contact. After calling CancelContact, you schedule a 30-minute contact on the same Ground Station starting at 15:10. Later, at 15:30, you schedule another contact starting at 16:00 for 120 minutes. 
 
- ![Timeline showing two sequential duplicate contacts with gaps at 15:10 and 16:00 after the 15:00 stop.](http://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_5.png) 
+ ![Timeline showing two sequential duplicate contacts with gaps at 15:10 and 16:00 after the 15:00 stop.](https://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_5.png) 
 
 Billing breakdown:
 + First contact: 90 minutes (60 minutes executed \+ 10 minutes of downtime before the second contact starts \+ 20 minutes of downtime between the second and third contacts)
@@ -110,7 +110,7 @@ Billing breakdown:
 
  You schedule a 150-minute contact on Ground Station Anytown 1 to begin at 14:00 and end at 16:30. At 15:00, you call the CancelContact API to stop your first contact. After calling CancelContact, you schedule an 80-minute contact on Ground Station Anytown 1 that begins at 15:10 and ends at 16:30. At 15:30, you call the CancelContact API again, stopping your duplicate contact. 
 
- ![Timeline showing both the original contact and its duplicate contact stopped, each billed for full duration.](http://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_6.png) 
+ ![Timeline showing both the original contact and its duplicate contact stopped, each billed for full duration.](https://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_6.png) 
 
 Billing breakdown:
 + First contact: 70 minutes (60 minutes executed \+ 10 minutes of downtime before the second contact starts)
@@ -123,7 +123,7 @@ Billing breakdown:
 
  At 13:00, you schedule two contacts on Ground Station Anytown 1. The first is a 150-minute contact beginning at 14:00 and ending at 16:30. The second is a 90-minute contact beginning at 15:00 and ending at 16:30. At 15:00, you call the CancelContact API to stop your first contact. Ground Station Anytown 1 is a multi-antenna ground station, which allows both contacts to run simultaneously. 
 
- ![Timeline showing two contacts scheduled at 13:00. The second doesn't qualify as a duplicate after first is stopped.](http://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_7.png) 
+ ![Timeline showing two contacts scheduled at 13:00. The second doesn't qualify as a duplicate after first is stopped.](https://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_7.png) 
 
 Billing breakdown:
 + First contact: 150 minutes (full original duration)
@@ -136,7 +136,7 @@ Billing breakdown:
 
  You schedule a 150-minute contact on Ground Station Anytown 1 to begin at 14:00 and end at 16:30. At 15:00, you call the CancelContact API to stop your first contact. After calling CancelContact, you schedule a 30-minute contact on Ground Station Anytown 1 beginning at 15:10 and ending at 15:40. Later, you schedule another 90-minute contact on Ground Station Anytown 1 starting at 15:30 and ending at 17:00. Ground Station Anytown 1 is a multi-antenna ground station, which allows both duplicate contacts to run simultaneously with overlapping times. 
 
- ![Timeline showing overlapping duplicate contacts on a multi-antenna ground station scheduled after the 15:00 stop.](http://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_8.png) 
+ ![Timeline showing overlapping duplicate contacts on a multi-antenna ground station scheduled after the 15:00 stop.](https://docs.aws.amazon.com/ground-station/latest/ug/images/stop_contact_scenario_8.png) 
 
 Billing breakdown:
 + First contact: 70 minutes (60 minutes executed \+ 10 minutes of downtime before the second contact starts)

@@ -10,7 +10,7 @@ In this section, it is described how your Amazon EC2 and dataflow endpoint may e
 ## VPC Configuration with AWS Ground Station Agent
 <a name="dataflows.vpc-configuration.agent"></a>
 
- ![AWS Ground Station architecture with VPC, private and public subnets, and Amazon EC2 instance.](http://docs.aws.amazon.com/ground-station/latest/ug/images/dataflows.vpc-gs-agent.png) 
+ ![AWS Ground Station architecture with VPC, private and public subnets, and Amazon EC2 instance.](https://docs.aws.amazon.com/ground-station/latest/ug/images/dataflows.vpc-gs-agent.png) 
 
 Your satellite data is provided to an AWS Ground Station Agent instance that is proximate to the antenna. The AWS Ground Station Agent will stripe and then encrypt your data using the AWS KMS key you provide. Each stripe is sent to your [ Amazon EC2 Elastic IP (EIP) ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) from the source antenna across the AWS Network backbone. The data arrives at your EC2 instance via the [Amazon EC2 Elastic Network Interface (ENI) ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) attached. Once on your EC2 instance, the installed AWS Ground Station Agent will decrypt your data and perform forward error correction (FEC) to recover any dropped data, then forward it to the IP and port you specified in your setup. 
 
@@ -65,7 +65,7 @@ The below list calls out unique setup considerations when setting up your VPC fo
 ## VPC configuration with a dataflow endpoint
 <a name="dataflows.vpc-configuration.dataflow-endpoint"></a>
 
- ![Diagram showing two VPCs with Amazon EC2 instances running endpoint applications.](http://docs.aws.amazon.com/ground-station/latest/ug/images/dataflows.vpc-dataflow-endpoint-application.png) 
+ ![Diagram showing two VPCs with Amazon EC2 instances running endpoint applications.](https://docs.aws.amazon.com/ground-station/latest/ug/images/dataflows.vpc-dataflow-endpoint-application.png) 
 
 Your satellite data is provided to a dataflow endpoint application instance that is proximate to the antenna. The data is then sent through cross-account [Amazon EC2 Elastic Network Interface (ENI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) from a VPC owned by AWS Ground Station. The data then arrives at your EC2 instance via the ENI attached to your Amazon EC2 instance. The installed dataflow endpoint application will then forward it to the IP and port you specified in your setup. The reverse of this flow occurs for uplink connections. 
 

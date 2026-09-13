@@ -19,7 +19,7 @@ The `streamsKmsRole` and `streamsKmsKey` are used to define the encryption used 
 
 The `telemetrySinkConfigArn` field is optional and allows you to enable AWS Ground Station telemetry during contacts. When specified, AWS Ground Station streams near real-time telemetry data to your account during the execution of your contacts. For more information about configuring and using telemetry, see [Work with telemetry](telemetry.md).
 
- ![Dataflow and configuration for a mission profile.](http://docs.aws.amazon.com/ground-station/latest/ug/images/mission-profile-core-component.png) 
+ ![Dataflow and configuration for a mission profile.](https://docs.aws.amazon.com/ground-station/latest/ug/images/mission-profile-core-component.png) 
 
  A full list of parameters and examples is included at the following documentation. 
 + [AWS::GroundStation::MissionProfile CloudFormation resource type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html)

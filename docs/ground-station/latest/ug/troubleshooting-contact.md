@@ -103,11 +103,11 @@ A common issue discovered when inspecting these files is that the Amazon VPC tha
 
    1. In the **Port** box, ensure the WAN port you have chosen for your dataflow endpoint group is present. By default, this port is 55888. Then, choose **Next**. 
 
-       ![Interface for configuring WAN communication settings.](http://docs.aws.amazon.com/ground-station/latest/ug/images/troubleshooting-3.5.b.png) 
+       ![Interface for configuring WAN communication settings.](https://docs.aws.amazon.com/ground-station/latest/ug/images/troubleshooting-3.5.b.png) 
 
    1. In the **Local Endpoint** pane, ensure that a valid port is present in the *Port* box. By default, this port is 50000. This is the port on which you'll receive your data after DataDefender has received it from the AWS Ground Station service. Then, choose **Next**. 
 
-       ![Interface for configuring DataDefender to communicate with a local endpoint.](http://docs.aws.amazon.com/ground-station/latest/ug/images/troubleshooting-3.5.d.png) 
+       ![Interface for configuring DataDefender to communicate with a local endpoint.](https://docs.aws.amazon.com/ground-station/latest/ug/images/troubleshooting-3.5.d.png) 
 
    1. Choose **Finish** in the remaining menu if you have changed any values. Otherwise, you can cancel out of the **Stream Wizard** menu. 
 

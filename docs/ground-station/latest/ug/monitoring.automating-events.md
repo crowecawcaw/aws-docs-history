@@ -34,7 +34,7 @@ AWS Ground Station emits events when your contact changes states. For more infor
 
  The following diagram shows the statuses and events emitted for a nominal contact and its associated dataflow endpoint group. 
 
- ![Diagram showing statuses and events for a nominal contact and its associated dataflow endpoint group.](http://docs.aws.amazon.com/ground-station/latest/ug/images/monitoring.automating-events.contact-timeline.png) 
+ ![Diagram showing statuses and events for a nominal contact and its associated dataflow endpoint group.](https://docs.aws.amazon.com/ground-station/latest/ug/images/monitoring.automating-events.contact-timeline.png) 
 
  **Ground Station Contact State Change** 
 

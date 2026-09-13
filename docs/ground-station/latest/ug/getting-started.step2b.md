@@ -7,7 +7,7 @@
 
  With AWS Ground Station telemetry, metrics from AWS Ground Station antennas are streamed directly to your account. Telemetry data begins streaming at contact start and continues throughout the contact duration. The telemetry data is delivered to your account in near real-time as it is sampled from the antenna hardware. Once received, you can process the data using your own post-processing software or use other AWS services like Amazon Data Firehose or AWS Lambda. 
 
-![Diagram showing telemetry data flow from AWS Ground Station to Amazon Kinesis Data Streams within AWS Cloud.](http://docs.aws.amazon.com/ground-station/latest/ug/images/telemetry.png)
+![Diagram showing telemetry data flow from AWS Ground Station to Amazon Kinesis Data Streams within AWS Cloud.](https://docs.aws.amazon.com/ground-station/latest/ug/images/telemetry.png)
 
 
  In the next step, you'll create the configs needed for your mission profile. If you want to enable telemetry, you'll create a *Telemetry Sink Config* in addition to your tracking config and dataflow configs. For detailed setup instructions, see [Set up telemetry](telemetry.setup.md). 

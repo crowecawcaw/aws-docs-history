@@ -18,7 +18,7 @@ The AWS Ground Station Agent enables you to receive (downlink) synchronous Wideb
 
  The following diagram shows a DigIF dataflow from an AWS Ground Station Antenna Region to your EC2 instance with your Software-Defined Radio (SDR) or similar listener. 
 
- ![DigIF dataflow from an AWS Ground Station antennna region.](http://docs.aws.amazon.com/ground-station/latest/ug/images/digif-data-delivery-overview.png) 
+ ![DigIF dataflow from an AWS Ground Station antennna region.](https://docs.aws.amazon.com/ground-station/latest/ug/images/digif-data-delivery-overview.png) 
 
 ## Additional information
 <a name="how-it-works.gs-agent.more-info"></a>
