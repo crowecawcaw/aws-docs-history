@@ -36,7 +36,7 @@ A potential drawback to this strategy is that you will need to manage potentiall
 
 To manage your bucket-per-use pattern and simplify your infrastructure management, you can use [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html#welcome-simplify-infrastructure-management). You can create a custom CloudFormation template for your pattern that already defines all of your desired settings for your S3 general purpose buckets so that you can easily deploy and track any changes to your infrastructure. For more information, see [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html) in the *AWS CloudFormation User Guide*.
 
-![How to create a CloudFormation template customized to your application that defines settings for your S3 buckets.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/create-stack-diagram.png)
+![How to create a CloudFormation template customized to your application that defines settings for your S3 buckets.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/create-stack-diagram.png)
 
 
 When building a workload with a bucket-per-use pattern, we recommend that you create the buckets in your account regional namespace. By creating buckets in your account regional namespace, you avoid competing for bucket names against others and have assurance that only your account can ever create buckets with your selected naming convention. For more information on account regional namespaces, see [Namespaces for general purpose buckets](gpbucketnamespaces.md).

@@ -5,7 +5,7 @@
 
 While AWS Lambda functions provide an ephemeral local storage available during execution, many serverless workloads, such as machine learning inference, data processing, and content management, require access to large reference datasets, shared files, or persistent storage. By attaching an S3 file system to your Lambda function, you can easily share data across function invocations, read large reference data files, and write function output to a persistent and shared store, all through a local mount path.
 
-![The data flow between an S3 bucket, S3 file system, and AWS Lambda function.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Files_Lambda_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and AWS Lambda function.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Files_Lambda_dataflow.png)
 
 
 ## Prerequisites

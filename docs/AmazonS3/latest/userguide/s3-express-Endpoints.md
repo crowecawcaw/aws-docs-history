@@ -9,7 +9,7 @@ AWS maps the physical Availability Zones randomly to the Availability Zone names
 
 To coordinate Availability Zones across accounts, you must use the *AZ ID*, which is a unique and consistent identifier for an Availability Zone. For example, `use1-az1` is an AZ ID for the `us-east-1` Region and it has the same physical location in every AWS account. The following illustration shows how the AZ IDs are the same for every account, even though the Availability Zone names might be mapped differently for each account.
 
-![Illustration showing Availability Zone mapping and Regions.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/availability-zone-mapping.png)
+![Illustration showing Availability Zone mapping and Regions.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/availability-zone-mapping.png)
 
 
 With S3 Express One Zone, your data is redundantly stored on multiple devices within a single Availability Zone. S3 Express One Zone is designed for 99.95 percent availability within a single Availability Zone and is backed by the [Amazon S3 Service Level Agreement](https://aws.amazon.com/s3/sla/). For more information, see [Availability Zones](directory-bucket-high-performance.md#s3-express-overview-az)

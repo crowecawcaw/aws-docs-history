@@ -13,6 +13,7 @@ This page helps you diagnose and resolve common issues with S3 Files.
 + [Files appearing in the lost and found directory](#s3-files-troubleshooting-lost-found)
 + [Synchronization falling behind](#s3-files-troubleshooting-sync-behind)
 + [Enabling client debug logs](#s3-files-troubleshooting-debug-logs)
++ [Error messages](#s3-files-troubleshooting-error-messages)
 
 ## Mount command fails
 <a name="s3-files-troubleshooting-mount-fails"></a>
@@ -226,3 +227,14 @@ sudo tar -czf /tmp/s3files-support-logs.tar.gz \
 ```
 
 Include `/tmp/s3files-support-logs.tar.gz` with your support case.
+
+## Error messages
+<a name="s3-files-troubleshooting-error-messages"></a>
+
+The following table lists error messages you might encounter and the recommended action for each.
+
+
+| Message | Action Required | 
+| --- | --- | 
+| Access denied: The provided role does not have permission to call s3:HeadObject on the provided bucket. | Your file system IAM role doesn't have sufficient permissions to sync to your bucket. Update your IAM policy to include all required S3 Files permissions. For more information, see [Prerequisites for S3 Files](s3-files-prereq-policies.md). | 
+| You attempted to create more file systems than are allowed for an account. For more information, see [Unsupported features, limits, and quotas](s3-files-quotas.md). | For information about how to request a limit increase, see [Unsupported features, limits, and quotas](s3-files-quotas.md). | 

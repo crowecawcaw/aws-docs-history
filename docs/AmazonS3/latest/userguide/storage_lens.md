@@ -9,7 +9,7 @@ You can use S3 Storage Lens metrics to generate summary insights. For example, y
 
 S3 Storage Lens aggregates your metrics and displays the information in the **Account snapshot** section on the Amazon S3 console **Buckets** page. S3 Storage Lens also provides an interactive dashboard that you can use to visualize insights and trends, flag outliers, and receive recommendations for optimizing storage costs and applying data protection best practices. Your dashboard has drill-down options to generate and visualize insights at the organization, account, AWS Region, storage class, bucket, prefix, or Storage Lens group level. You can also send a daily metrics report in CSV or Parquet format to a general purpose S3 bucket or export the metrics directly to an AWS-managed S3 table bucket. 
 
-![The Snapshot for [date] section in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/storage-lens-dashboard.png)
+![The Snapshot for [date] section in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/storage-lens-dashboard.png)
 
 
 ## S3 Storage Lens metrics and features

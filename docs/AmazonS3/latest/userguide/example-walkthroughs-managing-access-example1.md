@@ -15,7 +15,7 @@ In this walkthrough, an AWS account owns a bucket, and the account includes an I
 
 The following steps summarize the walkthrough:
 
-![An AWS account granting permissions.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/access-policy-ex1.png)
+![An AWS account granting permissions.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/access-policy-ex1.png)
 
 
 1. Account administrator creates a bucket policy granting a set of permissions to the user.

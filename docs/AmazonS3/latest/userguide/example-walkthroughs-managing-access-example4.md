@@ -49,7 +49,7 @@ For more information about IAM roles, see [IAM Roles](https://docs.aws.amazon.co
 
 The following is a summary of the walkthrough steps:
 
-![Cross-account permissions using IAM roles.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/access-policy-ex4.png)
+![Cross-account permissions using IAM roles.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/access-policy-ex4.png)
 
 
 For this example, you need three accounts. The following table shows how we refer to these accounts and the administrator users in these accounts. In accordance with the IAM guidelines (see [About using an administrator user to create resources and grant permissions](example-walkthroughs-managing-access.md#about-using-root-credentials)), we don't use the AWS account root user credentials in this walkthrough. Instead, you create an administrator user in each account and use those credentials when creating resources and granting them permissions.

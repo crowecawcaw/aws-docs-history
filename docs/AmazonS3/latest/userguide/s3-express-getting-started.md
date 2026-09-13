@@ -7,7 +7,7 @@ Amazon S3 Express One Zone is the first S3 storage class where you can select a 
 
  S3 Express One Zone is ideal for any application where it's critical to minimize request latency. Such applications can be human-interactive workflows, like video editing, where creative professionals need responsive access to content from their user interfaces. S3 Express One Zone also benefits analytics and machine learning workloads that have similar responsiveness requirements from their data, especially workloads with a lot of smaller accesses or a large numbers of random accesses. S3 Express One Zone can be used with other AWS services such as Amazon EMR, Amazon Athena, AWS Glue Data Catalog and Amazon SageMaker Model Training to support analytics, artificial intelligence and machine learning (AI/ML) workloads,. You can work with the S3 Express One Zone storage class and directory buckets by using the Amazon S3 console, AWS SDKs, AWS Command Line Interface (AWS CLI), and Amazon S3 REST API. For more information, see [What is S3 Express One Zone?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-one-zone.html) and [How is S3 Express One Zone different?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-differences.html). 
 
-![This is an S3 Express One Zone workflow diagram.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/s3-express-one-zone.png)
+![This is an S3 Express One Zone workflow diagram.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/s3-express-one-zone.png)
 
 
 **Objective**  

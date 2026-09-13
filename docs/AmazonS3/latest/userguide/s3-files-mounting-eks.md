@@ -5,7 +5,7 @@
 
 You can attach an S3 file system to an Amazon EKS cluster by using the Amazon EFS Container Storage Interface (CSI) driver. The driver supports both dynamic and static provisioning. To set this up, install the efs-csi-driver, which is the CSI driver for both Amazon EFS and S3 Files.
 
-![The data flow between an S3 bucket, S3 file system, and Amazon EKS cluster.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Files_EKS_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and Amazon EKS cluster.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Files_EKS_dataflow.png)
 
 
 ## Prerequisites

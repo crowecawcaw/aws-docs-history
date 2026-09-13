@@ -128,7 +128,7 @@ With S3 Storage Lens advanced metrics and recommendations, metrics are available
 
    The **Buckets** list updates to display all the available **Data protection** metrics for the buckets shown. 
 
-1. To filter the **Buckets** list to display only specific data-protection metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
+1. To filter the **Buckets** list to display only specific data-protection metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
 
 1. Clear the toggles for all data-protection metrics until only the following metrics remain selected:
    + **All unsupported signature requests**
@@ -163,7 +163,7 @@ To see replication rule count metrics in your S3 Storage Lens dashboard, you mus
 
 1. Scroll down to the **Buckets** section. Under **Metrics categories**, choose **Data protection**. Then clear **Summary**.
 
-1. To filter the **Buckets** list to display only replication rule count metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
+1. To filter the **Buckets** list to display only replication rule count metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
 
 1. Clear the toggles for all data-protection metrics until only the replication rule count metrics remain selected:
    + **Same-Region Replication rule count**

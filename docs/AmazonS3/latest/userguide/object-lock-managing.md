@@ -23,13 +23,14 @@ S3 buckets with Object Lock can't be used as destination buckets for server acce
 + [Uploading objects to an Object Lock enabled bucket](#object-lock-put-object)
 + [Configuring events and notifications](#object-lock-managing-events)
 + [Setting limits on retention periods with a bucket policy](#object-lock-managing-retention-limits)
++ [Troubleshooting variable retention](#object-lock-managing-variable-retention-troubleshooting)
 
 ## Permissions for viewing lock information
 <a name="object-lock-managing-view"></a>
 
 You can programmatically view the Object Lock status of an Amazon S3 object version by using the [HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html) or [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) operations. Both operations return the retention mode, retain until date, and legal hold status for the specified object version. Additionally, you can view the Object Lock status for multiple objects in your S3 bucket using S3 Inventory. 
 
-To view an object version's retention mode and retention period, you must have the `s3:GetObjectRetention` permission. To view an object version's legal hold status, you must have the `s3:GetObjectLegalHold` permission. To view a bucket's default retention configuration, you must have the `s3:GetBucketObjectLockConfiguration` permission. If you make a request for an Object Lock configuration on a bucket that doesn't have S3 Object Lock enabled, Amazon S3 returns an error. 
+To view an object version's retention mode and retention period, you must have the `s3:GetObjectRetention` permission. To view an object version's legal hold status, you must have the `s3:GetObjectLegalHold` permission. To view a bucket's default retention configuration, you must have the `s3:GetBucketObjectLockConfiguration` permission. If you make a request for an Object Lock configuration on a bucket that doesn't have S3 Object Lock enabled, Amazon S3 returns an error. For information about setting a bucket default, see [Configuring S3 Object Lock](object-lock-configure.md).
 
 ## Bypassing governance mode
 <a name="object-lock-managing-bypass"></a>
@@ -53,6 +54,8 @@ To use Object Lock with replication, you must grant two additional permissions o
 For general information about S3 Replication, see [Replicating objects within and across Regions](replication.md).  
 For examples of setting up S3 Replication, see [Examples for configuring live replication](replication-example-walkthroughs.md).
 
+Amazon S3 replicates variable retention settings—event hold and event hold duration—along with other Object Lock metadata. Both source and destination buckets must have Object Lock enabled. When an event hold is released on the source, Amazon S3 replicates the release to the destination, and the destination sets its own final retain-until-date based on the configured duration and the time of replication.
+
 ## Using Object Lock with encryption
 <a name="object-lock-managing-encryption"></a>
 
@@ -67,6 +70,12 @@ You can configure Amazon S3 Inventory to create lists of the objects in an S3 bu
 + The retain until date
 + The retention mode
 + The legal hold status
++ The event hold status
++ The event hold duration
+
+While an event hold is on, the `GetObjectRetention`, `HeadObject`, and `GetObject` operations return the computed retain-until-date. If you specified a retain-until-date, the returned value is not earlier than that date.
+
+For objects with an active event hold, Amazon S3 Inventory reports a dynamic retain-until-date based on when Amazon S3 generates the report. For objects with a released event hold or fixed retention, the retain-until-date is fixed. Inventory reports can take up to 48 hours to generate. Therefore, the retain-until-date reflects the report generation time, not the current time. For the most current value, query the object's retention metadata directly by using `GetObjectRetention`.
 
 For more information, see [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md).
 
@@ -110,6 +119,8 @@ You can use Amazon S3 Event Notifications to track access and changes to your Ob
 
 You can also use Amazon CloudWatch to generate alerts based on this data. For information about CloudWatch, see the [What is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) in the *Amazon CloudWatch User Guide*.
 
+Amazon S3 publishes an `s3:ObjectRetention:Put` event notification for explicit `PutObjectRetention` calls. This includes setting fixed or variable retention, releasing an event hold, modifying the duration, and extending a retain-until-date.
+
 ## Setting limits on retention periods with a bucket policy
 <a name="object-lock-managing-retention-limits"></a>
 
@@ -150,9 +161,90 @@ The following example shows a bucket policy that uses the `s3:object-lock-remain
 **Note**  
 If your bucket is the destination bucket for a replication configuration, you can set up minimum and maximum allowable retention periods for object replicas that are created by using replication. To do so, you must allow the `s3:ReplicateObject` action in your bucket policy. For more information about replication permissions, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md). 
 
+For variable retention, you can control event holds and durations with the following condition keys. Amazon S3 evaluates these keys against the values in a request. They don't apply to an event hold or duration that Amazon S3 applies from a bucket's default retention configuration. For more information, see [Set or modify a default variable retention period on an S3 bucket](object-lock-configure.md#object-lock-configure-set-variable-retention-bucket). To restrict bucket defaults, deny the `s3:PutBucketObjectLockConfiguration` action.
++ <a name="object-lock-managing-condition-event-hold"></a>`s3:object-lock-event-hold` – Restricts who can set or release event holds. Values: `ON`, `OFF`.
++ <a name="object-lock-managing-condition-event-hold-duration-days"></a>`s3:object-lock-event-hold-duration-days` – Lets you enforce a minimum or maximum event hold duration, in days.
+
+The following example denies any `PutObjectRetention` request that sets an event hold duration of less than 90 days:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "RequireMinimumEventHoldDuration",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObjectRetention",
+            "Resource": "arn:aws:s3:::amzn-s3-demo-bucket1/*",
+            "Condition": {
+                "NumericLessThan": {
+                    "s3:object-lock-event-hold-duration-days": "90"
+                }
+            }
+        }
+    ]
+}
+```
+
+The following example denies any request that sets an event hold on this bucket:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyEventHolds",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectRetention"
+            ],
+            "Resource": "arn:aws:s3:::amzn-s3-demo-bucket1/*",
+            "Condition": {
+                "StringEquals": {
+                    "s3:object-lock-event-hold": "ON"
+                }
+            }
+        }
+    ]
+}
+```
+
+**Note**  
+A bucket policy that uses the `s3:object-lock-remaining-retention-days` condition key denies a `PutObjectRetention` request when the retention period that you specify exceeds your limit. While an event hold is active, Amazon S3 recalculates the retain-until-date on the service side. The date can move past a limit that the policy enforces at request time. If you don't want this behavior, also restrict the `s3:object-lock-event-hold` condition key to control who can enable event holds.
+
 For more information about bucket policies, see the following topics:
 + [ Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html) in the *Service Authorization Reference*
 
   For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md).
 + [Object operations](security_iam_service-with-iam.md#using-with-s3-actions-related-to-objects)
 + [Bucket policy examples using condition keys](amazon-s3-policy-keys.md)
+
+## Troubleshooting variable retention
+<a name="object-lock-managing-variable-retention-troubleshooting"></a>
+
+Use the following information to diagnose and resolve common issues with variable retention and event holds.
+
+### Request that sets an event hold is rejected
+<a name="object-lock-troubleshooting-request-rejected"></a>
+
+A request that sets or modifies an event hold fails with a `400 Bad Request` response.
+
+Common causes and actions:
++ **No retention mode** – An event hold requires a retention mode. Specify either `GOVERNANCE` or `COMPLIANCE`.
++ **Missing or duplicate duration** – An event hold that is set to `ON` requires exactly one event hold duration. Specify the duration in either days or years, but not both.
++ **Duration specified with an event hold that is set to OFF** – Don't specify an event hold duration when you release an event hold. Amazon S3 computes the final retain-until-date from the duration that is already configured on the object version.
++ **No retain-until-date with an event hold that is set to OFF** – When the event hold is off, the object version must have a retain-until-date. Amazon S3 sets this date in one of two ways. It computes the date when you release an active event hold (a transition from `ON` to `OFF`). Or, you provide an explicit retain-until-date, which is fixed retention. To protect an object with variable retention, create it with the event hold set to `ON` and a duration.
++ **Duration outside the allowed range** – An event hold duration must be a positive integer, up to a maximum of 36,500 days or 100 years.
+
+### Bucket policy doesn't match a duration that is set in years
+<a name="object-lock-troubleshooting-years-condition-key"></a>
+
+There is no years-based condition key. When you set a duration in years, Amazon S3 converts it to days for evaluation against the `s3:object-lock-event-hold-duration-days` condition key. Amazon S3 counts 1 year as 365 days and doesn't count leap years. Express the limits in your bucket policy in days, and account for this conversion. For example, Amazon S3 evaluates a duration of 1 year as 365 days.
+
+### Amazon S3 Inventory report shows an outdated retain-until-date
+<a name="object-lock-troubleshooting-inventory-stale"></a>
+
+While an event hold is active, Amazon S3 dynamically computes the retain-until-date. Amazon S3 Inventory reports are generated periodically and can be up to 48 hours old. As a result, a report might not show the current computed retain-until-date. For the current value, use `GetObjectRetention` or `HeadObject`.

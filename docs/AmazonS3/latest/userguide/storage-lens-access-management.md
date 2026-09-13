@@ -48,7 +48,7 @@ With S3 Storage Lens access-management metrics, you can identify buckets that do
 
    The **Buckets** list displays data for all three Object Ownership settings: bucket owner enforced, bucket owner preferred, and object writer.
 
-1. To filter the **Buckets** list to display metrics only for a specific Object Ownership setting, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
+1. To filter the **Buckets** list to display metrics only for a specific Object Ownership setting, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
 
 1. Clear the metrics that you don't want to see.
 

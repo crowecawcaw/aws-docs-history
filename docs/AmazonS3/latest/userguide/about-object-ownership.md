@@ -47,7 +47,7 @@ When the Bucket owner enforced setting for Object Ownership is applied, ACLs are
 + You, as the bucket owner, automatically own and have full control over every object in your bucket.
 + ACLs no longer affect access permissions to your bucket. As a result, access control for your data is based on policies, such as AWS Identity and Access Management (IAM) [identity-based policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security_iam_id-based-policy-examples.html), Amazon S3 [bucket policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html), VPC endpoint policies, and Organizations [service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) or [resource control policies (RCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html).
 
-![Diagram showing what happens when you apply the Bucket owner enforced setting to disable ACLs.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/bucket-owner-enforced.png)
+![Diagram showing what happens when you apply the Bucket owner enforced setting to disable ACLs.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/bucket-owner-enforced.png)
 
 
 If you use S3 Versioning, the bucket owner owns and has full control over all object versions in your bucket. Applying the Bucket owner enforced setting does not add a new version of an object.

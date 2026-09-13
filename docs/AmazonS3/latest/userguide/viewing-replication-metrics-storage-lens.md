@@ -28,7 +28,7 @@ Create a [live replication configuration](replication-how-setup.md) or an [S3 Ba
 
 1. Scroll down to the **Buckets** section. Under **Metrics categories**, choose **Data protection**. Then clear **Summary**.
 
-1. To filter the **Buckets** list to display only replication metrics, choose the **Preferences** icon (![The Preferences icon in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
+1. To filter the **Buckets** list to display only replication metrics, choose the **Preferences** icon (![The Preferences icon in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
 
 1. Clear the toggles for all data-protection metrics until only the replication metrics remain selected.
 

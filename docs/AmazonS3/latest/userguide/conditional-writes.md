@@ -156,7 +156,7 @@ This scenario will result in a `412 Precondition Failed` response for both `If-N
 
 The following example shows two clients writing items with the same key name. One with UploadPart for MPU and one with PutObject and a conditional write. The CompleteMultipartUpload operation, which starts after, fails.
 
-![Two clients write to the same key using UploadPart and conditional PutObject. CompleteMultipartUpload fails.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/conwrite_put_mpu.png)
+![Two clients write to the same key using UploadPart and conditional PutObject. CompleteMultipartUpload fails.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/conwrite_put_mpu.png)
 
 
 **Concurrent deletes during multipart uploads**  
@@ -167,7 +167,7 @@ This scenario will result in a `409 Conflict` response for an `If-None-Match` he
 
 The following example shows two clients, one using multipart upload and one sending a delete request after the MPU has started. The delete request finishes before the conditional write starts.
 
-![One client uses MPU and another sends a delete request. The delete completes before the conditional write starts.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/conwrite_delete_mpu.png)
+![One client uses MPU and another sends a delete request. The delete completes before the conditional write starts.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/conwrite_delete_mpu.png)
 
 
 **Note**  

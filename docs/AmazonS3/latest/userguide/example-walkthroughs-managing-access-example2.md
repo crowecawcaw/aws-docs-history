@@ -20,7 +20,7 @@ Account A can also directly grant a user in Account B permissions using a bucket
 
 The following is a summary of the walkthrough steps:
 
-![An AWS account granting another AWS account permission to access its resources.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/access-policy-ex2.png)
+![An AWS account granting another AWS account permission to access its resources.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/access-policy-ex2.png)
 
 
 1. Account A administrator user attaches a bucket policy granting cross-account permissions to Account B to perform specific bucket operations.

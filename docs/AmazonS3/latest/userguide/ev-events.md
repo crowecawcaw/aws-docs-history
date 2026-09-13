@@ -36,7 +36,7 @@ The following are examples of some of the Amazon S3 event notification messages 
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.1",
+    "event-version": "1.2",
     "bucket": {
       "name": "amzn-s3-demo-bucket1",
       "aws-generated-tags": {
@@ -54,7 +54,7 @@ The following are examples of some of the Amazon S3 event notification messages 
     },
     "request-id": "N4N7GDK58NMKJ12R",
     "requester": "123456789012",
-    "source-ip-address": "1.2.3.4",
+    "source-ip-address": "192.0.2.1",
     "reason": "PutObject"
   }
 }
@@ -77,7 +77,7 @@ The following are examples of some of the Amazon S3 event notification messages 
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.1",
+    "event-version": "1.2",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -89,7 +89,7 @@ The following are examples of some of the Amazon S3 event notification messages 
     },
     "request-id": "0BH729840619AG5K",
     "requester": "123456789012",
-    "source-ip-address": "1.2.3.4",
+    "source-ip-address": "192.0.2.1",
     "reason": "DeleteObject",
     "deletion-type": "Delete Marker Created"
   }
@@ -113,7 +113,7 @@ The following are examples of some of the Amazon S3 event notification messages 
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.1",
+    "event-version": "1.2",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -148,7 +148,7 @@ The following are examples of some of the Amazon S3 event notification messages 
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.1",
+    "event-version": "1.2",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -183,7 +183,7 @@ The following are examples of some of the Amazon S3 event notification messages 
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.1",
+    "event-version": "1.2",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -195,7 +195,7 @@ The following are examples of some of the Amazon S3 event notification messages 
     },
     "request-id": "4B4NGD358NMKJ12R",
     "requester": "123456789012",
-    "source-ip-address": "1.2.3.4",
+    "source-ip-address": "192.0.2.1",
     "reason": "PutObjectAnnotation",
     "object-annotation": {
       "name": "my-annotation",
@@ -223,7 +223,7 @@ The following are examples of some of the Amazon S3 event notification messages 
   ],
   "detail": {
     "version": "0",
-    "event-version": "1.1",
+    "event-version": "1.2",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -235,10 +235,50 @@ The following are examples of some of the Amazon S3 event notification messages 
     },
     "request-id": "7C5NGD358NMKJ34S",
     "requester": "123456789012",
-    "source-ip-address": "1.2.3.4",
+    "source-ip-address": "192.0.2.1",
     "reason": "DeleteObjectAnnotation",
     "object-annotation": {
       "name": "my-annotation"
+    }
+  }
+}
+```
+
+### Object retention updated
+<a name="ev-events-object-retention-updated"></a>
+
+```
+{
+  "version": "0",
+  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "detail-type": "Object Retention Updated",
+  "source": "aws.s3",
+  "account": "111122223333",
+  "time": "2026-04-07T14:30:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:s3:::amzn-s3-demo-bucket1"
+  ],
+  "detail": {
+    "version": "0",
+    "event-version": "1.2",
+    "bucket": {
+      "name": "amzn-s3-demo-bucket1"
+    },
+    "object": {
+      "key": "example-key",
+      "etag": "d41d8cd98f00b204e9800998ecf8427e",
+      "version-id": "abc123",
+      "sequencer": "0055AED6DCD90281E5"
+    },
+    "request-id": "C3D13FE58DE4C810",
+    "requester": "111122223333",
+    "source-ip-address": "192.0.2.1",
+    "object-retention-event-data": {
+      "mode": "COMPLIANCE",
+      "retain-until-date": "2026-07-06T14:30:00Z",
+      "event-hold": "ON",
+      "event-hold-duration": { "days": 90 }
     }
   }
 }
@@ -272,3 +312,8 @@ Some object attributes (such as `etag` and `size`) are present only when a delet
 + `destination-access-tier` – For **Object Access Tier Changed** events, the new access tier of the object. For more information, see [Managing storage costs with Amazon S3 Intelligent-Tiering](intelligent-tiering.md).
 + `object-annotation` – For **Object Annotation Created** and **Object Annotation Removed** events, the `detail` field includes an `object-annotation` field containing information about the annotation.
 + `has-object-annotation` – For **Object Created** events with reason `CopyObject`, the `object` block includes a `has-object-annotation` boolean field that indicates whether the copied object has annotations.
++ `object-retention-event-data` – For **Object Retention Updated** events, a block that contains the object's Object Lock retention state after the change. This block contains the following fields.
+  + `mode` – The Object Lock retention mode applied to the object after the change: `COMPLIANCE` or `GOVERNANCE`.
+  + `retain-until-date` – The date in ISO-8601 format until which the object is retained after the change. For objects with an active event hold, this is the dynamically computed date at the time Amazon S3 processes the event.
+  + `event-hold` – The event hold state after the change: `ON` or `OFF`. Only present for event-hold operations (setting or releasing an event hold).
+  + `event-hold-duration` – The event hold duration as `{"days": N}` or `{"years": N}`. Only present when an event hold duration is set or modified.

@@ -25,7 +25,7 @@ For more information about using the Amazon S3 Express One Zone storage class wi
 
 Amazon S3 offers a range of storage classes designed for different use cases. For example, you can store mission-critical production data in S3 Standard or S3 Express One Zone for frequent access, save costs by storing infrequently accessed data in S3 Standard-IA or S3 One Zone-IA, and archive data at the lowest costs in S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. 
 
-Amazon S3 Express One Zone is a high-performance, single-zone Amazon S3 storage class that is purpose-built to deliver consistent, single-digit millisecond data access for your most latency-sensitive applications. S3 Express One Zone is the lowest latency cloud object storage class available today, with data access speeds up to 10x faster and with request costs 50 percent lower than S3 Standard. S3 Express One Zone is the first S3 storage class where you can select a single Availability Zone with the option to co-locate your object storage with your compute resources, which provides the highest possible access speed. Additionally, to further increase access speed and support hundreds of thousands of requests per second, data is stored in a new bucket type: an Amazon S3 directory bucket. For more information, see [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone) and [Working with directory buckets](directory-buckets-overview.md).
+Amazon S3 Express One Zone is a high-performance, single-zone Amazon S3 storage class that is purpose-built to deliver consistent, single-digit millisecond data access for your most latency-sensitive applications. S3 Express One Zone is the lowest latency cloud object storage class available today, with data access speeds up to 10x faster and with request costs 80 percent lower than S3 Standard. S3 Express One Zone is the first S3 storage class where you can select a single Availability Zone with the option to co-locate your object storage with your compute resources, which provides the highest possible access speed. Additionally, to further increase access speed and support hundreds of thousands of requests per second, data is stored in a new bucket type: an Amazon S3 directory bucket. For more information, see [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone) and [Working with directory buckets](directory-buckets-overview.md).
 
 You can store data with changing or unknown access patterns in S3 Intelligent-Tiering, which optimizes storage costs by automatically moving your data between four access tiers when your access patterns change. These four access tiers include two low-latency access tiers optimized for frequent and infrequent access, and two opt-in archive access tiers designed for asynchronous access for rarely accessed data.
 
@@ -245,17 +245,17 @@ This section provides examples of behavior to be expected from Amazon S3 when mu
 
 In this example, both W1 (write 1) and W2 (write 2) finish before the start of R1 (read 1) and R2 (read 2). Because S3 is strongly consistent, R1 and R2 both return `color = ruby`. 
 
-![An example of two clients writing to the same items with different values but returning the same read results.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/consistency1.png)
+![An example of two clients writing to the same items with different values but returning the same read results.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/consistency1.png)
 
 
 In the next example, W2 does not finish before the start of R1. Therefore, R1 might return `color = ruby` or `color = garnet`. However, because W1 and W2 finish before the start of R2, R2 returns `color = garnet`. 
 
-![An example of two clients writing to the same items with different values but returning the same or different read results.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/consistency2.png)
+![An example of two clients writing to the same items with different values but returning the same or different read results.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/consistency2.png)
 
 
 In the last example, W2 begins before W1 has received an acknowledgment. Therefore, these writes are considered concurrent. Amazon S3 internally uses last-writer-wins semantics to determine which write takes precedence. However, the order in which Amazon S3 receives the requests and the order in which applications receive acknowledgments cannot be predicted because of various factors, such as network latency. For example, W2 might be initiated by an Amazon EC2 instance in the same Region, while W1 might be initiated by a host that is farther away. The best way to determine the final value is to perform a read after both writes have been acknowledged. 
 
-![An example of two clients writing to the same items with different values but returning concurrent results.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/consistency3.png)
+![An example of two clients writing to the same items with different values but returning concurrent results.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/consistency3.png)
 
 
 ## Related services

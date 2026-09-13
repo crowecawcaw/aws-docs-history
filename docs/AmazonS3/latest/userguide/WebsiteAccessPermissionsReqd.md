@@ -36,7 +36,7 @@ Before you complete these steps, review [Blocking public access to your Amazon S
 1. Under **Block public access (bucket settings)**, choose **Edit**.
 
 1. Clear **Block *all* public access**, and choose **Save changes**.  
-![The Amazon S3 console, showing the block public access bucket settings.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/edit-public-access-clear.png)
+![The Amazon S3 console, showing the block public access bucket settings.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/edit-public-access-clear.png)
 
    Amazon S3 turns off the Block Public Access settings for your bucket. To create a public static website, you might also have to [edit the Block Public Access settings](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-account.html) for your account before adding a bucket policy. If the Block Public Access settings for your account are currently turned on, you see a note under **Block public access (bucket settings)**.
 

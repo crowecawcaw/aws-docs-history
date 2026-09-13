@@ -20,6 +20,7 @@ Amazon S3 can send events to Amazon EventBridge whenever certain events happen i
 | *Object Tags Deleted* | All tags were removed from an object using `DeleteObjectTagging`. For more information, see [Tagging your objects](object-tagging.md). | 
 | *Object Annotation Created* | An annotation was created or updated on an object using `PutObjectAnnotation`. For more information, see [Annotating your objects](annotations-overview.md). | 
 | *Object Annotation Removed* | An annotation was deleted from an object using `DeleteObjectAnnotation`. For more information, see [Annotating your objects](annotations-overview.md). | 
+| *Object Retention Updated* | Amazon S3 sends this event when an object's Object Lock retention settings are changed through a `PutObjectRetention` request. This includes setting fixed or variable retention, releasing an event hold, modifying an event hold duration, and setting or extending a retain-until-date. | 
 
 **Note**  
 For more information about how Amazon S3 event types map to EventBridge event types, see [Amazon EventBridge mapping and troubleshooting](ev-mapping-troubleshooting.md).

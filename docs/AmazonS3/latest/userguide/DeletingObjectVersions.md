@@ -23,11 +23,11 @@ A `DELETE` request has the following use cases:
   When you try to `GET` an object whose current version is a delete marker, Amazon S3 behaves as though the object has been deleted (even though it has not been erased) and returns a 404 error. For more information, see [Working with delete markers](DeleteMarker.md).
 
   The following figure shows that a simple `DELETE` does not actually remove the specified object. Instead, Amazon S3 inserts a delete marker.  
-![A delete marker insertion.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled.png)
+![A delete marker insertion.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled.png)
 + To delete versioned objects permanently, you must use `DELETE Object versionId`.
 
   The following figure shows that deleting a specified object version permanently removes that object.  
-![How DELETE Object versionId permanently deletes a specific object version.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled2.png)
+![How DELETE Object versionId permanently deletes a specific object version.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled2.png)
 
 ## To delete object versions
 <a name="delete-object-version"></a>

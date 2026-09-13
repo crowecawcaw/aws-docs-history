@@ -5,7 +5,7 @@
 
 To mount S3 file systems on an EC2 instance, you must use the S3 Files mount helper. The mount helper helps you mount your S3 file systems on EC2 instances running the supported distributions. When mounting a file system, the mount helper defines a new network file system type, called `s3files`, which is fully compatible with the standard `mount` command in Linux. The mount helper also supports mounting an S3 file system at instance boot time automatically by using entries in the `/etc/fstab` configuration file on EC2 Linux instances. The mount helper is part of the open-source collection of tools that is installed when you install the S3 Files client (amazon-efs-utils).
 
-![The data flow between an S3 bucket, S3 file system, and Amazon EC2 instance.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Files_EC2_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and Amazon EC2 instance.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Files_EC2_dataflow.png)
 
 
 ## Prerequisites to mount on EC2 instances

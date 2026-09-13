@@ -26,7 +26,7 @@ You integrate your table buckets once per AWS Region. After the integration is c
 
 The following illustration shows how the `s3tablescatalog` catalog automatically populates table buckets, namespaces, and tables in the current Region as corresponding objects in the Data Catalog. Table buckets are populated as subcatalogs. Namespaces within a table bucket are populated as databases within their respective subcatalogs. Tables are populated as tables in their respective databases.
 
-![The ways that table resources are represented in AWS Glue Data Catalog.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Tables-glue-catalog.png)
+![The ways that table resources are represented in AWS Glue Data Catalog.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Tables-glue-catalog.png)
 
 
 After integrating with Data Catalog, you can create Apache Iceberg tables in table buckets and access them through AWS analytics engines such as Amazon Athena, Amazon EMR, as well as third-party analytics engines.

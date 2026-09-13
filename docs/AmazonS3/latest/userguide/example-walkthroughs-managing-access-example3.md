@@ -25,7 +25,7 @@ S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to bot
 
 In this example, we assume the bucket owner has not applied the bucket owner enforced setting for Object Ownership. The bucket owner delegates permission to users in its own account. The following is a summary of the walkthrough steps:
 
-![A bucket owner granting permissions to objects it does not own.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/access-policy-ex3.png)
+![A bucket owner granting permissions to objects it does not own.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/access-policy-ex3.png)
 
 
 1. Account A administrator user attaches a bucket policy with two statements.

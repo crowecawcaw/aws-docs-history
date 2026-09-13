@@ -37,12 +37,12 @@ The following is an example of an S3 Storage Lens metrics export based on this s
 **Note**  
 You can identify metrics for Storage Lens groups by looking for the `STORAGE_LENS_GROUP_BUCKET` or `STORAGE_LENS_GROUP_ACCOUNT` values in the `record_type` column. The `record_value` column will display the Amazon Resource Name (ARN) for the Storage Lens group, for example, `arn:aws:s3:us-east-1:123456789012:storage-lens-group/slg-1`. 
 
-![An example S3 Storage Lens metrics export file.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/sample_storage_lens_export.png)
+![An example S3 Storage Lens metrics export file.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/sample_storage_lens_export.png)
 
 
 The following is an example of an S3 Storage Lens metrics export with Storage Lens groups data.
 
-![An example S3 Storage Lens metrics export file with Storage Lens groups data.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/StorageLensGroups_metricsexport.png)
+![An example S3 Storage Lens metrics export file with Storage Lens groups data.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/StorageLensGroups_metricsexport.png)
 
 
 ## Export schemas for S3 tables

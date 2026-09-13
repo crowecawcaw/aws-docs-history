@@ -220,7 +220,7 @@ The following image shows the VPC console **Details** tab, where you can find th
 
 
 
-![The Details tab in the VPC console.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/vpc-console-details-tab.png)
+![The Details tab in the VPC console.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/vpc-console-details-tab.png)
 
 
 When using the DNS name to access a resource, replace {{\*}} with the appropriate value. The appropriate values to use in place of `*` are as follows: 
@@ -420,7 +420,7 @@ When using endpoint-specific DNS names to access the interface endpoints for Ama
 
 Interface endpoints in your VPC can route both in-VPC applications and on-premises applications to Amazon S3 over the Amazon network, as illustrated in the following diagram.
 
-![Data-flow diagram showing access to Amazon S3 using an interface endpoint and AWS PrivateLink.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/interface-endpoints.png)
+![Data-flow diagram showing access to Amazon S3 using an interface endpoint and AWS PrivateLink.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/interface-endpoints.png)
 
 
 The diagram illustrates the following: 
@@ -434,7 +434,7 @@ The diagram illustrates the following:
 
 You can create interface endpoints and retain the existing gateway endpoint in the same VPC, as the following diagram shows. By taking this approach, you allow in-VPC applications to continue accessing Amazon S3 through the gateway endpoint, which is not billed. Then, only your on-premises applications would use interface endpoints to access Amazon S3. To access Amazon S3 this way, you must update your on-premises applications to use endpoint-specific DNS names for Amazon S3.
 
-![Data-flow diagram showing access to Amazon S3 using gateway endpoints and interface endpoints.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/interface-and-gateway-endpoints.png)
+![Data-flow diagram showing access to Amazon S3 using gateway endpoints and interface endpoints.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/interface-and-gateway-endpoints.png)
 
 
 The diagram illustrates the following: 

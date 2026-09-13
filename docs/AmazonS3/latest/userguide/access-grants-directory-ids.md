@@ -15,7 +15,7 @@ However, if your AWS Organizations administrator hasn't yet configured a central
 
 In the following diagram of an IAM Identity Center configuration with an external IdP, the IdP is configured with SCIM to synchronize the identity store from the IdP to the identity store in IAM Identity Center.
 
-![IAM Identity Center integration with an external identity store through automatic provisioning.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/s3ag-identity-store.png)
+![IAM Identity Center integration with an external identity store through automatic provisioning.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/s3ag-identity-store.png)
 
 
 To use your corporate directory identities with S3 Access Grants, do the following:

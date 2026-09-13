@@ -9,7 +9,7 @@ CloudFront is a fast, highly secure, and programmable content delivery network (
 
 CloudFront caching reduces the number of requests that your origin server must respond to directly. When a viewer (end user) requests a video that you serve with CloudFront, the request is routed to a nearby edge location closer to where the viewer is located. CloudFront serves the video from its cache, retrieving it from the S3 bucket only if it is not already cached. This caching management feature accelerates the delivery of your video to viewers globally with low latency, high throughput, and high transfer speeds. For more information about CloudFront caching management, see [Optimizing caching and availability](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ConfiguringCaching.html) in the *Amazon CloudFront Developer Guide*.
 
-![How the CloudFront caching mechanism works.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/cf-example-image-global.png)
+![How the CloudFront caching mechanism works.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/cf-example-image-global.png)
 
 
 **Objective**  

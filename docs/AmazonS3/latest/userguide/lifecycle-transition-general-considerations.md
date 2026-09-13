@@ -17,7 +17,7 @@ In an S3 Lifecycle configuration, you can define rules to transition objects fro
 
 Amazon S3 supports a waterfall model for transitioning between storage classes, as shown in the following diagram. 
 
-![Amazon S3 storage class waterfall graphic.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/lifecycle-transitions-v4.png)
+![Amazon S3 storage class waterfall graphic.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/lifecycle-transitions-v4.png)
 
 
 ### Supported lifecycle transitions

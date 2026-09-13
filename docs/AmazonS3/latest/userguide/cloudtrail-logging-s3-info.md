@@ -46,6 +46,8 @@ If you are logging data activity with AWS CloudTrail, the event record for an Am
 
 The `InitiateReplication` event includes `objectAnnotationCount` in the `additionalEventData` field. This value indicates the number of annotations on the source object at the time replication was initiated.
 
+When you call `PutObjectRetention`, the CloudTrail data event is recorded with the `eventName` `PutObjectLockRetention`, and includes `objectRetentionInfo` in `additionalEventData`. This field contains the resulting retention mode, retain-until-date, event hold status, and event hold duration.
+
 ## Amazon S3 account-level actions tracked by CloudTrail logging
 <a name="cloudtrail-account-level-tracking"></a>
 

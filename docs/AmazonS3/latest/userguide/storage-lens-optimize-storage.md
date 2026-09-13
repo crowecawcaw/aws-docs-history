@@ -153,7 +153,7 @@ With S3 Storage Lens advanced metrics and recommendations, metrics are available
 
    The **Buckets** list updates to display all the available **Cost optimization** metrics for the buckets shown. 
 
-1. To filter the **Buckets** list to display only specific cost-optimization metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
+1. To filter the **Buckets** list to display only specific cost-optimization metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
 
 1. Clear the toggles for all cost-optimization metrics until only **Incomplete multipart upload bytes greater than 7 days old** and **Abort incomplete multipart upload lifecycle rule count** remain selected. 
 
@@ -224,7 +224,7 @@ To see the **Noncurrent version transition lifecycle rule count** and **Noncurre
 
    The **Buckets** list updates to display all the available **Cost optimization** metrics for the buckets shown. 
 
-1. To filter the **Buckets** list to display only specific cost-optimization metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
+1. To filter the **Buckets** list to display only specific cost-optimization metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
 
 1. Clear the toggles for all cost-optimization metrics until only the following remain selected:
    + **% noncurrent version bytes**
@@ -291,7 +291,7 @@ With S3 Storage Lens advanced metrics and recommendations, metrics are available
 
    The **Buckets** list updates to display all the available **Cost optimization** metrics for the buckets shown. 
 
-1. To filter the **Buckets** list to display only specific cost-optimization metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
+1. To filter the **Buckets** list to display only specific cost-optimization metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
 
 1. Clear the toggles for all cost-optimization metrics until only the following remain selected:
    + **Transition lifecycle rule count**

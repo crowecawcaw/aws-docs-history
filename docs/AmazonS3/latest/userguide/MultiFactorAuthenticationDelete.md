@@ -35,7 +35,7 @@ To enable or disable MFA delete, you use the same API that you use to configure 
 
 To use MFA delete, you can use either a hardware or virtual MFA device to generate an authentication code. The following example shows a generated authentication code displayed on a hardware device.
 
-![An example of a generated authentication code displayed on a hardware device.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/MFADevice.png)
+![An example of a generated authentication code displayed on a hardware device.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/MFADevice.png)
 
 
 MFA delete and MFA-protected API access are features intended to provide protection for different scenarios. You configure MFA delete on a bucket to help ensure that the data in your bucket cannot be accidentally deleted. MFA-protected API access is used to enforce another authentication factor (MFA code) when accessing sensitive Amazon S3 resources. You can require any operations against these Amazon S3 resources to be done with temporary credentials created using MFA. For an example, see [Requiring MFA](example-bucket-policies.md#example-bucket-policies-MFA). 

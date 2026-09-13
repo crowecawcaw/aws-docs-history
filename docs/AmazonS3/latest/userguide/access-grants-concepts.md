@@ -58,7 +58,7 @@ When it's time for Bob to `READ` data, the IAM role that's associated with the l
 
 Similarly, Alice can `READ` anything that starts with `s3://DOC-BUCKET-EXAMPLE/alice/`. However, if she tries to `WRITE` anything to any bucket, prefix, or object in `s3://`, she will get an Access Denied (403 Forbidden) error, because there is no grant that gives her `WRITE` access to any data. In addition, if Alice requests any level of access (`READ` or `WRITE`) to data outside of `s3://DOC-BUCKET-EXAMPLE/alice/`, she will again receive an Access Denied error.
 
-![S3 Access Grants location with IAM role issuing scoped credentials: Bob gets read and write access, Alice gets read-only access.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/s3ag-how-it-works.png)
+![S3 Access Grants location with IAM role issuing scoped credentials: Bob gets read and write access, Alice gets read-only access.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/s3ag-how-it-works.png)
 
 
 This pattern scales to a high number of users and buckets and simplifies management of those permissions. Rather than editing potentially large S3 bucket policies every time you want to add or remove an individual user-prefix access relationship, you can add and remove individual, discrete grants.

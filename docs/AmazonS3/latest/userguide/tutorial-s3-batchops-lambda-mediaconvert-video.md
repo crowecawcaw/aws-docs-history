@@ -13,7 +13,7 @@ AWS offers you a method to build a scalable, distributed architecture that does 
 
 When you have extensive video repositories stored in Amazon S3, you can transcode these videos from their source formats into multiple file types in the size, resolution, and format needed by a particular video player or device. Specifically, [S3 Batch Operations](https://aws.amazon.com/s3/features/batch-operations) provides you with a solution to invoke AWS Lambda functions for existing input videos in an S3 source bucket. Then, the Lambda functions call [AWS Elemental MediaConvert](https://aws.amazon.com/mediaconvert/) to perform large-scale video transcoding tasks. The converted output media files are stored in an S3 destination bucket. 
 
-![A batch-transcoding workflow diagram.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/batchops-example-image-global.png)
+![A batch-transcoding workflow diagram.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/batchops-example-image-global.png)
 
 
 **Objective**  

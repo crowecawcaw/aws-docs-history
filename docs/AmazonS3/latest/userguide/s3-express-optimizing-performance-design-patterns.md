@@ -260,13 +260,13 @@ The following shows three examples about how directory buckets work.
 <a name="s3-express-directory-bucket-examples-put"></a>
 
 1. When the operation `PUT(<bucket>, "documents/reports/quarterly.txt")` is executed in an empty bucket, the directory `documents/` within the root of the bucket is created, the directory `reports/` within `documents/` is created, and the object `quarterly.txt` within `reports/` is created. For this operation, two directories were created in addition to the object.  
-![Directory structure after PUT operation for documents/reports/quarterly.txt.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-foo-bar-baz.png)
+![Directory structure after PUT operation for documents/reports/quarterly.txt.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-foo-bar-baz.png)
 
 1. Then, when another operation `PUT(<bucket>, "documents/logs/application.txt")` is executed, the directory `documents/` already exists, the directory `logs/` within `documents/` doesn't exist and is created, and the object `application.txt` within `logs/` is created. For this operation, only one directory was created in addition to the object.  
-![Directory structure after PUT operation for documents/logs/application.txt.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-foo-baz-quux.png)
+![Directory structure after PUT operation for documents/logs/application.txt.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-foo-baz-quux.png)
 
 1. Lastly, when a `PUT(<bucket>, "documents/readme.txt")` operation is executed, the directory `documents/` within the root already exists and the object `readme.txt` is created. For this operation, no directories are created.  
-![Directory structure after PUT operation for documents/readme.txt.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-foo-bar.png)
+![Directory structure after PUT operation for documents/readme.txt.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-foo-bar.png)
 
 ### Example 2: How S3 `ListObjectsV2` requests to a directory bucket interact with directories
 <a name="s3-express-directory-bucket-examples-list"></a>
@@ -296,14 +296,14 @@ In this example, `logs/` is ordered before `readme.txt` and `readme.txt` is orde
 ### Example 3: How S3 `DeleteObject` requests to a directory bucket interact with directories
 <a name="s3-express-directory-bucket-examples-delete"></a>
 
-![Initial directory structure before DELETE operations.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-delete-before.png)
+![Initial directory structure before DELETE operations.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-delete-before.png)
 
 
 1. In that same bucket, when the operation `DELETE(<bucket>, "documents/reports/quarterly.txt")` is executed, the object `quarterly.txt` is deleted, leaving the directory `reports/` empty and causing it to be deleted immediately. The `documents/` directory is not empty because it has both the directory `logs/` and the object `readme.txt` within it, so it's not deleted. For this operation, only one object and one directory were deleted.  
-![Directory structure after DELETE operation for documents/reports/quarterly.txt.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-delete1.png)
+![Directory structure after DELETE operation for documents/reports/quarterly.txt.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-delete1.png)
 
 1. When the operation `DELETE(<bucket>, "documents/readme.txt")` is executed, the object `readme.txt` is deleted. `documents/` is still not empty because it contains the directory `logs/`, so it's not deleted. For this operation, no directories are deleted and only the object is deleted.  
-![Directory structure after DELETE operation for documents/readme.txt.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-delete2.png)
+![Directory structure after DELETE operation for documents/readme.txt.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-delete2.png)
 
 1. Lastly, when the operation `DELETE(<bucket>, "documents/logs/application.txt")` is executed, `application.txt` is deleted, leaving `logs/` empty and causing it to be deleted immediately. This then leaves `documents/` empty and causing it to also be deleted immediately. For this operation, two directories and one object are deleted. The bucket is now empty.  
-![Directory structure after DELETE operation for documents/logs/application.txt.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-delete3.png)
+![Directory structure after DELETE operation for documents/logs/application.txt.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/directory-examples-delete3.png)

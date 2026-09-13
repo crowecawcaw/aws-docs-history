@@ -20,6 +20,7 @@ The following table describes how Amazon S3 event types are mapped to Amazon Eve
 | [ObjectAcl:Put](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAcl.html) | Object ACL Updated | 
 | ObjectAnnotation:Put | Object Annotation Created | 
 | ObjectAnnotation:Delete | Object Annotation Removed | 
+| ObjectRetention:Put | Object Retention Updated | 
 
 ## Amazon EventBridge troubleshooting
 <a name="ev-troubleshooting"></a>

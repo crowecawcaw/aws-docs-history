@@ -20,7 +20,7 @@ If you as the bucket owner want to own all the objects in your bucket and use bu
 
  The following is an illustration of the context-based evaluation for an object operation.
 
-![The context-based evaluation for an object operation.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/AccessControlAuthorizationFlowObjectResource.png)
+![The context-based evaluation for an object operation.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/AccessControlAuthorizationFlowObjectResource.png)
 
 
 ## Example of an object operation request
@@ -28,7 +28,7 @@ If you as the bucket owner want to own all the objects in your bucket and use bu
 
 In this example, IAM user Jill, whose parent AWS account is 1111-1111-1111, sends an object operation request (for example, `GetObject`) for an object owned by AWS account 3333-3333-3333 in a bucket owned by AWS account 2222-2222-2222. 
 
-![An object operation request.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example50-policy-eval-logic.png)
+![An object operation request.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example50-policy-eval-logic.png)
 
 
 Jill will need permission from the parent AWS account, the bucket owner, and the object owner. Amazon S3 evaluates the context as follows:

@@ -15,7 +15,7 @@ When you delete an object in a versioning-enabled bucket, all versions remain in
 
 To delete a delete marker permanently, you must include its version ID in a `DeleteObject versionId` request. The following figure shows how a `DeleteObject versionId` request permanently removes a delete marker.
 
-![A delete marker deletion using its version ID.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_deleteMarkerVersioned.png)
+![A delete marker deletion using its version ID.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_deleteMarkerVersioned.png)
 
 
 The effect of removing the delete marker is that a simple `GET` request will now retrieve the current version ID (121212) of the object. 
@@ -25,7 +25,7 @@ If you use a `DeleteObject` request where the current version is a delete marker
 
 To delete a delete marker with a `NULL` version ID, you must pass the `NULL` as the version ID in the `DeleteObject` request. The following figure shows how a simple `DeleteObject` request made without a version ID where the current version is a delete marker, removes nothing, but instead adds an additional delete marker with a unique version ID (7498372).
 
-![A delete marker deletion using a NULL version ID.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_deleteMarker.png)
+![A delete marker deletion using a NULL version ID.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_deleteMarker.png)
 
 
 ## Using the S3 console

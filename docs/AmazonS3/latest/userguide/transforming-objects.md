@@ -17,7 +17,7 @@ When you send a request to your Object Lambda Access Point, Amazon S3 automatica
 
 
 
-![How S3 Object Lambda works.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/ObjectLamdaDiagram.png)
+![How S3 Object Lambda works.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/ObjectLamdaDiagram.png)
 
 
 The topics in this section describe how to work with S3 Object Lambda.

@@ -5,12 +5,12 @@
 
 Versioning in Amazon S3 is a way of keeping multiple variants of an object in the same bucket. A simple `GET` request retrieves the current version of an object. The following figure shows how `GET` returns the current version of the object, `photo.gif`.
 
-![How GET returns the current version of the object.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_GET_NoVersionID.png)
+![How GET returns the current version of the object.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_GET_NoVersionID.png)
 
 
 To retrieve a specific version, you have to specify its version ID. The following figure shows that a `GET versionId` request retrieves the specified version of the object (not necessarily the current one).
 
-![How a GET versionId request retrieves the specified version of the object.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_GET_Versioned.png)
+![How a GET versionId request retrieves the specified version of the object.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_GET_Versioned.png)
 
 
 You can retrieve object versions in Amazon S3 using the console, AWS SDKs, or REST API.

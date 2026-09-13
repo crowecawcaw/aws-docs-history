@@ -31,7 +31,7 @@ For detailed information about every request that Amazon S3 receives for your ob
 
 You can download a usage report as an XML or a comma-separated values (CSV) file. The following is an example CSV usage report opened in a spreadsheet application.
 
-![A CSV usage report in a spreadsheet application.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/s3-usage-report.png)
+![A CSV usage report in a spreadsheet application.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/s3-usage-report.png)
 
 
 For more information, see [Understanding your AWS billing and usage reports for Amazon S3](aws-usage-report-understand.md).

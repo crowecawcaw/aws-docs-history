@@ -97,12 +97,12 @@ You can open the CSV file in a spreadsheet application or import the file into o
 
 Data in the exported file is sorted by date within object age group as shown in following examples. If the storage class is STANDARD the row also contains data for the columns `ObjectAgeForSIATransition` and `RecommendedObjectAgeForSIATransition`.
 
-![Screen shot of exported storage class analysis data sorted by date within object age group.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/storage-class-analysis-export-file1.png)
+![Screen shot of exported storage class analysis data sorted by date within object age group.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/storage-class-analysis-export-file1.png)
 
 
 At the end of the report the object age group is given as ALL. The ALL rows contain cumulative totals, including objects smaller than 128 KB, for all the age groups for that day.
 
-![Screen shot of exported storage class analysis data with ALL rows containing cumulative totals.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/storage-class-analysis-export-file3.png)
+![Screen shot of exported storage class analysis data with ALL rows containing cumulative totals.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/storage-class-analysis-export-file3.png)
 
 
 The next section describes the columns used in the report.

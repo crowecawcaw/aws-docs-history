@@ -39,7 +39,7 @@ Data that has not been read within a configurable window (1 to 365 days, default
 
 Supported compute services to mount your S3 file systems are Amazon EC2, AWS Lambda, Amazon EKS, and Amazon ECS. For more information, see [Mounting your S3 buckets on compute resources](s3-files-attach-compute.md).
 
-![The data flow between an S3 bucket, S3 file system, and compute resources.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Files_Compute_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and compute resources.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/S3Files_Compute_dataflow.png)
 
 
 ## Are you a first-time user of S3 Files?

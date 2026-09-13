@@ -294,22 +294,35 @@ The permissions policy uses two resource scopes because the actions operate at d
    {
      "Effect": "Allow",		 	 	 
      "Action": [
-        "kms:Decrypt",
-        "kms:GenerateDataKey",
-        "kms:Encrypt"
-   
+       "kms:Decrypt",
+       "kms:GenerateDataKey"
      ],
-     "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{SOURCE-KEY-ID}}"
+     "Condition": {
+       "StringLike": {
+         "kms:ViaService": [ "s3.{{us-east-1}}.amazonaws.com" ]
+       },
+       "ArnLike": {
+         "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket-source}}/table/*"
+       }
+     },
+     "Resource": "*"
    },
    {
      "Effect": "Allow",
      "Action": [
+       "kms:Encrypt",
        "kms:Decrypt",
        "kms:GenerateDataKey"
      ],
-     "Resource": [
-       "arn:aws:kms:{{us-west-2}}:{{444455556666}}:key/{{DESTINATION-KEY-ID-1}}"
-     ]
+     "Condition": {
+       "StringLike": {
+         "kms:ViaService": [ "s3.{{us-west-2}}.amazonaws.com" ]
+       },
+       "ArnLike": {
+         "kms:EncryptionContext:aws:s3:arn": [ "arn:aws:s3tables:{{us-west-2}}:{{444455556666}}:bucket/{{amzn-s3-demo-table-bucket-destination}}/table/*" ]
+       }
+     },
+     "Resource": "*"
    }
    ```
 

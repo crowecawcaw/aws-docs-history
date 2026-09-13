@@ -7,7 +7,7 @@ The notification message that Amazon S3 sends to publish an event is in the JSON
 
 For a general overview and instructions on configuring event notifications, see [Amazon S3 Event Notifications](EventNotifications.md).
 
-This example shows *version 2.5* of the event notification JSON structure. Previously, Amazon S3 used different versions for different event types. General events used version 2.1, cross-Region replication events used 2.2, and S3 Lifecycle, S3 Intelligent-Tiering, object ACL, object tagging, and object restoration delete events used version 2.3.
+This example shows *version 2.6* of the event notification JSON structure. Previously, Amazon S3 used different versions for different event types. General events used version 2.1, cross-Region replication events used 2.2, and S3 Lifecycle, S3 Intelligent-Tiering, object ACL, object tagging, and object restoration delete events used version 2.3.
 
 Starting with version 2.4, Amazon S3 uses a single unified version for all event types, and the version increments consistently across all event types whenever the schema evolves. Each event contains extra information specific to the operation.
 
@@ -17,7 +17,7 @@ The maximum size of an event notification message is 64 KB. When using Amazon SQ
 {  
    "Records":[  
       {  
-         "eventVersion":"2.5",
+         "eventVersion":"2.6",
          "eventSource":"aws:s3",
          "awsRegion":"us-west-2",
          "eventTime":"{{The time, in ISO-8601 format (for example, 1970-01-01T00:00:00.000Z) when Amazon S3 finished processing the request}}",
@@ -56,6 +56,12 @@ The maximum size of an event notification message is 64 KB. When using Amazon SQ
                "lifecycleRestorationExpiryTime": "{{The time, in ISO-8601 format (for example, 1970-01-01T00:00:00.000Z), when the temporary copy of the restored object expires}}",
                "lifecycleRestoreStorageClass": "{{The source storage class for restored objects}}"
             }
+         },
+         "objectRetentionEventData": {
+            "mode": "{{The Object Lock retention mode applied to the object: COMPLIANCE or GOVERNANCE}}",
+            "retainUntilDate": "{{The date, in ISO-8601 format, until which the object is retained}}",
+            "eventHold": "{{The event hold state after the change: ON or OFF; present for event-hold operations}}",
+            "eventHoldDuration": "{{The event hold duration after the change, as {"days": N} or {"years": N}. Present when an event hold duration is set or modified.}}"
          }
       }
    ]
@@ -90,6 +96,7 @@ Note the following about the event message structure:
 + The `lifecycleEventData` key value is only visible for S3 Lifecycle transition events.
 + The `objectAnnotation` key value is only visible for annotation events (`ObjectAnnotation:Put` and `ObjectAnnotation:Delete`). It contains an array with the annotation `name`, `size` (Put events only), and `eTag` (Put events only).
 + For `ObjectCreated:Copy` events, the `object` block includes a `hasObjectAnnotation` boolean field that indicates whether the copied object has annotations.
++ The `objectRetentionEventData` key value is only visible for Object Lock retention events (`ObjectRetention:Put`). It contains the object's Object Lock retention state after the change. The `mode` and `retainUntilDate` fields are always present. The `eventHold` field (`ON` or `OFF`) is present for event-hold operations, and `eventHoldDuration` is present when an event hold duration is set or modified.
 
 ## Example messages
 <a name="notification-content-structure-examples"></a>
@@ -120,7 +127,7 @@ The following is an example of a message that Amazon S3 sends to publish an `s3:
  1. {  
  2.    "Records":[  
  3.       {  
- 4.          "eventVersion":"2.5",
+ 4.          "eventVersion":"2.6",
  5.          "eventSource":"aws:s3",
  6.          "awsRegion":"us-west-2",
  7.          "eventTime":"1970-01-01T00:00:00.000Z",

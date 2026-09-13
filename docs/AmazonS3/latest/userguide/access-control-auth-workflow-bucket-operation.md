@@ -13,7 +13,7 @@ When Amazon S3 receives a request for a bucket operation, Amazon S3 converts all
 
  Context-based evaluation for bucket operation. 
 
-![The context-based evaluation for bucket operation.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/AccessControlAuthorizationFlowBucketResource.png)
+![The context-based evaluation for bucket operation.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/AccessControlAuthorizationFlowBucketResource.png)
 
 
 The following examples illustrate the evaluation logic. 
@@ -23,7 +23,7 @@ The following examples illustrate the evaluation logic.
 
  In this example, the bucket owner sends a request for a bucket operation by using the root credentials of the AWS account. 
 
-![A bucket operation requested by bucket owner.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example10-policy-eval-logic.png)
+![A bucket operation requested by bucket owner.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example10-policy-eval-logic.png)
 
 
  Amazon S3 performs the context evaluation as follows:
@@ -37,7 +37,7 @@ The following examples illustrate the evaluation logic.
 
 In this example, a request is made by using the root user credentials of AWS account 1111-1111-1111 for a bucket operation owned by AWS account 2222-2222-2222. No IAM users are involved in this request.
 
-![A bucket operation requested by an AWS account that is not the bucket owner.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example20-policy-eval-logic.png)
+![A bucket operation requested by an AWS account that is not the bucket owner.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example20-policy-eval-logic.png)
 
 
 In this example, Amazon S3 evaluates the context as follows:
@@ -51,7 +51,7 @@ In this example, Amazon S3 evaluates the context as follows:
 
  In the example, the request is sent by Jill, an IAM user in AWS account 1111-1111-1111, which also owns the bucket. 
 
-![A bucket operation requested by an IAM principal and bucket owner.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example30-policy-eval-logic.png)
+![A bucket operation requested by an IAM principal and bucket owner.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example30-policy-eval-logic.png)
 
 
  Amazon S3 performs the following context evaluation:
@@ -67,7 +67,7 @@ In this example, Amazon S3 evaluates the context as follows:
 
 In this example, the request is sent by Jill, an IAM user whose parent AWS account is 1111-1111-1111, but the bucket is owned by another AWS account, 2222-2222-2222. 
 
-![A bucket operation requested by an IAM principal that is not the bucket owner.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example40-policy-eval-logic.png)
+![A bucket operation requested by an IAM principal that is not the bucket owner.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/example40-policy-eval-logic.png)
 
 
 Jill will need permissions from both the parent AWS account and the bucket owner. Amazon S3 evaluates the context as follows:

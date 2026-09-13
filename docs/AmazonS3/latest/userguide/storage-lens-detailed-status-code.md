@@ -47,7 +47,7 @@ To see **Detailed status code metrics** in your S3 Storage Lens dashboard, you m
 
    The **Buckets** list updates to display all the available detailed status code metrics. You can use this information to see which buckets have a large proportion of certain HTTP status codes and which status codes are common across buckets. 
 
-1. To filter the **Buckets** list to display only specific detailed status-code metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
+1. To filter the **Buckets** list to display only specific detailed status-code metrics, choose the preferences icon (![The Preferences icon in the S3 Storage Lens dashboard.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/preferences.png)).
 
 1. Clear the toggles for any detailed status-code metrics that you don't want to view in the **Buckets** list.
 

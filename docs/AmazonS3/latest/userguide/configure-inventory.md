@@ -302,6 +302,8 @@ Both the AWS managed key (`aws/s3`) and your customer managed keys appear in the
      + **Object Lock: Retention mode** – The level of protection applied to the object, either *Governance* or *Compliance*.
      + **Object Lock: Retain until date** – The date until which the locked object cannot be deleted.
      + **Object Lock: Legal hold status** – The legal hold status of the locked object. 
+     + **Object Lock: Event hold status** – The event hold status of the object.
+     + **Object Lock: Event hold duration** – The variable retention duration that is configured for the object. Selecting this field also adds an **Object Lock: Event hold duration unit** column (`DAYS` or `YEARS`) to the report.
 
      For information about S3 Object Lock, see [How S3 Object Lock works](object-lock.md#object-lock-overview).
    + **Lifecycle Expiration Date** – The lifecycle expiration timestamp for objects in your Inventory report. This field will only be populated, if the object is to be expired by an applicable lifecycle rule. In other cases, the field will be empty. For more information, see [Expiring objects](lifecycle-expire-general-considerations.md).

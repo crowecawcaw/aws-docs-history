@@ -94,6 +94,7 @@ Amazon S3 can publish events of the following types. You specify these event typ
 | `s3:ObjectTagging:*`<br />`s3:ObjectTagging:Put`<br />`s3:ObjectTagging:Delete` | By using the `ObjectTagging` event types, you can enable notification when an object tag is added or deleted from an object.<br />The `s3:ObjectTagging:Put` event type notifies you when a tag is PUT on an object or an existing tag is updated. The `s3:ObjectTagging:Delete` event type notifies you when a tag is removed from an object. | 
 | `s3:ObjectAnnotation:*`<br />`s3:ObjectAnnotation:Put`<br />`s3:ObjectAnnotation:Delete` | By using the `ObjectAnnotation` event types, you can enable notification when an annotation is created, updated, or deleted on an object.<br />The `s3:ObjectAnnotation:Put` event type notifies you when an annotation is created or updated through `PutObjectAnnotation`. The `s3:ObjectAnnotation:Delete` event type notifies you when an annotation is deleted through `DeleteObjectAnnotation`. | 
 | s3:ObjectAcl:Put | You receive this notification event when an ACL is PUT on an object or when an existing ACL is changed. An event is not generated when a request results in no change to an object's ACL. | 
+| s3:ObjectRetention:Put | You receive this notification event when you set a retention configuration on an object using PutObjectRetention. This includes setting fixed or variable retention, releasing an event hold, modifying the event hold duration, and changing the retain-until-date. | 
 
 **Note**  
 Note the following behavior for annotation event notifications:  

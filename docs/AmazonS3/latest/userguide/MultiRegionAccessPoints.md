@@ -13,12 +13,12 @@ After you've set up your Multi-Region Access Point. you can then request or writ
 
 The following image is a graphical representation of an Amazon S3 Multi-Region Access Point in an active-active configuration. The graphic shows how Amazon S3 requests are automatically routed to buckets in the closest active AWS Region.
 
-![Requests routed through an Amazon S3 Multi-Region Access Point.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/MultiRegionAccessPoints.png)
+![Requests routed through an Amazon S3 Multi-Region Access Point.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/MultiRegionAccessPoints.png)
 
 
  The following image is a graphical representation of an Amazon S3 Multi-Region Access Point in an active-passive configuration. The graphic shows how you can control Amazon S3 data-access traffic to fail over between active and passive AWS Regions.
 
-![An Amazon S3 Multi-Region Access Point in an active-passive configuration.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/MultiRegionAccessPointsFailover.png)
+![An Amazon S3 Multi-Region Access Point in an active-passive configuration.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/MultiRegionAccessPointsFailover.png)
 
 
 

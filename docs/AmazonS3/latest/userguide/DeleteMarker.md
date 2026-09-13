@@ -33,16 +33,16 @@ The `Last-Modified` response header provides the creation time of the delete mar
 
 The following figure shows how a `GetObject` API call on an object whose current version is a delete marker responds with a 404 (Not Found) error and the response header includes `x-amz-delete-marker: true`.
 
-![A GetObject call for a delete marker returning a 404 (Not Found) error.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_NoObjectFound.png)
+![A GetObject call for a delete marker returning a 404 (Not Found) error.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_NoObjectFound.png)
 
 
 If you make a `GetObject` call on an object by specifying a `versionId` in your request, and if the specified version is a delete marker, Amazon S3 responds with a 405 (Method Not Allowed) error and the response headers include `x-amz-delete-marker: true` and `Last-Modified: timestamp`.
 
-![A GetObject call for a delete marker returning a 405 (Method Not Allowed) error.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_NoObjectFound_405.png)
+![A GetObject call for a delete marker returning a 405 (Method Not Allowed) error.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_DELETE_NoObjectFound_405.png)
 
 
 Even if overwritten, delete markers remain in your object versions. The only way to list delete markers (and other versions of an object) is by using a [ListObjectVersions](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectVersions.html) request. You can make this request in the AWS Management Console by listing your objects in an general purpose bucket and selecting **Show versions**. For more information, see [Listing objects in a versioning-enabled bucket](list-obj-version-enabled-bucket.md).
 
 The following figure shows that a [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html) or [ListObjects](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html) request doesn't return objects whose current version is a delete marker.
 
-![How a ListObjectsV2 or ListObjects call does not return any delete markers.](http://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_GETBucketwithDeleteMarkers.png)
+![How a ListObjectsV2 or ListObjects call does not return any delete markers.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/versioning_GETBucketwithDeleteMarkers.png)
