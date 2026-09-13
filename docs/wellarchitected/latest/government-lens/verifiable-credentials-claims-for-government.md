@@ -35,7 +35,7 @@
 
  The following diagram represents a *trust graph* combining several claims from various departments for the benefit of the community.  
 
-![A diagram that shows the range of government digital identity proofs.](http://docs.aws.amazon.com/wellarchitected/latest/government-lens/images/vc.jpg)
+![A diagram that shows the range of government digital identity proofs.](https://docs.aws.amazon.com/wellarchitected/latest/government-lens/images/vc.jpg)
 
 
 Figure 6 shows a range of government digital identity proofs examples (Customs, Department of Agriculture, Department of Trade, Accreditation Authority, and Trademarks office), each of which can issue a verifiable identity of an entity (exporter, inspector, chamber, certifier and producer, respectively) or a verifiable piece of information that relates to a consignment, shipment, product, or producer (such as source, supply chain, or ingredients). This leads to a bank being able to issue a Letter of Credit decision which can automatically verify the invoice integrity, seller integrity, and goods origin from each of the relevant authorities through the verifiable credentials system. It also enables an importer to make a purchase decision by being able to automatically verify the goods authenticity and product sustainability through relevant verifiable credentials.

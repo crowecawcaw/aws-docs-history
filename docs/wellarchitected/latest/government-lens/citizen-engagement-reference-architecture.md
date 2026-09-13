@@ -9,4 +9,4 @@
 +  Use of event-driven architectures to leverage on-demand scalability and pay-per-use model. 
 +  Inclusion of real-time and archival flows. 
 
-![A reference architecture diagram showing a citizen engagement solution to perform sentiment analysis on content posted to Twitter.](http://docs.aws.amazon.com/wellarchitected/latest/government-lens/images/citizen-engagement.jpg)
+![A reference architecture diagram showing a citizen engagement solution to perform sentiment analysis on content posted to Twitter.](https://docs.aws.amazon.com/wellarchitected/latest/government-lens/images/citizen-engagement.jpg)

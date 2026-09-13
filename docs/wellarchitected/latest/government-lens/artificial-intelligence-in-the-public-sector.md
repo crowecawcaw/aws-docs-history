@@ -30,7 +30,7 @@
 
  This reference architecture illustrates a secure, self-service, data science environment using Amazon SageMaker AI Studio. It provides data scientists with access to a secure and persistent experimentation environment as well as continuous integration and continuous deployment (CI/CD) pipelines to perform data science and machine learning at scale. 
 
-![A reference architecture diagram showing how to enable public sector customers with artificial intelligence.](http://docs.aws.amazon.com/wellarchitected/latest/government-lens/images/ai-arch1.jpg)
+![A reference architecture diagram showing how to enable public sector customers with artificial intelligence.](https://docs.aws.amazon.com/wellarchitected/latest/government-lens/images/ai-arch1.jpg)
 
 
  This architecture demonstrates a self-service model for enabling multiple project teams to create environments and details the design choices and security controls that your organization can rely on in these environments. Organizations should modify these controls to verify that they meet their specific requirements. 
