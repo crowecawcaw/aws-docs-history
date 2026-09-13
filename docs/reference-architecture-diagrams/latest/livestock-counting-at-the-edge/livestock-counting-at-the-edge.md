@@ -10,7 +10,7 @@ This architecture enables you to build a near real-time, automated counting appl
 ## Livestock Counting at the Edge Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing livestock counting at the edge](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/livestock-counting-at-the-edge/images/livestock-counting-at-the-edge.png)
+![Reference architecture diagram showing livestock counting at the edge](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/livestock-counting-at-the-edge/images/livestock-counting-at-the-edge.png)
 
 
 1. Upload videos and images to **Amazon Simple Storage Service** (Amazon S3) to train the livestock detection model.
