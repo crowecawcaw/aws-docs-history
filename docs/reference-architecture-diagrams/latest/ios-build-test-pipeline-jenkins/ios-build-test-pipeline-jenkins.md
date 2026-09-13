@@ -10,7 +10,7 @@ This architecture shows how to automate building and testing iOS apps by using J
 ## iOS Build and Test Pipeline Using Jenkins
 <a name="diagram1"></a>
 
-![Architecture diagram showing an iOS build and test pipeline by using Jenkins, Amazon Elastic Compute Cloud Mac instances, and AWS Device Farm.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ios-build-test-pipeline-jenkins/images/ios-build-test-pipeline-jenkins.png)
+![Architecture diagram showing an iOS build and test pipeline by using Jenkins, Amazon Elastic Compute Cloud Mac instances, and AWS Device Farm.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ios-build-test-pipeline-jenkins/images/ios-build-test-pipeline-jenkins.png)
 
 
 1. A developer initiates a build and test activity in [Amazon API Gateway](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) by pushing a code change to [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
