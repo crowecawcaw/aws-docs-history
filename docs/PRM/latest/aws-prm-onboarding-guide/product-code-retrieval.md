@@ -21,6 +21,6 @@ The following screenshot shows where to find the product code in the AWS Marketp
 
 
 
-![AWS Marketplace Management Portal showing product code location in the Product Summary section](http://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/images/PRM-product-code.png)
+![AWS Marketplace Management Portal showing product code location in the Product Summary section](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/images/PRM-product-code.png)
 
 

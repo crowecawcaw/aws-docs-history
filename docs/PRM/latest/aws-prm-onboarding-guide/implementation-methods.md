@@ -39,7 +39,7 @@ The following decision tree helps you determine the right implementation method:
 
 
 
-![Partner Revenue Measurement decision tree for choosing between AWS Marketplace Metering, Resource Tagging, and User Agent String implementation methods](http://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/images/PRM-decision-tree.png)
+![Partner Revenue Measurement decision tree for choosing between AWS Marketplace Metering, Resource Tagging, and User Agent String implementation methods](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/images/PRM-decision-tree.png)
 
 
 

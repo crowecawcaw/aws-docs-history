@@ -33,7 +33,7 @@ Partner Revenue Measurement requires implementation of one or more methods to en
 
 
 
-![Partner Revenue Measurement architecture patterns showing partner account, customer account, and hybrid deployment models](http://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/images/PRM-architecture-patterns.png)
+![Partner Revenue Measurement architecture patterns showing partner account, customer account, and hybrid deployment models](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/images/PRM-architecture-patterns.png)
 
 
 
