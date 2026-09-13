@@ -25,12 +25,12 @@ A line graph is a good way to visualize time series data that fluctuates over ti
 **Example**  
 The following line chart shows four asset properties.  
 
-![A sample line chart showing four properties.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-line-graph-console.png)
+![A sample line chart showing four properties.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-line-graph-console.png)
 
 
 To display a line graph, choose the line graph icon from the visualization type menu.
 
-![The line graph visualization type icon.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-line-visualization-type-console.png)
+![The line graph visualization type icon.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-line-visualization-type-console.png)
 
 
 ## Scatter
@@ -41,12 +41,12 @@ You can use a scatter chart to visualize time series data with distinct data poi
 **Example**  
 The following scatter chart shows one asset property.  
 
-![A sample scatter chart showing four properties.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-scatter-chart-console.png)
+![A sample scatter chart showing four properties.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-scatter-chart-console.png)
 
 
 To display a scatter chart, choose the scatter icon from the visualization type menu.
 
-![The scatter chart visualization type icon.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-scatter-chart-visualization-type-console.png)
+![The scatter chart visualization type icon.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-scatter-chart-visualization-type-console.png)
 
 
 ## Bar
@@ -57,12 +57,12 @@ A bar chart is another way to visualize time series data. You might use a bar ch
 **Example**  
 The following bar chart shows four asset properties.  
 
-![A sample bar chart showing four properties as a time series.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-bar-graph-console.png)
+![A sample bar chart showing four properties as a time series.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-bar-graph-console.png)
 
 
 To display a bar graph, choose the bar graph icon from the visualization type menu.
 
-![The bar graph visualization type icon.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-bar-visualization-type-console.png)
+![The bar graph visualization type icon.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-bar-visualization-type-console.png)
 
 
 ## Status
@@ -83,12 +83,12 @@ You can configure a status widget to show current status as a grid or historical
 **Example**  
 The following status grid shows the status of four asset properties.  
 
-![A sample status grid widget.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-status-chart-console.png)
+![A sample status grid widget.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-status-chart-console.png)
 
 
 To display a status grid widget, choose the status grid icon from the visualization type menu.
 
-![The status grid visualization type icon.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-status-visualization-type-console.png)
+![The status grid visualization type icon.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-status-visualization-type-console.png)
 
 
 ### Status timeline
@@ -97,12 +97,12 @@ To display a status grid widget, choose the status grid icon from the visualizat
 **Example**  
 The following status timeline shows the status over time for four asset properties.  
 
-![A sample status timeline widget.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-status-timeline-chart-console.png)
+![A sample status timeline widget.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-status-timeline-chart-console.png)
 
 
 To display a status timeline widget, choose the status timeline icon from the visualization type menu.
 
-![The status timeline visualization type icon.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-status-timeline-visualization-type-console.png)
+![The status timeline visualization type icon.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-status-timeline-visualization-type-console.png)
 
 
 ### Configure status widgets
@@ -110,7 +110,7 @@ To display a status timeline widget, choose the status timeline icon from the vi
 
 To set status colors, configure thresholds with the color and rule for each status. For more information, see [Configure thresholds](configure-thresholds.md).
 
-![A sample status widget threshold configuration.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-configure-status-thresholds-console.png)
+![A sample status widget threshold configuration.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-configure-status-thresholds-console.png)
 
 
 You can also configure what information the widget displays about asset properties.
@@ -131,7 +131,7 @@ The KPI visualization provides a compact representation when you need an overvie
 **Example**  
 The following is a key performance indicator (KPI) visualization that shows four asset properties.  
 
-![A sample KPI visualization.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-kpi-chart-console.png)
+![A sample KPI visualization.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-kpi-chart-console.png)
 
 
 The KPI visualization shows the following information:
@@ -140,7 +140,7 @@ The KPI visualization shows the following information:
 
 To display a KPI, choose the KPI icon from the visualization type menu.
 
-![The KPI visualization type icon.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-kpi-visualization-type-console.png)
+![The KPI visualization type icon.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-kpi-visualization-type-console.png)
 
 
 ## Table
@@ -153,9 +153,9 @@ You can display either properties or alarms in a table. You can't display proper
 **Example**  
 The following is a table widget that shows four asset properties.  
 
-![A sample table widget.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-table-widget-console.png)
+![A sample table widget.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-table-widget-console.png)
 
 
 To display a table widget, choose the table icon from the visualization type menu.
 
-![The table widget type icon.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-table-visualization-type-console.png)
+![The table widget type icon.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-table-visualization-type-console.png)

@@ -11,7 +11,7 @@ Because AWS IoT SiteWise captures data over time, you can use AWS IoT SiteWise M
 
 <a name="example-dashboard-para"></a>The following is an example dashboard that displays data for a wind farm.
 
-<a name="example-dashboard-image"></a>![A sample SiteWise Monitor dashboard.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/monitor-wind-farm-dashboard-console.png)
+<a name="example-dashboard-image"></a>![A sample SiteWise Monitor dashboard.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/monitor-wind-farm-dashboard-console.png)
 
 
 ## SiteWise Monitor roles
@@ -32,7 +32,7 @@ Each SiteWise Monitor project has viewers. Project viewers can connect to the po
 
 The following image illustrates how these three roles, in addition to the AWS administrator who creates portals, interact in a SiteWise Monitor portal. 
 
-<a name="monitor-roles-diagram"></a>![AWS IoT SiteWise Monitor roles and what they do.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/monitor-roles.png)
+<a name="monitor-roles-diagram"></a>![AWS IoT SiteWise Monitor roles and what they do.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/monitor-roles.png)
 
 
 <a name="manage-access-para"></a>You can manage who has access to your data by using AWS IAM Identity Center or IAM. Your data users can sign in to SiteWise Monitor from a desktop or mobile browser using their IAM Identity Center or IAM credentials.

@@ -43,7 +43,7 @@ If you choose **Custom value**, enter a number.
    1. Choose an asset to preview this threshold.
 
    1. Choose **Next**.  
-!["Define threshold" page with model dropdown menus and "Preview" dropdown menu highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/alarms-create-define-threshold.png)
+!["Define threshold" page with model dropdown menus and "Preview" dropdown menu highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/alarms-create-define-threshold.png)
 
 1. On the **Configuration settings** page, you enter a name and choose the default state for this alarm definition. Do the following:
 
@@ -52,7 +52,7 @@ If you choose **Custom value**, enter a number.
    1. Specify the **Default state** for this alarm definition. You can enable or disable all alarms created based on this alarm definition. You can enable or disable individual alarms associated with model in a later step.
 
    1. Choose **Next**.  
-!["Configure settings" screen with "Name" field highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/alarms-create-configure-settings.png)
+!["Configure settings" screen with "Name" field highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/alarms-create-configure-settings.png)
 
 1. On the **Configure notification** page, you configure the notification recipient, the message protocol, and the custom message to send when this alarm is invoked. Do the following:
 
@@ -68,4 +68,4 @@ Your IT administrator must add IAM Identity Center users in the current AWS Regi
    1. For **Additional custom message**, you specify the custom message to send in addition to the default state change message. For example, you can specify a message that helps your team understand how to address this alarm.
 
    1. Choose **Create alarm definition**.  
-![Create an alarm in the SiteWise Monitor portal.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/alarms-create-configure-notification.png)
+![Create an alarm in the SiteWise Monitor portal.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/alarms-create-configure-notification.png)

@@ -10,10 +10,10 @@ With AWS IoT SiteWise Monitor, you can provide consistent views of your asset da
 **To view a dashboard from the dashboards page**
 
 1. In the navigation bar, choose the **Dashboards** icon.  
-![The "Dashboards" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-dashboards-console.png)
+![The "Dashboards" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-dashboards-console.png)
 
 1. In the **Filter by project** drop-down list, choose the project whose dashboards you want to view.  
-![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboards-list-view-console.png)
+![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboards-list-view-console.png)
 
    You can sort the list of dashboards by using the column headings.
 **Note**  
@@ -24,16 +24,16 @@ If you can't find a particular project, you might not have been invited to view 
 **To view a dashboard from a project page**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project whose dashboards you want to view.  
-![The "Projects" page with "Wind Farm 3" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
+![The "Projects" page with "Wind Farm 3" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
 
 1. In the **Dashboards** section of the project details page, choose **Open in dashboards** for the dashboard to view. You can also select the check box next to the dashboard, and then choose **Open**.  
-![The "Dashboards" section of the projects page with "Wind Farm Dashboard" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-project-owner-view-dashboard-console.png)
+![The "Dashboards" section of the projects page with "Wind Farm Dashboard" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-project-owner-view-dashboard-console.png)
 
 1. You can browse the visualizations available in the dashboard.  
-![An example dashboard with the time range dropdown highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-project-owner-view-dashboard-console.png)
+![An example dashboard with the time range dropdown highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-project-owner-view-dashboard-console.png)
 
 1. You can [adjust the time range for your data](#adjust-dashboard-time-range). If you're a project owner or portal administrator, you can modify the dashboard. For more information, see [Add visualizations in AWS IoT SiteWise Monitor](add-visualizations.md).
 
@@ -47,12 +47,12 @@ Each dashboard page has its own **Time range**. If you change the **Time range**
 
 **To use a predefined time range**
 + In the time range drop-down list, choose a time range to view.  
-![The time range selector on a dashboard.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-choose-time-range-console.png)
+![The time range selector on a dashboard.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-choose-time-range-console.png)
 
 **To use a custom time range**
 
 1. Choose the time range control to open the calendar.  
-![The time range selector on a dashboard.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-choose-custom-time-range-console.png)
+![The time range selector on a dashboard.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-choose-custom-time-range-console.png)
 
 1. Choose the start and end for your time range. In the example screen capture, the start date is July 26 and the end date is July 27.
 

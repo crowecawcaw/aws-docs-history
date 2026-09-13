@@ -10,7 +10,7 @@ The SiteWise Monitor application lets you to adjust the layout of your dashboard
 **To adjust your layout**
 
 1. To move a visualization, use the control icon in the upper left. Drag the visualization to a new location.  
-![An example visualization with the gripper and resize controls highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png)
+![An example visualization with the gripper and resize controls highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png)
 
 1. To change the size of a visualization, use the resize control in the lower right. Drag the corner to a new size and shape. Visualizations snap to the grid when resized, so you only have coarse control over the size.
 

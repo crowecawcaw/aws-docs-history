@@ -23,13 +23,13 @@ After you create a dashboard and add your visualizations, you can update your da
 **To edit a project's dashboard**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project whose dashboards you want to edit.  
-![The "Projects" page with "Wind Farm 3" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
+![The "Projects" page with "Wind Farm 3" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
 
 1. In the **Dashboards** section, choose a dashboard to edit.  
-![The dashboards list on the project details page with a dashboard highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-project-owner-view-dashboard-console.png)
+![The dashboards list on the project details page with a dashboard highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-project-owner-view-dashboard-console.png)
 
 1. In the dashboard, choose **Edit** in the upper right.
 
@@ -47,14 +47,14 @@ You add visualizations to the dashboard by dragging asset properties and alarms 
    + The default visualization type for alarms is the [status grid widget](choose-visualization-types.md#status-grid-chart).
 **Note**  
 You can drag multiple properties and alarms onto a single visualization.  
-![The dashboard editor with "Total average power" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-add-visualization-console.png)
+![The dashboard editor with "Total average power" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-add-visualization-console.png)
 
 1. <a name="dashboard-choose-visualization-type"></a>To change how your data displays, choose the visualization type.  
-![A sample visualization with the visualization type icon highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
+![A sample visualization with the visualization type icon highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
 
    For more information about the available visualization types, see [Choose visualization types](choose-visualization-types.md). To customize details of the visualization, see [Customize visualizations](customize-visualizations.md).
 
 1. <a name="dashboard-configure-thresholds"></a>To add thresholds to your property, choose the visualization configuration icon. If you add a property that has an alarm, the visualization displays that alarm's threshold. For more information, see [Configure thresholds](configure-thresholds.md).  
-![A sample visualization with the visualization configuration icon highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png)
+![A sample visualization with the visualization configuration icon highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png)
 
 1. To move or resize your visualization, see [Adjust dashboard layout](adjust-layout.md).

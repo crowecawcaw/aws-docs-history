@@ -24,16 +24,16 @@ The following procedure assumes that you are signed in the AWS IoT SiteWise Moni
 **To explore shared dashboards**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project whose dashboards you want to view.  
-![The Projects page with "Wind Farm 3" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png)
+![The Projects page with "Wind Farm 3" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png)
 
 1. In the **Dashboards** section of the project details page, choose the name of the dashboard to view. You can also select the check box next to the dashboard, and then choose **Open**.  
-![The "Dashboards" section of the projects page with "Wind Farm Dashboard" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-project-viewer-view-dashboard-console.png)
+![The "Dashboards" section of the projects page with "Wind Farm Dashboard" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-project-viewer-view-dashboard-console.png)
 
 1. You can browse the visualizations in the dashboard.  
-![An example dashboard with time range dropdown highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-project-viewer-view-dashboard-console.png)
+![An example dashboard with time range dropdown highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-project-viewer-view-dashboard-console.png)
 
    Do any of the following actions to adjust the displayed time range for your data:<a name="modify-visualization-time-range"></a>
    + <a name="modify-visualization-zoom-in-selected"></a>Click and drag a time range on one of the line or bar charts to zoom in to the selected time range.
@@ -59,10 +59,10 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 **To explore project assets and their data**
 + In the navigation bar, choose the **Assets** icon.  
-![The "Assets" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 
   The **Assets** page appears.  
-![The "Asset library" page with "Assets" panel labeled A, time range dropdown labeled B, and "Demo Wind Farm Asset" section labeled C.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-project-owner-console.png)
+![The "Asset library" page with "Assets" panel labeled A, time range dropdown labeled B, and "Demo Wind Farm Asset" section labeled C.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-project-owner-console.png)
 
   See the following areas of the page.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/project-viewer-getting-started.html)

@@ -10,10 +10,10 @@ As a portal administrator, you can delete any project that you don't need. To de
 **To delete a project**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, select the check box for the project to delete.  
-![The "Projects" page with "Delete project" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-delete-project-console.png)
+![The "Projects" page with "Delete project" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-delete-project-console.png)
 
 1. Choose **Delete project**.
 

@@ -14,10 +14,10 @@ You can only configure alarm properties that your team sets up for you to custom
 **To configure an alarm**
 
 1. In the navigation bar, choose the **Assets** icon.  
-![The "Assets" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 
 1. <a name="asset-library-choose-project"></a>(Optional) Choose a project in the projects drop-down list to show only assets from a specific project.  
-![The "Assets" page, with the projects drop-down list called out.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png)
+![The "Assets" page, with the projects drop-down list called out.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png)
 
 1. Choose an asset in the **Assets** hierarchy.
 **Tip**  
@@ -32,7 +32,7 @@ Choose the arrow next to an asset to view all children of that asset.
 1. On the **Configure alarm** page, do any of the following:
 
    1. Edit the threshold value for the alarm. You can preview the threshold on the recent data for the property that the alarm monitors.  
-![The "Configure alarm" page with the alarm threshold highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/alarms-configure-threshold-console.png)
+![The "Configure alarm" page with the alarm threshold highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/alarms-configure-threshold-console.png)
 
    1. Choose a new **Notification recipient** for the alarm notification. You can choose an AWS IAM Identity Center (IAM Identity Center) user in your organization.
 

@@ -15,15 +15,15 @@ Follow this procedure to create a new project.
 **To create a new project**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose **Create project**  
-![The "Projects" page with "Create project" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-create-project-console.png)
+![The "Projects" page with "Create project" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-create-project-console.png)
 
 1. In the **Create new project** dialog box, enter a **Project name** and **Project description**. Use a description that informs users about the assets and visualizations in the project.
 **Note**  
 Make sure that the project name and description don't contain confidential information.  
-![The "Create new project" page with the "Create project" button highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-create-new-project-console.png)
+![The "Create new project" page with the "Create project" button highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-create-new-project-console.png)
 
 1. Choose **Finish** to create the new project.
 

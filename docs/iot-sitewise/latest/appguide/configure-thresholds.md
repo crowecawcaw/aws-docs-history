@@ -12,7 +12,7 @@ If you add a property with an alarm to a visualization, the visualization automa
 
 The threshold in the following example indicates when a wind farm's total power output is less than **30,000** watts. The visualization displays the legend in green because the property value meets the threshold.
 
-![A line graph visualization with a threshold.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-threshold-line-graph-console.png)
+![A line graph visualization with a threshold.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-threshold-line-graph-console.png)
 
 
 When multiple thresholds apply to a data point, SiteWise Monitor uses the following rules to choose which threshold's color to display:
@@ -34,10 +34,10 @@ You can add up to six thresholds to each visualization.
 **To add a threshold to a visualization**
 
 1. Choose the **Configuration** icon for the visualization to change.  
-![A visualization with the "Configuration" icon highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-configure-visualization-settings-console.png)
+![A visualization with the "Configuration" icon highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-configure-visualization-settings-console.png)
 
 1. If the visualization already has a threshold, choose **Add a threshold** to add a new threshold.  
-![The visualization configuration panel with "Add a threshold" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-add-threshold-console.png)
+![The visualization configuration panel with "Add a threshold" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-add-threshold-console.png)
 
 1. Choose one of the following comparison operators:
    + **<** – Highlight properties that have at least one data point less than the specified value.
@@ -64,6 +64,6 @@ As a project owner, you can remove a threshold from a visualization if you no lo
 1. Choose the **Configuration** icon for the visualization to change.
 
 1. Choose the **X** icon for the threshold to remove.  
-![A visualization threshold with the remove icon highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-remove-threshold-console.png)
+![A visualization threshold with the remove icon highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-remove-threshold-console.png)
 
 1. <a name="dashboard-save-changes"></a>After you finish editing the dashboard, choose **Save dashboard** to save your changes. The dashboard editor closes. If you try to close a dashboard that has unsaved changes, you're prompted to save them.

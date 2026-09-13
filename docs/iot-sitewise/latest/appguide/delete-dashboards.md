@@ -10,10 +10,10 @@ You must be a project owner or portal administrator to delete dashboards. You ca
 **To delete a dashboard from the dashboards page**
 
 1. In the navigation bar, choose the **Dashboards** icon.  
-![The "Dashboards" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-dashboards-console.png)
+![The "Dashboards" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-dashboards-console.png)
 
 1. In the **Projects** drop-down list, choose the project whose dashboards you want to delete.  
-![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboards-list-view-console.png)
+![The "Dashboards" page in list view with "Wind Farm 1" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboards-list-view-console.png)
 
    You can sort the list of dashboards by using the column headings.
 **Note**  
@@ -28,10 +28,10 @@ Deleting a dashboard deletes all visualizations and settings. You can't undo thi
 **To delete a dashboard from a project**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project whose dashboards you want to delete.  
-![The "Projects" page with "Wind Farm 3" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
+![The "Projects" page with "Wind Farm 3" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
 
 1. In the **Dashboards** section, select the check boxes for the dashboards to delete, and then choose **Delete**.
 

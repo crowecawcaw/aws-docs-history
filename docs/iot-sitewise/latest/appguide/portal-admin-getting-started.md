@@ -21,24 +21,24 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 **To explore asset data and add asset to projects**
 
 1. In the navigation bar, choose the **Assets** icon.  
-![The "Assets" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 
    The **Assets** page appears.  
-![The "Assets" page with "Assets" panel labeled A, "Add asset to project field" labeled B, time dropdown labeled C, and "Demo Wind Farm Asset" labeled D.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-portal-admin-console.png)
+![The "Assets" page with "Assets" panel labeled A, "Add asset to project field" labeled B, time dropdown labeled C, and "Demo Wind Farm Asset" labeled D.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-portal-admin-console.png)
 
    See the following areas of the page.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/portal-admin-getting-started.html)
 
 1. <a name="asset-library-choose-asset"></a>Choose an asset in the **Assets** hierarchy, and then choose **Add asset to project**.  
-![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)
+![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)
 **Note**  
 You can add only a single node hierarchy (an asset and all assets that are subordinate to that asset) to a project. To create a dashboard to compare two assets that are children of a common parent asset, add that common parent to the project.
 
 1. <a name="asset-library-create-new-project"></a>In the **Add assets to project** dialog box, choose **Create new project**, then choose **Next**.  
-![Add assets to project dialog, step 1 of 2.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-add-assets-to-new-project-console.png)
+![Add assets to project dialog, step 1 of 2.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-add-assets-to-new-project-console.png)
 
 1. <a name="asset-library-new-project-enter-project-name"></a>In **Project name**, enter a name for your project. If you plan to create multiple projects, each with a distinct set of assets, choose a descriptive name.  
-![Add assets to project dialog, step 2 of 2.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-create-new-project-console.png)
+![Add assets to project dialog, step 2 of 2.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-create-new-project-console.png)
 
 1. <a name="asset-library-new-project-enter-project-description"></a>In **Project description**, enter a description of the project and its contents.
 
@@ -58,16 +58,16 @@ You can add only a single node hierarchy (an asset and all assets that are subor
 **To assign owners to a project**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project to which to assign project owners.  
-![The "Projects" page with "Create project" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
+![The "Projects" page with "Create project" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
 
 1. In the **Project owners** section of the project details page, choose **Add owners** if the project has no owners, or **Edit owners**.  
-![The "Project owners" section of the project details page.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-add-owners-console.png)
+![The "Project owners" section of the project details page.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-add-owners-console.png)
 
 1. In the **Project owners** dialog box, select the check boxes for the users to be owners for this project.  
-![Shows the "Project owners" dialog.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-choose-owners-console.png)
+![Shows the "Project owners" dialog.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-choose-owners-console.png)
 **Note**  
 You can only add project owners if they're portal users. If you don't see a user listed, contact your AWS administrator to add them to the list of portal users.
 
@@ -80,12 +80,12 @@ You can only add project owners if they're portal users. If you don't see a user
 **To send email invitations to project owners**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project for which to invite project owners.  
-![The "Projects" page with "Create project" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
+![The "Projects" page with "Create project" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-admin-choose-project-console.png)
 
 1. In the **Project owners** section of the project details page, select the check boxes for the project owners to receive an email, and then choose **Send invitations**.  
-![The "Project owners" section of the project details page.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-invite-owners-console.png)
+![The "Project owners" section of the project details page.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-invite-owners-console.png)
 
 1. Your preferred email client opens, prepopulated with the recipients and the email body with details from your project. You can customize the email before you send it to the project owners.

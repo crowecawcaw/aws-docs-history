@@ -24,10 +24,10 @@ As the project owner, you decide how each asset property or alarm is best repres
 **To change the visualization type**
 
 1. Choose the **Visualization type** icon for the visualization to change.  
-![The icons used to configure a visualization with the "Visualization type" icon highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
+![The icons used to configure a visualization with the "Visualization type" icon highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
 
 1. In the visualization type bar, choose the icon for the type of visualization to apply.  
-![The visualization type picker.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-choose-visualization-type-console.png)
+![The visualization type picker.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-choose-visualization-type-console.png)
 
    For more information, see [Choose visualization types](choose-visualization-types.md).
 
@@ -41,7 +41,7 @@ As a project owner, you might want to show multiple asset properties and alarms 
 **To add data to a visualization**
 
 1. Drag the asset property or alarm that you want to add to a visualization. When you add a property that has an alarm, you also automatically add that alarm as a threshold.  
-![The "Added assets" panel with the delete control highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-drag-property-to-visualization-console.png)
+![The "Added assets" panel with the delete control highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-drag-property-to-visualization-console.png)
 
 1. <a name="dashboard-save-changes"></a>After you finish editing the dashboard, choose **Save dashboard** to save your changes. The dashboard editor closes. If you try to close a dashboard that has unsaved changes, you're prompted to save them.
 
@@ -53,10 +53,10 @@ You can remove asset properties and alarms from visualizations to no longer disp
 **To remove data from a visualization**
 
 1. Choose the **Added assets** icon for the visualization to change.  
-![The icons used to configure a visualization with the "Added assets" icon highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-open-added-assets-console.png)
+![The icons used to configure a visualization with the "Added assets" icon highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-open-added-assets-console.png)
 
 1. Choose the **X** icon on an asset property or alarm to remove it from the visualization.  
-![The "Added assets" panel with the delete control highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-view-added-assets-console.png)
+![The "Added assets" panel with the delete control highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-view-added-assets-console.png)
 
 1. <a name="dashboard-save-changes"></a>After you finish editing the dashboard, choose **Save dashboard** to save your changes. The dashboard editor closes. If you try to close a dashboard that has unsaved changes, you're prompted to save them.
 
@@ -68,6 +68,6 @@ As a project owner, if you decide that a visualization isn't needed, you can eas
 **To delete a visualization**
 
 1. Choose the **X** icon for the visualization to remove.  
-![The icons used to configure a visualization with the "Delete icon" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-remove-visualization-console.png)
+![The icons used to configure a visualization with the "Delete icon" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-remove-visualization-console.png)
 
 1. <a name="dashboard-save-changes"></a>After you finish editing the dashboard, choose **Save dashboard** to save your changes. The dashboard editor closes. If you try to close a dashboard that has unsaved changes, you're prompted to save them.

@@ -68,7 +68,7 @@ You can choose one of the following to sign in to the AWS IoT SiteWise Monitor p
 
 You use the left navigation bar to navigate within the AWS IoT SiteWise Monitor portal.
 
-![The navigation bar in the AWS IoT SiteWise Monitor portal.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-bar-console.png)
+![The navigation bar in the AWS IoT SiteWise Monitor portal.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-bar-console.png)
 
 
 When the bar is collapsed, only the icons are shown.

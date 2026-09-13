@@ -30,10 +30,10 @@ Your team can configure alarms that don't support the acknowledge option. You ca
 **To acknowledge an alarm**
 
 1. In the navigation bar, choose the **Assets** icon.  
-![The "Assets" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 
 1. <a name="asset-library-choose-project"></a>(Optional) Choose a project in the projects drop-down list to show only assets from a specific project.  
-![The "Assets" page, with the projects drop-down list called out.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png)
+![The "Assets" page, with the projects drop-down list called out.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png)
 
 1. Choose an asset in the **Assets** hierarchy.
 **Tip**  
@@ -68,10 +68,10 @@ You can snooze alarms that have the following states:
 **To snooze an alarm**
 
 1. In the navigation bar, choose the **Assets** icon.  
-![The "Assets" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 
 1. <a name="asset-library-choose-project"></a>(Optional) Choose a project in the projects drop-down list to show only assets from a specific project.  
-![The "Assets" page, with the projects drop-down list called out.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png)
+![The "Assets" page, with the projects drop-down list called out.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-choose-project-console.png)
 
 1. Choose an asset in the **Assets** hierarchy.
 **Tip**  

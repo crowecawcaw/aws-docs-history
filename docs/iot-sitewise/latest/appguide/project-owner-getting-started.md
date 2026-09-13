@@ -24,10 +24,10 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 **To explore project assets and their data**
 + In the navigation bar, choose the **Assets** icon.  
-![The "Assets" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 
   The **Assets** page appears.  
-![The "Assets" page.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-project-owner-console.png)
+![The "Assets" page.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-project-owner-console.png)
 
   See the following areas of the page.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/project-owner-getting-started.html)
@@ -40,13 +40,13 @@ The primary activity for a project owner is to create dashboards that contain on
 **To create dashboards**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project in which you want to create a dashboard.  
-![The "Projects" page as a project owner.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png)
+![The "Projects" page as a project owner.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png)
 
 1. <a name="project-create-dashboard"></a>In the **Dashboards** section, choose **Create dashboard**.  
-![The dashboards list on the project details page with "Create dashboard" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-create-dashboard-console.png)
+![The dashboards list on the project details page with "Create dashboard" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-create-dashboard-console.png)
 
 Next, you add one or more visualizations of asset properties and alarms to your dashboard. 
 
@@ -58,25 +58,25 @@ Each dashboard can display one or more visualizations of the values of the asset
 **To configure visualizations**
 
 1. <a name="dashboard-configure-dashboard"></a>In the dashboard editor, change the dashboard name from the default, **New dashboard**, to something that describes the content****.  
-![The dashboard editor with "New Dashboard" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-name-dashboard-console.png)
+![The dashboard editor with "New Dashboard" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-name-dashboard-console.png)
 
 1. <a name="dashboard-add-visualization"></a>Browse the list of project assets on the right side of the dashboard. When you find a property or alarm to visualize, drag it to the dashboard.
    + The default visualization type for properties is the [line chart](choose-visualization-types.md#line-charts).
    + The default visualization type for alarms is the [status grid widget](choose-visualization-types.md#status-grid-chart).
 **Note**  
 You can drag multiple properties and alarms onto a single visualization.  
-![The dashboard editor with "Total average power" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-add-visualization-console.png)
+![The dashboard editor with "Total average power" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-add-visualization-console.png)
 
 1. <a name="dashboard-choose-visualization-type"></a>To change how your data displays, choose the visualization type.  
-![A sample visualization with the visualization type icon highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
+![A sample visualization with the visualization type icon highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-type-console.png)
 
    For more information about the available visualization types, see [Choose visualization types](choose-visualization-types.md). To customize details of the visualization, see [Customize visualizations](customize-visualizations.md).
 
 1. <a name="dashboard-configure-thresholds"></a>To add thresholds to your property, choose the visualization configuration icon. If you add a property that has an alarm, the visualization displays that alarm's threshold. For more information, see [Configure thresholds](configure-thresholds.md).  
-![A sample visualization with the visualization configuration icon highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png)
+![A sample visualization with the visualization configuration icon highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png)
 
 1. To move a visualization, choose the control icon in the upper left and then drag the visualization to a new location.  
-![An example visualization with the gripper and resize controls highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png)
+![An example visualization with the gripper and resize controls highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png)
 
 1. To change the size of a visualization, use the resize control in the lower right. Drag the corner to a new size and shape. Visualizations snap to the grid when resized, so you only have coarse control over the size.
 
@@ -85,7 +85,7 @@ You can drag multiple properties and alarms onto a single visualization.
 1. Repeat these steps to add and configure more visualizations to the dashboard.
 
 1. When you finish making changes, choose **Save dashboard** in the upper-right corner.  
-![Shows the "Save dashboard" button in the upper right of the dashboard.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-finish-edits-console.png)
+![Shows the "Save dashboard" button in the upper right of the dashboard.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/dashboard-finish-edits-console.png)
 
 When you're ready to share your dashboard, you can add viewers to your project to explore dashboards. You can see and change who you invited to the project on the project details page. 
 
@@ -97,16 +97,16 @@ You can assign viewers to your project from the project details page.<a name="ad
 **To assign viewers to a project**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project to which to assign viewers.  
-![The "Projects" page with "Wind Farm 3" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png)
+![The "Projects" page with "Wind Farm 3" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png)
 
 1. In the **Project viewers** section of the project details page, choose **Add viewers** if the project has no viewers, or **Edit viewers**.  
-![The "Project viewers" section of a project page.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-add-viewers-console.png)
+![The "Project viewers" section of a project page.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-add-viewers-console.png)
 
 1. In the **Project viewers** dialog box, select the check boxes for the users to be viewers for this project.  
-![Shows the "Project viewers" dialog.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-choose-viewers-console.png)
+![Shows the "Project viewers" dialog.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-choose-viewers-console.png)
 **Note**  
 You can only add viewers if they're portal users. If you don't see a user listed, contact your AWS administrator to add them to the list of portal users.
 
@@ -119,12 +119,12 @@ You can only add viewers if they're portal users. If you don't see a user listed
 **To send email invitations to project viewers**
 
 1. In the navigation bar, choose the **Projects** icon.  
-![The "Projects" icon in the navigation bar.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
+![The "Projects" icon in the navigation bar.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/portal-navigation-projects-console.png)
 
 1. On the **Projects** page, choose the project to which to invite project viewers.  
-![The "Projects" page with "Create project" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png)
+![The "Projects" page with "Create project" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/projects-portal-user-choose-project-console.png)
 
 1. In the **Project viewers** section of the project details page, select the check boxes for the project viewers to receive an email, and then choose **Send invitations**.  
-![The "Project viewers" section of the project details page.](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-invite-viewers-console.png)
+![The "Project viewers" section of the project details page.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/project-invite-viewers-console.png)
 
 1. Your preferred email client opens, prepopulated with the recipients and the email body with details from your project. You can customize the email before you send it to the project viewers.
