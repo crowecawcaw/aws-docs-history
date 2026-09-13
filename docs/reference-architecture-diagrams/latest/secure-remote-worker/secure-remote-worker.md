@@ -10,7 +10,7 @@ This architecture shows how to build a secure desktop environment for remote wor
 ## Secure Remote Worker Environment
 <a name="diagram1"></a>
 
-![Architecture diagram showing a secure remote worker environment with Amazon WorkSpaces.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/secure-remote-worker/images/secure-remote-worker.png)
+![Architecture diagram showing a secure remote worker environment with Amazon WorkSpaces.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/secure-remote-worker/images/secure-remote-worker.png)
 
 
 1. Users connect to their desktop by using the [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) application with a username, password, and MFA code.
