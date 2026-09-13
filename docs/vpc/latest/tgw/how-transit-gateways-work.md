@@ -19,7 +19,7 @@ In AWS Transit Gateway, a transit gateway acts as a Regional virtual router for 
 
 The following diagram shows a transit gateway with three VPC attachments. The route table for each of these VPCs includes the local route and routes that send traffic destined for the other two VPCs to the transit gateway.
 
-![VPC connectivity options](http://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-overview.png)
+![VPC connectivity options](https://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-overview.png)
 
 
 The following is an example of a default transit gateway route table for the attachments shown in the previous diagram. The CIDR blocks for each VPC propagate to the route table. Therefore, each attachment can route packets to the other two attachments.
@@ -231,7 +231,7 @@ You can configure your transit gateway as a centralized router that connects all
 
 The following diagram shows the key components of the configuration for this scenario. In this scenario, there are three VPC attachments and one Site-to-Site VPN attachment to the transit gateway. Packets from the subnets in VPC A, VPC B, and VPC C that are destined for a subnet in another VPC or for the VPN connection first route through the transit gateway.
 
-![A transit gateway with three VPC attachments and one VPN attachment.](http://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-three-vpcs.png)
+![A transit gateway with three VPC attachments and one VPN attachment.](https://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-three-vpcs.png)
 
 
 #### Resources
@@ -297,7 +297,7 @@ You can configure your transit gateway as multiple isolated routers. This is sim
 
 The following diagram shows the key components of the configuration for this scenario. Packets from VPC A, VPC B, and VPC C route to the transit gateway. Packets from the subnets in VPC A, VPC B, and VPC C that have the internet as a destination first route through the transit gateway and then route to the Site-to-Site VPN connection (if the destination is within that network). Packets from one VPC that have a destination of a subnet in another VPC, for example from 10.1.0.0 to 10.2.0.0, route through the transit gateway, where they are blocked because there is no route for them in the transit gateway route table. 
 
-![A transit gateway with three VPC attachments and one VPN attachment.](http://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-isolated.png)
+![A transit gateway with three VPC attachments and one VPN attachment.](https://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-isolated.png)
 
 
 #### Resources
@@ -373,7 +373,7 @@ You can configure your transit gateway as multiple isolated routers that use a s
 
 The following diagram shows the key components of the configuration for this scenario. Packets from the subnets in VPC A, VPC B, and VPC C that have the internet as a destination, first route through the transit gateway and then route to the customer gateway for Site-to-Site VPN. Packets from subnets in VPC A, VPC B, or VPC C that have a destination of a subnet in VPC A, VPC B, or VPC C route through the transit gateway, where they are blocked because there is no route for them in the transit gateway route table. Packets from VPC A, VPC B, and VPC C that have VPC D as the destination route through the transit gateway and then to VPC D.
 
-![A transit gateway with four VPC attachments and one VPN attachment.](http://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-isolated_shared.png)
+![A transit gateway with four VPC attachments and one VPN attachment.](https://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-isolated_shared.png)
 
 
 #### Resources
@@ -451,7 +451,7 @@ You can create a transit gateway peering connection between transit gateways. Yo
 
 The following diagram shows the key components of the configuration for this scenario. Transit gateway 1 has two VPC attachments, and transit gateway 2 has one Site-to-Site VPN attachment. Packets from the subnets in VPC A and VPC B that have the internet as a destination first route through transit gateway 1, then transit gateway 2, and then route to the VPN connection.
 
-![Two peered transit gateways, one with two VPC attachments and the other with a VPN attachment.](http://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-peering.png)
+![Two peered transit gateways, one with two VPC attachments and the other with a VPN attachment.](https://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-peering.png)
 
 
 #### Resources
@@ -528,7 +528,7 @@ You can configure a transit gateway to route outbound internet traffic from a VP
 
 The following diagram shows the key components of the configuration for this scenario. You have applications in VPC A and VPC B that need outbound only internet access. You configure VPC C with a public NAT gateway and an internet gateway, and a private subnet for the VPC attachment. Connect all VPCs to a transit gateway. Configure routing so that outbound internet traffic from VPC A and VPC B traverses the transit gateway to VPC C. The NAT gateway in VPC C routes the traffic to the internet gateway.
 
-![A transit gateway with three VPC attachments.](http://docs.aws.amazon.com/vpc/latest/tgw/images/tgw-centralized-nat-igw.png)
+![A transit gateway with three VPC attachments.](https://docs.aws.amazon.com/vpc/latest/tgw/images/tgw-centralized-nat-igw.png)
 
 
 #### Resources
@@ -634,7 +634,7 @@ Enabling appliance mode on an existing attachment might affect that attachment's
 
 The following diagram shows the key components of the configuration for this scenario. The transit gateway has three VPC attachments. VPC C is a shared services VPC. Traffic between VPC A and VPC B is routed to the transit gateway, then routed to a security appliance in VPC C for inspection before it's routed to the final destination. The appliance is a stateful appliance, therefore both the request and response traffic is inspected. For high availability, there is an appliance in each Availability Zone in VPC C. 
 
-![An appliance in a shared services VPC](http://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-appliance.png)
+![An appliance in a shared services VPC](https://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-appliance.png)
 
 
 You create the following resources for this scenario:
@@ -663,7 +663,7 @@ When appliance mode is not enabled, a transit gateway attempts to keep traffic r
 
 The following diagram shows a traffic flow when appliance mode support is not enabled. The response traffic that originates from Availability Zone 2 in VPC B is routed by the transit gateway to the same Availability Zone in VPC C. The traffic is therefore dropped, because the appliance in Availability Zone 2 is not aware of the original request from the source in VPC A.
 
-![Dropped response traffic to an appliance](http://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-appliance-dropped-traffic.png)
+![Dropped response traffic to an appliance](https://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-appliance-dropped-traffic.png)
 
 
 #### Routing

@@ -44,16 +44,16 @@ Transit Gateway Connect for the BGP peering only supports Multiprotocol BGP (MP-
 
 The following example shows a Connect attachment between a transit gateway and an appliance in a VPC.
 
-![Transit gateway Connect attachment and Connect peer](http://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-connect-peer.png)
+![Transit gateway Connect attachment and Connect peer](https://docs.aws.amazon.com/vpc/latest/tgw/images/transit-gateway-connect-peer.png)
 
 
 
 | Diagram component | Description | 
 | --- | --- | 
-|  ![Shows how VPC attachments are represented in the example diagram.](http://docs.aws.amazon.com/vpc/latest/tgw/images/VPC-attachment.png)  | VPC attachment | 
-|  ![Shows how Connect attachments are represented in the example diagram.](http://docs.aws.amazon.com/vpc/latest/tgw/images/connect-attachment.png)  | Connect attachment | 
-|  ![Shows how GRE tunnels are represented in the example diagram.](http://docs.aws.amazon.com/vpc/latest/tgw/images/GRE-tunnel.png)  | GRE tunnel (Connect peer) | 
-|  ![Shows how BGP peering sessions are represented in the example diagram.](http://docs.aws.amazon.com/vpc/latest/tgw/images/bgp-peering.png)  | BGP peering session | 
+|  ![Shows how VPC attachments are represented in the example diagram.](https://docs.aws.amazon.com/vpc/latest/tgw/images/VPC-attachment.png)  | VPC attachment | 
+|  ![Shows how Connect attachments are represented in the example diagram.](https://docs.aws.amazon.com/vpc/latest/tgw/images/connect-attachment.png)  | Connect attachment | 
+|  ![Shows how GRE tunnels are represented in the example diagram.](https://docs.aws.amazon.com/vpc/latest/tgw/images/GRE-tunnel.png)  | GRE tunnel (Connect peer) | 
+|  ![Shows how BGP peering sessions are represented in the example diagram.](https://docs.aws.amazon.com/vpc/latest/tgw/images/bgp-peering.png)  | BGP peering session | 
 
 In the preceding example, a Connect attachment is created on an existing VPC attachment (the transport attachment). A Connect peer is created on the Connect attachment to establish a connection to an appliance in the VPC. The transit gateway address is `192.0.2.1`, and the range of BGP addresses is `169.254.6.0/29`. The first IP address in the range (`169.254.6.1`) is configured on the appliance as the peer BGP IP address.
 

@@ -9,7 +9,7 @@ Attach a transit gateway to a Direct Connect gateway using a transit virtual int
 
 The following diagram illustrates how the Direct Connect gateway enables you to create a single connection to your Direct Connect connection that all of your VPCs can use.
 
-![Direct Connect Gateway Connected to Transit Gateway](http://docs.aws.amazon.com/vpc/latest/tgw/images/direct-connect-tgw.png)
+![Direct Connect Gateway Connected to Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/images/direct-connect-tgw.png)
 
 
 The solution involves the following components:

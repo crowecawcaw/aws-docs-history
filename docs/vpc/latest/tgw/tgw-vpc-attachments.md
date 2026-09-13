@@ -33,7 +33,7 @@ A VPC attachment goes through various stages, starting when the request is initi
 
 The following diagram shows the states an attachment can go through in a single account configuration, or a cross-account configuration that has **Auto accept shared attachments** turned on.
 
-![VPC attachment lifecycle](http://docs.aws.amazon.com/vpc/latest/tgw/images/vpc-attachment-lifecycle.png)
+![VPC attachment lifecycle](https://docs.aws.amazon.com/vpc/latest/tgw/images/vpc-attachment-lifecycle.png)
 
 + **Pending**: A request for a VPC attachment has been initiated and is in the provisioning process. At this stage, the attachment can fail, or can go to `available`.
 + **Failing**: A request for a VPC attachment is failing. At this stage, the VPC attachment goes to `failed`.
@@ -46,7 +46,7 @@ The following diagram shows the states an attachment can go through in a single 
 
 The following diagram shows the states an attachment can go through in a cross-account configuration that has **Auto accept shared attachments** turned off.
 
-![Cross-account VPC attachment lifecycle that has Auto accept shared attachments turned off](http://docs.aws.amazon.com/vpc/latest/tgw/images/vpc-attachment-lifecycle-cross-account.png)
+![Cross-account VPC attachment lifecycle that has Auto accept shared attachments turned off](https://docs.aws.amazon.com/vpc/latest/tgw/images/vpc-attachment-lifecycle-cross-account.png)
 
 + **Pending-acceptance**: The VPC attachment request is awaiting acceptance. At this stage, the attachment can go to `pending`, to `rejecting`, or to `deleting`.
 + **Rejecting**: A VPC attachment that is in the process of being rejected. At this stage, the attachment can go to `rejected`.
