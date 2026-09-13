@@ -10,7 +10,7 @@ This architecture shows how to use Apache Hudi running on Amazon EMR to process 
 ## Managing Inserts and Upserts in a Serverless Data Lake
 <a name="diagram1"></a>
 
-![Architecture diagram showing how to manage inserts and upserts in a serverless data lake with Amazon EMR, Amazon S3, and AWS Glue.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-data-lake-inserts-upserts/images/serverless-data-lake-inserts-upserts.png)
+![Architecture diagram showing how to manage inserts and upserts in a serverless data lake with Amazon EMR, Amazon S3, and AWS Glue.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-data-lake-inserts-upserts/images/serverless-data-lake-inserts-upserts.png)
 
 
 The following steps describe the architecture:
