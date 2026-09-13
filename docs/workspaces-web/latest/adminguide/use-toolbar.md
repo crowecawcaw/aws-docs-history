@@ -27,7 +27,7 @@ To dock the toolbar to the top of the screen, choose **Preferences**, **General*
 
 The following table includes a description of all the available icons in the toolbar:
 
-![WorkSpaces Secure Browser architecure](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/toolbar-icons-new.PNG)
+![WorkSpaces Secure Browser architecure](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/toolbar-icons-new.PNG)
 
 
 **Note**  

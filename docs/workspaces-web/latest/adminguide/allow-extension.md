@@ -11,6 +11,9 @@ By default, extensions are not enabled in Chrome in Incognito windows or Firefox
 
 Users are prompted to install the extension when they sign into a portal. For details about the user experience with the extension, see [Single sign-on extension for Amazon WorkSpaces Secure Browser](extension.md).
 
+**Important**  
+The single sign-on extension and custom domain are mutually exclusive features and cannot be used together on the same portal. This restriction exists by design to preserve the security of browser sessions. To enable the single sign-on extension, first remove the custom domain from the portal. For more information about custom domains, see [Configuring custom domain for your portal](custom-domains.md).
+
 **Topics**
 + [Identifying domains for the single sign-on extension in Amazon WorkSpaces Secure Browser](identify-domains.md)
 + [Adding the single sign-on extension to a new web portal in Amazon WorkSpaces Secure Browser](extension-new.md)

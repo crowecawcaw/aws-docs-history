@@ -5,7 +5,7 @@
 
 Customize the sign-in and loading experience for your end users by updating the branding elements and text on sign-in and loading pages. You can modify visual elements like logos and wallpapers, edit text elements such as welcome messages and headers, and optionally configure a Terms of Service agreement that users must accept before starting their session.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/customization-main.png)
+![Sign in page with welcome message and sign in button; loading page showing session initialization.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/customization-main.png)
 
 ## Content editor
 <a name="branding-content-editor"></a>
@@ -15,18 +15,18 @@ Customize the sign-in and loading experience for your end users by updating the 
 
 The logo appears on the sign-in screen and loading screen, providing consistent branding throughout the user experience.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/logo.png)
+![Sign in page and loading page mockups showing company logo placement in the interface.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/logo.png)
 + Supported formats: JPG or ICO or PNG
 + Maximum file size: 100 KB
 
 **Do**
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/logo-do.png)
+![Two square logos side by side: dark blue Exmplr logo and light blue Exmplr logo.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/logo-do.png)
 + If you have different logo variations (such as different colors or styles), choose the one that provides the best contrast with your selected wallpaper background.
 
 **Don't**
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/logo-dont.png)
+![Dark blue square icon with white Exmplr text logo.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/logo-dont.png)
 + Don't ignore aspect ratio when re-sizing your logo.
 + Don't use logos not sized correctly beforehand as they may look distorted.
 
@@ -35,7 +35,7 @@ The logo appears on the sign-in screen and loading screen, providing consistent 
 
 A favicon is a small icon that appears in browser tabs, helping users identify your application among multiple open tabs.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/favicon.png)
+![Favicon icon highlighted in browser tab, with enlarged view showing the letter E icon.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/favicon.png)
 + Supported formats: JPG or ICO or PNG
 + Maximum file size: 100 KB
 + Recommended aspect ratio: 1:1
@@ -45,7 +45,7 @@ A favicon is a small icon that appears in browser tabs, helping users identify y
 
 The wallpaper serves as the background image across all screens, creating a cohesive visual experience. If you don't upload a custom wallpaper, the default wallpaper shown below will be used. Choose an image that complements your branding without interfering with content readability.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/wallpaper.png)
+![Teal wallpaper preview with annotation indicating wallpaper consistency across all pages.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/wallpaper.png)
 + Supported formats: JPG or PNG
 + Maximum file size: 5 MB
 + Recommended aspect ratio: 16:9
@@ -53,14 +53,14 @@ The wallpaper serves as the background image across all screens, creating a cohe
 
 **Do**
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/wallpaper-do.png)
+![Sign-in interface with Welcome header, Sign In Header title, and Description label.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/wallpaper-do.png)
 + Use subtle, low contrast wallpapers or blurred images that don't interfere with foreground content.
 + Consider preset text placement to avoid busy areas behind text.
 + Utilize brand colors and use overlays to create better contrast and readability.
 
 **Don't**
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/wallpaper-dont.png)
+![Welcome page with Sign in header and Description text over city skyline background.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/wallpaper-dont.png)
 + Don't use busy, saturated, or high-detail images directly behind important text.
 + Don't use visually complex images or images with sharp transitions that will cause readability limitations with preset text locations.
 + Don't rely solely on color to separate text from background without sufficient contrast.
@@ -74,14 +74,14 @@ Select between light or dark themes that reflect on fonts, buttons and modals.
 
 **Do**
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/theme-do.png)
+![Two theme options side by side: dark font theme for light backgrounds and light font theme for dark backgrounds.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/theme-do.png)
 + Ensure strong contrast with background elements/wallpaper.
 + Use dark color theme on light backgrounds.
 + Use light color theme on dark backgrounds.
 
 **Don't**
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/theme-dont.png)
+![Two theme cards showing dark font theme on left and light font theme on right.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/theme-dont.png)
 + Don't place light or dark fonts over images or complex wallpapers.
 
 ## Text editor
@@ -120,7 +120,7 @@ For security reasons, the following characters are blocked in all text fields:
 
 The text shown in the browser tab. Maximum 25 characters.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/browser-tab.png)
+![Browser tab with title highlighted, and Exmplr Secure Browser label in application header.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/browser-tab.png)
 
 **Recommendation**
 
@@ -131,7 +131,7 @@ Consider using short and clear titles so they remain readable even when multiple
 
 A brief description alongside your company logo on sign-in screen. Maximum 150 characters.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/welcome.png)
+![Welcome description field showing starting font sizing and adapted sizing to max characters.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/welcome.png)
 
 **Recommendation**
 
@@ -152,7 +152,7 @@ Contact button link on the sign-in screen. You can use:
 
 If left blank, the contact button will be hidden from screen.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/contact-link.png)
+![Contact Button tooltip displayed above a button with blue border and white background.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/contact-link.png)
 
 **Recommendation**
 
@@ -173,7 +173,7 @@ Description text for the sign-in section. If left blank, "Sign in to your WorkSp
 
 Text displayed on the sign-in button. If left blank, "Sign in" will be displayed. Maximum 30 characters.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/sign-in.png)
+![Three UI mockups showing sign-in button placement options in header, description, and button areas.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/sign-in.png)
 
 **Recommendations**
 + Keep the text short.
@@ -184,7 +184,7 @@ Text displayed on the sign-in button. If left blank, "Sign in" will be displayed
 
 Text shown during connection on loading screen. If left blank, "Connecting..." will be displayed. Maximum 300 characters.
 
-![](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/loading.png)
+![Loading screen with a progress indicator and Loading Description label.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/branding/loading.png)
 
 **Recommendation**
 

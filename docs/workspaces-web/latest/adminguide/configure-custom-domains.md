@@ -23,10 +23,6 @@ Before setting up custom domains, ensure you have:
 Users must enable third-party cookies for the custom domain in their browsers to ensure proper portal functionality.  
 Ensure that you own and properly manage the custom domain and its DNS records to maintain security and functionality of your portal.
 
-**Note**  
-To enable single sign-on extension for custom domains, users must install the extension in their browser with a version later than 1.0.2505.6608.  
-Users are prompted to install the extension when they sign into a portal. For details about the user experience with the extension, see [Single sign-on extension for Amazon WorkSpaces Secure Browser](extension.md).
-
 ## Getting started
 <a name="custom-domains-getting-started"></a>
 

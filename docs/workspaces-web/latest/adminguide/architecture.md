@@ -5,4 +5,4 @@
 
 The following diagram shows the architecture of WorkSpaces Secure Browser.
 
-![WorkSpaces Secure Browser architecure](http://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/architecture-NEW.png)
+![WorkSpaces Secure Browser architecure](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/images/architecture-NEW.png)

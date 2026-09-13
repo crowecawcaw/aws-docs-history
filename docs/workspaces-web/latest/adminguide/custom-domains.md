@@ -14,6 +14,9 @@ Custom domain allows you to personalize the following aspects of the user experi
 **Note**  
 To customize the visual appearance and branding elements of your portal, see [Branding customization in Amazon WorkSpaces Secure Browser](branding-customization.md).
 
+**Important**  
+Custom domain and the single sign-on extension are mutually exclusive features and cannot be used together on the same portal. This restriction exists by design to preserve the security of browser sessions. To use a custom domain, first remove the single sign-on extension configuration from the portal. For more information about the single sign-on extension, see [Managing the single sign-on extension in Amazon WorkSpaces Secure Browser](allow-extension.md).
+
 **Topics**
 + [Configuring custom domain for your portal](configure-custom-domains.md)
 + [Troubleshooting custom domain issues](custom-domains-troubleshooting.md)
