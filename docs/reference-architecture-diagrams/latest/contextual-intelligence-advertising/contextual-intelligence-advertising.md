@@ -12,7 +12,7 @@ This architecture helps demand-side platforms (DSPs), advertisement publishers, 
 ## Architecture diagram
 <a name="cia-diagram"></a>
 
-![Content flowing through AWS serverless services for analysis, taxonomy mapping, and programmatic advertising bid enrichment.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/contextual-intelligence-advertising/images/guidance-for-contextual-intelligence-for-advertising-ra.png)
+![Content flowing through AWS serverless services for analysis, taxonomy mapping, and programmatic advertising bid enrichment.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/contextual-intelligence-advertising/images/guidance-for-contextual-intelligence-for-advertising-ra.png)
 
 
 The following steps describe the architecture:
