@@ -52,14 +52,14 @@ In the first scenario, there are conditions where the response from the endpoint
 
 The following diagram illustrates a TCP handshake failure when an Application Load Balancer responds with ACK challenge instead of SYN-ACK during **TIME\_WAIT** state. This response triggers Global Accelerator to send a TCP RST.
 
-![Global Accelerator sends a TCP RST after receiving an ACK challenge](http://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig1.jpg)
+![Global Accelerator sends a TCP RST after receiving an ACK challenge](https://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig1.jpg)
 
 
 The second scenario that can cause a handshake failure with an endpoint server is a TCP SYN from Global Accelerator towards an endpoint server that goes unanswered. A number of issues can create a scenario where a server doesn’t respond, including an unhealthy or overloaded server (endpoint), disruptions on the AWS network path, or incorrect security groups or NACL rules. When Global Accelerator attempts to initiate a connection with an endpoint server but cannot do so, Global Accelerator sends a TCP RST back to the initiating client. This RST is included in the `TCP_AGA_Reset_Count` metric.
 
 The following diagram illustrates a Global Accelerator TCP handshake failure due to unanswered SYNs from an unresponsive Application Load Balancer endpoint. When SYNs aren’t responded to, Global Accelerator sends a TCP RST to the client.
 
-![Global Accelerator sends a TCP RST to an unresponsive client](http://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig2.jpg)
+![Global Accelerator sends a TCP RST to an unresponsive client](https://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig2.jpg)
 
 
 **Actions to consider taking for these scenarios**
@@ -81,7 +81,7 @@ RSTs sent towards clients in this scenario count towards the `TCP_AGA_Reset_Coun
 
 The following diagram illustrates a Global Accelerator maintenance event triggering Global Accelerator to send a TCP FIN-ACK sequence with the endpoint, and an RST towards the client.
 
-![Global Accelerator sends a TCP RST to an unresponsive client](http://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig3.jpg)
+![Global Accelerator sends a TCP RST to an unresponsive client](https://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig3.jpg)
 
 
 **Actions to consider taking for this scenario**
@@ -121,7 +121,7 @@ When the client that initiates the connection with the TCP SYN doesn’t receive
 
 The following diagram illustrates a handshake failure due to network path issues. In this example, the client's SYN reaches Global Accelerator but the return SYN-ACK is lost or blocked due to the firewall, resulting in client timeout and connection reset.
 
-![Example of TCP handshake failure due to firewall blocking](http://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig5.jpg)
+![Example of TCP handshake failure due to firewall blocking](https://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig5.jpg)
 
 
 ### Idle timeouts
@@ -152,7 +152,7 @@ An endpoint server—such as a Network Load Balancer, Application Load Balancer,
 
 The following diagram illustrates a Global Accelerator connection termination flow with an endpoint-initiated TCP reset, where EC2 responds with RST to a Global Accelerator FIN packet. This response triggers a reset to the client.
 
-![Example of Global Accelerator connection termination flow with an endpoint-initiated TCP reset](http://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig6.jpg)
+![Example of Global Accelerator connection termination flow with an endpoint-initiated TCP reset](https://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig6.jpg)
 
 
 ### ALB connection collision after ALB scaling event
@@ -164,7 +164,7 @@ Since both connections share the same client IP-port tuple but traverse differen
 
 The following diagram illustrates how a cross-network zone connection collision can occur when Global Accelerator routes identical client connections to the same Application Load Balancer node after a scaling event. This situation forces a TCP RST response from the Application Load Balancer endpoint.
 
-![Example of TCP RST response from an ALB endpoint due to potential connection collision after an ALB a scaling event](http://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig7.jpg)
+![Example of TCP RST response from an ALB endpoint due to potential connection collision after an ALB a scaling event](https://docs.aws.amazon.com/global-accelerator/latest/dg/images/AGA-TCPReset-Fig7.jpg)
 
 
 ### Targets are healthy but not ready

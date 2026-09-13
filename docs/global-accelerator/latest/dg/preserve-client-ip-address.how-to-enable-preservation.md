@@ -18,7 +18,7 @@ When client IP address preservation is enabled, traffic bypasses the following s
 
 **Defaults for client IP address preservation**  
 When you create a new accelerator using the console, client IP address preservation is enabled, by default, for supported endpoints. You can choose to disable the option for some endpoints, depending on the endpoint type:  
-+ When you use an internet-facing Application Load Balancer as an endpoint with Global Accelerator, client IP address preservation is enabled by default for new accelerators. For an Network Load Balancer endpoint that has security groups, client IP address preservation is not enabled by default, but you can enable the option when you create the accelerator or by editing the accelerator later.
++ When you use an internet-facing Application Load Balancer as an endpoint with Global Accelerator, client IP address preservation is enabled by default for new accelerators. For a Network Load Balancer endpoint that has security groups, client IP address preservation is not enabled by default, but you can enable the option when you create the accelerator or by editing the accelerator later.
 + When you use an internal Application Load Balancer or an EC2 instance with Global Accelerator, the endpoint always has client IP address preservation enabled.
 Be aware of the following:  
 + Internal Application Load Balancers and EC2 instances always have client IP address preservation enabled. You can't disable the option for these endpoints.
