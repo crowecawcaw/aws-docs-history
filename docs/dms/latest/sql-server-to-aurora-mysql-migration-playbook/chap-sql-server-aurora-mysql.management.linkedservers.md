@@ -8,7 +8,7 @@ This topic provides reference information about linked servers in Microsoft SQL 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Linked Servers](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.linkedservers)  | Data transfer across schemas only, use a custom application solution to access remote instances. | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Linked Servers](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.linkedservers)  | Data transfer across schemas only, use a custom application solution to access remote instances. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.management.linkedservers.sqlserver"></a>

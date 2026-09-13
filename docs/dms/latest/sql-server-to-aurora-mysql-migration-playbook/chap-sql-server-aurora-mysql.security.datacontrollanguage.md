@@ -8,7 +8,7 @@ This topic provides reference information foruser permissions and access control
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Difference. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Difference. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.security.datacontrollanguage.sqlserver"></a>

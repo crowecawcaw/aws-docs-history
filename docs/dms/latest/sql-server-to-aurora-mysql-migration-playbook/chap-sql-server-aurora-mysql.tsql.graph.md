@@ -8,7 +8,7 @@ This topic provides reference content about graph database capabilities in Micro
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Feature isn’t supported. Migration will require implementing a workaround. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Feature isn’t supported. Migration will require implementing a workaround. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.graph.sqlserver"></a>

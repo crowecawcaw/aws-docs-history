@@ -8,7 +8,7 @@ This topic provides reference information about monitoring and performance manag
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Use Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Monitoring.html) in the *Amazon Relational Database Service User Guide*. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Use Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Monitoring.html) in the *Amazon Relational Database Service User Guide*. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.management.monitoring.sqlserver"></a>
@@ -108,7 +108,7 @@ These services are improved frequently.
 
  Amazon RDS Performance Insights, an advanced database performance monitoring feature that makes it easy to diagnose and solve performance challenges on Amazon RDS databases, now supports additional counter metrics on Amazon RDS for MySQL and Amazon Aurora MySQL-Compatible Edition (Aurora MySQL). With counter metrics, you can customize the Performance Insights dashboard to include up to 10 additional graphs that show a selection from dozens of operating system and database performance metrics. Counter metrics provide additional information that can be correlated with the database load chart to help identify performance issues and analyze performance. For more information, see [Performance Insights](https://aws.amazon.com/rds/performance-insights/).
 
-![Performance Insights](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-performance-insights.png)
+![Performance Insights](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-performance-insights.png)
 
 
 To turn on Performance Insight for your instance, use the step-by-step walkthrough. For more information, see [Turning Performance Insights on and off](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Enabling.html#USER_PerfInsights.Enabling.Console.Modifying) in the *Amazon Relational Database Service User Guide*.

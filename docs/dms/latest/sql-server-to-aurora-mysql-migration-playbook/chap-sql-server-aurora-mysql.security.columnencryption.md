@@ -8,7 +8,7 @@ This topic provides reference information about encryption and decryption functi
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Difference. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Difference. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.security.columnencryption.sqlserver"></a>

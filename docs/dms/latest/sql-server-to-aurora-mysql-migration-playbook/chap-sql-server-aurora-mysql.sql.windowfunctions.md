@@ -8,7 +8,7 @@ This topic provides reference information about window functions in Microsoft SQ
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Window Functions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.windowfunctions)  | Rewrite window functions to use alternative SQL syntax. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Window Functions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.windowfunctions)  | Rewrite window functions to use alternative SQL syntax. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.sql.windowfunctions.sqlserver"></a>

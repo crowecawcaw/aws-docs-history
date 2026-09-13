@@ -8,7 +8,7 @@ This topic provides reference content comparing identity and sequence features b
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [Identity and Sequences](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.identitysequences)  | MySQL doesn’t support `SEQUENCE` objects. Rewrite `IDENTITY` to `AUTO_INCREMENT`. Last value is evaluated as `MAX(Existing Value) + 1` on every restart. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [Identity and Sequences](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.identitysequences)  | MySQL doesn’t support `SEQUENCE` objects. Rewrite `IDENTITY` to `AUTO_INCREMENT`. Last value is evaluated as `MAX(Existing Value) + 1` on every restart. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.identitysequences.sqlserver"></a>

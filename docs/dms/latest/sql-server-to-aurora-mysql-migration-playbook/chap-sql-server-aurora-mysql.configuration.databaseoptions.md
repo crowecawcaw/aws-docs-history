@@ -8,7 +8,7 @@ This topic provides reference information about database options in Microsoft SQ
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | SQL Server database options are inapplicable to Aurora MySQL. | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | SQL Server database options are inapplicable to Aurora MySQL. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.configuration.databaseoptions.sqlserver"></a>

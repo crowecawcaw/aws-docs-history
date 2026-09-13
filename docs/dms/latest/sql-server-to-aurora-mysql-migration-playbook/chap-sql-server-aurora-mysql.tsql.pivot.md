@@ -8,7 +8,7 @@ This topic provides reference content on migrating from Microsoft SQL Server 201
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [PIVOT and UNPIVOT](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.pivot)  | Straightforward rewrite to use traditional SQL syntax. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [PIVOT and UNPIVOT](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.pivot)  | Straightforward rewrite to use traditional SQL syntax. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.pivot.sqlserver"></a>

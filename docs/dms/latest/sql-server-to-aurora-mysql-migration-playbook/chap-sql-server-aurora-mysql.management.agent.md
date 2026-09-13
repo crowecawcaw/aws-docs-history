@@ -8,7 +8,7 @@ This topic provides reference information about the differences between SQL Serv
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [SQL Server Agent](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.agent)  | For more information, see [Alerting](chap-sql-server-aurora-mysql.management.alerting.md) and [Maintenance Plans](chap-sql-server-aurora-mysql.management.maintenanceplans.md). | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [SQL Server Agent](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.agent)  | For more information, see [Alerting](chap-sql-server-aurora-mysql.management.alerting.md) and [Maintenance Plans](chap-sql-server-aurora-mysql.management.maintenanceplans.md). | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.management.agent.sqlserver"></a>

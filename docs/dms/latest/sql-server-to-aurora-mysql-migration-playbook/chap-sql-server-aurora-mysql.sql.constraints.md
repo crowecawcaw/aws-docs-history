@@ -8,7 +8,7 @@ This topic provides reference information about constraint compatibility between
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Constraints](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints)  | Unsupported `CHECK`. Indexing requirements for `UNIQUE`. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Constraints](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints)  | Unsupported `CHECK`. Indexing requirements for `UNIQUE`. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.sql.constraints.sqlserver"></a>

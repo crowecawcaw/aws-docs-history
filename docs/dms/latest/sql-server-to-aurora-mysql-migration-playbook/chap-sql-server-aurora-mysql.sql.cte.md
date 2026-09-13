@@ -8,7 +8,7 @@ This topic provides reference information about Common Table Expressions (CTEs) 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Common Table Expressions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.commontableexpressions)  | Rewrite non-recursive CTE to use views and derived tables. Redesign recursive CTE code. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Common Table Expressions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.commontableexpressions)  | Rewrite non-recursive CTE to use views and derived tables. Redesign recursive CTE code. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.sql.cte.sqlserver"></a>

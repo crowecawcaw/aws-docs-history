@@ -8,7 +8,7 @@ This topic provides reference content comparing server and database configuratio
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use cluster and database parameter groups. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use cluster and database parameter groups. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.configuration.serveroptions.sqlserver"></a>

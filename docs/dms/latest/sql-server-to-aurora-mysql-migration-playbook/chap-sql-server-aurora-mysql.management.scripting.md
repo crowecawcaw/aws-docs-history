@@ -8,7 +8,7 @@ This topic provides reference information about the differences in scripting and
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Non-compatible tool sets and scripting languages. Use MySQL Workbench, Amazon RDS API, AWS Management Console, and AWS CLI. | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Non-compatible tool sets and scripting languages. Use MySQL Workbench, Amazon RDS API, AWS Management Console, and AWS CLI. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.management.scripting.sqlserver"></a>

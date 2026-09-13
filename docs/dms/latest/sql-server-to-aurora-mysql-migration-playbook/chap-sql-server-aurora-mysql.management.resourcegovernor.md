@@ -8,7 +8,7 @@ This topic provides reference information about resource management and workload
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use the resource limit for each user. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use the resource limit for each user. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.management.resourcegovernor.sqlserver"></a>

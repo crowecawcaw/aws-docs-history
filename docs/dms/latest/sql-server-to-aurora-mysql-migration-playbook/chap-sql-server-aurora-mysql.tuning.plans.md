@@ -8,7 +8,7 @@ This topic provides reference information about query execution plans in Microso
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Syntax differences. Completely different optimizer with different operators and rules. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Syntax differences. Completely different optimizer with different operators and rules. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tuning.plans.sqlserver"></a>
@@ -50,7 +50,7 @@ SET STATISTICS XML OFF;
 
 The following example shows a partial graphical run plan from SQL Server Management Studio.
 
-![A partial graphical run plan](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-run-plans-ssms.png)
+![A partial graphical run plan](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-run-plans-ssms.png)
 
 
 For more information, see [Display and Save Execution Plans](https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-and-save-execution-plans?view=sql-server-ver15) in the *SQL Server documentation*.
@@ -108,7 +108,7 @@ id  select_type  table      partitions  type  possible_keys  key   key_len  ref 
 
 View the MySQL Workbench graphical run plan.
 
-![MySQL Workbench graphical run plan](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-workbench.png)
+![MySQL Workbench graphical run plan](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-workbench.png)
 
 
 **Note**  

@@ -8,7 +8,7 @@ This topic provides reference information about views in Microsoft SQL Server an
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  | N/A | Minor syntax and handling differences. Indexes, triggers, and temporary views aren’t supported. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  | N/A | Minor syntax and handling differences. Indexes, triggers, and temporary views aren’t supported. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.sql.views.sqlserver"></a>

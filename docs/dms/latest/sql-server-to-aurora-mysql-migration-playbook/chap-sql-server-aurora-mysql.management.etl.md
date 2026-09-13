@@ -8,7 +8,7 @@ This topic provides reference content comparing SQL Server’s ETL capabilities 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use AWS Glue for ETL. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use AWS Glue for ETL. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.management.etl.sqlserver"></a>
@@ -139,7 +139,7 @@ This walkthrough demonstrates how to create the buckets and upload the files man
 
 1. Review the information that you provided and choose **Finish** to create the crawler.
 
-    ![Crawler](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-crawler.png) 
+    ![Crawler](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-crawler.png) 
 
 #### Step 3 — Run the Amazon Glue Crawler
 <a name="chap-sql-server-aurora-mysql.management.etl.mysql.examples.step3"></a>

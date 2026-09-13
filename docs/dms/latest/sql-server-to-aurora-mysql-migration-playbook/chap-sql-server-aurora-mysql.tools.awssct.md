@@ -32,7 +32,7 @@ Download the [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/connect
 
 1. Enter the paths for the SQL Server and MySQL drivers downloaded in the first step.
 
-    ![Enter the paths for the Microsoft SQL Server and MySQL drivers](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-configure-aws-sct.png) 
+    ![Enter the paths for the Microsoft SQL Server and MySQL drivers](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-configure-aws-sct.png) 
 
 1. Choose **Apply** and then **OK**.
 
@@ -49,12 +49,12 @@ Download the [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/connect
 
 The progress bar displays the objects that AWS SCT analyzes. When AWS SCT completes the analysis, the application displays the database migration assessment report. Read the Executive summary and other sections. Note that the information on the screen is only partial. To read the full report, including details of the individual issues, choose **Save to PDF** at the top right and open the PDF document.
 
-![Assessment report](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-aws-sct-assessment-report.png)
+![Assessment report](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-aws-sct-assessment-report.png)
 
 
 Scroll down to the **Database objects with conversion actions for Amazon Aurora (MySQL compatible)** section.
 
-![Assessment report conversion statistics](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-aws-sct-assessment-report-conversion-statistics.png)
+![Assessment report conversion statistics](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-aws-sct-assessment-report-conversion-statistics.png)
 
 
 Scroll further down to the **Detailed recommendations for Amazon Aurora (MySQL compatible) migrations** section and review the migration recommendations.

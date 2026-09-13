@@ -8,7 +8,7 @@ This topic provides reference information about event notifications and alerts i
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use event notifications subscription with Amazon SNS. For more information, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) and [Amazon Simple Notification Service](https://aws.amazon.com/sns). | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use event notifications subscription with Amazon SNS. For more information, see [Using Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) and [Amazon Simple Notification Service](https://aws.amazon.com/sns). | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.management.alerting.sqlserver"></a>

@@ -8,7 +8,7 @@ This topic provides reference information about statistics management in Microso
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Statistics contain only density information, and only for index key columns. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Statistics contain only density information, and only for index key columns. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.managingstatistics.sqlserver"></a>
@@ -82,12 +82,12 @@ To view statistics metadata, use the `INFORMATION_SCHEMA.STATISTICS` standard vi
 
 The following image shows an example of `mysql.innodb_table_stats` content.
 
-![Example of mysql innodb table stats](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-managing-statistics.png)
+![Example of mysql innodb table stats](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-managing-statistics.png)
 
 
 The following image shows an example of `mysql.innodb_index_stats` content.
 
-![Example of mysql statistics](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-index-statistics.png)
+![Example of mysql statistics](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-index-statistics.png)
 
 
 Automatic refresh of statistics is controlled by the global parameter `innodb_stats_auto_recalc`, which is set to `ON` in Aurora MySQL. You can set it individually for each table using the `STATS_AUTO_RECALC=1` option.

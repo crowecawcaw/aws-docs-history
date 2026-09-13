@@ -8,7 +8,7 @@ This topic provides reference content about data type compatibility when migrati
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Data Types](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.datatypes)  | Minor syntax and handling differences. No special `UNICODE` data types. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Data Types](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.datatypes)  | Minor syntax and handling differences. No special `UNICODE` data types. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.sql.datatypes.sqlserver"></a>

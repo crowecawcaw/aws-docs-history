@@ -8,7 +8,7 @@ This topic provides reference information about migrating triggers from Microsof
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Triggers](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.triggers)  | Only `FOR EACH ROW` processing. No DDL or `EVENT` triggers. `BEFORE` triggers replace `INSTEAD OF` triggers. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Triggers](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.triggers)  | Only `FOR EACH ROW` processing. No DDL or `EVENT` triggers. `BEFORE` triggers replace `INSTEAD OF` triggers. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.triggers.sqlserver"></a>

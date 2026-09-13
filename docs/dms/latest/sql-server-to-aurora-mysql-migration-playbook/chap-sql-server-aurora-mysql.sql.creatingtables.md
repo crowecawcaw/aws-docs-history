@@ -8,7 +8,7 @@ This topic provides reference content comparing the creation of tables in Micros
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Creating Tables](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.tables)  |  `IDENTITY` and `AUTO_INCREMENT`. Primary key is always clustered. `CREATE TEMPORARY TABLE` syntax. Unsupported `@table` variables. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Creating Tables](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.tables)  |  `IDENTITY` and `AUTO_INCREMENT`. Primary key is always clustered. `CREATE TEMPORARY TABLE` syntax. Unsupported `@table` variables. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.sql.creatingtables.sqlserver"></a>

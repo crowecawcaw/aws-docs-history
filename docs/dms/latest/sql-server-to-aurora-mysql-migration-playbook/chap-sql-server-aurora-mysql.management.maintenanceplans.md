@@ -8,7 +8,7 @@ This topic provides reference information about migrating maintenance tasks from
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Use Amazon RDS for backups. Use SQL for table maintenance. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Use Amazon RDS for backups. Use SQL for table maintenance. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.management.maintenanceplans.sqlserver"></a>
@@ -116,7 +116,7 @@ You can backup database instances manually by creating an explicit database snap
 
 1. Choose your Aurora PostgreSQL instance, and for **Instance actions** choose **Take snapshot**.
 
-    ![Take snapshot](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-take-snapshot.png) 
+    ![Take snapshot](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-sql-server-aurora-mysql-take-snapshot.png) 
 
  **Restore a database from a snapshot** 
 

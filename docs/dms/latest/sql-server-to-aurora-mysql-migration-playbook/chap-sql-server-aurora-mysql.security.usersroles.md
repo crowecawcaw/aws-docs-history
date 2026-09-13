@@ -8,7 +8,7 @@ This topic provides reference information comparing security features between Mi
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | No native role support in the database. Use AWS IAM accounts with the AWS Authentication Plugin. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | No native role support in the database. Use AWS IAM accounts with the AWS Authentication Plugin. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.security.usersroles.sqlserver"></a>

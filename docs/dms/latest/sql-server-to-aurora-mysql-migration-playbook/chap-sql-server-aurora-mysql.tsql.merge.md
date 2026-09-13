@@ -8,7 +8,7 @@ This topic provides reference information about migrating from Microsoft SQL Ser
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [MERGE](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.merge)  | Rewrite to use `REPLACE` and `ON DUPLICATE KEY`, or individual constituent DML statements. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [MERGE](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.merge)  | Rewrite to use `REPLACE` and `ON DUPLICATE KEY`, or individual constituent DML statements. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.merge.sqlserver"></a>

@@ -8,7 +8,7 @@ This topic provides reference information about user-defined types and table-val
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [User-Defined Types](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udt)  | Replace scalar UDT with base types. Rewrite stored procedures that use table-type input parameters to use strings with CSV, XML, or JSON, or to process row-by-row. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.storedprocedures.md). | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [User-Defined Types](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udt)  | Replace scalar UDT with base types. Rewrite stored procedures that use table-type input parameters to use strings with CSV, XML, or JSON, or to process row-by-row. For more information, see [Stored Procedures](chap-sql-server-aurora-mysql.tsql.storedprocedures.md). | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.udt.sqlserver"></a>

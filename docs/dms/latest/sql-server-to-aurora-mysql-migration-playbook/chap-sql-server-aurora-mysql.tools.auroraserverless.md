@@ -27,7 +27,7 @@ To learn more about pricing, see Serverless Pricing under MySQL-Compatible Editi
 
 This process takes almost no time. Because the storage is shared between nodes Aurora can scale up or down in seconds for most workloads. The service currently has autoscaling thresholds of 1.5 minutes to scale up and 5 minutes to scale down. That means metrics must exceed the limits for 1.5 minutes to trigger a scale up or fall below the limits for 5 minutes to trigger a scale down. The cool-down period between scaling activities is 5 minutes to scale up and 15 minutes to scale down. Before scaling can happen the service has to find a “scaling point” which may take longer than anticipated if you have long-running transactions. Scaling operations are transparent to the connected clients and applications since existing connections and session state are transferred to the new nodes. The only difference with pausing and resuming is a higher latency for the first connection, typically around 25 seconds. You can find more details in the documentation.
 
-![How Aurora Serverless Works](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-aurora-serverless.png)
+![How Aurora Serverless Works](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-aurora-serverless.png)
 
 
 ## Amazon Aurora Serverless v2
@@ -48,7 +48,7 @@ Log in to your [Management Console](https://eu-central-1.console.aws.amazon.com/
 
 On **Engine options**, for **Engine versions**, choose **Show versions that support Serverless v2**.
 
-![Provision Serverless v2](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-aurora-serverless-provision.png)
+![Provision Serverless v2](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-aurora-serverless-provision.png)
 
 
 Choose the capacity settings for your use case.

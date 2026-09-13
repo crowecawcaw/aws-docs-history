@@ -8,7 +8,7 @@ This topic provides reference content comparing table join functionality between
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Table Joins](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.tablejoins)  | Basic syntax compatible. `FULL OUTER`, `APPLY`, and `ANSI SQL 89` outer joins will need to be rewritten. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Table Joins](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.tablejoins)  | Basic syntax compatible. `FULL OUTER`, `APPLY`, and `ANSI SQL 89` outer joins will need to be rewritten. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.sql.tablejoin.sqlserver"></a>

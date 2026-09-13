@@ -8,7 +8,7 @@ This topic provides reference content comparing user-defined functions (UDFs) in
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [User-Defined Functions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udf)  | Scalar functions only, rewrite inline TVF as views or derived tables, and multi-statement TVF as stored procedures. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [User-Defined Functions](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.udf)  | Scalar functions only, rewrite inline TVF as views or derived tables, and multi-statement TVF as stored procedures. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.udf.sqlserver"></a>

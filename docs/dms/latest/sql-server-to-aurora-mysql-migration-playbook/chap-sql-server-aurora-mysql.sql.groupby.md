@@ -8,7 +8,7 @@ This topic provides reference content comparing the GROUP BY functionality in Mi
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [GROUP BY](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.groupby)  | Basic syntax compatible. Advanced options such as `ALL`, `CUBE`, `GROUPING SETS` will require rewrites to use multiple queries with `UNION`. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [GROUP BY](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.groupby)  | Basic syntax compatible. Advanced options such as `ALL`, `CUBE`, `GROUPING SETS` will require rewrites to use multiple queries with `UNION`. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.sql.groupby.sqlserver"></a>

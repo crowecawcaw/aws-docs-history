@@ -8,7 +8,7 @@ This topic provides reference information about transaction handling when migrat
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Transaction Isolation](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.transactionisolation)  | Default isolation level is set to `REPEATABLE READ`. Default mechanism `CONSISTENT SNAPSHOT` is similar to `READ COMMITTED SNAPSHOT` isolation in SQL Server. Syntax and option differences. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Transaction Isolation](chap-sql-server-aurora-mysql.tools.actioncode.md#chap-sql-server-aurora-mysql.tools.actioncode.transactionisolation)  | Default isolation level is set to `REPEATABLE READ`. Default mechanism `CONSISTENT SNAPSHOT` is similar to `READ COMMITTED SNAPSHOT` isolation in SQL Server. Syntax and option differences. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.transactions.sqlserver"></a>

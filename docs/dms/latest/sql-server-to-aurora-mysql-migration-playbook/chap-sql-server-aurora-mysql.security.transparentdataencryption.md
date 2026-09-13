@@ -8,7 +8,7 @@ This topic provides reference information about data encryption capabilities in 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Enable encryption when creating the database instance. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Enable encryption when creating the database instance. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.security.transparentdataencryption.sqlserver"></a>

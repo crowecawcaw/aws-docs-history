@@ -18,14 +18,14 @@ When you create a new Aurora MySQL DB cluster, backtracking is configured when y
 
 To create a DB cluster, follow the instructions in [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html). The following image shows the Backtrack section.
 
-![How Amazon Aurora Backtrack works](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-amazon-aurora-backtrack.png)
+![How Amazon Aurora Backtrack works](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-amazon-aurora-backtrack.png)
 
 
 After a production error, you can simply pause your application, open up the Aurora Console, select the cluster, and choose **Backtrack DB cluster**.
 
 Then you select **Backtrack** and choose the point in time just before your epic fail, and choose **Backtrack DB cluster**.
 
-![Backtrack DB cluster](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-backtrack-db-cluster.png)
+![Backtrack DB cluster](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-backtrack-db-cluster.png)
 
 
 Then you wait for the rewind to take place, unpause your application and proceed as if nothing had happened. When you initiate a backtrack, Aurora will pause the database, close any open connections, drop uncommitted writes, and wait for the backtrack to complete. Then it will resume normal operation and be able to accept requests. The instance state will be backtracking while the rewind is underway.

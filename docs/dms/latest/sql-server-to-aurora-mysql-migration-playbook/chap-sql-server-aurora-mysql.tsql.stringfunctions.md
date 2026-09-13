@@ -8,7 +8,7 @@ This topic provides reference information about string function compatibility wh
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  | N/A | Differences with the UNICODE paradigm. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.collations.md). Syntax and option differences. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  | N/A | Differences with the UNICODE paradigm. For more information, see [Collations](chap-sql-server-aurora-mysql.tsql.collations.md). Syntax and option differences. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-mysql.tsql.stringfunctions.sqlserver"></a>
