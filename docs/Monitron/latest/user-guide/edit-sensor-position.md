@@ -25,10 +25,10 @@ You cannot edit a sensor's machine class if it has an unresolved alert. You must
 1. From the **Positions** list, choose the sensor with the position whose machine class you want to change.
 
 1. Choose to see more sensor details.  
-![Pump asset page showing four positions with statuses and a Pair sensor button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-detail-machine-class-mobile-app-1.png)
+![Pump asset page showing four positions with statuses and a Pair sensor button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-detail-machine-class-mobile-app-1.png)
 
 1. From the options that appear, choose **Edit machine class**.  
-![Menu displaying Edit position name, Edit machine class, Delete position, and Delete sensor options.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-detail-machine-class-mobile-app-2.png)
+![Menu displaying Edit position name, Edit machine class, Delete position, and Delete sensor options.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-detail-machine-class-mobile-app-2.png)
 
 1. From **Edit machine class** choose the new machine class you want to assign to the sensor. Select **Save**.
 **Note**  
@@ -37,10 +37,10 @@ The new machine class will take effect at the next measurement interval. The sin
 **To edit a machine class from the position detail page**
 
 1. From the **Position details** list, choose the **Actions** tab.  
-![Actions dropdown button highlighted in the Position details section of the interface.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-detail-machine-class-mobile-app-1.png)
+![Actions dropdown button highlighted in the Position details section of the interface.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-detail-machine-class-mobile-app-1.png)
 
 1. From the options that appear, choose **Edit machine class**.  
-![Modal menu with options including Edit position name, Edit machine class, Delete position, and Delete sensor.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-detail-machine-class-mobile-app-2.png)
+![Modal menu with options including Edit position name, Edit machine class, Delete position, and Delete sensor.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-detail-machine-class-mobile-app-2.png)
 
 1. From the **Edit machine class** menu choose the new machine class you want to assign to the sensor. Choose **Next**.
 **Note**  
@@ -52,7 +52,7 @@ The new machine class will take effect at the next measurement interval. The sin
 1. From the **Assets** table, choose the **Actions** button.
 
 1. From the options, choose **Edit machine class**.  
-![Actions menu expanded showing Edit position name, Edit machine class, and Delete position options.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-detail-machine-class-web-app.png)
+![Actions menu expanded showing Edit position name, Edit machine class, and Delete position options.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-detail-machine-class-web-app.png)
 
 1. From the **Edit machine class** menu choose the new machine class you want to assign to the sensor and then select **Save changes**.
 **Note**  
@@ -64,7 +64,7 @@ The new machine class will take effect at the next measurement interval and impa
 1. From the **Positions** table, choose the **Actions** button.
 
 1. From the options, choose **Edit machine class**.  
-![Actions menu expanded showing Edit position name, Delete position, and Edit machine class options.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-detail-machine-class-web-app.png)
+![Actions menu expanded showing Edit position name, Delete position, and Edit machine class options.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-detail-machine-class-web-app.png)
 
 1. From the **Edit machine class** menu choose the new machine class you want to assign to the sensor and then select **Save changes**.
 **Note**  

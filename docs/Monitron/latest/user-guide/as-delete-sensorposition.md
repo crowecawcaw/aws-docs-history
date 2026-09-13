@@ -21,7 +21,7 @@ Deleting a sensor position removes that data collection point from the asset. If
 1. Choose **Delete position**. 
 
 1. If the position has a sensor paired to it, delete the sensor by choosing **Delete sensor**. Otherwise, skip to the next step.  
-![Dialog box for deleting "Pump sensor 2" position with warning and Delete sensor button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-sensor-delete.png)
+![Dialog box for deleting "Pump sensor 2" position with warning and Delete sensor button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-sensor-delete.png)
 
 1. Choose **Delete**. 
 
@@ -35,6 +35,6 @@ Deleting a sensor position removes that data collection point from the asset. If
 1. Choose **Delete position**.
 
 1. If the position has a sensor paired to it, delete the sensor by choosing **Delete sensor**. Otherwise, skip to the next step.  
-![Dialog box for deleting "Pump sensor 2" position with warning and Delete sensor button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-sensor-delete.png)
+![Dialog box for deleting "Pump sensor 2" position with warning and Delete sensor button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-sensor-delete.png)
 
 1. Choose **Delete**. 

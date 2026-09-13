@@ -7,7 +7,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 
 When you add a gateway to your project or site, as soon as you choose **Add gateway** the Amazon Monitron mobile app starts scanning to find it. If the mobile app can't find the gateway, try the following troubleshooting tips.
 
-![Mobile phone connecting via Bluetooth to AWS gateway.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)
+![Mobile phone connecting via Bluetooth to AWS gateway.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)
 
 
  
@@ -17,7 +17,7 @@ When you add a gateway to your project or site, as soon as you choose **Add gate
   + Is the gateway power cable working? To test this, try using the cable with another gateway.
   + Is the outlet where the cable plugs into the gateway clean, with no debris stuck inside? Be sure to check both the outlet in the gateway and the connecting end of the cable.
 + **Make sure that the gateway is in commissioning mode.** The Amazon Monitron mobile app finds a new gateway only when it's in commissioning mode. When you turn a gateway on, the LED lights blink slowly, alternating orange and blue. When you press the button on the side of the gateway and enter commissioning mode, they blink rapidly, also alternating orange and blue. If the LEDs show any sequence other than slow blinking before you press the button, the gateway might not go into commissioning mode. In this case, perform a factory reset of the gateway by turning the power off, then pressing and holding down the commissioning button (located on the side) while you turn the power back on.   
-![Orange device with smiley face being touched by a finger, connected to a power source.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-turnon.png)
+![Orange device with smiley face being touched by a finger, connected to a power source.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-turnon.png)
 + **Make sure your smartphone's Bluetooth is working.** The gateway connects to your smartphone using Bluetooth.
   + Is you smartphone's Bluetooth on and working? Try switching it off and on. If that doesn't help, restart your phone and check again.
   + Are you within your smartphone's Bluetooth range? Bluetooth range is relatively short, usually less than 10 meters and its reliability can vary dramatically. 

@@ -33,7 +33,7 @@ The following steps are not required if all of your users are admin users.
    1. On the **Users** page choose **Add user**.
 
    1. In the **User details** section, provide the username and contact information. Leave **Password** set to **Send an email to the user with password setup instructions**.  
-![](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-project-sso-user-details.png)
+![](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-project-sso-user-details.png)
 
    1. Choose **Next: Groups**.
 
@@ -47,7 +47,7 @@ The following steps are not required if all of your users are admin users.
 1. Navigate to the project or site that you want to add a user to, and then to the **Users** list. 
 
 1. Choose **Add user**.   
-![Users page with Add user button highlighted in the upper right corner.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-list-add.png)
+![Users page with Add user button highlighted in the upper right corner.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-list-add.png)
 
 1. Enter a user name. 
 
@@ -69,7 +69,7 @@ The following steps are not required if all of your users are admin users.
 1. Select **Users** from the navigation pane.
 
 1. Choose **Add user**.  
-![Add user button highlighted in the Users page toolbar.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_add-user.png)
+![Add user button highlighted in the Users page toolbar.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_add-user.png)
 
 1. Enter a user name. 
 
@@ -85,4 +85,4 @@ The following steps are not required if all of your users are admin users.
 
 1. Send the new user an email invitation with a link for accessing the project and downloading the Amazon Monitron mobile app. For more information, see [Sending an email invitation](https://docs.aws.amazon.com/Monitron/latest/user-guide/resending-email.html). 
 
-![Users table showing display names, roles such as Admin and Technician, and site assignments.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/users-table.png)
+![Users table showing display names, roles such as Admin and Technician, and site assignments.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/users-table.png)

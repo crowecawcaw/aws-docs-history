@@ -8,7 +8,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 **Note**  
 This section focuses on using the Amazon Monitron mobile app. To learn about the Amazon Monitron web app, see [Understanding sensor measurements](https://docs.aws.amazon.com/Monitron/latest/user-guide/anom-monitoring-chapter.html) in the *Amazon Monitron User Guide*.
 
-After a sensor is paired to an asset, Amazon Monitron starts monitoring the asset's condition. When it detects an abnormal machine condition, it sends you a notification ( ![Red warning icon with exclamation mark inside a white triangle.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/notification.png)) and changes the asset state. The alert notification is generated using a combination of machine learning and ISO 20816 standards for machine vibration. 
+After a sensor is paired to an asset, Amazon Monitron starts monitoring the asset's condition. When it detects an abnormal machine condition, it sends you a notification ( ![Red warning icon with exclamation mark inside a white triangle.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/notification.png)) and changes the asset state. The alert notification is generated using a combination of machine learning and ISO 20816 standards for machine vibration. 
 
 To monitor the data and respond to alerts about abnormalities, you use the Amazon Monitron mobile app. 
 

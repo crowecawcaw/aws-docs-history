@@ -44,14 +44,14 @@ After you pair the sensor, you can't change the position type.
    1. For **Class**, choose the machine class of the asset from the four available.
 **Note**  
 Asset machine class is based on ISO 20816 Standards. Amazon Monitron administrators can also create custom machine asset classes for all positions within a project. For more information about machine classes and customizing them, see [Assets](https://docs.aws.amazon.com/Monitron/latest/user-guide/assets-chapter.html).  
-![Form for adding an asset with fields for asset name and machine class selection.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/add_asset1.png)
+![Form for adding an asset with fields for asset name and machine class selection.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/add_asset1.png)
 
 1. Choose **Next**. You'll be prompted to add sensors. For information on how to add sensors, see [Sensors](https://docs.aws.amazon.com/Monitron/latest/user-guide/as-sensor-positions1.html).
 
 1. Choose **Pair sensor**. 
 
 1. Hold your phone close to the sensor to register it. A progress bar shows when registration is complete.   
-![Hand holding a smartphone near a small orange square, likely representing a sensor.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-sensor.png)
+![Hand holding a smartphone near a small orange square, likely representing a sensor.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-sensor.png)
 
    It can take a few moments for the sensor to be commissioned. If you have trouble pairing the sensor, see [Pairing Your Sensor](https://docs.aws.amazon.com/Monitron/latest/user-guide/as-sensor-positions1.html#as-add-sensors) for more information.
 **Tip**  

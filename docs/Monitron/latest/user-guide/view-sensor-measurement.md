@@ -10,4 +10,4 @@ You can choose to view your sensor measurement data in two chart formats: scatte
 **Note**  
 You can select your sensor measurement view from the **Chart type** menu in your mobile and web app.
 
-![Vibration monitoring dashboard showing total and single axis vibration charts with warning status.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/scatter-plot-chart-measurement.png)
+![Vibration monitoring dashboard showing total and single axis vibration charts with warning status.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/scatter-plot-chart-measurement.png)

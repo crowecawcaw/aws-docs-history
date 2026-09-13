@@ -36,10 +36,10 @@ The **Assets** list shows the status of each listed asset with an icon, as shown
 
 | Status | Meaning | 
 | --- | --- | 
-|  ![Green circular icon with a white checkmark symbol inside.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/healthy_icon.png)  |  **Healthy state**: The status of all sensor positions on the asset is healthy.  | 
-|  ![Yellow triangular warning sign with black exclamation mark.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning_icon.png)  |  **Warning state**: A warning has been triggered for one of the positions of this asset, indicating that Amazon Monitron has detected early signs of potential failure. Amazon Monitron identifies warning conditions by analyzing equipment vibration and temperature, using a combination of machine learning and ISO vibration standards. | 
-|  ![Red hexagonal warning sign with exclamation mark indicating caution or alert.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarm_icon.png)  | **Alarm state**: An alarm has been triggered for one of the positions of this asset, indicating that the machine vibration and temperature is out of the normal range at this position. We recommend that you investigate the issue at the earliest opportunity. An equipment failure might occur if the issue isn't addressed.  | 
-|  ![Wrench icon on a blue square background, representing a tool or settings symbol.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/acknowledged_icon.png)  | **Acknowledged state**: The warning or alarm state of the position has been acknowledged by a technician, but the asset has not yet been fixed.  | 
+|  ![Green circular icon with a white checkmark symbol inside.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/healthy_icon.png)  |  **Healthy state**: The status of all sensor positions on the asset is healthy.  | 
+|  ![Yellow triangular warning sign with black exclamation mark.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning_icon.png)  |  **Warning state**: A warning has been triggered for one of the positions of this asset, indicating that Amazon Monitron has detected early signs of potential failure. Amazon Monitron identifies warning conditions by analyzing equipment vibration and temperature, using a combination of machine learning and ISO vibration standards. | 
+|  ![Red hexagonal warning sign with exclamation mark indicating caution or alert.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarm_icon.png)  | **Alarm state**: An alarm has been triggered for one of the positions of this asset, indicating that the machine vibration and temperature is out of the normal range at this position. We recommend that you investigate the issue at the earliest opportunity. An equipment failure might occur if the issue isn't addressed.  | 
+|  ![Wrench icon on a blue square background, representing a tool or settings symbol.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/acknowledged_icon.png)  | **Acknowledged state**: The warning or alarm state of the position has been acknowledged by a technician, but the asset has not yet been fixed.  | 
 | No sensor | **No sensor**: At least one position for the asset doesn't currently have a sensor paired to it. | 
 
 To learn more about a problem, choose the asset and look at the status of underlying sensor positions. 
@@ -47,27 +47,27 @@ To learn more about a problem, choose the asset and look at the status of underl
 
 |  |  | 
 | --- |--- |
-|  ![Sorter 1 interface showing 1 alarm and 0 acknowledged positions, with Pos.1 in alarm state.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unhealthy_asset.png)  |  ![Asset list showing Sorter 1 with two positions: Pos. 1 in Alarm status and Pos. 2 Healthy.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_unhealthy-asset.png)  | 
+|  ![Sorter 1 interface showing 1 alarm and 0 acknowledged positions, with Pos.1 in alarm state.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unhealthy_asset.png)  |  ![Asset list showing Sorter 1 with two positions: Pos. 1 in Alarm status and Pos. 2 Healthy.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_unhealthy-asset.png)  | 
 
 Amazon Monitron uses icons similar to the asset status icons to show the status of sensor positions. 
 
 
 | Status | Meaning | 
 | --- | --- | 
-|  ![Green oval button with the text "Healthy" indicating a positive status.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/healthy.png)  | The position is healthy. All measured values are within the normal range.  | 
-|  ![Yellow triangular warning sign with black exclamation mark.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning_icon.png)  |  **Warning state**: A warning has been triggered for one of the positions of this asset, indicating that Amazon Monitron has detected early signs of potential failure. Amazon Monitron identifies warning conditions by analyzing equipment vibration and temperature, using a combination of machine learning and ISO vibration standards. | 
-|  ![Red oval button labeled "Alarm" indicating an alert or warning notification.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarm.png)  | An alarm has been triggered for this position, indicating that the machine vibration and temperature is out of the normal range at this position. We recommend that you investigate the issue at the earliest opportunity. An equipment failure might occur if the issue isn't addressed.  | 
-|  ![Blue button with white text reading "Acknowledged".](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/acknowledged.png)  | The warning or alarm state of the position has been acknowledged by a technician, but not yet fixed. | 
+|  ![Green oval button with the text "Healthy" indicating a positive status.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/healthy.png)  | The position is healthy. All measured values are within the normal range.  | 
+|  ![Yellow triangular warning sign with black exclamation mark.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning_icon.png)  |  **Warning state**: A warning has been triggered for one of the positions of this asset, indicating that Amazon Monitron has detected early signs of potential failure. Amazon Monitron identifies warning conditions by analyzing equipment vibration and temperature, using a combination of machine learning and ISO vibration standards. | 
+|  ![Red oval button labeled "Alarm" indicating an alert or warning notification.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarm.png)  | An alarm has been triggered for this position, indicating that the machine vibration and temperature is out of the normal range at this position. We recommend that you investigate the issue at the earliest opportunity. An equipment failure might occur if the issue isn't addressed.  | 
+|  ![Blue button with white text reading "Acknowledged".](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/acknowledged.png)  | The warning or alarm state of the position has been acknowledged by a technician, but not yet fixed. | 
 | No sensor | No sensors are currently paired with the position.  | 
 
 ## Notifications
 <a name="anom-notifications"></a>
 
-When a warning or an alarm alert is generated, Amazon Monitron sends a notification to the admin user and technician in the app. Authorized personnel can also see notifications by choosing the notification icon in the mobile app when it displays an alert symbol ( ![Red warning icon with exclamation mark inside a white triangle.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/notification.png) ). 
+When a warning or an alarm alert is generated, Amazon Monitron sends a notification to the admin user and technician in the app. Authorized personnel can also see notifications by choosing the notification icon in the mobile app when it displays an alert symbol ( ![Red warning icon with exclamation mark inside a white triangle.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/notification.png) ). 
 
 Choosing the notification icon opens the **Notifications** page, which lists all pending notifications. 
 
 
 |  |  | 
 | --- |--- |
-|  ![Notifications list showing alarm and warning entries with position names, vibration and temperature detection details.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobileapp_notification.png)  |  ![Notifications panel showing alarms and warnings for positions with vibration and temperature alerts.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_notification.png)  | 
+|  ![Notifications list showing alarm and warning entries with position names, vibration and temperature detection details.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobileapp_notification.png)  |  ![Notifications panel showing alarms and warnings for positions with vibration and temperature alerts.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_notification.png)  | 

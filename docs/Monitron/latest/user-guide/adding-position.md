@@ -23,7 +23,7 @@ You can create and update asset positions from both the Amazon Monitron web app 
 1. Choose the sensor whose position you want to create or edit from the **Assets** list.
 
 1. Select the **Add position** button.  
-![Asset management interface showing list of assets and positions with status indicators.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-app-add-position-1.png)
+![Asset management interface showing list of assets and positions with status indicators.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-app-add-position-1.png)
 
 1. In the dialog box that opens, enter your **Position name**, **Position type** and **Machine class**.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/adding-position.html)
@@ -31,7 +31,7 @@ You can create and update asset positions from both the Amazon Monitron web app 
 1. Choose **Save**.
 
 1. Your position is added to the asset.  
-![Asset management interface showing positions with various statuses and types.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-app-add-position-4.png)
+![Asset management interface showing positions with various statuses and types.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-app-add-position-4.png)
 
 ## To add a sensor position on the mobile app
 <a name="adding-position-mobile"></a>
@@ -39,15 +39,15 @@ You can create and update asset positions from both the Amazon Monitron web app 
 1. Choose the sensor whose position you want to create or edit from the **Assets** list.
 
 1. Select the **Add position** button.  
-![Asset management interface showing 6 positions with various status indicators.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-app-add-position-1.png)
+![Asset management interface showing 6 positions with various status indicators.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-app-add-position-1.png)
 
 1. In the dialog box that opens, enter your **Posion name**, **Position type**, and **Machine class**.  
-![Dialog box for adding a position with fields for name, type, and machine class.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-app-add-position-2.png)
+![Dialog box for adding a position with fields for name, type, and machine class.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-app-add-position-2.png)
 
 1. Choose **Next**.
 
 1. Re-scan your sensor with your mobile device to save the position.  
-![Dialog prompting user to hold phone near sensor to scan for position details.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-app-add-position-4.png)
+![Dialog prompting user to hold phone near sensor to scan for position details.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-app-add-position-4.png)
 
 1. Your position is added to the asset.  
-![Asset detail page showing positions list with various health statuses and Add position button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-app-add-position-6.png)
+![Asset detail page showing positions list with various health statuses and Add position button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-app-add-position-6.png)

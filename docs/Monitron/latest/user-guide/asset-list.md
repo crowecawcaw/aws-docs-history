@@ -16,6 +16,6 @@ The **Assets** page displays the list of assets. The **Assets** page is the app'
 <a name="asset-list-view"></a>
 
 1. Choose the menu icon (☰).  
-![Navigation bar with menu icon, back arrow, AnyCompany logo, and notification bell.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/navigation.png)
+![Navigation bar with menu icon, back arrow, AnyCompany logo, and notification bell.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/navigation.png)
 
 1. Choose **Assets**.

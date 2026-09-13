@@ -32,16 +32,16 @@ For many smartphone models, NFC is turned on by default. The following resources
    + If you just created the asset:
 
      Choose **Add position**.  
-![Asset name 1 screen with No sensor status and Pair sensor button highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/pair_sensors.png)
+![Asset name 1 screen with No sensor status and Pair sensor button highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/pair_sensors.png)
    + If you created the asset earlier, and have already paired more than one sensor to it:
 
      1. After you choose the asset, you will see a dropdown list of sensors associated with that asset.
 
         Choose the **View** option at the top of that list.  
-![Assets page showing cooler asset with View cooler option and three Healthy status indicators.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-dropdown-view-option.png)
+![Assets page showing cooler asset with View cooler option and three Healthy status indicators.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-dropdown-view-option.png)
 
      1. Choose **Pair sensor**.  
-![Cooler asset details screen showing Pair sensor button and three healthy positions.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/pair-sensor-others-paired.png)
+![Cooler asset details screen showing Pair sensor button and three healthy positions.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/pair-sensor-others-paired.png)
 
 1. Place your sensor on the machine in the correct location. For more information about placing sensors, see [Positioning a sensor](as-where-sensors.md) and [Mounting a sensor](as-how-sensors.md).
 
@@ -75,17 +75,17 @@ Large prime-movers and other large machines with rotating masses mounted on rigi
 1. Choose **Next**.
 
 1. Hold your smartphone close to the sensor to commission it. Don't move your smartphone while you are commissioning the sensor.  
-![Hand holding smartphone near a small orange sensor device for commissioning.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-sensor.png)
+![Hand holding smartphone near a small orange sensor device for commissioning.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-sensor.png)
 
    It can take a few moments for Amazon Monitron to commission the sensor and pair with it. While it's connecting, you will see the following message.  
-![Phone with NFC waves connecting to sensor, with progress bar showing pairing in progress.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/do-not-move-your-phone.png)
+![Phone with NFC waves connecting to sensor, with progress bar showing pairing in progress.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/do-not-move-your-phone.png)
 
 **Note**  
 The appropriate way to hold your mobile device while pairing depends on the type of mobile device you have. For more information, see [Troubleshooting Amazon Monitron device issues](troubleshooting.md).
 
 When more than one sensor is paired with a given asset, the **Assets** page shows each sensor position and its health status, but not the specific details about each position. To display the details, choose the position from the list. For more information about the data you can monitor with each asset, see [Understanding sensor measurements](anom-sensor-measure.md).
 
-![Asset details page showing four sensor positions with Healthy status and asset information.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/multiple_sensors.png)
+![Asset details page showing four sensor positions with Healthy status and asset information.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/multiple_sensors.png)
 
 
 Positions are displayed in status order. For example, a position that's in an alarm state is displayed above a position that's in an acknowledged state. Positions that are in a healthy state follow those in an acknowledged state. 

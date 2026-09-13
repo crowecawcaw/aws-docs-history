@@ -20,7 +20,7 @@ When you delete a gateway which is currently offline, you must perform a factory
 
 1. Using the mobile app, navigate to the **Gateways** page. 
 
-1. Choose the vertical ellipses icon ( ![Three vertical dots representing a menu or more options in a user interface.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/details.png)) next to the gateway that you want to delete. 
+1. Choose the vertical ellipses icon ( ![Three vertical dots representing a menu or more options in a user interface.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/details.png)) next to the gateway that you want to delete. 
 
 1. Choose **Delete Gateway**. 
 

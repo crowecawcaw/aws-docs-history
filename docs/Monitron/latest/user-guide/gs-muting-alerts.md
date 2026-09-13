@@ -26,20 +26,20 @@ The following images show you how to mute alerts on the Amazon Monitron mobile a
 
 |  |  |  | 
 | --- |--- |--- |
-|  ![Acknowledge button highlighted on alarm details screen showing vibration and temperature data.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-1.png)  |  ![Vibration tab showing alarm details with total vibration measurement of 4.63 mm/s.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-2.png)  |  ![Resolution feedback screen with failure mode dropdown, informational message, and fields for failure cause and action taken.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-3.png)  | 
+|  ![Acknowledge button highlighted on alarm details screen showing vibration and temperature data.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-1.png)  |  ![Vibration tab showing alarm details with total vibration measurement of 4.63 mm/s.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-2.png)  |  ![Resolution feedback screen with failure mode dropdown, informational message, and fields for failure cause and action taken.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-3.png)  | 
 
 ### Muting alerts on web app
 <a name="muting-alerts-web"></a>
 
 The following images show you how to mute alerts on the Amazon Monitron web app.
 
-![Acknowledge button highlighted in the alarm notification panel for Position name 3.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mute-alarm-web-1.png)
+![Acknowledge button highlighted in the alarm notification panel for Position name 3.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mute-alarm-web-1.png)
 
 
-![Position name 3 details page showing Maintenance status with ISO vibration and Temperature ML alarms.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mute-alarm-web-2.png)
+![Position name 3 details page showing Maintenance status with ISO vibration and Temperature ML alarms.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mute-alarm-web-2.png)
 
 
-![Issue resolution feedback form with failure mode, cause, and action taken fields for improving alert accuracy.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mute-alarm-web-3.png)
+![Issue resolution feedback form with failure mode, cause, and action taken fields for improving alert accuracy.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mute-alarm-web-3.png)
 
 
 ## Unmuting alerts
@@ -64,18 +64,18 @@ If you've muted both alarms and warnings, you can unmute them.
 
 |  |  |  | 
 | --- |--- |--- |
-|  ![Vibration monitoring graph showing spike above alarm threshold on Dec 20, with maximum 4.63 mm/s.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-mobile-1.png)  |  ![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-mobile-2.png)  |  ![Vibration graph showing maximum values from Dec 7-20, 2022, with spike exceeding alarm threshold on Dec 20.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-mobile-3.png)  | 
+|  ![Vibration monitoring graph showing spike above alarm threshold on Dec 20, with maximum 4.63 mm/s.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-mobile-1.png)  |  ![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-mobile-2.png)  |  ![Vibration graph showing maximum values from Dec 7-20, 2022, with spike exceeding alarm threshold on Dec 20.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-mobile-3.png)  | 
 
 #### Resume all alerts on web
 <a name="unmuting-alerts-web"></a>
 
-![Vibration monitoring graph showing measurements from Dec 7-20 with alarm threshold at 7mm/s.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-web-1.png)
+![Vibration monitoring graph showing measurements from Dec 7-20 with alarm threshold at 7mm/s.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-web-1.png)
 
 
-![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-web-2.png)
+![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-web-2.png)
 
 
-![Line graph showing vibration measurements over time with warning and alarm thresholds.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-web-3.png)
+![Line graph showing vibration measurements over time with warning and alarm thresholds.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/resume-alerts-web-3.png)
 
 
 ### Resume alarms but keep warnings muted
@@ -89,18 +89,18 @@ If you've muted both alarms and warnings, you can unmute alarms and keep warning
 
 |  |  |  | 
 | --- |--- |--- |
-|  ![Vibration graph showing spike exceeding alarm threshold on Dec 20, with warning message about stopped alerts.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-mobile-1.png)  |  ![Vibration graph showing spike above alarm threshold on Dec 20, with maximum value of 4.63 mm/s.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-mobile-2.png)  |  ![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-mobile-3.png)  | 
+|  ![Vibration graph showing spike exceeding alarm threshold on Dec 20, with warning message about stopped alerts.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-mobile-1.png)  |  ![Vibration graph showing spike above alarm threshold on Dec 20, with maximum value of 4.63 mm/s.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-mobile-2.png)  |  ![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-mobile-3.png)  | 
 
 #### Resume alarms keeping warnings muted on the web app
 <a name="unmuting-alarms-web"></a>
 
-![Vibration graph showing alarm threshold exceeded starting Dec 15, with warning level at 5.5 mm/s.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-web-1.png)
+![Vibration graph showing alarm threshold exceeded starting Dec 15, with warning level at 5.5 mm/s.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-web-1.png)
 
 
-![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-web-2.png)
+![Resume alerts dialog with options to resume alarm and warning or keep warnings muted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-web-2.png)
 
 
-![Vibration monitoring chart showing alarm threshold exceeded with red shaded region.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-web-3.png)
+![Vibration monitoring chart showing alarm threshold exceeded with red shaded region.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/alarms-warnings-web-3.png)
 
 
 ### Resume only alarms
@@ -114,18 +114,18 @@ If you've muted alarms, you can unmute them.
 
 |  |  |  | 
 | --- |--- |--- |
-|  ![Vibration monitoring chart showing spike to 10 mm/s on Dec 20, exceeding alarm threshold.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-4.png)  |  ![Resume alarms dialog with Cancel and Confirm buttons for resuming threshold alarms.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-6.png)  |  ![Vibration monitoring graph showing spike above alarm threshold on Dec 20 with success message.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-7.png)  | 
+|  ![Vibration monitoring chart showing spike to 10 mm/s on Dec 20, exceeding alarm threshold.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-4.png)  |  ![Resume alarms dialog with Cancel and Confirm buttons for resuming threshold alarms.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-6.png)  |  ![Vibration monitoring graph showing spike above alarm threshold on Dec 20 with success message.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-mobile-7.png)  | 
 
 #### Resume alarms on web app
 <a name="resume-alarms-mobile"></a>
 
-![Vibration chart showing measurements from Dec 7-20 with alarm threshold exceeded Dec 15-20.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-alarms-4.png)
+![Vibration chart showing measurements from Dec 7-20 with alarm threshold exceeded Dec 15-20.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-alarms-4.png)
 
 
-![Resume alarms dialog box asking to confirm resuming threshold alarms for a position.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-alarms-5.png)
+![Resume alarms dialog box asking to confirm resuming threshold alarms for a position.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-alarms-5.png)
 
 
-![Line chart showing vibration measurements over time with alarm threshold and warning level.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-alarms-6.png)
+![Line chart showing vibration measurements over time with alarm threshold and warning level.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/unmute-alarms-6.png)
 
 
 ### Resume only warnings
@@ -139,15 +139,15 @@ If you've muted warnings, you can choose to resume them.
 
 |  |  |  | 
 | --- |--- |--- |
-|  ![Vibration monitoring graph showing spike to 10 mm/s on Dec 20, exceeding alarm threshold of 7.1 mm/s.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-1.png)  |  ![Dialog box asking to resume threshold warnings with Cancel and Confirm buttons.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-2.png)  |  ![Vibration monitoring graph showing spike above alarm threshold on Dec 20, with success message.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-3.png)  | 
+|  ![Vibration monitoring graph showing spike to 10 mm/s on Dec 20, exceeding alarm threshold of 7.1 mm/s.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-1.png)  |  ![Dialog box asking to resume threshold warnings with Cancel and Confirm buttons.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-2.png)  |  ![Vibration monitoring graph showing spike above alarm threshold on Dec 20, with success message.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-3.png)  | 
 
 #### Resume warnings on web app
 <a name="resume-warnings-web"></a>
 
-![Vibration monitoring graph showing Vrms values over time with warning and alarm thresholds.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-web-1.png)
+![Vibration monitoring graph showing Vrms values over time with warning and alarm thresholds.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-web-1.png)
 
 
-![Resume warnings dialog box with confirmation prompt and Cancel and Confirm buttons.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-web-2.png)
+![Resume warnings dialog box with confirmation prompt and Cancel and Confirm buttons.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-web-2.png)
 
 
-![Vibration chart showing measurements from Dec 7-20 with alarm and warning thresholds.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-web-3.png)
+![Vibration chart showing measurements from Dec 7-20 with alarm and warning thresholds.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/warning-unmute-web-3.png)

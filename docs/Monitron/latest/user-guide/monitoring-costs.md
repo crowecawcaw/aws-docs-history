@@ -49,7 +49,7 @@ You can retrieve your assigned project value using your Amazon Monitron web app.
 1. In the navigation pane, choose **Projects**. 
 
    The list of projects is displayed under **Projects**.   
-![Projects page showing Test_Project with its Project Id highlighted in the table.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-1.png)
+![Projects page showing Test_Project with its Project Id highlighted in the table.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-1.png)
 
 1. Choose the project that you want to get details on.
 
@@ -73,12 +73,12 @@ You can retrieve your assigned site tag value using your Amazon Monitron web app
    If you're choosing an existing project, from the left navigation menu, select **Projects**, and then select the project you want to create custom asset classes for.
 
 1. From the project details page, choose **Open in Amazon Monitron web app**.  
-![Open in Monitron web app button highlighted in the project details page header.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-2.png)
+![Open in Monitron web app button highlighted in the project details page header.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-2.png)
 
 1. From the left navigation pane, choose **Sites**. 
 
    The list of sites is displayed.   
-![Sites page showing Site 1 in the list with its corresponding Id field highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-3.png)
+![Sites page showing Site 1 in the list with its corresponding Id field highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-3.png)
 
 1. Choose the site that you want to get details on.
 
@@ -100,7 +100,7 @@ To begin using project and site level cost tracker tags, you must do the followi
    1. From **Cost Organization**, select **Cost allocation tags**. You will find the **AWS generated cost allocation tags** in this section.
 
    1. Select the tags you want to use and choose **Activate**.   
-![Cost Allocation Tags page showing AWS generated tags tab with Activate button highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-4.png)
+![Cost Allocation Tags page showing AWS generated tags tab with Activate button highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-4.png)
 **Note**  
 It takes up to 96 hours for the tags to be activated. The billing data starts being tagged only after the tags are active.
 
@@ -122,7 +122,7 @@ You can filter usage and cost history by choosing a tag key value pair. For exam
 1. From the right navigation menu, for **Tags** choose the assigned tag key for your project or site from the dropdown options. 
 
 1. Then, choose the Amazon Monitron assigned tag value for your project or site.  
-![Cost Explorer interface showing Service and Tag filter dropdowns in the right panel.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-5.png)
+![Cost Explorer interface showing Service and Tag filter dropdowns in the right panel.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/billing-tags-5.png)
 
 **Note**  
 You can save the report with the filters selected to the report library to easily review it later. You can also adjust and customize your report further, including the date range and granularity of your report.

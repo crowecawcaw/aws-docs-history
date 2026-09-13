@@ -19,7 +19,7 @@ After you add an asset, you can change both its name and machine class.
 1. For **Asset details**, choose **Actions**.
 
 1. Choose **Edit asset**.   
-![Dropdown menu with options to Edit or Delete an item.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/edit-asset.png)
+![Dropdown menu with options to Edit or Delete an item.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/edit-asset.png)
 
 1. Enter a new name.
 
@@ -31,7 +31,7 @@ After you add an asset, you can change both its name and machine class.
 1. Select the asset.
 
 1. In the large tab, choose the **Actions** button from the right end of the row containing the asset name.  
-![Actions button in the upper right corner of the Conveyor belt 1 asset details page.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_positions.png)
+![Actions button in the upper right corner of the Conveyor belt 1 asset details page.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_positions.png)
 
 1. Enter a new name.
 

@@ -31,13 +31,13 @@ Custom classes can only be created using the Amazon Monitron web app. Only the A
    If you're choosing an existing project, from the left navigation menu, select **Projects**, and then select the project you want to create custom classes for.
 
 1. From the project details page, choose **Open in Amazon Monitron web app**.  
-![Amazon Monitron project setup steps: create project, add admin users, email instructions, manage directory.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-1.png)
+![Amazon Monitron project setup steps: create project, add admin users, email instructions, manage directory.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-1.png)
 
 1. In the Amazon Monitron web app page, from the left navigation pane, choose **Settings**.  
-![Settings page with language, measurements, and classes configuration options.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-2.png)
+![Settings page with language, measurements, and classes configuration options.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-2.png)
 
 1. Then, select from **Classes**, select **Create class**.  
-![Form to create a custom class with fields for name, description, and measurement thresholds.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-3.png)
+![Form to create a custom class with fields for name, description, and measurement thresholds.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-3.png)
 
 1. On the **Create custom class** page, do the following:
    + In **Class details**, for **Class name** – A name for your custom class.
@@ -60,13 +60,13 @@ Custom classes can only be created using the Amazon Monitron web app. Only the A
    If you're choosing an existing project, from the left navigation menu, select **Projects**, and then select the project you want to create custom classes for.
 
 1. From the project details page, choose **Open in Amazon Monitron web app**.  
-![Amazon Monitron project setup steps: create project, add admin users, email instructions, manage directory.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-1.png)
+![Amazon Monitron project setup steps: create project, add admin users, email instructions, manage directory.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-1.png)
 
 1. In the Amazon Monitron web app page, from the left navigation pane, choose **Settings**.  
-![Settings page with language, measurements, and classes configuration options.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-2.png)
+![Settings page with language, measurements, and classes configuration options.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-2.png)
 
 1. Then, from **Classes**, select the class you would like to update, and select **Edit**.  
-![Edit Custom name form with class details and measurement thresholds for warnings and alarms.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-4.png)
+![Edit Custom name form with class details and measurement thresholds for warnings and alarms.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-4.png)
 
 1. On the **Edit class** page, do the following:
    + In **Class details**, for **Class name** – A name for your custom class.
@@ -91,13 +91,13 @@ The edited machine class will go into effect during the next Amazon Monitron mea
    If you're choosing an existing project, from the left navigation menu, select **Projects**, and then select the project you want to create custom classes for.
 
 1. From the project details page, choose **Open in Amazon Monitron web app**.  
-![Amazon Monitron project setup steps: create project, add admin users, email instructions, manage directory.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-1.png)
+![Amazon Monitron project setup steps: create project, add admin users, email instructions, manage directory.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-1.png)
 
 1. In the Amazon Monitron web app page, from the left navigation pane, choose **Settings**.  
-![Settings page with language, measurements, and classes configuration options.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-2.png)
+![Settings page with language, measurements, and classes configuration options.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-2.png)
 
 1. Then, from **Classes**, select the machine class you would like to delete, and select **Delete**.  
-![Fan custom threshold details showing warning and alarm measurements, description, and position list.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-5.png)
+![Fan custom threshold details showing warning and alarm measurements, description, and position list.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-class-5.png)
 **Important**  
 You can't delete custom machine classes that are currently in use by one or more positions. You will be prompted with a list of positions currently using the machine class and you will need to update these positions to a different machine class before deleting the machine class attached to these positions.
 

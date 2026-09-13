@@ -18,7 +18,7 @@ After receiving a notification, the admin user or technician must acknowledge it
 1. To view the issue, choose the position with the abnormality. 
 
    Sensor measurements that show the anomaly are displayed.   
-![Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-understand-sensor-measurement.png)
+![Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-understand-sensor-measurement.png)
 
 1. Choose **Acknowledge**. 
 

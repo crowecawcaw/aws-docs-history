@@ -18,7 +18,7 @@ When you delete a gateway, sensors switch their connection to another gateway th
 
 1. Navigate to the **Gateways** page.
 
-1. Choose the vertical ellipses icon ( ![Three vertical dots representing a menu or more options in a user interface.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/details.png)) next to the gateway that you want to delete. 
+1. Choose the vertical ellipses icon ( ![Three vertical dots representing a menu or more options in a user interface.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/details.png)) next to the gateway that you want to delete. 
 
 1. Choose **Delete gateway**.
 

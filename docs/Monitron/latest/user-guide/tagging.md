@@ -40,25 +40,25 @@ The following restrictions also apply to Amazon Monitron project tags:
 1. In the navigation pane, choose the project you want.
 
 1. Expand the **Tags** section.  
-![Expand the Tags section to add tags to your project.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-3.png)
+![Expand the Tags section to add tags to your project.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-3.png)
 
 1. Choose **Add new tag**.  
-![Tags section showing no associated tags with Add new tag button and 50 more tags available.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-a.png)
+![Tags section showing no associated tags with Add new tag button and 50 more tags available.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-a.png)
 
 1. Enter the key-value pair for your tag. 
 
    The key must be unique for the project. The value is optional.  
-![Enter a key and an optional value in the Tags section.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-1.png)
+![Enter a key and an optional value in the Tags section.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-1.png)
 
 1. Choose **Add new tag**.
 
 1. To add more tags, repeat steps 2 and 3.
 
 1. To remove a tag, choose **Remove**.  
-![Tags interface showing a tag with key glass fabrication and value windshields with Remove button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-b.png)
+![Tags interface showing a tag with key glass fabrication and value windshields with Remove button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-b.png)
 
 1. Remove blank tag entries and then choose **Next**.   
-![Tags interface showing error message for blank key field with Remove buttons for tag entries.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-c.png)
+![Tags interface showing error message for blank key field with Remove buttons for tag entries.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-c.png)
 
 ## Adding a tag to a project after it’s been created
 <a name="tag-existing-1"></a>
@@ -74,15 +74,15 @@ You can add a tag to a project on the project detail page.
 1. In the navigation pane, choose **Projects**, and then choose the project you want. 
 
 1. Under **Tags**, choose **Manage tags**.  
-![Tags section showing one tag with key glass fabrication and value windshields.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-d.png)
+![Tags section showing one tag with key glass fabrication and value windshields.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-d.png)
 
 1. Choose **Add new tag**  
-![Tags interface showing glass fabrication key with windshields value and Add new tag button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-e.png)
+![Tags interface showing glass fabrication key with windshields value and Add new tag button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-e.png)
 
 1. Enter the key-value pair for your tag. 
 **Note**  
 Remember that the key must be unique for the project. The value is optional.  
-![Tags interface showing two key-value pairs: glass fabrication with windshields, and test lab with empty value.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-f.png)
+![Tags interface showing two key-value pairs: glass fabrication with windshields, and test lab with empty value.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-f.png)
 
 1. Choose **Save**.
 
@@ -102,6 +102,6 @@ You can modify a tag value, but not a tag key. To change a tag key, remove the t
 1. Under **Tags**, choose **Manage tags**.
 
 1. To modify the tag value, make the change. To remove the tag, choose **Remove** next to the tag.   
-![Tags interface showing glass fabrication key with windshields value and Add new tag button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-e.png)
+![Tags interface showing glass fabrication key with windshields value and Add new tag button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-e.png)
 
 1. Choose **Save**.

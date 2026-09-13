@@ -16,10 +16,10 @@ When you add a user to an Amazon Monitron project or site, you send them an emai
 
 1. Add the user to the site or project.
 
-1. Choose the vertical ellipse icon ( ![Three vertical dots representing a menu or more options in a user interface.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/details.png)) next to the user that you added. 
+1. Choose the vertical ellipse icon ( ![Three vertical dots representing a menu or more options in a user interface.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/details.png)) next to the user that you added. 
 
 1. Choose **Email instructions**.  
-![Dialog box with Email instructions link, Edit user option, and Remove user option.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/email-invitation.png)
+![Dialog box with Email instructions link, Edit user option, and Remove user option.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/email-invitation.png)
 
    Your email application opens with a draft of the email invitation addressed to that user. It contains two links. One link is to download the Amazon Monitron mobile app from the Google Play Store. The other is to open the project to which the user has been added.
 

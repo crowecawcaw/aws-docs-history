@@ -26,7 +26,7 @@ You use the same procedure to add a new user to a project or to a site.
 1. Navigate to the project or site that you want to add a user to, and then to the **Users** list. 
 
 1. Choose **Add user**.   
-![User interface showing a list of users and an "Add user" button in the top right corner.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-list-add.png)
+![User interface showing a list of users and an "Add user" button in the top right corner.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-list-add.png)
 
 1. Enter a user name. 
 
@@ -46,16 +46,16 @@ You use the same procedure to add a new user to a project or to a site.
 <a name="w2aac28c19c15c15"></a>
 
 1. Navigate to the project or site that you want to add a user to, and then to the **Users** list.   
-![Add user dialog with Username search field and Role dropdown set to Choose a role.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-1.png)
+![Add user dialog with Username search field and Role dropdown set to Choose a role.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-1.png)
 
 1. Enter a user name. Amazon Monitron searches the user directory for the user.
 
    Choose the user from the list and the role you want to assign to the user: **Admin**, **Technician**, or **Viewer**.
 
    Then, choose **Add user**.   
-![Add user dialog box with fields for username and role selection.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-2.png)
+![Add user dialog box with fields for username and role selection.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-2.png)
 
 1. The new user appears on the **Users** list.  
-![Users table showing User 10 added with Technician role and No inherited user status.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-3.png)
+![Users table showing User 10 added with Technician role and No inherited user status.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-3.png)
 
    Send the new user an email invitation with a link for accessing the project and downloading the Amazon Monitron mobile app. For more information, see [Sending an email invitation](resending-email.md).

@@ -20,17 +20,17 @@ Deleting an asset removes all associated sensors and their positions, in additio
 1. For **Asset details**, choose **Actions**. 
 
 1. Choose **Delete asset**.   
-![Delete option highlighted in a dropdown menu on a mobile interface.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-asset.png)
+![Delete option highlighted in a dropdown menu on a mobile interface.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-asset.png)
 
 1. Choose one of the following options.
    + If there are no sensors paired with the asset, choose **Delete** and go to the next step.  
-![Delete Asset 6 confirmation dialog with warning about deleting positions and measurements.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-asset-warning.png)
+![Delete Asset 6 confirmation dialog with warning about deleting positions and measurements.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-asset-warning.png)
    + If there are sensors paired with the asset, delete them.
 
      Choose **Delete sensors and positions**. When you delete a sensor or position, all historical measurements taken at this position will also be deleted.  
-![Dialog box confirming deletion of Asset name 5 with Delete sensors and positions button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-asset-sensors.png)
+![Dialog box confirming deletion of Asset name 5 with Delete sensors and positions button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-asset-sensors.png)
 
      It can take some time for Amazon Monitron to delete all the paired sensors and positions.
 
 1. Choose **Delete**.  
-![Delete Asset 5 dialog box with warning message and Delete button highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-asset-sensors2.png)
+![Delete Asset 5 dialog box with warning message and Delete button highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-asset-sensors2.png)

@@ -24,10 +24,10 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 1. On the CloudFormation page that opens, in the upper right corner, select the region in which you are using Amazon Monitron.
 
 1. Choose **Create stack**.  
-![Capabilities section with acknowledgment checkbox for IAM resource creation.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-1.png)
+![Capabilities section with acknowledgment checkbox for IAM resource creation.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-1.png)
 
 1. On the next page, choose the refresh icon as often as you like until the status of the stack (monitronexport) is CREATE\_COMPLETE.  
-![Events tab showing monitronexport stack with CREATE_IN_PROGRESS status and refresh icon highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-2.png)
+![Events tab showing monitronexport stack with CREATE_IN_PROGRESS status and refresh icon highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-2.png)
 
 ## Step 2: Note your resources
 <a name="gdpr-cloudfront-resources"></a>
@@ -41,16 +41,16 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 1. Note your account ID from the upper right corner of the page).
 
 1. Note the region you chose in Step 1. It also now appears at the top of the page, to the left of your account ID.  
-![Outputs tab showing MonRoleArn and S3BucketArn values with their descriptions.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-3.png)
+![Outputs tab showing MonRoleArn and S3BucketArn values with their descriptions.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-3.png)
 
 ## Step 3: Create the support case
 <a name="gdpr-cloudfront-case"></a>
 
 1.  From your AWS console, choose the question mark icon near the upper right corner of any page, then choose **Support Center**.   
-![](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gdpr-support-question-mark.png)
+![](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gdpr-support-question-mark.png)
 
 1.  On the next page, choose **Create case**.   
-![Support Center interface with Quick solutions, Active cases, and Create case button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-4.png)
+![Support Center interface with Quick solutions, Active cases, and Create case button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-4.png)
 
 1. On the **How can we help?** page, do the following:
 
@@ -63,7 +63,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
    1. Choose **Severity**, if that option is available to you based on your support subscription. 
 
    1. Choose **Next step: Additional information**.   
-![Support case form with Account and billing selected, Service set to Account, Category set to Compliance and Accreditations, and Severity set to General question.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-5.png)
+![Support case form with Account and billing selected, Service set to Account, Category set to Compliance and Accreditations, and Severity set to General question.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-5.png)
 
 1. In **Additional information** do the following:
 
@@ -78,18 +78,18 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
       1. the ARN of the bucket you created (for example: "arn:aws:s3:::bucketname")
 
       1. the ARN of the role you created (for example: "arn:aws:iam::273771705212:role/role-for-monitron")  
-![Form for Amazon Monitron data export request with fields for account and bucket details.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-6.png)
+![Form for Amazon Monitron data export request with fields for account and bucket details.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-6.png)
 
    1. Choose **Next step: Solve now or contact us**.
 
 1. In **Solve now or contact us** do the following:
 
    1. In **Solve now**, select **Next**.   
-![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-7.png)
+![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-7.png)
 
    1. In **Contact us**, choose your **Preferred contact language** and preferred method of contact.
 
    1. Choose **Submit**. A confirmation screen with your case ID and details will be displayed.  
-![Contact options with language selection and choices for Web, Phone, or Chat communication.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-8.png)
+![Contact options with language selection and choices for Web, Phone, or Chat communication.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-8.png)
 
  An AWS customer support specialist will get back to you as soon as possible. If there are any issues with the steps listed, the specialist may ask you for more information. If all the necessary information has been provided, the specialist will let you know as soon as your data has been copied to the Amazon S3 bucket that you created above. 

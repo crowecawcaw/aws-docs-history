@@ -18,7 +18,7 @@ Removing a user removes their permissions to access the site or project. It does
 
 1. Navigate to the project or site, and then to the **Users** list page. 
 
-1. Choose the vertical ellipses ( ![Three vertical dots representing a menu or more options in a user interface.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/details.png)) next to the user name. 
+1. Choose the vertical ellipses ( ![Three vertical dots representing a menu or more options in a user interface.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/details.png)) next to the user name. 
 
 1. Choose **Remove user**. 
 
@@ -28,7 +28,7 @@ Removing a user removes their permissions to access the site or project. It does
 <a name="w2aac28c19c23b9"></a>
 
 1. Select **Users** from the nav pane.  
-![Users table showing User 10 added with Technician role and No inherited user status.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-3.png)
+![Users table showing User 10 added with Technician role and No inherited user status.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-3.png)
 
 1. Select the user that you want to remove.
 

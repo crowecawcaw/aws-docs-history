@@ -7,7 +7,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 
 Unlike sensors, an Ethernet gateway doesn't need to be attached to the machines that are being monitored. However, it does need an available Ethernet network through which Amazon Monitron can connect to the AWS Cloud.
 
-![Amazon Monitron Ethernet gateway device with orange frame, power and connectivity indicators, and reset and config buttons.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/real-gateway-ethernet.png)
+![Amazon Monitron Ethernet gateway device with orange frame, power and connectivity indicators, and reset and config buttons.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/real-gateway-ethernet.png)
 
 
 **Topics**
@@ -46,19 +46,19 @@ To mount the bracket, choose one of the following.
 
 Typically, you mount the bracket directly to the wall using the mounting screws included in the gateway box. Mount the bracket from the front. You might need to use an expansion plug or toggle bolt (not included) to secure the screw in the wall.
 
-![Yellow mounting bracket with screw holes and mounting tabs shown from front view.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway-mounting-bracket-screws.png)
+![Yellow mounting bracket with screw holes and mounting tabs shown from front view.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway-mounting-bracket-screws.png)
 
 
 **Tape mounting**
 
 A shaped piece of double-sided tape is included in the gateway box. Use it when you can't place a screw into the mounting surface. You can also use it in combination with the other methods of mounting for a more secure installation.
 
-![Yellow plastic mounting bracket with adhesive backing strips attached.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape1-ethernet.png)
+![Yellow plastic mounting bracket with adhesive backing strips attached.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape1-ethernet.png)
 
 
 Remove the backing on one side of the tape and apply the tape to the back of the wall mounting bracket between the four raised sections.
 
-![Yellow wall mounting bracket with blue adhesive tape applied between four raised sections.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape2-ethernet.png)
+![Yellow wall mounting bracket with blue adhesive tape applied between four raised sections.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape2-ethernet.png)
 
 
 Remove the remaining backing and apply the bracket to the mounting location. Press hard on the bracket to make sure that the tape firmly adheres to the surface.
@@ -67,7 +67,7 @@ Remove the remaining backing and apply the bracket to the mounting location. Pre
 
 To mount a gateway to a smaller non-wall location, such as a pillar or fence, use cable ties (also known as zip ties) to fasten the wall mounting bracket. Put the ties through the holes in the four raised sections on the back of the bracket, wrap them around the mounting location, and pull tight.
 
-![Back of yellow wall mounting bracket showing four raised sections with holes for cable ties.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tie1-ethernet.png)
+![Back of yellow wall mounting bracket showing four raised sections with holes for cable ties.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tie1-ethernet.png)
 
 
 After the bracket is mounted, attach the gateway to the bracket.

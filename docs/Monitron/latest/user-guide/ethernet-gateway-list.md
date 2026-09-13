@@ -17,18 +17,18 @@ This page describes how to list your gateways in the Amazon Monitron app.
 1. Use your smartphone to log in to the Amazon Monitron mobile app.
 
 1. Choose the menu icon in the upper left of the screen.   
-![Navigation bar with hamburger menu icon, back arrow, and AnyCompany label.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/navigation.png)
+![Navigation bar with hamburger menu icon, back arrow, and AnyCompany label.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/navigation.png)
 
 1. Choose **Gateways**.
 
    A list of all gateways associated with the project is displayed.   
-![Gateways list showing three connected gateways with identifiers and site name placeholders.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway_list.png)
+![Gateways list showing three connected gateways with identifiers and site name placeholders.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway_list.png)
 
 ## To list your gateways using the web app
 <a name="w2aac19c13c39b9"></a>
 
 1. Choose **Gateways** from the left nav.  
-![Navigation menu with Assets, Gateways, and Users options, where Gateways is highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_leftnav-gateways.png)
+![Navigation menu with Assets, Gateways, and Users options, where Gateways is highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_leftnav-gateways.png)
 
 1. The gateway list appears in the right pane.  
-![Table displaying seven gateways with columns for name, physical ID, status, site, gateway type, and network details.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_gateway-list.png)
+![Table displaying seven gateways with columns for name, physical ID, status, site, gateway type, and network details.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_gateway-list.png)

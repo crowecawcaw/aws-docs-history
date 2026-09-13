@@ -37,7 +37,7 @@ To add a site to a project, you must be a project-level admin user. You can crea
 
 1. Choose **Add a new site**
 
-![Mobile app interface showing project name dropdown with site options and management features.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_add-site.png)
+![Mobile app interface showing project name dropdown with site options and management features.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_add-site.png)
 
 
 The project-level admin user who creates a site is automatically a site-level admin user for that site. To learn more about adding users, see [Adding a user](adding-user.md).

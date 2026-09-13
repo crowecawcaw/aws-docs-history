@@ -20,10 +20,10 @@ As an admin, you can use the list of users to manage users in the Amazon Monitro
 1. Log into the Amazon Monitron mobile app on your smartphone. 
 
 1. Choose the project or site whose users you want to view.  
-![Dropdown menu showing Project name 1 expanded with options including Site name 1, 2, and 3.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/site-to-project.png)
+![Dropdown menu showing Project name 1 expanded with options including Site name 1, 2, and 3.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/site-to-project.png)
 
 1. Choose the menu icon (☰).   
-![Navigation bar with menu icon, back arrow, AnyCompany logo, and notification bell.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/navigation.png)
+![Navigation bar with menu icon, back arrow, AnyCompany logo, and notification bell.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/navigation.png)
 
 1. Choose **Users**. 
 
@@ -41,9 +41,9 @@ The **Users & Permissions** page displays the following information to make user
 1. Log into the Amazon Monitron web app. 
 
 1. Select **Users** from the left nav. The list of users will appear.  
-![Users and Permissions page showing a table with 8 users, their roles, assigned locations, and project level access.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-10.png)
+![Users and Permissions page showing a table with 8 users, their roles, assigned locations, and project level access.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/user-10.png)
 
 1. Choose the project or site whose users you want to view. 
 
    A list of all users associated with the project or site is displayed.  
-![Dropdown menu showing Project name 1 expanded with options including Site name 1, 2, and 3.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/site-to-project.png)
+![Dropdown menu showing Project name 1 expanded with options including Site name 1, 2, and 3.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/site-to-project.png)

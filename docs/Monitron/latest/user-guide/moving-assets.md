@@ -27,11 +27,11 @@ Only an user with admin access to *both* source and destination sites can move a
 1. Choose the asset that you want to move.
 
 1. From the asset menu, choose **Actions**, and then choose **Move asset**.  
-![Actions menu expanded showing Move asset option highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-move-1.png)
+![Actions menu expanded showing Move asset option highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-move-1.png)
 
 1. From the dialog box that opens, select a site to move your asset to from the **New site** dropdown menu, and then select **Move**.  
-![Move Example_Asset dialog box with New site dropdown menu highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-move-2.png)  
-![Move Example_Asset dialog box with Site 2 selected as new parent and Move button highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-move-4.png)
+![Move Example_Asset dialog box with New site dropdown menu highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-move-2.png)  
+![Move Example_Asset dialog box with Site 2 selected as new parent and Move button highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-move-4.png)
 
    The app displays a success message if your asset is moved successfully.
 
@@ -41,12 +41,12 @@ Only an user with admin access to *both* source and destination sites can move a
 1. From the mobile app's main menu, choose **Assets**.
 
 1. Choose asset that you want to move to a new site. Then, open the asset details menu.  
-![Assets page showing two assets with No sensor status and vertical three-dot menu icons.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-mob-1.png)
+![Assets page showing two assets with No sensor status and vertical three-dot menu icons.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-mob-1.png)
 
 1. From the asset details menu, choose **Move asset**.   
-![Asset details menu with Move asset option highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-mob-2.png)
+![Asset details menu with Move asset option highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-mob-2.png)
 
 1. From the asset page, from **New site**, choose the new site you want to move the asset to. Then, choose **Move**.   
-![Move asset dialog with Site dropdown menu and Move button highlighted in sequence.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-mob-3.png)
+![Move asset dialog with Site dropdown menu and Move button highlighted in sequence.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-mob-3.png)
 
    The app displays a success message if your asset is moved successfully.

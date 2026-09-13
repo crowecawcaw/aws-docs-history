@@ -14,7 +14,7 @@ When you add a gateway to your project or site, as soon as you choose **Add Gate
   + Is the Ethernet cable working? To test this, try using the cable with another gateway.
   + Is the RJ-45 socket clean? Be sure to also check the socket at the other end of the Ethernet cable. 
 + **Make sure the gateway is in configuration mode.** The Amazon Monitron mobile app finds a new gateway only when it's in configuration mode. When you turn a gateway on, the **Bluetooth** and **Network** LED lights blink slowly, alternating orange and blue. When you press the **Config** button to enter commissioning mode, they blink rapidly, again alternating orange and blue.   
-![Hand pressing the Config button on an Amazon Monitron gateway device.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-gateway-pushing-config-button.png)
+![Hand pressing the Config button on an Amazon Monitron gateway device.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-gateway-pushing-config-button.png)
 + If the LEDs show any sequence other than slow blinking before you press the button, the gateway might not go into configuration mode. In this case, reset the gateway by pressing the **Reset** button.
 + **Make sure your smartphone's Bluetooth is working.** The gateway connects to your smartphone using Bluetooth, so it's a potential source of interruption. Check the following:
   + Is you smartphone's Bluetooth on and working? Try switching it off and on. If that doesn't help, restart your phone and check again.

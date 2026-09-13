@@ -57,10 +57,10 @@ The following are the Amazon Monitron failure causes:
 1. Choose the position with the abnormality. 
 
 1. Choose **Resolve**.   
-![Alert banner showing Acknowledged status on left and Resolve button on right.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/resolve.png)
+![Alert banner showing Acknowledged status on left and Resolve button on right.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/resolve.png)
 
 1. For **Failure mode**, choose the type of failure that occurred.   
-![Issue resolution feedback dialog with dropdowns for Failure mode, Failure cause, and Action taken.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/resolution.png)
+![Issue resolution feedback dialog with dropdowns for Failure mode, Failure cause, and Action taken.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/resolution.png)
 
 1. For **Failure cause**, choose the cause of the failure. 
 

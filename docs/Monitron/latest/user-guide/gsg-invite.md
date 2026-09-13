@@ -16,7 +16,7 @@ Invite the users you've added to your Amazon Monitron project.
 1. Repeat the following steps for each user that you want to invite.
 
    1. Under **How it works**, choose **Email instructions**.  
-![Email instructions container with Info label and Email instructions button with external link icon.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-project-monitron-email-instructions.png)
+![Email instructions container with Info label and Email instructions button with external link icon.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-project-monitron-email-instructions.png)
 
       Your email client opens a draft that contains an invitation to your Amazon Monitron project. It contains both a link to download the Amazon Monitron mobile app from the Google Play Store and a link to open the project.
 

@@ -32,7 +32,7 @@ Consider the following questions.
 
   For commissioning a sensor, the mobile phone running the Amazon Monitron App should have internet connectivity. 
 + **Are you holding your smartphone close to the sensor?**  
-![Hand holding smartphone near a small orange square sensor.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-sensor.png)
+![Hand holding smartphone near a small orange square sensor.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-sensor.png)
 
   At the moment of commissioning, your phone should be within two centimeters of the sensor. Don't move your phone while the sensor is being commissioned.
 + **Does your smartphone have NFC activated?**
@@ -42,7 +42,7 @@ Consider the following questions.
 
   On an iPhone, the NFC antenna is close to the top of the device. On an Android device, it could be in a different location. Check the documentation for [Samsung](https://www.samsung.com/hk_en/nfc-support/#devicelist), [Google Pixel](https://support.google.com/pixelphone/answer/7157629), or your device's manufacturer.
 + **Does the commissioning progress bar show up? (Android only)**  
-![Pair sensor with NFC screen showing phone near sensor with progress bar at 50%.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/do-not-move-your-phone.png)
+![Pair sensor with NFC screen showing phone near sensor with progress bar at 50%.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/do-not-move-your-phone.png)
 
   If the commissioning progress bar doesn't show up (Android only), or resets to the beginning, then the NFC communication between the sensor and your smartphone is weak or can't be established. Move your smartphone around to try and establish the NFC connection. Smartphones often have different locations for transmitting NFC, depending on the brand. Check the hardware specifications of your smartphone and tap the sensor specifically with that part of your phone. Confirm that NFC is turned on and broadcasting.
 + **Do you get an error saying that the sensor is already in use?**
@@ -54,7 +54,7 @@ Consider the following questions.
 
 Once a sensor has been paired to an asset, Amazon Monitron will make two attempts (over the course of 30 seconds) to take the initial measurement. If neither of those attempts is successful, then an alert like the one below will appear in the app.
 
-![Alert message indicating the need for a nearby gateway to transfer sensor data.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/no-gateway-nearby.png)
+![Alert message indicating the need for a nearby gateway to transfer sensor data.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/no-gateway-nearby.png)
 
 
 If your sensor has stopped sending data, try the following:
@@ -86,7 +86,7 @@ If you choose **Add gateway** in your mobile app, but the app can't find the gat
 
 |  |  | 
 | --- |--- |
-|  ![Mobile phone connecting via Bluetooth to AWS service represented by orange square icon.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)  |  ![Smartphone connecting via Bluetooth to a streaming device with cable.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway-small.png)  | 
+|  ![Mobile phone connecting via Bluetooth to AWS service represented by orange square icon.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)  |  ![Smartphone connecting via Bluetooth to a streaming device with cable.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway-small.png)  | 
 + **Make sure that the gateway is turned on.**
 
   Check the lights on the front of the gateway. If at least one of them is on, then the gateway has power. If the gateway has no power, check the following:
@@ -122,7 +122,7 @@ Your mobile or web app may tell you that your gateway is offline, or not connect
 + Make sure that your firewall is not blocking the gateway. Amazon Monitron gateways use TCP port 8883. You must allow connections to TCP port 8883 for amazonaws.com subdomains in order to provide firewall access to Amazon Monitron gateways.
 + Confirm that the issue is not network congestion. There are two ways in which Amazon Monitron may notify you that a gateway is offline:
   + When looking at information about your gateways in the mobile or web app, you may notice that a gateway is listed as offline.  
-![Gateways list showing three gateways with one offline and two online status indicators.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway-offline-status.png)
+![Gateways list showing three gateways with one offline and two online status indicators.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway-offline-status.png)
 
     The timestamp for an offline gateway marks the last time Amazon Monitron recieved a signal from that gateway.
 

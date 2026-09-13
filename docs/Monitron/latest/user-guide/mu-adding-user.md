@@ -80,7 +80,7 @@ The simplest way to add admin users to your project is by using the IAM Identity
 1. In the navigation pane, choose the project you want. 
 
 1. On the **Users** page, choose the users that you want to assign as admin users. If you can't see a user, search for them.   
-![Users page showing a list of four users with checkboxes, display names, and email addresses.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/users.png)
+![Users page showing a list of four users with checkboxes, display names, and email addresses.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/users.png)
 
    The users you choose are displayed in the **Selected users** section.
 
@@ -89,7 +89,7 @@ The simplest way to add admin users to your project is by using the IAM Identity
    1. Under **Create a user**, for **Email**, enter the new admin user's email address.
 
         
-![Create user dialog with fields for email address, first name, and last name.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/create-user.png)
+![Create user dialog with fields for email address, first name, and last name.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/create-user.png)
 
    1. For **First name** and **Last name**, enter the admin's name.
 
@@ -100,7 +100,7 @@ The simplest way to add admin users to your project is by using the IAM Identity
 1. Email the admin users an invitation to the project that includes a link to download the Amazon Monitron mobile app. For more information, see [Sending an email invitation](resending-email.md).
 
    Amazon Monitron takes you to the project page for your project, where it lists all admin users.   
-![Project admin users table showing display name, email, and user name columns with one user.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/project-admin-user-list.png)
+![Project admin users table showing display name, email, and user name columns with one user.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/project-admin-user-list.png)
 
 1. To add additional admin users, choose **Add admin**. 
 
@@ -127,7 +127,7 @@ All Amazon Monitron admin users have access to identity information in the user 
 1. In the navigation pane, choose the project you want. 
 
 1. For **Active directory domain**, choose the directory domain from which you want to add identities.   
-![Active directory search interface showing search results for users and selected users section.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/activedirectory.png)
+![Active directory search interface showing search results for users and selected users section.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/activedirectory.png)
 
 1. Choose **Users** or **Groups**, depending on how you want to search the user directory. 
 
@@ -160,7 +160,7 @@ All Amazon Monitron admin users have access to identity information in the user 
 1. In the navigation pane, choose the project you want. 
 
 1. On the **Users** page, choose the users that you want to assign as admin users. If you can't see a user, search for them.   
-![Users page displaying a list of users with checkboxes, display names, and email addresses.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/IdPscreen.png)
+![Users page displaying a list of users with checkboxes, display names, and email addresses.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/IdPscreen.png)
 
 1. Choose **Add** to add the admin users. 
 
@@ -173,7 +173,7 @@ There are two ways to log out of IAM Identity Center:
 + Log out directly through the IAM Identity Center portal.
 + Once an hour, AWS IAM Identity Center checks to see if you are actively using any AWS services. If you are not, then you are logged out of IAM Identity Center automatically.
 
-![Amazon Monitron signed out screen with gear icon and Sign back in button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/log-back-in.png)
+![Amazon Monitron signed out screen with gear icon and Sign back in button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/log-back-in.png)
 
 
 To learn about admin users using IAM Identity Center, see [User directory setup](#mu-adding-user).

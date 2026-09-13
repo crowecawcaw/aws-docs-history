@@ -13,7 +13,7 @@ With the web app, you download your data to a .csv file. Also, your monitor is p
 
 You can activate either the mobile app or the web app by clicking on a link to your project. This is the link that the administrator sends to the user, as explained in [Sending an email invitation](resending-email.md). But you can re-generate this link from the **Projects** page by selecting a user and then choosing **Email instructions**, or by choosing **Copy link** under **Project details.**
 
-![Project details page showing Copy link button and Email instructions button highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/send_project_link.png)
+![Project details page showing Copy link button and Email instructions button highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/send_project_link.png)
 
 
 **Topics**
@@ -37,6 +37,6 @@ To manually install the latest updates:
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/platform-chapter.html)
 
 1. If you start the update process within the Amazon Monitron app, you'll see a success message in the app once the update has been installed.  
-![Modal dialog confirming successful application update to version 1.0.0 with Done button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/app-update-success-screen.png)
+![Modal dialog confirming successful application update to version 1.0.0 with Done button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/app-update-success-screen.png)
 **Note**  
  You will not see the success message if the update happens automatically, or if you initiate the update process within the App Store or Google Play.

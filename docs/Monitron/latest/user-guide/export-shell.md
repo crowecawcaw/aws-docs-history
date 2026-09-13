@@ -243,10 +243,10 @@ You are responsible for taking the appropriate steps to secure your data. We str
 <a name="create-support-ticket"></a>
 
 1.  From your AWS console, choose the question mark icon near the upper right corner of any page, then choose **Support Center**.   
-![](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gdpr-support-question-mark.png)
+![](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gdpr-support-question-mark.png)
 
 1.  On the next page, choose **Create case**.   
-![Support Center interface with Quick solutions, Active cases, and Create case button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-4.png)
+![Support Center interface with Quick solutions, Active cases, and Create case button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-4.png)
 
 1. On the **How can we help?** page, do the following:
 
@@ -259,7 +259,7 @@ You are responsible for taking the appropriate steps to secure your data. We str
    1. Choose **Severity**, if that option is available to you based on your support subscription. 
 
    1. Choose **Next step: Additional information**.   
-![Support case form with Account and billing selected, Service set to Account, Category set to Compliance and Accreditations, and Severity set to General question.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-5.png)
+![Support case form with Account and billing selected, Service set to Account, Category set to Compliance and Accreditations, and Severity set to General question.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-5.png)
 
 1. In **Additional information** do the following:
 
@@ -274,18 +274,18 @@ You are responsible for taking the appropriate steps to secure your data. We str
       1. the ARN of the bucket you created (for example: "arn:aws:s3:::bucketname")
 
       1. the ARN of the role you created (for example: "arn:aws:iam::273771705212:role/role-for-monitron")  
-![Form for Amazon Monitron data export request with fields for account and bucket details.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-6.png)
+![Form for Amazon Monitron data export request with fields for account and bucket details.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-6.png)
 
    1. Choose **Next step: Solve now or contact us**.
 
 1. In **Solve now or contact us** do the following:
 
    1. In **Solve now**, select **Next**.   
-![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-7.png)
+![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-7.png)
 
    1. In **Contact us**, choose your **Preferred contact language** and preferred method of contact.
 
    1. Choose **Submit**. A confirmation screen with your case ID and details will be displayed.  
-![Contact options with language selection and choices for Web, Phone, or Chat communication.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-8.png)
+![Contact options with language selection and choices for Web, Phone, or Chat communication.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/s3-export-8.png)
 
  An AWS customer support specialist will get back to you as soon as possible. If there are any issues with the steps listed, the specialist may ask you for more information. If all the necessary information has been provided, the specialist will let you know as soon as your data has been copied to the Amazon S3 bucket that you created above. 

@@ -22,7 +22,7 @@ When your gateway is mounted in your factory, you will need access to the Amazon
 1. Plug in the gateway and make sure the network light (yellow) and the Bluetooth light (blue) on the front of your gateway are blinking alternately.
 
 1. Push the **Config** button on the gateway to put it into commissioning mode. The Bluetooth and network LED lights will start flashing rapidly.  
-![CONFIG button with orange LED indicator light.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-config-button.png)
+![CONFIG button with orange LED indicator light.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-config-button.png)
 
 1. Open the mobile app on your smartphone.
 
@@ -35,14 +35,14 @@ When your gateway is mounted in your factory, you will need access to the Amazon
 If you are using an iOS mobile device, and you have previously paired with this particular gateway, then you may need to make your device "forget" the gateway before re-pairing. For more information, see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-ethernet.md).
 
    It can take a few moments for Amazon Monitron to connect to the new gateway.  
-![Mobile device connecting via Bluetooth to Amazon Monitron gateway device.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway.png)
+![Mobile device connecting via Bluetooth to Amazon Monitron gateway device.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway.png)
 
    If the mobile app continues to try to connect to the gateway without success, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md).
 **Note**  
 When the gateway is successfully connected, Amazon Monitron displays the gateway device ID and MAC ID in the mobile app.
 
 1. After it connects to the gateway, Amazon Monitron will provide two options for you to configure the network connection for your gateway.  
-![Network configuration dialog with Automatic DHCP and Manual options for Monitron Gateway.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-network-configuration.png)
+![Network configuration dialog with Automatic DHCP and Manual options for Monitron Gateway.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-network-configuration.png)
 
 1. Choose your network configuation.
 
@@ -54,4 +54,4 @@ When the gateway is successfully connected, Amazon Monitron displays the gateway
 
    1. If you choose **manual**, enter your IP address, subnet mask, router, preferred DNS server, and alternate DNS server (optional) information. Then choose **connect**.
 
-![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-IP-DNS-settings.png)
+![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-IP-DNS-settings.png)

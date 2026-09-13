@@ -23,13 +23,13 @@ Vibration will attenuate up to 30-36"/75-90 cm) from the source. Attributes of t
 
 The following examples show where to place sensors. For more information and examples, see [Where to Place Your Sensors](https://docs.aws.amazon.com/Monitron/latest/user-guide/as-sensor-positions.html#as-where-sensors) in the *Amazon Monitron User Guide*.
 
-![Diagram showing motor and pump assembly with sensor placement locations marked.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mounting_sensor1.png)
+![Diagram showing motor and pump assembly with sensor placement locations marked.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mounting_sensor1.png)
 
 
-![Motor connected to pump through coupling component in mechanical system diagram.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mounting_sensor2.png)
+![Motor connected to pump through coupling component in mechanical system diagram.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mounting_sensor2.png)
 
 
-![Diagram showing motor connected to gearbox, with pillar bearings supporting a shaft assembly.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mounting_sensor3.png)
+![Diagram showing motor connected to gearbox, with pillar bearings supporting a shaft assembly.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mounting_sensor3.png)
 
 
 ## How to Place Sensors
@@ -37,7 +37,7 @@ The following examples show where to place sensors. For more information and exa
 
 When you've decided where to place a sensor on an asset, make sure that a minimum of one-third of the sensor base is fixed to the asset. The sensors can pick up vibration and temperature measurements across the entire base of the sensor, but it's important to have the asset target area centered as much as possible on the sensor as shown in the following image. 
 
-![Sensor showing target contact area centered on base with minimum contact area of 30 x 25 mm.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/sensor_mounting.png)
+![Sensor showing target contact area centered on base with minimum contact area of 30 x 25 mm.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/sensor_mounting.png)
 
 
 Attach the sensor with an industrial adhesive. We recommend a cyanoacrylate-type epoxy. For additional information about attaching the sensor to your asset, see [ How to Place the Sensors](https://docs.aws.amazon.com/Monitron/latest/user-guide/as-sensor-positions1.html#as-how-sensors) in the *Amazon Monitron User's Guide*.

@@ -23,7 +23,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 1. Choose **Edit position details**. 
 
 1. For **Position name**, enter a new name.   
-![Edit position details dialog with Position name field showing Left bearing 1.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-details-name.png)
+![Edit position details dialog with Position name field showing Left bearing 1.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/position-details-name.png)
 
 1. Choose **Save**. 
 
@@ -33,7 +33,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 1. Select the position.
 
    Choose the **Actions** button in the **Positions** table.  
-![Dashboard showing asset positions with warning status for Position name 3 and vibration data graph.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/vibration-web-changing-sensor-position-name-1.png)
+![Dashboard showing asset positions with warning status for Position name 3 and vibration data graph.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/vibration-web-changing-sensor-position-name-1.png)
 
 1. Choose **Edit position name**.
 

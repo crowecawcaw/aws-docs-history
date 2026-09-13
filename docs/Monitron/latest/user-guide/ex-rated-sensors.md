@@ -15,11 +15,11 @@ Before installing and using a sensor, see [ Ex Safety and Compliance Guide](http
 
 |  |  | 
 | --- |--- |
-|  ![Assets list showing multiple assets with status indicators such as red error icons, yellow warning icons, and green success icons.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensor-mobile-home.png)  |  ![Asset details page showing positions table with status indicators and machine class columns.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensorweb-app.png)  | 
+|  ![Assets list showing multiple assets with status indicators such as red error icons, yellow warning icons, and green success icons.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensor-mobile-home.png)  |  ![Asset details page showing positions table with status indicators and machine class columns.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensorweb-app.png)  | 
 
  When a sensor has a healthy position status, you can use the sensor to take measurements, view sensor details, or delete the sensor. 
 
-![Sensor details tab showing Actions menu with Take measurement, View sensor details, and Delete sensor options.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-sensor-flow.png)
+![Sensor details tab showing Actions menu with Take measurement, View sensor details, and Delete sensor options.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-sensor-flow.png)
 
 
  If you need to delete a sensor, make sure it’s in a healthy state first. A sensor’s position must be in a healthy state before you can delete it. If you do remove a sensor that is under safety notification or not in a healthy state, you’ll receive a notification explaining that you must clear the alert first. 
@@ -36,12 +36,12 @@ Before installing and using a sensor, see [ Ex Safety and Compliance Guide](http
 
 1.  Delete the sensor from either the **Asset list** or the **Position details** page. 
 
-![Sensor deletion workflow showing confirmation dialog and success message across multiple screens.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensor-delete-flow.png)
+![Sensor deletion workflow showing confirmation dialog and success message across multiple screens.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensor-delete-flow.png)
 
 
-![Mobile interface showing asset and position management screens with details, actions, and status indicators.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensor-long-view.png)
+![Mobile interface showing asset and position management screens with details, actions, and status indicators.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensor-long-view.png)
 
 
  If you try to commission a sensor under a safety notification, the commissioning process will fail. You’ll receive a notification describing the reason for the failure. 
 
-![Mobile app screens showing commissioning failure with error notification and alert icon.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensor-notification.png)
+![Mobile app screens showing commissioning failure with error notification and alert icon.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ex-rated-sensor-notification.png)

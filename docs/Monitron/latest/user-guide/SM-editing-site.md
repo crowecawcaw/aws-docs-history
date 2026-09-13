@@ -39,4 +39,4 @@ You can change only a site's name. When you change the name, nothing else (such 
 
 1. Choose the **Edit site name** button.
 
-![Sites table showing three site entries with radio button selection and action buttons.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_edit-site-name.png)
+![Sites table showing three site entries with radio button selection and action buttons.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_edit-site-name.png)

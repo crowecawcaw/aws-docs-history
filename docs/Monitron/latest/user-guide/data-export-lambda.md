@@ -22,7 +22,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
    + Trusted entity: Lambda
    + Permissions: AWSLambdaKinesisExecutionRole (and AWSKeyManagementServicePowerUser if the Kinesis stream is encrypted)
    + Role name: lambda-kinesis-role  
-![Name, review, and create page showing role name, description, trusted entities policy, and permissions.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-create-role.png)
+![Name, review, and create page showing role name, description, trusted entities policy, and permissions.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-create-role.png)
 
 ## Step 2: Create the Lambda function
 <a name="create-lambda-function"></a>
@@ -36,7 +36,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 1. In the **Blueprints** search bar, search and choose **kinesis-process-record (nodejs)** or **kinesis-process-record-python**.
 
 1. Choose **Configure**.  
-![Create function page with Use a blueprint option selected and kinesis-process-record-python blueprint shown.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-create-function.png)
+![Create function page with Use a blueprint option selected and kinesis-process-record-python blueprint shown.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-create-function.png)
 
 ## Step 3: Configure the Lambda function
 <a name="configure-lambda-function"></a>
@@ -50,7 +50,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
    1. Choose your Kinesis stream.
 
    1. Click **Create function**.  
-![Lambda function configuration form with basic information and Kinesis trigger settings.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-kinesis-trigger.png)
+![Lambda function configuration form with basic information and Kinesis trigger settings.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-kinesis-trigger.png)
 
 ## Step 4: Enable Kinesis trigger in AWS Lambda console
 <a name="enable-lambda-trigger"></a>
@@ -58,6 +58,6 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 1. On the **Configuration** tab, choose **Triggers**.
 
 1. Check the box next to the name of the Kinesis stream and choose **Enable**.  
-![Configuration tab showing Triggers section with Kinesis bugbash trigger and Enable button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/kinesis-process-record-lambda.png)
+![Configuration tab showing Triggers section with Kinesis bugbash trigger and Enable button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/kinesis-process-record-lambda.png)
 
 The blueprint used in this example only consumes log data from the selected stream. You can further edit Lambda function code later to complete a more complicated task. 

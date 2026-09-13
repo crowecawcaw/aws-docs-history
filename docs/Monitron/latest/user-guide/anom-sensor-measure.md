@@ -20,7 +20,7 @@ If temperature or vibration levels inconsistently rise above the modified thresh
 
 |  |  | 
 | --- |--- |
-|  ![Notifications list showing alarm and warning entries with position names, vibration and temperature detection details.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobileapp_notification.png)  |  ![Notifications panel showing alarms and warnings for positions with vibration and temperature alerts.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_notification.png)  | 
+|  ![Notifications list showing alarm and warning entries with position names, vibration and temperature detection details.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobileapp_notification.png)  |  ![Notifications panel showing alarms and warnings for positions with vibration and temperature alerts.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_notification.png)  | 
 
  
 
@@ -29,4 +29,4 @@ In this example, the Position 3 sensor has detected a persistent increase in tem
 
 |  |  | 
 | --- |--- |
-|  ![Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded on Dec 15.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-understand-sensor-measurement.png)  |  ![Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-understand-sensor-measurement.png)  | 
+|  ![Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded on Dec 15.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-understand-sensor-measurement.png)  |  ![Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-understand-sensor-measurement.png)  | 

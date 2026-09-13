@@ -22,18 +22,18 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
    + In **Trusted entity type**, choose **AWS service**.
    + In **Use case**, for **Service or use case** choose **Lambda**.
    + Choose **Next**.  
-![IAM role creation wizard showing AWS service selected as trusted entity type with Lambda use case.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-role-1.png)
+![IAM role creation wizard showing AWS service selected as trusted entity type with Lambda use case.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-role-1.png)
 
 1. In the **Add permissions** page, do the following: 
    + In **Permissions policies**, choose AWSLambdaKinesisExecutionRole (and AWSKeyManagementServicePowerUser if the Kinesis stream is encrypted).
    + Leave the configurations in **Set permissions boundary** as is.
    + Choose **Next**.  
-![Add permissions page with AWSLambdaKinesisExecutionRole policy selected from search results.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-role-2.png)
+![Add permissions page with AWSLambdaKinesisExecutionRole policy selected from search results.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-role-2.png)
 
 1. In the **Name, review, and create** page, do the following: 
    + In **Role details**, for **Role name**, enter a name for your role. For example {{lambda-kinesis-role}}. You can also choose to add an optional **Description**.
    + Leave the settings for **Step 1: Select trusted entities** and **Step 2: Add permissions** as is. You can choost to add tags in **Step 3: Add tags** to keep track of your resources.  
-![Name, review, and create page showing role name, description, trusted entities policy, and permissions.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-create-role.png)
+![Name, review, and create page showing role name, description, trusted entities policy, and permissions.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-create-role.png)
 
 1. Select **Create role**.
 
@@ -49,7 +49,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 1. In the **Blueprints** search bar, search and choose **kinesis-process-record (nodejs)** or **kinesis-process-record-python**.
 
 1. Choose **Configure**.  
-![Create function page with Use a blueprint option selected and kinesis-process-record-python blueprint shown.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-create-function.png)
+![Create function page with Use a blueprint option selected and kinesis-process-record-python blueprint shown.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-create-function.png)
 
 ## Step 3: Configure the Lambda function
 <a name="configure-lambda-function-v2"></a>
@@ -63,7 +63,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
    1. Choose your Kinesis stream.
 
    1. Click **Create function**.  
-![Lambda function configuration form with basic information and Kinesis trigger settings.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-kinesis-trigger.png)
+![Lambda function configuration form with basic information and Kinesis trigger settings.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lambda-kinesis-trigger.png)
 
 ## Step 4: Enable Kinesis trigger in AWS Lambda console
 <a name="configure-kinesis-trigger-v2"></a>
@@ -71,6 +71,6 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 1. On the **Configuration** tab, choose **Triggers**.
 
 1. Check the box next to the name of the Kinesis stream and choose **Enable**.  
-![Configuration tab showing Triggers section with Kinesis bugbash trigger and Enable button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/kinesis-process-record-lambda.png)
+![Configuration tab showing Triggers section with Kinesis bugbash trigger and Enable button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/kinesis-process-record-lambda.png)
 
 The blueprint used in this example only consumes log data from the selected stream. You can further edit Lambda function code later to complete a more complicated task. 

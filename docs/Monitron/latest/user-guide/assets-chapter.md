@@ -19,7 +19,7 @@ An asset is also the basis for viewing the health of your machines. To monitor m
 
 The following diagram shows one asset, an electric motor pump set. It has four positions, each with a sensor, two on the motor and two on the pump. Each sensor collects data on the temperature and vibration levels of that specific position on the pump. Amazon Monitron then analyzes that data by comparing it to the baseline temperature and vibration levels of that position to determine when a change, or abnormality, occurs. When that happens, it sends a notification on the Amazon Monitron app.
 
-![Motor connected to pump through coupling, with sensor positions marked on both components.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/assets-positions.png)
+![Motor connected to pump through coupling, with sensor positions marked on both components.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/assets-positions.png)
 
 
 This chapter explains how to manage your assets with Amazon Monitron, and how to pair them to the sensors that monitor their health.

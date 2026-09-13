@@ -7,7 +7,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 
 The following diagram shows the basic workflow of Amazon Monitron. 
 
-![Workflow showing Monitron sensor, gateway, service, and app components with data flow arrows.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/processimage.png)
+![Workflow showing Monitron sensor, gateway, service, and app components with data flow arrows.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/processimage.png)
 
 
 1. An Amazon Monitron sensor captures temperature and vibration data from the equipment (the asset) and transmits it to the gateway. 

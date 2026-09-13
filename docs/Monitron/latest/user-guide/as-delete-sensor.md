@@ -23,12 +23,12 @@ Deleting a sensor prevents Amazon Monitron from collecting more data with it. It
 1. Choose **Delete sensor**. 
 
 1. Choose **Delete**.   
-![Dialog box confirming deletion of a sensor paired to "Left bearing 1" with Cancel and Delete options.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-sensor-warning.png)
+![Dialog box confirming deletion of a sensor paired to "Left bearing 1" with Cancel and Delete options.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/delete-sensor-warning.png)
 
    After a sensor has been deleted, the status for that position says **No sensor**.   
-![Mobile app interface showing asset details with sensor positions and health statuses.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/remove_sensor.png)
+![Mobile app interface showing asset details with sensor positions and health statuses.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/remove_sensor.png)
 
 ## To delete a sensor in the web app
 <a name="delete-sensor-web"></a>
 + Choose **Delete** from the **Sensor details** tab.  
-![Asset management interface showing sensor details for Position name 3 with a warning status.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-delete-sensor-1.png)
+![Asset management interface showing sensor details for Position name 3 with a warning status.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-delete-sensor-1.png)

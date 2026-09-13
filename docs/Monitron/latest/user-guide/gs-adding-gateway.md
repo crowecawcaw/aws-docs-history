@@ -17,17 +17,17 @@ Before adding a gateway, make sure that Bluetooth is turned on for your smartpho
 <a name="gs-adding-wifi-gateway"></a>
 
 1. Choose the menu icon (☰), and then choose **Getting Started**.  
-![Menu options including Assets, Gateways, Users, Sites, with Getting started highlighted.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/getting-started.png)
+![Menu options including Assets, Gateways, Users, Sites, with Getting started highlighted.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/getting-started.png)
 
 1. Choose **Add gateway**.   
-![Step 1 of getting started shows icons for gateways and instructions to connect them.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway.png)
+![Step 1 of getting started shows icons for gateways and instructions to connect them.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway.png)
 
 1. In your factory, position your gateway in the location that works best for communicating with your sensors.
 
    The best place to mount your gateway is higher than the sensors and no more than 20 to 30 meters away. For more information about locating gateways, see [Where to Install Your Gateway](https://docs.aws.amazon.com/Monitron/latest/user-guide/installing-gateway.html#where-gateway) in the *Amazon Monitron User Guide*. 
 
 1. Plug the gateway in and make sure that the LED lights on the top alternatively blink yellow and blue.   
-![Orange rectangular device with a smiling face and a hand pointing to it.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-turnon.png)
+![Orange rectangular device with a smiling face and a hand pointing to it.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-turnon.png)
 
 1. Push the button on the side of the gateway to put it into commissioning mode. The lights will start blinking rapidly.
 
@@ -42,7 +42,7 @@ Before adding a gateway, make sure that Bluetooth is turned on for your smartpho
 1. When you see the new gateway in the list, choose it. 
 
    It can take a few moments for Amazon Monitron to connect to the new gateway.  
-![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)
+![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)
 
 1. After it connects to the gateway, Amazon Monitron scans for Wi-Fi networks. Choose the Wi-Fi network that you want to use. 
 **Note**  
@@ -64,7 +64,7 @@ When the gateway is successfully connected, Amazon Monitron displays the gateway
 1. Plug in the gateway and make sure the network light (yellow) and the Bluetooth light (blue) on the front of your gateway are blinking alternatively.
 
 1. Push the **Config** button on the gateway to put it into commissioning mode. the Bluetooth and network LED lights will start flashing rapidly.  
-![Button labeled "CONFIG" with a circular icon next to it.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-config-button.png)
+![Button labeled "CONFIG" with a circular icon next to it.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-config-button.png)
 
 1. Open the mobile app on your smartphone.
 
@@ -75,14 +75,14 @@ When the gateway is successfully connected, Amazon Monitron displays the gateway
 1. Choose the gateway. 
 
    It can take a few moments for Amazon Monitron to connect to the new gateway.  
-![Smartphone connecting via Bluetooth to an Amazon device with a smile logo.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway.png)
+![Smartphone connecting via Bluetooth to an Amazon device with a smile logo.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway.png)
 
    If the mobile app continues to try to connect to the gateway without success, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md).
 **Note**  
 When the gateway is successfully connected, Amazon Monitron displays the gateway device ID and MAC ID in the mobile app.
 
 1. After it connects to the gateway, Amazon Monitron will provide two options for you to configure the network connection for your gateway.  
-![Network configuration options for Monitron Gateway: Automatic (DHCP) or Manual.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-network-configuration.png)
+![Network configuration options for Monitron Gateway: Automatic (DHCP) or Manual.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-network-configuration.png)
 
 1. Choose your network configuation.
 
@@ -94,4 +94,4 @@ When the gateway is successfully connected, Amazon Monitron displays the gateway
 
    1. If you choose **manual**, enter your IP address, subnet mask, router, preferred DNS server, and alternate DNS server (optional) information. then choose **connect**.
 
-![Network configuration form with fields for IP address, subnet mask, router, and DNS servers.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-IP-DNS-settings.png)
+![Network configuration form with fields for IP address, subnet mask, router, and DNS servers.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-IP-DNS-settings.png)

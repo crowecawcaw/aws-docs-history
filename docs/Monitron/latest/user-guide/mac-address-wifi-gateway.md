@@ -17,22 +17,22 @@ The following procedure shows you how to retrieve your gateway device's MAC addr
 1. Navigate to the **Gateways** page.
 
 1. Select the scan icon.  
-![Scan icon highlighted in the Gateways search bar.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-1.png)
+![Scan icon highlighted in the Gateways search bar.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-1.png)
 
 1. Amazon Monitron will display a message explaining what scanning a QR code will do. Select **Continue**.  
-![Explanation of Scan Gateways QR feature with options to scan for details or find MAC address.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-2.png)
+![Explanation of Scan Gateways QR feature with options to scan for details or find MAC address.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-2.png)
 
 1. On the **Scan QR Code** page, scan the gateway QR code using your mobile phone camera.
 
    When the scan successfully completes, Amazon Monitron displays the Gateway ID and MAC address on the **Scan QR Code** page in the mobile app.  
-![Scan gateway QR page displaying Gateway ID 30aea4f85652 and MAC address 3333-4444-1111-2222.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-5.png)
+![Scan gateway QR page displaying Gateway ID 30aea4f85652 and MAC address 3333-4444-1111-2222.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-5.png)
 
-   You can also select the copy icon (![Icon representing the copy or duplicate function with two overlapping squares.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/copy-icon.png)) to copy the MAC address.
+   You can also select the copy icon (![Icon representing the copy or duplicate function with two overlapping squares.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/copy-icon.png)) to copy the MAC address.
 **Note**  
 If not already enabled, Amazon Monitron may need permissions to access your camera to scan the QR code. These permissions must be enabled from the settings page of your mobile device before you can successfully scan a device QR code. Amazon Monitron will prompt you to enable camera access during the scanning process if permissions haven't already been granted.
 
    **On Android devices**  
-![Pop-up requesting camera access permission for Amazon Monitron app on Android device.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-3.png)
+![Pop-up requesting camera access permission for Amazon Monitron app on Android device.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-3.png)
 
    **On iOS devices**  
-![Permission dialog requesting camera access for Monitron app to scan gateway QR code.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-4.png)
+![Permission dialog requesting camera access for Monitron app to scan gateway QR code.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/scan-4.png)

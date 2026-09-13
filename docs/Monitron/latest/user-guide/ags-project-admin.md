@@ -22,7 +22,7 @@ Unless you already use IAM Identity Center in your AWS account, use Amazon Monit
 1. On the **Add project admin user** page, choose **Create user**.
 
 1.  In the **Create user** section, enter the admin user's email address and name.  
-![Create user dialog with fields for email address, first name, and last name.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/create-user.png)
+![Create user dialog with fields for email address, first name, and last name.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/create-user.png)
 
 1. Choose **Create user**.
 

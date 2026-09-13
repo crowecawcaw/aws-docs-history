@@ -10,7 +10,7 @@ Before you install and use sensors, see the [ Amazon Monitron Sensor Device Safe
 
 The temperature and vibration detectors are located on the base of the Amazon Monitron sensors. Any area of the base is effective as a target contact area, but the contact area must be at least 30 x 25 mm for reliable detection. Center the target contact area over the mounting location for the most reliable results. The circular aluminum sensor (in the center of the target contact area) conducts heat directly from the asset's surface to the temperate sensing mechanism inside the Amazon Monitron sensor.
 
-![Sensor base showing target contact area with minimum contact area of 30 x 25 mm indicated.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/sensor_mounting.png)
+![Sensor base showing target contact area with minimum contact area of 30 x 25 mm indicated.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/sensor_mounting.png)
 
 
 Determine the place and orientation where you can most effectively monitor the asset, and then mount sensor at that spot. To mount the sensor, you need to purchase an industrial adhesive. We recommend using cyanoacrylate epoxies like Loctite 454 and Loctite 3090 or Loctite 4070 or something similar. If the surface on which you mount the sensor is flat and relatively smooth, only a thin layer of adhesive such as Loctite 454 is needed. If the surface is rounded or somewhat uneven, apply a slightly thicker layer of adhesive such as Loctite 3090 or Loctite 4070.
@@ -32,4 +32,4 @@ For more information about the recommended adhesive, see [Loctite 454 Technical 
 1. Hold the sensor to the mounting location on the machine part for 30 seconds, pressing firmly. 
 
    If you're mounting the sensor on a curved surface, put a small amount of additional adhesive on each side for better contact between the sensor and the surface. Based on the surface and the adhesive used, your results should look similar to the following.   
-![Trapezoid-shaped sensors on flat, slightly curved, and curved surfaces with gap filling glue.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/surface-conditions.png)
+![Trapezoid-shaped sensors on flat, slightly curved, and curved surfaces with gap filling glue.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/surface-conditions.png)

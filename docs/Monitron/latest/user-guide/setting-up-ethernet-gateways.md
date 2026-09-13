@@ -7,7 +7,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 
 The Amazon Monitron Ethernet Gateway comes equipped with an RJ-45 socket, so you can connect it to your Ethernet network using a Cat 5e or Cat 6 Ethernet cable. You power your gateway over the Ethernet cable, using Power over Ethernet (POE). Therefore, you need either a router that supports POE or a POE power injector.
 
-![an Ethernet gateway](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/lights-button-cable.png)
+![an Ethernet gateway](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/lights-button-cable.png)
 
 
 After you have inserted an Ethernet cable into your gateway, put the gateway in commissioning mode by pressing the **Config** button.

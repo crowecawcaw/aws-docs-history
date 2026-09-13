@@ -22,7 +22,7 @@ When your gateway is mounted in your factory, you will need access to the Amazon
 1. Plug in the gateway and make sure the LED lights on top are blinking alternatively yellow and blue. 
 
 1. Push the button on the side of the gateway to put it into commissioning mode. The lights will start rapidly blinking.  
-![Orange device with smiley face being touched by a finger, connected to a power source.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-turnon.png)
+![Orange device with smiley face being touched by a finger, connected to a power source.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-turnon.png)
 
 1. Open the mobile app on your smartphone.
 
@@ -35,7 +35,7 @@ When your gateway is mounted in your factory, you will need access to the Amazon
 If you are using an iOS mobile device, and you have previously paired with this particular gateway, you may need to make your device "forget" the gateway before re-pairing. For more information, see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-wireless.md).
 
    It can take a few moments for Amazon Monitron to connect to the new gateway.  
-![Mobile phone connecting via Bluetooth to AWS gateway.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)
+![Mobile phone connecting via Bluetooth to AWS gateway.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)
 
    If the mobile app continues to try to connect to the gateway without success, see [Troubleshooting Wi-Fi gateway detection](gateway-failure-Wi-Fi.md).
 

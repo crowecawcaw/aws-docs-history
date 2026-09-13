@@ -50,7 +50,7 @@ You can view sensor details on both the mobile and web app. The following sectio
 1. From the **Assets** list, choose the asset that is paired with the sensor that you want to view.
 
 1. Information about the sensor will be shown automatically in the **Sensor details** tab on the lower right side of the app window.  
-![Sensor details tab displaying sensor ID, status, battery level, measurement times, and firmware information.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-viewing-sensor-details-1.png)
+![Sensor details tab displaying sensor ID, status, battery level, measurement times, and firmware information.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-viewing-sensor-details-1.png)
 
 ## Sensor connectivity status
 <a name="sensor-connectivity-status"></a>
@@ -67,7 +67,7 @@ The following images show sensors that are offline.
 
 |  |  |  | 
 | --- |--- |--- |
-|  ![Asset details page showing 5 positions with alarm, warning, and no sensor statuses.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-offline-alarm.png)  |  ![Assets panel showing list of assets with identifiers and site references, with Add asset button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-offline-list.png)  |  ![Sensor monitoring dashboard showing offline status, warning acknowledgment, and vibration graph.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-offline-detail.png)  | 
+|  ![Asset details page showing 5 positions with alarm, warning, and no sensor statuses.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-offline-alarm.png)  |  ![Assets panel showing list of assets with identifiers and site references, with Add asset button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-offline-list.png)  |  ![Sensor monitoring dashboard showing offline status, warning acknowledgment, and vibration graph.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset-offline-detail.png)  | 
 
 ## Sensor battery status
 <a name="sensor-battery-status"></a>
@@ -85,10 +85,10 @@ The following table shows the different sensor battery states:
 
 | Battery status | Condition | Time remaining | Action | 
 | --- | --- | --- | --- | 
-| ![Battery status indicator showing a full green battery icon.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/battery-healthy.png) |    **Normal** |    Sensor battery is in healthy state. |    No sensor battery monitoring currently needed. | 
-| ![Battery status icon showing a nearly empty battery level.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/battery-low.png) |    **Low** |    Battery has less than 1 year of life left. |    Begin monitoring your sensor battery. | 
-| ![Battery status indicator showing low charge level.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/battery-urgent.png) |     **Urgent** |    Battery has less than 3 months of life left. |    Replace your sensor as soon as possible. | 
-| ![Battery status showing Unknown value with information icon.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/battery-unknown.png) |     **Unknown** |    Battery life status is unknown. |     1.  If commissioning sensor for the first time, wait for a minute till the sensor sends its first measurement. <br />2.  Then, make sure you have commisioned a gateway correctly and take a measurement using the mobile app. <br />See [Gateways](https://docs.aws.amazon.com/Monitron/latest/user-guide/gateways.html) and [Taking a one-time measurement](https://docs.aws.amazon.com/Monitron/latest/user-guide/anom-take-measure.html) for details.   | 
+| ![Battery status indicator showing a full green battery icon.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/battery-healthy.png) |    **Normal** |    Sensor battery is in healthy state. |    No sensor battery monitoring currently needed. | 
+| ![Battery status icon showing a nearly empty battery level.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/battery-low.png) |    **Low** |    Battery has less than 1 year of life left. |    Begin monitoring your sensor battery. | 
+| ![Battery status indicator showing low charge level.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/battery-urgent.png) |     **Urgent** |    Battery has less than 3 months of life left. |    Replace your sensor as soon as possible. | 
+| ![Battery status showing Unknown value with information icon.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/battery-unknown.png) |     **Unknown** |    Battery life status is unknown. |     1.  If commissioning sensor for the first time, wait for a minute till the sensor sends its first measurement. <br />2.  Then, make sure you have commisioned a gateway correctly and take a measurement using the mobile app. <br />See [Gateways](https://docs.aws.amazon.com/Monitron/latest/user-guide/gateways.html) and [Taking a one-time measurement](https://docs.aws.amazon.com/Monitron/latest/user-guide/anom-take-measure.html) for details.   | 
 
 **Note**  
 If you do not replace your sensor after its battery status is urgent, the sensor's connectivity state will change to **Offline**.

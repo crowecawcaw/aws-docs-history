@@ -7,7 +7,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 
 Unlike sensors, a Wi-Fi gateway doesn't need to be attached to the machines that are being monitored. However, it does need an available Wi-Fi network through which Amazon Monitron can connect to the AWS Cloud.
 
-![Orange gateway device with Amazon smile logo and attached black cable.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/real-gateway.png)
+![Orange gateway device with Amazon smile logo and attached black cable.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/real-gateway.png)
 
 
 **Topics**
@@ -48,24 +48,24 @@ To mount the bracket, choose one of the following techniques.
 **Screw mounting**  
 Typically, you mount the bracket directly to the wall using the mounting screws included in the gateway box. Mount the bracket from the front. You might need to use an expansion plug or toggle bolt to secure the screw in the wall. An expansion plug or toggle bolt is not included.  
 
-![Mounting bracket back view showing screw holes and two wall anchors with screws.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-screws.png)
+![Mounting bracket back view showing screw holes and two wall anchors with screws.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-screws.png)
 
 
 **Tape mounting**  
 A shaped piece of double-sided tape is included in the gateway box. Use it when you can't place a screw into the mounting surface. You can also use it in combination with the other methods of mounting for a more secure installation.   
 
-![Black mounting bracket with adhesive backing showing double-sided tape placement.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape1.png)
+![Black mounting bracket with adhesive backing showing double-sided tape placement.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape1.png)
 
 Remove the backing on one side of the tape and apply the tape to the back of the wall mounting bracket between the four raised sections.   
 
-![Black mounting bracket with foam tape applied between four raised sections.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape2.png)
+![Black mounting bracket with foam tape applied between four raised sections.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape2.png)
 
 Remove the remaining backing and apply the bracket to the mounting location. Press hard on the bracket to make sure that the tape firmly adheres to the surface.
 
 **Plastic-tie mounting**  
 To mount a gateway to a smaller non-wall location, such as a pillar or fencing, use cable ties (also known as zip ties) to fasten the wall mounting bracket. Put the ties through the holes in the four raised sections on the back of the bracket. wrap them around the mounting location, and pull tight.  
 
-![Wall mounting bracket back view showing four raised sections with holes for cable ties.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tie1.png)
+![Wall mounting bracket back view showing four raised sections with holes for cable ties.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tie1.png)
 
 After the bracket is mounted, attach the gateway to the bracket.
 
@@ -76,12 +76,12 @@ In the following procedure, we talk about the "top" and "bottom" of the gateway 
 
 When the gateway is upright, the Amazon logo on the front of the device is right-side up. The two holes that will reveal the LEDs are just above the logo, on the right side. The hole for the small screw that will attach the bracket to the gateway is at the top, in the center.
 
-![Orange gateway device with Amazon smile logo and two LED indicator holes above it.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/eth-gateway-mounted-front.png)
+![Orange gateway device with Amazon smile logo and two LED indicator holes above it.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/eth-gateway-mounted-front.png)
 
 
 On the back of the device, there are two pairs of orange plastic hooks. The large hooks, near the bottom of the device, point downward. The small hooks, near the top of the device, point upward.
 
-![Back of device showing black mounting plate with orange frame and four orange plastic hooks.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/eth-gateway-mounted-back.png)
+![Back of device showing black mounting plate with orange frame and four orange plastic hooks.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/eth-gateway-mounted-back.png)
 
 
 1. With the wall mounting bracket in place, place the gateway against the bracket. The two large plastic hooks on the back of the gateway should be in the slots at the bottom of the bracket.
@@ -89,10 +89,10 @@ On the back of the device, there are two pairs of orange plastic hooks. The larg
 1. Press the top of the gateway against the bracket so that the two small plastic hooks on the back of the gateway latch into the top of the bracket.
 
 1. Using the small screw that came with the gateway, fasten the gateway to the bracket through the hole at the top of the gateway.  
-![Gateway device fastened to mounting bracket with screw through top hole.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway-screw.png)
+![Gateway device fastened to mounting bracket with screw through top hole.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway-screw.png)
 
 1. Insert the appropriate AC plug into the AC adapter. The following picture shows the US plug attached to the adapter.  
-![AC adapter with attached cable and interchangeable plug attachments including US plug.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/adapter-us.png)
+![AC adapter with attached cable and interchangeable plug attachments including US plug.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/adapter-us.png)
 
 1. Plug the AC adapter into the bottom of the gateway and a power outlet.
 
