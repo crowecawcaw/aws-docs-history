@@ -7,7 +7,7 @@ AWS recommends that you architect edge applications in a hub and spoke model wit
 
 If you need to replicate your data or applications in a Wavelength Zone, AWS recommends that you use an Availability Zone in the Region that is not the parent zone as the failover zone. In the following example, the parent Availability Zone is Availability Zone A, so the resources are replicated to Availability Zone B.
 
-![AWS Wavelength failover](http://docs.aws.amazon.com/wavelength/latest/developerguide/images/wavelength_dr.png)
+![AWS Wavelength failover](https://docs.aws.amazon.com/wavelength/latest/developerguide/images/wavelength_dr.png)
 
 
 To learn more about resiliency in Amazon EC2 and Amazon EC2 Auto Scaling, see the following:

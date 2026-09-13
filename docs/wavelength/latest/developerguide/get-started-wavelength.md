@@ -10,7 +10,7 @@ The following diagram shows the resources that you need to configure to get star
 + An instance in the public subnet
 + An instance in the Wavelength Zone subnet with a Carrier IP address
 
-![AWS Wavelength getting started overview](http://docs.aws.amazon.com/wavelength/latest/developerguide/images/wavelength-getting-started.png)
+![AWS Wavelength getting started overview](https://docs.aws.amazon.com/wavelength/latest/developerguide/images/wavelength-getting-started.png)
 
 
 **Topics**

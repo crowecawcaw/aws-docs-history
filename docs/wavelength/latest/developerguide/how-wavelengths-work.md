@@ -5,7 +5,7 @@
 
 The following diagram demonstrates how you can create a subnet that uses resources in a communications service provider (CSP) network at a specific location. For resources that must be deployed to the Wavelength Zone, first opt in to the Wavelength Zone, and then create resources in the Wavelength Zone.
 
-![AWS Wavelength overview](http://docs.aws.amazon.com/wavelength/latest/developerguide/images/aws-wz.png)
+![AWS Wavelength overview](https://docs.aws.amazon.com/wavelength/latest/developerguide/images/aws-wz.png)
 
 
 **Topics**
@@ -71,7 +71,7 @@ Consider a scenario with the following configuration:
 + A Carrier IP address for the network interface associated with the EC2 instance
 + An IP address association that maps the private IP address of the EC2 instance to the Carrier IP address
 
-![Carrier gateway access to internet](http://docs.aws.amazon.com/wavelength/latest/developerguide/images/wavelength-internet-routing.png)
+![Carrier gateway access to internet](https://docs.aws.amazon.com/wavelength/latest/developerguide/images/wavelength-internet-routing.png)
 
 
 You need the following entries in the Wavelength subnet route table.
