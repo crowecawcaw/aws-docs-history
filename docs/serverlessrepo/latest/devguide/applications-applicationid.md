@@ -425,7 +425,7 @@ For more information about using this API in one of the language-specific AWS SD
 + [AWS SDK for JavaScript V3](/goto/SdkForJavaScriptV3/serverlessrepo-2017-09-08/GetApplication)
 + [AWS SDK for Kotlin](/goto/SdkForKotlin/serverlessrepo-2017-09-08/GetApplication)
 + [AWS SDK for PHP V3](/goto/SdkForPHPV3/serverlessrepo-2017-09-08/GetApplication)
-+ [AWS SDK for Python](/goto/boto3/serverlessrepo-2017-09-08/GetApplication)
++ [AWS SDK for Python (Boto3)](/goto/boto3/serverlessrepo-2017-09-08/GetApplication)
 + [AWS SDK for Ruby V3](/goto/SdkForRubyV3/serverlessrepo-2017-09-08/GetApplication)
 
 ### DeleteApplication
@@ -438,7 +438,7 @@ For more information about using this API in one of the language-specific AWS SD
 + [AWS SDK for JavaScript V3](/goto/SdkForJavaScriptV3/serverlessrepo-2017-09-08/DeleteApplication)
 + [AWS SDK for Kotlin](/goto/SdkForKotlin/serverlessrepo-2017-09-08/DeleteApplication)
 + [AWS SDK for PHP V3](/goto/SdkForPHPV3/serverlessrepo-2017-09-08/DeleteApplication)
-+ [AWS SDK for Python](/goto/boto3/serverlessrepo-2017-09-08/DeleteApplication)
++ [AWS SDK for Python (Boto3)](/goto/boto3/serverlessrepo-2017-09-08/DeleteApplication)
 + [AWS SDK for Ruby V3](/goto/SdkForRubyV3/serverlessrepo-2017-09-08/DeleteApplication)
 
 ### UpdateApplication
@@ -451,5 +451,5 @@ For more information about using this API in one of the language-specific AWS SD
 + [AWS SDK for JavaScript V3](/goto/SdkForJavaScriptV3/serverlessrepo-2017-09-08/UpdateApplication)
 + [AWS SDK for Kotlin](/goto/SdkForKotlin/serverlessrepo-2017-09-08/UpdateApplication)
 + [AWS SDK for PHP V3](/goto/SdkForPHPV3/serverlessrepo-2017-09-08/UpdateApplication)
-+ [AWS SDK for Python](/goto/boto3/serverlessrepo-2017-09-08/UpdateApplication)
++ [AWS SDK for Python (Boto3)](/goto/boto3/serverlessrepo-2017-09-08/UpdateApplication)
 + [AWS SDK for Ruby V3](/goto/SdkForRubyV3/serverlessrepo-2017-09-08/UpdateApplication)
