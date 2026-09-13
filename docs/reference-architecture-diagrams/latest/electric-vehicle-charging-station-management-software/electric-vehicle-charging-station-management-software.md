@@ -10,7 +10,7 @@ Publication date: **June 4, 2024 ([Diagram history](#diagram-history))**
 
 Container-based microservices architecture utilizing familiar technologies and concepts, most suitable for organizations embarking on containerization. Whether you’re planning a development from scratch or the modernization of existing product, this architecture provides a scalable, reliable, and cost-efficient solution for the critical electric vehicle (EV) infrastructure.
 
-![Reference architecture diagram showing a container-based microservices architecture utilizing familiar technologies and concepts, most suitable for organizations embarking on containerization.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/electric-vehicle-charging-station-management-software/images/electric-vehicle-charging-station-management-software-option-1.png)
+![Reference architecture diagram showing a container-based microservices architecture utilizing familiar technologies and concepts, most suitable for organizations embarking on containerization.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electric-vehicle-charging-station-management-software/images/electric-vehicle-charging-station-management-software-option-1.png)
 
 
 1.  Charging stations (electric vehicle supply equipment, or EVSE) are connected to **Amazon Elastic Container Service** (Amazon ECS)on **AWS Fargate** behind **Network Load Balancer**. **AWS Lambda** routes outbound open charge point protocol (OCPP) messages to EVSEs and **Amazon DynamoDB** keeps active connections. 
@@ -32,7 +32,7 @@ Container-based microservices architecture utilizing familiar technologies and c
 
 Event-driven serverless architecture most suitable for organizations with existing know-how in serverless technologies and mature DevOps culture. It provides a high degree of scalability, fault isolation, and minimal running costs when not in use. 
 
-![Reference architecture diagram showing an event-driven serverless architecture most suitable for organizations with existing know-how in serverless technologies and mature DevOps culture. It provides a high degree of scalability, fault isolation, and minimal running costs when not in use.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/electric-vehicle-charging-station-management-software/images/electric-vehicle-charging-station-management-software-option-2.png)
+![Reference architecture diagram showing an event-driven serverless architecture most suitable for organizations with existing know-how in serverless technologies and mature DevOps culture. It provides a high degree of scalability, fault isolation, and minimal running costs when not in use.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electric-vehicle-charging-station-management-software/images/electric-vehicle-charging-station-management-software-option-2.png)
 
 
 1.  EVSEs are connected to **Amazon ECS** on **Fargate** behind **Network Load Balancer**. **Lambda** routes outbound OCPP messages to EVSEs and **DynamoDB** keeps active connections. 
@@ -56,7 +56,7 @@ Event-driven serverless architecture most suitable for organizations with existi
 
 This reference architecture demonstrates how to build a highly-scalable, low-latency electric vehicle (EV) charge point operator system based on the EV industry standard, Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS Lambda.
 
-![Reference architecture diagram showing how to build a highly-scalable, low-latency electric vehicle (EV) charge point operator system based on the EV industry standard, Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/electric-vehicle-charging-station-management-software/images/electric-vehicle-charging-station-management-software-iot.png)
+![Reference architecture diagram showing how to build a highly-scalable, low-latency electric vehicle (EV) charge point operator system based on the EV industry standard, Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electric-vehicle-charging-station-management-software/images/electric-vehicle-charging-station-management-software-iot.png)
 
 
 1.  An EV charge point is deployed in the field, either as a domestic charge point or as a fast charging one. It is fitted with both sensors and actuators (to stop and start charging) and can connect to the internet. 
