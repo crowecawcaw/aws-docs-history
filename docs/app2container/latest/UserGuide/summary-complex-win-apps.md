@@ -102,12 +102,12 @@ The remainder of the content in this section applies to complex Windows .NET app
 
 Amazon ECS deployment
 
-![Example workflow for a complex Windows .NET application with dependent application components running in separate containers in Amazon ECS.](http://docs.aws.amazon.com/app2container/latest/UserGuide/images/complex-multi-container-arch-ecs.png)
+![Example workflow for a complex Windows .NET application with dependent application components running in separate containers in Amazon ECS.](https://docs.aws.amazon.com/app2container/latest/UserGuide/images/complex-multi-container-arch-ecs.png)
 
 
 Amazon EKS deployment
 
-![Example workflow for a complex Windows .NET application with dependent application components running in separate containers in Amazon EKS.](http://docs.aws.amazon.com/app2container/latest/UserGuide/images/complex-multi-container-arch-eks.png)
+![Example workflow for a complex Windows .NET application with dependent application components running in separate containers in Amazon EKS.](https://docs.aws.amazon.com/app2container/latest/UserGuide/images/complex-multi-container-arch-eks.png)
 
 
 Normally, you run the **generate app-deployment** command for each application container that you create. However, with complex Windows .NET applications that have dependent applications running in separate containers, App2Container takes care of some of that for you. When you run the **generate app-deployment** command for the root application, App2Container completes the following tasks for the root application *and each of its dependent application components*:
