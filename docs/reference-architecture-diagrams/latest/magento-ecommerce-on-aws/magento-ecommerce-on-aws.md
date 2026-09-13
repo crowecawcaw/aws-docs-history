@@ -10,7 +10,7 @@ With this architecture, you can deploy [Adobe Commerce](https://business.adobe.c
 ## Magento eCommerce diagram
 <a name="magento-diagram"></a>
 
-![Adobe Commerce or Magento Open Source deployed across multiple Availability Zones on Amazon Elastic Compute Cloud, with Amazon Route 53, AWS WAF, Amazon CloudFront, Varnish Cache, Amazon Aurora, Amazon ElastiCache for Redis, Amazon OpenSearch Service, and Amazon EFS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/magento-ecommerce-on-aws/images/magento-ecommerce-on-aws.png)
+![Adobe Commerce or Magento Open Source deployed across multiple Availability Zones on Amazon Elastic Compute Cloud, with Amazon Route 53, AWS WAF, Amazon CloudFront, Varnish Cache, Amazon Aurora, Amazon ElastiCache for Redis, Amazon OpenSearch Service, and Amazon EFS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/magento-ecommerce-on-aws/images/magento-ecommerce-on-aws.png)
 
 
 The following steps describe the architecture:
