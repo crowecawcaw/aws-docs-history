@@ -61,9 +61,9 @@ Using AWS IAM Identity Center (IAM Identity Center), your users can sign in to D
 <a name="sso-setup-user"></a>
 
 1. Sign into AWS using an IAM Identity Center-enabled account.  
-![Sign in dialog with username field, remember username checkbox, Next button, and agreement links.](http://docs.aws.amazon.com/databrew/latest/dg/images/databrew-sso-user01.png)
+![Sign in dialog with username field, remember username checkbox, Next button, and agreement links.](https://docs.aws.amazon.com/databrew/latest/dg/images/databrew-sso-user01.png)
 
 1. Click on **AWS Account** identity  
-![AWS Account identity container showing account ID and management console sign-in URL.](http://docs.aws.amazon.com/databrew/latest/dg/images/databrew-sso-user02.png)
+![AWS Account identity container showing account ID and management console sign-in URL.](https://docs.aws.amazon.com/databrew/latest/dg/images/databrew-sso-user02.png)
 
 1. Click **Management console** for one-click re-direction to the DataBrew console.

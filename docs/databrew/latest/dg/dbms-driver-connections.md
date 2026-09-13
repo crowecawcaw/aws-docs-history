@@ -14,7 +14,7 @@ With AWS Glue 4.0, connecting to Snowflake as a data source is supported nativel
  Provide the data access credentials, Snowflake database name, and Snowflake schema name. Additionally, if your Snowflake user does not have a default warehouse set, you will need to provide a warehouse name.   
  Snowflake connections use an AWS Secrets Manager secret to provide credential information. Your project and job roles in must have permission to read this secret.   
 
-![The screenshot shows a Connection access wizard with Snowflake selected as the External source. Complete the other fields to finish the connection: JDBC URL and Database access credentials.](http://docs.aws.amazon.com/databrew/latest/dg/images/databrew-connection-access-snowflake-new.png)
+![The screenshot shows a Connection access wizard with Snowflake selected as the External source. Complete the other fields to finish the connection: JDBC URL and Database access credentials.](https://docs.aws.amazon.com/databrew/latest/dg/images/databrew-connection-access-snowflake-new.png)
 
 
 **To use drivers with DataBrew**

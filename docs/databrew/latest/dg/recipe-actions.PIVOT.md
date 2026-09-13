@@ -5,7 +5,7 @@
 
 Converts all the row values in a selected column into individual columns with values.
 
-![Diagram showing pivot column transformation: original table to new table with columns as values.](http://docs.aws.amazon.com/databrew/latest/dg/images/pivot.png)
+![Diagram showing pivot column transformation: original table to new table with columns as values.](https://docs.aws.amazon.com/databrew/latest/dg/images/pivot.png)
 
 
 **Parameters**

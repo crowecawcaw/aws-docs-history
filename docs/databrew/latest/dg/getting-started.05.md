@@ -32,7 +32,7 @@ To request a data profile, create and run a profile job.
 1. On the **Job run history** pane, wait for the job status to change from `Running` to `Succeeded`.
 
 1. To view the profile, choose **VIEW PROFILE**:  
-![VIEW PROFILE button with LinkedIn icon.](http://docs.aws.amazon.com/databrew/latest/dg/images/view-profile-button.png)
+![VIEW PROFILE button with LinkedIn icon.](https://docs.aws.amazon.com/databrew/latest/dg/images/view-profile-button.png)
 
    The **DATASETS** window is shown. Take some time to explore the following tabs:
    + Dataset preview

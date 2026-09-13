@@ -11,7 +11,7 @@ With the intuitive DataBrew interface, you can interactively discover, visualize
 
 The following image shows how DataBrew works at a high level.
 
-![A simple diagram about how DataBrew works. DataBrew can visually clean, prepare, and transform data without the need to write code. A box shows data entering DataBrew from Amazon S3. It shows boxes for a few of the transforms that DataBrew can do. The transform boxes include the following: Format, clean and standardize data. Restructure and transform data. Handle missing and invalid data. Handle categorical variables. Handle numerical variables. use natural language processing. The diagram shows that the data is exported to S3 as a prepared dataset.](http://docs.aws.amazon.com/databrew/latest/dg/images/databrew-overview-diagram.png)
+![A simple diagram about how DataBrew works. DataBrew can visually clean, prepare, and transform data without the need to write code. A box shows data entering DataBrew from Amazon S3. It shows boxes for a few of the transforms that DataBrew can do. The transform boxes include the following: Format, clean and standardize data. Restructure and transform data. Handle missing and invalid data. Handle categorical variables. Handle numerical variables. use natural language processing. The diagram shows that the data is exported to S3 as a prepared dataset.](https://docs.aws.amazon.com/databrew/latest/dg/images/databrew-overview-diagram.png)
 
 
 To use DataBrew, you create a project and connect to your data. In the project workspace, you see your data displayed in a grid-like visual interface. Here, you can explore the data and see value distributions and charts to understand its profile. 

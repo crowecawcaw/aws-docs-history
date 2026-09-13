@@ -5,7 +5,7 @@
 
 In a DataBrew project session, you work within an interactive workspace.
 
-![DataBrew project interface showing dataset details, sample data, and options to build a recipe.](http://docs.aws.amazon.com/databrew/latest/dg/images/project-overview-grid.png)
+![DataBrew project interface showing dataset details, sample data, and options to build a recipe.](https://docs.aws.amazon.com/databrew/latest/dg/images/project-overview-grid.png)
 
 
 The left pane shows the current view of your data. The right pane shows the project's transformation recipe, which is currently empty.
@@ -72,7 +72,7 @@ Publishing recipes also encourages an incremental, iterative approach to recipe 
 
 If you choose the **SCHEMA** tab, the view changes, as shown in the screenshot following.
 
-![Schema view showing 5 columns with data types, quality, and value distribution for baby names dataset.](http://docs.aws.amazon.com/databrew/latest/dg/images/project-schema-view.png)
+![Schema view showing 5 columns with data types, quality, and value distribution for baby names dataset.](https://docs.aws.amazon.com/databrew/latest/dg/images/project-schema-view.png)
 
 
 In schema view, you can see statistics about the data values in each column.
@@ -115,7 +115,7 @@ If you choose the **PROFILE** tab, you can see detailed volumetric information a
 1. After the job runs to completion, the workspace displays a graphical summary of the data profile. 
 
    The **Data profile** overview tab shows a high-level summary of your data's characteristics, as shown in the screenshot following.  
-![Data profile overview showing dataset summary, including row count, columns, and data types.](http://docs.aws.amazon.com/databrew/latest/dg/images/project-profile-view-01.png)
+![Data profile overview showing dataset summary, including row count, columns, and data types.](https://docs.aws.amazon.com/databrew/latest/dg/images/project-profile-view-01.png)
 
    The **Column statistics** tab shows a column-by-column breakdown of the data values:  
-![Column statistics tab showing data profile overview, column types, and data quality metrics.](http://docs.aws.amazon.com/databrew/latest/dg/images/project-profile-view-02.png)
+![Column statistics tab showing data profile overview, column types, and data quality metrics.](https://docs.aws.amazon.com/databrew/latest/dg/images/project-profile-view-02.png)
