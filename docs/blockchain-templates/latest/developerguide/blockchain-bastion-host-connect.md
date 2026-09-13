@@ -35,7 +35,7 @@ If you use Mac OS or Linux, use an SSH client to set up the SOCKS proxy connecti
    1. Choose **Add**.
 
    For **Forwarded ports**, **D9001** should appear as shown below.  
-![PuTTY Configuration window showing SSH Tunnels section with D9001 listed in Forwarded ports.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/putty.png)
+![PuTTY Configuration window showing SSH Tunnels section with D9001 listed in Forwarded ports.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/putty.png)
 
 1. Choose **Open** and then authenticate to the bastion host as required by your key configuration. Leave the connection open.
 

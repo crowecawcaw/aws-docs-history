@@ -55,7 +55,7 @@ Use the Amazon VPC console ([https://console.aws.amazon.com/vpc/](https://consol
 1. Choose **Create VPC**.
 
    The example below shows a VPC **EthereumNetworkVPC** with a public subnet **EthereumPubSub1** and a private subnet **EthereumPvtSub1**. The public subnet uses Availability Zone **us-west-2a**.  
-![VPC configuration form with public and private subnet details for EthereumVPC.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/VPC.png)
+![VPC configuration form with public and private subnet details for EthereumVPC.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/VPC.png)
 
 **To create the second public subnet in a different Availability Zone**
 
@@ -79,7 +79,7 @@ Use the Amazon VPC console ([https://console.aws.amazon.com/vpc/](https://consol
 
 You should now see three subnets for the VPC that you created earlier. Make a note of the subnet names and IDs so that you can specify them using the template.
 
-![VPC Dashboard showing three subnets with their IDs, states, and IPv4 CIDR ranges.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/subnets-listing.png)
+![VPC Dashboard showing three subnets with their IDs, states, and IPv4 CIDR ranges.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/subnets-listing.png)
 
 
 ## Create Security Groups
@@ -167,7 +167,7 @@ When you use this template, you specify an IAM role for Amazon ECS and an EC2 in
 1. For **Choose the service that will use this role**, choose **Elastic Container Service**.
 
 1. Under **Select your use case**, choose **Elastic Container Service**, **Next:Permissions**.  
-![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role.png)
+![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role.png)
 
 1. For **Permissions policy**, leave the default policy (**AmazonEC2ContainerServiceRole**) selected, and choose **Next:Review**.
 
@@ -176,10 +176,10 @@ When you use this template, you specify an IAM role for Amazon ECS and an EC2 in
 1. Choose **Create role**.
 
 1. Select the role that you just created from the list. If your account has many roles, you can search for the role name.  
-![IAM console showing ECSRoleForEtherium role selected in the roles list with search filter.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role-list.png)
+![IAM console showing ECSRoleForEtherium role selected in the roles list with search filter.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role-list.png)
 
 1. Copy the **Role ARN** value and save it so that you can copy it again. You need this ARN when you create the Ethereum network.  
-![AWS IAM role summary page showing role ARN, description, and attached policies.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role-arn.png)
+![AWS IAM role summary page showing role ARN, description, and attached policies.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role-arn.png)
 
 The EC2 instance profile that you specify in the template is assumed by EC2 instances in the Ethereum network to interact with other AWS services. You create a permissions policy for the role, create the role (which automatically creates an instance profile of the same name), and then attach the permissions policy to the role.
 
@@ -227,7 +227,7 @@ The EC2 instance profile that you specify in the template is assumed by EC2 inst
 1. Choose **Review policy**.
 
 1. For **Name**, enter a value that helps you identify this permissions policy, for example *EthereumPolicyForEC2*. For **Description**, enter a brief summary. Choose **Create policy**.  
-![AWS console showing Create policy page with name, description, and service permissions.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ec2-perms-policy.png)
+![AWS console showing Create policy page with name, description, and service permissions.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ec2-perms-policy.png)
 
 1. Choose **Roles**, **Create role**.
 
@@ -236,15 +236,15 @@ The EC2 instance profile that you specify in the template is assumed by EC2 inst
 1. In the **Search** field, enter the name of the permissions policy that you created earlier, for example *EthereumPolicyForEC2*.
 
 1. Select the check mark for the policy that you created earlier, and choose **Next: Review**.  
-![AWS console showing Create role page with EthereumPolicyForEC2 policy selected.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ec2-select-policy.png)
+![AWS console showing Create role page with EthereumPolicyForEC2 policy selected.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ec2-select-policy.png)
 
 1. For **Role name**, enter a value that helps you identify the role, for example *EC2RoleForEthereum*. For **Role description**, enter a brief summary.Choose **Create role**.
 
 1. Select the role that you just created from the list. If your account has many roles, you can enter the role name in the **Search** field.  
-![AWS IAM interface showing a role named EC2RoleforEther with associated description and trusted entity.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ec2-select-role.png)
+![AWS IAM interface showing a role named EC2RoleforEther with associated description and trusted entity.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ec2-select-role.png)
 
 1. Copy the **Instance Profile ARN** value and save it so you can copy it again. You need this ARN when you create the Ethereum network.  
-![AWS IAM role summary page showing Role ARN and Instance Profile ARNs fields.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ec2-role-arn.png)
+![AWS IAM role summary page showing Role ARN and Instance Profile ARNs fields.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ec2-role-arn.png)
 
 ## Create a Bastion Host
 <a name="blockchain-templates-bastion-host"></a>
@@ -273,4 +273,4 @@ To be able to access the Ethereum network, trusted clients need to be set up to 
 1. Choose **Launch**.
 
 1. Note the instance ID. You need it later when you [Connect to EthStats and EthExplorer Using the Bastion Host](blockchain-bastion-host-connect.md).  
-![Green checkmark indicating successful instance launch with partially obscured instance ID.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/bastion-instance.png)
+![Green checkmark indicating successful instance launch with partially obscured instance ID.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/bastion-instance.png)

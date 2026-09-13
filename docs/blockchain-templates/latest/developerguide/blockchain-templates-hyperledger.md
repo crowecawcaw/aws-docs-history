@@ -21,7 +21,7 @@ The AWS Blockchain Template for Hyperledger Fabric creates an EC2 instance with 
 
 The following diagram depicts a Hyperledger Fabric network created using the template:
 
-![AWS architecture diagram showing EC2 instance with containers in a VPC, connected to ECR and S3.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/hyperledger-docker-local-arch.png)
+![AWS architecture diagram showing EC2 instance with containers in a VPC, connected to ECR and S3.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/hyperledger-docker-local-arch.png)
 
 
 ## Prerequisites

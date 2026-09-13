@@ -42,9 +42,9 @@ Use the default accounts and associated mnemonic phrase for testing purposes onl
    The **Stack Detail** page for the root stack that CloudFormation launches appears.
 
 1. To monitor the progress of the root stack and nested stacks, choose **Stacks**.  
-![CloudFormation interface showing Stacks option highlighted in the navigation menu.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/choose-stacks.png)
+![CloudFormation interface showing Stacks option highlighted in the navigation menu.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/choose-stacks.png)
 
 1. When all stacks show **CREATE\_COMPLETE** for **Status**, you can connect to Ethereum user interfaces to verify that the network is running and accessible. When you use the ECS container platform, URLs for connecting to EthStats, EthExplorer, and EthJsonRPC through the Application Load Balancer are available on the **Outputs** tab of the root stack.
 **Important**  
 You won't be able to connect directly to these URLs or SSH directly until you set up a proxy connection through the bastion host on your client computer. For more information, see [Connect to EthStats and EthExplorer Using the Bastion Host](blockchain-bastion-host-connect.md).  
-![CloudFormation console showing Ethereum network stack details and output URLs.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/stack-urls.png)
+![CloudFormation console showing Ethereum network stack details and output URLs.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/stack-urls.png)

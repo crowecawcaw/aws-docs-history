@@ -34,7 +34,7 @@ With Amazon ECS, you create your Ethereum network on an ECS cluster composed of 
 
 The following diagram depicts an Ethereum network created using the template with the ECS container platform option:
 
-![VPC with two availability zones containing public and private subnets with ECS container instances.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ethereum-ecs-arch.png)
+![VPC with two availability zones containing public and private subnets with ECS container instances.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ethereum-ecs-arch.png)
 
 
 #### Using the Docker-Local Platform
@@ -44,7 +44,7 @@ Alternatively, you can launch Ethereum containers within a single Amazon EC2 ins
 
 The following diagram depicts an Ethereum network created using the template with the docker-local container platform option:
 
-![EC2 instance in public subnet running four containers connected to ECR registry via internet gateway.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ethereum-docker-local-arch.png)
+![EC2 instance in public subnet running four containers connected to ECR registry via internet gateway.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ethereum-docker-local-arch.png)
 
 
 ### Choosing a Private or Public Ethereum Network
@@ -177,7 +177,7 @@ For the permissions attached to the ECS role, we recommend that you start with t
 1. For **Choose the service that will use this role**, choose **Elastic Container Service**.
 
 1. Under **Select your use case**, choose **Elastic Container Service**, **Next:Permissions**.  
-![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role.png)
+![AWS console interface for creating a role, with Elastic Container Service selected as the use case.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role.png)
 
 1. For **Permissions policy**, leave the default policy (**AmazonEC2ContainerServiceRole**) selected, and choose **Next:Review**.
 
@@ -186,10 +186,10 @@ For the permissions attached to the ECS role, we recommend that you start with t
 1. Choose **Create role**.
 
 1. Select the role that you just created from the list. If your account has many roles, you can search for the role name.  
-![IAM console showing ECSRoleForEtherium role selected in the roles list with search filter.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role-list.png)
+![IAM console showing ECSRoleForEtherium role selected in the roles list with search filter.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role-list.png)
 
 1. Copy the **Role ARN** value and save it so that you can copy it again. You need this ARN when you create the Ethereum network.  
-![AWS IAM role summary page showing role ARN, description, and attached policies.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role-arn.png)
+![AWS IAM role summary page showing role ARN, description, and attached policies.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/ecs-role-arn.png)
 
 ## Connecting to Ethereum Resources
 <a name="blockchain-ethereum-connecting"></a>

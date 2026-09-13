@@ -11,7 +11,7 @@ A blockchain network is a peer-to-peer network that improves the efficiency and 
 
 You use AWS Blockchain Templates to configure and launch CloudFormation stacks to create blockchain networks. The AWS resources and services you use depend on the AWS Blockchain Template you choose and the options that you specify. For information about available templates and their features, see [AWS Blockchain Templates and Features](blockchain-template-features.md). The fundamental components of a blockchain network on AWS created using AWS Blockchain Templates are shown in the following diagram.
 
-![AWS Blockchain Templates components: ECR registry, load balancing, network, tools, and compute options.](http://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/blockchain-components.png)
+![AWS Blockchain Templates components: ECR registry, load balancing, network, tools, and compute options.](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/images/blockchain-components.png)
 
 
 
