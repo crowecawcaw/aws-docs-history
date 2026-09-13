@@ -10,7 +10,7 @@ With this architecture, you can build low-code cold chain logistics applications
 ## Cold chain logistics Mendix Cloud diagram
 <a name="ccm-cloud-diagram"></a>
 
-![Reference architecture diagram showing cold chain logistics on Mendix Cloud integrated with AWS IoT Core, Amazon Rekognition, and Amazon Timestream.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/cold-chain-logistics-mendix/images/cold-chain-logistics-mendix-cloud.png)
+![Reference architecture diagram showing cold chain logistics on Mendix Cloud integrated with AWS IoT Core, Amazon Rekognition, and Amazon Timestream.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/cold-chain-logistics-mendix/images/cold-chain-logistics-mendix-cloud.png)
 
 
 The following steps describe the integration components for this architecture:

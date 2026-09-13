@@ -10,7 +10,7 @@ With this architecture, you can deploy Mendix cold chain logistics applications 
 ## Cold chain logistics Mendix Private Cloud diagram
 <a name="ccm-private-diagram"></a>
 
-![Reference architecture diagram showing cold chain logistics on Mendix for Private Cloud by using Amazon EKS, AWS IoT Core, and Amazon Rekognition.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/cold-chain-logistics-mendix/images/cold-chain-logistics-mendix-private.png)
+![Reference architecture diagram showing cold chain logistics on Mendix for Private Cloud by using Amazon EKS, AWS IoT Core, and Amazon Rekognition.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/cold-chain-logistics-mendix/images/cold-chain-logistics-mendix-private.png)
 
 
 The following steps describe the private cloud deployment for this architecture:
