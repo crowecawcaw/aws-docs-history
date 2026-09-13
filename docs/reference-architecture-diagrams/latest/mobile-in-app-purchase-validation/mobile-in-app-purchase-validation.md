@@ -10,7 +10,7 @@ This architecture provides a serverless solution for validating in-app purchases
 ## Mobile In-App Purchase Validation on AWS diagram
 <a name="iap-diagram"></a>
 
-![Reference architecture diagram showing how to validate in-app purchases and manage refunds on AWS with a serverless backend.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/mobile-in-app-purchase-validation/images/mobile-in-app-purchase-validation.png)
+![Reference architecture diagram showing how to validate in-app purchases and manage refunds on AWS with a serverless backend.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/mobile-in-app-purchase-validation/images/mobile-in-app-purchase-validation.png)
 
 
 The following steps describe the purchase validation flow:
