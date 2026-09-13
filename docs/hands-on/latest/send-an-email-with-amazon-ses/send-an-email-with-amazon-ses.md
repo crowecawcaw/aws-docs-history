@@ -46,12 +46,12 @@ In this tutorial, you will send an email to and from the same email address.
    Navigate to the **Amazon SES console**, at [https://console.aws.amazon.com/ses](https://console.aws.amazon.com/ses). 
 
    On the Amazon SES home page, choose **Get started**.    
-![The navigation menu interface for the Amazon SES console.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/navigation-menu-interface-console.png)
+![The navigation menu interface for the Amazon SES console.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/navigation-menu-interface-console.png)
 
 1. Enter an email address
 
    Enter your **email address**, and choose **Next**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/interface.png)
 
 1. Enter a sending domain
 
@@ -59,29 +59,29 @@ In this tutorial, you will send an email to and from the same email address.
    + If your domain is **www.example.com**, enter **example.com** as your domain. Don't include the "www." part, because the domain verification process won't succeed if you do. 
 **Note**  
 For your initial domain, it is recommended that you verify a valid domain that displays identifiable information about your organization to establish your reputation with AWS as a trusted email sender.  
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/interface-interface-element.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/interface-interface-element.png)
 
 1. Keep MAIL FROM defaults
 
    Leave default selections for **Add MAIL FROM domain - **optional****, and choose **Next**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/interface-interface-element-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/interface-interface-element-1.png)
 
 1. Review configuration
 
    Review your inputs, and choose **Get started**.   
-![The review and confirmation interface.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/confirmation-interface.png)
+![The review and confirmation interface.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/confirmation-interface.png)
 
 1. Verify the email in your inbox.
 
    **Sign in** to the email client you use to receive email for the email address you entered in the previous step. 
 
    In your email client, **open** the message from Amazon Web Services asking you to confirm that you own the email address. **Select** the link in the message.   
-![An email from Amazon SES requesting email address verification, with a verification link highlighted in a red box.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/email-requesting-address-verification-link.png)
+![An email from Amazon SES requesting email address verification, with a verification link highlighted in a red box.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/email-requesting-address-verification-link.png)
 
 1. Check the verification status in the SES console
 
    Navigate back to the **Amazon SES console**, and **confirm** that the status of the email address in the Amazon SES console is **verified**.   
-![Email verification screen with a 'Verified' status marked by a green checkmark.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/email-verification-screen-verified-status.png)
+![Email verification screen with a 'Verified' status marked by a green checkmark.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/email-verification-screen-verified-status.png)
 
 ### Step 2: Verify your domain
 <a name="verify-your-domain"></a>
@@ -91,25 +91,25 @@ Before applying for production access, you must first verify your domain.  
 1. Open setup page
 
    On the **Get set up** page, in the **Verify sending domain** section, choose **Get DNS records.**   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/navigation-interface.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/navigation-interface.png)
 
 1. Get DNS records
 
    From the **Publish DNS records** table, **copy records** that appear in this section to be published (added) to your DNS provider. 
    + Alternatively, you can choose **Download .csv record** **set** to save a copy of the records to your computer.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/selection-interface-1.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/selection-interface-1.png)
 
 1. Add DNS records
 
    **Log into** your domain’s DNS or web hosting provider, and then **add** the records containing the values that you copied or saved previously. 
 **Note**  
 Different providers have different procedures for updating DNS records. See the [DNS/Hosting provider table](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#dns-hosting-providing-table) following these procedures.  
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/selection-interface-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/selection-interface-1.png)
 
 1. Check verification status
 
    Navigate back to the Amazon SES console, and **refresh** the set up page. **Confirm** that the status of the domain in the Amazon SES console is **verified**.   
-![Verification screen for sending domain with instructions, buttons for 'View all identities' and 'Assign configuration set,' and a green 'Verified' status.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/verification-screen-sending-domain.png)
+![Verification screen for sending domain with instructions, buttons for 'View all identities' and 'Assign configuration set,' and a green 'Verified' status.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/verification-screen-sending-domain.png)
 
 ### Step 3: Send an email
 <a name="send-an-email"></a>
@@ -123,7 +123,7 @@ With Amazon SES, you can send [formatted](https://docs.aws.amazon.com/ses/lates
 1. Open setup page
 
    Navigate back to the **Get setup** page, in the **Send test email** section, choose **Send test email**.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/navigation-interface-1.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/navigation-interface-1.png)
 
 1. Start test email
 
@@ -137,7 +137,7 @@ With Amazon SES, you can send [formatted](https://docs.aws.amazon.com/ses/lates
    ```
    Subject: Amazon SES TestMIME-Version: 1.0Content-Type: text/html<!DOCTYPE html><html><body><h1>You have successfully sent an email using Amazon SES!</h1><p>For more information about Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer Guide</a>.</p></body></html>
    ```  
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/interface-interface-element-2.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-an-email-with-amazon-ses/images/interface-interface-element-2.png)
 
 1. Send test email
 
