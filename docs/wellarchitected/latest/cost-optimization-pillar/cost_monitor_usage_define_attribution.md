@@ -22,7 +22,7 @@
 
  As an example, the following diagram displays how to group your costs and usage information in your organization by having multiple teams (cost category), multiple environments (rules), and each environment having multiple resources or assets (dimensions). 
 
-![Flowchart detailing the relationship between cost and usage within an organization.](http://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/cost-usage-organization-chart.png)
+![Flowchart detailing the relationship between cost and usage within an organization.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/cost-usage-organization-chart.png)
 
 
  

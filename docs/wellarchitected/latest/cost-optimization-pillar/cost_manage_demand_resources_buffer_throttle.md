@@ -12,7 +12,7 @@
 
  Implementing a buffer or throttle is crucial in cloud computing in order to manage demand and reduce the provisioned capacity required for your workload. For optimal performance, it's essential to gauge the total demand, including peaks, the pace of change in requests, and the necessary response time. When clients have the ability to resend their requests, it becomes practical to apply throttling. Conversely, for clients lacking retry functionalities, the ideal approach is implementing a buffer solution. Such buffers streamline the influx of requests and optimize the interaction of applications with varied operational speeds. 
 
-![Demand curve with two distinct peaks that require high provisioned capacity](http://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/provisioned-capacity-1.png)
+![Demand curve with two distinct peaks that require high provisioned capacity](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/provisioned-capacity-1.png)
 
 
  Assume a workload with the demand curve shown in preceding image. This workload has two peaks, and to handle those peaks, the resource capacity as shown by orange line is provisioned. The resources and energy used for this workload are not indicated by the area under the demand curve, but the area under the provisioned capacity line, as provisioned capacity is needed to handle those two peaks. Flattening the workload demand curve can help you to reduce the provisioned capacity for a workload and reduce its environmental impact. To smooth out the peak, consider to implement throttling or buffering solution. 

@@ -14,7 +14,7 @@ Resources are provisioned in a planned manner. This can be demand-based, such as
 
  [AWS Instance Scheduler](https://aws.amazon.com/solutions/implementations/instance-scheduler-on-aws/) allows you to configure the stop and start of your Amazon EC2 and Amazon RDS instances at defined times so that you can meet the demand for the same resources within a consistent time pattern such as every day user access Amazon EC2 instances at eight in the morning that they don’t need after six at night. This solution helps reduce operational cost by stopping resources that are not in use and starting them when they are needed. 
 
-![Diagram showing cost optimization using AWS Instance Scheduler.](http://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/instance-scheduler-diagram.png)
+![Diagram showing cost optimization using AWS Instance Scheduler.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/instance-scheduler-diagram.png)
 
 
  
@@ -40,7 +40,7 @@ You can also easily configure schedules for your Amazon EC2 instances across you
 
 **Demand-based supply:** Take advantage of elasticity of the cloud to supply resources to meet changing demand by relying on near real-time demand state. For demand-based supply, use APIs or service features to programmatically vary the amount of cloud resources in your architecture. This allows you to scale components in your architecture and increase the number of resources during demand spikes to maintain performance and decrease capacity when demand subsides to reduce costs. 
 
-![Diagram describing demand-based scaling policies like simple/step scaling and target tracking.](http://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/demand-based-supply.png)
+![Diagram describing demand-based scaling policies like simple/step scaling and target tracking.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/demand-based-supply.png)
 
 
  
@@ -51,7 +51,7 @@ When architecting with a demand-based approach keep in mind two key consideratio
 
 **Time-based supply:** A time-based approach aligns resource capacity to demand that is predictable or well-defined by time. This approach is typically not dependent upon utilization levels of the resources. A time-based approach ensures that resources are available at the specific time they are required and can be provided without any delays due to start-up procedures and system or consistency checks. Using a time-based approach, you can provide additional resources or increase capacity during busy periods.
 
-![Diagram describing time-based scaling policies like scheduled and predictive scaling.](http://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/time-based-supply.png)
+![Diagram describing time-based scaling policies like scheduled and predictive scaling.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/time-based-supply.png)
 
 
  

@@ -23,7 +23,7 @@
 
  The following diagram shows how you can use AWS Organizations with organizational units (OU) to group multiple accounts, and place multiple AWS accounts under each OU. It is recommended to use OUs for various use cases and workloads which provides patterns for organizing accounts. 
 
-![Tree diagram showing how to group multiple accounts under organizational units.](http://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/aws-organizations-ou-grouping.png)
+![Tree diagram showing how to group multiple accounts under organizational units.](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/images/aws-organizations-ou-grouping.png)
 
 
  [AWS Control Tower](https://aws.amazon.com/controltower/) can quickly set up and configure multiple AWS accounts, ensuring that governance is aligned with your organization’s requirements.
