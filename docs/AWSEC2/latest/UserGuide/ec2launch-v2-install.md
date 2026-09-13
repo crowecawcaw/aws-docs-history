@@ -147,7 +147,7 @@ If you run the install again on the instance, you can disable the default config
 **Example: Upgrade EC2Launch v2 with telemetry**  
 The following example shows the EC2Launch v2 setup dialog configured to upgrade the current installation and enable telemetry. This configuration performs an install without replacing the agent configuration file, and sets the `EC2LAUNCH_TELEMETRY` environment variable to a value of `1`.
 
-![EC2Launch v2 upgrade configuration.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2launchv2-clean-default-config.png)
+![EC2Launch v2 upgrade configuration.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2launchv2-clean-default-config.png)
 
 
 ------

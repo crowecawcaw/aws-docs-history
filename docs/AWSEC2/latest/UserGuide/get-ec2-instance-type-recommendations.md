@@ -50,4 +50,4 @@ Use the following instructions to get suggestions and guidance for EC2 instance 
 ### View an animation: Get instance type suggestions using the EC2 instance type finder
 <a name="use-ec2-instance-type-finder-animation"></a>
 
-![Getting instance type suggestions using the instance type finder.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/use-ec2-instance-type-finder-animation.gif)
+![Getting instance type suggestions using the instance type finder.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/use-ec2-instance-type-finder-animation.gif)

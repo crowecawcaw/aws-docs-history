@@ -7,7 +7,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides on-demand, scalable computing
 
 An EC2 instance is a virtual server in the AWS Cloud. When you launch an EC2 instance, the instance type that you specify determines the hardware available to your instance. Each instance type offers a different balance of compute, memory, network, and storage resources. For more information, see the [Amazon EC2 Instance Types Guide](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-types.html).
 
-![Each EC2 instance type provides a balance of compute, memory, network, and storage resources.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance-types.png)
+![Each EC2 instance type provides a balance of compute, memory, network, and storage resources.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance-types.png)
 
 
 ## Features of Amazon EC2

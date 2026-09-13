@@ -29,7 +29,7 @@ The tasks in this section require a Linux terminal and may be performed using Li
 **Note**  
 A ROA is not required for non-publicly advertisable IPv6 address space.
 
-![The 3-step onboarding process for BYOIP.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/byoip-preonboarding.png)
+![The 3-step onboarding process for BYOIP.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/byoip-preonboarding.png)
 
 
 To bring on multiple non-contiguous address ranges, you must repeat this process with each address range. However, the preparation and RIR configuration steps don't need to be repeated if splitting a contiguous block across several different AWS Regions.

@@ -100,7 +100,7 @@ For more information about launching an instance, see [Launch an EC2 instance us
 ### View an animation: Launch an EC2 instance
 <a name="option2-launch-ec2-instance-animation"></a>
 
-![Launching an EC2 instance in the EC2 console.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-launch-instance.gif)
+![Launching an EC2 instance in the EC2 console.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-launch-instance.gif)
 
 
 ## Task 2: Create an RDS database and automatically connect it to your EC2 instance
@@ -156,7 +156,7 @@ To learn more, see [ Configure automatic network connectivity with an EC2 instan
 ### View an animation: Create an RDS database and automatically connect it to an EC2 instance
 <a name="task2-create-rds-database-animation"></a>
 
-![Creating an RDS database and connecting it to an EC2 instance.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-create-rds-connect-ec2.gif)
+![Creating an RDS database and connecting it to an EC2 instance.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-create-rds-connect-ec2.gif)
 
 
 ## Task 3: Verify the connection configuration
@@ -213,7 +213,7 @@ By verifying that these security groups and security group rules exist and that 
 ### View an animation: Verify the connection configuration
 <a name="option1-task4-verify-connection-configuration-animation"></a>
 
-![This animation shows how to verify the connection configuration. For the text version of this animation, see the steps in the preceding procedure.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-verify-automatic-connection.gif)
+![This animation shows how to verify the connection configuration. For the text version of this animation, see the steps in the preceding procedure.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-verify-automatic-connection.gif)
 
 
 You have completed Option 2 of this tutorial. You can now either complete Option 3, which teaches you how to manually configure the security groups that were automatically created in Option 2.

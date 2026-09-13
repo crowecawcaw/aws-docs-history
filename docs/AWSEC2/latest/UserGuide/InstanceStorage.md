@@ -9,7 +9,7 @@ An instance store consists of one or more instance store volumes exposed as bloc
 
 The virtual devices for instance store volumes are given virtual device names in order from `ephemeral0` to `ephemeral23`. For example, with an instance type that supports one instance store volume, the virtual device name of the one volume is `ephemeral0`. With an instance type that supports four instance store volumes, the virtual device names of the four volumes are as follows: `ephemeral0`, `ephemeral1`, `ephemeral2` and `ephemeral3`.
 
-![Amazon EC2 instance storage.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance_storage.png)
+![Amazon EC2 instance storage.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance_storage.png)
 
 
 **Instance store pricing**  

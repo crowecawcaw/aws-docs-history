@@ -19,7 +19,7 @@ Before you attempt to connect to an instance using Session Manager, you must com
 1. For the connection method, choose **Session Manager**.
 
 1. Choose **Connect** to start the session.  
-![The Connect button on the Session Manager tab.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/connect-method-session-manager.png)
+![The Connect button on the Session Manager tab.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/connect-method-session-manager.png)
 
 **Troubleshooting**  
 If you receive an error that you're not authorized to perform one or more Systems Manager actions (`ssm:{{command-name}}`), you must update your policies to allow you to start sessions from the Amazon EC2 console. For more information and instructions, see [Quickstart default IAM policies for Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/getting-started-restrict-access-quickstart.html) in the *AWS Systems Manager User Guide*.

@@ -24,7 +24,7 @@ Copying an AMI across geographically diverse Regions provides the following bene
 
 The following diagram shows the relationship between a source AMI and two copied AMIs in different Regions, as well as the EC2 instances launched from each. When you launch an instance from an AMI, it resides in the same Region where the AMI resides. If you make changes to the source AMI and want those changes to be reflected in the AMIs in the target Regions, you must recopy the source AMI to the target Regions.
 
-![AMIs copied in different Regions.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami_copy.png)
+![AMIs copied in different Regions.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami_copy.png)
 
 
 When you first copy an Amazon S3-backed AMI to a Region, we create an Amazon S3 bucket for the AMIs copied to that Region. All Amazon S3-backed AMIs that you copy to that Region are stored in this bucket. The bucket names have the following format: amis-for-{{account}}-in-{{region}}-{{hash}}. For example: `amis-for-123456789012-in-us-east-2-yhjmxvp6`.
@@ -89,7 +89,7 @@ In this scenario, an AMI backed by an unencrypted root snapshot is copied to an 
 **Note**  
 Enabling encryption by default has the same effect as setting the `Encrypted` parameter to `true` for all snapshots in the AMI.
 
-![Copy AMI and encrypt snapshot on the fly](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-to-ami-convert.png)
+![Copy AMI and encrypt snapshot on the fly](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-to-ami-convert.png)
 
 
 Setting the `Encrypted` parameter encrypts the single snapshot for this instance. If you do not specify the `KmsKeyId` parameter, the default customer managed key is used to encrypt the snapshot copy.

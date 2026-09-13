@@ -7,7 +7,7 @@ When you terminate an instance, changes are registered at the operating system (
 
 The following diagram shows what is lost and what persists when an Amazon EC2 instance is terminated. When an instance terminates, the data on any instance store volumes and the data stored in the instance RAM is erased. Any Elastic IP addresses associated with the instance are detached. For Amazon EBS root volumes and data volumes, the outcome depends on the **Delete on termination** setting of each volume.
 
-![The IP addresses, RAM, instance store volumes, and EBS root volume are lost when an instance is terminated.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/terminate-instance.png)
+![The IP addresses, RAM, instance store volumes, and EBS root volume are lost when an instance is terminated.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/terminate-instance.png)
 
 
 ## Considerations

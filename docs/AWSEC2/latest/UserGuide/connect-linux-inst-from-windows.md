@@ -45,10 +45,10 @@ PuTTY does not natively support the PEM format for SSH keys. PuTTY provides a to
 1. From the **Start** menu, choose **All Programs**, **PuTTY**, **PuTTYgen**.
 
 1. Under **Type of key to generate**, choose **RSA**. If your version of PuTTYgen does not include this option, choose **SSH-2 RSA**.  
-![RSA key in PuTTYgen.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/puttygen-key-type.png)
+![RSA key in PuTTYgen.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/puttygen-key-type.png)
 
 1. Choose **Load**. By default, PuTTYgen displays only files with the extension `.ppk`. To locate your `.pem` file, choose the option to display files of all types.  
-![File type filter set to All Files.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/puttygen-load-key.png)
+![File type filter set to All Files.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/puttygen-load-key.png)
 
 1. Select your `.pem` file for the key pair that you specified when you launched your instance and choose **Open**. PuTTYgen displays a notice that the `.pem` file was successfully imported. Choose **OK**.
 
@@ -82,7 +82,7 @@ Use the following procedure to connect to your Linux instance using PuTTY. You n
    1. Ensure that the **Port** value is 22.
 
    1. Under **Connection type**, select **SSH**.  
-![PuTTY configuration - Session.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/putty-session-config.png)
+![PuTTY configuration - Session.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/putty-session-config.png)
 
 1. (Optional) You can configure PuTTY to automatically send 'keepalive' data at regular intervals to keep the session active. This is useful to avoid disconnecting from your instance due to session inactivity. In the **Category** pane, choose **Connection**, and then enter the required interval in **Seconds between keepalives**. For example, if your session disconnects after 10 minutes of inactivity, enter 180 to configure PuTTY to send keepalive data every 3 minutes.
 

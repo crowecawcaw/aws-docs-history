@@ -33,7 +33,7 @@ You can view the most common Amazon EC2 resource types using the console. To vie
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
 1. Amazon EC2 resources are specific to an AWS Region. From the navigation bar, choose a Region from the **Regions** selector.  
-![View your Regions.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/EC2_select_region.png)
+![View your Regions.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/EC2_select_region.png)
 
 1. In the navigation pane, choose the option that corresponds to the resource type. For example, to list all your instances, choose **Instances**.
 
@@ -53,7 +53,7 @@ You can view the most common Amazon EC2 resource types using the console. To vie
 1. Select a filter value.
 
 1. To edit a selected filter, choose the filter token (blue box), make the required edits, and then choose **Apply**. Note that not all screens support editing the selected filter.  
-![Edit a filter.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/filter-edit.png)
+![Edit a filter.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/filter-edit.png)
 
 1. When you are finished, remove the filter.
 
@@ -121,7 +121,7 @@ For example, you can search the **Instance state** attribute for all of your ins
    A list of possible operators for the selected attribute appears.
 
 1. Choose **\!=** (Does not equal), and then choose **terminated**.
-To filter instances based on an instance state attribute, you can also use the search icons ( ![Search icon.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/search.png) ) in the **Instance state** column. The search icon with a plus sign ( **\+** ) displays all the instances that *match* that attribute. The search icon with a minus sign ( **-** ) *excludes* all instances that match that attribute.  
+To filter instances based on an instance state attribute, you can also use the search icons ( ![Search icon.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/search.png) ) in the **Instance state** column. The search icon with a plus sign ( **\+** ) displays all the instances that *match* that attribute. The search icon with a minus sign ( **-** ) *excludes* all instances that match that attribute.  
 Here is another example of using the inverse search: To list all instances that are **not** assigned the security group named `launch-wizard-1`, under **Client filters**, search by the **Security group name** attribute, choose **\!=**, and in the search bar, enter `launch-wizard-1`.
 
 **Partial search**  

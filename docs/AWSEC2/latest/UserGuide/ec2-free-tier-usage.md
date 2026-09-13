@@ -57,7 +57,7 @@ If you've been an AWS customer for more than 12 months, you're no longer eligibl
 1. In the navigation pane, choose **EC2 Dashboard**.
 
 1. Find the **EC2 Free Tier** box (at top right).  
-![The EC2 Free Tier box in the EC2 Dashboard.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-free-tier-widget.png)
+![The EC2 Free Tier box in the EC2 Dashboard.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-free-tier-widget.png)
 
 1. In the **EC2 Free Tier** box, check your Free Tier usage, as follows:
    + Under **EC2 Free Tier offers in use**, take note of the warnings:

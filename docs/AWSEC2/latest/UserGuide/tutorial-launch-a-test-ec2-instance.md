@@ -53,7 +53,7 @@ When deciding on the kind of instance to launch, you'll consider the configurati
 
 In this task, you'll become familiar with a typical technical diagram that we use in the AWS documentation. The following diagram represents the configuration for the test instance you'll launch in this tutorial. In the previous task, we introduced these components using the analogy of a rental house. Now, we'll focus on the actual EC2 components themselves. The numbered labels correspond to the descriptions that follow.
 
-![EC2 instance with a security group, key pair, and EBS volume in a public subnet within a VPC.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-test-instance.png)
+![EC2 instance with a security group, key pair, and EBS volume in a public subnet within a VPC.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-test-instance.png)
 
 
 1. **AMI** – The AMI is the image you choose when launching an instance. It's a template that contains the operating system and software to run on your instance. For example, if you want to launch a Linux instance, you can choose the Amazon Linux 2023 AMI. Or, if you want to launch a Windows instance, you can choose the Microsoft Windows Server 2022 Base AMI. The AMI catalog in the Amazon EC2 console contains 1000s of images to choose from.

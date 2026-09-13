@@ -31,7 +31,7 @@ The following sections provide more detailed information about the four differen
 
 The default stop method is the standard way to stop an instance. When you issue the StopInstances command, the instance transitions from the `running` state, to `stopping`, and finally to `stopped`, as illustrated by the following diagram:
 
-![Default stop flow.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance-flow-1.png)
+![Default stop flow.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance-flow-1.png)
 
 
 **Purpose:** Normal instance shutdown with attempted graceful OS shutdown.
@@ -48,7 +48,7 @@ If you've already attempted a stop with skip OS shutdown, a subsequent default s
 
 When bypassing the graceful OS shutdown is required, the stop with skip OS shutdown method can be used to stop an instance and bypass the graceful OS shutdown, as illustrated by the following diagram:
 
-![Stop with skip OS shutdown flow.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance-flow-3.png)
+![Stop with skip OS shutdown flow.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance-flow-3.png)
 
 
 **Warning**  
@@ -70,7 +70,7 @@ The force stop method is used to handle instances that are stuck in the `stoppin
 
 The force stop method first attempts a default stop. If the instance remains stuck in the `stopping` state, the `force` parameter forcibly shuts down the instance and transitions the instance to the `stopped` state, as indicated by the following diagram:
 
-![Force stop flow.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance-flow-2.png)
+![Force stop flow.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance-flow-2.png)
 
 
 **Purpose:** Handles instances stuck in the `stopping` state. Attempts a default stop first. If the instance fails to stop, then forcibly shuts down the instance.
@@ -84,7 +84,7 @@ The force stop method first attempts a default stop. If the instance remains stu
 
 When force stopping and bypassing the graceful OS shutdown is required, the force stop with skip OS shutdown method can be used to bring an instance to the `stopped` state, as illustrated in the following diagram:
 
-![Force stop with skip OS shutdown flow.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance-flow-4.png)
+![Force stop with skip OS shutdown flow.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance-flow-4.png)
 
 
 **Purpose:** Combines force stop with bypassing a graceful OS shutdown when stopping an instance.

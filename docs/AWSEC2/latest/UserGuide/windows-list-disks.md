@@ -31,10 +31,10 @@ You can find the disks on your Windows instance using Disk Management or PowerSh
 1. Review the disks. The root volume is an EBS volume mounted as `C:\`. If there are no other disks shown, then you didn't specify additional volumes when you created the AMI or launched the instance.
 
    The following is an example that shows the disks that are available if you launch an `m3.medium` instance with an instance store volume (Disk 2) and an additional EBS volume (Disk 1).  
-![Disk Management with a root volume, one instance store volume, and one EBS volume.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/disk_management.png)
+![Disk Management with a root volume, one instance store volume, and one EBS volume.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/disk_management.png)
 
 1. Open the context (right-click) menu for the gray pane labeled Disk 1, and then select **Properties**. Note the value of **Location** and look it up in the tables in [Map non-NVMe disks to volumes](#windows-volume-mapping). For example, the following disk has the location Bus Number 0, Target Id 9, LUN 0. According to the table for EBS volumes, the device name for this location is `xvdj`.  
-![The location of an EBS volume.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/disk_1_location.png)
+![The location of an EBS volume.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/disk_1_location.png)
 
 ------
 #### [ PowerShell ]

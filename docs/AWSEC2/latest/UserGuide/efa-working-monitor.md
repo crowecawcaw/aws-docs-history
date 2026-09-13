@@ -200,6 +200,6 @@ version accountId  eniId        srcAddress        destAddress       sourcePort d
 ## Amazon CloudWatch
 <a name="efa-cloudwatch"></a>
 
-If you are using EFA in an Amazon EKS cluster, you can monitor your EFAs using CloudWatch Container Insights. Amazon CloudWatch Container Insights supports all of the [EFA driver metrics](#efa-driver-metrics), except: `retrans_bytes`, `retrans_pkts`, `retrans_timeout_events`, `unresponsive_remote_events`, and `impaired_remote_conn_events`.
+To collect EFA driver metrics from an instance and publish them to CloudWatch, you can use the CloudWatch agent. For more information, see [Collect EFA metrics with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-EFA.html) in the *Amazon CloudWatch User Guide*.
 
-For more information, see [ Amazon EKS and Kubernetes Container Insights metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-enhanced-EKS.html#Container-Insights-metrics-EFA) in the *Amazon CloudWatch User Guide*.
+If you are using EFA in an Amazon EKS cluster, you can monitor your EFAs using CloudWatch Container Insights. Amazon CloudWatch Container Insights supports all of the [EFA driver metrics](#efa-driver-metrics), except: `retrans_bytes`, `retrans_pkts`, `retrans_timeout_events`, `unresponsive_remote_events`, and `impaired_remote_conn_events`. For more information, see [ Amazon EKS and Kubernetes Container Insights metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-enhanced-EKS.html#Container-Insights-metrics-EFA) in the *Amazon CloudWatch User Guide*.

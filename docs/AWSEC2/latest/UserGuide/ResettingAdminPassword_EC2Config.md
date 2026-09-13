@@ -123,7 +123,7 @@ After you have attached the volume to the temporary instance as a secondary volu
    1. Navigate to the secondary volume, and open `\Program Files\Amazon\Ec2ConfigService\Settings\config.xml` using a text editor, such as Notepad.
 
    1. At the top of the file, find the plugin with the name `Ec2SetPassword`, as shown in the screenshot. Change the state from `Disabled` to `Enabled` and save the file.  
-![The area of the Config.xml file to change.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/pwreset_config.png)
+![The area of the Config.xml file to change.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/pwreset_config.png)
 
 1. After you have modified the configuration file, detach the secondary volume from the temporary instance as follows:
 

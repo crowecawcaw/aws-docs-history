@@ -130,7 +130,7 @@ Administrator privileges are required to perform the following steps to turn on 
 The remaining policy settings are not required to enable Credential Guard and can be left as **Not Configured**.
 
    The following image displays the VBS settings configured as described previously:  
-![Virtualization Based Security Group Policy Object settings with Turn On Virtualization Based Security enabled.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/vbs-credential-guard-gpo-enabled.png)
+![Virtualization Based Security Group Policy Object settings with Turn On Virtualization Based Security enabled.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/vbs-credential-guard-gpo-enabled.png)
 
 1. Reboot the instance to apply the settings.
 
@@ -153,4 +153,4 @@ You must first reboot the instance to finish applying the policy settings requir
 1. The Microsoft System Information tool lists the details for VBS configuration. Next to Virtualization-based security Services, confirm that **Credential Guard** appears as **Running**.
 
    The following image displays VBS is running as described previously:  
-![An image of the Microsoft System Information Tool with the Virtualization-based security line showing a status of Running, confirming Credential Guard is running.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/vbs-credential-guard-msinfo32-enabled.png)
+![An image of the Microsoft System Information Tool with the Virtualization-based security line showing a status of Running, confirming Credential Guard is running.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/vbs-credential-guard-msinfo32-enabled.png)

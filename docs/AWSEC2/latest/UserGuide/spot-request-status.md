@@ -9,7 +9,7 @@ At each step of the process—also called the Spot request *lifecycle*—specifi
 
 The following illustration shows how Spot Instance requests work. Notice that the request type (one-time or persistent) determines whether the request is opened again when Amazon EC2 interrupts a Spot Instance or if you stop a Spot Instance. If the request is persistent, the request is opened again after your Spot Instance is interrupted. If the request is persistent and you stop your Spot Instance, the request only opens after you start your Spot Instance.
 
-![How Spot Instance requests work.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot_lifecycle.png)
+![How Spot Instance requests work.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot_lifecycle.png)
 
 
 **Topics**

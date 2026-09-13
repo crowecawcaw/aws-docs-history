@@ -28,12 +28,12 @@ For example, if you purchase one `m4.xlarge` Reserved Instance and run four `m4.
 
 However, if you purchase one `m4.xlarge` Reserved Instance and run four `m4.xlarge` instances for 15 minutes (900 seconds) each within the same hour, the total running time for the instances is one hour, which results in one hour of Reserved Instance usage and 0 hours of On-Demand usage.
 
-![Four m4.xlarge instances running for 15 minutes each within the same hour.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-per-second-billing.png)
+![Four m4.xlarge instances running for 15 minutes each within the same hour.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-per-second-billing.png)
 
 
 If multiple eligible instances are running concurrently, the Reserved Instance billing benefit is applied to all the instances at the same time up to a maximum of 3600 seconds in a clock-hour; thereafter, On-Demand rates apply.
 
-![Multiple instances running concurrently with Reserved Instance billing.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-per-second-billing-concurrent.png)
+![Multiple instances running concurrently with Reserved Instance billing.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-per-second-billing-concurrent.png)
 
 
 **Cost Explorer** on the [Billing and Cost Management](https://console.aws.amazon.com/billing) console enables you to analyze the savings against running On-Demand Instances. The [Reserved Instances FAQ](https://aws.amazon.com/ec2/faqs/#reserved-instances) includes an example of a list value calculation.
@@ -100,7 +100,7 @@ For example, for a 1-year Partial Upfront `t2.small` Reserved Instance, assume t
 
 1. In the navigation pane, choose **Reserved Instances**.
 
-1. To display the **Upfront price** column, choose settings ( ![Settings icon](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/settings-icon.png) ) in the top-right corner, turn on **Upfront price**, and choose **Confirm**.
+1. To display the **Upfront price** column, choose settings ( ![Settings icon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/settings-icon.png) ) in the top-right corner, turn on **Upfront price**, and choose **Confirm**.
 
 **To view the fixed price values for Reserved Instances using the command line**
 + [describe-reserved-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-reserved-instances.html) (AWS CLI)

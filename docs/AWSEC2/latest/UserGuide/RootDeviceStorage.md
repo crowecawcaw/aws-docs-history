@@ -24,7 +24,7 @@ Instances that use Amazon EBS for the root volume automatically have an Amazon E
 
 An instance with an EBS root volume can be stopped and later restarted without affecting data stored in the attached volumes. There are various instance– and volume-related tasks you can do when an instance with an EBS root volume is in a stopped state. For example, you can modify the properties of the instance, change its size, or update the kernel it is using, or you can attach its root volume to a different running instance for debugging or any other purpose. For more information, see [Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html).
 
-![An instance launched from an EBS-backed AMI with root volume and additional EBS volumes.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ebs_backed_instance.png)
+![An instance launched from an EBS-backed AMI with root volume and additional EBS volumes.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ebs_backed_instance.png)
 
 
 **Limitation**  
@@ -57,7 +57,7 @@ Instances that use instance store for the root volume automatically have one or 
 
 Any data on the instance store volumes persists as long as the instance is running, but this data is deleted when the instance is terminated (instances with an instance store root volume do not support the **Stop** action) or if it fails (such as if an underlying drive has issues). For more information, see [Instance store temporary block storage for EC2 instances](InstanceStorage.md).
 
-![Root volume on an Amazon EC2 instance launched from an Amazon S3-backed AMI.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance_store_backed_instance.png)
+![Root volume on an Amazon EC2 instance launched from an Amazon S3-backed AMI.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance_store_backed_instance.png)
 
 
 **Supported instance types**  

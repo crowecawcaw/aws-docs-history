@@ -7,7 +7,7 @@ A key pair, consisting of a public key and a private key, is a set of security c
 
 Amazon EC2 stores the public key on your instance, and you store the private key, as shown in the following diagram. It's important that you store your private key in a secure place because anyone who possesses your private key can connect to your instances that use the key pair.
 
-![A key pair consists of a private key for your computer and a public key for your instance.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-key-pair.png)
+![A key pair consists of a private key for your computer and a public key for your instance.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-key-pair.png)
 
 
 When you launch an instance, you can [specify a key pair](ec2-instance-launch-parameters.md#liw-key-pair), so that you can connect to your instance using a method that requires a key pair. Depending on how you manage your security, you can specify the same key pair for all your instances or you can specify different key pairs.

@@ -7,7 +7,7 @@ You can view the usage and savings information for Spot Instances at the per-fle
 
 The following screenshot from the **Savings** section shows the Spot usage and savings information for a Spot Fleet.
 
-![The Savings section on the Spot Fleet details page.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot-savings.png)
+![The Savings section on the Spot Fleet details page.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot-savings.png)
 
 
 You can view the following usage and savings information:

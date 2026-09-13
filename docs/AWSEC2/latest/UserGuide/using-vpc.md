@@ -17,7 +17,7 @@ Amazon Virtual Private Cloud (Amazon VPC) enables you to define a virtual networ
 
 When you create your AWS account, we create a *default VPC* in each Region. A default VPC is a VPC that is already configured and ready for you to use. For example, there is a default subnet for each Availability Zone in each default VPC, an internet gateway attached to the VPC, and there's a route in the main route table that sends all traffic (0.0.0.0/0) to the internet gateway. You can modify the configuration of your default VPCs as needed. For example, you can add subnets and route tables.
 
-![We create a default VPC in each Region, with a default subnet in each Availability Zone.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/default-vpc.png)
+![We create a default VPC in each Region, with a default subnet in each Availability Zone.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/default-vpc.png)
 
 
 ## Nondefault VPCs

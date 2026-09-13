@@ -44,7 +44,7 @@ If you use an email account that you do not check regularly, you might miss an i
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
 1. In the navigation pane, choose **EC2 Dashboard**. Under **Scheduled events**, you can see the events that are associated with your Amazon EC2 instances and volumes, organized by Region.  
-![Scheduled events.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/dashboard-scheduled-events.png)
+![Scheduled events.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/dashboard-scheduled-events.png)
 
 1. If you have an instance with a scheduled event listed, select its link below the Region name to go to the **Events** page.
 

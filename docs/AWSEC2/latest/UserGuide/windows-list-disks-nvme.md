@@ -26,7 +26,7 @@ You can find the disks on your Windows instance using Disk Management or Powersh
 1. Review the disks. The root volume is an EBS volume mounted as `C:\`. If there are no other disks shown, then you didn't specify additional volumes when you created the AMI or launched the instance.
 
    The following is an example that shows the disks that are available if you launch an `r5d.4xlarge` instance with two additional EBS volumes.  
-![Disk Management with a root volume, two instance store volumes, and two EBS volumes.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/disk_management_nvme.png)
+![Disk Management with a root volume, two instance store volumes, and two EBS volumes.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/disk_management_nvme.png)
 
 ------
 #### [ PowerShell ]

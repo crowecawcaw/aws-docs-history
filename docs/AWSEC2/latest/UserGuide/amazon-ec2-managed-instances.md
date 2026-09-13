@@ -216,6 +216,15 @@ When you turn off visibility, you can still access managed resources. The follow
 **Note**  
 The same direct-query-by-ID behavior applies to all affected resource types. You can use `describe-volumes`, `describe-launch-templates`, and `describe-network-interfaces` with specific resource IDs to access hidden managed resources of those types.
 
+### EventBridge notifications
+<a name="managed-resource-visibility-eventbridge"></a>
+
+Managed resource visibility settings affect the events that Amazon EC2 emits to Amazon EventBridge. When visibility is **Hidden (default)**, Amazon EC2 does not emit `EC2 Instance State-change Notification` events to EventBridge for managed instances.
+
+To receive these events for managed instances in EventBridge, set visibility to **Visible**.
+
+For more information about changing this setting, see [Configure managed resource visibility](#configuring-managed-resource-visibility).
+
 ### Billing considerations
 <a name="managed-resource-visibility-billing"></a>
 

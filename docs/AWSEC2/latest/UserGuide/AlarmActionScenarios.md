@@ -5,7 +5,7 @@
 
 You can use the Amazon EC2 console to create alarm actions that stop or terminate an Amazon EC2 instance when certain conditions are met. In the following screen capture of the console page where you set the alarm actions, we've numbered the settings. We've also numbered the settings in the scenarios that follow, to help you create the appropriate actions.
 
-![Manage Cloudwatch alarms page.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/manage-cloudwatch-alarms.png)
+![Manage Cloudwatch alarms page.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/manage-cloudwatch-alarms.png)
 
 
 ## Scenario 1: Stop idle development and test instances

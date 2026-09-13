@@ -37,7 +37,7 @@ A Spot Instance request can be in one of the following states:
 
 The following illustration represents the transitions between the request states. Notice that the transitions depend on the request type (one-time or persistent).
 
-![Spot Instance request states.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot_request_states.png)
+![Spot Instance request states.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot_request_states.png)
 
 
 A one-time Spot Instance request remains active until Amazon EC2 launches the Spot Instance, the request expires, or you cancel the request. If capacity is not available, your Spot Instance is terminated and the Spot Instance request is closed.

@@ -29,7 +29,7 @@ As context for why you'd want to configure a connection between your EC2 instanc
 
 The following diagram shows the resources that are created and the architectural configuration that results from completing all the steps in this tutorial.
 
-![Architecture of the EC2 instance and RDS database created in this tutorial.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-rds-tutorial-architecture.png)
+![Architecture of the EC2 instance and RDS database created in this tutorial.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-rds-tutorial-architecture.png)
 
 
 The diagram illustrates the following resources that you'll create:

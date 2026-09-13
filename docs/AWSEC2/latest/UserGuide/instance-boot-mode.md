@@ -32,7 +32,7 @@ Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec
 aws ec2 describe-instances \
     --region {{us-east-1}} \
     --instance-ids {{i-1234567890abcdef0}} \
-    --query Reservations[].Instances[].BootMode \
+    --query 'Reservations[].Instances[].BootMode' \
     --output text
 ```
 

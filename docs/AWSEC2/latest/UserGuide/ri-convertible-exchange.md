@@ -99,7 +99,7 @@ In this example, you have a `t2.micro` Convertible Reserved Instance with four i
 
 1. Exchange one of the new `t2.micro` Convertible Reserved Instances for an `m4.xlarge` Convertible Reserved Instance.
 
-![Modifying and exchange Reserved Instances.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-split-cri-multiple.png)
+![Modifying and exchange Reserved Instances.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-split-cri-multiple.png)
 
 
 **Example: Convertible Reserved Instance with a single instance**  
@@ -109,7 +109,7 @@ In this example, you have a `t2.large` Convertible Reserved Instance. To change 
 
 1. Exchange one of the new `t2.medium` Convertible Reserved Instances for an `m3.medium` Convertible Reserved Instance.
 
-![Modify and exchange Reserved Instances.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-split-cri-single.png)
+![Modify and exchange Reserved Instances.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-split-cri-single.png)
 
 For more information, see [Support for modifying instance sizes](ri-modifying.md#ri-modification-instancemove) and [Submit exchange requests](#ri-exchange-process).
 

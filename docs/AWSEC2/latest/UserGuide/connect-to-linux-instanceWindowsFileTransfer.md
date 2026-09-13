@@ -29,12 +29,12 @@ For more information about the prerequisites to connect using RDP, see [Prerequi
 1. Choose the **Local Resources** tab.
 
 1. Under **Local devices and resources**, choose **More...**  
-![RDP Local Resources window.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-connect-rdp-local-resources.png)
+![RDP Local Resources window.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-connect-rdp-local-resources.png)
 
 1. Open **Drives** and select the local drive to map to your Windows instance.
 
 1. Choose **OK**.  
-![RDP Local devices and resources window.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-connect-rdp-drives.png)
+![RDP Local devices and resources window.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-connect-rdp-drives.png)
 
 1. Choose **Connect** to connect to your Windows instance.
 
@@ -50,7 +50,7 @@ For more information about the prerequisites to connect using RDP, see [Prerequi
 1. Open the context (right-click) menu for the RDP file, and choose **Edit**. 
 
 1. Choose the **Folders** tab, and select the **Redirect folders** checkbox.  
-![Microsoft Remote Desktop Edit PC window.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/mac-map-folder-1.png)
+![Microsoft Remote Desktop Edit PC window.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/mac-map-folder-1.png)
 
 1. Choose the **\+** icon at bottom left, browse to the folder to map, and choose **Open**. Repeat this step for every folder to map.
 
@@ -59,7 +59,7 @@ For more information about the prerequisites to connect using RDP, see [Prerequi
 1. Choose **Connect** to connect to your Windows instance. You'll be prompted for the password.
 
 1. On the instance, in File Explorer, expand **This PC**, and find the shared folder from which you can access your local files. In the following screenshot, the **Desktop** folder on the local computer was mapped to the remote session drive on the instance.  
-![Microsoft Remote Desktop Edit PC window.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/mac-map-folder-2.png)
+![Microsoft Remote Desktop Edit PC window.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/mac-map-folder-2.png)
 
 For more information on making local devices available to a remote session on a Mac computer, see [Get started with the macOS client](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 

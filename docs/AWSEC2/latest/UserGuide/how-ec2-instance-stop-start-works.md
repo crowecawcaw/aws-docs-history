@@ -44,7 +44,7 @@ The following describes what typically happens when you stop an instance using t
 
 The following diagram illustrates what persists and what is lost when an EC2 instance is stopped. The diagram is divided into three parts: the first part, labeled **Running EC2 instance**, shows the instance in the `running` state with its resources. The second part, labeled **Stopped EC2 instance**, shows the instance in the `stopped` state with the resources that persist. The third part, labeled **Lost**, shows the resources that are lost when the instance is stopped.
 
-![The public IPv4 address, RAM, and instance storage data are lost when an instance is stopped.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance.png)
+![The public IPv4 address, RAM, and instance storage data are lost when an instance is stopped.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/stop-instance.png)
 
 
 For information about what happens when you stop a Mac instance, see [Stop or terminate your Amazon EC2 Mac instance](mac-instance-stop.md).

@@ -14,7 +14,7 @@ Amazon EC2 resources are specific to the AWS Region or zone in which they reside
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
 1. From the navigation bar, choose the **Regions** selector and then choose the Region.  
-![View your Regions.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/EC2_select_region.png)
+![View your Regions.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/EC2_select_region.png)
 
 1. The Regions selector includes all resources that are available for use in your AWS account. Choose the underlined text near the bottom of the list to view the Regions that are not enabled for your account.
 

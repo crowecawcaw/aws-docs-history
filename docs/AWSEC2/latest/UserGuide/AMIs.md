@@ -14,7 +14,7 @@ An AMI is specific to the following:
 
 You can launch multiple instances from a single AMI when you require multiple instances with the same configuration. You can use different AMIs to launch instances when you require instances with different configurations, as shown in the following diagram.
 
-![Launch multiple instances from an AMI.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/launch-from-ami.png)
+![Launch multiple instances from an AMI.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/launch-from-ami.png)
 
 
 You can create an AMI from your Amazon EC2 instances and then use it to launch instances with the same configuration. You can copy an AMI to another AWS Region, and then use it to launch instances in that Region. You can also share an AMI that you created with other accounts so that they can launch instances with the same configuration. You can sell your AMI using the AWS Marketplace.

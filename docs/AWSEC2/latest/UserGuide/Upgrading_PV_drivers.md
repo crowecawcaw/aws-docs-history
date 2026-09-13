@@ -239,7 +239,7 @@ Instead of creating the AMI from the Amazon EC2 console, you can use Systems Man
 1. In the **Red Hat Paravirtualized Xen Drivers for Windows uninstaller** dialog box, choose **Yes** to remove the Red Hat software. Your instance will be rebooted.
 **Note**  
 If you do not see the uninstaller dialog box, choose **Red Hat Paravirtualize** in the Windows taskbar.  
-![Red Hat Paravirtualized in taskbar.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win2003-citrix-taskbar.png)
+![Red Hat Paravirtualized in taskbar.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win2003-citrix-taskbar.png)
 
 1. Check that the instance has rebooted and is ready to be used.
 
@@ -248,14 +248,14 @@ If you do not see the uninstaller dialog box, choose **Red Hat Paravirtualize** 
    1. On the **Instances** page, select **Actions**, then **Monitor and troubleshoot**, and then choose **Get system log**.
 
    1. The upgrade operations should have restarted the server 3 or 4 times. You can see this in the log file by the number of times `Windows is Ready to use` is displayed.  
-![Windows system log.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win2008-sys-log.png)
+![Windows system log.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win2008-sys-log.png)
 
 1. Connect to your instance and log in as the local administrator.
 
 1. Close the **Red Hat Paravirtualized Xen Drivers for Windows uninstaller** dialog box.
 
 1. Confirm that the installation is complete. Navigate to the `Citrix-WIN_PV` folder that you extracted earlier, open the `PVUpgrade.log` file, and then check for the text `INSTALLATION IS COMPLETE`.  
-![PVUpgrade log file.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win2008-pvupgrade-log.png)
+![PVUpgrade log file.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win2008-pvupgrade-log.png)
 
 ## Upgrade your Citrix Xen guest agent service
 <a name="citrix-pv-guest-agent-upgrade"></a>

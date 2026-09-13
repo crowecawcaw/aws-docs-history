@@ -32,7 +32,7 @@ To create an application-consistent snapshot, the following software components 
 
 The Windows VSS based Amazon EBS snapshot solution consists of multiple Systems Manager (SSM) Run Command documents that facilitate backup creation, and a [ Systems Manager Distributor package](https://docs.aws.amazon.com/systems-manager/latest/userguide/distributor.html), called `AwsVssComponents`, that includes an *EC2 VSS requester* and an *EC2 VSS provider*. The `AwsVssComponents` package must be installed on EC2 Windows instances to take application-consistent snapshots of EBS volumes. The following diagram illustrates the relationship between these software components.
 
-![VSS software components.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/vss_components.png)
+![VSS software components.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/vss_components.png)
 
 
 ## How the VSS based Amazon EBS snapshot solution works

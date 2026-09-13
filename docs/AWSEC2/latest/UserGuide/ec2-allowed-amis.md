@@ -28,7 +28,7 @@ The Allowed AMIs feature only controls the discovery and use of public AMIs or A
 
 To control which AMIs can be discovered and used in your account, you define a set of criteria against which to evaluate the AMIs. The criteria are made up of one or more `ImageCriterion` as shown in the following diagram. An explanation follows the diagram.
 
-![The Allowed AMIs ImageCriteria configuration hierarchy.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami_allowed-amis-imagecriteria.png)
+![The Allowed AMIs ImageCriteria configuration hierarchy.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami_allowed-amis-imagecriteria.png)
 
 
 The configuration has three levels:

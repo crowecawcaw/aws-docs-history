@@ -28,7 +28,7 @@ The following overview describes a management network created using multiple net
 **Note**  
 To ensure failover capabilities, consider using a secondary private IPv4 for incoming traffic on a network interface. In the event of an instance failure, you can move the interface and/or secondary private IPv4 address to a standby instance.
 
-![Creating a management network.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/EC2_ENI_management_network.png)
+![Creating a management network.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/EC2_ENI_management_network.png)
 
 
 ## Network and security appliances

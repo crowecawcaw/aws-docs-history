@@ -101,7 +101,7 @@ If you do not create the instance in the same Availability Zone as the affected 
     **HKEY\_LOCAL\_MACHINE\\{{your\_temporary\_key\_name}}\\ControlSet001\\Control\\Class\\4d36e96a-e325-11ce-bfc1-08002be10318** 
 
 1. For each key, open **UpperFilters**, enter a value of XENFILT, and then choose **OK**.  
-![Registry key for affected volume.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/troubleshooting-server2012R2-regedit.png)
+![Registry key for affected volume.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/troubleshooting-server2012R2-regedit.png)
 
 1. Locate the following key:
 
@@ -190,7 +190,7 @@ Disabling TCP offloading may reduce the network performance of your instance.
 1. Choose **Change adapter settings**.
 
 1. Open the context (right-click) menu for **Citrix PV Ethernet Adapter \#0** and select **Properties**.  
-![Local area connection properties.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/citrix-local-area-conn.png)
+![Local area connection properties.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/citrix-local-area-conn.png)
 
 1. In the **Local Area Connection Properties** dialog box, choose **Configure** to open the **Citrix PV Ethernet Adapter \#0 Properties** dialog box.
 

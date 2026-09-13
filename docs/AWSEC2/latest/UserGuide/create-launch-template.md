@@ -332,7 +332,7 @@ A Systems Manager parameter is a user-defined key-value pair that you create in 
 
 In the following diagram, the `golden-ami` parameter is first mapped to the original AMI `ami-aabbccddeeffgghhi` in the Parameter Store. In the launch template, the value for the AMI ID is `golden-ami`. When an instance is launched using this launch template, the AMI ID resolves to `ami-aabbccddeeffgghhi`. Later, the AMI is updated resulting in a new AMI ID. In the Parameter Store, the `golden-ami` parameter is mapped to the new `ami-00112233445566778`. *The launch template remains unchanged.* When an instance is launched using this launch template, the AMI ID resolves to the new `ami-00112233445566778`.
 
-![Using Systems Manager parameters in the Parameter Store to update a launch template.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/launch-template-ami-alias.png)
+![Using Systems Manager parameters in the Parameter Store to update a launch template.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/launch-template-ami-alias.png)
 
 
 ### Systems Manager parameter format for AMI IDs

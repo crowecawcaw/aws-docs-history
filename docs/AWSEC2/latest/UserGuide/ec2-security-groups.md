@@ -25,7 +25,7 @@ You can associate each instance with multiple security groups, and you can assoc
 
 The following diagram shows a VPC with a subnet, an internet gateway, and a security group. The subnet contains EC2 instances. The security group is associated with the instances. The only traffic that reaches the instance is the traffic allowed by the security group rules. For example, if the security group contains a rule that allows SSH traffic from your network, then you can connect to your instance from your computer using SSH. If the security group contains a rule that allows all traffic from the resources associated with it, then each instance can receive any traffic sent from the other instances.
 
-![VPC with a security group. The EC2 instances in the subnet are associated with the security group.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-security-groups.png)
+![VPC with a security group. The EC2 instances in the subnet are associated with the security group.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-security-groups.png)
 
 
 Security groups are stateful—if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules. Also, responses to allowed inbound traffic are allowed to flow out, regardless of outbound rules. For more information, see [Connection tracking](security-group-connection-tracking.md).

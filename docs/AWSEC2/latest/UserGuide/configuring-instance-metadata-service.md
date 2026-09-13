@@ -127,7 +127,7 @@ The following are the minimum versions that support using IMDSv2:
 + [AWS SDK for JavaScript in Node.js](https://github.com/aws/aws-sdk-js) – 2.722.0
 + [AWS SDK for Kotlin](https://github.com/awslabs/aws-sdk-kotlin) – 1.1.4
 + [AWS SDK for PHP](https://github.com/aws/aws-sdk-php) – 3.147.7
-+ [AWS SDK for Python (Botocore)](https://github.com/boto/botocore) – 1.13.25
++ [Botocore](https://github.com/boto/botocore) (the low-level library underlying the AWS SDK for Python (Boto3) and the AWS CLI) – 1.13.25
 + [AWS SDK for Python (Boto3)](https://github.com/boto/boto3) – 1.12.6
 + [AWS SDK for Ruby](https://github.com/aws/aws-sdk-ruby) – 3.79.0
 

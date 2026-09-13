@@ -43,7 +43,7 @@ On the full installation of Windows Server 2016 and later (with a desktop experi
 1. Connect to your Windows instance and customize it.
 
 1. Search for and run the **EC2LaunchSettings** application. It is located in the following directory by default: `C:\ProgramData\Amazon\EC2-Windows\Launch\Settings`.  
-![EC2 Launch Settings application.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2launch-sysprep.png)
+![EC2 Launch Settings application.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2launch-sysprep.png)
 
 1. Select or clear options as needed. These settings are stored in the `LaunchConfig.json` file.
 

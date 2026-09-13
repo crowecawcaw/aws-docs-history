@@ -150,33 +150,33 @@ If you enable SAC on an instance, the EC2 services that rely on password retriev
 1. [Connect to the serial console.](connect-to-serial-console.md)
 
    If SAC is enabled on the instance, the serial console displays the `SAC>` prompt.  
-![SAC prompt displayed in the serial console.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-3.png)
+![SAC prompt displayed in the serial console.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-3.png)
 
 1. To display the SAC commands, enter ?, and then press **Enter**.
 
    Expected output  
-![SAC command prompt displaying available commands.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-4.png)
+![SAC command prompt displaying available commands.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-4.png)
 
 1. To create a command prompt channel (such as `cmd0001` or `cmd0002`), enter cmd, and then press **Enter**.
 
 1. To view the command prompt channel, press **ESC**, and then press **TAB**.
 
    Expected output  
-![The command prompt channel.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-5.png)
+![The command prompt channel.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-5.png)
 
 1. To switch channels, press **ESC\+TAB\+channel number** together. For example, to switch to the `cmd0002` channel (if it has been created), press **ESC\+TAB\+2**.
 
 1. Enter the credentials required by the command prompt channel.  
-![The command prompt requiring credentials.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-6.png)
+![The command prompt requiring credentials.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-6.png)
 
    The command prompt is the same full-featured command shell that you get on a desktop, but with the exception that it does not allow the reading of characters that were already output.  
-![A full-featured command shell.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-7.png)
+![A full-featured command shell.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-7.png)
 
 **PowerShell can also be used from the command prompt.**
 
 Note that you might need to set the progress preference to silent mode.
 
-![PowerShell within the command prompt.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-8.png)
+![PowerShell within the command prompt.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-8.png)
 
 
 ### Use the boot menu
@@ -184,7 +184,7 @@ Note that you might need to set the progress preference to silent mode.
 
 If the instance has the boot menu enabled and is restarted after connecting through SSH, you should see the boot menu, as follows.
 
-![Boot menu in the command prompt.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-1.png)
+![Boot menu in the command prompt.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-1.png)
 
 
 **Boot menu commands**
@@ -205,7 +205,7 @@ ESC key \+ left arrow
 Goes back to the initial boot menu.  
 The ESC key alone does not take you back to the main menu because Windows is waiting to see if an escape sequence is in progress.
 
-![Advanced boot options.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-2.png)
+![Advanced boot options.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/win-boot-2.png)
 
 
 ### Disable SAC and the boot menu

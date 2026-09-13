@@ -32,7 +32,7 @@ Capacity Reservations are billed at per-second granularity, with a minimum of 60
 
 The following example shows how a Capacity Reservation is billed. The Capacity Reservation is created for one `m4.large` Linux instance, which has an On-Demand rate of $0.10 per usage hour. In this example, the Capacity Reservation is provisioned in the account for five hours. The Capacity Reservation is unused for the first hour, so it is billed for one unused hour at the `m4.large` instance type's standard On-Demand rate. In hours two through five, the Capacity Reservation is occupied by an `m4.large` instance. During this time, the Capacity Reservation accrues no charges, and the account is instead billed for the `m4.large` instance occupying it. In the sixth hour, the Capacity Reservation is canceled and the `m4.large` instance runs normally outside of the reserved capacity. For that hour, it is charged at the On-Demand rate of the `m4.large` instance type.
 
-![Capacity Reservation billing example.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/cr-billing-example.png)
+![Capacity Reservation billing example.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/cr-billing-example.png)
 
 
 ## Billing discounts

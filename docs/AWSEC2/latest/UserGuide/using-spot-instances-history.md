@@ -25,7 +25,7 @@ For the *current* Spot Instance prices, see [Amazon EC2 Spot Instances Pricing](
    + If you choose **Instance Types**, then choose up to five **Instance type(s)**, the **Availability Zone**, operating system (**Platform**), and **Date range** for which to view the price history.
 
    The following screenshot shows a price comparison for different instance types.  
-![The Spot Instance pricing history tool in the Amazon EC2 console.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot-instance-pricing-history.png)
+![The Spot Instance pricing history tool in the Amazon EC2 console.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot-instance-pricing-history.png)
 
 1. Hover (move your pointer) over the graph to display the prices at specific times in the selected date range. The prices are displayed in the information blocks above the graph. The price displayed in the top row shows the price on a specific date. The price displayed in the second row shows the average price over the selected date range.
 

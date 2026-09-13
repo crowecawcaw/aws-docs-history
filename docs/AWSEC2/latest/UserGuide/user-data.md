@@ -29,7 +29,7 @@ You can specify user data when you launch an instance with the Launch Wizard in 
 
 In the following screenshot of the **User data** field, the example script creates a file in the Windows temporary folder, using the current date and time in the file name. When you include `<persist>true</persist>`, the script is run every time you reboot or start the instance. If you leave the **User data has already been base64 encoded** checkbox empty, the Amazon EC2 console performs the base64 encoding for you.
 
-![Advance Details user data text field.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/configure_ec2config_userdata.png)
+![Advance Details user data text field.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/configure_ec2config_userdata.png)
 
 
 For more information, see [Specify instance user data at launch with the Launch Wizard](#user-data-launch-instance-wizard). For a Linux example that uses the AWS CLI, see [User data and the AWS CLI](#user-data-api-cli). For a Windows example that uses the Tools for Windows PowerShell, see [User data and the Tools for Windows PowerShell](#user-data-powershell).
@@ -54,7 +54,7 @@ When you stop an instance, the data on instance store volumes is lost. To preser
 1. With the instance still selected, choose **Actions**, **Instance settings**, **Edit user data**. You can't change the user data if the instance is running, but you can view it.
 
 1. In the **Edit user data** dialog box, update the user data, and then choose **Save**. To run user data scripts every time you reboot or start the instance, add `<persist>true</persist>`, as shown in the following example:  
-![Edit User Data dialog box.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/view-change-user-data.png)
+![Edit User Data dialog box.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/view-change-user-data.png)
 
 1. Start the instance. If you enabled user data execution for subsequent reboots or starts, the updated user data scripts are run as part of the instance start process.
 

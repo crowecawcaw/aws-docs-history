@@ -38,7 +38,7 @@ You can configure route table rules to allow the endpoint to connect to any inst
 
 The following diagram shows how a user can connect to their instances from the internet using an EC2 Instance Connect Endpoint. First, create an **EC2 Instance Connect Endpoint** in subnet A. We create a network interface for the endpoint in the subnet, which serves as the entry point for traffic destined to your instances in the VPC. If the route table for subnet B allows traffic from subnet A, then you can use the endpoint to reach instances in subnet B.
 
-![Overview of the EC2 Instance Connect Endpoint flow.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-instance-connect-endpoint.png)
+![Overview of the EC2 Instance Connect Endpoint flow.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-instance-connect-endpoint.png)
 
 
 ## Considerations

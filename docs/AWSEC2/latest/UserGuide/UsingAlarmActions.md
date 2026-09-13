@@ -45,7 +45,7 @@ Instances that use an Amazon EBS volume as the root volume can be stopped or ter
 
 1. Select the instance and choose **Actions**, **Monitor and troubleshoot**, **Manage CloudWatch alarms**.
 
-   Alternatively, you can choose the plus sign ( ![Add icon](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/add-plus.png) ) in the **Alarm status** column.
+   Alternatively, you can choose the plus sign ( ![Add icon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/add-plus.png) ) in the **Alarm status** column.
 
 1. On the **Manage CloudWatch alarms** page, do the following:
 
@@ -80,7 +80,7 @@ You can create an alarm that terminates an EC2 instance automatically when a cer
 
 1. Select the instance and choose **Actions**, **Monitor and troubleshoot**, **Manage CloudWatch alarms**.
 
-   Alternatively, you can choose the plus sign ( ![Add icon](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/add-plus.png) ) in the **Alarm status** column.
+   Alternatively, you can choose the plus sign ( ![Add icon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/add-plus.png) ) in the **Alarm status** column.
 
 1. On the **Manage CloudWatch alarms** page, do the following:
 
@@ -120,7 +120,7 @@ To avoid a race condition between the reboot and recover actions, avoid setting 
 
 1. Select the instance and choose **Actions**, **Monitor and troubleshoot**, **Manage CloudWatch alarms**.
 
-   Alternatively, you can choose the plus sign ( ![Add icon](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/add-plus.png) ) in the **Alarm status** column.
+   Alternatively, you can choose the plus sign ( ![Add icon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/add-plus.png) ) in the **Alarm status** column.
 
 1. On the **Manage CloudWatch alarms** page, do the following:
 
@@ -171,7 +171,7 @@ To avoid a race condition between the reboot and recover actions, avoid setting 
 
 1. Select the instance and choose **Actions**, **Monitor and troubleshoot**, **Manage CloudWatch alarms**.
 
-   Alternatively, you can choose the plus sign ( ![Add icon](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/add-plus.png) ) in the **Alarm status** column.
+   Alternatively, you can choose the plus sign ( ![Add icon](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/add-plus.png) ) in the **Alarm status** column.
 
 1. On the **Manage CloudWatch alarms** page, do the following:
 

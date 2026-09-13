@@ -37,7 +37,7 @@ You can view how many Reserved Instances you have purchased by using the Amazon 
 1. Select a Reserved Instance configuration from the table, and check the **Instance count** field.
 
    In the following screenshot, the selected line represents a single Reserved Instance configuration for a `t3.micro` instance type. The **Instance count** column in the table view and the **Instance count** field in the detail view (outlined in the screenshot) indicate that there are 10 Reserved Instances for this configuration.  
-![Reserved Instances screen showing the Instance count column and detail field.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-instance-count.png)
+![Reserved Instances screen showing the Instance count column and detail field.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ri-instance-count.png)
 
 ------
 #### [ AWS CLI ]

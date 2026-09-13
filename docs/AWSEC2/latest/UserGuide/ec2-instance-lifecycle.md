@@ -7,7 +7,7 @@ An Amazon EC2 instance transitions through different states from the moment you 
 
 The following illustration represents the transitions between instance states.
 
-![The instance lifecycle.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
+![The instance lifecycle.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
 
 
 You can receive notifications when your instances change states. For more information, see [State change events for Amazon EC2 instances](monitoring-instance-state-changes.md).

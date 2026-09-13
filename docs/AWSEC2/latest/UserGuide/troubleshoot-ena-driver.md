@@ -66,7 +66,7 @@ To review ENA Windows driver event logs using the Windows Event Viewer, follow t
 
 The following example shows an ENA driver event in the Windows Event Viewer system events list:
 
-![Example: ENA driver event shown in the Windows Event Viewer system messages list.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-event-viewer-example.png)
+![Example: ENA driver event shown in the Windows Event Viewer system messages list.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-event-viewer-example.png)
 
 
 #### Event message summary
@@ -151,12 +151,12 @@ The ENA device detects sub-optimal configuration settings in the driver that you
 
 Events with ID `59000` notify you of sub-optimal configuration findings. Open the context (right-click) menu for an event and choose **Event Properties** to open a detailed view, or select **Preview Pane** from the **View** menu to see the same detail.
 
-![Example: System event ID 59000 shown in the Windows Event Viewer preview pane.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-sub-opt-event-general.png)
+![Example: System event ID 59000 shown in the Windows Event Viewer preview pane.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-sub-opt-event-general.png)
 
 
 Open the **Details** tab to see the event code. In the **Binary Data: In words** section, the last word is the code.
 
-![Example: The last word in the Binary Data section is shown highlighted.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-sub-opt-event-detail.png)
+![Example: The last word in the Binary Data section is shown highlighted.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-sub-opt-event-detail.png)
 
 
 The following list shows notification code details and recommended actions for sub-optimal configuration findings.
@@ -278,7 +278,7 @@ The ENA adapter icon in the Device Manager **Network adapters** section displays
 
 The following example shows an ENA adapter with the warning icon in Windows Device Manager:
 
-![Example: ENA adapter with warning icon shown in the Windows Device Manager.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-adapter-device-mgr-warn.png)
+![Example: ENA adapter with warning icon shown in the Windows Device Manager.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-adapter-device-mgr-warn.png)
 
 
 #### Cause
@@ -424,7 +424,7 @@ To change ENA adapter properties, follow these steps:
 
 The following example shows an ENA adapter property in the Windows Device Manager:
 
-![Example: ENA adapter property shown in the Windows Device Manager.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-adapter-device-mgr-property.png)
+![Example: ENA adapter property shown in the Windows Device Manager.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ena-adapter-device-mgr-property.png)
 
 
 ##### ENA adapter performance adjustments

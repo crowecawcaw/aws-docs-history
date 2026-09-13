@@ -42,7 +42,7 @@ The following examples help to illustrate the cost savings that are possible whe
 
 The bill shows one line item with a combined rate that includes both usage and licensing fees.
 
-![Sample bill with default billing for license-included Windows and SQL Server Enterprise instance.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/optimize-cpus-sample-bill-default.png)
+![Sample bill with default billing for license-included Windows and SQL Server Enterprise instance.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/optimize-cpus-sample-bill-default.png)
 
 
 **Example 2: Optimize CPUs billing** This example shows an r7i.8xlarge instance launched from a license-included Windows and SQL Server Enterprise AMI. To save on license fees, the number of CPUs that are active was reduced to 16 vCPUs. Then the instance ran for 100 hours with the new configuration.
@@ -55,7 +55,7 @@ The first line item shows the baseline cost of the Windows and SQL Server instan
 Billing description: **Amazon EC2 Optimize CPU License Included Third Party Fees**  
 The second line item covers licensing fees based on the number of vCPUs that were active for the billing period ($673.60).
 
-![Sample bill with Optimize CPUs billing for a license-included Windows and SQL Server Enterprise instance.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/optimize-cpus-sample-bill-optimized.png)
+![Sample bill with Optimize CPUs billing for a license-included Windows and SQL Server Enterprise instance.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/optimize-cpus-sample-bill-optimized.png)
 
 
 **Example 3: Optimize CPUs billing with Savings Plans** This example shows an r7i.8xlarge instance launched from a license-included Windows and SQL Server Enterprise AMI. To save on license fees, the number of CPUs that are active was reduced to 16 vCPUs. Then the instance ran for 100 hours with the new configuration.
@@ -73,4 +73,4 @@ The second line item contains two entries. The first entry shows what the baseli
 Billing description: **Amazon EC2 Optimize CPU License Included Third Party Fees**  
 The third line item covers licensing fees based on the number of vCPUs that were active for the billing period ($673.60).
 
-![Sample bill with a Savings Plan and Optimize CPUs billing for a license-included Windows and SQL Server Enterprise instance.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/optimize-cpus-sample-bill-savings-plan.png)
+![Sample bill with a Savings Plan and Optimize CPUs billing for a license-included Windows and SQL Server Enterprise instance.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/optimize-cpus-sample-bill-savings-plan.png)

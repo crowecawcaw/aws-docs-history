@@ -115,7 +115,7 @@ You must be the AMI owner to view disabled AMIs. Because disabled AMIs are made 
 1. In the left navigation pane, choose **AMIs**.
 
 1. From the filter bar, choose **Disabled images**.  
-![The Disabled images filter.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-filter-by-disabled-images.png)
+![The Disabled images filter.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-filter-by-disabled-images.png)
 
 ------
 #### [ AWS CLI ]

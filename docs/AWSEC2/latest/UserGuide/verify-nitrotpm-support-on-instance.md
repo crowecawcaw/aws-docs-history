@@ -44,4 +44,4 @@ Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/referenc
    The **TPM Management on Local Computer** window opens.
 
 1. Check the **TPM Manufacturer Information** field. It contains the manufacturer's name and the version of the NitroTPM on the instance.  
-![TPM Management window showing the TPM Manufacturer Information field with the NitroTPM version.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tpm-1.png)
+![TPM Management window showing the TPM Manufacturer Information field with the NitroTPM version.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tpm-1.png)

@@ -9,7 +9,7 @@ An organization is an entity that you create to consolidate and centrally manage
 
 When you share an AMI with an organization or an OU, all of the children accounts gain access to the AMI. For example, in the following diagram, the AMI is shared with a top-level OU (indicated by the arrow at the number **1**). All of the OUs and accounts that are nested underneath that top-level OU (indicated by the dotted line at number **2**) also have access to the AMI. The accounts in the organization and OU outside the dotted line (indicated by the number **3**) do not have access to the AMI because they are not children of the OU that the AMI is shared with.
 
-![The AMI is shared with an OU, and all children OUs and accounts get access to the AMI.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-share-with-orgs-and-ous.png)
+![The AMI is shared with an OU, and all children OUs and accounts get access to the AMI.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-share-with-orgs-and-ous.png)
 
 
 **Topics**

@@ -28,7 +28,7 @@ Tags enable you to categorize your AWS resources in different ways, for example,
 
 The following diagram illustrates how tagging works. In this example, you've assigned two tags to each of your instances—one tag with the key `Owner` and another with the key `Stack`. Each tag also has an associated value.
 
-![Tag example.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/Tag_Example.png)
+![Tag example.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/Tag_Example.png)
 
 
 We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. For more information about how to implement an effective resource tagging strategy, see the [Tagging Best Practices AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html).

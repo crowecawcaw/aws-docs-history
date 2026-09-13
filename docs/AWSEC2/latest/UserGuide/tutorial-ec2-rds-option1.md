@@ -88,7 +88,7 @@ In a production environment, you should configure your database to meet your spe
 ### View an animation: Create an RDS database
 <a name="task1-create-rds-database-animation"></a>
 
-![Creating an RDS database in the RDS console.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-create-rds-database.gif)
+![Creating an RDS database in the RDS console.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-create-rds-database.gif)
 
 
 ## Task 2 (*Optional*): Launch an EC2 instance
@@ -163,7 +163,7 @@ For more information about launching an instance, see [Launch an EC2 instance us
 ### View an animation: Launch an EC2 instance
 <a name="option1-launch-ec2-instance-animation"></a>
 
-![Launching an EC2 instance in the EC2 console.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-launch-instance.gif)
+![Launching an EC2 instance in the EC2 console.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-launch-instance.gif)
 
 
 ## Task 3: Automatically connect your EC2 instance to your RDS database
@@ -196,7 +196,7 @@ The EC2 instance and the RDS database must be in the same VPC to connect to each
 ### View an animation: Automatically connect a newly-launched EC2 instance to an RDS database
 <a name="option1-task3-connect-ec2-instance-to-rds-database-animation"></a>
 
-![Using the automatic connection feature to connect an EC2 instance to an RDS database.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-connect-new-ec2-rds.gif)
+![Using the automatic connection feature to connect an EC2 instance to an RDS database.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-connect-new-ec2-rds.gif)
 
 
 ## Task 4: Verify the connection configuration
@@ -253,7 +253,7 @@ By verifying that these security groups and security group rules exist and that 
 ### View an animation: Verify the connection configuration
 <a name="option1-task4-verify-connection-configuration-animation"></a>
 
-![This animation shows how to verify the connection configuration. For the text version of this animation, see the steps in the preceding procedure.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-verify-automatic-connection.gif)
+![This animation shows how to verify the connection configuration. For the text version of this animation, see the steps in the preceding procedure.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-verify-automatic-connection.gif)
 
 
 You have completed Option 1 of this tutorial. You can now either complete Option 2, which teaches you how to use the RDS console to automatically connect an EC2 instance to an RDS database, or you can complete Option 3, which teaches you how to manually configure the security groups that were automatically created in Option 1.

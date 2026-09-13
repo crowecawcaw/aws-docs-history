@@ -3,9 +3,9 @@
 # Set the boot mode of an Amazon EC2 AMI
 <a name="set-ami-boot-mode"></a>
 
-By default, an AMI inherits the boot mode of the EC2 instance used to create the AMI. For example, if you create an AMI from an EC2 instance running on Legacy BIOS, the boot mode of the new AMI is `legacy-bios`. If you create an AMI from an EC2 instance with a boot mode of `uefi-preferred`, the boot mode of the new AMI is `uefi-preferred`.
+By default, an AMI inherits the boot mode of the EC2 instance used to create the AMI. For example, if you create an AMI from an EC2 instance running on Legacy BIOS, the boot mode of the new AMI is `legacy-bios`. If you create an AMI from an EC2 instance with a boot mode of `uefi-preferred`, the boot mode of the new AMI is `uefi-preferred`. To override the default boot mode to `uefi` when creating an AMI, you can specify a boot mode override. The only supported override value is `uefi`, and the current instance boot mode must be `uefi`. You can use this option to override the boot mode of an AMI from `uefi-preferred` to `uefi`. This prevents instances launched from the AMI from falling back to Legacy BIOS and losing access to UEFI-dependent features. If the instance's boot mode is already `uefi`, specifying an override of `uefi` has no effect. You cannot specify any other overrides (for example, you cannot override `legacy-bios` to `uefi` or `uefi` to `uefi-preferred`).
 
-When you register an AMI, you can set the boot mode of the AMI to `uefi`, `legacy-bios`, or `uefi-preferred`.
+To convert an existing Legacy BIOS-based instance to UEFI, or an existing UEFI-based instance to Legacy BIOS, you must first modify the instance's volume and operating system to support the selected boot mode. Then, create a snapshot of the volume. Finally, register an AMI from the snapshot. When you register an AMI, you can set the boot mode of the AMI to `uefi`, `legacy-bios`, or `uefi-preferred`.
 
 When the AMI boot mode is set to `uefi-preferred`, the instance boots as follows: 
 + For instance types that support both UEFI and Legacy BIOS (for example, `m5.large`), the instance boots using UEFI.
@@ -13,10 +13,8 @@ When the AMI boot mode is set to `uefi-preferred`, the instance boots as follows
 
 If you set the AMI boot mode to `uefi-preferred`, the operating system must support the ability to boot both UEFI and Legacy BIOS.
 
-To convert an existing Legacy BIOS-based instance to UEFI, or an existing UEFI-based instance to Legacy BIOS, you must first modify the instance's volume and operating system to support the selected boot mode. Then, create a snapshot of the volume. Finally, create an AMI from the snapshot.
-
 **Considerations**
-+ Setting the AMI boot mode parameter does not automatically configure the operating system for the specified boot mode. You must first make suitable modifications to the instance's volume and operating system to support booting using the selected boot mode. Otherwise, the resulting AMI is not usable. For example, if you are converting a Legacy BIOS-based Windows instance to UEFI, you can use the [MBR2GPT](https://learn.microsoft.com/en-us/windows/deployment/mbr-to-gpt) tool from Microsoft to convert the system disk from MBR to GPT. The modifications that are required are operating system-specific. For more information, see the manual for your operating system.
++ Setting the AMI boot mode parameter does not automatically configure the operating system for the specified boot mode. You must first make suitable modifications to the instance's volume and operating system to support booting using the selected boot mode. Otherwise, the resulting AMI is not usable. For example, if you are converting a Legacy BIOS-based Windows instance to UEFI, you can use the [MBR2GPT](https://learn.microsoft.com/en-us/windows/deployment/mbr-to-gpt) tool from Microsoft to convert the system disk from MBR to GPT. The required modifications are operating system-specific. For more information, see the manual for your operating system.
 + You can't use the [register-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html) command or the [Register-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2Image.html) cmdlet to create an AMI that supports both [NitroTPM](nitrotpm.md) and UEFI Preferred.
 + Some features, like UEFI Secure Boot, are only available on instances that boot on UEFI. When you use the `uefi-preferred` AMI boot mode parameter with an instance type that does not support UEFI, the instance launches as Legacy BIOS and the UEFI-dependent feature is disabled. If you rely on the availability of a UEFI-dependent feature, set your AMI boot mode parameter to `uefi`.
 
@@ -25,7 +23,7 @@ To convert an existing Legacy BIOS-based instance to UEFI, or an existing UEFI-b
 
 **To set the boot mode of an AMI**
 
-1. Make suitable modifications to the instance's volume and operating system to support booting by using the selected boot mode. The modifications that are required are operating system-specific. For more information, see the manual for your operating system.
+1. Make suitable modifications to the instance's volume and operating system to support booting by using the selected boot mode. The required modifications are operating system-specific. For more information, see the manual for your operating system.
 **Warning**  
 If you don't perform this step, the AMI will not be usable.
 
@@ -34,7 +32,7 @@ If you don't perform this step, the AMI will not be usable.
    ```
    aws ec2 describe-instances \
        --instance-ids {{i-1234567890abcdef0}} \
-       --query Reservations[].Instances[].BlockDeviceMappings
+       --query 'Reservations[].Instances[].BlockDeviceMappings'
    ```
 
    The following is example output.
@@ -85,7 +83,7 @@ If you don't perform this step, the AMI will not be usable.
    ```
    aws ec2 describe-snapshots \
        --snapshot-ids {{snap-0abcdef1234567890}} \
-       --query Snapshots[].State \
+       --query 'Snapshots[].State' \
        --output text
    ```
 
@@ -126,7 +124,63 @@ If you don't perform this step, the AMI will not be usable.
    ```
    aws ec2 describe-images \
        --image-id {{ami-1234567890abcdef0}} \
-       --query Images[].BootMode \
+       --query 'Images[].BootMode' \
+       --output text
+   ```
+
+   The following is example output.
+
+   ```
+   uefi
+   ```
+
+**To set the boot mode of an AMI to UEFI**
+
+1. Make suitable modifications to the instance's volume and operating system to support booting by using the selected boot mode. The required modifications are operating system-specific. For more information, see the manual for your operating system.
+**Warning**  
+If you don't perform this step, the AMI will not be usable.
+
+1. To confirm that the current instance boot mode is UEFI, use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command.
+
+   ```
+   aws ec2 describe-instances \
+       --instance-ids {{i-1234567890abcdef0}} \
+       --query 'Reservations[].Instances[].CurrentInstanceBootMode' \
+       --output text
+   ```
+
+   The following is example output.
+
+   ```
+   uefi
+   ```
+
+   If the output is `legacy-bios`, you cannot create an AMI with a boot mode of `uefi` from this instance. See the preceding procedure, **To set the boot mode of an AMI**, instead.
+
+1. To create a new AMI, use the [create-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-image.html) command with the `--boot-mode-override` parameter set to `uefi`.
+
+   ```
+   aws ec2 create-image \
+       --instance-id {{i-1234567890abcdef0}} \
+       --name "{{my-image}}" \
+       --description "{{my image}}" \
+       --boot-mode-override uefi
+   ```
+
+   The following is example output.
+
+   ```
+   {
+       "ImageId": "ami-0123456789abcdef0"
+   }
+   ```
+
+1. (Optional) To verify that the newly-created AMI has the boot mode that you specified, use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command.
+
+   ```
+   aws ec2 describe-images \
+       --image-id {{ami-1234567890abcdef0}} \
+       --query 'Images[].BootMode' \
        --output text
    ```
 
@@ -141,7 +195,7 @@ If you don't perform this step, the AMI will not be usable.
 
 **To set the boot mode of an AMI**
 
-1. Make suitable modifications to the instance's volume and operating system to support booting by using the selected boot mode. The modifications that are required are operating system-specific. For more information, see the manual for your operating system.
+1. Make suitable modifications to the instance's volume and operating system to support booting by using the selected boot mode. The required modifications are operating system-specific. For more information, see the manual for your operating system.
 **Warning**  
 If you don't perform this step, the AMI will not be usable.
 

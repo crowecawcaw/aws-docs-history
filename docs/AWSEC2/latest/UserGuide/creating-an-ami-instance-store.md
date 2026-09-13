@@ -27,7 +27,7 @@ The AMI creation process is different for Amazon EBS-backed AMIs. For more infor
 
 The following diagram summarizes the process of creating an AMI from an instance with an instance store root volume.
 
-![Creating an Amazon S3-backed AMI.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami_create_instance_store.png)
+![Creating an Amazon S3-backed AMI.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami_create_instance_store.png)
 
 
 First, launch an instance from an AMI that's similar to the AMI that you'd like to create. You can connect to your instance and customize it. When the instance is set up the way you want it, you can bundle it. It takes several minutes for the bundling process to complete. After the process completes, you have a bundle, which consists of an image manifest (`image.manifest.xml`) and files (`image.part.`*xx*) that contain a template for the root volume. Next you upload the bundle to your Amazon S3 bucket and then register your AMI.

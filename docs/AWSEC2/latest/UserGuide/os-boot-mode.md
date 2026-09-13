@@ -68,4 +68,4 @@ Use the instructions for your instance's operating system.
 1. [Connect to your Windows instance using RDP](connecting_to_windows_instance.md).
 
 1. Go to **System Information** and check the **BIOS Mode** row.  
-![System Information window showing the BIOS Mode row selected. The value for BIOS Mode is Legacy.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/BIOS-mode-win.png)
+![System Information window showing the BIOS Mode row selected. The value for BIOS Mode is Legacy.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/BIOS-mode-win.png)

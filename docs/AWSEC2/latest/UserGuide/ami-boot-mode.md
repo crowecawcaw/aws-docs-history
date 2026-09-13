@@ -34,7 +34,7 @@ Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/d
 aws ec2 describe-images \
     --region {{us-east-1}} \
     --image-id {{ami-0abcdef1234567890}} \
-    --query Images[].BootMode \
+    --query 'Images[].BootMode' \
     --output text
 ```
 

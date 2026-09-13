@@ -13,10 +13,10 @@ In addition to receiving notification of scheduled events in email, you can chec
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
 1. The dashboard displays any resources with an associated event under **Scheduled events**.  
-![Viewing events using the dashboard.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/dashboard-scheduled-events.png)
+![Viewing events using the dashboard.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/dashboard-scheduled-events.png)
 
 1. For more detail, choose **Events** in the navigation pane. Any resources with an associated event are displayed. You can filter by characteristics such as event type, resource type, and Availability Zone.  
-![Viewing events using the Events page.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/events-instance-scheduled-stop.png)
+![Viewing events using the Events page.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/events-instance-scheduled-stop.png)
 
 ------
 #### [ AWS CLI ]

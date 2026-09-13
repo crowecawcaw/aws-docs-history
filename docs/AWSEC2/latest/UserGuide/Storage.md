@@ -21,7 +21,7 @@ Amazon EC2 provides you with flexible, cost effective, and easy-to-use data stor
 
 The following figure shows the relationship between these storage options and your instance.
 
-![Storage options for Amazon EC2.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/architecture_storage.png)
+![Storage options for Amazon EC2.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/architecture_storage.png)
 
 
 ## AWS Storage pricing

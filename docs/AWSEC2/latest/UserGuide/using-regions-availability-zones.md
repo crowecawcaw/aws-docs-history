@@ -51,7 +51,7 @@ By launching EC2 instances in multiple Availability Zones, you can protect your 
 
 The following diagram illustrates multiple Availability Zones in an AWS Region. Availability Zone A and Availability Zone B each have one subnet, and each subnet has EC2 instances. Availability Zone C has no subnets, therefore you can't launch instances into this Availability Zone.
 
-![A Region with instances in one Availability Zone.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/region-with-azs.png)
+![A Region with instances in one Availability Zone.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/region-with-azs.png)
 
 
 For more information, see [Virtual private clouds for your EC2 instances](using-vpc.md).
@@ -79,7 +79,7 @@ The code for a Local Zone is its Region code followed by an identifier that indi
 
 The following diagram illustrates the AWS Region `us-west-2`, two of its Availability Zones, and two of its Local Zones. The VPC spans the Availability Zones and one of the Local Zones. Each zone in the VPC has one subnet, and each subnet has an instance.
 
-![VPC with Availability Zones and Local Zones.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/region-with-lzs.png)
+![VPC with Availability Zones and Local Zones.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/region-with-lzs.png)
 
 
 ### Available Local Zones
@@ -109,7 +109,7 @@ The code for a Wavelength Zone is its Region code followed by an identifier that
 
 The following diagram illustrates the AWS Region `us-west-2`, two of its Availability Zones, and a Wavelength Zone. The VPC spans the Availability Zones and the Wavelength Zone. Each zone in the VPC has one subnet, and each subnet has an instance.
 
-![VPC with Availability Zones and a Wavelength Zone.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/region-with-wavelength-zones.png)
+![VPC with Availability Zones and a Wavelength Zone.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/region-with-wavelength-zones.png)
 
 
 Wavelength Zones are not available in every Region. For information about the Regions that support Wavelength Zones, see [Available Wavelength Zones](https://docs.aws.amazon.com/wavelength/latest/developerguide/wavelength-quotas.html#concepts-available-zones) in the *AWS Wavelength Developer Guide*.
@@ -135,7 +135,7 @@ An Outpost is a pool of AWS compute and storage capacity deployed at a customer 
 
 The following diagram illustrates the AWS Region `us-west-2`, two of its Availability Zones, and an Outpost. The VPC spans the Availability Zones and the Outpost. The Outpost is in an on-premises customer data center. Each zone in the VPC has one subnet, and each subnet has an instance.
 
-![VPC with Availability Zones and an Outpost.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/region-with-outpost.png)
+![VPC with Availability Zones and an Outpost.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/region-with-outpost.png)
 
 
 ### Instances on an Outpost

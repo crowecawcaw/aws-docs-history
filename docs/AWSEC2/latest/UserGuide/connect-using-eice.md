@@ -176,7 +176,7 @@ You can use Remote Desktop Protocol (RDP) over EC2 Instance Connect Endpoint to 
 1. In the **Edit PC** window, for **PC name** (the instance to connect to), enter `localhost:{{local-port}}`, where `{{local-port}}` uses the same value as you specified in Step 2, and then choose **Save**.
 
    Note that the following screenshot of the **Edit PC** window is from Microsoft Remote Desktop on a Mac. If you are using a Windows client, the window might be different.  
-![The RDP client with localhost:5555 in the PC name field.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-instance-connect-endpoint-rdp.png)
+![The RDP client with localhost:5555 in the PC name field.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ec2-instance-connect-endpoint-rdp.png)
 
 1. In the RDP client, open the context (right-click) menu for the PC (that you just configured) and choose **Connect** to connect to your instance.
 

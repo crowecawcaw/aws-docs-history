@@ -190,7 +190,7 @@ After you launch a G4ad instance, you can set up dual 4K displays.
    ```
 
 1. When you connect into DCV, change the resolution to 2x4K, confirming the dual monitor support is registered by DCV.  
-![DCV resolution changes.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/dm-dcv-example.png)
+![DCV resolution changes.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/dm-dcv-example.png)
 
 ## Set up an interactive desktop for Linux
 <a name="amd-interactive-desktop"></a>

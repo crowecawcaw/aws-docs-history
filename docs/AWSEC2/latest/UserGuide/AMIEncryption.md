@@ -55,7 +55,7 @@ For information about using the console to launch an instance from an AMI, see [
 
 In this example, an AMI backed by an unencrypted snapshot is used to launch an EC2 instance with an encrypted EBS volume.
 
-![Launch instance and encrypt volume on the fly.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-launch-convert.png)
+![Launch instance and encrypt volume on the fly.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-launch-convert.png)
 
 
 The `Encrypted` parameter alone results in the volume for this instance being encrypted. Providing a `KmsKeyId` parameter is optional. If no KMS key ID is specified, the AWS account's default KMS key is used to encrypt the volume. To encrypt the volume to a different KMS key that you own, supply the `KmsKeyId` parameter. 
@@ -65,7 +65,7 @@ The `Encrypted` parameter alone results in the volume for this instance being en
 
 In this example, an AMI backed by an encrypted snapshot is used to launch an EC2 instance with an EBS volume encrypted by a new KMS key. 
 
-![Launch instance and re-encrypt volume on the fly.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-launch-encrypted.png)
+![Launch instance and re-encrypt volume on the fly.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-launch-encrypted.png)
 
 
 If you own the AMI and supply no encryption parameters, the resulting instance has a volume encrypted by the same KMS key as the snapshot. If the AMI is shared rather than owned by you, and you supply no encryption parameters, the volume is encrypted by your default KMS key. With encryption parameters supplied as shown, the volume is encrypted by the specified KMS key.
@@ -75,7 +75,7 @@ If you own the AMI and supply no encryption parameters, the resulting instance h
 
 In this more complex example, an AMI backed by multiple snapshots (each with its own encryption state) is used to launch an EC2 instance with a newly encrypted volume and a re-encrypted volume.
 
-![Encrypt and re-encrypt multiple volumes during launch.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-launch-mixed.png)
+![Encrypt and re-encrypt multiple volumes during launch.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-launch-mixed.png)
 
 
 In this scenario, the `RunInstances` action is supplied with encryption parameters for each of the source snapshots. When all possible encryption parameters are specified, the resulting instance is the same regardless of whether you own the AMI.
@@ -119,7 +119,7 @@ In this scenario, an AMI backed by an unencrypted root snapshot is copied to an 
 **Note**  
 Enabling encryption by default has the same effect as setting the `Encrypted` parameter to `true` for all snapshots in the AMI.
 
-![Copy AMI and encrypt snapshot on the fly](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-to-ami-convert.png)
+![Copy AMI and encrypt snapshot on the fly](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami-to-ami-convert.png)
 
 
 Setting the `Encrypted` parameter encrypts the single snapshot for this instance. If you do not specify the `KmsKeyId` parameter, the default customer managed key is used to encrypt the snapshot copy.

@@ -77,7 +77,7 @@ When you configure static IP addressing in your instance, the IP address must ma
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/config-windows-multiple-ip.html)
 **Important**  
 If you set the IP address to any value other than the current IP address, you will lose connectivity to the instance.  
-![IP Addresses.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-static.png)
+![IP Addresses.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-static.png)
 
 You will lose RDP connectivity to the Windows instance for a few seconds while the instance converts from using DHCP to static addressing. The instance retains the same IP address information as before, but now this information is static and not managed by DHCP.
 
@@ -107,10 +107,10 @@ After you have set up static IP addressing on your Windows instance, you are rea
 1. Choose **Add**.
 
 1. In the **TCP/IP Address** dialog box, type the secondary private IP address for **IP address**. For **Subnet mask**, type the same subnet mask that you entered for the primary private IP address in [Step 1: Configure static IP addressing in your instance](#step1), and then choose **Add**.   
-![TCP/IP Address dialog box.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-add.png)
+![TCP/IP Address dialog box.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-add.png)
 
 1. Verify the IP address settings and choose **OK**.  
-![IP Settings tab.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-advanced-tcpip.png)
+![IP Settings tab.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-advanced-tcpip.png)
 
 1. Choose **OK**, **Close**.
 
@@ -154,6 +154,6 @@ You can configure any applications to use the secondary private IP address. For 
 1. In the **Site Bindings** dialog box, for **Type**, choose **http**, **Edit**.
 
 1. In the **Edit Site Binding** dialog box, for **IP address**, select the secondary private IP address. (By default, each website accepts HTTP requests from all IP addresses.)  
-![IP Addresses.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-iis-site-binding.png)
+![IP Addresses.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-iis-site-binding.png)
 
 1. Choose **OK**, **Close**.

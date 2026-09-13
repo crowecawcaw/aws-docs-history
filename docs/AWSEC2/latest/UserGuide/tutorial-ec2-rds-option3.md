@@ -101,7 +101,7 @@ For more information about launching an instance, see [Launch an EC2 instance us
 ### View an animation: Launch an EC2 instance
 <a name="option3-launch-ec2-instance-animation"></a>
 
-![Launching an EC2 instance in the EC2 console.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-launch-instance.gif)
+![Launching an EC2 instance in the EC2 console.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-launch-instance.gif)
 
 
 ## Task 2 (*Optional*): Create an RDS database
@@ -148,7 +148,7 @@ In a production environment, you should configure your instance to meet your spe
 ### View an animation: Create a DB instance
 <a name="option3-task2-create-rds-database-animation"></a>
 
-![Creating a DB instance in the RDS console.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-create-db-step2.gif)
+![Creating a DB instance in the RDS console.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-create-db-step2.gif)
 
 
 ## Task 3: Manually connect your EC2 instance to your RDS database by creating security groups and assigning them to the instances

@@ -20,10 +20,10 @@ You can use the AWS Management Console or the AWS CLI to get statistics for a sp
 1. Choose the **Per-Instance Metrics** dimension.
 
 1. In the search field, enter **CPUUtilization** and press Enter. Choose the row for the specific instance, which displays a graph for the **CPUUtilization** metric for the instance. To name the graph, choose the pencil icon. To change the time range, select one of the predefined values or choose **custom**.  
-![Graph a single metric.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/metric_statistics_ec2_instance.png)
+![Graph a single metric.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/metric_statistics_ec2_instance.png)
 
 1. To change the statistic or the period for the metric, choose the **Graphed metrics** tab. Choose the column heading or an individual value, and then choose a different value.  
-![Change the statistic or period for a metric.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/metric_statistics_ec2_instance_statistic_period.png)
+![Change the statistic or period for a metric.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/metric_statistics_ec2_instance_statistic_period.png)
 
 **To get the CPU utilization for a specific instance (AWS CLI)**  
 Use the following [get-metric-statistics](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/get-metric-statistics.html) command to get the **CPUUtilization** metric for the specified instance, using the specified period and time interval:
