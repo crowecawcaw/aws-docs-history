@@ -70,12 +70,12 @@ The communication between the host processor and the ExpressLink module required
 
 The Host processor is not required to retrieve the entire payload at once, nor to follow a strictly sequential process, the fetching pointer can be moved (seek) to allow random access to the payload contents. Also, the size of the chunks retrieved by the Host processor is independent from the chunking performed during the image download by the module. Instead, this is intended to be the most convenient value depending on the host processor's serial interface buffer size, the Host processor's own (flash) memory page size, and/or binary format decoding needs (for example, INTEL HEX...). Consequently, the host processor can choose the reboot directly from the ExpressLink module host OTA memory or can choose to transfer only parts of the payload to be consumed by other subsystems as necessary.
 
-<a name="elpg-figure3"></a>![Figure 3 - ExpressLink module OTA state diagrams](http://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/ota-states.png)
+<a name="elpg-figure3"></a>![Figure 3 - ExpressLink module OTA state diagrams](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/ota-states.png)
 
 
  
 
-<a name="elpg-figure4"></a>![Figure 4 - ExpressLink Host OTA state diagrams](http://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/hota-states.png)
+<a name="elpg-figure4"></a>![Figure 4 - ExpressLink Host OTA state diagrams](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/hota-states.png)
 
 
  

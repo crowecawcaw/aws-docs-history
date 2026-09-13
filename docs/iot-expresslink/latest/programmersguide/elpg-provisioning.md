@@ -46,7 +46,7 @@ Using the staging account endpoint, the ExpressLink module proceeds to login to 
 
 ExpressLink Evaluation Kits are able to use the ExpressLink staging account to deliver a fast, out-of-box experience. As soon as connected they are able to publish data to an ExpressLink MQTT topic ("data") and subscribe to any ExpressLink MQTT topic ("state"). AWS provides a simple web application (Quick Connect) to all ExpressLink users to visualize the data published by the Host processor (using animated graphs) and to send customizable commands back to their Host processors.
 
-<a name="elpg-figure5"></a>![Figure 5 - ExpressLink evaluation kit Quick Connect flow](http://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/QuickConnect_Visualizer.r.png)
+<a name="elpg-figure5"></a>![Figure 5 - ExpressLink evaluation kit Quick Connect flow](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/QuickConnect_Visualizer.r.png)
 
 
 Developers are also able to register their ExpressLink modules to their private developer's accounts and proceed to application development with a few simple, manual steps, including:
@@ -111,7 +111,7 @@ The configuration parameter Endpoint (see [Table 2 - Configuration Dictionary Pe
 
 **12.3.2.5**   When (and only when) in the *onboarded* state, a connected ExpressLink module subscribes automatically to several AWS-reserved topics as required to support OTA and other core ExpressLink functionality. In the same way, features dependent on the AWS IoT Device Defender and AWS IoT Device Shadow services are supported only when a module is in the *onboarded* state.
 
-<a name="elpg-figure6"></a>![Figure 6 - ExpressLink onboarding states diagram](http://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/image5.png)
+<a name="elpg-figure6"></a>![Figure 6 - ExpressLink onboarding states diagram](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/image5.png)
 
 
  

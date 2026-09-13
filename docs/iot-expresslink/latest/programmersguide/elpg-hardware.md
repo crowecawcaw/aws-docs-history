@@ -12,7 +12,7 @@ An AWS IoT ExpressLink qualified module is generally composed of the following e
 ## 2.1 Block diagram
 <a name="elpg-hardware-block-diagrams"></a>
 
-<a name="elpg-figure1"></a>![Figure 1 - Simplified block diagram](http://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/image1.png)
+<a name="elpg-figure1"></a>![Figure 1 - Simplified block diagram](https://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/images/image1.png)
 
 
 ## 2.2 Pin definitions
