@@ -10,7 +10,7 @@ This architecture shows how to use Baffle Data Protection Service (DPS) to imple
 ## Protect Your Data with HYOK Solutions by Baffle DPS
 <a name="diagram1"></a>
 
-![Architecture diagram showing HYOK data protection with Baffle DPS on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hyok-baffle-dps/images/hyok-baffle-dps.png)
+![Architecture diagram showing HYOK data protection with Baffle DPS on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hyok-baffle-dps/images/hyok-baffle-dps.png)
 
 
 1. End-of-day point-of-sale (POS) data downloads from wholesale and retail partner systems and saves on-premises.
