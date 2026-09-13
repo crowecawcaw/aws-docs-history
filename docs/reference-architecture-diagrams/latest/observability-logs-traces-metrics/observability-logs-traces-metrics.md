@@ -10,7 +10,7 @@ This architecture shows how to use for application performance monitoring and in
 ## Observability with Logs, Traces, and Metrics
 <a name="diagram1"></a>
 
-![Architecture diagram showing observability with logs, traces, and metrics by using .](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/observability-logs-traces-metrics/images/observability-logs-traces-metrics.png)
+![Architecture diagram showing observability with logs, traces, and metrics by using .](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/observability-logs-traces-metrics/images/observability-logs-traces-metrics.png)
 
 
 1. Applications, services, and containers produce three types of signals: logs, metrics, and traces.
