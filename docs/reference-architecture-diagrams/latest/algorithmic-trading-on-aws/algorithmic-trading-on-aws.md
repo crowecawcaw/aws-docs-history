@@ -10,7 +10,7 @@ With this architecture, you can backtest and host machine learning (ML)-based al
 ## Algorithmic trading diagram
 <a name="algotrading-diagram"></a>
 
-![Reference architecture diagram showing how to backtest and host ML-based algorithmic trading strategies by using AWS Fargate, Amazon ECS, SageMaker AI, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/algorithmic-trading-on-aws/images/algorithmic-trading-on-aws.png)
+![Reference architecture diagram showing how to backtest and host ML-based algorithmic trading strategies by using AWS Fargate, Amazon ECS, SageMaker AI, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/algorithmic-trading-on-aws/images/algorithmic-trading-on-aws.png)
 
 
 The following steps describe the data flow and trading components for this architecture:
