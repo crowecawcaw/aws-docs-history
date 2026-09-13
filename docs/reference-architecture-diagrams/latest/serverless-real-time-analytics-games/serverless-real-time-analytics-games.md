@@ -10,7 +10,7 @@ This serverless architecture collects events from games, analyzes them in real-t
 ## Serverless Real-Time Analytics for Games diagram
 <a name="analytics-diagram"></a>
 
-![Reference architecture diagram showing how to build serverless real-time analytics pipelines for cross-platform games by using Amazon Kinesis, Lambda, CloudWatch, and Amazon Data Firehose.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-real-time-analytics-games/images/serverless-real-time-analytics-games.png)
+![Reference architecture diagram showing how to build serverless real-time analytics pipelines for cross-platform games by using Amazon Kinesis, Lambda, CloudWatch, and Amazon Data Firehose.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-real-time-analytics-games/images/serverless-real-time-analytics-games.png)
 
 
 **Collecting client events (option with AWS SDKs):**
