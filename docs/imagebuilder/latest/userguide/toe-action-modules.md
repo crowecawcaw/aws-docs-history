@@ -278,7 +278,7 @@ You can leave these values blank, and AWSTOE uses the default values.
 + Document nesting is allowed, up to three levels deep, but no more than that. Three levels of nesting translates to four document levels, as the top level isn't nested. In this scenario, the lowest level document must not call any other documents.
 + Cyclic execution of component documents is not allowed. Any document that calls itself outside of a looping construct, or that calls another document higher up in the current chain of execution, initiates a cycle that can result in an endless loop. When AWSTOE detects a cyclic execution, it stops the execution and records the failure.
 
-![Nesting level restrictions for the ExecuteDocument action module.](http://docs.aws.amazon.com/imagebuilder/latest/userguide/images/toe-component-document-nesting.png)
+![Nesting level restrictions for the ExecuteDocument action module.](https://docs.aws.amazon.com/imagebuilder/latest/userguide/images/toe-component-document-nesting.png)
 
 
 If a component document tries to run itself, or to run any of the component documents that are higher up in the current chain of execution, the execution fails.
