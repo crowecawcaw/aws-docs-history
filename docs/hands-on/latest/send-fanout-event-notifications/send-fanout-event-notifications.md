@@ -28,12 +28,12 @@ The AWS services you use in this tutorial are within the [AWS Free Tier](https:/
 1. Launch the AWS Management Console
 
    When you [click here](https://console.aws.amazon.com/console/home), the AWS Management Console will open in a new browser window, so you can keep this step-by-step guide open. When the screen loads, enter your user name and password to get started. Then type **notification** in the search bar and select **Simple Notification Service** to open the service console.   
-![The AWS Management Console.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface.png)
+![The AWS Management Console.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface.png)
 
 1. Start the Amazon SNS Console
 
    If the SNS console landing page appears, click **Next step**.   
-![The Amazon SNS console.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-1.png)
+![The Amazon SNS console.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-1.png)
 
 ### Step 2: Create an Amazon SNS Topic
 <a name="create-an-amazon-sns-topic"></a>
@@ -43,12 +43,12 @@ In this step, you will create an Amazon SNS topic. A topic is a communication ch
 1. Create an SNS topic
 
    In the Create topic page, type **New-Orders**, in the topic name box, then click **Create topic**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-2.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-2.png)
 
 1. Verify topic creation
 
    The Topic details page confirms the topic is successfully created.   
-![Amazon SNS dashboard showing details of the "New-Orders" topic with no subscriptions listed and options to create a subscription.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/dashboard-details-new-orders-topic.png)
+![Amazon SNS dashboard showing details of the "New-Orders" topic with no subscriptions listed and options to create a subscription.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/dashboard-details-new-orders-topic.png)
 
 ### Step 3: Create the Amazon SQS Queues
 <a name="create-the-amazon-sqs-queues"></a>
@@ -64,31 +64,31 @@ To keep things simple, we won't actually attach EC2 instances to the queues in t
 1. Open the Amazon SQS console
 
    [Click here](https://console.aws.amazon.com/sqs) to open the Amazon SQS console in a new browser window. If the SQS landing page appears, click **Get Started Now**. Otherwise, proceed to the next step.   
-![The navigation menu interface for the Amazon SQS console.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/navigation-menu-interface-console.png)
+![The navigation menu interface for the Amazon SQS console.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/navigation-menu-interface-console.png)
 
 1. Create Orders-for-Inventory queue
 
    Our first queue will store orders for a fictional Inventory Service that keeps track of products, adding and deleting them as needed from inventory with each order.   
 
    On the **Create New Queue** page, enter **Orders-for-Inventory** in the **Queue Name** field. Leave **Standard Queue** selected and click **Quick-Create Queue**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-3.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-3.png)
 
 1. Create Orders-for-Analytics queue
 
    Your new queue is created and selected in the queue list. Next, you’ll create a second queue to handle order analytics. 
 
    Click **Create New Queue **to create another queue to store orders for the Analytics Service.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-4.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-4.png)
 
 1. Enter queue name
 
    Enter **Orders-for-Analytics** in the **Queue Name** field, and click **Quick-Create Queue**.   
-![AWS SQS queue creation interface showing options for "Standard Queue" and "FIFO Queue" with descriptions and examples, and a red arrow pointing to the "Quick-Create Queue" button.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/queue-creation-interface-options-standard.png)
+![AWS SQS queue creation interface showing options for "Standard Queue" and "FIFO Queue" with descriptions and examples, and a red arrow pointing to the "Quick-Create Queue" button.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/queue-creation-interface-options-standard.png)
 
 1. Verify queue creation
 
    The new queue now appears in the queue list.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface-controls-buttons.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface-controls-buttons.png)
 
 ### Step 4: Subscribe the Queues to the Topic
 <a name="subscribe-the-queues-to-the-topic"></a>
@@ -98,7 +98,7 @@ Now that you have created your two Amazon SQS queues, you need to subscribe them
 1. Subscribe the queues
 
    From the list of queues, select the **Orders-for-Inventory** and **Orders-for-Analytics** queues. From **Queue Actions**, select **Subscribe Queues to SNS Topic**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-5.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/resource-creation-interface-5.png)
 
 1. Select topic
 
@@ -107,12 +107,12 @@ Now that you have created your two Amazon SQS queues, you need to subscribe them
    Your SNS topic appears in the list because you created it from the same account that you used to create your Amazon SQS queues. If the SNS topic was made by another account, you could subscribe to it by using the Topic ARN. For more details, see the [Amazon SNS documentation](https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html). 
 
    Leave the **Topic Region** unchanged, and click **Subscribe**.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/selection-interface.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/selection-interface.png)
 
 1. Confirm subscription
 
    The **Topic Subscription Result** dialog box is displayed. Click **OK**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface.png)
 
 ### Step 5: Publish a Message to the Topic
 <a name="publish-a-message-to-the-topic"></a>
@@ -122,7 +122,7 @@ Your queues are now subscribed to the topic. In this step, you will simulate a n
 1. Open the publish page
 
    In the Amazon SNS console **New Orders** topic details page, click **Publish message**.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/navigation-interface.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/navigation-interface.png)
 
 1. Send the order message
 
@@ -131,7 +131,7 @@ Your queues are now subscribed to the topic. In this step, you will simulate a n
    **1 x Widget @ $29.99 USD 2 x Widget Cables @ $4.99**
 
    Click **Publish Message**. A confirmation dialog box will appear.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface-1.png)
 
 ### Step 6: Verify the Subscription
 <a name="verify-the-subscription"></a>
@@ -143,17 +143,17 @@ In this step, you will confirm that the queues received the new order notificati
 1. Open queue messages
 
    In the Amazon SQS console, check the box for the **Orders-for-Inventory** queue from the queue list. From the **Queue Action** drop-down, select **View/Delete Messages**.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/navigation-interface-1.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/navigation-interface-1.png)
 
 1. Start message polling
 
    Click **Start Polling for Messages**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface-3.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface-3.png)
 
 1. View message panel
 
    The **View/Delete Messages in Orders-for-Inventory** dialog box appears.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/send-fanout-event-notifications-caf.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/send-fanout-event-notifications-caf.png)
 
 1. Check message content
 
@@ -162,7 +162,7 @@ In this step, you will confirm that the queues received the new order notificati
    You have confirmed that the **Orders-for-Inventory** queue received the notification of the new order from the **New-Orders** topic.   
 
    Click **Close**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/qxlacwt-send-fanout-event-notifications.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/qxlacwt-send-fanout-event-notifications.png)
 
 1. Delete message
 
@@ -173,7 +173,7 @@ In this step, you will confirm that the queues received the new order notificati
 1. Verify Orders-for-Analytics queue received notification
 
    Repeat steps 1 through 5 to confirm that the **Orders-for-Analytics** queue also received the notification of the new order.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface-3.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/interface-3.png)
 
 ### Clean Up Resources
 <a name="clean-up-resources"></a>
@@ -187,24 +187,24 @@ In this step, you will delete the resources you have created for this tutorial, 
    Select the **New-Orders** topic. 
 
    Click **Delete** to delete topics.   
-![The navigation menu interface.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/navigation-menu-interface.png)
+![The navigation menu interface.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/navigation-menu-interface.png)
 
 1. Confirm deletion
 
    The **Delete** confirmation dialog box appears. Type **delete me** in the dialog box and click **Delete**. The topic, and its subscriptions, are deleted. You can now close the SNS browser window (but don't sign out, as you still need to delete the queues in the SQS console).   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/lvyibin-bfa-interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/lvyibin-bfa-interface.png)
 
 1. Delete the queues
 
    In the Amazon SQS console, select the **Orders-for-Inventory** and **Orders-for-Analytics** queues. From **Queue Actions**, select **Delete Queues**.   
-![AWS SQS management console showing two queues selected, with the "Queue Actions" dropdown open and the "Delete Queues" option highlighted.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/management-console-two-queues-selected.png)
+![AWS SQS management console showing two queues selected, with the "Queue Actions" dropdown open and the "Delete Queues" option highlighted.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/management-console-two-queues-selected.png)
 
 1. Confirm deletion
 
    The **Delete Queues** dialog box is displayed. Click **Yes, Delete 2 Queues**. The queues are deleted. 
 
    You can now sign out of the Amazon SQS console.   
-![Confirmation dialog in AWS asking to delete two SQS queues, one containing a message and the other empty, with a highlighted "Yes, Delete 2 Queues" button.](http://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/confirmation-dialog-asking-delete-two.png)
+![Confirmation dialog in AWS asking to delete two SQS queues, one containing a message and the other empty, with a highlighted "Yes, Delete 2 Queues" button.](https://docs.aws.amazon.com/hands-on/latest/send-fanout-event-notifications/images/confirmation-dialog-asking-delete-two.png)
 
 ## Congratulations\!
 <a name="congratulations"></a>
