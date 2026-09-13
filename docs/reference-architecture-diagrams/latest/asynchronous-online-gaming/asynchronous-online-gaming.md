@@ -10,7 +10,7 @@ This architecture is intended for mobile and online games. These workloads are a
 ## Asynchronous Online Gaming diagram
 <a name="async-diagram"></a>
 
-![Reference architecture diagram showing a highly available, scalable architecture for asynchronous online games by using Amazon Aurora, Amazon ElastiCache, DynamoDB, and Amazon EC2 Auto Scaling.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/asynchronous-online-gaming/images/asynchronous-online-gaming.png)
+![Reference architecture diagram showing a highly available, scalable architecture for asynchronous online games by using Amazon Aurora, Amazon ElastiCache, DynamoDB, and Amazon EC2 Auto Scaling.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/asynchronous-online-gaming/images/asynchronous-online-gaming.png)
 
 
 The following steps describe the architecture:
