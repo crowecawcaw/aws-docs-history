@@ -10,7 +10,7 @@ With this architecture, you can perform operational analytics in batch and real 
 ## Operational Analytics Pipeline on AWS
 <a name="oap-diagram"></a>
 
-![Architecture diagram for an operational analytics pipeline on AWS with Amazon CloudWatch, Amazon Data Firehose, Amazon OpenSearch Service, and AWS Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/operational-analytics-pipeline/images/build-operational-analytics-pipeline-on-AWS-modern-data-architecture.png)
+![Architecture diagram for an operational analytics pipeline on AWS with Amazon CloudWatch, Amazon Data Firehose, Amazon OpenSearch Service, and AWS Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/operational-analytics-pipeline/images/build-operational-analytics-pipeline-on-AWS-modern-data-architecture.png)
 
 
 The following steps describe the architecture:
