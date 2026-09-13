@@ -10,7 +10,7 @@ With this architecture, you can predict vessel time of arrival at berth. Accurat
 ## Vessel arrival prediction diagram
 <a name="vessel-diagram"></a>
 
-![Reference architecture diagram showing how to predict vessel arrival times by using SageMaker AI, Amazon Kinesis, and Amazon Simple Storage Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/predict-vessel-time-of-arrival/images/predict-vessel-time-of-arrival.png)
+![Reference architecture diagram showing how to predict vessel arrival times by using SageMaker AI, Amazon Kinesis, and Amazon Simple Storage Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/predict-vessel-time-of-arrival/images/predict-vessel-time-of-arrival.png)
 
 
 The following steps describe the data pipeline and ML workflow for this architecture:
