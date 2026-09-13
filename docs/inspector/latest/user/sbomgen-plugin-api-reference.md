@@ -787,6 +787,32 @@ end
 + **Backslash separators only work on Windows.** On Linux and macOS, `\` is a literal filename character, not a path separator — a pattern like `"C:\\Users\\*"` matches nothing on POSIX systems.
 + **Avoid literal Windows-style paths in Lua strings.** A Lua string like `"C:\Users"` is interpreted as `C:<form-feed>sers` because `\U` is not a valid Lua escape (and `\f`, `\n`, `\t` etc. are), so the pattern silently fails. Either use forward slashes, escaped backslashes (`"C:\\Users"`), or a long-bracket raw string (`[[C:\Users]]`).
 
+### `sbomgen.get_home_dirs()`
+<a name="sbomgen-plugin-api-reference-sbomgen-get-home-dirs"></a>
+
+ Returns the user home directory roots for the artifact, as a table of paths. Localhost enumerates the real host filesystem; container and volume artifacts enumerate their own (rootfs or mounted) filesystem; all other artifact types return an empty table. Paths are forward-slash normalized, de-duplicated, and sorted. 
+
+ This is the artifact-aware way to locate per-user directories (such as model caches or tool configuration) without hardcoding `/home/*` or `/Users/*`. It includes root's home directory and skips well-known non-user directories (built-in profiles such as `Public` and `Default` on Windows, `Shared` on macOS, and `lost+found` on Linux). 
+
+```
+function get_localhost_scan_paths()
+    local patterns = {}
+    for _, home in ipairs(sbomgen.get_home_dirs()) do
+        table.insert(patterns, home .. "/.cache/huggingface/hub")
+    end
+    return sbomgen.resolve_glob_paths(patterns)
+end
+```
+
+ The composition above is localhost-only, because `resolve_glob_paths` errors on non-localhost artifacts. For container and volume scans, match the returned home roots against the artifact's file list (for example, with `sbomgen.find_files_by_path_regex`) instead. 
+
+ **Behavior:** 
++ Defined for `localhost`, `container`, and `volume` artifacts. Other artifact types return an empty table, both because a per-user home concept does not apply to a bare directory or binary scan and because reading absolute host paths there would escape the scan root.
++ On localhost, returns absolute host paths (for example, `/home/alice`, `/root`). On a container or volume, returns paths as they appear inside that artifact's filesystem.
++ Enumeration reads through the artifact interface, so container and volume homes resolve against their own filesystem rather than the host.
++ Symlinked entries are not followed; only real directories are returned.
++ On Windows, the `Users` directory is located on the scanning host's `SystemDrive`, so a Windows container or volume is enumerated under the host's drive letter. This is a known limitation shared with `sbomgen.get_system_drive`.
+
 ## System Info
 <a name="sbomgen-plugin-api-reference-system-info"></a>
 

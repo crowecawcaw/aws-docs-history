@@ -49,6 +49,7 @@
 | amazon:inspector:sbom\_generator:image:cmd:{{count}} | An absolute directory within the container image defined in default CMD configured at image build time. | 
 | amazon:inspector:sbom\_generator:image:entrypoint:{{count}} | An absolute directory within the container image defined in default ENTRYPOINT configured at image build time. | 
 | amazon:inspector:sbom\_generator:image:workdir | The WORKDIR directory of the container image configured at image build time. | 
+| amazon:inspector:sbom\_generator:image:base\_layer | The diff ID of the container image's bottom-most layer, which identifies the image's base layer for downstream consumers. | 
 | amazon:inspector:sbom\_generator:image\_docker\_version | The docker version used to build the container image. | 
 | amazon:inspector:sbom\_generator:is\_duplicate\_package | Indicates that the subject package was found by more than one file scanner. | 
 | amazon:inspector:sbom\_generator:duplicate\_purl | Indicates the duplicated package PURL found by another scanner. | 
@@ -59,6 +60,8 @@
 | amazon:inspector:sbom\_generator:layer\_diff\_id | The hash of the uncompressed container image layer. | 
 | amazon:inspector:sbom\_generator:replaced\_by | The value that replaces the current Go module. | 
 | amazon:inspector:sbom\_generator:os\_hostname | The hostname of the system being inventoried. | 
+| amazon:inspector:sbom\_generator:host:process\_id:{{pid}}:path | The executable path of a running process that was matched to the component during a localhost scan. Emitted only when you enable the --collect-processes option. | 
+| amazon:inspector:sbom\_generator:host:process\_id:{{pid}}:started\_at | The start time (RFC 3339, UTC) of a running process that was matched to the component during a localhost scan. Emitted only when you enable the --collect-processes option. | 
 | amazon:inspector:sbom\_generator:source\_file\_scanner | The scanner that found the file that contains package information, for example: /var/lib/dpkg/status. | 
 | amazon:inspector:sbom\_generator:source\_package\_collector | The collector that extracted the package name and version from a specific file. | 
 | amazon:inspector:sbom\_generator:source\_path | The path to the file that the subject package information was extracted from. | 

@@ -36,9 +36,11 @@
 | Kiro | Kiro CLI | 
 | LM Studio | LM Studio | 
 | MariaDB and MySQL | MariaDB Server (10.6\+, 11.x, 12.x)<br />Oracle MySQL Server Server (8.0, 8.4, 9.4\+) | 
+| Metabase | Metabase | 
 | Microsoft applications | PowerShell<br />NuGet CLI<br />Visual Studio Code<br />Microsoft Edge<br />SharePoint Server<br />Microsoft Defender<br />Exchange Server<br />Visual Studio<br />.NET Core Runtime<br />.NET Framework<br />ASP.NET Core Runtime<br />Microsoft Teams<br />Outlook for Windows<br />Microsoft Office<br />Microsoft 365 | 
 | Microsoft SQL Server | Microsoft SQL Server | 
 | MongoDB | MongoDB Server (7.0\+, 8.0\+) | 
+| Mozilla | Firefox<br />Firefox ESR<br />Thunderbird | 
 | Nginx | Nginx | 
 | Node | Node | 
 | Node.JS | node | 
@@ -1308,8 +1310,77 @@ pkg:generic/microsoft/sqlserver@16.0.1000.6
 pkg:generic/mongodb/mongodb-server@8.2.4?platform=linux
 ```
 
-## Nginx ecosystem collection
+## Mozilla ecosystem collection
 <a name="w2aac39c27c53"></a>
+
+**Supported applications**
++  Firefox 
++  Firefox ESR 
++  Thunderbird 
+
+**Key features**
++  Parses the `application.ini` manifest that ships with Mozilla applications. The parser reads only the `[App]` section and stops at the next section header, so keys from other sections, such as `[Gecko]`, are ignored. 
++  Identifies the product from the `RemotingName` field, which resolves to `firefox`, `firefox-esr`, or `thunderbird`. `RemotingName` is used instead of `Name` because the `Name` field is `Firefox` for both the release and ESR channels. 
++  Extracts the version verbatim from the `Version` field. Both `RemotingName` (matching a known product) and `Version` are required. If either is missing, or the `RemotingName` value is not a known Mozilla product, no component is reported. This excludes non-Mozilla Gecko applications that also ship an `application.ini` file. 
++  Detected applications are reported as CycloneDX components with the `application` type. 
++  Records the `SourceRepository` value as the CycloneDX property `amazon:inspector:sbom_generator:mozilla:source_repository` rather than as a package URL qualifier, so it doesn't affect vulnerability identification. 
+
+**Supported platforms**  
+ The Amazon Inspector SBOM Generator discovers `application.ini` files by name with the following default paths across platforms: 
+
+**Linux**
++  `/usr/lib/firefox/`, `/usr/lib/firefox-esr/`, `/usr/lib/thunderbird/` 
++  `/usr/lib64/firefox/`, `/usr/lib64/thunderbird/` 
++  `/opt/firefox/`, `/opt/thunderbird/` 
++  `/usr/local/lib/firefox/`, `/usr/local/lib/thunderbird/` 
+
+**macOS**
++  `/Applications/Firefox.app/Contents/Resources/` 
++  `/Applications/Thunderbird.app/Contents/Resources/` 
+
+**Windows**
++  `C:\Program Files\Mozilla Firefox\`, `C:\Program Files (x86)\Mozilla Firefox\` 
++  `C:\Program Files\Mozilla Thunderbird\`, `C:\Program Files (x86)\Mozilla Thunderbird\` 
+
+**Limitations**
++  Installations in non-default paths aren't on the default localhost scan list. To scan them, use the `--path` option to run a directory scan. 
++  Snap and Flatpak packages of Firefox and Thunderbird aren't supported. 
++  Installations from an OS package manager are detected if they contain an `application.ini` file. These installations are also reported by the operating system package collectors. 
+
+**Example `application.ini` file**  
+ The following is an example of content inside an `application.ini` file for a Firefox ESR installation. 
+
+```
+//truncated
+
+[App]
+Vendor=Mozilla
+Name=Firefox
+RemotingName=firefox-esr
+Version=140.14.0
+SourceRepository=https://hg.mozilla.org/releases/mozilla-esr140
+
+//truncated
+```
+
+ The product `firefox-esr` is taken from the `RemotingName` field, and version `140.14.0` is taken from the `Version` field. 
+
+**Example PURL**  
+ The following are example package URLs for Mozilla applications. 
+
+```
+// Firefox
+pkg:generic/mozilla/firefox@152.0.6?distro=darwin
+
+// Firefox ESR
+pkg:generic/mozilla/firefox-esr@140.14.0?distro=linux
+
+// Thunderbird
+pkg:generic/mozilla/thunderbird@153.0.3?distro=darwin
+```
+
+## Nginx ecosystem collection
+<a name="w2aac39c27c55"></a>
 
 **Supported applications**
 +  Nginx 
@@ -1352,7 +1423,7 @@ Sample PURL: pkg:generic/nginx/nginx@1.27.5
 ```
 
 ## Node.JS runtime collection
-<a name="w2aac39c27c55"></a>
+<a name="w2aac39c27c57"></a>
 
 **Supported applications**
 +  node runtime binary for Node.JS 
@@ -1398,7 +1469,7 @@ Sample PURL: pkg:generic/nodejs/node@24.11.1
 ```
 
 ## Ollama ecosystem collection
-<a name="w2aac39c27c57"></a>
+<a name="w2aac39c27c59"></a>
 
 **Supported applications**
 +  Ollama (local LLM runtime) 
@@ -1441,7 +1512,7 @@ Sample PURL: pkg:generic/ollama/ollama@0.21.0?distro=linux
 ```
 
 ## Ollama Model Collector ecosystem collection
-<a name="w2aac39c27c59"></a>
+<a name="w2aac39c27c61"></a>
 
 **Supported applications**
 +  Ollama CLI 
@@ -1465,7 +1536,7 @@ pkg:ollama/gemma4@<hash>
 ```
 
 ## OpenSSH ecosystem collection
-<a name="w2aac39c27c61"></a>
+<a name="w2aac39c27c63"></a>
 
 **Supported applications**
 +  OpenSSH (Version 9) 
@@ -1502,7 +1573,7 @@ Sample PURL: pkg:generic/openssh/openssh@9.9p2
 ```
 
 ## OpenSSL ecosystem Collection
-<a name="w2aac39c27c63"></a>
+<a name="w2aac39c27c65"></a>
 
 **Supported applications**  
  Support for OpenSSL libraries and development packages is limited to software built with official OpenSSL for 3.0.0 releases and above. The software also must follow semantic versioning. Custom or forked OpenSSL variants and versions lower than 3.0.0 are not supported. 
@@ -1542,7 +1613,7 @@ Sample PURL: pkg:generic/openssl/openssl@3.4.0
 ```
 
 ## Oracle Database Server collection
-<a name="w2aac39c27c65"></a>
+<a name="w2aac39c27c67"></a>
 
 **Supported applications**
 +  Oracle Database 
@@ -1576,7 +1647,7 @@ Sample PURL: pkg:generic/oracle/database@23.7.0.25.01
 ```
 
 ## PHP ecosystem collection
-<a name="w2aac39c27c67"></a>
+<a name="w2aac39c27c69"></a>
 
 **Supported applications**
 +  PHP (version 8.1 and higher) 
@@ -1620,7 +1691,7 @@ pkg:generic/php/php@8.4.12
 ```
 
 ## Redis ecosystem collection
-<a name="w2aac39c27c69"></a>
+<a name="w2aac39c27c71"></a>
 
 **Supported applications**
 +  Redis (version 7.2 and higher) 
@@ -1656,7 +1727,7 @@ pkg:generic/redis/redis@7.2.6
 ```
 
 ## Standalone AI applications ecosystem collection
-<a name="w2aac39c27c71"></a>
+<a name="w2aac39c27c73"></a>
 
  The Amazon Inspector SBOM Generator detects standalone AI desktop and local LLM applications that are installed outside a package manager. Detected applications are reported as CycloneDX components with the `application` type and a `generic` Package URL type. The version-extraction method differs per application, as described in the following table. 
 
@@ -1676,7 +1747,7 @@ pkg:generic/redis/redis@7.2.6
  Installations in non-default install prefixes require the `--path` argument. A build that lacks the expected version anchor yields no component. 
 
 ## Windsurf ecosystem collection
-<a name="w2aac39c27c73"></a>
+<a name="w2aac39c27c75"></a>
 
 **Supported applications**
 +  Windsurf (by Codeium) 
@@ -1703,7 +1774,7 @@ Sample PURL: pkg:generic/codeium/windsurf@1.10.5?distro=linux
 ```
 
 ## WordPress ecosystem collection
-<a name="w2aac39c27c75"></a>
+<a name="w2aac39c27c77"></a>
 
 **Supported components**
 +  WordPress core 
@@ -1793,7 +1864,7 @@ Sample PURL: pkg:generic/wordpress/theme/avada@1.0.0
 ```
 
 ## Zed ecosystem collection
-<a name="w2aac39c27c77"></a>
+<a name="w2aac39c27c79"></a>
 
 **Supported applications**
 +  Zed (by Zed Industries) 

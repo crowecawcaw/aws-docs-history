@@ -285,8 +285,29 @@ AWS_DEFAULT_REGION=$your_region \
 
  Adjusting this setting helps control disk usage, memory consumption, and overall scan duration. 
 
-### Detect scratch images with filesystem heuristics
+### Limit container image pull size
 <a name="w2aac39c13c21"></a>
+
+ When you scan a container image, you can reject an oversized image before Sbomgen downloads any layer. Sbomgen reads the compressed size of each layer from the image manifest and compares it against the limits that you set, so an image that exceeds a limit is rejected without downloading its layers. Use the `--image-max-pull-size` and `--layer-max-pull-size` arguments to set these limits in bytes. 
++  `--image-max-pull-size` – Rejects the image when the compressed sizes of all of its layers add up to more than the specified number of bytes. 
++  `--layer-max-pull-size` – Rejects the image when any single layer's compressed size exceeds the specified number of bytes. 
+
+**Note**  
+ Both arguments apply to container scans only and are independent of each other. Each one defaults to `0`, which disables the limit. 
+
+**Example**  
+ The following example rejects the image if the compressed sizes of its layers total more than 50 GiB (`53687091200` bytes), or if any single layer's compressed size exceeds 10 GiB (`10737418240` bytes). 
+
+```
+# Reject an oversized image before downloading any layer
+./inspector-sbomgen container --image image:tag \
+--outfile /tmp/sbom.json \
+--image-max-pull-size 53687091200 \
+--layer-max-pull-size 10737418240
+```
+
+### Detect scratch images with filesystem heuristics
+<a name="w2aac39c13c23"></a>
 
  When Sbomgen can't identify a container image's operating system, you can use the `--enable-scratch-heuristics` argument to inspect the filesystem for signals that indicate a scratch image. If at least two signals are present, Sbomgen labels the operating-system component `scratch` instead of `unknown`. An identified operating system is never relabeled. 
 
@@ -312,8 +333,30 @@ AWS_DEFAULT_REGION=$your_region \
 **Note**  
  This behavior is heuristic and may produce false positives. It only changes the operating-system component. 
 
+### Collect running process metadata
+<a name="w2aac39c13c25"></a>
+
+ When you scan a localhost, you can use the `--collect-processes` argument to tag components with metadata about the running processes that Sbomgen gathers from the host. This helps you correlate an inventoried component with the processes that are running from it. 
+
+**Note**  
+ This argument is opt-in, disabled by default, and applies to localhost scans only. If you provide it for any other scan type, Sbomgen logs a warning and ignores it. 
+
+ When a component matches a running process, Sbomgen adds the following properties to that component, where {{pid}} is the process ID: 
++  `amazon:inspector:sbom_generator:host:process_id:{{pid}}:path` – The executable path of the matched running process, for example `/usr/sbin/sshd`. 
++  `amazon:inspector:sbom_generator:host:process_id:{{pid}}:started_at` – The time the process started, in RFC 3339 format (UTC), for example `2026-08-26T15:43:40Z`. 
+
+**Example**  
+ The following example shows how to use the `--collect-processes` argument. 
+
+```
+# Tag components with running process metadata
+./inspector-sbomgen localhost \
+--outfile /tmp/sbom.json \
+--collect-processes
+```
+
 ### Disable progress indicator
-<a name="w2aac39c13c23"></a>
+<a name="w2aac39c13c27"></a>
 
  Sbomgen displays a spinning progress indicator that can result in excessive slash characters in CI/CD environments. 
 

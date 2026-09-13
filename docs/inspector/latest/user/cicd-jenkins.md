@@ -242,7 +242,7 @@ autoFailCveList: 'CVE-2024-9999'
 
 1.  After the build completes, select an output format from the results. If you select HTML, you have the option to download a JSON SBOM or CSV version of the report. The following shows an example of an HTML report: 
 
-![Sample of an Amazon Inspector vulnerability report.](http://docs.aws.amazon.com/inspector/latest/user/images/report.png)
+![Sample of an Amazon Inspector vulnerability report.](https://docs.aws.amazon.com/inspector/latest/user/images/report.png)
 
 
 **Note**  

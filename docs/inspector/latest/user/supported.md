@@ -9,7 +9,7 @@
  For Amazon EC2 instances, Amazon Inspector can scan for package vulnerabilities in operating systems that support agent-based scanning. Amazon Inspector can also scan for package vulnerabilities in operating systems and programming languages that support hybrid scanning. Amazon Inspector does not scan for toolchain vulnerabilities. The version of the programming language compiler used to build the application introduces these vulnerabilities. 
 +  Container images stored in Amazon Elastic Container Registry (Amazon ECR) repositories 
 **Note**  
- For ECR container images, Amazon Inspector can scan for operating system and programming language package vulnerabilities. Amazon Inspector also supports hardened images provided by Chainguard, Minimus, Echo, and Docker. Amazon Inspector does not scan for toolchain vulnerabilities in Rust——the version of the programming language compiler used to build the application introduces these vulnerabilities. 
+ For ECR container images, Amazon Inspector can scan for operating system and programming language package vulnerabilities. Amazon Inspector also supports hardened images provided by Chainguard, Minimus, Echo, Docker, and Red Hat. Amazon Inspector does not scan for toolchain vulnerabilities in Rust——the version of the programming language compiler used to build the application introduces these vulnerabilities. 
 +  AWS Lambda functions 
 **Note**  
  For Lambda functions, Amazon Inspector can scan for programming language package vulnerabilities and code vulnerabilities. Amazon Inspector does not scan for toolchain vulnerabilities. The version of the programming language compiler used to build the application introduces these vulnerabilities. 

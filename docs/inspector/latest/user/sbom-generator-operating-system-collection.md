@@ -335,3 +335,41 @@ pkg:apk/dhi/<name>@<version>
 
 **Note**  
  DHI detection applies to container, localhost, and volume scans. 
+
+## Red Hat Hardened Images package collection
+<a name="w2aac39c23c25"></a>
+
+ Red Hat Hardened Images are minimal, security-hardened container images built on Hummingbird OS. The Amazon Inspector SBOM Generator detects these images and namespaces their packages under `hummingbird` so that vulnerabilities are matched against the hardened distribution. 
+
+### Detection
+<a name="w2aac39c23c25b5"></a>
+
+ Red Hat Hardened Images report `ID=hummingbird` in the `/etc/os-release` file. The Amazon Inspector SBOM Generator detects these images directly from this `ID` value. 
+
+**Example `/etc/os-release` file**  
+ The following is an example of an `/etc/os-release` file for a Red Hat Hardened Image. 
+
+```
+ID=hummingbird
+```
+
+### Package namespace
+<a name="w2aac39c23c25b7"></a>
+
+ Every package in a Red Hat Hardened Image is namespaced under `hummingbird`, yielding a Package URL of the form `pkg:rpm/hummingbird/<name>@<version>`. 
+
+**Example PURL**  
+ The following is an example package URL for a package in a Red Hat Hardened Image. 
+
+```
+pkg:rpm/hummingbird/<name>@<version>
+```
+
+### Hardened-image markers
+<a name="w2aac39c23c25b9"></a>
+
+ When the Amazon Inspector SBOM Generator detects `ID=hummingbird`, it annotates the image with hardened-image markers: 
++  The container or operating-system component carries the `amazon:inspector:sbom_generator:hardened_image:vendor` property with a value of `Red Hat`. 
+
+**Note**  
+ Red Hat Hardened Images detection applies to container, localhost, and volume scans. 
