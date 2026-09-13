@@ -49,6 +49,7 @@ Aurora DSQL supports the following PostgreSQL session parameters. Unless otherwi
 | enable\_material | Query planner | Enables or disables the query planner's use of materialization. | 
 | enable\_mergejoin | Query planner | Enables or disables the query planner's use of merge-join plan types. | 
 | enable\_nestloop | Query planner | Enables or disables the query planner's use of nested-loop join plans. | 
+| dsql.enable\_batched\_nestloop | Query planner | Enables or disables the query planner's use of batched nested-loop join plans. | 
 | enable\_seqscan | Query planner | Enables or disables the query planner's use of sequential scan plan types. | 
 | disable\_sync\_create\_index | Aurora DSQL-specific | Controls whether CREATE INDEX runs asynchronously. Default is on, meaning Aurora DSQL creates indexes asynchronously. Set to off to create indexes synchronously on empty tables. | 
 | role | Session identity | Sets the current role. In Aurora DSQL, you can only set this parameter using SET LOCAL within a transaction block. | 

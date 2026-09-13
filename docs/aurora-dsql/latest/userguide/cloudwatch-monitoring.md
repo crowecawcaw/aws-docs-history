@@ -30,8 +30,8 @@ Aurora DSQL also publishes the following metrics under the AWS/Usage namespace. 
 
 | CloudWatch Metric Name | Type | Resource | ResourceId | Service | Unit | Description | 
 | --- |--- |--- |--- |--- |--- |--- |
-| ResourceCount | Resource | ClusterConnectionCount | cluster/<cluster-id> | AuroraDSQL | Count | The number of active connections for a cluster. | 
-| CallCount | API | DbConnectAdmin or DbConnect | cluster/<cluster-id> | AuroraDSQL | Count | The number of API calls for database connection operations (DbConnectAdmin or DbConnect). | 
+| ResourceCount | Resource | ClusterConnectionCount | cluster/<cluster-id> | AuroraDSQL | None | The number of active connections for a cluster. | 
+| CallCount | API | DbConnectAdmin or DbConnect | cluster/<cluster-id> | AuroraDSQL | None | The number of API calls for database connection operations (DbConnectAdmin or DbConnect). | 
 
 ## Usage metrics
 <a name="usage-metrics"></a>

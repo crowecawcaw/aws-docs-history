@@ -8,6 +8,12 @@ This page describes new features, service launches, and important updates for Au
 ## 2026
 <a name="release-notes-2026"></a>
 
+### September 2026
+<a name="release-notes-2026-09"></a>
+
+September 11, 2026  
+✨ *Feature* — **Batched nested-loop joins** — Aurora DSQL can now use batched nested-loop joins for eligible queries. This join strategy batches multiple outer rows and probes the inner side for the batch, which can reduce round trips between the compute and storage layers for selective joins. In EXPLAIN output, this node appears as `Nested Loop (Batched Join)`. You can enable or disable planner use in a session with `dsql.enable_batched_nestloop`. For more information, see [Batched nested-loop joins in Aurora DSQL EXPLAIN plans](batched-nested-loop-joins.html).
+
 ### August 2026
 <a name="release-notes-2026-08"></a>
 

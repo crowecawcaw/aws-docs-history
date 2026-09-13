@@ -47,8 +47,8 @@ Aurora DSQL supports the following PostgreSQL DDL commands.
 | `ALTER` | `STATISTICS` | For information about the supported syntax of the `ALTER STATISTICS` command, see [`ALTER STATISTICS`](alter-statistics-syntax-support.md). | 
 | `DROP` | `STATISTICS` | For information about the supported syntax of the `DROP STATISTICS` command, see [`DROP STATISTICS`](drop-statistics-syntax-support.md). | 
 | `CREATE` | `VIEW` | For more information about the supported syntax of the `CREATE VIEW` command, see [`CREATE VIEW`](create-view.md).  | 
-| ALTER | VIEW | For information about the supported syntax of the `ALTER VIEW` command, see [`ALTER VIEW`](alter-view-syntax-support.md). | 
-| DROP | VIEW | For information about the supported syntax of the DROP VIEW command, see [`DROP VIEW`](drop-view-overview.md). | 
+| `ALTER` | `VIEW` | For information about the supported syntax of the `ALTER VIEW` command, see [`ALTER VIEW`](alter-view-syntax-support.md). | 
+| `DROP` | `VIEW` | For information about the supported syntax of the `DROP VIEW` command, see [`DROP VIEW`](drop-view-overview.md). | 
 | `CREATE` | `SEQUENCE` | For information about the supported syntax of the `CREATE SEQUENCE` command, see [`CREATE SEQUENCE`](create-sequence-syntax-support.md). | 
 | `ALTER` | `SEQUENCE` | For information about the supported syntax of the `ALTER SEQUENCE` command, see [`ALTER SEQUENCE`](alter-sequence-syntax-support.md). | 
 | `DROP` | `SEQUENCE` | For information about the supported syntax of the `DROP SEQUENCE` command, see [`DROP SEQUENCE`](drop-sequence-syntax-support.md). | 
@@ -70,8 +70,8 @@ Aurora DSQL supports the following PostgreSQL DML commands.
 | Command | Primary clause | Supported clauses | 
 | --- | --- | --- | 
 | `INSERT` | `INTO` | `VALUES`<br />`SELECT`<br />`[ON CONFLICT]` | 
-| `UPDATE` | `SET` | `WHERE (SELECT)`<br />`FROM, WITH` | 
-| DELETE | FROM | USING, WHERE | 
+| `UPDATE` | `SET` | `WHERE (SELECT)`<br />`FROM`, `WITH` | 
+| `DELETE` | `FROM` | `USING`, `WHERE` | 
 
 ## Data Control Language (DCL)
 <a name="dsql-dcl"></a>

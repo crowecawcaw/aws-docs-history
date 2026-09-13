@@ -87,9 +87,9 @@ Windows users may encounter issues downloading the Aurora DSQL Connector for JDB
 
 If you see a missing driver icon or connection errors, the Aurora DSQL (Community Plugin) may not be installed in your current DBeaver version. See below some examples of errors and how to fix them:
 + Creating a new connection with the missing driver:  
-![Missing driver icon in DBeaver](http://docs.aws.amazon.com/aurora-dsql/latest/userguide/images/dbeaver-missing-driver-icon.png)
+![Missing driver icon in DBeaver](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/images/dbeaver-missing-driver-icon.png)
 + Attempting to connect without the driver:  
-![Error dialog when driver is missing](http://docs.aws.amazon.com/aurora-dsql/latest/userguide/images/dbeaver-version-error-dialog.png)
+![Error dialog when driver is missing](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/images/dbeaver-version-error-dialog.png)
 
 **Cause:** When multiple DBeaver versions are installed, connection settings are shared but drivers are installed per application.
 

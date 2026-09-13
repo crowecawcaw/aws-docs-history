@@ -97,6 +97,20 @@ Aurora DSQL doesn't support all PostgreSQL-based dialect. To learn about what is
 
 To create an index on a table with existing rows, you must use the `CREATE INDEX ASYNC` command. To learn more, see [ Creating indexes asynchronously in Aurora DSQL](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-create-index-async.html).
 
+### Error: server unavailable (`SQLSTATE XX000`)
+<a name="troubleshooting-server-unavailable"></a>
+
+A server unavailable error indicates a temporary service condition. Your connection remains active, so you can retry without reconnecting.
+
+Always retry the entire transaction from the beginning, including the `COMMIT` command, with exponential backoff and jitter.
+
+**Uncertain commit outcome**  
+If the error occurs while committing a transaction, the transaction might have committed even though your application received an error.
+
+Design transactions to be idempotent when possible. For non-idempotent transactions, confirm whether Aurora DSQL applied the write before you retry the transaction.
+
+Monitor the rate of server unavailable errors. Expect occasional retries. If the errors become sustained or affect application performance, contact AWS Support.
+
 ## Troubleshooting concurrency control responses
 <a name="troubleshooting-occ"></a>
 
