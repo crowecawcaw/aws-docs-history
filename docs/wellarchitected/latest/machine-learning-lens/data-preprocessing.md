@@ -5,7 +5,7 @@
 
  Data preprocessing puts data into the right shape and quality for training. There are many data preprocessing strategies including: data cleaning, balancing, replacing, imputing, partitioning, scaling, augmenting, and unbiasing. 
 
-![Chart showing the data preprocessing strategies.](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/data-processing-main-components.png)
+![Chart showing the data preprocessing strategies.](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/data-processing-main-components.png)
 
 
  The data preprocessing strategies listed in Figure 9 can be expanded as the following: 

@@ -13,7 +13,7 @@
 
  The phases of the ML lifecycle are not necessarily sequential in nature and can have feedback loops, a few of which are illustrated in Figure 1, to interrupt the cycle across the lifecycle phases. 
 
-![Machine learning lifecycle](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle.png)
+![Machine learning lifecycle](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle.png)
 
 
  The following is a quick introduction to each phase, which will be expanded upon later in this paper. 

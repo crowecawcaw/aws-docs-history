@@ -13,7 +13,7 @@
 
  It is important to note that the same sequence of data processing steps that is applied to the training data needs to also be applied to the inference requests. 
 
-![Figure showing data processing components](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/data-processing-components.png)
+![Figure showing data processing components](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/data-processing-components.png)
 
 
 **Topics**

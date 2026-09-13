@@ -5,7 +5,7 @@
 
  Figure 3 shows the ML lifecycle phases with the *data processing phase* (for example, Process Data) expanded into a *data collection sub-phase* (Collect Data) and a *data preparation sub-phase* (Pre-process Data and Engineer Features). These sub-phases are discussed in more detail in this section. 
 
-![Lifecycle data with data processing sub-phases included.](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-phases.png)
+![Lifecycle data with data processing sub-phases included.](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-phases.png)
 
 
  Figure 4 illustrates the details of the ML lifecycle phases that occur following the problem framing phase and shows how the data-processing sub-phases interact with the subsequent phases, that is, the *model development phase*, the *model deployment phase*, and the *model monitoring phase*. 
@@ -18,7 +18,7 @@
 +  Dashed color lines are indicative of input and output flow. 
 +  Architecture diagram components are color-coded for ease of communication across this document. 
 
-![ML lifecycle with detailed phases and extended components](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-phases-and-expanded-components.png)
+![ML lifecycle with detailed phases and extended components](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-phases-and-expanded-components.png)
 
 
  The components of the sub-phases of the ML lifecycle shown in Figure 4 are as follows: 
@@ -40,7 +40,7 @@
 
  Figure 5 includes machine learning components and their information that the lineage tracker collects across different releases. The collected information enables going back to a specific point-in-time release and re-creating it. 
 
-![Lineage tracker diagram](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/lineage-tracker.png)
+![Lineage tracker diagram](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/lineage-tracker.png)
 
 
  Lineage tracker components include: 

@@ -5,7 +5,7 @@
 
  Every unique attribute of the data is considered a *feature* (also known as an *attribute*). For example, when designing a solution for predicting customer churn, the data used typically includes features such as customer location, age, income level, and recent purchases. 
 
-![Chart showing the main components of feature engineering.](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/feature-engineering-main-components.png)
+![Chart showing the main components of feature engineering.](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/feature-engineering-main-components.png)
 
 
  Feature engineering is a process to select and transform variables when creating a predictive model using machine learning or statistical modeling. Feature engineering typically includes feature creation, feature transformation, feature extraction, and feature selection as listed in Figure 10. With deep learning, feature engineering is automated as part of the algorithm learning. 

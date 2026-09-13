@@ -5,12 +5,12 @@
 
  After you have trained, tuned, and evaluated your model, you can deploy it into production and make predictions against this deployed model. Amazon SageMaker AI Studio can convert notebook code to production-ready jobs without the need to manage the underlying infrastructure. Be sure to use a governance process. Controlling deployments through automation combined with manual or automated quality gates facilitates that changes can be effectively validated with dependent systems prior to deployment to production.  
 
-![Deployment architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/deployment-architecture-diagram.png)
+![Deployment architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/deployment-architecture-diagram.png)
 
 
  Figure 14 illustrates the deployment phase of the ML lifecycle in production. An application sends request payloads to a production endpoint to make inference against the model. Model artifacts are fetched from the model registry, features are retrieved from the feature store, and the inference code container is obtained from the container repository.  
 
-![Deployment main components](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/deployment-main-components.png)
+![Deployment main components](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/deployment-main-components.png)
 
 
  Figure 15 lists key components of production deployment including: 
@@ -22,4 +22,4 @@
 +  **Inference pipeline:** Figure 16 shows the inference pipeline that automates capturing of the prepared data, performing predictions and post-processing for real-time or batch inferences. 
 +  **Scheduler pipeline:** Deployed model is representative of the latest data patterns. When configured as shown in Figure 16, re-training at intervals can minimize the risk of data and concept drifts. A scheduler can initiate a re-training at business defined intervals. Data preparation, CI/CD/CT, and feature pipelines will also be active during this process. 
 
-![ML lifecycle with scheduler retrain and batch or real-time inference pipelines](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-scheduler-inference-pipelines.png)
+![ML lifecycle with scheduler retrain and batch or real-time inference pipelines](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-scheduler-inference-pipelines.png)

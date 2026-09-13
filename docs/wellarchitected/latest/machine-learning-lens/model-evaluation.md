@@ -9,7 +9,7 @@
 
  Based on the evaluation results, you might fine-tune the data, the algorithm, or both. When you fine-tune the data, you apply the concepts of data cleansing, preparation and feature engineering. 
 
-![Chart showing the machine learning lifecycle with the performance evaluation pipeline added in purple.](http://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-preformance-evaluation-pipeline-added.png)
+![Chart showing the machine learning lifecycle with the performance evaluation pipeline added in purple.](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/images/ml-lifecycle-preformance-evaluation-pipeline-added.png)
 
 
  Figure 13 includes the model performance evaluation, the *data prepare* and CI/CD/CT pipelines that fine-tune data and algorithms, re-training, and evaluation of model results. 
