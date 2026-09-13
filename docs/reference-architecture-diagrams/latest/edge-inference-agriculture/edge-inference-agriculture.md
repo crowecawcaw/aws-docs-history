@@ -10,7 +10,7 @@ With this architecture, you can enable edge inference in rural and remote agricu
 ## Edge inference for agriculture diagram
 <a name="edge-ag-diagram"></a>
 
-![Reference architecture diagram showing how to enable edge inference in agricultural environments by using AWS IoT Greengrass, SageMaker AI Neo, and Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/edge-inference-agriculture/images/edge-inference-agriculture.png)
+![Reference architecture diagram showing how to enable edge inference in agricultural environments by using AWS IoT Greengrass, SageMaker AI Neo, and Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/edge-inference-agriculture/images/edge-inference-agriculture.png)
 
 
 The following steps describe the architecture:
