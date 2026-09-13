@@ -5,7 +5,7 @@
 
 The steps to propagate identity to interactive workloads through an Apache Livy endpoint depend on whether your users interact with AWS managed development environment like Amazon SageMaker AI or your own self-hosted Notebook environment as client-facing application.
 
-![EMR Serverless flowchart.](http://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/images/PEZ-SMAI.png)
+![EMR Serverless flowchart.](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/images/PEZ-SMAI.png)
 
 
 ## AWS managed development environment

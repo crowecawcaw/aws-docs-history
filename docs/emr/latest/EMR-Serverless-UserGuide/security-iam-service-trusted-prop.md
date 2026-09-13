@@ -24,7 +24,7 @@ The EMR Serverless Apache Livy Endpoint integration with IAM Identity Center [Tr
 ## How it works
 <a name="security-iam-service-trusted-prop-features-works"></a>
 
-![EMR Serverless flowchart.](http://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/images/PEZ-SMAI.png)
+![EMR Serverless flowchart.](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/images/PEZ-SMAI.png)
 
 
 ### Use case example

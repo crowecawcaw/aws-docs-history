@@ -36,4 +36,4 @@ Applications can have the following states:
 
 The following diagram illustrates the trajectory of EMR Serverless application states.
 
-![EMR Serverless application states.](http://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/images/emr-serverless-application-states.png)
+![EMR Serverless application states.](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/images/emr-serverless-application-states.png)

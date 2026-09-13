@@ -26,7 +26,7 @@ So you don't run out of resources, EMR Serverless sets the default maximum numbe
 
 The following is a high-level overview of how EMR Serverless gets access to data protected by Lake Formation security policies.
 
-![How Amazon EMR accesses data protected by Lake Formation security policies.](http://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/images/lf-emr-s-architecture.png)
+![How Amazon EMR accesses data protected by Lake Formation security policies.](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/images/lf-emr-s-architecture.png)
 
 
 1. A user submits Spark job to an AWS Lake Formation-enabled EMR Serverless application. 
