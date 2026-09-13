@@ -10,7 +10,7 @@ This architecture shows how to build Unity-based games for iOS in the AWS Cloud 
 ## Unity Build Pipeline: iOS Games on AWS Cloud
 <a name="diagram1"></a>
 
-![Architecture diagram showing a Unity build pipeline for iOS games on AWS Cloud by using Jenkins, Amazon Elastic Compute Cloud Spot Instances, and Amazon Elastic Compute Cloud Mac Instances.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/unity-build-pipeline-ios/images/unity-build-pipeline-ios.png)
+![Architecture diagram showing a Unity build pipeline for iOS games on AWS Cloud by using Jenkins, Amazon Elastic Compute Cloud Spot Instances, and Amazon Elastic Compute Cloud Mac Instances.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/unity-build-pipeline-ios/images/unity-build-pipeline-ios.png)
 
 
 1. Source code is stored in an [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) repository. Jenkins pulls it on a build start.
