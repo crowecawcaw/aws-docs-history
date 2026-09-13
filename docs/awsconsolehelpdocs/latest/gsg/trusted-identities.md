@@ -215,7 +215,7 @@ When using the AWS Sign-In VPC endpoint policy format, the signup flow is blocke
 
 If you connect with an identity that does not belong to your account, you see the "Your account doesn't have permission to use AWS Management Console Private Access" error. The following screenshot shows the access denied error page.
 
-![The error page with a message that indicates that you don't have permission to use AWS Management Console Private Access.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/console-private-access-denied.png)
+![The error page with a message that indicates that you don't have permission to use AWS Management Console Private Access.](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/console-private-access-denied.png)
 
 
 ## Allowing sign-in in service control policies

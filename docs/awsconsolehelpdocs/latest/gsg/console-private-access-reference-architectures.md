@@ -7,7 +7,7 @@ To connect privately to AWS Management Console Private Access from an on-premise
 
 **AWS Site-to-Site VPN to AWS Virtual Private Gateway (VGW)**
 
-![A workflow diagram that describes the architecture set up for connecting AWS Site-to-Site VPN to AWS Virtual Private Gateway (VGW).](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-architectures-4.png)
+![A workflow diagram that describes the architecture set up for connecting AWS Site-to-Site VPN to AWS Virtual Private Gateway (VGW).](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-architectures-4.png)
 
 
 An essential component in this reference architecture design is the Amazon Route 53 Resolver, specifically the inbound resolver. When you set it up in the VPC where the AWS Management Console Private Access endpoints are created, resolver endpoints (network interfaces) are created in the specified subnets. Their IP addresses can then be referred to in conditional forwarders on the on-premises DNS servers, to allow querying of records in a Private Hosted Zone. When on-premises clients connect to the AWS Management Console, they are routed to the AWS Management Console Private Access endpoints’ private IPs.

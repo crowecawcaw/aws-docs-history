@@ -7,7 +7,7 @@ This setup demonstrates a AWS Management Console Private Access connection to Am
 
 The following diagram describes the workflow for using Amazon EC2 to access an AWS Management Console Private Access setup. It shows how a user is connected to Amazon S3 using a private endpoint.
 
-![The setup configuration for trying out AWS Management Console Private Access using an Amazon EC2.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-ec2-how-to-1.png)
+![The setup configuration for trying out AWS Management Console Private Access using an Amazon EC2.](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-ec2-how-to-1.png)
 
 
 Copy the following CloudFormation template and save it to a file that you will use in step three of the *To set up a network* procedure.
@@ -406,4 +406,4 @@ This example uses Fleet Manager, a capability of AWS Systems Manager Explorer, t
 1. Sign in to the management account for your organization and open the [Amazon S3 console](https://console.aws.amazon.com/s3).
 
 1. Choose the lock-private icon in the navigation bar to view the VPC endpoint in use. The following screenshot shows the location of the lock-private icon and the VPC information.  
-![The Amazon S3 console showing the lock icon and AWS Management Console Private Access information.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/console-private-access-verify-1.png)
+![The Amazon S3 console showing the lock icon and AWS Management Console Private Access information.](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/console-private-access-verify-1.png)

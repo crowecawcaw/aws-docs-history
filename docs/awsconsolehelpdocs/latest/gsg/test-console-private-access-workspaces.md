@@ -11,7 +11,7 @@ This tutorial uses AWS CloudFormation to create and configure the network setup 
 
 The following diagram describes the workflow for using a WorkSpace to test an AWS Management Console Private Access setup. It shows the relationship between a client WorkSpace, an Amazon managed VPC and a customer managed VPC.
 
-![The setup configuration for testing a AWS Management Console Private Access using an Amazon WorkSpaces.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-workspaces-how-to-1.png)
+![The setup configuration for testing a AWS Management Console Private Access using an Amazon WorkSpaces.](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-workspaces-how-to-1.png)
 
 
 Copy the following CloudFormation template and save it to a file that you will use in step 3 of the procedure to set up a network.
@@ -258,7 +258,7 @@ This test setup is designed to run in the US East (N. Virginia) (us-east-1) Regi
 
 The following screenshot shows the view of the **Outputs** tab displaying the values for the private subnets and the Workspace Simple Directory.
 
-![The private subnets and Workspace Simple Directory and their corresponding values.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-workspaces-how-to-2-latest.png)
+![The private subnets and Workspace Simple Directory and their corresponding values.](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-workspaces-how-to-2-latest.png)
 
 
 Now that you have created your network, use the following procedures to create and access a WorkSpace.
@@ -270,7 +270,7 @@ Now that you have created your network, use the following procedures to create a
 1. In the navigation pane, choose **Directories**.
 
 1. On the **Directories** page, verify that the directory status is **Active**. The following screenshot shows a **Directories** page with an active directory.  
-![The Directories page with an entry for a directory with an active status.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-workspaces-how-to-3-updated.png)
+![The Directories page with an entry for a directory with an active status.](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/vpce-workspaces-how-to-3-updated.png)
 
 1. To use a directory in WorkSpaces, you must register it. In the navigation pane, choose **WorkSpaces**, then choose **Create WorkSpaces**.
 
@@ -319,4 +319,4 @@ If you are using Firefox as your browser, verify that the **Enable DNS over HTTP
 1. Open the [Amazon S3 console](https://console.aws.amazon.com/s3) where you can verify that you are connected using AWS Management Console Private Access.
 
 1. Choose the lock-private icon on the navigation bar to view the VPC and VPC endpoint in use. The following screenshot shows the location of the lock-private icon and the VPC information.  
-![The Amazon S3 console showing the lock-private icon location and AWS Management Console Private Access information.](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/console-private-access-verify-1.png)
+![The Amazon S3 console showing the lock-private icon location and AWS Management Console Private Access information.](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/images/console-private-access-verify-1.png)
