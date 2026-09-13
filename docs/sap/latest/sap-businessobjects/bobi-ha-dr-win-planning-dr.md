@@ -38,18 +38,18 @@ The AWS Regions and Availability Zones shown in the following diagrams are just 
 
  **Figure 3: DR architecture for SAP BusinessObjects BI Platform** 
 
-![DR architecture for SAP BusinessObjects BI Platform](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-ha-dr-dr-arch-win.png)
+![DR architecture for SAP BusinessObjects BI Platform](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-ha-dr-dr-arch-win.png)
 
 
 Figure 4 shows the user connectivity using Route 53 as an example. You can also use your own DNS. During normal operations, the value of the CNAME record for SAP BusinessObjects BI Platform points to the Application Load Balancer of the primary region. The load balancer distributes the load between the available web servers that deploy the SAP BusinessObjects BI Platform web applications.
 
  **Figure 4: User connectivity with Route 53** 
 
-![User connectivity with Route 53](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobj-ha-dr-route53-connect.png)
+![User connectivity with Route 53](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobj-ha-dr-route53-connect.png)
 
 
 In the event of DR or when performing a DR drill, you can either manually switch the DNS to point to the DR region or you can use automatic failover by using Route 53 health checks. For details, see [Configuring DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring.html) in the Route 53 documentation. Redirect all the users to the DR region as shown in Figure 5.
 
  **Figure 5: Redirecting users to a DR region** 
 
-![Redirecting users to a DR region](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobj-ha-dr-dr-redirect.png)
+![Redirecting users to a DR region](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobj-ha-dr-dr-redirect.png)

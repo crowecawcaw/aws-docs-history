@@ -27,4 +27,4 @@ Figure 1 shows an example large scale architecture of SAP BOBI with multi-AZ and
 
  **Figure 1: SAP BOBI with multi-AZ and multi-instance architecture** 
 
-![SAP BOBI with multi-AZ and multi-instance architecture](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-multi-az-instance-arch.png)
+![SAP BOBI with multi-AZ and multi-instance architecture](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-multi-az-instance-arch.png)

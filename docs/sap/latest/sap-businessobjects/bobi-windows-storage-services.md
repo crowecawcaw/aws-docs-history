@@ -14,4 +14,4 @@ Figure 2 shows an example use of AWS storage services by an SAP BOBI Platform in
 
  **Figure 2: AWS storage system use on SAP BOBI Platform installation** 
 
-![Storage system use on SAP BOBI Platform installation](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi_windows_storage.png)
+![Storage system use on SAP BOBI Platform installation](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi_windows_storage.png)

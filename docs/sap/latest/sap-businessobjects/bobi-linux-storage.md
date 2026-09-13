@@ -17,4 +17,4 @@ For SAP BusinessObjects file storage, you can use Amazon FSx for NetApp ONTAP to
 
  **Figure 2: AWS storage system use on SAP BOBI Platform installation** 
 
-![Storage system use on SAP BOBI Platform installation](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-aws-storage-system.png)
+![Storage system use on SAP BOBI Platform installation](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-aws-storage-system.png)

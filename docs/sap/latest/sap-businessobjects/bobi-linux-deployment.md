@@ -433,7 +433,7 @@ Figure 3 is an example input for CMS database information for Linux installation
 
  **Figure 3: Example of adding database connection information when using RDS MySQL** 
 
-![Example input for CMS database information for Linux installation](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-add-database-connection.png)
+![Example input for CMS database information for Linux installation](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-add-database-connection.png)
 
 
 This completes the installation of SAP BOBI Platform.

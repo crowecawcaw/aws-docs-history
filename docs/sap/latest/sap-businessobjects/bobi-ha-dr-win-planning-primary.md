@@ -64,7 +64,7 @@ The AWS Regions and Availability Zones shown in the following diagrams are just 
 
  **Figure 1: HA architecture for SAP BusinessObjects BI Platform** 
 
-![HA architecture for SAP BusinessObjects BI Platform](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-ha-dr-ha-arch-win.png)
+![HA architecture for SAP BusinessObjects BI Platform](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-ha-dr-ha-arch-win.png)
 
 
 This example puts the web tier in a dedicated subnet. End users will access the web tier servers where the web applications are deployed. You can use security groups to restrict connectivity between the subnets only to the required ports. For example, you can restrict connectivity from the application subnet to the database subnet to allow access only to the database listener port. The Multi-AZ architecture provides both load balancing and HA.
@@ -75,4 +75,4 @@ In case of an Availability Zone failure, as shown in Figure 2, the health check 
 
  **Figure 2: What happens during a failure in Availability Zone 1** 
 
-![What happens during a failure in Availability Zone 1](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-ha-dr-ha-az-failover-win.png)
+![What happens during a failure in Availability Zone 1](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/images/bobi-ha-dr-ha-az-failover-win.png)
