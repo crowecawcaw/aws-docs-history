@@ -36,10 +36,10 @@ A **Namespace** is a collection of database objects and users. Namespaces group 
 A **Workgroup** is a collection of compute resources. Workgroups house compute resources that Redshift Serverless uses to run computational tasks.
 
    The following screenshot shows the default settings for Amazon Redshift Serverless.  
-![Choose default settings to use the defaults for Amazon Redshift Serverless.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-creation-default-settings.png)
+![Choose default settings to use the defaults for Amazon Redshift Serverless.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-creation-default-settings.png)
 
 1. After setup completes, choose **Continue** to go to your **Serverless dashboard**. You can see that the serverless workgroup and namespace are available.  
-![Once setup finishes, the workgroup and namespace are available for use.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-available-workgroup-namespace.png)
+![Once setup finishes, the workgroup and namespace are available for use.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-available-workgroup-namespace.png)
 **Note**  
 If Redshift Serverless doesn't create the workgroup successfully, you can do the following:  
 Address any errors that Redshift Serverless reports, such as having too few subnets in your Amazon VPC.
@@ -52,35 +52,35 @@ When you open the Redshift Serverless console again, the welcome screen appears.
 Now that you've set up your data warehouse with Amazon Redshift Serverless, you can use the Amazon Redshift query editor v2 to load sample data.
 
 1. To launch query editor v2 from the Amazon Redshift Serverless console, choose **Query data**. When you invoke query editor v2 from the Amazon Redshift Serverless console, a new browser tab opens with the query editor. The query editor v2 connects from your client machine to the Amazon Redshift Serverless environment.  
-![The query data button in the Amazon Redshift Serverless console launches query editor v2.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-query-data-button.png)
+![The query data button in the Amazon Redshift Serverless console launches query editor v2.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-query-data-button.png)
 
 1. For this guide, you'll use your AWS administrator account and the default AWS KMS key. For information about configuring the query editor v2, including which permissions are needed, see [Configuring your AWS account](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-getting-started.html) in the *Amazon Redshift Management Guide*. For information about configuring Amazon Redshift to use a customer managed key, or to change the KMS key that Amazon Redshift uses, see [ Changing the AWS KMS key for a namespace](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-workgroups-and-namespaces-rotate-kms-key.html).
 
 1. To connect to a workgroup, choose the workgroup name in the tree-view panel.  
-![To connect to a workgroup, choose the workgroup name in the tree-view panel.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-connecting-to-a-workgroup.png)
+![To connect to a workgroup, choose the workgroup name in the tree-view panel.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-connecting-to-a-workgroup.png)
 
 1. When connecting to a new workgroup for the first time within query editor v2, you must select the type of authentication to use to connect to the workgroup. For this guide, leave **Federated user** selected, and choose **Create connection**.  
-![You can choose to connect using a temporary password or a database user name and password combination.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-connecting-to-default-workgroup.png)
+![You can choose to connect using a temporary password or a database user name and password combination.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-connecting-to-default-workgroup.png)
 
    Once you are connected, you can choose to load sample data from Amazon Redshift Serverless or from an Amazon S3 bucket.
 
 1. Under the Amazon Redshift Serverless default workgroup, expand the **sample\_data\_dev** database. There are three sample schemas corresponding to three sample datasets that you can load into the Amazon Redshift Serverless database. Choose the sample dataset that you want to load, and choose **Open sample notebooks**.  
-![Expand the sample_data_dev database, and then choose the schema you want to load.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-load-sample-notebooks.png)
+![Expand the sample_data_dev database, and then choose the schema you want to load.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-load-sample-notebooks.png)
 **Note**  
 A SQL notebook is a container for SQL and Markdown cells. You can use notebooks to organize, annotate, and share multiple SQL commands in a single document.
 
 1. When loading data for the first time, query editor v2 will prompt you to create a sample database. Choose **Create**.  
-![Dialog window with a prompt to create a sample database.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-create-sample-database.png)
+![Dialog window with a prompt to create a sample database.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-create-sample-database.png)
 
 ### Running sample queries
 <a name="serverless-running-sample-queries"></a>
 
 After setting up Amazon Redshift Serverless, you can start using a sample dataset in Amazon Redshift Serverless. Amazon Redshift Serverless automatically loads the sample dataset, such as the tickit dataset, and you can immediately query the data.
 + Once Amazon Redshift Serverless finishes loading the sample data, all of the sample queries are loaded in the editor. You can choose **Run all** to run all of the queries from the sample notebooks.  
-![Choose the Run all button to run all of the sample queries.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-running-sample-notebook.png)
+![Choose the Run all button to run all of the sample queries.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-running-sample-notebook.png)
 
   You can also export the results as a JSON or CSV file or view the results in a chart.  
-![The Export button in Query Editor v2, next to the Chart view button.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-export-or-chart.png)
+![The Export button in Query Editor v2, next to the Chart view button.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-export-or-chart.png)
 
 You can also load data from an Amazon S3 bucket. See [Loading in data from Amazon S3](#serverless-load-data-from-s3) to learn more.
 
@@ -92,13 +92,13 @@ After creating your data warehouse, you can load data from Amazon S3.
 At this point, you have a database named `dev`. Next, you will create some tables in the database, upload data to the tables, and try a query. For your convenience, the sample data that you load is available in an Amazon S3 bucket. 
 
 1. Before you can load data from Amazon S3, you must first create an IAM role with the necessary permissions and attach it to your serverless namespace. To do so, return to the Redshift Serverless console and choose **Namespace configuration**. From the navigation menu, choose your namespace, and then choose **Security and encryption**. Then, choose **Manage IAM roles**.  
-![From the namespace configuration page, choose Security and encryption, then choose Manage IAM roles.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-namespace-configuration.png)
+![From the namespace configuration page, choose Security and encryption, then choose Manage IAM roles.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-namespace-configuration.png)
 
 1. Expand the **Manage IAM roles** menu, and choose **Create IAM role**.  
-![Expand the Manage IAM roles menu, and choose Create IAM role.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-manage-iam-role.png)
+![Expand the Manage IAM roles menu, and choose Create IAM role.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-manage-iam-role.png)
 
 1. Choose the level of S3 bucket access that you want to grant to this role, and choose **Create IAM role as default**.  
-![Create an IAM role to use as your default role.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-create-iam-role.png)
+![Create an IAM role to use as your default role.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-create-iam-role.png)
 
 1. Choose **Save changes**. You can now load sample data from Amazon S3.
 
@@ -106,11 +106,11 @@ The following steps use data within a public Amazon Redshift S3 bucket, but you 
 
 **Load sample data from Amazon S3**
 
-1. In query editor v2, choose ![The add button, represented by a plus sign.](http://docs.aws.amazon.com/redshift/latest/gsg/images/add-plus.png) Add, then choose **Notebook** to create a new SQL notebook.  
-![Create a new Notebook in the Query Editor v2.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-create-new-notebook.png)
+1. In query editor v2, choose ![The add button, represented by a plus sign.](https://docs.aws.amazon.com/redshift/latest/gsg/images/add-plus.png) Add, then choose **Notebook** to create a new SQL notebook.  
+![Create a new Notebook in the Query Editor v2.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-create-new-notebook.png)
 
 1. Switch to the `dev` database.  
-![Switch to the dev database to load in data from an S3 bucket.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-switch-to-dev-database.png)
+![Switch to the dev database to load in data from an S3 bucket.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-switch-to-dev-database.png)
 
 1. Create tables.
 
@@ -159,7 +159,7 @@ The following steps use data within a public Amazon Redshift S3 bucket, but you 
    ```
 
 1. In the query editor v2, create a new SQL cell in your notebook.  
-![Create a new SQL cell in query editor v2 to run SQL commands.](http://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-create-new-sql-cell.png)
+![Create a new SQL cell in query editor v2 to run SQL commands.](https://docs.aws.amazon.com/redshift/latest/gsg/images/serverless-create-new-sql-cell.png)
 
 1. Now use the COPY command in query editor v2 to load large datasets from Amazon S3 or Amazon DynamoDB into Amazon Redshift. For more information about COPY syntax, see [COPY](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html) in the *Amazon Redshift Database Developer Guide*. 
 

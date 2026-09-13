@@ -8,9 +8,9 @@
 For more information about Amazon Redshift Serverless, we recommend that you continue to learn more about the concepts introduced in this guide by using the following Amazon Redshift resources: 
 + Feature videos: These videos help you learn about Amazon Redshift features.
   + To understand Amazon Redshift Serverless at a high-level, watch the following video.   
-[![AWS Videos](http://img.youtube.com/vi/7vVmZhc4DS8/0.jpg)](http://www.youtube.com/watch?v=7vVmZhc4DS8)
+[![AWS Videos](https://img.youtube.com/vi/7vVmZhc4DS8/0.jpg)](https://www.youtube.com/watch?v=7vVmZhc4DS8)
   + To learn how to set up a serverless data warehouse and begin querying data, watch the following video.  
-[![AWS Videos](http://img.youtube.com/vi/eq4o26Hpuac/0.jpg)](http://www.youtube.com/watch?v=eq4o26Hpuac)
+[![AWS Videos](https://img.youtube.com/vi/eq4o26Hpuac/0.jpg)](https://www.youtube.com/watch?v=eq4o26Hpuac)
 + [Amazon Redshift Management Guide](https://docs.aws.amazon.com/redshift/latest/mgmt/): This guide builds upon this *Amazon Redshift Getting Started Guide*. It provides in-depth information about the concepts and tasks for creating, managing, and monitoring Amazon Redshift Serverless and Amazon Redshift provisioned clusters.
 + [Amazon Redshift Database Developer Guide](https://docs.aws.amazon.com/redshift/latest/dg/): This guide also builds upon this *Amazon Redshift Getting Started Guide*. It provides in-depth information for database developers about designing, building, querying, and maintaining the databases that make up your data warehouse.
   + [SQL reference](https://docs.aws.amazon.com/redshift/latest/dg/cm_chap_SQLCommandRef.html): This topic describes SQL commands and function references for Amazon Redshift.

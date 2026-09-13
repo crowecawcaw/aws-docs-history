@@ -38,7 +38,7 @@ Following, you can find a description of typical data processing flow in Amazon 
 
 The following diagram illustrates a typical data processing flow in Amazon Redshift. 
 
-![Diagram showing the flow of data in Amazon Redshift. Data is ingested from outside sources, processed and loaded into Redshift, then consumed.](http://docs.aws.amazon.com/redshift/latest/gsg/images/architecture.png)
+![Diagram showing the flow of data in Amazon Redshift. Data is ingested from outside sources, processed and loaded into Redshift, then consumed.](https://docs.aws.amazon.com/redshift/latest/gsg/images/architecture.png)
 
 
 An Amazon Redshift *data warehouse* is an enterprise-class relational database query and management system. Amazon Redshift supports client connections with many types of applications, including business intelligence (BI), reporting, data, and analytics tools. When you run analytic queries, you are retrieving, comparing, and evaluating large amounts of data in multiple-stage operations to produce a final result.

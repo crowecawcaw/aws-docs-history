@@ -39,7 +39,7 @@ Depending on your configuration, the following items appear in the navigation pa
 
 In this tutorial, you perform the following steps.
 
-![The steps in this tutorial, outlined following](http://docs.aws.amazon.com/redshift/latest/gsg/images/getting-started-bring-own-data.png)
+![The steps in this tutorial, outlined following](https://docs.aws.amazon.com/redshift/latest/gsg/images/getting-started-bring-own-data.png)
 
 
 **Topics**
