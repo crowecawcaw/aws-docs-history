@@ -21,7 +21,7 @@ You can view the LF-Tags that are assigned to a Data Catalog resource. You must 
 1. On the **Tables** or **Databases** page, choose the name of the database or table. Then on the details page, scroll down to the **LF-Tags** section.
 
    The following screenshot shows the LF-Tags assigned to a `customers` table, which is contained in the `retail` database. The `module` LF-Tag is inherited from the database. The `credit_limit` column has the `level=vp` LF-Tag assigned.  
-![The image is a screenshot of the LF-Tags section of the customers table detail page. The LF-Tags section contains a table with the following columns: Resource, Key, Value, and Inherited from. The table has 3 rows. Above the table is a text entry field with the "Find tags" placeholder text, and an Edit tags button. The paragraph that precedes the image describes the table values shown in the screenshot.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tags-for-resource-2.png)
+![The image is a screenshot of the LF-Tags section of the customers table detail page. The LF-Tags section contains a table with the following columns: Resource, Key, Value, and Inherited from. The table has 3 rows. Above the table is a text entry field with the "Find tags" placeholder text, and an Edit tags button. The paragraph that precedes the image describes the table values shown in the screenshot.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tags-for-resource-2.png)
 
 ------
 #### [ AWS CLI ]

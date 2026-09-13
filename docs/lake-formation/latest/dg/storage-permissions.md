@@ -9,7 +9,7 @@ Lake Formation leverages this pattern to provide short term access to AWS analyt
 
 The following diagram shows how Lake Formation provides temporary access to registered locations:
 
-![User queries trusted services which request Lake Formation credentials to access S3 tables.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/storage-permissions-workflow.png)
+![User queries trusted services which request Lake Formation credentials to access S3 tables.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/storage-permissions-workflow.png)
 
 
 1. A principal (user) enters a query or request for data for a table through a trusted integrated service like Athena, Amazon EMR, Redshift Spectrum, or AWS Glue.

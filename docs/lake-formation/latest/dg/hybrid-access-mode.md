@@ -9,7 +9,7 @@ When registering an Amazon S3 location with Lake Formation, you have the option 
 
 Thus, hybrid access mode provides the flexibility to selectively enable Lake Formation for catalogs, databases, and tables in your Data Catalog for a specific set of users without interrupting the access for other existing users or workloads.
 
-![AWS account architecture showing data flow between S3, Glue, Lake Formation, Athena, and IAM roles.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-access-mode-concept.png)
+![AWS account architecture showing data flow between S3, Glue, Lake Formation, Athena, and IAM roles.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-access-mode-concept.png)
 
 
 For considerations and limitations, see [Hybrid access mode considerations and limitations](notes-hybrid.md).Terms and definitions

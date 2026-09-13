@@ -24,7 +24,7 @@ Follow these steps to grant data location permissions to principals in your AWS 
    + For **Storage locations**, choose **Browse**, and choose an Amazon Simple Storage Service (Amazon S3) storage location. The location must be registered with Lake Formation. Choose **Browse** again to add another location. You can also type the location, but ensure that you precede the location with `s3://`.
    + For **Registered account location**, enter the AWS account ID where the location is registered. This defaults to your account ID. In a cross-account scenario, data lake administrators in a recipient account can specify the owner account here when granting the data location permission to other principals in the recipient account.
    + (Optional) To enable the selected principals to grant data location permissions on the selected location, select **Grantable**.  
-![In the Grant permissions dialog box, the user datalake_user and storage location s3://retail/transactions/q119 are selected.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-location-dialog-local.png)
+![In the Grant permissions dialog box, the user datalake_user and storage location s3://retail/transactions/q119 are selected.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-location-dialog-local.png)
 
 1. Choose **Grant**.
 

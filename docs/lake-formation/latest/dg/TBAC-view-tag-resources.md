@@ -25,7 +25,7 @@ In addition, you need the following AWS Identity and Access Management (IAM) per
 1. Choose a LF-Tag key (not the option button next to the key name).
 
    The LF-Tag details page displays a list of resources that the LF-Tag has been assigned to.  
-![The image is a screenshot of the LF-Tag detail page for the key "module". The LF-Tag detail page has two sections. The top section displays the LF-Tag key and values. The bottom section displays the resources associated with that LF-Tag in a table with the following columns: Key, Values, Resource type, and Resource. The table has 12 rows, but only 7 are shown in the screenshot. The table rows show that the LF-Tag is assigned to a database, two of the tables in the database, and by inheritance, the columns of those tables.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/resources-on-tags-2.png)
+![The image is a screenshot of the LF-Tag detail page for the key "module". The LF-Tag detail page has two sections. The top section displays the LF-Tag key and values. The bottom section displays the resources associated with that LF-Tag in a table with the following columns: Key, Values, Resource type, and Resource. The table has 12 rows, but only 7 are shown in the screenshot. The table rows show that the LF-Tag is assigned to a database, two of the tables in the database, and by inheritance, the columns of those tables.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/resources-on-tags-2.png)
 
 ------
 #### [ AWS CLI ]

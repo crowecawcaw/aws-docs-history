@@ -21,7 +21,7 @@ You can create LF-Tags by using the AWS Lake Formation console, the API, or the 
 1. In the navigation pane, under **Permissions**, **LF-Tags and permissions**, choose **LF-Tags**.
 
    The **LF-Tags** page appears.  
-![The page has a 4-column table with column headings Key, Values, Owner account ID, and LF-Tag permissions. The table has 2 rows. Above the table are 4 buttons arranged horizontally: Delete (dimmed), Edit (dimmed), Grant permissions (dimmed) and Add tag. The page also has a search field with the placeholder text "Find tag". To the right of the search field is a page selector, showing the value "1" between left and right buttons, and a Settings icon.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/policy-tags-page-2.png)
+![The page has a 4-column table with column headings Key, Values, Owner account ID, and LF-Tag permissions. The table has 2 rows. Above the table are 4 buttons arranged horizontally: Delete (dimmed), Edit (dimmed), Grant permissions (dimmed) and Add tag. The page also has a search field with the placeholder text "Find tag". To the right of the search field is a page selector, showing the value "1" between left and right buttons, and a Settings icon.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/policy-tags-page-2.png)
 
 1. Choose **Add LF-Tag**.
 

@@ -9,7 +9,7 @@ The following procedures also show how a data lake administrator of Account A ca
 
 The use case assumes you are using AWS Organizations to manage your AWS accounts. The user of Account A in one organizational unit (OU1) grants access to users of Account B in OU2. You can use the same approach when not using Organizations, such as when you only have a few accounts. The following diagram illustrates the fine-grained access control of datasets in a data lake. The data lake is available in the Account A. The data lake administrator of Account A provides fine-grained access for Account B. The diagram also shows that a user of Account B provides column-level access of the Account A data lake table to another user in Account B.
 
-![AWS Organization with two accounts showing data lake access from Account A to Account B users.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tutorial-fine-grained-access1.jpg)
+![AWS Organization with two accounts showing data lake access from Account A to Account B users.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tutorial-fine-grained-access1.jpg)
 
 
 **Topics**

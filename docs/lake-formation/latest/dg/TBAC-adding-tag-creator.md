@@ -69,7 +69,7 @@ You can create LF-Tag creator roles by using the AWS Lake Formation console, the
 1. In the navigation pane, under **Permissions**, choose **LF-Tags and permissions**.
 
    On the **LF-Tags and permissions** page, choose **LF-Tag creators** section and choose **Add LF-Tag creators**.  
-![Add LF-Tag creators page showing IAM user lf-developer with Create LF-Tag permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/add-lf-tag-creator.png)
+![Add LF-Tag creators page showing IAM user lf-developer with Create LF-Tag permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/add-lf-tag-creator.png)
 
 1. On the **Add LF-Tag creators** page, choose an IAM role or user who has the required permissions to create LF-Tags.
 

@@ -396,7 +396,7 @@ In this step, you create two databases and attach LF-Tags to the databases and s
       ```
 
    1. Choose **Upload**. After uploading the schema, the table schema should look like the following screenshot:  
-![Table schema with 18 columns including vendorid, pickup and dropoff datetime, location IDs, and fare details, all string data type.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tutorial-manage-dl-tbac1.jpg)
+![Table schema with 18 columns including vendorid, pickup and dropoff datetime, location IDs, and fare details, all string data type.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tutorial-manage-dl-tbac1.jpg)
 
    1. Choose **Submit**.
 
@@ -562,7 +562,7 @@ Repeat the following steps to create the database `col_tag_database` and table `
    ```
 
 1. Choose `Upload`. After uploading the schema, the table schema should look like the following screenshot.  
-![Table schema with 18 columns including vendorid, pickup and dropoff datetime, and fare amounts.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tutorial-manage-dl-tbac2.jpg)
+![Table schema with 18 columns including vendorid, pickup and dropoff datetime, and fare amounts.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tutorial-manage-dl-tbac2.jpg)
 
 1. Choose **Submit** to complete the creation of the table.
 

@@ -28,7 +28,7 @@ You can create one or more data filters for each Data Catalog table.
      ```
      SELECT "customer" FROM "example_db"."example_table";
      ```  
-![Column-level access settings showing Include columns selected with 4 of 11 columns checked.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/nested-column-filter.png)
+![Column-level access settings showing Include columns selected with 4 of 11 columns checked.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/nested-column-filter.png)
 
       When you grant permissions to the `customer` column, the principal receives the access to the column and the nested fields under the column (`customerName` and `customerID`). 
    + Row filter expression – Enter a filter expression to specify row or cell filtering. For supported data types and operators, see [PartiQL support in row filter expressions](partiql-support.md). Choose **Access to all rows** to grant access to all .
@@ -38,7 +38,7 @@ You can create one or more data filters for each Data Catalog table.
      When a principal is granted permissions to a table with a row filter expression `Select * from example_nestedtable where customer.customerName <>'John'`, and **Column-level** access is set to **Access to all columns**, the query results shows only rows where `customerName <>'John'` evaluates to true.
 
    The following screenshot shows a data filter that implements cell filtering. In queries against the `orders` table, it denies access to the `customer_name` column and shows only rows that have 'pharma' in the `product_type` column.  
-![The data filter window contains these fields, arranged vertically: Data filter name; Target database; Target table; Option button group with the options Access to all columns, Include columns, and Exclude columns; Select columns (drop-down list); Row filter expression (multi-line text box). The Exclude columns option is selected, the customer_name column is selected for exclusion, and the Row filter expression field contains 'product_type='pharma'.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/data-filter-sample-pharma.png)
+![The data filter window contains these fields, arranged vertically: Data filter name; Target database; Target table; Option button group with the options Access to all columns, Include columns, and Exclude columns; Select columns (drop-down list); Row filter expression (multi-line text box). The Exclude columns option is selected, the customer_name column is selected for exclusion, and the Row filter expression field contains 'product_type='pharma'.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/data-filter-sample-pharma.png)
 
 1. Choose **Create filter**.
 

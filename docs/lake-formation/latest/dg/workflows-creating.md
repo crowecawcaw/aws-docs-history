@@ -42,7 +42,7 @@ The primary key qualifies as the default bookmark key only if it is sequentially
 When you choose **Ascending**, rows with values greater than bookmarked values are identified as new rows. When you choose **Descending**, rows with values less than bookmarked values are identified as new rows.  
 **Partitioning scheme**  
 (Optional) List of partitioning key columns, delimited by slashes (/). Example:` year/month/day`.  
-![The Incremental data section of the console includes these fields: Table name, Bookmark keys, Bookmark order, Partitioning scheme. You can add or remove rows, where each row is for a different table.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/incremental-data.png)
+![The Incremental data section of the console includes these fields: Table name, Bookmark keys, Bookmark order, Partitioning scheme. You can add or remove rows, where each row is for a different table.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/incremental-data.png)
 
      For more information, see [Tracking Processed Data Using Job Bookmarks](https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html) in the *AWS Glue Developer Guide*.
 

@@ -38,7 +38,7 @@
 1. On the **Grant permissions** page, choose **Add permissions**.
 
 1.  On the **Add permissions** screen, choose the principals and the types of permissions to grant.   
-![The catalog permissions page with principal type and grant options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-permissions.png)
+![The catalog permissions page with principal type and grant options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-permissions.png)
    +  In the **Principals** section, choose a principal type and then specify principals to grant permissions. 
      + **IAM users and roles** – Choose one or more users or roles from the IAM users and roles list.
      + **SAML users and groups** – For SAML and Amazon Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Amazon Quick users or groups. Press **Enter** after each ARN.

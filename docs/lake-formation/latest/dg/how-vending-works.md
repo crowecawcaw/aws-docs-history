@@ -5,7 +5,7 @@
 
 This section describes how to use application integration API operations to integrate a third-party application (query engine) with Lake Formation.
 
-![Lake Formation workflow showing admin setup, service credential requests, and user access via AWS services.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/credential-vending-new.png)
+![Lake Formation workflow showing admin setup, service credential requests, and user access via AWS services.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/credential-vending-new.png)
 
 
 1. The Lake Formation administrator performs the following activities:

@@ -32,7 +32,7 @@ When you integrate the S3 tables catalog with the Data Catalog and Lake Formatio
 + The associated Amazon S3 namespace is registered as a database in the Data Catalog.
 + The Amazon S3 tables in the table bucket becomes tables in the Data Catalog.
 
-![Mapping of objects between S3 Tables and AWS Glue Data Catalog.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/S3Tables-glue-catalog.png)
+![Mapping of objects between S3 Tables and AWS Glue Data Catalog.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/S3Tables-glue-catalog.png)
 
 
  After integrating with Lake Formation, you can create Apache Iceberg tables in the table buckets catalog, and access them via integrated AWS analytics engines such as Amazon Athena, Amazon EMR as well as third-party analytics engines. 

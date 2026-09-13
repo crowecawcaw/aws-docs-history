@@ -15,7 +15,7 @@ For both areas, Lake Formation uses a combination of Lake Formation permissions 
 
 When a principal makes a request to access Data Catalog resources or underlying data, for the request to succeed, it must pass permission checks by both IAM and Lake Formation.
 
-![A requestor's request must pass through two "doors" to get to resources: Lake Formation permissions and IAM permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/permissions_doors.png)
+![A requestor's request must pass through two "doors" to get to resources: Lake Formation permissions and IAM permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/permissions_doors.png)
 
 
 Lake Formation permissions control access to Data Catalog resources, Amazon S3 locations, and the underlying data at those locations. IAM permissions control access to the Lake Formation and AWS Glue APIs and resources. So although you might have the Lake Formation permission to create a metadata table in the Data Catalog (`CREATE_TABLE`), your operation fails if you don't have the IAM permission on the `glue:CreateTable` API. (Why a `glue:` permission? Because Lake Formation uses the AWS Glue Data Catalog.)

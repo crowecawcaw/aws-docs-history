@@ -46,7 +46,7 @@ aws glue create-database
 1. Choose Create table.
 
 1. On the **Create table** page, enter the table details:  
-![The S3 Table Catalog](http://docs.aws.amazon.com/lake-formation/latest/dg/images/s3-catalog-create-table.png)
+![The S3 Table Catalog](https://docs.aws.amazon.com/lake-formation/latest/dg/images/s3-catalog-create-table.png)
    + **Name **– Enter a unique name for the table.
    + **Catalog** – Choose the S3 tables catalog as the catalog.
    + **Database** – Choose the database under the S3 tables catalog.

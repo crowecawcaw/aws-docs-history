@@ -118,7 +118,7 @@ Data location permissions govern the outcome of create and update operations on 
 
 Consider the scenario shown in the following diagram.
 
-![Folder hierarchy and two databases, database A and B, with database B pointing to the Customer service folder.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/location-permissions-example.png)
+![Folder hierarchy and two databases, database A and B, with database B pointing to the Customer service folder.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/location-permissions-example.png)
 
 
 In this diagram:

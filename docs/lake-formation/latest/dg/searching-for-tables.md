@@ -14,7 +14,7 @@ You can use the AWS Lake Formation console to search for Data Catalog tables by 
 1. Position the cursor in the search field. The field has the placeholder text *Find table by properties*.
 
    The **Properties** menu appears, showing the various table properties to search by.  
-![The properties menu is dropped down from the search field and contains these entries: Name, Classification, Database, Location, Catalog ID](http://docs.aws.amazon.com/lake-formation/latest/dg/images/search-for-tables.png)
+![The properties menu is dropped down from the search field and contains these entries: Name, Classification, Database, Location, Catalog ID](https://docs.aws.amazon.com/lake-formation/latest/dg/images/search-for-tables.png)
 
 1. Do one of the following:
    + Search by containing database.
@@ -26,7 +26,7 @@ You can use the AWS Lake Formation console to search for Data Catalog tables by 
      1. (Optional) To narrow down the list to a single table in the database, position the cursor in the search field again, choose **Name** from the **Properties** menu, and either choose a table name from the **Tables** menu that appears or type a table name and press **Enter**.
 
         The single table is listed, and both the database name and table name appear as tiles under the search field.  
-![Beneath the search field are two tiles: one labeled Database, which includes the selected database name, and one labeled Table, which includes the selected table name. To the right of the tiles is a Clear filter button.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/search-for-tables-with-filter.png)
+![Beneath the search field are two tiles: one labeled Database, which includes the selected database name, and one labeled Table, which includes the selected table name. To the right of the tiles is a Clear filter button.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/search-for-tables-with-filter.png)
 
         To adjust the filter, close either of the tiles or choose **Clear filter**.
    + Search by other properties.

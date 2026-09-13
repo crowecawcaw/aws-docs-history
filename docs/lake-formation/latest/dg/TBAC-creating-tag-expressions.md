@@ -21,7 +21,7 @@ You can create LF-Tag expressions by using the AWS Lake Formation console, the A
 1. In the navigation pane, under **Permissions****, choose LF-Tags and permissions**.
 
 1. Choose **LF-Tag expressions**. The **Add LF-Tag expressions** page appears.  
-![The page has fields to add a name, description, and a drop down to select expression body. Users can also have the option to grant permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/add-tag-expression.png)
+![The page has fields to add a name, description, and a drop down to select expression body. Users can also have the option to grant permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/add-tag-expression.png)
 
 1. Enter the following information:
    + Name – Enter a unique name for the expression. You can't update the expression name. 
@@ -39,10 +39,10 @@ You can create LF-Tag expressions by using the AWS Lake Formation console, the A
      This expression would match resources that have: - The ContentType tag with value Video OR Audio AND - The Region tag with value Europe OR Asia AND - The Department tag with value Engineering OR ProductManagement. 
 
     You can also save a tag expression when granting data lake permissions using LF-Tags. Choose the key and value pairs and choose the **Save as new expression** option. Enter a name that describes the expression.   
-![The page has fields to select expression body and a filed to enter a name.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/save-expression-grant.png)
+![The page has fields to select expression body and a filed to enter a name.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/save-expression-grant.png)
 
 1.  (Optional) Next, choose the users/roles, and the permissions on the expression that you want to grant to them in the account. You can also choose grantable permissions that allows the users to grant these permissions to other users in the account. You can't grant cross account permissions on the tag expressions.  
-![The page shows the fields to select permission to grant to other principals.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-expression-permissions.png)
+![The page shows the fields to select permission to grant to other principals.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-expression-permissions.png)
 
 1. Choose **Add **.
 

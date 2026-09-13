@@ -16,7 +16,7 @@ Granting permissions on a Data Catalog table with row-level security (row filter
 **Cell-level security**  
 Cell-level security combines row filtering and column filtering for a highly flexible permissions model. If you view the rows and columns of a table as a grid, by using cell-level security, you can restrict access to individual elements (cells) of the grid anywhere in the two dimensions. That is, you can restrict access to different columns depending on the row. This is illustrated by the following diagram, in which restricted columns are shaded.
 
-![A grid is shown with 5 rows and 6 columns. The rows and columns have headers like Col1, Col2, Row1, Row2, and so on. The grid cells with the following coordinates are shaded: R3,C1; R3,C2; R3,C3; R5,C1; R5;C2; R5,C5; R5,C6.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cells-diagram.png)
+![A grid is shown with 5 rows and 6 columns. The rows and columns have headers like Col1, Col2, Row1, Row2, and so on. The grid cells with the following coordinates are shaded: R3,C1; R3,C2; R3,C3; R5,C1; R5;C2; R5,C5; R5,C6.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cells-diagram.png)
 
 
 Continuing the example of the persons table, you can create a *data filter* at the cell-level that restricts access to the street address column if the row has the country column set to "UK", but allows access to the street address column if the row has the country column set to "US".
@@ -58,7 +58,7 @@ The level of filtering that you get depends on how you populate the data filter.
 
 The following screenshot from the Lake Formation console shows a data filter that performs cell-level filtering. For queries against the `orders` table, it restricts access to the `customer_name` column and the query results return only rows where the `product_type` column contains 'pharma'.
 
-![The data filter window contains these fields, arranged vertically: Data filter name; Target database; Target table; Option button group with the options Access to all columns, Include columns, and Exclude columns; Select columns (drop-down list); Row filter expression (multi-line text box). The Exclude columns option is selected, the customer_name column is selected for exclusion, and the Row filter expression field contains 'product_type='pharma'.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/data-filter-sample-pharma.png)
+![The data filter window contains these fields, arranged vertically: Data filter name; Target database; Target table; Option button group with the options Access to all columns, Include columns, and Exclude columns; Select columns (drop-down list); Row filter expression (multi-line text box). The Exclude columns option is selected, the customer_name column is selected for exclusion, and the Row filter expression field contains 'product_type='pharma'.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/data-filter-sample-pharma.png)
 
 
 Note the use of single quotes to enclose the string literal, `'pharma'`. 

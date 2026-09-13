@@ -45,7 +45,7 @@ You can't grant LF-Tag permissions (`Alter` and `Drop`) to external accounts or 
 
 In the **Principals** section, choose a principal type and specify principals to grant permissions to.
 
-![The principals section contains three tiles that are named in the following text. Each tile contains an option button and text. The IAM users and roles tile is selected, and an IAM users and roles dropdown list is below the tiles.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-tags-principals-section.png)
+![The principals section contains three tiles that are named in the following text. Each tile contains an option button and text. The IAM users and roles tile is selected, and an IAM users and roles dropdown list is below the tiles.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-tags-principals-section.png)
 
 
 **IAM users and roles**  
@@ -67,7 +67,7 @@ For IAM principal, enter the ARN for the IAM user or role.
 
 To grant permissions on LF-Tags, in the **LF-Tag permissions** section, specify the LF-Tags to grant permissions on.
 
-![The LF-Tags section shows two rows of fields, where each row, going from left to right, has a Key field, a Value field, and a Remove button. The Value field is a drop-down list. Beneath the two rows of fields is an Add LF-Tag button. The first row shows "module" in the Key field, and beneath the Values field are two small tiles that contain Orders and Sales, respectively, indicating that the use has chosen Orders and Sales as the values for the key module. Each tile has an X that you can click (like a close box) to delete the tile. The second row if fields is empty.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-tags-tags-section-2.png)
+![The LF-Tags section shows two rows of fields, where each row, going from left to right, has a Key field, a Value field, and a Remove button. The Value field is a drop-down list. Beneath the two rows of fields is an Add LF-Tag button. The first row shows "module" in the Key field, and beneath the Values field are two small tiles that contain Orders and Sales, respectively, indicating that the use has chosen Orders and Sales as the values for the key module. Each tile has an X that you can click (like a close box) to delete the tile. The second row if fields is empty.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-tags-tags-section-2.png)
 
 + Choose one or more LF-Tag using the drop-down.
 
@@ -75,7 +75,7 @@ To grant permissions on LF-Tags, in the **LF-Tag permissions** section, specify 
 <a name="w2aac15b9c27c19c21c15"></a>
 
 1. To grant permissions on LF-Tag key-value pairs, (you need to first choose choose **LF-Tag key-value pair permissions** as the **Permission type**) choose **Add LF-Tag key-value pair** to reveal the first row of fields for specifying LF-Tag key and values.  
-![LF-Tag key-value pair permissions interface with key and values input fields and permissions checkboxes.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tag-key-value-pair.png)
+![LF-Tag key-value pair permissions interface with key and values input fields and permissions checkboxes.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tag-key-value-pair.png)
 
 1. Position the cursor in the **Key** field, optionally start typing to narrow down the selection list, and select a LF-Tag key.
 
@@ -91,7 +91,7 @@ If one of the rows in the **Values** list has focus, pressing **Enter** selects 
 <a name="w2aac15b9c27c19c21c17"></a>
 
 1. To grant permissions on LF-Tag expressions, (you need to first choose choose **LF-Tag expression permissions** as the **Permission type**).  
-![LF-Tag expression permissions option selected with datalake_user added as principal.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tag-expression.png)
+![LF-Tag expression permissions option selected with datalake_user added as principal.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tag-expression.png)
 
 1. Choose a LF-Tag expression.
 

@@ -21,7 +21,7 @@ This topic describes the steps you need to follow to grant attribute-based acces
    If you specify more than one attribute tag, you are creating an attribute expression with an `AND` operator. The principal is granted permissions on a Data Catalog resource only if the IAM role/user was assigned a matching tag for each attribute tag in the attribute expression.
 
    Review the resulting Cedar policy expression shown in the console.  
-![In the Grant permissions dialog box, an attribute expression is created.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/abac-grant-permissions.png)
+![In the Grant permissions dialog box, an attribute expression is created.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/abac-grant-permissions.png)
 
 1. Choose the permission scope. If the grantees belong to an external account, choose **External account** and enter the AWS account ID.
 

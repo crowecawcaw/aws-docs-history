@@ -30,7 +30,7 @@ AWS Lake Formation tag-based access control (LF-TBAC) is an authorization strate
    1. Choose **Grant**.
 
    1. On the **Grant permissions** page, for **Principals**, choose **External accounts**, and enter the grantee AWS account ID or the IAM role of the principal or the Amazon Resource Name (ARN) for the principal (principal ARN) if making a direct cross-account grant to an external principal. You need to press **Enter** after entering the account ID.  
-![The grant permission screen with external account and LF-Tag key-value pairs specified.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cross-acct-grant-tags.png)
+![The grant permission screen with external account and LF-Tag key-value pairs specified.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cross-acct-grant-tags.png)
 
    1. For **LF-Tags or catalog resources**, choose **Resources matched by LF-Tags (recommended)**. 
 
@@ -92,7 +92,7 @@ Principals who receive direct cross-account grants will not have the **Grantable
 1. Next, grant **LF-Tag key-value permissions** to the principals in the consumer account.
 
    You should be able to find the LF-Tags that are shared with you in the consumer account on the Lake Formation console, under **Permissions**, **LF-Tags and permissions**. You can associate tags shared from grantor on resources shared from grantor account that includes: databases, tables, and columns. You can further grant permissions on the resources to other principals.  
-![The screen shows the permissions for LF-Tags in the account.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/lf-tag-permissions.png)
+![The screen shows the permissions for LF-Tags in the account.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/lf-tag-permissions.png)
 
    1.  In the navigation pane, under **Permissions**, **Data permissions**, choose **Grant**. 
 

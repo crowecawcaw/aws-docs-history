@@ -110,7 +110,7 @@ After you set up the environment, you can query the product reviews table. First
    ```
 
    The following screenshot shows the query result. This table has only one partition, `product_category=Video`, so each record is a review comment for a video product.  
-![Query results table showing Amazon product reviews with columns for marketplace, customer ID, review ID, product details, ratings, and votes.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cbac-tut-query-results1.jpg)
+![Query results table showing Amazon product reviews with columns for marketplace, customer ID, review ID, product details, ratings, and votes.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cbac-tut-query-results1.jpg)
 
 1. Next, run an aggregation query to retrieve the total number of records per `marketplace`.
 
@@ -121,7 +121,7 @@ After you set up the environment, you can query the product reviews table. First
    ```
 
    The following screenshot shows the query result. The `marketplace` column has five different values. In the subsequent steps, you will set up row-based filters using the `marketplace` column.  
-![Query results showing marketplace column with five values: FR, UK, JP, DE, and US with counts.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cbac-tut-query-results2.jpg)
+![Query results showing marketplace column with five values: FR, UK, JP, DE, and US with counts.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cbac-tut-query-results2.jpg)
 
 ## Step 3: Set up data filters and grant permissions
 <a name="setup-data-filters"></a>
@@ -222,7 +222,7 @@ With the data filters attached to the product reviews table, run some queries an
    ```
 
    The following screenshot shows the query result.  
-![Query results table showing Amazon product reviews with columns for marketplace, customer ID, review ID, product details, and ratings.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cbac-tut-query-results3.png)
+![Query results table showing Amazon product reviews with columns for marketplace, customer ID, review ID, product details, and ratings.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cbac-tut-query-results3.png)
 
 1. Similarly, run a query to count the total number of records per marketplace.
 

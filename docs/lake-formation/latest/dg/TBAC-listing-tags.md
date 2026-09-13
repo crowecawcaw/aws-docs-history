@@ -23,7 +23,7 @@ You can list LF-Tags by using the AWS Lake Formation console, the API, or the AW
 1. In the navigation pane, under **Permissions**, **LF-Tags and permissions**, choose **LF-Tags**.
 
    The **LF-Tags** page appears.  
-![The page has a 3-column table with column headings Key, Values, and Owner account ID. The table has 2 rows. Above the table are 4 buttons arranged horizontally: Reload page, Delete (dimmed), Edit (dimmed), and Add tag. The page also has a search field with the placeholder text "Find tag". To the right of the search field is a page selector, showing the value "1" between left and right buttons, and a Settings icon.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/policy-tags-page-2.png)
+![The page has a 3-column table with column headings Key, Values, and Owner account ID. The table has 2 rows. Above the table are 4 buttons arranged horizontally: Reload page, Delete (dimmed), Edit (dimmed), and Add tag. The page also has a search field with the placeholder text "Find tag". To the right of the search field is a page selector, showing the value "1" between left and right buttons, and a Settings icon.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/policy-tags-page-2.png)
 
    Check the **Owner account ID** column to determine the LF-Tags that were shared with your account from an external account.
 

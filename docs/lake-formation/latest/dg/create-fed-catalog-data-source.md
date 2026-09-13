@@ -21,7 +21,7 @@ When a user runs a query on federated tables, Lake Formation vends credentials t
 1. Select the option **Create catalog**. 
 
 1. On the **Set Catalog** details page, enter the following information:   
-![The create catalog page with options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/create-glue-connection-catalog.png)
+![The create catalog page with options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/create-glue-connection-catalog.png)
    + **Name** – A unique name for your federated catalog. The name can't be changed, and must be in lower case. The name can consist of a maximum of 255 characters maximum. account. 
    + **Type** – Choose federated catalog as the catalog type.
    + **Source** – Choose a data source from the dropdown. The data sources for which you've created connections are displayed. For more information about creating an AWS Glue connection to an external data source, see [Creating connections for connectors](https://docs.aws.amazon.com/glue/latest/dg/creating-connections.html) in the AWS Glue Developer Guide or [Creating connections in Amazon SageMaker Lakehouse](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/lakehouse-create-connection.html).
@@ -45,7 +45,7 @@ When a user runs a query on federated tables, Lake Formation vends credentials t
 1. On the **Grant permissions** page, choose **Add permissions**.
 
 1.  On the **Add permissions** screen, choose the principals and the types of permissions to grant.   
-![The catalog permissions page with principal type and grant options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-permissions.png)
+![The catalog permissions page with principal type and grant options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-permissions.png)
    +  In the **Principals** section, choose a principal type and then specify principals to grant permissions. 
      + **IAM users and roles** – Choose one or more users or roles from the IAM users and roles list.
      + **SAML users and groups** – For SAML and Amazon Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Amazon Quick users or groups. Press **Enter** after each ARN. 
@@ -60,7 +60,7 @@ When a user runs a query on federated tables, Lake Formation vends credentials t
 1. Choose **Next** to review the information and create the catalog. The **Catalogs** list shows the new federated catalog.
 
    The **Data locations** list shows the newly registered federated connection.  
-![The data locations list with the federated connections.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/federated_data_lake_location.png)
+![The data locations list with the federated connections.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/federated_data_lake_location.png)
 
 ------
 #### [ AWS CLI ]

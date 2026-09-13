@@ -8,10 +8,10 @@ For each available data source, AWS Glue creates a corresponding catalog in the 
 1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/).
 
 1. Choose **Catalogs** under Data Catalog. The catalogs page shows the catalogs that you've permissions on.  
-![View catalogs.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/view-catalogs.png)
+![View catalogs.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/view-catalogs.png)
 
 1. Choose a catalog from the list to view the databases and tables contained in the catalog. The list contains the databases in your account and resource links, which are links to shared databases and tables in external accounts, and are used for cross-account access to data in the data lake.  
-![View catalogs/databases.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-database-view.png)
+![View catalogs/databases.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-database-view.png)
 
 1. Choose **Tables** option under **View** to view and manage the tables in the database. 
 

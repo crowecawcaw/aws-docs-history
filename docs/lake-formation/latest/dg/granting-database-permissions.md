@@ -27,7 +27,7 @@ To grant permissions on a database resource link, see [Granting resource link pe
 You can grant permissions on a database through its resource link. To do so, on the **Databases** page, choose a resource link, and on the **Actions** menu, choose **Grant on target**. For more information, see [How resource links work in Lake Formation](resource-links-about.md).
 
 1. In the **Principal type** section, specify principals or grant permissions to principals using attributes.  
-![The Principals section contains four tiles. Each tile contains a option button and text.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-grant-perm.png)  
+![The Principals section contains four tiles. Each tile contains a option button and text.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-grant-perm.png)  
 **IAM users and roles**  
 Choose one or more users or roles from the **IAM users and roles** list.  
 **IAM Identity Center**  
@@ -45,12 +45,12 @@ Specify the attribute key and value(s). If you choose more than one value, you a
  Choose the permission scope by specifying if you're granting permissions to principals with matching attributes in the same account or in another account. 
 
 1. In the **LF-Tags or catalog resources** section, choose **Named data catalog resources**.  
-![The LF-Tags or catalog resources section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Resources matched by LF-Tags, and Named data catalog resources. Below the tiles are two dropdown lists: Database and Table. The Database dropdown list has a tile beneath it containing the selected database name.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-target-resources-section-2.png)
+![The LF-Tags or catalog resources section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Resources matched by LF-Tags, and Named data catalog resources. Below the tiles are two dropdown lists: Database and Table. The Database dropdown list has a tile beneath it containing the selected database name.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-target-resources-section-2.png)
 
 1. Choose one or more databases from the **Database** list. You can also choose one or more **Tables** and/or **Data filters**.
 
 1. In the **Permissions** section, select permissions and grantable permissions. Under **Database permissions**, select one or more permissions to grant.  
-![The Permissions section contains two tiles, arranged horizontally. Each tile contains a option button and text. The Database permissions tile is selected. The other tile, Column-based permissions, is disabled, because it relates to table permissions. Below the tiles is a group of check boxes for database permissions to grant. Check boxes include Create Table, Alter, Drop, Describe, and Super. Below that group is another group of the same check boxes for grantable permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-target-db-permissions-section.png)
+![The Permissions section contains two tiles, arranged horizontally. Each tile contains a option button and text. The Database permissions tile is selected. The other tile, Column-based permissions, is disabled, because it relates to table permissions. Below the tiles is a group of check boxes for database permissions to grant. Check boxes include Create Table, Alter, Drop, Describe, and Super. Below that group is another group of the same check boxes for grantable permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-target-db-permissions-section.png)
 **Note**  
 After granting `Create Table` or `Alter` on a database that has a location property that points to a registered location, be sure to also grant data location permissions on the location to the principals. For more information, see [Granting data location permissions](granting-location-permissions.md).
 

@@ -60,7 +60,7 @@ To configure Lake Formation Data Catalog settings in the producer account, compl
 1. Deselect **Use only IAM access control for new databases** and **Use only IAM access control for new tables in new databases**
 
    Choose **Save**.  
-![Data catalog settings page with checkboxes for IAM access control and CloudTrail options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tbac-tut-settings.jpg)
+![Data catalog settings page with checkboxes for IAM access control and CloudTrail options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tbac-tut-settings.jpg)
 
    Additionally, you can remove `CREATE_DATABASE` permissions for `IAMAllowedPrincipals` under **Administrative roles and tasks**, **Database creators**. Only then, you can govern who can create a new database through Lake Formation permissions.
 

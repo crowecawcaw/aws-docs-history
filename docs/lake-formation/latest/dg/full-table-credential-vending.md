@@ -16,7 +16,7 @@ Follow these steps to enable third-party query engines to access data without th
 
    When you enable this option, Lake Formation returns credentials to the querying application directly without IAM session tag validation. 
 
-![The screenshot shows the Application integration setting page for Lake Formation. The option Allow external engines to access data in Amazon S3 locations with full table access is selected.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cred-vending-external-full-table.png)
+![The screenshot shows the Application integration setting page for Lake Formation. The option Allow external engines to access data in Amazon S3 locations with full table access is selected.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cred-vending-external-full-table.png)
 
 
 ------

@@ -17,7 +17,7 @@ To learn more about Lake Formation cross-account capabilities, see [Cross-accoun
    1. Sign in to the Lake Formation console as a data lake administrator at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/). Navigate to the **Catalogs** page under **Data Catalog**. 
 
    1. Review the namespace invitation that you're authorized to access. The **Status** column indicates your current participation status for the namespace. The **Not accepted** status indicates that you have been added to the namespace, but you have not yet accepted it or have rejected the invitation.   
-![The catalogs page with pending invitations.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-details.png)
+![The catalogs page with pending invitations.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-details.png)
 
    1. To respond to a namespace or cluster invitation, select the invitation name and choose **Review invitation**. In **Accept or reject invitation**, review the invitation details. Choose **Accept** to accept the invitation or **Reject** to decline the invitation. You don't get access to the namespace if you reject the invitation.
 
@@ -68,7 +68,7 @@ This is a mandatory step.
    1. Next, choose the **Access this catalog from Iceberg compatible engines** check box to enable accessing the Amazon Redshift resources using Apache Iceberg compatible analytical engines such as Athena and Apache Spark on Amazon EMR.
 
       You don't need to enable data lake access to access the federated catalogs using Amazon Redshift.  
-![The create catalog page with access enablement options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-access.png)
+![The create catalog page with access enablement options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-access.png)
 
    1. To enable these query engines to read and write to Amazon Redshift namespaces, AWS Glue creates a managed Amazon Redshift cluster with the compute and storage resources required to perform read and write operations without impacting Amazon Redshift data warehouse workloads.
 
@@ -116,7 +116,7 @@ This is a mandatory step.
    1. Choose **Next** to grant permissions to other users on the shared catalogs, databases, and tables. 
 
    1.  On the **Add permissions** screen, choose the principals and the types of permissions to grant.   
-![The catalog permissions page with principal type and grant options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-permissions.png)
+![The catalog permissions page with principal type and grant options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-permissions.png)
 
       1.  In the **Principals** section, choose a principal type and then specify principals to grant permissions. 
          + **IAM users and roles** – Choose one or more users or roles from the IAM users and roles list.

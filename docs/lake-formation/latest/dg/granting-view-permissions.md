@@ -62,7 +62,7 @@ In the **LF-Tags or catalog resources** section, choose one or more views to gra
 
 In the **Permissions** section, select permissions and grantable permissions.
 
-![The Permissions section has a group of check boxes for view permissions to grant. Check boxes include Select, Describe, Drop, and Super. Below that group is another group of the same check boxes for grantable permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/view-permissions.png)
+![The Permissions section has a group of check boxes for view permissions to grant. Check boxes include Select, Describe, Drop, and Super. Below that group is another group of the same check boxes for grantable permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/view-permissions.png)
 
 
 1. Under **View permissions**, select one or more permissions to grant.

@@ -213,7 +213,7 @@ If you have automation in place that creates databases and tables in the Data Ca
    1. In the navigation pane, under **Administration**, choose **Data Catalog settings**.
 
    1. Clear both check boxes and choose **Save**.  
-![The Data Catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/settings-page.png)
+![The Data Catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/settings-page.png)
 
 1. Revoke `IAMAllowedPrincipals` permission for database creators.
 

@@ -16,12 +16,12 @@ You can view resources that are shared with your account by using the Lake Forma
    + To view databases that are shared with your account, in the navigation pane, choose **Databases**.
 
    The console displays a list of databases or tables both in your account and shared with your account. For resources that are shared with your account, the console displays the owner's AWS account ID under the **Owner account ID** column (the third column in the following screenshot).  
-![The Tables page shows different owner account IDs for the tables.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tables-with-shared.png)
+![The Tables page shows different owner account IDs for the tables.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tables-with-shared.png)
 
 1. To view resources that you shared with other AWS accounts or organizations, in the navigation pane, choose **Data permissions**.
 
    Resources that you shared are listed on the **Data permissions** page with the external account number shown in the **Principal** column, as shown in the following image.  
-![The Data permissions page shows that your account granted permissions on a table to an external account. The AWS account ID is under the Principal column.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/permissions-with-cross.png)
+![The Data permissions page shows that your account granted permissions on a table to an external account. The AWS account ID is under the Principal column.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/permissions-with-cross.png)
 
 **To view shared resources using the AWS RAM console**
 

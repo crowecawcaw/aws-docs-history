@@ -30,7 +30,7 @@ Ensure that all cross-account access prerequisites are satisfied. For more infor
 
      An organizational unit ID consists of "ou-" followed by 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" (hyphen) and 8 to 32 additional lowercase letters or digits.
    + Under **Storage locations**, choose **Browse**, and choose an Amazon Simple Storage Service (Amazon S3) storage location. The location must be registered with Lake Formation.  
-![The Grant permission dialog has the External account radio button selected, an AWS account specified, and a storage location specified.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-location-dialog-external.png)
+![The Grant permission dialog has the External account radio button selected, an AWS account specified, and a storage location specified.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-location-dialog-external.png)
 
 1. Select **Grantable**.
 

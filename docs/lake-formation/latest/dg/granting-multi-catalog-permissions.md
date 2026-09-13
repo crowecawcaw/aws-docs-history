@@ -30,7 +30,7 @@ To grant permissions on a database resource link, see [Granting resource link pe
 You can grant permissions on a catalog through its resource link. To do so, on the **Catalogs** page, choose a catalog link container, and on the **Actions** menu, choose **Grant on target**. For more information, see [How resource links work in Lake Formation](resource-links-about.md).
 
 1. Next, in the **Principal type** section, choose principals or specify attributes attached to the principals.  
-![The principal type section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Principals and Principals by attributes.Below the title are the principals.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-catalog-principal-type.png)
+![The principal type section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Principals and Principals by attributes.Below the title are the principals.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-catalog-principal-type.png)
 
 ****Specify principals****  
 **IAM users and roles**  
@@ -53,12 +53,12 @@ Add the IAM tag key-value pairs from the IAM role.
 Specify if you're granting permissions to principals with matching attributes in the same account or in another account.
 
 1. In the **LF-Tags or catalog resources** section, choose **Named data catalog resources**.  
-![The LF-Tags or catalog resources section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Resources matched by LF-Tags, and Named data catalog resources. Below the tiles are two dropdown lists: Database and Table. The Database dropdown list has a tile beneath it containing the selected database name.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-target-resources-catalog.png)
+![The LF-Tags or catalog resources section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Resources matched by LF-Tags, and Named data catalog resources. Below the tiles are two dropdown lists: Database and Table. The Database dropdown list has a tile beneath it containing the selected database name.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-target-resources-catalog.png)
 
 1. Choose one or more catalogs from the **Catalogs** list. You can also choose one or more **Databases**, **Tables**, and/or **Data filters**.
 
 1. In the **Catalog permissions** section, select permissions and grantable permissions. Under **Catalog permissions**, select one or more permissions to grant.  
-![The Permissions section the catalog permissions tile. Below the tiles is a group of check boxes for catalog permissions to grant. Check boxes include Super user, Create catalog, Create database, Alter, Drop, Describe, and Super. Below that group is another group of the same check boxes for grantable permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-target-catalog-permissions-section.png)
+![The Permissions section the catalog permissions tile. Below the tiles is a group of check boxes for catalog permissions to grant. Check boxes include Super user, Create catalog, Create database, Alter, Drop, Describe, and Super. Below that group is another group of the same check boxes for grantable permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-target-catalog-permissions-section.png)
 
    Choose **Super user** to grant unrestricted administrative privileges to perform any operation on all resources within the catalog (databases, tables, and views).
 **Note**  

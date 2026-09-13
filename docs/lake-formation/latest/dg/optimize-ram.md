@@ -103,7 +103,7 @@ Follow these steps to update **Cross account version settings** through the AWS 
 #### [ Console ]
 
 1. Choose **Version 2**, **Version 3**, **Version 4**, or **Version 5** under **Cross account version settings** on the **Data catalog settings** page. If you select **Version 1**, Lake Formation will use the default resource sharing mode.   
-![The screen shows the permissions for all LF-Tags in the account.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cross-account-version-setting.png)
+![The screen shows the permissions for all LF-Tags in the account.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cross-account-version-setting.png)
 
 1. Choose **Save**.
 

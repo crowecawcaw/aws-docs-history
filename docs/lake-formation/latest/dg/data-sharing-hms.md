@@ -62,7 +62,7 @@ For limitations, see [Hive metadata store data sharing considerations and limita
 
 The following diagram shows the workflow for connecting the AWS Glue Data Catalog to an external Hive metastore.
 
-![Data flow from Hive to S3, through Glue Data Catalog and Lake Formation, to Redshift and Athena.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/hms-workflow.png)
+![Data flow from Hive to S3, through Glue Data Catalog and Lake Formation, to Redshift and Athena.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/hms-workflow.png)
 
 
 1. A principal submits a query using an integrated service such as Athena or Redshift Spectrum.

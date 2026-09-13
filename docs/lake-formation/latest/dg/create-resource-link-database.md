@@ -30,7 +30,7 @@ If you selected a shared database from the list, this field is populated with th
 **Shared database's catalog ID**  
 Enter the catalog ID for the shared database. When creating a resource link to a databse that's shared from another AWS account, you need to specify this catalog ID to identify which account's Data Catalog contains the source database.  
 When you select a shared database from the dropdown menu, the system automatically fills in the catalog ID of the account that owns and has shared that database with you.  
-![The Database details dialog box has the Resource link radio button selected, with the following fields filled in: Resource link name, Shared database, Shared database owner ID. Shared database owner ID is disabled (read-only).](http://docs.aws.amazon.com/lake-formation/latest/dg/images/create-resource-link-db.png)
+![The Database details dialog box has the Resource link radio button selected, with the following fields filled in: Resource link name, Shared database, Shared database owner ID. Shared database owner ID is disabled (read-only).](https://docs.aws.amazon.com/lake-formation/latest/dg/images/create-resource-link-db.png)
 
 1. Choose **Create** to create the resource link.
 

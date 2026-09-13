@@ -21,7 +21,7 @@ Scenario description - The data location is not registered with Lake Formation, 
    1. In the navigation pane, choose **Data lake locations** under **Administration**.
 
    1. Choose **Register location**.  
-![Register location page with fields for S3 path, IAM role, and permission mode options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-access-register-s3.png)
+![Register location page with fields for S3 path, IAM role, and permission mode options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-access-register-s3.png)
 
    1. On the **Register location** window, choose the **Amazon S3** path that you want to register with Lake Formation. 
 
@@ -78,7 +78,7 @@ For more information, see [Granting data location permissions](granting-location
    1. When you use **Named resource method** to grant permissions, the option to opt in principals and resources is available on the lower section of the **Grant data permission** page. 
 
       Choose **Make Lake Formation permissions effective immediately** to enable Lake Formation permissions for the principals and resources.  
-![The option to choose hybrid access mode for the Data Catalog resource.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-access-grant-option.png)
+![The option to choose hybrid access mode for the Data Catalog resource.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-access-grant-option.png)
 
    1. Choose **Grant**.
 
@@ -115,12 +115,12 @@ For more information, see [Granting data location permissions](granting-location
    1.  On the **Add resources and principals** page, choose the catalogs, databases and tables registered in hybrid access mode. 
 
       You can choose `All tables` under a database to grant access.  
-![The interface to add catalogs, databases, and tables in hybrid access mode.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-access-opt-in.png)
+![The interface to add catalogs, databases, and tables in hybrid access mode.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-access-opt-in.png)
 
    1. Choose principals opt in to use Lake Formation permissions in hybrid access mode.
       +  **Principals** – You can choose IAM users and roles in the same account or in another account. You can also choose SAML users and groups.
       + **Attributes** – Select attributes to grant permissions based on attributes.  
-![The interface to add principals and resources with an attribute expression.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/abac-hybrid-access.png)
+![The interface to add principals and resources with an attribute expression.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/abac-hybrid-access.png)
       + Enter the key-value pair to create a grant based on attributes. Review the Cedar policy expression on the console. For more information about Cedar, see [What is Cedar? \| Cedar Policy Language Reference GuideLink](https://docs.cedarpolicy.com/).
       + Choose **Add**.
 

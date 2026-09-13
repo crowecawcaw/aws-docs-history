@@ -16,7 +16,7 @@
 1. Choose **Delete** from **Actions**. 
 
 1. Choose **Drop** to confirm and the federated catalog will be deleted from the Data Catalog.  
-![The delete catalog confirmation.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/delete-fed-catalog.png)
+![The delete catalog confirmation.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/delete-fed-catalog.png)
 
 **To delete a federated catalog (CLI)**
 + 

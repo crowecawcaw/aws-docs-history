@@ -95,7 +95,7 @@ You can create LF-Tag expression creator roles by using the AWS Lake Formation c
 1. Choose the **LF-Tag expressions** tab.
 
 1. In the **LF-Tag expression creators** section, choose **Add LF-Tag expression creators**.  
-![LF-Tag expression creator details container showing IAM user datalake_user with permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/add-lf-tag-expression-creator.png)
+![LF-Tag expression creator details container showing IAM user datalake_user with permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/add-lf-tag-expression-creator.png)
 
 1. On the **Add LF-Tag expression creators** page, choose an IAM role or user who has the required permissions to create LF-Tag expressions.
 

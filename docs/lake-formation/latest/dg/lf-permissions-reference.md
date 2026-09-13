@@ -560,7 +560,7 @@ The following restrictions apply to the `SELECT` permission:
 
 The `SELECT` permission always appears on the **Data permissions** page of the Lake Formation console as a separate row. This following image shows that `SELECT` is granted to the users `datalake_user2` and `datalake_user3` on all columns in the `inventory` table.
 
-![The Data permissions page shows four rows. The first and third rows list the Delete and Insert permissions with resource type Table with the resource shown as inventory, and the second and fourth rows list the Select permission with resource type Column, and with the resource shown as retail.inventory.*.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/data-permissions-dialog-select-cross.png)
+![The Data permissions page shows four rows. The first and third rows list the Delete and Insert permissions with resource type Table with the resource shown as inventory, and the second and fourth rows list the Select permission with resource type Column, and with the resource shown as retail.inventory.*.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/data-permissions-dialog-select-cross.png)
 
 
 ### `Super`
@@ -580,7 +580,7 @@ Instead of granting `Super` to an individual principal, you can grant it to the 
 
 You can have the `Super` permission to be automatically granted to `IAMAllowedPrincipals` for new catalog resources by taking advantage of options on the **Settings** page of the Lake Formation console.
 
-![The Data catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/settings-page.png)
+![The Data catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/settings-page.png)
 
 + To grant `Super` to `IAMAllowedPrincipals` for all new databases, select **Use only IAM access control for new databases**.
 + To grant `Super` to `IAMAllowedPrincipals` for all new tables in new databases, select **Use only IAM access control for new tables in new databases**.

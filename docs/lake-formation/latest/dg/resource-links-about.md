@@ -15,7 +15,7 @@ You don't need to create a resource link to reference a shared database or table
 
 The following example shows the Lake Formation console **Tables** page, which lists two resource links. Resource link names are always displayed in italics. Each resource link is displayed along with the name and owner of its linked shared resource. In this example, a data lake administrator in AWS account 1111-2222-3333 shared the `inventory` and `incidents` tables with account 1234-5678-9012. A user in that account then created resource links to those shared tables.
 
-![The Tables page shows two resource links. The resource link name is shown under the Name column, the shared table name is shown under the Shared resource column, and the account that shared the table is shown under the Shared resource owner column.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/tables-with-links.png)
+![The Tables page shows two resource links. The resource link name is shown under the Name column, the shared table name is shown under the Shared resource column, and the account that shared the table is shown under the Shared resource owner column.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/tables-with-links.png)
 
 
 The following are notes and restrictions on resource links:

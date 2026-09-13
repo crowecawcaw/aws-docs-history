@@ -142,7 +142,7 @@ In this step, you’ll run an AWS Glue job that creates an Iceberg transactional
 1. Choose **jobs** from the left navigation pane.
 
 1. Select `native-iceberg-create`.  
-![The image is a screenshot of the AWS Glue job page in the console.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-glu-job-tut.png)
+![The image is a screenshot of the AWS Glue job page in the console.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-glu-job-tut.png)
 
 1. Under **Actions**, choose **Edit job**.
 
@@ -170,7 +170,7 @@ Next, register the Amazon S3 path as the location of your data lake.
    +  **Amazon S3 path** – Choose **Browse** and select `lf-otf-datalake-123456789012`. Choose the expand arrow next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-iceberg` location. 
    + **IAM role** – Choose `LF-OTF-RegisterRole` as the IAM role.
    + Choose **Register location**.  
-![The image is a screenshot of the Lake Formation Register location page in the console.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-register-location-tut.png)
+![The image is a screenshot of the Lake Formation Register location page in the console.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-register-location-tut.png)
 
    For more information on registering a data location with Lake Formation, see [Adding an Amazon S3 location to your data lake](register-data-lake.md).
 
@@ -183,14 +183,14 @@ In this step, we'll grant data lake permissions to the business analyst user.
 1. On the **Grant data permissions** screen, choose, **IAM users and roles**.
 
 1. Choose `lf-consumer-analystuser` from the drop down.  
-![The image is a screenshot of the Lake Formation permissions page in the console.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-lf-perm-role-tut.png)
+![The image is a screenshot of the Lake Formation permissions page in the console.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-lf-perm-role-tut.png)
 
 1. Choose **Named data catalog resource**.
 
 1. For **Databases** choose `lficebergdb`.
 
 1. For **Tables**, choose `product`.  
-![The image is a screenshot of the Lake Formation permissions page in the console.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-db-tbl-perm-tut.png)
+![The image is a screenshot of the Lake Formation permissions page in the console.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-db-tbl-perm-tut.png)
 
 1. Next, you can grant column-based access by specifying columns.
 
@@ -201,7 +201,7 @@ In this step, we'll grant data lake permissions to the business analyst user.
    1. Choose `product_name`, `price`, and `category` columns.
 
    1. Choose **Grant**.  
-![The image is a screenshot of the Lake Formation permissions page in the console.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-column-perm-tut.png)
+![The image is a screenshot of the Lake Formation permissions page in the console.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/otf-column-perm-tut.png)
 
 **To query the Iceberg table using Athena**
 

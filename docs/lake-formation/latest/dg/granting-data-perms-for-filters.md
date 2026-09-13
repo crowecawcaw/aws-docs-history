@@ -13,13 +13,13 @@ Data filters represent a subset of data within a table. To provide data access t
 **To grant SELECT permissions**
 
 1. Go to the **Permissions** page in the Lake Formation console, and then choose **Grant**.  
-![The image is a screenshot of the top page of the Permissions page in the console. In the Data Permissions section, the Grant button is highlighted.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/permissions-grant-action.png)
+![The image is a screenshot of the top page of the Permissions page in the console. In the Data Permissions section, the Grant button is highlighted.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/permissions-grant-action.png)
 
 1. Select the principals you want to provide access to, and select **Named data catalog resources**.  
-![The image is a screenshot of the Permissions page in the console. The "LF-Tags or catalog resources" section is shown, with the "Named data catalog resources" option selected. Under Databases, there is one value provided: cloudtrail. For Tables, there is one value provided: cloudtrail-logs-aws_logs. For Data Filters, there is one value provided: cloudtrail_lakeformation_filter.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-data-filter-perms-step2.png)
+![The image is a screenshot of the Permissions page in the console. The "LF-Tags or catalog resources" section is shown, with the "Named data catalog resources" option selected. Under Databases, there is one value provided: cloudtrail. For Tables, there is one value provided: cloudtrail-logs-aws_logs. For Data Filters, there is one value provided: cloudtrail_lakeformation_filter.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-data-filter-perms-step2.png)
 
 1. To provide access to the data that the filter represents, choose **Select** under **Data filter permissions**.  
-![The image is a screenshot of the top page of the Permissions page in the console. In the "Data filter permissions" section, the SELECT option is selected. The DESCRIBE and DROP options are not selected. In the "Grantable permissions" section, none of the options are selected (Select, Describe, Drop). There is an informational message at the bottom of the screenshot which says "Select permissions on data filters will grant access to the table 'cloudtrail_logs_awslogs'."](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-data-filter-perms-step3.png)
+![The image is a screenshot of the top page of the Permissions page in the console. In the "Data filter permissions" section, the SELECT option is selected. The DESCRIBE and DROP options are not selected. In the "Grantable permissions" section, none of the options are selected (Select, Describe, Drop). There is an informational message at the bottom of the screenshot which says "Select permissions on data filters will grant access to the table 'cloudtrail_logs_awslogs'."](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-data-filter-perms-step3.png)
 
 ------
 #### [ CLI ]

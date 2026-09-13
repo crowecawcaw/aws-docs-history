@@ -19,7 +19,7 @@ To view permissions on a data filter, you must be a Data Lake administrator or h
 1. On the **Resource type** menu, choose **Resource type: Data cell filter**.
 
    The data filters that you have permissions on are listed. You might have to scroll horizontally to see the **Permissions** and **Grantable** columns.  
-![The Data Permissions page displays a table of permissions with the following columns: Principal, Resource type, Database, Table, Resource, Catalog, and Permissions. The Resource type column shows "Data cell filter" in all four rows. The permissions for the first and second rows are Describe, Drop, and Select. The permissions for the third row is Describe. Above the table is a Clear filter button and a tile indicating that the current search is for Resource type: Data cell filter. Above those is a search (text) field, and above that are Refresh, Revoke, and Grant buttons.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/data-permissions-cell-filters.png)
+![The Data Permissions page displays a table of permissions with the following columns: Principal, Resource type, Database, Table, Resource, Catalog, and Permissions. The Resource type column shows "Data cell filter" in all four rows. The permissions for the first and second rows are Describe, Drop, and Select. The permissions for the third row is Describe. Above the table is a Clear filter button and a tile indicating that the current search is for Resource type: Data cell filter. Above those is a search (text) field, and above that are Refresh, Revoke, and Grant buttons.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/data-permissions-cell-filters.png)
 
 ------
 #### [ AWS CLI ]

@@ -21,7 +21,7 @@ Follow these steps to allow a third-party query engine to call application integ
 1. Enter the account IDs for users that can use the third-party engine to access unfiltered metadata information and the data access credentials of resources in the current account.
 
    You can also use the AWS account ID field for configuring cross-account access.  
-![The screenshot shows the Application integration settings page for Lake Formation. The option Allow external engines to filter data in Amazon S3 locations registered with Lake Formationis selected. For Session tag values, the text box is empty, but there are six tags displayed below the field, with the values "engine1, "engine2", "engine3", "session1", "session2", and "session3". The last field shows the AWS account IDs field. The text field is empty, but there are three tags displayed below this field with account IDs. The account ID values are redacted.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cred-vending-external-data-filtering.png)
+![The screenshot shows the Application integration settings page for Lake Formation. The option Allow external engines to filter data in Amazon S3 locations registered with Lake Formationis selected. For Session tag values, the text box is empty, but there are six tags displayed below the field, with the values "engine1, "engine2", "engine3", "session1", "session2", and "session3". The last field shows the AWS account IDs field. The text field is empty, but there are three tags displayed below this field with account IDs. The account ID values are redacted.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cred-vending-external-data-filtering.png)
 
 ------
 #### [ CLI ]

@@ -14,4 +14,4 @@ Follow instructions in [Granting database permissions using the named resource m
 
  The following video demonstrates how to share data with an AWS organization using Lake Formation. 
 
-[![AWS Videos](http://img.youtube.com/vi/S-Mdcmq6oPM?controls=0&/0.jpg)](http://www.youtube.com/watch?v=S-Mdcmq6oPM?controls=0&)
+[![AWS Videos](https://img.youtube.com/vi/S-Mdcmq6oPM?controls=0&/0.jpg)](https://www.youtube.com/watch?v=S-Mdcmq6oPM?controls=0&)

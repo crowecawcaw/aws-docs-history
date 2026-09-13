@@ -29,7 +29,7 @@ We recommend that a Lake Formation administrator deploys the AWS SAM application
    For more information on registering an Amazon S3 location, see [Adding an Amazon S3 location to your data lake](register-data-lake.md).
 
    When you register the Amazon S3 location, select the **Enable Data Catalog Federation** check box to allow Lake Formation to assume a role to access tables in a federated database.  
-![Register location form for AWS Lake Formation with Amazon S3 path and IAM role options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/hms-register-s3.png)
+![Register location form for AWS Lake Formation with Amazon S3 path and IAM role options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/hms-register-s3.png)
 
    For more information about registering a data location with Lake Formation, see [Configure an Amazon S3 location for your data lake](initial-lf-config.md#register-s3-location).
 

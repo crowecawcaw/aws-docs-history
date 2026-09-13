@@ -40,7 +40,7 @@ You can grant permissions by using the Lake Formation console, the API, or the A
      1.  Specify principals.
 
 1. Under **Permissions**, select the permissions to grant. Optionally, select grantable permissions.  
-![The Permissions section contains a single tile. The tiles has a group of check boxes for resource link permissions to grant. Check boxes include Drop and Describe. Below that group is another group of the same check boxes for grantable permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-resource-link-permissions-TBAC.png)
+![The Permissions section contains a single tile. The tiles has a group of check boxes for resource link permissions to grant. Check boxes include Drop and Describe. Below that group is another group of the same check boxes for grantable permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-resource-link-permissions-TBAC.png)
 
 1. Choose **Grant**.
 

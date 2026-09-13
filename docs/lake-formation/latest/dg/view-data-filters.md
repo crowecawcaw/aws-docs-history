@@ -15,10 +15,10 @@ To view data filters, you must be a Data Lake administrator or have the required
 1. In the navigation pane, under **Data catalog**, choose **Data filters**.
 
    The page displays the data filters you have access to.  
-![The Data filters page displays the available data filters with the following columns: Filter name, Table, Database, and Table catalog ID. The screenshot shows a single data filter with the following values: test-df, cloudtrailtest_cloudtrail, lakeformation_cloudtrail, redacted account ID. Above the table there are four buttons (from left to right): Refresh/reload, View (grayed out), Delete (grayed out), and "Create new filter". There is also a search field, which is empty.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/list-data-filters.jpg)
+![The Data filters page displays the available data filters with the following columns: Filter name, Table, Database, and Table catalog ID. The screenshot shows a single data filter with the following values: test-df, cloudtrailtest_cloudtrail, lakeformation_cloudtrail, redacted account ID. Above the table there are four buttons (from left to right): Refresh/reload, View (grayed out), Delete (grayed out), and "Create new filter". There is also a search field, which is empty.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/list-data-filters.jpg)
 
 1. To view the data filter details, choose the data filter, and then choose View. A new window appears with the data filter detailed information.  
-![The "View data filter" window shows additional information about the selected data filter. The information displayed includes the name, database, table, column-level access setting, row filter expression, and the columns.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/list-data-filters-details.jpg)
+![The "View data filter" window shows additional information about the selected data filter. The information displayed includes the name, database, table, column-level access setting, row filter expression, and the columns.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/list-data-filters-details.jpg)
 
 ------
 #### [ AWS CLI ]

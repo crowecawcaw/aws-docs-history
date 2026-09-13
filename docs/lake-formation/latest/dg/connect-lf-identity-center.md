@@ -13,7 +13,7 @@ Before you can use IAM Identity Center to manage identities to grant access to D
 1. Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/).
 
 1. In the left navigation pane, select **IAM Identity Center integration**.   
-![IAM Identity Center integration screen with Identity Center ARN.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-integ.png)
+![IAM Identity Center integration screen with Identity Center ARN.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-integ.png)
 
 1. (Optional) Enter one or more valid AWS account IDs, organization IDs, and/or organizational unit IDs to allow external accounts to access the Data Catalog resources. When IAM Identity Center users or groups try to access Lake Formation managed Data Catalog resources, Lake Formation assumes an IAM role to authorize metadata access. If the IAM role belongs to an external account that does not have an AWS Glue resource policy and an AWS RAM resource share, the IAM Identity Center users and groups won't be able to access the resource even if they've Lake Formation permissions.
 

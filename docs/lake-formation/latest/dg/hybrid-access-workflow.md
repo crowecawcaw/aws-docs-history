@@ -5,7 +5,7 @@
 
 The following diagram shows how Lake Formation authorization works in hybrid access mode when you query the Data Catalog resources.
 
-![Flow diagram showing Lake Formation authorization process in hybrid access mode with decision points and data flow paths.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-workflow.png)
+![Flow diagram showing Lake Formation authorization process in hybrid access mode with decision points and data flow paths.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/hybrid-workflow.png)
 
 
 Before accessing data in your data lake, a data lake administrator or a user with administrative permissions sets up individual Data Catalog table user policies to allow or deny access to tables in your Data Catalog. Then, a principal who has the permissions to perform `RegisterResource` operation registers the Amazon S3 location of the table with Lake Formation in hybrid access mode. If a data location is not registered with Lake Formation, the administrator grants Lake Formation permissions to specific users on the Data Catalog databases and tables and opts them in to use Lake Formation permissions for those databases and tables in hybrid access mode.

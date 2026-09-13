@@ -60,7 +60,7 @@ The following steps explain how to grant permissions by using the Lake Formation
 **Specify the principals.**
 
     In the **Principals** section, choose a principal type and then specify principals to grant permissions to.  
-![The Principals section contains four tiles that are named in the following text. Each tile contains a option button and text. The IAM Identity Center tile is selected, and users and groups dropdown list is below the tiles.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-grant-perm.png)  
+![The Principals section contains four tiles that are named in the following text. Each tile contains a option button and text. The IAM Identity Center tile is selected, and users and groups dropdown list is below the tiles.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-grant-perm.png)  
 **IAM users and roles**  
 Choose one or more users or roles from the **IAM users and roles** list.  
 **IAM Identity Center **  
@@ -83,7 +83,7 @@ An organizational unit ID starts with "ou-" followed by 4 to 32 lowercase letter
    1. If you choose the **LF-Tag key-value pairs** option, choose the keys and values.
 
       If you choose more than one value, you are creating a LF-Tag expression with an `OR` operator. This means that if any of the LF-Tag values match a LF-Tag assigned to a Data Catalog resource, you are granted permissions on the resource.  
-![The LF-Tag or catalog resources section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Resources matched by LF-Tags (recommended), and Named data catalog resources. Resources matched by LF-Tags is selected. Below the tiles are a Key field and a Values field arranged horizontally. The Key field contains "module" and the Values field is a dropdown list that contains three entries: Orders, Sales, and Customers. Each entry has a check box associated. The check box for Customers is selected. Next to these two fields is a Remove button. The dialog also includes an Add LF-Tag button, indicating that you can add another row containing the Key and Values fields and a Remove button.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-data-permissions-tags-2.png)
+![The LF-Tag or catalog resources section contains two tiles arranged horizontally, where each tile contains an option button and descriptive text. The options are Resources matched by LF-Tags (recommended), and Named data catalog resources. Resources matched by LF-Tags is selected. Below the tiles are a Key field and a Values field arranged horizontally. The Key field contains "module" and the Values field is a dropdown list that contains three entries: Orders, Sales, and Customers. Each entry has a check box associated. The check box for Customers is selected. Next to these two fields is a Remove button. The dialog also includes an Add LF-Tag button, indicating that you can add another row containing the Key and Values fields and a Remove button.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-data-permissions-tags-2.png)
 
    1. (Optional) Choose **Add LF-Tag key-value pair** again to specify another LF-Tag.
 
@@ -102,7 +102,7 @@ An organizational unit ID starts with "ou-" followed by 4 to 32 lowercase letter
    Specify the permissions that you want to grant the principal on matching Data Catalog resources. Matching resources are those resources that were assigned LF-Tags that match one of the LF-Tag expressions granted to the principal. 
 
    You can specify the permissions to grant on matching databases, matching tables, and matching views.  
-![Two sections of the page are shown. The Database permissions section contains check boxes for database permissions and grantable permissions. Beneath the Database section, the Table permissions section shows the check boxes for table permissions and grantable permissions.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-TBAC-DB-table-permissions.png)
+![Two sections of the page are shown. The Database permissions section contains check boxes for database permissions and grantable permissions. Beneath the Database section, the Table permissions section shows the check boxes for table permissions and grantable permissions.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/grant-TBAC-DB-table-permissions.png)
 
    Under **Database permissions**, select the database permissions to grant to the principal on matching databases.
 

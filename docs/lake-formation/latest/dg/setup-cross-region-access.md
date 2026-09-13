@@ -32,7 +32,7 @@ In this section, the target shared table Region is referred to as Region A and u
    A data lake administrator needs to complete the following actions:
 
    1. Create a resource link in Region B pointing to the target shared table in Region A. Specify the **Shared table owner Region** on the **Create table** screen.   
-![Create table screen with Resource link option selected and Shared table owner region field highlighted.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/cross-region-resource-link.png)
+![Create table screen with Resource link option selected and Shared table owner region field highlighted.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/cross-region-resource-link.png)
 
       For instructions on creating resource links to databases and tables, see [Creating resource links](creating-resource-links.md).
 

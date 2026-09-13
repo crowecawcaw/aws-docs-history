@@ -19,7 +19,7 @@ The Data Catalog supports a three-level metadata hierarchy comprising catalogs, 
 + The Amazon Redshift schema becomes a database in the Data Catalog.
 + The Amazon Redshift table becomes a table in the Data Catalog.
 
-![Shows the catalog-level mapping between the Amazon Redshift namespace and the Data Catalog.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/rs-catalog-mapping.png)
+![Shows the catalog-level mapping between the Amazon Redshift namespace and the Data Catalog.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/rs-catalog-mapping.png)
 
 
 With this three-level metadata hierarchy, you can access Amazon Redshift tables by using the 3-part notation - "catalog1/catalog2.database.table" in the Data Catalog. Also, data teams can maintain the same organization that Amazon Redshift uses to organize tables within the Data Catalog account. 

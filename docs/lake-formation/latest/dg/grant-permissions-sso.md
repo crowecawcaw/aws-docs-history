@@ -29,12 +29,12 @@ You can only grant permissions on resources in your account. To cascade permissi
 1. On the **Grant data lake permissions** page, choose, **IAM Identity Center** users and groups. 
 
 1. Select **Add** to choose the users and groups to grant permissions.  
-![Grant data lake permissions screen with IAM Identity Center users and groups selected.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-grant-perm.png)
+![Grant data lake permissions screen with IAM Identity Center users and groups selected.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-grant-perm.png)
 
 1. On the **Assign users and groups** screen, choose the users and/or groups to grant permissions.
 
    Select **Assign**.  
-![Grant data lake permissions screen with IAM Identity Center users and groups selected.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-assign-users-groups.png)
+![Grant data lake permissions screen with IAM Identity Center users and groups selected.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/identity-center-assign-users-groups.png)
 
 1. Next, choose the method to grant permissions.
 

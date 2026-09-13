@@ -67,7 +67,7 @@ You can create Iceberg v1 and v2 tables using Lake Formation console or AWS Comm
    + **Database**: Choose an existing database or create a new one.
    + **Description**:The description of the table. You can write a description to help you understand the contents of the table.
    + **Table format**: For **Table format**, choose Apache Iceberg.  
-![Apache Iceberg table option selected with table optimization options.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/table-optimization.png)
+![Apache Iceberg table option selected with table optimization options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/table-optimization.png)
    + **Table optimization**
      + **Compaction** – Data files are merged and rewritten remove obsolete data and consolidate fragmented data into larger, more efficient files.
      + **Snapshot retention **– Snapshots are timestamped versions of an Iceberg table. Snapshot retention configurations allow customers to enforce how long to retain snapshots and how many snapshots to retain. Configuring a snapshot retention optimizer can help manage storage overhead by removing older, unnecessary snapshots and their associated underlying files.

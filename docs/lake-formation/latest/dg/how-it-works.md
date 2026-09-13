@@ -14,7 +14,7 @@ In Lake Formation, you can implement permissions on two levels:
 
 Lake Formation integrates with analytical engines to query Amazon S3 data stores and metadata objects that are registered with Lake Formation. The following diagram illustrates how permissions management works in Lake Formation.
 
-![Lake Formation permissions flow from user through Athena to Data Catalog and S3 storage.](http://docs.aws.amazon.com/lake-formation/latest/dg/images/lf-workflow.png)
+![Lake Formation permissions flow from user through Athena to Data Catalog and S3 storage.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/lf-workflow.png)
 
 
 **Lake Formation permissions management high-level steps**
