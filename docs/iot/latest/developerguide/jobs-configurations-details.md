@@ -114,7 +114,7 @@ The maintenance window is an optional configuration within the scheduling config
 
 The following diagram illustrates the job status states for various scheduled job scenarios with an optional maintenance window:
 
-![A diagram showing the lifecycle of a continuous job, progressing through states of SCHEDULED, IN_PROGRESS, CANCELLED, and DELETION_IN_PROGRESS upon certain events.](http://docs.aws.amazon.com/iot/latest/developerguide/images/job-states-diagram-scheduled-maintenance-window.png)
+![A diagram showing the lifecycle of a continuous job, progressing through states of SCHEDULED, IN_PROGRESS, CANCELLED, and DELETION_IN_PROGRESS upon certain events.](https://docs.aws.amazon.com/iot/latest/developerguide/images/job-states-diagram-scheduled-maintenance-window.png)
 
 
 For more information about job status states, see [Jobs and job execution states](iot-jobs-lifecycle.md).
@@ -217,7 +217,7 @@ You can set the in-progress timer by using the AWS IoT console or the AWS IoT Jo
 
 The following illustrates the ways in which in-progress timeouts and step timeouts interact with each other in a 20-minute timeout period.
 
-![A timeline showing an in-progress timer of 20 minutes with nested step timers of 7, 5, and 8 minutes.](http://docs.aws.amazon.com/iot/latest/developerguide/images/timeout-diagram.png)
+![A timeline showing an in-progress timer of 20 minutes with nested step timers of 7, 5, and 8 minutes.](https://docs.aws.amazon.com/iot/latest/developerguide/images/timeout-diagram.png)
 
 
 The following shows the different steps:

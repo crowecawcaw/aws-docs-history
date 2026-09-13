@@ -23,12 +23,12 @@ You can open a secure tunnel using the AWS Management Console, the AWS IoT API R
 **To open a tunnel using the console**
 
 1. Go to the [Tunnels hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/tunnels) and choose **Create tunnel**.  
-![AWS IoT console showing an empty list of tunnels with options to create, close, or delete tunnels.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnels-page.png)
+![AWS IoT console showing an empty list of tunnels with options to create, close, or delete tunnels.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnels-page.png)
 
 1. For this tutorial, choose **Quick setup** as the tunnel creation method and then choose **Next**.
 **Note**  
 If you create a secure tunnel from the details page of a thing you created, you can choose whether to create a new tunnel or use an existing one. For more information, see [Open a tunnel for remote device and use browser-based SSH](tunneling-tutorial-existing-tunnel.md).  
-![Setup method section with options for quick setup using SSH or manual setup, explaining the quick setup automatically configures proxy and access token.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnels-choose-quick.PNG)
+![Setup method section with options for quick setup using SSH or manual setup, explaining the quick setup automatically configures proxy and access token.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnels-choose-quick.PNG)
 
 1. Review and confirm the tunnel configuration details. To create a tunnel, choose **Confirm and create**. If you want to edit these details, choose **Previous** to go back to the previous page and then confirm and create the tunnel.
 **Note**  
@@ -37,7 +37,7 @@ When using quick setup, the service name can't be edited. You must use **SSH** a
 1. To create the tunnel, choose **Done**. 
 
    For this tutorial, you don't have to download the source or destination access tokens. These tokens can only be used once to connect to the tunnel. If your tunnel gets disconnected, you can generate and send new tokens to your remote device for reconnecting to the tunnel. For more information, see [Resend tunnel access tokens](tunneling-tutorial-manual-setup.md#resend-access-tokens).  
-![A dialog showing source and destination access tokens for creating a secure tunnel connection, with instructions on rotating and resending tokens if needed.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-success.png)
+![A dialog showing source and destination access tokens for creating a secure tunnel connection, with instructions on rotating and resending tokens if needed.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-success.png)
 
 **To open a tunnel using the API**  
 To open a new tunnel, you can use the [OpenTunnel](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_OpenTunnel.html) API operation.
@@ -76,11 +76,11 @@ After you create a tunnel using the quick setup method, and your destination dev
 1. Choose whether you want to authenticate into the SSH connection by providing your username and password, or, for more secure authentication, you can use your device's private key. If you're authenticating using the private key, note that only PEM formatted (256 and 512) RSA keys work with AWS IoT Secure Tunneling SSH console. 
    + To connect using your username and password, choose **Use password**. You can then enter your username and password and start using the in-browser CLI.
    + To connect using your destination device's private key, choose **Use private key**. Specify your username and upload the device's private key file, and then choose **Connect** to start using the in-browser CLI.  
-![Form dialog box to connect via browser CLI with private key, showing a username field and an option to choose or use a pre-selected private key file.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-browser-private-key.png)
+![Form dialog box to connect via browser CLI with private key, showing a username field and an option to choose or use a pre-selected private key file.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-browser-private-key.png)
 
 After you've authenticated into the SSH connection, you can quickly get started with entering commands and interact with the device using the browser CLI, as the local proxy has already been configured for you.
 
-![Code snippet showing React hooks for managing state and preferences in a JavaScript application.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-browser-cli.PNG)
+![Code snippet showing React hooks for managing state and preferences in a JavaScript application.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-browser-cli.PNG)
 
 
 If the browser CLI stays open after the tunnel duration, it might time out, causing the command line interface to get disconnected. You can duplicate the tunnel and start another session to interact with the remote device within the console itself.

@@ -20,15 +20,15 @@ The following procedure explains how to subscribe to a specific MQTT topic that 
 **To view MQTT messages in the MQTT test client**
 
 1. In the [AWS IoT console](https://console.aws.amazon.com/iot/home), in the left menu, choose **Test** and then choose **MQTT test client**.  
-![Choose MQTT test client from the console menu on the left navigation.](http://docs.aws.amazon.com/iot/latest/developerguide/images/choose-test.png)
+![Choose MQTT test client from the console menu on the left navigation.](https://docs.aws.amazon.com/iot/latest/developerguide/images/choose-test.png)
 
 1. In the **Subscribe to a topic** tab, enter the {{topicName}} to subscribe to the topic on which your device publishes. For the getting started sample app, subscribe to **\#**, which subscribes to all message topics.
 
    Continuing with the getting started example, on the **Subscribe to a topic** tab, in the **Topic filter** field, enter **\#**, and then choose **Subscribe**.  
-![The subscribe to a topic tab.](http://docs.aws.amazon.com/iot/latest/developerguide/images/subscribe-button-topic.png)
+![The subscribe to a topic tab.](https://docs.aws.amazon.com/iot/latest/developerguide/images/subscribe-button-topic.png)
 
    The topic message log page, **\#** opens and **\#** appears in the **Subscriptions** list. If the device that you configured in [Configure your device](configure-device.md) is running the example program, you should see the messages it sends to AWS IoT in the **\#** message log. The message log entries will appear below the **Publish** section when messages with the subscribed topic are received by AWS IoT.  
-![The section to show the topic has been subscribed successfully.](http://docs.aws.amazon.com/iot/latest/developerguide/images/subscribed-button-topic.png)
+![The section to show the topic has been subscribed successfully.](https://docs.aws.amazon.com/iot/latest/developerguide/images/subscribed-button-topic.png)
 
 1. On the **\#** message log page, you can also publish messages to a topic, but you'll need to specify the topic name. You cannot publish to the **\#** topic.
 
@@ -82,10 +82,10 @@ Do not use personally identifiable information in topic names, whether using the
 1. Choose **Publish** to publish your message to AWS IoT.
 **Note**  
 Make sure you are subscribed to the **my/topic** topic before publishing your message.  
-![The publish to a topic tab.](http://docs.aws.amazon.com/iot/latest/developerguide/images/publish-to-topic.png)
+![The publish to a topic tab.](https://docs.aws.amazon.com/iot/latest/developerguide/images/publish-to-topic.png)
 
 1. In the **Subscriptions** list, choose **my/topic** to see the message. You should see the message appear in the MQTT test client below the publish message payload window.  
-![The screen that shows the published topic has been received.](http://docs.aws.amazon.com/iot/latest/developerguide/images/publish-to-topic-received.png)
+![The screen that shows the published topic has been received.](https://docs.aws.amazon.com/iot/latest/developerguide/images/publish-to-topic-received.png)
 
 You can publish MQTT messages to other topics by changing the {{topicName}} in the **Topic name** field and choosing the **Publish** button.
 
@@ -108,9 +108,9 @@ This section describes how to use the AWS IoT MQTT client in the [AWS IoT consol
    ```
 
    An example topic filter can be **$share/group1/topic1**, which subscribes to the message topic **topic1**.  
-![The tab that shows how to specify a topic filter for shared subscriptions.](http://docs.aws.amazon.com/iot/latest/developerguide/images/shared-subscription-topicfilter.png)
+![The tab that shows how to specify a topic filter for shared subscriptions.](https://docs.aws.amazon.com/iot/latest/developerguide/images/shared-subscription-topicfilter.png)
 
 1. Open another web browser and repeat step1 and step2. In this way, you are simulating two different MQTT clients that share the same subscription **$share/group1/topic1**.
 
 1. Choose one MQTT client, in the **Publish to a topic** tab, in the **Topic name** field, enter the {{topicName}} of your message. In this example, use **topic1**. Try publishing the message a few times. From the **Subscriptions** list of both MQTT clients, you should be able to see that the clients receive the message using a random distribution. In this example, we publish the same message "Hello from AWS IoT console" three times. The MQTT client on the left received the message twice and the MQTT client on the right received the message once.  
-![The shared subscriptions flow with two clients to share a subscription to a topic and only one client will receive messages published to that topic using a random distribution.](http://docs.aws.amazon.com/iot/latest/developerguide/images/shared_subscriptions_test.gif)
+![The shared subscriptions flow with two clients to share a subscription to a topic and only one client will receive messages published to that topic using a random distribution.](https://docs.aws.amazon.com/iot/latest/developerguide/images/shared_subscriptions_test.gif)

@@ -17,7 +17,7 @@ Expect to spend approximately 5-10 minutes on this demo. Giving yourself 10 minu
 1. Open the [AWS IoT home page](https://console.aws.amazon.com/iot/home#/home) in the AWS IoT console.
 
    On the **AWS IoT home page**, in the **Learning resources** window pane, choose **Start tutorial**.  
-![This is the AWS IoT console home page.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-home-demo.png)
+![This is the AWS IoT console home page.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-home-demo.png)
 
 1. In the **AWS IoT Console Tutorial** page, review the tutorial sections and choose **Start section** when you're ready to continue.
 
@@ -31,7 +31,7 @@ Expect to spend approximately 5-10 minutes on this demo. Giving yourself 10 minu
 
 Learn how IoT devices communicate with AWS IoT Core.
 
-![This is the first step of the AWS IoT interactive tutorial.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-demo-step-1.png)
+![This is the first step of the AWS IoT interactive tutorial.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-demo-step-1.png)
 
 
 The animation in this step shows how two devices, the control device on the left and a smart lamp in the house on the right, connect and communicate with AWS IoT Core in the cloud. The animation shows the devices communicating with AWS IoT Core and reacting to the messages they receive.
@@ -43,7 +43,7 @@ For more information about connecting devices to AWS IoT Core, see [Connect to A
 
 Learn how AWS IoT Core saves device state for while a device or app is offline.
 
-![This is the second step of the AWS IoT interactive tutorial.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-demo-step-2.png)
+![This is the second step of the AWS IoT interactive tutorial.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-demo-step-2.png)
 
 
 The animation in this step shows how the Device Shadow service in AWS IoT Core saves device state information for the control device and the smart lamp. While the smart lamp is offline, the Device Shadow saves commands from the control device.
@@ -57,7 +57,7 @@ For more information about Device Shadows, see [AWS IoT Device Shadow service](i
 
 Learn how AWS IoT Core sends device state to other AWS services.
 
-![This is the third step of the AWS IoT interactive tutorial.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-demo-step-3.png)
+![This is the third step of the AWS IoT interactive tutorial.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-demo-step-3.png)
 
 
 The animation in this step shows how AWS IoT Core sends data from the devices to other AWS services by using AWS IoT rules. AWS IoT rules subscribe to specific messages from the devices, interpret the data in those messages, and route the interpreted data to other services. In this example, an AWS IoT rule interprets data from a motion sensor and sends commands to a Device Shadow, which then sends them to the smart bulb. As in the previous example, the Device Shadow stores the device-state info for the control device.

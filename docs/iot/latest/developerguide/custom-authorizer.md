@@ -5,7 +5,7 @@
 
 Custom authentication enables you to define how to authenticate and authorize clients by using [authorizer resources](https://docs.aws.amazon.com/iot/latest/apireference/API_AuthorizerDescription.html).  Each authorizer contains a reference to a customer-managed Lambda function, an optional public key for validating device credentials, and additional configuration information. The following diagram illustrates the authorization workflow for custom authentication in AWS IoT Core.
 
-![Custom authorization workflow for custom authentication in AWS IoT Core.](http://docs.aws.amazon.com/iot/latest/developerguide/images/custom-authentication.png)
+![Custom authorization workflow for custom authentication in AWS IoT Core.](https://docs.aws.amazon.com/iot/latest/developerguide/images/custom-authentication.png)
 
 
 ## AWS IoT Core custom authentication and authorization workflow

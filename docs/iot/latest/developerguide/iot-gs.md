@@ -19,7 +19,7 @@ AWS IoT Core services connect IoT devices to AWS IoT services and other AWS serv
 
 Here's how you can get started with AWS IoT Core and AWS IoT.
 
-![AWS IoT Core getting started tour map.](http://docs.aws.amazon.com/iot/latest/developerguide/images/iot-gs-tour-map.png)
+![AWS IoT Core getting started tour map.](https://docs.aws.amazon.com/iot/latest/developerguide/images/iot-gs-tour-map.png)
 
 
 This section presents a tour of the AWS IoT Core to introduce its key services and provides several examples of how to connect a device to AWS IoT Core and pass messages between them. Passing messages between devices and the cloud is fundamental to every IoT solution and is how your devices can interact with other AWS services.

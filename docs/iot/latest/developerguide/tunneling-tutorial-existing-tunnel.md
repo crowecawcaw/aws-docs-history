@@ -24,7 +24,7 @@ By configuring a destination when creating a tunnel, the secure tunneling servic
 **To create a tunnel for remote device from console**
 
 1. Choose the thing, `RemoteDevice1`, to view its details, and then choose **Create secure tunnel**.  
-![Details of a device named "RemoteDevice1" with its Amazon Resource Name (ARN) displayed.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-create-thing.PNG)
+![Details of a device named "RemoteDevice1" with its Amazon Resource Name (ARN) displayed.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-create-thing.PNG)
 
 1. Choose whether to create a new tunnel or open an existing tunnel. To create a new tunnel, choose **Create new tunnel**. You can then choose whether to use the manual setup or the quick setup method to create the tunnel. For more information, see [Open a tunnel using manual setup and connect to remote device](tunneling-tutorial-manual-setup.md) and [Open a tunnel and use browser-based SSH to access remote device](tunneling-tutorial-quick-setup.md).
 

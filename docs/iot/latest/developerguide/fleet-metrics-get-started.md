@@ -178,7 +178,7 @@ After creating the fleet metric, you can view the metric data in CloudWatch. In 
 1. Choose the second tab named **Graphed metrics** to the right of the **All metrics** tab to view the fleet metric you chose from the previous step.
 
    You should be able to see a graph that displays the number of sensors with temperatures higher than 80 degrees Fahrenheit like the following:  
-![AWS IoT fleet metrics](http://docs.aws.amazon.com/iot/latest/developerguide/images/fm-metric-in-cloudwatch.png)
+![AWS IoT fleet metrics](https://docs.aws.amazon.com/iot/latest/developerguide/images/fm-metric-in-cloudwatch.png)
 **Note**  
 The **Period** attribute in CloudWatch defaults to 5 minutes. It's the time interval between data points displaying in CloudWatch. You can change the **Period** setting based on your needs.
 

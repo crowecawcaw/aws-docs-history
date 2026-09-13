@@ -16,7 +16,7 @@ Say you need to remotely access a web server that's local to the destination dev
 **Note**  
 If you want to access multiple applications running on the remote device using the tunnel, you can use tunnel multiplexing. For more information, see [Multiplexing multiple data streams in a secure tunnel](multiplexing-multiple-streams.md).
 
-![An illustration showing IoT cloud setup with source device, local proxy, proxy servers, and destination device with web server application, connected via TCP and WSS protocols.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tcp-tunneling.png)
+![An illustration showing IoT cloud setup with source device, local proxy, proxy servers, and destination device with web server application, connected via TCP and WSS protocols.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tcp-tunneling.png)
 
 
 ## How to use simultaneous TCP connections

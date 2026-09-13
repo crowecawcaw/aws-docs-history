@@ -10,7 +10,7 @@ The following sections describe the lifecycle of an AWS IoT job and the lifecycl
 
 The following diagram shows the different states of an AWS IoT job.
 
-![Image showing the different states of an AWS IoT job.](http://docs.aws.amazon.com/iot/latest/developerguide/images/job-states-diagram.png)
+![Image showing the different states of an AWS IoT job.](https://docs.aws.amazon.com/iot/latest/developerguide/images/job-states-diagram.png)
 
 
 A job that you create using AWS IoT Jobs can be in one of the following states:
@@ -74,7 +74,7 @@ When AWS IoT Jobs rolls out a job execution for a target device, the job executi
   + Your device receives the job execution and invokes the Jobs API operations and reports the status as `IN_PROGRESS`.
   + You cancel the job or job execution, or when the abort criteria that you specified is met, and the status changes to `CANCELED`.
   + Your device is removed from the target group and the status changes to `REMOVED`.  
-![Image showing how a queued job execution changes state to IN_PROGRESS and how a job can get REJECTED if the device doesn't accept the job creation request.](http://docs.aws.amazon.com/iot/latest/developerguide/images/JE-queued-inprogress.png)
+![Image showing how a queued job execution changes state to IN_PROGRESS and how a job can get REJECTED if the device doesn't accept the job creation request.](https://docs.aws.amazon.com/iot/latest/developerguide/images/JE-queued-inprogress.png)
 + 
 
 **IN\_PROGRESS**  
@@ -87,17 +87,17 @@ If you create multiple jobs for each device, AWS IoT Jobs and the MQTT protocol 
 
 **SUCCEEDED**  
 When your device successfully completes the remote operation, the device must invoke the `UpdateJobExecution` API with a status of `SUCCEEDED` to indicate that the job execution succeeded. AWS IoT Jobs then updates and returns the job execution status as `SUCCEEDED`.   
-![Image showing how an in-progress job execution can fail and how to retry the execution.](http://docs.aws.amazon.com/iot/latest/developerguide/images/JE-success-path.png)
+![Image showing how an in-progress job execution can fail and how to retry the execution.](https://docs.aws.amazon.com/iot/latest/developerguide/images/JE-success-path.png)
 + 
 
 **FAILED**  
 When your device fails to complete the remote operation, the device must invoke the `UpdateJobExecution` API with a status of `Failed` to indicate that the job execution failed. AWS IoT Jobs then updates and returns the job execution status as `Failed`. You can retry this job execution for the device using the [Job execution retry configuration](jobs-configurations-details.md#job-retry-configuration).  
-![Image showing how an in-progress job execution can fail and how to retry the execution.](http://docs.aws.amazon.com/iot/latest/developerguide/images/JE-inprogress-failed.png)
+![Image showing how an in-progress job execution can fail and how to retry the execution.](https://docs.aws.amazon.com/iot/latest/developerguide/images/JE-inprogress-failed.png)
 + 
 
 **TIMED\_OUT**  
 When your device fails to complete a job step when the status is `IN_PROGRESS`, or when it fails to complete the remote operation within the timeout duration of the in-progress timer, AWS IoT Jobs sets the job execution status to `TIMED_OUT`. You also have a step timer for each job step of an in-progress job and applies only to the job execution. The in-progress timer duration is specified using the `inProgressTimeoutInMinutes` property of the [Job execution timeout configuration](jobs-configurations-details.md#job-timeout-configuration). You can retry this job execution for the device using the [Job execution retry configuration](jobs-configurations-details.md#job-retry-configuration).  
-![Image showing how an in-progress job execution can time out and how to retry the execution.](http://docs.aws.amazon.com/iot/latest/developerguide/images/JE-inprogress-timedout.png)
+![Image showing how an in-progress job execution can time out and how to retry the execution.](https://docs.aws.amazon.com/iot/latest/developerguide/images/JE-inprogress-timedout.png)
 + 
 
 **REJECTED**  

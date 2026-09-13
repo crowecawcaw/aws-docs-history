@@ -10,7 +10,7 @@ The following section provides an overview of the package version lifecycle and 
 
 A package version can evolve through the following lifecycle states: `draft`, `published`, and `deprecated`. It can also be `deleted`.
 
-![The package version lifecycle with the draft, published,and deprecated. It can also be deleted.](http://docs.aws.amazon.com/iot/latest/developerguide/images/package-catalog-version-lifecycle.png)
+![The package version lifecycle with the draft, published,and deprecated. It can also be deleted.](https://docs.aws.amazon.com/iot/latest/developerguide/images/package-catalog-version-lifecycle.png)
 
 + **Draft**
 
@@ -82,7 +82,7 @@ The software bill of materials (SBOM) provides a central repository for all aspe
 
 The software bill of materials describes all aspects of a specific package version's components such as package information, file information, and other pertinent metadata. See the below example of a software bill of materials document structure in the SPDX format:
 
-![An example of a SBOM in the SPDX format.](http://docs.aws.amazon.com/iot/latest/developerguide/images/spdx-2.3-document.png)
+![An example of a SBOM in the SPDX format.](https://docs.aws.amazon.com/iot/latest/developerguide/images/spdx-2.3-document.png)
 
 
 ### Software Bill of Materials Benefits

@@ -15,7 +15,7 @@ In the MQTT long duration test case, the device's behavior is initially observed
 
 There are three phases in the execution of a MQTT long duration test case:
 
-![The "MQTT Long Duration test execution" that shows Basic test execution, Advanced tests execution, and Additional execution time.](http://docs.aws.amazon.com/iot/latest/developerguide/images/mqtt-execution-flow.png)
+![The "MQTT Long Duration test execution" that shows Basic test execution, Advanced tests execution, and Additional execution time.](https://docs.aws.amazon.com/iot/latest/developerguide/images/mqtt-execution-flow.png)
 
 
 ### Basic tests execution
@@ -30,7 +30,7 @@ The set of basic tests can include the following, based on the operations select
 
 This scenario validates if the device is able to make a successful connection with the broker.
 
-![The basic connection flow that includes a device sending a CONNECT message and Broker responds with a CONNACK message with a successful return code.](http://docs.aws.amazon.com/iot/latest/developerguide/images/basic-connect.png)
+![The basic connection flow that includes a device sending a CONNECT message and Broker responds with a CONNACK message with a successful return code.](https://docs.aws.amazon.com/iot/latest/developerguide/images/basic-connect.png)
 
 
 #### PUBLISH
@@ -43,7 +43,7 @@ This scenario validates if the device successfully publishes against the broker.
 
 This test case validates if the device successfully sends a `PUBLISH` message to the broker during a publish with QoS 0. The test does not wait on the `PUBACK` message to be received by the device.
 
-![The PUBLISH QoS 0 flow that includes a device sending a PUBLISH message with QoS 0 level.](http://docs.aws.amazon.com/iot/latest/developerguide/images/Qos0.png)
+![The PUBLISH QoS 0 flow that includes a device sending a PUBLISH message with QoS 0 level.](https://docs.aws.amazon.com/iot/latest/developerguide/images/Qos0.png)
 
 
 ##### QoS 1
@@ -51,7 +51,7 @@ This test case validates if the device successfully sends a `PUBLISH` message to
 
 In this test case, the device is expected to send two `PUBLISH` messages to the broker with QoS 1. After the first `PUBLISH` message, the broker waits for up to 15 seconds before it responds. The device must retry the original `PUBLISH` message with the same packet identifier within the 15 second window. If it does, the broker responds with a `PUBACK` message and the test validates. If the device doesn't retry the `PUBLISH`, the original `PUBACK` is sent to the device and the test is marked as **Pass with warnings**, along with a system message. During the test execution, if the device loses connection and reconnects, the test scenario will reset without failing and the device has to perform the test scenario steps again. 
 
-![The PUBLISH QoS 1 flow that includes a device sending a PUBLISH message with QoS 1 level and multiple interactions with the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/Qos1.png)
+![The PUBLISH QoS 1 flow that includes a device sending a PUBLISH message with QoS 1 level and multiple interactions with the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/Qos1.png)
 
 
 #### SUBSCRIBE
@@ -64,7 +64,7 @@ This scenario validates if the device successfully subscribes against the broker
 
 This test case validates if the device successfully sends a `SUBSCRIBE` message to the broker during a subscribe with QoS 0. The test doesn't wait for the device to receive a SUBACK message.
 
-![The SUBSCRIBE QoS 0 flow that includes a device sending a SUBSCRIBE message with QoS 0 level and a broker responding with a SUBACK message and Success Maximum QoS 0 code.](http://docs.aws.amazon.com/iot/latest/developerguide/images/subscribe-Qos0.png)
+![The SUBSCRIBE QoS 0 flow that includes a device sending a SUBSCRIBE message with QoS 0 level and a broker responding with a SUBACK message and Success Maximum QoS 0 code.](https://docs.aws.amazon.com/iot/latest/developerguide/images/subscribe-Qos0.png)
 
 
 ##### QoS 1
@@ -72,7 +72,7 @@ This test case validates if the device successfully sends a `SUBSCRIBE` message 
 
 In this test case, the device is expected to send two `SUBSCRIBE` messages to the broker with QoS 1. After the first `SUBSCRIBE` message, the broker waits for up to 15 seconds before it responds. The device must retry the original `SUBSCRIBE` message with the same packet identifier within the 15 second window. If it does, the broker responds with a `SUBACK` message and the test validates. If the device doesn't retry the `SUBSCRIBE`, the original `SUBACK` is sent to the device and the test is marked as **Pass with warnings**, along with a system message. During the test execution, if the device loses connection and reconnects, the test scenario will reset without failing and the device has to perform the test scenario steps again. 
 
-![The SUBSCRIBE QoS 1 flow that includes a device sending a SUBSCRIBE message with QoS 1 level and multiple interactions with the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/subscribe-Qos1.png)
+![The SUBSCRIBE QoS 1 flow that includes a device sending a SUBSCRIBE message with QoS 1 level and multiple interactions with the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/subscribe-Qos1.png)
 
 
 #### RECONNECT
@@ -80,7 +80,7 @@ In this test case, the device is expected to send two `SUBSCRIBE` messages to th
 
 This scenario validates if the device successfully reconnects with the broker after the device is disconnected from a successful connection. Device Advisor won't disconnect the device if it connected more than once previously during the test suite. Instead, it will mark the test as **Pass**.
 
-![The RECONNECT flow between DUT and the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/reconnect.png)
+![The RECONNECT flow between DUT and the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/reconnect.png)
 
 
 ### Advanced tests execution
@@ -96,7 +96,7 @@ Only select this scenario if your device is capable of performing QoS 1 subscrip
 
 This scenario validates if, after the device subscribes to a topic and receives a `PUBLISH` message from the broker, it returns a `PUBACK` message.
 
-![The RETURN PUBACK ON QoS 1 SUBSCTIPTION flow between DUT and the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/return-puback.png)
+![The RETURN PUBACK ON QoS 1 SUBSCTIPTION flow between DUT and the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/return-puback.png)
 
 
 #### RECEIVE LARGE PAYLOAD
@@ -107,7 +107,7 @@ Select this scenario only if your device is capable of performing QoS 1 subscrip
 
 This scenario validates if the device responds with a `PUBACK` message after receiving a `PUBLISH` message from the broker for a QoS 1 topic with a large payload. The format of the expected payload can be configured using the `LONG_PAYLOAD_FORMAT` option.
 
-![The RECEIVE LARGE PAYLOAD flow between DUT and the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/large-payload.png)
+![The RECEIVE LARGE PAYLOAD flow between DUT and the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/large-payload.png)
 
 
 #### PERSISTENT SESSION
@@ -124,7 +124,7 @@ This scenario validates the device behavior in maintaining persistent sessions. 
 
  For more information on AWS IoT Persistent Sessions, see [Using MQTT persistent sessions](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html#mqtt-persistent-sessions).
 
-![The PERSISTENT SESSION flow between DUT and the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/persistent-session.png)
+![The PERSISTENT SESSION flow between DUT and the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/persistent-session.png)
 
 
 #### KEEP ALIVE
@@ -132,7 +132,7 @@ This scenario validates the device behavior in maintaining persistent sessions. 
 
 This scenario validates if the device successfully disconnects after it doesn't receive a ping response from the broker. The connection must have a valid keep-alive timer configured. As part of this test, the broker blocks all responses sent for `PUBLISH`, `SUBSCRIBE`, and `PINGREQ` messages. It also validates if the device under test disconnects the MQTT connection.
 
-![The KEEP ALIVE flow between DUT and the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/keep-alive.png)
+![The KEEP ALIVE flow between DUT and the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/keep-alive.png)
 
 
 #### INTERMITTENT CONNECTIVITY
@@ -140,7 +140,7 @@ This scenario validates if the device successfully disconnects after it doesn't 
 
 This scenario validates if the device can connect back to the broker after the broker disconnects the device at random intervals for a random period of time.
 
-![The INTERMITTENT CONNECTIVITY flow between DUT and the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/intermittent.png)
+![The INTERMITTENT CONNECTIVITY flow between DUT and the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/intermittent.png)
 
 
 #### RECONNECT BACKOFF
@@ -150,7 +150,7 @@ This scenario validates if the device has a backoff mechanism implemented when t
 
 To pass this test, we recommend implementing the [ Exponential Backoff And Jitter](http://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) mechanism on the device under test.
 
-![The RECONNECT BACKOFF flow between DUT and the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/reconnect-backoff.png)
+![The RECONNECT BACKOFF flow between DUT and the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/reconnect-backoff.png)
 
 
 #### LONG SERVER DISCONNECT
@@ -158,7 +158,7 @@ To pass this test, we recommend implementing the [ Exponential Backoff And Jitte
 
 This scenario validates if the device can successfully reconnect after the broker disconnects the device for a long period of time (up to 120 minutes). The time for server disconnection can be configured using the `LONG_SERVER_DISCONNECT_TIME` option. The default value is 120 minutes. This value is configurable from 30 to 120 minutes.
 
-![The LONG SERVER DISCONNECT flow between DUT and the broker.](http://docs.aws.amazon.com/iot/latest/developerguide/images/longserver-disconnect.png)
+![The LONG SERVER DISCONNECT flow between DUT and the broker.](https://docs.aws.amazon.com/iot/latest/developerguide/images/longserver-disconnect.png)
 
 
 ### Additional execution time

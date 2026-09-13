@@ -14,7 +14,7 @@ Connections attempted by devices without the correct `host_name` value will fail
 
 The following diagram illustrates the credentials provider workflow.
 
-![AWS IoT Core credentials provider workflow.](http://docs.aws.amazon.com/iot/latest/developerguide/images/credentials-provider-diagram.png)
+![AWS IoT Core credentials provider workflow.](https://docs.aws.amazon.com/iot/latest/developerguide/images/credentials-provider-diagram.png)
 
 
 1. The AWS IoT Core device makes an HTTPS request to the credentials provider for a security token. The request includes the device X.509 certificate for authentication.

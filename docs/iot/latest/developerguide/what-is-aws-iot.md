@@ -7,7 +7,7 @@ AWS IoT provides the cloud services that connect your IoT devices to other devic
 
 For a hands-on introduction to AWS IoT, visit [Getting started with AWS IoT Core tutorials](iot-gs.md).
 
-![AWS IoT connects IoT devices to AWS IoT services](http://docs.aws.amazon.com/iot/latest/developerguide/images/what-is-aws-iot.png)
+![AWS IoT connects IoT devices to AWS IoT services](https://docs.aws.amazon.com/iot/latest/developerguide/images/what-is-aws-iot.png)
 
 
 With AWS IoT, you can select the most appropriate and up-to-date technologies for your solution. To help you manage and support your IoT devices in the field, AWS IoT Core supports these protocols: 

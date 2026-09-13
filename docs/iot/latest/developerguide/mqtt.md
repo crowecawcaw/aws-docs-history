@@ -391,14 +391,14 @@ The following tables compare non-shared subscriptions and shared subscriptions:
 
 | Non-shared subscriptions flow  | Shared subscriptions flow | 
 | --- | --- | 
-|  ![Regular subscriptions for both MQTT 3 and MQTT 5 in AWS IoT Core.](http://docs.aws.amazon.com/iot/latest/developerguide/images/mqtt_regular_subscription.gif)  |  ![Shared subscriptions for both MQTT 3 and MQTT 5 in AWS IoT Core.](http://docs.aws.amazon.com/iot/latest/developerguide/images/mqtt_shared_subscription.gif)  | 
+|  ![Regular subscriptions for both MQTT 3 and MQTT 5 in AWS IoT Core.](https://docs.aws.amazon.com/iot/latest/developerguide/images/mqtt_regular_subscription.gif)  |  ![Shared subscriptions for both MQTT 3 and MQTT 5 in AWS IoT Core.](https://docs.aws.amazon.com/iot/latest/developerguide/images/mqtt_shared_subscription.gif)  | 
 
 **Important notes for using shared subscriptions**
 + If the shared subscriber group consists of any persistent session subscribers, when all the subscribers in the shared group are disconnected, or if any subscribers breach the Publish requests per second per connection limit, any unacknowledged QoS 1 messages and undelivered QoS 1 messages published to a shared subscription group will be queued. For more information, see [shared subscriptions message queuing](#mqtt5-shared-subscription-message-queuing).
 + QoS 0 messages published to a shared subscription group will be dropped upon any failure.
 + Shared subscriptions don't receive [retained messages](https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html#mqtt-retain) when subscribing to topic patterns as part of a shared subscriber group. Messages that are published on topics that have shared subscribers and have the `RETAIN` flag set are delivered to shared subscribers like any other publish message.
 + When shared subscriptions contain wildcard characters (\# or \+), there might be multiple matching shared subscriptions to a topic. If that happens, the message broker copies the publishing message and sends it to a random client in each matching shared subscription. The wildcard behavior of shared subscriptions can be explained in the following diagram.  
-![Shared subscriptions with wildcard characters in AWS IoT Core.](http://docs.aws.amazon.com/iot/latest/developerguide/images/mqtt_shared_subscriptions_wildcard.gif)
+![Shared subscriptions with wildcard characters in AWS IoT Core.](https://docs.aws.amazon.com/iot/latest/developerguide/images/mqtt_shared_subscriptions_wildcard.gif)
 
   In this example, there are three matching shared subscriptions to the publishing MQTT topic `sports/tennis`. The message broker copies the published message and sends the message to a random client in each matching group.
 

@@ -5,7 +5,7 @@
 
 In this tutorial, you'll create the AWS IoT resources that a device requires to connect to AWS IoT Core and exchange messages.
 
-![Create AWS IoT resources page.](http://docs.aws.amazon.com/iot/latest/developerguide/images/iot-gs-create-resources.png)
+![Create AWS IoT resources page.](https://docs.aws.amazon.com/iot/latest/developerguide/images/iot-gs-create-resources.png)
 
 
 1. Create an AWS IoT policy document, which will authorize your device to interact with AWS IoT services.
@@ -41,7 +41,7 @@ Follow the steps to create a policy that allows your device to perform the AWS I
       + In the **Policy resource** field, enter a resource Amazon Resource Name (ARN) or **\***. A **\*** to select any client (device).
 
       To create the policy statements for ****iot:Receive****, ****iot:Publish****, and ****iot:Subscribe****, choose **Add new statement** and repeat the steps.  
-![The page to create a policy.](http://docs.aws.amazon.com/iot/latest/developerguide/images/gs-create-policy-new.png)
+![The page to create a policy.](https://docs.aws.amazon.com/iot/latest/developerguide/images/gs-create-policy-new.png)
 **Note**  
 In this quick start, the wildcard (\*) character is used for simplicity. For higher security, you should restrict which clients (devices) can connect and publish messages by specifying a client ARN instead of the wildcard character as the resource. Client ARNs follow this format: `arn:aws:iot:{{your-region}}:{{your-aws-account}}:client/{{my-client-id}}`.   
 However, you must first create the resource (such as a client device or thing shadow) before you can assign its ARN to a policy. For more information, see [AWS IoT Core action resources](https://docs.aws.amazon.com/iot/latest/developerguide/iot-action-resources.html).

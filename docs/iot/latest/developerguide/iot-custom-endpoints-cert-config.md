@@ -51,7 +51,7 @@ In server-side OCSP (also known as OCSP stapling), the server is enabled (rather
 
 The following diagram illustrates how client-side OCSP and server-side OCSP work.
 
-![Client-side OCSP and server-side OCSP diagrams](http://docs.aws.amazon.com/iot/latest/developerguide/images/custom-domain-ocsp-uml.png)
+![Client-side OCSP and server-side OCSP diagrams](https://docs.aws.amazon.com/iot/latest/developerguide/images/custom-domain-ocsp-uml.png)
 
 
 **Client-side OCSP**
@@ -94,7 +94,7 @@ OCSP stapling is used during the TLS handshake between the client and the server
 
 The following diagram shows how server-side OCSP stapling works in AWS IoT Core.
 
-![This diagram shows how server-side OCSP stapling works in AWS IoT Core.](http://docs.aws.amazon.com/iot/latest/developerguide/images/custom-domain-ocsp-core-uml.png)
+![This diagram shows how server-side OCSP stapling works in AWS IoT Core.](https://docs.aws.amazon.com/iot/latest/developerguide/images/custom-domain-ocsp-core-uml.png)
 
 
 1. The device needs to be registered with custom domains with OCSP stapling enabled.

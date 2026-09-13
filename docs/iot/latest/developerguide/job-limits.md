@@ -49,7 +49,7 @@ To view the active jobs and job concurrency limits and other AWS IoT Jobs quotas
 
 The following diagram shows how the job concurrency applies to in-progress jobs and jobs that are being canceled.
 
-![Image showing the different states of an AWS IoT job.](http://docs.aws.amazon.com/iot/latest/developerguide/images/job-states-concurrency.png)
+![Image showing the different states of an AWS IoT job.](https://docs.aws.amazon.com/iot/latest/developerguide/images/job-states-concurrency.png)
 
 
 **Note**  

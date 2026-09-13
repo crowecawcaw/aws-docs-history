@@ -24,12 +24,12 @@ You can open a secure tunnel using the AWS Management Console, the AWS IoT API R
 **To open a tunnel in the console**
 
 1. Go to the [Tunnels hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/tunnelhub) and choose **Create tunnel**.  
-![AWS IoT console showing an empty list of tunnels with options to create, close, or delete tunnels.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnels-page.png)
+![AWS IoT console showing an empty list of tunnels with options to create, close, or delete tunnels.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnels-page.png)
 
 1. For this tutorial, choose **Manual setup** as the tunnel creation method and then choose **Next**. For information about using the **quick setup** method to create a tunnel, see [Open a tunnel and use browser-based SSH to access remote device](tunneling-tutorial-quick-setup.md).
 **Note**  
 If you create a secure tunnel from the details page of a thing, you can choose whether to create a new tunnel or use an existing one. For more information, see [Open a tunnel for remote device and use browser-based SSH](tunneling-tutorial-existing-tunnel.md).  
-![Two options for setting up a tunnel connection: Quick setup (SSH) or Manual setup, which requires configuring a local proxy and managing access tokens.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnels-choose-manual.PNG)
+![Two options for setting up a tunnel connection: Quick setup (SSH) or Manual setup, which requires configuring a local proxy and managing access tokens.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnels-choose-manual.PNG)
 
 1. (Optional) Enter the configuration settings for your tunnel. You can also skip this step and proceed to the next step to create a tunnel. 
 
@@ -40,7 +40,7 @@ You won't be charged based on the duration for which you keep a tunnel open. You
 1. Download the client access tokens and then choose **Done**. The tokens will not be available to download after you choose **Done**.
 
    These tokens can only be used once to connect to the tunnel. If you misplace the tokens or the tunnel gets disconnected, you can generate and send new tokens to your remote device for reconnecting to the tunnel.  
-![Source and destination access tokens for creating a secure tunnel connection, with instructions on rotating and resending tokens if needed.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-success.png)
+![Source and destination access tokens for creating a secure tunnel connection, with instructions on rotating and resending tokens if needed.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-success.png)
 
 **To open a tunnel using the API**  
 To open a new tunnel, you can use the [OpenTunnel](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_OpenTunnel.html) API operation. You can also specify additional configurations using the API, such as the tunnel duration and the destination configuration.
@@ -74,7 +74,7 @@ The tokens that you obtained when creating a tunnel can only be used once to con
 1. In the tunnel details page, choose **Generate new access tokens** and then choose **Next**.
 
 1. Download the new access tokens for your tunnel and choose **Done**. These tokens can be used only once. If you misplace these tokens or the tunnel gets disconnected, you can resend new access tokens.  
-![Access tokens for source and destination devices with options to copy or download them. Text explains that rotating tokens revokes current tokens and generates new single-use tokens for reconnecting a disconnected tunnel.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-token-rotated.PNG)
+![Access tokens for source and destination devices with options to copy or download them. Text explains that rotating tokens revokes current tokens and generates new single-use tokens for reconnecting a disconnected tunnel.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-token-rotated.PNG)
 
 **To rotate access tokens using the API**  
 To rotate the tunnel access tokens, you can use the [RotateTunnelAccessToken](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_RotateTunnelAccessToken.html) API operation to revoke the current tokens and return new access tokens for reconnecting to the tunnel. For example, the following command rotates the access tokens for the destination device, {{`RemoteThing1`}}. 

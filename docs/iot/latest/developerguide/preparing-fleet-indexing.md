@@ -18,7 +18,7 @@ Enabling fleet indexing for Software Package Catalog incurs standard service cos
 ## Metrics displayed in the console
 <a name="metrics-displayed-in-console"></a>
 
-![Standard metrics image](http://docs.aws.amazon.com/iot/latest/developerguide/images/package-catalog-discovery-metrics.png)
+![Standard metrics image](https://docs.aws.amazon.com/iot/latest/developerguide/images/package-catalog-discovery-metrics.png)
 
 
 On the AWS IoT console software package details page, the **Discovery** panel displays standard metrics ingested through the `$package` shadow.

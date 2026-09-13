@@ -191,7 +191,7 @@ Devices can publish status and result updates anytime using commands reserved MQ
 
 The following diagram shows execution status transitions.
 
-![Image showing how a command execution status transitions between various statuses.](http://docs.aws.amazon.com/iot/latest/developerguide/images/command-execution-status-transitions.png)
+![Image showing how a command execution status transitions between various statuses.](https://docs.aws.amazon.com/iot/latest/developerguide/images/command-execution-status-transitions.png)
 
 
 **Note**  

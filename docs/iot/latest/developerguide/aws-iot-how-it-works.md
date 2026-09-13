@@ -10,7 +10,7 @@
 
 In general, the Internet of Things (IoT) consists of the key components shown in this diagram.
 
-![The IoT universe](http://docs.aws.amazon.com/iot/latest/developerguide/images/iot-universe.png)
+![The IoT universe](https://docs.aws.amazon.com/iot/latest/developerguide/images/iot-universe.png)
 
 
 ### Apps
@@ -86,7 +86,7 @@ A device is a type of hardware that manages interfaces and communications. Devic
 
 In the IoT universe, AWS IoT provides the services that support the devices that interact with the world and the data that passes between them and AWS IoT. AWS IoT is made up of the services that are shown in this illustration to support your IoT solution.
 
-![AWS IoT architecture](http://docs.aws.amazon.com/iot/latest/developerguide/images/architecture-diagram.png)
+![AWS IoT architecture](https://docs.aws.amazon.com/iot/latest/developerguide/images/architecture-diagram.png)
 
 
 ### AWS IoT device software
@@ -151,7 +151,7 @@ Analyze the data from the devices in your IoT solution and take appropriate acti
 
 AWS IoT Core provides the services that connect your IoT devices to the AWS Cloud so that other cloud services and applications can interact with your internet-connected devices.
 
-![A high-level view of AWS IoT Core that shows the device gateway, message broker, rules engine, device shadow, and the other services it provides](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws_iot_data_services.png)
+![A high-level view of AWS IoT Core that shows the device gateway, message broker, rules engine, device shadow, and the other services it provides](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws_iot_data_services.png)
 
 
 The next section describes each of the AWS IoT Core services shown in the illustration.

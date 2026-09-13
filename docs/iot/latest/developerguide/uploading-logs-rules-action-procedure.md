@@ -341,7 +341,7 @@ If you're using a Microsoft Windows operating system, you might need to replace 
    1. Choose **Subscribe**. 
 
       MQTT messages appear in the **Subscriptions** and **Topic** table, as seen in the following. These messages can take up to five minutes to appear.   
-![MQTT messages appearing in the Subscriptions and Topic table.](http://docs.aws.amazon.com/iot/latest/developerguide/images/uploading-logs-rules-start-messages-sample-mqtt.png)
+![MQTT messages appearing in the Subscriptions and Topic table.](https://docs.aws.amazon.com/iot/latest/developerguide/images/uploading-logs-rules-start-messages-sample-mqtt.png)
 
 ## Viewing the log data
 <a name="uploading-logs-rules-review-cloudwatch"></a>

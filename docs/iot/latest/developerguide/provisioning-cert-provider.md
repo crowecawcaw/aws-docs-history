@@ -48,7 +48,7 @@ AWS IoT Core certificate provider (short for certificate provider) is a customer
 
 The following diagram is a simplified illustration of how self-certificate signing works in AWS IoT fleet provisioning.
 
-![AWS IoT Core certificate provider for fleet provisioning](http://docs.aws.amazon.com/iot/latest/developerguide/images/provisioning-cert-provider.png)
+![AWS IoT Core certificate provider for fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/images/provisioning-cert-provider.png)
 
 + When a new IoT device is manufactured or introduced to the fleet, it needs client certificates to authenticate itself with AWS IoT Core.
 + As part of the fleet provisioning process, the device makes a request to AWS IoT Core for client certificates through the [fleet provisioning MQTT APIs](https://docs.aws.amazon.com/iot/latest/developerguide/fleet-provision-api.html). This request includes a certificate signing request (CSR).

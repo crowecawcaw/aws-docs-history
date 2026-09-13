@@ -183,7 +183,7 @@ The bitmap itself is an array of unsigned bytes expressed in hexadecimal notatio
 Taking one byte (8 bits) at a time, this is conventionally written as: "0b00010011", "0b00000000", and "0b10000000". Bit 0 shows up in our binary representation at the end of the first byte, and bit 23 at the beginning of the last. This can be confusing unless you know the conventions. The first byte contains bits 7-0 (in that order), the second byte contains bits 15-8, the third byte contains bits 23-16, and so on. In hexadecimal notation, this converts to "0x130080".  
 You can convert the standard binary to hexadecimal notation. Take four binary digits at a time and convert these to their hexadecimal equivalent. For example, "0001" becomes "1", "0011" becomes "3" and so on.
 
-![Block bitmap breakdown for constructing a string in the GetStream request.](http://docs.aws.amazon.com/iot/latest/developerguide/images/blockBitmap.png)
+![Block bitmap breakdown for constructing a string in the GetStream request.](https://docs.aws.amazon.com/iot/latest/developerguide/images/blockBitmap.png)
 
 Putting this all together, the JSON for our `GetStream` request looks like the following.  
 

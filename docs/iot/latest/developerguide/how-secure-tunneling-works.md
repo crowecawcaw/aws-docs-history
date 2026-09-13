@@ -36,4 +36,4 @@ For more information about how to use the AWS Management Console to open a tunne
 
  The following video describes how secure tunneling works and walks you through the process of setting up an SSH session to a Raspberry Pi device.
 
-[![AWS Videos](http://img.youtube.com/vi/Vq67jKZTR-c/0.jpg)](http://www.youtube.com/watch?v=Vq67jKZTR-c)
+[![AWS Videos](https://img.youtube.com/vi/Vq67jKZTR-c/0.jpg)](https://www.youtube.com/watch?v=Vq67jKZTR-c)

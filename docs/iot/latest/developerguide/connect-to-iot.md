@@ -5,7 +5,7 @@
 
  AWS IoT Core supports connections with IoT devices, wireless gateways, services, and apps. Devices connect to AWS IoT Core so they can send data to and receive data from AWS IoT services and other devices. Apps and other services also connect to AWS IoT Core to control and manage the IoT devices and process the data from your IoT solution. This section describes how to choose the best way to connect and communicate with AWS IoT Core for each aspect of your IoT solution.
 
-![Image showing how AWS IoT Core provides device endpoints to connect IoT devices to AWS IoT and service endpoints to connect apps and other services to AWS IoT Core.](http://docs.aws.amazon.com/iot/latest/developerguide/images/iot-endpoints.png)
+![Image showing how AWS IoT Core provides device endpoints to connect IoT devices to AWS IoT and service endpoints to connect apps and other services to AWS IoT Core.](https://docs.aws.amazon.com/iot/latest/developerguide/images/iot-endpoints.png)
 
 
 There are several ways to interact with AWS IoT. Apps and services can use the [AWS IoT Core - control plane endpoints](#iot-service-endpoint-intro) and devices can connect to AWS IoT Core by using the [AWS IoT device endpoints](#iot-device-endpoint-intro) or [AWS IoT Core for LoRaWAN Regions and endpoints](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/iot-lorawan.html#connect-iot-lorawan-regions-endpoints).

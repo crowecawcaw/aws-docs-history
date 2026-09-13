@@ -25,14 +25,14 @@ If possible, complete this procedure on your device; otherwise, be ready to tran
 
 To start the tutorial, sign in to the [AWS IoT console](https://console.aws.amazon.com/iot/home). In the AWS IoT console home page, on the left, choose **Connect** and then choose **Connect one device**.
 
-![This AWS IoT console home page shows how to connect one device.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-quick-connect.PNG)
+![This AWS IoT console home page shows how to connect one device.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-quick-connect.PNG)
 
 
 ## Step 2. Create a thing object
 <a name="iot-quick-start-configure"></a>
 
 1. In the **Prepare your device** section, follow the on-screen instructions to prepare your device for connecting to AWS IoT.  
-![How to prepare device in AWS IoT console.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-prepare-device.png)
+![How to prepare device in AWS IoT console.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-prepare-device.png)
 
 1. In the **Register and secure your device** section, choose **Create a new thing** or **Choose an existing thing**. In the **Thing name** field, enter the name for your thing object. The thing name used in this example is **TutorialTestThing**
 **Important**  
@@ -42,7 +42,7 @@ A thing name can't be changed after the thing object is created. If you want to 
    In the **Additional configurations** section, customize your thing resource further using the optional configurations listed.
 
    After you provide your thing object a name and select any additional configurations, choose **Next**.  
-![Use AWS IoT console to register and secure your device.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-register-and-secure-your-device.png)
+![Use AWS IoT console to register and secure your device.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-register-and-secure-your-device.png)
 
 1. In the **Choose platform and SDK** section, choose the platform and the language of the AWS IoT Device SDK that you want to use. This example uses the Linux/OSX platform and the Python SDK. Make sure that you have python3 and pip3 installed on your target device before you continue to the next step.
 **Note**  
@@ -50,7 +50,7 @@ Be sure to check the list of prerequisite software required by your chosen SDK a
 You must have the required software installed on your target computer before you continue to the next step.
 
    After you choose the platform and device SDK language, choose **Next**.  
-![Use AWS IoT console to choose platform and SDK.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-choose-platform-and-SDK.png)
+![Use AWS IoT console to choose platform and SDK.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-choose-platform-and-SDK.png)
 
 ## Step 3. Download files to your device
 <a name="iot-quick-start-name"></a>
@@ -61,7 +61,7 @@ This page appears after AWS IoT has created the connection kit, which includes t
 + The script to download the AWS Device SDK and run the sample program on your device
 
 1. When you're ready to continue, choose the **Download connection kit for** button to download the connection kit for the platform that you chose earlier.  
-![This is the page of AWS IoT console to download certificate file.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-download-connection-kit_1.png)
+![This is the page of AWS IoT console to download certificate file.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-download-connection-kit_1.png)
 
 1. If you're running this procedure on your device, save the connection kit file to a directory from which you can run command line commands.
 
@@ -72,7 +72,7 @@ This page appears after AWS IoT has created the connection kit, which includes t
    If you're using a Windows PowerShell command window and the **unzip** command doesn't work, replace **unzip** with **expand-archive**, and try the command line again.
 
 1. After you have the connection kit file on the device, continue the tutorial by choosing **Next**.  
-![AWS IoT console certificate file download page after connection kit download.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-download-connection-kit_2.png)
+![AWS IoT console certificate file download page after connection kit download.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-download-connection-kit_2.png)
 
 ## Step 4. Run the sample
 <a name="iot-quick-start-install-run"></a>
@@ -80,10 +80,10 @@ This page appears after AWS IoT has created the connection kit, which includes t
 You do this procedure in a terminal or command window on your device while you follow the directions displayed in the console. The commands you see in the console are for the operating system you chose in [Step 2. Create a thing object](#iot-quick-start-configure). Those shown here are for the Linux/OSX operating systems.
 
 1. In a terminal or command window on your device, in the directory with the connection kit file, perform the steps shown in the AWS IoT console.  
-![AWS IoT console quick start install and run page.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-run-connection-kit.png)
+![AWS IoT console quick start install and run page.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-run-connection-kit.png)
 
 1. After you enter the command from **Step 2** in the console, you should see an output in the device's terminal or command window that is similar to the following. This output is from the messages the program is sending to and then receiving back from AWS IoT Core.  
-![AWS IoT console quick start example program output.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-connect-console-output-python_updated.png)
+![AWS IoT console quick start example program output.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-connect-console-output-python_updated.png)
 
    While the sample program is running, the test message `Hello World!` will appear as well. The test message appears in the terminal or command window on your device.
 **Note**  
@@ -106,10 +106,10 @@ For more information about topic subscription and publish, see the example code 
    The `sequence` number encased in `[]` increments by one each time a new `Hello World!` message is received and stops when you end the program.
 
 1. To finish the tutorial and see a summary, in the AWS IoT console, choose **Continue**.   
-![AWS IoT console quick start completion page.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-connect-complete_updated1.png)
+![AWS IoT console quick start completion page.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-connect-complete_updated1.png)
 
 1. A summary of your AWS IoT quick connect tutorial will now appear.  
-![AWS IoT console quick start summary page.](http://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-device-is-connected.png)
+![AWS IoT console quick start summary page.](https://docs.aws.amazon.com/iot/latest/developerguide/images/aws-iot-learn-device-is-connected.png)
 
 ## Step 5. Explore further
 <a name="iot-quick-start-test"></a>

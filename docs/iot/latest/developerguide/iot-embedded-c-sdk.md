@@ -146,7 +146,7 @@ This procedure exaplains how to generate the `mqtt_demo_mutual_auth` application
    ```
 
    You should see output similar to the following:   
-![Command line output for running the AWS IoT Device SDK for Embedded C sample application.](http://docs.aws.amazon.com/iot/latest/developerguide/images/successful-run2.png)
+![Command line output for running the AWS IoT Device SDK for Embedded C sample application.](https://docs.aws.amazon.com/iot/latest/developerguide/images/successful-run2.png)
 
 Your device is now connected to AWS IoT using the AWS IoT Device SDK for Embedded C.
 

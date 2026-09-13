@@ -10,7 +10,7 @@ You can use the multiplexing feature for devices that use multiple connections o
 
 Say you need to connect to an on-device web application to change some networking parameters, while simultaneously issuing shell commands through the terminal to verify that the device is working properly with the new networking parameters. In this scenario, you may need to connect to the device through both HTTP and SSH and transfer two parallel data streams to concurrently access the web application and terminal. With the multiplexing feature, these two independent streams can be transferred over the same tunnel at the same time.
 
-![A diagram showing IoT cloud architecture with source devices, proxy servers, and destination devices for streaming data over different protocols.](http://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-multiplexing.png)
+![A diagram showing IoT cloud architecture with source devices, proxy servers, and destination devices for streaming data over different protocols.](https://docs.aws.amazon.com/iot/latest/developerguide/images/tunnel-multiplexing.png)
 
 
 ## How to set up a multiplexed tunnel
@@ -100,4 +100,4 @@ On your source device, if you don't use any configuration files or specify the p
 
 The application data from SSH and HTTP connection can now be transferred concurrently over the multiplexed tunnel. As seen in the map below, the service identifier acts as a readable format to translate the port mapping between the source and destination device. With this configuration, secure tunneling forwards any incoming HTTP traffic from port {{5555}} on the source device to port {{80}} on the destination device, and any incoming SSH traffic from port {{3333}} to port {{22}} on the destination device.
 
-![A translation process for mapping service identifiers from source and destination local proxies to translated port mappings after processing.](http://docs.aws.amazon.com/iot/latest/developerguide/images/multiplexing-post-mapping-translation.png)
+![A translation process for mapping service identifiers from source and destination local proxies to translated port mappings after processing.](https://docs.aws.amazon.com/iot/latest/developerguide/images/multiplexing-post-mapping-translation.png)

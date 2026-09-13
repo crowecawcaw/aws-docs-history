@@ -7,7 +7,7 @@ In this tutorial, you'll install the software and create the AWS IoT resources n
 
 You can expect to spend 20-30 minutes on this tutorial. If you are using an IoT device or a Raspberry Pi, this tutorial might take longer if, for example, you need to install the operating system and configure the device.
 
-![Getting started with AWS IoT Core page.](http://docs.aws.amazon.com/iot/latest/developerguide/images/iot-getting-started.png)
+![Getting started with AWS IoT Core page.](https://docs.aws.amazon.com/iot/latest/developerguide/images/iot-getting-started.png)
 
 
 This tutorial is best for developers who want to get started with AWS IoT Core so they can continue to explore more advanced features, such as the [rules engine](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) and [shadows](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html). This tutorial prepares you to continue learning about AWS IoT Core and how it interacts with other AWS services by explaining the steps in greater detail than [the quick start tutorial](iot-quick-start.md). If you are looking for just a quick, *Hello World*, experience, try the [Try the AWS IoT Core quick connect tutorial](iot-quick-start.md).

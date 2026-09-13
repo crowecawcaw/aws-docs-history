@@ -47,7 +47,7 @@ For more information about the location solvers and examples that show the devic
 
 The following diagram shows how AWS IoT Core Device Location collects measurement data and resolves the location information of your devices.
 
-![Image showing how AWS IoT Core Device Location uses your raw measurement data and resolves the device location.](http://docs.aws.amazon.com/iot/latest/developerguide/images/iot-device-location.png)
+![Image showing how AWS IoT Core Device Location uses your raw measurement data and resolves the device location.](https://docs.aws.amazon.com/iot/latest/developerguide/images/iot-device-location.png)
 
 
 The following steps show how AWS IoT Core Device Location works.

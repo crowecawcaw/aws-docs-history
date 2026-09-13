@@ -5,7 +5,7 @@
 
 Each connected device or client must have a credential to interact with AWS IoT. All traffic to and from AWS IoT is sent securely over Transport Layer Security (TLS). AWS cloud security mechanisms protect data as it moves between AWS IoT and other AWS services.
 
-![AWS IoT security workflows including credentials to interact with AWS IoT, Transport Layer Security to secure connection, and AWS Cloud security mechanisms to protect data.](http://docs.aws.amazon.com/iot/latest/developerguide/images/thunderball-overview.png)
+![AWS IoT security workflows including credentials to interact with AWS IoT, Transport Layer Security to secure connection, and AWS Cloud security mechanisms to protect data.](https://docs.aws.amazon.com/iot/latest/developerguide/images/thunderball-overview.png)
 
 + You are responsible for managing device credentials (X.509 certificates, AWS credentials, Amazon Cognito identities, federated identities, or custom authentication tokens) and policies in AWS IoT. You are also responsible for assigning unique identities to each device and managing the permissions for each device or group of devices.
 + Your devices connect to AWS IoT using X.509 certificates or Amazon Cognito identities over a secure TLS connection. During research and development, and for some applications that make API calls or use WebSockets, you can also authenticate using IAM users and groups or custom authentication tokens. For more information, see [IAM users, groups, and roles](iam-users-groups-roles.md).
