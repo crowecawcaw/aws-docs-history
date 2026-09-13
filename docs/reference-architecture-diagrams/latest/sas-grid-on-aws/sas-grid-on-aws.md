@@ -10,7 +10,7 @@ With this architecture, you can deploy high-performing [FSx for Lustre](https://
 ## Running SAS Grid on AWS
 <a name="sas-diagram"></a>
 
-![Architecture diagram for running SAS Grid on AWS with FSx for Lustre and Amazon EC2.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sas-grid-on-aws/images/running-sas-grid-on-aws-ra.png)
+![Architecture diagram for running SAS Grid on AWS with FSx for Lustre and Amazon EC2.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sas-grid-on-aws/images/running-sas-grid-on-aws-ra.png)
 
 
 The following steps describe the architecture:
