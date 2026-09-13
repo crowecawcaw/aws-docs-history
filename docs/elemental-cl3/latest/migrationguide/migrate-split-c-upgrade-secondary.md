@@ -5,7 +5,7 @@
 
 After you remove the last worker node, the original cluster no longer exists. Node Y is no longer controlling any worker nodes. The deployment now looks like the following diagram.
 
-![Node Y conductor isolated on left, Node X conductor with worker nodes in new cluster .](http://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_5Yorphaned.png)
+![Node Y conductor isolated on left, Node X conductor with worker nodes in new cluster .](https://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_5Yorphaned.png)
 
 
 You can now upgrade node Y. Perform all the following steps on node Y.

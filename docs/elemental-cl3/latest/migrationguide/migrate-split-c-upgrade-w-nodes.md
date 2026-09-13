@@ -19,7 +19,7 @@ Remove the worker from the cluster. You perform this action from node Y (the Con
 
 The deployment now looks like the following diagram. Note that the worker node is standalone. It isn't being controlled by any Conductor.
 
-![Original cluster with conductor nodes and worker nodes, plus standalone worker node outside cluster .](http://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_3removeW.png)
+![Original cluster with conductor nodes and worker nodes, plus standalone worker node outside cluster .](https://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_3removeW.png)
 
 
 ## Step E2: Upgrade the worker node

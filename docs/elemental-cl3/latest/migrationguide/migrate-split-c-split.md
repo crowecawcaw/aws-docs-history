@@ -10,7 +10,7 @@ To split the cluster into two clusters, you first fail over control to the secon
 
 You start with the original deployment of one cluster, which looks like the following diagram.
 
-![Diagram showing original cluster with two conductor nodes and multiple worker nodes.](http://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_1original.png)
+![Diagram showing original cluster with two conductor nodes and multiple worker nodes.](https://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_1original.png)
 
 
 You end up with:
@@ -59,4 +59,4 @@ Now that you have made a backup of this Conductor node, don't make any changes t
 
 Node Y is now the Conductor that is controlling the cluster. Note that you no longer have Conductor redundancy in the cluster. 
 
-![Diagram showing original cluster with Node Y as Conductor, Node X, and multiple worker nodes.](http://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_2removeX.png)
+![Diagram showing original cluster with Node Y as Conductor, Node X, and multiple worker nodes.](https://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_2removeX.png)

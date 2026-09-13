@@ -13,4 +13,4 @@ The upgrade process is now complete. Node X is acting as the primary Conductor, 
 
 The deployment now looks like the following diagram.
 
-![Cluster diagram with two conductor nodes (Node X and Node Y) and multiple worker nodes.](http://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_6newcluster.png)
+![Cluster diagram with two conductor nodes (Node X and Node Y) and multiple worker nodes.](https://docs.aws.amazon.com/elemental-cl3/latest/migrationguide/images/split_cluster_6newcluster.png)
