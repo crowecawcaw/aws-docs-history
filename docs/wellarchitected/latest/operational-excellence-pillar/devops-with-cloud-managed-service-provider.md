@@ -9,7 +9,7 @@ Alternatively, you may wish to have a platform team that is focused on creating 
 
 Managed services providers such as [AWS Managed Services](http://aws.amazon.com/managed-services/) or providers in the [AWS Partner Network](http://aws.amazon.com/partners/find/results/?keyword=Managed+Service+Provider) provide expertise implementing cloud environments, and support your security and compliance requirements and business goals.
 
-![DevOps with cloud managed service provider](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/devops-msp.en.png)
+![DevOps with cloud managed service provider](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/devops-msp.en.png)
 
 
 For this variation, we treat governance as centralized and managed by the platform team, with account creation and policies managed with AWS Organizations and AWS Control Tower.

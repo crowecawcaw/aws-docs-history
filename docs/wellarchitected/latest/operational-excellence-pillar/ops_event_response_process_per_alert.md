@@ -33,7 +33,7 @@
 
  The following diagram illustrates the incident management workflow within [AWS Systems Manager Incident Manager](https://aws.amazon.com/systems-manager/features/incident-manager/). It is designed to respond swiftly to operational issues by automatically creating incidents in response to specific events from [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) or [Amazon EventBridge](https://aws.amazon.com/eventbridge/). When an incident is created, either automatically or manually, Incident Manager centralizes the management of the incident, organizes relevant AWS resource information, and initiates predefined response plans. This includes running Systems Manager Automation runbooks for immediate action, as well as creating a parent operational work item in OpsCenter to track related tasks and analyses. This streamlined process speeds up and coordinates incident response across your AWS environment. 
 
-![Flowchart depicting how Incident Manager works - Amazon Q Developer in chat applications, escalation plans and contacts, and runbooks flow into response plans, which flow into incident and analysis. Amazon CloudWatch also flows into response plans.](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/incident-manager-how-it-works.png)
+![Flowchart depicting how Incident Manager works - Amazon Q Developer in chat applications, escalation plans and contacts, and runbooks flow into response plans, which flow into incident and analysis. Amazon CloudWatch also flows into response plans.](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/incident-manager-how-it-works.png)
 
 
  

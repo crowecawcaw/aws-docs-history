@@ -9,7 +9,7 @@
 
  
 
-![Traditional model diagram](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/full-seperate.png)
+![Traditional model diagram](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/full-seperate.png)
 
 
  Historically, organizations embraced frameworks such as ITIL or standards like ISO and shaped their operational activties around them, which often resulted in a fully-separated topology. In this model, activities in each quadrant are performed by a separate team. Work is passed between teams through mechanisms such as work requests, queues, tickets, or by using an IT service management (ITSM) system. 

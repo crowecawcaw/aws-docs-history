@@ -7,7 +7,7 @@ The decentralized DevOps model is a variation of the *you build it, you run it* 
 
 Your application engineers perform both the engineering and the operations of their workloads. Similarly, your infrastructure engineers perform both the engineering and operations of the platforms they use to support application teams. 
 
-![Decentralized DevOps diagram](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/decentralized-devops.en.png)
+![Decentralized DevOps diagram](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/decentralized-devops.en.png)
 
 
 For this example, we treat governance as decentralized. Standards are still distributed, provided, or shared to application teams by the platform team, but application teams are free to engineer and operate new platform capabilities in support of their workload.

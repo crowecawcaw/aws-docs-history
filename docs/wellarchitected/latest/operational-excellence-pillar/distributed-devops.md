@@ -7,7 +7,7 @@
 
  Your application engineers perform both the engineering and the operation of their workloads. Similarly, your infrastructure engineers perform both the engineering and operation of the platforms they use to support application teams. 
 
-![Distributed DevOps model diagram](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/distributed-devops.en.png)
+![Distributed DevOps model diagram](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/distributed-devops.en.png)
 
 
  For this example, we treat governance as centralized elsewhere within the organization. Standards are distributed, provided, or shared to the application and platform teams. 

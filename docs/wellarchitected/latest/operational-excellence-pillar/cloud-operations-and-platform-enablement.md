@@ -11,7 +11,7 @@ To address this concern, use your existing operational expertise from within you
 
 The COPE model focuses on the workload level. If this approach is needed across multiple teams at once, if you are performing a complex, large-scale, multi-year migration project, or if you are building a platform to support these initiatives, consider using a Cloud Center of Excellence (CCoE). This is a mechanism that many have found successful when seeking to accelerate their migrations to the cloud and broadly transform their organization.
 
-![Cloud Operations and Platform Enablement (COPE) diagram](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/cope.en.png)
+![Cloud Operations and Platform Enablement (COPE) diagram](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/cope.en.png)
 
 
 Your platform engineering team builds a thin layer of core shared platform capabilities, which are based on predefined standards for application teams to adopt and are provided by the COPE team. The platform engineering team codifies the enterprise reference architectures and patterns that are provided to the application teams through a self-service mechanism. Using a service such as AWS Service Catalog, the application teams can deploy approved reference architectures, patterns, services, and configurations, compliant by default with the centralized governance and security standards.
