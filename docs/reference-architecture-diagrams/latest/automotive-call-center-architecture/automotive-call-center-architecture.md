@@ -10,7 +10,7 @@ This architecture enables you to build an automotive call center solution as par
 ## Automotive Call Center Architecture Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to build an automotive call center solution as part of connected vehicle platform to enhance customer safety with emergency (eCall) and breakdown (bCall) call services using Connect Customer.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/automotive-call-center-architecture/images/automotive-call-center-architecture.png)
+![Reference architecture diagram showing how to build an automotive call center solution as part of connected vehicle platform to enhance customer safety with emergency (eCall) and breakdown (bCall) call services using Connect Customer.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/automotive-call-center-architecture/images/automotive-call-center-architecture.png)
 
 
 1. Vehicle triggers an eCall or bCall in case of an accident or breakdown to **Connect Customer**, and sends a snapshot of sensor and location data to the connected vehicle backend with **Amazon API Gateway**. 
@@ -38,7 +38,7 @@ This architecture enables you to build an automotive call center solution as par
 ## Enhanced Automotive Call Center Architecture Diagram
 <a name="diagram2"></a>
 
-![Reference architecture diagram showing how to build an automotive call center solution to enhance customer service and loyalty operations, including service (hCall) and concierge (cCall) call services using Connect Customer.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/automotive-call-center-architecture/images/automotive-call-center-architecture-2.png)
+![Reference architecture diagram showing how to build an automotive call center solution to enhance customer service and loyalty operations, including service (hCall) and concierge (cCall) call services using Connect Customer.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/automotive-call-center-architecture/images/automotive-call-center-architecture-2.png)
 
 
 1. Trigger hCall and cCall from vehicle with touch button or voice enabled interface (such as **Amazon Alexa**). 
