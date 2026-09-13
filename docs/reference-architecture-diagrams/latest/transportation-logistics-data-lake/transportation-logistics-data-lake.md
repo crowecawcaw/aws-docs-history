@@ -10,7 +10,7 @@ This architecture shows how to break data silos and create a single repository f
 ## Transportation and Logistics Data Lake
 <a name="diagram1"></a>
 
-![Architecture diagram showing a transportation and logistics data lake with Amazon S3, Lake Formation, AWS Glue, and Athena.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/transportation-logistics-data-lake/images/transportation-logistics-data-lake.png)
+![Architecture diagram showing a transportation and logistics data lake with Amazon S3, Lake Formation, AWS Glue, and Athena.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/transportation-logistics-data-lake/images/transportation-logistics-data-lake.png)
 
 
 The following steps describe the architecture:
