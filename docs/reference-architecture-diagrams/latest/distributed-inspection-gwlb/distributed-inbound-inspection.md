@@ -10,7 +10,7 @@ This architecture uses [Gateway Load Balancer](https://docs.aws.amazon.com/elast
 ## North/South inbound distributed inspection architecture
 <a name="dinb-diagram1"></a>
 
-![Architecture diagram showing distributed inbound inspection with Gateway Load Balancer using shared security appliances across multiple VPCs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/distributed-inspection-gwlb/images/distributed-inspection-gwlb-1.png)
+![Architecture diagram showing distributed inbound inspection with Gateway Load Balancer using shared security appliances across multiple VPCs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/distributed-inspection-gwlb/images/distributed-inspection-gwlb-1.png)
 
 
 The following steps describe the data flow in this architecture:

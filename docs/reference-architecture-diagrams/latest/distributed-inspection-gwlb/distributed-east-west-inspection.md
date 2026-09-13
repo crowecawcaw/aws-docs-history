@@ -10,7 +10,7 @@ This architecture uses [Gateway Load Balancer](https://docs.aws.amazon.com/elast
 ## East/West distributed inspection architecture
 <a name="dew-diagram1"></a>
 
-![Architecture diagram showing distributed East/West inspection with Gateway Load Balancer for inter-VPC traffic using shared security appliances.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/distributed-inspection-gwlb/images/distributed-inspection-gwlb-3.png)
+![Architecture diagram showing distributed East/West inspection with Gateway Load Balancer for inter-VPC traffic using shared security appliances.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/distributed-inspection-gwlb/images/distributed-inspection-gwlb-3.png)
 
 
 The following steps describe the data flow in this architecture:

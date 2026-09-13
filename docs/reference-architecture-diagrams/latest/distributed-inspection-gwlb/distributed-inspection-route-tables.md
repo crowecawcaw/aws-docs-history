@@ -10,7 +10,7 @@ This diagram shows the route table configuration for distributed inspection arch
 ## Distributed inspection route tables architecture
 <a name="drt-diagram1"></a>
 
-![Architecture diagram showing route table configuration for distributed inspection with Gateway Load Balancer in multiple Availability Zones.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/distributed-inspection-gwlb/images/distributed-inspection-gwlb-4.png)
+![Architecture diagram showing route table configuration for distributed inspection with Gateway Load Balancer in multiple Availability Zones.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/distributed-inspection-gwlb/images/distributed-inspection-gwlb-4.png)
 
 
 The following route tables control traffic flow in this architecture:
