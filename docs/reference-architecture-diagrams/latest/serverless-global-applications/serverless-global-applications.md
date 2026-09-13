@@ -10,7 +10,7 @@ This architecture shows how to improve customer experience on your global servic
 ## Serverless Architecture for Global Applications
 <a name="diagram1"></a>
 
-![Architecture diagram showing a serverless global application using Amazon API Gateway, AWS Lambda, Amazon DynamoDB, AWS Step Functions, and Amazon EventBridge across multiple Regions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-global-applications/images/serverless-global-applications.png)
+![Architecture diagram showing a serverless global application using Amazon API Gateway, AWS Lambda, Amazon DynamoDB, AWS Step Functions, and Amazon EventBridge across multiple Regions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-global-applications/images/serverless-global-applications.png)
 
 
 The following steps describe the architecture:
