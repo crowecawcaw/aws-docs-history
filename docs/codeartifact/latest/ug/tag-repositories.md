@@ -151,7 +151,7 @@ You can use the console to add tags to an existing repository.
 1. Choose **Add new tag**.
 
 1. In the **Key** and **Value** fields, enter the text for each tag you want to add. (The **Value** field is optional.) For example, in **Key**, enter **Name**. In **Value**, enter **Test**.  
-![The repository configuration.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/repo-add-tag-console.png)
+![The repository configuration.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/repo-add-tag-console.png)
 
 1. (Optional) Choose **Add tag** to add more rows and enter more tags.
 

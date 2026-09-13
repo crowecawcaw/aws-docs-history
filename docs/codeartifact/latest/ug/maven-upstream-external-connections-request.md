@@ -44,7 +44,7 @@ The [package version status](packages-overview.md#package-version-status) of pac
 
 For example, let's say a domain has three repositories: `repo-A`, `repo-B`, and `repo-C`, where `repo-B` is an upstream of `repo-A` and `repo-C` is upstream of `repo-B`.
 
-![A diagram of how new assets and package versions work in upstream repositories.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/Maven-new-asset-pv-upstream.png)
+![A diagram of how new assets and package versions work in upstream repositories.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/Maven-new-asset-pv-upstream.png)
 
 
 Package version `7.3.1` of Maven package `com.android.tools.build:aapt2` is present in `repo-B` and has a status of `Published`. It is not present in `repo-A`. If a client requests an asset of this package version from `repo-A`, the response will be a 200 (OK) and Maven package version `7.3.1` will be retained in `repo-A`. However, if the status of package version `7.3.1` in `repo-B` is `Archived` or `Disposed`, the response will be 404 (Not Found) because the assets of package versions in those two statuses are not downloadable.

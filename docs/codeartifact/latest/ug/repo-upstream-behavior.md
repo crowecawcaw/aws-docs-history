@@ -26,7 +26,7 @@
 
 If a CodeArtifact repository has an upstream relationship with a repository that has an external connection, requests for packages not in the upstream repository are copied from the external repository. For example, consider the following configuration: a repository named `repo-A` has an upstream repository named `repo-B`. `repo-B` has an external connection to [https://npmjs.com](https://npmjs.com).
 
-![Simple upstream repository diagram showing three repositories chained together.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-with-external.png)
+![Simple upstream repository diagram showing three repositories chained together.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-with-external.png)
 
 
 If `npm` is configured to use the `repo-A` repository, running `npm install` triggers the copying of packages from [https://npmjs.com](https://npmjs.com) into `repo-B`. The versions installed are also pulled into `repo-A`. The following example installs `lodash`.
@@ -113,14 +113,14 @@ Example output:
 
  CodeArtifact allows chaining upstream repositories. For example, `repo-A` can have `repo-B` as an upstream and `repo-B` can have `repo-C` as an upstream. This configuration makes the package versions in `repo-B` and `repo-C` available from `repo-A`. 
 
-![Simple upstream repository diagram showing three repositories chained together.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-chaining.png)
+![Simple upstream repository diagram showing three repositories chained together.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-chaining.png)
 
 
  When a package manager connects to repository `repo-A` and fetches a package version from repository `repo-C`, the package version will not be retained in repository `repo-B`. The package version will only be retained in the most-downstream repository, in this example, `repo-A`. It will not be retained in any intermediate repositories. This is also true for longer chains; for example if there were four repositories `repo-A`, `repo-B`, `repo-C`, and `repo-D` and a package manager connected to `repo-A` fetched a package version from `repo-D`, the package version would be retained in `repo-A` but not in `repo-B` or `repo-C`. 
 
  Package retention behavior is similar when pulling a package version from an external repository, except that the package version is always retained in the repository that has the external connection attached. For example, `repo-A` has `repo-B` as an upstream. `repo-B` has `repo-C` as an upstream, and `repo-C` also has **npmjs.com** configured as an external connection; see the followng diagram.
 
-![Upstream repository diagram showing three repositories chained together with an external connection to npmjs.com.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-chaining-external.png)
+![Upstream repository diagram showing three repositories chained together with an external connection to npmjs.com.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-chaining-external.png)
 
 
  If a package manager connected to `repo-A` requests a package version, *lodash 4.17.20* for example, and the package version is not present in any of the three repositories, it will be fetched from **npmjs.com**. When *lodash 4.17.20* is fetched, it will be retained in `repo-A` as that is the most-downstream repository and `repo-C` as it has the external connection to **npmjs.com** attached. *lodash 4.17.20* will not be retained in `repo-B` as that is an intermediate repository. 

@@ -22,7 +22,7 @@ In this scenario, consider an internal package, *packageA*. Your team publishes 
 
 In the following image, *repoA* is your CodeArtifact repository with an external connection to a public repository. Your repository contains versions 1.1 and 2.1 of *packageA*, but version 3.0 is published to the public repository. Normally, *repoA* would ingest version 3.0 after the package was requested by a package manager. Because package ingestion is set to **Block**, version 3.0 is not ingested into your CodeArtifact repository and is not available to package managers connected to it.
 
-![Simple graphic showing a new external package version being blocked from a public repository.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/package-origin-controls-one.png)
+![Simple graphic showing a new external package version being blocked from a public repository.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/package-origin-controls-one.png)
 
 
 **An internal package version is published for an existing external package**
@@ -31,7 +31,7 @@ In this scenario, a package, *packageB* exists externally in a public repository
 
 In the following image, *repoA* is your CodeArtifact repository with an external connection to a public repository. Your repository contains version 3.0 that it ingested from the public repository. You want to publish version 1.1 to your repository. Normally, you could publish version 1.2 to *repoA*, but because publishing is set to **Block**, version 1.2 cannot be published.
 
-![Simple graphic showing a new external package version being blocked from a public repository.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/package-origin-controls-two.png)
+![Simple graphic showing a new external package version being blocked from a public repository.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/package-origin-controls-two.png)
 
 
 **Publishing a patched package version of an existing external package**

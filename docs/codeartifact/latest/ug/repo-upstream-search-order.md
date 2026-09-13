@@ -43,7 +43,7 @@ aws codeartifact describe-repository --repository {{my_repo}} --domain {{my_doma
 
  In the following diagram, the `my_repo` repository has three upstream repositories. The priority order of the upstream repositories is `upstream-1`, `upstream-2`, `upstream-3`. 
 
-![Simple upstream repository diagram showing my_repo with 3 upstream repositories.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-diagram-simple.png)
+![Simple upstream repository diagram showing my_repo with 3 upstream repositories.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-diagram-simple.png)
 
 
  A request for a package version in `my_repo` searches the repositories in the following order until it is found, or until an HTTP 404 `Not Found` response is returned to the client: 
@@ -67,7 +67,7 @@ If the package version is found, the search stops, even if it didn't look in all
 
  In the following diagram, the `my_repo` repository contains upstream repositories. Upstream repository `A` has two upstream repositories, and `D` has one upstream repository. Upstream repositories at the same level in the diagram appear in their priority order, left to right (repository `A` has a higher priority order than repository `B`, and repository `C` has a higher priority order than repository `D`). 
 
-![A more complex upstream repository diagram with 2 upstream repositories A and B and additional upstream repositories.](http://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-diagram-complex.png)
+![A more complex upstream repository diagram with 2 upstream repositories A and B and additional upstream repositories.](https://docs.aws.amazon.com/codeartifact/latest/ug/images/upstream-diagram-complex.png)
 
 
 In this example, a request for a package version in `my_repo` looks in the repositories in the following order until it is found, or until a package manager returns an HTTP 404 `Not Found` response to the client: 
