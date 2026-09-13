@@ -10,7 +10,7 @@ This architecture uses [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/lat
 ## Accessing Amazon VPC endpoints from on-premises architecture
 <a name="onprem-diagram1"></a>
 
-![Architecture diagram showing on-premises access to VPC endpoints through AWS Transit Gateway using AWS Direct Connect or AWS Site-to-Site VPN.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralizing-vpc-endpoints-tgw/images/centralizing-vpc-endpoints-tgw-2.png)
+![Architecture diagram showing on-premises access to VPC endpoints through AWS Transit Gateway using AWS Direct Connect or AWS Site-to-Site VPN.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralizing-vpc-endpoints-tgw/images/centralizing-vpc-endpoints-tgw-2.png)
 
 
 The following steps describe the data flow in this architecture:

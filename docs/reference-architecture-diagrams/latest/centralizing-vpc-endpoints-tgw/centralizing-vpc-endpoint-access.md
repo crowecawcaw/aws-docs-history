@@ -10,7 +10,7 @@ This architecture centralizes [Amazon VPC interface endpoints](https://docs.aws.
 ## Centralizing Amazon VPC endpoint access architecture
 <a name="cvpc-diagram1"></a>
 
-![Architecture diagram showing centralized VPC endpoint access through AWS Transit Gateway and a shared services VPC.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralizing-vpc-endpoints-tgw/images/centralizing-vpc-endpoints-tgw-1.png)
+![Architecture diagram showing centralized VPC endpoint access through AWS Transit Gateway and a shared services VPC.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralizing-vpc-endpoints-tgw/images/centralizing-vpc-endpoints-tgw-1.png)
 
 
 The following steps describe the data flow in this architecture:
