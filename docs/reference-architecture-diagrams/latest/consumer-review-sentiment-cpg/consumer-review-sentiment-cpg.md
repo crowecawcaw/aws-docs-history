@@ -10,7 +10,7 @@ This architecture shows how to gain insights from consumer reviews in near real 
 ## Consumer Review Sentiment Analysis for CPG
 <a name="diagram1"></a>
 
-![Architecture diagram showing consumer review sentiment analysis for CPG with Amazon Comprehend and Amazon Translate.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/consumer-review-sentiment-cpg/images/consumer-review-sentiment-cpg.png)
+![Architecture diagram showing consumer review sentiment analysis for CPG with Amazon Comprehend and Amazon Translate.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/consumer-review-sentiment-cpg/images/consumer-review-sentiment-cpg.png)
 
 
 The following steps describe the architecture:
