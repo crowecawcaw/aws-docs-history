@@ -12,7 +12,7 @@ For more information about this approach, see [Detect sentiment from customer re
 ## Sentiment analysis diagram
 <a name="sentiment-diagram"></a>
 
-![Architecture diagram showing consumer review data flowing from ecommerce sites through Amazon Data Firehose to Amazon Simple Storage Service, processed by AWS Lambda with Amazon Comprehend for sentiment analysis, and visualized in Amazon Quick Sight.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/consumer-review-sentiment-analysis-cpg/images/consumer-review-sentiment-analysis-cpg.png)
+![Architecture diagram showing consumer review data flowing from ecommerce sites through Amazon Data Firehose to Amazon Simple Storage Service, processed by AWS Lambda with Amazon Comprehend for sentiment analysis, and visualized in Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/consumer-review-sentiment-analysis-cpg/images/consumer-review-sentiment-analysis-cpg.png)
 
 
 The following steps describe the architecture:
