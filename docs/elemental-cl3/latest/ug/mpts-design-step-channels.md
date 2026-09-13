@@ -49,9 +49,9 @@ You perform these steps in Conductor Live. You don't perform them on Elemental L
 The following rules apply to the Elemental Live profiles and channels:
 + Everything about the profile can be identical to a regular profile used by a non-SPTS channel, except for the outputs. The profile must include one UDP/TS output that is set up for MPTS.
 + The channel can produce a UDP/TS output group that produces two outputs, one that is a regular SPTS (not a statmux SPTS), and one that is a statmux output. You might create this TS output as a *monitoring output*. Creating this output doesn't add to the workload on the channel.  
-![Channel A outputs to UDP/TS output group, which sends TS output and MPTS output to Elemental Statmux node.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-multi-outputs.png)
+![Channel A outputs to UDP/TS output group, which sends TS output and MPTS output to Elemental Statmux node.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-multi-outputs.png)
 + The channel can include both statmux outputs and non-statmux outputs. These non-statmux outputs can be of any type, including other UDP/TS outputs (that go to other destinations).   
-![Channel A with HLS output, Archive output, and Statmux output containing MPTS and SPTS nodes.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-several-outputs.png)
+![Channel A with HLS output, Archive output, and Statmux output containing MPTS and SPTS nodes.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-several-outputs.png)
 
 ## Step 2: Create the MPTS and add channels
 <a name="mpts-design-create"></a>

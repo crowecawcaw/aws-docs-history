@@ -12,7 +12,7 @@ In one redundancy group, all the active nodes share the backup nodes.
 
 This diagram is an example of an N-to-M redundancy group for Elemental Live nodes. The same design applies to Elemental Statmux nodes.
 
-![One live active node with two live backup nodes in a redundancy group configuration.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/live_resil_node_nm.png)
+![One live active node with two live backup nodes in a redundancy group configuration.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/live_resil_node_nm.png)
 
 
 ## What happens in a failure
@@ -26,7 +26,7 @@ There is a delay while the backup node starts up because Conductor Live must cop
 
 This diagram illustrates the change in the group after one node fails. This diagram is for Elemental Live but the same pattern applies to Elemental Statmux.
 
-![Node group showing failed node, live node, and live backup node after failure occurs.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/live_resil_node_nm-failed.png)
+![Node group showing failed node, live node, and live backup node after failure occurs.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/live_resil_node_nm-failed.png)
 
 
 ## Considerations

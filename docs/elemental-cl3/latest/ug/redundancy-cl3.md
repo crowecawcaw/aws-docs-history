@@ -11,7 +11,7 @@ Redundant Conductor Live nodes are known as a *high availability *(HA) pair.
 
 To set up redundant nodes, add two nodes to the cluster, then create an HA redundancy group. When a problem occurs on the active node, the backup node automatically takes over control of activity in the cluster.
 
-![Diagram showing Conductor Live node connected to a Backup node in a simple hierarchy.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Cl3_resil_HA.png)
+![Diagram showing Conductor Live node connected to a Backup node in a simple hierarchy.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Cl3_resil_HA.png)
 
 
 **How Failover works** 

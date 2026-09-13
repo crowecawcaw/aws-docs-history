@@ -23,11 +23,11 @@ The physical computer where the video activity is handled is called a *node*. Wh
 
 When you create a channel, you associate it with one profile and one node. So the associations between these three entities is via the channel.
 
-![Image file diagram-ncp.png](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/diagram-ncp.png)
+![Image file diagram-ncp.png](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/diagram-ncp.png)
 
 
 In addition, keep the following in mind:
 + One profile can be used by multiple channels: so profiles are multi-use.  
-![Image file diagram-cp.png](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/diagram-cp.png)
+![Image file diagram-cp.png](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/diagram-cp.png)
 + One node can handle multiple channels: so nodes are multi-taskers.  
-![Image file diagram-nc.png](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/diagram-nc.png)
+![Image file diagram-nc.png](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/diagram-nc.png)

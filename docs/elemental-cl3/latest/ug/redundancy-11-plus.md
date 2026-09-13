@@ -14,7 +14,7 @@ This diagram is an example of a 1-to-1 Plus redundancy group for Elemental Live 
 
 The backup node is dedicated to one redundancy group. One backup node can't act as backup for two 1-to-1 redundancy groups.
 
-![Diagram showing one live backup node dedicated to two live active nodes in a redundancy group.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Live_resil_node_1-1plus.png)
+![Diagram showing one live backup node dedicated to two live active nodes in a redundancy group.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Live_resil_node_1-1plus.png)
 
 
 ## What happens in a failure
@@ -26,7 +26,7 @@ After Conductor Live has switched to delivering from the second node, the backup
 
 This diagram illustrates the change in the group after one node fails. This diagram is for Elemental Live but the same pattern applies to Elemental Statmux.
 
-![Diagram showing one failed node and two live active nodes, with one node circled.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Live_resil_node_1-1plus-failed.png)
+![Diagram showing one failed node and two live active nodes, with one node circled.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Live_resil_node_1-1plus-failed.png)
 
 
 ## Considerations

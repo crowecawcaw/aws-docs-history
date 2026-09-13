@@ -15,24 +15,24 @@ The following rules help you identify the number of nodes that you need.
 
 The SPTS channels for a single MPTS can originate from one node. 
 
-![Diagram showing Elemental Live node A with three channels connecting to Elemental Statmux node MPTS.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-source-1-node.png)
+![Diagram showing Elemental Live node A with three channels connecting to Elemental Statmux node MPTS.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-source-1-node.png)
 
 
 Or the SPTS channels can originate from two or more nodes. 
 
-![Diagram showing two Elemental Live nodes connected to an Elemental Statmux node with MPTS.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-source-2-nodes.png)
+![Diagram showing two Elemental Live nodes connected to an Elemental Statmux node with MPTS.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-source-2-nodes.png)
 
 
 A node can contain SPTS channels that go to different MPTSes. There is no requirement for a node to be dedicated to one MPTS. In the following diagram, node A contains SPTS channels for two different MPTSes. 
 
-![Diagram showing two Elemental Live nodes connected to two Elemental Statmux nodes with MPTS.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/node-feeds-2-mpts.png)
+![Diagram showing two Elemental Live nodes connected to two Elemental Statmux nodes with MPTS.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/node-feeds-2-mpts.png)
 
 
 An SPTS channel can't be used by two different Statmux MPTS. 
 
-![Diagram showing incompatibility between Elemental Live node and two Elemental Statmux nodes.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-not-feed-2-mpts.png)
+![Diagram showing incompatibility between Elemental Live node and two Elemental Statmux nodes.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Channel-not-feed-2-mpts.png)
 
 
 A node that has SPTS channels can also produce other channels (events). The node doesn't have to be dedicated to producing SPTSes. 
 
-![Diagram showing Elemental Live node A with channels connecting to Elemental Statmux node MPTS.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Node-produce-other-channels.png)
+![Diagram showing Elemental Live node A with channels connecting to Elemental Statmux node MPTS.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Node-produce-other-channels.png)

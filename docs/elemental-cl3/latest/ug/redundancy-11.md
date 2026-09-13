@@ -14,7 +14,7 @@ You start the channel or MPTS on the primary node. Conductor Live automatically 
 
 This diagram is an example of a 1-to-1 redundancy group for Elemental Live nodes. The same design applies to Elemental Statmux nodes.
 
-![Two live active nodes connected vertically in a 1-to-1 redundancy group configuration.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Live_resil_node_1-1.png)
+![Two live active nodes connected vertically in a 1-to-1 redundancy group configuration.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Live_resil_node_1-1.png)
 
 
 ## What happens in a failure
@@ -24,7 +24,7 @@ If one of the nodes fails, the other node continues to process the content. Ther
 
 This diagram illustrates the change in the group after one node fails. This diagram is for Elemental Live but the same pattern applies to Elemental Statmux.
 
-![Two nodes in a group: one failed node shown in gray, one live active node shown in green.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Live_resil_node_1-1-failed.png)
+![Two nodes in a group: one failed node shown in gray, one live active node shown in green.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Live_resil_node_1-1-failed.png)
 
 
 ## Considerations

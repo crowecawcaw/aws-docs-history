@@ -27,7 +27,7 @@ Conductor Live replicates the MPTS on the two nodes in the redundancy group. The
 
 The following diagram illustrates the setup. 
 
-![Two Statmux nodes with MPTS1 and MPTS2, where MPTS1 Output-1 connects to a destination.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Sm_resil_OPL_1-1.png)
+![Two Statmux nodes with MPTS1 and MPTS2, where MPTS1 Output-1 connects to a destination.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Sm_resil_OPL_1-1.png)
 
 
 **What happens in a failure**
@@ -59,7 +59,7 @@ The MPTS continually delivers two outputs. If a failure occurs, the downstream s
 
 The following diagram illustrates the setup. One MPTS has two destinations to the downstream system.
 
-![Statmux node MPTS1 with two outputs connecting to downstream destinations.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/sm_resil_opr_none.png)
+![Statmux node MPTS1 with two outputs connecting to downstream destinations.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/sm_resil_opr_none.png)
 
 
 **Output redundancy with 1-to-1 redundancy or 1-to-1 Plus redundancy**
@@ -70,7 +70,7 @@ The MPTS continually delivers two outputs from each node in the redundancy group
 
 The following diagram illustrates the setup where there is 1-to-1 redundancy or 1-to-1 Plus redundancy.
 
-![Two Statmux nodes MPTS1 and MPTS2 with outputs connecting to multiplexers in redundant setup.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/sm_resil_opr_1-1.png)
+![Two Statmux nodes MPTS1 and MPTS2 with outputs connecting to multiplexers in redundant setup.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/sm_resil_opr_1-1.png)
 
 
 ## Output listening combined with output redundancy
@@ -82,4 +82,4 @@ With this setup, you have two outputs from each node. The secondary MPTS continu
 
 This setup combines all the failure protection of output listening and output redundancy. 
 
-![Two Statmux nodes with MPTS outputs connecting to destinations with listening configurations.](http://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Sm_resil_opr_OPL_1-1.png)
+![Two Statmux nodes with MPTS outputs connecting to destinations with listening configurations.](https://docs.aws.amazon.com/elemental-cl3/latest/ug/images/Sm_resil_opr_OPL_1-1.png)
