@@ -10,7 +10,7 @@ With this architecture, you can improve customer experience and brand loyalty fo
 ## Customer engagement AI/ML diagram
 <a name="celodge-diagram"></a>
 
-![How to personalize customer interactions for lodging by using Connect Customer, Amazon Lex, and Amazon Personalize.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/customer-engagement-ai-ml-lodging/images/customer-engagement-ai-ml-lodging.png)
+![How to personalize customer interactions for lodging by using Connect Customer, Amazon Lex, and Amazon Personalize.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/customer-engagement-ai-ml-lodging/images/customer-engagement-ai-ml-lodging.png)
 
 
 The following steps describe the architecture:
