@@ -10,7 +10,7 @@ With this architecture, you can build a guest 360-degree data platform for resta
 ## Guest 360 restaurants diagram
 <a name="g360rest-diagram"></a>
 
-![How to build a guest 360-degree data platform for restaurants by using AWS services.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/guest-360-data-platform-restaurants/images/guest-360-data-platform-restaurants.png)
+![How to build a guest 360-degree data platform for restaurants by using AWS services.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/guest-360-data-platform-restaurants/images/guest-360-data-platform-restaurants.png)
 
 
 The following steps describe the architecture:
