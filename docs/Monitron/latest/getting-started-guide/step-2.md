@@ -25,17 +25,17 @@ Before adding a gateway, make sure that Bluetooth is turned on for your smartpho
 #### [ To add a Wi-Fi gateway ]
 
 1. Choose the menu icon (☰), and then choose **Getting Started**.  
-![Navigation menu with Getting started option highlighted.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/getting-started.png)
+![Navigation menu with Getting started option highlighted.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/getting-started.png)
 
 1. Choose **Add gateway**.   
-![Getting started dialog showing Step 1 to install gateways with Add gateway button.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-gateway.png)
+![Getting started dialog showing Step 1 to install gateways with Add gateway button.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-gateway.png)
 
 1. In your factory, position your gateway in the location that works best for communicating with your sensors.
 
    The best place to mount your gateway is higher than the sensors and no more than 20 to 30 meters away. For more information about locating gateways, see [Where to Install Your Gateway](https://docs.aws.amazon.com/Monitron/latest/user-guide/installing-gateway.html#where-gateway) in the *Amazon Monitron User Guide*. 
 
 1. Plug the gateway in and make sure that the LED lights on the top alternatively blink yellow and blue.   
-![Hand plugging a device with a cable into an electrical outlet.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-gateway-turnon.png)
+![Hand plugging a device with a cable into an electrical outlet.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-gateway-turnon.png)
 
 1. Push the button on the side of the gateway to put it into commissioning mode. The lights will start blinking rapidly.
 
@@ -50,7 +50,7 @@ Before adding a gateway, make sure that Bluetooth is turned on for your smartpho
 1. When you see the new gateway in the list, choose it. 
 
    It can take a few moments for Amazon Monitron to connect to the new gateway.  
-![Mobile phone connecting via Bluetooth to AWS gateway.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-gateway-bluetooth.png)
+![Mobile phone connecting via Bluetooth to AWS gateway.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-gateway-bluetooth.png)
 
 1. After it connects to the gateway, Amazon Monitron scans for Wi-Fi networks. Choose the Wi-Fi network that you want to use. 
 
@@ -70,7 +70,7 @@ Before adding a gateway, make sure that Bluetooth is turned on for your smartpho
 1. Plug in the gateway and make sure the network light (yellow) and the Bluetooth light (blue) on the front of your gateway are blinking alternatively.
 
 1. Push the **Config** button on the gateway to put it into commissioning mode. the Bluetooth and network LED lights will start flashing rapidly.  
-![CONFIG button with orange LED indicator light.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/ethernet-config-button.png)
+![CONFIG button with orange LED indicator light.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/ethernet-config-button.png)
 
 1. Open the mobile app on your smartphone.
 
@@ -81,10 +81,10 @@ Before adding a gateway, make sure that Bluetooth is turned on for your smartpho
 1. Choose the gateway. 
 
    It can take a few moments for Amazon Monitron to connect to the new gateway.  
-![Mobile device connecting via Bluetooth to Amazon Monitron gateway device.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/phone-bluetooth-ethernet-gateway.png)
+![Mobile device connecting via Bluetooth to Amazon Monitron gateway device.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/phone-bluetooth-ethernet-gateway.png)
 
 1. After it connects to the gateway, Amazon Monitron will provide two options for you to configure the network connection for your gateway.  
-![Network configuration dialog with Automatic DHCP and Manual options for Monitron Gateway.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/ethernet-network-configuration.png)
+![Network configuration dialog with Automatic DHCP and Manual options for Monitron Gateway.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/ethernet-network-configuration.png)
 
 1. Choose your network configuation.
 
@@ -94,7 +94,7 @@ Before adding a gateway, make sure that Bluetooth is turned on for your smartpho
 
    1. If you choose **manual**, enter your IP address, subnet mask, router, preferred DNS server, and alternate DNS server (optional) information. then choose **connect**.
 
-![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/ethernet-IP-DNS-settings.png)
+![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/ethernet-IP-DNS-settings.png)
 
 
 ------
@@ -107,7 +107,7 @@ In Amazon Monitron, the machines you monitor are known as *assets*. Assets are u
 **To add an asset**
 
 1. On the **Getting Started** page, choose **Add asset**.   
-![Step 2 Add assets interface with industrial equipment icons and Add asset button.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-assets.png)
+![Step 2 Add assets interface with industrial equipment icons and Add asset button.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-assets.png)
 
 1. For **Asset name**, enter a name for the asset that you want to create. 
 
@@ -116,7 +116,7 @@ In Amazon Monitron, the machines you monitor are known as *assets*. Assets are u
    Asset machine class is based on ISO 20816 Standards. For more information about machine classes, see [Assets](https://docs.aws.amazon.com/Monitron/latest/user-guide/assets-chapter.html).
 **Note**  
 Asset machine class is based on ISO 20816 Standards. Amazon Monitron administrators can also create custom machine asset classes for all positions within a project. For more information about machine classes and customizing them, see [Assets](https://docs.aws.amazon.com/Monitron/latest/user-guide/assets-chapter.html).  
-![Add asset dialog with Asset name 1 field and Machine class dropdown set to Class I.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/add_asset1.png)
+![Add asset dialog with Asset name 1 field and Machine class dropdown set to Class I.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/add_asset1.png)
 
 1. Choose **Add**. 
 
@@ -143,13 +143,13 @@ Vibration will attenuate up to 30-36"/75-90 cm) from the source. Attributes of t
 
 The following examples show where to place sensors. For more information and examples, see [Where to Place Your Sensors](https://docs.aws.amazon.com/Monitron/latest/user-guide/as-sensor-positions.html#as-where-sensors) in the *Amazon Monitron User Guide*.
 
-![Diagram showing motor and pump assembly with sensor placement locations marked.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mounting_sensor1.png)
+![Diagram showing motor and pump assembly with sensor placement locations marked.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mounting_sensor1.png)
 
 
-![Motor connected to pump through coupling component in mechanical system diagram.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mounting_sensor2.png)
+![Motor connected to pump through coupling component in mechanical system diagram.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mounting_sensor2.png)
 
 
-![Diagram showing motor connected to gearbox, with pillar bearings supporting a shaft assembly.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mounting_sensor3.png)
+![Diagram showing motor connected to gearbox, with pillar bearings supporting a shaft assembly.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mounting_sensor3.png)
 
 
 ### How to Place Sensors
@@ -157,7 +157,7 @@ The following examples show where to place sensors. For more information and exa
 
 When you've decided where to place a sensor on an asset, make sure that a minimum of one-third of the sensor base is fixed to the asset. The sensors can pick up vibration and temperature measurements across the entire base of the sensor, but it's important to have the asset target area centered as much as possible on the sensor as shown in the following image. 
 
-![Sensor showing target contact area centered on base with minimum contact area of 30 x 25 mm.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/sensor_mounting.png)
+![Sensor showing target contact area centered on base with minimum contact area of 30 x 25 mm.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/sensor_mounting.png)
 
 
 Attach the sensor with an industrial adhesive. We recommend a cyanoacrylate-type epoxy. For additional information about attaching the sensor to your asset, see [ How to Place the Sensors](https://docs.aws.amazon.com/Monitron/latest/user-guide/as-sensor-positions1.html#as-how-sensors) in the *Amazon Monitron User's Guide*.
@@ -206,7 +206,7 @@ The equipment that you want to monitor must be in a healthy state before you pai
 After you pair the sensor, you can't change the position type. 
 
 1. Hold your phone close to the sensor to register it. A progress bar shows when registration is complete.   
-![Hand holding phone near a sensor device to register it.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-sensor.png)
+![Hand holding phone near a sensor device to register it.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-sensor.png)
 
    It can take a few moments for the sensor to be commissioned. If you have trouble pairing the sensor, see [Pairing Your Sensor](https://docs.aws.amazon.com/Monitron/latest/user-guide/as-sensor-positions1.html#as-add-sensors) for more information.
 **Tip**  

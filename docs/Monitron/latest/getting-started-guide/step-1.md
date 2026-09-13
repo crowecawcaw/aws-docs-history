@@ -33,12 +33,12 @@ Now that you've signed in to the AWS Management Console, you can use the Amazon 
 **To create a project**
 
 1. Choose the AWS Region that you want to use in the Region selector. Amazon Monitron is available only in the US East (N. Virginia), Europe (Ireland), and Asia Pacific (Sydney) Regions.  
-![Region selector dropdown menu showing available AWS Regions such as US East N. Virginia.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-select-region.png)
+![Region selector dropdown menu showing available AWS Regions such as US East N. Virginia.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-select-region.png)
 
 1. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/). 
 
 1. Choose **Create project**.  
-![Getting started container with Documentation link and Create project button.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-monitron-create-project.png)
+![Getting started container with Documentation link and Create project button.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-monitron-create-project.png)
 
 1. Under **Project Details**, for **Project name**, enter a name for the project. 
 
@@ -51,7 +51,7 @@ Now that you've signed in to the AWS Management Console, you can use the Amazon 
    For more information about tags, see [Tags in Amazon Monitron](https://docs.aws.amazon.com/Monitron/latest/user-guide/tagging.html). 
 
 1. Choose **Next** to create the project.  
-![Project details page with Site1 as project name and default data encryption settings.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-monitron-project-details.png)
+![Project details page with Site1 as project name and default data encryption settings.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-monitron-project-details.png)
 
 When you create your first project, the owner of the AWS account will get an email from *AWS Organizations*. No action needs to be taken based on this email.
 
@@ -75,7 +75,7 @@ Unless you already use IAM Identity Center in your AWS account, use Amazon Monit
 1. On the **Add project admin user** page, choose **Create user**.
 
 1.  In the **Create user** section, enter the admin user's email address and name.  
-![Create a user form with fields for email address, first name, and last name.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/create-user.png)
+![Create a user form with fields for email address, first name, and last name.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/create-user.png)
 
 1. Choose **Create user**.
 
@@ -113,7 +113,7 @@ If your users already have accounts in IAM Identity Center in your AWS account, 
    1. On the **Users** page choose **Add user**.
 
    1. In the **User details** section, provide the username and contact information. Leave **Password** set to **Send an email to the user with password setup instructions**.  
-![User details form with username, email, name fields, and password setup option selected.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-sso-user-details.png)
+![User details form with username, email, name fields, and password setup option selected.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-sso-user-details.png)
 
    1. Choose **Next: Groups**.
 
@@ -127,7 +127,7 @@ If your users already have accounts in IAM Identity Center in your AWS account, 
 1. Navigate to the project or site that you want to add a user to, and then to the **Users** list. 
 
 1. Choose **Add user**.   
-![Users page with Add user button highlighted in the upper right corner.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/user-list-add.png)
+![Users page with Add user button highlighted in the upper right corner.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/user-list-add.png)
 
 1. Enter a user name. 
 
@@ -149,7 +149,7 @@ If your users already have accounts in IAM Identity Center in your AWS account, 
 1. Select **Users** from the navigation pane.
 
 1. Choose **Add user**.  
-![Add user button highlighted in the Users page toolbar.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/webapp_add-user.png)
+![Add user button highlighted in the Users page toolbar.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/webapp_add-user.png)
 
 1. Enter a user name. 
 
@@ -165,7 +165,7 @@ If your users already have accounts in IAM Identity Center in your AWS account, 
 
 1. Send the new user an email invitation with a link for accessing the project and downloading the Amazon Monitron mobile app. For more information, see [Sending an email invitation](https://docs.aws.amazon.com/Monitron/latest/user-guide/resending-email.html). 
 
-![Users table showing display names, roles such as Admin and Technician, and site assignments.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/users-table.png)
+![Users table showing display names, roles such as Admin and Technician, and site assignments.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/users-table.png)
 
 
 ## Step 5: Invite users to your project
@@ -182,7 +182,7 @@ Invite the users you've added to your Amazon Monitron project.
 1. Repeat the following steps for each user that you want to invite.
 
    1. Under **How it works**, choose **Email instructions**.  
-![Email instructions icon with envelope and user silhouette, and button to send instructions.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-monitron-email-instructions.png)
+![Email instructions icon with envelope and user silhouette, and button to send instructions.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/gs-project-monitron-email-instructions.png)
 
       Your email client opens a draft that contains an invitation to your Amazon Monitron project. It contains both a link to download the Amazon Monitron mobile app from the Google Play Store and a link to open the project.
 

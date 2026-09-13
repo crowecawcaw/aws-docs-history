@@ -8,7 +8,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can conti
 **Note**  
 This section focuses on using the Amazon Monitron mobile app. To learn about the Amazon Monitron web app, see [Understanding sensor measurements](https://docs.aws.amazon.com/Monitron/latest/user-guide/anom-monitoring-chapter.html) in the *Amazon Monitron User Guide*.
 
-After a sensor is paired to an asset, Amazon Monitron starts monitoring the asset's condition. When it detects an abnormal machine condition, it sends you a notification ( ![Red warning icon with exclamation mark inside a white triangle.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/notification.png)) and changes the asset state. The alert notification is generated using a combination of machine learning and ISO 20816 standards for machine vibration. 
+After a sensor is paired to an asset, Amazon Monitron starts monitoring the asset's condition. When it detects an abnormal machine condition, it sends you a notification ( ![Red warning icon with exclamation mark inside a white triangle.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/notification.png)) and changes the asset state. The alert notification is generated using a combination of machine learning and ISO 20816 standards for machine vibration. 
 
 To monitor the data and respond to alerts about abnormalities, you use the Amazon Monitron mobile app. 
 
@@ -26,7 +26,7 @@ Your administrator will send you an email with information about how to log in f
 
 To monitor assets using the Amazon Monitron mobile app, start with the **Assets** list. This list is displayed when you open the mobile app. 
 
-![Assets list showing sorters, conveyor belts, and motors with status indicators.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/asset_list.png)
+![Assets list showing sorters, conveyor belts, and motors with status indicators.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/asset_list.png)
 
 
 Each asset in your project or site is listed in the **Assets** list. 
@@ -36,15 +36,15 @@ On the **Assets** list page, each asset shows an icon indicating its health. The
 
 | Icon | Health state | 
 | --- | --- | 
-|  ![Green circular icon with a white checkmark symbol inside.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/healthy_icon.png)  |  **Healthy state**: The status of all sensor positions on the asset is healthy.  | 
-|  ![Yellow warning triangle with exclamation mark, indicating caution or alert.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/warning-icon.png)  |  **Warning state**: A warning has been triggered for one of the positions of this asset, indicating that Amazon Amazon Monitron has detected early signs of potential failure. Amazon Amazon Monitron identifies warning conditions by analyzing equipment vibration and temperature, using a combination of machine learning and ISO vibration standards. | 
-|  ![Red hexagonal warning sign with exclamation mark indicating caution or alert.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/alarm_icon.png)  | **Alarm state**: Once an asset has been placed in a warning state, Amazon Monitron will continue to monitor it. Again, Amazon Monitron is using a combination of machine learning and vibration ISO standards. If the condition of the asset gets significantly worse, Amazon Amazon Monitron will escalate by sending an **Alarm** notification when it detects that the equipment condition has significantly worsened. We recommend investigating the issue at the earliest opportunity. An equipment failure might occur if the issue isn't addressed.  | 
-|  ![Wrench icon on a blue square background, representing a tool or settings symbol.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/acknowledged_icon.png)  | **Maintenance state**: One of the asset's sensors is in the maintenance state. The alarm state of the asset has been acknowledged by a technician, but not yet addressed. | 
+|  ![Green circular icon with a white checkmark symbol inside.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/healthy_icon.png)  |  **Healthy state**: The status of all sensor positions on the asset is healthy.  | 
+|  ![Yellow warning triangle with exclamation mark, indicating caution or alert.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/warning-icon.png)  |  **Warning state**: A warning has been triggered for one of the positions of this asset, indicating that Amazon Amazon Monitron has detected early signs of potential failure. Amazon Amazon Monitron identifies warning conditions by analyzing equipment vibration and temperature, using a combination of machine learning and ISO vibration standards. | 
+|  ![Red hexagonal warning sign with exclamation mark indicating caution or alert.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/alarm_icon.png)  | **Alarm state**: Once an asset has been placed in a warning state, Amazon Monitron will continue to monitor it. Again, Amazon Monitron is using a combination of machine learning and vibration ISO standards. If the condition of the asset gets significantly worse, Amazon Amazon Monitron will escalate by sending an **Alarm** notification when it detects that the equipment condition has significantly worsened. We recommend investigating the issue at the earliest opportunity. An equipment failure might occur if the issue isn't addressed.  | 
+|  ![Wrench icon on a blue square background, representing a tool or settings symbol.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/acknowledged_icon.png)  | **Maintenance state**: One of the asset's sensors is in the maintenance state. The alarm state of the asset has been acknowledged by a technician, but not yet addressed. | 
 | No sensor | **No sensor**: At least one position on the asset doesn't have a sensor paired to it. | 
 
 When you choose an asset, the app displays the health status of each underlying sensor position. 
 
-![Sorter 1 asset details showing two positions: Pos.1 with Alarm status and Pos.2 with Healthy status.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/unhealthy_asset.png)
+![Sorter 1 asset details showing two positions: Pos.1 with Alarm status and Pos.2 with Healthy status.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/unhealthy_asset.png)
 
 
 The following table describes the position status indicators.
@@ -52,10 +52,10 @@ The following table describes the position status indicators.
 
 | Status | State | 
 | --- | --- | 
-|  ![Green oval button with the text "Healthy" indicating a positive status.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/healthy.png)  | The position is healthy: All measured values are within their normal range.  | 
-|  ![Yellow warning label with black text saying "Warning".](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/warning.png)  | A warning has been triggered for this position indicating early signs of a potential failure condition. We recommend that you monitor the equipment closely and initiate an investigation during an upcoming planned maintenance. | 
-|  ![Red oval button labeled "Alarm" indicating an alert or warning notification.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/alarm.png)  | An alarm has been triggered for this position, indicating that the machine vibration or temperature is out of the normal range at this position. We recommend investigating the issue at the earliest opportunity. An equipment failure might occur if the issue isn't addressed.  | 
-|  ![Blue button labeled "Maintenance" indicating a system or service status.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/maintenance-badge.png)  | The alarm state of the position has been acknowledged by a technician, but not yet addressed. | 
+|  ![Green oval button with the text "Healthy" indicating a positive status.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/healthy.png)  | The position is healthy: All measured values are within their normal range.  | 
+|  ![Yellow warning label with black text saying "Warning".](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/warning.png)  | A warning has been triggered for this position indicating early signs of a potential failure condition. We recommend that you monitor the equipment closely and initiate an investigation during an upcoming planned maintenance. | 
+|  ![Red oval button labeled "Alarm" indicating an alert or warning notification.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/alarm.png)  | An alarm has been triggered for this position, indicating that the machine vibration or temperature is out of the normal range at this position. We recommend investigating the issue at the earliest opportunity. An equipment failure might occur if the issue isn't addressed.  | 
+|  ![Blue button labeled "Maintenance" indicating a system or service status.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/maintenance-badge.png)  | The alarm state of the position has been acknowledged by a technician, but not yet addressed. | 
 | No sensor | The position doesn't have a sensor paired to it. | 
 
 When an issue is raised for an individual position, the status changes for that position and for the asset as a whole. 
@@ -81,11 +81,11 @@ Viewing assets is more than simply understanding the icons that show the asset a
 
 The longer Amazon Monitron monitors a position, the more it fine-tunes its baseline and increases its accuracy. 
 
-When an **Alarm** or a **Warning** is triggered, Amazon Monitron sends a notification to the mobile app that is displayed as an icon in the upper right of your screen ( ![](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/notification.png) ). 
+When an **Alarm** or a **Warning** is triggered, Amazon Monitron sends a notification to the mobile app that is displayed as an icon in the upper right of your screen ( ![](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/notification.png) ). 
 
 Choosing the notification icon opens the **Notifications** page, which lists all pending notifications. 
 
-![Notifications page showing an alarm notification for Pump Position 1 dated 11/02/2020.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/notification1.png)
+![Notifications page showing an alarm notification for Pump Position 1 dated 11/02/2020.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/notification1.png)
 
 
 When you receive a notification, you must view and acknowledge it. This doesn't fix the issue with the asset, it just lets Amazon Monitron know that you are aware of it. 
@@ -93,7 +93,7 @@ When you receive a notification, you must view and acknowledge it. This doesn't 
 **To view and acknowledge an abnormality**
 
 1. On the **Assets** list, choose the asset with the alarm.   
-![Assets list showing Sorter 1 with error icon, Sorter 2 with warning icon, and multiple items with success icons.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/asset_list2.png)
+![Assets list showing Sorter 1 with error icon, Sorter 2 with warning icon, and multiple items with success icons.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/asset_list2.png)
 
 1. Choose the position with the alarm to view the issue.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/step-3.html)
@@ -101,10 +101,10 @@ When you receive a notification, you must view and acknowledge it. This doesn't 
 1. To confirm that you are aware of the issue, choose **Acknowledge**. 
 
    Note that the text on the following screens also indicates whether the alert notification was triggered based on the equipment's vibration or temperature, or by the vibration ISO thresholds or machine learning models. This information can be used by technicians to investigate and fix the issue. After an abnormality has been acknowledged and repaired, resolve the issue in the mobile app.   
-![](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mobile-understand-sensor-measurement.png)
+![](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mobile-understand-sensor-measurement.png)
 
    The status of the asset changes to:   
-![](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/maintenance-badge.png)
+![](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/maintenance-badge.png)
 
 After the alarm has been acknowledged, the abnormality can be examined and fixed as appropriate.
 
@@ -140,4 +140,4 @@ ISO thresholds apply broadly to large classes of equipment. Therefore, when dete
 
 You also can mute alerts by providing the ‘No failure detected’ feedback for the ‘Failure mode’ while closing the alert. Note that Amazon Monitron will continue to notify users of potential failures detected based on Machine Learning, even when notifications based on ISO thresholds are muted.
 
-![Issue resolution feedback dialog with Failure mode dropdown set to No failure detected.](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mute-screen.png)
+![Issue resolution feedback dialog with Failure mode dropdown set to No failure detected.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mute-screen.png)
