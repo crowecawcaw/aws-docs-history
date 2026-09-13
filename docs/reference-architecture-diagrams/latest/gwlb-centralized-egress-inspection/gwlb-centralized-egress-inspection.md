@@ -10,7 +10,7 @@ This architecture uses [Gateway Load Balancer](https://docs.aws.amazon.com/elast
 ## Gateway Load Balancer Centralized Egress Inspection architecture
 <a name="diagram1"></a>
 
-![Architecture diagram showing Gateway Load Balancer centralized egress inspection with AWS Transit Gateway and NAT Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/gwlb-centralized-egress-inspection/images/gwlb-centralized-egress-inspection.png)
+![Architecture diagram showing Gateway Load Balancer centralized egress inspection with AWS Transit Gateway and NAT Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/gwlb-centralized-egress-inspection/images/gwlb-centralized-egress-inspection.png)
 
 
 The following steps describe the egress data flow in this architecture:
