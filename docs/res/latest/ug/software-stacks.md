@@ -5,7 +5,7 @@
 
 From the Software Stacks page, you can configure Amazon Machine Images (AMIs) or manage existing ones.
 
-![Software stacks admin console page with numbered annotations](http://docs.aws.amazon.com/res/latest/ug/images/res-softwarestackspage-2026.06.png)
+![Software stacks admin console page with numbered annotations](https://docs.aws.amazon.com/res/latest/ug/images/res-softwarestackspage-2026.06.png)
 
 
 1. To search for an existing software stack, use the operating system drop-down to filter by OS. 
@@ -34,7 +34,7 @@ key: `res:ModuleName`, value: `virtual-desktop-controller`
 1. (Optional) Use the **Allowed Instance Types** field to specify the instance families or types that are permitted for this software stack. You can enter instance families (for example, `t3`) or specific instance sizes (for example, `t3.xlarge`).
 
 1. Choose **Submit**.   
-![Admin console pop-out page that lets you register a new software stack](http://docs.aws.amazon.com/res/latest/ug/images/res-register-new-software-stack.png)
+![Admin console pop-out page that lets you register a new software stack](https://docs.aws.amazon.com/res/latest/ug/images/res-register-new-software-stack.png)
 
 ## Assign a software stack to a project
 <a name="assign-stack-project"></a>
@@ -51,7 +51,7 @@ You can only assign software stacks to projects of which you are a member.
 1. Choose **Edit**. 
 
 1. Use the **Projects** drop-down to select the project.  
-![Admin console showing fields to update a software stack for a project](http://docs.aws.amazon.com/res/latest/ug/images/res-update-software-stack.png)
+![Admin console showing fields to update a software stack for a project](https://docs.aws.amazon.com/res/latest/ug/images/res-update-software-stack.png)
 
 1. Choose **Submit**.
 
@@ -62,7 +62,7 @@ You can also edit the software stack from the stack details page.
 
 For each registered software stack, you can choose the allowed instance families and types. The list of the options for each software stack is filtered by the options defined in the **Desktop settings**. You can find and modify the global **Allowed Instance Families and Types** there. 
 
-![Admin console page showing desktop settings under session management](http://docs.aws.amazon.com/res/latest/ug/images/res-vdi-instance-list1.png)
+![Admin console page showing desktop settings under session management](https://docs.aws.amazon.com/res/latest/ug/images/res-vdi-instance-list1.png)
 
 
 **To edit the **Allowed Instance Families and Types** attribute of a software stack:**
@@ -72,7 +72,7 @@ For each registered software stack, you can choose the allowed instance families
 1. Choose **Actions**, then select **Edit Stack**.
 
 1. Choose the desired instance families and types from the drop-down list under **Allowed Instance Families and Types**.  
-![Update software stack pop-out that lets you edit allowed instance families and types](http://docs.aws.amazon.com/res/latest/ug/images/res-vdi-instance-list2.png)
+![Update software stack pop-out that lets you edit allowed instance families and types](https://docs.aws.amazon.com/res/latest/ug/images/res-vdi-instance-list2.png)
 
 1. Select **Submit**.
 
@@ -96,17 +96,17 @@ When you register a new software stack or edit an existing software stack, you c
 + Dedicated Instance - Run VDIs with dedicated instances 
 + Dedicated Host - Run VDIs with a dedicated host 
 
-![Admin console pop-out page that lets you select tenancy type for launched VDIs](http://docs.aws.amazon.com/res/latest/ug/images/res-vdi-tenancy-support1.png)
+![Admin console pop-out page that lets you select tenancy type for launched VDIs](https://docs.aws.amazon.com/res/latest/ug/images/res-vdi-tenancy-support1.png)
 
 
 When you select the dedicated host tenancy type, you must also select the tenancy affinity and the target host type. The following target host types are supported: 
 + Host Resource Group - Host resource group created in AWS License Manager 
 + Host ID - A specific host ID 
 
-![Admin console pop-out page that lets you select tenancy affinity for launched VDIs](http://docs.aws.amazon.com/res/latest/ug/images/res-vdi-tenancy-support2.png)
+![Admin console pop-out page that lets you select tenancy affinity for launched VDIs](https://docs.aws.amazon.com/res/latest/ug/images/res-vdi-tenancy-support2.png)
 
 
-![Admin console pop-out page that lets you select target host type for launched VDIs](http://docs.aws.amazon.com/res/latest/ug/images/res-vdi-tenancy-support3.png)
+![Admin console pop-out page that lets you select target host type for launched VDIs](https://docs.aws.amazon.com/res/latest/ug/images/res-vdi-tenancy-support3.png)
 
 
 To specify any self-managed licenses required by your VDIs when you launch them with the dedicated host tenancy, associate the licenses with your AMI following [ Associating self-managed licenses and AMIs](https://docs.aws.amazon.com/license-manager/latest/userguide/license-rules.html#ami-associations) in the *AWS License Manager User Guide*.
@@ -121,11 +121,11 @@ RES does not have a default software stack for Rocky Linux 9, so this section of
 1. Search for AMIs under the **AWS Marketplace** tab with the name **Rocky Linux 9**.
 
 1. Select the AMI named **Rocky Linux 9 (Official) - x86\_64** from **Rocky Linux**.  
-![Screenshot showing Rocky Linux 9 AMI search results in the AMI Catalog](http://docs.aws.amazon.com/res/latest/ug/images/res-rocky-linux9.png)
+![Screenshot showing Rocky Linux 9 AMI search results in the AMI Catalog](https://docs.aws.amazon.com/res/latest/ug/images/res-rocky-linux9.png)
 
 1. Once selected, choose **Subscribe now**.
 
 1. Scroll up, and copy the AMI Id for **Selected AMI**.  
-![Screenshot showing the AMI Catalog with the selected AMI ID](http://docs.aws.amazon.com/res/latest/ug/images/res-ami-catalog.png)
+![Screenshot showing the AMI Catalog with the selected AMI ID](https://docs.aws.amazon.com/res/latest/ug/images/res-ami-catalog.png)
 
 1. Go to the RES portal, and register a new Software Stack under the **Software Stacks** page using this AMI.

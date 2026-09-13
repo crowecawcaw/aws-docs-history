@@ -15,7 +15,7 @@ RES runs an idle detection script at the top of every minute that checks CPU uti
 
 1. Enforce Schedule: If selected, a session that has been stopped for being idle can be resumed by its daily schedule.
 
-![update session settings](http://docs.aws.amazon.com/res/latest/ug/images/res-update-session-settings.png)
+![update session settings](https://docs.aws.amazon.com/res/latest/ug/images/res-update-session-settings.png)
 
 
 These settings are present on the **Desktop Settings** page under the **Server** tab. After you update the settings according to your requirements, choose **Submit** to save the settings. New sessions will use the updated settings, but note that existing sessions will still use the settings which they had when they were launched.

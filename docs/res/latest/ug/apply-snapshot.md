@@ -78,6 +78,6 @@ If the new environment is not as expected or fails, you can check the CloudWatch
 1. Enter the file path to the snapshot within the bucket.
 
 1. Choose **Submit**.   
-![Apply a snapshot](http://docs.aws.amazon.com/res/latest/ug/images/res-applysnapshot.png)
+![Apply a snapshot](https://docs.aws.amazon.com/res/latest/ug/images/res-applysnapshot.png)
 
 1. After five to ten minutes, choose **Refresh** on the Snapshot management page to check the status.

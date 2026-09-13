@@ -5,7 +5,7 @@
 
 Snapshot management simplifies the process of saving and migrating data between environments, ensuring consistency and accuracy. With snapshots, you can save your environment state and migrate data into a new environment with the same state.
 
-![Snapshot management page](http://docs.aws.amazon.com/res/latest/ug/images/res-snapshotmanagement.png)
+![Snapshot management page](https://docs.aws.amazon.com/res/latest/ug/images/res-snapshotmanagement.png)
 
 
 From the **Snapshot management** page, you can: 

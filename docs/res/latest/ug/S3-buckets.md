@@ -14,7 +14,7 @@ The S3 buckets dashboard provides a list of onboarded S3 buckets available to yo
    + Remove a bucket
 
 1. Use the search field to search by Bucket name and find onboarded S3 buckets.  
-![The S3 buckets list lets you search by bucket name and find onboarded buckets](http://docs.aws.amazon.com/res/latest/ug/images/docs-list-bucket.png)
+![The S3 buckets list lets you search by bucket name and find onboarded buckets](https://docs.aws.amazon.com/res/latest/ug/images/docs-list-bucket.png)
 
 The following sections describe how to manage Amazon S3 buckets in your RES projects.
 

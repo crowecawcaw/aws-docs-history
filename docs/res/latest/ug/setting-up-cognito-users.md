@@ -10,7 +10,7 @@ Research and Engineering Studio (RES) allows you to set up Amazon Cognito as a n
 
 As a RES Administrator, to configure the RES environment to use Amazon Cognito as a user directory, toggle the **Use Amazon Cognito as user directory** button on the **Identities management** page which is accessible from the **Environment Management** page. To allow users to self register, toggle the **User self registration** button on that same page.
 
-![Identities management page showing cognito directory settings](http://docs.aws.amazon.com/res/latest/ug/images/id-management-cognito-directory.png)
+![Identities management page showing cognito directory settings](https://docs.aws.amazon.com/res/latest/ug/images/id-management-cognito-directory.png)
 
 
 ## User sign up/sign in flow
@@ -18,7 +18,7 @@ As a RES Administrator, to configure the RES environment to use Amazon Cognito a
 
 If **User self registration** is enabled, you can give your users the URL of your web application. There, users will find an option that says **Not a user yet? Sign up here**.
 
-![User sign-in page with option to self-register](http://docs.aws.amazon.com/res/latest/ug/images/user-sign-up.png)
+![User sign-in page with option to self-register](https://docs.aws.amazon.com/res/latest/ug/images/user-sign-up.png)
 
 
 ## Sign up flow
@@ -26,17 +26,17 @@ If **User self registration** is enabled, you can give your users the URL of you
 
 Users that choose **Not a user yet? Sign up here** will be asked to enter their email and password to create an account.
 
-![Create account page for user self-registration](http://docs.aws.amazon.com/res/latest/ug/images/create-account.png)
+![Create account page for user self-registration](https://docs.aws.amazon.com/res/latest/ug/images/create-account.png)
 
 
 As part of the sign up flow, users will be asked to enter the verification code received in their email to complete the sign up process.
 
-![Verification code entry page](http://docs.aws.amazon.com/res/latest/ug/images/verify-email.png)
+![Verification code entry page](https://docs.aws.amazon.com/res/latest/ug/images/verify-email.png)
 
 
 If self-sign up is disabled, users will not see the sign up link. Administrators must configure the users in Amazon Cognito outside of RES. (See [Creating user accounts as administrator](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-create-user-accounts.html) in the *Amazon Cognito Developer Guide*.)
 
-![Verification code entry page](http://docs.aws.amazon.com/res/latest/ug/images/user-sign-in.png)
+![Verification code entry page](https://docs.aws.amazon.com/res/latest/ug/images/user-sign-in.png)
 
 
 ## Login page options
@@ -44,7 +44,7 @@ If self-sign up is disabled, users will not see the sign up link. Administrators
 
 If both SSO and Amazon Cognito are enabled, an option to **Sign in with organization SSO** will appear. When users click that option it will reroute them to their SSO login page. By default, users will authenticate with Amazon Cognito if it is enabled.
 
-![User sign-in page with options to sign up, verify account, or sign-in with organization SSO](http://docs.aws.amazon.com/res/latest/ug/images/org-sso-sign-in.png)
+![User sign-in page with options to sign up, verify account, or sign-in with organization SSO](https://docs.aws.amazon.com/res/latest/ug/images/org-sso-sign-in.png)
 
 
 ## Constraints

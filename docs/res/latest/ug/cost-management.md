@@ -18,7 +18,7 @@ To assist with cost tracking, you can associate RES projects to budgets created 
 
 1. Choose **Activate**. 
 
-![Activate cost allocation tags](http://docs.aws.amazon.com/res/latest/ug/images/res-costtags.png)
+![Activate cost allocation tags](https://docs.aws.amazon.com/res/latest/ug/images/res-costtags.png)
 
 
 **Note**  
@@ -35,7 +35,7 @@ To create a budget for RES resources:
 1. Under **Budget types**, choose **Cost budget - Recommended**.
 
 1. Choose **Next**.  
-![Choose budget type](http://docs.aws.amazon.com/res/latest/ug/images/res-createbudget1-5.png)
+![Choose budget type](https://docs.aws.amazon.com/res/latest/ug/images/res-createbudget1-5.png)
 
 1. Under **Details**, enter a meaningful **Budget name** for your budget to distinguish it from other budgets in your account. For example, `{{<EnvironmentName>-<ProjectName>-<BudgetName>}}`. 
 
@@ -56,7 +56,7 @@ It may take up to two days for tags and values to become available. You can crea
 1. Choose **Apply filter** to attach the project filter to the budget.
 
 1. Choose **Next**.   
-![Set budget scope](http://docs.aws.amazon.com/res/latest/ug/images/res-budgets-04.png)
+![Set budget scope](https://docs.aws.amazon.com/res/latest/ug/images/res-budgets-04.png)
 
 1. (Optional.) Add an alert threshold.
 
@@ -72,7 +72,7 @@ It may take up to two days for tags and values to become available. You can crea
 
 Now that the budget has been created, you can enable the budget for projects. To turn on budgets for a project, see [Edit a project](edit-project.md). Virtual desktops will be blocked from launching if the budget is exceeded. If the budget is exceeded while a desktop is launched, the desktop will continue to operate.
 
-![Budget exceeded](http://docs.aws.amazon.com/res/latest/ug/images/res-budgets-exceeded.png)
+![Budget exceeded](https://docs.aws.amazon.com/res/latest/ug/images/res-budgets-exceeded.png)
 
 
 If you need to change your budget, return to the console to edit the budget amount. It may take up to fifteen minutes for the change to take effect within RES. Alternatively, you may edit a project to disable a budget.

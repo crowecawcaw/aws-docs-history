@@ -124,7 +124,7 @@ SP entity ID
    1. Select the **Sign-in experience** tab.
 
    1. In the **Federated identity provider sign-in** section, choose **View signing certificate**.  
-![The Amazon Cognito console with the View signing certificate button in the Federated identity provider sign-in section for a selected user pool.](http://docs.aws.amazon.com/res/latest/ug/images/cognito-user-pool-signing-cert.png)
+![The Amazon Cognito console with the View signing certificate button in the Federated identity provider sign-in section for a selected user pool.](https://docs.aws.amazon.com/res/latest/ug/images/cognito-user-pool-signing-cert.png)
 
       You can use this certificate to set up Active Directory IDP, add a `relying party trust`, and enable SAML support on this relying party.
 **Note**  
@@ -140,10 +140,10 @@ This doesn't apply to Keycloak and IDC.
 1. Sign in to RES as an **admin** or **clusteradmin**.
 
 1. Navigate to **Environment Management** ⇒ **General Settings** ⇒ **Identity Provider**.  
-![The Environment Settings user interface in RES, including a section for Single Sign-On.](http://docs.aws.amazon.com/res/latest/ug/images/environment-settings.png)
+![The Environment Settings user interface in RES, including a section for Single Sign-On.](https://docs.aws.amazon.com/res/latest/ug/images/environment-settings.png)
 
 1. Under **Single Sign-On**, choose the edit icon next to the status indicator to open the **Single Sign On Configuration** page.  
-![The Single Sign On Configuration user interface in RES.](http://docs.aws.amazon.com/res/latest/ug/images/sso-config.png)
+![The Single Sign On Configuration user interface in RES.](https://docs.aws.amazon.com/res/latest/ug/images/sso-config.png)
 
    1. For **Identity Provider**, choose **SAML**.
 
@@ -183,7 +183,7 @@ If you used the provided [external resources](prerequisites.md#external-resource
 1. From the **Sign-in experience** tab, go to **Federated identity provider sign-in** and open your configured identity provider. 
 
 1. Generally, you will only be required to change the metadata and leave the attribute mapping unchanged. To update **Attribute mapping**, choose **Edit**. To update the **Metadata document**, choose **Replace metadata**.  
-![The Amazon CognitoUser pool overview.](http://docs.aws.amazon.com/res/latest/ug/images/res-attributemetadata.png)
+![The Amazon CognitoUser pool overview.](https://docs.aws.amazon.com/res/latest/ug/images/res-attributemetadata.png)
 
 1. If you edited the attribute mapping, you will need to update the `<environment name>.cluster-settings` table in DynamoDB. 
 
@@ -198,7 +198,7 @@ If you used the provided [external resources](prerequisites.md#external-resource
    1. Choose **Run**. 
 
 1. Under **Items returned**, find the `identity-provider.cognito.sso_idp_provider_email_attribute` string and choose **Edit** to modify the string to match your changes in Amazon Cognito.  
-![The Amazon CognitoUpdate the Filters and Items returned in DynamoDB.](http://docs.aws.amazon.com/res/latest/ug/images/res-scanqueryitems.png)
+![The Amazon CognitoUpdate the Filters and Items returned in DynamoDB.](https://docs.aws.amazon.com/res/latest/ug/images/res-scanqueryitems.png)
 
 ## Debugging SAML IdP issues
 <a name="configure-id-federation_debug"></a>

@@ -234,7 +234,7 @@ For information on how to install an SSM agent, see:
 **Important**  
 You must add these components in order with the `aws-cli-version-2-linux` (for Linux) or ` aws-cli-version-2-windows` (for Windows) build component added first.  
 
-![Components page showing build components added](http://docs.aws.amazon.com/res/latest/ug/images/res-ami-build-components.png)
+![Components page showing build components added](https://docs.aws.amazon.com/res/latest/ug/images/res-ami-build-components.png)
 
 
 1. (Recommended) Add the Amazon-managed `simple-boot-test-<linux-or-windows>` test component to verify that the AMI can be launched. This is a minimum recommendation. You may select other test components that meet your requirements.
@@ -271,7 +271,7 @@ If you have an existing EC2 Image Builder recipe, you can use it by adding the f
 **Important**  
 You must add these components in order with the `aws-cli-version-2-linux` (for Linux) or ` aws-cli-version-2-windows` (for Windows) build component added first.  
 
-![Components page showing build components added](http://docs.aws.amazon.com/res/latest/ug/images/res-ami-build-components.png)
+![Components page showing build components added](https://docs.aws.amazon.com/res/latest/ug/images/res-ami-build-components.png)
 
 
 1. Complete any optional sections if needed, add any other desired components, and choose **Create recipe**. 

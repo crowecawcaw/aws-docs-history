@@ -32,7 +32,7 @@
 
 If you attempt to register AWS Cognito users through the web portal who have email prefixes that contain ".", such as `<firstname>.<lastname>@<company>.com`, this will result in an error stating that the Cognito username does not match the defined regex pattern.
 
-![Invalid parameters error](http://docs.aws.amazon.com/res/latest/ug/images/res-invalid-parameters-regex.png)
+![Invalid parameters error](https://docs.aws.amazon.com/res/latest/ug/images/res-invalid-parameters-regex.png)
 
 
 This error is caused by RES auto-generating usernames from the user's email prefix. However, usernames with "." are not valid users for VDIs in certain Linux distributions supported by RES. This fix removes any "." in the email prefix when generating a username so that the username will be valid on RES Linux VDIs.

@@ -9,10 +9,10 @@ Administrators can create new profiles and customize them. These profiles can be
 
 Administrators can choose **Create profile** to create a new profile. Then they can enter a **Profile name**, a **Profile Description**, set the desired permissions, and **Save** their changes.
 
-![desktop sharing profiles](http://docs.aws.amazon.com/res/latest/ug/images/desktop-sharing-profiles.png)
+![desktop sharing profiles](https://docs.aws.amazon.com/res/latest/ug/images/desktop-sharing-profiles.png)
 
 
-![profile definition and permissions](http://docs.aws.amazon.com/res/latest/ug/images/res-profile-definition.png)
+![profile definition and permissions](https://docs.aws.amazon.com/res/latest/ug/images/res-profile-definition.png)
 
 
 **Edit Profile**
@@ -29,7 +29,7 @@ Administrators can choose **Create profile** to create a new profile. Then they 
 
 Any changes made to the profile will be immediately applied to the current open sessions.
 
-![desktop sharing profiles with testprofile_1 selected](http://docs.aws.amazon.com/res/latest/ug/images/res-desktop-sharing-profiles2.png)
+![desktop sharing profiles with testprofile_1 selected](https://docs.aws.amazon.com/res/latest/ug/images/res-desktop-sharing-profiles2.png)
 
 
-![profile definition and permissions for testProfile_1](http://docs.aws.amazon.com/res/latest/ug/images/res-profile-definition2.png)
+![profile definition and permissions for testProfile_1](https://docs.aws.amazon.com/res/latest/ug/images/res-profile-definition2.png)

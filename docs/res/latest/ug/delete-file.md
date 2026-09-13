@@ -4,7 +4,7 @@
 <a name="delete-file"></a>
 
 1. Select the files you want to delete.  
-![File browser](http://docs.aws.amazon.com/res/latest/ug/images/res-filebrowser.jpg)
+![File browser](https://docs.aws.amazon.com/res/latest/ug/images/res-filebrowser.jpg)
 
 1. Choose **Actions**. 
 

@@ -8,7 +8,7 @@ All users synced from your active directory will appear on the Users page. Users
 **Note**  
 Administrators can only create sessions for active users. By default, all users will be in an inactive state until they sign in to the product environment. If a user is inactive, ask them to sign in prior to creating a session for them.
 
-![Users](http://docs.aws.amazon.com/res/latest/ug/images/res-users.jpg)
+![Users](https://docs.aws.amazon.com/res/latest/ug/images/res-users.jpg)
 
 
 From the **Users** page, you can:

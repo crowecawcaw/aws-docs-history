@@ -8,7 +8,7 @@ You can update the hardware of your virtual desktop or change the session name.
 1. Before making changes to the instance size, you must stop the session:
 
    1. Choose **Actions**.   
-![Virtual desktops](http://docs.aws.amazon.com/res/latest/ug/images/res-virtualdesktops.png)
+![Virtual desktops](https://docs.aws.amazon.com/res/latest/ug/images/res-virtualdesktops.png)
 
    1. Choose **Virtual Desktop State**. 
 

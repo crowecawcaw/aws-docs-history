@@ -22,4 +22,4 @@ See [Data Isolation](S3-buckets-data-isolation.md) for more information related 
 1. (Optional) Associate the bucket with projects, which can be changed later. However, an S3 bucket cannot be mounted to a project's existing VDI sessions. Only sessions launched after the project has been associated with the bucket will mount the bucket.
 
 1. Choose **Submit**.  
-![Add bucket page showing available bucket setup fields and submit button](http://docs.aws.amazon.com/res/latest/ug/images/docs-add-bucket.png)
+![Add bucket page showing available bucket setup fields and submit button](https://docs.aws.amazon.com/res/latest/ug/images/docs-add-bucket.png)

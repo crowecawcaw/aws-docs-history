@@ -22,7 +22,7 @@ The default schedule can be updated in [DynamoDB ](https://console.aws.amazon.co
    + **Condition** = **Contains**
    + **Type** = **String**
    + **Value** = **type**  
-![Filters display with option to add filters](http://docs.aws.amazon.com/res/latest/ug/images/vdi-default-schedule-filter-keys.PNG)
+![Filters display with option to add filters](https://docs.aws.amazon.com/res/latest/ug/images/vdi-default-schedule-filter-keys.PNG)
 
    This will display seven entries which represent the default schedule types for each day of the form `vdc.dcv_session.schedule.{{<day>}}.type`. The valid values are:
    + `NO_SCHEDULE`

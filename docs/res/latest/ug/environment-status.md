@@ -5,4 +5,4 @@
 
 The **Environment Status** page displays the deployed software and hosts within the product. It includes information such as software version, module names, and other system information.
 
-![Environment status page](http://docs.aws.amazon.com/res/latest/ug/images/res-environmentstatus.jpg)
+![Environment status page](https://docs.aws.amazon.com/res/latest/ug/images/res-environmentstatus.jpg)

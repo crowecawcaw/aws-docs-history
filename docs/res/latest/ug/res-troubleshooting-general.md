@@ -119,7 +119,7 @@ The following is an example of that for the infrastructure hosts. To use this, c
 
 An example of the Dashboard might appear as follows:
 
-![example cloudwatch dashboard showing errors](http://docs.aws.amazon.com/res/latest/ug/images/res-dashboard-errors-example.png)
+![example cloudwatch dashboard showing errors](https://docs.aws.amazon.com/res/latest/ug/images/res-dashboard-errors-example.png)
 
 
 ### CloudFormation Stacks
@@ -158,7 +158,7 @@ If so, use the related Amazon CloudWatch log group for the instance to determine
 
 The ASG console may show activity similar to the following if this issue is occurring.
 
-![example ec2 load balancers dashboard showing details about instance health and registered targets](http://docs.aws.amazon.com/res/latest/ug/images/res-ec2-target-groups.png)
+![example ec2 load balancers dashboard showing details about instance health and registered targets](https://docs.aws.amazon.com/res/latest/ug/images/res-ec2-target-groups.png)
 
 
 ## Typical Amazon EC2 Console Appearance
@@ -171,7 +171,7 @@ This section contains screenshots of the system operating in various states.
 
 The Amazon EC2 console, when no desktops are running, typically looks similar to the following. The instances that are shown are the RES infrastructure Amazon EC2 hosts. The prefix in an instance name is the RES environment name.
 
-![dashboard showing ec2 instances for res-stage2 with state running](http://docs.aws.amazon.com/res/latest/ug/images/res-ec2-instances.png)
+![dashboard showing ec2 instances for res-stage2 with state running](https://docs.aws.amazon.com/res/latest/ug/images/res-ec2-instances.png)
 
 
 ### Infrastructure hosts and virtual desktops
@@ -179,7 +179,7 @@ The Amazon EC2 console, when no desktops are running, typically looks similar to
 
 In the Amazon EC2 console, when virtual desktops are running, they appear similar to the following. In this case, the virtual desktops are noted in red. The suffix to the instance name is the user that created the desktop. The name in the center is the Session Name set at launch time and is either be the default "MyDesktop" or the name set by the user.
 
-![Instances page in the EC2 console dashboard](http://docs.aws.amazon.com/res/latest/ug/images/res-ec2-highlighted-instances.png)
+![Instances page in the EC2 console dashboard](https://docs.aws.amazon.com/res/latest/ug/images/res-ec2-highlighted-instances.png)
 
 
 ### Hosts in a terminated state
@@ -189,7 +189,7 @@ When the Amazon EC2 console shows terminated instances, they are generally deskt
 
 The following image shows desktop instances that have been terminated.
 
-![Instances page in the EC2 console dashboard highlighting terminated instances](http://docs.aws.amazon.com/res/latest/ug/images/res-ec2-terminated-instances.png)
+![Instances page in the EC2 console dashboard highlighting terminated instances](https://docs.aws.amazon.com/res/latest/ug/images/res-ec2-terminated-instances.png)
 
 
 ### Useful Active Directory (AD) related commands for reference

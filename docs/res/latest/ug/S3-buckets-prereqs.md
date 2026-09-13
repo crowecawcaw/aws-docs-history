@@ -10,7 +10,7 @@ If you're deploying Research and Engineering Studio in an isolated VPC, follow t
 1. Find and navigate to the Lambda function named `{{<RES-EnvironmentName>}}-vdc-custom-credential-broker-lambda`. 
 
 1. Select the **Configuration** tab of the function.  
-![isolated VPC environment variable](http://docs.aws.amazon.com/res/latest/ug/images/Isolated-VPC-Env-Variable.png)
+![isolated VPC environment variable](https://docs.aws.amazon.com/res/latest/ug/images/Isolated-VPC-Env-Variable.png)
 
 1. In the navigation pane, choose **Environment variables** to view that section.
 

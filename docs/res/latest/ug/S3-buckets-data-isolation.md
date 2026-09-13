@@ -16,7 +16,7 @@ If `Read and Write (R/W)` is selected, data isolation is still enforced based on
 + /%p
 + /%p/%u
 
-![Add bucket page with custom prefix dropdown shown](http://docs.aws.amazon.com/res/latest/ug/images/add-bucket-custom-prefix.png)
+![Add bucket page with custom prefix dropdown shown](https://docs.aws.amazon.com/res/latest/ug/images/add-bucket-custom-prefix.png)
 
 
 **No custom data isolation **  

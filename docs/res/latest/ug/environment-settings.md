@@ -19,7 +19,7 @@ The **Environment settings** page displays product configuration details, such a
   1. Choose **Submit** to save your changes.
 
   Custom links appear on the web portal login page, allowing administrators to direct users to resources such as internal documentation, support pages, or acceptable use policies.  
-![Custom links configuration in Environment Settings](http://docs.aws.amazon.com/res/latest/ug/images/web-links-edit-form.png)
+![Custom links configuration in Environment Settings](https://docs.aws.amazon.com/res/latest/ug/images/web-links-edit-form.png)
 + Identity Provider
 
   Displays information such as Single Sign-On status.

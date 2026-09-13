@@ -9,7 +9,7 @@ To successfully onboard a file system, it must share the same VPC and at least o
 1.  Choose **Onboard File System**. 
 
 1. Select a file system from the drop down. The modal will expand with additional detail entries.  
-![Select file system](http://docs.aws.amazon.com/res/latest/ug/images/res-selectfilesystem.jpg)
+![Select file system](https://docs.aws.amazon.com/res/latest/ug/images/res-selectfilesystem.jpg)
 
 1. Enter file system details.
 **Note**  
@@ -17,7 +17,7 @@ By default, administrators and project owners have the ability to choose a home 
 File systems intended to be used as home directories on projects must be onboarded by setting their **Mount Directory** path to `/home`. This will populate the onboarded filesystem on the home directory filesystem dropdown options. This feature helps to keep the data isolated across projects since only users associated with the project will have access to the filesystem through their VDIs. VDIs will mount the filesystem at the mount point selected during onboarding of a filesystem.
 
 1. Choose **Submit**.   
-![Select file system](http://docs.aws.amazon.com/res/latest/ug/images/res-filesystemdetails.jpg)
+![Select file system](https://docs.aws.amazon.com/res/latest/ug/images/res-filesystemdetails.jpg)
 
 ## Multiple volumes from a single ONTAP file system
 <a name="onboard-multiple-ontap-volumes"></a>

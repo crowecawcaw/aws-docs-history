@@ -3,7 +3,7 @@
 # View projects
 <a name="view-projects"></a>
 
-![Projects](http://docs.aws.amazon.com/res/latest/ug/images/res-projects.jpg)
+![Projects](https://docs.aws.amazon.com/res/latest/ug/images/res-projects.jpg)
 
 
 The Projects dashboard provides a list of projects available to you. From the Projects dashboard, you can:

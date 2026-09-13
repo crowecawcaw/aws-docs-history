@@ -6,7 +6,7 @@
 To pin important files and folders, you can add them to Favorites.
 
 1. Select a file or folder.  
-![File browser](http://docs.aws.amazon.com/res/latest/ug/images/res-filebrowser.jpg)
+![File browser](https://docs.aws.amazon.com/res/latest/ug/images/res-filebrowser.jpg)
 
 1. Choose **Favorite**. 
 

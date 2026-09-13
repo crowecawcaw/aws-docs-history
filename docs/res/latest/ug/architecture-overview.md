@@ -10,7 +10,7 @@ This section provides an architecture diagram for the components deployed with t
 
 Deploying this product with the default parameters deploys the following components in your AWS account. 
 
-![Figure 1: Research and Engineering Studio on AWS architecture](http://docs.aws.amazon.com/res/latest/ug/images/res-architecture.png)
+![Figure 1: Research and Engineering Studio on AWS architecture](https://docs.aws.amazon.com/res/latest/ug/images/res-architecture.png)
 
 
 **Note**  

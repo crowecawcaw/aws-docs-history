@@ -8,4 +8,4 @@ Use File Transfer to use external file transfer applications to transfer files. 
 + WinSCP (Windows)
 + AWS Transfer for FTP (Amazon EFS)
 
-![File transfer](http://docs.aws.amazon.com/res/latest/ug/images/res-filetransfer.png)
+![File transfer](https://docs.aws.amazon.com/res/latest/ug/images/res-filetransfer.png)

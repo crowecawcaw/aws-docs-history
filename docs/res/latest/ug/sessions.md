@@ -5,7 +5,7 @@
 
 Sessions displays all virtual desktops created within Research and Engineering Studio. From the Sessions page, you can filter and view session information or create a new session.
 
-![Sessions page of admin console with numbered annotations showing functionality](http://docs.aws.amazon.com/res/latest/ug/images/res-sessions.jpg)
+![Sessions page of admin console with numbered annotations showing functionality](https://docs.aws.amazon.com/res/latest/ug/images/res-sessions.jpg)
 
 
 1. Use the menu to filter results by sessions created or updated within a specified time frame.
@@ -46,11 +46,11 @@ Sessions displays all virtual desktops created within Research and Engineering S
 Starting with the 2026.06 release, the *Virtual* session type is no longer supported. All sessions now use the *Console* session type. If your configuration or automation specifies the Virtual session type, update it to use Console.
 
 1. Choose **Submit**.   
-![Details of admin console page with fields to be filled out to launch a new virtual desktop](http://docs.aws.amazon.com/res/latest/ug/images/res-createsession.jpg)
+![Details of admin console page with fields to be filled out to launch a new virtual desktop](https://docs.aws.amazon.com/res/latest/ug/images/res-createsession.jpg)
 
 ## Session details
 <a name="session-details"></a>
 
 From the **Sessions** list, select the ** Session Name** to view session details. 
 
-![Admin console page with view of session details](http://docs.aws.amazon.com/res/latest/ug/images/res-viewsessiondetails.png)
+![Admin console page with view of session details](https://docs.aws.amazon.com/res/latest/ug/images/res-viewsessiondetails.png)

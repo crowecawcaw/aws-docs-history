@@ -80,6 +80,6 @@ There are limited version strings supported by AWS. For more information, see [h
 1. Enter the path where you would like the snapshot stored within the bucket. For example, **october2023/23**. 
 
 1. Choose **Submit**.   
-![Create a new snapshot](http://docs.aws.amazon.com/res/latest/ug/images/res-createsnapshot.png)
+![Create a new snapshot](https://docs.aws.amazon.com/res/latest/ug/images/res-createsnapshot.png)
 
 1. After five to ten minutes, choose **Refresh** on the Snapshots page to check the status. A snapshot will not be valid until the status changes from IN\_PROGRESS to COMPLETED.

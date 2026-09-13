@@ -13,4 +13,4 @@ Associating a project with an S3 bucket will **not** mount the bucket to that pr
 Disassociating a project from an S3 bucket will not impact the data in the S3 bucket, but will result in desktop users losing access to that data.
 
 1. Choose **Save bucket setup**.  
-![The Edit S3 Bucket page with display name and project association fields entered and Save bucket setup button highlighted](http://docs.aws.amazon.com/res/latest/ug/images/docs-edit-bucket.png)
+![The Edit S3 Bucket page with display name and project association fields entered and Save bucket setup button highlighted](https://docs.aws.amazon.com/res/latest/ug/images/docs-edit-bucket.png)

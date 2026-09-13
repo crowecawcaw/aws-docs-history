@@ -167,7 +167,7 @@ If you plan to use LDAPS communication in your environment, you must complete th
 
 If you choose Microsoft Active Directory (AD) as the identity source for RES, you have a Service Account in your AD that allows for programmatic access. You must pass a secret with the Service Account's credentials as part of your RES installation. The secret must have the format shown here.
 
-![Example username and password format](http://docs.aws.amazon.com/res/latest/ug/images/res-secret-value-example.png)
+![Example username and password format](https://docs.aws.amazon.com/res/latest/ug/images/res-secret-value-example.png)
 
 
 Also note that the `username` field doesn't support NT-style logon names of the format `DOMAIN\username`.

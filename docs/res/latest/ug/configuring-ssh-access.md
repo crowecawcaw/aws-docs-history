@@ -11,24 +11,24 @@ When RES deploys a bastion host it adds a `t3.medium` Amazon EC2 instance in you
 **To enable SSH access**
 
 1. In the RES console, on the left navigation pane, choose **Environment Management**, then **Permission Policy**. Under **Environment boundaries** select the **SSH access** toggle.  
-![Permission policy page under environment management in the admin console](http://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-disabled.png)
+![Permission policy page under environment management in the admin console](https://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-disabled.png)
 
 1. Wait for SSH access to be enabled.  
-![Advisory banner appears on the permission policy page under environment management in the admin console](http://docs.aws.amazon.com/res/latest/ug/images/permission-policy-enable-ssh.png)
+![Advisory banner appears on the permission policy page under environment management in the admin console](https://docs.aws.amazon.com/res/latest/ug/images/permission-policy-enable-ssh.png)
 
 1. Once the Bastion host is added, SSH access is enabled.  
-![Permission policy page under environment management in the admin console](http://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-enabled.png)
+![Permission policy page under environment management in the admin console](https://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-enabled.png)
 
    The **SSH Access Instructions** page is visible to users from their left navigation pane.  
-![SSH access instructions page showing steps for Linux and Windows](http://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-enabled2.png)
+![SSH access instructions page showing steps for Linux and Windows](https://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-enabled2.png)
 
 **To disable SSH access**
 
 1. In the RES console, on the left navigation pane, choose **Environment Management**, then **Permission Policy**. Under **Environment boundaries** select the **SSH access** toggle.  
-![Permission policy page under environment management in the admin console](http://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-enabled.png)
+![Permission policy page under environment management in the admin console](https://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-enabled.png)
 
 1. Wait for SSH access to be disabled.  
-![A banner shows SSH access is being disabled on the Permission policy page](http://docs.aws.amazon.com/res/latest/ug/images/permission-policy-disable-ssh.png)
+![A banner shows SSH access is being disabled on the Permission policy page](https://docs.aws.amazon.com/res/latest/ug/images/permission-policy-disable-ssh.png)
 
 1. Once the process is complete, SSH access is disabled.  
-![Permission policy page showing SSH access disabled](http://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-disabled.png)
+![Permission policy page showing SSH access disabled](https://docs.aws.amazon.com/res/latest/ug/images/permission-policy-ssh-disabled.png)
