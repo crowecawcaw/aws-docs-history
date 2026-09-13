@@ -10,7 +10,7 @@ This architecture shows how to build a configuration-driven, codeless extract-tr
 ## SQL Based Data Processing in Amazon ECS
 <a name="diagram1"></a>
 
-![Architecture diagram showing SQL-based data processing using Amazon Elastic Container Service, AWS Fargate, AWS Lambda, Amazon Simple Storage Service, and Amazon CloudWatch.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sql-data-processing-ecs/images/sql-data-processing-ecs.png)
+![Architecture diagram showing SQL-based data processing using Amazon Elastic Container Service, AWS Fargate, AWS Lambda, Amazon Simple Storage Service, and Amazon CloudWatch.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sql-data-processing-ecs/images/sql-data-processing-ecs.png)
 
 
 The following steps describe the architecture:
