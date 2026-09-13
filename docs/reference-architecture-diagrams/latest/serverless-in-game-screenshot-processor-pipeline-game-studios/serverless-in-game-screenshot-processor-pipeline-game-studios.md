@@ -10,7 +10,7 @@ This architecture helps you build a serverless image processing pipeline for you
 ## Serverless In-Game Screenshot Processor Pipeline for Game Studios
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to build a serverless image processing pipeline for your games that receives players’ in-game screenshots, checks them for profanity, performs transformation, and stores them in the cloud.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-in-game-screenshot-processor-pipeline-game-studios/images/serverless-in-game-studios.png)
+![Reference architecture diagram showing how you can use AWS services to build a serverless image processing pipeline for your games that receives players’ in-game screenshots, checks them for profanity, performs transformation, and stores them in the cloud.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-in-game-screenshot-processor-pipeline-game-studios/images/serverless-in-game-studios.png)
 
 
 1. Players take screenshots in-game, which invokes an API to upload those screenshots. The game client needs to send player metadata to the application program interface (API). 
