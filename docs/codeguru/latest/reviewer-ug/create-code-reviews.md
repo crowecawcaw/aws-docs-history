@@ -32,7 +32,7 @@ To get recommendations on all the code in a branch, associate the repository wit
 1. Navigate to the **Code reviews** pane in the console.
 
 1. On the **Full repository analysis** tab, choose **Create full repository analysis**.  
-![The Code reviews section showing the Create full repository analysis button on the Full repository analysis tab.](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/code-reviews-create-full-repo-analysis.png)
+![The Code reviews section showing the Create full repository analysis button on the Full repository analysis tab.](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/code-reviews-create-full-repo-analysis.png)
 
    A window opens for you to specify the location of the source code you wish to scan.
 
@@ -43,7 +43,7 @@ To get recommendations on all the code in a branch, associate the repository wit
 1. (Optional) If you want to suppress recommendations, create an `aws-codeguru-reviewer.yml` file and add it to the root directory of your repository. You can download a sample file to use as a template from the **Analysis configuration file** section. For more information, see [Suppress recommendations](recommendation-suppression.md).
 
 1. When you have specified the branch you want reviewed, choose **Create full repository analysis**.   
-![The Create full repository analysis section with source code settings and sample YAML file information.](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/create-full-repo-analysis.png)
+![The Create full repository analysis section with source code settings and sample YAML file information.](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/create-full-repo-analysis.png)
 
 To view the recommendations, navigate to the **Code reviews** page in the console and choose the name of the code review to view the detailed code review page. If you don't see the code review right away, try refreshing the page. For more information, see [View code review details](view-code-review-details.md).
 

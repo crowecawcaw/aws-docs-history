@@ -29,7 +29,7 @@ You can also provide feedback for incremental code reviews by replying to commen
 
 The following image shows an example of feedback in CodeCommit.
 
-![Example positive feedback in CodeCommit with the thumbs-up icon.](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/guru-feedback-codecommit.png)
+![Example positive feedback in CodeCommit with the thumbs-up icon.](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/guru-feedback-codecommit.png)
 
 
 ## Provide feedback using the CLI

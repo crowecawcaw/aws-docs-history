@@ -14,7 +14,7 @@ To learn about the types of recommendations, see [Amazon CodeGuru Reviewer Detec
 
 To view this page, in the navigation pane, choose **Reviewer**, **Code reviews**.
 
-![The Code review page in the CodeGuru Reviewer console](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/codereview_repo_analysis.png)
+![The Code review page in the CodeGuru Reviewer console](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/codereview_repo_analysis.png)
 
 
 **Note**  

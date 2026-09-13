@@ -25,7 +25,7 @@ Fork the example application repository so you can create a pull request on it.
 1. Log in to GitHub and navigate to the ** [https://github.com/aws-samples/amazon-codeguru-reviewer-sample-app](https://github.com/aws-samples/amazon-codeguru-reviewer-sample-app)** example application repository. 
 
 1. Choose **Fork** to fork the example application to your GitHub account.   
-![GitHub tutorial step 1: Fork a GitHub repository](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-fork.png)
+![GitHub tutorial step 1: Fork a GitHub repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-fork.png)
 
 ## Step 2: Associate the forked repository
 <a name="tutorial-step-2-associate-repo"></a>
@@ -56,7 +56,7 @@ Push a change to the example application's code. Later in this tutorial, you cre
    ```
 
    You can get the clone URL by choosing **Clone or download**.   
-![GitHub tutorial step 3: Clone a repository](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-clone-or-download.png)
+![GitHub tutorial step 3: Clone a repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-clone-or-download.png)
 **Note**  
 If you access your GitHub repositories using SSH, use the SSH URL instead of the HTTPS URL shown in this step. 
 
@@ -93,7 +93,7 @@ Create a pull request for CodeGuru Reviewer to review.
 1. On the left side of the comparison (**base**), select **USER\_ID/amazon-codeguru-reviewer-sample-app**, where `USER_ID `is your GitHub user ID. Leave the branch at **master**. 
 
 1. On the right side of the comparison (**compare**), change the branch to **dev**. The branches should show as **Able to merge**.   
-![GitHub tutorial step 4: Create a GitHub pull request](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-compare-changes.png)
+![GitHub tutorial step 4: Create a GitHub pull request](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-compare-changes.png)
 
 1. Choose **Create pull request**, then choose **Create pull request** again. 
 
@@ -108,12 +108,12 @@ After a few minutes, CodeGuru Reviewer issues recommendations on the same GitHub
 
 1. After a code review is complete, choose it to view its details. 
 
-![GitHub tutorial step 5: CodeGuru Reviewer analysis status](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-pending.png)
+![GitHub tutorial step 5: CodeGuru Reviewer analysis status](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-pending.png)
 
 
 When the code review is complete and the recommendations appear in GitHub, you can provide feedback on the recommendations using the thumbs up or thumbs down icon. Any positive or negative feedback is used to help improve the performance of CodeGuru Reviewer so that recommendations get better over time. 
 
-![GitHub tutorial step 5: CodeGuru Reviewer feedback icons](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-thumbs_icons.png)
+![GitHub tutorial step 5: CodeGuru Reviewer feedback icons](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-thumbs_icons.png)
 
 
 ## Step 6: Clean up
@@ -126,4 +126,4 @@ After you're finished with this tutorial, clean up your resources.
 1. Delete your clone of the forked repository, for example, `rm -rf amazon-codeguru-reviewer-sample-app`. 
 
 1. In the CodeGuru Reviewer console, select the example repository and choose **Disassociate repository**.   
-![GitHub tutorial step 6: Disassociate a CodeGuru Reviewer associated repository](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-disassociate.png)
+![GitHub tutorial step 6: Disassociate a CodeGuru Reviewer associated repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/github-disassociate.png)

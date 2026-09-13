@@ -43,7 +43,7 @@ You can create an AWS CodeCommit repository association using the Amazon CodeGur
    1. (Optional) In **Code review name**, type a name for your code review.
 
    1. (Optional) Expand **Analysis configuration file - optional** to download a sample `aws-codeguru-reviewer.yml` file to use as a template. Modify the file and upload it to the root directory of your repository. For more information about the analysis configuration file, see [Suppress recommendations](recommendation-suppression.md).  
-![The Run a repository analysis section with settings and sample YAML file information.](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/run-repo-analysis-config-file.png)
+![The Run a repository analysis section with settings and sample YAML file information.](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/run-repo-analysis-config-file.png)
 
 1. (Optional) Expand **Tags** to add one or more tags to your repository association. For more information, see [Tagging a repository association in Amazon CodeGuru Reviewer](tag-repository-association.md).
 
