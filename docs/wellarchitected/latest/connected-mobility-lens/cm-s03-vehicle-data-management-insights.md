@@ -29,7 +29,7 @@ The telemetry collection system should be able to withstand a sudden connection 
 ## Reference architecture
 <a name="reference-architecture-2"></a>
 
-![Reference architecture diagram for vehicle data management and insights.](http://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/vehicle-data-mgmt-and-insights-refarch.png)
+![Reference architecture diagram for vehicle data management and insights.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/vehicle-data-mgmt-and-insights-refarch.png)
 
 
 ** Figure 4: CM-03: Vehicle data management and insights reference architecture **

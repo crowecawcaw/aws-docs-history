@@ -25,7 +25,7 @@
 ## Reference architecture
 <a name="reference-architecture"></a>
 
-![Vehicle provisioning reference architecture](http://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/vehicle-provisioning-reference-architecture.png)
+![Vehicle provisioning reference architecture](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/vehicle-provisioning-reference-architecture.png)
 
 
 ** Figure 1: CM-S01-a: Vehicle provisioning reference architecture **
@@ -43,7 +43,7 @@
 1. Vehicle Management application allows the connected vehicle operations center to manage any discrepancy or out of band process during the vehicle registration.
 
 1.  Encryption at rest on the server-side is available in all the services with encryption keys managed in AWS Key Management Service (AWS KMS).   
-![Reference architecture diagram for user provisioning](http://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/user-provisioning-reference-architecture.png)
+![Reference architecture diagram for user provisioning](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/user-provisioning-reference-architecture.png)
 
    ** Figure 2: CM-S01-b: User Provisioning reference architecture **
 

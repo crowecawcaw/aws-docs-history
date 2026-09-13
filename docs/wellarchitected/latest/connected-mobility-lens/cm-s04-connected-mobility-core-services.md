@@ -31,7 +31,7 @@ Vehicle manufacturers can deliver value-added services to fleet operators and ve
 ## Reference architecture
 <a name="reference-architecture-3"></a>
 
-![Reference architecture diagram for connected mobility core services.](http://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/connected-mobility-core-services-refarch.png)
+![Reference architecture diagram for connected mobility core services.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/connected-mobility-core-services-refarch.png)
 
 
 ** Figure 5: CM-S04 Connected mobility core services reference architecture **

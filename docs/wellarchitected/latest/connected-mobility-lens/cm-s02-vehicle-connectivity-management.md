@@ -25,7 +25,7 @@ To achieve these objectives, vehicle connectivity management should be able to p
 ## Reference architecture 
 <a name="reference-architecture-1"></a>
 
-![Reference architecture diagram for vehicle connectivity management.](http://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/vehicle-connectivity-mgmt-refarch.png)
+![Reference architecture diagram for vehicle connectivity management.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/vehicle-connectivity-mgmt-refarch.png)
 
 
 ** Figure 3: CM-S02 Vehicle connectivity management reference architecture **

@@ -21,12 +21,12 @@
 ## Reference architecture
 <a name="reference-architecture-4"></a>
 
-![Reference architecture diagram for customer experience management.](http://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/customer-experience-refarch-a.png)
+![Reference architecture diagram for customer experience management.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/customer-experience-refarch-a.png)
 
 
 ** Figure 6: CM-S06-a Customer experience management reference architecture **
 
-![Reference architecture diagram for customer experience management.](http://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/customer-experience-refarch-b.png)
+![Reference architecture diagram for customer experience management.](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/images/customer-experience-refarch-b.png)
 
 
 ** Figure 7: CM-S06-b: Customer experience management reference architecture **
