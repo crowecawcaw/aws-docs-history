@@ -61,12 +61,12 @@ If you don't have an existing SageMaker AI Studio domain, continue with Step 1 t
    **Stack name** should be **CFN-SM-Geospatial**, and should not be changed. This stack takes about 10 minutes to create all the resources. 
 
    This stack assumes that you already have a public VPC set up in your account. If you do not have a public VPC, see [VPC with a single public subnet](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario1.html) to learn how to create a public VPC.   
-![The AWS CloudFormation console displaying the 'Quick create stack' page for a SageMaker AI geospatial stack in the Oregon region. Shows stack name 'CFN-SM-Geospatial' and template description for setting up SageMaker AI Studio Domain with geospatial capabilities.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/cloudformation-sagemaker-geospatial-stack.png)
+![The AWS CloudFormation console displaying the 'Quick create stack' page for a SageMaker AI geospatial stack in the Oregon region. Shows stack name 'CFN-SM-Geospatial' and template description for setting up SageMaker AI Studio Domain with geospatial capabilities.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/cloudformation-sagemaker-geospatial-stack.png)
 
 1. Confirm creation
 
    When the stack creation has been completed, you can proceed to the next section to set up a SageMaker AI Studio notebook.   
-![The AWS CloudFormation console showing a stack named 'CFN-SM-Geospatial' with the status 'CREATE_COMPLETE' highlighted, indicating successful stack creation.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/cloudformation-stack-complete-geospatial.png)
+![The AWS CloudFormation console showing a stack named 'CFN-SM-Geospatial' with the status 'CREATE_COMPLETE' highlighted, indicating successful stack creation.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/cloudformation-stack-complete-geospatial.png)
 
 ### Step 2: Set up a SageMaker AI Studio notebook
 <a name="set-up-a-sagemaker-studio-notebook"></a>
@@ -76,29 +76,29 @@ In this step, you'll launch a new SageMaker AI Studio notebook with a SageMaker 
 1. Open SageMaker AI Studio
 
    Enter **SageMaker AI Studio** into the console search bar, and then choose **SageMaker AI Studio**.   
-![The AWS Management Console search results for 'SageMaker AI Studio', highlighting AWS services such as Nimble Studio, Amazon SageMaker AI, Infrastructure Composer, AWS Glue DataBrew, and the SageMaker AI Studio feature.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/console-search-sagemaker-studio-results.png)
+![The AWS Management Console search results for 'SageMaker AI Studio', highlighting AWS services such as Nimble Studio, Amazon SageMaker AI, Infrastructure Composer, AWS Glue DataBrew, and the SageMaker AI Studio feature.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/console-search-sagemaker-studio-results.png)
 
 1. Choose a region
 
    Choose **US West (Oregon)** from the **Region** dropdown list on the upper right corner of the SageMaker AI console.   
-![The AWS SageMaker AI Domains interface showing the selection of the US West (Oregon) region (us-west-2) from the region dropdown menu.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-domains-region-selection-west.png)
+![The AWS SageMaker AI Domains interface showing the selection of the US West (Oregon) region (us-west-2) from the region dropdown menu.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-domains-region-selection-west.png)
 
 1. Choose Open Studio
 
    To launch the app, select **Studio** from the left console and select **Open Studio** using the studio-user profile.   
-![The Amazon SageMaker AI Studio interface showing the Getting Started section, Studio menu highlighted, and the 'Open Studio' button in the Get Started panel. The display notes SageMaker AI Studio as the first fully integrated development environment (IDE) for machine learning.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-getting-started-open-eaed.png)
+![The Amazon SageMaker AI Studio interface showing the Getting Started section, Studio menu highlighted, and the 'Open Studio' button in the Get Started panel. The display notes SageMaker AI Studio as the first fully integrated development environment (IDE) for machine learning.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-getting-started-open-eaed.png)
 
 1. Wait for application to launch
 
    The SageMaker AI Studio **Creating application screen** will be displayed. 
 
    The application will take a few minutes to load.   
-![The Amazon SageMaker AI Studio interface with the message 'Creating the JupyterServer application default...' displayed below the SageMaker AI Studio logo.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-jupyterserver-creation.png)
+![The Amazon SageMaker AI Studio interface with the message 'Creating the JupyterServer application default...' displayed below the SageMaker AI Studio logo.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-jupyterserver-creation.png)
 
 1. Create a notebook
 
    Open the SageMaker AI Studio interface. On the navigation bar, choose **File > New > Notebook**.   
-![Amazon SageMaker AI Studio showing the File > New > Notebook menu to create a new notebook within the application.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-new-notebook-menu-file.png)
+![Amazon SageMaker AI Studio showing the File > New > Notebook menu to create a new notebook within the application.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-new-notebook-menu-file.png)
 
 1. Set up environment
 
@@ -107,17 +107,17 @@ In this step, you'll launch a new SageMaker AI Studio notebook with a SageMaker 
    The Python 3 kernel is selected automatically. Under **Instance type**, choose **ml.geospatial.interactive**. 
 
    Then, choose **Select**.   
-![The setup dialog for an AWS SageMaker AI notebook environment, showing configuration options for selecting the Geospatial 1.0 image, Python 3 kernel, instance type, and start-up script.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-notebook-environment-setup.png)
+![The setup dialog for an AWS SageMaker AI notebook environment, showing configuration options for selecting the Geospatial 1.0 image, Python 3 kernel, instance type, and start-up script.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-notebook-environment-setup.png)
 
 1. Verify kernel started
 
    Wait until the notebook kernel has been started.   
-![Amazon SageMaker AI Studio showing a Jupyter notebook interface with a message indicating 'Starting notebook kernel...'. The image displays the initial state of a notebook as the kernel is being started.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-notebook-starting-kernel.png)
+![Amazon SageMaker AI Studio showing a Jupyter notebook interface with a message indicating 'Starting notebook kernel...'. The image displays the initial state of a notebook as the kernel is being started.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-notebook-starting-kernel.png)
 
 1. Verify Geospatial 1.0 shows
 
    The kernel on the top right corner of the notebook should now display **Geospatial 1.0**.   
-![Amazon SageMaker AI Studio interface showing an untitled Jupyter notebook with the Geospatial 1.0 kernel, Python 3 environment, and 16 vCPU with 64 GiB resources highlighted.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-geospatial-kernel.png)
+![Amazon SageMaker AI Studio interface showing an untitled Jupyter notebook with the Geospatial 1.0 kernel, Python 3 environment, and 16 vCPU with 64 GiB resources highlighted.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-geospatial-kernel.png)
 
 ### Step 3: Create an Earth Observation Job
 <a name="create-an-earth-observation-job"></a>
@@ -156,7 +156,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
    execution_role = sagemaker.get_execution_role()
    geospatial_client = session.client(service_name="sagemaker-geospatial")
    ```  
-![Python code for importing libraries and setting up an Amazon SageMaker AI Geospatial session using boto3, sagemaker, rasterio, matplotlib, numpy, and other libraries.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-imports-session-setup.png)
+![Python code for importing libraries and setting up an Amazon SageMaker AI Geospatial session using boto3, sagemaker, rasterio, matplotlib, numpy, and other libraries.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-imports-session-setup.png)
 
 1. Start a new Earth Observation Job
 
@@ -211,7 +211,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
    eoj_arn = response["Arn"]
    eoj_arn
    ```  
-![Python code for defining a new Earth Observation Job.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/earth-observation-job.png)
+![Python code for defining a new Earth Observation Job.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/earth-observation-job.png)
 
 1. Explore the raster data
 
@@ -235,7 +235,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
    
    cog_urls
    ```  
-![Python code for exploring raster data.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/explore-raster-data.png)
+![Python code for exploring raster data.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/explore-raster-data.png)
 
 1. Visualize input data
 
@@ -260,7 +260,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
    subplot.set_title("Post-wildfire ({})".format(cog_urls[-1].split("TFK_")[1]))
    plt.show()
    ```  
-![Python code to visualize input data.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/visualize-input-data.png)
+![Python code to visualize input data.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/visualize-input-data.png)
 
 1. Output job status
 
@@ -282,7 +282,7 @@ In this example, you'll be using a pre-trained machine learning model for land c
        if not eoj_completed:
            time.sleep(30)
    ```  
-![Python code for viewing job output status.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/output-job-status.png)
+![Python code for viewing job output status.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/output-job-status.png)
 
 ### Step 4: Visualize the Earth Observation Job
 <a name="visualize-the-earth-observation-job"></a>
@@ -292,17 +292,17 @@ In this step, you'll use visualization functionalities provided by Amazon SageMa
 1. Navigate to your EOJs
 
    In the left-hand navigation, click on the arrow to expand the **Data** section. Then, choose **Geospatial**.   
-![Amazon SageMaker AI Studio showing the Geospatial menu for working with geospatial data and a code cell related to an Earth Observation Job, with a map image and notebook interface visible.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-geospatial-menu-earth.png)
+![Amazon SageMaker AI Studio showing the Geospatial menu for working with geospatial data and a code cell related to an Earth Observation Job, with a map image and notebook interface visible.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-studio-geospatial-menu-earth.png)
 
 1. Select the applicable EOJ
 
    In the new Geospatial tab, you will find an overview of all your EOJs. Select the **job dixie-wildfire-landcover-2021**.   
-![The Amazon SageMaker AI Geospatial console showing an Earth Observation job named 'dixie-wildfire-landcover-2021,' which analyzes land cover from 2021 related to the Dixie wildfire. The console displays job status, duration, and options for running geospatial models, defining input data, and visualizing results.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-earth-observation.png)
+![The Amazon SageMaker AI Geospatial console showing an Earth Observation job named 'dixie-wildfire-landcover-2021,' which analyzes land cover from 2021 related to the Dixie wildfire. The console displays job status, duration, and options for running geospatial models, defining input data, and visualizing results.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-earth-observation.png)
 
 1. Visualize job output
 
    On the job detail page, choose **Visualize job output**.   
-![An Amazon SageMaker AI Earth Observation job summary for 'dixie-wildfire-landcover-2021', showing completion status, job details using Sentinel 2 L2A COGs, date range from 01/06/2021 to 01/10/2021, cloud coverage, job creation time, duration, and an option to visualize job output.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-earth-observation-job-dixie.png)
+![An Amazon SageMaker AI Earth Observation job summary for 'dixie-wildfire-landcover-2021', showing completion status, job details using Sentinel 2 L2A COGs, date range from 01/06/2021 to 01/10/2021, cloud coverage, job creation time, duration, and an option to visualize job output.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-earth-observation-job-dixie.png)
 
 1. View the visualization
 
@@ -310,31 +310,31 @@ In this step, you'll use visualization functionalities provided by Amazon SageMa
    + The image presented is the land cover data after the wildfire. 
    + The pixels in dark orange represent vegetated areas (as described in legends for EOJ). 
    + Select the arrow on the left side to open the visualization options.   
-![An AWS SageMaker AI map visualization tool tutorial highlighting a vegetated area. The map uses color shading to represent geographic data, with an arrow and label indicating a vegetated region. UI elements and controls for navigating the map are visible on the interface.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-map-visualization-vegetated-area.png)
+![An AWS SageMaker AI map visualization tool tutorial highlighting a vegetated area. The map uses color shading to represent geographic data, with an arrow and label indicating a vegetated region. UI elements and controls for navigating the map are visible on the interface.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-map-visualization-vegetated-area.png)
 
 1. Use the legend to understand the data
 
    View the legend.   
-![Legend and colormap for land cover segmentation produced by Amazon SageMaker AI, showing color categories for snow ice, thin cirrus, cloud probabilities, water, vegetation, shadows, and other land cover types.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-land-cover-segmentation-legend.png)
+![Legend and colormap for land cover segmentation produced by Amazon SageMaker AI, showing color categories for snow ice, thin cirrus, cloud probabilities, water, vegetation, shadows, and other land cover types.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-land-cover-segmentation-legend.png)
 
 1. Configure visualization options
 
    Within the visualization options you can select and configure all geospatial and data layers. 
 
    Select the **Hide symbol** for the output raster tile layer.   
-![The SageMaker AI Geospatial map visualization tool displaying color-coded raster tile data with input, output, and AOI layers, and a highlighted raster mask layer on the map interface.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-raster-tile.png)
+![The SageMaker AI Geospatial map visualization tool displaying color-coded raster tile data with input, output, and AOI layers, and a highlighted raster mask layer on the map interface.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-raster-tile.png)
 
 1. View the underlying input data layer
 
    After you select the **Hide symbol**, you will be able to see the underlying input data layer.   
-![The Amazon SageMaker AI Geospatial map visualization tool interface showing multiple data layers and a satellite view of terrain, with visible UI elements for managing datasets and layers.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-map-visualization.png)
+![The Amazon SageMaker AI Geospatial map visualization tool interface showing multiple data layers and a satellite view of terrain, with visible UI elements for managing datasets and layers.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-map-visualization.png)
 
 1. Change the date
 
    You are also able to visualize different time periods of the input and output data of your EOJ. 
 
    Select the **30th of June 2021** in the **To Date** field.   
-![The Amazon SageMaker AI geospatial date picker calendar, displaying the month of June 2021 with selected date ranges and a geographical map in the background.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-date-picker-calendar.png)
+![The Amazon SageMaker AI geospatial date picker calendar, displaying the month of June 2021 with selected date ranges and a geographical map in the background.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-date-picker-calendar.png)
 
 1. View the updated imagery
 
@@ -343,12 +343,12 @@ In this step, you'll use visualization functionalities provided by Amazon SageMa
    This timeframe was before the wildfire, and the amount of vegetation (dark orange) is much higher than on the output viewed previously. 
 
    You can again select to hide the output layer to see the underlying input satellite image (as in the step before).   
-![The Amazon SageMaker AI Geospatial capabilities map visualization tool, displaying a yellow heatmap visualization for June 2021.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-map-visualization-1.png)
+![The Amazon SageMaker AI Geospatial capabilities map visualization tool, displaying a yellow heatmap visualization for June 2021.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-map-visualization-1.png)
 
 1. Navigate to the notebook
 
    To proceed, select the tab **Untitled1.ipynb** to switch back to the notebook.   
-![The Amazon SageMaker AI geospatial map visualization tool showing an open Jupyter notebook (Untitled1.ipynb) with map data and navigation tabs visible at the top.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-map-visualization-2.png)
+![The Amazon SageMaker AI geospatial map visualization tool showing an open Jupyter notebook (Untitled1.ipynb) with map data and navigation tabs visible at the top.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-map-visualization-2.png)
 
 ### Step 5: Export the Earth Observation Job to Amazon S3
 <a name="export-the-earth-observation-job-to-amazon-s3"></a>
@@ -379,7 +379,7 @@ In this step, the output data from the Earth Observation Job will be exported to
        if not response['ExportStatus'] == 'SUCCEEDED':
            time.sleep(30)
    ```  
-![Sample Python code for exporting an Earth Observation Job using the Amazon SageMaker AI Geospatial service. The code includes logic to check the export status and print results, illustrating integration with AWS services and S3 storage.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-export-earth.png)
+![Sample Python code for exporting an Earth Observation Job using the Amazon SageMaker AI Geospatial service. The code includes logic to check the export status and print results, illustrating integration with AWS services and S3 storage.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-export-earth.png)
 
 1. Download the mask files
 
@@ -402,7 +402,7 @@ In this step, the output data from the Earth Observation Job will be exported to
    mask_files = glob(os.path.join(mask_dir, "*.tif"))
    mask_files.sort(key=lambda x: x.split("TFK_")[1])
    ```  
-![Sample Python code for downloading mask filter.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/download-mask-files.png)
+![Sample Python code for downloading mask filter.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/download-mask-files.png)
 
 ### Step 6: Analyze the exported segmentation masks
 <a name="analyze-the-exported-segmentation-masks"></a>
@@ -433,7 +433,7 @@ In this step, you'll use geospatial Python libraries included in the SageMaker A
    masks_20210603 = extract_masks("20210603")
    masks_20210926 = extract_masks("20210926")
    ```  
-![Python code for extracting masks using SageMaker AI Geospatial. The code includes functions for reading TIFF mask files, isolating vegetation and water areas using NumPy arrays, and displaying sample extraction for two dates. Color coding for landcover types is also shown.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-mask-extraction-code.png)
+![Python code for extracting masks using SageMaker AI Geospatial. The code includes functions for reading TIFF mask files, isolating vegetation and water areas using NumPy arrays, and displaying sample extraction for two dates. Color coding for landcover types is also shown.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-geospatial-mask-extraction-code.png)
 
 1. Visualize the extracted classes
 
@@ -456,7 +456,7 @@ In this step, you'll use geospatial Python libraries included in the SageMaker A
    plt.legend(handles=patches, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0. )
    plt.show()
    ```  
-![Python code for visualizing extracted classes.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/visualize-extracted-classes.png)
+![Python code for visualizing extracted classes.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/visualize-extracted-classes.png)
 
 1. Compute and visualize the difference
 
@@ -477,7 +477,7 @@ In this step, you'll use geospatial Python libraries included in the SageMaker A
    plt.legend(handles=patches, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0. )
    plt.show()
    ```  
-![Python code for computing and visualizing the difference.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/compute-and-visualize-image.png)
+![Python code for computing and visualizing the difference.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/compute-and-visualize-image.png)
 
 ### (Optional) Clean up resources
 <a name="clean-up-your-aws-resources"></a>
@@ -490,7 +490,7 @@ It is a best practice to delete resources that you no longer need so that you do
    + Open the Amazon S3 console. On the navigation bar, choose **Buckets**, ****sagemaker-<your-Region>-<your-account-id>****, and then select the checkbox next to **eoj\_dixie\_wildfire\_landcover**. Then, choose **Delete**. 
    + On the **Delete objects** dialog box, verify that you have selected the proper object to delete and enter ****permanently delete**** into the **Permanently delete objects** confirmation box. 
    + Once this is complete and the bucket is empty, you can delete the ****sagemaker-<your-Region>-<your-account-id>**** bucket by following the same steps again.   
-![The process of deleting a folder named 'eoj_dixie_wildfire_landcover' from an Amazon S3 bucket in the AWS Management Console, specifically for use with SageMaker AI Geospatial. The Delete button is highlighted.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/bucket-delete-folder-sagemaker-geospatial.png)
+![The process of deleting a folder named 'eoj_dixie_wildfire_landcover' from an Amazon S3 bucket in the AWS Management Console, specifically for use with SageMaker AI Geospatial. The Delete button is highlighted.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/bucket-delete-folder-sagemaker-geospatial.png)
 
 1. Choose the SageMaker AI Studio domain
 **Note**  
@@ -498,7 +498,7 @@ The Geospatial kernel used for running the notebook image in this tutorial will 
 
    To delete the SageMaker AI Studio apps, perform the following steps: 
    + In the SageMaker AI console, choose **Domains,** and then choose **StudioDomain**   
-![The Amazon SageMaker AI Domains dashboard displaying the StudioDomain in InService status, showing navigation to Domains within the AWS console and associated information.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-domains-dashboard-studiodomain.png)
+![The Amazon SageMaker AI Domains dashboard displaying the StudioDomain in InService status, showing navigation to Domains within the AWS console and associated information.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-domains-dashboard-studiodomain.png)
 
 1. Delete the SageMaker AI Studio apps
 
@@ -507,7 +507,7 @@ The Geospatial kernel used for running the notebook image in this tutorial will 
    To delete the JupyterServer, choose **Action**, then choose **Delete**. 
 
    Wait until the Status changes to Deleted.   
-![The Amazon SageMaker AI 'User Details' interface showing app management options, including a list of user apps with status, type, creation time, and available actions such as delete and action menu.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-user-details-management.png)
+![The Amazon SageMaker AI 'User Details' interface showing app management options, including a list of user apps with status, type, creation time, and available actions such as delete and action menu.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/sagemaker-user-details-management.png)
 
 #### Delete the CloudFormation Stack
 <a name="delete-the-cloudformation-stack"></a>
@@ -522,7 +522,7 @@ If you ran the CloudFormation template to create a new SageMaker AI Studio domai
   In the CloudFormation pane, choose **Stacks**. From the status dropdown list, select **Active**. Under Stack name, choose **CFN-SM-Geospatial** to open the stack details page. 
 
   On **CFN-SM-Geospatial** stack details page, choose **Delete** to delete the stack along with the resources it created.   
-![Screenshot tutorial showing the steps to delete a CloudFormation stack for SageMaker AI Geospatial Capabilities. The image highlights how to select CloudFormation from AWS services, locate the geospatial stack, and click the 'Delete' button.](http://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/bdizs-sagemaker-geospatial-capabilities.png)
+![Screenshot tutorial showing the steps to delete a CloudFormation stack for SageMaker AI Geospatial Capabilities. The image highlights how to select CloudFormation from AWS services, locate the geospatial stack, and click the 'Delete' button.](https://docs.aws.amazon.com/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/images/bdizs-sagemaker-geospatial-capabilities.png)
 
 ## Conclusion
 <a name="conclusion"></a>
