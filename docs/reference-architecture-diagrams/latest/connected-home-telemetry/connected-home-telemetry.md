@@ -10,7 +10,7 @@ This reference architecture diagram shows how to measure and collect data from s
 ## Connected Home Telemetry on AWS
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to measure and collect telemetry data from smart home devices by using AWS IoT Core, AWS IoT Analytics, AWS IoT Events, DynamoDB, and Quick.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-home-telemetry/images/connected-home-telemetry.png)
+![Reference architecture diagram showing how to measure and collect telemetry data from smart home devices by using AWS IoT Core, AWS IoT Analytics, AWS IoT Events, DynamoDB, and Quick.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-home-telemetry/images/connected-home-telemetry.png)
 
 
 1. The devices connect to [AWS IoT Core](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html) directly by using MQTT from FreeRTOS or through AWS IoT Greengrass.
