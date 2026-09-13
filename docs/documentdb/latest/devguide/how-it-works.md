@@ -41,7 +41,7 @@ Instances serve one of two roles:
 
 The following diagram illustrates the relationship between the cluster volume, the primary instance, and replicas in an Amazon DocumentDB cluster:
 
-![Amazon DocumentDB endpoints including the cluster, reader, and instance endpoints.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-endpoint-types.png)
+![Amazon DocumentDB endpoints including the cluster, reader, and instance endpoints.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-endpoint-types.png)
 
 
 Cluster instances do not need to be of the same instance class, and they can be provisioned and terminated as desired. This architecture lets you scale your cluster’s compute capacity independently of its storage.
@@ -342,10 +342,10 @@ Using the AWS Management Console, you can discover the Amazon DocumentDB cluster
 1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
 1. To discover billable resources in a Region other than your default Region, in the upper-right corner of the screen, choose the AWS Region that you want to search.   
-![The US East (N. Virginia) Region in the Region selector.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-console-region.png)
+![The US East (N. Virginia) Region in the Region selector.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-console-region.png)
 
 1. In the navigation pane, choose the type of billable resource that you're interested in: **Clusters**, **Instances**, or **Snapshots**.  
-![Clusters, instances, and snapshots in the navigation pane.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-navigation-pane-clusters-instances-snapshots.png)
+![Clusters, instances, and snapshots in the navigation pane.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-navigation-pane-clusters-instances-snapshots.png)
 
 1. All your provisioned clusters, instances, or snapshots for the Region are listed in the right pane. You will be charged for clusters, instances, and snapshots.
 

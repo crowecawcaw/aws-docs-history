@@ -14,7 +14,7 @@ To delete a manual cluster snapshot using the AWS Management Console, complete t
 
 1. In the navigation pane, choose **Snapshots**. 
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the list of snapshots, choose the button to the left of the snapshot that you want to delete. The snapshot's type must be **manual**.
 

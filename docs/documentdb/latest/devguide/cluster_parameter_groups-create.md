@@ -19,7 +19,7 @@ After you create a cluster parameter group, you should wait at least 5 minutes b
 
 1. In the navigation pane, choose **Parameter groups**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the **Cluster parameter groups** pane, choose **Create**.
 

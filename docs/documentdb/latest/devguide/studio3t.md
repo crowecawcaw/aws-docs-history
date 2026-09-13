@@ -14,26 +14,26 @@
 <a name="connect-studio3t"></a>
 
 1. Choose **Connect** in the top left corner of the toolbar.  
-![Studio 3T interface showing welcome screen and Connect option highlighted in upper-left corner.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-connect.png)
+![Studio 3T interface showing welcome screen and Connect option highlighted in upper-left corner.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-connect.png)
 
 1. Choose **New Connection** in the top left corner of the toolbar.  
-![Connection Manager interface with New Connection option highlighted in upper-left corner.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-newconn.png)
+![Connection Manager interface with New Connection option highlighted in upper-left corner.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-newconn.png)
 
 1. On the **Server** tab, in the **Server** field, enter the cluster endpoint information.  
-![Server tab in the New Connection interface with Server input field highlighted.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-endpoint.png)
+![Server tab in the New Connection interface with Server input field highlighted.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-endpoint.png)
 **Note**  
 To find your cluster endpoint, see [Finding an instance's endpoint](db-instance-endpoint-find.md).
 
 1. Choose the **Authentication** tab and select **Legacy** in the drop down menu for **Authentication Mode**.  
-![Authentication tab in the New Connection interface with legacy authentication mode selected and user name, password, and authentication DB information provided.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-auth.png)
+![Authentication tab in the New Connection interface with legacy authentication mode selected and user name, password, and authentication DB information provided.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-auth.png)
 
 1. Input your username and credentials in the **User name** and **Password** fields.
 
 1. Choose the **SSL** tab and check the box **Use SSL protocol to connect**.  
-![SSL tab in the New Connection interface with Use SSL protocol to connect selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-ssl.png)
+![SSL tab in the New Connection interface with Use SSL protocol to connect selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-ssl.png)
 
 1. Choose **Use own Root CA file**. Then add the Amazon DocumentDB certificate (you can skip this step if SSL is disabled on your DocumentDB cluster). Check the box to allow **invalid hostnames**.  
-![SSL tab in the New Connection interface with root CA file entered and allow invalid hostnames selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-ssl.png)
+![SSL tab in the New Connection interface with root CA file entered and allow invalid hostnames selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-ssl.png)
 **Note**  
 Don’t have the certificate? You can download it with the following command:  
  `wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem ` 
@@ -49,20 +49,20 @@ Don’t have the certificate? You can download it with the following command:
    1. If you are on Linux/macOS client machine, you might have to change the permissions of your private key using the following command:
 
       `chmod 400 /fullPathToYourPemFile/<yourKey>.pem`  
-![SSH tab in the New Connection interface with SSH tunnel credentials entered.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-ssh.png)
+![SSH tab in the New Connection interface with SSH tunnel credentials entered.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-ssh.png)
 **Note**  
 This Amazon EC2 instance should be in the same Amazon VPC and security group as your DocumentDB cluster. You can get the SSH address, username and private key from your [Amazon EC2 Management Console](https://console.aws.amazon.com/ec2).
 
 1. Now test your configuration by choosing the **Test connection** button.  
-![New Connection interface with Test Connection button highlighted in the bottom-left corner.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-testbutton.png)
+![New Connection interface with Test Connection button highlighted in the bottom-left corner.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-testbutton.png)
 
 1. A diagnostic window should load a green bar to indicate the test was successful. Now choose **OK** to close out the diagnostic window.  
-![Diagnostic window that appears after a successful connection test.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-testconn.png)
+![Diagnostic window that appears after a successful connection test.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-testconn.png)
 
 1. Choose **Save** to save your connection for future use.  
-![New Connection interface with Save button highlighted.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-save.png)
+![New Connection interface with Save button highlighted.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-save.png)
 
 1. Now select your cluster and choose **Connect**.  
-![Connection Manager interface with Connect button highlighted.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-finalconnect.png)
+![Connection Manager interface with Connect button highlighted.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/studio3t/studio3t-finalconnect.png)
 
 Congratulations\! You are now successfully connected to your Amazon DocumentDB cluster through Studio 3T.

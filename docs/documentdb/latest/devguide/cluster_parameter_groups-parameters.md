@@ -21,12 +21,12 @@ You can see an Amazon DocumentDB cluster's parameters and their values using the
 
 1. In the navigation pane, choose **Parameter groups**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the **Parameter groups** pane, choose the name of the cluster parameter group that you want to see the details of.
 
 1. The resulting page shows the following values for each parameter: the parameter's name, current value, allowed values, whether the parameter is modifiable, apply type, data type, and description.  
-![Screenshot: Parameter names and values.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-determine-parameter-value.png)
+![Screenshot: Parameter names and values.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-determine-parameter-value.png)
 
 ------
 #### [ Using the AWS CLI ]
@@ -86,7 +86,7 @@ You can modify a parameter group's parameters using the AWS Management Console o
 
 1. In the navigation pane, choose **Parameter groups**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the **Parameter groups** pane, choose the cluster parameter group that you want to update the parameters of.
 

@@ -17,7 +17,7 @@ When using an SSH tunnel, connect to your cluster using the cluster endpoint. Do
 **Note**  
 For more information about Amazon DocumentDB endpoints, see [Amazon DocumentDB endpoints](how-it-works.md#how-it-works.endpoints).
 
-![Diagram showing Amazon DocumentDB endpoints including the cluster, reader, and instance endpoints.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-endpoint-types.png)
+![Diagram showing Amazon DocumentDB endpoints including the cluster, reader, and instance endpoints.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-endpoint-types.png)
 
 
 Using the cluster endpoint, you can connect to your cluster in replica set mode. You can then use the built-in read preference driver capabilities. In the following example, specifying `/?replicaSet=rs0` signifies to the SDK that you want to connect as a replica set. If you omit `/?replicaSet=rs0'`, the client routes all requests to the cluster endpoint, that is, your primary instance.
@@ -38,7 +38,7 @@ When you connect as a replica set, you can specify the `readPreference` for the 
 client = pymongo.MongoClient('mongodb://{{<user-name>}}:{{<password>}}@mycluster.node.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=secondaryPreferred')
 ```
 
-![Diagram showing Amazon DocumentDB readPreference: secondaryPreferred.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-readPreference-secondaryPreferred.png)
+![Diagram showing Amazon DocumentDB readPreference: secondaryPreferred.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-readPreference-secondaryPreferred.png)
 
 
 Reads from Amazon DocumentDB replicas are eventually consistent. They return the data in the same order as it was written on the primary, and there is often less than a 50 ms replication lag. You can monitor the replica lag for your cluster using the Amazon CloudWatch metrics `DBInstanceReplicaLag` and `DBClusterReplicaLagMaximum`. For more information, see [Monitoring Amazon DocumentDB with CloudWatch](cloud_watch.md).

@@ -14,10 +14,10 @@ To view the details of your instances using the AWS Management Console, follow t
 
 1. In the navigation pane, choose **Clusters **.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the following screenshot.  
-![Clusters table showing list of clusters under Cluster identifier column, with instances nested inside clusters.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
+![Clusters table showing list of clusters under Cluster identifier column, with instances nested inside clusters.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
 
 1. In the list of instances, choose the name of the instance that you want to see its details. The information about the instance is organized into the following groupings:
    + **Summary**—General information about the instance, including the engine version, class, status, and any pending maintenance.

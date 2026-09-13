@@ -45,10 +45,10 @@ When using the AWS Management Console to determine the status of a cluster, use 
 1. In the navigation pane, choose **Clusters**.
 
 1. In the Clusters navigation box, you'll see the column **Cluster identifier**. Your instances are listed under clusters, similar to the following screenshot.  
-![Clusters table showing how an instance is nested under a cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
+![Clusters table showing how an instance is nested under a cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
 
 1. In the **Cluster identifier** column, find the name of the instance that you are interested in. Then, to find the status of the instance, read across that row to the **Status** column, as shown below.  
-![Cluster instance showing available status.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-status-con.png)
+![Cluster instance showing available status.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-status-con.png)
 
 ------
 #### [ Using the AWS CLI ]

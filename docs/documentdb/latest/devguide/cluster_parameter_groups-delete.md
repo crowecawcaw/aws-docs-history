@@ -14,7 +14,7 @@ You can delete a custom Amazon DocumentDB cluster parameter group using the AWS 
 
 1. In the navigation pane, choose **Parameter groups**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the **Parameter groups** pane, choose the radio button to the left of the cluster parameter group that you want to delete.
 

@@ -67,7 +67,7 @@ To make a copy of a cluster snapshot using the AWS Management Console, complete 
 
 1. In the navigation pane, choose **Snapshots**, and then choose the button to the left of the snapshot that you want to copy.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. From the **Actions** menu, choose **Copy**.
 

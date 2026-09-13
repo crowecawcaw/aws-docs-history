@@ -68,10 +68,10 @@ To create an elastic cluster configuration using the AWS Management Console:
 1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
 1. On the **Amazon DocumentDB Management Console**, under **Clusters**, choose **Create**.   
-![Elastic cluster table showing no clusters as a starting point.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-start.png)
+![Elastic cluster table showing no clusters as a starting point.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-start.png)
 
 1. On the **Create Amazon DocumentDB cluster** page, in the **Cluster type** section, choose **Elastic cluster**.   
-![Elastic cluster Cluster type dialog displaying a choice of Instance-based clusters and Elastic clusters.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-type.png)
+![Elastic cluster Cluster type dialog displaying a choice of Instance-based clusters and Elastic clusters.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-type.png)
 
 1. In the **Configuration** section, configure the following:
 
@@ -90,12 +90,12 @@ The number of replica instances applies to all shards in the elastic cluster. A 
    1. In the **Virtual Private Cloud (VPC)** field, choose a VPC from the dropdown list.
 
    1. For **Subnets** and **VPC security groups**, you can use the defaults or select three subnets of your choice and up to three **VPC security groups** (minimum one).  
-![Elastic cluster configuration dialog displaying configurable fields.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-configuration.png)
+![Elastic cluster configuration dialog displaying configurable fields.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-configuration.png)
 
 1. In the **Authentication** section, enter a string that identifies the login name of the primary user in the **Username** field.
 
    In the **Password** field, enter a unique password that complies with the instructions, then confirm it.  
-![Authentication section that includes input fields for username and password.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-authentication.png)
+![Authentication section that includes input fields for username and password.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-authentication.png)
 
 1. In the **Encryption** section, keep the default setting (**Default Key**).
 
@@ -104,7 +104,7 @@ The number of replica instances applies to all shards in the elastic cluster. A 
 Encryption must be enabled for elastic clusters.
 
 1. In the **Backup** section, edit the fields according to your backup requirements. For test purposes, you can retain the default settings.  
-![Screenshot of the Backup dialog showing the steps to configure the cluster backup window.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-backup.png)
+![Screenshot of the Backup dialog showing the steps to configure the cluster backup window.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-backup.png)
 
    1. **Backup retention period**—In the list, choose the number of days to keep automatic backups of this cluster before deleting them.
 
@@ -119,7 +119,7 @@ Encryption must be enabled for elastic clusters.
       1. Choose **No preference** if you want Amazon DocumentDB to choose the time and duration when backups are created.
 
 1. In the **Maintenance** section, choose the day, time, and duration when modifications or patches are applied to your cluster. For test purposes, you can retain the default settings.  
-![Maintenance section showing maintenance window options.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-maintenance.png)
+![Maintenance section showing maintenance window options.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-maintenance.png)
 
 1. Choose **Create cluster**.
 
@@ -205,15 +205,15 @@ aws docdb-elastic create-cluster ^
 Connect to your Amazon DocumentDB elastic cluster using AWS CloudShell.
 
 1. On the Amazon DocumentDB management console, under **Clusters**, locate the elastic cluster you created. Choose your cluster by clicking the check box next to it.  
-![Amazon DocumentDB cluster management interface showing an elastic cluster](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-cluster-new.png)
+![Amazon DocumentDB cluster management interface showing an elastic cluster](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-cluster-new.png)
 
 1. Choose **Connect to cluster** (which is next to the **Actions** dropdown menu. This button is enabled only after you have clicked the checkbox next to your cluster, and the status of the cluster shows as **Available**. The CloudShell **Run command** screen appears.
 
 1. In the **New environment name** field, enter a unique name, such as "test" and choose **Create and run**. VPC environment details are automatically configured for your Amazon DocumentDB database.  
-![Elastic cluster CloudShell Run command screen requesting new environment name](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-run-command.png)
+![Elastic cluster CloudShell Run command screen requesting new environment name](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-run-command.png)
 
 1. When prompted, enter the password you created in Step 1: Create an Amazon DocumentDB elastic cluster (sub-step 5).  
-![Elastic cluster CloudShell screen requesting user password](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-cs-password.png)
+![Elastic cluster CloudShell screen requesting user password](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-cs-password.png)
 
    After you enter your password and your prompt becomes `direct: mongos] <env-name>>`, you are successfully connected to your Amazon DocumentDB cluster
 

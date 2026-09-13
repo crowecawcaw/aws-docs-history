@@ -43,7 +43,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
    In the **Snapshot identifier** field, enter a unique identifier for your elastic cluster.
 
    Choose **Create**.  
-![Diagram: elastic cluster create snapshot](http://docs.aws.amazon.com/documentdb/latest/devguide/images/elastic-create-snapshot.png)
+![Diagram: elastic cluster create snapshot](https://docs.aws.amazon.com/documentdb/latest/devguide/images/elastic-create-snapshot.png)
 
 **Note**  
 Alternatively, you can access the **Create cluster snapshot** dialog by going to the **Clusters** page, checking the box next to your cluster, then choosing **Actions**, then **Take snapshot**.
@@ -96,7 +96,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 1. On the **Snapshots** page, choose your snapshot from the list by clicking on the name in **Snapshot identifier** column.
 
 1. View your snapshot's information in **Details**.  
-![Diagram: elastic cluster view snapshot](http://docs.aws.amazon.com/documentdb/latest/devguide/images/elastic-snapshot-view.png)
+![Diagram: elastic cluster view snapshot](https://docs.aws.amazon.com/documentdb/latest/devguide/images/elastic-snapshot-view.png)
 
 ------
 #### [ Using the AWS CLI ]
@@ -191,7 +191,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 1. Choose the button to the left of the snapshot, that you want to use to restore a cluster, in the **Snapshot identifier** column.
 
 1. Choose **Actions**, then **Restore**.  
-![Diagram: elastic cluster restore from snapshot](http://docs.aws.amazon.com/documentdb/latest/devguide/images/elastic-restore-snapshot.png)
+![Diagram: elastic cluster restore from snapshot](https://docs.aws.amazon.com/documentdb/latest/devguide/images/elastic-restore-snapshot.png)
 
 1. On the **Restore snapshot** page, enter a name for the new cluster in the **Cluster identifier** field.
 **Note**  
@@ -262,7 +262,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 1. Choose the button to the left of the snapshot, that you want to copy, in the **Snapshot identifier** column.
 
 1. Choose **Actions**, then **Copy**.  
-![Diagram: elastic cluster copy snapshot](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-copy-snapshot.png)
+![Diagram: elastic cluster copy snapshot](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-copy-snapshot.png)
 
 1. For **New snapshot identifier**, enter the new snapshot's name.
 
@@ -324,7 +324,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 1. Choose the button to the left of the snapshot, that you want to use to restore a cluster, in the **Snapshot identifier** column.
 
 1. Choose **Actions**, then **Delete**.  
-![Diagram: elastic cluster delete snapshot](http://docs.aws.amazon.com/documentdb/latest/devguide/images/elastic-delete-snapshot.png)
+![Diagram: elastic cluster delete snapshot](https://docs.aws.amazon.com/documentdb/latest/devguide/images/elastic-delete-snapshot.png)
 
 1. On the **Delete "snapshot-name" snapshot** dialog, choose **Delete**.
 
@@ -373,7 +373,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 1. Choose **Actions**, then **Modify**.
 
 1. In the **Backup** section, edit the fields according to your backup requirements.  
-![Screenshot of the Backup pane showing the steps to configure the cluster backup window.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-backup.png)
+![Screenshot of the Backup pane showing the steps to configure the cluster backup window.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-backup.png)
 
    1. **Backup retention period**—In the list, choose the number of days to keep automatic backups of this cluster before deleting them.
 

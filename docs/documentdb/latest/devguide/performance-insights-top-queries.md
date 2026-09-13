@@ -31,7 +31,7 @@ This digest might include the following child queries:
 
 To see the literal query statements in a digest, select the query, and then choose the plus symbol (`+`). In the following screenshot, the selected query is a digest.
 
-![The Top queries table showing an expanded query digest with one child query selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-literal.png)
+![The Top queries table showing an expanded query digest with one child query selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-literal.png)
 
 
 **Note**  
@@ -42,7 +42,7 @@ A query digest groups similar query statements, but does not redact sensitive in
 
 In **Top queries**, the **Load by waits (AAS)** column illustrates the percentage of the database load associated with each top load item. This column reflects the load for that item by whatever grouping is currently selected in the **DB load chart**. For example, you might group the **DB load chart** by wait states. In this case, the **DB Load by Waits** bar is sized, segmented, and color-coded to show how much of a given wait state that query is contributing to. It also shows which wait states are affecting the selected query.
 
-![Bar chart showing database load grouped by CPU, IO, and latch wait states. The corresponding table shows the top queries based on load by wait.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-aas.png)
+![Bar chart showing database load grouped by CPU, IO, and latch wait states. The corresponding table shows the top queries based on load by wait.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-aas.png)
 
 
 ## Viewing detailed query information
@@ -50,7 +50,7 @@ In **Top queries**, the **Load by waits (AAS)** column illustrates the percentag
 
 In the **Top query** table, you can open a *digest statement* to view its information. The information appears in the bottom pane.
 
-![The Top queries table showing a selected query statement and its query information below.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-detailed.png)
+![The Top queries table showing a selected query statement and its query information below.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-detailed.png)
 
 
 The following types of identifiers (IDs) are associated with query statements:
@@ -78,10 +78,10 @@ In the Performance Insights dashboard, you can view or download query text.
 1. Choose a DB instance. The Performance Insights dashboard is displayed for that DB instance.
 
    Query statements with text larger than 500 bytes will look like the following image:  
-![The Top queries table with a child query selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-statement.png)
+![The Top queries table with a child query selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-statement.png)
 
 1. Examine the query information section to view more of the query text.  
-![The Query information section showing the full text of the selected query.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-query-text.png)
+![The Query information section showing the full text of the selected query.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-queries-query-text.png)
 
 The Performance Insights dashboard can display up to 1 KB for each full query statement.
 

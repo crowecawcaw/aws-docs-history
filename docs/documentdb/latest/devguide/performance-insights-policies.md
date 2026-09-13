@@ -108,7 +108,7 @@ To use Performance Insights, make sure that you have access to Amazon DocumentDB
 1. On the **Summary** page, choose **Add permissions**.
 
 1. Choose **Attach existing policies directly**. For **Search**, type the first few characters of your policy name, as shown following.  
-![Choose a Policy](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/pi-add-permissions.png)
+![Choose a Policy](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/pi-add-permissions.png)
 
 1. Choose your policy, and then choose **Next: Review**.
 

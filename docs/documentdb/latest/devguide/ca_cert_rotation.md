@@ -83,7 +83,7 @@ Complete the following steps to identify and rotate the old server certificate f
 1. You may need to identify which instances are still on the old server certificate (`rds-ca-2019`). You can do this in the **Certificate authority** column which is located on the far right of the **Clusters** table.
 
 1. In the **Clusters** table, you’ll see the column **Cluster identifier** on the far left. Your instances are listed under clusters, similar to the following screenshot.  
-![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
+![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
 
 1. Check the box to the left of the instance you are interested in.
 

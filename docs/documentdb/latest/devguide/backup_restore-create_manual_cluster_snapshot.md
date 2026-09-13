@@ -20,7 +20,7 @@ To create a manual snapshot using the AWS Management Console, you can follow eit
 
    1. In the navigation pane, choose **Snapshots**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
    1. On the **Snapshots** page, choose **Create**.
 
@@ -44,7 +44,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 
    1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
    1. On the **Clusters** page, choose the button to the left of the cluster that you want to snapshot.
 

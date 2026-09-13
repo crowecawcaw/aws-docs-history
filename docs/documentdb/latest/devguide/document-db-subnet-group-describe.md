@@ -16,10 +16,10 @@ The following procedure shows you how to get the details of an Amazon DocumentDB
 
 1. In the navigation pane, choose **Subnet groups**. 
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. To see the details of a subnet group, choose the name of that subnet group.  
-![Screenshot: Showing the details of a subnet group.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-subnet-group-details.png)
+![Screenshot: Showing the details of a subnet group.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-subnet-group-details.png)
 
 ------
 #### [ Using the AWS CLI ]

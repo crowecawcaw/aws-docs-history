@@ -5,7 +5,7 @@
 
 The dashboard is the easiest way to interact with Performance Insights. The following example shows the dashboard for an Amazon DocumentDB instance. By default, the Performance Insights dashboard shows data for the last hour.
 
-![Performance Insights dashboard showing CPU utilization and database load over time for an Amazon DocumentDB instance.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/overview-dashboard.png)
+![Performance Insights dashboard showing CPU utilization and database load over time for an Amazon DocumentDB instance.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/overview-dashboard.png)
 
 
 The dashboard is divided into the following parts:
@@ -28,12 +28,12 @@ With counter metrics, you can customize the Performance Insights dashboard to in
 
 The **Counter metrics** chart displays data for performance counters.
 
-![Counter metrics chart showing CPU utilization over time.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/counter-metrics.png)
+![Counter metrics chart showing CPU utilization over time.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/counter-metrics.png)
 
 
 To change the performance counters, choose **Manage metrics**. You can select multiple **OS metrics** as shown in the following screenshot. To see details for any metric, hover over the metric name.
 
-![Performance Insights dashboard metric selection interface with OS metrics options.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/overview-os-metrics.png)
+![Performance Insights dashboard metric selection interface with OS metrics options.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/overview-os-metrics.png)
 
 
 ## Database load chart
@@ -41,24 +41,24 @@ To change the performance counters, choose **Manage metrics**. You can select mu
 
 The **Database load** chart shows how the database activity compares to instance capacity as represented by the **Max vCPU** line. By default, the stacked line chart represents DB load as average active sessions per unit of time. The DB load is sliced (grouped) by wait states.
 
-![Database load chart showing average active sessions over time, with CPU usage spiking near the end.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/database-load.png)
+![Database load chart showing average active sessions over time, with CPU usage spiking near the end.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/database-load.png)
 
 
 **DB load sliced by dimensions**  
 You can choose to display load as active sessions grouped by any supported dimensions. The following image shows the dimensions for the Amazon DocumentDB instance.
 
-![Graph showing database load with various "Slice by" options displayed in a dropdown list.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/database-load-sliced.png)
+![Graph showing database load with various "Slice by" options displayed in a dropdown list.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/database-load-sliced.png)
 
 
 **DB load details for a dimension item**  
 To see details about a DB load item within a dimension, hover over the item name. The following image shows details for a query statement.
 
-![Bar graph showing database load with additional details displayed upon hovering over an item name.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/database-load-details.png)
+![Bar graph showing database load with additional details displayed upon hovering over an item name.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/database-load-details.png)
 
 
 To see details for any item for the selected time period in the legend, hover over that item.
 
-![Bar graph showing database load with additional details displayed upon hovering over a bar.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/database-load-hover.png)
+![Bar graph showing database load with additional details displayed upon hovering over a bar.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/database-load-hover.png)
 
 
 ## Top dimensions table
@@ -68,7 +68,7 @@ The **Top dimensions table** slices DB load by different dimensions. A dimension
 
 Choose any of the following dimension tabs.
 
-![The Top queries dimensions tab showing the two top queries.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-dimensions.png)
+![The Top queries dimensions tab showing the two top queries.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/top-dimensions.png)
 
 
 The following table provides a brief description of each tab.

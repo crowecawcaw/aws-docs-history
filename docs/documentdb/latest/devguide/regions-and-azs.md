@@ -7,7 +7,7 @@ Amazon cloud computing resources are hosted in multiple locations worldwide. The
 
 Amazon operates advanced, highly available data centers. Although rare, failures can occur that affect the availability of instances that are in the same location. If you host all your instances in a single location that is affected by such a failure, none of your instances would be available. The following diagram shows an AWS Region with three Availability Zones.
 
-![A diagram of a Region containing three Availability Zones a, b, and c.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/RegionsAndAZs.png)
+![A diagram of a Region containing three Availability Zones a, b, and c.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/RegionsAndAZs.png)
 
 
 It is important to remember that each Region is independent. Any Amazon DocumentDB activity that you initiate (for example, creating instances or listing available instances) runs only in your current default AWS Region. You can change the default Region on the console by setting the `EC2_REGION` environment variable. Or you can override it by using the `--region` parameter in the AWS CLI. For more information, see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html), specifically, the sections on environment variables and command line options. 

@@ -167,7 +167,7 @@ Snapshots that have been encrypted with the default AWS KMS key can't be shared.
 1. For **AWS Account ID**, enter the AWS account identifier for an account that you want to permit to restore a cluster from your manual snapshot, and then choose **Add**. Repeat to include additional AWS account identifiers, up to 20 AWS accounts.
 
    If you make an error when adding an AWS account identifier to the list of permitted accounts, you can delete it from the list by choosing **Delete** at the right of the incorrect AWS account identifier.  
-![Diagram: share snapshot preferences](http://docs.aws.amazon.com/documentdb/latest/devguide/images/share-snapshot.png)
+![Diagram: share snapshot preferences](https://docs.aws.amazon.com/documentdb/latest/devguide/images/share-snapshot.png)
 
 1. After you have added identifiers for all of the AWS accounts that you want to permit to restore the manual snapshot, choose **Save** to save your changes.
 

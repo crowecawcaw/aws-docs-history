@@ -15,7 +15,7 @@ Use the following procedure to see the status of your Amazon DocumentDB cluster 
 1. In the navigation pane, choose **Clusters**.
 
 1. In the **Cluster identifier** column, find the name of the cluster that you are interested in. Then, to find the status of the cluster, read across that row to the **Status** column, as shown below.  
-![Screenshot of clusters page with sample-cluster showing active status.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-status-con.png)
+![Screenshot of clusters page with sample-cluster showing active status.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-status-con.png)
 
 ------
 #### [ Using the AWS CLI ]

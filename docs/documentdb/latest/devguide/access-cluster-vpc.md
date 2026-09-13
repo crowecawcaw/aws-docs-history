@@ -46,7 +46,7 @@ You can set up network connectivity between an Amazon EC2 instance and a Documen
 
 The following screen shows an inbound rule with a security group for its source.
 
-![Inbound rules tab showing rule with security group as the source](http://docs.aws.amazon.com/documentdb/latest/devguide/images/inbound-rule-sg.png)
+![Inbound rules tab showing rule with security group as the source](https://docs.aws.amazon.com/documentdb/latest/devguide/images/inbound-rule-sg.png)
 
 
 For more information about connecting to a cluster from your EC2 instance, see [Connect Amazon EC2 automatically](connect-ec2-auto.md).

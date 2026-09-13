@@ -38,43 +38,43 @@ Are you ready to build your first global cluster? In this section we will explai
 1. In the AWS Management Console, navigate to **Amazon DocumentDB**.
 
 1. When you get to the Amazon DocumentDB console, choose **Clusters**.  
-![The Clusters page in the Amazon DocumentDB console.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/choose-cluster.png)
+![The Clusters page in the Amazon DocumentDB console.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/choose-cluster.png)
 
 1. Choose **Create**.  
-![The Create button shown in the upper-right corner of the Clusters table.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/choose-create.png)
+![The Create button shown in the upper-right corner of the Clusters table.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/choose-create.png)
 
 1. Fill out the **Configuration** section of the **Create Amazon DocumentDB Cluster** form accordingly:
    + **Cluster identifier**: You can either enter a unique identifier for this instance or allow Amazon DocumentDB to provide the instance identifier based on the cluster identifier.
    + Engine version: Choose **4.0.0**
    + Instance class: Choose **db.r5.large**
    + Number of instances: Choose **3**.  
-![Configuration options form for creating an Amazon DocumentDB cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/create-config.png)
+![Configuration options form for creating an Amazon DocumentDB cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/create-config.png)
 
 1. In the **Authentication** section, fill in a master username and master password.  
-![Authentication form to specify a master username and password for a new Amazon DocumentDB cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/create-auth.png)
+![Authentication form to specify a master username and password for a new Amazon DocumentDB cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/create-auth.png)
 
 1. Choose **Show advanced settings**.  
-![Show advanced settings toggle button next to Cancel and Create cluster buttons.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/show-advanced.png)
+![Show advanced settings toggle button next to Cancel and Create cluster buttons.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/show-advanced.png)
 
 1. In the **Network settings** section:
    + Keep default options for **Virtual Private Cloud (VPC)** and **Subnet group**.  
-![Network settings form showing VPC, subnet group, and VPC security groups options. VPC and Subnet group fields have default options selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/default-vpc-1.png)
+![Network settings form showing VPC, subnet group, and VPC security groups options. VPC and Subnet group fields have default options selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/default-vpc-1.png)
    + For **VPC security groups**, **default (VPC)** should already be added.  
-![Network settings form showing default VPC already added.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/default-vpc-2.png)
+![Network settings form showing default VPC already added.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/default-vpc-2.png)
    + Type `DocDB` into the **VPC security groups** field and select **DocDB-Inbound (VFC)**.  
-![DocDB-Inbound VFC selected in VPC security groups dropdown menu.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/inbound-vfc.png)
+![DocDB-Inbound VFC selected in VPC security groups dropdown menu.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/inbound-vfc.png)
 
 1. For **Cluster options** and **Encryption-at-rest**, leave at default selections.  
-![Cluster options and Encryption-at-rest forms with default options selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/leave-default-1.png)
+![Cluster options and Encryption-at-rest forms with default options selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/leave-default-1.png)
 
 1. For **Backup** and **Log exports**, leave at default selections.  
-![Backup and Log exports forms with default options selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/leave-default-2.png)
+![Backup and Log exports forms with default options selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/leave-default-2.png)
 
 1. For **Maintenance**, **Tags**, and **Deletion protection**, leave at default selections.  
-![Maintenance, Tags, and Deletion protection forms with default options selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/leave-default-3.png)
+![Maintenance, Tags, and Deletion protection forms with default options selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/leave-default-3.png)
 
 1. Now choose **Create cluster**.  
-![The Create cluster button shown at the end of the cluster creation process.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/create-cluster.png)
+![The Create cluster button shown at the end of the cluster creation process.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/create-cluster.png)
 
 ### Using the AWS CLI
 <a name="global-clusters-create-cli"></a>
@@ -163,19 +163,19 @@ A global cluster needs at least one secondary cluster in a different Region than
 1. Sign in to the AWS Management Console and open the Amazon DocumentDB console.
 
 1. In the navigation pane, choose **Clusters**.  
-![The Clusters page in the Amazon DocumentDB console.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/choose-cluster.png)
+![The Clusters page in the Amazon DocumentDB console.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/choose-cluster.png)
 
 1. Choose the cluster that you would like to add a secondary cluster to. Ensure that the cluster is `Available`.  
-![List of regional and global clusters showing available status, with mydocdbglobalcluster highlighted.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/choose-cluster-2.png)
+![List of regional and global clusters showing available status, with mydocdbglobalcluster highlighted.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/choose-cluster-2.png)
 
 1. Select the dropdown list for **Actions** and then choose **Add Region**.  
-![The Actions dropdown on the Clusters interface shows the Add Region option.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/add-region.png)
+![The Actions dropdown on the Clusters interface shows the Add Region option.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/add-region.png)
 
 1. On the **Add an AWS Region** page, choose the secondary Region. Note that you can't choose a Region that already has a secondary cluster for the same global cluster. Also, it can't be the same Region as the primary cluster. If this is the first Region you are adding, you will also have to specify a global cluster identifier of your choice.  
-![Choose a secondary Region using the dropdown menu on the Add an AWS Region form.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/add-region-2.png)
+![Choose a secondary Region using the dropdown menu on the Add an AWS Region form.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/add-region-2.png)
 
 1. Complete the remaining fields for the secondary cluster in the new Region, then select **Create cluster**. After you finish adding the Region, you can see it in the list of **Clusters** in the AWS Management Console.  
-![Final steps of adding a Region to a cluster, showing the Configuration form, hourly cost estimate, and Create cluster button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/select-add-region.png)
+![Final steps of adding a Region to a cluster, showing the Configuration form, hourly cost estimate, and Create cluster button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/quick-start/select-add-region.png)
 
 ### Using the AWS CLI
 <a name="global-clusters-add-region-cli"></a>

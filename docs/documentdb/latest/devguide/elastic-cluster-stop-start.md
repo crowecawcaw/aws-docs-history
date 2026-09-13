@@ -29,24 +29,24 @@ The following procedure shows you how to stop an elastic cluster in the availabl
 
 1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the list of clusters, choose the button to the left of the name of the cluster that you want to stop or start.  
-![A cluster from the Clusters list, with the checkbox selected to the left of the cluster name.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-list-ec.png)
+![A cluster from the Clusters list, with the checkbox selected to the left of the cluster name.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-list-ec.png)
 
 1. Choose **Actions**, and then choose the action that you want to perform on the cluster.
    + If you want to stop the cluster and the cluster is available:
 
      1. Choose **Stop**.  
-![The Actions dropdown list with the Stop option selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-stop.png)
+![The Actions dropdown list with the Stop option selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-stop.png)
 
      1. On the confirmation dialog, confirm that you want to stop the elastic cluster by choosing **Stop cluster**, or to keep the cluster running, choose **Cancel**.  
-![Confirmation dialog for stopping a cluster, with Cancel and Stop cluster buttons on the bottom.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-stop-confirm.png)
+![Confirmation dialog for stopping a cluster, with Cancel and Stop cluster buttons on the bottom.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-stop-confirm.png)
    + If you want to start the cluster, and the cluster is stopped, choose **Start**.  
-![The Actions dropdown list with the Start option selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-start.png)
+![The Actions dropdown list with the Start option selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-start.png)
 
 1. Monitor the status of the elastic cluster. If you started the cluster, you can resume using the cluster when the cluster is *available*. For more information, see [Determining a cluster's status](db-cluster-status.md).   
-![Status column in Clusters table showing available and starting statuses.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-starting-status.png)
+![Status column in Clusters table showing available and starting statuses.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-starting-status.png)
 
 ------
 #### [ Using the AWS CLI ]

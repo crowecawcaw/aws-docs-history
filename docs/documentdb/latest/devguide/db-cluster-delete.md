@@ -27,10 +27,10 @@ To delete a cluster using the AWS Management Console, deletion protection must b
 
 1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. Note that in the Clusters navigation box, the **Cluster identifier** column shows both clusters and instances. Instances are listed underneath clusters, similar to the following screenshot.  
-![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/clusters.png)
+![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/clusters.png)
 
 1. Choose the cluster's name, and select the **Configuration** tab. In the **Cluster details** section, locate **Deletion protection**. If deletion protection is enabled, modify the cluster to disable deletion protection. For information about modifying a cluster, see [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md). 
 

@@ -24,10 +24,10 @@ Unless you specify differently when you create a cluster, your cluster is create
 
    1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
    1. Note that in the **Clusters** navigation box, the column **Cluster Identifier** shows both clusters and instances. Instances are listed underneath clusters. See the following screenshot for reference.  
-![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/clusters.png)
+![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/clusters.png)
 
    1. Choose the cluster that you're interested in.
 
@@ -69,7 +69,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
       + **fips-140-3** — Enables TLS with FIPS. The cluster only accepts secure connections per the requirements of the Federal Information Processing Standards (FIPS) publication 140-3. This is only supported starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these Regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.
       + **tls1.2\+** — Enables TLS version 1.2 and above. This is only supported starting with Amazon DocumentDB 4.0 (engine version 2.0.10980) and Amazon DocumentDB (engine version 3.0.11051).
       + **tls1.3\+** — Enables TLS version 1.3 and above. This is only supported starting with Amazon DocumentDB 4.0 (engine version 2.0.10980) and Amazon DocumentDB (engine version 3.0.11051).  
-![Image of a cluster-specific Modify TLS dialog box.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/modify-tls.png)
+![Image of a cluster-specific Modify TLS dialog box.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/modify-tls.png)
 
    1. Choose **Modify cluster parameter**. The change is applied to each cluster instance when it is rebooted.
 

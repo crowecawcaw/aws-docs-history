@@ -135,7 +135,7 @@ You can retrieve events for your Amazon DocumentDB resources through the Amazon 
 1. In the navigation pane, choose **Events**. The available events appear in a list.
 
 1. Use the **Filter** list to filter the events by type. Enter a term in the text box to further filter your results. For example, the following screenshot shows filtering all Amazon DocumentDB events for *snapshot* events.  
-![Screenshot of the events section showing filtering events for snapshots.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/events-filtering.png)
+![Screenshot of the events section showing filtering events for snapshots.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/events-filtering.png)
 
 ------
 #### [ Using the AWS CLI ]

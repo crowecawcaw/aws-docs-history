@@ -277,7 +277,7 @@ Determine the databases and collections that will exist in your Amazon DocumentD
 
 Migrate each bucket to a different Amazon DocumentDB collection. In this scenario, the Couchbase document `id` value will be used as the Amazon DocumentDB `_id` value.
 
-![Couchbase Server 6.x or earlier buckets to Amazon DocumentDB collections](http://docs.aws.amazon.com/documentdb/latest/devguide/images/buckets-to-collections.png)
+![Couchbase Server 6.x or earlier buckets to Amazon DocumentDB collections](https://docs.aws.amazon.com/documentdb/latest/devguide/images/buckets-to-collections.png)
 
 
 #### Couchbase Server 7.0 or later
@@ -288,7 +288,7 @@ Migrate each bucket to a different Amazon DocumentDB collection. In this scenari
 
 Migrate each collection to a different Amazon DocumentDB collection. In this scenario, the Couchbase document `id` value will be used as the Amazon DocumentDB `_id` value.
 
-![Couchbase Server 7.0 or later collections to Amazon DocumentDB collections](http://docs.aws.amazon.com/documentdb/latest/devguide/images/collections-to-collections.png)
+![Couchbase Server 7.0 or later collections to Amazon DocumentDB collections](https://docs.aws.amazon.com/documentdb/latest/devguide/images/collections-to-collections.png)
 
 
 ## Migration

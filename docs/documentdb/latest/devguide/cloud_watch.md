@@ -194,17 +194,17 @@ To view CloudWatch metrics using the Amazon DocumentDB Management Console, compl
 
 1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the following screenshot.  
-![Clusters table showing how an instance is nested under a cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
+![Clusters table showing how an instance is nested under a cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
 
 1. From the list of instances, choose the name of the instance that you want metrics for. 
 
 1. In the resulting instance summary page, choose the **Monitoring** tab to view graphical representations of your Amazon DocumentDB instance's metrics. Because a graph must be generated for each metric, it might take a few minutes for the **CloudWatch** graphs to populate.
 
    The following image shows the graphical representations of two CloudWatch metrics in the Amazon DocumentDB console, `WriteIOPS` and `ReadIOPS`.  
-![Two line graphs representing the WriteIOPS and ReadIOPS CloudWatch metrics in the Amazon DocumentDB console.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cw-metrics-con.png)
+![Two line graphs representing the WriteIOPS and ReadIOPS CloudWatch metrics in the Amazon DocumentDB console.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cw-metrics-con.png)
 
 ------
 #### [ Using the CloudWatch Management Console ]
@@ -224,7 +224,7 @@ To view CloudWatch metrics using the CloudWatch Management Console, complete the
    1. To graph a metric, select the check box next to the metric. To select all metrics, select the check box in the heading row of the table.
 
    1. To filter by metric, hover over the metric name and select the dropdown arrow next to the metric name. Then, choose **Add to search**, as shown in the following image.  
-![The All metrics tab listing metrics, with a dropdown list appearing for a metric name.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cloudwatch-filter-metrics.png)
+![The All metrics tab listing metrics, with a dropdown list appearing for a metric name.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cloudwatch-filter-metrics.png)
 
 ------
 #### [ Using the AWS CLI ]

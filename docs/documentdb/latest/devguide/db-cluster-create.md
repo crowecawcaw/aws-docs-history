@@ -69,7 +69,7 @@ The following procedures describe how to use the console to launch an Amazon Doc
 
 1. In the navigation pane, choose **Clusters**, and then choose **Create**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. On the **Create Amazon DocumentDB cluster** page, complete the **Configuration** pane.
 
@@ -140,10 +140,10 @@ After a cluster is encrypted, it cannot be unencrypted.
    1. Sign in to the AWS Management Console and open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
    1. In the **Resources** section of the main window, choose **Security groups**.  
-![Image: Resources list highlighting the Security Groups link option.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-ec2-security-groups.png)
+![Image: Resources list highlighting the Security Groups link option.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-ec2-security-groups.png)
 
    1. From the list of security groups locate the security group you used when creating your cluster (it is most likely the *default* security group) and choose the box to the left of the security group's name.  
-![Image: Security groups list highlighting one security group with box selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-ec2-default-sg.png)
+![Image: Security groups list highlighting one security group with box selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-ec2-default-sg.png)
 
    1. From the **Actions** menu, choose **Edit inbound rules** then choose or enter the rule constraints.
 
@@ -165,7 +165,7 @@ After a cluster is encrypted, it cannot be unencrypted.
 If you want to accept the default settings for your cluster, you can skip the following steps and choose **Create cluster**. 
 
 1. Complete the **Network settings** pane.  
-![Screenshot showing the network settings pane and the steps to configure the network settings.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-network-settings.png)
+![Screenshot showing the network settings pane and the steps to configure the network settings.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-network-settings.png)
 
    1. **Virtual Private Cloud (VPC)**—In the list, choose the Amazon VPC that you want to launch this cluster in.
 
@@ -174,14 +174,14 @@ If you want to accept the default settings for your cluster, you can skip the fo
    1. **VPC security groups**—In the list, choose the VPC security group for this cluster.
 
 1. Complete the **Cluster options** pane.  
-![Screenshot showing the cluster options pane with the steps to configure the cluster settings.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-cluster-options.png)
+![Screenshot showing the cluster options pane with the steps to configure the cluster settings.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-cluster-options.png)
 
    1. **Data base port**—Use the up and down arrows to set the TCP/IP port that applications will use to connect to your instance.
 
    1. **Cluster parameter group**—In the list of parameter groups, choose the cluster parameter group for this cluster.
 
 1. Complete the **Encryption** pane.  
-![Screenshot of the encryption pane showing the steps to configure encryption for the cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/encrypt-at-rest.png)
+![Screenshot of the encryption pane showing the steps to configure encryption for the cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/encrypt-at-rest.png)
 
    1. **Encryption-at-rest**—Choose one of the following:
       + **Enable encryption**—Default. All data at rest is encrypted. If you choose to encrypt your data, you cannot undo this action.
@@ -192,7 +192,7 @@ If you want to accept the default settings for your cluster, you can skip the fo
       If you chose **Enter a key ARN**, you must enter an Amazon Resource Name (ARN) for the key.
 
 1. Complete the **Backup** pane.  
-![Screenshot of the Backup pane showing the steps to configure the cluster backup window.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-backup.png)
+![Screenshot of the Backup pane showing the steps to configure the cluster backup window.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-backup.png)
 
    1. **Backup retention period**—In the list, choose the number of days to keep automatic backups of this cluster before deleting them.
 
@@ -203,7 +203,7 @@ If you want to accept the default settings for your cluster, you can skip the fo
       1. **Duration**—In the list, choose the number of hours to be allocated to creating automatic backups.
 
 1. Complete the **Log exports** pane by selecting the types of logs you want to export to CloudWatch Logs.  
-![Screenshot of the Log exports pane showing the steps to configure the cluster's DML logging.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-log-exports.png)
+![Screenshot of the Log exports pane showing the steps to configure the cluster's DML logging.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-log-exports.png)
    + **Audit logs**—Select this option to enable exporting audit logs to Amazon CloudWatch Logs. If you select **Audit logs**, you must enable `audit_logs` in the cluster's custom parameter group. For more information, see [Auditing Amazon DocumentDB events](event-auditing.md).
    + **Profiler logs**—Select this option to enable exporting operation profiler logs to Amazon CloudWatch Logs. If you select **Profiler logs**, you must also modify the following parameters in the cluster's custom parameter group:
      + `profiler`—Set to `enabled`.
@@ -213,7 +213,7 @@ If you want to accept the default settings for your cluster, you can skip the fo
      For more information, see [Profiling Amazon DocumentDB operations](profiling.md).
 
 1. Complete the **Maintenance** pane.  
-![Screenshot of the Maintenance pane showing the steps to configure the cluster's maintenance window.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-maintenance.png)
+![Screenshot of the Maintenance pane showing the steps to configure the cluster's maintenance window.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-maintenance.png)
 
    1. Choose one of the following
      + **Select window**—You can specify the day of the week, UTC start time, and duration for Amazon DocumentDB to perform maintenance on your cluster.
@@ -226,7 +226,7 @@ If you want to accept the default settings for your cluster, you can skip the fo
      + **No preference**—Amazon DocumentDB chooses the day of the week, start time, and duration for performing maintenance.
 
 1. If you want to add one or more tags to this cluster, complete the **Tags** pane.  
-![Screenshot of the Enable deletion protection checkbox, which is selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-tags.png)
+![Screenshot of the Enable deletion protection checkbox, which is selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-tags.png)
 
    For each tag you want to add to the cluster, repeat the following steps. You may have up to 10 on a cluster.
 
@@ -239,7 +239,7 @@ If you want to accept the default settings for your cluster, you can skip the fo
    To remove a tag, choose **Remove tag**.
 
 1. **Deletion Protection** is enabled by default when you create a cluster using the console. To disable deletion protection, clear **Enable deletion protection**. When enabled, deletion protection prevents a cluster from being deleted. To delete a deletion protected cluster, you must first modify the cluster to disable deletion protection.  
-![Screenshot of the Enable deletion protection checkbox, which is selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-deletion-protection.png)
+![Screenshot of the Enable deletion protection checkbox, which is selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-db-cluster-console-deletion-protection.png)
 
    For more information about deletion protection, see [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md).
 

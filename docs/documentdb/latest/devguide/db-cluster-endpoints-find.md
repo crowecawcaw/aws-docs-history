@@ -17,10 +17,10 @@ You can find a cluster's cluster endpoint and reader endpoint using the Amazon D
 1. From the list of clusters, choose the name of the cluster you are interested in.
 
 1. On the cluster details page, select the **Configuration** tab. In the **Configurations and status** section, you will find the **Cluster endpoint** and **Reader endpoint**.  
-![Configurations and status section showing the cluster and reader endpoints.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-endpoints.png)
+![Configurations and status section showing the cluster and reader endpoints.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-endpoints.png)
 
 1. To connect to this cluster, select the **Connectivity & security** tab. Locate the connection string for the `mongo` shell and the connection string that can be used in the application code to connect to your cluster.  
-![Connect section showing a string to connect to the instance with the mongo shell and a string to connect to the cluster with an application.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-connection-strings.png)
+![Connect section showing a string to connect to the instance with the mongo shell and a string to connect to the cluster with an application.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-connection-strings.png)
 
 ------
 #### [ Using the AWS CLI ]

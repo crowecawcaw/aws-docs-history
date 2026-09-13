@@ -21,10 +21,10 @@ The following procedure applies patch updates to your cluster's engine version u
 
 1. In the navigation pane, choose **Clusters**. In the list of clusters, choose the button to the left of the cluster that you want to upgrade. The status of the cluster must be *available*.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. From the **Actions** menu, choose one of the following options. These menu options are selectable only if the cluster you chose is not running the latest engine version.  
-![Image: Amazon DocumentDB Upgrade actions](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-upgrade-action.png)
+![Image: Amazon DocumentDB Upgrade actions](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-upgrade-action.png)
    + **Upgrade now**—Immediately initiates the upgrade process. Your cluster will be offline for a time while the cluster is upgraded to the latest engine version.
    + **Upgrade at next window**—Initiates the upgrade process during the cluster's next maintenance window. Your cluster will be offline for a time while it is upgraded to the latest engine version.
 

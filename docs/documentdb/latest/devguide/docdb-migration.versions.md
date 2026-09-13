@@ -96,7 +96,7 @@ An AWS DMS replication instance connects and reads data from your source Amazon 
    +  For **Allocated storage** (GiB), use the default of 50 GiB. If you have a high write throughput workload, increase this value to match your workload.
    + For **Multi-AZ**, choose **Yes** if you need high availability and failover support.
    +  For **Publicly accessible**, enable this option.   
-![Image: Replication instance configuration dialog showing 10 configurable fields and buttons.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/replication-instance-config.png)
+![Image: Replication instance configuration dialog showing 10 configurable fields and buttons.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/replication-instance-config.png)
 
 1. Choose **Create replication instance**.
 
@@ -122,10 +122,10 @@ The source endpoint is used for the source Amazon DocumentDB cluster.
    + For **User name**, enter the primary username of your source Amazon DocumentDB cluster.
    + For **Password**, enter the primary password of your source Amazon DocumentDB cluster.
    + For **Database name**, enter the database name you are looking to upgrade.  
-![Image: An endpoint configuration dialog for the AWS DMS source showing nine configurable fields and drop-down menus.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/endpoint-config.png)
+![Image: An endpoint configuration dialog for the AWS DMS source showing nine configurable fields and drop-down menus.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/endpoint-config.png)
 
 1. Test your connection to verify it was successfully setup.  
-![Image: Test endpoint connection dialog for the AWS DMS source showing two drop-down menus, a test button, and a list of executed tests.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/test-endpoint-config.png)
+![Image: Test endpoint connection dialog for the AWS DMS source showing two drop-down menus, a test button, and a list of executed tests.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/test-endpoint-config.png)
 
 1. Choose **Create Endpoint**.
 
@@ -154,10 +154,10 @@ The target endpoint is for your target Amazon DocumentDB cluster.
    + For **User name**, enter the primary username of your target Amazon DocumentDB cluster.
    + For **Password**, enter the primary password of your target Amazon DocumentDB cluster.
    + For **Database name**, enter the same database name you used to setup your source endpoint.   
-![Image: An endpoint configuration dialog for the AWS DMS target showing nine configuable fields and drop-down menus.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/target-endpoint-config.png)
+![Image: An endpoint configuration dialog for the AWS DMS target showing nine configuable fields and drop-down menus.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/target-endpoint-config.png)
 
 1. Test your connection to verify it was successfully set up.  
-![Image: Test endpoint connection dialog for the AWS DMS target showing two drop-down menus, a test button, and a list of executed tests.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/test-target-endpoint.png)
+![Image: Test endpoint connection dialog for the AWS DMS target showing two drop-down menus, a test button, and a list of executed tests.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/test-target-endpoint.png)
 
 1. Choose **Create Endpoint**.
 
@@ -179,7 +179,7 @@ An AWS DMS task binds the replication instance with your source and target insta
    + For **Source database endpoint**, choose the source endpoint that you created in [Step 5: Create an AWS DMS source endpoint](#docdb-migration.versions-step5).
    + For **Target database endpoint**, choose the target endpoint that you created in [Step 6: Create an AWS DMS target endpoint](#docdb-migration.versions-step6).
    + For **Migration type**, choose **Migrate and replicate**.  
-![Image: Task configuration dialog for the migration task.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/task-config.png)
+![Image: Task configuration dialog for the migration task.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/task-config.png)
 
 1. Enter the following information in the **Task settings** section:
    + For **Target table preparation mode** section, choose **Do nothing**. This will ensure that the indexes created in step 3 will not be dropped.
@@ -189,7 +189,7 @@ An AWS DMS task binds the replication instance with your source and target insta
 
 AWS DMS now begins migrating data from your source Amazon DocumentDB cluster to your target Amazon DocumentDB cluster. The task status should change from Starting to Running. You can monitor the progress by choosing Tasks in the AWS DMS console. After several minutes/hours (depending on the size of your migration), the status should change from to Load complete, replication ongoing. This means that AWS DMS has completed a full load migration of your source Amazon DocumentDB cluster to a target Amazon DocumentDB cluster and is now replicating change events.
 
-![Image: Migration summary dialog.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/migration-load-complete.png)
+![Image: Migration summary dialog.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/migration-load-complete.png)
 
 
 Eventually your source and target will be in sync. You can verify whether they are in sync by running a `count()` operation on your collections to verify all change events have migrated. 

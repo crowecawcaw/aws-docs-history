@@ -22,7 +22,7 @@ In the console, you can enable Performance Insights when you create an Amazon Do
 1. To create a cluster, follow the instructions for [Creating an Amazon DocumentDB cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-create.html)
 
 1. Select **Enable Performance Insights** in the Performance Insights section.  
-![The Performance Insights section with Enable Performance Insights selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/select-performance-insights.png)
+![The Performance Insights section with Enable Performance Insights selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/select-performance-insights.png)
 **Note**  
 The Performance Insights data retention period will be seven days.
 

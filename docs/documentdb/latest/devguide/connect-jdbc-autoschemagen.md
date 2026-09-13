@@ -104,7 +104,7 @@ The *age* field is of type 32-bit integer in the first document but string in th
 
 The following diagram shows the way in which scalar-scalar data type conflicts are resolved.
 
-![Hierarchy diagram showing how conflicting data types will be promoted when they aren't consistent in documents.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/jdbc/scalar-scalar-promotion.png)
+![Hierarchy diagram showing how conflicting data types will be promoted when they aren't consistent in documents.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/jdbc/scalar-scalar-promotion.png)
 
 
 ### Scalar-complex type conflict promotion

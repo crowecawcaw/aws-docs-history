@@ -18,7 +18,7 @@ The topics in this section provide information about the mechanisms and function
 
 Amazon DocumentDB elastic clusters use hash-based sharding to partition data across a distributed storage system. Sharding, also known as partitioning, splits large data sets into small data sets across multiple nodes enabling you to scale out your database beyond vertical scaling limits. Elastic clusters use the separation, or “decoupling,” of compute and storage in Amazon DocumentDB, enabling you to scale independently of each other. Rather than re-partitioning collections by moving small chunks of data between compute nodes, elastic clusters copy data efficiently within the distributed storage system.
 
-![A Amazon DocumentDB elastic cluster contains multiple shards to split large datasets into smaller ones, allowing for improved database scaling.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/shard-architecture.png)
+![A Amazon DocumentDB elastic cluster contains multiple shards to split large datasets into smaller ones, allowing for improved database scaling.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/shard-architecture.png)
 
 
 ### Shard definitions
@@ -35,17 +35,17 @@ Definitions of shard nomenclature:
 
 Create a shard key that has many unique values. A good shard key will evenly partition your data across the underlying shards, giving your workload the best throughput and performance. The following example is employee name data that uses a shard key named "user\_id":
 
-![Data from a dataset is evenly distributed across numerous shards.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/sharding-detail-1.png)
+![Data from a dataset is evenly distributed across numerous shards.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/sharding-detail-1.png)
 
 
 DocumentDB uses hash sharding to partition your data across underlying shards. Additonal data is inserted and distributed the same way:
 
-![Data from a new dataset is distributed across shards via hash sharding.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/sharding-detail-2.png)
+![Data from a new dataset is distributed across shards via hash sharding.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/sharding-detail-2.png)
 
 
 When you scale out your database by adding additional shards, Amazon DocumentDB automatically redistributes the data:
 
-![Data from a dataset is redistributed when additional shards are added to the database.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/sharding-detail-3.png)
+![Data from a dataset is redistributed when additional shards are added to the database.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/sharding-detail-3.png)
 
 
 ## Elastic cluster migration

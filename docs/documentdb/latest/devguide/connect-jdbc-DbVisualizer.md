@@ -23,7 +23,7 @@ To connect to Amazon DocumentDB from DbVisualizer you must first import the Amaz
 1. Choose the **folder** button and then select the Amazon DocumentDB JDBC driver JAR file and choose the **Open** button.
 
 1. Verify that the **Driver Class** field is set to `software.amazon.documentdb.jdbc.DocumentDbDriver`. Your Driver Manager settings for **DocumentDB** should look like the following example.  
-![Driver Settings interface in DbVisualizer with Amazon DocumentDB name, URL format, and driver class configurations inputted.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/jdbc/DbVisualizer-adddriver.jpg)
+![Driver Settings interface in DbVisualizer with Amazon DocumentDB name, URL format, and driver class configurations inputted.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/jdbc/DbVisualizer-adddriver.jpg)
 
 1. Close the dialog. The Amazon DocumentDB JDBC driver will be setup and ready to use.
 
@@ -49,6 +49,6 @@ Connect to Amazon DocumentDB Using DbVisualizer
 1. Set **Database Password** to the corresponding password for the user ID.
 
    Your Database Connection dialog should look like the following dialog:  
-![Database Connection interface with DocumentDB settings.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/jdbc/DbVisualizer-connect.jpg)
+![Database Connection interface with DocumentDB settings.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/jdbc/DbVisualizer-connect.jpg)
 
 1. Choose **Connect**.

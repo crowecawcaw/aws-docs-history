@@ -11,7 +11,7 @@ You can switch your existing database clusters once every 30 days to Amazon Docu
 
 You can create a new database cluster including the Amazon DocumentDB I/O-optimized configuration or convert your existing database clusters with a few clicks in the [AWS Management Console](https://console.aws.amazon.com/docdb/), a single parameter change in the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/), or through [AWS SDKs](https://aws.amazon.com/developer/tools/). There is no downtime or reboot of instances required during or after modifying the storage configuration.
 
-![Image: A table describing the differences between Amazon DocumentDB standard and optimized storage.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/io-diagram-1.png)
+![Image: A table describing the differences between Amazon DocumentDB standard and optimized storage.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/io-diagram-1.png)
 
 
 ## Creating an I/O-optimized cluster
@@ -27,10 +27,10 @@ To create or modify an I/O-optimized cluster using the AWS Management Console:
 1. On the Amazon DocumentDB management console, under **Clusters**, choose either **Create** or select the cluster and choose **Actions**, and then choose **Modify**.
 
 1. If you are creating a new cluster, make sure you choose **Instance Based Cluster** in the **Cluster type** section (this is the default option).  
-![Image: A console screen capture of the cluster type options.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cc-type.png)
+![Image: A console screen capture of the cluster type options.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cc-type.png)
 
 1. In the **Configuration** section, under **Cluster storage configuration**, choose **Amazon DocumentDB I/O-Optimized**.  
-![Image: A console screen capture of the cluster storage configuration options.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/storage-config-1.png)
+![Image: A console screen capture of the cluster storage configuration options.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/storage-config-1.png)
 
 1. Complete your cluster creation or modification and choose **Create cluster** or **Modify cluster**.
 

@@ -81,7 +81,7 @@ To find an ARN using the console, navigate to the resource that you want an ARN 
 
 For example, you can get the ARN for a cluster by selecting the **Configuration** tab on the cluster details page. The ARN can be found in the **Configurations and status** section, as shown in the following screenshot.
 
-![Console screenshot showing an ARN in the configurations and status section of the details pane.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/documentdb-arn.png)
+![Console screenshot showing an ARN in the configurations and status section of the details pane.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/documentdb-arn.png)
 
 
 ------

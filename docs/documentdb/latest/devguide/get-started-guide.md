@@ -67,10 +67,10 @@ In this step you will create an Amazon DocumentDB cluster.
 1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb).
 
 1. On the Amazon DocumentDB management console, under **Clusters**, choose **Create**.  
-![Empty Clusters dashboard with options to create a new cluster and manage resources.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-start.png)
+![Empty Clusters dashboard with options to create a new cluster and manage resources.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-start.png)
 
 1. On the Create Amazon DocumentDB cluster page, in the **Cluster type** section, choose **Instance-based cluster** (this is the default option).  
-![Cluster type selection with Instance Based Cluster option highlighted and both cluster types described.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-type.png)
+![Cluster type selection with Instance Based Cluster option highlighted and both cluster types described.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-type.png)
 **Note**  
 The other option in this category is **Elastic cluster**. To learn more about Amazon DocumentDB elastic clusters, see [Using Amazon DocumentDB Elastic Clusters](docdb-using-elastic-clusters.md)
 
@@ -79,10 +79,10 @@ The other option in this category is **Elastic cluster**. To learn more about Am
    1. For **Cluster identifier**, enter a unique name, such as **mydocdbcluster**. Note that the console will change all cluster names into lower-case regardless of how they are entered.
 
    1. For **Engine version**, choose **5.0.0**.  
-![Configuration form for a database cluster with fields for identifier and engine version.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-config.png)
+![Configuration form for a database cluster with fields for identifier and engine version.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-config.png)
 
 1. In the **Cluster storage configuration** section, choose **Amazon DocumentDB Standard** (this is the default option).  
-![Storage type selection with Amazon DocumentDB Standard option highlighted and both storage types described.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-storage.png)
+![Storage type selection with Amazon DocumentDB Standard option highlighted and both storage types described.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-storage.png)
 **Note**  
 The other option in this category is **Amazon DocumentDB I/O-Optimized**. To learn more about either option, see [Amazon DocumentDB cluster storage configurations](db-cluster-storage-configs.md)
 
@@ -95,15 +95,15 @@ The other option in this category is **Amazon DocumentDB I/O-Optimized**. To lea
    1. For **Instance class**, choose **db.t3.medium**. This is eligible for the AWS free trial.
 
    1. For **Number of instances**, choose **1** instance. Choosing one instance helps minimize costs. If this were a production system, we would recommend that you provision three instances for high availability.  
-![Configuration form for a database instance with fields for the DB instance class, the supported instance class, and the number of instances.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/instance-config.png)
+![Configuration form for a database instance with fields for the DB instance class, the supported instance class, and the number of instances.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/instance-config.png)
 
 1. In the **Connectivity** section, leave the default setting of **Don't connect to an EC2 compute resource**.  
-![Connectivity settings for database with options to connect or not connect to an EC2 compute resource.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-connectivity-no-ec2.png)
+![Connectivity settings for database with options to connect or not connect to an EC2 compute resource.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-connectivity-no-ec2.png)
 
 1. In the **Authentication** section, enter a username for the primary user, and then choose **Self managed**. Enter a password, then confirm it.
 
    If you instead chose **Managed in AWS Secrets Manager**, see [Password management with Amazon DocumentDB and AWS Secrets Manager](docdb-secrets-manager.md) for more information.  
-![Authentication type selection with Managed in AWS Secrets Manager option highlighted and both authentication types described.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-auth-self.png)
+![Authentication type selection with Managed in AWS Secrets Manager option highlighted and both authentication types described.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/cluster-auth-self.png)
 
 1. Leave all other options as default and choose **Create cluster**.
 
@@ -118,15 +118,15 @@ For information about cluster status values, see [Cluster status values](monitor
 Connect to your Amazon DocumentDB cluster using AWS CloudShell.
 
 1. On the Amazon DocumentDB management console, under **Clusters**, locate the cluster you created. Choose your cluster by clicking the check box next to it.  
-![Amazon DocumentDB cluster management interface showing a regional cluster with primary instance details](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-connect-cloud-shell.png)
+![Amazon DocumentDB cluster management interface showing a regional cluster with primary instance details](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-connect-cloud-shell.png)
 
 1. Choose **Connect to cluster** (which is next to the **Actions** dropdown menu). This button is enabled only after you have clicked the checkbox next to your cluster, and the status of both the regional cluster and primary instance(s) show as **Available**. The CloudShell **Run command** screen appears.
 
 1. In the **New environment name** field, enter a unique name, such as "test" and choose **Create and run**. VPC environment details are automatically configured for your Amazon DocumentDB database.  
-![Cluster cluster CloudShell Run command screen requesting new environment name](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-run-command.png)
+![Cluster cluster CloudShell Run command screen requesting new environment name](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-run-command.png)
 
 1. When prompted, enter the password you created in Step 1: Create an Amazon DocumentDB cluster (sub-step 7).  
-![Cluster CloudShell screen requesting user password](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-cs-password.png)
+![Cluster CloudShell screen requesting user password](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec-gs-cs-password.png)
 
    After you enter your password and your prompt becomes `rs0 [direct: primary] <env-name>>`, you are successfully connected to your Amazon DocumentDB cluster.
 

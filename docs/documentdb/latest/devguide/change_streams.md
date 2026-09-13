@@ -489,7 +489,7 @@ You can modify the change stream log retention duration to be between 1 hour and
 
 1. In the navigation pane, choose **Parameter groups **.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the **Parameter groups** pane, choose the cluster parameter group that is associated with your cluster. To identify the cluster parameter group that is associated with your cluster, see [Determining an Amazon DocumentDB cluster's parameter group](cluster_parameter_groups-describe.md#cluster_parameter_groups-determine). 
 

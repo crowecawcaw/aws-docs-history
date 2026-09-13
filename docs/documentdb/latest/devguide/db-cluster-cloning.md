@@ -56,19 +56,19 @@ An Amazon DocumentDB cluster stores data in pages in the underlying Amazon Docum
 
 For example, in the following diagram you can find an Amazon DocumentDB cluster (A) that has four data pages, 1, 2, 3, and 4. Imagine that a clone, B, is created from the Amazon DocumentDB cluster. When the clone is created, no data is copied. Rather, the clone points to the same set of pages as the source Amazon DocumentDB cluster.
 
-![Amazon DocumentDB cluster volume with 4 pages for source cluster, A, and clone, B](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-copy-on-write-protocol-1.png)
+![Amazon DocumentDB cluster volume with 4 pages for source cluster, A, and clone, B](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-copy-on-write-protocol-1.png)
 
 
 When the clone is created, no additional storage is usually needed. The copy-on-write protocol uses the same segment on the physical storage media as the source segment. Additional storage is required only if the capacity of the source segment isn't sufficient for the entire clone segment. If that's the case, the source segment is copied to another physical device. 
 
 In the following diagrams, you can find an example of the copy-on-write protocol in action using the same cluster A and its clone, B, as shown preceding. Let's say that you make a change to your Amazon DocumentDB cluster (A) that results in a change to data held on page 1. Instead of writing to the original page 1, Amazon DocumentDB creates a new page 1[A]. The Amazon DocumentDB cluster volume for cluster (A) now points to page 1[A], 2, 3, and 4, while the clone (B) still references the original pages. 
 
-![Amazon DocumentDB source DB cluster volume and its clone, both with changes.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-copy-on-write-protocol-2.png)
+![Amazon DocumentDB source DB cluster volume and its clone, both with changes.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-copy-on-write-protocol-2.png)
 
 
 On the clone, a change is made to page 4 on the storage volume. Instead of writing to the original page 4, Amazon DocumentDB creates a new page, 4[B]. The clone now points to pages 1, 2, 3, and to page 4[B], while the cluster (A) continues pointing to 1[A], 2, 3, and 4. 
 
-![Amazon DocumentDB source DB cluster volume and its clone, both with changes.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-copy-on-write-protocol-3.png)
+![Amazon DocumentDB source DB cluster volume and its clone, both with changes.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-copy-on-write-protocol-3.png)
 
 
 As more changes occur over time in both the source Amazon DocumentDB cluster volume and the clone, more storage is needed to capture and store the changes. 
@@ -101,7 +101,7 @@ Creating a clone using the AWS Management Console results in an Amazon DocumentD
 1. In the navigation pane, choose **Clusters**. 
 
 1. Choose your Amazon DocumentDB cluster from the list, and for **Actions**, choose **Create clone**.  
-![Creating a clone starts by selecting your Amazon DocumentDB cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-create-clone-1.png)
+![Creating a clone starts by selecting your Amazon DocumentDB cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-create-clone-1.png)
 
    The Create clone page opens, where you can configure a **Cluster identifier** and an **Instance class**, and other options for the Amazon DocumentDB cluster clone. 
 
@@ -110,15 +110,15 @@ Creating a clone using the AWS Management Console results in an Amazon DocumentD
    1. For **Cluster identifier**, enter the name that you want to give to your cloned Amazon DocumentDB cluster.
 
    1. For **Instance configuration**, select an appropriate **Instance class** for your cloned Amazon DocumentDB cluster.  
-![Creating a clone starts by selecting your Amazon DocumentDB cluster and specifying a DB instance size.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-create-clone-2.png)
+![Creating a clone starts by selecting your Amazon DocumentDB cluster and specifying a DB instance size.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-create-clone-2.png)
 
    1.  For **Network settings**, choose a **Subnet group** for your use case and the associated VPC security groups. 
 
    1.  For **Encryption-at-rest**, if the source cluster (the cluster that is being cloned) has encryption enabled, the cloned cluster must also have encryption enabled. If this scenario is true, then the **Enable encryption** options are grayed out (disabled) but with the **Enable encryption** choice selected. Conversely, if the source cluster does not have encryption enabled, the **Enable encryption** options are available and you can choose to enable or disable encryption.   
-![Specify network and encryption settings for your Amazon DocumentDB cluster clone.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-create-clone-3-nw-encryption.png)
+![Specify network and encryption settings for your Amazon DocumentDB cluster clone.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-create-clone-3-nw-encryption.png)
 
    1. Complete the new cluster clone configuration by selecting the type of logs to export (optional), entering a specific port used to connect to the cluster, and enabling protection from accidentally deleting the cluster (enabled by default).  
-![Complete the new clone configuration by optionally selecting the type of logs to export, a specific port used to connect to the cluster, and protection form accidentally deleting the cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-create-clone-4-log-options-del-prot-b.png)
+![Complete the new clone configuration by optionally selecting the type of logs to export, a specific port used to connect to the cluster, and protection form accidentally deleting the cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cloning-create-clone-4-log-options-del-prot-b.png)
 
    1. Finish entering all settings for your Amazon DocumentDB cluster clone. To learn more about Amazon DocumentDB cluster and instance settings, see [Managing Amazon DocumentDB clusters](db-clusters.md). 
 

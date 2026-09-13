@@ -22,7 +22,7 @@ To describe the details of a given cluster parameter group, complete the followi
 
 1. In the navigation pane, choose **Parameter groups**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the **Cluster parameter groups** pane, select the name of the parameter group that you want to see the details of.
 
@@ -158,7 +158,7 @@ To determine which parameter group is associated with a particular cluster, comp
 1. In the list of clusters, select the name of the cluster you are interested in.
 
 1. The resulting page shows the details of the cluster that you selected. Scroll down to **Cluster details**. At the bottom of that section, locate the parameter group's name below **Cluster parameter group**.  
-![Screenshot: Showing a cluster's parameter group.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-determine-parameter-group.png)
+![Screenshot: Showing a cluster's parameter group.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-determine-parameter-group.png)
 
 ------
 #### [ Using the AWS CLI ]

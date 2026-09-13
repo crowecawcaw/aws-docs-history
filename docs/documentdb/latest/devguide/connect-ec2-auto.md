@@ -35,17 +35,17 @@ The following process assume you have completed the steps in the [Prerequisites]
 In this step, you will create an Amazon EC2 instance in the same Region and Amazon VPC that you will later use to provision your Amazon DocumentDB cluster. 
 
 1. On the Amazon EC2 console, choose **Launch instance**.  
-![The Launch instance section on the Amazon EC2 console.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/launch-instance.png)
+![The Launch instance section on the Amazon EC2 console.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/launch-instance.png)
 
 1. Enter a name or identifier in the **Name** field located in the **Name and tags** section.
 
 1. In the **Amazon Machine Image (AMI)** drop-down list, locate **Amazon Linux 2 AMI** and choose it.  
-![The Application and OS Images interface with the Amazon Linux 2 AMI option selected in the Quick Start section.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/linux2-ami.png)
+![The Application and OS Images interface with the Amazon Linux 2 AMI option selected in the Quick Start section.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/linux2-ami.png)
 
 1. Locate and choose **t3.micro** in the **Instance type** drop-down list.
 
 1. In the **Key pair (login)** section, enter the identifier of an existing key-pair, or choose **Create new key pair**.  
-![The Key pair interface showing the key pair name field and the Create new key pair option.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/key-pair.png)
+![The Key pair interface showing the key pair name field and the Create new key pair option.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/key-pair.png)
 
    You must provide an Amazon EC2 key pair.
    + If you do have an Amazon EC2 key pair:
@@ -62,12 +62,12 @@ In this step, you will create an Amazon EC2 instance in the same Region and Amaz
      1. Choose the **Key pair type** and **Private key file format**. 
 
      1. Choose **Create key pair**.  
-![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/create-key-pair.png)
+![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/create-key-pair.png)
 **Note**  
 For security purposes, we highly recommend using a key-pair for both SSH and internet connectivity to your EC2 instance.
 
 1. **Optional:** In the **Network settings section**, under **Firewall (security groups)**, choose **Create security group**.  
-![The Network settings interface showing options for creating a security group.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/firewall.png)
+![The Network settings interface showing options for creating a security group.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/firewall.png)
 
    Choose **Create security group** (check all the traffic allow rules that apply to your EC2 connectivity).
 **Note**  
@@ -98,10 +98,10 @@ While the Amazon EC2 instance is being provisioned, create your Amazon DocumentD
      The other instance option is **NVMe-backed classes**. To learn more, see [NVMe-backed instances](db-instance-nvme.md).
    + For **Instance class**, choose the instance type that suits your needs. For a more detailed explanation of instance classes, see [Instance class specifications](db-instance-classes.md#db-instance-class-specs).
    + For **number of instances**, choose a number that best reflects your needs. Remember, the lower the number, the lower the cost, and the lower the read/write volume that can be managed by the cluster.  
-![Configuration interface with default values for cluster identifier, engine version, and instance class, with number of instances set to one.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/instance-config.png)
+![Configuration interface with default values for cluster identifier, engine version, and instance class, with number of instances set to one.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/create-cluster/instance-config.png)
 
 1. For **Connectivity**, choose **Connect to an EC2 compute resource**. This is the EC2 instance you created in Step 1.  
-![Connectivity interface with the Connect to an EC2 compute resource option selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2-connect.png)
+![Connectivity interface with the Connect to an EC2 compute resource option selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2-connect.png)
 **Note**  
 Connecting to an EC2 compute resource automatically creates a security group for your EC2 compute resource connection to your Amazon DocumentDB cluster. When you have completed creating your cluster and you want to see the newly created security group, navigate to the cluster list and choose your cluster's identifier. In the **Connectivity & security** tab, go to **Security Groups** and find your group under **Security group name (ID)**. It will contain the name of your cluster and look similar to this: `docdb-ec2-docdb-2023-12-11-21-33-41:i-0e4bb09985d2bbc4c (sg-0238e0b0bf0f73877)`.
 
@@ -117,13 +117,13 @@ Connecting to an EC2 compute resource automatically creates a security group for
 To install the mongo shell, you must first connect to your Amazon EC2 instance. Installing the mongo shell enables you to connect to and query your Amazon DocumentDB cluster. Complete the following steps:
 
 1. On the Amazon EC2 console, navigate to your instances and see if the instance you just created is running. If it is, select the instance by clicking the instance ID.  
-![Instances table listing two instances in the Amazon EC2 console.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/ec2-instance-table.png)
+![Instances table listing two instances in the Amazon EC2 console.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/ec2-instance-table.png)
 
 1. Choose **Connect**.  
-![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/ec2-instance-summary.png)
+![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/ec2-instance-summary.png)
 
 1. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console. You must choose one and follow its instructions. When complete, choose **Connect**.  
-![Interface showing configuration options for the EC2 Instance Connect connection method.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/connect-options.png)
+![Interface showing configuration options for the EC2 Instance Connect connection method.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/connect-options.png)
 
 **Note**  
 If your IP address changed after you started this walk-through, or you are coming back to your environment at a later time, you must update your `demoEC2` security group inbound rule to enable inbound traffic from your new API address.
@@ -231,7 +231,7 @@ Transport Layer Security (TLS) is enabled by default for any new Amazon Document
 1. On the Amazon DocumentDB console, under **Clusters**, locate your cluster. Choose the cluster you created by clicking the **Cluster identifier** for that cluster.
 
 1. In the **Connectivity and security** tab, locate **Connect to this cluster with the mongo shell** in the **Connect** box:  
-![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/connect-mongosh.png)
+![Cluster connect settings with highlighted MongoDB connection string for connecting to an Amazon DocumentDB cluster using the mongo shell.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/connect-mongosh.png)
 
    Copy the connection string provided and paste it into your terminal.
 
@@ -373,30 +373,30 @@ The following procedure assumes you have an existing Amazon DocumentDB cluster a
 
    1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
    1. Specify the cluster that you want by choosing the button to the left of the cluster's name.
 
 1. Set up the Amazon EC2 connection.
 
    1. Choose **Actions**, and then choose **Set up EC2 connection**.  
-![The Actions dropdown list with the Set up EC2 connection option selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/setup-ec2-connect.png)
+![The Actions dropdown list with the Set up EC2 connection option selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/setup-ec2-connect.png)
 
       The **Set up EC2 connection** dialog appears.
 
    1. In the **EC2 instance** field, choose the EC2 instance you want connected to your cluster.  
-![The Set up EC2 connection interface with the EC2 instance dropdown list highlighted.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/setup-ec2-connect-dialog.png)
+![The Set up EC2 connection interface with the EC2 instance dropdown list highlighted.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/setup-ec2-connect-dialog.png)
 
    1. Choose **Continue**.
 
       The **Review and confirm** dialog appears.
 
    1. Make sure the changes are correct. Then choose **Set up connection**.  
-![The Review and confirm interface showing summary of changes. The Set up connection button is in the lower-right corner.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/setup-ec2-review-confirm.png)
+![The Review and confirm interface showing summary of changes. The Set up connection button is in the lower-right corner.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/setup-ec2-review-confirm.png)
 
 If successful, the following verification appears:
 
-![Confirmation message for a successful connection setup between the Amazon DocumentDB database and the EC2 instance.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/setup-ec2-connect-success.png)
+![Confirmation message for a successful connection setup between the Amazon DocumentDB database and the EC2 instance.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ec2/setup-ec2-connect-success.png)
 
 
 ## Overview of automatic connectivity with an EC2 instance

@@ -18,15 +18,15 @@ You can use the AWS Management Console to determine whether a cluster has pendin
 
 1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. Locate the **Maintenance** column to determine whether a cluster has pending maintenance.  
-![Console screenshot showing Amazon DocumentDB cluster maintenance field.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-cluster-pending-maintenance.png)
+![Console screenshot showing Amazon DocumentDB cluster maintenance field.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-cluster-pending-maintenance.png)
 
     **None** indicates that the cluster is running the latest engine patch version and its instances have the latest OS updates. **Available** indicates that the cluster has pending maintenance, which might mean that an engine upgrade or OS update is needed. 
 
 1. If your cluster has pending maintenance, you can view the pending maintenance actions by choosing the cluster name and selecting the **Maintenance & backups** tab. The **Pending Maintenance** section lists the pending maintenance actions.   
-![The Amazon DocumentDB Maintenance and backups tab showing the system-update maintenance action for a cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-maint-3.png)
+![The Amazon DocumentDB Maintenance and backups tab showing the system-update maintenance action for a cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-maint-3.png)
 
 ------
 #### [ Using the AWS CLI ]

@@ -29,7 +29,7 @@ The following AWS Management Console configuration example shows how to create a
 
 1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
    The **Clusters** table appears.
 
@@ -56,7 +56,7 @@ The other option in this category is **Amazon DocumentDB I/O-Optimized**. To lea
    1. For **Number of regular replica instances**, choose **3** (this is the default option).
 
    1. In the **Capacity range** section, leave the default values for **Minimum DCUs** and **Maximum DCUs**. For information on setting these parameters, see [Amazon DocumentDB serverless instance limits](docdb-serverless-instance-limits.md).  
-![Configuration form for a serverless database cluster with fields for instance class, replica instances and capacity range.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/instance-config-serverless.png)
+![Configuration form for a serverless database cluster with fields for instance class, replica instances and capacity range.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/instance-config-serverless.png)
 
 1. In the **Connectivity** section, leave the default setting of **Don't connect to an EC2 compute resource**.
 

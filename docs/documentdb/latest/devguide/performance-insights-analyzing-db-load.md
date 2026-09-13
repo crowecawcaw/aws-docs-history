@@ -21,7 +21,7 @@ You can also see which hosts or applications are contributing the most load by s
 
 For example, in the following dashboard, **CPU** waits account for most of the DB load. Selecting the top query under **Top queries** will scope the Database load chart to focus on the most load that is being contributed by the select query.
 
-![Database load chart showing CPU usage spike. A corresponding Top queries tab shows queries contributing the most to wait states.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/db-load-1.png)
+![Database load chart showing CPU usage spike. A corresponding Top queries tab shows queries contributing the most to wait states.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/db-load-1.png)
 
 
-![Database load chart showing CPU usage spike for the query contributing the most to wait states. A corresponding Top queries tab shows that query's child queries.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/db-load-2.png)
+![Database load chart showing CPU usage spike for the query contributing the most to wait states. A corresponding Top queries tab shows that query's child queries.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/performance-insights/db-load-2.png)

@@ -29,7 +29,7 @@ The following procedure shows you how to stop a cluster with one or more instanc
 
 1. In the navigation pane, choose **Clusters**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the list of clusters, choose the button to the left of the name of the cluster that you want to stop or start.
 
@@ -37,17 +37,17 @@ If you don't see the navigation pane on the left side of your screen, choose the
    + If you want to stop the cluster and the cluster is available:
 
      1. Choose **Stop**.  
-![Image: Stop a cluster](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-stop.png)
+![Image: Stop a cluster](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-stop.png)
 
         To avoid activating the failover mechanism, the stop operation stops the replica instances first, and then the primary instance.
 
      1. On the confirmation dialog, confirm that you want to stop the cluster by choosing **Stop cluster**, or to keep the cluster running, choose **Cancel**.  
-![Image: Start a cluster](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-stop-confirm.png)
+![Image: Start a cluster](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-stop-confirm.png)
    + If you want to start the cluster, and the cluster is stopped, choose **Start**.  
-![Image: Start a cluster](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-start.png)
+![Image: Start a cluster](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-start.png)
 
 1. Monitor the status of the cluster and its instances. If you started the cluster, you can resume using the cluster when the cluster and its instances are *available*. For more information, see [Determining a cluster's status](db-cluster-status.md).   
-![Image: Status of clusters stopping and starting](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-stop-start-status.png)
+![Image: Status of clusters stopping and starting](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-stop-start-status.png)
 
 ------
 #### [ Using the AWS CLI ]

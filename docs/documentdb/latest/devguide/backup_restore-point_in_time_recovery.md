@@ -20,7 +20,7 @@ You can restore a cluster to a point-in-time within its backup retention period 
 
 1. In the navigation pane, choose **Clusters**. In the list of clusters, choose the button to the left of the cluster that you want to restore.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. On the **Actions** menu, choose **Restore to point in time**.
 

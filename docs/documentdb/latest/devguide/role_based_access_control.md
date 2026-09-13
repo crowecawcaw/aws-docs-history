@@ -41,12 +41,12 @@ In this example:
 + `pwd: "abc123"` — Indicates the user password.
 + `role: "read", "db: "sample-database"` — Indicates that the user `sample-user` will have read permissions in `sample-database`.
 
-![Code example showing a createUser command indicating user name, password, and permissions.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/rbac-createuser-command.png)
+![Code example showing a createUser command indicating user name, password, and permissions.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/rbac-createuser-command.png)
 
 
 The following example shows the output after you get the user `sample-user` with `db.getUser(sample-user)`. In this example, the user `sample-user` resides in the `admin` database but has the read role for the database `sample-database`.
 
-![Code output example showing the result of the createUser command defining the new user ID, the admin database the new user is assigned to, and role permissions applied to the user.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/rbac-createuser-output-json.png)
+![Code output example showing the result of the createUser command defining the new user ID, the admin database the new user is assigned to, and role permissions applied to the user.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/rbac-createuser-output-json.png)
 
 
 When creating users, if you omit the `db` field when specifying the role, Amazon DocumentDB will implicitly attribute the role to the database in which the connection is being issued against. For example, if your connection is issued against the database `sample-database` and you run the following command, the user `sample-user` will be created in the `admin` database and will have `readWrite` permissions to the database `sample-database`.

@@ -27,15 +27,15 @@ To determine the instance class for your cluster's instances, complete the follo
 
 1. In the navigation pane, choose **Clusters **to find the instance that you're interested in. 
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the following screenshot.  
-![Clusters table showing how an instance is nested under a cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
+![Clusters table showing how an instance is nested under a cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/choose-clusters.png)
 
 1. In the list of instances, expand the cluster to find the instances you are interested in. Find the instance that you want. Then, look at the **Size** column of the instance's row to see its instance class.
 
    In the following image, the instance class for instance `robo3t` is `db.r5.4xlarge`.  
-![List of instances in the Clusters table with the Size column showing the instance type.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/instance-class.png)
+![List of instances in the Clusters table with the Size column showing the instance type.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/instance-class.png)
 
 ------
 #### [ Using the AWS CLI ]

@@ -32,7 +32,7 @@ Use the following steps to create an Amazon DocumentDB subnet group.
 
 1. In the navigation pane, choose **Subnet groups**, then choose **Create**.
 **Tip**  
-If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
 
 1. On the **Create subnet group** page:
 
@@ -57,7 +57,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
            1. Choose **Add subnet**.
 
 1. Choose **Create**. When the subnet group is created, it is listed with your other subnet groups.  
-![Screenshot: Showing the details of a subnet group.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-subnet-groups-list.png)
+![Screenshot: Showing the details of a subnet group.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-subnet-groups-list.png)
 
 ------
 #### [ Using the AWS CLI ]

@@ -48,13 +48,13 @@ You can remove clusters from your global cluster using the AWS Management Consol
 1. Sign in to the AWS Management Console and navigate to the Amazon DocumentDB console.
 
 1. Choose **Clusters** on the left side navigation.  
-![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/choose-cluster.png)
+![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/choose-cluster.png)
 
 1. Expand the global cluster so you can see all the secondary clusters. Select the secondary clusters you wish to remove. Choose **Actions**, and in the menu that drops down, choose **Remove from Global**.  
-![Image: the Clusters navigation box showing the selection of an existing secondary cluster and highlighting the "Remove from global" action.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/remove-global.png)
+![Image: the Clusters navigation box showing the selection of an existing secondary cluster and highlighting the "Remove from global" action.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/remove-global.png)
 
 1. A prompt will appear, asking you to confirm that you want to detach the secondary from the global cluster. Choose **Remove and promote** to remove the cluster from the global cluster.  
-![Image: the Remove and promote prompt.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/remove-promote.png)
+![Image: the Remove and promote prompt.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/remove-promote.png)
 
 Now that cluster is no longer serving as a secondary and no longer synchronized with the primary cluster. It is a standalone cluster with full read/write capability.
 
@@ -118,10 +118,10 @@ To delete a global cluster, do the following:
 1. Sign in to the AWS Management Console and navigate to the Amazon DocumentDB console.
 
 1. Choose **Clusters** and find the global cluster you want to delete.  
-![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/choose-cluster.png)
+![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/choose-cluster.png)
 
 1. With your global cluster selected, choose **Delete** from the **Actions** menu.  
-![Image: the Clusters navigation box showing the selection of a global cluster and highlighting the "Delete" action.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/delete-cluster.png)
+![Image: the Clusters navigation box showing the selection of a global cluster and highlighting the "Delete" action.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/global-clusters/delete-cluster.png)
 
 Confirm that all clusters are removed from the global cluster. The global cluster should show zero Regions and AZs and a size of zero clusters. If the global cluster contains any clusters, you can't delete it yet. You’ll first have to follow the instructions in the previous step, **[Removing a cluster from an Amazon DocumentDB global cluster](#global-clusters.remove)**.
 

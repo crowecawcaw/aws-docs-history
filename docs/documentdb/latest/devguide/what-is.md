@@ -43,7 +43,7 @@ If you are new to AWS services, use the following resources to learn more:
 
 A *cluster* consists of 0 to 16 instances and a cluster storage volume that manages the data for those instances. All writes are done through the primary instance. All instances (primary and replicas) support reads. The cluster's data is stored in the cluster volume with copies in three different Availability Zones.
 
-![Amazon DocumentDB cluster containing primary instance in Availability Zone 1, writing to cluster volume for replicas in zones 2 and 3.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/how-it-works-01c.png)
+![Amazon DocumentDB cluster containing primary instance in Availability Zone 1, writing to cluster volume for replicas in zones 2 and 3.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/how-it-works-01c.png)
 
 
 Amazon DocumentDB 5.0 instance-based clusters support two storage configurations for a database cluster: Amazon DocumentDB standard and Amazon DocumentDB I/O-optimized. For more information see [Amazon DocumentDB cluster storage configurations](db-cluster-storage-configs.md).
@@ -123,7 +123,7 @@ AWS Cloud computing resources are housed in highly available data center facilit
 
 Each AWS Region is designed to be completely isolated from the other AWS Regions. Within each are multiple Availability Zones. By launching your nodes in different Availability Zones, you can achieve the greatest possible fault tolerance. The following diagram shows a high-level view of how AWS Regions and Availability Zones work.
 
-![Amazon DocumentDB high-level view of AWS Regions and Availability Zones.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-regions-and-azs.png)
+![Amazon DocumentDB high-level view of AWS Regions and Availability Zones.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-regions-and-azs.png)
 
 
 ### Availability zones

@@ -38,7 +38,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 1. Choose **Modify**.
 
 1. Edit the fields you want changed and then select **Modify cluster**.  
-![Form showing configuration, maintenance, authentication, and network settings options that can be modified, with Modify cluster button in the bottom-right corner.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-shard-modify-3.png)
+![Form showing configuration, maintenance, authentication, and network settings options that can be modified, with Modify cluster button in the bottom-right corner.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-shard-modify-3.png)
 
 **Note**  
 Alternatively, you can access the **Modify cluster** dialog by going to the **Clusters** page, checking the box next to your cluster, choosing **Actions**, then **Modify**.
@@ -114,7 +114,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 1. Choose the name of the cluster you want to monitor in the **Cluster identifier** column.
 
 1. Choose the **Monitoring** tab.  
-![Elastic cluster summary information shown in the Monitoring tab.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-shard-monitor-2.png)
+![Elastic cluster summary information shown in the Monitoring tab.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-shard-monitor-2.png)
 
 A number of charts from Amazon CloudWatch are displayed for the following monitoring categories:
 + Resource Utilization
@@ -231,7 +231,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 1. In the cluster list table, select the check box to the left of the cluster name you want to delete and then choose **Actions**. From the dropdown menu, choose **Delete**.
 
 1. In the **Delete "cluster-name" elastic cluster?** dialog box, choose **Delete**.  
-![Delete dialog box, with Delete button in the lower-right corner.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-delete-dialog.png)
+![Delete dialog box, with Delete button in the lower-right corner.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-delete-dialog.png)
 
 It takes several minutes for the cluster to be deleted. To monitor the status of the cluster, see [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md).
 

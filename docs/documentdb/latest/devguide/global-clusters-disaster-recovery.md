@@ -59,19 +59,19 @@ You can fail over your Amazon DocumentDB global cluster using the AWS Management
 1. In the navigation pane, choose **Clusters**.
 
 1. Find and choose the Amazon DocumentDB global cluster you want to fail over.  
-![Image: Cluster table with global cluster selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/failover-cluster-table.png)
+![Image: Cluster table with global cluster selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/failover-cluster-table.png)
 
 1. Choose **Switchover or Failover** from the **Actions** menu.
 
 1. On the dialog box that appears, choose **Failover**, then choose the secondary cluster from the **New primary cluster** field drop down list.  
-![Image: Global cluster switchover or failover dialog box.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/switch-fail-confirm.png)
+![Image: Global cluster switchover or failover dialog box.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/switch-fail-confirm.png)
 
 1. Type "confirm" in the last field. Then choose **Confirm**.
 
    The status of the primary cluster changes to "**Failing-over**". This condition should take approximately one minute. During this time, the status of the new primary cluster shows "**Modifying...**". Once the new primary is promoted, it will show "**Available**" and will be able to serve read and write transactions. The secondary Regions including the old primary will show "**Resyncing...**" while it resynchronizes to the new primary. Similar to the new primary, it will only be able to serve transaction once the status changes to "**Available**".
 
 1. When complete, the original primary cluster becomes the secondary cluster. The selected secondary cluster becomes the primary cluster.  
-![Image: Cluster table showing new primary cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/failover-complete.png)
+![Image: Cluster table showing new primary cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/failover-complete.png)
 
 ------
 #### [ Using the AWS CLI ]
@@ -189,19 +189,19 @@ You can switch over your Amazon DocumentDB global cluster using the AWS Manageme
 1. In the navigation pane, choose **Clusters**.
 
 1. Find and select the Amazon DocumentDB global cluster you want to switch over.  
-![Image: Cluster table with global cluster selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/switchover-cluster-table.png)
+![Image: Cluster table with global cluster selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/switchover-cluster-table.png)
 
 1. Choose **Switchover or Failover** from the **Actions **menu.
 
 1. On the dialog box that appears, choose **Switchover**, then choose the secondary cluster from the **New primary cluster** field drop down list.  
-![Image: Cluster switch over dialog with secondary cluster selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/switch-fail-confirm-2.png)
+![Image: Cluster switch over dialog with secondary cluster selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/switch-fail-confirm-2.png)
 
 1. Choose **Confirm**.
 
    The status of the primary cluster changes to "**Switching-over**". This condition should take approximately three minutes. During this time, the status of all regional clusters show "**Modifying...**". Once the Regions are synchronized and the new primary is promoted, it will show "**Available**" for all status fields and will be able to serve transactions.
 
 1. When complete, the original primary cluster becomes the secondary cluster. The selected secondary cluster becomes the primary cluster.  
-![Image: Cluster table showing new primary cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/failover-complete.png)
+![Image: Cluster table showing new primary cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/failover-complete.png)
 
 ------
 #### [ Using the AWS CLI ]

@@ -15,17 +15,17 @@
 <a name="data-grip-connect-steps"></a>
 
 1. Launch DataGrip on your computer and create a **New Project**.  
-![DataGrip welcome screen with New Project option highlighted.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/welcome.png)
+![DataGrip welcome screen with New Project option highlighted.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/welcome.png)
 
 1. Add a new data source using one of the following ways:
 
    1. From the main menu, navigate to **File – New – Data Source** and select **DocumentDB**
 
    1. In the **Database Explorer**, choose the new icon (**\+**) in the toolbar. Navigate to **Data Source** and select **DocumentDB**.  
-![The dropdown list for + shows the Data Source submenu. DocumentDB is selected from that submenu.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/explorer.png)
+![The dropdown list for + shows the Data Source submenu. DocumentDB is selected from that submenu.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/explorer.png)
 
 1. On the **Data Sources** page in the **General** tab, check if there is a **Download missing driver files** link at the bottom of the connection settings area. Choose this link to download drivers that are required to interact with a database. For a direct download link, refer to [JetBrains JDBC drivers](https://www.jetbrains.com/datagrip/jdbc-drivers/).  
-![Data Sources and Drivers interface with Download missing driver files link highlighted.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/missing-driver.png)
+![Data Sources and Drivers interface with Download missing driver files link highlighted.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/missing-driver.png)
 
 1. In the **General** tab, specify the connection details:
 
@@ -40,7 +40,7 @@
    1. The **Database** field is optional. You can specify the database to which you want to connect.
 
    1. The **URL** field auto-completes as you add the preceding details.  
-![Host, port, authentication, database, and URL fields in the General tab on the Data Sources and Drivers interface.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/connection.png)
+![Host, port, authentication, database, and URL fields in the General tab on the Data Sources and Drivers interface.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/connection.png)
 
 1. In the **SSH/SSL** tab, enable **Use SSH tunnel**, then choose the icon to open the **SSH Configuration** dialog. Enter the following information:
 
@@ -53,17 +53,17 @@
    1. Enter your **Private key file**.
 **Note**  
 If you’re using the VPN option, there is no need to configure the SSH tunnel.  
-![The SSH/SSL tab in the Data Sources and Drivers interface with Use SSH tunnel selected and the SSH configuration icon highlighted. The icon opens the displayed SSH Configurations interface.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/ssh-tunnel.png)
+![The SSH/SSL tab in the Data Sources and Drivers interface with Use SSH tunnel selected and the SSH configuration icon highlighted. The icon opens the displayed SSH Configurations interface.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/ssh-tunnel.png)
 
 1. In the **SSH/SSL** tab, enable **Use SSL**. In the **CA file** field, enter the location to the `global-bundle.pem` file on your computer. For **Mode**, leave the option **Require**.
 **Note**  
 You can download the certificate from this location or with this command: wget [https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem](https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem)
 **Note**  
 If you are connecting to Amazon DocumentDB elastic cluster, you don’t have to specify the CA file. Leave the **Use SSL** option checked and all the other options at their default values.  
-![SSH/SSL tab in the Data Sources and Drivers interface with SSL settings enabled.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/use-ssl.png)
+![SSH/SSL tab in the Data Sources and Drivers interface with SSL settings enabled.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/use-ssl.png)
 
 1. In the **Schemas** tab, choose **All databases** or enter the filter “\*:\*” in the **Schema pattern** field. Choose **Test Connection** to test the connection.  
-![The Schemas tab in the Data Sources and Drivers interface with the All databases option selected. A Succeeded message appears above the Test Connection link.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/schemas.png)
+![The Schemas tab in the Data Sources and Drivers interface with the All databases option selected. A Succeeded message appears above the Test Connection link.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/schemas.png)
 
 1. Once the connection is successfully tested, choose **OK** to save the data source configuration.
 

@@ -58,7 +58,7 @@ Pending cluster-level engine patches may hide instance OS patches. Apply engine 
 + **Manual snapshot** — Create a manual snapshot before upgrading. The upgrade process creates an automatic snapshot named `preupgrade-<name>-<version>-<timestamp>`, but always create your own backup. See [Creating a manual cluster snapshot](backup_restore-create_manual_cluster_snapshot.md).
 **Note**  
 The auto snapshot created by the upgrade process will not be automatically deleted after the in-place major version upgrade has completed. This snapshot will not incur any charges as long as it is within the retention period. You can choose to delete this snapshot once you have verified a successful upgrade of your cluster.  
-![Image: the Snapshots navigation box showing a table of previously created snapshots.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-snapshot-2.png)
+![Image: the Snapshots navigation box showing a table of previously created snapshots.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-snapshot-2.png)
 
 ## Best practices
 <a name="mvu-best-practices"></a>
@@ -119,7 +119,7 @@ The following events are generated during the upgrade:
 
 Events are visible in the console under the **Events** page:
 
-![Image: the Events navigation box showing a table of upgrade events.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-events-2.png)
+![Image: the Events navigation box showing a table of upgrade events.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-events-2.png)
 
 
 From the AWS CLI, you can run [`aws docdb describe-events`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/describe-events.html) to monitor upgrade progress. To receive notifications automatically, use [`aws docdb create-event-subscription`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/create-event-subscription.html) to subscribe to events and route them to Amazon SNS for email, push messages, or other delivery methods. For more information, see [Subscribing to Amazon DocumentDB events](event-subscriptions.subscribe.md).
@@ -198,19 +198,19 @@ For a full list of functional differences, see [Amazon DocumentDB compatibility 
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1) and open the Amazon DocumentDB console.
 
 1. In the **Clusters** table, select the source cluster, choose **Actions**, and then **Modify**.  
-![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-cluster-table-2.png)
+![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-cluster-table-2.png)
 
 1. In **Cluster specifications**, choose the target version (for example, **5.0.0** or **8.0.0**) from the **Engine version** dropdown.  
-![Image: the Cluster specifications section of the Modify cluster dialog box showing the Cluster indentifier and Engine version fields.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-modify-cluster-2.png)
+![Image: the Cluster specifications section of the Modify cluster dialog box showing the Cluster indentifier and Engine version fields.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-modify-cluster-2.png)
 
 1. In **Cluster options**, select your cluster parameter group for the target engine version. You can use the default (for example, **default.docdb5.0** or **default.docdb8.0**) or a custom parameter group you created.  
-![Image: the Cluster options section of the Modify cluster dialog box showing the Cluster parameter group field.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-param-group-2.png)
+![Image: the Cluster options section of the Modify cluster dialog box showing the Cluster parameter group field.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-param-group-2.png)
 
 1. Choose **Continue**, select your scheduling preference (apply immediately or next maintenance window), then choose **Modify cluster**.  
-![Image: the Modify cluster dialog box showing the summary and scheduling of modification for the selected cluster.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-mod-schedule-2.png)
+![Image: the Modify cluster dialog box showing the summary and scheduling of modification for the selected cluster.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-mod-schedule-2.png)
 
 1. Monitor the cluster status in the clusters table as it changes to **upgrading**:  
-![Image: the Clusters navigation box highlighting the Status column for the cluster being upgraded.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-cluster-upgrading-2.png)
+![Image: the Clusters navigation box highlighting the Status column for the cluster being upgraded.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/mvu-cluster-upgrading-2.png)
 
 ------
 #### [ Using the AWS CLI ]

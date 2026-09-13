@@ -192,7 +192,7 @@ In this step, you create a DB cluster that runs in dual-stack mode. **\!\!\! Not
 1. On the **Create Amazon DocumentDB cluster** page, make sure that the **Instance-based cluster** option is chosen.
 
 1. In the **Connectivity** section, under **Network type**, choose **Dual-stack mode**.  
-![Network type section in the console with Dual-stack mode selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/nw-type-dual-stack.png)
+![Network type section in the console with Dual-stack mode selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/nw-type-dual-stack.png)
 
 1. At the bottom of the page, switch on **Show advanced settings**.
 

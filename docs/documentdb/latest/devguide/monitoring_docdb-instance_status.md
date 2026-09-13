@@ -58,10 +58,10 @@ When using the AWS Management Console to determine the status of a cluster, use 
 1. In the navigation pane, choose **Clusters**.
 **Note**  
 Note that in the Clusters navigation box, the column **Cluster identifier** shows both clusters and instances. Instances are listed underneath clusters, similar to the following image.  
-![List of clusters and instances on the Clusters page in the Amazon DocumentDB console.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/clusters.png)
+![List of clusters and instances on the Clusters page in the Amazon DocumentDB console.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/clusters.png)
 
 1. Find the name of the instance that you are interested in. Then, to find the status of the instance, read across that row to the **Status** column, as shown following.  
-![Status column showing available status for clusters and instances on the Clusters page.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/instance-status.png)
+![Status column showing available status for clusters and instances on the Clusters page.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/instance-status.png)
 
 ------
 #### [ Using the AWS CLI ]
@@ -120,9 +120,9 @@ When using AWS Management Console, use the following steps to understand the ins
 1. In the navigation pane, choose **Clusters**.
 **Note**  
 In the **Clusters** navigation box, the column **Cluster identifier** shows both clusters and instances. Instances are listed underneath clusters, similar to the following image.  
-![List of clusters and instances on the Clusters page in the Amazon DocumentDB console.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/clusters.png)
+![List of clusters and instances on the Clusters page in the Amazon DocumentDB console.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/clusters.png)
 
 1. Find the name of the instance that you are interested in. Then, to find the status of the instance, read across that row to the **Instance health** column, as shown in the following image:  
-![Instance health column showing healthy and unhealthy states for instances listed on the Clusters page.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/health-status-1.png)
+![Instance health column showing healthy and unhealthy states for instances listed on the Clusters page.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/health-status-1.png)
 **Note**  
 Instance health status polling occurs every 60 seconds and is based on the CloudWatch `EngineUptime` system metric. The values in the **Instance health** column are automatically updated.

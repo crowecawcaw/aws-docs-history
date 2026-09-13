@@ -130,7 +130,7 @@ When you create or modify a cluster, you can specify dual-stack mode to allow yo
 
 When you use the AWS Management Console to create or modify a cluster, you can specify dual-stack mode in the **Network type** section. The following image shows the **Network type** section in the console:
 
-![Network type section in the console with Dual-stack mode selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/nw-type-dual-stack.png)
+![Network type section in the console with Dual-stack mode selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/nw-type-dual-stack.png)
 
 
 When you use the AWS CLI to create or modify a cluster, set the `--network-type` option to `DUAL` to use dual-stack mode. When you use the DocumentDB API to create or modify a cluster, set the `NetworkType` parameter to `DUAL` to use dual-stack mode. If dual-stack mode isn't supported by the specified DocumentDB engine version or subnet group, the `NetworkTypeNotSupported` error is returned.
@@ -180,7 +180,7 @@ If you can't connect to the cluster after the change, make sure that the client 
 
    If you are using the console, make sure that the following settings are correct:
    + **Network type** — **Dual-stack mode**  
-![Network type section in the console with Dual-stack mode selected.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/nw-type-dual-stack.png)
+![Network type section in the console with Dual-stack mode selected.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/nw-type-dual-stack.png)
    + **Subnet group** — The subnet group that you configured in a previous step
    + **Security group** — The security that you configured in a previous step
 

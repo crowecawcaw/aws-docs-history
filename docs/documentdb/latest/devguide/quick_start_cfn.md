@@ -101,7 +101,7 @@ This section describes how to launch and configure an Amazon DocumentDB CloudFor
             DeletionProtection: 'true'
       ```
 
-   1. Choose **Create Stack** ( ![Create Stack button.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cfn-create-stack-icon.png)) from the top left corner of the page to save your changes and create a stack with these changes enabled.
+   1. Choose **Create Stack** ( ![Create Stack button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cfn-create-stack-icon.png)) from the top left corner of the page to save your changes and create a stack with these changes enabled.
 
    1. After you save your changes, you will be redirected to the **Create stack** page.
 

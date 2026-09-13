@@ -123,7 +123,7 @@ Choose the lowest-traffic window you can, and adjust over time as your traffic p
 
 When a *required* engine patch becomes available in an AWS Region, every AWS account with an affected Amazon DocumentDB cluster in that Region receives a notification through the Health Dashboard (AHD) and through e-mail (sent to the AWS account's root user address). One notification is delivered per affected Amazon DocumentDB engine version. You can find them under **Scheduled changes** in the AHD. Each notification lists the patch availability timing, the auto-apply schedule, the affected clusters, and the release notes.
 
-![Amazon DocumentDB console showing the Scheduled changes tab for engine patch upgrades.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/scheduled-changes.png)
+![Amazon DocumentDB console showing the Scheduled changes tab for engine patch upgrades.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/scheduled-changes.png)
 
 
 Required engine patches follow a single lead time of approximately 30 days. When a patch becomes available in your Region, Amazon DocumentDB sends the notification described above. At that point, the patch's `AutoAppliedAfterDate` is set to approximately 30 days later. Until that date, the patch stays pending: You can apply it at any time, or defer it by moving your cluster's maintenance window to a later day. On or after the `AutoAppliedAfterDate`, the patch auto-applies during the cluster's next maintenance window.
@@ -172,10 +172,10 @@ The maintenance window controls when pending operations *start*, not how long th
 1. In the navigation pane, choose **Clusters**.
 
 1. The cluster's **Maintenance** column shows **Available**, **Required**, or **Next Window** when an update is pending.  
-![Amazon DocumentDB console showing the Maintenance column for clusters.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-maintenance-updates-status.png)
+![Amazon DocumentDB console showing the Maintenance column for clusters.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/db-cluster-maintenance-updates-status.png)
 
 1. Open the cluster, then choose **Maintenance & backups** to see the **Pending Maintenance** items and act on them.  
-![Amazon DocumentDB console showing the cluster Maintenance window.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-maint-3.png)
+![Amazon DocumentDB console showing the cluster Maintenance window.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/cluster-maint-3.png)
 
 ------
 #### [ Using the AWS CLI ]
@@ -379,7 +379,7 @@ To check for an OS update from the console:
 1. Choose the **Maintenance & backups** tab.
 
 1. Under **Pending Maintenance**, the `os-upgrade` action appears if an OS update is available.  
-![The Amazon DocumentDB Maintenance and backups tab showing the os-upgrade maintenance action.](http://docs.aws.amazon.com/documentdb/latest/devguide/images/maintenance-available-1.png)
+![The Amazon DocumentDB Maintenance and backups tab showing the os-upgrade maintenance action.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/maintenance-available-1.png)
 
 1. Select the `os-upgrade` action and choose **Apply now** or **Apply at next maintenance window**. If the value is **next window**, you can defer with **Defer upgrade** as long as the action has not started.
 
