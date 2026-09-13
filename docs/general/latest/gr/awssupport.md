@@ -49,8 +49,8 @@ The following are the service endpoints and service quotas for this service.
 | Middle East (Bahrain) | me-south-1 |  support.us-east-1.amazonaws.com <br /> support-fips.us-east-1.api.aws <br /> support-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS<br />HTTPS | 
 | Middle East (UAE) | me-central-1 |  support.us-east-1.amazonaws.com <br /> support-fips.us-east-1.api.aws <br /> support-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS<br />HTTPS | 
 | South America (São Paulo) | sa-east-1 |  support.us-east-1.amazonaws.com <br /> support-fips.us-east-1.api.aws <br /> support-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS<br />HTTPS | 
-|  AWS GovCloud (US-East) | us-gov-east-1 |  support.us-gov-west-1.amazonaws.com  | HTTPS | 
-|  AWS GovCloud (US-West) | us-gov-west-1 |  support.us-gov-west-1.amazonaws.com  | HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  support.us-gov-west-1.amazonaws.com <br /> support-fips.us-gov-west-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  support.us-gov-west-1.amazonaws.com <br /> support-fips.us-gov-west-1.api.aws  | HTTPS<br />HTTPS | 
 
 ## Service quotas
 <a name="service-quotas-aws-support"></a>

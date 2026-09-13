@@ -86,13 +86,14 @@ The following are the service endpoints and service quotas for this service.
 | Amazon Quick Automate Maximum Triggers per Automation | Each supported Region: 30 | No | Maximum number of triggers allowed per automation in Amazon Quick Automate | 
 | Amazon Quick Automate Maximum Workflow Execution Time | Each supported Region: 48 | No | Maximum workflow execution time in hours in Amazon Quick Automate | 
 | Calculated field expression length | Each supported Region: 250,000 | No | The maximum number of characters that you can use in an expression for a calculated field. | 
-| Conversation history retention in days | Each supported Region: 90 | No | The number of days conversation history is retained before deletion. | 
+| Conversation history retention in days | Each supported Region: 365 | No | The number of days conversation history is retained before deletion. | 
 | Custom action name length | Each supported Region: 256 | No | The maximum number of characters that you can use in naming a custom action. | 
 | Custom actions per visual | Each supported Region: 10 | No | The maximum number of custom actions that you can configure for each visual in an analysis. | 
 | Custom agent artifact retention in days | Each supported Region: 365 | No | The number of days custom agent artifacts are retained before deletion. | 
 | Data Prep: Fields per dataset | Each supported Region: 2,000 | No | The maximum number of fields that a dataset can contain. File imports and query result sets can contain more than 2,000 columns. However, you must edit the dataset settings and manually exclude fields until there are less than 2,000 selected or included. | 
 | Display items per sheet control | Each supported Region: 1,000 | No | The maximum number of distinct items that a sheet control can display. | 
 | Email aliases per group for email reports | Each supported Region: 5,000 | No | The maximum number of members in any group that QuickSight sends email reports to. If you try to send reports to larger groups, the report fails. | 
+| In-folder conversation history retention in days | Each supported Region: 750 | No | The number of days conversation history in a folder is retained before deletion. | 
 | Maximum active sessions per user | Each supported Region: 3 | No | The maximum number of concurrent active sessions a user can have. | 
 | Maximum applicable groups per approval policy | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/quicksight/quotas/L-04458D9F)  | The maximum number of group ARNs that can be specified in an approval policys ApplicableTo configuration (the groups the policy applies to). | 
 | Maximum approver groups per approval policy | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/quicksight/quotas/L-61EC97DA)  | The maximum number of approver group ARNs that can be specified in an approval policys ApprovalGroups configuration (the groups that can approve requests). | 
@@ -114,6 +115,7 @@ The following are the service endpoints and service quotas for this service.
 | Maximum number of resources per space | Each supported Region: 100 | No | The maximum number of resources that can be linked to a space. | 
 | Maximum number of uploaded files per space | Each supported Region: 10,000 | No | The maximum number of files that can be uploaded to a space. | 
 | Maximum pinned conversations | Each supported Region: 100 | No | The maximum number of conversations a user can pin. | 
+| Maximum reference file size | Each supported Region: 50 Megabytes | No | The maximum size in megabytes (MBs) of a single reference file. | 
 | Maximum scheduled task instruction length | Each supported Region: 50,000 | No | The maximum number of characters allowed in a scheduled task instruction. | 
 | Maximum scheduled tasks per user | Each supported Region: 20 | No | The maximum number of scheduled tasks a user can create across all triggers. | 
 | Maximum skill size | Each supported Region: 6 Megabytes | No | The maximum size in megabytes (MBs) of a single skill bundle. | 
@@ -123,8 +125,10 @@ The following are the service endpoints and service quotas for this service.
 | Maximum total size of attached reference documents per chat agent | Each supported Region: 50 Megabytes | No | The maximum size in megabytes (MBs) of all reference documents attached to a chat agent. | 
 | Maximum total size of uploaded files per space | Each supported Region: 1 Gigabytes | No | The maximum size in gigabytes (GBs) of all files uploaded to a space. | 
 | Minimum schedule interval in minutes | Each supported Region: 15 | No | The minimum interval, in minutes, allowed between scheduled task runs. | 
+| Pinned and in-folder conversation history retention in days | Each supported Region: 750 | No | The number of days conversation history that is both pinned and in a folder is retained before deletion. | 
+| Pinned conversation history retention in days | Each supported Region: 750 | No | The number of days pinned conversation history is retained before deletion. | 
 | Query timeout for visuals | Each supported Region: 120 Seconds | No | The maximum amount of time that QuickSight waits for a database to finish sending data. This applies to queries initiated by visuals. | 
-| Scheduled task history retention in days | Each supported Region: 90 | No | The number of days scheduled task run history is retained. | 
+| Scheduled task history retention in days | Each supported Region: 365 | No | The number of days scheduled task run history is retained. | 
 | Session approval expiry in hours | Each supported Region: 12 | No | The number of hours before a session approval expires and must be renewed. | 
 | The maximum amount of time to wait for a dataset preview | Each supported Region: 45 Seconds | No | The maximum amount of time that QuickSight waits for a data preview to finish loading. | 
 | URL action hyperlink length | Each supported Region: 2,048 | No | The maximum number of characters allowed in the hyperlink (URL) of a custom action thats defined as a URL action. This includes all variations of the link for the different parameters you include. | 

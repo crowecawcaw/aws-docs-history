@@ -22,9 +22,11 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Hyderabad) | ap-south-2 |  evs.ap-south-2.amazonaws.com <br /> evs.ap-south-2.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Malaysia) | ap-southeast-5 |  evs.ap-southeast-5.amazonaws.com <br /> evs.ap-southeast-5.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Mumbai) | ap-south-1 |  evs.ap-south-1.amazonaws.com <br /> evs.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  evs.ap-northeast-3.amazonaws.com <br /> evs.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Seoul) | ap-northeast-2 |  evs.ap-northeast-2.amazonaws.com <br /> evs.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Singapore) | ap-southeast-1 |  evs.ap-southeast-1.amazonaws.com <br /> evs.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Sydney) | ap-southeast-2 |  evs.ap-southeast-2.amazonaws.com <br /> evs.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  evs.ap-east-2.amazonaws.com <br /> evs.ap-east-2.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Tokyo) | ap-northeast-1 |  evs.ap-northeast-1.amazonaws.com <br /> evs.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
 | Canada (Central) | ca-central-1 |  evs.ca-central-1.amazonaws.com <br /> evs.ca-central-1.api.aws  | HTTPS<br />HTTPS | 
 | Canada West (Calgary) | ca-west-1 |  evs.ca-west-1.amazonaws.com <br /> evs.ca-west-1.api.aws  | HTTPS<br />HTTPS | 
@@ -33,8 +35,10 @@ The following are the service endpoints and service quotas for this service.
 | Europe (London) | eu-west-2 |  evs.eu-west-2.amazonaws.com <br /> evs.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Milan) | eu-south-1 |  evs.eu-south-1.amazonaws.com <br /> evs.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Paris) | eu-west-3 |  evs.eu-west-3.amazonaws.com <br /> evs.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  evs.eu-south-2.amazonaws.com <br /> evs.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Stockholm) | eu-north-1 |  evs.eu-north-1.amazonaws.com <br /> evs.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Zurich) | eu-central-2 |  evs.eu-central-2.amazonaws.com <br /> evs.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  evs.il-central-1.amazonaws.com <br /> evs.il-central-1.api.aws  | HTTPS<br />HTTPS | 
 | Mexico (Central) | mx-central-1 |  evs.mx-central-1.amazonaws.com <br /> evs.mx-central-1.api.aws  | HTTPS<br />HTTPS | 
 | South America (São Paulo) | sa-east-1 |  evs.sa-east-1.amazonaws.com <br /> evs.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
 

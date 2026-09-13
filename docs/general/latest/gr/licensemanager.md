@@ -10,7 +10,7 @@ Service quotas, also referred to as limits, are the maximum number of service re
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
-<a name="w2aac14d350b9"></a>
+<a name="w2aac14d348b9"></a>
 
 **Topics**
 + [Endpoints for working with licenses](#licensemanager_region)

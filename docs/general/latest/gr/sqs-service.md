@@ -58,7 +58,7 @@ The following are the service endpoints and service quotas for this service.
 ### Legacy endpoints
 <a name="sqs_legacy"></a>
 
-If you use the AWS CLI or SDK for Python, you can use the following legacy endpoints. 
+If you use the AWS CLI or AWS SDK for Python (Boto), you can use the following legacy endpoints. 
 
 
 | Region Name | Region | Endpoint | Protocol | 

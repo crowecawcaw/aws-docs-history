@@ -92,6 +92,8 @@ The following are the service endpoints and service quotas for this service.
 | Middle East (Bahrain) | me-south-1 |  pca-connector-ad.me-south-1.amazonaws.com <br /> pca-connector-ad.me-south-1.api.aws  | HTTPS<br />HTTPS | 
 | Middle East (UAE) | me-central-1 |  pca-connector-ad.me-central-1.amazonaws.com <br /> pca-connector-ad.me-central-1.api.aws  | HTTPS<br />HTTPS | 
 | South America (São Paulo) | sa-east-1 |  pca-connector-ad.sa-east-1.amazonaws.com <br /> pca-connector-ad.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  pca-connector-ad.us-gov-east-1.amazonaws.com <br /> pca-connector-ad.us-gov-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  pca-connector-ad.us-gov-west-1.amazonaws.com <br /> pca-connector-ad.us-gov-west-1.api.aws  | HTTPS<br />HTTPS | 
 
 ## AWS Private CA Connector for SCEP endpoints
 <a name="pca-connector-scep_region"></a>

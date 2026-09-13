@@ -153,7 +153,6 @@ Choose one of the following links to go to the page for that service. To view th
 + [IAM Roles Anywhere](rolesanywhere.md)
 + [Incident Manager](incident-manager.md)
 + [Amazon Inspector](inspector2.md)
-+ [Amazon Inspector Classic](inspector.md)
 + [AWS IoT Core](iot-core.md)
 + [AWS IoT Device Defender](iot_device_defender.md)
 + [AWS IoT Device Management](iot_device_management.md)

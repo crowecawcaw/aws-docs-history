@@ -69,13 +69,20 @@ Newer versions of the AWS SDK connect to Amazon DynamoDB using the AWS-account-b
 | US East (N. Virginia) | us-east-1 |  dax.us-east-1.amazonaws.com <br /> dax.us-east-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | US West (N. California) | us-west-1 |  dax.us-west-1.amazonaws.com <br /> dax.us-west-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | US West (Oregon) | us-west-2 |  dax.us-west-2.amazonaws.com <br /> dax.us-west-2.api.aws  | HTTP and HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  dax.af-south-1.amazonaws.com <br /> dax.af-south-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  dax.ap-east-1.amazonaws.com <br /> dax.ap-east-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  dax.ap-south-2.amazonaws.com <br /> dax.ap-south-2.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Asia Pacific (Mumbai) | ap-south-1 |  dax.ap-south-1.amazonaws.com <br /> dax.ap-south-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  dax.ap-northeast-3.amazonaws.com <br /> dax.ap-northeast-3.api.aws  | HTTP and HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  dax.ap-northeast-2.amazonaws.com <br /> dax.ap-northeast-2.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Asia Pacific (Singapore) | ap-southeast-1 |  dax.ap-southeast-1.amazonaws.com <br /> dax.ap-southeast-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Asia Pacific (Sydney) | ap-southeast-2 |  dax.ap-southeast-2.amazonaws.com <br /> dax.ap-southeast-2.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Asia Pacific (Tokyo) | ap-northeast-1 |  dax.ap-northeast-1.amazonaws.com <br /> dax.ap-northeast-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  dax.ca-central-1.amazonaws.com <br /> dax.ca-central-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Europe (Frankfurt) | eu-central-1 |  dax.eu-central-1.amazonaws.com <br /> dax.eu-central-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Europe (Ireland) | eu-west-1 |  dax.eu-west-1.amazonaws.com <br /> dax.eu-west-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Europe (London) | eu-west-2 |  dax.eu-west-2.amazonaws.com <br /> dax.eu-west-2.api.aws  | HTTP and HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  dax.eu-south-1.amazonaws.com <br /> dax.eu-south-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Europe (Paris) | eu-west-3 |  dax.eu-west-3.amazonaws.com <br /> dax.eu-west-3.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Europe (Spain) | eu-south-2 |  dax.eu-south-2.amazonaws.com <br /> dax.eu-south-2.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Europe (Stockholm) | eu-north-1 |  dax.eu-north-1.amazonaws.com <br /> dax.eu-north-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
