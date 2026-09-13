@@ -8,7 +8,7 @@ You can use the AWS Management Console or the AWS CLI to create resource groups 
 **Important**  
 A resource group based on a query for **All supported resource types** can add members automatically over time, as new resources are supported by Resource Groups. When you run automations or other bulk tasks on an existing resource group based on **All supported resource types**, be aware that the actions might run on many more resources than were in the group when you first created the group. This might also mean that automations or tasks that you created for other resources are applied to possibly unintended resources, or resources on which the tasks cannot be successfully completed. In those cases, you can add a resource type filter to specify that only resources of the specified types can be part of the group.  
 
-![Query based on All supported resource types.](http://docs.aws.amazon.com/ARG/latest/userguide/images/rg-allsupported-resources.png)
+![Query based on All supported resource types.](https://docs.aws.amazon.com/ARG/latest/userguide/images/rg-allsupported-resources.png)
 
 
 The following tables list which resource types are supported for tagging in Tag Editor, for membership in tag query-based groups, and for membership in CloudFormation stack-based groups. 
@@ -29,8 +29,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DeepComposer::Composition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeepComposer::Model` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeepComposer::Composition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeepComposer::Model` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon API Gateway
 <a name="services-apigateway"></a>
@@ -38,13 +38,13 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ApiGateway::Account` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ApiGateway::ApiKey` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ApiGateway::ClientCertificate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ApiGateway::DomainName` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ApiGateway::RestApi` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ApiGateway::Stage` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ApiGateway::UsagePlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ApiGateway::Account` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ApiGateway::ApiKey` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ApiGateway::ClientCertificate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ApiGateway::DomainName` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ApiGateway::RestApi` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ApiGateway::Stage` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ApiGateway::UsagePlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon API Gateway V2
 <a name="services-apigatewayv2"></a>
@@ -52,7 +52,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ApiGatewayV2::Api` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ApiGatewayV2::Api` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## IAM Access Analyzer
 <a name="services-accessanalyzer"></a>
@@ -60,7 +60,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AccessAnalyzer::Analyzer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AccessAnalyzer::Analyzer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Amplify
 <a name="services-amplify"></a>
@@ -68,7 +68,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Amplify::App` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Amplify::App` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS App Runner
 <a name="services-apprunner"></a>
@@ -76,12 +76,12 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppRunner::AutoScalingConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppRunner::Connection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppRunner::ObservabilityConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppRunner::Service` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppRunner::VpcConnector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppRunner::VpcIngressConnection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppRunner::AutoScalingConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppRunner::Connection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppRunner::ObservabilityConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppRunner::Service` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppRunner::VpcConnector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppRunner::VpcIngressConnection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS AppConfig
 <a name="services-appconfig"></a>
@@ -89,12 +89,12 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppConfig::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppConfig::ConfigurationProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppConfig::Deployment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppConfig::DeploymentStrategy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppConfig::Extension` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppConfig::ExtensionAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppConfig::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppConfig::ConfigurationProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppConfig::Deployment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppConfig::DeploymentStrategy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppConfig::Extension` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppConfig::ExtensionAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS AppFabric
 <a name="services-appfabric"></a>
@@ -102,9 +102,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppFabric::AppAuthorization` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppFabric::AppBundle` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppFabric::Ingestion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppFabric::AppAuthorization` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppFabric::AppBundle` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppFabric::Ingestion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon AppFlow
 <a name="services-appflow"></a>
@@ -112,8 +112,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppFlow::Connector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppFlow::Flow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppFlow::Connector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppFlow::Flow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AppIntegrations
 <a name="services-appintegrations"></a>
@@ -121,9 +121,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppIntegrations::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppIntegrations::DataIntegration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppIntegrations::EventIntegration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppIntegrations::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppIntegrations::DataIntegration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppIntegrations::EventIntegration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS App Mesh
 <a name="services-appmesh"></a>
@@ -131,13 +131,13 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppMesh::GatewayRoute` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppMesh::Mesh` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppMesh::Route` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppMesh::VirtualGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppMesh::VirtualNode` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppMesh::VirtualRouter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppMesh::VirtualService` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppMesh::GatewayRoute` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppMesh::Mesh` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppMesh::Route` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppMesh::VirtualGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppMesh::VirtualNode` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppMesh::VirtualRouter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppMesh::VirtualService` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon AppStream
 <a name="services-appstream"></a>
@@ -145,13 +145,13 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppStream::AppBlock` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppStream::AppBlockBuilder` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppStream::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppStream::Fleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::AppStream::Image` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppStream::ImageBuilder` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::AppStream::Stack` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::AppStream::AppBlock` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppStream::AppBlockBuilder` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppStream::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppStream::Fleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::AppStream::Image` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppStream::ImageBuilder` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::AppStream::Stack` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS AppSync
 <a name="services-appsync"></a>
@@ -159,10 +159,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppSync::Api` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppSync::DataSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::AppSync::DomainName` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppSync::GraphQLApi` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::AppSync::Api` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppSync::DataSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::AppSync::DomainName` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppSync::GraphQLApi` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Application Auto Scaling
 <a name="services-applicationautoscaling"></a>
@@ -170,7 +170,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ApplicationAutoScaling::ScalableTarget` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ApplicationAutoScaling::ScalableTarget` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Transform MGN
 <a name="services-mgn"></a>
@@ -178,14 +178,14 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MGN::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MGN::Connector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MGN::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MGN::LaunchConfigurationTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MGN::ReplicationConfigurationTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MGN::SourceServer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MGN::VcenterClient` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MGN::Wave` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MGN::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MGN::Connector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MGN::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MGN::LaunchConfigurationTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MGN::ReplicationConfigurationTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MGN::SourceServer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MGN::VcenterClient` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MGN::Wave` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Artificial intelligence operations (AIOps)
 <a name="services-aiops"></a>
@@ -193,7 +193,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AIOps::InvestigationGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AIOps::InvestigationGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Athena
 <a name="services-athena"></a>
@@ -201,9 +201,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Athena::CapacityReservation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Athena::DataCatalog` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Athena::WorkGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Athena::CapacityReservation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Athena::DataCatalog` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Athena::WorkGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Audit Manager
 <a name="services-auditmanager"></a>
@@ -211,9 +211,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AuditManager::Assessment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AuditManager::AssessmentFramework` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AuditManager::Control` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AuditManager::Assessment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AuditManager::AssessmentFramework` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AuditManager::Control` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS B2B Data Interchange
 <a name="services-b2bi"></a>
@@ -221,10 +221,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::B2BI::Capability` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::B2BI::Partnership` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::B2BI::Profile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::B2BI::Transformer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::B2BI::Capability` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::B2BI::Partnership` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::B2BI::Profile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::B2BI::Transformer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Backup
 <a name="services-backup"></a>
@@ -232,12 +232,12 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Backup::BackupPlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Backup::BackupVault` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Backup::Framework` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Backup::LegalHold` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Backup::ReportPlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Backup::RestoreTestingPlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Backup::BackupPlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Backup::BackupVault` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Backup::Framework` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Backup::LegalHold` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Backup::ReportPlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Backup::RestoreTestingPlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Backup gateway
 <a name="services-backupgateway"></a>
@@ -245,7 +245,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::BackupGateway::VirtualMachine` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::BackupGateway::VirtualMachine` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Backup search
 <a name="services-backupsearch"></a>
@@ -253,8 +253,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::BackupSearch::SearchExportJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::BackupSearch::SearchJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::BackupSearch::SearchExportJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::BackupSearch::SearchJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Batch
 <a name="services-batch"></a>
@@ -262,12 +262,12 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Batch::ComputeEnvironment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Batch::ConsumableResource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Batch::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Batch::JobDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Batch::JobQueue` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Batch::SchedulingPolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Batch::ComputeEnvironment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Batch::ConsumableResource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Batch::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Batch::JobDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Batch::JobQueue` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Batch::SchedulingPolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Bedrock
 <a name="services-bedrock"></a>
@@ -275,21 +275,21 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Bedrock::Agent` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::AgentAlias` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::ApplicationInferenceProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::AsyncInvoke` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::CustomModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::EvaluationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::Flow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::FlowAlias` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::Guardrail` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::KnowledgeBase` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::ModelCustomizationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::ModelEvaluationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::ModelImportJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::ModelInvocationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Bedrock::PromptVersion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::Agent` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::AgentAlias` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::ApplicationInferenceProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::AsyncInvoke` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::CustomModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::EvaluationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::Flow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::FlowAlias` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::Guardrail` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::KnowledgeBase` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::ModelCustomizationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::ModelEvaluationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::ModelImportJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::ModelInvocationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Bedrock::PromptVersion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Billing Conductor
 <a name="services-billingconductor"></a>
@@ -297,10 +297,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::BillingConductor::BillingGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::BillingConductor::CustomLineItem` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::BillingConductor::PricingPlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::BillingConductor::PricingRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::BillingConductor::BillingGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::BillingConductor::CustomLineItem` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::BillingConductor::PricingPlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::BillingConductor::PricingRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Billing and Cost Management
 <a name="services-billing"></a>
@@ -308,7 +308,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Billing::BillingView` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Billing::BillingView` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Braket
 <a name="services-braket"></a>
@@ -316,8 +316,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Braket::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Braket::QuantumTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Braket::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Braket::QuantumTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Budgets
 <a name="services-budgets"></a>
@@ -325,8 +325,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Budgets::Budget` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Budgets::BudgetsAction` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Budgets::Budget` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Budgets::BudgetsAction` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS BugBust
 <a name="services-bugbust"></a>
@@ -334,7 +334,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::BugBust::Event` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::BugBust::Event` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Certificate Manager
 <a name="services-certificatemanager"></a>
@@ -342,7 +342,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CertificateManager::Certificate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CertificateManager::Certificate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Certificate Manager Private Certificate Authority
 <a name="services-acmpca"></a>
@@ -350,7 +350,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ACMPCA::CertificateAuthority` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ACMPCA::CertificateAuthority` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Q Developer in chat applications
 <a name="services-chatbot"></a>
@@ -358,8 +358,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Chatbot::ChatbotConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chatbot::CustomAction` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chatbot::ChatbotConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chatbot::CustomAction` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Chime
 <a name="services-chime"></a>
@@ -367,16 +367,16 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Chime::AppInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::AppInstanceBot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::AppInstanceUser` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::Channel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::MediaInsightsPipelineConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::MediaPipeline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::MediaPipelineKinesisVideoStreamPool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::SipMediaApplication` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::VoiceConnector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Chime::VoiceProfileDomain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::AppInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::AppInstanceBot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::AppInstanceUser` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::MediaInsightsPipelineConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::MediaPipeline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::MediaPipelineKinesisVideoStreamPool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::SipMediaApplication` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::VoiceConnector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Chime::VoiceProfileDomain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Clean Rooms
 <a name="services-cleanrooms"></a>
@@ -384,13 +384,13 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CleanRooms::AnalysisTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRooms::Collaboration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRooms::ConfiguredAudienceModelAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRooms::ConfiguredTable` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRooms::ConfiguredTableAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRooms::Membership` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRooms::PrivacyBudgetTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRooms::AnalysisTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRooms::Collaboration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRooms::ConfiguredAudienceModelAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRooms::ConfiguredTable` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRooms::ConfiguredTableAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRooms::Membership` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRooms::PrivacyBudgetTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Clean Rooms ML
 <a name="services-cleanroomsml"></a>
@@ -398,11 +398,11 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CleanRoomsML::AudienceGenerationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRoomsML::AudienceModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRoomsML::ConfiguredAudienceModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRoomsML::ConfiguredModelAlgorithm` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CleanRoomsML::TrainingDataset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRoomsML::AudienceGenerationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRoomsML::AudienceModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRoomsML::ConfiguredAudienceModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRoomsML::ConfiguredModelAlgorithm` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CleanRoomsML::TrainingDataset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Cloud Directory
 <a name="services-clouddirectory"></a>
@@ -410,7 +410,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CloudDirectory::Directory` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudDirectory::Directory` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Cloud9
 <a name="services-cloud9"></a>
@@ -418,7 +418,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Cloud9::Environment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Cloud9::Environment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## CloudFormation
 <a name="services-cloudformation"></a>
@@ -426,8 +426,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CloudFormation::Stack` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::CloudFormation::StackSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudFormation::Stack` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CloudFormation::StackSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CloudFront
 <a name="services-cloudfront"></a>
@@ -435,9 +435,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CloudFront::Distribution` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
-| `AWS::CloudFront::StreamingDistribution` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
-| `AWS::CloudFront::VpcOrigin` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudFront::Distribution` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
+| `AWS::CloudFront::StreamingDistribution` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
+| `AWS::CloudFront::VpcOrigin` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ¹ This is a resource for a global service that is hosted in the **US East (N. Virginia)** Region. To use Tag Editor to create or modify tags for this resource type, you must include `us-east-1` from the **Select regions** list under **Find resources to tag** in the Tag Editor console.
 
@@ -449,8 +449,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CloudHSM::Backup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CloudHSM::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudHSM::Backup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudHSM::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Cloud Map
 <a name="services-servicediscovery"></a>
@@ -458,8 +458,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ServiceDiscovery::Namespace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ServiceDiscovery::Service` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ServiceDiscovery::Namespace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ServiceDiscovery::Service` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CloudSearch
 <a name="services-cloudsearch"></a>
@@ -467,7 +467,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CloudSearch::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudSearch::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS CloudTrail
 <a name="services-cloudtrail"></a>
@@ -475,10 +475,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CloudTrail::Channel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CloudTrail::Dashboard` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CloudTrail::EventDataStore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CloudTrail::Trail` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CloudTrail::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudTrail::Dashboard` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudTrail::EventDataStore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudTrail::Trail` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon CloudWatch
 <a name="services-cloudwatch"></a>
@@ -486,11 +486,11 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CloudWatch::Alarm` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::CloudWatch::Dashboard` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::CloudWatch::InsightRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CloudWatch::MetricStream` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CloudWatch::ServiceLevelObjective` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudWatch::Alarm` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CloudWatch::Dashboard` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CloudWatch::InsightRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudWatch::MetricStream` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CloudWatch::ServiceLevelObjective` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CloudWatch Application Insights
 <a name="services-applicationinsights"></a>
@@ -498,7 +498,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ApplicationInsights::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ApplicationInsights::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## CloudWatch Application Signals
 <a name="services-applicationsignals"></a>
@@ -506,7 +506,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ApplicationSignals::ServiceLevelObjective` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ApplicationSignals::ServiceLevelObjective` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## CloudWatch Evidently
 <a name="services-evidently"></a>
@@ -514,10 +514,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Evidently::Feature` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Evidently::Launch` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Evidently::Project` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Evidently::Segment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Evidently::Feature` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Evidently::Launch` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Evidently::Project` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Evidently::Segment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CloudWatch Logs
 <a name="services-logs"></a>
@@ -525,12 +525,12 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Logs::AnomalyDetector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Logs::Delivery` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Logs::DeliveryDestination` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Logs::DeliverySource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Logs::Destination` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Logs::LogGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Logs::AnomalyDetector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Logs::Delivery` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Logs::DeliveryDestination` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Logs::DeliverySource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Logs::Destination` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Logs::LogGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon CloudWatch Observability Manager
 <a name="services-oam"></a>
@@ -538,8 +538,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Oam::Link` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Oam::Sink` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Oam::Link` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Oam::Sink` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CloudWatch RUM
 <a name="services-rum"></a>
@@ -547,7 +547,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::RUM::AppMonitor` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RUM::AppMonitor` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CloudWatch Synthetics
 <a name="services-synthetics"></a>
@@ -555,8 +555,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Synthetics::Canary` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Synthetics::Group` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Synthetics::Canary` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Synthetics::Group` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS CodeArtifact
 <a name="services-codeartifact"></a>
@@ -564,9 +564,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeArtifact::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::CodeArtifact::PackageGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeArtifact::Repository` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CodeArtifact::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CodeArtifact::PackageGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeArtifact::Repository` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS CodeBuild
 <a name="services-codebuild"></a>
@@ -574,9 +574,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeBuild::Fleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeBuild::Project` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeBuild::ReportGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeBuild::Fleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeBuild::Project` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeBuild::ReportGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CodeCatalyst
 <a name="services-codecatalyst"></a>
@@ -584,9 +584,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeCatalyst::Connection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeCatalyst::IdentityCenterApplication` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeCatalyst::Space` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeCatalyst::Connection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeCatalyst::IdentityCenterApplication` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeCatalyst::Space` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS CodeCommit
 <a name="services-codecommit"></a>
@@ -594,7 +594,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeCommit::Repository` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeCommit::Repository` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS CodeConnections
 <a name="services-codeconnections"></a>
@@ -602,8 +602,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeConnections::Host` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeConnections::RepositoryLink` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeConnections::Host` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeConnections::RepositoryLink` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS CodeDeploy
 <a name="services-codedeploy"></a>
@@ -611,10 +611,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeDeploy::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::CodeDeploy::DeploymentConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::CodeDeploy::DeploymentGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeDeploy::Instance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeDeploy::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CodeDeploy::DeploymentConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CodeDeploy::DeploymentGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeDeploy::Instance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CodeGuru Reviewer
 <a name="services-codegurureviewer"></a>
@@ -622,7 +622,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeGuruReviewer::RepositoryAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CodeGuruReviewer::RepositoryAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon CodeGuru Profiler
 <a name="services-codeguruprofiler"></a>
@@ -630,7 +630,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeGuruProfiler::ProfilingGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeGuruProfiler::ProfilingGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS CodePipeline
 <a name="services-codepipeline"></a>
@@ -638,9 +638,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodePipeline::CustomActionType` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodePipeline::Pipeline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::CodePipeline::Webhook` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CodePipeline::CustomActionType` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodePipeline::Pipeline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::CodePipeline::Webhook` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS CodeStar Notifications
 <a name="services-codestarnotifications"></a>
@@ -648,7 +648,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeStarNotifications::NotificationRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeStarNotifications::NotificationRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS CodeConnections
 <a name="services-codestarconnections"></a>
@@ -656,9 +656,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeStarConnections::Connection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeStarConnections::Host` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeStarConnections::RepositoryLink` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeStarConnections::Connection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeStarConnections::Host` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeStarConnections::RepositoryLink` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CodeWhisperer
 <a name="services-codewhisperer"></a>
@@ -666,8 +666,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CodeWhisperer::Customization` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CodeWhisperer::Profile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeWhisperer::Customization` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CodeWhisperer::Profile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Cognito
 <a name="services-cognito"></a>
@@ -675,8 +675,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Cognito::IdentityPool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Cognito::UserPool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Cognito::IdentityPool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Cognito::UserPool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Comprehend
 <a name="services-comprehend"></a>
@@ -684,20 +684,20 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Comprehend::DocumentClassificationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::DocumentClassifier` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::DocumentClassifierEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::DominantLanguageDetectionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::EntitiesDetectionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::EntityRecognizer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::EntityRecognizerEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::EventsDetectionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::Flywheel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::KeyPhrasesDetectionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::PIIEntitiesDetectionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::SentimentDetectionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::TargetedSentimentDetectionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Comprehend::TopicsDetectionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::DocumentClassificationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::DocumentClassifier` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::DocumentClassifierEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::DominantLanguageDetectionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::EntitiesDetectionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::EntityRecognizer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::EntityRecognizerEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::EventsDetectionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::Flywheel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::KeyPhrasesDetectionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::PIIEntitiesDetectionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::SentimentDetectionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::TargetedSentimentDetectionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Comprehend::TopicsDetectionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Config
 <a name="services-config"></a>
@@ -705,14 +705,14 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Config::AggregationAuthorization` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Config::ConfigRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Config::ConfigurationAggregator` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Config::ConfigurationRecorder` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Config::ConformancePack` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Config::OrganizationConfigRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Config::OrganizationConformancePack` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Config::StoredQuery` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Config::AggregationAuthorization` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Config::ConfigRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Config::ConfigurationAggregator` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Config::ConfigurationRecorder` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Config::ConformancePack` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Config::OrganizationConfigRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Config::OrganizationConformancePack` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Config::StoredQuery` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Connect Customer
 <a name="services-connect"></a>
@@ -720,28 +720,28 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Connect::AgentStatus` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::Contact` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::ContactEvaluation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::ContactFlow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::ContactFlowModule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::EvaluationForm` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::HoursOfOperation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::Instance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::IntegrationAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::PhoneNumber` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::Prompt` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::Queue` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::QuickConnect` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::RoutingProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::Rule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::SecurityProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::TaskTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::TrafficDistributionGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::UseCase` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::User` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::UserHierarchyGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Connect::Vocabulary` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::AgentStatus` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::Contact` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::ContactEvaluation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::ContactFlow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::ContactFlowModule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::EvaluationForm` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::HoursOfOperation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::Instance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::IntegrationAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::PhoneNumber` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::Prompt` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::Queue` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::QuickConnect` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::RoutingProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::Rule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::SecurityProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::TaskTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::TrafficDistributionGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::UseCase` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::User` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::UserHierarchyGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Connect::Vocabulary` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Connect Customer Cases
 <a name="services-cases"></a>
@@ -749,9 +749,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Cases::Case` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Cases::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Cases::RelatedItem` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Cases::Case` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Cases::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Cases::RelatedItem` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Connect Customer Customer Profiles
 <a name="services-customerprofiles"></a>
@@ -759,9 +759,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CustomerProfiles::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CustomerProfiles::Integration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CustomerProfiles::ObjectType` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CustomerProfiles::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CustomerProfiles::Integration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CustomerProfiles::ObjectType` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Connect Customer Outbound Campaigns
 <a name="services-connectcampaigns"></a>
@@ -769,7 +769,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ConnectCampaigns::Campaign` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ConnectCampaigns::Campaign` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Connect Customer Voice ID
 <a name="services-voiceid"></a>
@@ -777,7 +777,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::VoiceID::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VoiceID::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Connect Customer Wisdom
 <a name="services-wisdom"></a>
@@ -785,17 +785,17 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Wisdom::AIAgent` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Wisdom::AIGuardrail` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Wisdom::AIPrompt` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Wisdom::Assistant` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Wisdom::AssistantAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Wisdom::Content` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Wisdom::ContentAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Wisdom::KnowledgeBase` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Wisdom::MessageTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Wisdom::QuickResponse` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Wisdom::Session` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wisdom::AIAgent` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wisdom::AIGuardrail` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wisdom::AIPrompt` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wisdom::Assistant` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Wisdom::AssistantAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Wisdom::Content` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wisdom::ContentAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wisdom::KnowledgeBase` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Wisdom::MessageTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wisdom::QuickResponse` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wisdom::Session` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Control Tower
 <a name="services-controltower"></a>
@@ -803,9 +803,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ControlTower::EnabledBaseline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ControlTower::EnabledControl` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ControlTower::LandingZone` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ControlTower::EnabledBaseline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ControlTower::EnabledControl` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ControlTower::LandingZone` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Cost Explorer
 <a name="services-ce"></a>
@@ -813,9 +813,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CE::AnomalyMonitor` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CE::AnomalySubscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::CE::CostCategory` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CE::AnomalyMonitor` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CE::AnomalySubscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CE::CostCategory` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Cost and Usage Report
 <a name="services-cur"></a>
@@ -823,7 +823,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::CUR::ReportDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::CUR::ReportDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Data Exchange
 <a name="services-dataexchange"></a>
@@ -831,9 +831,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DataExchange::DataGrants` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataExchange::DataSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataExchange::Revision` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataExchange::DataGrants` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataExchange::DataSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataExchange::Revision` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Data Exports
 <a name="services-bcmdataexports"></a>
@@ -841,7 +841,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::BCMDataExports::Export` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::BCMDataExports::Export` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Data Lifecycle Manager
 <a name="services-dlm"></a>
@@ -849,7 +849,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DLM::LifecyclePolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DLM::LifecyclePolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Data Pipeline
 <a name="services-datapipeline"></a>
@@ -857,7 +857,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DataPipeline::Pipeline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DataPipeline::Pipeline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS DataSync
 <a name="services-datasync"></a>
@@ -865,12 +865,12 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DataSync::Agent` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataSync::DiscoveryJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataSync::Location` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataSync::StorageSystem` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataSync::Task` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataSync::TaskExecution` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataSync::Agent` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataSync::DiscoveryJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataSync::Location` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataSync::StorageSystem` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataSync::Task` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataSync::TaskExecution` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon DataZone
 <a name="services-datazone"></a>
@@ -878,8 +878,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DataZone::DataSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataZone::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataZone::DataSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataZone::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Database Migration Service
 <a name="services-dms"></a>
@@ -887,18 +887,18 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DMS::Certificate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::DataMigration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::DataProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::Endpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::DMS::EventSubscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::InstanceProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::MigrationProject` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::ReplicationConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::ReplicationInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::DMS::ReplicationSubnetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::ReplicationTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DMS::ReplicationTaskAssessmentRun` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::Certificate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::DataMigration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::DataProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::Endpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DMS::EventSubscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::InstanceProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::MigrationProject` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::ReplicationConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::ReplicationInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DMS::ReplicationSubnetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::ReplicationTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DMS::ReplicationTaskAssessmentRun` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Deadline Cloud
 <a name="services-deadline"></a>
@@ -906,8 +906,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Deadline::Farm` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Deadline::LicenseEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Deadline::Farm` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Deadline::LicenseEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Detective
 <a name="services-detective"></a>
@@ -915,7 +915,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Detective::Graph` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Detective::Graph` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Device Farm
 <a name="services-devicefarm"></a>
@@ -923,12 +923,12 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DeviceFarm::Device` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeviceFarm::DeviceInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeviceFarm::InstanceProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeviceFarm::Project` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeviceFarm::TestGridProject` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeviceFarm::VPCEConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeviceFarm::Device` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeviceFarm::DeviceInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeviceFarm::InstanceProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeviceFarm::Project` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeviceFarm::TestGridProject` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeviceFarm::VPCEConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Diode Messaging
 <a name="services-diodemessaging"></a>
@@ -936,9 +936,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DiodeMessaging::AccountMapping` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DiodeMessaging::RequestingFlow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DiodeMessaging::RespondingFlow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DiodeMessaging::AccountMapping` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DiodeMessaging::RequestingFlow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DiodeMessaging::RespondingFlow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Diode Object Transfer
 <a name="services-diode"></a>
@@ -946,8 +946,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Diode::AccountMapping` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Diode::Transfer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Diode::AccountMapping` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Diode::Transfer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Direct Connect
 <a name="services-directconnect"></a>
@@ -955,10 +955,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DirectConnect::Connection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DirectConnect::Gateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DirectConnect::Lag` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DirectConnect::VirtualInterface` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DirectConnect::Connection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DirectConnect::Gateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DirectConnect::Lag` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DirectConnect::VirtualInterface` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Directory Service
 <a name="services-directoryservice"></a>
@@ -966,7 +966,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DirectoryService::Directory` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DirectoryService::Directory` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon DocumentDB Elastic Clusters
 <a name="services-docdbelastic"></a>
@@ -974,7 +974,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DocDBElastic::ClusterSnapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DocDBElastic::ClusterSnapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon DynamoDB
 <a name="services-dynamodb"></a>
@@ -982,7 +982,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DynamoDB::Table` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DynamoDB::Table` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## DynamoDB Accelerator
 <a name="services-dax"></a>
@@ -990,7 +990,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DAX::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DAX::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon EMR
 <a name="services-emr"></a>
@@ -998,10 +998,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::EMR::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EMR::Editor` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EMR::NotebookExecution` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EMR::Studio` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EMR::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EMR::Editor` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EMR::NotebookExecution` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EMR::Studio` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon EMR Containers
 <a name="services-emrcontainers"></a>
@@ -1009,11 +1009,11 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::EMRContainers::JobRun` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EMRContainers::JobTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EMRContainers::ManagedEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EMRContainers::SecurityConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EMRContainers::VirtualCluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EMRContainers::JobRun` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EMRContainers::JobTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EMRContainers::ManagedEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EMRContainers::SecurityConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EMRContainers::VirtualCluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon EMR Serverless
 <a name="services-emrserverless"></a>
@@ -1021,8 +1021,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::EMRServerless::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EMRServerless::JobRun` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EMRServerless::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EMRServerless::JobRun` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon ElastiCache
 <a name="services-elasticache"></a>
@@ -1030,17 +1030,17 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ElastiCache::CacheCluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ElastiCache::ParameterGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::ReplicationGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::ReservedInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::SecurityGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::ServerlessCache` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::ServerlessCacheSnapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::Snapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::SubnetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::User` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElastiCache::UserGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::CacheCluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ElastiCache::ParameterGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::ReplicationGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::ReservedInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::SecurityGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::ServerlessCache` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::ServerlessCacheSnapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::Snapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::SubnetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::User` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElastiCache::UserGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Elastic Beanstalk
 <a name="services-elasticbeanstalk"></a>
@@ -1048,10 +1048,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ElasticBeanstalk::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElasticBeanstalk::ApplicationVersion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElasticBeanstalk::ConfigurationTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ElasticBeanstalk::Environment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElasticBeanstalk::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElasticBeanstalk::ApplicationVersion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElasticBeanstalk::ConfigurationTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElasticBeanstalk::Environment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Elastic Compute Cloud (Amazon EC2)
 <a name="services-ec2"></a>
@@ -1059,84 +1059,84 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::EC2::CapacityReservation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::CapacityReservationFleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::CarrierGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::ClientVpnEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::CoipPool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::CustomerGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::DHCPOptions` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::EC2Fleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::EgressOnlyInternetGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::EIP` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::ElasticGpu` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::ExportImageTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::ExportInstanceTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::FlowLog` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::FpgaImage` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::Host` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::HostReservation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::Image` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::ImportImageTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::ImportSnapshotTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::Instance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::InstanceConnectEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::InstanceEventWindow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::InternetGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::IPv4Pool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::IPv6Pool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::KeyPair` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::LaunchTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::LocalGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::LocalGatewayRouteTable` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::LocalGatewayRouteTableVPCAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::LocalGatewayVirtualInterface` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::LocalGatewayVirtualInterfaceGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::NatGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::NetworkAcl` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::NetworkInsightsAccessScope` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::NetworkInsightsAccessScopeAnalysis` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::NetworkInsightsAnalysis` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::NetworkInsightsPath` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::NetworkInterface` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::PlacementGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::PrefixList` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::ReplaceRootVolumeTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::ReservedInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::RouteTable` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::SecurityGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::SecurityGroupRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::Snapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::SpotFleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::SpotInstanceRequest` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::Subnet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::SubnetCidrReservation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TrafficMirrorFilter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TrafficMirrorFilterRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TrafficMirrorSession` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TrafficMirrorTarget` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TransitGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TransitGatewayAttachment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TransitGatewayConnectPeer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TransitGatewayMulticastDomain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TransitGatewayPolicyTable` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TransitGatewayRouteTable` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::TransitGatewayRouteTableAnnouncement` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VerifiedAccessEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VerifiedAccessGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VerifiedAccessInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VerifiedAccessTrustProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::Volume` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::VPC` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::VPCBlockPublicAccessExclusion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VPCEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VPCEndpointConnection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VPCEndpointService` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VPCEndpointServicePermissions` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EC2::VPCPeeringConnection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::VPNConnection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EC2::VPNGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::CapacityReservation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::CapacityReservationFleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::CarrierGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::ClientVpnEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::CoipPool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::CustomerGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::DHCPOptions` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::EC2Fleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::EgressOnlyInternetGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::EIP` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::ElasticGpu` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::ExportImageTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::ExportInstanceTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::FlowLog` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::FpgaImage` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::Host` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::HostReservation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::Image` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::ImportImageTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::ImportSnapshotTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::Instance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::InstanceConnectEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::InstanceEventWindow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::InternetGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::IPv4Pool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::IPv6Pool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::KeyPair` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::LaunchTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::LocalGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::LocalGatewayRouteTable` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::LocalGatewayRouteTableVPCAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::LocalGatewayVirtualInterface` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::LocalGatewayVirtualInterfaceGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::NatGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::NetworkAcl` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::NetworkInsightsAccessScope` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::NetworkInsightsAccessScopeAnalysis` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::NetworkInsightsAnalysis` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::NetworkInsightsPath` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::NetworkInterface` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::PlacementGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::PrefixList` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::ReplaceRootVolumeTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::ReservedInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::RouteTable` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::SecurityGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::SecurityGroupRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::Snapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::SpotFleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::SpotInstanceRequest` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::Subnet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::SubnetCidrReservation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TrafficMirrorFilter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TrafficMirrorFilterRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TrafficMirrorSession` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TrafficMirrorTarget` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TransitGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TransitGatewayAttachment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TransitGatewayConnectPeer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TransitGatewayMulticastDomain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TransitGatewayPolicyTable` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TransitGatewayRouteTable` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::TransitGatewayRouteTableAnnouncement` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VerifiedAccessEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VerifiedAccessGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VerifiedAccessInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VerifiedAccessTrustProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::Volume` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::VPC` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::VPCBlockPublicAccessExclusion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VPCEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VPCEndpointConnection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VPCEndpointService` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VPCEndpointServicePermissions` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EC2::VPCPeeringConnection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::VPNConnection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EC2::VPNGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Elastic Container Registry
 <a name="services-ecr"></a>
@@ -1144,7 +1144,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ECR::Repository` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ECR::Repository` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Elastic Container Service
 <a name="services-ecs"></a>
@@ -1152,13 +1152,13 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ECS::CapacityProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ECS::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ECS::ContainerInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ECS::Service` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ECS::Task` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ECS::TaskDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ECS::TaskSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ECS::CapacityProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ECS::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ECS::ContainerInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ECS::Service` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ECS::Task` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ECS::TaskDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ECS::TaskSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Elastic Disaster Recovery
 <a name="services-drs"></a>
@@ -1166,11 +1166,11 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DRS::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DRS::RecoveryInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DRS::ReplicationConfigurationTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DRS::SourceNetwork` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DRS::SourceServer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DRS::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DRS::RecoveryInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DRS::ReplicationConfigurationTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DRS::SourceNetwork` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DRS::SourceServer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Elastic File System
 <a name="services-efs"></a>
@@ -1178,8 +1178,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::EFS::AccessPoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EFS::FileSystem` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EFS::AccessPoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EFS::FileSystem` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Elastic Kubernetes Service (Amazon EKS)
 <a name="services-eks"></a>
@@ -1187,13 +1187,13 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::EKS::Addon` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EKS::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::EKS::EKSAnywhereSubscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EKS::FargateProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EKS::IdentityProviderConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EKS::Nodegroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EKS::PodIdentityAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EKS::Addon` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EKS::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::EKS::EKSAnywhereSubscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EKS::FargateProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EKS::IdentityProviderConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EKS::Nodegroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EKS::PodIdentityAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Elastic Load Balancing
 <a name="services-elasticloadbalancing"></a>
@@ -1201,12 +1201,12 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ElasticLoadBalancing::LoadBalancer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ElasticLoadBalancingV2::Listener` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ElasticLoadBalancingV2::ListenerRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ElasticLoadBalancingV2::LoadBalancer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ElasticLoadBalancingV2::TargetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ElasticLoadBalancingV2::TrustStore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElasticLoadBalancing::LoadBalancer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ElasticLoadBalancingV2::Listener` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ElasticLoadBalancingV2::ListenerRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ElasticLoadBalancingV2::LoadBalancer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ElasticLoadBalancingV2::TargetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ElasticLoadBalancingV2::TrustStore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon OpenSearch Service
 <a name="services-elasticsearch"></a>
@@ -1214,7 +1214,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Elasticsearch::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Elasticsearch::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Elemental MediaLive
 <a name="services-medialive"></a>
@@ -1222,20 +1222,20 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MediaLive::Channel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::ChannelPlacementGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::CloudWatchAlarmTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::CloudWatchAlarmTemplateGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::EventBridgeRuleTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::EventBridgeRuleTemplateGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::Input` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::InputDevice` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::InputSecurityGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::Multiplex` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::Network` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::Node` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::Reservation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaLive::SignalMap` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::ChannelPlacementGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::CloudWatchAlarmTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::CloudWatchAlarmTemplateGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::EventBridgeRuleTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::EventBridgeRuleTemplateGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::Input` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::InputDevice` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::InputSecurityGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::Multiplex` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::Network` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::Node` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::Reservation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaLive::SignalMap` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Elemental MediaConvert
 <a name="services-mediaconvert"></a>
@@ -1243,10 +1243,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MediaConvert::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaConvert::JobTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaConvert::Preset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaConvert::Queue` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaConvert::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaConvert::JobTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaConvert::Preset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaConvert::Queue` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Elemental MediaPackage V2
 <a name="services-mediapackagev2"></a>
@@ -1254,9 +1254,9 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MediaPackageV2::Channel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaPackageV2::ChannelGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaPackageV2::OriginEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaPackageV2::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaPackageV2::ChannelGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaPackageV2::OriginEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Elemental MediaStore
 <a name="services-mediastore"></a>
@@ -1264,7 +1264,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MediaStore::Container` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaStore::Container` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## MediaTailor
 <a name="services-mediatailor"></a>
@@ -1272,11 +1272,11 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MediaTailor::Channel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaTailor::LiveSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaTailor::PlaybackConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaTailor::SourceLocation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaTailor::VodSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaTailor::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaTailor::LiveSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaTailor::PlaybackConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaTailor::SourceLocation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaTailor::VodSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Elemental Support Cases
 <a name="services-elementalsupportcases"></a>
@@ -1284,7 +1284,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ElementalSupportCases::Case` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ElementalSupportCases::Case` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS End User Messaging Social
 <a name="services-socialmessaging"></a>
@@ -1292,7 +1292,7 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SocialMessaging::WhatsAppBusinessAccount` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SocialMessaging::WhatsAppBusinessAccount` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Entity Resolution
 <a name="services-entityresolution"></a>
@@ -1300,10 +1300,10 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::EntityResolution::IdMappingWorkflow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EntityResolution::IdNamespace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EntityResolution::MatchingWorkflow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EntityResolution::SchemaMapping` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EntityResolution::IdMappingWorkflow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EntityResolution::IdNamespace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EntityResolution::MatchingWorkflow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EntityResolution::SchemaMapping` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CloudWatch Events
 <a name="services-events"></a>
@@ -1311,8 +1311,8 @@ Resource Groups and Tag Editor support the resource types in the following table
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Events::EventBus` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Events::Rule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Events::EventBus` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Events::Rule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 **Note**  
 Rules in custom event buses aren't supported in Tag Editor.
@@ -1323,7 +1323,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Pipes::Pipe` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Pipes::Pipe` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon EventBridge Scheduler
 <a name="services-scheduler"></a>
@@ -1331,7 +1331,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Scheduler::ScheduleGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Scheduler::ScheduleGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon EventBridge Schemas
 <a name="services-eventschemas"></a>
@@ -1339,9 +1339,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::EventSchemas::Discoverer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EventSchemas::Registry` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::EventSchemas::Schema` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EventSchemas::Discoverer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EventSchemas::Registry` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::EventSchemas::Schema` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon FSx
 <a name="services-fsx"></a>
@@ -1349,13 +1349,13 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::FSx::Backup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FSx::DataRepositoryTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FSx::FileCache` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FSx::FileSystem` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FSx::Snapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FSx::StorageVirtualMachine` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FSx::Volume` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FSx::Backup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FSx::DataRepositoryTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FSx::FileCache` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FSx::FileSystem` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FSx::Snapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FSx::StorageVirtualMachine` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FSx::Volume` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Fault Injection Service
 <a name="services-fis"></a>
@@ -1363,8 +1363,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::FIS::Experiment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FIS::ExperimentTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FIS::Experiment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FIS::ExperimentTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon FinSpace schemas
 <a name="services-finspace"></a>
@@ -1372,14 +1372,14 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::FinSpace::Environment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FinSpace::KxCluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FinSpace::KxDatabase` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FinSpace::KxDataview` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FinSpace::KxEnvironment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FinSpace::KxScalingGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FinSpace::KxUser` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FinSpace::KxVolume` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FinSpace::Environment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FinSpace::KxCluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FinSpace::KxDatabase` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FinSpace::KxDataview` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FinSpace::KxEnvironment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FinSpace::KxScalingGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FinSpace::KxUser` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FinSpace::KxVolume` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Firewall Manager
 <a name="services-fms"></a>
@@ -1387,10 +1387,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::FMS::Applicationslist` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FMS::Policy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FMS::ProtocolsList` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FMS::ResourceSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FMS::Applicationslist` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FMS::Policy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FMS::ProtocolsList` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FMS::ResourceSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS IoT Fleet Hub
 <a name="services-iotfleethub"></a>
@@ -1398,7 +1398,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IoTFleetHub::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTFleetHub::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Forecast
 <a name="services-forecast"></a>
@@ -1406,17 +1406,17 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Forecast::Dataset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::DatasetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::DatasetImportJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::Explainability` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::ExplainabilityExport` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::Forecast` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::ForecastEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::ForecastExportJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::Predictor` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::PredictorBacktestExportJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Forecast::WhatIfAnalysis` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::Dataset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::DatasetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::DatasetImportJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::Explainability` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::ExplainabilityExport` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::Forecast` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::ForecastEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::ForecastExportJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::Predictor` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::PredictorBacktestExportJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Forecast::WhatIfAnalysis` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Fraud Detector
 <a name="services-frauddetector"></a>
@@ -1424,20 +1424,20 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::FraudDetector::BatchImport` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::BatchPrediction` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::Detector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::DetectorVersion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::EntityType` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::EventType` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::ExternalModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::Label` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::List` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::Model` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::ModelVersion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::Outcome` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::Rule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::FraudDetector::Variable` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::BatchImport` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::BatchPrediction` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::Detector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::DetectorVersion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::EntityType` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::EventType` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::ExternalModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::Label` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::List` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::Model` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::ModelVersion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::Outcome` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::Rule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FraudDetector::Variable` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## FreeRTOS
 <a name="services-freertos"></a>
@@ -1445,7 +1445,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::FreeRTOS::Subscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::FreeRTOS::Subscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon GameLift Servers
 <a name="services-gamelift"></a>
@@ -1453,16 +1453,16 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::GameLift::Alias` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::ContainerFleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::ContainerGroupDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::Fleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::GameServerGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::GameSessionQueue` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::Location` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::MatchmakingConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::MatchmakingRuleSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GameLift::Script` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::Alias` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::ContainerFleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::ContainerGroupDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::Fleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::GameServerGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::GameSessionQueue` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::Location` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::MatchmakingConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::MatchmakingRuleSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GameLift::Script` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Global Accelerator
 <a name="services-globalaccelerator"></a>
@@ -1470,8 +1470,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::GlobalAccelerator::Accelerator` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GlobalAccelerator::CrossAccountAttachment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GlobalAccelerator::Accelerator` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GlobalAccelerator::CrossAccountAttachment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Glue
 <a name="services-glue"></a>
@@ -1479,23 +1479,23 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Glue::Blueprint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Catalog` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Completion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Connection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Crawler` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::CustomEntityType` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Database` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Glue::DataQualityRuleset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::DevEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::MLTransform` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Registry` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Schema` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Session` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Trigger` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::UsageProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Glue::Workflow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Blueprint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Catalog` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Completion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Connection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Crawler` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::CustomEntityType` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Database` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Glue::DataQualityRuleset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::DevEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::MLTransform` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Registry` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Schema` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Session` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Trigger` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::UsageProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glue::Workflow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Glue DataBrew
 <a name="services-databrew"></a>
@@ -1503,12 +1503,12 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DataBrew::Dataset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::DataBrew::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::DataBrew::Project` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::DataBrew::Recipe` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::DataBrew::Ruleset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DataBrew::Schedule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DataBrew::Dataset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DataBrew::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DataBrew::Project` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DataBrew::Recipe` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::DataBrew::Ruleset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DataBrew::Schedule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Ground Station
 <a name="services-groundstation"></a>
@@ -1516,12 +1516,12 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::GroundStation::Config` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GroundStation::Contact` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GroundStation::DataflowEndpointGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GroundStation::Ephemeris` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GroundStation::MissionProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GroundStation::Satellite` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GroundStation::Config` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GroundStation::Contact` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GroundStation::DataflowEndpointGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GroundStation::Ephemeris` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GroundStation::MissionProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GroundStation::Satellite` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon GuardDuty
 <a name="services-guardduty"></a>
@@ -1529,11 +1529,11 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::GuardDuty::Detector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::GuardDuty::Filter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GuardDuty::IPSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GuardDuty::MalwareProtectionPlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GuardDuty::ThreatIntelSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GuardDuty::Detector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::GuardDuty::Filter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GuardDuty::IPSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GuardDuty::MalwareProtectionPlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GuardDuty::ThreatIntelSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS HealthImaging
 <a name="services-healthimaging"></a>
@@ -1541,8 +1541,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::HealthImaging::Datastore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::HealthImaging::ImageSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::HealthImaging::Datastore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::HealthImaging::ImageSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS HealthLake
 <a name="services-healthlake"></a>
@@ -1550,7 +1550,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::HealthLake::FHIRDatastore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::HealthLake::FHIRDatastore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS HealthOmics
 <a name="services-omics"></a>
@@ -1558,17 +1558,17 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Omics::AnnotationStore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::AnnotationStoreVersion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::ReadSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::Reference` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::ReferenceStore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::Run` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::RunCache` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::RunGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::SequenceStore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::VariantStore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Omics::Workflow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::AnnotationStore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::AnnotationStoreVersion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::ReadSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::Reference` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::ReferenceStore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::Run` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::RunCache` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::RunGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::SequenceStore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::VariantStore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Omics::Workflow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Interactive Video Service
 <a name="services-ivs"></a>
@@ -1576,17 +1576,17 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IVS::Channel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::Composition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::EncoderConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::IngestConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::PlaybackKeyPair` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::PlaybackRestrictionPolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::PublicKey` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::RecordingConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::Stage` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::StorageConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IVS::StreamKey` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::Composition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::EncoderConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::IngestConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::PlaybackKeyPair` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::PlaybackRestrictionPolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::PublicKey` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::RecordingConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::Stage` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::StorageConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IVS::StreamKey` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## IAM
 <a name="services-sso"></a>
@@ -1594,10 +1594,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SSO::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSO::Instance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSO::PermissionSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSO::TrustedTokenIssuer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSO::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSO::Instance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSO::PermissionSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSO::TrustedTokenIssuer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Identity and Access Management
 <a name="services-iam"></a>
@@ -1605,13 +1605,13 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IAM::InstanceProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IAM::ManagedPolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IAM::OpenIDConnectProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IAM::Role` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
-| `AWS::IAM::SAMLProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IAM::ServerCertificate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IAM::VirtualMFADevice` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IAM::InstanceProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IAM::ManagedPolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IAM::OpenIDConnectProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IAM::Role` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
+| `AWS::IAM::SAMLProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IAM::ServerCertificate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IAM::VirtualMFADevice` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ¹ This is a resource for a global service that is hosted in the **US East (N. Virginia)** Region. To use Tag Editor to create or modify tags for this resource type, you must include `us-east-1` from the **Select regions** list under **Find resources to tag** in the Tag Editor console.
 
@@ -1623,15 +1623,15 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ImageBuilder::Component` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ImageBuilder::ContainerRecipe` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ImageBuilder::DistributionConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ImageBuilder::Image` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ImageBuilder::ImagePipeline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ImageBuilder::ImageRecipe` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ImageBuilder::InfrastructureConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ImageBuilder::LifecyclePolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ImageBuilder::Workflow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::Component` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::ContainerRecipe` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::DistributionConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::Image` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::ImagePipeline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::ImageRecipe` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::InfrastructureConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::LifecyclePolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ImageBuilder::Workflow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Inspector
 <a name="services-inspector"></a>
@@ -1639,9 +1639,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Inspector::AssessmentTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::InspectorV2::CisScanConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::InspectorV2::Filter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Inspector::AssessmentTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::InspectorV2::CisScanConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::InspectorV2::Filter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Internet Monitor
 <a name="services-internetmonitor"></a>
@@ -1649,7 +1649,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::InternetMonitor::Monitor` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::InternetMonitor::Monitor` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS IoT
 <a name="services-iot"></a>
@@ -1657,30 +1657,30 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IoT::Authorizer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::BillingGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::CACertificate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::CertificateProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::Command` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::CustomMetric` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::Dimension` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::DomainConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::FleetMetric` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::JobTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::MitigationAction` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::OTAUpdate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::Policy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::ProvisioningTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::RoleAlias` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::ScheduledAudit` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::SecurityProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::SoftwarePackage` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::Stream` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::ThingGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::ThingType` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoT::TopicRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::IoT::Tunnel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::Authorizer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::BillingGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::CACertificate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::CertificateProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::Command` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::CustomMetric` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::Dimension` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::DomainConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::FleetMetric` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::JobTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::MitigationAction` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::OTAUpdate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::Policy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::ProvisioningTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::RoleAlias` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::ScheduledAudit` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::SecurityProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::SoftwarePackage` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::Stream` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::ThingGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::ThingType` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoT::TopicRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoT::Tunnel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS IoT Analytics
 <a name="services-iotanalytics"></a>
@@ -1688,10 +1688,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IoTAnalytics::Channel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTAnalytics::Dataset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTAnalytics::Datastore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTAnalytics::Pipeline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTAnalytics::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTAnalytics::Dataset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTAnalytics::Datastore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTAnalytics::Pipeline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS IoT Core Device Advisor
 <a name="services-iotcoredeviceadvisor"></a>
@@ -1699,8 +1699,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IoTCoreDeviceAdvisor::SuiteDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTCoreDeviceAdvisor::SuiteRun` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTCoreDeviceAdvisor::SuiteDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTCoreDeviceAdvisor::SuiteRun` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS IoT Events
 <a name="services-iotevents"></a>
@@ -1708,9 +1708,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IoTEvents::AlarmModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTEvents::DetectorModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::IoTEvents::Input` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoTEvents::AlarmModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTEvents::DetectorModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoTEvents::Input` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS IoT FleetWise
 <a name="services-iotfleetwise"></a>
@@ -1718,13 +1718,13 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IoTFleetWise::Campaign` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::IoTFleetWise::DecoderManifest` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::IoTFleetWise::Fleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::IoTFleetWise::ModelManifest` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::IoTFleetWise::SignalCatalog` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::IoTFleetWise::StateTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTFleetWise::Vehicle` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoTFleetWise::Campaign` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoTFleetWise::DecoderManifest` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoTFleetWise::Fleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoTFleetWise::ModelManifest` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoTFleetWise::SignalCatalog` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::IoTFleetWise::StateTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTFleetWise::Vehicle` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS IoT Greengrass
 <a name="services-greengrass"></a>
@@ -1732,15 +1732,15 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Greengrass::BulkDeployment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Greengrass::ConnectorDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Greengrass::CoreDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Greengrass::DeviceDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Greengrass::FunctionDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Greengrass::Group` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Greengrass::LoggerDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Greengrass::ResourceDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Greengrass::SubscriptionDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::BulkDeployment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::ConnectorDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::CoreDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::DeviceDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::FunctionDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::Group` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::LoggerDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::ResourceDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Greengrass::SubscriptionDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS IoT Greengrass Version 2
 <a name="services-greengrassv2"></a>
@@ -1748,8 +1748,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::GreengrassV2::ComponentVersion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::GreengrassV2::CoreDevice` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GreengrassV2::ComponentVersion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::GreengrassV2::CoreDevice` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS IoT SiteWise console
 <a name="services-iotsitewise"></a>
@@ -1757,15 +1757,15 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IoTSiteWise::AccessPolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTSiteWise::Asset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTSiteWise::AssetModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTSiteWise::Dashboard` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTSiteWise::Dataset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTSiteWise::Gateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTSiteWise::Portal` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTSiteWise::Project` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTSiteWise::TimeSeries` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::AccessPolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::Asset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::AssetModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::Dashboard` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::Dataset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::Gateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::Portal` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::Project` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTSiteWise::TimeSeries` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS IoT Wireless
 <a name="services-iotwireless"></a>
@@ -1773,17 +1773,17 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::IoTWireless::Destination` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::DeviceProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::FuotaTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::ImportTask` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::MulticastGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::NetworkAnalyzerConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::PartnerAccount` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::ServiceProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::TaskDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::WirelessDevice` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::IoTWireless::WirelessGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::Destination` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::DeviceProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::FuotaTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::ImportTask` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::MulticastGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::NetworkAnalyzerConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::PartnerAccount` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::ServiceProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::TaskDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::WirelessDevice` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::IoTWireless::WirelessGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Kendra
 <a name="services-kendra"></a>
@@ -1791,11 +1791,11 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Kendra::DataSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Kendra::FeaturedResultsSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Kendra::Index` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Kendra::QuerySuggestionsBlockList` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Kendra::Thesaurus` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Kendra::DataSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Kendra::FeaturedResultsSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Kendra::Index` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Kendra::QuerySuggestionsBlockList` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Kendra::Thesaurus` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Kendra Intelligent Ranking
 <a name="services-kendraranking"></a>
@@ -1803,7 +1803,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::KendraRanking::ExecutionPlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::KendraRanking::ExecutionPlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Key Management Service
 <a name="services-kms"></a>
@@ -1811,8 +1811,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::KMS::Alias` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::KMS::Key` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::KMS::Alias` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::KMS::Key` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Keyspaces (for Apache Cassandra)
 <a name="services-cassandra"></a>
@@ -1820,8 +1820,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Cassandra::Keyspace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Cassandra::Table` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Cassandra::Keyspace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Cassandra::Table` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Kinesis
 <a name="services-kinesis"></a>
@@ -1829,7 +1829,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Kinesis::Stream` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Kinesis::Stream` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Managed Service for Apache Flink
 <a name="services-kinesisanalytics"></a>
@@ -1837,8 +1837,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::KinesisAnalytics::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::KinesisAnalyticsV2::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::KinesisAnalytics::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::KinesisAnalyticsV2::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Data Firehose
 <a name="services-kinesisfirehose"></a>
@@ -1846,7 +1846,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::KinesisFirehose::DeliveryStream` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::KinesisFirehose::DeliveryStream` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Kinesis Video Streams
 <a name="services-kinesisvideo"></a>
@@ -1854,8 +1854,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::KinesisVideo::SignalingChannel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::KinesisVideo::Stream` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::KinesisVideo::SignalingChannel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::KinesisVideo::Stream` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Lambda
 <a name="services-lambda"></a>
@@ -1863,12 +1863,12 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Lambda::Alias` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Lambda::CodeSigningConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lambda::EventSourceMapping` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Lambda::Function` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Lambda::LayerVersion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Lambda::Version` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Lambda::Alias` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Lambda::CodeSigningConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lambda::EventSourceMapping` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Lambda::Function` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Lambda::LayerVersion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Lambda::Version` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Launch Wizard
 <a name="services-launchwizard"></a>
@@ -1876,7 +1876,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::LaunchWizard::Deployment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LaunchWizard::Deployment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Lex
 <a name="services-lex"></a>
@@ -1884,9 +1884,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Lex::Bot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lex::BotAlias` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LexV2::TestSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lex::Bot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lex::BotAlias` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LexV2::TestSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS License Manager
 <a name="services-licensemanager"></a>
@@ -1894,9 +1894,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::LicenseManager::License` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LicenseManager::LicenseConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LicenseManager::ReportGenerator` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LicenseManager::License` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LicenseManager::LicenseConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LicenseManager::ReportGenerator` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Lightsail
 <a name="services-lightsail"></a>
@@ -1904,20 +1904,20 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Lightsail::Bucket` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::Certificate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::Container` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::Database` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::Disk` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::DiskSnapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::Distribution` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::Instance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::InstanceSnapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::KeyPair` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::LoadBalancer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::RelationalDatabaseSnapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Lightsail::StaticIp` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::Bucket` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::Certificate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::Container` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::Database` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::Disk` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::DiskSnapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::Distribution` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::Instance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::InstanceSnapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::KeyPair` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::LoadBalancer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::RelationalDatabaseSnapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Lightsail::StaticIp` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Linux subscriptions in AWS License Manager
 <a name="services-licensemanagerlinuxsubscriptions"></a>
@@ -1925,7 +1925,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::LicenseManagerLinuxSubscriptions::SubscriptionProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LicenseManagerLinuxSubscriptions::SubscriptionProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Location Service
 <a name="services-location"></a>
@@ -1933,11 +1933,11 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Location::GeofenceCollection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Location::Map` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Location::PlaceIndex` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Location::RouteCalculator` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Location::Tracker` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Location::GeofenceCollection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Location::Map` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Location::PlaceIndex` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Location::RouteCalculator` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Location::Tracker` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Lookout for Equipment
 <a name="services-lookoutequipment"></a>
@@ -1945,10 +1945,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::LookoutEquipment::Dataset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LookoutEquipment::InferenceScheduler` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LookoutEquipment::LabelGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LookoutEquipment::Model` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LookoutEquipment::Dataset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LookoutEquipment::InferenceScheduler` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LookoutEquipment::LabelGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LookoutEquipment::Model` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Lookout for Metrics
 <a name="services-lookoutmetrics"></a>
@@ -1956,9 +1956,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::LookoutMetrics::Alert` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LookoutMetrics::AnomalyDetector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LookoutMetrics::MetricSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LookoutMetrics::Alert` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LookoutMetrics::AnomalyDetector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LookoutMetrics::MetricSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Lookout for Vision
 <a name="services-lookoutvision"></a>
@@ -1966,7 +1966,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::LookoutVision::Model` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LookoutVision::Model` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon MQ
 <a name="services-amazonmq"></a>
@@ -1974,8 +1974,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AmazonMQ::Broker` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AmazonMQ::Configuration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AmazonMQ::Broker` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AmazonMQ::Configuration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Machine Learning
 <a name="services-machinelearning"></a>
@@ -1983,10 +1983,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MachineLearning::BatchPrediction` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MachineLearning::DataSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MachineLearning::Evaluation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MachineLearning::MLModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MachineLearning::BatchPrediction` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MachineLearning::DataSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MachineLearning::Evaluation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MachineLearning::MLModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Macie
 <a name="services-macie"></a>
@@ -1994,10 +1994,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Macie::ClassificationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Macie::CustomDataIdentifier` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Macie::FindingsFilter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Macie::Member` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Macie::ClassificationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Macie::CustomDataIdentifier` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Macie::FindingsFilter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Macie::Member` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Mainframe Modernization
 <a name="services-m2"></a>
@@ -2005,8 +2005,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::M2::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::M2::Environment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::M2::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::M2::Environment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Mainframe Modernization Application Testing
 <a name="services-apptest"></a>
@@ -2014,10 +2014,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::AppTest::TestCase` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppTest::TestConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppTest::TestRun` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::AppTest::TestSuite` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppTest::TestCase` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppTest::TestConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppTest::TestRun` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::AppTest::TestSuite` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Managed Blockchain
 <a name="services-managedblockchain"></a>
@@ -2025,12 +2025,12 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ManagedBlockchain::Accessor` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ManagedBlockchain::Invitation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ManagedBlockchain::Member` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ManagedBlockchain::Network` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ManagedBlockchain::Node` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ManagedBlockchain::Proposal` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ManagedBlockchain::Accessor` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ManagedBlockchain::Invitation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ManagedBlockchain::Member` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ManagedBlockchain::Network` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ManagedBlockchain::Node` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ManagedBlockchain::Proposal` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Managed Grafana
 <a name="services-grafana"></a>
@@ -2038,7 +2038,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Grafana::Workspace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Grafana::Workspace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Managed Service for Prometheus
 <a name="services-aps"></a>
@@ -2046,9 +2046,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::APS::RuleGroupsNamespace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::APS::Scraper` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::APS::Workspace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::APS::RuleGroupsNamespace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::APS::Scraper` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::APS::Workspace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Managed Streaming for Apache Kafka
 <a name="services-msk"></a>
@@ -2056,9 +2056,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MSK::Replicator` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MSK::VpcConnection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Kafka::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MSK::Replicator` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MSK::VpcConnection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Kafka::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Managed Streaming for Apache Kafka Connect
 <a name="services-kafkaconnect"></a>
@@ -2066,9 +2066,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::KafkaConnect::Connector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::KafkaConnect::CustomPlugin` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::KafkaConnect::WorkerConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::KafkaConnect::Connector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::KafkaConnect::CustomPlugin` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::KafkaConnect::WorkerConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Managed Workflows for Apache Airflow
 <a name="services-mwaa"></a>
@@ -2076,7 +2076,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MWAA::Environment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MWAA::Environment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Marketplace Catalog API
 <a name="services-marketplacecatalog"></a>
@@ -2084,8 +2084,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MarketplaceCatalog::ChangeSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MarketplaceCatalog::Entity` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MarketplaceCatalog::ChangeSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MarketplaceCatalog::Entity` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Elemental MediaConnect
 <a name="services-mediaconnect"></a>
@@ -2093,10 +2093,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MediaConnect::Flow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaConnect::FlowEntitlement` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaConnect::FlowOutput` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaConnect::FlowSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaConnect::Flow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaConnect::FlowEntitlement` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaConnect::FlowOutput` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaConnect::FlowSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Elemental MediaPackage
 <a name="services-mediapackage"></a>
@@ -2104,11 +2104,11 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MediaPackage::Asset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaPackage::Channel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaPackage::OriginEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaPackage::PackagingConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MediaPackage::PackagingGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaPackage::Asset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaPackage::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaPackage::OriginEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaPackage::PackagingConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MediaPackage::PackagingGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon MemoryDB
 <a name="services-memorydb"></a>
@@ -2116,13 +2116,13 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MemoryDB::ACL` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MemoryDB::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MemoryDB::MultiRegionCluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MemoryDB::ParameterGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MemoryDB::Snapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MemoryDB::SubnetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MemoryDB::User` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MemoryDB::ACL` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MemoryDB::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MemoryDB::MultiRegionCluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MemoryDB::ParameterGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MemoryDB::Snapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MemoryDB::SubnetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MemoryDB::User` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Migration Hub Orchestrator
 <a name="services-migrationhuborchestrator"></a>
@@ -2130,8 +2130,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::MigrationHubOrchestrator::Template` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::MigrationHubOrchestrator::Workflow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MigrationHubOrchestrator::Template` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::MigrationHubOrchestrator::Workflow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Migration Hub Refactor Spaces
 <a name="services-refactorspaces"></a>
@@ -2139,10 +2139,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::RefactorSpaces::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RefactorSpaces::Environment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RefactorSpaces::Route` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RefactorSpaces::Service` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RefactorSpaces::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RefactorSpaces::Environment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RefactorSpaces::Route` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RefactorSpaces::Service` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Neptune
 <a name="services-neptunegraph"></a>
@@ -2150,8 +2150,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::NeptuneGraph::Graph` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NeptuneGraph::GraphSnapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NeptuneGraph::Graph` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NeptuneGraph::GraphSnapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Network Firewall
 <a name="services-networkfirewall"></a>
@@ -2159,9 +2159,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::NetworkFirewall::Firewall` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkFirewall::FirewallPolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkFirewall::RuleGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkFirewall::Firewall` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkFirewall::FirewallPolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkFirewall::RuleGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Network Synthetic Monitor
 <a name="services-networkmonitor"></a>
@@ -2169,8 +2169,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::NetworkMonitor::Monitor` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkMonitor::Probe` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkMonitor::Monitor` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkMonitor::Probe` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Network Manager
 <a name="services-networkmanager"></a>
@@ -2178,15 +2178,15 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::NetworkManager::Connection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkManager::ConnectPeer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkManager::CoreNetwork` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkManager::Device` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkManager::GlobalNetwork` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkManager::Link` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkManager::Site` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkManager::TransitGatewayPeering` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::NetworkManager::VpcAttachment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::Connection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::ConnectPeer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::CoreNetwork` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::Device` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::GlobalNetwork` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::Link` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::Site` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::TransitGatewayPeering` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::NetworkManager::VpcAttachment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon One
 <a name="services-one"></a>
@@ -2194,9 +2194,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::One::DeviceConfigurationTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::One::DeviceInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::One::Site` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::One::DeviceConfigurationTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::One::DeviceInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::One::Site` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon OpenSearch Service OpenSearch
 <a name="services-opensearchservice"></a>
@@ -2204,7 +2204,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::OpenSearchService::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::OpenSearchService::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## OpenSearch Serverless
 <a name="services-opensearchserverless"></a>
@@ -2212,7 +2212,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::OpenSearchServerless::Collection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::OpenSearchServerless::Collection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon OpenSearch Service
 <a name="services-opensearch"></a>
@@ -2220,7 +2220,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::OpenSearch::DataSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::OpenSearch::DataSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon OpenSearch Service Ingestion
 <a name="services-osis"></a>
@@ -2228,7 +2228,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::OSIS::Pipeline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::OSIS::Pipeline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS OpsWorks
 <a name="services-opsworks"></a>
@@ -2236,9 +2236,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::OpsWorks::Instance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::OpsWorks::Layer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::OpsWorks::Stack` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::OpsWorks::Instance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::OpsWorks::Layer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::OpsWorks::Stack` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Organizations
 <a name="services-organizations"></a>
@@ -2246,11 +2246,11 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Organizations::Account` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Organizations::OrganizationalUnit` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Organizations::Policy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Organizations::ResourcePolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Organizations::Root` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Organizations::Account` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Organizations::OrganizationalUnit` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Organizations::Policy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Organizations::ResourcePolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Organizations::Root` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Outposts
 <a name="services-outposts"></a>
@@ -2258,8 +2258,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Outposts::Outpost` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Outposts::Site` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Outposts::Outpost` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Outposts::Site` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Panorama
 <a name="services-panorama"></a>
@@ -2267,9 +2267,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Panorama::ApplicationInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Panorama::Device` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Panorama::Package` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Panorama::ApplicationInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Panorama::Device` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Panorama::Package` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Parallel Computing Service
 <a name="services-pcs"></a>
@@ -2277,7 +2277,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::PCS::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::PCS::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Payment Cryptography
 <a name="services-paymentcryptography"></a>
@@ -2285,7 +2285,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::PaymentCryptography::Key` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::PaymentCryptography::Key` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Payments
 <a name="services-payments"></a>
@@ -2293,7 +2293,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Payments::PaymentInstrument` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Payments::PaymentInstrument` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Relational Database Service Performance Insights
 <a name="services-pi"></a>
@@ -2301,7 +2301,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Pi::PerformanceAnalysisReport` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Pi::PerformanceAnalysisReport` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Personalize
 <a name="services-personalize"></a>
@@ -2309,17 +2309,17 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Personalize::BatchInferenceJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::BatchSegmentJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::Campaign` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::Dataset` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::DatasetExportJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::DatasetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::DatasetImportJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::EventTracker` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::Filter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::Recommender` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Personalize::Solution` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::BatchInferenceJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::BatchSegmentJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::Campaign` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::Dataset` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::DatasetExportJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::DatasetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::DatasetImportJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::EventTracker` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::Filter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::Recommender` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Personalize::Solution` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Pinpoint
 <a name="services-pinpoint"></a>
@@ -2327,11 +2327,11 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Pinpoint::App` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Pinpoint::EmailTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Pinpoint::PushTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Pinpoint::SmsTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Pinpoint::VoiceTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Pinpoint::App` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Pinpoint::EmailTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Pinpoint::PushTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Pinpoint::SmsTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Pinpoint::VoiceTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Pinpoint SMS and Voice API
 <a name="services-pinpointsmsvoicev2"></a>
@@ -2339,10 +2339,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::PinpointSMSVoiceV2::ConfigurationSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::PinpointSMSVoiceV2::OptOutList` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::PinpointSMSVoiceV2::PhoneNumber` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::PinpointSMSVoiceV2::Pool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::PinpointSMSVoiceV2::ConfigurationSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::PinpointSMSVoiceV2::OptOutList` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::PinpointSMSVoiceV2::PhoneNumber` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::PinpointSMSVoiceV2::Pool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Pricing Calculator
 <a name="services-bcmpricingcalculator"></a>
@@ -2350,9 +2350,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::BCMPricingCalculator::BillEstimate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::BCMPricingCalculator::BillScenario` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::BCMPricingCalculator::WorkloadEstimate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::BCMPricingCalculator::BillEstimate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::BCMPricingCalculator::BillScenario` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::BCMPricingCalculator::WorkloadEstimate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Private CA Connector for Active Directory
 <a name="services-pcaconnectorad"></a>
@@ -2360,7 +2360,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::PCAConnectorAD::Connector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::PCAConnectorAD::Connector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Private CA Connector for SCEP
 <a name="services-pcaconnectorscep"></a>
@@ -2368,7 +2368,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::PCAConnectorScep::Connector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::PCAConnectorScep::Connector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Proton
 <a name="services-proton"></a>
@@ -2376,15 +2376,15 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Proton::Component` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Proton::Deployment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Proton::Environment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Proton::EnvironmentAccountConnection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Proton::EnvironmentTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Proton::Repository` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Proton::Service` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Proton::ServiceInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Proton::ServiceTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::Component` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::Deployment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::Environment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::EnvironmentAccountConnection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::EnvironmentTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::Repository` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::Service` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::ServiceInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Proton::ServiceTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Q Business Apps
 <a name="services-qapps"></a>
@@ -2392,8 +2392,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::QApps::QApp` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QApps::QAppSession` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QApps::QApp` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QApps::QAppSession` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Q Business
 <a name="services-qbusiness"></a>
@@ -2401,12 +2401,12 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::QBusiness::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QBusiness::DataSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QBusiness::Index` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QBusiness::Plugin` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QBusiness::Retriever` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QBusiness::WebExperience` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QBusiness::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QBusiness::DataSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QBusiness::Index` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QBusiness::Plugin` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QBusiness::Retriever` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QBusiness::WebExperience` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Quantum Ledger Database (Amazon QLDB)
 <a name="services-qldb"></a>
@@ -2414,9 +2414,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::QLDB::Ledger` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::QLDB::Stream` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::QLDB::Table` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QLDB::Ledger` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::QLDB::Stream` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::QLDB::Table` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Quick
 <a name="services-quicksight"></a>
@@ -2424,19 +2424,19 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::QuickSight::Analysis` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::Brand` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::CustomPermissions` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::Dashboard` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::DataSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::DataSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::Folder` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::Namespace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::Template` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::Theme` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::Topic` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::User` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::QuickSight::VPCConnection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::Analysis` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::Brand` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::CustomPermissions` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::Dashboard` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::DataSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::DataSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::Folder` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::Namespace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::Template` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::Theme` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::Topic` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::User` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::QuickSight::VPCConnection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS DeepRacer
 <a name="services-deepracer"></a>
@@ -2444,12 +2444,12 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::DeepRacer::Car` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeepRacer::EvaluationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeepRacer::Leaderboard` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeepRacer::LeaderboardEvaluationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeepRacer::ReinforcementLearningModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeepRacer::TrainingJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeepRacer::Car` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeepRacer::EvaluationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeepRacer::Leaderboard` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeepRacer::LeaderboardEvaluationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeepRacer::ReinforcementLearningModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::DeepRacer::TrainingJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Recycle Bin
 <a name="services-rbin"></a>
@@ -2457,7 +2457,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::RBin::Rule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RBin::Rule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Redshift
 <a name="services-redshift"></a>
@@ -2465,19 +2465,19 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Redshift::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Redshift::ClusterParameterGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Redshift::ClusterSecurityGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Redshift::ClusterSubnetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Redshift::EventSubscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Redshift::HSMClientCertificate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Redshift::HSMConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Redshift::Integration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Redshift::Namespace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Redshift::Snapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Redshift::SnapshotCopyGrant` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Redshift::SnapshotSchedule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Redshift::UsageLimit` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Redshift::ClusterParameterGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Redshift::ClusterSecurityGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Redshift::ClusterSubnetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Redshift::EventSubscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::HSMClientCertificate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::HSMConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::Integration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::Namespace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::Snapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::SnapshotCopyGrant` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::SnapshotSchedule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Redshift::UsageLimit` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Redshift Serverless
 <a name="services-redshiftserverless"></a>
@@ -2485,10 +2485,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::RedshiftServerless::Namespace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RedshiftServerless::RecoveryPoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RedshiftServerless::Snapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RedshiftServerless::Workgroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RedshiftServerless::Namespace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RedshiftServerless::RecoveryPoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RedshiftServerless::Snapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RedshiftServerless::Workgroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Rekognition
 <a name="services-rekognition"></a>
@@ -2496,8 +2496,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Rekognition::Collection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Rekognition::StreamProcessor` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Rekognition::Collection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Rekognition::StreamProcessor` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Relational Database Service (Amazon RDS)
 <a name="services-rds"></a>
@@ -2505,27 +2505,27 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::RDS::CustomDBEngineVersion` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::DBCluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::RDS::DBClusterEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::DBClusterParameterGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::RDS::DBClusterSnapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::DBInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::RDS::DBParameterGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::RDS::DBProxy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::DBProxyEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::DBProxyTargetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::DBSecurityGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::RDS::DBSnapshot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::DBSubnetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::RDS::Deployment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::EventSubscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::GlobalCluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::Integration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::OptionGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::ReservedDBInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::SnapshotTenantDatabase` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RDS::TenantDatabase` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::CustomDBEngineVersion` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::DBCluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::RDS::DBClusterEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::DBClusterParameterGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::RDS::DBClusterSnapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::DBInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::RDS::DBParameterGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::RDS::DBProxy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::DBProxyEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::DBProxyTargetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::DBSecurityGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::RDS::DBSnapshot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::DBSubnetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::RDS::Deployment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::EventSubscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::GlobalCluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::Integration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::OptionGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::ReservedDBInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::SnapshotTenantDatabase` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RDS::TenantDatabase` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Resilience Hub
 <a name="services-resiliencehub"></a>
@@ -2533,10 +2533,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ResilienceHub::App` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ResilienceHub::AppAssessment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ResilienceHub::RecommendationTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ResilienceHub::ResiliencyPolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ResilienceHub::App` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ResilienceHub::AppAssessment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ResilienceHub::RecommendationTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ResilienceHub::ResiliencyPolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Resource Access Manager
 <a name="services-ram"></a>
@@ -2544,7 +2544,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::RAM::ResourceShare` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RAM::ResourceShare` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Resource Groups
 <a name="services-resourcegroups"></a>
@@ -2552,7 +2552,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ResourceGroups::Group` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ResourceGroups::Group` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Robomaker
 <a name="services-robomaker"></a>
@@ -2560,17 +2560,17 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::RoboMaker::DeploymentJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::Fleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::Robot` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::RobotApplication` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::SimulationApplication` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::SimulationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::SimulationJobBatch` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::World` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::WorldExportJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::WorldGenerationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::RoboMaker::WorldTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::DeploymentJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::Fleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::Robot` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::RobotApplication` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::SimulationApplication` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::SimulationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::SimulationJobBatch` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::World` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::WorldExportJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::WorldGenerationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::RoboMaker::WorldTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Route 53
 <a name="services-route53"></a>
@@ -2578,9 +2578,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Route53::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53::HealthCheck` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
-| `AWS::Route53::HostedZone` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
+| `AWS::Route53::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53::HealthCheck` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
+| `AWS::Route53::HostedZone` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² | 
 
 ¹ This is a resource for a global service that is hosted in the **US East (N. Virginia)** Region. To use Tag Editor to create or modify tags for this resource type, you must include `us-east-1` from the **Select regions** list under **Find resources to tag** in the Tag Editor console.
 
@@ -2592,9 +2592,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Route53RecoveryControl::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53RecoveryControl::ControlPanel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53RecoveryControl::SafetyRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53RecoveryControl::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53RecoveryControl::ControlPanel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53RecoveryControl::SafetyRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Route 53 Profiles
 <a name="services-route53profiles"></a>
@@ -2602,8 +2602,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Route53Profiles::Profile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53Profiles::ProfileAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Profiles::Profile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Profiles::ProfileAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Route 53 Recovery Readiness in Application Recovery Controller (ARC)
 <a name="services-route53recoveryreadiness"></a>
@@ -2611,10 +2611,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Route53RecoveryReadiness::Cell` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53RecoveryReadiness::ReadinessCheck` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53RecoveryReadiness::RecoveryGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53RecoveryReadiness::ResourceSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53RecoveryReadiness::Cell` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53RecoveryReadiness::ReadinessCheck` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53RecoveryReadiness::RecoveryGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53RecoveryReadiness::ResourceSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Route 53 Resolver
 <a name="services-route53resolver"></a>
@@ -2622,13 +2622,13 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Route53Resolver::FirewallDomainList` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53Resolver::FirewallRuleGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53Resolver::FirewallRuleGroupAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53Resolver::OutpostResolver` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53Resolver::ResolverEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53Resolver::ResolverQueryLoggingConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Route53Resolver::ResolverRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Resolver::FirewallDomainList` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Resolver::FirewallRuleGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Resolver::FirewallRuleGroupAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Resolver::OutpostResolver` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Resolver::ResolverEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Resolver::ResolverQueryLoggingConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Route53Resolver::ResolverRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes¹ |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes² |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ¹ This is a resource for a global service that is hosted in the **US East (N. Virginia)** Region. To use Tag Editor to create or modify tags for this resource type, you must include `us-east-1` from the **Select regions** list under **Find resources to tag** in the Tag Editor console.
 
@@ -2640,7 +2640,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Glacier::Vault` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Glacier::Vault` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS SQL Workbench
 <a name="services-sqlworkbench"></a>
@@ -2648,10 +2648,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SQLWorkbench::Chart` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SQLWorkbench::Connection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SQLWorkbench::Notebook` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SQLWorkbench::SavedQuery` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SQLWorkbench::Chart` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SQLWorkbench::Connection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SQLWorkbench::Notebook` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SQLWorkbench::SavedQuery` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon SageMaker AI
 <a name="services-sagemaker"></a>
@@ -2659,61 +2659,61 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SageMaker::Action` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Algorithm` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::App` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::AppImageConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Artifact` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::AutoMLJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Cluster` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ClusterSchedulerConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::CodeRepository` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::CompilationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ComputeQuota` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Context` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::DataQualityJobDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::DeviceFleet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::EdgeDeploymentPlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::EdgePackagingJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Endpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SageMaker::EndpointConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SageMaker::Experiment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ExperimentTrial` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ExperimentTrialComponent` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::FeatureGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::FlowDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Hub` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::HubContent` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::HumanTaskUi` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::HyperParameterTuningJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Image` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::InferenceComponent` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::InferenceExperiment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::InferenceRecommendationsJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::LabelingJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::LineageGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::MlflowTrackingServer` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Model` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SageMaker::ModelBiasJobDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ModelCard` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ModelExplainabilityJobDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ModelPackage` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ModelPackageGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SageMaker::ModelQualityJobDefinition` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::MonitoringSchedule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::NotebookInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SageMaker::OptimizationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Pipeline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::ProcessingJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Project` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SageMaker::Space` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::StudioLifecycleConfig` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::TrainingJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::TransformJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::UserProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Workforce` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SageMaker::Workteam` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Action` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Algorithm` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::App` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::AppImageConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Artifact` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::AutoMLJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Cluster` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ClusterSchedulerConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::CodeRepository` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::CompilationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ComputeQuota` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Context` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::DataQualityJobDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::DeviceFleet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::EdgeDeploymentPlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::EdgePackagingJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Endpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SageMaker::EndpointConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SageMaker::Experiment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ExperimentTrial` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ExperimentTrialComponent` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::FeatureGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::FlowDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Hub` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::HubContent` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::HumanTaskUi` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::HyperParameterTuningJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Image` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::InferenceComponent` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::InferenceExperiment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::InferenceRecommendationsJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::LabelingJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::LineageGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::MlflowTrackingServer` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Model` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SageMaker::ModelBiasJobDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ModelCard` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ModelExplainabilityJobDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ModelPackage` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ModelPackageGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SageMaker::ModelQualityJobDefinition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::MonitoringSchedule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::NotebookInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SageMaker::OptimizationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Pipeline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::ProcessingJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Project` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SageMaker::Space` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::StudioLifecycleConfig` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::TrainingJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::TransformJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::UserProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Workforce` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SageMaker::Workteam` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon SageMaker AI geospatial
 <a name="services-sagemakergeospatial"></a>
@@ -2721,9 +2721,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SagemakerGeospatial::EarthObservationJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SagemakerGeospatial::RasterDataCollection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SagemakerGeospatial::VectorEnrichmentJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SagemakerGeospatial::EarthObservationJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SagemakerGeospatial::RasterDataCollection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SagemakerGeospatial::VectorEnrichmentJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Savings Plans
 <a name="services-savingsplans"></a>
@@ -2731,7 +2731,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SavingsPlans::SavingsPlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SavingsPlans::SavingsPlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Secrets Manager
 <a name="services-secretsmanager"></a>
@@ -2739,7 +2739,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SecretsManager::Secret` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SecretsManager::Secret` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Security Hub CSPM
 <a name="services-securityhub"></a>
@@ -2747,10 +2747,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SecurityHub::AutomationRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SecurityHub::ConfigurationPolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SecurityHub::Hub` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SecurityHub::ProductSubscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SecurityHub::AutomationRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SecurityHub::ConfigurationPolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SecurityHub::Hub` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SecurityHub::ProductSubscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Service Catalog
 <a name="services-servicecatalog"></a>
@@ -2758,8 +2758,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ServiceCatalog::CloudFormationProduct` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::ServiceCatalog::Portfolio` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ServiceCatalog::CloudFormationProduct` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::ServiceCatalog::Portfolio` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## AWS Service Catalog AppRegistry
 <a name="services-servicecatalogappregistry"></a>
@@ -2767,8 +2767,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ServiceCatalogAppRegistry::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ServiceCatalogAppRegistry::AttributeGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ServiceCatalogAppRegistry::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ServiceCatalogAppRegistry::AttributeGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Service Quotas
 <a name="services-servicequotas"></a>
@@ -2776,7 +2776,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ServiceQuotas::Quota` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ServiceQuotas::Quota` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Shield
 <a name="services-shield"></a>
@@ -2784,8 +2784,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Shield::Protection` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Shield::ProtectionGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Shield::Protection` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Shield::ProtectionGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS SimSpace Weaver
 <a name="services-simspaceweaver"></a>
@@ -2793,7 +2793,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SimSpaceWeaver::Simulation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SimSpaceWeaver::Simulation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Simple Email Service
 <a name="services-ses"></a>
@@ -2801,14 +2801,14 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SES::ConfigurationSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SES::ContactList` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SES::DedicatedIpPool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SES::Identity` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SES::MailManagerArchive` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SES::MailManagerIngressPoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SES::MailManagerRuleSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SES::MailManagerTrafficPolicy` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SES::ConfigurationSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SES::ContactList` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SES::DedicatedIpPool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SES::Identity` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SES::MailManagerArchive` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SES::MailManagerIngressPoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SES::MailManagerRuleSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SES::MailManagerTrafficPolicy` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Simple Notification Service
 <a name="services-sns"></a>
@@ -2816,7 +2816,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SNS::Topic` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SNS::Topic` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Simple Queue Service
 <a name="services-sqs"></a>
@@ -2824,7 +2824,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SQS::Queue` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SQS::Queue` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Amazon Simple Storage Service (Amazon S3)
 <a name="services-s3"></a>
@@ -2832,12 +2832,12 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::S3::AccessGrant` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::S3::AccessGrantsLocation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::S3::Bucket` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::S3::Job` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::S3::StorageLens` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::S3::StorageLensGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::S3::AccessGrant` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::S3::AccessGrantsLocation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::S3::Bucket` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::S3::Job` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::S3::StorageLens` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::S3::StorageLensGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Simple Workflow Service
 <a name="services-swf"></a>
@@ -2845,7 +2845,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SWF::Domain` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SWF::Domain` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Snowball Edge Device Management
 <a name="services-snowdevicemanagement"></a>
@@ -2853,8 +2853,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SnowDeviceManagement::ManagedDevice` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SnowDeviceManagement::Task` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SnowDeviceManagement::ManagedDevice` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SnowDeviceManagement::Task` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Step Functions
 <a name="services-stepfunctions"></a>
@@ -2862,8 +2862,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::StepFunctions::Activity` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::StepFunctions::StateMachine` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::StepFunctions::Activity` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::StepFunctions::StateMachine` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
 
 ## Storage Gateway
 <a name="services-storagegateway"></a>
@@ -2871,12 +2871,12 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::StorageGateway::FileShare` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::StorageGateway::FileSystemAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::StorageGateway::Gateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::StorageGateway::Tape` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::StorageGateway::TapePool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::StorageGateway::Volume` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::StorageGateway::FileShare` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::StorageGateway::FileSystemAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::StorageGateway::Gateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::StorageGateway::Tape` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::StorageGateway::TapePool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::StorageGateway::Volume` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Supply Chain
 <a name="services-scn"></a>
@@ -2884,7 +2884,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SCN::Instance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SCN::Instance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Systems Manager
 <a name="services-ssm"></a>
@@ -2892,16 +2892,16 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SSM::Association` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSM::AutomationExecution` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSM::Document` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SSM::MaintenanceWindow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSM::ManagedInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSM::OpsItem` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSM::OpsMetadata` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSM::Parameter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SSM::PatchBaseline` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SSM::Session` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSM::Association` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSM::AutomationExecution` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSM::Document` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SSM::MaintenanceWindow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSM::ManagedInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSM::OpsItem` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSM::OpsMetadata` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSM::Parameter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SSM::PatchBaseline` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SSM::Session` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Systems Manager Incident Manager
 <a name="services-ssmincidents"></a>
@@ -2909,9 +2909,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SSMIncidents::IncidentRecord` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSMIncidents::ReplicationSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSMIncidents::ResponsePlan` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSMIncidents::IncidentRecord` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSMIncidents::ReplicationSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSMIncidents::ResponsePlan` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Systems Manager Incident Manager Contacts
 <a name="services-ssmcontacts"></a>
@@ -2919,8 +2919,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SSMContacts::Contact` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::SSMContacts::Rotation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSMContacts::Contact` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSMContacts::Rotation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Systems Manager Quick Setup
 <a name="services-ssmquicksetup"></a>
@@ -2928,7 +2928,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SSMQuickSetup::ConfigurationManager` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SSMQuickSetup::ConfigurationManager` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Systems Manager for SAP
 <a name="services-systemsmanagersap"></a>
@@ -2936,8 +2936,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::SystemsManagerSAP::Application` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::SystemsManagerSAP::Database` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::SystemsManagerSAP::Application` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::SystemsManagerSAP::Database` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Telco Network Builder
 <a name="services-tnb"></a>
@@ -2945,9 +2945,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::TNB::FunctionPackage` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::TNB::NetworkInstance` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::TNB::NetworkPackage` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::TNB::FunctionPackage` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::TNB::NetworkInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::TNB::NetworkPackage` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Textract
 <a name="services-textract"></a>
@@ -2955,7 +2955,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Textract::Adapter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Textract::Adapter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Timestream
 <a name="services-timestream"></a>
@@ -2963,9 +2963,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Timestream::Database` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Timestream::ScheduledQuery` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::Timestream::Table` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Timestream::Database` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Timestream::ScheduledQuery` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::Timestream::Table` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Transcribe
 <a name="services-transcribe"></a>
@@ -2973,13 +2973,13 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Transcribe::LanguageModel` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transcribe::MedicalScribeJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transcribe::MedicalTranscriptionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transcribe::MedicalVocabulary` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transcribe::TranscriptionJob` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transcribe::Vocabulary` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transcribe::VocabularyFilter` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transcribe::LanguageModel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transcribe::MedicalScribeJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transcribe::MedicalTranscriptionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transcribe::MedicalVocabulary` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transcribe::TranscriptionJob` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transcribe::Vocabulary` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transcribe::VocabularyFilter` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Transfer Family
 <a name="services-transfer"></a>
@@ -2987,15 +2987,15 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Transfer::Agreement` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transfer::Certificate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transfer::Connector` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transfer::HostKey` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transfer::Profile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transfer::Server` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transfer::User` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transfer::WebApp` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Transfer::Workflow` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::Agreement` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::Certificate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::Connector` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::HostKey` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::Profile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::Server` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::User` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::WebApp` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Transfer::Workflow` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon Translate
 <a name="services-translate"></a>
@@ -3003,8 +3003,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Translate::ParallelData` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Translate::Terminology` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Translate::ParallelData` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Translate::Terminology` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS User Notifications
 <a name="services-usernotifications"></a>
@@ -3012,7 +3012,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::UserNotifications::NotificationConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::UserNotifications::NotificationConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## User subscriptions in AWS License Manager
 <a name="services-licensemanagerusersubscriptions"></a>
@@ -3020,10 +3020,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::LicenseManagerUserSubscriptions::AssociateUser` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LicenseManagerUserSubscriptions::IdentityProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LicenseManagerUserSubscriptions::LicenseServerEndpoint` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::LicenseManagerUserSubscriptions::ProductSubscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LicenseManagerUserSubscriptions::AssociateUser` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LicenseManagerUserSubscriptions::IdentityProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LicenseManagerUserSubscriptions::LicenseServerEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::LicenseManagerUserSubscriptions::ProductSubscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon VPC Lattice
 <a name="services-vpclattice"></a>
@@ -3031,17 +3031,17 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::VpcLattice::AccessLogSubscription` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::Listener` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::ResourceConfiguration` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::ResourceGateway` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::Rule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::Service` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::ServiceNetwork` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::ServiceNetworkResourceAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::ServiceNetworkServiceAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::ServiceNetworkVpcAssociation` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VpcLattice::TargetGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::AccessLogSubscription` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::Listener` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::ResourceConfiguration` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::ResourceGateway` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::Rule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::Service` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::ServiceNetwork` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::ServiceNetworkResourceAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::ServiceNetworkServiceAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::ServiceNetworkVpcAssociation` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VpcLattice::TargetGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Marketplace Vendor Insights
 <a name="services-vendorinsights"></a>
@@ -3049,8 +3049,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::VendorInsights::DataSource` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::VendorInsights::SecurityProfile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VendorInsights::DataSource` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::VendorInsights::SecurityProfile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS WAF
 <a name="services-waf"></a>
@@ -3058,10 +3058,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::WAF::RateBasedRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WAF::Rule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WAF::RuleGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WAF::WebACL` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WAF::RateBasedRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WAF::Rule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WAF::RuleGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WAF::WebACL` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS WAF Classic Regional
 <a name="services-wafregional"></a>
@@ -3069,10 +3069,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::WAFRegional::RateBasedRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WAFRegional::Rule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WAFRegional::RuleGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WAFRegional::WebACL` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WAFRegional::RateBasedRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WAFRegional::Rule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WAFRegional::RuleGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WAFRegional::WebACL` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Well-Architected Tool
 <a name="services-wellarchitected"></a>
@@ -3080,10 +3080,10 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::WellArchitected::Lens` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WellArchitected::Profile` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WellArchitected::ReviewTemplate` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WellArchitected::Workload` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WellArchitected::Lens` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WellArchitected::Profile` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WellArchitected::ReviewTemplate` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WellArchitected::Workload` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Wickr
 <a name="services-wickr"></a>
@@ -3091,7 +3091,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Wickr::Network` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Wickr::Network` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon WorkMail
 <a name="services-workmail"></a>
@@ -3099,7 +3099,7 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::Workmail::Organization` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::Workmail::Organization` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon WorkSpaces
 <a name="services-workspaces"></a>
@@ -3107,13 +3107,13 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::WorkSpaces::ConnectionAlias` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpaces::Directory` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpaces::Workspace` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
-| `AWS::WorkSpaces::WorkspaceBundle` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpaces::WorkspaceImage` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpaces::WorkspaceIpGroup` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpaces::WorkspacesPool` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpaces::ConnectionAlias` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpaces::Directory` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpaces::Workspace` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes | 
+| `AWS::WorkSpaces::WorkspaceBundle` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpaces::WorkspaceImage` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpaces::WorkspaceIpGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpaces::WorkspacesPool` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon WorkSpaces Secure Browser
 <a name="services-workspacesweb"></a>
@@ -3121,15 +3121,15 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::WorkSpacesWeb::BrowserSettings` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpacesWeb::DataProtectionSettings` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpacesWeb::IdentityProvider` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpacesWeb::IpAccessSettings` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpacesWeb::NetworkSettings` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpacesWeb::Portal` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpacesWeb::TrustStore` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpacesWeb::UserAccessLoggingSettings` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::WorkSpacesWeb::UserSettings` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::BrowserSettings` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::DataProtectionSettings` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::IdentityProvider` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::IpAccessSettings` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::NetworkSettings` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::Portal` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::TrustStore` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::UserAccessLoggingSettings` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::WorkSpacesWeb::UserSettings` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon WorkSpaces Thin Client
 <a name="services-thinclient"></a>
@@ -3137,9 +3137,9 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::ThinClient::Device` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ThinClient::Environment` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::ThinClient::SoftwareSet` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ThinClient::Device` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ThinClient::Environment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::ThinClient::SoftwareSet` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS X-Ray
 <a name="services-xray"></a>
@@ -3147,8 +3147,8 @@ Rules in custom event buses aren't supported in Tag Editor.
 
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
-| `AWS::XRay::Group` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::XRay::SamplingRule` |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::XRay::Group` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
+| `AWS::XRay::SamplingRule` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Deprecated resource types
 <a name="deprecated-types"></a>
