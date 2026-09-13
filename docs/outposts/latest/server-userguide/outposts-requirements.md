@@ -30,7 +30,7 @@ Specifications are for servers under normal operating conditions. For example, a
 
   To see the weight requirements for different Outposts resources, choose **Browse catalog** in the AWS Outposts console at [https://console.aws.amazon.com/outposts/](https://console.aws.amazon.com/outposts/home). 
 + **Rail-kit compatibility** – The rail kit that is included in your shipping package is compatible with a standard L-shaped mounting bracket of an EIA-310-D compliant 19 inch rack. The rail kit is not compatible with a U-shaped mounting bracket, as shown in the following image.  
-![Shows a U-shaped mounting bracket.](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/outposts-u-shaped-post.png)
+![Shows a U-shaped mounting bracket.](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/outposts-u-shaped-post.png)
 + **Rack Placement** – We recommend the use of standard 19-inch EIA-310D racks, with a depth of at least 36 inches (914 mm). AWS provides a rail kit for rack-mounting the server.
   + Outposts 2U servers require space with the following dimensions: 3.5 inches height (88.9mm), 17.5 inches width (447 mm), 30 inches depth (762 mm)
   + Outposts 1U servers require space with the following dimensions: 1.75 inches height (44.45 mm), 17.5 inches width (447 mm), 24 inches depth (610 mm)

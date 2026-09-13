@@ -9,7 +9,7 @@ A local network interface runs directly on your local area network. With this ty
 
 After you enable local network interfaces on an Outpost subnet, you can configure the EC2 instances in the Outpost subnet to include a local network interface in addition to the elastic network interface. The local network interface connects to the on-premises network while the network interface connects to the VPC. The following diagram shows an EC2 instance on an Outposts server with both an elastic network interface and a local network interface.
 
-![Local network interface](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/outposts-server-LNI.png)
+![Local network interface](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/outposts-server-LNI.png)
 
 
 You must configure the operating system to enable the local network interface to communicate on your local area network, just as you would for any other on-premises equipment. You can't use DHCP option sets in a VPC to configure a local network interface because a local network interface runs on your local area network.

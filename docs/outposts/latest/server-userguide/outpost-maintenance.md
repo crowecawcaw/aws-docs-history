@@ -94,4 +94,4 @@ The Nitro Security Key (NSK) is required to decrypt data on the server. When you
 1. Remove the small hex tool / Allen wrench from under the sticker.
 
 1. Use the hex tool to turn the small screw under the sticker three full turns. This action destroys the NSK and cryptographically shreds all data on the server.  
-![An NSK with labels identifying the hex tool and the thumbscrew where you insert the hex tool.](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/nsk-details.png)
+![An NSK with labels identifying the hex tool and the thumbscrew where you insert the hex tool.](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/nsk-details.png)

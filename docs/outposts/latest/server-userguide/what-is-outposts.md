@@ -39,43 +39,43 @@ You can create the following resources on your Outpost to support low-latency wo
 
 | Resource type | Racks | Servers | 
 | --- | --- | --- | 
-| [Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#outposts-instances) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  | 
-| [Amazon ECS clusters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-outposts.html) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes | 
-| [Amazon EKS nodes](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts.html) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
+| [Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#outposts-instances) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  | 
+| [Amazon ECS clusters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-outposts.html) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes | 
+| [Amazon EKS nodes](https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts.html) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
 
 
 **Database and analytics**  
 
 | Resource type | Racks | Servers | 
 | --- | --- | --- | 
-| [Amazon ElastiCache nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ElastiCache-Outposts.html) (Redis cluster, Memcached cluster) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
-| [Amazon EMR clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-outposts.html) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
-| [Amazon RDS DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
+| [Amazon ElastiCache nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ElastiCache-Outposts.html) (Redis cluster, Memcached cluster) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
+| [Amazon EMR clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-outposts.html) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
+| [Amazon RDS DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
 
 
 **Networking**  
 
 | Resource type | Racks | Servers | 
 | --- | --- | --- | 
-| [App Mesh Envoy proxy](https://docs.aws.amazon.com/app-mesh/latest/userguide/app-mesh-on-outposts.html) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  | 
-| [Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#subnets-load-balancer) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
-| [Amazon VPC subnets](https://docs.aws.amazon.com/vpc/latest/userguide/Extend_VPCs.html#outposts) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  | 
-| [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/outpost-resolver.html) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
+| [App Mesh Envoy proxy](https://docs.aws.amazon.com/app-mesh/latest/userguide/app-mesh-on-outposts.html) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  | 
+| [Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#subnets-load-balancer) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
+| [Amazon VPC subnets](https://docs.aws.amazon.com/vpc/latest/userguide/Extend_VPCs.html#outposts) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  | 
+| [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/outpost-resolver.html) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
 
 
 **Storage**  
 
 | Resource type | Racks | Servers | 
 | --- | --- | --- | 
-| [Amazon EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#outposts-volumes) |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
-| [Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/S3onOutposts.html)  |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
+| [Amazon EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#outposts-volumes) |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
+| [Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/S3onOutposts.html)  |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-no.png) No | 
 
 
 **Other AWS services**  
 
 | Service | Racks | Servers | 
 | --- | --- | --- | 
-| AWS IoT Greengrass |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |   ![](http://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  | 
+| AWS IoT Greengrass |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  |   ![](https://docs.aws.amazon.com/outposts/latest/server-userguide/images/icon-yes.png) Yes  | 
 
 ## Pricing
 <a name="pricing"></a>
