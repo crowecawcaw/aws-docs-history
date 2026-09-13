@@ -49,7 +49,7 @@ CloudTrail supports two integration types: direct and solution. With a solution 
 
 The following diagram shows how an AWS customer configures event integration with an onboarded partner. The diagram assumes that the person who is responsible for managing the AWS account also manages the partner application. The process is described following the diagram.
 
-![An overview of how the AWS Partner Network onboarding process with CloudTrail Lake works.](http://docs.aws.amazon.com/awscloudtrail/latest/partner-onboarding/images/cloudtrail-lake-partner-onboarding.png)
+![An overview of how the AWS Partner Network onboarding process with CloudTrail Lake works.](https://docs.aws.amazon.com/awscloudtrail/latest/partner-onboarding/images/cloudtrail-lake-partner-onboarding.png)
 
 
 1. The AWS customer [creates an event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/event-data-store-integration-events.html).
