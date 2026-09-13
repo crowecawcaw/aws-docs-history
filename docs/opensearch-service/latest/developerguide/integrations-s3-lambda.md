@@ -107,7 +107,7 @@ After you create the deployment package, you can create the Lambda function. Whe
 
 This example assumes you're using the console. Choose Python 3.9 and a role that has S3 read permissions and OpenSearch Service write permissions, as shown in the following screenshot:
 
-![Sample configuration for a Lambda function](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/lambda-function.png)
+![Sample configuration for a Lambda function](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/lambda-function.png)
 
 
 After you create the function, you must add a trigger. For this example, we want the code to run whenever a log file arrives in an S3 bucket:

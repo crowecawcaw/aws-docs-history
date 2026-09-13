@@ -7,7 +7,7 @@ OpenSearch UI includes a suite of agentic AI capabilities designed to simplify o
 
 On every page of your OpenSearch UI application, choose the **Ask AI** button to open Agentic Chat. Agentic Chat understands the context of the page you're viewing, uses agentic tools to analyze the underlying data, updates queries to display results in Discover, and answers your questions with clarity and accuracy. When a complex root cause analysis requires a deeper investigation, you can trigger the Investigation Agent to autonomously plan, execute, and reflect through a multi-step workflow, delivering structured hypotheses backed by data evidence. Powering both agentic capabilities is Agentic Memory, a memory layer that retains context within your conversation or investigation, so that you can continue to ask follow up questions with the same, consistent context across different web sessions.
 
-![The Discover page in OpenSearch UI showing Agentic Chat generating a PPL query from the natural language input "find all requests with latency greater than 10 seconds," with the Ask AI panel displaying the query explanation and a Start Investigation button.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-discover-ppl.png)
+![The Discover page in OpenSearch UI showing Agentic Chat generating a PPL query from the natural language input "find all requests with latency greater than 10 seconds," with the Ask AI panel displaying the query explanation and a Start Investigation button.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-discover-ppl.png)
 
 
 ## Key capabilities
@@ -39,7 +39,7 @@ The agentic AI features are automatically enabled for new OpenSearch UI applicat
 
 To enable or disable the AI features, you can use either the AWS Management Console or the API:
 + **Console** – Navigate to the details page of the OpenSearch UI application and update the AI features from there.  
-![The Manage AI Assistant features page in the console showing the Enable Chatbot and Agentic investigation feature checkbox and the Update button.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-ai-manage-features.png)
+![The Manage AI Assistant features page in the console showing the Enable Chatbot and Agentic investigation feature checkbox and the Update button.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-ai-manage-features.png)
 + **API** – Use the [RegisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RegisterCapability.html) API to enable the AI features, or use the [DeregisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeregisterCapability.html) API to disable them.
 
 ## Region availability

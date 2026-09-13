@@ -11,7 +11,7 @@ Each Ingestion OCU is a combination of approximately 15 GiB of memory and 2 vCPU
 + **Minimum capacity** – The pipeline can reduce capacity down to this number of Ingestion OCUs. The specified minimum capacity is also the starting capacity for a pipeline.
 + **Maximum capacity** – The pipeline can increase capacity up to this number of Ingestion OCUs.
 
-![Edit capacity dialog showing Min capacity set to 1 and Max capacity set to 4 Ingestion-OCU.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-scaling.png)
+![Edit capacity dialog showing Min capacity set to 1 and Max capacity set to 4 Ingestion-OCU.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-scaling.png)
 
 
 Make sure that the maximum capacity for a pipeline is high enough to handle spikes in workload, and the minimum capacity is low enough to minimize costs when the pipeline isn't busy. Based on your settings, OpenSearch Ingestion automatically scales the number of Ingestion OCUs for your pipeline to process the ingest workload. At any specific time, you're charged only for the Ingestion OCUs that are being actively used by your pipeline.

@@ -21,7 +21,7 @@ This documentation provides a general overview of the Learning to Rank plugin an
 
 You need to provide a judgment list, prepare a training dataset, and train the model outside of Amazon OpenSearch Service. The parts in blue occur outside of OpenSearch Service:
 
-![Sample Learning to Rank plugin process.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ltr.png)
+![Sample Learning to Rank plugin process.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ltr.png)
 
 
 ### Step 1: Initialize the plugin

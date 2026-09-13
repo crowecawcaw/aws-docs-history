@@ -14,7 +14,7 @@ To start creating a workspace, you can select the **Launch application** button 
 
 The OpenSearch UI application provides options for creating workspaces and lists all the existing workspaces in the homepage, categorized by use case. 
 
-![The "My workspaces" area in the console can be used to create five different types of workspaces: Observability, Security analytics, Search, Essentials, and Analytics. You can also view all existing workspaces in the "My workspaces" area.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/workspaces.png)
+![The "My workspaces" area in the console can be used to create five different types of workspaces: Observability, Security analytics, Search, Essentials, and Analytics. You can also view all existing workspaces in the "My workspaces" area.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/workspaces.png)
 
 
 For more information about the supported types of workspaces, see [Workspace types](#application-workspaces-types).

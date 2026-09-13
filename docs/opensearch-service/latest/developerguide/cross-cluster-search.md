@@ -60,7 +60,7 @@ The “destination” domain is the domain that the source domain queries.
 
 A cross-cluster connection is unidirectional from the source to the destination domain. This means that the destination domain can’t query the source domain. However, you can set up another connection in the opposite direction.
 
-![Cross-cluster search authorization flow](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ccs.png)
+![Cross-cluster search authorization flow](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ccs.png)
 
 
 The source domain creates an "outbound" connection to the destination domain. The destination domain receives an "inbound" connection request from the source domain. 

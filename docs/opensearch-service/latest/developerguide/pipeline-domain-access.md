@@ -114,4 +114,4 @@ If your domain uses [fine-grained access control](https://docs.aws.amazon.com/op
 
 The following image shows how to map the pipeline role to a backend role:
 
-![Backend roles section showing an AWS IAM role ARN for a pipeline role with a Remove option.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ingestion-fgac.png)
+![Backend roles section showing an AWS IAM role ARN for a pipeline role with a Remove option.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ingestion-fgac.png)

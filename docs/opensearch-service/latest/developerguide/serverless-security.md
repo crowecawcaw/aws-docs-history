@@ -14,7 +14,7 @@ Security in Amazon OpenSearch Serverless differs fundamentally from security in 
 
 The following diagram illustrates the security components that make up a functional collection. A collection must have an assigned encryption key, network access settings, and a matching data access policy that grants permission to its resources.
 
-![Diagram showing encryption, network, data access, and authentication policies for a collection.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-security.png)
+![Diagram showing encryption, network, data access, and authentication policies for a collection.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-security.png)
 
 
 **Topics**
@@ -41,7 +41,7 @@ The following diagram illustrates the security components that make up a functio
 
 To apply a policy to multiple collections, you include a wildcard (\*) in the policy rule. For example, the following policy applies to all collections with names that begin with "logs".
 
-![Input field for specifying a prefix term or collection name, with "logs*" entered.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-security-encryption.png)
+![Input field for specifying a prefix term or collection name, with "logs*" entered.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-security-encryption.png)
 
 
 Encryption policies streamline the process of creating and managing collections, especially when you do so programmatically. You can create a collection by specifying a name, and an encryption key is automatically assigned to it upon creation. 
@@ -53,7 +53,7 @@ Encryption policies streamline the process of creating and managing collections,
 
 Network policies consist of two components: an **access type** and a **resource type**. The access type can either be public or private. The resource type determines whether the access you choose applies to the collection endpoint, the OpenSearch Dashboards endpoint, or both.
 
-![Access type and resource type options for configuring network policies in OpenSearch.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-security-network.png)
+![Access type and resource type options for configuring network policies in OpenSearch.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-security-network.png)
 
 
 If you plan to configure VPC access within a network policy, you must first create one or more [OpenSearch Serverless-managed VPC endpoints](serverless-vpc.md). These endpoints let you access OpenSearch Serverless as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection.
@@ -67,7 +67,7 @@ Private access to AWS services can only apply to the collection's OpenSearch end
 
 Data access policies consist of a set of rules, each with three components: a **resource type**, **granted resources**, and a set of **permissions**. The resource type can be a collection or index. The granted resources can be collection/index names or patterns with a wildcard (\*). The list of permissions specifies which [OpenSearch API operations](serverless-genref.md#serverless-operations) the policy grants access to. In addition, the policy contains a list of **principals**, which specify the IAM roles, users, and SAML identities to grant access to.
 
-![Selected principals and granted resources with permissions for collection and index access.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-data-access.png)
+![Selected principals and granted resources with permissions for collection and index access.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-data-access.png)
 
 
 For more information about the format of a data access policy, see the [policy syntax](serverless-data-access.md#serverless-data-access-syntax).

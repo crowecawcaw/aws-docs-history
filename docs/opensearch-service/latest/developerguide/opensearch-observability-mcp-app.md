@@ -20,27 +20,27 @@ The following examples show how MCP Apps render interactive visualizations insid
 
 **Alerts** – View and triage firing alerts across your data sources. The alert view shows firing activity over time, severity breakdowns, and per-alert details, with an option to start an investigation. The following screenshot shows the alerts view with firing activity.
 
-![MCP App alerts view showing a firing-activity histogram and a filterable list of alerts by severity, state, and source.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-alerts.png)
+![MCP App alerts view showing a firing-activity histogram and a filterable list of alerts by severity, state, and source.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-alerts.png)
 
 
 **Observability report** – Review aggregated results, such as error counts by service, alongside the underlying query and an AI-generated root cause analysis. The following screenshot shows the observability report.
 
-![MCP App observability report showing an error-count-by-service bar chart, a root cause table, and an analysis summary.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-report.png)
+![MCP App observability report showing an error-count-by-service bar chart, a root cause table, and an analysis summary.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-report.png)
 
 
 **Trace investigation** – Explore a distributed trace's span hierarchy and timeline, inspect individual span details, and read an analysis of where a failure originated. The following screenshot shows the trace investigation view.
 
-![MCP App trace investigation showing a span hierarchy timeline with span details and AI analysis.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-trace.png)
+![MCP App trace investigation showing a span hierarchy timeline with span details and AI analysis.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-trace.png)
 
 
 **Service map** – Visualize service dependencies as a call graph, where edge width reflects call volume and color reflects error rate, to understand the blast radius of an incident. The following diagram shows the service map.
 
-![MCP App service map showing a call graph with per-service error rates and dependency edges.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-service-map.png)
+![MCP App service map showing a call graph with per-service error rates and dependency edges.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-service-map.png)
 
 
 **Metric visualization** – Render PromQL query results as interactive line, bar, area, or metric charts, with result series and an analysis of the metric behavior. The following screenshot shows the metric visualization.
 
-![MCP App metric visualization showing a PromQL line chart with result series and a metric value table.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-visualization.png)
+![MCP App metric visualization showing a PromQL line chart with result series and a metric value table.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/mcp-app-visualization.png)
 
 
 ## Key concepts

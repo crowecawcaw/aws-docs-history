@@ -102,7 +102,7 @@ For a full list of OpenSearch Serverless permissions, see [Identity and Access M
    For the resource type, enable both **Access to OpenSearch endpoints** and **Access to OpenSearch Dashboards**.
 
 1. In both input boxes, enter `Collection Name = books`. This setting scopes the policy down so that it only applies to a single collection (`books`). Your rule should look like this:  
-![Search interface showing two input fields for collection or prefix term selection, both set to "books".](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-tutorial-network.png)
+![Search interface showing two input fields for collection or prefix term selection, both set to "books".](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-tutorial-network.png)
 
 1. Choose **Create**.
 
@@ -205,7 +205,7 @@ You can upload data to an OpenSearch Serverless collection using Postman or curl
    ```
    PUT books-index{{ }}
    ```  
-![OpenSearch Dashboards console showing PUT request for books-index with JSON response.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-createindex.png)
+![OpenSearch Dashboards console showing PUT request for books-index with JSON response.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-createindex.png)
 
 1. To index a single document into *books-index*, run the following command:
 

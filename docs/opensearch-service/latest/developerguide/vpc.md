@@ -36,12 +36,12 @@ To support VPCs, OpenSearch Service places an endpoint into one, two, or three s
 
 The following illustration shows the VPC architecture for one Availability Zone:
 
-![VPC with subnet containing security group connecting to OpenSearch data and master nodes.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/VPCNoZoneAwareness.png)
+![VPC with subnet containing security group connecting to OpenSearch data and master nodes.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/VPCNoZoneAwareness.png)
 
 
 The following illustration shows the VPC architecture for two Availability Zones:
 
-![VPC with subnets across two availability zones connecting to OpenSearch Service nodes.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/VPCZoneAwareness.png)
+![VPC with subnets across two availability zones connecting to OpenSearch Service nodes.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/VPCZoneAwareness.png)
 
 
 OpenSearch Service also places an *elastic network interface* (ENI) in the VPC for each of your data nodes. OpenSearch Service assigns each ENI a private IP address from the IPv4 address range of your subnet. The service also assigns a public DNS hostname (which is the domain endpoint) for the IP addresses. You must use a public DNS service to resolve the endpoint (which is a DNS hostname) to the appropriate IP addresses for the data nodes:

@@ -7,7 +7,7 @@ A common way to create a search application with Amazon OpenSearch Service is to
 
 This chapter presents a solution: use Amazon API Gateway to restrict users to a subset of the OpenSearch APIs and AWS Lambda to sign requests from API Gateway to OpenSearch Service.
 
-![Search application flow diagram.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/search-application-diagram.png)
+![Search application flow diagram.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/search-application-diagram.png)
 
 
 **Note**  
@@ -391,7 +391,7 @@ Fine-grained access control introduces an additional step before you can test th
 1. Update the `apigatewayendpoint` variable to point to your API Gateway endpoint and add a backslash to the end of the given path. You can quickly find the endpoint in API Gateway by choosing **Stages** and selecting the name of the API. The `apigatewayendpoint` variable should take the form of `https://{{some-id}}.execute-api.{{us-west-1}}.amazonaws.com/opensearch-api-test`/.
 
 1. Open `index.html` and try running searches for *thor*, *house*, and a few other terms.  
-![A sample search for thor.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/search-ui.png)
+![A sample search for thor.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/search-ui.png)
 
 ### Troubleshoot CORS errors
 <a name="search-example-cors"></a>

@@ -11,7 +11,7 @@ Because OpenSearch Ingestion is serverless, you don’t have to manage infrastru
 
 As a component of Amazon OpenSearch Service, OpenSearch Ingestion is powered by Data Prepper—an open-source data collector that filters, enriches, transforms, normalizes, and aggregates data for downstream analysis and visualization.
 
-![Data sources flow through ingest pipelines to store data in OpenSearch Service domains.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/Ingestion.png)
+![Data sources flow through ingest pipelines to store data in OpenSearch Service domains.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/Ingestion.png)
 
 
 ## Benefits of Amazon OpenSearch Ingestion

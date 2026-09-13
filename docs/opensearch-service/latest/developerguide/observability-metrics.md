@@ -5,7 +5,7 @@
 
 The Discover Metrics page in OpenSearch UI provides a dedicated interface for discovering, querying, and visualizing time-series metric data. This page is optimized for working with Prometheus metrics using PromQL.
 
-![Line graph showing CPU usage metrics by mode over time with a tooltip displaying values for different modes at 14:02:29.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/dashboards/prometheus.png)
+![Line graph showing CPU usage metrics by mode over time with a tooltip displaying values for different modes at 14:02:29.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/dashboards/prometheus.png)
 
 
 The Discover Metrics page is available in Observability workspaces. To access it, navigate to an Observability workspace, expand **Discover** in the left navigation, and select **Metrics**.

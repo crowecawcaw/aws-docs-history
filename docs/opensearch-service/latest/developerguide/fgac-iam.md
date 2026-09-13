@@ -7,7 +7,7 @@ This tutorial covers a popular Amazon OpenSearch Service use case for [fine-grai
 
 In the tutorial, we'll configure a *master* IAM role and a *limited* IAM role, which we'll then associate with users in Amazon Cognito. The master user can then sign in to OpenSearch Dashboards, map the limited user to a role, and use fine-grained access control to limit the user's permissions.
 
-![IAM roles flow through Amazon Cognito to OpenSearch Dashboards for access control.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/fgac-cognito.png)
+![IAM roles flow through Amazon Cognito to OpenSearch Dashboards for access control.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/fgac-cognito.png)
 
 
 Although these steps use the Amazon Cognito user pool for authentication, this same basic process works for any Cognito authentication provider that lets you assign different IAM roles to different users.

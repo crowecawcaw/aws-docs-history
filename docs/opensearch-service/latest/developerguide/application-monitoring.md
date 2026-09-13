@@ -7,7 +7,7 @@ Amazon OpenSearch Service automatically publishes metrics for OpenSearch UI appl
 
 OpenSearch Service reports metrics to CloudWatch in 5-minute intervals. There is no charge for these metrics. For more information, see [What is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) in the *CloudWatch User Guide*.
 
-![CloudWatch metrics console showing OpenSearch UI application request count metrics in the AWS/OpenSearch namespace with AppId dimension.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/application-monitoring-cloudwatch.png)
+![CloudWatch metrics console showing OpenSearch UI application request count metrics in the AWS/OpenSearch namespace with AppId dimension.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/application-monitoring-cloudwatch.png)
 
 
 ## OpenSearch UI metrics

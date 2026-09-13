@@ -38,7 +38,7 @@ Setting up an index with automatic semantic enrichment enabled for your text fie
 
 Console experience - The AWS console allows you to easily create an index with automatic semantic enrichment fields. Once you select a domain, you will find the create index button at the top of the console. Once you click the create index button, you will find options to define automatic semantic enrichment fields. In one index, you can have combinations of automatic semantic enrichment for English and multilingual, as well as lexical fields.
 
-![Create index page showing index name field, semantic enrichment fields, and search fields.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-console-exp.png)
+![Create index page showing index name field, semantic enrichment fields, and search fields.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-console-exp.png)
 
 
 API experience - To create an automatic semantic enrichment index using the AWS Command Line Interface (AWS CLI), use the create-index command: 
@@ -224,20 +224,20 @@ You can complete the authorization and create a semantic enrichment index for a 
 
 If the OpenSearch Service features principal has not yet been authorized to access the domain, the Indexes tab shows an access denied message instead of the Create index button. Choose Authorize Principal to open the VPC endpoints tab.
 
-![Indexes tab showing an access denied banner with an Authorize Principal button.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-vpc-indexes-access-denied.png)
+![Indexes tab showing an access denied banner with an Authorize Principal button.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-vpc-indexes-access-denied.png)
 
 
 On the VPC endpoints tab, choose Authorize principal, select Authorize Principals from other AWS Services, and choose OpenSearch Service Features. This performs the same authorization as the `AuthorizeVpcEndpointAccess` API described in the preceding section.
 
-![VPC endpoints tab with VPC endpoints and Authorized principals panels.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-vpc-endpoints.png)
+![VPC endpoints tab with VPC endpoints and Authorized principals panels.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-vpc-endpoints.png)
 
 
-![Authorize principals dialog with OpenSearch Service Features selected.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-vpc-authorize-principals.png)
+![Authorize principals dialog with OpenSearch Service Features selected.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-vpc-authorize-principals.png)
 
 
 Return to the Indexes tab. The Create index button is now available. Choose Create index to open the create index page, where you can define your automatic semantic enrichment fields and create the index for your VPC domain.
 
-![Indexes tab after authorization showing an info banner and a Create index button.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-vpc-indexes-create.png)
+![Indexes tab after authorization showing an info banner and a Create index button.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ase-vpc-indexes-create.png)
 
 
 **Note**  
@@ -400,3 +400,8 @@ Automatic semantic enrichment is available in the following AWS Regions:
 + Europe (Ireland)
 + Europe (Stockholm)
 + Europe (Spain)
+
+## Data privacy for Automatic Semantic Enrichment
+<a name="semantic-enrichment-data-privacy"></a>
+
+The machine learning model that powers Automatic Semantic Enrichment (ASE) is pre-trained. Amazon OpenSearch Service does not use your content — including the documents you index, your queries, or your search results — to train, retrain, or improve this model. Your data is processed solely to deliver the ASE functionality you request and is not shared with other customers or used for any model-training purpose.

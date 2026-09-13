@@ -28,24 +28,24 @@ Complete the following steps to create a correlation between a traces dataset an
 1. Select the traces dataset that you want to correlate.
 
 1. Choose the **Correlations** tab in the dataset configuration panel.  
-![Correlated datasets tab showing no correlations exist with option to create correlation.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-trace-dataset-tab.png)
+![Correlated datasets tab showing no correlations exist with option to create correlation.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-trace-dataset-tab.png)
 
 1. Choose **Create correlation**.
 
 1. In the configuration dialog, select the target logs dataset and map the required correlation fields (trace ID and timestamp). Optionally, map span ID and service name for more precise matching.  
-![Configure correlation dialog showing Logs Dataset mapped to trace fields including time, traceId, spanId, and service name.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-configure-dialog.png)
+![Configure correlation dialog showing Logs Dataset mapped to trace fields including time, traceId, spanId, and service name.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-configure-dialog.png)
 
 1. Choose **Create** to save the correlation.
 
 1. Verify that the correlation appears in the correlations table.  
-![Correlations table showing Trace-to-logs correlation type linking Trace Dataset to Logs Dataset.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-created-table.png)
+![Correlations table showing Trace-to-logs correlation type linking Trace Dataset to Logs Dataset.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-created-table.png)
 
 ## Viewing correlations in logs datasets
 <a name="observability-correlations-view-logs"></a>
 
 After you create a correlation, you can also view it from the logs dataset side. Navigate to the Discover Logs page, select the correlated logs dataset, and choose the **Correlations** tab to see the linked traces dataset.
 
-![Correlated traces tab showing Trace-to-logs correlation type linking Trace Dataset to Logs Dataset.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-logs-dataset-tab.png)
+![Correlated traces tab showing Trace-to-logs correlation type linking Trace Dataset to Logs Dataset.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-logs-dataset-tab.png)
 
 
 ## Using correlations in the Traces page
@@ -53,7 +53,7 @@ After you create a correlation, you can also view it from the logs dataset side.
 
 When a correlation exists, the Discover Traces page displays related logs in the span details view. Choose a span in the span table to open the details flyout, then choose the **Related logs** tab to view correlated log entries.
 
-![Span details view showing Related logs tab with a log entry for GetCartAsync operation.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-span-details-logs.png)
+![Span details view showing Related logs tab with a log entry for GetCartAsync operation.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/correlations-span-details-logs.png)
 
 
 ## Managing correlations

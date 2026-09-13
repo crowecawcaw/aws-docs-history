@@ -19,7 +19,7 @@ OpenSearch Service has two broad categories of service software updates—*optio
 
 When you initiate an *optional* update, you have the choice to apply the update immediately, schedule it for a subsequent off-peak window, or specify a custom date and time to apply it.
 
-![Dialog box with three radio button options for scheduling a service software update.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/off-peak-sso.png)
+![Dialog box with three radio button options for scheduling a service software update.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/off-peak-sso.png)
 
 
 For *required* updates, OpenSearch Service automatically schedules a date and time during off-peak hours to perform the update. You receive a notification three days before the scheduled update, and you can choose to reschedule it for a later date and time within the required deployment period. For instructions, see [Rescheduling actions](#off-peak-reschedule).

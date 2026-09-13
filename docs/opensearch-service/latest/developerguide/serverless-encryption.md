@@ -29,7 +29,7 @@ When you create an encryption policy, you can either specify a *prefix*, which i
 
 When creating a collection, you can specify an AWS KMS key in two ways: through security policies or directly in the `CreateCollection` request. If you provide a AWS KMS key as part of the `CreateCollection` request, it takes precedence over any matching security policies. With this approach, you have the flexibility to override policy-based encryption settings for specific collections when needed.
 
-![Encryption policy with rules matching MyLogs pattern to collection using my_kms_key.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-encryption.png)
+![Encryption policy with rules matching MyLogs pattern to collection using my_kms_key.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-encryption.png)
 
 
 Encryption policies contain the following elements:

@@ -12,14 +12,14 @@ The important differences during source configuration (compared to sending data 
 
 To ingest data into a pipeline, send it to the ingestion endpoint. To locate the ingestion URL, navigate to the **Pipeline settings** page and copy the **Ingestion URL**.
 
-![Pipeline settings page showing details like status, capacity, and ingestion URL for data input.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-endpoint.png)
+![Pipeline settings page showing details like status, capacity, and ingestion URL for data input.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-endpoint.png)
 
 
 To construct the full ingestion endpoint for pull-based sources like [OTel trace](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-trace/) and [OTel metrics](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-metrics-source/), add the ingestion path from your pipeline configuration to the ingestion URL.
 
 For example, say that your pipeline configuration has the following ingestion path:
 
-![Input field for HTTP source path with example "/my/test_path" entered.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ingestion-path.png)
+![Input field for HTTP source path with example "/my/test_path" entered.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ingestion-path.png)
 
 
 The full ingestion endpoint, which you specify in your client configuration, will take the following format: `https://{{ingestion-pipeline-abcdefg}}.us-east-1.osis.amazonaws.com{{/my/test_path}}`.

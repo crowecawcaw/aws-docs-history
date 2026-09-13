@@ -208,7 +208,7 @@ At this point, you have two ways to access your OpenSearch Service domain: HTTP 
 
 Most programming languages have libraries to assist with signing requests, but the simpler approach is to use a tool like [Postman](https://www.postman.com/downloads/) and put your IAM credentials into the **Authorization** section.
 
-![Postman interface showing Authorization settings for AWS API request with Signature type.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/migration2.png)
+![Postman interface showing Authorization settings for AWS API request with Signature type.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/migration2.png)
 
 
 **To restore the snapshot**

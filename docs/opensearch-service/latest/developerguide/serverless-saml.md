@@ -12,7 +12,7 @@ SAML authentication is only for accessing OpenSearch Dashboards through a web br
 
 To set up SAML authentication, you first configure a SAML identity provider (IdP). You then include one or more users from that IdP in a [data access policy](serverless-data-access.md). This policy grants it certain permissions to collections and/or indexes. A user can then sign in to OpenSearch Dashboards and perform the actions that are allowed in the data access policy.
 
-![SAML provider authentication flow showing identity provider, data access policy, and user login.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-saml-flow.png)
+![SAML provider authentication flow showing identity provider, data access policy, and user login.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-saml-flow.png)
 
 
 **Topics**
@@ -166,7 +166,7 @@ After you configure a SAML provider, all users and groups associated with that p
 
 If you have SAML enabled, selecting the link in the AWS Management Console directs you to the IdP selection page, where you can sign in using your SAML credentials. First, use the dropdown to select an identity provider:
 
-![Dropdown menu showing SAML identity provider options including IAM , OKTA, OneLogin, Keycloak, and Auth0.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/idpList.png)
+![Dropdown menu showing SAML identity provider options including IAM , OKTA, OneLogin, Keycloak, and Auth0.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/idpList.png)
 
 
 Then sign in using your IdP credentials. 

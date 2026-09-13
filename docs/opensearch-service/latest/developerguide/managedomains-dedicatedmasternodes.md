@@ -16,7 +16,7 @@ Dedicated master nodes perform the following cluster management tasks:
 
 The following illustration shows an OpenSearch Service domain with 10 instances. Seven of the instances are data nodes and three are dedicated master nodes. Only one of the dedicated master nodes is active. The two gray dedicated master nodes wait as backup in case the active dedicated master node fails. All data upload requests are served by the seven data nodes, and all cluster management tasks are offloaded to the active dedicated master node.
 
-![OpenSearch Service domain with data nodes and dedicated master nodes, illustrating cluster management.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/DedicatedMasterNodes_no-caption.png)
+![OpenSearch Service domain with data nodes and dedicated master nodes, illustrating cluster management.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/DedicatedMasterNodes_no-caption.png)
 
 
 ## Choosing the number of dedicated master nodes

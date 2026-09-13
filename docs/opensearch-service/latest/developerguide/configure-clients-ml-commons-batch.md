@@ -17,7 +17,7 @@ You can create an offline batch inference pipeline on OpenSearch Ingestion by [a
 
 OpenSearch Ingestion uses the `ml_inference` processor with ML Commons to create offline batch inference jobs. ML Commons then uses the [batch\_predict](https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/) API, which performs inference on large datasets in an offline asynchronous mode using a model deployed on external model servers in Amazon Bedrock, Amazon SageMaker, Cohere, and OpenAI. The following diagram shows an OpenSearch Ingestion pipeline that orchestrates multiple components to perform this process end to end:
 
-![Three-pipeline architecture of batch AI inference processing.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ml_processor.png)
+![Three-pipeline architecture of batch AI inference processing.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ml_processor.png)
 
 
 The pipeline components work as follows:

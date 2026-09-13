@@ -655,4 +655,4 @@ curl -XPOST \
 
 The following image shows how to send a requests to a collection using Postman. For instructions to authenticate, see [Authenticate with AWS Signature authentication workflow in Postman](https://learning.postman.com/docs/sending-requests/authorization/aws-signature/).
 
-![Postman interface showing POST request with JSON body containing title field set to Shawshank Redemption.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ServerlessPostman.png)
+![Postman interface showing POST request with JSON body containing title field set to Shawshank Redemption.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ServerlessPostman.png)

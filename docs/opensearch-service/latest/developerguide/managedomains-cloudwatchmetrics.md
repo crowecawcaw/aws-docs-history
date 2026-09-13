@@ -52,7 +52,7 @@ aws cloudwatch list-metrics --namespace "AWS/ES"
 
 To view metrics in OpenSearch Service, use the **Cluster health** and **Instance health** tabs. The **Instance health** tab uses box charts to provide at-a-glance visibility into the health of each OpenSearch node:
 
-![Box charts showing search rate and CPU utilization metrics for three OpenSearch nodes.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/box-charts.png)
+![Box charts showing search rate and CPU utilization metrics for three OpenSearch nodes.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/box-charts.png)
 
 + Each colored box shows the range of values for the node over the specified time period.
 + Blue boxes represent values that are consistent with other nodes. Red boxes represent outliers.

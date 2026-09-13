@@ -15,7 +15,7 @@ At minimum, the following roles are required to set up a successful pipeline.
 
 The following image demonstrates a typical pipeline setup, where a data source such as Amazon S3 or Fluent Bit is writing to a pipeline in a different account. In this case, the client needs to assume the ingestion role in order to access the pipeline. For more information, see [Cross-account ingestion](#pipeline-security-different-account).
 
-![Cross-account data flow from Fluent Bit through STS assume role, ingestion role, pipeline, to OpenSearch sink.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-security.png)
+![Cross-account data flow from Fluent Bit through STS assume role, ingestion role, pipeline, to OpenSearch sink.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-security.png)
 
 
 For a simple setup guide, see [Tutorial: Ingesting data into a domain using Amazon OpenSearch Ingestion](osis-get-started.md).
@@ -32,7 +32,7 @@ A pipeline needs certain permissions to read from its source and write to its si
 
 When you create a pipeline, you have the option of specifying an existing IAM role that you manually created, or having OpenSearch Ingestion automatically create the pipeline role based on the source and the sink that you selected. The following image shows how to specify the pipeline role in the AWS Management Console.
 
-![Pipeline role section with Use an existing IAM role selected and Choose an existing role dropdown.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-role.png)
+![Pipeline role section with Use an existing IAM role selected and Choose an existing role dropdown.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-role.png)
 
 
 **Topics**

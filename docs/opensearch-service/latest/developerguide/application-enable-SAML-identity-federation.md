@@ -121,7 +121,7 @@ After you create the custom SAML application, complete the following steps:
 
 Your attributes should be similar in format to those shown in the following image. The **Default Relay State** value is the URL to define the landing page for end-users in your account or organization after they complete the single sign-on validation from Okta. You can set it to any page in OpenSearch UI, and then provide that URL to its intended end-users.
 
-![The "SAML 2.0" area reports the default relay state URL and metadata URL for an application.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-saml-2.0-area-okta.png)
+![The "SAML 2.0" area reports the default relay state URL and metadata URL for an application.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-saml-2.0-area-okta.png)
 
 
 ## Step 2: Set up AWS configuration for Okta
@@ -332,7 +332,7 @@ Open the URL for **Default Relay State** to open the Okta authentication page. E
 
 You can check for your current credentials by choosing the user icon on the bottom of the navigation panel, as illustrated in the following image:
 
-![Choosing the user icon in the Okta "Settings and setup" page displays the current user's credentials.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-okta-user-icon.png)
+![Choosing the user icon in the Okta "Settings and setup" page displays the current user's credentials.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-okta-user-icon.png)
 
 
 You can also verify the fine-grained access control permissions for the user by accessing the Developer Tools on the bottom of the navigation panel and running queries in the console. The following are sample queries.

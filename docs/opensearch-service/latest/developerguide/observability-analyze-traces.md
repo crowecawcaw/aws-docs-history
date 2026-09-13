@@ -10,7 +10,7 @@ The Discover Traces page provides a dedicated interface for exploring distribute
 
 In your observability workspace, expand **Discover** in the left navigation and choose **Traces**.
 
-![Traces interface showing request count, error count, and latency charts with a table of trace results below.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/discover-traces.png)
+![Traces interface showing request count, error count, and latency charts with a table of trace results below.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/discover-traces.png)
 
 
 ## Configuring trace datasets
@@ -23,7 +23,7 @@ Before you can explore trace data, you must configure a traces dataset. You can 
 
 When you navigate to the Discover Traces page for the first time and trace data exists in your domain, the page prompts you to create a dataset automatically. Choose **Create dataset** to accept the default configuration.
 
-![Dialog box prompting to create trace datasets for DockerTest with otel-v1-apm-span traces detected.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/trace-auto-create.png)
+![Dialog box prompting to create trace datasets for DockerTest with otel-v1-apm-span traces detected.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/trace-auto-create.png)
 
 
 ### Manual dataset creation
@@ -44,7 +44,7 @@ The Discover Traces page provides the following components for exploring your tr
 
 To view details for a specific span, choose the span row in the span table. A flyout panel opens with the span attributes, resource attributes, and event information.
 
-![Span details panel showing service identifier, span ID, start time, and span status for user_get_recommendations.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/trace-details-flyout.png)
+![Span details panel showing service identifier, span ID, start time, and span status for user_get_recommendations.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/trace-details-flyout.png)
 
 
 ## Trace detail page
@@ -52,7 +52,7 @@ To view details for a specific span, choose the span row in the span table. A fl
 
 To view the complete trace, choose the trace ID link in the span table or flyout panel. The trace detail page displays a waterfall chart showing all spans in the trace, their timing relationships, and the overall trace duration. You can expand individual spans to view their attributes and identify bottlenecks.
 
-![Trace waterfall chart showing nested spans for load-generator, frontend-proxy, frontend, and cart services with timing details.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/trace-detail-page.png)
+![Trace waterfall chart showing nested spans for load-generator, frontend-proxy, frontend, and cart services with timing details.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/trace-detail-page.png)
 
 
 ## Correlating traces with logs
@@ -65,7 +65,7 @@ When you configure a correlation between a traces dataset and a logs dataset, yo
 
 In the span details flyout or trace detail page, choose the **Related logs** tab to view log entries that match the span's trace ID, service name, and time range. This correlation helps you understand what happened in your application during the span execution.
 
-![Related logs tab showing log entries filtered by trace ID with timestamps, levels, and span IDs.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/related-logs.png)
+![Related logs tab showing log entries filtered by trace ID with timestamps, levels, and span IDs.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/related-logs.png)
 
 
 ### Log redirection with context
@@ -73,7 +73,7 @@ In the span details flyout or trace detail page, choose the **Related logs** tab
 
 You can navigate from a trace span directly to the Discover Logs page with the relevant context preserved. Choose **View in Logs** from the related logs panel to open the Discover Logs page with the query pre-populated to filter by the span's trace ID and time range.
 
-![Logs page showing 8 query results filtered by trace ID with log entries from various services.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/logs-redirection.png)
+![Logs page showing 8 query results filtered by trace ID with log entries from various services.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-traces/logs-redirection.png)
 
 
 ## Querying traces using PPL

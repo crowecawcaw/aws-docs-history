@@ -59,7 +59,7 @@ After you set up your features, preview sample anomalies and adjust the feature 
 ### Step 3: Observe the results
 <a name="ad-example-3"></a>
 
-![The following visualizations are available on the anomaly detection dashboard:](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ad.png)
+![The following visualizations are available on the anomaly detection dashboard:](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ad.png)
 
 + **Live anomalies** - displays the live anomaly results for the last 60 intervals. For example, if the interval is set to 10, it shows the results for the last 600 minutes. This chart refreshes every 30 seconds.
 + **Anomaly history** - plots the anomaly grade with the corresponding measure of confidence.

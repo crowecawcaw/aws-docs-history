@@ -210,7 +210,7 @@ In order create an OpenSearch UI application that uses AWS IAM Identity Center a
 1. (Optional) To enable single sign-on for your organization or account, do the following:
 
    1. Select the **Authentication with IAM Identity Center** check box, as shown in the following image:  
-![The "Single sign-on authetication" area with the "Authentication with IAM Identity Center" box selected.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-Single-sign-on-authentication.png)
+![The "Single sign-on authetication" area with the "Authentication with IAM Identity Center" box selected.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-Single-sign-on-authentication.png)
 
    1. Do one of the following:
       + In the **IAM role for Identity Center application** list, choose an existing IAM role that provides the required permissions for IAM Identity Center to access OpenSearch UI and the associated data sources. See the policies in the next bullet for the permissions the role must have.
@@ -305,10 +305,10 @@ If you are adding the trust policy to an existing role, add the policy on the ro
 ------
 
    1. If an IAM Identity Center instance has been created in your organization or account already, the console reports that Amazon OpenSearch Dashboards is already connected to an organization instance of IAM Identity Center, as shown in the following image.  
-![The "Amazon OpenSearch Dashboard connected to an account instance of IAM Identity Center" area shows the URL of the existing IAM Identity Center account instance.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-connected-instance.png)
+![The "Amazon OpenSearch Dashboard connected to an account instance of IAM Identity Center" area shows the URL of the existing IAM Identity Center account instance.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-connected-instance.png)
 
       If IAM Identity Center is not yet available in your organization or account, you or an administrator with the necessary permissions can create an organization instance or account instance. The **Connect Amazon OpenSearch Dashboards to IAM Identity Center** area provides options for both, as shown in the following image:  
-![The "Connect Amazon OpenSearch Dashboards to IAM Identity Center" area provides buttons to create an organization instance or an account instance.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-no-connected-instance.png)
+![The "Connect Amazon OpenSearch Dashboards to IAM Identity Center" area provides buttons to create an organization instance or an account instance.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-no-connected-instance.png)
 
        In this case, you can create an account instance in IAM Identity Center for testing, or request that an administrator create an organizational instance in IAM Identity Center. For more information, see the following topics in the *AWS IAM Identity Center User Guide*:
 **Note**  
@@ -318,7 +318,7 @@ If you want to create OpenSearch UI applications in a different AWS Region from 
       + [Enable AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-identity-center.html)
 
 1. (Optional) You are automatically added as an administrator of the application you are creating. In the **OpenSearch application admins management** area, you can grant administrator permissions to other users, as shown in the following image:  
-![The "OpenSearch application admins management" area provides options for granting administrator permissions to select users or all all users.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-admins-management.png)
+![The "OpenSearch application admins management" area provides options for granting administrator permissions to select users or all all users.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-admins-management.png)
 **Note**  
 The OpenSearch UI application administrator role grants permissions to edit and delete an OpenSearch UI application. Application administrators can also create, edit and delete workspaces in an OpenSearch UI application.
 

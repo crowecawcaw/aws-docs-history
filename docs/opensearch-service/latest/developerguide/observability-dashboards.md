@@ -16,7 +16,7 @@ The following table describes common use cases for dashboards.
 | Availability tracking | Measure uptime and availability against service-level objectives. | 
 | Post-incident review | Analyze historical data to understand the root cause of past incidents. | 
 
-![Dashboard showing business metrics and telemetry including product reviews, cart additions, average charge, app availability gauge, request status codes, fault rates, throughput, and API calls.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/otel-dashboard.png)
+![Dashboard showing business metrics and telemetry including product reviews, cart additions, average charge, app availability gauge, request status codes, fault rates, throughput, and API calls.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/otel-dashboard.png)
 
 
 ## Dashboard structure

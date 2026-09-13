@@ -7,7 +7,7 @@ You can access an Amazon OpenSearch Service domain by setting up an OpenSearch S
 
 You can configure OpenSearch Service domains to expose additional endpoints running on public or private subnets within the same VPC, different VPC, or different AWS accounts. This enables you to add an additional layer of security to access your domains regardless of where they run, with no infrastructure to manage. The following diagram illustrates OpenSearch Service-managed VPC endpoints within the same VPC:
 
-![PrivateLink in public subnet connecting to OpenSearch Service in private subnet via VPC.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/Privatelink-Diagram.png)
+![PrivateLink in public subnet connecting to OpenSearch Service in private subnet via VPC.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/Privatelink-Diagram.png)
 
 
 You establish this private connection by creating an OpenSearch Service-managed *interface VPC endpoint*, powered by AWS PrivateLink. We create an endpoint network interface in each subnet that you enable for the interface VPC endpoint. These are service-managed network interfaces that serve as the entry point for traffic destined for OpenSearch Service. Standard [AWS PrivateLink interface endpoint pricing](https://aws.amazon.com/privatelink/pricing/) applies for OpenSearch Service managed VPC endpoints billed under AWS PrivateLink.

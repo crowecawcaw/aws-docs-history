@@ -41,7 +41,7 @@ When you write data to a collection, OpenSearch Serverless distributes it to the
 
 The following image illustrates this decoupled architecture:
 
-![Indexing compute units process data and store indexes in Amazon S3 for search compute units.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/Serverless.png)
+![Indexing compute units process data and store indexes in Amazon S3 for search compute units.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/Serverless.png)
 
 
 OpenSearch Serverless compute capacity for data ingestion, searching, and querying are measured in OpenSearch Compute Units (OCUs). Each OCU is a combination of 6 GiB of memory and corresponding virtual CPU (vCPU), as well as data transfer to Amazon S3.
@@ -66,7 +66,7 @@ Time series collections are only available for Classic collections. NextGen coll
 
 You choose a collection type when you first create a collection:
 
-![Collection type options: Time series, Search, and Vector search with their descriptions.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-collection-type.png)
+![Collection type options: Time series, Search, and Vector search with their descriptions.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-collection-type.png)
 
 
 The collection type that you choose depends on the kind of data that you plan to ingest into the collection, and how you plan to query it. You can't change the collection type after you create it.

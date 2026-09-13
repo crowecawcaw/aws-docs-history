@@ -9,7 +9,7 @@ The agent analyzes user behavior signals and query patterns. It generates hypoth
 
 The following screenshot shows the Search Relevance Workbench in OpenSearch UI.
 
-![The Search Relevance Workbench showing search configurations, experiments navigation, and the AI Assistant chat panel.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/search-relevance-workbench.png)
+![The Search Relevance Workbench showing search configurations, experiments navigation, and the AI Assistant chat panel.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/search-relevance-workbench.png)
 
 
 ## Getting started

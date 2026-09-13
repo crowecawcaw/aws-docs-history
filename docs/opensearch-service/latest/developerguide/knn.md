@@ -118,7 +118,7 @@ GET _msearch
 
 The following video demonstrates how to set up bulk vector searches for K-NN queries.
 
-[![AWS Videos](http://img.youtube.com/vi/Umi67JCfCbU/0.jpg)](http://www.youtube.com/watch?v=Umi67JCfCbU)
+[![AWS Videos](https://img.youtube.com/vi/Umi67JCfCbU/0.jpg)](https://www.youtube.com/watch?v=Umi67JCfCbU)
 
 
 ## k-NN differences, tuning, and limitations

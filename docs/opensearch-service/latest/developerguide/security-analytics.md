@@ -15,7 +15,7 @@ This documentation provides a brief overview of Security Analytics for Amazon Op
 
 A number of tools and features provide the foundation to the operation of Security Analytics. The major components that compose the plugin include detectors, log types, rules, findings, and alerts.
 
-![Workflow showing five steps: identify sources, create detector, configure rules, configure alerts, and respond to findings.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-diagram.png)
+![Workflow showing five steps: identify sources, create detector, configure rules, configure alerts, and respond to findings.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-diagram.png)
 
 
 ### Log types
@@ -48,22 +48,22 @@ When you create a detector, you can specify one or more conditions that trigger 
 
 You can use OpenSearch Dashboards to visualize and gain insight into your Security Analytics plugin. The **Overview** view provides information such as findings and alert counts, recent findings and alerts, frequent detection rules, and a list of your detectors. You can see a summary view comprised of multiple visualizations. The following chart, for example, shows the findings and alerts trend for various log types over a given period of time.
 
-![Chart showing findings and alert counts with network and windows log types over time.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-findings-alerts-chart.png)
+![Chart showing findings and alert counts with network and windows log types over time.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-findings-alerts-chart.png)
 
 
 Further down the page, you can review your most recent findings and alerts. 
 
-![Two tables showing Recent alerts and Recent findings with timestamps, severity levels, and detectors.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-findings-alerts.png)
+![Two tables showing Recent alerts and Recent findings with timestamps, severity levels, and detectors.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-findings-alerts.png)
 
 
 Additionally, you can see a distribution of the most frequently triggered rules across all the active detectors. This can help you detect and investigate different types of malicious activities across log types. 
 
-![Donut chart showing distribution of four detection rules with roughly equal proportions.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-detection-rules.png)
+![Donut chart showing distribution of four detection rules with roughly equal proportions.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-detection-rules.png)
 
 
 Finally, you can view the status of configured detectors. From this panel, you can also navigate to the create detector workflow.
 
-![Detectors table showing six active detectors with names, status, and log types such as Windows, Cloudtrail, and Network.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-detectors.png)
+![Detectors table showing six active detectors with names, status, and log types such as Windows, Cloudtrail, and Network.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sa-detectors.png)
 
 
 To configure your Security Analytics setup, create rules with the **Rules** page and use those rules to write detectors in the **Detectors** page. For a more focused view of your Security Analytics results, you can use the **Findings** and **Alerts** pages.

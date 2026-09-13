@@ -141,7 +141,7 @@ For example, within Okta, you can enter `https://{{temp-endpoint}}.amazonaws.com
 
 If you're enabling SAML authentication on an existing domain, copy the service provider entity ID and one of the SSO URLs. For guidance on which URL to use, see [SAML configuration overview](#saml-overview).
 
-![Service provider entity ID, IdP-initiated SSO URL, and SP-initiated SSO URL fields with values.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/SAML.png)
+![Service provider entity ID, IdP-initiated SSO URL, and SP-initiated SSO URL fields with values.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/SAML.png)
 
 
 Use the values to configure your identity provider. This is the most complex part of the process, and unfortunately, terminology and steps vary wildly by provider. Consult your provider's documentation.

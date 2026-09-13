@@ -5,12 +5,12 @@
 
 Agentic Chat is an AI assistant embedded in every page of OpenSearch UI. Choose the **Ask AI** button to open the chat panel, where you can ask questions about your data, generate queries, and initiate investigations. Agentic Chat understands the context of the page you're viewing in Discover and Investigation, and uses agentic tools to analyze the underlying data.
 
-![The Discover page in OpenSearch UI with the Ask AI button highlighted in the top right corner.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-ask-ai-button.png)
+![The Discover page in OpenSearch UI with the Ask AI button highlighted in the top right corner.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-ask-ai-button.png)
 
 
 When you open the chat panel, Agentic Chat presents options to help you get started: ask questions about your data, investigate an issue, or explain a concept. If you previously started a conversation, it remains visible in the chat panel as you navigate between pages, so that you can continue where you left off. Alternatively, choose the **New Chat** button in the top right corner to start a new conversation.
 
-![The Agentic Chat panel showing the AI Assistant welcome message with options to ask questions about your data, investigate an issue, or explain a concept.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-ask-ai-panel.png)
+![The Agentic Chat panel showing the AI Assistant welcome message with options to ask questions about your data, investigate an issue, or explain a concept.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-ask-ai-panel.png)
 
 
 ## Using Agentic Chat with Discover
@@ -25,7 +25,7 @@ To refine a generated query, ask follow-up questions in natural language, such a
 
 You can start a conversation with Agentic Chat directly from a visualization. Open the context menu on a visualization panel and choose **Ask AI**. Agentic Chat analyzes the visualization, identifies anomalies in your graphs, correlates with the underlying data, and generates analysis.
 
-![A visualization in OpenSearch UI showing the Ask AI option in the context menu, with the Agentic Chat panel analyzing the visualization.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-visualization.png)
+![A visualization in OpenSearch UI showing the Ask AI option in the context menu, with the Agentic Chat panel analyzing the visualization.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-visualization.png)
 
 
 ## Starting an investigation from chat

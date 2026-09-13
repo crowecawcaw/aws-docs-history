@@ -29,10 +29,10 @@ Complete the following steps to create a logs dataset in OpenSearch UI.
 1. Choose **Create dataset**.
 
 1. Select a data source from the list of available OpenSearch Service connections.  
-![Data source selection dialog showing OpenSearch 3.4 with logs-otel-v1 wildcard pattern and one matching index.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/datasets-select-data-source.png)
+![Data source selection dialog showing OpenSearch 3.4 with logs-otel-v1 wildcard pattern and one matching index.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/datasets-select-data-source.png)
 
 1. Configure the dataset by entering a name, selecting the index, and specifying the timestamp field.  
-![Dataset configuration dialog showing fields for dataset name, language, time field, and OTel logs schema mappings including trace ID, span ID, service name, and timestamp.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/datasets-configure-logs.png)
+![Dataset configuration dialog showing fields for dataset name, language, time field, and OTel logs schema mappings including trace ID, span ID, service name, and timestamp.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/datasets-configure-logs.png)
 
 1. Choose **Create dataset** to save the configuration.
 
@@ -48,7 +48,7 @@ Complete the following steps to create a traces dataset in OpenSearch UI.
 1. Select a data source from the list of available OpenSearch Service connections.
 
 1. Configure the dataset by entering a name, selecting the span index, and specifying the timestamp field.  
-![Configure Dataset dialog with fields for dataset name, description, data source, language, and time field.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/datasets-configure-traces.png)
+![Configure Dataset dialog with fields for dataset name, description, data source, language, and time field.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/datasets-configure-traces.png)
 
 1. Choose **Create dataset** to save the configuration.
 
@@ -57,7 +57,7 @@ Complete the following steps to create a traces dataset in OpenSearch UI.
 
 You can view all configured datasets from the dataset selector on the Discover Logs or Discover Traces page. The dataset list shows the name, type, data source, and timestamp field for each dataset.
 
-![Workspace datasets table showing Logs Dataset and Trace Dataset with their types and data sources.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/datasets-list.png)
+![Workspace datasets table showing Logs Dataset and Trace Dataset with their types and data sources.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/datasets/datasets-list.png)
 
 
 ## Analyzing datasets in Discover

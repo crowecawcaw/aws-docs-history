@@ -124,7 +124,7 @@ For optimal operational stability, it's sometimes necessary to limit or even pau
 
 The following diagram shows multiple component options for a log ingest architecture. Configure the aggregation layer to allow sufficient space to buffer incoming data for sudden traffic spikes and brief domain maintenance.
 
-![Log ingest architecture with producers, collectors, aggregators, and dashboards components.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/log-ingest.png)
+![Log ingest architecture with producers, collectors, aggregators, and dashboards components.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/log-ingest.png)
 
 
 ### Create mappings for search workloads

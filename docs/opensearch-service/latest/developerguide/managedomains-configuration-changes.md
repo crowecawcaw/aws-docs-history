@@ -342,7 +342,7 @@ When the configuration changes are complete, the domain status changes back to `
 
 You can review the cluster health and Amazon CloudWatch metrics and see that the number of nodes in the cluster temporarily increases—often doubling—while the domain update occurs. In the following illustration, you can see the number of nodes doubling from 11 to 22 during a configuration change and returning to 11 when the update is complete.
 
-![Number of nodes doubling from 11 to 22 during a domain configuration change.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/NodesDoubled.png)
+![Number of nodes doubling from 11 to 22 during a domain configuration change.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/NodesDoubled.png)
 
 
 This temporary increase can strain the cluster's [dedicated master nodes](managedomains-dedicatedmasternodes.md), which suddenly might have many more nodes to manage. It can also increase search and indexing latencies as OpenSearch Service copies data from the old cluster to the new one. It's important to maintain sufficient capacity on the cluster to handle the overhead that is associated with these blue/green deployments.

@@ -330,14 +330,14 @@ Now that you have some data in OpenSearch Service, you can visualize it using Op
 1. The default visualization is basic, so choose **Split Slices** to create a more interesting visualization.
 
    For **Aggregation**, choose **Terms**. For **Field**, choose **sentiment.keyword**. Then choose **Apply changes** and **Save**.  
-![Sample configuration for a Dashboards pie chart.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sentiment-pie-chart.png)
+![Sample configuration for a Dashboards pie chart.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/sentiment-pie-chart.png)
 
 1. Return to the **Visualize** page, and add another visualization. This time, choose the horizontal bar chart.
 
 1. Choose **Split Series**.
 
    For **Aggregation**, choose **Terms**. For **Field**, choose **keywords.keyword** and change **Size** to 20. Then choose **Apply Changes** and **Save**.  
-![Sample configuration for a Dashboards horizontal bar chart.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/keyword-bar-chart.png)
+![Sample configuration for a Dashboards horizontal bar chart.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/keyword-bar-chart.png)
 
 1. Return to the **Visualize** page and add one final visualization, a vertical bar chart.
 
@@ -346,10 +346,10 @@ Now that you have some data in OpenSearch Service, you can visualize it using Op
 1. Choose **Metrics & Axes** and change **Mode** to **normal**.
 
 1. Choose **Apply Changes** and **Save**.  
-![Sample configuration for a Dashboards vertical bar chart.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/timestamp-bar-chart-2.png)
+![Sample configuration for a Dashboards vertical bar chart.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/timestamp-bar-chart-2.png)
 
 1. Now that you have three visualizations, you can add them to a Dashboards visualization. Choose **Dashboard**, create a dashboard, and add your visualizations.  
-![Sample Dashboards visualization.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/dashboard-2.png)
+![Sample Dashboards visualization.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/dashboard-2.png)
 
 ## Step 5: Clean up resources and next steps
 <a name="walkthrough-next-steps"></a>

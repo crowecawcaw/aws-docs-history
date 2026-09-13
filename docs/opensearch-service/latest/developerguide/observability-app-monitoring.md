@@ -22,7 +22,7 @@ Before you can use application monitoring, you must have the following resources
 
 The following diagram shows the end-to-end architecture for application monitoring.
 
-![Architecture diagram showing microservices sending OTLP data through OTel Collector to OpenSearch Observability Stack components.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/otel-sdk-service.png)
+![Architecture diagram showing microservices sending OTLP data through OTel Collector to OpenSearch Observability Stack components.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/otel-sdk-service.png)
 
 
 1. Your applications and infrastructure emit telemetry through OpenTelemetry SDKs, auto-instrumentation, or the OTel API to the OTel Collector.
@@ -44,7 +44,7 @@ To access the Services view, navigate to the Observability workspace in OpenSear
 
 The Services home page displays a table of all instrumented services along with summary panels. The following image shows the Services home page.
 
-![Services page showing top services by fault rate, dependency paths, and service catalog with latency and throughput metrics.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/services-home.png)
+![Services page showing top services by fault rate, dependency paths, and service catalog with latency and throughput metrics.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/services-home.png)
 
 
 The following table describes the columns in the services table.
@@ -75,7 +75,7 @@ You can filter the services table by using the following filters:
 
 To open the service detail view, select a service name in the services table. The Overview tab displays metric tiles and time-series charts for the selected service.
 
-![Service overview dashboard showing throughput, fault rate, error rate, availability, and latency metrics for frontend service.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/services-overview.png)
+![Service overview dashboard showing throughput, fault rate, error rate, availability, and latency metrics for frontend service.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/services-overview.png)
 
 
 The Overview tab includes the following time-series charts:
@@ -89,7 +89,7 @@ The Overview tab includes the following time-series charts:
 
 The Operations tab provides a per-operation breakdown for the selected service. You can sort the table by any column to identify problematic operations.
 
-![Operations table showing POST /api/checkout with 50.0% availability, accompanied by request, error, and latency graphs.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/service-operations.png)
+![Operations table showing POST /api/checkout with 50.0% availability, accompanied by request, error, and latency graphs.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/service-operations.png)
 
 
 The following table describes the columns in the operations table.
@@ -108,7 +108,7 @@ The following table describes the columns in the operations table.
 
 The Dependencies tab displays the downstream services that the selected service calls.
 
-![Dependencies tab showing checkout and product-reviews services with latency, requests, error rate, and availability metrics.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/service-dependencies.png)
+![Dependencies tab showing checkout and product-reviews services with latency, requests, error rate, and availability metrics.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/service-dependencies.png)
 
 
 The following table describes the columns in the dependencies table.
@@ -129,7 +129,7 @@ The following table describes the columns in the dependencies table.
 
 The service detail view provides in-context correlations that let you navigate from service metrics directly to related traces and logs. You can use correlations to investigate the root cause of latency spikes or error rate increases.
 
-![Table showing correlated spans for POST /api/checkout operation with columns for Time, Status, HTTP Status, Kind, Operation, and Span ID.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/service-span-correlations.png)
+![Table showing correlated spans for POST /api/checkout operation with columns for Time, Status, HTTP Status, Kind, Operation, and Span ID.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/service-span-correlations.png)
 
 
 The following correlation options are available:
@@ -146,7 +146,7 @@ To access the Application Map, navigate to the Observability workspace in OpenSe
 
 The following image shows the Application Map.
 
-![Application Map showing service dependencies with nodes for frontend-proxy, frontend, checkout, cart, currency, fraud-detection, email, mcp-server, weather-agent, and events-agent.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/application-map.png)
+![Application Map showing service dependencies with nodes for frontend-proxy, frontend, checkout, cart, currency, fraud-detection, email, mcp-server, weather-agent, and events-agent.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/application-map.png)
 
 
 The map displays the following RED metrics for each service:
@@ -163,7 +163,7 @@ The topology visualization represents services as nodes and communication direct
 
 You can group services by attributes such as programming language, team, or environment. When you select a group-by attribute, the map switches from a topology graph to a card grid view. Each card represents a group of services that share the same attribute value.
 
-![Application map showing services grouped by programming language including cpp, erlang, python, go, nodejs, rust, dotnet, java, ruby, and php with request and service counts.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/groupby-attributes.png)
+![Application map showing services grouped by programming language including cpp, erlang, python, go, nodejs, rust, dotnet, java, ruby, and php with request and service counts.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/groupby-attributes.png)
 
 
 The available group-by attributes are determined by the `group_by_attributes` setting in the `otel_apm_service_map` processor configuration in OpenSearch Ingestion.
@@ -173,7 +173,7 @@ The available group-by attributes are determined by the `group_by_attributes` se
 
 To view details for a service, select a node on the map. A detail panel opens with the following sections.
 
-![Application map showing frontend service node selected with detail panel displaying health metrics, requests graph, and latency percentiles.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/application-map-node-details.png)
+![Application map showing frontend service node selected with detail panel displaying health metrics, requests graph, and latency percentiles.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/application-map-node-details.png)
 
 
 The **Health** section displays the following summary metrics:
@@ -199,7 +199,7 @@ You can filter the Application Map by using the following filters:
 
 The following image shows the map filtered by error rate.
 
-![Application map showing services filtered by fault rate greater than 5%, displaying frontend-proxy, frontend, weather-agent, travel-planner, and mcp-server services with request counts.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/filter-by-error-rate.png)
+![Application map showing services filtered by fault rate greater than 5%, displaying frontend-proxy, frontend, weather-agent, travel-planner, and mcp-server services with request counts.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/apm/filter-by-error-rate.png)
 
 
 ### In-context correlations

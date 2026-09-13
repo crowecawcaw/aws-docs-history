@@ -107,7 +107,7 @@ You can upload data to an OpenSearch Serverless collection using [Postman](https
    ```
    PUT movies-index{{ }}
    ```  
-![OpenSearch Dashboards console showing PUT request to movies-index with response status 200.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-gsg-create.png)
+![OpenSearch Dashboards console showing PUT request to movies-index with response status 200.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/serverless-gsg-create.png)
 
 1. To index a single document into *movies-index*, send the following request:
 

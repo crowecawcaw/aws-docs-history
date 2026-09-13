@@ -171,7 +171,7 @@ The principal signing the request must have the `osis:Ingest` IAM permission.
 
 First, get the ingestion URL from the **Pipeline settings** page:
 
-![Pipeline settings page with Ingestion URL field highlighted showing the endpoint URL.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-endpoint.png)
+![Pipeline settings page with Ingestion URL field highlighted showing the endpoint URL.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/pipeline-endpoint.png)
 
 
 Then, send some sample data to the ingestion path. The following sample request uses [awscurl](https://github.com/okigan/awscurl) to send a single log file to the pipeline:

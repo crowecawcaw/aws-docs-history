@@ -47,12 +47,12 @@ If a resource-based access policy contains IAM roles or users, clients must send
 
 The following diagram illustrates a common configuration: a VPC access domain with fine-grained access control enabled, an IAM-based access policy, and an IAM master user.
 
-![Fine-grained access control authorization flow with a VPC domain](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/fgac-vpc-iam.png)
+![Fine-grained access control authorization flow with a VPC domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/fgac-vpc-iam.png)
 
 
 The following diagram illustrates another common configuration: a public access domain with fine-grained access control enabled, an access policy that doesn't use IAM principals, and a master user in the internal user database.
 
-![Fine-grained access control authorization flow with a public access domain](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/fgac-public-basic.png)
+![Fine-grained access control authorization flow with a public access domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/fgac-public-basic.png)
 
 
 ### Example
@@ -240,11 +240,11 @@ Fine-grained access control has an OpenSearch Dashboards plugin that simplifies 
 + If you want to use IAM for user management, use [Configuring Amazon Cognito authentication for OpenSearch Dashboards](cognito-auth.md) to access Dashboards. Otherwise, Dashboards shows a nonfunctional sign-in page. See [Limitations](#fgac-limitations).
 
   With Amazon Cognito authentication, one of the assumed roles from the identity pool must match the IAM role that you specified for the master user. For more information about this configuration, see [(Optional) Configuring granular access](cognito-auth.md#cognito-auth-granular) and [Tutorial: Configure a domain with an IAM master user and Amazon Cognito authentication](fgac-iam.md).  
-![Cognito sign-in page](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/cognito-auth.png)
+![Cognito sign-in page](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/cognito-auth.png)
 + If you choose to use the internal user database, you can sign in to Dashboards with your master username and password. You must access Dashboards over HTTPS. Amazon Cognito and SAML authentication for Dashboards both replace this login screen.
 
   For more information about this configuration, see [Tutorial: Configure a domain with the internal user database and HTTP basic authentication](fgac-http-auth.md).  
-![Basic authentication sign-in page](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/basic-auth-dashboards.png)
+![Basic authentication sign-in page](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/basic-auth-dashboards.png)
 + If you choose to use SAML authentication, you can sign in using credentials from an external identity provider. For more information, see [SAML authentication for OpenSearch Dashboards](saml.md).
 
 ## Managing permissions
@@ -252,7 +252,7 @@ Fine-grained access control has an OpenSearch Dashboards plugin that simplifies 
 
 As noted in [Key concepts](#fgac-concepts), you manage fine-grained access control permissions using roles, users, and mappings. This section describes how to create and apply those resources. We recommend that you [sign in to Dashboards as the master user](#fgac-dashboards) to perform these operations.
 
-![Security home page in Dashboards](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/dashboards-fgac-home.png)
+![Security home page in Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/dashboards-fgac-home.png)
 
 
 **Note**  
@@ -330,7 +330,7 @@ Role mapping is the most critical aspect of fine-grained access control. Fine-gr
 + Specify users, user ARNs, and Amazon Cognito user strings in the **Users** section. Cognito user strings take the form of `Cognito/{{user-pool-id}}/{{username}}`.
 + Specify backend roles and IAM role ARNs in the **Backend roles** section.
 
-![Role mapping screen](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/role-mapping-edit.png)
+![Role mapping screen](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/role-mapping-edit.png)
 
 
 You can map roles to users using OpenSearch Dashboards or the `_plugins/_security` operation in the REST API. For more information, see [Map users to roles](https://opensearch.org/docs/latest/security/access-control/users-roles/#map-users-to-roles).
@@ -420,7 +420,7 @@ If you forget the details of the master user, you can reconfigure it using the c
 
 You designate a master user when you create a domain, but if you want, you can use this master user to create additional master users. You have two options: OpenSearch Dashboards or the REST API.
 + In Dashboards, choose **Security**, **Roles**, and then map the new master user to the `all_access` and `security_manager` roles.  
-![Role mapping page](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/new-master-users.png)
+![Role mapping page](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/new-master-users.png)
 + To use the REST API, send the following requests:
 
   ```

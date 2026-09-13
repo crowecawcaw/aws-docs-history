@@ -15,7 +15,7 @@ In your observability workspace, expand **Discover** in the left navigation and 
 
 The Discover Logs interface provides the following components for exploring your log data.
 
-![Logs interface showing bar chart of log counts, field list, and table with timestamp, body, severity, and service columns.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-logs/discover-logs-interface.png)
+![Logs interface showing bar chart of log counts, field list, and table with timestamp, body, severity, and service columns.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-logs/discover-logs-interface.png)
 
 + **Dataset selector** – Choose the logs dataset that you want to query. Each dataset maps to one or more indexes in your OpenSearch Service domain.
 + **Query editor** – Write PPL queries to filter, aggregate, and transform your log data. The editor provides autocomplete suggestions and syntax highlighting.
@@ -79,7 +79,7 @@ source = my-logs-dataset |
 
 After you run a `stats` query, choose the **Visualization** tab to see the results as a chart.
 
-![Bar chart showing count of requests over time for two URL paths, /api/cart and /api/checkout.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-logs/discover-logs-visualization.png)
+![Bar chart showing count of requests over time for two URL paths, /api/cart and /api/checkout.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-logs/discover-logs-visualization.png)
 
 
 ### Visualization types
@@ -99,7 +99,7 @@ The following table describes the visualization types that you can use.
 | Bar gauge | Displays a single value as a filled bar within a range, useful for showing progress toward a threshold. | 
 | Pie | Displays data as proportional slices of a circle, useful for showing composition. | 
 
-![Area chart showing request counts over time for /api/cart and /api/checkout endpoints from 02:00 to 02:12.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-logs/discover-logs-viz-types.png)
+![Area chart showing request counts over time for /api/cart and /api/checkout endpoints from 02:00 to 02:12.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-logs/discover-logs-viz-types.png)
 
 
 ### Visualization settings
@@ -109,7 +109,7 @@ When the **Visualization** tab is active, a settings panel appears on the right 
 
 To switch the axes of a visualization, use the axis configuration in the settings panel.
 
-![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-logs/discover-logs-switch-axes.png)
+![](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/discover-logs/discover-logs-switch-axes.png)
 
 
 ## Adding visualizations to dashboards

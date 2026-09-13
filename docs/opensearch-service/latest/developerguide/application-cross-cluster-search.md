@@ -157,7 +157,7 @@ In this case, the destination domain performs the search and returns the results
 
 A cross-cluster search connection is unidirectional from the source domain to the destination domain. This means that the destination domains (in a different account or Region) can't query the source domain, which is local to the OpenSearch UI. The source domain creates an *outbound* connection to the destination domain. The destination domain receives an *inbound* connection request from the source domain. 
 
-![This image illustrates that a cross-cluster search connection is unidirectional from the source domain to the destination domain.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-oubound-inbound-connections.png)
+![This image illustrates that a cross-cluster search connection is unidirectional from the source domain to the destination domain.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-oubound-inbound-connections.png)
 
 
 **To create a connection between domains**

@@ -10,6 +10,8 @@
 **Amazon OpenSearch Service console (Cluster Health tab):** Available for Elasticsearch 6.8 and later, and all OpenSearch versions (1.0\+).
 **OpenSearch Dashboards UI (via OpenSearch UI application):** Requires OpenSearch 2.17 or later. Domains running earlier versions can be associated as data sources but will not appear in the Cluster Insights Overview in the UI. Domains with OpenSearch versions 2.17 and 2.19 also need to be on the latest service software version update.
 **Query View tab (in OpenSearch Dashboards UI):** Requires OpenSearch 2.19 or later.
+You can use the [ListInsights](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListInsights.html) and [DescribeInsightDetails](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInsightDetails.html) APIs to retrieve Insight details programmatically, which is useful for automation and agents.
+Insights are also available through additional channels, including [notifications](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-notifications.html) and [Amazon EventBridge](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-events.html).
 Note: Domains running OpenSearch versions earlier than 2.17 can be associated as data sources in the OpenSearch UI application, but will not appear in the Cluster Insights Overview. Only domains running OpenSearch 2.17 or later are fully supported for Cluster Insights in the Dashboards UI.
 
 ## Benefits
@@ -29,7 +31,7 @@ Review performance and resilience recommendations and make necessary configurati
 
 Screen-1: Cluster Insights under the Cluster Health tab
 
-![Insights panel showing Incorrect Cluster Manager Configuration recommendation with medium severity and active status.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_console_cluster_health.png)
+![Insights panel showing Incorrect Cluster Manager Configuration recommendation with medium severity and active status.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_console_cluster_health.png)
 
 
 ## Access Cluster Insights and detailed metrics through OpenSearch UI
@@ -57,14 +59,14 @@ Accessing Cluster Insights requires an administrative role in the OpenSearch UI 
 
 Screen-2: Access Data Administrator from OpenSearch UI
 
-![Data administration option highlighted in the left navigation menu.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_data_admin.png)
+![Data administration option highlighted in the left navigation menu.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_data_admin.png)
 
 
 
 
 Screen-3: Cluster Insights under the Manage data section
 
-![Cluster insights card highlighted in the Manage data section of the data administration overview.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_manage_data.png)
+![Cluster insights card highlighted in the Manage data section of the data administration overview.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_manage_data.png)
 
 
 ## Understanding Cluster Insights
@@ -79,7 +81,7 @@ The **Cluster Insights Overview** page, as shown in the following screenshot, pr
 
 Screen-4: Cluster Insights landing page in OpenSearch UI application.
 
-![Cluster Insights overview page showing cluster health status, insights trends, and severity-based insights table.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_overview.png)
+![Cluster Insights overview page showing cluster health status, insights trends, and severity-based insights table.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_overview.png)
 
 
 ### Current cluster status
@@ -145,14 +147,14 @@ A table lists recent insights generated for the cluster, with the same detailed 
 
 Screen-5: Cluster Health overview provides key metrics, best practices, and Insights
 
-![Cluster health dashboard showing metrics, configuration scores, and severity-based insights.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_cluster_health.png)
+![Cluster health dashboard showing metrics, configuration scores, and severity-based insights.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_cluster_health.png)
 
 
 When you click on any insights, you can see details and impacted resources, recommendations. In addition, you can also see history of fixed resources.
 
 Screen-6: Insight details. Provides you details, recommendations, and historical timeline.
 
-![Large shard size insight showing 10 shards exceeding 50GB across 200 total shards.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_large_shard_size.png)
+![Large shard size insight showing 10 shards exceeding 50GB across 200 total shards.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_large_shard_size.png)
 
 
 ### Metrics Section
@@ -175,7 +177,7 @@ The **Node**, **Index**, and **Shard views** use OpenSearch stats to provide det
 
 Screen-7: Node, Index, and Shard level metrics
 
-![Shard view table showing CPU utilization, heap allocation, indexing metrics, and search latency for cluster shards.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_shard_view.png)
+![Shard view table showing CPU utilization, heap allocation, indexing metrics, and search latency for cluster shards.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_shard_view.png)
 
 
 ### Query View
@@ -220,7 +222,7 @@ Double-click any query to see:
 
 Screen-8: In-flight live view. You can also view Top-N queries
 
-![Query view dashboard showing active queries, performance metrics, distribution charts, and query details table.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_query_view.png)
+![Query view dashboard showing active queries, performance metrics, distribution charts, and query details table.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ci_query_view.png)
 
 
 ### Access Insights through Amazon EventBridge events

@@ -34,7 +34,7 @@ This process is only applicable if your domain uses public access and you don't 
 
 Because Dashboards is a JavaScript application, requests originate from the user's IP address. IP-based access control might be impractical due to the sheer number of IP addresses you would need to allow in order for each user to have access to Dashboards. One workaround is to place a proxy server between Dashboards and OpenSearch Service. Then you can add an IP-based access policy that allows requests from only one IP address, the proxy's. The following diagram shows this configuration.
 
-![OpenSearch Service architecture with VPC, proxy, and client components for secure access.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/KibanaProxy.png)
+![OpenSearch Service architecture with VPC, proxy, and client components for secure access.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/KibanaProxy.png)
 
 
 1. This is your OpenSearch Service domain. IAM provides authorized access to this domain. An additional, IP-based access policy provides access to the proxy server.
@@ -244,7 +244,7 @@ GET _cat/indices
 
 The Dashboards installation on your OpenSearch Service domain provides a useful UI for managing indexes in different storage tiers on your domain. Choose **Index Management** from the Dashboards main menu to view all indexes in hot, [UltraWarm](ultrawarm.md), and [cold](cold-storage.md) storage, as well as indexes managed by Index State Management (ISM) policies. Use index management to move indexes between warm and cold storage, and to monitor migrations between the three tiers. 
 
-![Index management interface showing cold indices with options to move to warm storage.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/KibanaIndices.png)
+![Index management interface showing cold indices with options to move to warm storage.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/KibanaIndices.png)
 
 
 Note that you won't see the hot, warm, and cold index options unless you have UltraWarm and/or cold storage enabled.

@@ -111,7 +111,7 @@ For pull-based sources like [OTel trace](https://opensearch.org/docs/latest/data
 
 For example, say you specify the following path for a pipeline with an HTTP source:
 
-![Path field containing the example value /my/test_path.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ingestion-path.png)
+![Path field containing the example value /my/test_path.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ingestion-path.png)
 
 
 When you [ingest data](configure-client.md) into the pipeline, you must specify the following endpoint in your client configuration: `https://{{pipeline-name-abc123}}.{{us-west-2}}.osis.amazonaws.com/{{my}}/{{test_path}}`.

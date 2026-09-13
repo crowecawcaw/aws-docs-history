@@ -58,7 +58,7 @@ The only way to configure a domain without standby on the AWS Management Console
 
 If you enable multi-AZ without Standby, you should create at least one replica for each index in your cluster. Without replicas, OpenSearch Service can't distribute copies of your data to other Availability Zones. Fortunately, the default configuration for any index is a replica count of 1. As the following diagram shows, OpenSearch Service makes a best effort to distribute primary shards and their corresponding replica shards to different zones.
 
-![Three availability zones each containing two data nodes with primary shards and replicas distributed across zones.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/za-3-az.png)
+![Three availability zones each containing two data nodes with primary shards and replicas distributed across zones.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/za-3-az.png)
 
 
 In addition to distributing shards by Availability Zone, OpenSearch Service distributes them by node. Still, certain domain configurations can result in imbalanced shard counts. Consider the following domain:
@@ -69,7 +69,7 @@ In addition to distributing shards by Availability Zone, OpenSearch Service dist
 
 In this situation, OpenSearch Service has to overload one node in order to distribute the primary and replica shards across the zones, as shown in the following diagram.
 
-![Three availability zones with data nodes containing primary shards and replicas distributed across zones.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/za-3-az-imbal.png)
+![Three availability zones with data nodes containing primary shards and replicas distributed across zones.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/za-3-az-imbal.png)
 
 
 To avoid these kinds of situations, which can strain individual nodes and hurt performance, we recommend that you choose multi-AZ with Standby, or choose an instance count that is a multiple of three when you plan to have two or more replicas per index.
@@ -79,7 +79,7 @@ To avoid these kinds of situations, which can strain individual nodes and hurt p
 
 Even if you select two Availability Zones when configuring your domain, OpenSearch Service automatically distributes [dedicated master nodes](managedomains-dedicatedmasternodes.md) across three Availability Zones. This distribution helps prevent cluster downtime if a zone experiences a service disruption. If you use the recommended three dedicated master nodes and one Availability Zone goes down, your cluster still has a quorum (2) of dedicated master nodes and can elect a new master. The following diagram demonstrates this configuration.
 
-![Four data nodes with primary and replica shards distributed across two availability zones with dedicated master nodes in three zones.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/za-2-az.png)
+![Four data nodes with primary and replica shards distributed across two availability zones with dedicated master nodes in three zones.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/za-2-az.png)
 
 
 If you choose an older-generation instance type that is not available in three Availability Zones, the following scenarios apply:

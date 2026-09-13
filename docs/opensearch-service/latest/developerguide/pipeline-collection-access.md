@@ -11,7 +11,7 @@ If you have OpenSearch Ingestion create the pipeline role for you, you still nee
 
 During pipeline creation, OpenSearch Ingestion creates an AWS PrivateLink connection between the pipeline and the OpenSearch Serverless collection. All traffic from the pipeline goes through this VPC endpoint and is routed to the collection. In order to reach the collection, the endpoint must be granted access to the collection through a network access policy.
 
-![Pipeline connects to PrivateLink VPC endpoint, then network policy evaluation, then collection.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/osis-aoss-permissions.png)
+![Pipeline connects to PrivateLink VPC endpoint, then network policy evaluation, then collection.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/osis-aoss-permissions.png)
 
 
 **Topics**
@@ -144,7 +144,7 @@ For example:
 
 In the console, any rules that OpenSearch Ingestion adds to your network policies are named **Created by Data Prepper**:
 
-![Created by Data Prepper section showing access type, VPC endpoints, and resource settings.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/osis-aoss-network.png)
+![Created by Data Prepper section showing access type, VPC endpoints, and resource settings.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/osis-aoss-network.png)
 
 
 **Note**  
