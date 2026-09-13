@@ -10,7 +10,7 @@ This architecture shows how to build an end-to-end ML pipeline that detects anom
 ## Build Your Own Anomaly Detection ML Pipeline
 <a name="diagram1"></a>
 
-![Architecture diagram showing an anomaly detection ML pipeline with SageMaker AI, Kinesis, and AWS CodePipeline.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/anomaly-detection-ml-pipeline/images/anomaly-detection-ml-pipeline.png)
+![Architecture diagram showing an anomaly detection ML pipeline with SageMaker AI, Kinesis, and AWS CodePipeline.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/anomaly-detection-ml-pipeline/images/anomaly-detection-ml-pipeline.png)
 
 
 The following steps describe the architecture:
