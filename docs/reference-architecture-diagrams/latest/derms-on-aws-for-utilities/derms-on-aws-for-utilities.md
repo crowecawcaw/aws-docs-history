@@ -10,7 +10,7 @@ With this architecture, you can run DERMS on AWS to manage your growing fleet of
 ## DERMS on AWS for Utilities diagram
 <a name="derms-diagram"></a>
 
-![Reference architecture diagram showing how to run DERMS on AWS by using SageMaker AI, Amazon Forecast, Amazon Kinesis, and Amazon Simple Storage Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/derms-on-aws-for-utilities/images/derms-on-aws-for-utilities.png)
+![Reference architecture diagram showing how to run DERMS on AWS by using SageMaker AI, Amazon Forecast, Amazon Kinesis, and Amazon Simple Storage Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/derms-on-aws-for-utilities/images/derms-on-aws-for-utilities.png)
 
 
 The following steps describe the data flow and analytics pipeline for this architecture:
