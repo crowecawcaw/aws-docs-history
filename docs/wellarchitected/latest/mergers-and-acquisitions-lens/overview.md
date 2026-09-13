@@ -11,7 +11,7 @@
 
  The buyer's workloads are running on AWS, and the seller is either on-premises or on a different cloud provider. 
 
-![Image depicting scenario A, where the buyer is on AWS, and the seller has an on-premise data center](http://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/scenarioA.png)
+![Image depicting scenario A, where the buyer is on AWS, and the seller has an on-premise data center](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/scenarioA.png)
 
 
  
@@ -20,7 +20,7 @@
 
  Both the buyer and seller are running on AWS. 
 
-![Image depicting scenario B, where both businesses are running on AWS](http://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/scenarioB.png)
+![Image depicting scenario B, where both businesses are running on AWS](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/scenarioB.png)
 
 
  
@@ -29,7 +29,7 @@
 
  The buyer is running an on-premises data center, and the seller is running on AWS. 
 
-![Image depicting scenario C, where the buyer is on an on-premises data center, and the seller is on AWS.](http://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/scenarioC.png)
+![Image depicting scenario C, where the buyer is on an on-premises data center, and the seller is on AWS.](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/scenarioC.png)
 
 
  The following sections provide an overview of the lens guidance, as well as potential use case scenarios and architecture models. 

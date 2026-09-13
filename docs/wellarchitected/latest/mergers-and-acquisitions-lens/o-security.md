@@ -24,14 +24,14 @@
 +  Establish mitigation process to respond and recover from security incidents 
 +  Define process to ensure privacy compliance as per combined company requirement 
 
-![Figure 3: Security considerations for an AWS buyer and on-premises seller](http://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image3.png)
+![Figure 3: Security considerations for an AWS buyer and on-premises seller](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image3.png)
 
 
  
 
  Network connectivity is utmost to ensure data security and optimize data transfer cost. Design secure, cost-optimized network architecture using AWS services like AWS Direct Connect, AWS Transit Gateway, or AWS Site-to-Site VPN. We also recommend securing workloads and protecting applications from security attacks like DDoS, malware, and ransomware using AWS services. 
 
-![Figure 4: Security considerations for AWS to AWS mergers and acquisitions](http://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image4.png)
+![Figure 4: Security considerations for AWS to AWS mergers and acquisitions](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image4.png)
 
 
  

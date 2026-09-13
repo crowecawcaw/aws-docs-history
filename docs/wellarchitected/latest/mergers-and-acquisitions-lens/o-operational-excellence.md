@@ -7,7 +7,7 @@
 
  As part of integration, the M&A Lens provides guidance on the integration of major operational aspects (depicted in Figure 1) and more. Besides these operational processes, companies should look at other integration aspects, like project priorities, resources, skills, and culture. If the acquirer has AWS technical knowledge, they should lead the integration with AWS services. The acquirer should create a cost-effective plan for AWS migration with minimal disturbance to their end customers. The M&A Lens provides guidance to achieve operation process migration per AWS prescribed best practices. 
 
-![Figure 1: Model for AWS-aware buyer and on-premises seller](http://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image1.png)
+![Figure 1: Model for AWS-aware buyer and on-premises seller](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image1.png)
 
 
  
@@ -37,7 +37,7 @@
 
  In the case that both the buyer and seller are on AWS, we recommend best practices for multi-account governance, including setting up AWS Organizations. Consider setting up AWS Control Tower, which orchestrates multiple AWS services on your behalf while maintaining the security and compliance needs of combined organization. Additionally, consider resource tagging and integrating workloads to support end customers of the combined organization. 
 
-![Figure 2: Buyer and seller are both on AWS](http://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image2.png)
+![Figure 2: Buyer and seller are both on AWS](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/images/image2.png)
 
 
  
