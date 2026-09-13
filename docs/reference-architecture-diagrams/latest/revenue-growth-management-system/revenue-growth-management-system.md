@@ -10,7 +10,7 @@ With this architecture, you can build a revenue growth management (RGM) system o
 ## Architecture diagram
 <a name="rgm-diagram"></a>
 
-![Data flowing from on-premises and external sources through AWS integration, storage, and analytics services for revenue growth management.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/revenue-growth-management-system/images/revenue-growth-management-system-on-aws-ra.png)
+![Data flowing from on-premises and external sources through AWS integration, storage, and analytics services for revenue growth management.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/revenue-growth-management-system/images/revenue-growth-management-system-on-aws-ra.png)
 
 
 The following steps describe the architecture:
