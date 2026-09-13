@@ -11,12 +11,12 @@ Under **Comprehend Medical**, choose **Real-time analysis**.
 
 The console displays sample text and the analysis of that text: 
 
-![The Comprehend Medical input text.](http://docs.aws.amazon.com/comprehend-medical/latest/dev/images/2022updatedconsoleinput.png)
+![The Comprehend Medical input text.](https://docs.aws.amazon.com/comprehend-medical/latest/dev/images/2022updatedconsoleinput.png)
 
 
 You can replace the sample text with your own text in English and then choose **Analyze** to get an analysis of your text.
 
-![The Analyzed Text section of the console.](http://docs.aws.amazon.com/comprehend-medical/latest/dev/images/2022updatedconsoleoutput.png)
+![The Analyzed Text section of the console.](https://docs.aws.amazon.com/comprehend-medical/latest/dev/images/2022updatedconsoleoutput.png)
 
 
 Below the input text, the analyzed text is color-coded to indicate the entity category:
@@ -33,7 +33,7 @@ In the console, below the input box, the **Analyzed Text** pane shows more infor
 
 The **Entity** section displays cards for the entities found in the text:
 
-![The Results cards.](http://docs.aws.amazon.com/comprehend-medical/latest/dev/images/2022updatedconsoleoutput2.png)
+![The Results cards.](https://docs.aws.amazon.com/comprehend-medical/latest/dev/images/2022updatedconsoleoutput2.png)
 
 
 Each card shows the text and its entity type.

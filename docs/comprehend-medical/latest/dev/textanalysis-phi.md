@@ -44,7 +44,7 @@ The text "Patient is John Smith, a 48-year-old teacher and resident of Seattle, 
 
 In the Amazon Comprehend Medical console, this is shown like this:
 
-![Patient information card displaying name, age, profession, and address details.](http://docs.aws.amazon.com/comprehend-medical/latest/dev/images/patient.png)
+![Patient information card displaying name, age, profession, and address details.](https://docs.aws.amazon.com/comprehend-medical/latest/dev/images/patient.png)
 
 
 When using the **DetectPHI** operation, the response appears like this. When you use the **StartPHIDetectionJob** operation, Amazon Comprehend Medical creates a file in the output location with this structure.
