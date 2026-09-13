@@ -10,7 +10,7 @@ This architecture enables you to deploy a fully automated, resilient, low latenc
 ## Telecom Charging (OCS/CHF) on AWS Outposts Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to deploy a fully automated, resilient, low latency, and highly available Telecom Online Charging System (OCS) / Charging Function (CHF) on AWS Outposts to run in the country of (or close to) the operator core network in cases of country data residency regulations or low latency requirements.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/telecom-charging-ocs-chf-on-aws-outposts/images/telecom-charging-ocs-chf-on-aws-outposts.png)
+![Reference architecture diagram showing how you can use AWS services to deploy a fully automated, resilient, low latency, and highly available Telecom Online Charging System (OCS) / Charging Function (CHF) on AWS Outposts to run in the country of (or close to) the operator core network in cases of country data residency regulations or low latency requirements.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/telecom-charging-ocs-chf-on-aws-outposts/images/telecom-charging-ocs-chf-on-aws-outposts.png)
 
 
 1. 4G/5G network devices connect through the Radio Access Network (RAN) to the Communication Service Provider (CSP) data center. 
