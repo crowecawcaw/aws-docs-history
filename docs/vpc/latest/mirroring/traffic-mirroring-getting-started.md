@@ -7,7 +7,7 @@ To get started using Amazon VPC Traffic Mirroring, you'll need a VPC with at lea
 
 A mirror session is a connection between a mirror source and a mirror target. In the following diagram, both the mirror source and the mirror target are EC2 instances. The mirror filter determines which network packets are mirrored. For example, you can add inbound and outbound rules to the filter such that it rejects SSH traffic but accepts all other traffic. Traffic Mirroring applies the filter rules, and then copies the accepted traffic from the network interface of the mirror source to the network interface of the mirror target. You can run your capture and analysis tools on the packets delivered to the mirror target.
 
-![A traffic mirror session where the mirror target is an EC2 instance.](http://docs.aws.amazon.com/vpc/latest/mirroring/images/get-started.png)
+![A traffic mirror session where the mirror target is an EC2 instance.](https://docs.aws.amazon.com/vpc/latest/mirroring/images/get-started.png)
 
 
 **Topics**

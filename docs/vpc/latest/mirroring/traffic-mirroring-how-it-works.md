@@ -7,7 +7,7 @@ Traffic Mirroring copies inbound and outbound traffic from the network interface
 
 Consider the following scenario, where you mirror traffic from two sources (Source A and Source B) to a single traffic mirror target (Target D). After you create the traffic mirror session, any traffic that matches the filter rules is encapsulated in a VXLAN header. It is then sent to the target.
 
-![Traffic from source A and source B is mirrored to mirror target D using filter A.](http://docs.aws.amazon.com/vpc/latest/mirroring/images/traffic-mirroring.png)
+![Traffic from source A and source B is mirrored to mirror target D using filter A.](https://docs.aws.amazon.com/vpc/latest/mirroring/images/traffic-mirroring.png)
 
 
 The following procedures are required:

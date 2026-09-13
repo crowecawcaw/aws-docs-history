@@ -16,7 +16,7 @@ To mirror traffic from multiple network interfaces, see [VPC Traffic Mirroring S
 
 Consider the scenario where you want to mirror inbound TCP traffic on an instance, and send it to a single monitoring appliance. You need the following traffic mirror resources for this example.
 
-![A traffic mirror session where the mirror target is a single appliance.](http://docs.aws.amazon.com/vpc/latest/mirroring/images/ex-single-appliance.png)
+![A traffic mirror session where the mirror target is a single appliance.](https://docs.aws.amazon.com/vpc/latest/mirroring/images/ex-single-appliance.png)
 
 
 **Resources**
@@ -70,7 +70,7 @@ Create and configure a traffic mirror session with the following options. For mo
 
 Consider the scenario where you want to mirror inbound TCP and UDP traffic on an instance. But you want to send the TCP traffic to one appliance (Appliance A), and the UDP traffic to a second appliance (Appliance B). You need the following traffic mirror entities for this example.
 
-![A single target with two traffic mirror sessions, each with an appliance.](http://docs.aws.amazon.com/vpc/latest/mirroring/images/ex-multiple-appliances.png)
+![A single target with two traffic mirror sessions, each with an appliance.](https://docs.aws.amazon.com/vpc/latest/mirroring/images/ex-multiple-appliances.png)
 
 
 **Resources**
@@ -274,7 +274,7 @@ You can deploy a Gateway Load Balancer (GWLB) and Gateway Load Balancer endpoint
 
 The following diagram shows a deployment of a GWLB for traffic mirroring using GWLBe interfaces. The GWLB is deployed in a centralized Service VPC with multiple appliances as targets. The GWLB is set up for each Availability Zone that the customer wants to monitor traffic, and it can configure their GWLB with cross-zone load balancing as an option to protect against single Availability Zone failures. In the spoke VPCs, GWLBe interfaces are deployed in each spoke VPC. These endpoints are connected to the GWLB to send traffic from the spoke VPC to the Service VPC. 
 
-![Diagram showing a GWLB deployment for traffic mirroring with spoke VPCs and GWLBe interfaces connecting to a centralized Service VPC.](http://docs.aws.amazon.com/vpc/latest/mirroring/images/traffic-mirroring-example-gwlb.png)
+![Diagram showing a GWLB deployment for traffic mirroring with spoke VPCs and GWLBe interfaces connecting to a centralized Service VPC.](https://docs.aws.amazon.com/vpc/latest/mirroring/images/traffic-mirroring-example-gwlb.png)
 
 
 Consider the scenario where you want to mirror inbound TCP traffic on an instance and then send it to a Gateway Load Balancer using a Gateway Load Balancer endpoint. You need the following Traffic Mirroring entities for this example: 

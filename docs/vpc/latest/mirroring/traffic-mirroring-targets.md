@@ -26,7 +26,7 @@ If the underlying resource chosen as the target is deleted, we stop traffic mirr
 
 The following diagram shows a traffic mirror session where the traffic mirror target is a network interface for an EC2 instance. Traffic Mirroring filters the traffic from the network interface of the mirror source and sends the accepted mirrored traffic to the mirror target.
 
-![A traffic mirror session where the mirror target is an EC2 instance.](http://docs.aws.amazon.com/vpc/latest/mirroring/images/get-started.png)
+![A traffic mirror session where the mirror target is an EC2 instance.](https://docs.aws.amazon.com/vpc/latest/mirroring/images/get-started.png)
 
 
 ## Network Load Balancer
@@ -34,7 +34,7 @@ The following diagram shows a traffic mirror session where the traffic mirror ta
 
 The following diagram shows a traffic mirror session where the traffic mirror target is a Network Load Balancer. You install the monitoring software on the target instances, and then register them with the load balancer. Traffic Mirroring filters the traffic from the network interface of the mirror source and sends the accepted mirrored traffic to the load balancer. The load balancer sends the mirrored traffic to the target instances.
 
-![A traffic mirror session where the mirror target is a Network Load Balancer.](http://docs.aws.amazon.com/vpc/latest/mirroring/images/nlb-target.png)
+![A traffic mirror session where the mirror target is a Network Load Balancer.](https://docs.aws.amazon.com/vpc/latest/mirroring/images/nlb-target.png)
 
 
 **Considerations**
@@ -49,7 +49,7 @@ The following diagram shows a traffic mirror session where the traffic mirror ta
 
 The following diagram shows a traffic mirror session where the traffic mirror target is a Gateway Load Balancer endpoint. The mirror source is in the service consumer VPC and the Gateway Load Balancer is in the service provider VPC. You install the monitoring software on the target appliances, and then register them with the load balancer. Traffic Mirroring filters the traffic from the network interface of the mirror source and sends the accepted mirrored traffic to the Gateway Load Balancer endpoint. The load balancer sends the mirrored traffic to the target appliances.
 
-![A traffic mirror session where the mirror target is a Gateway Load Balancer endpoint.](http://docs.aws.amazon.com/vpc/latest/mirroring/images/gwlbe-target.png)
+![A traffic mirror session where the mirror target is a Gateway Load Balancer endpoint.](https://docs.aws.amazon.com/vpc/latest/mirroring/images/gwlbe-target.png)
 
 
 **Considerations**
