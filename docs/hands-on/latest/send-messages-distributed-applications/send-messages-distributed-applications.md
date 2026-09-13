@@ -26,12 +26,12 @@ The AWS services you use in this tutorial are within the [AWS Free Tier](https:/
 1. Launch the AWS Management Console
 
    When you [click here](https://console.aws.amazon.com/console/home), the AWS Management Console will open in a new browser window, so you can keep this step-by-step guide open.  When the screen loads, enter your user name and password to get started. Then type **queue** in the search bar and select **Simple Queue Service** to open the console.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface.png)
 
 1. Start the Amazon SQS Console
 
    If the SQS console landing page appears, as shown on by the screenshot, click **Get Started Now.** If you don't see this page, skip to the next step.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface-1.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface-1.png)
 
 ### Step 2: Create an Amazon SQS Queue
 <a name="create-an-amazon-sqs-queue"></a>
@@ -43,22 +43,22 @@ Our use case for this tutorial will simulate the storage of incoming orders from
 1. Enter a queue name
 
    First, we will create a simple queue that stores orders that are placed on the store. Enter **Orders** in the **Queue Name** field.    
-![The configuration settings interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/configuration-settings-interface.png)
+![The configuration settings interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/configuration-settings-interface.png)
 
 1. Choose a queue type
 
    For this tutorial, we do not require strict ordering, so we won’t make any changes to the queue type. Leave **Standard Queue** selected.     
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/selection-interface.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/selection-interface.png)
 
 1. Create the queue
 
    You can configure your queue to modify settings such as retention period, maximum message size and delivery delays. For this tutorial, we will keep the default parameters. Choose **Quick-Create Queue**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface-2.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface-2.png)
 
 1. Verify queue creation
 
    Your new queue is created and selected in the queue list.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface-3.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface-3.png)
 
 ### Step 3: Send messages to the Queue
 <a name="send-messages-to-the-queue"></a>
@@ -68,24 +68,24 @@ Once you have created your queue, it is ready to receive messages from the onlin
 1. Send a message
 
    Your queue is already selected in the list. From **Queue Actions**, select **Send a Message**. The **Send a Message to Orders** dialog box is displayed.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface-4.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/resource-creation-interface-4.png)
 
 1. Enter message content
 
    The **Send a Message to Orders** dialog box is displayed. On the **Message Body** tab, enter the following text to represent a sample order: 
 
    **1 x Widget @ $29.99 USD 2 x Widget Cables @ $4.99**  
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface.png)
 
 1. Enter message attributes
 
    Select the **Message Attributes** tab to add some optional metadata about this message for easy processing. Let’s add an order type to the order. Enter **Order-Type** in the **Name** field, **String** in the **Type** field, and **Online** in the **Value** field. Click **Add Attribute**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-1.png)
 
 1. Send message
 
    To send the message immediately, click **Send Message**. Confirmation that your message was sent is displayed in the **Send a Message to Orders** dialog box. Click **Close**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-interface-element.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-interface-element.png)
 
 ### Step 4: Retrieve and Delete a Message
 <a name="retrieve-and-delete-a-message"></a>
@@ -95,24 +95,24 @@ After you send a message to a queue, another application can consume it from the
 1. View or delete messages
 
    Ensure that your **Orders** queue is selected in the queue list. Next, from **Queue Actions**, select **View/Delete Messages**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-2.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-2.png)
 
 1. Poll for messages
 
    The **View/Delete Messages** **in Orders** dialog box is displayed. When you request a message from a queue, you don't specify request a specific message. Instead, you specify the maximum number of messages (up to 10) that you want to retrieve. 
 
    Click **Start Polling for messages** to retrieve messages from the queue.     
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-3.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-3.png)
 
 1. Select and delete the message
 
    Once a consumer has received and processed a message, it can be deleted from the queue. Select the message that you want to delete and then choose **Delete 1 Message**.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/selection-interface-1.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/selection-interface-1.png)
 
 1. Confirm deletion
 
    The **Delete Messages** dialog box is displayed. Check the box next to the message and click **Yes, Delete Checked Messages**. The selected message is deleted. Choose **Close**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-interface-element-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-interface-element-1.png)
 
 ### Step 5: Clean Up Resources
 <a name="clean-up-resources"></a>
@@ -122,12 +122,12 @@ When you no longer need to use an Amazon SQS queue, we recommend that you delete
 1. Select and delete queue
 
    In the queue list, select the **Orders** queue. Then, from **Queue Actions**, select **Delete Queue**.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/selection-interface-2.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/selection-interface-2.png)
 
 1. Confirm deletion
 
    The **Delete Queues** dialog box is displayed. You can still delete your queue, even though you still have messages in it. Choose **Yes, Delete Queue**. The queue is deleted.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-4.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/send-messages-distributed-applications/images/interface-4.png)
 
 ## Conclusion
 <a name="conclusion"></a>
