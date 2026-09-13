@@ -5,7 +5,7 @@
 
 This section shows you how to get started with connecting your Sidewalk end devices to AWS IoT Core for Amazon Sidewalk. It explains how you can connect an end device to Amazon Sidewalk and pass messages between them. You'll also learn about the Sidewalk sample application and an overview of how to perform sensor monitoring using AWS IoT Core for Amazon Sidewalk. The sample application provides you with a dashboard to view and monitor changes to the sensor temperature.
 
-![AWS account and environment set up for connecting devices to AWS IoT Core for Amazon Sidewalk.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/sidewalk-getting-started.png)
+![AWS account and environment set up for connecting devices to AWS IoT Core for Amazon Sidewalk.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/sidewalk-getting-started.png)
 
 
 The following topics will help you get started with AWS IoT Core for Amazon Sidewalk.
@@ -21,7 +21,7 @@ This section provides you an overview of the Amazon Sidewalk sample application 
 
 The following diagram shows the steps are involved when you run the [sample application](https://github.com/aws-samples/aws-iot-core-for-amazon-sidewalk-sample-app) and connect your Sidewalk end device to the application. For detailed instructions including pre-requisites and configuration for this tutorial, see the [README document](https://github.com/aws-samples/amazon-sidewalk-sample-iot-app/blob/main/README.md) in *GitHub*.
 
-![Application to monitor sensor temperature using AWS IoT Core for Amazon Sidewalk.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/sidewalk-sensor-monitoring.png)
+![Application to monitor sensor temperature using AWS IoT Core for Amazon Sidewalk.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/sidewalk-sensor-monitoring.png)
 
 
 ## Introduction to onboarding your Sidewalk devices

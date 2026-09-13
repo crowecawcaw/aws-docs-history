@@ -31,7 +31,7 @@ You can create a device profile either using the AWS IoT console, the AWS IoT Co
 
 To create a device profile using the AWS IoT console, go to the [Sidewalk tab of the Profiles hub](https://console.aws.amazon.com/iot/home#/wireless/profiles?tab=sidewalk) and choose **Create profile**.
 
-![Create a factory supported profile for bulk provisioning Sidewalk devices.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-create-profiles.PNG)
+![Create a factory supported profile for bulk provisioning Sidewalk devices.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-create-profiles.PNG)
 
 
 To create a profile, specify the following fields, and then choose **Submit**.

@@ -64,7 +64,7 @@ To obtain the `ApId`, after you retrieve information about the device profile th
 
 This flowchart shows how bulk provision works with AWS IoT Core for Amazon Sidewalk.
 
-![Bulk Provisioning flow for your Amazon Sidewalk end devices.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/sidewalk-bulk-provision-flow.png)
+![Bulk Provisioning flow for your Amazon Sidewalk end devices.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/sidewalk-bulk-provision-flow.png)
 
 
 The following procedure illustrates the different steps in the bulk provisioning process.

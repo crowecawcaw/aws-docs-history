@@ -56,7 +56,7 @@ For information about using a Site-to-Site VPN connection, see [How Site-to-Site
 
 AWS Client VPN is a managed client-based VPN service that enables you to securely access AWS resources and resources in your on-premises network. The following shows the architecture for the client VPN service.
 
-![Image showing how you can use AWS Client VPN to connect your LoRa gateway on premises.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/lorawan-privatelink-client-vpn.png)
+![Image showing how you can use AWS Client VPN to connect your LoRa gateway on premises.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/lorawan-privatelink-client-vpn.png)
 
 
 To establish a VPN connection to a Client VPN endpoint:

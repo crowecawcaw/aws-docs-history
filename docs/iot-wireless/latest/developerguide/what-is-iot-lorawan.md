@@ -80,7 +80,7 @@ RP002-1.0.2 document includes support for all versions of the LoRaWAN Layer 2 sp
 
 The LoRaWAN network architecture is deployed in a star of stars topology in which gateways relay information between end devices and the LoRaWAN network server (LNS). The following shows how a LoRaWAN device interacts with AWS IoT Core for LoRaWAN. It also shows how AWS IoT Core for LoRaWAN acts as an LNS and communicates with other AWS services in the AWS Cloud.
 
-![Image showing how AWS IoT Core provides device endpoints to connect IoT devices to AWS IoT and service endpoints to connect apps and other services to AWS IoT Core.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-how-it-works.png)
+![Image showing how AWS IoT Core provides device endpoints to connect IoT devices to AWS IoT and service endpoints to connect apps and other services to AWS IoT Core.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-how-it-works.png)
 
 
 LoRaWAN devices communicate with AWS IoT Core through LoRaWAN gateways. AWS IoT Core for LoRaWAN manages the service and device policies that AWS IoT Core requires to manage and communicate with the LoRaWAN gateways and devices. AWS IoT Core for LoRaWAN also manages the destinations that describe the AWS IoT rules that send device data to other services.
@@ -113,7 +113,7 @@ The following resources will help you learn more about AWS IoT Core for LoRaWAN 
 
 **[Getting Started with AWS IoT Core for LoRaWAN](https://www.youtube.com/watch?v=6-ZrdRjqdTk/)**  
  The following video describes how AWS IoT Core for LoRaWAN works and walks you through the process of adding LoRaWAN gateways from the AWS Management Console.  
-[![AWS Videos](http://img.youtube.com/vi/6-ZrdRjqdTk/0.jpg)](http://www.youtube.com/watch?v=6-ZrdRjqdTk)
+[![AWS Videos](https://img.youtube.com/vi/6-ZrdRjqdTk/0.jpg)](https://www.youtube.com/watch?v=6-ZrdRjqdTk)
 + 
 
 **[AWS IoT Core for LoRaWAN workshop](https://iotwireless.workshop.aws/en/)**  

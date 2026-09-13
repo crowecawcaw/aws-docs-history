@@ -17,7 +17,7 @@ The following sections describe how to create the AWS IoT rule and IAM role for 
 
 To create a destination using the AWS IoT console, go to the [Destinations hub](https://console.aws.amazon.com/iot/home#/wireless/destinations) and choose **Add destination**.
 
-![Add a Sidewalk destination using the AWS IoT console.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-add-destination.PNG)
+![Add a Sidewalk destination using the AWS IoT console.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-add-destination.PNG)
 
 
 To process a device's data, specify the following fields when creating a destination, and then choose **Add destination**.

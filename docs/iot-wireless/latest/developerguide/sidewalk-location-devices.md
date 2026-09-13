@@ -65,10 +65,10 @@ To create a new Sidewalk device with location capabilities:
 1. In the **Specify device details** section, enter the device name, choose a device profile, and specify the uplink destination name.
 
 1. In the **Geolocation** section, select **Activate positioning** to enable location capabilities for the device.  
-![Geolocation section with Activate positioning checkbox selected and Position data destination dropdown.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-enable-positioning-console.png)
+![Geolocation section with Activate positioning checkbox selected and Position data destination dropdown.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-enable-positioning-console.png)
 
 1. In the **Position data destination** field, select the name of the destination where location data will be sent.  
-![Position data destination dropdown menu expanded showing options topic1, testTopic, and Canary.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-location-destination.png)
+![Position data destination dropdown menu expanded showing options topic1, testTopic, and Canary.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-location-destination.png)
 
 1. Complete the remaining steps to create your device, and then choose **Create**.
 
@@ -78,7 +78,7 @@ To enable location capabilities for an existing Sidewalk device:
 1. Go to the [Sidewalk devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk).
 
 1. Choose the device that you want to update to view its details.  
-![Sidewalk devices table showing three provisioned devices with device IDs, names, and destinations.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-device-edit.png)
+![Sidewalk devices table showing three provisioned devices with device IDs, names, and destinations.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-device-edit.png)
 
 1. In the device details page, select **Activate positioning** to enable location capabilities.
 

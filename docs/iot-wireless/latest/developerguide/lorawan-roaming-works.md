@@ -39,7 +39,7 @@ The following architecture diagram shows how AWS IoT Core for LoRaWAN partners w
 
 You can view the public network coverage information in the AWS IoT console as described in the following section.
 
-![Image showing how AWS IoT Core for LoRaWAN supports roaming to support devices that move out of home network, and to extend coverage to devices that don't have a gateway to connect to.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-roaming-architecture.png)
+![Image showing how AWS IoT Core for LoRaWAN supports roaming to support devices that move out of home network, and to extend coverage to devices that don't have a gateway to connect to.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-roaming-architecture.png)
 
 
  AWS IoT Core for LoRaWAN uses a roaming hub functionality, in accordance with the [LoRa Alliance LoRaWAN Roaming Hub Technical Recommendation](https://lora-alliance.org/wp-content/uploads/2022/01/TR010-1.0.0-LoRaWAN-Roaming-Hub.pdf). The roaming hub provides an endpoint for Everynet to route the traffic received from the end device. In this case, Everynet acts as a forwarding network server (fNS) to forward the traffic received from the device. It uses an HTTP RESTful API, as defined by the LoRa Alliance specification.

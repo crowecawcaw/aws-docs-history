@@ -10,7 +10,7 @@ This section shows how you can create a device profile. It also shows how you ca
 
 To add your Sidewalk device using the AWS IoT console, go to the [Sidewalk tab of the Devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk), choose **Provision device**, and then perform the following steps.
 
-![Workflow for adding, provisioning, and registering your Sidewalk device to connect to the cloud.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-provision-device.PNG)
+![Workflow for adding, provisioning, and registering your Sidewalk device to connect to the cloud.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk-provision-device.PNG)
 
 
 1. 

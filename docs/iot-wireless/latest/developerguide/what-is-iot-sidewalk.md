@@ -56,7 +56,7 @@ AWS IoT Core for Amazon Sidewalk provides the cloud services that you can use to
 
 Sidewalk end devices communicate with AWS IoT Core through Sidewalk gateways. AWS IoT Core for Amazon Sidewalk manages the service and device policies that AWS IoT Core requires to manage and communicate with the Sidewalk end devices and gateways. It also manages the destinations that send device data to other AWS services.
 
-![How AWS IoT Core for Amazon Sidewalk connects your Sidewalk devices to AWS IoT.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk.png)
+![How AWS IoT Core for Amazon Sidewalk connects your Sidewalk devices to AWS IoT.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-sidewalk.png)
 
 
 ## Get started using AWS IoT Core for Amazon Sidewalk

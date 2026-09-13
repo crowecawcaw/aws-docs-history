@@ -7,7 +7,7 @@ AWS IoT Wireless is a managed cloud service that simplifies the process of conne
 
 AWS IoT Wireless provides the cloud services that connect your wireless devices to other devices and AWS Cloud services. By connecting your devices to AWS IoT Wireless, you can integrate your devices into AWS IoT-based solutions. Using AWS IoT Wireless, you can onboard both LoRaWAN and Sidewalk devices to AWS IoT. These wireless devices use the Low Power Wide Area Networking (LPWAN) communication protocol to communicate with AWS IoT.
 
-![How AWS IoT Wireless connect both LoRaWAN and Sidewalk devices to AWS IoT and device endpoints to apps and other AWS services.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/what-is-aws-iot-wireless.png)
+![How AWS IoT Wireless connect both LoRaWAN and Sidewalk devices to AWS IoT and device endpoints to apps and other AWS services.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/what-is-aws-iot-wireless.png)
 
 
 ## Features of AWS IoT Wireless

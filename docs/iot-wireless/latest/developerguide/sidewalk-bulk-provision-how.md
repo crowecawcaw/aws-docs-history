@@ -10,7 +10,7 @@ This section shows how you can provision Sidewalk devices in bulk to AWS IoT Cor
 
 To add your Sidewalk device using the AWS IoT console, go to the [Sidewalk tab of the Devices hub](https://console.aws.amazon.com/iot/home#/wireless/devices?tab=sidewalk), choose **Bulk provision devices**, and then perform the following steps.
 
-![Use the AWS IoT console to bulk provision Sidewalk devices.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/sidewalk-bulk-provision.PNG)
+![Use the AWS IoT console to bulk provision Sidewalk devices.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/sidewalk-bulk-provision.PNG)
 
 
 1. 

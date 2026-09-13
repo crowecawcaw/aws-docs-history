@@ -59,7 +59,7 @@ For more information about the uplink message format and the frequency ports tha
 
 The following diagram shows how AWS IoT Core for LoRaWAN stores and updates the position information of your devices and gateways.
 
-![Image showing how AWS IoT Core for LoRaWAN can use your static position data and raw data to compute the position in real time.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-lms-architecture.png)
+![Image showing how AWS IoT Core for LoRaWAN can use your static position data and raw data to compute the position in real time.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-lms-architecture.png)
 
 
 1. 

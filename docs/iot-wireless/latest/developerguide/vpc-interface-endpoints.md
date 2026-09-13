@@ -26,7 +26,7 @@ AWS IoT Wireless supports making calls to all of its API actions from your VPC. 
 
 The following diagram shows the privatelink architecture of AWS IoT Core for LoRaWAN. The architecture uses a Transit Gateway and Route 53 Resolver to share the AWS PrivateLink interface endpoints between your VPC, the AWS IoT Core for LoRaWAN VPC, and an on-premises environment. You'll find a more detailed architecture diagram when setting up the connection to the VPC interface endpoints.
 
-![Image showing how you can use AWS PrivateLink to connect to AWS IoT Core for LoRaWAN endpoints.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-privatelink-architecture.png)
+![Image showing how you can use AWS PrivateLink to connect to AWS IoT Core for LoRaWAN endpoints.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-privatelink-architecture.png)
 
 
 ## AWS IoT Core for LoRaWAN endpoints

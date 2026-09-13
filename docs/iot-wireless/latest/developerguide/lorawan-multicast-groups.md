@@ -16,7 +16,7 @@ With AWS IoT Core for LoRaWAN's multicast groups, you can:
 
  The following video describes how AWS IoT Core for LoRaWAN multicast groups can be created and walks you through the process of adding a device to the group and schedule a downlink message to the group.
 
-[![AWS Videos](http://img.youtube.com/vi/LcCR-1eKX1w/0.jpg)](http://www.youtube.com/watch?v=LcCR-1eKX1w)
+[![AWS Videos](https://img.youtube.com/vi/LcCR-1eKX1w/0.jpg)](https://www.youtube.com/watch?v=LcCR-1eKX1w)
 
 
 The following shows how to create your multicast group and schedule a downlink message.

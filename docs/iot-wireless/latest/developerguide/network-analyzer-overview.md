@@ -29,7 +29,7 @@ To start receiving trace messages, activate your trace messaging session. To avo
 
  The following video describes how AWS IoT Core for LoRaWAN network analyzer works and walks you through the process of adding resources and tracing join activities using network analyzer.
 
-[![AWS Videos](http://img.youtube.com/vi/Qk9pkhL8xjc/0.jpg)](http://www.youtube.com/watch?v=Qk9pkhL8xjc)
+[![AWS Videos](https://img.youtube.com/vi/Qk9pkhL8xjc/0.jpg)](https://www.youtube.com/watch?v=Qk9pkhL8xjc)
 
 
 The following topics show how to create your configuration, add resources, and activate your trace messaging session.

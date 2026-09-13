@@ -22,7 +22,7 @@ AWS IoT Core for LoRaWAN automatically performs the clock synchronization accord
 
  The following video describes how AWS IoT Core for LoRaWAN FUOTA tasks can be created and walks you through the process of adding devices to the task and schedule a FUOTA task.
 
-[![AWS Videos](http://img.youtube.com/vi/0Yd6PFwL-IM/0.jpg)](http://www.youtube.com/watch?v=0Yd6PFwL-IM)
+[![AWS Videos](https://img.youtube.com/vi/0Yd6PFwL-IM/0.jpg)](https://www.youtube.com/watch?v=0Yd6PFwL-IM)
 
 
 **Topics**

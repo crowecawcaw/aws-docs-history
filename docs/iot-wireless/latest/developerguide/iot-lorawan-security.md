@@ -12,7 +12,7 @@ AWS IoT Core for LoRaWAN uses the following methods to secure the data and commu
 
 This diagram identifies the key elements in a LoRaWAN system connected to AWS IoT Core for LoRaWAN to identify how data is secured throughout.
 
-![Image showing how AWS IoT Core for LoRaWAN data is passed from a wireless device to AWS IoT and other services.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-data-flow.png)
+![Image showing how AWS IoT Core for LoRaWAN data is passed from a wireless device to AWS IoT and other services.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-data-flow.png)
 
 
 1. The LoRaWAN wireless device encrypts its binary messages using AES128 CTR mode before it transmits them.

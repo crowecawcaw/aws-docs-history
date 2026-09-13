@@ -5,7 +5,7 @@
 
 A multicast group that consists of multiple devices can have the devices associated with multiple gateways. When a downlink message is sent to the multicast group, it will be sent to all the gateways that are associated with the devices in the group. This can potentially lead to the message that the device receives getting corrupted, such as when a device is in the vicinity of two gateways and receives the same multicast downlink from both gateways at the same time.
 
-![Image showing how a multicast downlink message from AWS IoT Core for LoRaWAN can get corrupted to the device.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-multicast-gateways.png)
+![Image showing how a multicast downlink message from AWS IoT Core for LoRaWAN can get corrupted to the device.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-multicast-gateways.png)
 
 
 To avoid this message corruption, you can specify the gateways that you want to use for receiving the downlink message and the transmission interval between them. To provide this information, use the following fields using the console or CLI.

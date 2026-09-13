@@ -5,7 +5,7 @@
 
 The following diagram shows how AWS IoT Core for LoRaWAN performs the FUOTA process for your end devices. If you're adding individual devices to your FUOTA session, you can skip the steps for creating and configuring your multicast group. You can add your devices directly to a FUOTA session, and AWS IoT Core for LoRaWAN will then start the firmware update process. 
 
-![How AWS IoT Core for LoRaWAN performs FUOTA updates for your end devices.](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-fuota-flow.png)
+![How AWS IoT Core for LoRaWAN performs FUOTA updates for your end devices.](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/images/iot-lorawan-fuota-flow.png)
 
 
 To perform FUOTA for your devices, first create your digitally signed firmware image and configure the devices and multicast groups that you want to add to your FUOTA task. After you start a FUOTA session, your end devices collect all fragments, reconstruct the image from the fragments, report the status to AWS IoT Core for LoRaWAN, and then apply the new firmware image.
