@@ -28,16 +28,16 @@ In this example scenario, a user selected the US West (Oregon) Region (`us-west-
 
 The default view created by Resource Explorer doesn't have any filters. Therefore, results from searching with this view can include resources of any type in all Regions in the account where Resource Explorer is turned on including Tags.
 
-![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](http://docs.aws.amazon.com/resource-explorer/latest/userguide/images/AREX-Overview-IAD.png)
+![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](https://docs.aws.amazon.com/resource-explorer/latest/userguide/images/AREX-Overview-IAD.png)
 
 
 
 <table>
 <tbody>
   <tr><td colspan="2"><b>Legend</b></td></tr>
-  <tr><td><img src="http://docs.aws.amazon.com/resource-explorer/latest/userguide/images/AREX-Activated-Icon.png" alt="Gear icon with magnifying glass, representing system configuration or search settings." /></td><td>Resource Explorer is set up with a user-owned (local) index in this AWS Region. Information about the Region's resources is stored in a local index in that Region. Every Region's user-owned (local) index is also replicated (indicated by the arrows) to the Region that contains the aggregator index.</td></tr>
-  <tr><td><img src="http://docs.aws.amazon.com/resource-explorer/latest/userguide/images/Global-Index-Icon.png" alt="Notebook icon representing a document or file with lined pages." /></td><td>The index in this AWS Region is configured to be the aggregator index for the account. Resource Explorer replicates the resource information collected in the user-owned (local) indexes of all other Regions into the aggregator index in this Region. Searches made in this Region can include results from all Regions with user-owned (local) indexes in the account.</td></tr>
-  <tr><td><img src="http://docs.aws.amazon.com/resource-explorer/latest/userguide/images/Default-Search-Scope.png" alt="Blue square border with white interior, representing a placeholder for an image." /></td><td>The default view created by <b>Quick Setup</b> includes all resources in all AWS Regions with user-owned (local) indexes.</td></tr>
+  <tr><td><img src="https://docs.aws.amazon.com/resource-explorer/latest/userguide/images/AREX-Activated-Icon.png" alt="Gear icon with magnifying glass, representing system configuration or search settings." /></td><td>Resource Explorer is set up with a user-owned (local) index in this AWS Region. Information about the Region's resources is stored in a local index in that Region. Every Region's user-owned (local) index is also replicated (indicated by the arrows) to the Region that contains the aggregator index.</td></tr>
+  <tr><td><img src="https://docs.aws.amazon.com/resource-explorer/latest/userguide/images/Global-Index-Icon.png" alt="Notebook icon representing a document or file with lined pages." /></td><td>The index in this AWS Region is configured to be the aggregator index for the account. Resource Explorer replicates the resource information collected in the user-owned (local) indexes of all other Regions into the aggregator index in this Region. Searches made in this Region can include results from all Regions with user-owned (local) indexes in the account.</td></tr>
+  <tr><td><img src="https://docs.aws.amazon.com/resource-explorer/latest/userguide/images/Default-Search-Scope.png" alt="Blue square border with white interior, representing a placeholder for an image." /></td><td>The default view created by <b>Quick Setup</b> includes all resources in all AWS Regions with user-owned (local) indexes.</td></tr>
 </tbody>
 </table>
 
