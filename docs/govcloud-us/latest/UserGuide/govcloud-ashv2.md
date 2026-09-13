@@ -53,7 +53,7 @@ The Account coverage page and widget do not include coverage details for how man
 
  Security Hub uses findings from AWS Security Hub CSPM (Cloud Security Posture Management) and Amazon Inspector. For information about the availability of these features in AWS GovCloud (US) Region, see the following:
 +  ** AWS Security Hub CSPM ** - For information about AWS Security Hub CSPM feature differences in AWS GovCloud (US) Region, including controls, see [AWS Security Hub CSPM in AWS GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ash.html) in the * AWS GovCloud (US) User Guide*.
-+  ** Amazon Inspector ** - For information about Amazon Inspector feature differences in AWS GovCloud (US) Region, see [Amazon Inspector in AWS GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-inspector.html) in the * AWS GovCloud (US) User Guide*.
++  ** Amazon Inspector ** - For information about Amazon Inspector feature differences in AWS GovCloud (US) Region, see [Amazon Inspector in AWS GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-inspector2.html) in the * AWS GovCloud (US) User Guide*.
 
 ## Documentation
 <a name="govcloud-ashv2-docs"></a>

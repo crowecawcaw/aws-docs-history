@@ -17,8 +17,6 @@ This service is available in the following AWS GovCloud (US) Regions:
 <a name="govcloud-diffs-46"></a>
 
 The following differences apply to Amazon Bedrock AgentCore:
-+ AgentCore Gateway does not include semantic search functionality.
-+ AWS Agent Registry (Preview) is not available.
 + Bedrock Guardrails Policy is not availalbe
 + Temporal Policy is not available
 + The following CloudFormation resources are not available:

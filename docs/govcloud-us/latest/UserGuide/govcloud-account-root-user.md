@@ -40,7 +40,7 @@ In the credential report CSV, the following columns will allow you to identify i
 
 In this example, the root user has an active root access key in the account because the `access_key_1_last_rotated` field is not marked `N/A` and the `access_key_1_active` field is marked `TRUE`. You can also see there is not a second access key associated with the root user because `access_key_2_last_rotated` field is marked `N/A`. Since there is not a second access key `access_key_2_active` field is marked `FALSE`.
 
-![In this example, the root has an active root access key in the account with no second access key.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/govcloud-root-user-cred-report.png)
+![In this example, the root has an active root access key in the account with no second access key.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/govcloud-root-user-cred-report.png)
 
 
 For info on removing root user access keys, see [Deleting my AWS GovCloud (US) account root access keys](#delete-govcloud-root-access-key).
@@ -194,12 +194,12 @@ The Account Email field has an email that is not associated with the standard AW
 Multiple AWS GovCloud (US) account IDs were provided. Each AWS GovCloud (US) account requested will need its own support case from the associated [standard AWS account](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-started-standard-account-linking.html) as the root user.
 
    The following image shows an example of a completed ticket:  
-![Example of complete support case.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/root_user_support_case_example.png)
+![Example of complete support case.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/root_user_support_case_example.png)
 
 1. Choose **Next step**.
 
 1. Choose **Contact us**, choose your **Preferred contact language**, and then choose **Web** as the contact method, if it’s not selected by default.  
-![Web via email and Support Center contact method selected.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/contact_options_support.png)
+![Web via email and Support Center contact method selected.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/contact_options_support.png)
 
 1. Choose **Submit**.
 
@@ -249,11 +249,11 @@ In this step, you will retrieve your new AWS GovCloud (US) account root user acc
 1. With the command copied, launch AWS CloudShell. You can launch CloudShell from the AWS Management Console using either one of the following two methods:
    + Choose the AWS CloudShell icon on the console navigation bar.
    + Start typing *cloudshell* in the **Find Services** box and then choose the **CloudShell** option.  
-![console navigation bar with cshell icon displayed.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/console_cloudshell_navigation_bar.png)
+![console navigation bar with cshell icon displayed.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/console_cloudshell_navigation_bar.png)
 
 1. Your environment will take a few seconds to get started. Once ready you will see `[[cloudshell-user@ip-xxx.xxx.xxx.xxx](mailto:cloudshell-user@ip-xxx.xxx.xxx.xxx) ~] $`.  
-![console navigation bar with cshell icon displayed.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/cloudshell_waiting.png)  
-![console navigation bar with cshell icon displayed.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/cloudshell_ready.png)
+![console navigation bar with cshell icon displayed.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/cloudshell_waiting.png)  
+![console navigation bar with cshell icon displayed.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/cloudshell_ready.png)
 
 1. Paste the following commands into the AWS CloudShell terminal, then press Enter. Your AWS GovCloud (US) root access keys will be output to the terminal.
 

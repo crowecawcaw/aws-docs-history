@@ -10,23 +10,23 @@ If you are serving as a Solution Provider and reselling in AWS GovCloud (US), yo
 1. Access the [AWS GovCloud (US) console onboard tool web application.](https://govcloud-onboarding-tool.us-east-1.amazonaws.com/).
 
 1. Type your access key ID and secret access key, and then choose **Next**.  
-![<shared id="govcloud-us"/> Management Console login page with fields for access key ID and secret access key.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-keys.png)
+![<shared id="govcloud-us"/> Management Console login page with fields for access key ID and secret access key.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-keys.png)
 
 1. Type a password for the administrator, and then choose **Next**.  
-![Password entry form for creating an administrative user in AWS GovCloud Management Console.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-pw.png)
+![Password entry form for creating an administrative user in AWS GovCloud Management Console.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-pw.png)
 
 1. (Optional) If you want to create an account alias, type a name (all lowercase) for your account, and then choose **Next**.  
-![<shared id="govcloud-us"/> Management Console onboarding page for creating an account alias.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-alias.png)
+![<shared id="govcloud-us"/> Management Console onboarding page for creating an account alias.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-alias.png)
 
    An account alias provides an easy-to-remember link for signing in to the console. For more information about account aliases, see [Your AWS Account ID and Its Alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html) in the *IAM User Guide*.
 
 1. Review your information, and then choose **Complete**.  
-![<shared id="govcloud-us"/> Management Console onboarding review page with account details and key information.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-review.png)
+![<shared id="govcloud-us"/> Management Console onboarding review page with account details and key information.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-review.png)
 
    You can choose **Back** to edit any information.
 
 1. Review your new AWS GovCloud (US) credentials. Your original keys have been deactivated.  
-![<shared id="govcloud-us"/> Management Console onboarding confirmation with new access key details.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-complete.png)
+![<shared id="govcloud-us"/> Management Console onboarding confirmation with new access key details.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/setup-tool-complete.png)
 
 1. Choose **Download New Keys** and then save them in a secure location. If you do not download them, you will not be able to retrieve them in the future.
 

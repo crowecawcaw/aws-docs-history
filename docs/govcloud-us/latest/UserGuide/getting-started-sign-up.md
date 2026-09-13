@@ -22,10 +22,10 @@ If you are a direct customer of AWS and do not purchase AWS through an AWS Solut
 1. Log in to the new AWS account with the root credentials. If you do not have the root credentials, create a support ticket to recover the credentials.
 
 1. Navigate to the **Account** page at the top right of the AWS Management Console.  
-![AWS Management Console header showing account menu with options like Organization and Billing.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/account-menu-as-of-1-9-24.png)
+![AWS Management Console header showing account menu with options like Organization and Billing.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/account-menu-as-of-1-9-24.png)
 
 1. On the **Account** page, scroll down to the **Other settings** section. Choose the ** AWS GovCloud** link. If you do not see this link, ensure you logged in with the root credentials otherwise, create a support ticket.  
-![Other settings section with options for payment, communication, support, and AWS GovCloud.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/account-page-other-settings-card-as-of-1-9-24.png)
+![Other settings section with options for payment, communication, support, and AWS GovCloud.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/account-page-other-settings-card-as-of-1-9-24.png)
 
 1. This will navigate you to the AWS GovCloud (US) Sign Up Portal where you are asked to accept the AWS GovCloud (US) legal agreement and provide additional information, so we can verify your eligibility for an AWS GovCloud (US) account.
 

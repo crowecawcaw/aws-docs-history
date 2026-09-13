@@ -7,6 +7,8 @@ The following table describes important changes to the documentation since the l
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Amazon Inspector](govcloud-inspector2.md) | Added Managed Code Repository Scanning to the list of features that are not available for Amazon Inspector in the AWS GovCloud (US) Regions. | September 8, 2026 | 
+| [AWS Transform](govcloud-transform.md) | AWS Transform is now supported in AWS GovCloud (US). | September 8, 2026 | 
 | [Amazon Connect](#history) | Updated the list of unavailable Amazon Connect features in AWS GovCloud (US) Regions. See [Amazon Connect](govcloud-con.md). | September 2, 2026 | 
 | [Amazon OpenSearch Ingestion](govcloud-opensearch.md) | Amazon OpenSearch Ingestion is now available. | August 19, 2026 | 
 | [Amazon S3 Metadata](govcloud-s3.md) | S3 Metadata and annotations are now available in AWS GovCloud (US) Regions. | August 18, 2026 | 

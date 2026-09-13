@@ -9,24 +9,25 @@ Amazon Inspector is a security vulnerability assessment service that helps impro
 The Amazon Inspector plugin for [Linux deep inspection](https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html#deep-inspection) is not FIPS compliant.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ Amazon Inspector is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon Inspector differs
-<a name="govcloud-diffs-33"></a>
+<a name="feature-diffs"></a>
 
 The following differences apply to Amazon Inspector:
-+  Lambda code scanning is not available.
++ Lambda Code Scanning is not available.
++ Managed Code Repository Scanning is not available.
 
 ## Documentation
-<a name="govcloud-docs-72"></a>
+<a name="documentation"></a>
 +  [Amazon Inspector documentation](https://docs.aws.amazon.com/inspector) 
 
 ## Export-controlled content
-<a name="govcloud-itar-content-111"></a>
+<a name="itar-boundary"></a>
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 + No data will leave the AWS GovCloud (US) Regions for this service.

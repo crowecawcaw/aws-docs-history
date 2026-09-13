@@ -43,7 +43,7 @@ If you are an IAM user, you can log in using either a sign-in URL or the main si
    ```
 
 1. Enter your IAM user name and password and choose **Sign in**.  
-![iam-user Sign-in Page](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/sign-in-iam-user-capture.png)
+![iam-user Sign-in Page](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/sign-in-iam-user-capture.png)
 
 **To sign in to an AWS GovCloud (US) account as an IAM user using the main sign-in page**
 
@@ -52,4 +52,4 @@ If you are an IAM user, you can log in using either a sign-in URL or the main si
    If you have signed in previously using this browser, your browser might remember the account alias or account ID for the AWS GovCloud (US) account.
 
 1. Enter account alias or account ID, IAM user name and password and choose **Sign in**.  
-![iam User Sign-in Page](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/govcloud-sign-in-1.png)
+![iam User Sign-in Page](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/govcloud-sign-in-1.png)

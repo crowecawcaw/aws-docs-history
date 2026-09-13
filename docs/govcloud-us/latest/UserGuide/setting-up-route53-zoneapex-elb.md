@@ -13,7 +13,7 @@ An additional benefit of this approach is that CloudFront can help improve the p
 
 The following figure shows the various AWS services used to demonstrate this solution:
 
-![AWS architecture diagram showing CloudFront, Route 53, and Elastic Load Balancing with EC2 instances in GovCloud.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/r53-cf-elb.png)
+![AWS architecture diagram showing CloudFront, Route 53, and Elastic Load Balancing with EC2 instances in GovCloud.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/r53-cf-elb.png)
 
 
 **Important**  
@@ -28,15 +28,15 @@ This solution requires creating Route 53 public hosted zone in commercial AWS be
 <a name="create-resources"></a>
 
 1. Create two web application Amazon EC2 servers via the [AWS GovCloud (US) console](https://console.amazonaws-us-gov.com/ec2/v2/home) and confirm that they are in a running state. Configuring the web servers on the Amazon EC2 instances is outside of the scope of this section.  
-![EC2 dashboard showing two running web server instances in us-gov-west-1b with status checks passed.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step2-Image1.png)
+![EC2 dashboard showing two running web server instances in us-gov-west-1b with status checks passed.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step2-Image1.png)
 
 1. Create an Elastic Load Balancing load balancer and add the two instances created in the previous step to a new target group. Confirm that the instances are healthy and registered. Note the DNS name of the newly created load balancer.  
-![Load balancer dashboard showing one active load balancer with its DNS name and availability zones.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step2-Image2.png)  
-![Target group details showing registered targets, availability zones, and health status for web instances.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step2-Image3.png)
+![Load balancer dashboard showing one active load balancer with its DNS name and availability zones.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step2-Image2.png)  
+![Target group details showing registered targets, availability zones, and health status for web instances.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step2-Image3.png)
 
 1. Test access to your website by entering the load balancer DNS name in a web browser. You can verify the load balancer is balancing traffic between the two instances by waiting at least one minute between requests.  
-![Web page displaying "Hello World / GovCloud Web Server 01" with a backend instance IP address.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/r53-Step2Image4.png)  
-![Web page showing "Hello World / GovCloud Web Server 02" and a backend instance IP address.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/r53-Step2Image5.png)
+![Web page displaying "Hello World / GovCloud Web Server 01" with a backend instance IP address.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/r53-Step2Image4.png)  
+![Web page showing "Hello World / GovCloud Web Server 02" and a backend instance IP address.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/r53-Step2Image5.png)
 
 ## Step 3: Create a CloudFront Custom Origin Web Distribution
 <a name="create-cloudfront"></a>
@@ -44,22 +44,22 @@ This solution requires creating Route 53 public hosted zone in commercial AWS be
 Because AWS GovCloud (US) is not currently integrated into the CloudFront service, you must create a CloudFront distribution using your standard AWS account. Since the CloudFront service is hosted outside the AWS GovCloud (US) Regions, customers should ensure any content hosted in the CloudFront service does not contain export-controlled information.
 
 1. Sign in to the [CloudFront console](https://console.aws.amazon.com/cloudfront/) with your standard AWS account, and choose **Create Distribution**.  
-![CloudFront console interface showing Getting Started page with Create Distribution button.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image1.png)
+![CloudFront console interface showing Getting Started page with Create Distribution button.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image1.png)
 
 1. Select the **Get Started** under **Web** distribution delivery method, and then choose **Continue**.  
-![Web and RTMP delivery methods for content distribution with features and requirements.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image2.png)
+![Web and RTMP delivery methods for content distribution with features and requirements.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image2.png)
 
 1. In **Origin Domain Name**, type the AWS GovCloud (US) load balancer DNS name to create a custom origin.  
-![Origin settings form for creating a distribution, showing domain name and SSL options.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image3.png)
+![Origin settings form for creating a distribution, showing domain name and SSL options.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image3.png)
 
 1. In **Alternate Domain Names (CNAMEs)**, add the zone apex name. Note you must attach a trusted certificate that validates your authorization to use the domain name.  
-![Distribution settings form with Price Class, AWS WAF Web ACL, and Alternate Domain Names fields.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image4.png)
+![Distribution settings form with Price Class, AWS WAF Web ACL, and Alternate Domain Names fields.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image4.png)
 
 1. Choose **Create Distribution**.  
-![Distribution state toggle with Enabled selected and Create Distribution button.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image5.png)
+![Distribution state toggle with Enabled selected and Create Distribution button.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image5.png)
 
 1. After the status for the new distribution changes to **Deployed**, make a note of the domain name. You will use this domain name when you set up Route 53 in the next step.  
-![CloudFront Distributions page showing one deployed distribution with enabled status.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image6.png)
+![CloudFront Distributions page showing one deployed distribution with enabled status.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/Step3-Image6.png)
 
 For information about how CloudFront processes and forwards requests to a customer origin server, such as an AWS GovCloud (US) load balancer, see the [CloudFront documentation](https://aws.amazon.com/documentation/cloudfront/).
 
@@ -71,10 +71,10 @@ For information about how CloudFront processes and forwards requests to a custom
 1. Under your root domain, create a new record.
 
 1. Under the routing policy, select Simple routing and click Next.  
-![Route 53 console showing six routing policy options with descriptions and icons.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/R53-Step4_Image1.png)
+![Route 53 console showing six routing policy options with descriptions and icons.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/R53-Step4_Image1.png)
 
 1. Choose Define simple record. In the "Value/Route traffic to" drop down, select "Alias to CloudFront distribution". Click in the "Choose Distribution" search box and select the distribution created in the prior step.  
-![Form to define a simple DNS record with fields for record name, routing options, and record type.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/R53-Step4_Image2.png)
+![Form to define a simple DNS record with fields for record name, routing options, and record type.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/R53-Step4_Image2.png)
 
 1. On the overview, click on Create records.
 
@@ -82,7 +82,7 @@ For information about how CloudFront processes and forwards requests to a custom
 <a name="test-website"></a>
 
 1. Enter your root domain in a web browser to verify that your website is accessible.  
-![Web browser displaying "Hello World / GovCloud Web Server 2" with backend instance IP.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/r53_Step5.png)
+![Web browser displaying "Hello World / GovCloud Web Server 2" with backend instance IP.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/r53_Step5.png)
 
 Congratulations\! You have successfully pointed your zone apex at your Elastic Load Balancing load balancer in the AWS GovCloud (US) Regions.
 

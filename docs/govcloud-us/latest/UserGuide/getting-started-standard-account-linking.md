@@ -8,11 +8,11 @@
 **Important**  
 We recommend creating a new AWS account that will only be used for AWS GovCloud (US) sign up and billing (i.e. do not deploy any AWS workloads into AWS standard account). A dedicated AWS account for the new AWS GovCloud (US) account will enable you to transfer the AWS GovCloud (US) account to another party in the future and fully close the AWS GovCloud (US) accounts without affecting your other AWS workloads.
 
-![Standard Account and GovCloud Account icons connected by a bidirectional arrow.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/std-govcloud.png)
+![Standard Account and GovCloud Account icons connected by a bidirectional arrow.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/std-govcloud.png)
 
 
 If you are using AWS Organizations to manage accounts within AWS standard regions, you can create the new standard account from AWS Organizations console or using the [AWS Organizations API](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/create-gov-cloud-account.html). Your AWS Organization in your standard AWS account is separate from the AWS Organizations in your AWS GovCloud (US) should you choose to create one, even though the accounts are linked. You must manage each separately. Only the standard AWS account will be managed by the existing Organization.
 
 You can create a new AWS Organizations within the AWS GovCloud (US) partition by creating a set of new accounts, creating a new AWS Organizations root within one of the new accounts, and inviting the other AWS GovCloud (US) accounts to the new AWS Organization. Follow the steps for [inviting accounts to an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html) here. This will result in separate AWS Organization, one in each partition.
 
-![AWS Standard and GovCloud account structures with mapped relationships between regions.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/org_std-govcloud.png)
+![AWS Standard and GovCloud account structures with mapped relationships between regions.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/org_std-govcloud.png)

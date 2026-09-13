@@ -11,7 +11,7 @@ If you use AWS services in other AWS Regions with the standard AWS account, your
 
 The following diagram outlines the relationship between AWS GovCloud (US) and standard AWS accounts:
 
-![Diagram showing <shared id="govcloud-us"/> and AWS Standard accounts with separate services and credential usage.](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/relationship.png)
+![Diagram showing <shared id="govcloud-us"/> and AWS Standard accounts with separate services and credential usage.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/images/relationship.png)
 
 
  AWS GovCloud (US) account relationship to standard AWS account
