@@ -10,7 +10,7 @@ With this architecture, you can monitor the health of factory equipment, detect 
 ## Asset condition monitoring architecture diagram
 <a name="acm-diagram"></a>
 
-![Reference architecture diagram for monitoring factory equipment health and detecting fault conditions on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-iot-asset-condition-monitoring/images/aws-industrial-asset-condition-monitoring-ra.png)
+![Reference architecture diagram for monitoring factory equipment health and detecting fault conditions on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-iot-asset-condition-monitoring/images/aws-industrial-asset-condition-monitoring-ra.png)
 
 
 The following steps describe the architecture:
