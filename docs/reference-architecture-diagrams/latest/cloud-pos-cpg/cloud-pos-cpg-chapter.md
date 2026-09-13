@@ -12,7 +12,7 @@ This architecture shows four key features a cloud-based POS system should have: 
 
 Publication date: October 2021
 
-![Store devices connecting through AWS Outposts and edge services, with or Site-to-Site VPN connectivity to the AWS Cloud integration layer, serverless application layer, purpose-built data layer, and management and analytics services.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/cloud-pos-cpg/images/cloud-pos-cpg.png)
+![Store devices connecting through AWS Outposts and edge services, with or Site-to-Site VPN connectivity to the AWS Cloud integration layer, serverless application layer, purpose-built data layer, and management and analytics services.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/cloud-pos-cpg/images/cloud-pos-cpg.png)
 
 
 **Download:** [Architecture diagram (PDF)](samples/cloud-pos-cpg.zip)
