@@ -10,7 +10,7 @@ With this architecture, you can achieve development and test resiliency for non-
 ## Development and test resiliency diagram
 <a name="sat-dev-diagram"></a>
 
-![Reference architecture diagram showing how to achieve development and test resiliency for satellite operators by using AWS Direct Connect with separate connections at a single location.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/satellite-operator-dev-test-resiliency/images/satellite-operator-dev-test-resiliency-1.png)
+![Reference architecture diagram showing how to achieve development and test resiliency for satellite operators by using AWS Direct Connect with separate connections at a single location.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/satellite-operator-dev-test-resiliency/images/satellite-operator-dev-test-resiliency-1.png)
 
 
 The following steps describe the data flow and connectivity setup for this architecture:
