@@ -10,7 +10,7 @@ This architecture shows how to run highly available, performant, and secure PHP 
 ## Scaling PHP Applications on AWS
 <a name="diagram1"></a>
 
-![Architecture diagram showing a scalable PHP application on AWS using Amazon Elastic Compute Cloud, Amazon Aurora, Amazon ElastiCache, and Amazon CloudFront.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/scaling-php-applications/images/scaling-php-applications.png)
+![Architecture diagram showing a scalable PHP application on AWS using Amazon Elastic Compute Cloud, Amazon Aurora, Amazon ElastiCache, and Amazon CloudFront.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/scaling-php-applications/images/scaling-php-applications.png)
 
 
 The following steps describe the architecture:
