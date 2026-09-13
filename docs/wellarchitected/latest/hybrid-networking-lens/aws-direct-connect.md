@@ -3,7 +3,7 @@
 # AWS Direct Connect
 <a name="aws-direct-connect"></a>
 
-![Architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image2.png)
+![Architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image2.png)
 
 
  Network latency over the internet can vary due to changing routes on how data gets from point A to point B. AWS Direct Connect can enable consistent, low latency, high bandwidth dedicated connectivity between your data centers or branch locations and AWS. 

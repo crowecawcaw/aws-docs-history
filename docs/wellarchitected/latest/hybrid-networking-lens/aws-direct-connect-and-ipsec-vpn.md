@@ -3,7 +3,7 @@
 # AWS Direct Connect and IPSec VPN
 <a name="aws-direct-connect-and-ipsec-vpn"></a>
 
-![Architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image3.png)
+![Architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image3.png)
 
 
  Direct Connect supports MACsec encryption for dedicated 10Gbps, 100Gbps, 400Gbps, and partner interconnects to provide point-to-point security on Ethernet links. IPSec VPNs can be used for 1Gbps and sub-1Gbps Direct Connect connections or dedicated high bandwidth Direct Connect connections that requires end-to-end encryption across multiple network segments. This method achieves traffic encryption by combining the benefits of the end-to-end secure IPSec connection, with low latency and consistent network experience of AWS Direct Connect when reaching resources in your VPC. IPSec VPN connections can be established over Direct Connect public, transit, or private VIF. 

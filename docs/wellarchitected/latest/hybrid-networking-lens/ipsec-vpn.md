@@ -3,7 +3,7 @@
 # IPSec VPN
 <a name="ipsec-vpn"></a>
 
-![Architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image1.png)
+![Architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/images/image1.png)
 
 
  The quickest way to get started with hybrid connectivity is to establish IPSec VPN over the internet. AWS Site-to-Site VPN connects your data center or branch locations to AWS using IPsec tunnels. You can configure routing using BGP over the IPsec tunnel or configure static routes. Traffic in the tunnel is encrypted with AES128 or AES256 and use Diffie-Hellman groups for key exchange, providing Perfect Forward Secrecy. AWS authenticates with SHA1 or SHA2 hashing functions. AES256 and SHA2 are recommended for stronger encryption and authentication. 
