@@ -5,7 +5,7 @@
 
  The DevOps Guru workflow integrates with several AWS services, including Amazon CloudWatch, AWS CloudTrail, Amazon Simple Notification Service, and AWS Systems Manager. The following diagram shows a detailed workflow that includes how it works with other AWS services. 
 
-![Resources, analysis, and notifications in the detailed workflow for DevOps Guru.](http://docs.aws.amazon.com/devops-guru/latest/userguide/images/capstone-workflow-diagram.png)
+![Resources, analysis, and notifications in the detailed workflow for DevOps Guru.](https://docs.aws.amazon.com/devops-guru/latest/userguide/images/capstone-workflow-diagram.png)
 
 
 This diagram shows a scenario in which DevOps Guru coverage is specified by the AWS resources that are defined in AWS CloudFormation stacks or using AWS tags. If no stacks or tags are chosen, then DevOps Guru coverage analyzes all AWS resources in your account. For more information, see [Defining applications using AWS resources](working-with-resource-collections.md) and [Determine coverage for DevOps Guru](setting-up.md#setting-up-determine-coverage).

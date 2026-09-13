@@ -13,7 +13,7 @@ The Amazon DevOps Guru workflow can be broken down into three high level steps.
 
  You can also configure DevOps Guru to create an OpsItem in AWS Systems Manager OpsCenter to help you track your insights. The following diagram shows this high-level workflow. 
 
-![Coverage, insights, and notification integration in a DevOps Guru workflow.](http://docs.aws.amazon.com/devops-guru/latest/userguide/images/how-capstone-works.png)
+![Coverage, insights, and notification integration in a DevOps Guru workflow.](https://docs.aws.amazon.com/devops-guru/latest/userguide/images/how-capstone-works.png)
 
 
 1. In the first step, you choose your coverage by specifying which AWS resources in your AWS account are analyzed. DevOps Guru can cover, or analyze, all the resources in an AWS account, or you can use AWS CloudFormation stacks or AWS tags to specify a subset of the resources in your account to analyze. Make sure that the resources you specify make up your business critical applications, workloads, and micro-services. For more information about the supported services and resources, see [Amazon DevOps Guru pricing](https://aws.amazon.com/devops-guru/pricing/).

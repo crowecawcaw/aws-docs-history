@@ -29,7 +29,7 @@ Following, you can find descriptions for the components of the details page.
 
 The top section of the details page is **Resource overview**. This section summarizes the performance anomaly experienced by your Amazon RDS DB instance.
 
-![The overview of the anomaly details page](http://docs.aws.amazon.com/devops-guru/latest/userguide/images/rds-insight-overview.png)
+![The overview of the anomaly details page](https://docs.aws.amazon.com/devops-guru/latest/userguide/images/rds-insight-overview.png)
 
 
 This section has the following fields:
@@ -45,7 +45,7 @@ This section has the following fields:
 
 The **Primary metric** section summarizes the casual anomaly, which is the top-level anomaly within the insight. You can think of the causal anomaly as the general problem experienced by your DB instance.
 
-![The What we found section of the anomaly details page](http://docs.aws.amazon.com/devops-guru/latest/userguide/images/rds-primary-metric.png)
+![The What we found section of the anomaly details page](https://docs.aws.amazon.com/devops-guru/latest/userguide/images/rds-primary-metric.png)
 
 
 The left panel provides more details about the issue. In this example, the summary includes the following information:
@@ -65,7 +65,7 @@ The preceding wait events appear more than normal for this Aurora MySQL database
 
 The **Related metrics** section lists the contextual anomalies, which are specific findings within the causal anomaly. These findings give additional information about the performance issues.
 
-![The Related metrics section of the details page](http://docs.aws.amazon.com/devops-guru/latest/userguide/images/rds-related-metrics.png)
+![The Related metrics section of the details page](https://docs.aws.amazon.com/devops-guru/latest/userguide/images/rds-related-metrics.png)
 
 
 The **Related metrics** table has two columns: **Metrics name** and **Timeline (UTC)**. Every row in the table corresponds to a specific metric.
@@ -85,7 +85,7 @@ Whereas the causal anomaly describes the overall issue, a contextual anomaly des
 
 In the following example of an **Analysis and recommendations** section, the high DB load anomaly has two findings.
 
-![The Analysis and recommendations section of the details page](http://docs.aws.amazon.com/devops-guru/latest/userguide/images/rds-analysis-recs.png)
+![The Analysis and recommendations section of the details page](https://docs.aws.amazon.com/devops-guru/latest/userguide/images/rds-analysis-recs.png)
 
 
 The table has the following columns:
