@@ -10,7 +10,7 @@ This architecture helps you to set up detection of fraud rings using graphs. Fra
 ## Fraud ring detection using Neo4j and graphs diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing data sources being ingested into Amazon S3 and Neo4j resources, then analyzed by SageMaker AI, Lambda, Neo4j resources, and customer apps.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/fraud-ring-detection-using-Neo4j-and-graphs/images/fraud-ring-detection-using-Neo4j-and-graphs.png)
+![Reference architecture diagram showing data sources being ingested into Amazon S3 and Neo4j resources, then analyzed by SageMaker AI, Lambda, Neo4j resources, and customer apps.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/fraud-ring-detection-using-Neo4j-and-graphs/images/fraud-ring-detection-using-Neo4j-and-graphs.png)
 
 
 1. Banking transactions, customer accounts, and banking apps clickstream data flow from input data sources. 
