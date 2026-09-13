@@ -13,4 +13,4 @@ For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/
 
 The following image shows the traffic flow from a private subnet in a Local Zone to a NAT gateway in a public subnet in the same Local Zone, then to an internet gateway, and to the internet.
 
-![An AWS Region with a VPC. The VPC contains two Availability Zones and a Local Zone. Each zone has a public subnet and a private subnet. The public subnet in the Local Zone shows a NAT gateway. Traffic flows from the private subnet in the Local Zone to the NAT gateway, then internet gateway, and to the internet.](http://docs.aws.amazon.com/local-zones/latest/ug/images/nat-gateway.png)
+![An AWS Region with a VPC. The VPC contains two Availability Zones and a Local Zone. Each zone has a public subnet and a private subnet. The public subnet in the Local Zone shows a NAT gateway. Traffic flows from the private subnet in the Local Zone to the NAT gateway, then internet gateway, and to the internet.](https://docs.aws.amazon.com/local-zones/latest/ug/images/nat-gateway.png)

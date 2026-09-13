@@ -9,7 +9,7 @@ For more information, see the [Direct Connect User Guide](https://docs.aws.amazo
 
 The following diagram shows a Direct Connect connection between a Local Zones and data center.
 
-![An AWS Region with a VPC. The VPC contains an Availability Zone and a Local Zone. Each zone has a private subnet. The diagram also shows an on-premise data center with a customer gateway outside the AWS Region. A Direct Connect connection facilitates traffic between the Local Zone and the data center.](http://docs.aws.amazon.com/local-zones/latest/ug/images/local-zones-direct-connect.png)
+![An AWS Region with a VPC. The VPC contains an Availability Zone and a Local Zone. Each zone has a private subnet. The diagram also shows an on-premise data center with a customer gateway outside the AWS Region. A Direct Connect connection facilitates traffic between the Local Zone and the data center.](https://docs.aws.amazon.com/local-zones/latest/ug/images/local-zones-direct-connect.png)
 
 
 During a hybrid cloud migration, you can migrate your applications to Local Zones while using Direct Connect to communicate back to other parts of your applications in the data center. An example is migrating the front end of an application to Amazon EC2, Amazon ECS, or Amazon EKS in a Local Zone and having the back-end database remain in the data center. Eventually, you can migrate the database to the Local Zone and the entire application to an AWS Region.

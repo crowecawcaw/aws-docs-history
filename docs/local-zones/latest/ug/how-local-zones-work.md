@@ -9,7 +9,7 @@ To use a Local Zone, you must first enable it. Next, you create a subnet in the 
 
 The following diagram illustrates an account with a VPC in the AWS Region `us-west-2` that is extended to the Local Zone `us-west-2-lax-1`. Each zone in the VPC has one subnet, and each subnet has one EC2 instance.
 
-![A VPC with Availability Zones and a Local Zone.](http://docs.aws.amazon.com/local-zones/latest/ug/images/region-with-lzs.png)
+![A VPC with Availability Zones and a Local Zone.](https://docs.aws.amazon.com/local-zones/latest/ug/images/region-with-lzs.png)
 
 
 ## AWS resources supported in Local Zones

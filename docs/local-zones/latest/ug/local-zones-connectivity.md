@@ -9,7 +9,7 @@ You build Local Zones into your network architecture in the same way you choose 
 
 The following diagram shows a network with resources running in two Availability Zones and in a Local Zone within an AWS Region. The Local Zone network can have public or private subnets, internet gateways, and Direct Connect gateways (DXGW). Workloads running in the Local Zone can directly access workloads or AWS services that live in any AWS Region.
 
-![An AWS Region with a VPC. The VPC contains two Availability Zones and a Local Zone. Each zone has a public subnet and a private subnet. The VPC also has an internet gateway and an AWS Direct Connect gateway.](http://docs.aws.amazon.com/local-zones/latest/ug/images/local-zones-direct-connect-internet-gateway.png)
+![An AWS Region with a VPC. The VPC contains two Availability Zones and a Local Zone. Each zone has a public subnet and a private subnet. The VPC also has an internet gateway and an AWS Direct Connect gateway.](https://docs.aws.amazon.com/local-zones/latest/ug/images/local-zones-direct-connect-internet-gateway.png)
 
 
 The following sections explain the different ways to connect to resources in a Local Zone.

@@ -9,7 +9,7 @@ A transit gateway connection between Local Zones is useful when you have workloa
 
 The following diagram shows the transit gateway connection between two Local Zones in the same Region.
 
-![An AWS Region with two VPCs. Each VPC contains an Availability Zone and a Local Zone. Each zone has a private subnet. A transit gateway connection facilitates traffic between the two Local Zones.](http://docs.aws.amazon.com/local-zones/latest/ug/images/local-zones-same-region.png)
+![An AWS Region with two VPCs. Each VPC contains an Availability Zone and a Local Zone. Each zone has a private subnet. A transit gateway connection facilitates traffic between the two Local Zones.](https://docs.aws.amazon.com/local-zones/latest/ug/images/local-zones-same-region.png)
 
 
 **Considerations**
