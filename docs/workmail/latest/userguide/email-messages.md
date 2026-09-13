@@ -39,9 +39,9 @@ You can also choose the plus sign (\+) on the tab bar.
 **Note**  
 The total size of the attached files can’t exceed 25 MB.
    + To mark the message as important or high priority, low priority, or for follow-up, choose the exclamation mark (\!), down arrow, or flag icon.  
-![Icons representing message priority: exclamation mark, down arrow, and flag.](http://docs.aws.amazon.com/workmail/latest/userguide/images/follow-up-flags.png)
+![Icons representing message priority: exclamation mark, down arrow, and flag.](https://docs.aws.amazon.com/workmail/latest/userguide/images/follow-up-flags.png)
    + To mark the message for follow-up or as a completed task, choose the flag or the checkmark icon.  
-![Flag, checkmark, and clear icons representing task status options.](http://docs.aws.amazon.com/workmail/latest/userguide/images/email-flags.png)
+![Flag, checkmark, and clear icons representing task status options.](https://docs.aws.amazon.com/workmail/latest/userguide/images/email-flags.png)
    + To save the message as a draft in the **Drafts** folder, choose **Save**.
 
 1. Enter your text in the lower half of the contents pane, and choose **Send**.
