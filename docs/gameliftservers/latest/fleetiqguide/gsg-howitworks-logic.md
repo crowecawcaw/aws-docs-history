@@ -5,7 +5,7 @@
 
 The following diagram illustrates the role of Amazon GameLift Servers FleetIQ when it is working with Amazon EC2 for game hosting. Its primary goal is to locate the *best* possible game server to host a game session and give players an optimal gameplay experience. Amazon GameLift Servers FleetIQ defines the *best* resources as those that deliver the highest game hosting viability for the lowest cost. Amazon GameLift Servers FleetIQ approaches this goal in two key ways: first by allowing only viable instance types in the Auto Scaling group, and second by placing new game sessions effectively across the group's available resources.
 
-![Amazon GameLift Servers FleetIQ works alongside Amazon EC2](http://docs.aws.amazon.com/gameliftservers/latest/fleetiqguide/images/gsg-howitworks-logic.png)
+![Amazon GameLift Servers FleetIQ works alongside Amazon EC2](https://docs.aws.amazon.com/gameliftservers/latest/fleetiqguide/images/gsg-howitworks-logic.png)
 
 
 ## Fill Auto Scaling group with optimal instance types

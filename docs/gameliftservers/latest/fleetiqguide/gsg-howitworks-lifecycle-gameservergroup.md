@@ -5,7 +5,7 @@
 
 Game server groups go through the following life cycle, including provisioning and status updates. A game server group is expected to be a long-lived resource.
 
-![Lifecycle of a game server group resource.](http://docs.aws.amazon.com/gameliftservers/latest/fleetiqguide/images/gsg-lifecycles-gameservergroup.png)
+![Lifecycle of a game server group resource.](https://docs.aws.amazon.com/gameliftservers/latest/fleetiqguide/images/gsg-lifecycles-gameservergroup.png)
 
 + You create a game server group by calling the Amazon GameLift Servers API `CreateGameServerGroup()` and passing in an EC2 launch template and configuration settings. In response to the call, a new game server group is created and placed in status NEW.
 + Amazon GameLift Servers FleetIQ activates an asynchronous activation workflow, transitioning the game server group status to ACTIVATING. The workflow initiates the creation of underlying resources, including an Amazon EC2 Auto Scaling group and an EC2 instance with the provided AMI.

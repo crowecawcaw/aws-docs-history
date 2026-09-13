@@ -14,7 +14,7 @@ Spot balancing has two key goals:
 **Example**  
 The following example illustrates how instances in an Auto Scaling group are affected by Spot balancing.  
 
-![Lifecycle of an Auto Scaling group during Amazon GameLift Servers FleetIQ balancing.](http://docs.aws.amazon.com/gameliftservers/latest/fleetiqguide/images/gsg-lifecycles-rebalancing.png)
+![Lifecycle of an Auto Scaling group during Amazon GameLift Servers FleetIQ balancing.](https://docs.aws.amazon.com/gameliftservers/latest/fleetiqguide/images/gsg-lifecycles-rebalancing.png)
 
 + **Step 1.** Through a game server group, the linked Auto Scaling group is set up to launch instances of types m4.large, c4.large, and c5.large with game server protection enabled. The Auto Scaling group has launched a balanced collection consisting of two Spot Instances of each type. Four instances have at least one game server in UTILIZED status (shown with a dashed border), while two instances are not currently supporting gameplay. 
 + **Step 2.** Amazon GameLift Servers FleetIQ evaluates the current game hosting viability of all three instance types. The evaluation determines that the c4.large instance type has an unacceptable potential for game server interruption. Amazon GameLift Servers FleetIQ immediately updates the Auto Scaling group configuration to temporarily remove c4.large from the list of instance types, preventing additional c4.large instances from being launched. 
