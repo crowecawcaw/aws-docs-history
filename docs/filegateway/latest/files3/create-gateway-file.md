@@ -60,11 +60,14 @@ In this section, you can find instructions on how to create, deploy, and activat
    1. For **Service endpoint**, choose the type of endpoint that your gateway will use to communicate with AWS. You can choose from the following options:
       + **Publicly accessible** – Your gateway communicates with AWS over the public internet. If you select this option, use the **FIPS enabled endpoint** checkbox to specify whether the connection must comply with Federal Information Processing Standards (FIPS).
 **Note**  
-If you require FIPS 140-2 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS-compliant endpoint. For more information, see [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/).  
+If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS-compliant endpoint. For more information, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).  
 The FIPS service endpoint is available only in some AWS Regions. For more information, see [AWS Storage Gateway endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*.
-      + **VPC hosted** – Your gateway communicates with AWS through a private connection with your virtual private cloud (VPC), allowing you to control your network settings. If you select this option, you must specify an existing VPC endpoint by choosing its VPC endpoint ID from the dropdown list. You can also provide its VPC endpoint Domain Name System (DNS) name or IP address.
+      + **VPC hosted** – Your gateway communicates with AWS through a private connection with your virtual private cloud (VPC), allowing you to control your network settings. If you select this option, you must specify an existing VPC endpoint by choosing its VPC endpoint ID from the dropdown list. You can also provide its VPC endpoint Domain Name System (DNS) name or IP address. Similar to publicly accessible endpoints, use the **FIPS enabled endpoint** check box to specify whether the connection must comply with Federal Information Processing Standards (FIPS).
 **Note**  
 To specify a VPC endpoint that belongs to an AWS account other than the one you are currently using to create your gateway, you must provide its DNS name or IP address.
+**Note**  
+If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a VPC endpoint, use a FIPS-compliant VPC endpoint. For more information, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).  
+The FIPS service endpoint is available only in some AWS Regions. For more information, see [AWS Storage Gateway endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*.
 
    1. For **IP version**, choose the protocol version and endpoint that your gateway will use to communicate with AWS.
 **Note**  

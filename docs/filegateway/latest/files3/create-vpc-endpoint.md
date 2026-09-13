@@ -13,7 +13,9 @@ Follow these instructions to create a VPC endpoint. If you already have a VPC en
 
 1. On the **Create Endpoint** page, choose **AWS Services** for **Service category**.
 
-1. For **Service Name**, choose `com.amazonaws.{{region}}.storagegateway`. For example `com.amazonaws.us-east-2.storagegateway`.
+1. For **Service Name**, choose `com.amazonaws.{{region}}.storagegateway`. For example `com.amazonaws.us-east-2.storagegateway`. For FIPS-compliant endpoints, choose `com.amazonaws.{{region}}.storagegateway-fips`, for example, `com.amazonaws.us-east-2.storagegateway-fips`.
+**Note**  
+FIPS endpoints are available only in some AWS Regions. For more information, see [AWS Storage Gateway endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*.
 
 1. For **VPC**, choose your VPC and note its Availability Zones and subnets.
 
@@ -33,10 +35,12 @@ Follow these instructions to create a VPC endpoint. If you already have a VPC en
 
 1. In **Details** tab of the selected storage gateway endpoint, under **DNS Names**, use the first DNS name that doesn't specify an Availability Zone. Your DNS name should look similar to the following example: `vpce-1234567e1c24a1fe9-62qntt8k.storagegateway.us-east-1.vpce.amazonaws.com `
 
+   If you use a FIPS endpoint in a Region with FIPS availability, your DNS name looks similar to this example: `vpce-1234567e1c24a1fe9-62qntt8k.storagegateway-fips.us-east-1.vpce.amazonaws.com `
+
 Now that you have a VPC endpoint, you can create and activate your gateway. For more information, see [Create and activate an Amazon S3 File Gateway](https://docs.aws.amazon.com/filegateway/latest/files3/create-gateway-file.html).
 
 For information about getting an activation key, see [Getting an activation key for your gateway](https://docs.aws.amazon.com/filegateway/latest/files3/get-activation-key.html).
 
 **Important**  
 To configure your S3 File Gateway to transfer data through the VPC, you must create a separate VPC endpoint for Amazon S3, then specify this VPC endpoint when you create file shares for the gateway.  
-To do this, follow the same steps as shown above, but choose `com.amazonaws.{{region}}.s3` for **Service Name**, then select the route table that you want the S3 endpoint associated with instead of subnet/security group. For instructions, see [Creating a gateway endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint).
+To do this for standard traffic, follow the preceding steps. For **Service Name**, choose `com.amazonaws.{{region}}.s3`, then select the route table that you want the S3 endpoint associated with instead of subnet/security group. For FIPS traffic, follow the preceding steps, but choose `com.amazonaws.{{region}}.s3-fips` before you select the route table. For instructions, see [Creating a gateway endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint).

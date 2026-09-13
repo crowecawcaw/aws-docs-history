@@ -13,7 +13,7 @@ The service optimizes data transfer between the gateway and AWS using multipart 
 
 With S3 File Gateway storage, you can do such tasks as ingesting cloud workloads to Amazon S3, performing backups and archiving, tiering, and migrating storage data to the AWS Cloud. The following diagram provides an overview of file storage deployment for Storage Gateway.
 
-![Storage Gateway connecting an application server to Amazon S3 cloud storage.](http://docs.aws.amazon.com/filegateway/latest/files3/images/file-gateway-concepts-diagram.png)
+![Storage Gateway connecting an application server to Amazon S3 cloud storage.](https://docs.aws.amazon.com/filegateway/latest/files3/images/file-gateway-concepts-diagram.png)
 
 
 S3 File Gateway converts files to S3 objects when uploading files to Amazon S3. The interaction between file operations performed against files shares on S3 File Gateway and S3 objects requires certain operations to be carefully considered when converting between files and objects.

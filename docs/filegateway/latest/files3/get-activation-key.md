@@ -31,7 +31,7 @@ Replace the highlighted variables with actual values for your gateway. Acceptabl
 {{gateway\_ip\_address}} - The IPv4 address of your gateway, for example `172.31.29.201`
 {{gateway\_type}} - The type of gateway you want to activate, such as `STORED`, `CACHED`, `VTL`, `FILE_S3`, or `FILE_FSX_SMB`.
 {{region\_code}} - The Region where you want to activate your gateway. See [Regional endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) in the *AWS General Reference Guide*. If this parameter is not specified, or if the value provided is misspelled or doesn't match a valid region, the command will default to the `us-east-1` region.
-{{vpc\_endpoint}} - The VPC endpoint name for your gateway, for example `vpce-050f90485f28f2fd0-iep0e8vq.storagegateway.us-west-2.vpce.amazonaws.com`.
+{{vpc\_endpoint}} - The VPC endpoint name for your gateway, for example `vpce-050f90485f28f2fd0-iep0e8vq.storagegateway.us-west-2.vpce.amazonaws.com`, or `vpce-050f90485f28f2fd0-iep0e8vq.storagegateway-fips.us-west-2.vpce.amazonaws.com` in Regions with FIPS availability.
 
 **Public endpoint**  
 To get an activation key for a public endpoint, use one of the following commands:
@@ -78,6 +78,21 @@ To get the activation key for a VPC endpoint:
 
 ```
 curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&vpcEndpoint={{vpc_endpoint}}&no_redirect"
+```
+
+**VPC endpoints with FIPS**  
+Use the following commands to get the activation key for a FIPS-enabled VPC endpoint.
+
+Use the following command for IPv4:
+
+```
+curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&vpcEndpoint={{vpc_endpoint}}&endpointType=FIPS&ipVersion=ipv4&no_redirect"
+```
+
+Use the following command for IPv6:
+
+```
+curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&vpcEndpoint={{vpc_endpoint}}&endpointType=FIPS&ipVersion=ipv6&no_redirect"
 ```
 
 ## Linux (bash/zsh)
