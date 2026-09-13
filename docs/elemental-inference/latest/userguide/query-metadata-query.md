@@ -12,9 +12,9 @@ For example, the following CURL code shows how to use the POST command to query 
 $ awscurl --service "elemental-inference" --region <{{region}}> \
   -X POST 'https://<{{data-endpoint}}>/v1/feed/<{{feed-id}}>/input/0/metadata' \
   -H "Content-Type: application/json" \
-  -d '{"outputName": "testOutput", "timeSpecification": { "ptsBased": 
-//{ "startPts":0, "endPts": 1001, "timescale": 1000 } }, "parameters": {"smartCropping": 
-//{"frameRate": { "numerator": 24, "denominator": 1}}}}'
+  -d '{"outputName": "testOutput", "timeSpecification": { "ptsBased":
+{ "startPts":0, "endPts": 1001, "timescale": 1000 } }, "parameters": {"smartCropping":
+{"frameRate": { "numerator": 24, "denominator": 1}}}}'
 ```
 
 For information about the metadata returned for each feature, see the following topics.
@@ -22,6 +22,7 @@ For information about the metadata returned for each feature, see the following 
 **Topics**
 + [Metadata for smart crop](#query-metadata-smart-crop)
 + [Metadata for smart subtitles](#query-metadata-smart-subtitles)
++ [Querying contextual metadata](#query-metadata-contextual)
 
 ## Metadata for smart crop
 <a name="query-metadata-smart-crop"></a>
@@ -67,7 +68,6 @@ $ awscurl --service "elemental-inference" --region <{{region}}> \
             },
             "pts": 41,
             "timecode": null
-        },
         },
         {
             "metadata": {
@@ -204,7 +204,7 @@ The following `awscurl` command shows how to query for smart subtitles metadata:
 $ awscurl --service "elemental-inference" --region <{{region}}> \
   -X POST 'https://<{{data-endpoint}}>/v1/feed/<{{feed-id}}>/input/0/metadata' \
   -H "Content-Type: application/json" \
-  -d '{"outputName": "subtitles", "timeSpecification": { "ptsBased": { "startPts": 0, "endPts": 5000, "timescale": 1000 }}}'
+  -d '{"outputName": "subtitles", "timeSpecification": { "ptsBased": { "startPts": 0, "endPts": 5000, "timescale": 1000 }}, "parameters": { "subtitling": { "format": "TTML" }}}'
 ```
 
 The response contains a TTML document with subtitle cues timed to the requested range. Each subtitle cue includes a start time, end time, and the transcribed text.
@@ -216,3 +216,146 @@ The TTML subtitles returned by Elemental Inference can be used in the following 
 + Embed the subtitles directly into your video player as a subtitle track.
 + Convert the TTML to other subtitle formats such as WebVTT or SRT for compatibility with different players and platforms.
 + Use the timed text for downstream processing such as search indexing or content analysis.
+
+## Querying contextual metadata
+<a name="query-metadata-contextual"></a>
+
+For contextual metadata, Elemental Inference returns content classifications that include IAB Content Taxonomy v3.1 category IDs and GARM brand safety ratings. The response contains one item for each shot and each scene that overlaps the requested time range, ordered by presentation timestamp (PTS).
+
+The following `awscurl` command shows how to query for contextual metadata. The `parameters` field is required, and must contain a `contextualMetadata` object that matches the type of the output that you name in `outputName`.
+
+```
+# Query contextual metadata
+$ awscurl --service "elemental-inference" --region <{{region}}> \
+  -X POST 'https://<{{data-endpoint}}>/v1/feed/<{{feed-id}}>/input/0/metadata' \
+  -H "Content-Type: application/json" \
+  -d '{"outputName": "contextual-metadata", "timeSpecification": { "ptsBased": { "startPts": 0, "endPts": 5000, "timescale": 1000 }}, "parameters": { "contextualMetadata": {}}}'
+```
+
+The response contains contextual classification results. The following example shows one shot-level item and one scene-level item, for a feed that has summary generation enabled, so the items include the `summary` field:
+
+```
+{
+  "items": [
+    {
+      "pts": 1800,
+      "metadata": {
+        "contextualMetadata": {
+          "type": "SHOT",
+          "startPts": 1800,
+          "iabTaxonomy": {
+            "version": "V3_1",
+            "categories": [
+              {"uniqueId": "547", "path": ["Sports", "Basketball"]}
+            ]
+          },
+          "garm": {
+            "suitability": {
+              "categories": [
+                {"category": "ARMS_AMMUNITION", "flagged": false},
+                {"category": "CRIME_HARMFUL_ACTS", "flagged": false},
+                {"category": "DRUGS_ALCOHOL_TOBACCO", "flagged": false},
+                {"category": "ADULT_EXPLICIT", "flagged": false}
+              ]
+            }
+          },
+          "objects": ["basketball", "hoop", "scoreboard"],
+          "actions": ["jumping", "rebounding"],
+          "summary": "Two players contest a rebound under the basket."
+        }
+      }
+    },
+    {
+      "pts": 1800,
+      "metadata": {
+        "contextualMetadata": {
+          "type": "SCENE",
+          "startPts": 1710,
+          "iabTaxonomy": {
+            "version": "V3_1",
+            "categories": [
+              {"uniqueId": "547", "path": ["Sports", "Basketball"]},
+              {"uniqueId": "640", "path": ["Entertainment", "Television"]}
+            ]
+          },
+          "garm": {
+            "suitability": {
+              "categories": [
+                {"category": "ARMS_AMMUNITION", "flagged": false},
+                {"category": "CRIME_HARMFUL_ACTS", "flagged": false},
+                {"category": "DRUGS_ALCOHOL_TOBACCO", "flagged": true, "risk": "LOW"},
+                {"category": "ADULT_EXPLICIT", "flagged": false}
+              ]
+            }
+          },
+          "objects": ["basketball", "hoop", "scoreboard", "arena signage"],
+          "actions": ["jumping", "rebounding", "cheering"],
+          "summary": "A close fourth-quarter sequence, with a beer commercial visible on the arena signage."
+        }
+      }
+    }
+  ]
+}
+```
+
+**Note**  
+The preceding example shows a subset of the GARM categories. Elemental Inference returns a result for each of the GARM categories.
+
+### Using the metadata
+<a name="query-metadata-contextual-usage"></a>
+
+Contextual metadata provides content classifications that you can use for contextual ad targeting. The response contains the following structure:
++ `pts` – The presentation timestamp of the metadata item, in the timebase of the media.
++ `timecode` – The timecode of the metadata item, when the source media carries timecode information.
++ **contextualMetadata** – The top-level object containing classification results.
+  + `type` – The granularity of the classification. `SHOT` for a single continuous camera take, or `SCENE` for a group of related consecutive shots. Elemental Inference returns both shot-level and scene-level items for a time range, so a shot item and the scene item that contains it can both appear in the response.
+  + `startPts` – The presentation timestamp at which the shot or scene begins. For a scene, this value can be earlier than the `pts` of the item and earlier than the start of the requested time range.
+  + **iabTaxonomy** – IAB Content Taxonomy classifications. This field is omitted when Elemental Inference does not match any category.
+    + `version` – The taxonomy version used (currently `V3_1`).
+    + `categories` – An array of matched content categories. Each category includes:
+      + `path` – The hierarchical category path (for example, `["Sports", "Basketball"]`).
+      + `uniqueId` – The IAB taxonomy unique identifier for the category.
+  + **garm** – GARM (Global Alliance for Responsible Media) brand safety classifications.
+    + `suitability` – Brand suitability assessment.
+      + `categories` – An array of GARM brand safety categories. Each category includes:
+        + `category` – The GARM category name (for example, `ARMS_AMMUNITION`, `HATE_SPEECH`, `ADULT_EXPLICIT`).
+        + `flagged` – Whether the content is flagged for this category (`true` or `false`).
+        + `risk` – The risk level for the category (`FLOOR`, `HIGH`, `MEDIUM`, or `LOW`). Elemental Inference includes this field only when `flagged` is `true`.
+  + `objects` – Labels for the notable objects that Elemental Inference detects in the shot or scene, such as `basketball` or `scoreboard`. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it detects no objects.
+  + `actions` – Labels for the notable actions that Elemental Inference detects in the shot or scene, such as `jumping` or `cheering`. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it detects no actions.
+  + `summary` – A short natural-language description of what happens in the shot or scene. Elemental Inference returns this field only when the output is configured with `summaryGeneration` set to `ENABLED`. For more information, see [Configuring contextual metadata](create-feed-outputs.md#create-feed-console-contextual-metadata).
+
+The 11 GARM brand safety categories are: `ARMS_AMMUNITION`, `CRIME_HARMFUL_ACTS`, `DEATH_INJURY_MILITARY`, `ONLINE_PIRACY`, `HATE_SPEECH`, `OBSCENITY`, `DRUGS_ALCOHOL_TOBACCO`, `SPAM_MALWARE`, `TERRORISM`, `DEBATED_SENSITIVE`, and `ADULT_EXPLICIT`.
+
+#### Integration with AWS Elemental MediaTailor
+<a name="query-metadata-contextual-emt-integration"></a>
+
+You can integrate Elemental Inference contextual metadata with AWS Elemental MediaTailor to enrich ad requests with content classifications. Your ad-decision server can then target ads based on what is happening in the content.
+
+This integration uses a MediaTailor Function of type `AWS_SERVICE_REQUEST` to call the Elemental Inference `GetMetadata` API during ad breaks. AWS Elemental MediaLive decorates SCTE-35 markers with Elemental Inference query parameters, and MediaTailor parses these markers to construct authenticated requests to Elemental Inference.
+
+##### How it works
+<a name="query-metadata-contextual-emt-flow"></a>
+
+1. Elemental Inference analyzes your content and produces shot-level and scene-level IAB Content Taxonomy and GARM brand safety classifications.
+
+1. AWS Elemental MediaLive decorates SCTE-35 ad break markers with Elemental Inference query parameters (feed endpoint, region, and timing information).
+
+1. At each ad break, MediaTailor triggers the configured Function, which sends an authenticated request to `GetMetadata` to retrieve classifications for the content window.
+
+1. The Function output expressions extract IAB and GARM signals and pass them to the ad-decision server.
+
+##### Prerequisites
+<a name="query-metadata-contextual-emt-prerequisites"></a>
+
+Before you configure this integration, you need the following:
++ An Elemental Inference feed with a contextual metadata output enabled.
++ A resource-based policy on the feed that grants MediaTailor permission to call `GetMetadata`. For more information, see [Managing feed policies](feed-policies.md).
++ An AWS Elemental MediaLive channel with contextual metadata enrichment enabled and associated with the feed.
+
+##### Configuring MediaTailor
+<a name="query-metadata-contextual-emt-configure"></a>
+
+For complete instructions on creating the `AWS_SERVICE_REQUEST` Function, attaching it to a playback configuration, and configuring output expressions, see [Contextual ad targeting with Elemental Inference](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-elemental-inference-integration.html) in the *AWS Elemental MediaTailor User Guide*.
+
+If the `GetMetadata` request fails or times out, MediaTailor proceeds with the ad request without contextual metadata. The ad-decision server falls back to its default targeting logic.

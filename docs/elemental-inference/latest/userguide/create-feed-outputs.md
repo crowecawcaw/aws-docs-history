@@ -5,6 +5,43 @@
 
 Following are details about how to configure each feature (output) that you include in a Elemental Inference feed. 
 
+## Configuring contextual metadata
+<a name="create-feed-console-contextual-metadata"></a>
+
+Contextual metadata uses AI to classify video content at the shot level and at the scene level. It produces IAB Content Taxonomy v3.1 category tags and GARM (Global Alliance for Responsible Media) brand safety ratings. These classifications enable contextual ad targeting when used with AWS Elemental MediaLive and AWS Elemental MediaTailor ad insertion workflows.
+
+### Console
+<a name="create-feed-console-contextual-metadata-console"></a>
+
+On the **Create Feed** page, in the **AI features** section, select the **Contextual Metadata** check box. Configure the following settings:
++ **Summary generation** (optional) – Controls whether Elemental Inference generates a descriptive summary alongside IAB taxonomy and GARM classifications. Supported values:
+  + `DISABLED` – No descriptive summary is generated (default). Only IAB taxonomy and GARM classifications are produced.
+  + `ENABLED` – Generates a descriptive summary along with IAB taxonomy and GARM brand safety classifications.
+
+  If you omit `summaryGeneration`, Elemental Inference treats it as `DISABLED`. Set it to `ENABLED` if you want the `summary` field in the `GetMetadata` response.
+
+### CLI example
+<a name="create-feed-console-contextual-metadata-cli"></a>
+
+The following example shows how to include a contextual metadata output when creating a feed using the CLI:
+
+```
+aws elemental-inference create-feed \
+  --name "my-feed" \
+  --outputs '[{
+    "name": "contextual-metadata",
+    "status": "ENABLED",
+    "outputConfig": {
+      "contextualMetadata": {
+        "summaryGeneration": "ENABLED"
+      }
+    }
+  }]'
+```
+
+**Integration with AWS Elemental MediaTailor**  
+Contextual metadata is typically used with the AWS Elemental MediaLive to AWS Elemental MediaTailor ad insertion workflow. To enable MediaTailor to query the metadata, attach a resource-based policy to the feed and configure a MediaTailor Function. For more information, see [Managing feed policies](feed-policies.md) and [Integration with AWS Elemental MediaTailor](query-metadata-query.md#query-metadata-contextual-emt-integration).
+
 ## Configuring event clipping
 <a name="create-feed-console-event-clip"></a>
 
