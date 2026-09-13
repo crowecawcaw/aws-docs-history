@@ -10,7 +10,7 @@ This architecture uses NAT Gateway and [AWS Transit Gateway](https://docs.aws.am
 ## Centralized Internet Egress with NAT Gateway architecture
 <a name="diagram1"></a>
 
-![Architecture diagram showing centralized internet egress using NAT Gateway and AWS Transit Gateway with inter-VPC traffic isolation.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-egress-nat-gateway/images/centralized-egress-nat-gateway.png)
+![Architecture diagram showing centralized internet egress using NAT Gateway and AWS Transit Gateway with inter-VPC traffic isolation.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-egress-nat-gateway/images/centralized-egress-nat-gateway.png)
 
 
 The following steps describe the data flow in this architecture:
