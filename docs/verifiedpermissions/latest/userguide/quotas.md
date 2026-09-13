@@ -53,7 +53,7 @@ Each transitive parent quota applies to each entity individually and counts both
 
 The diagram below illustrates how transitive parents can be defined for an entity (principal, action, or resource).
 
-![Transitive parents per entity](http://docs.aws.amazon.com/verifiedpermissions/latest/userguide/images/quotas-transitive-parents.png)
+![Transitive parents per entity](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/images/quotas-transitive-parents.png)
 
 
 ## Quotas for operations per second

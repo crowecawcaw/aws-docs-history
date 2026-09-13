@@ -9,7 +9,7 @@ In this tutorial we'll walk through creating a sample policy store using the Ama
 
 The following diagram illustrates the relationships between a principal, `User::alice`, and the actions she can take on various resources, namely her PhotoFlash account, the `VactionPhoto94.jpg` file, the photo album `alice-favorites-album`, and the user group `alice-friend-group`.
 
-![PhotoFlash entity relationships](http://docs.aws.amazon.com/verifiedpermissions/latest/userguide/images/PhotoFlash.png)
+![PhotoFlash entity relationships](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/images/PhotoFlash.png)
 
 
 Now that you have an understanding of the **PhotoFlash** policy store, let’s create the policy store and explore it.

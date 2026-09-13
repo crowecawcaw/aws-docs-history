@@ -39,7 +39,7 @@ In a policy store that's linked to an API and an identity source, your applicati
 
 When you create a new policy store and select the **Set up with API Gateway and an identity source** option, Verified Permissions creates policy store schema and policies. The schema and policies reflect API actions and the user groups that you want to authorize to take the actions. Verified Permissions also creates the Lambda function and [authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html).
 
-![A diagram that displays the flow of an authorization request with Amazon API Gateway, Amazon Cognito, and Amazon Verified Permissions.](http://docs.aws.amazon.com/verifiedpermissions/latest/userguide/images/api-authorization.png)
+![A diagram that displays the flow of an authorization request with Amazon API Gateway, Amazon Cognito, and Amazon Verified Permissions.](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/images/api-authorization.png)
 
 
 1. Your user signs in with your application through Amazon Cognito or another OIDC IdP. The IdP issues ID and access tokens with the user's information.
