@@ -9,7 +9,7 @@
 
  **Recovery Point Objective (RPO)** Defined by the organization. RPO is the maximum acceptable amount of time since the last data recovery point. This determines what is considered an acceptable loss of data between the last recovery point and the interruption of service. 
 
-![Timeline showing RPO before disaster, data loss period, RTO after disaster, and downtime period.](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/business-continuity.png)
+![Timeline showing RPO before disaster, data loss period, RTO after disaster, and downtime period.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/business-continuity.png)
 
 
 *The relationship of RPO (Recovery Point Objective), RTO (Recovery Time Objective), and the disaster event.*

@@ -28,7 +28,7 @@ Define a disaster recovery (DR) strategy that meets your workload's recovery obj
 
  When architecting a DR strategy across multiple Regions, you should choose one of the following strategies. They are listed in increasing order of cost and complexity, and decreasing order of RTO and RPO. *Recovery Region* refers to an AWS Region other than the primary one used for your workload. 
 
-![Diagram showing DR strategies](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/disaster-recovery-strategies.png)
+![Diagram showing DR strategies](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/disaster-recovery-strategies.png)
 
 
  
@@ -48,7 +48,7 @@ Define a disaster recovery (DR) strategy that meets your workload's recovery obj
     Choosing a DR strategy is a trade-off between reducing downtime and data loss (RTO and RPO) and the cost and complexity of implementing the strategy. You should avoid implementing a strategy that is more stringent than it needs to be, as this incurs unnecessary costs. 
 
     For example, in the following diagram, the business has determined their maximum permissible RTO as well as the limit of what they can spend on their service restoration strategy. Given the business’ objectives, the DR strategies pilot light or warm standby will satisfy both the RTO and the cost criteria.   
-![Graph showing choosing a DR strategy based on RTO and cost](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/choosing-a-dr-strategy.png)
+![Graph showing choosing a DR strategy based on RTO and cost](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/choosing-a-dr-strategy.png)
 
     To learn more, see [Business Continuity Plan (BCP)](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/business-continuity-plan-bcp.html). 
 
@@ -61,21 +61,21 @@ Define a disaster recovery (DR) strategy that meets your workload's recovery obj
     **Backup and restore**  
 
     *Backup and restore* is the least complex strategy to implement, but will require more time and effort to restore the workload, leading to higher RTO and RPO. It is a good practice to always make backups of your data, and copy these to another site (such as another AWS Region).   
-![Diagram showing a backup and restore architecture](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/backup-restore-architecture.png)
+![Diagram showing a backup and restore architecture](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/backup-restore-architecture.png)
 
     For more details on this strategy see [Disaster Recovery (DR) Architecture on AWS, Part II: Backup and Restore with Rapid Recovery](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-ii-backup-and-restore-with-rapid-recovery/). 
 
     **Pilot light** 
 
     With the *pilot light* approach, you replicate your data from your primary Region to your recovery Region. Core resources used for the workload infrastructure are deployed in the recovery Region, however additional resources and any dependencies are still needed to make this a functional stack. For example, in Figure 20, no compute instances are deployed.   
-![Diagram showing a ilot light architecture](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/pilot-light-architecture.png)
+![Diagram showing a ilot light architecture](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/pilot-light-architecture.png)
 
     For more details on this strategy, see [Disaster Recovery (DR) Architecture on AWS, Part III: Pilot Light and Warm Standby](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-iii-pilot-light-and-warm-standby/). 
 
     **Warm standby** 
 
     The *warm standby* approach involves ensuring that there is a scaled down, but fully functional, copy of your production environment in another Region. This approach extends the pilot light concept and decreases the time to recovery because your workload is always-on in another Region. If the recovery Region is deployed at full capacity, then this is known as *hot standby*.   
-![Diagram showing a Figure 21: Warm standby architecture](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/warm-standby-architecture.png)
+![Diagram showing a Figure 21: Warm standby architecture](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/warm-standby-architecture.png)
 
     Using warm standby or pilot light requires scaling up resources in the recovery Region. To verify capacity is available when needed, consider the use for [capacity reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) for EC2 instances. If using AWS Lambda, then [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html) can provide runtime environments so that they are prepared to respond immediately to your function's invocations. 
 
@@ -84,7 +84,7 @@ Define a disaster recovery (DR) strategy that meets your workload's recovery obj
     **Multi-site active/active** 
 
     You can run your workload simultaneously in multiple Regions as part of a *multi-site active/active* strategy. Multi-site active/active serves traffic from all regions to which it is deployed. Customers may select this strategy for reasons other than DR. It can be used to increase availability, or when deploying a workload to a global audience (to put the endpoint closer to users and/or to deploy stacks localized to the audience in that region). As a DR strategy, if the workload cannot be supported in one of the AWS Regions to which it is deployed, then that Region is evacuated, and the remaining Regions are used to maintain availability. Multi-site active/active is the most operationally complex of the DR strategies, and should only be selected when business requirements necessitate it.   
-![Diagram showing a multi-site active/active architecture](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/multi-site-active-active-architecture.png)
+![Diagram showing a multi-site active/active architecture](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/multi-site-active-active-architecture.png)
 
     
 
@@ -93,7 +93,7 @@ Define a disaster recovery (DR) strategy that meets your workload's recovery obj
     **AWS Elastic Disaster Recovery** 
 
     If you are considering the pilot light or warm standby strategy for disaster recovery, AWS Elastic Disaster Recovery could provide an alternative approach with improved benefits. Elastic Disaster Recovery can offer an RPO and RTO target similar to warm standby, but maintain the low-cost approach of pilot light. Elastic Disaster Recovery replicates your data from your primary region to your recovery Region, using continual data protection to achieve an RPO measured in seconds and an RTO that can be measured in minutes. Only the resources required to replicate the data are deployed in the recovery region, which keeps costs down, similar to the pilot light strategy. When using Elastic Disaster Recovery, the service coordinates and orchestrates the recovery of compute resources when initiated as part of failover or drill.   
-![Architecture diagram describing how AWS Elastic Disaster Recovery operates.](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/drs-architecture.png)
+![Architecture diagram describing how AWS Elastic Disaster Recovery operates.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/drs-architecture.png)
 
     **Additional practices for protecting data** 
 
@@ -102,7 +102,7 @@ Define a disaster recovery (DR) strategy that meets your workload's recovery obj
     **Using multiple Availability Zones (AZs) within a single AWS Region** 
 
     When using multiple AZs within a single Region, your DR implementation uses multiple elements of the above strategies. First you must create a high-availability (HA) architecture, using multiple AZs as shown in Figure 23. This architecture makes use of a multi-site active/active approach, as the [Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones) and the [Elastic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#availability-zones) have resources deployed in multiple AZs, actively handing requests. The architecture also demonstrates hot standby, where if the primary [Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) instance fails (or the AZ itself fails), then the standby instance is promoted to primary.   
-![Diagram showing a Figure 24: Multi-AZ architecture](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/multi-az-architecture2.png)
+![Diagram showing a Figure 24: Multi-AZ architecture](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/multi-az-architecture2.png)
 
     In addition to this HA architecture, you need to add backups of all data required to run your workload. This is especially important for data that is constrained to a single zone such as [Amazon EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes.html) or [Amazon Redshift clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html). If an AZ fails, you will need to restore this data to another AZ. Where possible, you should also copy data backups to another AWS Region as an additional layer of protection. 
 

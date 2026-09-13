@@ -27,7 +27,7 @@
 
  One primary trade-off is that you now have a distributed compute architecture that can make it harder to achieve user latency requirements and there is additional complexity in the debugging and tracing of user interactions. You can use AWS X-Ray to assist you in solving this problem. Another effect to consider is increased operational complexity as you increase the number of applications that you are managing, which requires the deployment of multiple independency components. 
 
-![Diagram showing a comparison between monolithic, service-oriented, and microservices architectures](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/monolith-soa-microservices-comparison.png)
+![Diagram showing a comparison between monolithic, service-oriented, and microservices architectures](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/monolith-soa-microservices-comparison.png)
 
 
 ## Implementation steps

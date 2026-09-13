@@ -52,7 +52,7 @@ Validate that your backup process implementation meets your Recovery Time Object
 
 1.  **Automate this process to run periodically**. For example, services like AWS Lambda or a State Machine in AWS Step Functions can be used to automate the restore and recovery processes, and Amazon EventBridge can be used to invoke this automation workflow periodically as shown in the architecture diagram below. Learn how to [Automate data recovery validation with AWS Backup](https://aws.amazon.com/blogs/storage/automate-data-recovery-validation-with-aws-backup/). Additionally, [this Well-Architected lab](https://wellarchitectedlabs.com/reliability/200_labs/200_testing_backup_and_restore_of_data/) provides a hands-on experience on one way to do automation for several of the steps here. 
 
-![Diagram showing an automated backup and restore process](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/automated-backup-restore-process.png)
+![Diagram showing an automated backup and restore process](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/automated-backup-restore-process.png)
 
 
  **Level of effort for the Implementation Plan:** Moderate to high depending on the complexity of the validation criteria. 

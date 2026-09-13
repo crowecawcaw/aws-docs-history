@@ -10,7 +10,7 @@
 
  This percentage is calculated over a period of time, such as a month, year, or trailing three years. Applying the strictest possible interpretation, availability is reduced anytime that the application isn’t operating normally, including both scheduled and unscheduled interruptions. We define *availability* as follows: 
 
-![$\text{Availability} = \ \frac{\text{Available}\ \text{for}\ \text{Use}\ \text{Time}}{\text{Total}\ \text{Time}}$](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/availability-formula.png)
+![$\text{Availability} = \ \frac{\text{Available}\ \text{for}\ \text{Use}\ \text{Time}}{\text{Total}\ \text{Time}}$](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/availability-formula.png)
 
 + Availability is a percentage uptime (such as 99.9%) over a period of time (commonly a month or year) 
 +  Common short-hand refers only to the “number of nines”; for example, “five nines” translates to being 99.999% available 
@@ -29,7 +29,7 @@
 
 **Measuring availability based on requests.** For your service it may be easier to count successful and failed requests instead of “time available for use”. In this case the following calculation can be used: 
 
-![Mathematical formula for calculating availability using successful responses divided by valid requests.](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/availability-formula-requests.png)
+![Mathematical formula for calculating availability using successful responses divided by valid requests.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/availability-formula-requests.png)
 
 
 This is often measured for one-minute or five-minute periods. Then a monthly uptime percentage (time-base availability measurement) can be calculated from the average of these periods. If no requests are received in a given period it is counted at 100% available for that time. 
@@ -46,7 +46,7 @@ This is often measured for one-minute or five-minute periods. Then a monthly upt
 
  **Calculating availability with redundant components.** When a system involves the use of independent, redundant components (for example, redundant resources in different Availability Zones), the theoretical availability is computed as 100% minus the product of the component failure rates. For example, if a system makes use of two independent components, each with an availability of 99.9%, the effective availability of this dependency is 99.9999%: 
 
-![Diagram showing calculation of availability with redundant components in a system.](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/image2.png)
+![Diagram showing calculation of availability with redundant components in a system.](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/image2.png)
 
 
  Availeffective = *Avail*MAX − ((100%−Availdependency)×(100%−Availdependency)) 
@@ -57,7 +57,7 @@ This is often measured for one-minute or five-minute periods. Then a monthly upt
 
  **Calculating dependency availability.** Some dependencies provide guidance on their availability, including availability design goals for many AWS services. But in cases where this isn’t available (for example, a component where the manufacturer does not publish availability information), one way to estimate is to determine the **Mean Time Between Failure (MTBF)** and **Mean Time to Recover (MTTR)**. An availability estimate can be established by: 
 
-![$$\text{Avail}_{\text{EST}} = \frac{\text{MTBF}}{MTBF + MTTR}$$](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/avail-est-formula.png)
+![$$\text{Avail}_{\text{EST}} = \frac{\text{MTBF}}{MTBF + MTTR}$$](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/avail-est-formula.png)
 
 
  For example, if the MTBF is 150 days and the MTTR is 1 hour, the availability estimate is 99.97%. 

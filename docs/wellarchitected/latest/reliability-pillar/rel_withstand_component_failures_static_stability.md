@@ -24,7 +24,7 @@
 
  Bimodal behavior occurs when your workload exhibits different behavior under normal and failure modes (for example, relying on launching new instances if an Availability Zone fails). An example of bimodal behavior is when stable Amazon EC2 designs provision enough instances in each Availability Zone to handle the workload load if one AZ were removed. Elastic Load Balancing or Amazon Route 53 health would check to shift a load away from the impaired instances. After traffic has shifted, use AWS Auto Scaling to asynchronously replace instances from the failed zone and launch them in the healthy zones. Static stability for compute deployment (such as EC2 instances or containers) results in the highest reliability. 
 
-![Diagram showing static stability of EC2 instances across Availability Zones](http://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/static-stability.png)
+![Diagram showing static stability of EC2 instances across Availability Zones](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/images/static-stability.png)
 
 
  This must be weighed against the cost for this model and the business value of maintaining the workload under all resilience cases. It's less expensive to provision less compute capacity and rely on launching new instances in the case of a failure, but for large-scale failures (such as an Availability Zone or Regional impairment), this approach is less effective because it relies on both an operational plane, and sufficient resources being available in the unaffected zones or Regions. 
