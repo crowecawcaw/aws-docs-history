@@ -25,10 +25,10 @@ This tutorial walks you through the steps to create a simple RDS for MySQL DB in
 1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
 1. Choose **Create database**.  
-![Create database button highlighted on the RDS database creation page.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/create-database.png)
+![Create database button highlighted on the RDS database creation page.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/create-database.png)
 
 1. For the creation method, choose **Easy create**. This method simplifies database provisioning by automatically configuring settings such as instance class, storage type, and networking settings.  
-![Easy create option selected with Standard create option available as alternative.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/creation-method.png)
+![Easy create option selected with Standard create option available as alternative.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/creation-method.png)
 
 1. In this tutorial, we create a MySQL DB instance. For **Engine type**, choose **MySQL**. 
 
@@ -39,12 +39,12 @@ This tutorial walks you through the steps to create a simple RDS for MySQL DB in
    If you were an AWS Free Tier customer before July 17, 2025 and your usage exceeds the free tier limits or you select resources not covered by the free tier, you're billed at the listed hourly rate. 
 
    The following screenshot shows the **Free tier **option.  
-![DB instance size options showing Production, Dev/Test, and Free tier with specifications.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/instance-size.png)
+![DB instance size options showing Production, Dev/Test, and Free tier with specifications.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/instance-size.png)
 
 1. (Optional) For **DB instance identifier**, enter a name for the DB instance. Alternately, keep the name that Amazon RDS generates for you.
 
 1. For **Credentials management**, select **Self-managed**. This option lets you manage your own master user credentials.   
-![Credentials management options with Self managed selected.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/cred-management.png)
+![Credentials management options with Self managed selected.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/cred-management.png)
 
 1. For **Master password**, enter a password for the master user and confirm the password.
 
@@ -97,7 +97,7 @@ In the Standard create workflow, you must specify the amount of storage for your
 + For most workloads, General Purpose SSD provides a balance between cost and performance.
 + High-performance transactional applications benefit from Provisioned IOPS SSD.
 
-![Storage type dropdown showing Provisioned IOPS SSD (io2) selected with 3000 IOPS specified.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/storage.png)
+![Storage type dropdown showing Provisioned IOPS SSD (io2) selected with 3000 IOPS specified.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/storage.png)
 
 
 For more information, see [Amazon RDS DB instance storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html) in the *Amazon RDS User Guide*.
@@ -110,7 +110,7 @@ The instance class determines the allocated compute and memory capacity for your
 + **Memory-optimized classes** are best for applications that require high memory throughput.
 + **Burstable classes** work well for applications with intermittent workloads.
 
-![DB instance class selection showing Standard classes option selected with db.m5d.large details.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/instance-class.png)
+![DB instance class selection showing Standard classes option selected with db.m5d.large details.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/instance-class.png)
 
 
 For detailed guidance, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide*.
@@ -122,7 +122,7 @@ Public access controls whether users or applications can access your DB instance
 + **Enable public access** to make your database accessible from external networks, such as for web applications or remote access. Configure security group rules to restrict unwanted access.
 + **Disable public access** for internal applications or enhanced security, limiting connectivity to instances within your VPC.
 
-![Public access options with Yes and No radio buttons, where No is selected.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/public-access.png)
+![Public access options with Yes and No radio buttons, where No is selected.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/public-access.png)
 
 
 For more information about configuring public or private access and related network settings, see [Working with a DB instance in a VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) in the *Amazon RDS User Guide*.

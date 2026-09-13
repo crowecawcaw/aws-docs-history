@@ -35,7 +35,7 @@ Follow these steps to configure inbound and outbound rules for your security gro
    + For the **Source**, choose **My IP** for personal access, or specify a CIDR block for broader access.
 
      For example, you might allow inbound traffic from an application hosted on an EC2 instance within the same VPC by specifying the EC2 instance security group as the source.  
-![Inbound rule configuration with Custom TCP type, TCP protocol, port 3306, and My IP source.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/security-group.png)
+![Inbound rule configuration with Custom TCP type, TCP protocol, port 3306, and My IP source.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/security-group.png)
 
 1. (Optional) Adjust outbound rules. Typically, you don't need to make any changes because the DB instance allows all outbound traffic by default.
 

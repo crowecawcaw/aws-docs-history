@@ -28,7 +28,7 @@ To connect to your DB instance, you first need the instance endpoint and port nu
    + The **Port** is the communication port used by the database engine (for example, 3306 for MySQL or 5432 for PostgreSQL).
 
      The following image shows these fields in the console:  
-![Endpoint and port section showing database endpoint URL and port 3306.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/endpoint-port.png)
+![Endpoint and port section showing database endpoint URL and port 3306.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/endpoint-port.png)
 
 These are the primary details that you need to initiate a connection to your DB instance.
 

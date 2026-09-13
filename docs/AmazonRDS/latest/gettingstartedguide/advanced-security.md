@@ -64,7 +64,7 @@ When you enable encryption at rest, Amazon RDS encrypts all data in your databas
 1. Create a KMS key. In the AWS Management Console, navigate to AWS KMS and create a customer managed key. Specify usage policies and rotation settings. For instructions, see [Create a KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*.
 
 1. When you launch a new Amazon RDS instance, select the option to enable encryption and specify your KMS customer managed key.  
-![Encryption settings panel with AWS KMS key selection dropdown showing "my-key" option.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/kms-key.png)
+![Encryption settings panel with AWS KMS key selection dropdown showing "my-key" option.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/kms-key.png)
 
 To encrypt existing databases, create a new encrypted DB instance or snapshot and migrate your data.
 

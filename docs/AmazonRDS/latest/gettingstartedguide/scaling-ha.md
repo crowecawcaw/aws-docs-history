@@ -19,7 +19,7 @@ With Amazon RDS, you can scale vertically by modifying your DB instance size to 
 
 To change the instance size for your DB instance, navigate to the DB instance details page in the AWS Management Console and choose **Modify**. For the **Instance configuration**, choose a new instance class that aligns with your requirements, such as compute optimized or memory optimized. 
 
-![Instance configuration section showing DB instance class filters and db.t4g.micro selection.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/size-change.png)
+![Instance configuration section showing DB instance class filters and db.t4g.micro selection.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/size-change.png)
 
 
 Apply changes during a maintenance window or immediately, depending on your application’s tolerance for downtime.
@@ -50,7 +50,7 @@ Multi-AZ deployments provide high availability and durability by automatically m
 
 To create a Multi-AZ DB instance, select **Multi-AZ DB instance** under **Availability and durability** when you create the DB instance. Amazon RDS handles data replication and failover management transparently.
 
-![Three deployment options showing Multi-AZ cluster, Multi-AZ instance, and Single-AZ configurations.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/multi-az.png)
+![Three deployment options showing Multi-AZ cluster, Multi-AZ instance, and Single-AZ configurations.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/multi-az.png)
 
 
 **Key considerations**:

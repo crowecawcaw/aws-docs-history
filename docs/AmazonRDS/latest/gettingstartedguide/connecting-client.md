@@ -28,7 +28,7 @@ Althought the exact steps vary slightly depending on the tool and database engin
    + **Hostname**: Enter the endpoint retrieved from the AWS Management Console.
    + **Port**: Use the port number displayed in the **Connectivity & security** section (typically 3306).
    + **Username**: Enter the master username you set when you created the DB instance.  
-![Connection dialog with hostname, port, username fields, and password storage options.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/connect-mysql.png)
+![Connection dialog with hostname, port, username fields, and password storage options.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/connect-mysql.png)
 
 1. Choose **Test Connection** to verify the connection settings.
 
@@ -54,7 +54,7 @@ For comprehensive documentation, see [Connecting to a DB instance running the My
    + **Port**: Use the port number provided (typically 5432).
    + **Username**: Enter the master username for your DB instance.
    + **Password**: Provide the password you set during instance creation.  
-![Connection tab showing host address, port 5432, maintenance database, username, and password fields.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/connect-postgres.png)
+![Connection tab showing host address, port 5432, maintenance database, username, and password fields.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/connect-postgres.png)
 
 1. Save the configuration and connect in order to view and manage your database.
 

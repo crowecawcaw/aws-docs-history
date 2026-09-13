@@ -49,7 +49,7 @@ The decision between public and private access must align with your application 
 
 If you use the **Easy create** option when you create a DB instance, it uses private access by default. To change the access type, modify the DB instance. In the **Connectivity** section, expand **Additional configuration** and change the **Public access** setting. 
 
-![Public access options with Yes and No radio buttons, where No is selected.](http://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/public-access.png)
+![Public access options with Yes and No radio buttons, where No is selected.](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/images/public-access.png)
 
 
 For more information, see [Settings for DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Settings.html) in the *Amazon RDS User Guide*.
