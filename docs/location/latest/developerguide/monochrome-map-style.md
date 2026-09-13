@@ -13,13 +13,13 @@ The Monochrome style offers color choices for both dark and light modes.
 ------
 #### [ Continent ]
 
-![Map of North America showing the United States, Canada, Mexico, and parts of Central and South America.](http://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-continent.png)
+![Map of North America showing the United States, Canada, Mexico, and parts of Central and South America.](https://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-continent.png)
 
 
 ------
 #### [ Neighborhood ]
 
-![Map of Downtown Miami showing streets, parks, and landmarks in light and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-neighborhood-colors.png)
+![Map of Downtown Miami showing streets, parks, and landmarks in light and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-neighborhood-colors.png)
 
 
 ------
@@ -34,7 +34,7 @@ The Monochrome style is well-suited for data visualization and minimalistic desi
 
 The Monochrome style deliberately uses only shades of gray, allowing you complete freedom of color choice for data overlay layers such as choropleths, heatmaps, or dot maps.
 
-![Amazon Location Service Monochrome style used as a base layer for data visualization, with custom red data points overlaid on a neutral lower Manhattan map.](http://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-data-vis.png)
+![Amazon Location Service Monochrome style used as a base layer for data visualization, with custom red data points overlaid on a neutral lower Manhattan map.](https://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-data-vis.png)
 
 
 ### Minimalist design
@@ -45,13 +45,13 @@ To maintain a clean and unobtrusive map, the Monochrome styles include a reduced
 ------
 #### [ Airport ]
 
-![Map showing Miami International Airport and surrounding roads including Airport Expy and Dolphin Expy.](http://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-airport.png)
+![Map showing Miami International Airport and surrounding roads including Airport Expy and Dolphin Expy.](https://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-airport.png)
 
 
 ------
 #### [ Neighborhood ]
 
-![Map showing Jackson Memorial Hospital, UHealth Tower, and nearby streets in light and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-neighborhood.png)
+![Map showing Jackson Memorial Hospital, UHealth Tower, and nearby streets in light and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-neighborhood.png)
 
 
 ------
@@ -63,4 +63,4 @@ Although the Monochrome style includes a reduced set of POIs, the underlying til
 
 The Monochrome style supports different political views, ensuring that maps display the correct borders for your users. The style also allows for easy switching between languages for map labels, with dozens of supported languages and writing systems.
 
-![Map of Taiwan showing major cities and the Taiwan Strait, with a monochrome color scheme.](http://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-language-switcher.gif)
+![Map of Taiwan showing major cities and the Taiwan Strait, with a monochrome color scheme.](https://docs.aws.amazon.com/location/latest/developerguide/images/monochrome-language-switcher.gif)

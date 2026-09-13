@@ -13,25 +13,25 @@ The Standard map style comes in both light and dark modes. The light mode is ver
 ------
 #### [ Forest ]
 
-![Amazon Location Service Standard map style Forest color scheme showing the Pacific Northwest with green terrain emphasis in light and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-forest.png)
+![Amazon Location Service Standard map style Forest color scheme showing the Pacific Northwest with green terrain emphasis in light and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-forest.png)
 
 
 ------
 #### [ Road ]
 
-![Amazon Location Service Standard map style Road color scheme emphasizing highway networks and road infrastructure in light and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-road.png)
+![Amazon Location Service Standard map style Road color scheme emphasizing highway networks and road infrastructure in light and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-road.png)
 
 
 ------
 #### [ City ]
 
-![Amazon Location Service Standard map style City color scheme optimized for urban detail with building footprints and transit in light and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-city.png)
+![Amazon Location Service Standard map style City color scheme optimized for urban detail with building footprints and transit in light and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-city.png)
 
 
 ------
 #### [ Neighborhood ]
 
-![Amazon Location Service Standard map style Neighborhood color scheme showing local streets, parks, and points of interest at a neighborhood zoom level.](http://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-neighborhood.png)
+![Amazon Location Service Standard map style Neighborhood color scheme showing local streets, parks, and points of interest at a neighborhood zoom level.](https://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-neighborhood.png)
 
 
 ------
@@ -46,37 +46,37 @@ The overall style features a cohesive color palette, including POI markers that 
 ------
 #### [ Highway ]
 
-![Map of San Francisco Bay Area showing cities and highways in standard and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/modern-highway.png)
+![Map of San Francisco Bay Area showing cities and highways in standard and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/modern-highway.png)
 
 
 ------
 #### [ Beach ]
 
-![Map of Malibu area showing Pacific Coast Highway, Legacy Park, and Malibu Lagoon State Beach.](http://docs.aws.amazon.com/location/latest/developerguide/images/modern-beach.png)
+![Map of Malibu area showing Pacific Coast Highway, Legacy Park, and Malibu Lagoon State Beach.](https://docs.aws.amazon.com/location/latest/developerguide/images/modern-beach.png)
 
 
 ------
 #### [ Island ]
 
-![Map of Oahu island showing major highways, Honolulu, and surrounding areas in day and night views.](http://docs.aws.amazon.com/location/latest/developerguide/images/modern-island.png)
+![Map of Oahu island showing major highways, Honolulu, and surrounding areas in day and night views.](https://docs.aws.amazon.com/location/latest/developerguide/images/modern-island.png)
 
 
 ------
 #### [ Neighborhood ]
 
-![Map of downtown Honolulu showing streets, landmarks, and neighborhoods in light and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/modern-neighborhood.png)
+![Map of downtown Honolulu showing streets, landmarks, and neighborhoods in light and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/modern-neighborhood.png)
 
 
 ------
 #### [ Intersection ]
 
-![Map of Lower Manhattan showing City Hall Park, streets, and landmarks in light and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/style-intersection.png)
+![Map of Lower Manhattan showing City Hall Park, streets, and landmarks in light and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/style-intersection.png)
 
 
 ------
 #### [ Roundabout ]
 
-![Map of Washington Circle area showing streets, landmarks, and points of interest in light and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/style-roundabout.png)
+![Map of Washington Circle area showing streets, landmarks, and points of interest in light and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/style-roundabout.png)
 
 
 ------
@@ -103,13 +103,13 @@ The following tabs show examples of POI filtering and density configurations.
 ------
 #### [ POI filtering ]
 
-![Map showing POI category filtering with only selected categories visible on the map.](http://docs.aws.amazon.com/location/latest/developerguide/images/poi-toggle-animation.gif)
+![Map showing POI category filtering with only selected categories visible on the map.](https://docs.aws.amazon.com/location/latest/developerguide/images/poi-toggle-animation.gif)
 
 
 ------
 #### [ POI density ]
 
-![Comparison of POI density levels showing increasing numbers of points of interest on the map.](http://docs.aws.amazon.com/location/latest/developerguide/images/poi-density.gif)
+![Comparison of POI density levels showing increasing numbers of points of interest on the map.](https://docs.aws.amazon.com/location/latest/developerguide/images/poi-density.gif)
 
 
 ------
@@ -124,13 +124,13 @@ To learn more, see [Localization and internationalization](maps-localization-int
 ------
 #### [ Languages ]
 
-![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](http://docs.aws.amazon.com/location/latest/developerguide/images/standard-language-switcher.gif)
+![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](https://docs.aws.amazon.com/location/latest/developerguide/images/standard-language-switcher.gif)
 
 
 ------
 #### [ Political view ]
 
-![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](http://docs.aws.amazon.com/location/latest/developerguide/images/maps-political-view.png)
+![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](https://docs.aws.amazon.com/location/latest/developerguide/images/maps-political-view.png)
 
 
 ------
@@ -143,17 +143,17 @@ The Standard map style provides detailed topographic visualization that highligh
 ------
 #### [ Both Terrain and Contour Density ]
 
- ![Topographic map showing Ireland Lake surrounded by contour lines indicating mountainous terrain.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-terrain-contour-light.png) ![Topographic map showing terrain with contour lines, elevation changes, and Ireland Lake labeled.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-terrain-contour-dark.png) 
+ ![Topographic map showing Ireland Lake surrounded by contour lines indicating mountainous terrain.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-terrain-contour-light.png) ![Topographic map showing terrain with contour lines, elevation changes, and Ireland Lake labeled.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-terrain-contour-dark.png) 
 
 ------
 #### [ Only terrain ]
 
- ![Topographic map showing Yosemite National Park area with labeled lakes and terrain features.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-terrain-light.png) ![Topographic map showing Yosemite National Park with surrounding lakes including Cherry Lake, Benson Lake, Tenaya Lake, Merced Lake, and Ireland Lake.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-terrain-dark.png) 
+ ![Topographic map showing Yosemite National Park area with labeled lakes and terrain features.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-terrain-light.png) ![Topographic map showing Yosemite National Park with surrounding lakes including Cherry Lake, Benson Lake, Tenaya Lake, Merced Lake, and Ireland Lake.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-terrain-dark.png) 
 
 ------
 #### [ Only contour density ]
 
- ![Topographic map showing Ireland Lake surrounded by contour lines indicating terrain elevation.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-contour-light.png) ![Topographic map showing terrain contours with Ireland Lake labeled in the center.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-contour-dark.png) 
+ ![Topographic map showing Ireland Lake surrounded by contour lines indicating terrain elevation.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-contour-light.png) ![Topographic map showing terrain contours with Ireland Lake labeled in the center.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-contour-dark.png) 
 
 ------
 
@@ -165,17 +165,17 @@ The Standard map style provides options to provide dynamic visualization designe
 ------
 #### [ Traffic ]
 
- ![Traffic map of New York City area showing road conditions with green, orange, and red routes.](http://docs.aws.amazon.com/location/latest/developerguide/images/traffic-light.png) ![Traffic map of New York City area showing road conditions with green, yellow, and red routes.](http://docs.aws.amazon.com/location/latest/developerguide/images/traffic-dark.png) 
+ ![Traffic map of New York City area showing road conditions with green, orange, and red routes.](https://docs.aws.amazon.com/location/latest/developerguide/images/traffic-light.png) ![Traffic map of New York City area showing road conditions with green, yellow, and red routes.](https://docs.aws.amazon.com/location/latest/developerguide/images/traffic-dark.png) 
 
 ------
 #### [ Transit ]
 
- ![Map showing New York City area including Manhattan, Brooklyn, Jersey City, and Hoboken with major highways and waterways.](http://docs.aws.amazon.com/location/latest/developerguide/images/transit-light.png) ![Map showing New York City area with colored route lines connecting Manhattan, Brooklyn, Jersey City, and surrounding regions.](http://docs.aws.amazon.com/location/latest/developerguide/images/transit-dark.png) 
+ ![Map showing New York City area including Manhattan, Brooklyn, Jersey City, and Hoboken with major highways and waterways.](https://docs.aws.amazon.com/location/latest/developerguide/images/transit-light.png) ![Map showing New York City area with colored route lines connecting Manhattan, Brooklyn, Jersey City, and surrounding regions.](https://docs.aws.amazon.com/location/latest/developerguide/images/transit-dark.png) 
 
 ------
 #### [ Truck ]
 
- ![Map of New York City area showing road closures marked with prohibition icons on major routes.](http://docs.aws.amazon.com/location/latest/developerguide/images/truck-light.png) ![Map of New York City area showing locations marked with circular icons containing symbols.](http://docs.aws.amazon.com/location/latest/developerguide/images/truck-dark.png) 
+ ![Map of New York City area showing road closures marked with prohibition icons on major routes.](https://docs.aws.amazon.com/location/latest/developerguide/images/truck-light.png) ![Map of New York City area showing locations marked with circular icons containing symbols.](https://docs.aws.amazon.com/location/latest/developerguide/images/truck-dark.png) 
 
 ------
 
@@ -187,12 +187,12 @@ The Standard map style provides immersive three-dimensional visualization that r
 ------
 #### [ 3D Terrain ]
 
- ![3D terrain map showing snow-covered mountain peaks, valleys, and glaciers in an alpine region.](http://docs.aws.amazon.com/location/latest/developerguide/images/3d-terrain-light.png) ![Satellite map view showing terrain with water bodies in blue, land masses in dark gray, and labeled locations including Lac de Moiry and Siders.](http://docs.aws.amazon.com/location/latest/developerguide/images/3d-terrain-dark.png) 
+ ![3D terrain map showing snow-covered mountain peaks, valleys, and glaciers in an alpine region.](https://docs.aws.amazon.com/location/latest/developerguide/images/3d-terrain-light.png) ![Satellite map view showing terrain with water bodies in blue, land masses in dark gray, and labeled locations including Lac de Moiry and Siders.](https://docs.aws.amazon.com/location/latest/developerguide/images/3d-terrain-dark.png) 
 
 ------
 #### [ 3D Buildings ]
 
- ![3D map view of downtown Seattle showing buildings, Interstate 5, and city blocks in gray and white.](http://docs.aws.amazon.com/location/latest/developerguide/images/3d-buildings-light.png) ![3D map view of urban area showing buildings, streets, and Interstate 5 highway with navigation routes.](http://docs.aws.amazon.com/location/latest/developerguide/images/3d-buildings-dark.png) 
+ ![3D map view of downtown Seattle showing buildings, Interstate 5, and city blocks in gray and white.](https://docs.aws.amazon.com/location/latest/developerguide/images/3d-buildings-light.png) ![3D map view of urban area showing buildings, streets, and Interstate 5 highway with navigation routes.](https://docs.aws.amazon.com/location/latest/developerguide/images/3d-buildings-dark.png) 
 
 ------
 
@@ -204,13 +204,13 @@ The Standard map style uses vibrant colors to indicate designated land uses. Gre
 ------
 #### [ Light ]
 
-![Land use color legend for the Amazon Location Service Standard Light style, showing color-coded categories such as parks, water, residential, and commercial areas with hex values.](http://docs.aws.amazon.com/location/latest/developerguide/images/land-use-light.png)
+![Land use color legend for the Amazon Location Service Standard Light style, showing color-coded categories such as parks, water, residential, and commercial areas with hex values.](https://docs.aws.amazon.com/location/latest/developerguide/images/land-use-light.png)
 
 
 ------
 #### [ Dark ]
 
-![Land use color legend for the Amazon Location Service Standard Dark style, showing color-coded categories for parks, water, residential, and commercial areas with hex values.](http://docs.aws.amazon.com/location/latest/developerguide/images/land-use-dark.png)
+![Land use color legend for the Amazon Location Service Standard Dark style, showing color-coded categories for parks, water, residential, and commercial areas with hex values.](https://docs.aws.amazon.com/location/latest/developerguide/images/land-use-dark.png)
 
 
 ------

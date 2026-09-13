@@ -100,7 +100,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Aerial view of Vancouver with Stanley Park and Pacific Centre marked, showing urban layout and coastline.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-add-route-compact.png)
+![Aerial view of Vancouver with Stanley Park and Pacific Centre marked, showing urban layout and coastline.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-add-route-compact.png)
 
 
 ------

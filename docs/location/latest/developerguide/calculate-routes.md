@@ -9,7 +9,9 @@ For more information, see [CalculateRoutes](https://docs.aws.amazon.com/location
 
 For example requests, responses, cURL, and CLI commands for this API, see [How to use Calculate routes](https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes-how-to.html).
 
-![An overview of Amazon Location Service Routes.](http://docs.aws.amazon.com/location/latest/developerguide/images/routesV2/P2P-Turn-by-turn-navigation.gif)
+Try the Calculate Routes API in the [API Playground](https://console.aws.amazon.com/location/api-playground/home#/calculate-routes).
+
+![An overview of Amazon Location Service Routes.](https://docs.aws.amazon.com/location/latest/developerguide/images/routesV2/P2P-Turn-by-turn-navigation.gif)
 
 
 ## Use cases

@@ -87,7 +87,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Satellite view of coastal peninsula with red line marking route through residential area and marina.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-add-line.png)
+![Satellite view of coastal peninsula with red line marking route through residential area and marina.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-add-line.png)
 
 
 ------
@@ -149,7 +149,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Static Maps API response showing a styled polyline with custom color, width, and opacity applied to a coastal route.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-add-line-styling.png)
+![Static Maps API response showing a styled polyline with custom color, width, and opacity applied to a coastal route.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-add-line-styling.png)
 
 
 ------

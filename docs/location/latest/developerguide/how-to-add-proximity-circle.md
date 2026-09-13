@@ -62,7 +62,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map@2x?style=Satellite&wid
 ------
 #### [ Response image ]
 
-![Example map showing a proximity circle around the Eiffel Tower.](http://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/addPproximityCircleStaticMap.png)
+![Example map showing a proximity circle around the Eiffel Tower.](https://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/addPproximityCircleStaticMap.png)
 
 
 ------

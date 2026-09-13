@@ -15,13 +15,13 @@ Use the `traffic` parameter in your API request to display real-time traffic inf
 ------
 #### [ All ]
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/zoom-traffic-all.gif)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/zoom-traffic-all.gif)
 
 
 ------
 #### [ Congestion ]
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/zoom-traffic-congestion.gif)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/zoom-traffic-congestion.gif)
 
 
 ------
@@ -33,7 +33,7 @@ The travel modes feature enables visualization and selection of different transp
 
 Use the `travel-modes` parameter in your API request to show transportation-specific routing data. See [how to show transit details on a map](https://docs.aws.amazon.com/location/latest/developerguide/how-to-show-transit-details-map.html) and [how to create a logistics map](https://docs.aws.amazon.com/location/latest/developerguide/how-to-create-logistic-map.html).
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/map-travel-modes-transit.gif)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/map-travel-modes-transit.gif)
 
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/map-travel-modes-truck.gif)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/map-travel-modes-truck.gif)

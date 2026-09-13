@@ -22,7 +22,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response (Thumbnail 200x200) ]
 
-![Static Maps API response of Helsinki, Finland at low resolution, demonstrating minimum dimension settings.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-low.png)
+![Static Maps API response of Helsinki, Finland at low resolution, demonstrating minimum dimension settings.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-low.png)
 
 
 ------
@@ -35,7 +35,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image (700x700) ]
 
-![Static Maps API response of Helsinki, Finland at mid resolution, showing increased detail compared to the low-resolution version.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-mid.png)
+![Static Maps API response of Helsinki, Finland at mid resolution, showing increased detail compared to the low-resolution version.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-mid.png)
 
 
 ------
@@ -55,7 +55,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image (with padding) ]
 
-![Static Maps API response of Helsinki with padding applied, showing extra space around the bounded area to prevent features from being cut off at edges.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-padding.png)
+![Static Maps API response of Helsinki with padding applied, showing extra space around the bounded area to prevent features from being cut off at edges.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-padding.png)
 
 
 ------
@@ -68,7 +68,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image (without padding) ]
 
-![Static Maps API response of Helsinki without padding, showing a tighter crop where edge features may be partially cut off.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-no-padding.png)
+![Static Maps API response of Helsinki without padding, showing a tighter crop where edge features may be partially cut off.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-specific-dimension-no-padding.png)
 
 
 ------

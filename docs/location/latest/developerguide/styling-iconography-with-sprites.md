@@ -33,31 +33,31 @@ The response contains headers such as `CacheControl`, `ContentType`, and `ETag`,
 ------
 #### [ Standard Light ]
 
-![Sprite sheet of map icons for the Amazon Location Service Standard Light style, including colored point-of-interest markers, road shields, and navigation symbols.](http://docs.aws.amazon.com/location/latest/developerguide/images/styling-standard-light.png)
+![Sprite sheet of map icons for the Amazon Location Service Standard Light style, including colored point-of-interest markers, road shields, and navigation symbols.](https://docs.aws.amazon.com/location/latest/developerguide/images/styling-standard-light.png)
 
 
 ------
 #### [ Standard Dark ]
 
-![Sprite sheet of map icons for the Amazon Location Service Standard Dark style, including colored point-of-interest markers, road shields, and navigation symbols.](http://docs.aws.amazon.com/location/latest/developerguide/images/styling-standard-dark.png)
+![Sprite sheet of map icons for the Amazon Location Service Standard Dark style, including colored point-of-interest markers, road shields, and navigation symbols.](https://docs.aws.amazon.com/location/latest/developerguide/images/styling-standard-dark.png)
 
 
 ------
 #### [ Monochrome Light ]
 
-![Sprite sheet of map icons for the Amazon Location Service Monochrome Light style, showing light-colored point-of-interest markers, road shields, and traffic signs on a light background.](http://docs.aws.amazon.com/location/latest/developerguide/images/styling-monochrome-light.png)
+![Sprite sheet of map icons for the Amazon Location Service Monochrome Light style, showing light-colored point-of-interest markers, road shields, and traffic signs on a light background.](https://docs.aws.amazon.com/location/latest/developerguide/images/styling-monochrome-light.png)
 
 
 ------
 #### [ Monochrome Dark ]
 
-![Sprite sheet of map icons for the Amazon Location Service Monochrome Dark style, showing light-colored point-of-interest markers, road shields, and traffic signs on a dark background.](http://docs.aws.amazon.com/location/latest/developerguide/images/styling-monochrome-dark.png)
+![Sprite sheet of map icons for the Amazon Location Service Monochrome Dark style, showing light-colored point-of-interest markers, road shields, and traffic signs on a dark background.](https://docs.aws.amazon.com/location/latest/developerguide/images/styling-monochrome-dark.png)
 
 
 ------
 #### [ Hybrid ]
 
-![Sprite sheet of map icons for the Amazon Location Service Hybrid (Satellite) style, including road shields, traffic signs, and navigation markers used on satellite imagery.](http://docs.aws.amazon.com/location/latest/developerguide/images/styling-hybrid.png)
+![Sprite sheet of map icons for the Amazon Location Service Hybrid (Satellite) style, including road shields, traffic signs, and navigation markers used on satellite imagery.](https://docs.aws.amazon.com/location/latest/developerguide/images/styling-hybrid.png)
 
 
 ------

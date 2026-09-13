@@ -12,6 +12,8 @@ For more information, see [GetPlace](https://docs.aws.amazon.com/location/latest
 
 For example requests, responses, cURL, and CLI commands for this API, see [How to use GetPlace](https://docs.aws.amazon.com/location/latest/developerguide/get-place-how-to.html).
 
+Try the GetPlace API in the [API Playground](https://console.aws.amazon.com/location/api-playground/home#/get-place).
+
 ## Use cases
 <a name="get-place-use-cases"></a>
 + **Refresh stored data:** Regularly refresh stored data to ensure your application provides accurate, current information. Use the GetPlace API to update details about businesses and places, ensuring users have the latest information. For example, refresh opening hours, contact details, and user reviews for local restaurants or shops to enhance user trust and application functionality.

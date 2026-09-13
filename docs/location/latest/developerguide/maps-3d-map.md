@@ -17,13 +17,13 @@ Combine 3D terrain with `contour-density` parameter in your API request for enha
 ------
 #### [ Satellite ]
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/zoom-hybrid-3d-terrain.gif)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/zoom-hybrid-3d-terrain.gif)
 
 
 ------
 #### [ Standard ]
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/zoom-3d-terrain.gif)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/zoom-3d-terrain.gif)
 
 
 ------
@@ -35,7 +35,7 @@ The 3D Buildings feature renders building footprints as three-dimensional struct
 
 Use the `buildings` parameter in your API request to enable three-dimensional building visualization. This feature provides an immersive perspective of urban landscapes, making it particularly useful for understanding city layouts, identifying landmarks, and navigating complex urban environments. See [Create a 3D map](https://docs.aws.amazon.com/location/latest/developerguide/how-to-create-a-3d-map.html).
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/zoom-3d-buildings.gif)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/zoom-3d-buildings.gif)
 
 
 ## Globe View
@@ -45,4 +45,4 @@ The Globe View feature provides a spherical representation of the Earth, allowin
 
 Use Globe View to display maps with realistic Earth curvature and global perspective. See [Create a 3D map](https://docs.aws.amazon.com/location/latest/developerguide/how-to-create-a-3d-map.html).
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/zoom-globe-view.gif)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/zoom-globe-view.gif)

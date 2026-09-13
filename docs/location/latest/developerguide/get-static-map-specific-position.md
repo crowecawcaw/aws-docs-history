@@ -23,7 +23,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Static Maps API response centered on Vancouver, Canada at zoom level 15, showing the waterfront and downtown area in satellite style.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-center.png)
+![Static Maps API response centered on Vancouver, Canada at zoom level 15, showing the waterfront and downtown area in satellite style.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-center.png)
 
 
 ------
@@ -45,7 +45,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Satellite view of Southeast Asia showing mainland Southeast Asia, Indonesia, Philippines, and northern Australia.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-bounding-box.png)
+![Satellite view of Southeast Asia showing mainland Southeast Asia, Indonesia, Philippines, and northern Australia.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-bounding-box.png)
 
 
 ------
@@ -67,7 +67,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Static Maps API response showing Paris bounded by ten landmark coordinates including the Eiffel Tower, Louvre, and Notre-Dame, with the Seine River visible.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-bounding-position.png)
+![Static Maps API response showing Paris bounded by ten landmark coordinates including the Eiffel Tower, Louvre, and Notre-Dame, with the Seine River visible.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-bounding-position.png)
 
 
 ------

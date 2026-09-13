@@ -19,7 +19,7 @@ https://maps.geo.us-east-1.amazonaws.com/v2/static/map?center=139.4575,35.539&st
 ------
 #### [ Response image ]
 
-![Static map of Tokyo with labels displayed in English, demonstrating the lang parameter override.](http://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/setLanguageEnglishStaticMap.png)
+![Static map of Tokyo with labels displayed in English, demonstrating the lang parameter override.](https://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/setLanguageEnglishStaticMap.png)
 
 
 ------
@@ -34,7 +34,7 @@ https://maps.geo.us-east-1.amazonaws.com/v2/static/map?center=139.4575,35.539&st
 ------
 #### [ Response image ]
 
-![Static map of Tokyo with labels displayed in the default language (Japanese), showing regional language behavior without the lang parameter.](http://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/setLanguageDefaultStaticMap.png)
+![Static map of Tokyo with labels displayed in the default language (Japanese), showing regional language behavior without the lang parameter.](https://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/setLanguageDefaultStaticMap.png)
 
 
 ------

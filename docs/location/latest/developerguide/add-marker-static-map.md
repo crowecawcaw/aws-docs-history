@@ -74,7 +74,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Satellite view of Vancouver showing BC Place stadium marked with a location pin near False Creek.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-add-marker.png)
+![Satellite view of Vancouver showing BC Place stadium marked with a location pin near False Creek.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-add-marker.png)
 
 
 ------
@@ -132,7 +132,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Static Maps API response showing multiple numbered markers placed at different locations, demonstrating multi-marker support.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-add-multi-markers.png)
+![Static Maps API response showing multiple numbered markers placed at different locations, demonstrating multi-marker support.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-add-multi-markers.png)
 
 
 ------
@@ -191,7 +191,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![World map showing labeled cities including Brussels, Paris, Cairo, Dubai, Nairobi, Patna, Beijing, Ulaanbaatar, Hanoi, Sydney, and Wellington.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-change-marker-color.png)
+![World map showing labeled cities including Brussels, Paris, Cairo, Dubai, Nairobi, Patna, Beijing, Ulaanbaatar, Hanoi, Sydney, and Wellington.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-change-marker-color.png)
 
 
 ------

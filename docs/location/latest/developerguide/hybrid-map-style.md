@@ -17,19 +17,19 @@ For instructions on using these parameters, see [How to filter POI on the map](h
 ------
 #### [ Zoom ]
 
-![Animated demonstration of the Hybrid map style zooming through multiple levels, showing satellite imagery with overlaid labels.](http://docs.aws.amazon.com/location/latest/developerguide/images/hybrid_zoom.gif)
+![Animated demonstration of the Hybrid map style zooming through multiple levels, showing satellite imagery with overlaid labels.](https://docs.aws.amazon.com/location/latest/developerguide/images/hybrid_zoom.gif)
 
 
 ------
 #### [ Neighborhood ]
 
-![Hybrid map style at neighborhood zoom level showing satellite imagery with street names and points of interest labels.](http://docs.aws.amazon.com/location/latest/developerguide/images/hybrid-neighborhood.png)
+![Hybrid map style at neighborhood zoom level showing satellite imagery with street names and points of interest labels.](https://docs.aws.amazon.com/location/latest/developerguide/images/hybrid-neighborhood.png)
 
 
 ------
 #### [ Zoomed-in ]
 
-![Hybrid map style at high zoom level showing detailed satellite imagery with building outlines and street labels.](http://docs.aws.amazon.com/location/latest/developerguide/images/hybrid-zoom.png)
+![Hybrid map style at high zoom level showing detailed satellite imagery with building outlines and street labels.](https://docs.aws.amazon.com/location/latest/developerguide/images/hybrid-zoom.png)
 
 
 ------

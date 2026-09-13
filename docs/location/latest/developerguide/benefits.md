@@ -3,7 +3,7 @@
 # Key benefits of Amazon Location Service
 <a name="benefits"></a>
 
-![An overview of Amazon Location Service benefits, including explore, build, and deploy and monitor.](http://docs.aws.amazon.com/location/latest/developerguide/images/benefits.png)
+![An overview of Amazon Location Service benefits, including explore, build, and deploy and monitor.](https://docs.aws.amazon.com/location/latest/developerguide/images/benefits.png)
 
 
 This section provides an overview of the key benefits of Amazon Location Service. The main benefits are:

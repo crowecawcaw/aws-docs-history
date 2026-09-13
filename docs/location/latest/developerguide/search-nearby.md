@@ -12,6 +12,8 @@ For more information, see [SearchNearby](https://docs.aws.amazon.com/location/la
 
 For example requests, responses, cURL, and CLI commands for this API, see [How to use Search Nearby](https://docs.aws.amazon.com/location/latest/developerguide/search-nearby-how-to.html).
 
+Try the Search Nearby API in the [API Playground](https://console.aws.amazon.com/location/api-playground/home#/search-nearby).
+
 ## Use cases
 <a name="search-nearby-use-cases"></a>
 + **Real Estate Applications:** Provide potential homebuyers or renters with a list of amenities and services near a property, such as schools, hospitals, and shopping centers.

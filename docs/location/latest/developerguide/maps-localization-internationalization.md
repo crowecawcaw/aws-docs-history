@@ -20,7 +20,7 @@ Amazon Location Service provides Maps APIs that enable you to customize the lang
 
 For more information, see [How to set a preferred language for a map](how-to-set-preferred-language-map.md).
 
-![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](http://docs.aws.amazon.com/location/latest/developerguide/images/standard-language-switcher.gif)
+![Animated demonstration of the Amazon Location Service language switcher, cycling through map labels in different languages on a map of Taiwan.](https://docs.aws.amazon.com/location/latest/developerguide/images/standard-language-switcher.gif)
 
 
 ## Political view
@@ -32,4 +32,4 @@ In addition to the default international perspective, Amazon Location Service su
 
 For more information, see [How to set the political view of a map](how-to-set-political-view-map.md).
 
-![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](http://docs.aws.amazon.com/location/latest/developerguide/images/maps-political-view.png)
+![Two maps of Cyprus demonstrating Amazon Location Service political view options, showing how disputed territorial boundaries render differently based on country-specific perspectives.](https://docs.aws.amazon.com/location/latest/developerguide/images/maps-political-view.png)

@@ -3,7 +3,7 @@
 # Amazon Location Service Places
 <a name="places"></a>
 
-![An overview of Amazon Location Service Places.](http://docs.aws.amazon.com/location/latest/developerguide/images/illustration-places.PNG)
+![An overview of Amazon Location Service Places.](https://docs.aws.amazon.com/location/latest/developerguide/images/illustration-places.PNG)
 
 
 With Amazon Location Places, you can add location-based capabilities to your application. Using Places APIs, you can search or geocode locations by querying a comprehensive place database containing over 400 million addresses and points of interest (POIs) across 108 countries.

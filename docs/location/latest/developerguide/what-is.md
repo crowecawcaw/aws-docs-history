@@ -7,7 +7,7 @@ Amazon Location Service is a fully-managed service that makes it easy to add loc
 
 This video provides an overview of the Amazon Location service.
 
-[![AWS Videos](http://img.youtube.com/vi/8ZqMSVVaGPA?si=e2A546_ioWLJig9R/0.jpg)](http://www.youtube.com/watch?v=8ZqMSVVaGPA?si=e2A546_ioWLJig9R)
+[![AWS Videos](https://img.youtube.com/vi/8ZqMSVVaGPA?si=e2A546_ioWLJig9R/0.jpg)](https://www.youtube.com/watch?v=8ZqMSVVaGPA?si=e2A546_ioWLJig9R)
 
 
 With Amazon Location Service, you can add powerful location data and functionality to your applications. This includes capabilities such as maps, places (search and geocoding), routes, geofences, and trackers. Amazon Location provides location-based services (LBS) with high-quality data with global coverage. With its affordable data, geofences and trackers features, and built-in metrics for health monitoring, you can build sophisticated location-enabled applications.

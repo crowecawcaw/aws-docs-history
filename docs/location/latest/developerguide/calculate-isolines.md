@@ -9,6 +9,8 @@ For more information, see [CalculateIsolines](https://docs.aws.amazon.com/locati
 
 For example requests, responses, cURL, and CLI commands for this API, see [How to use Calculate isolines](https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines-how-to.html).
 
+Try the Calculate Isolines API in the [API Playground](https://console.aws.amazon.com/location/api-playground/home#/calculate-isolines).
+
 ## Use cases
 <a name="use-cases"></a>
 + **Assess healthcare accessibility through travel time isolines:** Generate isolines to evaluate access to healthcare facilities from various neighborhoods based on travel times. Healthcare organizations can use this feature to identify underserved areas and make informed decisions about clinic locations or mobile health services, thereby improving community healthcare access.

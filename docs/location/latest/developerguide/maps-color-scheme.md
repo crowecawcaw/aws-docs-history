@@ -13,25 +13,25 @@ The `Light` mode is versatile and fits into any context, while the `Dark` mode f
 ------
 #### [ Standard ]
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-standard.png)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-standard.png)
 
 
 ------
 #### [ Monochrome ]
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-monochrome.png)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-monochrome.png)
 
 
 ------
 #### [ Hybrid ]
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-hybrid.png)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-hybrid.png)
 
 
 ------
 #### [ Satellite ]
 
-![](http://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-satellite.png)
+![](https://docs.aws.amazon.com/location/latest/developerguide/images/color-scheme-satellite.png)
 
 
 ------

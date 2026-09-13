@@ -20,7 +20,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Static Maps API response using the radius parameter to frame Sri Lanka within a circular distance from a center point.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-radius.png)
+![Static Maps API response using the radius parameter to frame Sri Lanka within a circular distance from a center point.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-radius.png)
 
 
 ------
@@ -40,7 +40,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Static Maps API response using the zoom parameter to frame Sri Lanka, demonstrating zoom-based framing as an alternative to radius.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-zoom.png)
+![Static Maps API response using the zoom parameter to frame Sri Lanka, demonstrating zoom-based framing as an alternative to radius.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-zoom.png)
 
 
 ------

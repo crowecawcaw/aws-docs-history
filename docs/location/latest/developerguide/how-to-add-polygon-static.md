@@ -65,7 +65,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Example map showing a polygon around the Pentagon.](http://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/addPolygonStaticMap.png)
+![Example map showing a polygon around the Pentagon.](https://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/addPolygonStaticMap.png)
 
 
 ------
@@ -137,7 +137,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Example map showing a different colored polygon around the Pentagon.](http://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/addPolygonStaticMap-color.png)
+![Example map showing a different colored polygon around the Pentagon.](https://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/addPolygonStaticMap-color.png)
 
 
 ------
@@ -267,7 +267,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Example map showing multiple polygons around parks in NYC.](http://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/addPolygonStaticMap-multiple.png)
+![Example map showing multiple polygons around parks in NYC.](https://docs.aws.amazon.com/location/latest/developerguide/images/mapsV2/addPolygonStaticMap-multiple.png)
 
 
 ------

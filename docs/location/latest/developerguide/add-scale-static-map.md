@@ -20,7 +20,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Static Maps API response of Helsinki, Finland with a Kilometers scale bar displayed in the bottom-right corner.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-scale-single.png)
+![Static Maps API response of Helsinki, Finland with a Kilometers scale bar displayed in the bottom-right corner.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-scale-single.png)
 
 
 ------
@@ -40,7 +40,7 @@ https://maps.geo.eu-central-1.amazonaws.com/v2/static/map?style=Satellite&width=
 ------
 #### [ Response image ]
 
-![Static Maps API response of Helsinki, Finland with both Kilometers and Miles scale bars displayed in the bottom-right corner.](http://docs.aws.amazon.com/location/latest/developerguide/images/static-scale-both.png)
+![Static Maps API response of Helsinki, Finland with both Kilometers and Miles scale bars displayed in the bottom-right corner.](https://docs.aws.amazon.com/location/latest/developerguide/images/static-scale-both.png)
 
 
 ------

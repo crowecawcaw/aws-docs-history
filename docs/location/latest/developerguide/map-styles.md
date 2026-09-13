@@ -34,7 +34,7 @@ The Standard map style is a clean and modern general-purpose map design that fit
 
 To learn more, see [Standard map style](standard-map-style.md).
 
-![Map of Boston showing neighborhoods, streets, and waterways in standard and dark modes.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-standard.png)
+![Map of Boston showing neighborhoods, streets, and waterways in standard and dark modes.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-standard.png)
 
 
 ## Monochrome map style
@@ -44,7 +44,7 @@ The Monochrome map style is a minimalist canvas with a constrained color palette
 
 To learn more, see [Monochrome map style](monochrome-map-style.md).
 
-![Two maps of North America, one light and one dark, showing countries and major bodies of water.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-monochrome.png)
+![Two maps of North America, one light and one dark, showing countries and major bodies of water.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-monochrome.png)
 
 
 ## Hybrid map style
@@ -54,7 +54,7 @@ The hybrid map style combines global satellite imagery with clear labels and con
 
 To learn more, see [Hybrid map style](hybrid-map-style.md).
 
-![Map combining satellite imagery with road labels and points of interest.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-hybrid.png)
+![Map combining satellite imagery with road labels and points of interest.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-hybrid.png)
 
 
 ## Satellite map style
@@ -62,4 +62,4 @@ To learn more, see [Hybrid map style](hybrid-map-style.md).
 
 The Satellite map style presents high-resolution, real-world imagery captured by satellites, offering a realistic view of landscapes, buildings, and terrain. This style typically includes minimal labels or overlays to keep the focus on geographical details.
 
-![Satellite view of Australia, New Zealand, and Southeast Asian islands surrounded by deep blue oceans.](http://docs.aws.amazon.com/location/latest/developerguide/images/map-satellite.png)
+![Satellite view of Australia, New Zealand, and Southeast Asian islands surrounded by deep blue oceans.](https://docs.aws.amazon.com/location/latest/developerguide/images/map-satellite.png)
