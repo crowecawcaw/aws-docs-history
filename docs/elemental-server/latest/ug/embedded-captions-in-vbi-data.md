@@ -20,7 +20,7 @@ To include embedded captions in this scenario, you do not create caption selecto
 1. Go to that Stream section. 
 
 1. Display the Video fields for this stream. Click **Advanced**. More fields appear.  
-![Stream 1 settings showing Video, Audio, Caption sections with Advanced options expanded.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/appendix-b.png)
+![Stream 1 settings showing Video, Audio, Caption sections with Advanced options expanded.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/appendix-b.png)
 
 1. Check the **VBI Passthrough **field.
 

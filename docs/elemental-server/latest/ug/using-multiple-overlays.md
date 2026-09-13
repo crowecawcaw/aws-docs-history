@@ -12,7 +12,7 @@ Even if your overlays never overlap, you need to specify unique **Layer** values
 
 The following illustration shows how the value for **Layer** affects how a graphic overlay appears in relation to other overlays. The triangle has the highest value for **Layer** and appears on top, obscuring the video frame and all graphic overlays with lower values of **Layer**.
 
-![The underlying video is obscured by three graphic overlays: a blue rectangle with a Layer value of 1, a green ring with a Layer value of 2, and an orange triangle with a Layer value of 3. Where the rectangle and ring overlap, the ring obscures the rectangle. Where the triangle and ring overlap, the triangle obscures the ring. In the transparent portion of the ring, the underlying video and a corner of the rectangle show through.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/img-ins-layer.png)
+![The underlying video is obscured by three graphic overlays: a blue rectangle with a Layer value of 1, a green ring with a Layer value of 2, and an orange triangle with a Layer value of 3. Where the rectangle and ring overlap, the ring obscures the rectangle. Where the triangle and ring overlap, the triangle obscures the ring. In the transparent portion of the ring, the underlying video and a corner of the rectangle show through.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/img-ins-layer.png)
 
 
 **To specify a value for the **Layer** setting**

@@ -12,7 +12,7 @@ The input is set up with one format of captions and two or more languages. You w
 
 The input has TTML captions in Spanish and Portuguese. You want to produce a DASH output and an MSS output. You want the DASH output to include the TTML captions in both Spanish and Portuguese and the MSS output to also include the TTML captions in both Spanish and Portuguese.
 
-![Diagram showing input captions flowing to output captions, then to DASH and MSS outputs.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-1.png)
+![Diagram showing input captions flowing to output captions, then to DASH and MSS outputs.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-1.png)
 <a name="setup-3"></a>
 
 # To set up a job for this example
@@ -21,7 +21,7 @@ The input has TTML captions in Spanish and Portuguese. You want to produce a DAS
 1. In the input, follow the procedure in [Creating Input Captions Selectors](create-input-caption-selectors.md) to create two caption selectors:
    + One for TTML Spanish.
    + One for TTML Portuguese.  
-![Two caption selector rows showing source dropdown, external caption file path, browse button, and time delta fields.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-2.png)
+![Two caption selector rows showing source dropdown, external caption file path, browse button, and time delta fields.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-2.png)
 
 1. Create a stream (for example, Stream 1) and set up the video and audio. 
 
@@ -36,7 +36,7 @@ The input has TTML captions in Spanish and Portuguese. You want to produce a DAS
    + **Caption Source**: Caption Selector 2.
    + **Language**: Portuguese.
    + Other fields: Same as the first caption stream.  
-![Stream configuration interface showing three caption streams with language and destination settings.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-3.png)
+![Stream configuration interface showing three caption streams with language and destination settings.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-3.png)
 
 1. In the DASH output group, create three outputs:
    + In the first output, set the Stream field in that output to Stream 1. 
@@ -44,7 +44,7 @@ The input has TTML captions in Spanish and Portuguese. You want to produce a DAS
    + In the third output, set the Stream field in that output to Stream 3.
 
    Although there are three outputs, they are all in the same output group, so the video/audio and two captions are kept together.   
-![Three output streams with name modifiers av, ES, and PT shown in the Outputs interface.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-4.png)
+![Three output streams with name modifiers av, ES, and PT shown in the Outputs interface.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-4.png)
 
 1. In the MSS output group, create three outputs:
    + In the first output, set the Stream field in that output to Stream 1. 
@@ -52,6 +52,6 @@ The input has TTML captions in Spanish and Portuguese. You want to produce a DAS
    + In the third output, set the Stream field in that output to Stream 3.
 
    Notice that the streams in this output are also associated with the DASH output.  
-![Three output streams with name modifiers ab, ES, and PT, each showing preset settings.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-5.png)
+![Three output streams with name modifiers ab, ES, and PT, each showing preset settings.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-one-to-several-5.png)
 
 1. Save the job. 

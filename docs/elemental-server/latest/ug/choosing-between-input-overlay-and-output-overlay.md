@@ -12,7 +12,7 @@ The following diagram shows how input, stream, and global overlays appear in the
 **Note**  
 In this diagram, all overlays are specified for the entire duration of the input or output. You can instead specify a shorter overlay duration within that time.
 
-![In this example, the job has three inputs. Input 1 and Input 3 have an input overlay. The job has two outputs. Output 1 has no overlays; output 2 has a stream overlay. The job has one overlay specified in the global job settings. The job produces two output files, which have the content from each of the inputs joined together. Output 1 has the global overlay and the input overlays, which appear at the beginning and end of the final asset. The middle portion of Output 1, made from the content of Input 2, has only the global overlay. Output 2 has the overlays in Output 1, plus the stream overlay for the entire duration of the asset.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/image-inserter.png)
+![In this example, the job has three inputs. Input 1 and Input 3 have an input overlay. The job has two outputs. Output 1 has no overlays; output 2 has a stream overlay. The job has one overlay specified in the global job settings. The job produces two output files, which have the content from each of the inputs joined together. Output 1 has the global overlay and the input overlays, which appear at the beginning and end of the final asset. The middle portion of Output 1, made from the content of Input 2, has only the global overlay. Output 2 has the overlays in Output 1, plus the stream overlay for the entire duration of the asset.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/image-inserter.png)
 
 
 ## Input Overlays

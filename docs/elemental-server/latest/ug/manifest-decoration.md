@@ -70,7 +70,7 @@ Manifest decoration is enabled at the output group level, which means that the m
 In the Apple HLS output group section, open the Advanced section and complete the following fields: 
 + **Ad Markers**: Click to select a marker type. You can select more than one type.
 
-![The file images/hls-manifest.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/hls-manifest.png)
+![The file images/hls-manifest.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/hls-manifest.png)
 
 
 See [Example Manifests for Apple HLS](example-manifests-hls.md) for information about the different types of markers. 
@@ -83,7 +83,7 @@ Manifest decoration is enabled at the output group level, which means that the m
 In the Adobe HDS output group section, open the Advanced section and complete the following fields: 
 + **Ad Markers**: Click to select a marker type. You can select more than one type. 
 
-![The file images/hds-manifest.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/hds-manifest.png)
+![The file images/hds-manifest.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/hds-manifest.png)
 
 
 The manifest for each output includes a separate set of tags for each type that you select. 
@@ -97,4 +97,4 @@ In the MS Smooth output group section, complete the following fields:
 + **Enable Sparse Track**: Click to select a marker type. You can select more than one type. 
 + **Acquisition Point ID**: Enter the address of the certificate if encryption is enabled on the output.
 
-![The file images/ms-smooth-advanced.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/ms-smooth-advanced.png)
+![The file images/ms-smooth-advanced.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/ms-smooth-advanced.png)

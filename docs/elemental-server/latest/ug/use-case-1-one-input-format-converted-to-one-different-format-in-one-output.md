@@ -12,7 +12,7 @@ The input is set up with one format of captions and two or more languages. You w
 
 The input has SRT captions in German and French. You want to convert the captions to TTML and include these captions in both languages in a DASH output. 
 
-![Workflow diagram showing SRT German and French inputs converting to TTML outputs for DASH.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-easy-workflow-1.png)
+![Workflow diagram showing SRT German and French inputs converting to TTML outputs for DASH.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-easy-workflow-1.png)
 <a name="setup-1"></a>
 
 # To set up a job for this example
@@ -21,7 +21,7 @@ The input has SRT captions in German and French. You want to convert the caption
 1. In the input, follow the procedure in [Creating Input Captions Selectors](create-input-caption-selectors.md) to create two caption selectors:
    + One for the German SRT file.
    + One for the French SRT file.  
-![Two caption selectors with source dropdown set to SRT and external caption file paths.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-easy-workflow-2.png)
+![Two caption selectors with source dropdown set to SRT and external caption file paths.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-easy-workflow-2.png)
 
 1. Create a stream (for example, Stream 1) and set up the video and audio. 
 
@@ -36,7 +36,7 @@ The input has SRT captions in German and French. You want to convert the caption
    + **Caption Source**: Caption Selector 2.
    + **Language**: French.
    + Other fields: same as the first caption stream.   
-![Stream configuration interface showing video, audio, and caption settings for three streams.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-easy-workflow-3.png)
+![Stream configuration interface showing video, audio, and caption settings for three streams.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-easy-workflow-3.png)
 
 1. In the DASH output group, create three outputs:
    + In the first output, set the Stream field in that output to Stream 1. 
@@ -44,4 +44,4 @@ The input has SRT captions in German and French. You want to convert the caption
    + In the third output, set the Stream field in that output to Stream 3.
 
    Although there are three outputs, they are all in the same output group, so the video/audio and two captions are kept together.  
-![Three output streams with name modifiers av, DE, and FR in a single output group.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/example-easy-workflow-4.png)
+![Three output streams with name modifiers av, DE, and FR in a single output group.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/example-easy-workflow-4.png)

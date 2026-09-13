@@ -12,7 +12,7 @@ These examples show how to set up captions for streaming, adaptive bitrate (ABR)
 
 In this example, there are three video/audio streams – one for low-resolution video, one for medium, and one for high. There is one output captions (English and Spanish embedded) that is associated with all three video/audio streams.
 
-![Diagram showing input captions flowing to output captions and three video streams with audio.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-a-1.png)
+![Diagram showing input captions flowing to output captions and three video streams with audio.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-a-1.png)
 <a name="setup-with-procedure-a-captions"></a>
 
 # To set up a streaming output with captions that are not sidecar
@@ -21,7 +21,7 @@ In this example, there are three video/audio streams – one for low-resolution 
 Follow these steps if the captions are embedded in the video or are a captions object in the same stream as the video and audio.
 
 1. In the input, follow the procedure in [Creating Input Captions Selectors](create-input-caption-selectors.md) to create one caption selector for Embedded.  
-![Caption Selector 1 interface with Embedded source selected and options for channel number and upconvert settings.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-a-2.png)
+![Caption Selector 1 interface with Embedded source selected and options for channel number and upconvert settings.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-a-2.png)
 
 1. Create a stream (for example, Stream 1) and set up the video and audio for low-resolution video.
 
@@ -43,13 +43,13 @@ Follow these steps if the captions are embedded in the video or are a captions o
    + **Caption Source**: Caption Selector 1.
    + **Destination Type**: Embedded. 
    + **Language**: Leave blank; with embedded captions, all the languages are included.  
-![Three stream configurations showing caption source, destination type, and advanced settings.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-a-3.png)
+![Three stream configurations showing caption source, destination type, and advanced settings.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-a-3.png)
 
 1. In the MSS output group, create three outputs. 
    + In the first output, set the Stream field in that output to Stream 1. 
    + In the second output, set the Stream field in that output to Stream 2.
    + In the third output, set the Stream field in that output to Stream 3.  
-![Three output streams with name modifiers low, medium, and high, each with preset set to None.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-a-4.png)
+![Three output streams with name modifiers low, medium, and high, each with preset set to None.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-a-4.png)
 
 1. Save the job. 
 
@@ -74,7 +74,7 @@ For example, there are three video/audio streams – one for low-resolution vide
 1. Create another stream (for example, Stream 2) and set up the video and audio for medium-resolution video.
 
 1. Create another stream (for example, Stream 3) and set up the video and audio for high-resolution video.  
-![Three stream configuration panels showing resolution, codec, and encoding settings.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-b-1.png)
+![Three stream configuration panels showing resolution, codec, and encoding settings.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-b-1.png)
 
 1. Set up a captions-only stream (for example, Stream 4) for your first captions track following the procedure for sidecar captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md). Specify the captions settings as follows:
    + **Caption Source**: Caption Selector 1.
@@ -87,7 +87,7 @@ For example, there are three video/audio streams – one for low-resolution vide
    + **Destination Type**: SCC. 
    + **Language**: Spanish
    + **Framerate**: As appropriate.  
-![Caption configuration panels for Stream 4 and Stream 5 showing source selectors and language settings.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-b-2.png)
+![Caption configuration panels for Stream 4 and Stream 5 showing source selectors and language settings.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-b-2.png)
 
 1. In the MSS output group, create five outputs. 
    + In the first output, set the Stream field in that output to Stream 1. 
@@ -95,6 +95,6 @@ For example, there are three video/audio streams – one for low-resolution vide
    + In the third output, set the Stream field in that output to Stream 3.
    + In the fourth output, set the Stream field in that output to Stream 4.
    + In the fifth output, set the Stream field in that output to Stream 5.  
-![Output streams configuration table showing five streams with name modifiers and settings.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-b-3.png)
+![Output streams configuration table showing five streams with name modifiers and settings.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/procedure-b-3.png)
 
 1. Save the job. 

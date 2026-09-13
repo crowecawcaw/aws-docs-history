@@ -28,7 +28,7 @@ The data is global – it is either included in every output and stream (even th
 # Including Data in Output
 <a name="including-data-in-output-608-xds"></a>
 + In the Global Processors section, turn on **608 Extended Data Services** and complete the fields as desired.  
-![Global Processors section with 608 Extended Data Services toggle and dropdown menus for content settings.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/appendix-a.png)
+![Global Processors section with 608 Extended Data Services toggle and dropdown menus for content settings.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/appendix-a.png)
 
 **Note**  
 No setup is required in the captions section of the output or the streams. 

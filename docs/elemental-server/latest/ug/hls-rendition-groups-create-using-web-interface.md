@@ -87,9 +87,9 @@ After these steps, you have:
 
 Here is the Output section.
 
-![Output section showing six stream configurations with name and segment modifiers.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/hls-rendition-groups-create-example-output.png)
+![Output section showing six stream configurations with name and segment modifiers.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/hls-rendition-groups-create-example-output.png)
 
 
 Here is the Streams section.
 
-![Four stream configurations showing video and audio encoding settings with codec and bitrate options.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/hls-rendition-groups-create-example-streams-1.png)![Four stream configurations showing video and audio encoding settings with codec and bitrate options.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/hls-rendition-groups-create-example-streams-2.png)
+![Four stream configurations showing video and audio encoding settings with codec and bitrate options.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/hls-rendition-groups-create-example-streams-1.png)![Four stream configurations showing video and audio encoding settings with codec and bitrate options.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/hls-rendition-groups-create-example-streams-2.png)

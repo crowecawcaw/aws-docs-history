@@ -11,7 +11,7 @@ To do this, choose the Force Color checkbox under Input > Advanced and choose th
 
 If you leave the Force Color checkbox unchecked, AWS Elemental Server ignores the value in the Color Space dropdown box and any values provided in the HDR Master Display Information (shown below).
 
-![An image of the AWS Elemental Server web interface.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/input-adv1.png)
+![An image of the AWS Elemental Server web interface.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/input-adv1.png)
 
 
 ## For HDR10 Input Only
@@ -21,4 +21,4 @@ If you select HDR10 in the Color Space dropdown box, the HDR Master Display Info
 
 If you leave Force Color unchecked, these HDR Master Display Information fields still show values, but these values are not used. AWS Elemental Server instead uses metadata values from the incoming stream. You can view these values in the media info display after the job starts.
 
-![An image of the AWS Elemental Server web interface.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/input-adv2.png)
+![An image of the AWS Elemental Server web interface.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/input-adv2.png)

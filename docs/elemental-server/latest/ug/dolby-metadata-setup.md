@@ -16,14 +16,14 @@ This section describes how to set up the project or event using the web interfac
 **Dolby Digital**  
 For Dolby Digital, encoder control fields are circled in blue and delivery fields are circled in red. Note that the LFE Filter field appears only when the Coding Mode is 3/2 mode.  
 
-![Audio encoding settings with Dolby Digital codec, bitstream mode, coding mode, bitrate, and compression options.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/dolby-metadata-setup-dolby-digital.png)
+![Audio encoding settings with Dolby Digital codec, bitstream mode, coding mode, bitrate, and compression options.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/dolby-metadata-setup-dolby-digital.png)
 
 
 **Dolby Digital Plus**  
 Encoder Control fields are circled in blue. Delivery fields are circled in red. Note that the Automatic Pass-through field does not relate to metadata.  
 Note that the Surround Mode field appears only when Coding Mode is 2/0.  
 
-![Audio encoding settings interface showing Surround FX Mode field set to Disabled.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/dolby-metadata-setup-dolby-digital-plus.png)
+![Audio encoding settings interface showing Surround FX Mode field set to Disabled.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/dolby-metadata-setup-dolby-digital-plus.png)
 
 
 **Dolby Digital Passthrough**  

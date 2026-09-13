@@ -39,7 +39,7 @@ The captions format you specify must be supported by the output container you sp
 
 The resulting output from your job is put together as shown in the following diagram.
 
-![diagram-embedded-result.png](http://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-embedded-result.png)
+![diagram-embedded-result.png](https://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-embedded-result.png)
 
 
 ## Separate Captions Object
@@ -54,7 +54,7 @@ Each captions format you specify must be supported by the output container you s
 
 The resulting output from your job is put together as shown in the following diagram. 
 
-![diagram-other-result.png](http://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-other-result.png)
+![diagram-other-result.png](https://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-other-result.png)
 
 
 ## Sidecar
@@ -69,4 +69,4 @@ Each captions format you specify must be supported by the output container you s
 
 The resulting output from your job is put together as shown in the following diagram. 
 
-![diagram-sidecar-result.png](http://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-sidecar-result.png)
+![diagram-sidecar-result.png](https://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-sidecar-result.png)

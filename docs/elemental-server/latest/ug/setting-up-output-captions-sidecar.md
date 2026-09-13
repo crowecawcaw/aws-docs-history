@@ -7,7 +7,7 @@ This is version 2.18 of the AWS Elemental Server documentation. This is the late
 
 To set up sidecar captions in an output, you create separate, captions-only streams. Each stream corresponds to one captions track. You set up a separate output to associate with each stream. On the AWS Elemental Server web interface, your outputs are structured as shown in the following diagram.
 
-![There are three outputs, one for audio and video together, and one for each output captions track.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-output-procedure-sidecar.png)
+![There are three outputs, one for audio and video together, and one for each output captions track.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-output-procedure-sidecar.png)
 
 
 **To set up sidecar format captions in an output**
@@ -25,7 +25,7 @@ To set up sidecar captions in an output, you create separate, captions-only stre
    1. In the upper right corner of the **Streams** section, choose the arrow beside the **Add Stream** button. This brings up a drop-down menu.
 **Note**  
 Do not choose the **Add Stream** button itself.  
-![screenshot-output-procedure-sidecar-1.jpg](http://docs.aws.amazon.com/elemental-server/latest/ug/images/screenshot-output-procedure-sidecar-1.jpg)
+![screenshot-output-procedure-sidecar-1.jpg](https://docs.aws.amazon.com/elemental-server/latest/ug/images/screenshot-output-procedure-sidecar-1.jpg)
 
    1. From the drop-down menu, choose **Add Captions Only Stream**.
 

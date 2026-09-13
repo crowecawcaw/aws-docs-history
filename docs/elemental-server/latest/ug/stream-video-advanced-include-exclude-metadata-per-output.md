@@ -9,4 +9,4 @@ The Insert Color Metadata checkbox is located under Advanced on the Video tab of
 
 You can include metadata in some outputs and not in others because this checkbox is in the Streams section. To exclude metadata from an output, uncheck this checkbox in the stream associated with the output.
 
-![An image of the AWS Elemental Server web interface.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/insert-color-metadata-checkbox.png)
+![An image of the AWS Elemental Server web interface.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/insert-color-metadata-checkbox.png)

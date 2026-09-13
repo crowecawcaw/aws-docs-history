@@ -148,16 +148,16 @@ Therefore, if you know that input contains splice inserts (not time signals), yo
 + Go down to the Global Processors section and complete the following fields:
   + **Ad Avail Blanking**: Click to turn on. The **Blanking Image** field appears.
   + **Blanking Image**: Specify a `.bmp` or `.png` file to use for the blanking. If you leave this field blank, a plain black image is inserted.  
-![The file images/ad-avail-blanking-image.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/ad-avail-blanking-image.png)
+![The file images/ad-avail-blanking-image.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/ad-avail-blanking-image.png)
 
 ## Procedure to Enable Blackout
 <a name="procedure-to-enable-blackout"></a>
 + In the Profile or Event screen, go down to the Global Processors section and complete the following fields:
   + **Blackout Image Insertion**: Click to turn on. The **Blanking Image** field appears.
   + **Blanking Image**: Specify a `.bmp` or `.png` file to use for the blanking. If you leave this field blank, a plain black image is inserted.  
-![The file images/blackout-blanking-image.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/blackout-blanking-image.png)
+![The file images/blackout-blanking-image.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/blackout-blanking-image.png)
 + If you want to enable network end blackout (in other words, blank content when network transmission has ended and remove blanking only when network transmission resumes), follow these instructions:
   + **Enable Network End Blackout**: Selected.
   + **Network ID**: The EIDR ID of the network in the format 10.nnnn/xxxx-xxxx-xxxx-xxxx-xxxx-c (case insensitive). Only network end events with this ID trigger blackout. 
   + **Network End Blackout Image**: Specify a `.bmp` or `.png` file to use for the blanking. If you leave this field blank, a plain black image is inserted.  
-![The file images/network-end-blackout-blanking-image.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/network-end-blackout-blanking-image.png)
+![The file images/network-end-blackout-blanking-image.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/network-end-blackout-blanking-image.png)

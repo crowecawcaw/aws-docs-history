@@ -56,7 +56,7 @@ AWS Elemental Server manages audio at the channel level with input and output ma
 
 You can provide multiple input files, which AWS Elemental Server combines, one after the other, into a single output file. In the following figure, the two inputs are combined into a single output file that starts with Input 1 and ends with Input 2. 
 
-![Multiple input files, one output](http://docs.aws.amazon.com/elemental-server/latest/ug/images/multiple-inputs.png)
+![Multiple input files, one output](https://docs.aws.amazon.com/elemental-server/latest/ug/images/multiple-inputs.png)
 
 
 #### Reordering Audio Channels, Uniform Input - Output Mapping
@@ -66,7 +66,7 @@ In versions 2.5 and later of AWS Elemental Server, you can map audio with multip
 
 In the following figure, notice the colored bars, which represent channels. Each input file has the same three audio channels in the same position (channel 1, channel 2, and channel 3). The audio on each channel is mapped to a different position in the output: channel 1 on the input becomes channel 2 on the output; channel 2 on the input becomes channel 1 on the output, and channel 3 on the input remains channel 3 on the output.
 
-![Output mapping—moving channels to different positions, input is uniform](http://docs.aws.amazon.com/elemental-server/latest/ug/images/multiple-inputs-3color.png)
+![Output mapping—moving channels to different positions, input is uniform](https://docs.aws.amazon.com/elemental-server/latest/ug/images/multiple-inputs-3color.png)
 
 
 #### Reordering Audio Channels, Different Inputs - Input Mapping
@@ -76,12 +76,12 @@ In version 2.11 and later, you can also map audio with multiple inputs that have
 
 In the following figure, the red channel (channel 1 on Input1 and channel 3 on Input2) is mapped to channel 2 on the output. The yellow channel (channel 2 on Input1 and Input2) is mapped to channel 1 on the output. The blue channel (channel 3 on Input1 and channel 1 on Input 2) is mapped to channel 3 on the output.
 
-![Input mapping—input channels in different order](http://docs.aws.amazon.com/elemental-server/latest/ug/images/multiple-inputs-3color-mixed.png)
+![Input mapping—input channels in different order](https://docs.aws.amazon.com/elemental-server/latest/ug/images/multiple-inputs-3color-mixed.png)
 
 
 You can also use input mapping to exclude a channel from a track. In the following figure, the red channel is present in Input1 but not Input2. For this, you use input mapping matrices, to exclude the red channel from Input1 and to reorder the channels in Input2.
 
-![Input mapping—different numbers of channels on each input](http://docs.aws.amazon.com/elemental-server/latest/ug/images/multiple-inputs-3color-mixed.png)
+![Input mapping—different numbers of channels on each input](https://docs.aws.amazon.com/elemental-server/latest/ug/images/multiple-inputs-3color-mixed.png)
 
 
 For conceptual descriptions of these options, see [Audio Mapping Workflow Examples](#audio-mapping-workflow-examples). For detailed steps to create the mappings using the web interface, see [Audio Mapping Procedures](#audio-mapping-procedures).
@@ -93,7 +93,7 @@ Before you set up your audio mapping, plan for it. Know what type of audio you h
 
 The following figure shows a plan for a mapping with two inputs and two outputs. Of the two inputs, each with two tracks—one containing a stereo pair and one containing 5.1 audio. Each input has the same audio, but in different tracks. Of the two outputs, one has one track containing the stereo pair and the other has one track containing 5.1 audio. Make a similar plan for your own audio inputs and outputs before you begin working with mapping matrices.
 
-![Mapping plan example](http://docs.aws.amazon.com/elemental-server/latest/ug/images/prereq-plan.png)
+![Mapping plan example](https://docs.aws.amazon.com/elemental-server/latest/ug/images/prereq-plan.png)
 
 
 #### Feature Limitations
@@ -122,7 +122,7 @@ For example, suppose that, in both inputs, you have eight channels coming in on 
 
 In the mappings, the eight input channels are represented by eight matrix rows and the two output channels are represented by two matrix columns. Notice the yellow bars in the figure below illustrating the relationship between matrix columns and output channels. There are no checkmarks in rows 1 through 6, so the audio on those input channels is ignored and is not used in the output. Row 7 has a checkmark in column 1, so input audio channel 7 is mapped to output audio channel 1. Row 8 has a checkmark in column 2, so input audio channel 8 is mapped to output audio channel 2. 
 
-![Identical input audio channels, one output](http://docs.aws.amazon.com/elemental-server/latest/ug/images/ex1.png)
+![Identical input audio channels, one output](https://docs.aws.amazon.com/elemental-server/latest/ug/images/ex1.png)
 
 
 ### Workflow Example - Identical Input Audio Channels, Two Outputs
@@ -138,7 +138,7 @@ For example, say that, in both inputs, you have eight channels coming in on audi
 
 To do this, use two output mapping matrices as shown in the following figure. The mapping matrix for Output1 works exactly as in the example above, with input channels 7 and 8 mapping to output channels 1 and 2, respectively. In the mapping matrix for Output2, eight input channels are represented by eight matrix rows; six output channels are represented by six matrix columns. Input channel 1 maps to output channel 1, Input2 maps to Output2, and so on, through channel 6. Matrix rows 7 and 8 do not have checkmarks, so the audio in these input channels is ignored and does not appear in the output. 
 
-![Identical input audio channels, two outputs](http://docs.aws.amazon.com/elemental-server/latest/ug/images/ex2.png)
+![Identical input audio channels, two outputs](https://docs.aws.amazon.com/elemental-server/latest/ug/images/ex2.png)
 
 
 ### Workflow Example - Inputs Have Audio Channels in Different Order
@@ -156,14 +156,14 @@ Create a mapping matrix for the second input so that its channels appear in the 
 
 In the following figure, notice the yellow bars indicating the relationship between the columns of the input mapping matrix and the channels of the input after mapping. 
 
-![Inputs have audio channels in different order, two outputs - input mapping matrix.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/ex3a.png)
+![Inputs have audio channels in different order, two outputs - input mapping matrix.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/ex3a.png)
 
 
 After you have correctly remapped Input2, set up your output matrices as in [Workflow Example - Identical Input Audio Channels, Two Outputs](#workflow-ex-same-input-audio-chs-two-outputs). Output1 takes channels 7 and 8 from both Input1 and Input2 and Output2 takes channels 1 through 6 from both Input1and Input2.
 
 The “output” (columns) of the input mapping matrix becomes the “input” (rows) of the output mapping matrix. 
 
-![Inputs have audio channels in different order, two outputs - output mapping matrices.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/ex3b.png)
+![Inputs have audio channels in different order, two outputs - output mapping matrices.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/ex3b.png)
 
 
 ### Workflow Example - Inputs Have a Different Number of Channels
@@ -177,7 +177,7 @@ Specify an output matrix in order to select only the desired channels from the i
 
 For example, suppose that, in one input, you have eight channels coming in on audio track 1. Channels 1 and 2 form a stereo pair and channels 3-8 contain 5.1 audio. In the second input, channels 1 and 2 form a stereo pair. You want one output with a single track that contains a stereo pair. You would use the mapping shown in the following figure. 
 
-![Inputs have a different number of channels](http://docs.aws.amazon.com/elemental-server/latest/ug/images/ex4.png)
+![Inputs have a different number of channels](https://docs.aws.amazon.com/elemental-server/latest/ug/images/ex4.png)
 
 
 ### When to Use Mapping Matrices
@@ -233,7 +233,7 @@ The following requirements apply to all input matrices:
 #### Input Matrix Procedure - Inputs Section
 <a name="input-matrix-procedure-inputs-section"></a>
 
-![Input matrix procedure - first screen](http://docs.aws.amazon.com/elemental-server/latest/ug/images/input-matrix-a.png)
+![Input matrix procedure - first screen](https://docs.aws.amazon.com/elemental-server/latest/ug/images/input-matrix-a.png)
 
 
 
@@ -242,7 +242,7 @@ The following requirements apply to all input matrices:
 | 1 | If the Advanced section of the Input is collapsed, click Advanced to open it. | 
 | 2 | Click the Input Remix Controls to access the input Channel Mapping matrix. | 
 
-![Input matrix procedure - second screen](http://docs.aws.amazon.com/elemental-server/latest/ug/images/input-matrix-b.png)
+![Input matrix procedure - second screen](https://docs.aws.amazon.com/elemental-server/latest/ug/images/input-matrix-b.png)
 
 
 
@@ -273,7 +273,7 @@ In output mapping matrices, rows are labeled starting at 1 and columns are label
 
 The following screenshot and UI element descriptions describe what to do to fill in an output matrix. 
 
-![Output matrix procedure - streams section](http://docs.aws.amazon.com/elemental-server/latest/ug/images/output-manual-audio-remix-new-ui.png)
+![Output matrix procedure - streams section](https://docs.aws.amazon.com/elemental-server/latest/ug/images/output-manual-audio-remix-new-ui.png)
 
 
 

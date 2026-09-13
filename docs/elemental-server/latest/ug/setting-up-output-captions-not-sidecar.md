@@ -7,7 +7,7 @@ This is version 2.18 of the AWS Elemental Server documentation. This is the late
 
 To set up output captions in any format other than sidecar, you add captions tabs to the stream that also contains the video and audio. You associate the one stream with one output. On the AWS Elemental Server web interface, your outputs are structured as shown in the following diagram. Depending on the output captions format, AWS Elemental Server creates the captions differently in the outputs. For more information about the job output results for different captions formats, see [About Captions Handling in Outputs](caption-handling.md).
 
-![There is one output that has video, audio, and captions tracks all together. diagram-output-procedure-not-sidecar.png](http://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-output-procedure-not-sidecar.png)
+![There is one output that has video, audio, and captions tracks all together. diagram-output-procedure-not-sidecar.png](https://docs.aws.amazon.com/elemental-server/latest/ug/images/diagram-output-procedure-not-sidecar.png)
 
 
 **To set up captions in an output, all caption formats except sidecar**
@@ -19,10 +19,10 @@ To set up output captions in any format other than sidecar, you add captions tab
    If you have not already set up the video and audio for the outputs in this output group, set them up first,before you set up the captions. 
 
 1. Find the stream associated with the output. You can see the stream name in the value for **Stream** in the output.  
-![screenshot-output-procedure-not-sidecar-1.jpg](http://docs.aws.amazon.com/elemental-server/latest/ug/images/screenshot-output-procedure-not-sidecar-1.jpg)
+![screenshot-output-procedure-not-sidecar-1.jpg](https://docs.aws.amazon.com/elemental-server/latest/ug/images/screenshot-output-procedure-not-sidecar-1.jpg)
 
 1. Choose **Caption \+**.  
-![screenshot-output-procedure-not-sidecar-2.jpg](http://docs.aws.amazon.com/elemental-server/latest/ug/images/screenshot-output-procedure-not-sidecar-2.jpg)
+![screenshot-output-procedure-not-sidecar-2.jpg](https://docs.aws.amazon.com/elemental-server/latest/ug/images/screenshot-output-procedure-not-sidecar-2.jpg)
 
 1. Specify values for the captions track settings as described in the table following this procedure.
 

@@ -35,7 +35,7 @@ For example, you may specify a CPL from a localized version file (VF) of an asse
 
 The user would select the VF CPL as the file input, then add the `ASSETMAP.xml` of the OV IMP as a supplemental IMP after choosing **Add IMF Asset**.
 
-![An image of the AWS Elemental Server web interface, showing the field where you specify the path to any supplemental IMPs.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/add-imf-asset.png)
+![An image of the AWS Elemental Server web interface, showing the field where you specify the path to any supplemental IMPs.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/add-imf-asset.png)
 
 
 **Selecting audio tracks**  
@@ -45,7 +45,7 @@ The first audio track that occurs in the CPL (reading top to bottom) is audio th
 
 The default selection is the first track as it occurs in the CPL. 
 
-![An image of the AWS Elemental Server web interface, showing a comma-separated list of track numbers for the Track field.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/imf-audio-selector.png)
+![An image of the AWS Elemental Server web interface, showing a comma-separated list of track numbers for the Track field.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/imf-audio-selector.png)
 
 
 **Selecting subtitle tracks**  
@@ -53,4 +53,4 @@ Similar to audio track selection, subtitle tracks are specified by track ID (whi
 
 To select the first subtitle track, click **Add Caption Selector**, change the source to IMSC, and change the track number to 1.
 
-![An image of the AWS Elemental Server web interface, showing the caption selector.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/imf-add-caption.png)
+![An image of the AWS Elemental Server web interface, showing the caption selector.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/imf-add-caption.png)

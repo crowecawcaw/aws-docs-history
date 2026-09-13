@@ -17,7 +17,7 @@ When you choose QVBR, the encoder determines the right number of bits to use for
 
 The following graph illustrates how the varying bit rate modes (QVBR and VBR) save unnecessary bits and provide better quality compared to CBR. The graph shows QVBR versus CBR, but the same principle applies to VBR:
 
-![This chart shows a comparison of bitrate over time for constant versus variable bitrate rate control modes. The line for CBR is nearly flat because the bitrate barely changes over time. The line for QVBR jumps far above it in places where the video is encoded with enough data to show good quality for complex video. The QVBR line drops far below the CBR line in places where little data is needed for good quality.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/rate-ctl-mode-chart.png)
+![This chart shows a comparison of bitrate over time for constant versus variable bitrate rate control modes. The line for CBR is nearly flat because the bitrate barely changes over time. The line for QVBR jumps far above it in places where the video is encoded with enough data to show good quality for complex video. The QVBR line drops far below the CBR line in places where little data is needed for good quality.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/rate-ctl-mode-chart.png)
 
 
 In the parts of the graph where the QVBR line is above the CBR line, as in the part labeled Area 1, the CBR capped bit rate limits video quality below that of other scenes, so QVBR gives you more consistent quality. In the parts where the QVBR line drops below the CBR line, as in the part labeled Area 2, a low bitrate is sufficient for the same video quality, so QVBR saves bits and provides the opportunity for cost savings in storage and distribution through your content delivery network (CDN).
@@ -53,4 +53,4 @@ The best value for an output depends on how the output will be viewed. In genera
 
 The following graph shows how changing the quality level affects the bit rate that the encoder uses for different parts of the video. While the lines for both level 7 and level 9 spike and drop in the same places, the encoder uses more bits total when the quality is set higher:
 
-![Both lines vary over time. The line that shows QVBR level 7 is shifted below the line for QVBR level 9.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/rate-ctl-mode-chart2.png)
+![Both lines vary over time. The line that shows QVBR level 7 is shifted below the line for QVBR level 9.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/rate-ctl-mode-chart2.png)

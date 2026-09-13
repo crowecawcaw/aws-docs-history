@@ -7,7 +7,7 @@ This is version 2.18 of the AWS Elemental Server documentation. This is the late
 
 Use the following flowchart to determine which fields in the job or profile you need to adjust to get the HDR functionality that you need. Then find detailed instructions and screenshots in the sections that follow.
 
-![A logic flowchart showing settings dependencies.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/strip-out-color-space-metadata.png)
+![A logic flowchart showing settings dependencies.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/strip-out-color-space-metadata.png)
 
 
-![A logic flowchart showing settings dependencies.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/add-color-space-metadata.png)
+![A logic flowchart showing settings dependencies.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/add-color-space-metadata.png)

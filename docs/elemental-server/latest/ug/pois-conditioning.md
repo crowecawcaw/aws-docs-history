@@ -52,10 +52,10 @@ The effect of POIS conditioning on blanking and blackout is as follows:
 <a name="procedure-to-enable-pois-conditioning"></a>
 
 1. In the Profile or Job screen, click Advanced Avail Controls (in the Input section towards the top of the screen):   
-![The file images/advanced-avail-controls.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/advanced-avail-controls.png)
+![The file images/advanced-avail-controls.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/advanced-avail-controls.png)
 
 1.  In Ad Avail Trigger, choose ESAM. More fields appear.   
-![The file images/profile-esam.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/profile-esam.png)
+![The file images/profile-esam.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/profile-esam.png)
 
 1. Complete the fields as follows: 
 

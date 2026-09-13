@@ -19,7 +19,7 @@ You do not have to read this section if you *are* doing Blackout image insertion
 You must set the Ad Avail mode. The Ad Avail mode applies to all outputs: it cannot be set differently for individual outputs.
 
 1. In the Profile or job screen, click Advanced Avail Controls (in the Input section towards the top of the screen):  
-![The file images/advanced-avail-controls.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/advanced-avail-controls.png)
+![The file images/advanced-avail-controls.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/advanced-avail-controls.png)
 
 1. In Ad Avail Trigger, choose the desired mode. This mode identifies which of all possible “ad avail” events are actually to be treated as “ad avails.” This distinction comes into play in manifest decoration and ad avail blanking. For more information, see [Manifest Decoration](manifest-decoration.md) and [Ad Avail Blanking and Blackout](ad-avail-blanking-and-blackout.md). 
 

@@ -44,7 +44,7 @@ If you want this default behavior in all of your outputs, you can submit your jo
 
 The job or profile includes a **Timecode Configuration **field that identifies the source for time code stamps to be inserted in the output. The source for these stamps may be a timecode embedded in the input or may be a source external to the input (for example, the system clock or a specified time). 
 
-![The file images/timecode-config.png.](http://docs.aws.amazon.com/elemental-server/latest/ug/images/timecode-config.png)
+![The file images/timecode-config.png.](https://docs.aws.amazon.com/elemental-server/latest/ug/images/timecode-config.png)
 
 
 Before starting the transcode, the transcoder gets the timecode from the source.
