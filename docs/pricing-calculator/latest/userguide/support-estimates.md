@@ -17,7 +17,7 @@ You can add Support costs to your estimates using the AWS Pricing Calculator. Yo
 1. Add a service to your estimate. For more information, see [Create an estimate](create-configure-estimate.md#create-estimate)
 
 1. In your **My Estimate** page, choose **Add support**.  
-![Choose the Add support button](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/add-support.png)
+![Choose the Add support button](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/add-support.png)
 
 1. (Optional) Enter a description for your support plan estimate.
 
@@ -30,7 +30,7 @@ Some of the Support recommendation options might not be available. This depends 
 1. Choose a **Support recommendation** option.
 
 1. If you chose a **Business support plan** or **Enterprise support plan**, choose the range of how much your business or enterprise spends on average for AWS services each month.  
-![Select a support plan](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/support-plans.png)
+![Select a support plan](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/support-plans.png)
 
 1. (Optional) Choose **Show calculations** to review the calculations behind the estimates.
 

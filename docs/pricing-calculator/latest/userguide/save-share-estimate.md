@@ -48,14 +48,14 @@ The total cost of your previously saved estimates can become out of date over ti
 1. Open your saved estimate in AWS Pricing Calculator. To do this, copy your unique link into your browser's navigation bar.
 
 1. In the banner that shows when your estimate was last updated, choose **Update estimate**.  
-![Choose Update estimate](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/update-estimate-banner.png)
+![Choose Update estimate](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/update-estimate-banner.png)
 
 1. In the **My Estimate** section, check the **Status** column for updates. There are four types of status values:
    + **Required inputs** — an update was made to a service within the estimate. This means that your current estimate is out of date and requires action. If you have services with a **Required inputs** status, skip to step 4.
    + **Cost updated** — a pricing model or a cost calculation change occurred to a service that impacts your estimate total. No action is required because Pricing Calculator automatically updates your estimate with these changes.
    + **Read-only** — an update was made to a service within the estimate. However, direct updates to that service estimate isn't supported. To view an up-to-date estimate that contains the latest service changes, re-create the service estimate. For more information about how to create a new estimate, see [ Creating an estimate link](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/save-share-estimate.html#create-estimate-link).
    + **Check for updates** — an update was made to a service within a group. Your current estimate is out of date and requires action. If you have groups with a **Check for updates** status, select the group name to view the service impacted. Then, skip to step 4.  
-![Choose the Group button](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/choose-group.png)
+![Choose the Group button](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/choose-group.png)
 
 1. If you have services with a **Required inputs** status or you want to modify a specific service, select the edit icon beside the service name.
 

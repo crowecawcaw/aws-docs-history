@@ -19,7 +19,7 @@ AWS Pricing Calculator allows you to generate detailed estimates for your projec
 1. Open AWS Pricing Calculator at [https://calculator.aws/\#/](https://calculator.aws/#/).
 
 1. Choose **Create estimate**.  
-![Choose Create an estimate](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/create-estimate.png)
+![Choose Create an estimate](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/create-estimate.png)
 
 1. On the **Add service** page, find the service that you want. Then, choose **Configure**. For more information, see [Configure a service](#configure-service).
 
@@ -43,7 +43,7 @@ This section shows how to configure a service you're creating an estimate for. I
 1. Open the **Add service** page at [https://calculator.aws/\#/addService](https://calculator.aws/#/addService) .
 
 1. Enter **Amazon EC2** in the search bar and choose **Configure**.  
-![Configure Amazon EC2](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/ec2-configure.png)
+![Configure Amazon EC2](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/ec2-configure.png)
 
 1. In the **Description** field, enter a description for your estimate.
 
@@ -52,7 +52,7 @@ This section shows how to configure a service you're creating an estimate for. I
 1. In the EC2 specifications section, update the parameters based on your use case requirements.
 
 1. At this stage you can view the total upfront and monthly costs. These costs are based on the current EC2 parameters you selected.  
-![Total upfront and monthly costs](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/upfront-monthly-costs.png)
+![Total upfront and monthly costs](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/upfront-monthly-costs.png)
 
 1. (Optional) Choose **Show calculations** to view the breakeven analysis and utilization summary of your estimate.
 
@@ -72,7 +72,7 @@ You can add more services to your estimate based on your use case requirements. 
 1. Open the **My estimate** page at [https://calculator.aws/\#/estimate](https://calculator.aws/#/estimate) .
 
 1. Choose **Add Service**.  
-![Add services to your estimate](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/add-service.png)
+![Add services to your estimate](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/add-service.png)
 
 1. Search for a service and choose **Configure**.
 
@@ -90,6 +90,6 @@ You can edit the inputs for a service added to your estimate.<a name="update-inp
 1. Open the **My Estimate** page at [https://calculator.aws/\#/estimate](https://calculator.aws/#/estimate) .
 
 1. In the **My Estimate** section, locate the service you want to update. Then, choose the **Edit** icon.  
-![Choose the Edit icon button](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/edit-inputs.png)
+![Choose the Edit icon button](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/edit-inputs.png)
 
 1. Edit your service inputs. Then, choose **Save** to return to your **My Estimate** page.

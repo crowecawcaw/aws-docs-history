@@ -23,7 +23,7 @@ Use groups to organize services together. You can add one or more services to ea
 1. Open the **My estimate** page at [https://calculator.aws/\#/estimate](https://calculator.aws/#/estimate) .
 
 1. Choose **Create group**.  
-![Choose the Create a group button](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/create-group.png)
+![Choose the Create a group button](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/create-group.png)
 
 1. In the prompt that appears, enter a group name.
 
@@ -41,7 +41,7 @@ You can move your groups and services to organize your estimate. All sub-groups 
 1. Select the check box of the groups and services you want to move.
 
 1. Choose **Move to**.  
-![Choose the Move to button](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/move-group.png)
+![Choose the Move to button](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/move-group.png)
 
 1. Choose the destination group from the dropdown.
 

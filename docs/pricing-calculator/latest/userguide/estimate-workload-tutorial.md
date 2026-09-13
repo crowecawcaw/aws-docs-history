@@ -46,7 +46,7 @@ In this section, you can specify your license details to determine your cost-opt
 
    You will notice that the recommended tenancy options are **Shared** and **Dedicated Hosts**. You can use the [Amazon EC2 Dedicated Hosts calculator](https://calculator.aws/#/EC2DedicatedHosts) to estimate Dedicated Host tenancy.
 
-![Licensing and tenancy recommendation with Amazon EC2 shared tenancy selected](http://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/t2_licensing_options_win_byol_sql.png)
+![Licensing and tenancy recommendation with Amazon EC2 shared tenancy selected](https://docs.aws.amazon.com/pricing-calculator/latest/userguide/images/t2_licensing_options_win_byol_sql.png)
 
 
 ### Step 3: Configure your machine specifications
