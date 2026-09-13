@@ -5,7 +5,7 @@
 
 You can review your workload in the console on the Review workload page. This page provides best practices and helpful resources for your workload's performance.
 
-![The Review workload page showing a question and best practices.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/gs-qacallouts-console.png)
+![The Review workload page showing a question and best practices.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/gs-qacallouts-console.png)
 
 
 1. To open the Review workload page, from the workload details page, choose **Continue reviewing**. The left navigation pane shows the questions for each pillar. Questions that you have answered are marked **Done**. The number of questions answered in each pillar is shown next to the pillar name.

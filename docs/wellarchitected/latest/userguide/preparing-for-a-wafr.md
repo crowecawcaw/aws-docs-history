@@ -22,7 +22,7 @@
 
  *Mechanisms* replace human best efforts with repeatable, scalable processes and tools, which are often automated, to achieve a desired outcome. A mechanism is a complete cycle where you create a tool or a process, drive its adoption, and inspect the results to make course corrections. This cycle takes controllable inputs and transforms them into ongoing outputs to address a recurring business challenge. 
 
-![Mechanisms flywheel](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/mechanism-flywheel.png)
+![Mechanisms flywheel](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/mechanism-flywheel.png)
 
 
  The cyclic nature of a mechanism makes it best suited for solving recurring problems or opportunities. The WAFR is a mechanism with a tool, an adoption process, and an inspection process that all operate in a complete cycle. 

@@ -67,7 +67,7 @@ For each question, choose the best practices that you are following from the lis
 
 Choose **Ask an expert** to access the AWS re:Post community dedicated to [AWS Well-Architected](https://repost.aws/topics/TA5g9gZfzuQoWLsZ3wxihrgw/well-architected-framework?trk=1053da05-d131-4bfd-8d08-01af135ae52a&sc_channel=el). In this community, you can ask questions related to designing, building, deploying, and operating workloads on AWS.
 
-![Picture showing the question and answer portion of a workload review.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/tut-qascreen-console.png)
+![Picture showing the question and answer portion of a workload review.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/tut-qascreen-console.png)
 
 
 1. Choose **Next** to proceed to the next question. You can use the left panel to navigate to a different question in the same pillar or to a question in a different pillar.
@@ -75,7 +75,7 @@ Choose **Ask an expert** to access the AWS re:Post community dedicated to [AWS W
 1. If you choose **Question does not apply to this workload** or **None of these**, AWS recommends that you include the reason in the **Notes** box. These notes are included as part of the workload report and can be helpful in the future as changes are made to the workload.
 **Note**  
 Optionally, you can mark one or more individual best practices as not applicable. Choose **Mark best practice(s) that don't apply to this workload** and select the best practice that does not apply. You can optionally select a reason and provide additional details. Repeat for each best practice that does not apply.  
-![Picture showing marking a best practice as not applicable.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/tut-nachoices-console.png)
+![Picture showing marking a best practice as not applicable.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/tut-nachoices-console.png)
 **Note**  
 You can pause this process at any time by choosing **Save and exit**.To resume later, open the AWS WA Tool console and choose **Workloads** in the left navigation pane.
 
@@ -112,7 +112,7 @@ To review the improvement plan:
 
 For this particular example workload, three high risk issues and one medium risk issue were identified by the AWS Well-Architected Framework Lens.
 
-![Picture showing the first part of the improvement plan.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/tut-imprplanstatus-console.png)
+![Picture showing the first part of the improvement plan.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/tut-imprplanstatus-console.png)
 
 
 Update the **Improvement status** for the workload to indicate that improvements to the workload have not been started. 
@@ -124,7 +124,7 @@ To change the **Improvement status**:
 1. Click on the **Properties** tab.
 
 1. Navigate to the **Workload status** section and select **Not Started** from the dropdown list.  
-![Picture showing workload status dropdown.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/tut-wlstatus-console.png)
+![Picture showing workload status dropdown.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/tut-wlstatus-console.png)
 
 1. Navigate back to the Improvement plan from the **Properties** tab by clicking on the **Overview** tab and then clicking on the **AWS Well-Architected Framework** link in the **Lenses** section. Then click on the **Improvement plan** tab at the top of the page.
 
@@ -147,7 +147,7 @@ From the **Improvement items** section:
 
 1. After making changes, you can return to the **Improvement plan** and see the effect those changes had on the workload. In this example, those actions have improved the risk profile — reducing the number of high risk issues from three to only one.
 
-![Picture showing better risk scores after improvements.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/suc-improved-console.png)
+![Picture showing better risk scores after improvements.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/suc-improved-console.png)
 
 
 You can save a milestone at this point, and then go to **Milestones** to see how the workload has improved.

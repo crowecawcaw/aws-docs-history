@@ -47,7 +47,7 @@ The owners of associated accounts for workloads that have activated Trusted Advi
    ```
 
 ------  
-![Screenshot of the Custom trust policy in the IAM console.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/custom-trust-policy.png)
+![Screenshot of the Custom trust policy in the IAM console.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/custom-trust-policy.png)
 **Note**  
 The `aws:sourceArn` in the condition block of the preceeding custom trust policy is `"arn:aws:wellarchitected:*:{{WORKLOAD_OWNER_ACCOUNT_ID}}:workload/*"`, which is a generic condition stating this role can be used by AWS WA Tool for all of the workload owner's workloads. However, access can be narrowed to a specific workload ARN, or set of workload ARNs. To specify multiple ARNs, see the following example trust policy.  
 

@@ -12,7 +12,7 @@
 
  One approach that can help you visualize solutions priority is the [Eisenhower-style plot](https://www.eisenhower.me/eisenhower-matrix/). There are different ways to use the tool. When evaluating, consider both the importance of the improvement (how much value it brings to your business) and the effort to implement the improvement (time required, complexity to implement, or headcount). 
 
-![Eisenhower plot](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/eisenhower.png)
+![Eisenhower plot](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/eisenhower.png)
 
 
  The output of this analysis provides a set of risks that have the most impact on your business but are not too complex to implement. These are good candidates to start implementing in the first iteration. 

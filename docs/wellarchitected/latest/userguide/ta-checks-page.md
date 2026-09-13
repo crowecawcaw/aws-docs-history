@@ -5,12 +5,12 @@
 
 If Trusted Advisor is activated for your workload, a **Trusted Advisor checks** tab is displayed next to **Question**. If there are any checks available for the best practice, a notification that there are Trusted Advisor checks available is displayed following the question selection. Selecting **View checks** takes you to the **Trusted Advisor checks** tab. 
 
-![Screenshot of the Trusted Advisor checks available notification on the Question page.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/documenting-workload-ta-checks-available-view-checks.png)
+![Screenshot of the Trusted Advisor checks available notification on the Question page.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/documenting-workload-ta-checks-available-view-checks.png)
 
 
 On the **Trusted Advisor checks** tab, you can view more detailed information about the best practice checks from Trusted Advisor, view links to the Trusted Advisor documentation in the **Help resources** pane, or **Download check details**, which provides a report of the Trusted Advisor checks and statuses for each best practice in a CSV file.
 
-![Screenshot of the Trusted Advisor checks page.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/documenting-workload-ta-checks-page.png)
+![Screenshot of the Trusted Advisor checks page.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/documenting-workload-ta-checks-page.png)
 
 
 The check categories from Trusted Advisor are displayed as colored icons, and the number next to each icon shows the number of accounts in that status.

@@ -12,7 +12,7 @@ You can optionally integrate AWS Trusted Advisor and activate it on a per-worklo
 1. Enter an account ID used by Trusted Advisor in the **Account IDs** field, select an application ARN in the **Application** field, or both to activate Trusted Advisor. 
 
 1. In the **AWS Trusted Advisor** section, select **Activate Trusted Advisor**.  
-![Screenshot of the Activate Trusted Advisor section when defining a workload.](http://docs.aws.amazon.com/wellarchitected/latest/userguide/images/defining-workload-activate-ta-support.png)
+![Screenshot of the Activate Trusted Advisor section when defining a workload.](https://docs.aws.amazon.com/wellarchitected/latest/userguide/images/defining-workload-activate-ta-support.png)
 
 1. A notification that the **IAM service role will be created** displays the first time Trusted Advisor is activated for a workload. Choosing **View permissions** displays the IAM role permissions. You can view the **Role name**, as well as the **Permissions** and **Trust relationships** JSON automatically created for you in IAM. After the role is created, for subsequent workloads activating** Trusted Advisor**, only the notification for **Additional setup needed** is shown. 
 
