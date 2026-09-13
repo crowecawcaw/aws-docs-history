@@ -5,7 +5,7 @@
 
 This section depicts a typical machine learning lifecycle and data flow.
 
-![Diagram of the machine learning lifecycle.](http://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/machine-learning-lifecycle.png)
+![Diagram of the machine learning lifecycle.](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/machine-learning-lifecycle.png)
 
 
 The following steps detail the end-to-end data flow for machine learning:

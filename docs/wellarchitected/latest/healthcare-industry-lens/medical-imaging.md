@@ -15,7 +15,7 @@
 +  Data processing, provider workflows, and end user interfaces may leverage AI to improve care quality and boost productivity. Example applications include computer vision applied to detect disease in medical images, and NLP applied to support report authoring. 
 +  A high-level overview of the medical imaging workflow is shown in figure 3. 
 
-![Diagram showing the medical imaging workflow.](http://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/medical-imaging-workflow.png)
+![Diagram showing the medical imaging workflow.](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/medical-imaging-workflow.png)
 
 
  

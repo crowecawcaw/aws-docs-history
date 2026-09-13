@@ -14,7 +14,7 @@
 
  An HL7 v2 interoperability architecture may leverage the HL7 v2 APIs of a source system, like an EHR. To provide end-to-end encryption between the source system and target system, it’s a best practice to use a VPN tunnel or secure protocols like SSH File Transfer Protocol (SFTP), as MLLP may not provide TLS. The source system may asynchronously send batches of messages to an encrypted Amazon S3 bucket, or may synchronously exchange messages with a target integration service, as shown in the following figure. 
 
-![An image that shows a common HL7v2 interoperability architecture that synchronously exchanges messages with a target integration service.](http://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/hl7v2-interoperability-architecture.png)
+![An image that shows a common HL7v2 interoperability architecture that synchronously exchanges messages with a target integration service.](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/hl7v2-interoperability-architecture.png)
 
 
 ## HL7 v3
@@ -27,7 +27,7 @@
 
  The following diagram illustrates a representative FHIR interoperability architecture, which presents an integration point in front of one or more systems of record, typically within a provider or payer organization. 
 
-![Diagram of a representative FHIR interoperability architecture.](http://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/fhir-interoperability-architecture.png)
+![Diagram of a representative FHIR interoperability architecture.](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/fhir-interoperability-architecture.png)
 
 
  

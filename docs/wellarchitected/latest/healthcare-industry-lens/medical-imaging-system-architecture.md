@@ -5,7 +5,7 @@
 
  This section describes key aspects of medical imaging systems, such as PACS and VNA solutions. 
 
-![Diagram of a cloud-based medical imaging system architecture.](http://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/cloud-based-medical-imaging-system.png)
+![Diagram of a cloud-based medical imaging system architecture.](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/images/cloud-based-medical-imaging-system.png)
 
 
  
