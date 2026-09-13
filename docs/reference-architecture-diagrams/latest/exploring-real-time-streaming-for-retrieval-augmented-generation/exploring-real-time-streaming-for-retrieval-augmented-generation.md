@@ -10,7 +10,7 @@ This architecture demonstrates the integration of streaming data services on AWS
 ## Exploring Real-Time Streaming for Retrieval Augmented Generation in GenerativeAI
 <a name="diagram1"></a>
 
-![Reference architecture diagram that demonstrates the integration of streaming data services on AWS with Retrieval Augmented Generation(RAG) in Generative AI applications.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/exploring-real-time-streaming-for-retrieval-augmented-generation/images/exploring-real-time-streaming-for-retrieval-augmented-generation.png)
+![Reference architecture diagram that demonstrates the integration of streaming data services on AWS with Retrieval Augmented Generation(RAG) in Generative AI applications.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/exploring-real-time-streaming-for-retrieval-augmented-generation/images/exploring-real-time-streaming-for-retrieval-augmented-generation.png)
 
 
 1. Data sources for change data capture(CDC) includes on-premise or AWS databases such as Oracle, SQL Server, MySQL, PostgreSQL, **Amazon Aurora **, and **Amazon RDS**, all funneling data into your Retrieval Augmented Generation(RAG) model.
