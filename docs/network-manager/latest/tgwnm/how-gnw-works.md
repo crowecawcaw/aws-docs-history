@@ -33,7 +33,7 @@ If you delete a transit gateway, it's automatically deregistered from your globa
 
 You can create a global network that includes transit gateways in multiple AWS Regions and accounts. This enables you to monitor the global health of your AWS network. In the following diagram, the global network includes a transit gateway in the `us-east-2` Region from Account A and a transit gateway in the `us-west-2` Region from Account B. Each transit gateway has VPC and VPN attachments. You can use the Network Manager console to view and monitor both of the transit gateways and their attachments.
 
-![Multi-Region global network](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-multi-region-tgw.png)
+![Multi-Region global network](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-multi-region-tgw.png)
 
 
 ## Define and associate your on-premises network
@@ -47,7 +47,7 @@ When you create a device, you can specify its physical location, and the site wh
 
 To connect your on-premises network to your AWS resources, associate a customer gateway that's in your global network with the device. If you've created a device to represent a virtual appliance sitting inside your VPC, and you've established a Connect peer from your virtual appliance to your AWS Transit Gateway, associate a Connect peer with the device to connect your virtual appliance network to your AWS resources. In the following diagram, the on-premises network is connected to a transit gateway through a Site-to-Site VPN connection.
 
-![On-premises network](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-single-device-single-vpn.png)
+![On-premises network](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-single-device-single-vpn.png)
 
 
 You can have multiple devices in a site, which you can associate a device with multiple links. For examples, see [AWS Global Networks for Transit Gateways scenarios](gnw-scenarios.md).

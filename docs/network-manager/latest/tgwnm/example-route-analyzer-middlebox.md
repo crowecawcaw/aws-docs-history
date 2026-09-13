@@ -5,7 +5,7 @@
 
 If you've configured a VPC to act as a middlebox appliance for inspecting traffic that flows to other parts of your network, you can indicate the location of the appliance in the route analysis. In the following example, the transit gateway has two VPC attachments and a VPN attachment. VPC A runs a firewall appliance (middlebox) that inspects the traffic that flows between the VPN connection and VPC B.
 
-![Middlebox appliance](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/route-analyzer-middlebox.png)
+![Middlebox appliance](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/route-analyzer-middlebox.png)
 
 
  In the Route Analyzer, you can specify the location of the middlebox appliance as follows:
@@ -22,4 +22,4 @@ If you've configured a VPC to act as a middlebox appliance for inspecting traffi
 
    You can choose the ID of any resource in the path to view more information about that resource.
 
-![Route analyzer results](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-route-analyzer-middlebox.png)
+![Route analyzer results](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-route-analyzer-middlebox.png)

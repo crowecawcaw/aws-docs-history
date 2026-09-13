@@ -92,7 +92,7 @@ Switching roles logs you out of the current account and into the delegated admin
 **To view resource details in a member account**
 
 1. When choosing a link to a member account, you're prompted to switch console roles:   
-![Switch roles dialog box](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-switchrole.png)
+![Switch roles dialog box](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-switchrole.png)
 
 1. The following values populate the **Switch Role** screen. Keep the following values:
    + **Account** — The account ID for the member account that the resource is associated with.

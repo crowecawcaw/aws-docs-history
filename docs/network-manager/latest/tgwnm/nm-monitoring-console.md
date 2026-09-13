@@ -81,14 +81,14 @@ The Geography page displays a world map showing the locations of your transit ga
    + **Not associated ****Sites** and **Devices**.
 
 1. In the following example, there are four AWS Regions, **us-west-1** **us-west-2**, **us-east-1**, and **us-east-2**. Each Region is labeled and represented by a number, indicating the number of transit gateways in that Region. For example, **us-east-2** is represented by the number `3`, indicating that there are three network resources associated with the us-west-2 Region.   
-![AWS Transit Gateway geography example](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-tgw-network-geo-all.png)
+![AWS Transit Gateway geography example](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-tgw-network-geo-all.png)
 
 1. If your account is a delegated administrator in a multi-account environment, you can view details about the transit gateways for different accounts.
 
 1. Choose the number representing a Region. For example, choose `3`. The following information displays:
    +  The right pane shows the AWS Region, us-east-2.
    + A bottom panel shows with a **Transit Gateways** dropdown list option, displaying each transit gateway in that Region. In this example, there are `3` transit gateways in us-east-2. Choose a transit gateway from the dropdown list to view details about that transit gateway. In this example, you can see that the **Resource Account ID ** for this transit gateway is another account in the multi-account environment, `98765432101`.   
-![AWS transit gateways associated with different AWS Regions.](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-tgwnetworks-geo.png)
+![AWS transit gateways associated with different AWS Regions.](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-tgwnetworks-geo.png)
 
 1.  To view more details about the transit gateway, choose the ID link to open the **Transit gateway details** page for the gateway.
 
@@ -104,7 +104,7 @@ Switching roles logs you out of the current account and into the member account 
 **To view resource details in a member account**
 
 1. When choosing a link to a member account, you're prompted to switch console roles:   
-![Switch roles dialog box](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-switchrole.png)
+![Switch roles dialog box](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-switchrole.png)
 
 1. The following values populate the **Switch Role** screen. Keep the following values:
    + **Account** — The account ID for the member account that the resource is associated with.
@@ -142,7 +142,7 @@ The **Topology tree** page shows a logical diagram of your transit gateway netwo
 1. By default, the **Topology tree** page displays all **Sites**, **Devices**, and** Customer Gateways** of your transit gateway and the logical relationships between them. You can filter the network tree to show specific resources types only to view information about the specific resource it represents. The line colors represent the state of the relationships between AWS and the on-premises resources.
 
    The following example shows the topology tree for two edge locations, **us-west-1** and **us-east-1**.  
-![Network Manager topology tree](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/tgw-topology-tree.png)
+![Network Manager topology tree](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/tgw-topology-tree.png)
 
 1. In the **Topology tree**, choose an attachment. The attachment details display in the left pane. 
 
@@ -158,7 +158,7 @@ Switching roles logs you out of the current account and into the delegated admin
 **To view resource details in a member account**
 
 1. When choosing a link to a member account, you're prompted to switch console roles:   
-![Switch roles dialog box](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-switchrole.png)
+![Switch roles dialog box](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-switchrole.png)
 
 1. The following values populate the **Switch Role** screen. Keep the following values:
    + **Account** — The account ID for the member account that the resource is associated with.

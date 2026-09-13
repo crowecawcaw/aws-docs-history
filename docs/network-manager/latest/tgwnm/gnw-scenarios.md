@@ -18,7 +18,7 @@ The following are common use cases and scenarios for using AWS Global Networks f
 
 In this scenario, your AWS network consists of three transit gateways. You own transit gateways `tgw-1` and `tgw-3`. Transit gateway `tgw-1` has a peering attachment with transit gateway `tgw-2` that's in a different AWS account. Your entire network is within AWS, and does not consist of on-premises resources.
 
-![AWS-only global network](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-aws-only.png)
+![AWS-only global network](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-aws-only.png)
 
 
 For this scenario, do the following in Network Manager:
@@ -34,7 +34,7 @@ When you register `tgw-1`, the transit gateway peering attachment is included in
 
 In the following scenario, your global network consists of a single site with a single device and link. The site is connected to your AWS network through a Site-to-Site VPN attachment on a transit gateway. Your transit gateway also has two VPC attachments.
 
-![Single device and single VPN network](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-single-device-single-vpn.png)
+![Single device and single VPN network](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-single-device-single-vpn.png)
 
 
 For this scenario, do the following in Network Manager:
@@ -49,7 +49,7 @@ For this scenario, do the following in Network Manager:
 
 In the following scenario, your on-premises network consists of a device with two Site-to-Site VPN connections to AWS. The device is associated with two customer gateways on two different transit gateways. Each VPN connection uses a separate link. To indicate which link applies to which VPN connection, you associate the customer gateway with both the device and the corresponding link.
 
-![Multi-VPN network](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-device-multiple-vpn.png)
+![Multi-VPN network](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-device-multiple-vpn.png)
 
 
 For this scenario, do the following in global networks:
@@ -66,7 +66,7 @@ In the following scenario, your on-premises network consists of a site with two 
 
 Your AWS network is also connected to your on-premises network though an Direct Connect gateway, which is an attachment on your transit gateway.
 
-![Multi-device and multi-link network](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-multi-device-site.png)
+![Multi-device and multi-link network](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-multi-device-site.png)
 
 
 For this scenario, do the following in global networks:
@@ -83,7 +83,7 @@ In the following example, your on-premises network consists of two sites. The Ch
 
 Your on-premises network is managed using SD-WAN. The SD-WAN controller creates Site-to-Site VPN connections to the transit gateways, and creates the device, site, and link resources in Network Manager. This automates connectivity and enables you to get a full view of your network in global networks. The SD-WAN controller can also use global networks events and metrics to enhance its dashboard. 
 
-![SD-WAN connecting to AWS](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-sd-wan-aws.png)
+![SD-WAN connecting to AWS](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-sd-wan-aws.png)
 
 
 For more information about Partners who can help you set up your Site-to-Site VPN connections, see [AWS Network Manager](https://aws.amazon.com/transit-gateway/network-manager).
@@ -93,7 +93,7 @@ For more information about Partners who can help you set up your Site-to-Site VP
 
 In the following scenario, your AWS network consists of a transit gateway with a [Connect attachment](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html) to a VPC that contains a virtual appliance on an EC2 instance. A Connect peer (GRE tunnel) is established between the transit gateway and the appliance. The appliance is connected to a physical device in your on-premises network through a connection.
 
-![Connection between devices](http://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-tgw-connect.png)
+![Connection between devices](https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/nm-tgw-connect.png)
 
 
 For this scenario, do the following in global networks:
