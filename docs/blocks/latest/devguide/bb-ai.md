@@ -28,6 +28,6 @@ For more information, see [bb-agent on GitHub](https://github.com/aws-devtools-l
 
 Semantic document retrieval. Point it at a folder of documents and query with natural language to get the most relevant chunks ranked by relevance. Use it to build RAG (Retrieval-Augmented Generation) pipelines or contextual search features.
 
-Locally, KnowledgeBase uses in-memory vector search. On AWS, it provisions Amazon Bedrock Knowledge Bases with automatic document ingestion, chunking, and embedding.
+Locally, KnowledgeBase builds a text index over your documents in the `.bb-data/` directory, so retrieval works offline. On AWS, it provisions Amazon Bedrock Knowledge Bases with automatic document ingestion, chunking, and embedding.
 
 For more information, see [bb-knowledge-base on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/packages/bb-knowledge-base).

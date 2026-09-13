@@ -165,7 +165,7 @@ The CDK layer is optional. If you don’t create one, AWS Blocks generates a def
 <a name="concepts-local-development"></a>
 
 When you run `npm run dev`, AWS Blocks starts your entire application locally:
-+ Blocks use local implementations (in-memory stores, local JWT tokens, embedded databases)
++ Blocks use local implementations (file-backed stores, local JWT sessions, embedded databases)
 + The application runs on `http://localhost:3000` with hot reload
 + No AWS account, no internet connection, and no cloud costs required
 

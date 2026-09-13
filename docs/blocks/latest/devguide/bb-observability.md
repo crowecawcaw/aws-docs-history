@@ -39,7 +39,7 @@ For more information, see [bb-logger on GitHub](https://github.com/aws-devtools-
 
 Distributed request tracing. Wrap operations in traced segments to visualize request flow across your application. Add searchable annotations for debugging and add metadata for detailed inspection.
 
-Locally, Tracer is a no-op. On AWS, it integrates with AWS X-Ray for distributed tracing across Lambda, API Gateway, and downstream services. Best for debugging latency issues and understanding request paths in production.
+Locally, Tracer records traces to files in the `.bb-data/` directory for inspection. On AWS, it integrates with AWS X-Ray for distributed tracing across Lambda, API Gateway, and downstream services. Best for debugging latency issues and understanding request paths in production.
 
 For more information, see [bb-tracer on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/packages/bb-tracer).
 
@@ -48,6 +48,6 @@ For more information, see [bb-tracer on GitHub](https://github.com/aws-devtools-
 
 Auto-generated observability dashboard. Define your metrics and Dashboard generates a CloudWatch dashboard automatically from your Metrics definitions. No manual widget configuration needed.
 
-Locally, Dashboard is a no-op. On AWS, it provisions a CloudWatch Dashboard with widgets for each metric you emit. Best for teams that want out-of-the-box monitoring without manual dashboard setup.
+Locally, Dashboard is not available; its route responds with a message directing you to deploy. On AWS, it provisions a CloudWatch Dashboard with widgets for each metric you emit. Best for teams that want out-of-the-box monitoring without manual dashboard setup.
 
 For more information, see [bb-dashboard on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/packages/bb-dashboard).

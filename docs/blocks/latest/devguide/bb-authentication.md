@@ -20,7 +20,7 @@ This section covers Blocks for user identity and session management, from simple
 
 Username/password authentication with JWT sessions. Handles user signup, signin, signout, password hashing (bcrypt), HTTP-only cookie sessions, and optional email-confirmed signup. Provides a `createApi()` method that generates the auth API endpoints needed by the Authenticator UI component.
 
-Locally, AuthBasic stores user records in memory. On AWS, it provisions a DynamoDB table for user records and issues JWTs for session management. Best for prototypes, internal tools, and MVPs where you need simple credential-based auth.
+Locally, AuthBasic persists user records to the filesystem through the local KVStore. On AWS, it provisions a DynamoDB table for user records and issues JWTs for session management. Best for prototypes, internal tools, and MVPs where you need simple credential-based auth.
 
 For more information, see [bb-auth-basic on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/packages/bb-auth-basic).
 

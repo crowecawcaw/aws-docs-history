@@ -31,7 +31,7 @@ For more information, see [bb-kv-store on GitHub](https://github.com/aws-devtool
 
 Structured data with schema validation, secondary indexes, and rich queries. Define a schema and key structure, then query by partition key, sort key conditions, or secondary indexes. Supports batch operations for up to 25 items at a time.
 
-Best for entities with multiple access patterns where you need to query data by different attributes. Locally, DistributedTable uses in-memory storage. On AWS, it provisions a DynamoDB table with Global Secondary Indexes.
+Best for entities with multiple access patterns where you need to query data by different attributes. Locally, DistributedTable persists data to the filesystem in the `.bb-data/` directory, with the same key and index query semantics. On AWS, it provisions a DynamoDB table with Global Secondary Indexes.
 
 For more information, see [bb-distributed-table on GitHub](https://github.com/aws-devtools-labs/aws-blocks/tree/main/packages/bb-distributed-table).
 

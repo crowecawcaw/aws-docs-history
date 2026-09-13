@@ -65,7 +65,7 @@ npm run dev
 In your web browser, navigate to `http://localhost:3000`. You see a todo application with authentication, CRUD operations, and sorting.
 
 All Blocks are running with local implementations:
-+  `DistributedTable` uses in-memory storage for structured data
++  `DistributedTable` uses file-backed storage for structured data
 +  `AuthBasic` uses local JWT tokens for authentication
 +  `ApiNamespace` routes calls through a local HTTP server
 
@@ -100,7 +100,7 @@ const todos = new DistributedTable(scope, 'todos', {
 
 This code creates two Blocks:
 +  `new AuthBasic(scope, 'auth')` creates an authentication system. Locally, this uses JWT tokens. On AWS, this provisions a DynamoDB table for user records. The `auth.createApi()` call exports the auth API for the frontend to use.
-+  `new DistributedTable(scope, 'todos', {…​})` creates structured data storage with a Zod schema for validation. Locally, this is in-memory. On AWS, this provisions a DynamoDB table with indexes.
++  `new DistributedTable(scope, 'todos', {…​})` creates structured data storage with a Zod schema for validation. Locally, this is a file-backed store in the `.bb-data/` directory. On AWS, this provisions a DynamoDB table with indexes.
 
 The API methods use these Blocks:
 
