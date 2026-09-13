@@ -16,7 +16,7 @@ You can disable federation by using the CloudTrail console, AWS CLI, or [Disable
 
 There are no CloudTrail charges for federating a CloudTrail Lake event data store. There are costs for running queries in Amazon Athena. For more information about Athena pricing, see [Amazon Athena Pricing](https://aws.amazon.com/athena/pricing/).
 
-[![AWS Videos](http://img.youtube.com/vi/cOeZaJt_k-w?si=4LsEgq23NNHSJAAg/0.jpg)](http://www.youtube.com/watch?v=cOeZaJt_k-w?si=4LsEgq23NNHSJAAg)
+[![AWS Videos](https://img.youtube.com/vi/cOeZaJt_k-w?si=4LsEgq23NNHSJAAg/0.jpg)](https://www.youtube.com/watch?v=cOeZaJt_k-w?si=4LsEgq23NNHSJAAg)
 
 
 **Topics**

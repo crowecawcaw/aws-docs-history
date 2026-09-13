@@ -15,7 +15,7 @@ You can use the CloudTrail console to create trails in additional accounts.
 1. For **Storage location**, choose **Use existing S3 bucket**. Use the text box to enter the name of the bucket you're using to store log files across accounts.
 **Note**  
 The bucket policy must grant CloudTrail permission to write to it. For information about manually editing the bucket policy, see [Setting bucket policy for multiple accounts](cloudtrail-set-bucket-policy-for-multiple-accounts.md).  
-![Use existing S3 bucket](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-use-existing-bucket.png)
+![Use existing S3 bucket](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-use-existing-bucket.png)
 
 1. For **Prefix**, enter the prefix you are using to store log files across accounts. If you choose to use a prefix that is different from what you specified in your bucket policy, you must edit the bucket policy on your destination bucket to allow CloudTrail to write log files to your bucket using this new prefix.
 

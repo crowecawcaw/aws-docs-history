@@ -58,7 +58,7 @@ The CloudTrail console provides a number of sample queries for Insights events t
 1. On the **Query** page, choose the **Sample queries** tab.
 
 1. Search for queries for Insights events. Choose the **Query name** to open the query in the **Editor** tab.  
-![Example shows sample queries for Insights events](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/ct-insights-sample-queries.png)
+![Example shows sample queries for Insights events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/ct-insights-sample-queries.png)
 
 1. On the **Editor** tab, choose the Insights event data store. When you choose the event data store from the list, CloudTrail automatically populates the event data store ID in the `FROM` line of the query editor.
 

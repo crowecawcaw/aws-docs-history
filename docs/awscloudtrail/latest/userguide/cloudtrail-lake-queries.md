@@ -37,7 +37,7 @@ For information about how to optimize your queries, see [Optimize CloudTrail Lak
 
 A toolbar at the upper right of the query editor offers commands to help author and format your SQL query.
 
-![Query editor toolbar](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-editor-toolbar.png)
+![Query editor toolbar](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-editor-toolbar.png)
 
 
 The following list describes the commands on the toolbar.

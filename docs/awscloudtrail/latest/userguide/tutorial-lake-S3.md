@@ -74,10 +74,10 @@ To enable AWS Key Management Service encryption for an organization event data s
 1.  Choose **Next** to configure the event data store. 
 
 1.  On the **Choose events** page, leave the default selections for **Event type**.  
-![Choose event type for the event data store](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/lake-event-type.png)
+![Choose event type for the event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/lake-event-type.png)
 
 1. For **CloudTrail events**, choose **Data events** and deselect **Management events**. For more information about data events, see [Logging data events](logging-data-events-with-cloudtrail.md).  
-![Choose CloudTrail data events for event data store](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-events-data.png)
+![Choose CloudTrail data events for event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-events-data.png)
 
 1. Leave the default setting for **Copy trail events**. You'd use this option to copy existing trail events to your event data store. For more information, see [Copy trail events to an event data store](cloudtrail-copy-trail-to-lake-eds.md).
 
@@ -92,14 +92,14 @@ To enable AWS Key Management Service encryption for an organization event data s
    1. In **Log selector template**, choose **Custom**. Choosing **Custom** lets you define a custom event selector to filter on the `eventName`, `resources.ARN`, and `readOnly` fields. For information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
    1. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a descriptive name for an advanced event selector, such as "Log DeleteObject API calls for a specific S3 bucket". The selector name is listed as `Name` in the advanced event selector and is viewable if you expand the **JSON view**.  
-![Expanded JSON view showing advanced event selectors](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/json-view-selector-name.png)
+![Expanded JSON view showing advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/json-view-selector-name.png)
 
    1. In **Advanced event selectors**, we'll build the custom event selector to filter on the `eventName` and `resources.ARN` fields. Advanced event selectors for an event data store work the same as advanced event selectors that you apply to a trail. For more information about how to build advanced event selectors, see [Logging data events with advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced).
 
       1. For **Field **choose **eventName**. For **Operator**, choose **equals**. For **Value**, enter **DeleteObject**. Choose **\+ Field** to filter on another field.
 
       1. For **Field**, choose **resources.ARN**. For **Operator**, choose **StartsWith**. For **Value**, enter the ARN for your bucket (for example, arn:aws:s3:::{{amzn-s3-demo-bucket}}). For information about how to get the ARN, see [Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-arn-format.html) in the *Amazon Simple Storage Service User Guide*.  
-![S3 data events configuration](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/eds-data-events.png)
+![S3 data events configuration](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/eds-data-events.png)
 
 1. Choose **Next** to review your choices.
 

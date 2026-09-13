@@ -275,4 +275,4 @@ The following is an example that describes how CloudTrail delivers two events fo
    + One event is sent to Alice. The event shows that Bob used the KMS key.
    + The events have the same `sharedEventID`, but the `eventID` and `recipientAccountID` are unique.
 
-![How the sharedEventID field appears in logs](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/event-reference-sharedEventId.png)
+![How the sharedEventID field appears in logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/event-reference-sharedEventId.png)

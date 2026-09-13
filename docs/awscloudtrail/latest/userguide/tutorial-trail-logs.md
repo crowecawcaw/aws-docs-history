@@ -20,7 +20,7 @@ If you misconfigure your trail (for example, the S3 bucket is unreachable), Clou
 1. The Amazon S3 console opens and shows two folders for the bucket: `CloudTrail-Digest` and `CloudTrail`. Choose the **CloudTrail** folder to view the log files.
 
 1. If you created a multi-Region trail, there is a folder for each AWS Region. Choose the folder for the AWS Region where you want to review log files. For example, if you want to review the log files for the US East (Ohio) Region, choose **us-east-2**.  
-![An Amazon S3 bucket for a trail, showing the structure for log files in AWS Regions](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-trail-bucket-1.png)
+![An Amazon S3 bucket for a trail, showing the structure for log files in AWS Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-trail-bucket-1.png)
 
 1. Navigate the bucket folder structure to the year, the month, and the day where you want to review logs of activity in that Region. In that day, there are a number of files. The name of the files begin with your AWS account ID, and end with the extension `.gz`. For example, if your account ID is {{123456789012}}, you would see files with names similar to this: {{123456789012}}\_CloudTrail\_{{us-east-2}}\_{{20240512T0000Z\_EXAMPLE}}.json.gz.
 

@@ -73,12 +73,12 @@ To enable AWS Key Management Service encryption for an organization event data s
 1.  Choose **Next** to configure the event data store. 
 
 1.  On the **Choose events** page, leave the default selections for **Event type**.  
-![Choose event type for the event data store](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/lake-event-type.png)
+![Choose event type for the event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/lake-event-type.png)
 
 1. For **CloudTrail events**, we'll leave **Management events** selected and choose **Copy trail events**. In this example, we're not concerned about the event types because we are only using the event data store to analyze past events and are not ingesting future events. 
 
    If you're creating an event data store to replace an existing trail, choose the same event selectors as your trail to ensure the event data store has the same event coverage.  
-![Choose CloudTrail events types for your event data store](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-events-copy-trail.png)
+![Choose CloudTrail events types for your event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-events-copy-trail.png)
 
 1. Choose **Enable for all accounts in my organization** if this is an organization event data store. This option won't be available to change unless you have accounts configured in AWS Organizations.
 **Note**  
@@ -99,7 +99,7 @@ If you are creating an organization event data store, you must be signed in with
       + If you choose **Absolute range**, you can choose a specific start and end date. CloudTrail copies the events that occurred between the chosen start and end dates.
 
       In this example, we'll choose **Absolute range** and we'll select the entire month of May.  
-![Choose absolute range for event data store](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/absolute-range-example.png)
+![Choose absolute range for event data store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/absolute-range-example.png)
 
    1. For **Permissions**, choose from the following IAM role options. If you choose an existing IAM role, verify that the IAM role policy provides the necessary permissions. For more information about updating the IAM role permissions, see [IAM permissions for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam).
       + Choose **Create a new role (recommended)** to create a new IAM role. For **Enter IAM role name**, enter a name for the role. CloudTrail automatically creates the necessary permissions for this new role.
@@ -107,21 +107,21 @@ If you are creating an organization event data store, you must be signed in with
       + Choose an existing IAM role from the drop-down list.
 
       In this example, we'll choose **Create a new role (recommended)** and will provide the name **copy-trail-events**.  
-![Choose options for copying CloudTrail events](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/copy-trail-events.png)
+![Choose options for copying CloudTrail events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/copy-trail-events.png)
 
 1. Choose **Next** to review your choices.
 
 1. On the **Review and create** page, review your choices. Choose **Edit** to make changes to a section. When you're ready to create the event data store, choose **Create event data store**.
 
 1. The new event data store is visible in the **Event data stores** table on the **Event data stores** page.  
-![View event data stores](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/event-data-stores-table.png)
+![View event data stores](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/event-data-stores-table.png)
 
 1. Choose the event data store name to view its details page. The details page shows the details for your event data store and the status of the copy. The event copy status is shown in the **Event copy status** area.
 
    When a trail event copy completes, its **Copy status** is set to either **Completed** if there were no errors, or **Failed** if errors occurred.  
-![View the event copy status on the details page](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/event-copy-status.png)
+![View the event copy status on the details page](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/event-copy-status.png)
 
 1. To view more details about the copy, choose the copy name in the **Event log S3 location** column, or choose the **View details** option from the **Actions** menu. For more information about viewing the details of a trail event copy, see [View event copy details with the CloudTrail console](copy-trail-details.md).  
-![View event copy details](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/copy-details.png)
+![View event copy details](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/copy-details.png)
 
 1.  The **Copy failures** area shows any errors that occurred when copying trail events. If the **Copy status** is **Failed**, fix any errors shown in **Copy failures**, and then choose **Retry copy**. When you retry a copy, CloudTrail resumes the copy at the location where the failure occurred. 

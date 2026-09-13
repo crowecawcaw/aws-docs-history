@@ -27,7 +27,7 @@ The following table describes the supported fields for filtering data events. Fo
 
 To log data events using the CloudTrail console, you choose the **Data events** option and then select the **Resource type** of interest when you are creating or updating a trail or event data store. The [Data events](logging-data-events-with-cloudtrail.md#logging-data-events) table shows the possible resource types you can choose on the CloudTrail console.
 
-![Selection of the SNS topic resource type on the console.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-data-event-type.png)
+![Selection of the SNS topic resource type on the console.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-data-event-type.png)
 
 
 To log data events with the AWS CLI, configure the `--advanced-event-selector` parameter to set the `eventCategory` equal to `Data` and the `resources.type` value equal to the resource type value for which you want to log data events. The [Data events](logging-data-events-with-cloudtrail.md#logging-data-events) table lists the available resource types.

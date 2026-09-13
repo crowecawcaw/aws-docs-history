@@ -17,7 +17,7 @@ You can enable aggregation on data events when creating a new trail or updating 
 
 To enable aggregations on trails, you first choose data events logging when you are creating or updating a trail and configuring data events to log events in the trail. Then, in the configure event aggregation step, you can select templates such as **API Activity** and **Resource Access** from the Aggregation templates dropdown as shown in the screenshot below.
 
-![Screenshot of the CloudTrail console showing the Aggregation templates dropdown with API Activity and Resource Access options selected](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/Enable-Aggregation-console.png)
+![Screenshot of the CloudTrail console showing the Aggregation templates dropdown with API Activity and Resource Access options selected](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/Enable-Aggregation-console.png)
 
 
 ## Enabling aggregations for data events using the AWS CLI

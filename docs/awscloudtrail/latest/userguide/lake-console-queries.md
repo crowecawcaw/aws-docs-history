@@ -21,17 +21,17 @@ You can also view queries created by the GitHub community. For more information,
 1. Choose a sample query from the list or enter a phrase to search by. In this example, we'll open the query **Investigate who made console changes** by choosing the **Query name**. This opens the query in the **Editor** tab.
 **Note**  
 By default, this page uses basic search functionality. You can improve the search functionality by adding permissions for the `cloudtrail:SearchSampleQueries` action, if it is not already provided by your permissions policy. The [`AWSCloudTrail_FullAccess`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloudTrail_FullAccess.html) managed policy provides permissions to perform the `cloudtrail:SearchSampleQueries` action.  
-![Sample queries tab](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-sample-console.png)
+![Sample queries tab](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-sample-console.png)
 
 1. On the **Editor** tab, choose the event data store for which you want to run the query. When you choose the event data store from the list, CloudTrail automatically populates the event data store ID in the `FROM` line of the query editor.  
-![Choose event data store for query](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-editor-console.png)
+![Choose event data store for query](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-editor-console.png)
 
 1. Choose **Run** to run the query.
 
    The **Command output** tab shows you metadata about your query, such as whether the query was successful, the number of records matched, and the run time of the query.  
-![View query status](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-console-status.png)
+![View query status](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-console-status.png)
 
    The **Query results** tab shows you the event data in the selected event data store that matched your query.  
-![View query results](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-console-results.png)
+![View query results](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-console-results.png)
 
 For more information about editing a query, see [Create or edit a query with the CloudTrail console](query-create-edit-query.md). For more information about running a query and saving query results, see [Run a query and save query results with the console](query-run-query.md).

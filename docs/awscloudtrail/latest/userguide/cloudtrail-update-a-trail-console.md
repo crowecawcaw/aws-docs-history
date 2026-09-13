@@ -180,7 +180,7 @@ You can use advanced event selectors to configure all data event types as well a
 
 If you use basic event selectors to log data events, you're limited to logging data events for Amazon S3 buckets, AWS Lambda functions, and Amazon DynamoDB tables. You can't filter on the `eventName` field using basic event selectors. You also can't log [network activity events](logging-network-events-with-cloudtrail.md).
 
-![Basic event selectors for data events on a trail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-data-basic-selectors.png)
+![Basic event selectors for data events on a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-data-basic-selectors.png)
 
 
 Use the following procedure to configure data event settings using basic event selectors.

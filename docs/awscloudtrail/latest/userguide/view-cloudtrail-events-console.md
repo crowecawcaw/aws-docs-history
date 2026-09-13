@@ -176,9 +176,9 @@ Your download might take some time to complete. For faster results, before you s
 
 AWS Config records configuration details, relationships, and changes to your AWS resources. 
 
-On the **Resources referenced** pane, choose the ![AWS Config timeline icon](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/config-timeline.png) in the **AWS Config resource timeline** column to view the resource in the AWS Config console.
+On the **Resources referenced** pane, choose the ![AWS Config timeline icon](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/config-timeline.png) in the **AWS Config resource timeline** column to view the resource in the AWS Config console.
 
-If the ![Shows AWS Config timeline](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/config-timeline-gray.png) icon is gray, AWS Config isn't turned on, or it's not recording the resource type. Choose the icon to go to the AWS Config console to turn on the service or start recording that resource type. For more information, see [Set Up AWS Config Using the Console](https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html) in the *AWS Config Developer Guide*.
+If the ![Shows AWS Config timeline](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/config-timeline-gray.png) icon is gray, AWS Config isn't turned on, or it's not recording the resource type. Choose the icon to go to the AWS Config console to turn on the service or start recording that resource type. For more information, see [Set Up AWS Config Using the Console](https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html) in the *AWS Config Developer Guide*.
 
 If **Link not available** appears in the column, the resource can't be viewed for one of the following reasons:
 + AWS Config doesn't support the resource type. For more information, see [Supported Resources, Configuration Items, and Relationships](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html) in the *AWS Config Developer Guide*.

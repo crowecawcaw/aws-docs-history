@@ -42,13 +42,13 @@ Though you can add tags to trails when you create them in the CloudTrail console
    When you are finished creating tags, choose **Next**.
 
 1. On the **Choose log events** page, select event types to log. For this trail, keep the default, **Management events**. In the **Management events** area, choose to log both **Read** and **Write** events, if they are not already selected. Leave the check boxes for **Exclude AWS KMS events** and **Exclude Amazon RDS Data API events** empty, to log all management events.  
-![The Create trail page, Event type settings](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-create-trail-event-type.png)
+![The Create trail page, Event type settings](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-create-trail-event-type.png)
 
 1. Leave default settings for **Data events**, **Insights events**, and **Network activity events**. This trail will not log any data events, Insights events, or network activity events. Choose **Next**.
 
 1. On the **Review and create** page, review the settings you've chosen for your trail. Choose **Edit** for a section to go back and make changes. When you are ready to create your trail, choose **Create trail**.
 
 1. The **Trails** page shows your new trail in the table. Note that the trail is set to **Multi-region trail** by default, and that logging is turned on for the trail by default.  
-![The Create trail page, Event type settings](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-create-trail-done.png)
+![The Create trail page, Event type settings](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-create-trail-done.png)
 
 For more information about trails, see [Working with CloudTrail trails](cloudtrail-trails.md).

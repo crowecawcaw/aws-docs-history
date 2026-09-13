@@ -58,7 +58,7 @@ When you save query results, CloudTrail delivers two types of files to your Amaz
 1. Open the Amazon S3 console.
 
 1. Choose the bucket and choose the file that you want to download.  
-![CloudTrail query result file](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/lake_query_results_S3.png)
+![CloudTrail query result file](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/lake_query_results_S3.png)
 
 1. Choose **Download** and follow any prompts to save the file.
 **Note**  

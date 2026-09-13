@@ -16,7 +16,7 @@ There are two types of integrations: direct and solution. With direct integratio
 
 From the **Integrations** page, you can choose the **Available sources** tab to the view the **Integration type** for partners.
 
-![Partner integration type](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/partner-integration-type.png)
+![Partner integration type](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/partner-integration-type.png)
 
 
 To get started, create an integration to log events from partner or other application sources using the CloudTrail console.

@@ -53,21 +53,21 @@ This walkthrough shows how you can save query results to an S3 bucket and then d
 1. On the **Editor** tab, for **Event data store**, choose an event data store from the drop-down list. When you choose the event data store from the list, CloudTrail automatically populates the event data store ID in the `From` line.
 
 1. In this sample query, we'll edit the `userIdentity.ARN` value to specify a user named `Admin`, and we'll leave the default values for `eventTime`. When you run a query, you're charged for the amount of data scanned. To help control costs, we recommend that you constrain queries by adding starting and ending `eventTime` time stamps to queries.  
-![Edit userIdentity.ARN value in sample query](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/sample-query-edit.png)
+![Edit userIdentity.ARN value in sample query](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/sample-query-edit.png)
 
 1. Choose **Save results to S3** to save the query results to an S3 bucket. When you choose the default S3 bucket, CloudTrail creates and applies the required bucket policies. If you choose the default S3 bucket, your IAM policy needs to include permission for the `s3:PutEncryptionConfiguration` action because by default server-side encryption is enabled for the bucket. In this example, we'll use the default S3 bucket.
 **Note**  
  To use a different bucket, specify a bucket name, or choose **Browse S3** to choose a bucket. The bucket policy must grant CloudTrail permission to deliver query results to the bucket. For information about manually editing the bucket policy, see [Amazon S3 bucket policy for CloudTrail Lake query results](s3-bucket-policy-lake-query-results.md).   
-![Chosen S3 bucket for saved query results.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/save-query-results.png)
+![Chosen S3 bucket for saved query results.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/save-query-results.png)
 
 1. Choose **Run**. Depending on the size of your event data store, and the number of days of data it includes, a query can take several minutes to run. The **Command output** tab shows the status of a query, and whether a query is finished running. When a query has finished running, open the **Query results** tab to see a table of results for the active query (the query currently shown in the editor).
 
 1. When CloudTrail completes delivery of the saved query results to your S3 bucket, the **Delivery status** column provides a link to the S3 bucket that contains your saved query result files as well as a [sign file](cloudtrail-query-results-validation.md#cloudtrail-results-file-validation-sign-file-structure) that you can use to verify your saved query results. Choose **View in S3** to view the query result files and sign files in the S3 bucket.
 **Note**  
  When you save query results, the query results may display in the CloudTrail console before they are viewable in the S3 bucket because CloudTrail delivers the query results after the query scan completes. While most queries complete within a few minutes, depending on the size of your event data store, it can take considerably longer for CloudTrail to deliver query results to your S3 bucket. CloudTrail delivers the query results to the S3 bucket in compressed gzip format. On average, after the query scan completes you can expect a latency of 60 to 90 seconds for every GB of data delivered to the S3 bucket.  
-![Query delivery status on Command output tab](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-delivery-status.png)
+![Query delivery status on Command output tab](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-delivery-status.png)
 
 1. To download your query results, choose the query result file (in this example, `result_1.csv.gz`) and then choose **Download**.  
-![Download query result file](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/download-query-results.png)
+![Download query result file](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/download-query-results.png)
 
 For information about validating saved query results, see [Validate CloudTrail Lake saved query results](cloudtrail-query-results-validation.md).

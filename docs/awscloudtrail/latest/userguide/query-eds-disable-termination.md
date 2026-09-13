@@ -22,7 +22,7 @@ After you delete an event data store, it remains in the `PENDING_DELETION` state
 
 To [delete](query-event-data-store-delete.md) or [restore](query-eds-restore.md) an event data store, [copy trail events](cloudtrail-copy-trail-to-lake-eds.md), start or stop ingesting events, or turn on or turn off an event data store's termination protection, use commands on the **Actions** menu of the event data store's details page.
 
-![Event data store Actions menu.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-eds-actions.png)
+![Event data store Actions menu.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-eds-actions.png)
 
 
 The option to **Copy trail events** is only available on event data stores that contain CloudTrail events. The options to **Start ingestion** and **Stop ingestion** are only available on event data stores containing either CloudTrail events (management and data events), or AWS Config configuration items.

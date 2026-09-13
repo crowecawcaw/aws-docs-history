@@ -17,6 +17,6 @@ This section describes to remove a widget from a custom dashboard.
 
 1. From **Actions**, choose **Edit dashboard**.
 
-1. On the widget you want to remove, choose the remove icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/remove-icon.png)) and then choose **Remove**.
+1. On the widget you want to remove, choose the remove icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/remove-icon.png)) and then choose **Remove**.
 
 1. Choose **Save** to save the dashboard.

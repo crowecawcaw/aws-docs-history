@@ -49,7 +49,7 @@ The AWS service to which the request was made, such as `iam.amazonaws.com` or `s
 **Event ID**  
 The ID of the Insights event. Event IDs are not shown in the **Insights** page table, but they are an attribute on which you can filter Insights events. The event IDs of management or data events that are analyzed to generate Insights events are different from the event IDs of Insights events.
 
-![The CloudTrail Insights event list filter.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_events_filter.png)
+![The CloudTrail Insights event list filter.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_events_filter.png)
 
 
 The following list describes the attributes of an event, which are not filterable:
@@ -105,10 +105,10 @@ The following steps describe how to filter by a start and end date and time.
 <a name="viewing-details-for-an-event"></a>
 
 1. Choose an Insights event in the results list to show its details. The details page for an Insights event shows a graph of the unusual activity timeline.  
-![A CloudTrail Insights detail page showing unusual API activity.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_event_view.png)
+![A CloudTrail Insights detail page showing unusual API activity.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_event_view.png)
 
 1. Hover over the highlighted bands to show the start time and duration of each Insights event in the graph.  
-![Insights event statistics shown after hovering over an Insights event.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_event_statistics.png)
+![Insights event statistics shown after hovering over an Insights event.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_event_statistics.png)
 
    The following information is shown in the **Additional information** area of the graph:
    + **Insight type**. This can be API call rate or API error rate.
@@ -138,7 +138,7 @@ The following steps describe how to filter by a start and end date and time.
 
 You can zoom, pan, and reset the axes of the graph on the Insights event details page by using a toolbar in the upper right corner.
 
-![Download as PNG, zoom, pan, zoom in, zoom out, and reset axes command toolbar.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_details_custom_widgets.png)
+![Download as PNG, zoom, pan, zoom in, zoom out, and reset axes command toolbar.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_details_custom_widgets.png)
 
 
 From left to right, the command buttons on the graph toolbar do the following:
@@ -152,7 +152,7 @@ From left to right, the command buttons on the graph toolbar do the following:
 
 You can change the time span—the selected duration of the events shown on the *x* axis—that is shown in the graph by choosing a setting in the graph's upper right corner.
 
-![Time span control for an Insights event.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_details_timespan.png)
+![Time span control for an Insights event.](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/insights_details_timespan.png)
 
 
 ## Downloading Insights events

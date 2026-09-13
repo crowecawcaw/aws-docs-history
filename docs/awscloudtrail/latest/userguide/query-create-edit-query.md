@@ -30,9 +30,9 @@ In this walkthrough, we open one of the sample queries, edit it to find actions 
 1. When you have updated the sample query, choose **Save**.
 
 1. In **Save query**, enter a name and description for the query. Choose **Save query** to save your changes as the new query. To discard changes to a query, choose **Cancel**, or close the **Save query** window.  
-![Saving a changed query](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-save.png)
+![Saving a changed query](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-save.png)
 **Note**  
 Saved queries are tied to your browser; if you use a different browser or a different device to access the CloudTrail console, the saved queries are not available.
 
 1. Open the **Saved queries** tab to see the new query in the table.  
-![Saved queries tab showing the new saved query](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-saved-table.png)
+![Saved queries tab showing the new saved query](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/query-saved-table.png)

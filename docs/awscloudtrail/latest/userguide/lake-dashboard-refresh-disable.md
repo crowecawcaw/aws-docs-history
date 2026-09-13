@@ -16,4 +16,4 @@ You can disable the refresh schedule if you no longer want CloudTrail to automat
 1. In **Custom dashboards**, choose the dashboard that you want to disable a refresh schedule for.
 
 1. Choose **Disable refresh schedule** from the dropdown list.   
-![Option for disabling refresh schedule](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/ct-lake-disable-schedule.png)
+![Option for disabling refresh schedule](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/ct-lake-disable-schedule.png)

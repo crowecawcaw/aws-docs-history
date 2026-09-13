@@ -28,7 +28,7 @@ If you do not create a resource policy for the channel, only the channel owner c
    1. For a direct integration, enter the external ID provided by your partner. The integration partner provides a unique external ID, such as an account ID or a randomly generated string, to use for the integration to prevent against confused deputy. The partner is responsible for creating and providing a unique external ID.
 
        You can choose **How to find this?** to view the partner's documentation that describes how to find the external ID.   
-![Partner documentation for external ID](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/integration-external-id.png)
+![Partner documentation for external ID](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/integration-external-id.png)
 **Note**  
 If the resource policy includes an external ID, all calls to the `PutAuditEvents` API must include the external ID. However, if the policy does not define an external ID, the partner can still call the `PutAuditEvents` API and specify an `externalId` parameter.
 

@@ -19,7 +19,7 @@ For details about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.a
 
 The following image shows an example of a cost report filtered for CloudTrail and grouped by **Usage type**.
 
-![The Cost Explorer report grouped by Usage type and filtered for the CloudTrail service](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cost-explorer-cloudtrail-usage.png)
+![The Cost Explorer report grouped by Usage type and filtered for the CloudTrail service](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cost-explorer-cloudtrail-usage.png)
 
 
 Review the **Usage type** to see which CloudTrail features generated the most cost. Each **Usage type** begins with the code for the AWS Region where the charge was incurred.
