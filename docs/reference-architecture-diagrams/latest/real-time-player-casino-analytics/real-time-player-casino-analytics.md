@@ -10,7 +10,7 @@ This architecture enables casino customers or game developers to build a real-ti
 ## Real-Time Casino Player Analytics Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing enables casino customers or game developers to build a real-time analytics pipeline and promote advertising offers to customers during the game session.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/real-time-player-casino-analytics/images/real-time-player-casino-analytics.png)
+![Reference architecture diagram showing enables casino customers or game developers to build a real-time analytics pipeline and promote advertising offers to customers during the game session.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/real-time-player-casino-analytics/images/real-time-player-casino-analytics.png)
 
 
 1. Casino slot machine and shuffler data is streamed from the casino floor via a private network into **Amazon API Gateway** and **AWS IoT Core**, respectively. 
