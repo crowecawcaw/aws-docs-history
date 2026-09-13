@@ -30,9 +30,9 @@ You can compare usage for different reserved node sizes by using normalized unit
 
 For example, you purchase a db.r6gd.xlarge reserved node, and you have two running db.r6gd.large reserved nodes in your account in the same AWS Region. In this case, the billing benefit is applied in full to both nodes.
 
-![Diagram showing two running reserved nodes with billing benefit applied to both nodes.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/ri1.png)
+![Diagram showing two running reserved nodes with billing benefit applied to both nodes.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/ri1.png)
 
 
 Alternatively, if you have one db.r6gd.2xlarge instance running in your account in the same AWS Region, the billing benefit is applied to 50 percent of the usage of the reserved node.
 
-![Diagram showing one instance with billing benefit applied to 50 percent of the usage of the reserved node.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/ri2.png)
+![Diagram showing one instance with billing benefit applied to 50 percent of the usage of the reserved node.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/ri2.png)

@@ -10,7 +10,7 @@ You can create a cluster that is enabled for vector search by using the AWS Mana
 
 To create a cluster enabled for vector search within the console, you need to enable vector search under the **Cluster** settings. Vector search is available for MemoryDB version 7.1 in a single shard configuration.
 
-![Viewing the cluster settings with the "Enable vector search" option checked provides information about specific version and configuration support.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/vs-2.png)
+![Viewing the cluster settings with the "Enable vector search" option checked provides information about specific version and configuration support.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/vs-2.png)
 
 
 For more information on using vector search with the AWS Management Console, see [Creating a cluster (Console)](getting-started.md#clusters.createclusters.viewdetails.cluster).

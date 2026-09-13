@@ -305,4 +305,4 @@ You can view the billing for your reserved nodes in the Billing Dashboard in the
 
 Your reserved nodes and their hourly charges for the current month are shown under **Amazon MemoryDB CreateCluster Reserved Instances**.
 
-![Screen capture of a billing statement showing hourly charges for the current month.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/reserved-nodes.png)
+![Screen capture of a billing statement showing hourly charges for the current month.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/reserved-nodes.png)

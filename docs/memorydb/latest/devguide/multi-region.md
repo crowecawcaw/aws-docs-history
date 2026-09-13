@@ -53,7 +53,7 @@ Region A executes “HSET K F1 V1” at timestamp T1; Region B executes “HSET 
 
 In MemoryDB Multi-Region, when there is a concurrent creation of a key, the last operation that was executed on any Region will determine the result of the key. For example:
 
-![Concurrent execution: Last writer wins.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-ex-last-writer-wins.png)
+![Concurrent execution: Last writer wins.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-ex-last-writer-wins.png)
 
 
 The key x was created on Region B with value "b" but after that the same key was created in Region A with the value "a". Eventually the key will converge to have the value "a", since the operation in Region A was the last performed operation.
@@ -62,7 +62,7 @@ The key x was created on Region B with value "b" but after that the same key was
 
 In the previous example the key was created with the same type in both regions. Similar behavior will also be observed if the key is created with different data types:
 
-![Concurrent execution with conflicting data types: Last writer wins.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-ex-conflict-data-types-last-writer-wins.png)
+![Concurrent execution with conflicting data types: Last writer wins.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-ex-conflict-data-types-last-writer-wins.png)
 
 
 The key x was created as String on Region B with value "b". But after that, and before that operation was replicated to Region A, the same key is created in Region A as a Hash. Eventually the key will converge to have the Hash created on Region A, since the operation in Region A was the last performed operation.
@@ -71,14 +71,14 @@ The key x was created as String on Region B with value "b". But after that, and 
 
 In the scenario where there is a concurrent deletion and “creation” (meaning the replacement/addition of value), the last performed operation will win. The end result will be determined by the order of the deletion operation. If the deletion happens before:
 
-![Concurrent creation-deletion: Last writer wins if deletion happens before.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-create-delete-last-writer-wins-before.jpg)
+![Concurrent creation-deletion: Last writer wins if deletion happens before.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-create-delete-last-writer-wins-before.jpg)
 
 
 The key x of type Set was deleted on Region B. After that a new member was added to that key on Region A. Eventually the key will converge to have the Set with the sole element added on Region A, since the operation on Region A was the last performed operation.
 
 If the deletion happens after:
 
-![Concurrent creation-deletion: Last writer wins if deletion happens after.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-create-delete-last-writer-wins-after.jpg)
+![Concurrent creation-deletion: Last writer wins if deletion happens after.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-create-delete-last-writer-wins-after.jpg)
 
 
 A new member was added to key x of type Set on Region A. Aafter that the key was deleted on Region B. Eventually it will converge to have the key deleted, since the operation on Region B was the last performed operation.
@@ -87,7 +87,7 @@ A new member was added to key x of type Set on Region A. Aafter that the key was
 
 Counters in MemoryDB Multi-Region behave similarly as non-counter types by doing full value replication and applying last-writer-strategy. Concurrent operation will not combine but the last operation will win instead. For example:
 
-![Full value replication if last writer wins.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-full-rep-last-writer-wins.jpg)
+![Full value replication if last writer wins.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/concurrent-full-rep-last-writer-wins.jpg)
 
 
 In this scenario the key x has the starting value 1. Then Region B increases the counter x by 2, then shortly afterwards Region A increased the counter by 1. Since region A was the last performed operation, the key x will eventually converge to the value 2 as increasing by 1 was the last operation performed.
@@ -96,7 +96,7 @@ In this scenario the key x has the starting value 1. Then Region B increases the
 
 In order to guarantee consistency of the values across the different regions, in MemoryDB Multi-Region non-deterministic commands are replicated as deterministic. Non-deterministic commands are those that depend on external factors, such as SETNX. SETNX depends on the key being present or not, and the key may be present on a remote Region but not in the local Region receiving the command. For this reason, otherwise non-deterministic commands are replicated as full value replication. In the case of a string, it will be replicated as a SET command.
 
-![Non-deterministic commands being replicated as deterministic.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/nondeterministic_commands.png)
+![Non-deterministic commands being replicated as deterministic.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/nondeterministic_commands.png)
 
 
 In summary, all operations over String type are replicated as SET or DEL, all operations over Hash type are replicated as HSET or HDEL, all operations over Set type are replicated as SADD or SREM, and all operations over Sorted Sets are replicated as ZADD or ZREM. 

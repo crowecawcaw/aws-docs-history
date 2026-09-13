@@ -67,7 +67,7 @@ The M parameter represents the number of bi-directional links created for every 
 
 Within the console experience, MemoryDB offers an easy way to choose the right instance type based on the characteristics of your vector workload after checking Enable vector search under the cluster settings. 
 
-![Vector search cluster settings in the AWS console.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/vector-search-cluster-settings-console.png)
+![Vector search cluster settings in the AWS console.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/vector-search-cluster-settings-console.png)
 
 
 
@@ -82,10 +82,10 @@ A customer wants to build a semantic search engine built on top of their interna
 
 With this data, the customer can click the Use vector calculator button within the console to get a recommended instance type based on their parameters:
 
-![The vector calculator recommended node type, based on the input to the calculator.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/vector-calc1.png)
+![The vector calculator recommended node type, based on the input to the calculator.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/vector-calc1.png)
 
 
-![The vector calculator with values entered.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/vector-calc2.png)
+![The vector calculator with values entered.](https://docs.aws.amazon.com/memorydb/latest/devguide/images/vector-calc2.png)
 
 
 In this example, the vector calculator will look for the smallest [MemoryDB r7g node type](https://aws.amazon.com/memorydb/pricing/) that can hold the memory required to store the vectors based on the parameters provided. Note that this is an approximation, and you should test the instance type to make sure it fits your requirements.
