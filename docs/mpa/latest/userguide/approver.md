@@ -11,7 +11,7 @@ The Multi-party approval portal is an AWS managed application for AWS IAM Identi
 
 It's the central hub where you can view and respond to requested operations and pending team invitations, view which teams you belong to, and view historical team decisions.
 
-![Requested operations table showing 14 pending operations with expiration times and requestor details.](http://docs.aws.amazon.com/mpa/latest/userguide/images/mpa-portal.png)
+![Requested operations table showing 14 pending operations with expiration times and requestor details.](https://docs.aws.amazon.com/mpa/latest/userguide/images/mpa-portal.png)
 
 
 *Figure 1: Diagram depicting the Multi-party approval portal.*
@@ -20,7 +20,7 @@ It's the central hub where you can view and respond to requested operations and 
 
 To view an invitation for an approval team, search your email inbox for "Multi-party approval team invitation".
 
-![Email invitation to join AWS Multi-party approval team with expiration date and response button.](http://docs.aws.amazon.com/mpa/latest/userguide/images/email-invitation.png)
+![Email invitation to join AWS Multi-party approval team with expiration date and response button.](https://docs.aws.amazon.com/mpa/latest/userguide/images/email-invitation.png)
 
 
 *Figure 2: Diagram depicting a Multi-party approval team invitation.*

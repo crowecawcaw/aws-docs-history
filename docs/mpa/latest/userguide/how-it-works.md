@@ -5,7 +5,7 @@
 
 To help you understand Multi-party approval, this topic describes the three-step approval process.
 
-![Diagram showing AWS Management Console request flow to Approval Portal for protected operations.](http://docs.aws.amazon.com/mpa/latest/userguide/images/how-it-works.png)
+![Diagram showing AWS Management Console request flow to Approval Portal for protected operations.](https://docs.aws.amazon.com/mpa/latest/userguide/images/how-it-works.png)
 
 
 *Figure 1: Diagram depicting how Multi-party approval works. You can also use the AWS CLI & AWS SDKs instead of the AWS Management Console.*

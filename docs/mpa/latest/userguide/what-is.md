@@ -7,7 +7,7 @@
 
 Multi-party approval is a capability of [AWS Organizations](https://aws.amazon.com/organizations) that allows you to protect a predefined list of operations through a distributed approval process. Use Multi-party approval to establish approval workflows and transform security processes into team-based decisions.
 
-![Multi-party approval process with Requester, Administrator, and Approvers roles and their functions.](http://docs.aws.amazon.com/mpa/latest/userguide/images/personas.png)
+![Multi-party approval process with Requester, Administrator, and Approvers roles and their functions.](https://docs.aws.amazon.com/mpa/latest/userguide/images/personas.png)
 
 
 *Figure 1: Diagram depicting the job functions for Multi-party approval.*
@@ -28,7 +28,7 @@ If the access request is approved, AWS Backup creates a restore access backup va
 
 For more information, see [How Multi-party approval works](how-it-works.md). To get started, see [Set up Multi-party approval](setting-up.md).
 
-![Workflow diagram showing request approval process between AWS Management Console and Approval Portal.](http://docs.aws.amazon.com/mpa/latest/userguide/images/how-it-works.png)
+![Workflow diagram showing request approval process between AWS Management Console and Approval Portal.](https://docs.aws.amazon.com/mpa/latest/userguide/images/how-it-works.png)
 
 
 *Figure 2: Diagram depicting how Multi-party approval works. You can also use the AWS CLI & AWS SDKs instead of the AWS Management Console.*

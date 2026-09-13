@@ -113,7 +113,7 @@ After you request to update a team, you can monitor the team status in the Multi
 
 When you request to update a team, Multi-party approval creates a team draft which contains the proposed changes.
 
-![Team draft interface showing approver updates and approval threshold changes.](http://docs.aws.amazon.com/mpa/latest/userguide/images/team-draft.png)
+![Team draft interface showing approver updates and approval threshold changes.](https://docs.aws.amazon.com/mpa/latest/userguide/images/team-draft.png)
 
 
 *Figure 1: Team draft as displayed in the Multi-party approval console.*

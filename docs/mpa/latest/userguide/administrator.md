@@ -11,7 +11,7 @@ When a team is active, you can request to update the team description, approval 
 
 The Multi-party approval console is located in the AWS Organizations console, and is an interface for the Multi-party approval admin to create and manage their approval teams.
 
-![Multi-party approval console showing Teams table with team states and Identity sources section.](http://docs.aws.amazon.com/mpa/latest/userguide/images/mpa-dashboard.png)
+![Multi-party approval console showing Teams table with team states and Identity sources section.](https://docs.aws.amazon.com/mpa/latest/userguide/images/mpa-dashboard.png)
 
 
 *Figure 1: Diagram depicting the Multi-party approval console.*
