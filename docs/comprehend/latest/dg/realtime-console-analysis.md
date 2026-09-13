@@ -35,7 +35,7 @@ You can replace the sample text with your own text and then choose **Analyze** t
 
 The **Entities** tab lists each entity, its category, and the level of confidence that Amazon Comprehend has detected in the input text. The results are color-coded to indicate different entity types such as organizations, locations, dates, and persons. For more information, see [Entities](how-entities.md).
 
-![Console display of the entities analysis tab.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-entities.png)
+![Console display of the entities analysis tab.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-entities.png)
 
 
 ## Key phrases
@@ -43,7 +43,7 @@ The **Entities** tab lists each entity, its category, and the level of confidenc
 
 The **Key phrases** tab lists key noun phrases that Amazon Comprehend detected in the input text and the associated confidence level. For more information, see [Key phrases](how-key-phrases.md).
 
-![Console display of the Key phrases tab.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-key-phrases.png)
+![Console display of the Key phrases tab.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-key-phrases.png)
 
 
 ## Language
@@ -51,7 +51,7 @@ The **Key phrases** tab lists key noun phrases that Amazon Comprehend detected i
 
 The **Language** tab shows the dominant language of the text and Amazon Comprehend's level of confidence that it has detected the dominant language correctly. Amazon Comprehend can recognize 100 languages. For more information, see [Dominant language](how-languages.md).
 
-![Console display of the analyzed text, the dominant language of the text, and a confidence score.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-language.png)
+![Console display of the analyzed text, the dominant language of the text, and a confidence score.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-language.png)
 
 
 ## Personally identifiable information (PII)
@@ -68,7 +68,7 @@ The **PII** tab provides two analysis modes:
 
 The **Offsets** analysis mode identifies the location of PII in your text documents. For more information, see [Locate PII entities](how-pii.md#how-pii-locate). 
 
-![Console display of the PII offsets analysis mode.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-pii.png)
+![Console display of the PII offsets analysis mode.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-pii.png)
 
 
 ### Labels
@@ -76,7 +76,7 @@ The **Offsets** analysis mode identifies the location of PII in your text docume
 
 The **Labels** analysis mode checks for the presence of PII in your text document and returns the labels of identified PII entity types. For more information, see [Labeling PII entities](how-pii-labels.md). 
 
-![Console display of the PII labels analysis mode.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-pii-labels.png)
+![Console display of the PII labels analysis mode.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-pii-labels.png)
 
 
 ## Sentiment
@@ -84,7 +84,7 @@ The **Labels** analysis mode checks for the presence of PII in your text documen
 
 The **Sentiment** tab shows the dominant sentiment of the text. Sentiment can be rated neutral, positive, negative, or mixed. In this case, each sentiment has a confidence rating, providing an estimate by Amazon Comprehend for that sentiment being dominant. For more information, see [Sentiment](how-sentiment.md).
 
-![Console display of the Sentiment analysis.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-sentiment.png)
+![Console display of the Sentiment analysis.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-sentiment.png)
 
 
 ## Targeted sentiment
@@ -94,14 +94,14 @@ The **Sentiment** tab shows the dominant sentiment of the text. Sentiment can be
 
 In the **Analyzed text** panel, the console underlines each of analyzed entities. The color of the underlined text indicates the overall sentiment of the entity. If you hover your cursor over an entity, the console displays additional information in a pop-up window.
 
-![Console display of the Targeted sentiment tab.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment2.png)
+![Console display of the Targeted sentiment tab.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment2.png)
 
 
 The **Results** table provides additional detail about each entity. If there are multiple mentions of the same entity, called a co-reference group, the table displays these mentions as a collapsible set of rows associated with the main entity.
 
 In the following example, the entity is a person named **Zhang Wei**. The targeted sentiment analysis recognizes that each mention of **your** is a reference to the same person. The console displays these mentions as sub-entries of the main entity.
 
-![Console display of the Results table for targeted sentiment analysis.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment1.png)
+![Console display of the Results table for targeted sentiment analysis.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment1.png)
 
 
 If the text you are analyzing doesn't include any targeted sentiment [Entity types](how-targeted-sentiment.md#how-targeted-sentiment-entities), the targeted sentiment analysis displays an empty results field.
@@ -113,4 +113,4 @@ For more information about how to use the console for targeted sentiment real-ti
 
 The **Syntax** tab shows a breakdown of each element in the text, along with its part of speech and the associated confidence score. For more information, see [Syntax analysis](how-syntax.md).
 
-![Console display of the syntax analysis results.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-syntax.png)
+![Console display of the syntax analysis results.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-syntax.png)

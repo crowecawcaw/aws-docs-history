@@ -38,7 +38,7 @@ The following is an example of the VpcConfig parameter that you include in your 
 
 To configure a VPC from the Amazon Comprehend console, choose the configuration details from the optional **VPC Settings** section when creating the job. 
 
-![Optional VPC section in Creating Analysis Job](http://docs.aws.amazon.com/comprehend/latest/dg/images/vpc-image-10.png)
+![Optional VPC section in Creating Analysis Job](https://docs.aws.amazon.com/comprehend/latest/dg/images/vpc-image-10.png)
 
 
 ## Configure your VPC for Amazon Comprehend jobs

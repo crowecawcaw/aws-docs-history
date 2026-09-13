@@ -7,7 +7,7 @@ Artificial intelligence and machine learning (AI/ML) is all about rapid experime
 
 When you train a new version of an existing custom classifier model or entity recognition model, all you need to do is create a new version from the model details page and all the details populate for you. The new version will have the same name as your earlier model — what we call the versionID — although you will give it a unique version name during creation. As you add new versions to a model, you can see all the previous versions and their details in one view from the model details page. With versioning, you can see how model performance changes as you make changes to your training dataset. 
 
-![Graphic of a model with three versions, showing the F1 score for each version.](http://docs.aws.amazon.com/comprehend/latest/dg/images/model_versioning.png)
+![Graphic of a model with three versions, showing the F1 score for each version.](https://docs.aws.amazon.com/comprehend/latest/dg/images/model_versioning.png)
 
 
 **Create a new **Custom classifier** version (console)**

@@ -14,13 +14,13 @@ You can determine how to best adjust your endpoint's throughput by monitoring it
 1. On the left, choose **Metrics** and select **All metrics**.
 
 1. Under **All metrics**, choose **Comprehend**.  
-![Console display of the Metrics page showing the Comprehend panel.](http://docs.aws.amazon.com/comprehend/latest/dg/images/cloudwatch-metrics1.png)
+![Console display of the Metrics page showing the Comprehend panel.](https://docs.aws.amazon.com/comprehend/latest/dg/images/cloudwatch-metrics1.png)
 
 1. The CloudWatch console displays the dimensions for the **Comprehend** metrics. Choose the **EndpointArn** dimension.   
-![Console display of the Amazon Comprehend metrics page showing the EndpointArn dimension.](http://docs.aws.amazon.com/comprehend/latest/dg/images/cloudwatch-metrics2.png)
+![Console display of the Amazon Comprehend metrics page showing the EndpointArn dimension.](https://docs.aws.amazon.com/comprehend/latest/dg/images/cloudwatch-metrics2.png)
 
    The console displays **ProvisionedInferenceUnits**, **RequestedInferenceUnits**, **ConsumedInferenceUnits**, and **InferenceUtilization** for each of your endpoints.  
-![CloudWatch console showing the four metrics.](http://docs.aws.amazon.com/comprehend/latest/dg/images/cloudwatch-metrics3.png)
+![CloudWatch console showing the four metrics.](https://docs.aws.amazon.com/comprehend/latest/dg/images/cloudwatch-metrics3.png)
 
    Select the four metrics and navigate to the **Graphed metrics** tab.
 
@@ -37,7 +37,7 @@ You can determine how to best adjust your endpoint's throughput by monitoring it
    Your graph is ready for analysis. 
 
      
-![Console display showing the graphed metrics.](http://docs.aws.amazon.com/comprehend/latest/dg/images/graphed_metrics_endpoint.png)
+![Console display showing the graphed metrics.](https://docs.aws.amazon.com/comprehend/latest/dg/images/graphed_metrics_endpoint.png)
 
 Based on the CloudWatch metrics, you can also set up auto scaling to automatically adjust the throughput of your endpoint. For more information about using auto scaling with your endpoints, see [Auto scaling with endpoints](comprehend-autoscaling.md). 
 

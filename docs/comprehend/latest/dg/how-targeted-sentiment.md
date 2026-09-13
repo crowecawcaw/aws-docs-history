@@ -66,7 +66,7 @@ Targeted sentiment identifies co-reference groups in each input document. A co-r
 **Example**  
 In the following example of a customer review, “spa” is the entity, which has entity type `FACILITY`. The entity has two additional mentions as a pronoun ("it").   
 
-![Targeted sentiment co-reference group.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment4.png)
+![Targeted sentiment co-reference group.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment4.png)
 
 
 ## Output file organization
@@ -201,17 +201,17 @@ Hello Zhang Wei, I am John. Your AnyCompany Financial Services, LLC credit card 
 
 The **Analyzed text** panel shows the following output for this example. Hover your mouse over the text `Zhang Wei` to view the popup panel for this entity.
 
-![Targeted sentiment analyzed text.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment2.png)
+![Targeted sentiment analyzed text.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment2.png)
 
 
 The **Results** table provides additional detail about each entity, including the entity score, the primary sentiment, and the score for each sentiment. 
 
-![Targeted sentiment results table.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment3.png)
+![Targeted sentiment results table.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment3.png)
 
 
 In our example, targeted sentiment analysis recognizes that each mention of **your** in the input text is a reference to the person entity **Zhang Wei**. The console displays these mentions as a set of collapsible rows associated with the main entity.
 
-![Targeted sentiment results table.](http://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment5.png)
+![Targeted sentiment results table.](https://docs.aws.amazon.com/comprehend/latest/dg/images/gs-console-targeted-sentiment5.png)
 
 
 The **Application integration** panel displays the JSON object that the DetectTargetedSentiment API generates. See the following section for a full example.

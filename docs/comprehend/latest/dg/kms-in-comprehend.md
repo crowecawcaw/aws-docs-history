@@ -16,14 +16,14 @@ Two encryption options are available when using the console:
 **To enable volume encryption**
 
 1.  Under **Job Settings**, choose the **Job encryption** option.   
-![KMS Job encryption in the AWS Management Console](http://docs.aws.amazon.com/comprehend/latest/dg/images/kms-1.png)
+![KMS Job encryption in the AWS Management Console](https://docs.aws.amazon.com/comprehend/latest/dg/images/kms-1.png)
 
 1. Choose whether the KMS customer-managed key (CMK) is from the account you're currently using or from a different account. If you want to use a key from the current account, choose the key alias from **KMS key ID**. If you're using a key from a different account, you must enter the key's ARN.
 
 **To enable output result encryption**
 
 1.  Under **Output Settings**, choose the **Encryption** option.   
-![KMS output result encryption in the AWS Management Console](http://docs.aws.amazon.com/comprehend/latest/dg/images/kms-2.png)
+![KMS output result encryption in the AWS Management Console](https://docs.aws.amazon.com/comprehend/latest/dg/images/kms-2.png)
 
 1. Choose whether the customer-managed key (CMK) is from the account you're currently using or from a different account. If you want to use a key from the current account, choose the key ID from **KMS key ID**. If you're using a key from a different account, you must enter the key's ARN.
 

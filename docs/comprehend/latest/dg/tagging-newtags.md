@@ -10,7 +10,7 @@ You can add tags to an **Analysis job**, a **Custom classification** model, a **
 1. Select the resource (Analysis job, Custom classification, or Custom entity recognition) you want to create from the left navigation pane.
 
 1. Click **Create job** (or **Create new model**). This takes you to the main 'create' page for your resource. At the bottom of this page, you'll see a '**Tags -** *optional*' panel.  
-![Console display of the empty tags panel.](http://docs.aws.amazon.com/comprehend/latest/dg/images/add-tags-2.png)
+![Console display of the empty tags panel.](https://docs.aws.amazon.com/comprehend/latest/dg/images/add-tags-2.png)
 
    Enter a tag key and, optionally, a tag value. Choose **Add tag** to add another tag to the resource. Repeat this process until all your tags are added. Note that tag keys must be unique per resource.
 

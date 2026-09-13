@@ -97,4 +97,4 @@ The console displays the **Classifiers** page. The new classifier appears in the
 
 If Amazon Comprehend encountered errors during creation or training, the status changes to `In error`. You can choose a classifier job in the table to get more information about the classifier, including any error messages.
 
-![The custom classifier list.](http://docs.aws.amazon.com/comprehend/latest/dg/images/class-list.png)
+![The custom classifier list.](https://docs.aws.amazon.com/comprehend/latest/dg/images/class-list.png)

@@ -422,12 +422,12 @@ If the tables don’t have any data, try checking the folders in your S3 bucket.
 
 Your `sentiment_results_final` table should look like the following, with columns named **file**, **line**, **sentiment**, **mixed**, **negative**, **neutral**, and **positive**. The table should have one value per cell. The **sentiment** column describes the most likely overall sentiment of a particular review. The **mixed**, **negative**, **neutral**, and **positive** columns give scores for each type of sentiment.
 
-![Screenshot of the sentiment output table in Athena.](http://docs.aws.amazon.com/comprehend/latest/dg/images/tutorial-reviews-sentiment-table.png)
+![Screenshot of the sentiment output table in Athena.](https://docs.aws.amazon.com/comprehend/latest/dg/images/tutorial-reviews-sentiment-table.png)
 
 
 Your `entities_results_final` table should look like the following, with columns named **file**, **line**, **beginoffset**, **endoffset**, **score**, **entity**, and **category**. The table should have one value per cell. The **score** column indicates Amazon Comprehend's confidence in the **entity** it detected. The **category** indicates what kind of entity Comprehend detected.
 
-![Console display of the entities output table in Athena.](http://docs.aws.amazon.com/comprehend/latest/dg/images/tutorial-reviews-entities-table.png)
+![Console display of the entities output table in Athena.](https://docs.aws.amazon.com/comprehend/latest/dg/images/tutorial-reviews-entities-table.png)
 
 
 Now that you have the Amazon Comprehend results loaded into tables, you can visualize and extract meaningful insights from the data.

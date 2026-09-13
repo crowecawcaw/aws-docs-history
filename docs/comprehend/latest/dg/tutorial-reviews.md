@@ -16,7 +16,7 @@ In this tutorial, you accomplish the following:
 
 The following diagram shows the workflow.
 
-![Workflow diagram of the procedures in the tutorial.](http://docs.aws.amazon.com/comprehend/latest/dg/images/tutorial-reviews-workflow.png)
+![Workflow diagram of the procedures in the tutorial.](https://docs.aws.amazon.com/comprehend/latest/dg/images/tutorial-reviews-workflow.png)
 
 
 **Estimated time to complete this tutorial:** 1 hour

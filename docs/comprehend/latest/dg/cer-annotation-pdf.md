@@ -36,14 +36,14 @@ Before you can annotate your training PDFs in SageMaker AI Ground Truth, complet
    `make ready-and-deploy-guided`
 
    This command presents a set of configuration options. Be sure your AWS Region is correct. For all other fields, you can either accept the default values or fill in custom values. If you modify the CloudFormation stack name, write it down as you need it in the next steps.  
-![Terminal session showing CloudFormation configuration options.](http://docs.aws.amazon.com/comprehend/latest/dg/images/deploy_guided_anno.png)
+![Terminal session showing CloudFormation configuration options.](https://docs.aws.amazon.com/comprehend/latest/dg/images/deploy_guided_anno.png)
 
    The CloudFormation stack creates and manage the [AWS lambdas](https://aws.amazon.com/lambda/), [AWS IAM](https://aws.amazon.com/iam/) roles, and [AWS S3](https://aws.amazon.com/s3/) buckets required for the annotation tool.
 
    You can review each of these resources in the stack details page in the CloudFormation console.
 
 1. The command prompts you to start the deployment. CloudFormation creates all the resources in the specified Region.  
-![Terminal session showing the deployed CloudFormation configuration.](http://docs.aws.amazon.com/comprehend/latest/dg/images/deploy_guided_anno_2.png)
+![Terminal session showing the deployed CloudFormation configuration.](https://docs.aws.amazon.com/comprehend/latest/dg/images/deploy_guided_anno_2.png)
 
    When the CloudFormation stack status transitions to create-complete, the resources are ready to use.
 
@@ -124,10 +124,10 @@ Now that you have configured the required resources and created a labeling job, 
 1. Select your task and, in the top right corner, choose **Start working** to open the annotation screen.
 
    You'll see one of your documents open in the annotation screen and, above it, the entity types you provided during set up. To the right of your entity types, there is an arrow you can use to navigate through your documents.  
-![The Amazon Comprehend annotation screen.](http://docs.aws.amazon.com/comprehend/latest/dg/images/annotation_demo1.png)
+![The Amazon Comprehend annotation screen.](https://docs.aws.amazon.com/comprehend/latest/dg/images/annotation_demo1.png)
 
    Annotate the open document. You can also remove, undo, or auto tag your annotations on each document; these options are available in the right panel of the annotation tool.  
-![Available options in the Amazon Comprehend annotation right panel.](http://docs.aws.amazon.com/comprehend/latest/dg/images/data_annotation.png)
+![Available options in the Amazon Comprehend annotation right panel.](https://docs.aws.amazon.com/comprehend/latest/dg/images/data_annotation.png)
 
    To use auto tag, annotate an instance of one of your entities; all other instances of that specific word are then automatically annotated with that entity type.
 
