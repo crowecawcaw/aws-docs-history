@@ -10,7 +10,7 @@ This architecture shows how to transfer genomics data to the cloud and provide d
 ## Genomics data transfer, storage, and archival diagram
 <a name="genomics-diagram"></a>
 
-![Reference architecture diagram showing how to transfer genomics data to AWS and provide data access by using DataSync, AWS Transfer Family, Amazon S3, and Amazon FSx for Lustre.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/genomics-data-transfer-storage-archival/images/genomics-data-transfer-storage-archival.png)
+![Reference architecture diagram showing how to transfer genomics data to AWS and provide data access by using DataSync, AWS Transfer Family, Amazon S3, and Amazon FSx for Lustre.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/genomics-data-transfer-storage-archival/images/genomics-data-transfer-storage-archival.png)
 
 
 The following steps describe the architecture:
