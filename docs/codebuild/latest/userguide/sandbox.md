@@ -63,17 +63,17 @@ Use the following instructions to run commands and connect your SSH client with 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home).
 
 1. In the navigation pane, choose **Build projects**. Choose the build project, and then choose **Debug build**.  
-![The debug build project detail page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/sandbox-debug-build.png)
+![The debug build project detail page in the console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/sandbox-debug-build.png)
 
 1. In the **Run command** tab, enter your custom commands, and then choose **Run command**.  
-![The run command detail page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/debug-build-run.png)
+![The run command detail page in the console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/debug-build-run.png)
 
 1. Your CodeBuild sandbox will then be initialized and start running your custom commands. The output will be shown in the **Output** tab when it's completed.   
-![The run command output page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/debug-build-run-output.png)
+![The run command output page in the console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/debug-build-run-output.png)
 
 1. When troubleshooting is completed, you can stop the sandbox by choosing **Stop sandbox**. Then choose **Stop** to confirm that your sandbox will be stopped.  
-![The stop sandbox dialog box.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/stop-sandbox.png)  
-![The run command output page with a stopped sandbox in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/stopped-sandbox.png)
+![The stop sandbox dialog box.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/stop-sandbox.png)  
+![The run command output page with a stopped sandbox in the console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/stopped-sandbox.png)
 
 ### Connect to your SSH client with CodeBuild sandbox (console)
 <a name="sandbox-console.ssh"></a>
@@ -81,17 +81,17 @@ Use the following instructions to run commands and connect your SSH client with 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home).
 
 1. In the navigation pane, choose **Build projects**. Choose the build project, and then choose **Debug build**.  
-![The debug build project detail page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/sandbox-debug-build.png)
+![The debug build project detail page in the console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/sandbox-debug-build.png)
 
 1. In the **SSH Client** tab and choose **Start sandbox**.  
-![The SSH client sandbox page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/ssh-client-sandbox.png)
+![The SSH client sandbox page in the console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/ssh-client-sandbox.png)
 
 1. After the CodeBuild sandbox starts running, follow the console instructions to connect your SSH client with the sandbox.  
-![The SSH client sandbox page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/ssh-client-sandbox-terminal.png)
+![The SSH client sandbox page in the console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/ssh-client-sandbox-terminal.png)
 
 1. When troubleshooting is completed, you can stop the sandbox by choosing **Stop sandbox**. Then choose **Stop** to confirm that your sandbox will be stopped.  
-![The stop sandbox dialog box.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/stop-sandbox-2.png)  
-![The run command output page with a stopped sandbox in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/stopped-sandbox-2.png)
+![The stop sandbox dialog box.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/stop-sandbox-2.png)  
+![The run command output page with a stopped sandbox in the console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/stopped-sandbox-2.png)
 
 ## Debug builds with CodeBuild sandbox (AWS CLI)
 <a name="sandbox-cli"></a>

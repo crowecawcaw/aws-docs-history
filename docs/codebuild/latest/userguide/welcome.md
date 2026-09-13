@@ -24,7 +24,7 @@ You can use the AWS CodeBuild or AWS CodePipeline console to run CodeBuild. You 
 
 
 
-![The diagram shows how CodeBuild works with AWS CLI or AWS SDKs.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/overview.png)
+![The diagram shows how CodeBuild works with AWS CLI or AWS SDKs.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/overview.png)
 
 
 
@@ -33,7 +33,7 @@ As the following diagram shows, you can add CodeBuild as a build or test action 
 
 
 
-![The diagram shows how CodeBuild works with AWS CodePipeline.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pipeline.png)
+![The diagram shows how CodeBuild works with AWS CodePipeline.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/pipeline.png)
 
 
 

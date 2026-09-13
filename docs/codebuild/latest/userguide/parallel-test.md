@@ -56,4 +56,4 @@ One of the key strengths of CodeBuild's implementation is its ability to handle 
 
 The following diagram explains the complete concept of parallel test execution in AWS CodeBuild.
 
-![Concept diagram of parallel test execution.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/parallel-test.png)
+![Concept diagram of parallel test execution.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/parallel-test.png)

@@ -16,7 +16,7 @@ The following diagram shows what happens when you run a build with CodeBuild:
 
 
 
-![A diagram of how running a build with CodeBuild works.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/arch.png)
+![A diagram of how running a build with CodeBuild works.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/arch.png)
 
 
 

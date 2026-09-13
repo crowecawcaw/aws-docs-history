@@ -7,7 +7,7 @@ Builds in AWS CodeBuild proceed in phases:
 
 
 
-![The CodeBuild phases.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/build-phases.png)
+![The CodeBuild phases.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/build-phases.png)
 
 
 

@@ -163,12 +163,12 @@ To view your workflow job logs, navigate to your repository in GitHub, choose **
 
 You can review the requested labels in the log while the job is waiting to be picked up by a self-hosted runner in CodeBuild.
 
-![Loading the log of the job.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/hello-world-loading.png)
+![Loading the log of the job.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/hello-world-loading.png)
 
 
 Once the job is completed, you will be able to view the log of the job.
 
-![The log of the job.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/hello-world-log.png)
+![The log of the job.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/hello-world-log.png)
 
 
 ## GitHub Actions runner configuration options

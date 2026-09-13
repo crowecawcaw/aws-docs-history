@@ -21,7 +21,7 @@ Use the following procedure to create a GitHub manual webhook.
      +  Choose **Additional configuration** and for **Manual creation - optional**, choose **Manually create a webhook for this repository in GitHub console.**.
 
 1. Continue with the default values and then choose **Create build project**. Take note of the **Payload URL** and **Secret** values as you will use these later.  
-![Payload URL and Secret configuration for manual webhooks.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-manual-webhook-values.png)
+![Payload URL and Secret configuration for manual webhooks.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/github-manual-webhook-values.png)
 
 1. Open the GitHub console at `https://github.com/{{user-name}}/{{repository-name}}/settings/hooks` and choose **Add webhook**.
    + For **Payload URL**, enter the Payload URL value you took note of earlier.

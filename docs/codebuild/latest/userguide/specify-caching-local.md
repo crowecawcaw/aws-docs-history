@@ -37,7 +37,7 @@ For more information, see [Create a build project (AWS CLI)](create-project.md#c
 
 You specify a cache in the **Artifacts** section of the console. For **Cache type**, choose **Amazon S3** or **Local**. If you choose **Local**, choose one or more of the three local cache options.
 
-![Specify a local cache by choosing one or more of the three local cache options.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/local-cache.png)
+![Specify a local cache by choosing one or more of the three local cache options.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/local-cache.png)
 
 
 For more information, see [Create a build project (console)](create-project.md#create-project-console).

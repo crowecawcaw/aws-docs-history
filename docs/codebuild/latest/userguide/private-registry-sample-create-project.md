@@ -32,7 +32,7 @@
 1.  When you create an AWS CodeBuild project in the console, CodeBuild attaches the required permission for you. If you use an AWS KMS key other than `DefaultEncryptionKey`, you must add it to the service role. For more information, see [Modifying a role (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html#roles-managingrole-editing-console) in the *IAM User Guide*. 
 
     For your service role to work with Secrets Manager, it must have, at a minimum, the `secretsmanager:GetSecretValue` permission.   
-![The service role configuration.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/private-registry-sample-iam.png)
+![The service role configuration.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/private-registry-sample-iam.png)
 
 1.  To use the console to create a project with an environment stored in a private registry, do the following while you create a project. For information, see [Create a build project (console)](create-project.md#create-project-console). 
 **Note**  

@@ -19,7 +19,7 @@ Use the following procedure to integrate Codecov into a build project.
 1.  In Codecov, add the repository for which you want coverage. 
 
 1.  When token information is displayed, choose **Copy**.   
-![The token information is displayed.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-token.png)
+![The token information is displayed.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-token.png)
 
 1.  Add the copied token as an environment variable named `CODECOV_TOKEN` to your build project. For more information, see [Change a build project's settings (console)](change-project.md#change-project-console). 
 
@@ -111,4 +111,4 @@ Use the following procedure to integrate Codecov into a build project.
    ```
 
     The reports look like the following:   
-![The sample reports.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-report.png)
+![The sample reports.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/codecov-report.png)

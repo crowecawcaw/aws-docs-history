@@ -173,4 +173,4 @@ To use the AWS Management Console to filter webhook events:
 
 For more information, see [Create a build project (console)](create-project.md#create-project-console) and [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *CodeBuild API Reference*.
 
-![Primary source webhook events console with comment approval.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-comment-approval.png)
+![Primary source webhook events console with comment approval.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/pull-request-comment-approval.png)

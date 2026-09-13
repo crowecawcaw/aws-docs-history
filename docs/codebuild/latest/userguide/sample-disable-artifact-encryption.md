@@ -16,7 +16,7 @@ You can disable the encryption of artifacts in a build. You might want to do thi
 1.  In **Source**, for **Source provider**, choose **GitHub**. Follow the instructions to connect (or reconnect) with GitHub, and then choose **Authorize**. 
 
     For **Webhook**, select **Rebuild every time a code change is pushed to this repository**. You can select this check box only if you chose **Use a repository in my account**.   
-![The webhook configuration.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/webhook.png)
+![The webhook configuration.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/webhook.png)
 
 1. In **Environment**:
 

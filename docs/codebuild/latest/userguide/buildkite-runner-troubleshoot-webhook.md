@@ -20,4 +20,4 @@ To debug failed Buildkite webhook events:
 1. Find the `job.scheduled` webhook event associated with your stuck Buildkite job. You can use the job ID field within the webhook payload to correlate the webhook event to your Buildkite job.
 
 1. Select the **Response** tab and check the response body. Verify that the **Response** status code is `200` and the **Response** body doesn't contain any unexpected messages.  
-![Response for the webhook.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-request.png)
+![Response for the webhook.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-request.png)

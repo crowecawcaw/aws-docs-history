@@ -27,7 +27,7 @@ For GitHub, information similar to the following appears in the output:
 
 For GitHub Enterprise Server, information similar to the following appears in the output:
 
-![Sample output information.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-webhook-ghe.png)
+![Sample output information.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/create-webhook-ghe.png)
 
 
 1. Copy the secret key and payload URL from the output. You need them to add a webhook in GitHub Enterprise Server. 

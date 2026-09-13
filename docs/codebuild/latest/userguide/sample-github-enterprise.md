@@ -15,7 +15,7 @@ AWS CodeBuild supports GitHub Enterprise Server as a source repository. This sam
 1. Generate a personal access token for your CodeBuild project. We recommend that you create a GitHub Enterprise user and generate a personal access token for this user. Copy it to your clipboard so that it can be used when you create your CodeBuild project. For more information, see [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) on the GitHub Help website.
 
    When you create the personal access token, include the **repo** scope in the definition.  
-![The repo scope in the definition.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/scopes.png)
+![The repo scope in the definition.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/scopes.png)
 
 1. Download your certificate from GitHub Enterprise Server. CodeBuild uses the certificate to make a trusted SSL connection to the repository.
 
@@ -67,7 +67,7 @@ This bucket must be in the same AWS region as your builds. For example, if you i
    + Select **Enable insecure SSL** to ignore SSL warnings while you connect to your GitHub Enterprise Server project repository.
 **Note**  
 We recommend that you use **Enable insecure SSL** for testing only. It should not be used in a production environment.  
-![The GitHub Enterprise Server project repository configuration.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-enterprise.png)
+![The GitHub Enterprise Server project repository configuration.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/github-enterprise.png)
 
 1. In **Environment**:
 

@@ -8,7 +8,7 @@ This tutorial shows you how to configure your CodeBuild projects to run Buildkit
 To complete this tutorial, you must first:
 + Have access to a Buildkite organization. For more information about setting up a Buildkite account and organization, you can follow this [ Getting Started Tutorial](https://buildkite.com/docs/pipelines/getting-started).
 + Create a Buildkite pipeline, cluster, and queue configured to use self-hosted runners. For more information about setting up these resources, you can reference the [ Buildkite Pipeline Setup Tutorial](https://buildkite.com/docs/pipelines/create-your-own).  
-![Build project in Buildkite](http://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-first.png)
+![Build project in Buildkite](https://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-first.png)
 
 ## Step 1: Generate a Buildkite agent token
 <a name="w2aac26c33c12c13b7"></a>
@@ -22,7 +22,7 @@ In this step, you will generate an agent token within Buildkite that will be use
 1. Add a description to the token and click **Create Token**.
 
 1. Save the agent token value, as it will be used later during the CodeBuild project setup.  
-![Agent tokens in Buildkite](http://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-createtoken.png)
+![Agent tokens in Buildkite](https://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-createtoken.png)
 
 ## Step 2: Create a CodeBuild project with a webhook
 <a name="sample-runner-buildkite-create-project"></a>
@@ -86,7 +86,7 @@ In this step, update the steps of your Buildkite pipeline to add necessary label
 1. Open the Buildkite pipeline steps page by choosing your Buildkite pipeline, choosing **Settings**, and then choosing **Steps**.
 
    If you haven't already, choose **Convert to YAML steps**.  
-![Steps to update YAML.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-steps.png)
+![Steps to update YAML.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-steps.png)
 
 1. At a minimum, you will need to specify a [ Buildkite agent tag ](https://buildkite.com/docs/agent/v3/cli-start#agent-targeting) referencing the name of your CodeBuild pipeline. The project name is needed to link the AWS-related settings of your Buildkite job to a specific CodeBuild project. By including the project name in the YAML, CodeBuild is allowed to invoke jobs with the correct project settings.
 
@@ -181,7 +181,7 @@ Whenever a Buildkite job is started in your pipeline, CodeBuild will receive a `
 
 To view your workflow job logs, navigate to your Buildkite pipeline and select the most recent build (you can trigger a new build by choosing **New Build**). Once the associated CodeBuild build for each of your jobs starts and picks up the job, you should see logs for the job within the Buildkite console
 
-![Review results.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-log.png)
+![Review results.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-log.png)
 
 
 ## Authenticating Buildkite to a Private Repository
@@ -202,7 +202,7 @@ CodeBuild offers managed credentials handling for Supported source types. In ord
    1. If you would like to use project level CodeBuild credentials, select **Use override credentials for this project only** and set up credentials for your project.
 
 1. In your Buildkite pipeline settings, navigate to **Repository Settings**. Set your source repository checkout settings to **Checkout using HTTPS**  
-![Review results.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-repo-https.png)
+![Review results.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-repo-https.png)
 
 **To authenticate with Buildkite secrets**
 
@@ -213,10 +213,10 @@ Buildkite maintains an [ ssh-checkout plugin](https://github.com/buildkite-plugi
 1. Add the public key to your private source repository. For example, you can follow [this guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) to add a key to a GitHub account.
 
 1. Add a [ new SSH key secret ](https://buildkite.com/docs/pipelines/hosted-agents/code-access#private-repositories-with-other-providers-add-the-ssh-key-secret) to your Buildkite cluster. Within your Buildkite cluster, select **Secrets** → **New Secret**. Add a name for you secret in the **Key** field and add your private SSH key into the **Value** field:  
-![Review results.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-secret.png)
+![Review results.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-secret.png)
 
 1. Within your Buildkite pipeline, navigate to your repository settings and set checkout to use **SSH**.  
-![Review results.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-repo.png)
+![Review results.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/buildkite-repo.png)
 
 1. Update your pipeline YAML steps to use the `git-ssh-checkout` plugin. For example, the following pipeline YAML file uses the checkout action with the above Buildkite secret key:
 

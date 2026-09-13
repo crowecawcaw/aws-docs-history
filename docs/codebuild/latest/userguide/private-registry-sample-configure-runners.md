@@ -18,7 +18,7 @@ Note that these credentials will only be used if the images are overridden with 
 1.  In **Environment**, choose **Additional configuration**. 
 
 1.  In **Additional configuration**, enter the name or ARN of the secret from AWS Secrets Manager for **Registry credential - optional**.  
-![The registry credential configuration.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/registry-credential.png)
+![The registry credential configuration.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/registry-credential.png)
 
 ------
 #### [ AWS CLI ]

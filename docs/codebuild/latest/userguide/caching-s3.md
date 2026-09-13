@@ -117,7 +117,7 @@ This ensures consistency and enables cache sharing across projects.
 1. For **Cache type**, choose **Amazon S3**.
 
 1. For **Cache namespace - optional**, enter a namespace value.  
-![Cache namespace parameter in the CodeBuild console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/s3-cache-namespace.png)
+![Cache namespace parameter in the CodeBuild console.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/s3-cache-namespace.png)
 
 1. Continue with the default values and then choose **Create build project**.
 

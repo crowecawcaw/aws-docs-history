@@ -48,7 +48,7 @@ This procedure shows you how to add a test action inside of a test stage between
 1. Immediately after the **Source** stage, choose **Add stage**.
 **Note**  
 This procedure shows you how to add a test stage immediately after the **Source** stage to your pipeline. To add a test action to an existing stage, choose **Edit stage** in the stage, and then skip to step 8 of this procedure. To add the test stage somewhere else, choose **Add stage** in the desired place.  
-![How to add a test stage immediately after the Source stage to your pipeline.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/create-stage.png)
+![How to add a test stage immediately after the Source stage to your pipeline.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/create-stage.png)
 
    
 

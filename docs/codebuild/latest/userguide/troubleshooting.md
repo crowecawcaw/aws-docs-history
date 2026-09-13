@@ -590,7 +590,7 @@ git rev-parse --git-dir
 **Recommended solutions:** 
 + To accept the new permission, you should have received an email with a subject titled **Action required - Scopes for AWS CodeStar have changed** sent by Bitbucket, `notifications-noreply@bitbucket.org`. The email contains a link to grant the webhook permissions to your existing CodeConnections Bitbucket app installation.
 + If you cannot locate the email, you can grant the permission by navigating to `https://bitbucket.org/site/addons/reauthorize?account={{<workspace-name>}}&addon_key=aws-codestar`, or `https://bitbucket.org/site/addons/reauthorize?addon_key=aws-codestar` and selecting the workspace you'd like to grant the webhook permission to.  
-![Grant the webhook permission to your workspace.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/bitbucket-csc.png)
+![Grant the webhook permission to your workspace.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/bitbucket-csc.png)
 
 ## Error: "Sorry, no terminal at all requested - can't get input" when building with the Ubuntu install command
 <a name="troubleshooting-nvidia-container-toolkit"></a>

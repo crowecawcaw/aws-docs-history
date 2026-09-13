@@ -43,14 +43,14 @@ If the error persists, use the following instructions to debug the issue.
 1. Open the GitHub console at `https://github.com/{{user-name}}/{{repository-name}}/settings/hooks` to view your repository's webhook settings. On this page, you'll see a webhook that was created for your repository.
 
 1. Choose **Edit** and confirm that the webhook is enabled to deliver **Workflow jobs** events.  
-![Workflow job events are enabled in your webhook.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-actions-workflow-jobs.png)
+![Workflow job events are enabled in your webhook.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/github-actions-workflow-jobs.png)
 
 1.  Navigate to the **Recent Deliveries** tab, find the corresponding `workflow_job.queued` event, and expand the event. 
 
 1.  Review the **labels** field in the **Payload** and make sure it's as expected. 
 
 1.  Finally, review the **Response** tab, as this contains the response or error message returned from CodeBuild.   
-![The response or error message returned from CodeBuild.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/github-actions-workflow-jobs-response.png)
+![The response or error message returned from CodeBuild.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/github-actions-workflow-jobs-response.png)
 
 1.  Alternatively, you can debug webhook failures using GitHub's APIs. You can view recent deliveries for a webhook using the [ List deliveries for a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2022-11-28#list-deliveries-for-a-repository-webhook) API: 
 
