@@ -12,7 +12,7 @@ The second setup shows how to set up an ABR workflow when the captions belong to
 
 This example shows how to implement [ the fourth use case](typical-scenarios.md#use-case-one-captions-output-multiple-video-encodes) from the typical scenarios. For example, you want to produce an HLS output with three video encodes (one for low-resolution video, one for medium, one for high) and one audio. You also want to include embedded captions (in English and Spanish) and associate them with all three video encodes.
 
-![Diagram showing input captions flowing to three video quality outputs and one audio output in HLS.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_ABRhls_result.png)
+![Diagram showing input captions flowing to three video quality outputs and one audio output in HLS.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_ABRhls_result.png)
 
 
 **To use one caption's output in multiple video encodes**
@@ -51,7 +51,7 @@ This example shows an ABR workflow where the captions are in sidecars. For examp
 
 
 
-![Caption selectors for Embedded English and Spanish connecting to multiple outputs including video qualities, audio, and TTML formats, all feeding into MSS Output Group.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_ABRmss_result.png)
+![Caption selectors for Embedded English and Spanish connecting to multiple outputs including video qualities, audio, and TTML formats, all feeding into MSS Output Group.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_ABRmss_result.png)
 
 
 **To set up sidecar captions**

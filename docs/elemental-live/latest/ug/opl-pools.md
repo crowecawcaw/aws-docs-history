@@ -15,4 +15,4 @@ The following diagram illustrates the event setup to produce an HLS ABR stack (w
 + The four streams in the HLS events are a pool of locked encodes. 
 + The three streams in the Microsoft Smooth Streaming events are another pool of locked encodes.
 
-![Video streaming events with HLS and MSS output groups producing various resolution streams.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-pools.png)
+![Video streaming events with HLS and MSS output groups producing various resolution streams.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-pools.png)

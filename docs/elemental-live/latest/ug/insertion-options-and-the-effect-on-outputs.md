@@ -16,7 +16,7 @@ The static overlay will be burned into the video in this input after the input i
 
 If you insert at the Input stage, be very careful with the start time and durations of the static overlays to avoid the static overlay ending abruptly. 
 
-![images/static_Input_option.png](http://docs.aws.amazon.com/elemental-live/latest/ug/images/static_Input_option.png)
+![images/static_Input_option.png](https://docs.aws.amazon.com/elemental-live/latest/ug/images/static_Input_option.png)
 
 
 ## In the Global Processors section: Insert in all outputs
@@ -26,7 +26,7 @@ The static overlay can be inserted in the Global Processors section. Result: The
 
 The static overlay is burned into the video after decoding and input-specific processing and before encoding and creation of individual streams and outputs. 
 
-![images/static_GloPro_option.png](http://docs.aws.amazon.com/elemental-live/latest/ug/images/static_GloPro_option.png)
+![images/static_GloPro_option.png](https://docs.aws.amazon.com/elemental-live/latest/ug/images/static_GloPro_option.png)
 
 
 ## In the Output section: Insert in one stream
@@ -34,7 +34,7 @@ The static overlay is burned into the video after decoding and input-specific pr
 
 The static overlay can be inserted in individual streams. 
 
-![images/static_stream_option.png](http://docs.aws.amazon.com/elemental-live/latest/ug/images/static_stream_option.png)
+![images/static_stream_option.png](https://docs.aws.amazon.com/elemental-live/latest/ug/images/static_stream_option.png)
 
 
 Result: The static overlay is inserted only in the outputs that are associated with those streams. The static overlay will be burned into the video only in the specified streams. 

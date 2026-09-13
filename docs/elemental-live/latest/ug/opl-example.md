@@ -16,4 +16,4 @@ Pay attention to the pools that are implied by this design:
 + There are two output pools. One pool contains four HLS outputs, shown in blue. The other contains three MS Smooth outputs, shown in striped blue.
 + There are two encode pools. One pool contains four HLS encodes, shown in red. The other contains three MS Smooth outputs, shown in striped red.
 
-![Diagram showing 5 appliances with different HLS and MSS events, outputs, and video stream resolutions.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-design-hls-mss-4appliances.png)
+![Diagram showing 5 appliances with different HLS and MSS events, outputs, and video stream resolutions.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-design-hls-mss-4appliances.png)

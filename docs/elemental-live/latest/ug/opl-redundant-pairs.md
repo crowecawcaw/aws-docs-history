@@ -12,4 +12,4 @@ The following diagram illustrates the event setup to produce a redundant HLS out
 + Outputs A1 and B1 are a redundant pair of outputs. Outputs C1 and C1 are another redundant pair. 
 + Videos 1 and 2 are a redundant pair of encodes. Videos 3 and 4 are another redundant pair. 
 
-![Four events with output groups routing to video destinations, including HLS and MS Smooth outputs.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-pairs.png)
+![Four events with output groups routing to video destinations, including HLS and MS Smooth outputs.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-pairs.png)

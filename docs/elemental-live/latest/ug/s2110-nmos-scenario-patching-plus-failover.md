@@ -36,7 +36,7 @@ You now have three inputs in the order A, X, B.
 + Patching pair: Inputs A and B each have NMOS patching pair enabled, therefore they are a patching pair, even though they are not next to each other. 
 + Hot-backup pair: Input A and input X both have hot backup enabled. Input A is set up with failover conditions. Input X is set up with failback rules. Therefore, inputs A and X are a hot-backup pair.
 
-![Diagram showing inputs A, X, and B with NMOS patch pair and Hot Backup settings.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-B.png)
+![Diagram showing inputs A, X, and B with NMOS patch pair and Hot Backup settings.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-B.png)
 
 
 **How patching works at runtime**

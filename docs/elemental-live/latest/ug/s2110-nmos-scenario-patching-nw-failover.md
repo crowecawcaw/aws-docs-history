@@ -34,7 +34,7 @@ To set up SMPTE 2110 sources in this way, follow this procedure.
    For detailed instructions, see [Create a receiver group input](s2110-nmos-create-input.md). 
 
    You now have four inputs in the order A, B, C, D.  
-![Four inputs A, B, C, D connected to resource groups RG1, RG2, RG1, RG2 respectively.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-1.png)
+![Four inputs A, B, C, D connected to resource groups RG1, RG2, RG1, RG2 respectively.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-1.png)
 
 1. Turn on **NMOS patching pair** in all these inputs.
 
@@ -55,7 +55,7 @@ To set up SMPTE 2110 sources in this way, follow this procedure.
 
 You have now set up the four inputs as shown in the following diagram. All inputs have hot backup enabled and all have patching enabled.
 
-![Four inputs with route groups, NMOS patch pairs, and hot backup enabled for all inputs.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-3.png)
+![Four inputs with route groups, NMOS patch pairs, and hot backup enabled for all inputs.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-3.png)
 
 
 Elemental Live proceeds as follows:
@@ -87,7 +87,7 @@ Tell the operator of the NMOS controller to set up the four sources as follows, 
 
 When the event starts, the sources will connect to the inputs as shown in this diagram.
 
-![Source 1 connects to RG1 for Input A, Source 2 connects to RG2 for Input B, RG1 to Input C, RG2 to Input D.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-4.png)
+![Source 1 connects to RG1 for Input A, Source 2 connects to RG2 for Input B, RG1 to Input C, RG2 to Input D.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-4.png)
 
 
 ## How patching works at runtime
@@ -107,14 +107,14 @@ This diagram illustrates scenario 1. The NMOS controller sends a patching reques
 
 Typically, the NMOS controller will also send a patching request by sending new SDP content for RG2 (scenario 2). In this way, the hot backup for input C will be input D, which is the same content (the studio) but on the other network.
 
-![Four inputs with network routing: RG1 connects to inputs A and C, RG2 connects to inputs B and D.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-6.png)
+![Four inputs with network routing: RG1 connects to inputs A and C, RG2 connects to inputs B and D.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-6.png)
 
 
 If the NMOS controller doesn't patch RG2, Elemental Live still prepares input D (the hot backup for input C). But for the source, the current source for RG2, which is source 2. This source is on the other network, so if input C fails, a failover will succeed. But the content will be curling, not the studio. 
 
 The following diagram illustrates this undesirable setup.
 
-![Three sources routing to network inputs, with Source 3 connected to both RG1 and RG2 networks.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-7.png)
+![Three sources routing to network inputs, with Source 3 connected to both RG1 and RG2 networks.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-7.png)
 
 
 ## How failover works at runtime
@@ -132,4 +132,4 @@ The following table describes how Elemental Live handles input failures, dependi
 
 This diagram illustrates scenario 1. Elemental Live stops ingesting input A and starts to ingest input B (the hot backup for input A). Note that both input A and input C are affected when the network goes offline, as shown in the diagram. The event starts to process the studio feed from network 2 instead of network 1. 
 
-![Network diagram showing RG1 inactive, RG2 active with Input B from Source 2, and Input D active.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-5.png)
+![Network diagram showing RG1 inactive, RG2 active with Input B from Source 2, and Input D active.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-C-5.png)

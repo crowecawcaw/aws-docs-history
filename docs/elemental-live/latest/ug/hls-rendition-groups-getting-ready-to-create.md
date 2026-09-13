@@ -19,7 +19,7 @@ Identify the video, audio, audio rendition groups and captions you require. Revi
 + Video “low definition” to be associated with the “Dolby group” rendition group.
 + Captions in English and French in WebVTT format, to be associated with both rendition groups.
 
-![This illustration shows an example output group.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/hls-rendition-groups-getting-ready-create-mapping.png)
+![This illustration shows an example output group.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/hls-rendition-groups-getting-ready-create-mapping.png)
 
 
 ## Step 2. Determine defaults and auto-selection behavior

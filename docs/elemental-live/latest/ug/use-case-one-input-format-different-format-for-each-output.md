@@ -7,7 +7,7 @@ This example shows how to implement [the third use case](typical-scenarios.md#us
 
 For example, the input has teletext captions in Czech and Polish. Assume that you want to produce an MS Smooth output and an HLS output. Assume that in the MS Smooth output, you want to include one video and one audio and you want to convert the captions to TTML. In the HLS output, you want to include one video and one audio and you want to convert the captions to WebVTT.
 
-![Diagram showing input captions and output formats for MS Smooth and HLS groups.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INttext_OUT_OPmss_hls_result.png)
+![Diagram showing input captions and output formats for MS Smooth and HLS groups.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INttext_OUT_OPmss_hls_result.png)
 
 
 ## Event setup

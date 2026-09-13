@@ -9,7 +9,7 @@ For example, the input has embedded captions in English and French. You want to 
 
 This example illustrates two important features of an embedded passthrough workflow. First, you do not create separate captions selectors; all of the languages are all automatically included. Second, if you are outputting to HLS, you have an opportunity to specify the languages and the order in which they appear.
 
-![Diagram showing captions selector with language options and output with video, audio, and HLS components.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_hls_result.png)
+![Diagram showing captions selector with language options and output with video, audio, and HLS components.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_hls_result.png)
 
 
 ## Event setup

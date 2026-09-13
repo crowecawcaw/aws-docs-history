@@ -19,4 +19,4 @@ When you add output locking to an output redundancy setup, you must set up each 
 
 The following diagram illustrates a typical setup of two events that are a redundant pair.
 
-![Two events with HLS output groups connected to video components, illustrating redundancy.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-redundancy.png)
+![Two events with HLS output groups connected to video components, illustrating redundancy.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-redundancy.png)

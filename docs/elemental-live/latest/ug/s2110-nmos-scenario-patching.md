@@ -19,7 +19,7 @@ To create each patching pair, follow this procedure.
 
 Elemental Live sets up a *patching pair* consisting of the first patching-pair-enabled input (input A in this example) and the next input in the list that is patching-pair-enabled (input B in this example). Whenever Elemental Live is ingesting this receiver group content, one of the inputs in the patching pair is *active* and the other input is in *standby*.
 
-![Diagram showing two inputs, A and B, with NMOS patch pair set to ON for both.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-A.png)
+![Diagram showing two inputs, A and B, with NMOS patch pair set to ON for both.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/2110-input-scenario-A.png)
 
 
 The two patching-pair inputs must be next to each other. If necessary, use the up and down arrows on the far right of the web interface to move an input up or down the list.

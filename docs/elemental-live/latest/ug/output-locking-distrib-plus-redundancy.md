@@ -11,4 +11,4 @@ In this scenario, the downstream system must determine that there are duplicates
 
 The following diagram illustrates a setup that combines distributed encoding and redundancy. There are three pairs of redundant events. In each pair, the two events produce the same rendition.
 
-![Downstream system choosing HLS outputs to construct the ABR stack.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-abr-redundancy-combo.png)
+![Downstream system choosing HLS outputs to construct the ABR stack.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-abr-redundancy-combo.png)

@@ -11,7 +11,7 @@ Create or modify the event as follows:
    + Output section: In the desired output or outputs, determine the stream this output is associated with. In the corresponding Stream section, click Advanced. More fields appear; see the table in the next step. 
 
    For all locations, the following fields appear. (Note that the following image is from the Global Processors section, but the fields are the same in all sections.)   
-![images/screenshot_StaticImgInst.png](http://docs.aws.amazon.com/elemental-live/latest/ug/images/screenshot_StaticImgInst.png)
+![images/screenshot_StaticImgInst.png](https://docs.aws.amazon.com/elemental-live/latest/ug/images/screenshot_StaticImgInst.png)
 
 1.  Complete the fields as follows:    
 <a name="step-b-initial-setup-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/step-b-initial-setup.html)

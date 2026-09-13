@@ -20,7 +20,7 @@ In this case, the input is set up with one format of captions and two or more la
 
 For example, the input has embedded captions in English and French. You want to produce HLS output that includes embedded captions in both English and French.
 
-![Diagram showing input captions in English and French, and output with embedded captions in both languages.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_hls.png)
+![Diagram showing input captions in English and French, and output with embedded captions in both languages.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_hls.png)
 
 
 ## Use case: One input format converted to one different format in one output
@@ -30,7 +30,7 @@ The input is set up with one format of captions and two or more languages. You w
 
 For example, the input has embedded captions in German and French. You want to convert the captions to DVB-Sub and include these captions in both languages in a UDP output. 
 
-![Diagram showing input captions converted to DVB-Sub format and included in UDP output.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTdvb_udp.png)
+![Diagram showing input captions converted to DVB-Sub format and included in UDP output.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTdvb_udp.png)
 
 
 ## Use case: One input format converted to different formats, one format for each output
@@ -40,7 +40,7 @@ The input is set up with one captions format and two or more languages. Assume t
 
 For example, the input has teletext captions in Czech and Polish. You want to produce an MS Smooth output and an HLS output. In the MS Smooth output, you want to convert both captions to TTML. In the HLS output, you want to convert both captions to WebVTT. 
 
-![Flowchart showing input captions conversion to output captions for different streaming formats.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INttext_OUT_OPmss_hls.png)
+![Flowchart showing input captions conversion to output captions for different streaming formats.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INttext_OUT_OPmss_hls.png)
 
 
 ## Use case: One captions output shared by multiple video encodes
@@ -50,4 +50,4 @@ This use case deals with captions in an ABR workflow. In this example, one capti
 
 For example, assume that there are three video/audio media combinations: one for low-resolution video, one for medium, and one for high. Assume that there is one output captions asset (English and Spanish embedded) that you want to associate with all three video/audio media combinations.
 
-![Diagram showing video/audio outputs at different resolutions and caption inputs/outputs in English and Spanish.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_ABRhls.png)
+![Diagram showing video/audio outputs at different resolutions and caption inputs/outputs in English and Spanish.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTembed_ABRhls.png)

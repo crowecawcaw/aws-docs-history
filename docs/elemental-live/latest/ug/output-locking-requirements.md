@@ -115,7 +115,7 @@ Rule 1: In each event, each video encode (the oval inside the stream) must have 
 
 Rule 2: All the encodes can have a different fran rate, but they must be whole number multiples of each other. 
 
-![Three appliances with HLS events producing video streams at different resolutions.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/outputs_opl-framerates.png)
+![Three appliances with HLS events producing video streams at different resolutions.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/outputs_opl-framerates.png)
 
 
 ## Output locking and SCTE 35

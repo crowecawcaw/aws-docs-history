@@ -11,7 +11,7 @@ The operator can monitor dynamic playlist activity through the Elemental Live we
 
 1. On the Control Panel, click Input Controls (below the Preview panel) to expand that section. The dynamic playlist appears.
 
-![GUI input controls.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/playlist_GUI_input_controls.png)
+![GUI input controls.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/playlist_GUI_input_controls.png)
 
 
 ## Status information

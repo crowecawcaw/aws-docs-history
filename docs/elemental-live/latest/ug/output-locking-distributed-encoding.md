@@ -13,4 +13,4 @@ The downstream system receives all of the outputs. The downstream system has bee
 
 The following diagram illustrates a setup of several events that together produce the outputs for an ABR stack.
 
-![Three events with HLS output groups connecting to ABR stack with high, medium, and low resolution videos.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-abr.png)
+![Three events with HLS output groups connecting to ABR stack with high, medium, and low resolution videos.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-abr.png)

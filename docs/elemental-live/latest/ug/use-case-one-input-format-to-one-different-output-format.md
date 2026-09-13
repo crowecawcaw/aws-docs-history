@@ -5,7 +5,7 @@
 
 This example shows how to implement [the second use case](typical-scenarios.md#use-case-one-input-format-to-different-output-formats) from the typical scenarios. The input includes two captions languages, and the single output will convert those captions. For example, the input has embedded captions in German and French. You want to produce a UDP output with both captions converted to DVB-Sub, plus one video and one audio. 
 
-![Diagram showing input captions in German and French converted to DVB-Sub output formats.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTdvb_udp_result.png)
+![Diagram showing input captions in German and French converted to DVB-Sub output formats.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/captions_INembed_OUTdvb_udp_result.png)
 
 
 ## Event setup

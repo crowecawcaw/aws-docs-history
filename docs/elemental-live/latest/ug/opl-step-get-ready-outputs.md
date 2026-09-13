@@ -28,7 +28,7 @@ If you have multiple output group types in one event, several different output g
 
 For example, if you're producing an HLS package and a UDP/TS package, and both packages are encoded with H.264, you might be able to create one video encode that the two output groups share. This sharing reduces the compute demands on the appliance. To share the encodes, create an output in one output group and an output in the other output group. Create one video stream. Set up both outputs to use the same encode.
 
-![Two output groups connecting to a single high resolution video stream.](http://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-shared-encode.png)
+![Two output groups connecting to a single high resolution video stream.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/opl-shared-encode.png)
 
 
 ## Encodes across the locked events
