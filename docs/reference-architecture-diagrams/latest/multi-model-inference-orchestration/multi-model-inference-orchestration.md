@@ -10,7 +10,7 @@ This architecture shows how to orchestrate running multiple ML models for comple
 ## Multi-Model Inference Workflow Orchestration
 <a name="diagram1"></a>
 
-![Architecture diagram showing multi-model inference workflow orchestration with AWS Step Functions and SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-model-inference-orchestration/images/multi-model-inference-orchestration.png)
+![Architecture diagram showing multi-model inference workflow orchestration with AWS Step Functions and SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-model-inference-orchestration/images/multi-model-inference-orchestration.png)
 
 
 The following steps describe the architecture:
