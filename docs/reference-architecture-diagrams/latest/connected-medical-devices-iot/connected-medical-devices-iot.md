@@ -10,7 +10,7 @@ With this architecture, you can manage manufacturer medical devices deployed in 
 ## Connected medical devices diagram
 <a name="med-devices-diagram"></a>
 
-![Reference architecture diagram showing how to manage connected medical devices by using AWS IoT Greengrass, AWS IoT Core, Lambda, DynamoDB, and SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-medical-devices-iot/images/connected-medical-devices-iot.png)
+![Reference architecture diagram showing how to manage connected medical devices by using AWS IoT Greengrass, AWS IoT Core, Lambda, DynamoDB, and SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-medical-devices-iot/images/connected-medical-devices-iot.png)
 
 
 The following steps describe the data flow and device management for this architecture:
