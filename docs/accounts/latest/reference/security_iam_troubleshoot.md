@@ -19,7 +19,7 @@ If the AWS Management Console tells you that you are not authorized to perform a
 
 The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about his AWS account in the **Account** page of the AWS Management Console but doesn't have the `account:GetAccountInformation` permissions.
 
-![Error message states "You don't have permission to access billing information for this account." You don't have permission to access billing information for this account. Contact your AWS administrator if you need help. If you are an AWS administrator, you can provide permissions for your users or groups by making sure that (1) this account allows IAM and federated users to access billing information and (2) you have the required IAM permissions](http://docs.aws.amazon.com/accounts/latest/reference/images/AccessError.png)
+![Error message states "You don't have permission to access billing information for this account." You don't have permission to access billing information for this account. Contact your AWS administrator if you need help. If you are an AWS administrator, you can provide permissions for your users or groups by making sure that (1) this account allows IAM and federated users to access billing information and (2) you have the required IAM permissions](https://docs.aws.amazon.com/accounts/latest/reference/images/AccessError.png)
 
 
 In this case, Mateo asks his administrator to update his policies to allow him to access the `{{my-example-widget}}` resource using the `account:{{GetWidget}}` action.

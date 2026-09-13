@@ -47,6 +47,7 @@ The following table compares AWS wide requirements that are either supported for
 | Automatic opt-in to [IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) | Yes | No | 
 | Automatically opt in to [IAM role manager](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_role-manager.html) | Yes | No | 
 | Console account colors | No | Yes | 
+| Use the [AWS Console Mobile Application](https://docs.aws.amazon.com/consolemobileapp/latest/userguide/what-is-consolemobileapp.html) | No | Yes | 
 | Disable multi-session console support | No | Yes. If you sign in again using a Builder ID, multi-session support will be enabled automatically. | 
 
 ## Compare access management
@@ -56,7 +57,7 @@ When you use our new AWS experience, AWS creates preconfigured defaults to help 
 
 AWS manages the following elements of your AWS Organization:
 + **Organization management policies.** When you use our new AWS experience, AWS manages the organization management policies including the resource control policies (RCPs) and the service control policies (SCPs). If you want to create your own, use Sign up for AWS (advanced).
-+ **Human access roles.** A human access role is any role that allows a human to have specific permissions. For example, a human access role could let the user tester have read only access to Amazon Bedrock. While you can create IAM roles and IAM users, we recommend only using them when necessary. AWS manages all human access to your project. You can add and remove team members to your project. When you add a team member, they have access to all the resources in your project. For more information, see [Invite team members to collaborate in AWS Settings](invite-team-members.md).
++ **Human access roles.** A human access role is any role that allows a human to have specific permissions. For example, a human access role could let the user tester have read only access to Amazon Bedrock. While you can create IAM roles and IAM users, we recommend only using them when necessary. You do not create a root user. AWS provides you and your team members with admin access to your projects. You can add and remove team members to your project. For more information, see [Invite team members to collaborate in AWS Settings](invite-team-members.md).
 
 Every project has a managed security implementation that makes it easy to build with confidence. By default, any application or code in your project has access to all AWS resources in that same project. You do not need to perform additional access configuration.
 

@@ -81,7 +81,7 @@ aws login --profile BookstoreProfile
 
 However, when you run either of these commands, you'll need to choose a session for your AWS credentials on the **Choose AWS sessions** page.
 
-![Choose session page.](http://docs.aws.amazon.com/accounts/latest/reference/images/sign-up-sessions.png)
+![Choose session page.](https://docs.aws.amazon.com/accounts/latest/reference/images/sign-up-sessions.png)
 
 
 This page shows the active sessions and sessions you can add. A session represents your authenticated state with your AWS credentials, and it provides the same credentials that your AI coding agent uses to create and manage resources.

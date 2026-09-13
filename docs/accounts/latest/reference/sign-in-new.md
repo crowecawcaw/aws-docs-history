@@ -8,7 +8,7 @@ We're currently releasing our new experience to a limited number of customers. Y
 
 When you use Sign up for AWS (new), you create a preconfigured AWS environment that lets you use a login that you already own like Google or GitHub to access your AWS resources. Your resources are organized in projects. A project contains an AWS account and settings for sharing with other collaborators. If you use the paid plan, your project can also have a set monthly pre-tax cost, called a spend limit. All of the projects you own make up your organization. You manage your organization, access your projects, and add collaborators in AWS Settings.
 
-![Structure of your organization and projects.](http://docs.aws.amazon.com/accounts/latest/reference/images/sign-up-aws-new-org.png)
+![Structure of your organization and projects.](https://docs.aws.amazon.com/accounts/latest/reference/images/sign-up-aws-new-org.png)
 
 
 When you sign up for AWS using Sign up for AWS (new), AWS also creates a AWS Builder ID account, which is a personal profile that represents you as an individual. You can only have one AWS Builder ID for each email address. If you've created a AWS Builder ID but have not created an AWS account, you might have some settings already made for you and you'll have to modify those later.

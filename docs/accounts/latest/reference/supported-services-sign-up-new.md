@@ -187,6 +187,8 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
   + Cross-Region data access is not supported.
 + Amazon Timestream
 
+To see the policy that controls access to the Free Tier services, see [Service control policies for the Free Tier for projects](scps-and-rcps-for-projects.md#scps-free-tier-for-projects).
+
 ## AWS services included in the Paid Plan of our new AWS experience
 <a name="supported-services-paid-plan"></a>
 
@@ -230,6 +232,8 @@ The following services are available for Sign up for AWS (new) if you have a Pai
 + AWS Security Agent
 + AWS Storage Gateway
 + DevOps Agent
+
+To see the policy that controls access to the Paid Plan services, see [Service control policies for the Paid Plan for projects](scps-and-rcps-for-projects.md#scps-paid-plan-for-projects).
 
 ## AWS services not supported for our new AWS experience
 <a name="unsupported-services"></a>
