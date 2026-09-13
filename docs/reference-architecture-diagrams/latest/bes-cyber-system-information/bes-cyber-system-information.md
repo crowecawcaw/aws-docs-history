@@ -10,7 +10,7 @@ With this architecture, you can build a secure extension of an Operations Techno
 ## BES Cyber System Information diagram
 <a name="bcsi-diagram"></a>
 
-![Reference architecture diagram showing how to extend OT data centers into AWS securely for BCSI analytics by using Amazon VPC, Amazon EC2, SageMaker AI, and Amazon S3.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/bes-cyber-system-information/images/bes-cyber-system-information.png)
+![Reference architecture diagram showing how to extend OT data centers into AWS securely for BCSI analytics by using Amazon VPC, Amazon EC2, SageMaker AI, and Amazon S3.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/bes-cyber-system-information/images/bes-cyber-system-information.png)
 
 
 The following steps describe the security, networking, and analytics components for this architecture:
