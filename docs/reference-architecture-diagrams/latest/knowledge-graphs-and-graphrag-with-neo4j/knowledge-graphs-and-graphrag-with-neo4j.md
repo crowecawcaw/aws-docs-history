@@ -10,7 +10,7 @@ This reference architecture demonstrates how AWS services and Neo4j can be used 
 ## Knowledge Graphs and GraphRAG with AWS and Neo4j Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how AWS services and Neo4j can be used to create knowledge graphs that can then be used in a GraphRAG architecture.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/knowledge-graphs-and-graphrag-with-neo4j/images/knowledge-graphs-and-graphrag-with-neo4j.png)
+![Reference architecture diagram showing how AWS services and Neo4j can be used to create knowledge graphs that can then be used in a GraphRAG architecture.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/knowledge-graphs-and-graphrag-with-neo4j/images/knowledge-graphs-and-graphrag-with-neo4j.png)
 
 
 1. Structured, unstructured, and semi-structured data exists in a wide variety of systems, including **Amazon Redshift**, **Amazon Simple Storage Service** (Amazon S3), and **Amazon Managed Streaming for Apache Kafka** (Amazon MSK). Other systems can be accessed through an integration layer such as **AWS Glue**. Some subset of this data is highly connected. Insights can be uncovered by modeling it as a graph. 
