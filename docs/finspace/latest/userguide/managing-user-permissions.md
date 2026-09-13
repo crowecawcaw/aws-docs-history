@@ -13,7 +13,7 @@ In order to create and manage permission groups, you must be a superuser or a me
 
 You can create permission groups inside Amazon FinSpace, so you do not have manage permissions individually. Permissions are not assigned directly to a user but a permission group is created with the appropriate permissions, and a user is assigned to that permission group.
 
-![A screenshot that shows the permission group list.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/user-group-list.png)
+![A screenshot that shows the permission group list.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/user-group-list.png)
 
 
 ## Permissions
@@ -69,7 +69,7 @@ When a dataset is created by a user, all other members of the same permission gr
 1. On the **Create Permission Group** page, enter the name and description for the permission group and select appropriate permissions for the group.
 
 1. Choose **Create**. A new group is created with selected permissions.  
-![A screenshot that shows the analyst permissions group.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/data-engineer-permissions.png)
+![A screenshot that shows the analyst permissions group.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/data-engineer-permissions.png)
 
 1. Choose **Add User to This Group**.
 
@@ -99,9 +99,9 @@ When a dataset is created by a user, all other members of the same permission gr
 
 1. Choose the **Permission Groups** tab.
 
-1. From the list, select a group and choose the more (![An image of the vertical ellipsis icon.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/kebab-menu.png)) icon.
+1. From the list, select a group and choose the more (![An image of the vertical ellipsis icon.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/kebab-menu.png)) icon.
 
 1. Choose **Remove Group**.  
-![A screenshot that shows the remove permission group drop down.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/remove-user-group.png)
+![A screenshot that shows the remove permission group drop down.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/remove-user-group.png)
 
 1. In the dialog box that appears, choose **Remove**.

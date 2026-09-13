@@ -51,7 +51,7 @@ In order to create and manage categories, you must be a superuser or a member of
 
 1. Identify the top level category that you want to make visible in the data browser.
 
-1. Uncheck the eye (![An image of the uncheck eye icon.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/uncheck-eye-icon.png)) icon.
+1. Uncheck the eye (![An image of the uncheck eye icon.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/uncheck-eye-icon.png)) icon.
 
 1. On the left navigation bar, choose **Catalog** and verify if the category is now visible in the data browser.
 

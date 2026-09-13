@@ -20,7 +20,7 @@ A dataset can be created by loading a file using the Amazon FinSpace web applica
 1. On the left navigation bar of the home page, choose **Add Data**.
 
 1. Drag and drop a .csv file or choose **Browse Files** to select a file. Once the file is detected by the web application, schema of the file will be displayed. The column names are read from the file and data types are inferred.  
-![A screenshot that shows the Add Data page in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/add-data.png)
+![A screenshot that shows the Add Data page in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/add-data.png)
 
 1. Change the data types as required by choosing **Edit Derived Schema**. Take note of the data types and formats that are supported.
 

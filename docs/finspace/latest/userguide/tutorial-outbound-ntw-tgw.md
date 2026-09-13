@@ -35,4 +35,4 @@ When creating the transit gateway, you only need to specify the name and descrip
 
 This diagram shows a high level of configuration steps that are further described in the following sections.
 
-![A diagram that shows steps to set up transit gateway.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/tgw-setup-diag.png)
+![A diagram that shows steps to set up transit gateway.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/tgw-setup-diag.png)

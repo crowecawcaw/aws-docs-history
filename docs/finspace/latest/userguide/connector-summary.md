@@ -12,7 +12,7 @@ The connector details page displays a summary of details for each data connector
 + **Connector summary** – This section displays details of the connector that you created, such as the provider name, status of the connector, and run frequency. In this section, you can also [edit](#editing-data-connectors), [delete](#deleting-data-connectors), or [run connectors](#running-data-connectors).
 + **Connector runs** – This section displays the date, status, and duration of each data connector run in a table. The table shows logs for only the past three days.
 
-![A screenshot that shows the connector summary and connector runs.](http://docs.aws.amazon.com/finspace/latest/userguide/images/10-data-connector/data-connector-details-page.png)
+![A screenshot that shows the connector summary and connector runs.](https://docs.aws.amazon.com/finspace/latest/userguide/images/10-data-connector/data-connector-details-page.png)
 
 
 **Note**  
@@ -36,7 +36,7 @@ You can only use a data connector in the environment where you create it.
 1. From the list of environments, choose the name of the environment where you created the data connector.
 
 1. On the environment details page, scroll down to **Data Connectors** and choose the name of the data connector that you added.  
-![A screenshot that shows the data connector list.](http://docs.aws.amazon.com/finspace/latest/userguide/images/10-data-connector/data-connector-list.png)
+![A screenshot that shows the data connector list.](https://docs.aws.amazon.com/finspace/latest/userguide/images/10-data-connector/data-connector-list.png)
 
 1. On the **Connector summary** page, choose **Run connector**. The status is updated under the **Connector runs** section.
 **Note**  
@@ -88,7 +88,7 @@ This action is irreversible. Deleting will completely remove all of your dataset
 1. On the **Connector summary** page, choose **Delete**.
 
 1. On the confirmation dialog box, enter the name of the connector to delete it.  
-![A screenshot that shows the delete confirmation dialog box.](http://docs.aws.amazon.com/finspace/latest/userguide/images/10-data-connector/delete-connector.png)
+![A screenshot that shows the delete confirmation dialog box.](https://docs.aws.amazon.com/finspace/latest/userguide/images/10-data-connector/delete-connector.png)
 
 **Note**  
 The following entities that are automatically created by a data connector remain in your FinSpace environment, even after you delete the data connector. You can later remove these entities manually if you choose to.   

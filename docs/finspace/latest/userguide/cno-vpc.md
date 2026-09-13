@@ -15,7 +15,7 @@ You can use a FinSpace virtual private cloud (VPC) connection to allow the compu
 
 You create a FinSpace VPC connection by connecting your FinSpace infrastructure account to an existing transit gateway in your organization. You can configure the transit gateway to route traffic to other portions of your network. The following diagram shows how a FinSpace VPC connection works. 
 
-![A diagram that shows how a FinSpace VPC connection works.](http://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/cno-vpc.png)
+![A diagram that shows how a FinSpace VPC connection works.](https://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/cno-vpc.png)
 
 
 The diagram describes a high-level setup of a FinSpace VPC connection:

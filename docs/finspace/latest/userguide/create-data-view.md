@@ -48,7 +48,7 @@ For small files of up to 100 megabytes, data view creation takes approximately 2
 1. If you chose to access the data view in a FinSpace notebook using Spark, the **Analyze in Notebook** button appears on the right side of the view. Choose this button to open the data view in a FinSpace notebook. 
 
    If you chose to access the data view using the FinSpace API, an **External API Access** button appears on the right side of the view. Choose this button to open the **External Data View Access** dialog box.  
-![A screenshot that shows the external data view access dialog box.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/external-data-view-access.png)
+![A screenshot that shows the external data view access dialog box.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/external-data-view-access.png)
 
    The dialog box displays the following information that you can copy to access the external data view:
    + **S3 path** – The location where the external data view is stored. This location is unique for every data view.

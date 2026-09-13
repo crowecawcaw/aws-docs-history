@@ -47,7 +47,7 @@ Calling the `GetProgrammaticAccessCredentials` API operation returns a set of te
 
 The following diagram illustrates how you can access and use the temporary credentials.
 
-![This diagram shows the sequence for accessing temporary credentials.](http://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/temporary-credentials-diagram.png)
+![This diagram shows the sequence for accessing temporary credentials.](https://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/temporary-credentials-diagram.png)
 
 + The diagram shows that first a request to `AssumeRole` is sent to AWS. For more information, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *AWS Security Token Service API Reference*.
 + This request returns a set of security credentials that are used to access the AWS resources.

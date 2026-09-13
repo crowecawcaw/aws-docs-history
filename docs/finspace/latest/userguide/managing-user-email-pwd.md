@@ -15,7 +15,7 @@ To create and manage users, you must be a superuser or a member of a group with 
 
 You can invite users by creating an account for them and sharing access credentials.
 
-![A screenshot that shows the FinSpace users list.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/user-list.png)
+![A screenshot that shows the FinSpace users list.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/user-list.png)
 
 
 ## Creating the first superuser
@@ -49,7 +49,7 @@ For more information about signing in for the first time, see [Signing in to the
 1. Choose **Create User**.
 
 1. After the account is created, copy the credentials to clipboard and share them with the new user.  
-![A screenshot that shows the create user confirmation page.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/create-user-confirmation.png)
+![A screenshot that shows the create user confirmation page.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04b-configuring-users-and-groups/create-user-confirmation.png)
 
 ## Viewing user details
 <a name="viewing-amazon-finspace-user-account-details"></a>

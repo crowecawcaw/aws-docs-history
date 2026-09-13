@@ -20,7 +20,7 @@ The time-series library is logically organized in four stages for a conceptual f
 
 1.  **Analytics** – At this stage, a prepared dataset of features is ready for application of technical and statistical indicators. You can bring your own indicator functions or choose one of the FinSpace functions for this stage.
 
-![A diagram that shows the time series framework.](http://docs.aws.amazon.com/finspace/latest/userguide/images/07-prepare-and-analyze-data/ts-framework.png)
+![A diagram that shows the time series framework.](https://docs.aws.amazon.com/finspace/latest/userguide/images/07-prepare-and-analyze-data/ts-framework.png)
 
 
 See the following sections to learn more about supported functions in the time series library.

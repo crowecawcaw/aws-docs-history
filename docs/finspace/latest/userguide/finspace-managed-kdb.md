@@ -15,7 +15,7 @@ As a result, you no longer require teams of specialists to monitor the infrastru
 
 **How it works**
 
-![A diagram that shows how Managed kdb Insights works.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/fs-managed-kdb-how-it-works.png)
+![A diagram that shows how Managed kdb Insights works.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/fs-managed-kdb-how-it-works.png)
 
 
 **The diagram describes key components of Managed kdb Insights:**

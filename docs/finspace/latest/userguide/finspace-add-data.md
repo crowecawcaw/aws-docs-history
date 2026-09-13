@@ -12,7 +12,7 @@ People with different roles such as Analyst, Data Scientist, Data Engineer, Data
 
 FinSpace represents data in the catalog using a structure called a Dataset. Dataset is a logical container of semantically identical data and schema.
 
-![A diagram that shows the dataset meta model.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-meta-model.png)
+![A diagram that shows the dataset meta model.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-meta-model.png)
 
 
 The first step is loading data into FinSpace, often referred to as ingesting data. FinSpace supports loading data in a variety of data formats and sources. You can load data by connecting in your data feeds or upload ad-hoc data through the web application.

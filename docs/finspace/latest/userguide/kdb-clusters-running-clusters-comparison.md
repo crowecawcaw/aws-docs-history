@@ -7,12 +7,12 @@ After careful consideration, we decided to end support for Amazon FinSpace, effe
 
 The original Amazon FinSpace Managed kdb cluster launch configuration is now referred to as a dedicated cluster. In a dedicated cluster, each node or kdb process in the cluster runs on its own dedicated compute host. 
 
-![A diagram that shows dedicated cluster.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-cluster-coparison-image1.png)
+![A diagram that shows dedicated cluster.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-cluster-coparison-image1.png)
 
 
 This configuration provides strong workload isolation between clusters and nodes in a single cluster at the expense of needing a fixed amount of compute per node. In contrast, with a cluster on scaling group a single set of compute is shared by multiple workloads (clusters) running on shared compute, allowing you to share a fixed amount of compute.
 
-![A diagram that shows shared compute.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-cluster-coparison-image2.png)
+![A diagram that shows shared compute.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-cluster-coparison-image2.png)
 
 
 **Considerations**

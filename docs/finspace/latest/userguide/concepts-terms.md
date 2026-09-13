@@ -13,7 +13,7 @@ This section covers the core concepts and essential terms related to FinSpace, i
 ## Loading data
 <a name="loading-data"></a>
 
-![A diagram that shows how to load data using the dataset meta model.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-meta-model.png)
+![A diagram that shows how to load data using the dataset meta model.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-meta-model.png)
 
 
 You can ingest data into Amazon FinSpace from your enterprise data lake or on-premises data stores. The data is ingested into Datasets. FinSpace supports ingestion of structured data such as CSV, parquet, XML, and JSON or any unstructured data files. You can ingest data using the FinSpace web application or the SDK. To learn more about loading data, see [Adding and managing data in Amazon FinSpace](finspace-add-data.md).
@@ -26,7 +26,7 @@ Dataset is a logical container of semantically identical data and schema. Data i
 ### Changesets
 <a name="changesets"></a>
 
-![A screenshot that shows different changesets created in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/01-finspace-what-is/changesets.png)
+![A screenshot that shows different changesets created in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/01-finspace-what-is/changesets.png)
 
 
 A changeset is created when a new set of data files are ingested in a dataset in a single ingest operation. For example, if a data source sends files at the end of the day everyday for a data product, you can create a new changeset by ingesting the files. A changeset is created with a unique id and a timestamp for data versioning. You can create changesets to add new data, replace previously added data, and also make corrections to specific changesets. To learn more, see [changesets](creating-changeset-in-a-dataset.md).
@@ -53,7 +53,7 @@ Attribute sets are lists of attributes that can be applied to describe datasets.
 
 You can configure a business data catalog with above concepts in FinSpace in four steps.
 
-![A sequential diagram that explains how to configure business data catalog.](http://docs.aws.amazon.com/finspace/latest/userguide/images/01-finspace-what-is/business-data-catalog.png)
+![A sequential diagram that explains how to configure business data catalog.](https://docs.aws.amazon.com/finspace/latest/userguide/images/01-finspace-what-is/business-data-catalog.png)
 
 
 1. Build categories – In the first step, you define the categories and sub-categories with business terms. The categories are displayed in the data Browser on the left side of the FinSpace web application home page. The data browser is one of the two ways for a user to search for data; the other way is the search bar.

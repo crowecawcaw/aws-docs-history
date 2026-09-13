@@ -18,7 +18,7 @@ A changeset can be ingested as a correction to an already created changeset. Thi
 
 1. Choose the **All Data Views** tab.
 
-1. Under the **Dataset Update History** table, from the list of changesets identify the changeset to be replaced and then choose the corrections icon (![Two curved arrows forming a circular shape, indicating a refresh or sync operation.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/corrections-icon.png)).
+1. Under the **Dataset Update History** table, from the list of changesets identify the changeset to be replaced and then choose the corrections icon (![Two curved arrows forming a circular shape, indicating a refresh or sync operation.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/corrections-icon.png)).
 
 1. Choose **Choose CSV File** to select and upload a file from your desktop.
 

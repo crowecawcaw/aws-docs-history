@@ -14,7 +14,7 @@ Data files are added to datasets and tracked as a changeset. A changeset is crea
 +  **Append** – New changeset is considered an addition to the end of the prior ingested changesets. For example, addition of a new daily file.
 +  **Replace** – New changeset is considered a replacement to all prior ingested changesets in a dataset. This does not mean that the prior ingested changesets are deleted but they will not be considered for the view creation.
 
-![A screenshot that shows the changeset types.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/append-and-replace-data.png)
+![A screenshot that shows the changeset types.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/append-and-replace-data.png)
 
 
 ## Replace data

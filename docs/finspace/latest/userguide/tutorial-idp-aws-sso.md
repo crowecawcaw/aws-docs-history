@@ -54,7 +54,7 @@ These are sample values. Return to application configuration and replace these f
 1. On the application page, choose **Actions** and then choose **Edit attribute mappings**.
 
 1. On the attribute mappings page, enter the attribute mappings values as shown in the following screenshot.  
-![A screenshot that shows the attribute mappings.](http://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/finspace-security-attribute-mapping.png)
+![A screenshot that shows the attribute mappings.](https://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/finspace-security-attribute-mapping.png)
 
 1. Choose **Save changes**.
 

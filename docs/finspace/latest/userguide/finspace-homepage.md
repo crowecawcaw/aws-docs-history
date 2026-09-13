@@ -10,13 +10,13 @@ Amazon FinSpace Dataset Browser will be discontinued on {{March 26, 2025}}. Star
 
 When you sign in to the Amazon FinSpace web application, you see the FinSpace homepage. For details on how to sign in, see [Signing in to the Amazon FinSpace web application](signing-into-amazon-finspace.md). This section walks you through the various parts of the homepage. Note that most features are enabled by permissions and if your user is not a member of a permission group with permissions, such as **Access Notebooks**, you will not see the **Go to Notebook** button at the left side of the homepage. For more information on permissions, see [Managing user permissions with permission groups](managing-user-permissions.md).
 
-![A screenshot that shows FinSpace home page.](http://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/home-page.png)
+![A screenshot that shows FinSpace home page.](https://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/home-page.png)
 
 
 ## Left navigation bar
 <a name="side-menu-bar"></a>
 
-![A screenshot of the left navigation bar in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/side-menu-bar.png)
+![A screenshot of the left navigation bar in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/side-menu-bar.png)
 
 
 The navigation bar on the left consists of the following controls:
@@ -27,7 +27,7 @@ The navigation bar on the left consists of the following controls:
 + **Administrative controls** – The left navigation consists of the following controls that provide access to the administrative functions in FinSpace. Each menu item will take you to the function for that feature. These functions will be visible on the menu only if your user is a member of a permission group with necessary permissions.
   + **Add Data** – Opens the **Add Data** page, where you can quickly upload a data file and create a new dataset to store the data file. For more information, see [Adding and managing data in Amazon FinSpace](finspace-add-data.md).
   + **Manage Data** – Opens the **Manage Data** page, where you can configure a business data catalog for browsing datasets by using categories, controlled vocabularies, and attribute sets. You can also add data from this page.  
-![A screenshot of the Manage Data page in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/manage-data.png)
+![A screenshot of the Manage Data page in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/manage-data.png)
   + **Users and Groups** – Opens the **Users and Permission Groups** page, where you can create permission groups and assign users. For more information, see [Managing user permissions with permission groups](managing-user-permissions.md).
   + **API Credentials** – Opens the **API Credentials** page, from where you can get the credentials to access the FinSpace data API operations. These credentials are only valid for 60 minutes. After the credentials expire, you need to choose the refresh icon to generate new credentials. 
   + **Audit Report** – Opens the **Generate Audit Report** page, from where you can generate audit reports to identify the type of user activity that has occurred within FinSpace for a period of time. 
@@ -35,7 +35,7 @@ The navigation bar on the left consists of the following controls:
 ## Top navigation bar
 <a name="top-menu-bar"></a>
 
-![A screenshot that shows the top navigation bar in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/top-menu-bar.png)
+![A screenshot that shows the top navigation bar in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/top-menu-bar.png)
 
 
 The top navigation bar consists of the following controls:
@@ -45,7 +45,7 @@ The top navigation bar consists of the following controls:
 ## Catalog
 <a name="data-browser"></a>
 
-![A screenshot of the catalog in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/data-browser.png)
+![A screenshot of the catalog in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/data-browser.png)
 
 
 Choosing this button takes you to the browse results page that contains the data browser, where you can browse datasets with categories that you can configure yourself. Selecting any of these nodes will take you to a results page that will find you all the datasets in FinSpace that are associated with that selected category.
@@ -53,7 +53,7 @@ Choosing this button takes you to the browse results page that contains the data
 ## Action cards
 <a name="action-cards"></a>
 
-![A screenshot of the action cards in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/action-cards.png)
+![A screenshot of the action cards in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/action-cards.png)
 
 
 In the bottom section of the homepage you will find action cards titled **Add Data**, **Find Data**, **Analyze Data**, **Add users**, and **Configure Catalog**. Each card provides guidance to help you get started with FinSpace.
@@ -61,7 +61,7 @@ In the bottom section of the homepage you will find action cards titled **Add Da
 ## Status of data views
 <a name="my-recent-views"></a>
 
-![A screenshot that shows the status of data views in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/my-recent-views.png)
+![A screenshot that shows the status of data views in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/03-finspace-homepage/my-recent-views.png)
 
 
 This section shows your most recently created data views of datasets including the status of processing when you create a new view. You can also display views with partitions and sorting by choosing schema columns at the time of [creating a data view](create-data-view.md). You can choose the dataset name to go to the dataset details page. The **Analyze** button at the bottom of the card allows you to access a notebook with a sample code to access the view.

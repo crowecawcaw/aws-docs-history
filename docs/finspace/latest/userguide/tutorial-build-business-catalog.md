@@ -71,9 +71,9 @@ Use the following procedures to create the `Data Types` and `Data Source` catego
 
  **Change visibility of the categories in data browser** 
 
-On the **Categories** page, uncheck the eye (![Icon of a crossed-out eye, representing a hidden or invisible state.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/uncheck-eye-icon.png)) icon for both categories that you created in above procedures to make them visible in the data browser.
+On the **Categories** page, uncheck the eye (![Icon of a crossed-out eye, representing a hidden or invisible state.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/uncheck-eye-icon.png)) icon for both categories that you created in above procedures to make them visible in the data browser.
 
-![A screenshot that shows how to make categories visible in FinSpace](http://docs.aws.amazon.com/finspace/latest/userguide/images/02b-tutorial-build-a-businessa-data-catalog/make-categories-visible.png)
+![A screenshot that shows how to make categories visible in FinSpace](https://docs.aws.amazon.com/finspace/latest/userguide/images/02b-tutorial-build-a-businessa-data-catalog/make-categories-visible.png)
 
 
 ## Step 2: Create controlled vocabulary in Amazon FinSpace

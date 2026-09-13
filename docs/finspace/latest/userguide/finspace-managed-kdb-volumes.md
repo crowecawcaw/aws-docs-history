@@ -14,7 +14,7 @@ You can use a Managed kdb volume data storage for your cluster. When creating a 
 
 Multiple clusters can share a single volume for simplicity as shown in Figure 1, or you can configure multiple volumes and associate them with specific clusters for workload isolation as shown in Figure 2.
 
-![A diagram that shows how clusters can share volumes.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-storage-volumes.png)
+![A diagram that shows how clusters can share volumes.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-storage-volumes.png)
 
 
 ## Volumes with dataviews

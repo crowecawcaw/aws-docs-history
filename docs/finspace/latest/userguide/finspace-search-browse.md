@@ -24,12 +24,12 @@ Amazon FinSpace provides you the ability to search for data using key words or y
    For example, a superuser will see all datasets while an application user will only see a dataset if they are a member of a group with read permission for that dataset.
 
    You can sort results by recently updated datasets, relevance, alphabetical order.  
-![A screenshot that shows the search results.](http://docs.aws.amazon.com/finspace/latest/userguide/images/06-search-and-browse-data/search-results.png)
+![A screenshot that shows the search results.](https://docs.aws.amazon.com/finspace/latest/userguide/images/06-search-and-browse-data/search-results.png)
 
 1. The right panel shows search filtering options that are created based on the attribute sets associated to the returned datasets.
 
 1. You can search for related datasets by choosing the dataset attributes tags of the dataset result.  
-![A screenshot that shows how to search related datasets.](http://docs.aws.amazon.com/finspace/latest/userguide/images/06-search-and-browse-data/search-related-datasets.png)
+![A screenshot that shows how to search related datasets.](https://docs.aws.amazon.com/finspace/latest/userguide/images/06-search-and-browse-data/search-related-datasets.png)
 
 1. To view the details of a dataset in the results, choose the name of the dataset that is displayed in bold.
 
@@ -38,7 +38,7 @@ Amazon FinSpace provides you the ability to search for data using key words or y
 
 You can also find datasets by using the data browser on the **Catalog** page. This is set up by your organization for users to easily search for datasets. All users will see the same categories in the data browser. However, when browsing the categories they will only see datasets to which they have appropriate permissions. For example, a superuser will see all datasets, while an application user will only see a dataset if they are a member of a group with read permission for that dataset.
 
-![A screenshot of the data browser.](http://docs.aws.amazon.com/finspace/latest/userguide/images/06-search-and-browse-data/data-browser.png)
+![A screenshot of the data browser.](https://docs.aws.amazon.com/finspace/latest/userguide/images/06-search-and-browse-data/data-browser.png)
 
 
 You can search for related datasets by choosing the dataset attributes in the dataset attributes tags of the dataset result.

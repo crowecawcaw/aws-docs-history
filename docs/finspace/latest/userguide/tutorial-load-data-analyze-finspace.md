@@ -67,15 +67,15 @@ Before you proceed with this section, we recommend that you begin by reading [Wo
    + Starting a Spark cluster.
    + Loading the data view in a Spark DataFrame.
    + Print the schema and contents of the DataFrame.  
-![A screenshot that shows the default notebook.](http://docs.aws.amazon.com/finspace/latest/userguide/images/02a-quickstart-load-data-into-finspace-and-analyze-it-in-notebook-environment/start-default-notebook.png)
+![A screenshot that shows the default notebook.](https://docs.aws.amazon.com/finspace/latest/userguide/images/02a-quickstart-load-data-into-finspace-and-analyze-it-in-notebook-environment/start-default-notebook.png)
 **Note**  
 If the kernel is starting for the first time, expect a one-time delay of approximately 5-7 minutes. The **FinSpace PySpark** kernel and a notebook instance is automatically selected.
 
 1. Start the Spark cluster by running the first cell of the notebook. Spark cluster creation takes about 5-8 minutes. If a Spark cluster is already created, then the notebook will detect the cluster and connect to it.  
-![A screenshot that shows the cell of notebook that is used to start the Spark cluster.](http://docs.aws.amazon.com/finspace/latest/userguide/images/02a-quickstart-load-data-into-finspace-and-analyze-it-in-notebook-environment/start-spark-cluster.png)
+![A screenshot that shows the cell of notebook that is used to start the Spark cluster.](https://docs.aws.amazon.com/finspace/latest/userguide/images/02a-quickstart-load-data-into-finspace-and-analyze-it-in-notebook-environment/start-spark-cluster.png)
 
 1. On the top menu bar, choose **Run** and then choose **Run all the cells**.  
-![A screenshot that shows the option to run all cells in notebook.](http://docs.aws.amazon.com/finspace/latest/userguide/images/02a-quickstart-load-data-into-finspace-and-analyze-it-in-notebook-environment/run-all-cells.png)
+![A screenshot that shows the option to run all cells in notebook.](https://docs.aws.amazon.com/finspace/latest/userguide/images/02a-quickstart-load-data-into-finspace-and-analyze-it-in-notebook-environment/run-all-cells.png)
 
 1. The executed code shows the contents of the data view.  
-![A screenshot of notebook that shows the output of analyzing data views.](http://docs.aws.amazon.com/finspace/latest/userguide/images/02a-quickstart-load-data-into-finspace-and-analyze-it-in-notebook-environment/show-output.png)
+![A screenshot of notebook that shows the output of analyzing data views.](https://docs.aws.amazon.com/finspace/latest/userguide/images/02a-quickstart-load-data-into-finspace-and-analyze-it-in-notebook-environment/show-output.png)

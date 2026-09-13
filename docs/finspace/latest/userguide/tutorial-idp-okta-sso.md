@@ -44,7 +44,7 @@ You need to have administrator privileges in Okta for this tutorial.
 1. For the **Single sign on URL**, use `http://placeholder.okta.com `.
 **Note**  
 This is just a placeholder url to generate the SAML meta data document. You will get the actual single sign on URL once FinSpace environment is created.  
-![A screenshot of the SAML settings page.](http://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/finspace-security-23177.png)
+![A screenshot of the SAML settings page.](https://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/finspace-security-23177.png)
 
 1. For **Audience URI (SP Entity ID)**, enter `placeholder`.
 **Note**  
@@ -121,7 +121,7 @@ Finish configuration of your FinSpace Okta app with the **Redirect / Sign-in URL
 1. Select the **Use this for Recipient URL and Destination URL** check box.
 
 1. For **Audience URI (SP Entity ID)**, enter the copied **URN** from the FinSpace environment.  
-![A screenshot that shows the General tab in the SAML settings page.](http://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/finspace-security-9d00f.png)
+![A screenshot that shows the General tab in the SAML settings page.](https://docs.aws.amazon.com/finspace/latest/userguide/images/09-security/finspace-security-9d00f.png)
 
 1. Choose **Next**.
 

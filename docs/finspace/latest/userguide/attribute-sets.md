@@ -22,7 +22,7 @@ In order to create attribute sets, you must be a superuser or a member of a grou
 
 1. On the left navigation bar of the home page, choose **Manage Data**.
 
-1. On the **Manage Data** page, choose **Manage Attribute Sets**. All the available attributes are listed in a table. You can also choose the more (![An image of the More icon.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/kebab-menu.png)) icon for options to duplicate, disable, or remove an attribute set. 
+1. On the **Manage Data** page, choose **Manage Attribute Sets**. All the available attributes are listed in a table. You can also choose the more (![An image of the More icon.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/kebab-menu.png)) icon for options to duplicate, disable, or remove an attribute set. 
 
 ## Create attribute sets
 <a name="create-attribute-sets"></a>
@@ -45,7 +45,7 @@ In order to create attribute sets, you must be a superuser or a member of a grou
    +  **Data** – A field of type Number, String, or Boolean.
    +  **Categorization** – A field that is a type of an already defined category. For example, an `Asset class`.
    +  **Controlled Vocabulary** – A field that is a type of an already defined controlled vocabulary. For example, `Data Sensitivity Classification`.  
-![A screenshot that shows how to create attribute sets in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/create-attribute-sets.png)
+![A screenshot that shows how to create attribute sets in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/create-attribute-sets.png)
 
 1. Choose **Save**.
 
@@ -81,7 +81,7 @@ In order to create attribute sets, you must be a superuser or a member of a grou
 
 1. From the list of attribute sets in the table, select the one that you want to delete.
 
-1. Choose the more (![An image of the More icon.](http://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/kebab-menu.png)) icon and then choose **Remove**.
+1. Choose the more (![An image of the More icon.](https://docs.aws.amazon.com/finspace/latest/userguide/images/04a-configuring-the-catalog/kebab-menu.png)) icon and then choose **Remove**.
 
 1. On the dialog box that appears, choose **Remove** to confirm deletion.
 

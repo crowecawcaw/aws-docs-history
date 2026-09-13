@@ -16,7 +16,7 @@ With FinSpace data view sharing, you can share these tables with a Lake Formatio
 
 The following diagram illustrates how you can access FinSpace data views with AWS integrated services.
 
-![A workflow diagram that shows the process of data view sharing.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/data-sharing.png)
+![A workflow diagram that shows the process of data view sharing.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/data-sharing.png)
 
 + The diagram shows the first part of the process where a FinSpace IT admin creates a technical support case, to request enabling the FinSpace infrastructure account for sharing. The request consists of the identifier of the environment to be shared and the AWS Region.
 + Next, the AWS support engineer enables the database and the data view tables to be shared in the designated FinSpace environment within the customer’s account.

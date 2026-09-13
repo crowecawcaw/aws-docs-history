@@ -29,7 +29,7 @@ The following are the features of a general purpose cluster.
 
 A tickerplant (TP) acts as a message bus that subscribes to data or gets data pushed to it by Feed Handlers and then publishes it to one or more consumers, typically a realtime database (RDB). It persists a copy of each message received to a durable log of messages that are called the TP Log, so that downstream subscribers can request a replay of messages if needed. The following diagram explains that you can configure a TP cluster to save logs to a volume in Managed kdb Insights, from where you can replay the logs from an RDB type cluster. 
 
-![A diagram that shows how ticker plant works.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-tp-diagram.png)
+![A diagram that shows how ticker plant works.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-tp-diagram.png)
 
 
 **Features of a tickerplant cluster**

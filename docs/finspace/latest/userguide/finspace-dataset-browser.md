@@ -13,7 +13,7 @@ Amazon FinSpace provides the Dataset browser that you can use to collect data an
 ## How it works
 <a name="finspace-how-it-works"></a>
 
-![A screenshot that shows how FinSpace works.](http://docs.aws.amazon.com/finspace/latest/userguide/images/01-finspace-what-is/how-finspace-works.png)
+![A screenshot that shows how FinSpace works.](https://docs.aws.amazon.com/finspace/latest/userguide/images/01-finspace-what-is/how-finspace-works.png)
 
 
 **To use FinSpace**

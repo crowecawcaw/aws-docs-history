@@ -13,7 +13,7 @@ Two types of views can be setup for a dataset:
 +  **Auto-Update view** – A data view with all additions (Append) and corrections (Replace, Replace Changesets) for a dataset. Future additions and corrections to this dataset are automatically applied to this view.
 +  **Static view** – A data view with all additions (Append) and corrections (Replace, Modify) up to a specified date and time for creation of view i.e. the view will be constructed from only those changesets that were created before the specified time and date. No future additions or corrections will be applied to this view.
 
-![A screenshot that shows the types of data views.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/types-of-data-views.png)
+![A screenshot that shows the types of data views.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/types-of-data-views.png)
 
 
 A data view is constructed from changesets. Two factors are taken into account for the changesets to be considered in a view:

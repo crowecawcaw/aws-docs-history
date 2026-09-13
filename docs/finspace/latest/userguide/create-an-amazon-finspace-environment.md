@@ -15,7 +15,7 @@ An Amazon FinSpace environment is created from an AWS account. To create a FinSp
 1. Sign in to your AWS account and open FinSpace from the AWS Management Console. It is located under Analytics, and you can find it by searching for *FinSpace*. Your AWS account number is displayed for verification purposes.
 
 1. Choose **Create Environment**.  
-![A screenshot that shows how to create a FinSpace environment.](http://docs.aws.amazon.com/finspace/latest/userguide/images/02-getting-started/create-environment-Name-key.png)
+![A screenshot that shows how to create a FinSpace environment.](https://docs.aws.amazon.com/finspace/latest/userguide/images/02-getting-started/create-environment-Name-key.png)
 
 1. Enter a name for your FinSpace environment under **Environment name**.
 
@@ -28,7 +28,7 @@ An Amazon FinSpace environment is created from an AWS account. To create a FinSp
 1. Select an authentication method for the environment from the following options:
 **Warning**  
 Selected authentication method cannot be changed once an environment is created.  
-![A screenshot that shows the authentication method for creating an environment.](http://docs.aws.amazon.com/finspace/latest/userguide/images/02-getting-started/create-environment-auth-method.png)
+![A screenshot that shows the authentication method for creating an environment.](https://docs.aws.amazon.com/finspace/latest/userguide/images/02-getting-started/create-environment-auth-method.png)
 
    1.  **Email and password**: You must specify an initial superuser. A superuser has elevated permissions to create and manage application users, control application permissions and access all data. When the environment is completed performing setup, you will need to return to the FinSpace AWS console to obtain the sign in credentials from the environment details page. Enter the following information for the superuser:
 
@@ -48,7 +48,7 @@ Selected authentication method cannot be changed once an environment is created.
 
 1. Choose **Create Environment**. The environment creation process has now begun and it will take 50-60 minutes to finish in the background. You can return to other activities while the environment is being created.
 
-![A screenshot that shows the create environment sample data bundles tags.](http://docs.aws.amazon.com/finspace/latest/userguide/images/02-getting-started/create-environment-bundles-tags.png)
+![A screenshot that shows the create environment sample data bundles tags.](https://docs.aws.amazon.com/finspace/latest/userguide/images/02-getting-started/create-environment-bundles-tags.png)
 
 
 After the environment is created, a domain URL will be generated which is the sign-in url for your FinSpace web application.

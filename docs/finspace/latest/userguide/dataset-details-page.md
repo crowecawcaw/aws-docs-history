@@ -18,12 +18,12 @@ From the right side of the page, you can edit the dataset description or remove 
 
 You can also view the information related to when the dataset was created and the user who created this dataset.
 
-![A screenshot that shows the owner information on dataset details page.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/owner-information.png)
+![A screenshot that shows the owner information on dataset details page.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/owner-information.png)
 
 
 From the **See Related** section, you can easily navigate to related datasets in the application. Each label in this section corresponds to attribute values and category values associated to a dataset. The labels listed in this section match the values of the attributes that you select at the bottom of the **Data Overview** tab. Selecting any labels will take you to the data browser where other datasets with the same label will be shown in the results. 
 
-![A screenshot that shows the related tags on dataset details page.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/see-related.png)
+![A screenshot that shows the related tags on dataset details page.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/see-related.png)
 
 
 ## Data Overview
@@ -31,7 +31,7 @@ From the **See Related** section, you can easily navigate to related datasets in
 
 This tab shows the description of the dataset, latest data views, and associated attribute sets that describe the dataset.
 
-![A screenshot of the dataset overview tab in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-overview.png)
+![A screenshot of the dataset overview tab in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-overview.png)
 
 
 ## All Data Views
@@ -39,7 +39,7 @@ This tab shows the description of the dataset, latest data views, and associated
 
 This tab shows the details of all the data that is ingested into the dataset as changesets, and all the data views that have been created. 
 
-![A screenshot of the All data views tab in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-alldataviews.png)
+![A screenshot of the All data views tab in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-alldataviews.png)
 
 
 In this tab, you can do the following:
@@ -55,7 +55,7 @@ In this tab, you can do the following:
 
 This tab shows the schema of the dataset. The existing schema can only be edited if no data views have been created.
 
-![A screenshot of the dataset schema tab in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-schema.png)
+![A screenshot of the dataset schema tab in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-schema.png)
 
 
 ## Permissions
@@ -63,4 +63,4 @@ This tab shows the schema of the dataset. The existing schema can only be edited
 
 This tab shows the list of permission groups that are entitled to use the dataset. From this section, you can assign new permission groups to the dataset by choosing **Assign Permission Group**.
 
-![A screenshot of the dataset permissions tab in FinSpace.](http://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-permissions.png)
+![A screenshot of the dataset permissions tab in FinSpace.](https://docs.aws.amazon.com/finspace/latest/userguide/images/05-add-and-manage-data/dataset-permissions.png)

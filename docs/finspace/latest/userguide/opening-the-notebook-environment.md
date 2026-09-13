@@ -42,7 +42,7 @@ Expect a one-time setup delay of 15-20 minutes for the notebook environment afte
 1. From the **Data Overview** tab, under **Analyze Data** section, choose **Analyze in Notebook** in the data view card.
 
    The notebook opens in a new tab on your browser.  
-![A screenshot that shows the data overview tab.](http://docs.aws.amazon.com/finspace/latest/userguide/images/07-prepare-and-analyze-data/data-view-card.png)
+![A screenshot that shows the data overview tab.](https://docs.aws.amazon.com/finspace/latest/userguide/images/07-prepare-and-analyze-data/data-view-card.png)
 
  **** 
 
@@ -62,4 +62,4 @@ Expect a one-time setup delay of 15-20 minutes for the notebook environment afte
 1. From the **Data Views** table, choose **Analyze in Notebook** for any of the data views.
 
    The notebook opens in a new tab on your browser.  
-![A screenshot that shows the All Data Views tab.](http://docs.aws.amazon.com/finspace/latest/userguide/images/07-prepare-and-analyze-data/all-data-views-tab.png)
+![A screenshot that shows the All Data Views tab.](https://docs.aws.amazon.com/finspace/latest/userguide/images/07-prepare-and-analyze-data/all-data-views-tab.png)

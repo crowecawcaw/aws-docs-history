@@ -7,7 +7,7 @@ After careful consideration, we decided to end support for Amazon FinSpace, effe
 
 Dataviews allow you to place portions of your Managed kdb Insights object store database onto disk for faster read-only access from your kdb clusters. To your kdb process, the dataview looks like a kdb segmented database, with data placed across one or more disk mounts (volumes) and the object store. This lets you place frequently-queried data on a fast-access disk for more performant access while keeping the rest of the data in the object store layer for less frequent access. With dataviews, the golden copy of your database’s data still remains in the object store format. The data stored on disk for faster access is a copy.
 
-![A diagram that shows how dataviews work.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-dataviews-intro-diagram.png)
+![A diagram that shows how dataviews work.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-dataviews-intro-diagram.png)
 
 
 Dataviews can be accessed from HDB and General purpose (GP) type clusters for read only access. The data within a dataview is accessible from the cluster as a kdb [segmented database](https://code.kx.com/q/database/segment/) that is automatically configured when you associate the dataview with the cluster. 

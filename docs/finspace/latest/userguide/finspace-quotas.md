@@ -24,7 +24,7 @@ You can view your quotas for each Region using Service Quotas console.
 1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/home/services/finspace/quotas/](https://console.aws.amazon.com/servicequotas/home/services/finspace/quotas/).
 
 1. From the navigation bar (at the top of the screen), select a Region.  
-![Select a Region.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/fs_select_region.png)
+![Select a Region.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/fs_select_region.png)
 
 1. Use the filter field to filter the list by resource name. For example, enter **kx.s.xlarge nodes** to locate the quotas for these nodes.
 

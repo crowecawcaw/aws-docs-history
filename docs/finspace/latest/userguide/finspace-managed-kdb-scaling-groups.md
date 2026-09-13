@@ -15,14 +15,14 @@ Scaling group terminology
 
 With scaling groups, you can run multiple kdb workloads or clusters on shared compute (a host) that you provision. This allows you to maximize utilization of compute in your FinSpace Managed kdb Insights environment. You can run multiple clusters on a single scaling group host. Each cluster can have one or more nodes, each with a kdb process.
 
-![A diagram that shows an example of four clusters running on a scaling group host.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-sg-fig1.png)
+![A diagram that shows an example of four clusters running on a scaling group host.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-sg-fig1.png)
 
 
 The previous diagram is an example of four clusters running on a scaling group host. Cluster 1 has four nodes, Cluster 2 has two nodes, cluster 3 has three nodes and cluster 4 has one node. As memory requirements for an individual cluster vary throughout the day, each may consume different amounts of memory. By placing workloads that have memory needs that peak at different times throughout the day, you can place more workloads or clusters in a fixed set of compute than it is possible if you used FinSpace [dedicated](kdb-clusters-running-clusters-comparison.md) cluster option.
 
 For example, you may have multiple HDB workloads where memory requirement of any individual HDB will vary at different times of the day, but in total they will all remain within a certain known memory footprint. You can place all of these workloads onto a scaling group to share resources like CPU and memory as shown in the following diagram.
 
-![A diagram that shows an example of four clusters running on a scaling group host.](http://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-scalinggroup-fig2.png)
+![A diagram that shows an example of four clusters running on a scaling group host.](https://docs.aws.amazon.com/finspace/latest/userguide/images/11-managed-kx/finspace-scalinggroup-fig2.png)
 
 
 ## High level workflow for running clusters on a scaling group
