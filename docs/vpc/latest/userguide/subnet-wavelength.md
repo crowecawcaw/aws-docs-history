@@ -29,10 +29,30 @@ The following diagram shows how to configure your network so that instances in t
 + Entries for each VPC in the transit gateway route table. For information about creating transit gateway routes, see [Transit gateway route tables](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html) in the *Amazon VPC Transit Gateways Guide*.
 + For each VPC, an entry in the VPC route table that has the other VPC CIDR as the destination, and the transit gateway ID as the target. For more information, see [Routing for a transit gateway](route-table-options.md#route-tables-tgw).
 
-  In the example, the route table for VPC 1 has the following entry:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/vpc/latest/userguide/subnet-wavelength.html)
+  In the example, the route table for VPC 1 has the following entry: 
 
-  The route table for VPC 2 has the following entry:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/vpc/latest/userguide/subnet-wavelength.html)
+
+<table>
+<thead>
+  <tr><th>Destination</th><th>Target</th></tr>
+</thead>
+<tbody>
+  <tr><td>10.1.0.0/24</td><td>tgw-22222222222222222</td></tr>
+</tbody>
+</table>
+
+
+  The route table for VPC 2 has the following entry: 
+
+
+<table>
+<thead>
+  <tr><th>Destination</th><th>Target</th></tr>
+</thead>
+<tbody>
+  <tr><td>10.0.0.0/24</td><td>tgw-22222222222222222</td></tr>
+</tbody>
+</table>
+
 
 ![Multiple Wavelength Zones.](https://docs.aws.amazon.com/vpc/latest/userguide/images/mult-wavelength-zones.png)
