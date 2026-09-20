@@ -14,9 +14,31 @@ Use the `SearchDICOMStudies` API to search for DICOM studies in a HealthImaging 
 
    ```
    GET https://dicom-medical-imaging.{{region}}.amazonaws.com/datastore/{{datastoreId}}/studies[?query]
-   ```  
-**Study elements for `SearchDICOMStudies`**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/healthimaging/latest/devguide/dicomweb-search-studies.html)
+   ```
+
+
+**Study elements for `SearchDICOMStudies`**  
+
+<table>
+<thead>
+  <tr><th>DICOM element tag</th><th>DICOM element name</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>(0008,0020)</code></td><td><code>Study Date</code></td></tr>
+  <tr><td><code>(0008,0030)</code></td><td><code>StudyTime</code></td></tr>
+  <tr><td><code>(0008,0050)</code></td><td><code>Accession Number</code></td></tr>
+  <tr><td><code>(0008,0061)</code></td><td><code>Modalities in Study</code></td></tr>
+  <tr><td><code>(0008,0090)</code></td><td><code>Referring Physician Name</code></td></tr>
+  <tr><td><code>(0008,1030)</code></td><td><code>Study Description</code></td></tr>
+  <tr><td><code>(0010,0010)</code></td><td><code>Patient Name</code></td></tr>
+  <tr><td><code>(0010,0020)</code></td><td><code>Patient ID</code></td></tr>
+  <tr><td><code>(0010,0030)</code></td><td><code>Patient BirthDate</code></td></tr>
+  <tr><td><code>(0010,0032)</code></td><td><code>Patient BirthTime</code></td></tr>
+  <tr><td><code>(0020,000D)</code></td><td><code>Study Instance UID</code></td></tr>
+  <tr><td><code>(0020,0010)</code></td><td><code>Study ID</code></td></tr>
+</tbody>
+</table>
+
 
 1. Prepare and send your request. `SearchDICOMStudies` uses a HTTP GET request with [AWS Signature Version 4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) signing protocol. The following example uses the `curl` command line tool to search for information about DICOM studies.
 

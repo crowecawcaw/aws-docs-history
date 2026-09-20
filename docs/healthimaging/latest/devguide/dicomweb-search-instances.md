@@ -16,9 +16,22 @@ Use the `SearchDICOMInstances` API to search for DICOM instances in a HealthImag
 
    ```
    GET https://dicom-medical-imaging.{{region}}.amazonaws.com/datastore/{{datastoreId}}/studies/{{StudyInstanceUID}}/series/{{SeriesInstanceUID}}/instances[?query]
-   ```  
-**Instance elements for `SearchDICOMInstances`**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/healthimaging/latest/devguide/dicomweb-search-instances.html)
+   ```
+
+
+**Instance elements for `SearchDICOMInstances`**  
+
+<table>
+<thead>
+  <tr><th>DICOM element tag</th><th>DICOM element name</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>(0008,0016)</code></td><td><code>SOP Class UID</code></td></tr>
+  <tr><td><code>(0008,0018)</code></td><td><code>SOP Instance UID</code></td></tr>
+  <tr><td><code>(0008,1196)</code></td><td><code>WarningReason</code></td></tr>
+</tbody>
+</table>
+
 
    HealthImaging uses the DICOM element [(0008,1196)](https://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.6.html#sect_6.6.1.3.2.1.1) to persist import warning codes. The import warning codes are searchable at the instance level. Import warning codes may be searched with wildcard or specific warning codes. See [HealthImaging Warning Codes](reference-warning-codes.md).
 

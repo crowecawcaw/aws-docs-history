@@ -16,9 +16,21 @@ Use the `SearchDICOMSeries` API to search for DICOM series in a HealthImaging [d
 
    ```
    GET https://dicom-medical-imaging.{{region}}.amazonaws.com/datastore/{{datastoreId}}/studies/{{StudyInstanceUID}}/series[?query]
-   ```  
-**Series elements for `SearchDICOMSeries`**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/healthimaging/latest/devguide/dicomweb-search-series.html)
+   ```
+
+
+**Series elements for `SearchDICOMSeries`**  
+
+<table>
+<thead>
+  <tr><th>DICOM element tag</th><th>DICOM element name</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>(0008,0060)</code></td><td><code>Modality</code></td></tr>
+  <tr><td><code>(0020,000E)</code></td><td><code>Series Instance UID</code></td></tr>
+</tbody>
+</table>
+
 
 1. Prepare and send your request. `SearchDICOMSeries` uses a HTTP GET request with [AWS Signature Version 4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) signing protocol. The following example uses the `curl` command line tool to search for DICOM series information.
 
