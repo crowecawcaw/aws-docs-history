@@ -9,8 +9,18 @@ Amazon Q Business is no longer open to new customers. For capabilities similar t
 + Created a Microsoft Exchange account in Office 365.
 + Copied your Microsoft 365 tenant ID. You can find your tenant ID in the **Properties** of your Azure Active Directory Portal or in the Microsoft Entra Admin portal. For more information, see [Find your Microsoft 365 tenant ID](https://learn.microsoft.com/en-us/sharepoint/find-your-office-365-tenant-id) on the Microsoft website.
 + Configured an OAuth 2.0 credential token containing a client ID and client secret.
-+ Added the following permissions for the connector application:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/exchange-prereqs.html)
++ Added the following permissions for the connector application:
+
+
+<table>
+<thead>
+  <tr><th><b>Microsoft Graph</b></th><th><b>Office 365 Exchange Online</b></th></tr>
+</thead>
+<tbody>
+  <tr><td> <ul><li> Mail.Read (Application) </li><li> Mail.ReadBasic (Application) </li><li> Mail.ReadBasic.All (Application) </li><li> Calendars.Read (Application) </li><li> User.Read.All Application) </li><li> Contacts.Read (Application) </li><li> Notes.Read.All (Application) </li><li> Directory.Read.All (Application) </li><li> EWS.AccessAsUser.All (Delegated) </li></ul></td><td>full_access_as_app (Application)</td></tr>
+</tbody>
+</table>
+
 
 **In your AWS account, make sure you have:**
 + Created a Amazon Q Business application.

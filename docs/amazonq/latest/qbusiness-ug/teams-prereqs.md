@@ -11,8 +11,21 @@ Before you begin, make sure that you have completed the following prerequisites.
 + Created a Microsoft Teams account in Office 365.
 + Copied your Microsoft 365 Tenant ID. You can find your Tenant ID in the Properties of your Azure Active Directory Portal. You need this URL to allow Amazon Q to connect with your Microsoft Teams data source. For more information, see [Register a Microsoft Entra app and create a service principal](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application) on the Microsoft website.
 + Configured an OAuth 2.0 credential token containing a client ID and client secret. For more information, see [Azure documentation on managing access tokens for Teams](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/manage-teams-identity?pivots=programming-language-csharp) on the Microsoft website.
-+ Added the necessary permissions. You can choose to add all permissions, or you can limit the scope by selecting fewer permissions based on which entities you want to crawl. *(Application level permissions required for new connector)* All permissions must be at *application* level, not delegated. The following table shows permissions by corresponding entity.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/teams-prereqs.html)
++ Added the necessary permissions. You can choose to add all permissions, or you can limit the scope by selecting fewer permissions based on which entities you want to crawl. *(Application level permissions required for new connector)* All permissions must be at *application* level, not delegated. The following table shows permissions by corresponding entity.
+
+
+<table>
+<thead>
+  <tr><th>Entity</th><th>Required permissions for data sync</th><th>Required permissions for identity sync</th></tr>
+</thead>
+<tbody>
+  <tr><td>Channel Post</td><td> <ul><li> ChannelMessage.Read.All </li><li> Group.Read.All </li><li> User.Read </li><li> User.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Chat Message</td><td> <ul><li> Chat.Read.All </li><li> ChatMessage.Read.All </li><li> ChatMember.Read.All </li><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Calendar Meeting</td><td> <ul><li> Chat.Read.All </li><li> ChatMessage.Read.All </li><li> ChatMember.Read.All </li><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li><li> Files.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Meeting Notes</td><td> <ul><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li><li> Files.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+</tbody>
+</table>
+
 + Generated Microsoft Teams OAuth 2.0 credentials containing a client ID, client secret, username, and password. You need these credentials to authenticate Amazon Q to access Microsoft Teams.
 
 **In your AWS account, make sure you have:**

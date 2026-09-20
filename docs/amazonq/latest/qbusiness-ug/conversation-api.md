@@ -271,11 +271,35 @@ The maximum value for `X-Amz-Expires` is 300 seconds (5 minutes).
 
    After the WebSocket connection is established, the client can start sending a sequence of chat frames, each encoded using event stream encoding.
 
-   Each data frame contains three headers combined with a chunk of raw text bytes; the following table describes these headers.    
-<a name="table-websocket-frame-diagram-event-headers"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/conversation-api.html)
+   Each data frame contains three headers combined with a chunk of raw text bytes; the following table describes these headers.
 
-1. To end the data stream, send an end of input event in an event stream encoded message.    
-<a name="table-websocket-frame-response-headers"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/conversation-api.html)
+<a name="table-websocket-frame-diagram-event-headers"></a>
+<table>
+<thead>
+  <tr><th>Header name byte length</th><th>Header name (string)</th><th>Header value type</th><th>Value string byte length</th><th>Value string (UTF-8)</th></tr>
+</thead>
+<tbody>
+  <tr><td>13</td><td>:content-type</td><td>7</td><td>24</td><td>application/json</td></tr>
+  <tr><td>11</td><td>:event-type</td><td>7</td><td>10</td><td>textEvent</td></tr>
+  <tr><td>13</td><td>:message-type</td><td>7</td><td>5</td><td>event</td></tr>
+</tbody>
+</table>
+
+
+1. To end the data stream, send an end of input event in an event stream encoded message.
+
+<a name="table-websocket-frame-response-headers"></a>
+<table>
+<thead>
+  <tr><th>Header name byte length</th><th>Header name (string)</th><th>Header value type</th><th>Value string byte length</th><th>Value string (UTF-8)</th></tr>
+</thead>
+<tbody>
+  <tr><td>13</td><td>:content-type</td><td>7</td><td>16</td><td>application/json</td></tr>
+  <tr><td>11</td><td>:event-type</td><td>7</td><td>15</td><td>endOfInputEvent</td></tr>
+  <tr><td>13</td><td>:message-type</td><td>7</td><td>5</td><td>event</td></tr>
+</tbody>
+</table>
+
 
    When you decode the binary response, you end up with a JSON structure containing the chat output.
 
