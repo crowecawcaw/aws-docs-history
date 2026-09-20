@@ -3,7 +3,7 @@
 # Use the AWS FIS aws:eks:pod actions
 <a name="eks-pod-actions"></a>
 
- You can use the **aws:eks:pod** actions to inject faults into the Kubernetes Pods running in your EKS clusters. 
+ You can use the **aws:eks:pod** actions to inject faults into the Kubernetes Pods running in your EKS clusters. These actions are only supported on standard Amazon EKS clusters running in AWS Regions. EKS Anywhere, Amazon EKS on AWS Outposts, Amazon EKS on AWS Wavelength, and Amazon EKS Hybrid Nodes clusters are not supported. 
 
  When an action is initiated, FIS retrieves the [FIS Pod container image](eks-pod-actions.html#eks-pod-container-images). This image is then used to create a Pod in the targeted EKS cluster. The newly-created Pod is responsible for injecting, controlling and monitoring the fault. For all FIS EKS actions, except for [aws:eks:pod-delete](fis-actions-reference.html#pod-delete), the fault injection is achieved through the use of [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/), a Kubernetes feature that allows for the creation of temporary containers within an existing Pod. The ephemeral container is started in the same namespace as the target container and executes the desired fault injection tasks. If no target container is specified, the first container in the Pod specification is selected as target. 
 

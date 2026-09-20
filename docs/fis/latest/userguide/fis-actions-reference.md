@@ -744,7 +744,7 @@ To use AZ names or AZ IDs in the `sources` parameter, all targets of the action 
 ## Amazon EKS actions
 <a name="eks-actions-reference"></a>
 
-AWS FIS supports the following Amazon EKS actions.
+AWS FIS supports the following Amazon EKS actions. These actions are only supported on standard Amazon EKS clusters running in AWS Regions. EKS Anywhere, Amazon EKS on AWS Outposts, Amazon EKS on AWS Wavelength, and Amazon EKS Hybrid Nodes clusters are not supported.
 
 **Topics**
 + [aws:eks:inject-kubernetes-custom-resource](#inject-kubernetes-custom-resource)
@@ -1058,7 +1058,7 @@ Injects `ExpiredIteratorException` error responses for `GetRecords` calls target
 ## AWS Lambda actions
 <a name="aws-lambda-actions-reference"></a>
 
-AWS Lambda supports the following Lambda actions
+AWS Lambda supports the following Lambda actions. For more information, see [AWS Lambda actions](use-lambda-actions.md).
 
 **Topics**
 + [aws:lambda:invocation-add-delay](#invocation-add-delay)
