@@ -5,6 +5,9 @@
 
 The following services and resource types support enforcement with tag policies:
 
+**Note**  
+For a service that supports enforcement, you can specify the `{{service-prefix}}:ALL_SUPPORTED` wildcard in the `enforced_for` field to enable enforcement for all of that service's supported resource types. For example, `rds:ALL_SUPPORTED` applies to all supported Amazon RDS resource types. You can't use a wildcard to specify all services, or to specify a resource type across all services.
+
 
 <table>
 <thead>

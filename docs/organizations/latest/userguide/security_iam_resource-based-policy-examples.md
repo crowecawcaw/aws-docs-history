@@ -75,6 +75,9 @@ It doesn't allow delegated administrators to attach or detach policies because i
 
 This example delegation policy grants the permissions necessary to complete actions programmatically from the AWS API or AWS CLI. Replace the AWS placeholder text for {{MemberAccountId}}, {{ManagementAccountId}}, and {{OrganizationId}} with your own information. Then, follow the directions in [Delegated administrator for AWS Organizations](orgs_delegate_policies.md).
 
+**Note**  
+When you validate this policy, IAM Access Analyzer might return a warning that the `organizations:PolicyType` condition key isn't supported for the `DescribePolicy`, `DescribeEffectivePolicy`, `ListPolicies`, `ListPoliciesForTarget`, and `ListTargetsForPolicy` actions. These actions do support `organizations:PolicyType`, as documented in the [Actions, resources, and condition keys for AWS Organizations](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html) in the *Service Authorization Reference*. Because this example uses the `StringLikeIfExists` operator, the condition is enforced when the `organizations:PolicyType` key is present in the request and is ignored when the key is absent, so the delegation policy works as intended.
+
 ------
 #### [ JSON ]
 

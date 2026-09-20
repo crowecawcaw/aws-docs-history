@@ -118,8 +118,8 @@ You also can use wildcard characters such as asterisk (\*) or question mark (?) 
 + Use the question mark (?) wildcard to match a single character. 
 
 **Note**  
-**Wildcards (\*) and question marks (?) can be used anywhere in the action name**  
-You cannot use "\*" in the Action element of a customer managed RCP and have to specify the abbreviation for the service (such as "s3", "sqs", or "sts") you want to restrict access to.
+**You must specify a service in the Action element of a customer managed RCP**  
+In a customer managed RCP, you can't use `"*"` as the entire `Action` value. This wildcard by itself matches all actions in all services, which is not permitted. You must specify the abbreviation for a service (such as `"s3"`, `"sqs"`, or `"sts"`). After the service, you can use the asterisk (\*) wildcard to match actions within that service—for example, `"s3:*"` matches all Amazon S3 actions, and `"s3:Get*"` matches all Amazon S3 actions that begin with "Get." The question mark (?) wildcard matches a single character.
 
 For a list of the services that support RCPs, see [List of AWS services that support RCPs](orgs_manage_policies_rcps.md#rcp-supported-services). For a list of the actions an AWS service supports, see [Actions, Resources, and Condition Keys for AWS Services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html.html) in the *Service Authorization Reference*.
 

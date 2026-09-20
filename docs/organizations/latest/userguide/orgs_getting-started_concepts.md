@@ -71,7 +71,7 @@ The management account is the ultimate owner of the organization, having final c
 + The management account does not have to be directly under the root, it can be placed anywhere in the organization.
 
 **Member account**  <a name="member-account"></a>
-A *member account* is an AWS account, other than the management account, that is part of an organization. If you are an [administrator](#delegated-admin) of an organization, you can create member accounts in the organization and invite existing accounts to join the organization. You also can apply policies to member accounts.   
+A *member account* is an AWS account, other than the management account, that is part of an organization. From the management account, you can create member accounts in the organization and invite existing accounts to join the organization. You also can apply policies to member accounts. Creating member accounts and inviting existing accounts to join the organization can be done only from the management account, not from a delegated administrator account.   
 A member account can belong to only one organization at a time. You can designate member accounts to be delegated administrator accounts.
 
 **Delegated administrator**  <a name="delegated-admin"></a>

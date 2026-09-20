@@ -94,7 +94,7 @@ You can use the following command to create or update a delegation policy:
                   "arn:aws:organizations::{{246802468024}}:root/o-{{abcdef}}/r-{{pqrstu}}",
                   "arn:aws:organizations::{{246802468024}}:ou/o-{{abcdef}}/*",
                   "arn:aws:organizations::{{246802468024}}:account/o-{{abcdef}}/*",
-                  "arn:aws:organizations::{{246802468024}}:organization/policy/backup_policy/*",
+                  "arn:aws:organizations::{{246802468024}}:policy/o-{{abcdef}}/backup_policy/*"
               ],
               "Condition": {
                   "StringLikeIfExists": {

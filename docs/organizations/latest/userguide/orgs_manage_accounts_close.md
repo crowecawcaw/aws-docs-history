@@ -25,7 +25,7 @@ If the member account's root user email address uses a domain registered through
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find and choose the name of the member account you want to close. You can navigate the OU hierarchy, or look at a flat list of accounts without the OU structure. 
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the member account you want to close. To select it, either choose the option (checkbox) next to the account name, or choose the account name to open its details page. Either selection makes the **Close** option available. You can navigate the OU hierarchy, or look at a flat list of accounts without the OU structure. 
 
 1. Choose **Close** next to the account name at the top of the page. This option is only available when an AWS organization is in [All features](orgs_getting-started_concepts.md#feature-set-all) mode.
 **Note**  

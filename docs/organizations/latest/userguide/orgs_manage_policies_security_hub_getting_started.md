@@ -18,7 +18,7 @@ Review the following requirements before implementing Security Hub policies:
 
 Additionally, verify that:
 + Security Hub is supported in the Regions where you want to apply policies
-+ You have the `AWSServiceRoleForSecurityHubV2` service-linked role configured in your management account. To verify this role exists, run `aws iam get-role --role-name AWSServiceRoleForSecurityHubV2`. If you need to create this role, you can either run `aws securityhub enable-security-hub-v2` in any Region from your management account, or create it directly by running `aws iam create-service-linked-role --aws-service-name securityhubv2.amazonaws.com`.
++ You have the `AWSServiceRoleForSecurityHubV2` service-linked role configured in your management account or delegated administrator account. To verify this role exists, run `aws iam get-role --role-name AWSServiceRoleForSecurityHubV2`. If you need to create this role, you can either run `aws securityhub enable-security-hub-v2` in any Region from your management account or delegated administrator account, or create it directly by running `aws iam create-service-linked-role --aws-service-name securityhubv2.amazonaws.com`.
 
 ## Implementation steps
 <a name="security_hub_getting_started-implementation"></a>

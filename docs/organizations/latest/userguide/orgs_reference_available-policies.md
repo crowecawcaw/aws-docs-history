@@ -14,6 +14,9 @@ You can see the list of AWS managed policies in [Policies](https://console.aws.a
 
 You can use the following managed policies to grant permissions to users in your organization.
 
+**Note**  
+For the AWS managed policy that is attached to the AWS Organizations service-linked role (`AWSServiceRoleForOrganizations`), which AWS Organizations uses to perform management actions in your accounts, see [AWS Organizations and service-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs). Service-linked role permissions are managed by AWS Organizations and you can't attach that policy to your own IAM users or roles.
+
 ### AWS managed policy: AWSOrganizationsFullAccess
 <a name="security-iam-awsmanpol-AWSOrganizationsFullAccess"></a>
 

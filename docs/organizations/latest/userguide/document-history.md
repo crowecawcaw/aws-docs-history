@@ -9,6 +9,7 @@ The following table describes major documentation updates for AWS Organizations.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added Amazon Connect Talent to AI services opt-out policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_all.html) | Added Amazon Connect Talent to the list of AWS services supported by the AI services opt-out policy. | September 15, 2026 | 
 | [Clarified Resource element requirement in SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html) | Clarified that each statement in an SCP must include a `Resource` or `NotResource` element. | June 23, 2026 | 
 | [Added AWS FinOps Agent to AI services opt-out policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_all.html) | Added AWS FinOps Agent to the list of AWS services supported by the AI services opt-out policy. | June 22, 2026 | 
 | [Updated Backup policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup_syntax.html) | Added Amazon Redshift Serverless namespaces and Aurora DSQL clusters to the list of supported resource types for backup policies. | April 8, 2026 | 

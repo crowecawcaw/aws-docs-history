@@ -33,11 +33,13 @@ RCPs don't affect resources in the management account. They only affect resource
 <a name="rcp-supported-services"></a>
 
 RCPs apply to actions for the following AWS services:
++ [Amazon AppStream](https://docs.aws.amazon.com/appstream2) `(prefix:appstream)`
++ [Amazon Aurora DSQL](https://docs.aws.amazon.com/aurora-dsql) `(prefix:dsql)`
++ [Amazon Cloud Directory](https://docs.aws.amazon.com/clouddirectory) `(prefix:clouddirectory)`
 + [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront) `(prefix:cloudfront)`
 + [Amazon CloudSearch](https://docs.aws.amazon.com/cloudsearch) `(prefix:cloudsearch)`
 + [Amazon CloudWatch Logs](https://docs.aws.amazon.com/cloudwatch) `(prefix:logs)`
 + [Network Synthetic Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html) `(prefix:networkmonitor)`
-+ [Amazon Cloud Directory](https://docs.aws.amazon.com/clouddirectory) `(prefix:clouddirectory)`
 + [Amazon Cognito](https://docs.aws.amazon.com/cognito) `(prefix:cognito-identity)`
 + [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito) `(prefix:cognito-idp)`
 + [Amazon Comprehend](https://docs.aws.amazon.com/comprehend) `(prefix:comprehend)`
@@ -47,37 +49,52 @@ RCPs apply to actions for the following AWS services:
 + [DynamoDB Accelerator](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html) `(prefix:dax)`
 + [Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling) `(prefix:autoscaling)`
 + [Amazon Elastic Container Registry](https://docs.aws.amazon.com/ecr) `(prefix:ecr)`
++ [Amazon Elastic Container Registry Public](https://docs.aws.amazon.com/AmazonECR/latest/public) `(prefix:ecr-public)`
++ [Amazon GameLift Servers](https://docs.aws.amazon.com/gamelift) `(prefix:gamelift)`
 + [Amazon Inspector Scan](https://docs.aws.amazon.com/inspector) `(prefix:inspector-scan)`
 + [Amazon Kendra](https://docs.aws.amazon.com/kendra) `(prefix:kendra)`
 + [Amazon Kinesis Video Streams](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video) `(prefix:kinesisvideo)`
 + [Amazon MemoryDB](https://docs.aws.amazon.com/memorydb) `(prefix:memorydb)`
 + [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service) `(prefix:aoss)`
++ [Amazon Personalize](https://docs.aws.amazon.com/personalize) `(prefix:personalize)`
 + [Amazon Polly](https://docs.aws.amazon.com/polly) `(prefix:polly)`
 + [Amazon S3](https://docs.aws.amazon.com/s3) `(prefix:s3)`
++ [Amazon Simple Workflow Service](https://docs.aws.amazon.com/amazonswf/latest/developerguide) `(prefix:swf)`
 + [Amazon SQS](https://docs.aws.amazon.com/sqs) `(prefix:sqs)`
 + [Amazon Textract](https://docs.aws.amazon.com/textract) `(prefix:textract)`
 + [Amazon Timestream for InfluxDB](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb) `(prefix:timestream-influxdb)`
 + [Amazon Transcribe](https://docs.aws.amazon.com/transcribe) `(prefix:transcribe)`
 + [Amazon Translate](https://docs.aws.amazon.com/translate) `(prefix:translate)`
-+ [Amazon AppStream](https://docs.aws.amazon.com/appstream2) `(prefix:appstream)`
++ [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces) `(prefix:workspaces)`
 + [AWS AppConfig](https://docs.aws.amazon.com/appconfig) `(prefix:appconfig)`
++ [AWS Auto Scaling](https://docs.aws.amazon.com/autoscaling/plans/userguide) `(prefix:autoscaling-plans)`
++ [AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) `(prefix:budgets)`
++ [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map) `(prefix:servicediscovery)`
++ [AWS CloudTrail Data Service](https://docs.aws.amazon.com/awscloudtraildata/latest/APIReference) `(prefix:cloudtrail-data)`
++ [AWS CodeArtifact](https://docs.aws.amazon.com/codeartifact) `(prefix:codeartifact)`
 + [AWS CodeBuild](https://docs.aws.amazon.com/codebuild) `(prefix:codebuild)`
 + [AWS CodeCommit](https://docs.aws.amazon.com/codecommit) `(prefix:codecommit)`
 + [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline) `(prefix:codepipeline)`
++ [AWS Compute Optimizer](https://docs.aws.amazon.com/compute-optimizer) `(prefix:compute-optimizer)`
 + [AWS Cost Optimization Hub](https://docs.aws.amazon.com/cost-management/latest/userguide/cost-optimization-hub) `(prefix:cost-optimization-hub)`
 + [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge) `(prefix:events)`
++ [AWS Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html) `(prefix:fms)`
 + [AWS Fault Injection Service](https://docs.aws.amazon.com/fis) `(prefix:fis)`
 + [AWS Health](https://docs.aws.amazon.com/health) `(prefix:health)`
++ [IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide) `(prefix:rolesanywhere)`
 + [AWS Key Management Service](https://docs.aws.amazon.com/kms) `(prefix:kms)`
 + [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service) `(prefix:opensearch)`
 + [AWS Pricing Calculator](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html) `(prefix:pricing)`
 + [AWS Private CA Connector for Active Directory](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad) `(prefix:pca-connector-ad)`
++ [AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide) `(prefix:resource-groups)`
 + [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager) `(prefix:secretsmanager)`
 + [AWS Security Token Service](https://docs.aws.amazon.com/iam/#sts) `(prefix:sts)`
 + [AWS Sign-In](https://docs.aws.amazon.com/signin) `(prefix:signin)`
 + [AWS Support](https://docs.aws.amazon.com/aws-support) `(prefix:support)`
 + [AWS Transfer Family](https://docs.aws.amazon.com/transfer) `(prefix:transfer)`
++ [AWS User Notifications](https://docs.aws.amazon.com/notifications) `(prefix:notifications)`
 + [AWS WAF](https://docs.aws.amazon.com/waf) `(prefix:wafv2)`
++ [AWS X-Ray](https://docs.aws.amazon.com/xray) `(prefix:xray)`
 
 ## Testing effects of RCPs
 <a name="rcp-warning-testing-effect"></a>
@@ -104,7 +121,7 @@ RCPs are a type of AWS Identity and Access Management (IAM) policy. They are mos
 + RCPs apply to resources for a subset of AWS services. For more information, see [List of AWS services that support RCPs](#rcp-supported-services).
 + RCPs ***affect only resources*** that are managed by accounts that are part of the organization which has attached the RCPs. They don't affect resources from accounts outside the organization. For example, consider an Amazon S3 bucket that's owned by Account A in an organization. The bucket policy (a resource-based policy) grants access to users from Account B outside the organization. Account A has an RCP attached. That RCP applies to the S3 bucket in Account A even when accessed by users from Account B. However, that RCP does not apply to resources in Account B when accessed by users in Account A.
 + An RCP restricts permissions for resources in member accounts. Any resource in an account has only those permissions permitted by ***every*** parent above it. If a permission is blocked at any level above the account, a resource in the affected account does not have that permission, even if the resource owner attaches a resource-based policy that allows full access to any user.
-+ RCPs apply to the resources that are authorized as part of an operation request. These resources can be found in the “Resource type” column of the Action table in the [Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html#actions_table). If a resource is specified in the "Resource type" column, then the RCPs of the calling principal account are applied. For example, `s3:GetObject` authorizes the object resource. Whenever a `GetObject` request is made, an applicable RCP will apply to determine whether the requesting principal can invoke the `GetObject` operation. An *applicable RCP* is an RCP that has been attached to an account, to an organizational unit (OU), or to the root of the organization that owns the resource being accessed.
++ RCPs apply to the resources that are authorized as part of an operation request. These resources can be found in the “Resource type” column of the Action table in the [Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html#actions_table). If a resource is specified in the "Resource type" column, then the RCPs of the resource owner's account are applied. For example, `s3:GetObject` authorizes the object resource. Whenever a `GetObject` request is made, an applicable RCP will apply to determine whether the requesting principal can invoke the `GetObject` operation. An *applicable RCP* is an RCP that has been attached to an account, to an organizational unit (OU), or to the root of the organization that owns the resource being accessed.
 + RCPs affect only resources in ***member*** accounts in the organization. They have no effect on resources in the management account. This also means that RCPs apply to member accounts that are designated as delegated administrators. For more information, see [Best practices for the management account](orgs_best-practices_mgmt-acct.md).
 + When a principal makes a request to access a resource within an account that has an attached RCP (a resource with an applicable RCP), the RCP is included in the policy evaluation logic to determine whether the principal is allowed or denied access.
 + RCPs impact the effective permissions of principals trying to access resources in a member account with an applicable RCP, regardless of whether the principals belong to the same organizations or not. This includes root users. The exception is when principals are service-linked roles because RCPs do not apply to calls made by service-linked roles. Service-linked roles enable AWS services to perform necessary actions on your behalf and can't be restricted by RCPs. 
@@ -117,5 +134,15 @@ You ***can't*** use RCPs to restrict the following:
 + Any action on resources in the management account.
 + RCPs do not impact the effective permissions of any service-linked role. Service-linked roles are a unique type of IAM role that is linked directly to an AWS service and include all the permissions that the service requires to call other AWS services on your behalf. The permissions of service-linked roles can't be restricted by RCPs. RCPs also do not impact AWS services' ability to assume a service-linked role; that is, the service-linked role's trust policy is also not impacted by RCPs.
 + RCPs do not apply to [AWS managed keys for AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk). AWS managed keys are created, managed, and used on your behalf by an AWS service. You cannot change or manage their permissions.
-+ RCPs do not impact following permissions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html)
++ RCPs do not impact following permissions:
+
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>API</th><th>Resources not authorized by RCPs</th></tr>
+</thead>
+<tbody>
+  <tr><td>AWS Key Management Service</td><td><code>kms:RetireGrant</code></td><td>RCPs do not impact the <code>kms:RetireGrant</code> permission. For more information on how permission to <code>kms:RetireGrant</code> is determined, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking grants</a> in the <i>AWS KMS Developer Guide</i>.</td></tr>
+</tbody>
+</table>

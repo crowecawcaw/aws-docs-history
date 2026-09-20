@@ -9,6 +9,10 @@ AWS Organizations has two available feature sets:
 
 If you create an organization with the consolidated billing feature set, you can later enable all features. However, you cannot migrate from all features to consolidated billing after all features is enabled.
 
+**Check which feature set is currently enabled**
+
+To determine which feature set your organization currently uses, run the AWS Organizations [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) operation (for example, the `aws organizations describe-organization` AWS CLI command). The `FeatureSet` field in the response is either `ALL` or `CONSOLIDATED_BILLING`. You can also view the feature set on the *Settings* page of the AWS Organizations console.
+
 **Standard migration and assisted migration**
 
 The two approaches for migrating to all features are *standard migration* and* assisted migration*.

@@ -61,3 +61,9 @@ You can [enable service trust for another AWS service](orgs_integrate_services_l
 **Organizations with only the consolidated billing feature set can still invite accounts**
 
 You can invite an account to join an organization that has only the consolidated billing features enabled. If you later want to enable all features for the organization, invited accounts must approve the change.
+
+**Organization-level service configurations might extend to your account**
+
+When your account joins an organization, organization-level service configurations can extend to your account automatically. AWS CloudTrail organization trails always apply to newly joined accounts. Other services, including AWS Config, Amazon GuardDuty, and AWS Security Hub CSPM, can be configured to enable automatically for new member accounts.
+
+These services incur usage-based charges, and any existing account-level configurations might result in duplicate charges. Before accepting an invitation, review organization-level and account-level configurations for overlap. For information about transitioning from an account-level trail to an organization trail, see [Moving from member account trails to organization trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-best-practice.html).

@@ -20,6 +20,12 @@ You can remove an account from your organization only if the account has the inf
 
 For each account that you want to make standalone, you must choose a support plan, provide and verify the required contact information, and provide a current payment method. AWS uses the payment method to charge for any billable (not AWS Free Tier) AWS activity that occurs while the account isn't attached to an organization. To remove an account that doesn't yet have this information, follow the steps in [Leaving an organization from a member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md).
 
+**Note**  
+If you receive a `ConstraintViolationException` when you try to remove an account, the account is likely missing information that is required for it to operate as a standalone account, such as a valid payment method or verified contact information. Provide the missing standalone-account information described in this section, and then try the operation again.
+
+**Note**  
+If you have AWS Enterprise Support and you are migrating accounts to another organization, you can work with Support to manage the billing during the migration. Open a billing support case from the management account to ask about options for handling charges for the standalone period, such as invoice-based billing, so that a separate payment method might not be required on each account. Availability depends on your support plan and billing configuration.
+
 **You must wait until at least four days after the account was created**
 
 To remove an account that you created in the organization, you must wait until at least four days after the account was created. Invited accounts aren't subject to this waiting period. 
@@ -30,7 +36,7 @@ At the moment the account successfully leaves the organization, the owner of the
 
 **The account cannot be a delegated administrator account for any AWS service enabled for the organization**
 
-The account that you want to remove must not be a delegated administrator account for any AWS service enabled for your organization. If the account is a delegated administrator, you must first change the delegated administrator account to another account that is remaining in the organization. For more information about how to disable or change the delegated administrator account for an AWS service, see the documentation for that service.
+The account that you want to remove must not be a delegated administrator account for any AWS service enabled for your organization. If the account is a delegated administrator, you must first deregister it (or change the delegated administrator to another account that is remaining in the organization) before you can remove it. You deregister a delegated administrator from the console or API of the AWS service that it administers; some services also support the AWS Organizations `deregister-delegated-administrator` AWS CLI command. To find the service and its delegated administrator management instructions, see [AWS services that you can use with AWS Organizations](orgs_integrate_services_list.md).
 
 **The account no longer has access to cost and usage data**
 

@@ -39,6 +39,9 @@ Before you can generate an account status report, complete the following steps:
 ## Generating the compliance status report
 <a name="orgs_manage_policies_ec2_accessing-status-report"></a>
 
+**Note**  
+After you generate an account status report, it remains available indefinitely in the Amazon S3 bucket that you configured. In the Organizations console, the report is available to view for 30 days. To access a report after it is no longer shown in the console, retrieve it from the Amazon S3 bucket.
+
 **Minimum permissions**  
 To generate a compliance status report, you need permission to run the following operations:  
 `ec2:StartDeclarativePoliciesReport`

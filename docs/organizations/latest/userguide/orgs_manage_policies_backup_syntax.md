@@ -122,6 +122,8 @@ The `selections` policy key specifies the resources that are backed up by the ru
 
 There are two mutually exclusive elements: `tags` and `resources`. An effective policy **must** `have` either tags or `resources` in the selection to be valid.
 
+The `tags` and `resources` elements are nested inside the `selections` element. Place them within `selections`, not at the same level as `selections`.
+
 If you want a selection with both tag conditions and resource conditions, use the `resources` keys.
 
 

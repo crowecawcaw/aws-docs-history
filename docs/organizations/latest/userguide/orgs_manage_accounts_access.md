@@ -5,6 +5,9 @@
 
 When you create an account in your organization, in addition to the root user, AWS Organizations automatically creates an IAM role that is by default named `OrganizationAccountAccessRole`. You can specify a different name when you create it, however we recommend that you name it consistently across all of your accounts. AWS Organizations doesn't create any other users or roles.
 
+**Note**  
+This automatic role creation applies to member accounts that you create directly through AWS Organizations. Accounts that are provisioned by other methods, such as AWS Control Tower or Account Factory for Terraform (AFT), might create a role with a different name. Check the documentation for the method that you use to provision accounts to determine the role name.
+
 To access the accounts in your organization, you must use one of the following methods:
 
 **Minimum permissions**  
@@ -14,7 +17,7 @@ To access an AWS account from any other account in your organization, you must h
 ------
 #### [ Using the root user (Not recommended for everyday tasks) ]
 
-When you create new member account in your organization, the account has no root user credentials by default. Member accounts can't sign in to their root user or perform password recovery for their root user unless account recovery is enabled.
+When you create a new member account in your organization, the account has no root user credentials by default. Member accounts can't sign in to their root user or perform password recovery for their root user unless account recovery is enabled. This applies to member accounts created in AWS Organizations. Some existing member accounts might still have root user credentials; to remove them, centralize root access for those accounts as described in the following paragraph.
 
 You can [centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html) to remove root user credentials for existing member accounts in your organization. Deleting root user credentials removes the root user password, access keys, signing certificates, and deactivates multi-factor authentication (MFA). These member accounts do not have root user credentials, can't sign in as a root user, and are prevented from recovering the root user password. New accounts you create in Organizations have no root user credentials by default.
 

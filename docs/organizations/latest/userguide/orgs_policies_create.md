@@ -368,7 +368,7 @@ The visual editor makes the process easy, but it limits your flexibility. It's a
       + The **Resource assignment name** can consist of only alphanumeric, hyphen, and underline characters.
       + Specify the **IAM role** for AWS Backup to use to perform the backup by its name. 
 
-        In the console, you don't specify the entire Amazon Resource Name (ARN). You must include both the role name and its prefix that specifies the type of role. The prefixes are typically `role` or `service-role` , and they are separated from the role name by a forward slash ('/'). For example, you might enter `role/MyRoleName` or `service-role/MyManagedRoleName`. This is converted to a full ARN for you when stored in the underlying JSON.
+        In the console, you don't specify the entire Amazon Resource Name (ARN), and you don't include a prefix such as `role` or `service-role`. Enter only the role name. For example, enter `MyRoleName`. This is converted to a full ARN for you when stored in the underlying JSON.
 **Important**  
 The specified IAM role must already exist in the account the policy is applied to. If it does not, the backup plan might successfully start backup jobs, but those backup jobs will fail.
       + Specify one or more **Resource tag key** and **Tag values** pairs to identify resources that you want backed up. If there is more than one tag value, separate the values with commas.

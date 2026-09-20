@@ -14,6 +14,10 @@ You cannot migrate a closed or suspended account. To reactive an account, contac
 To migrate an account that you created in an organization, you must wait until at least four days after the account was created. Invited accounts are not subject to this waiting period.  
 **Seven-day age requirement for the organization**  
 To migrate an account to a new organization, you must wait until at least seven days after the organization was created.  
+**Seller of Record must match**  
+The Seller of Record (SOR) of the account you are moving must match the Seller of Record of the destination organization. If the accounts have different Sellers of Record, the move fails.  
+**Creating an organization moves the account to a paid plan**  
+Creating an organization moves the AWS account from the Free Tier to a paid plan.  
 **Replicating data between accounts**  
 The following AWS Prescriptive Guidance provides information about strategies for replicating data between AWS accounts: [Resource replication or migration between AWS accounts](https://docs.aws.amazon.com/prescriptive-guidance/latest/transitioning-to-multiple-aws-accounts/resource-migration.html).
 
@@ -105,6 +109,16 @@ To help identify these dependencies, you can use [Account Assessment for AWS Org
 <a name="collapsible-migrate-account-step-5"></a>
 
 If you are migrating an account to or from an organization managed by AWS Control Tower, review the following AWS Prescriptive Guidance: [Migrate an AWS member account from AWS Organizations to AWS Control Tower](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/migrate-an-aws-member-account-from-aws-organizations-to-aws-control-tower.html).
+
+### (Optional) Step 6: Prepare root user access for the new owner
+<a name="migrate-account-step-6"></a>
+
+#### (Optional) Step 6
+<a name="collapsible-migrate-account-step-6"></a>
+
+If ownership of the account is changing as part of the migration, prepare root user access for the new owner before you migrate the account.
++ If the account has multi-factor authentication (MFA) registered for the root user, remove it before the migration. Otherwise, the new owner might not be able to sign in as the root user.
++ To change the root user email address to the new owner's email address after the migration, make sure that the destination organization uses all features. If the destination organization does not use all features, change the root user email address before you migrate the account.
 
 ## What you need to do to migrate an account
 <a name="migrate-account-process"></a>
