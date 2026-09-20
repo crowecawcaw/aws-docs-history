@@ -22,7 +22,6 @@ You can configure channels for your studio and your Deadline Cloud farm in multi
 + [Create a conda build recipe for the Maya adaptor](create-conda-recipe-maya-openjd.md)
 + [Create a conda build recipe for Autodesk Maya to Arnold (MtoA) plugin](create-conda-recipe-mtoa-plugin.md)
 + [Automate package builds with Deadline Cloud](automate-package-builds.md)
-+ [Sync plugins to Deadline Cloud workers](plugin-sync.md)
 
 ## Configure production queue permissions for custom conda packages
 <a name="s3-channel-configure-permissions"></a>

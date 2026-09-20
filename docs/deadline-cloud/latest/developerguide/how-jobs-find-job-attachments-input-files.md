@@ -119,8 +119,37 @@ Total processing time of 0.09752 seconds at 1.91 KB/s.
 2024-07-17 01:26:38,283 INFO }
 ```
 
-**Note**  
- If the job you submit has multiple manifests with different root paths, there is a different "assetroot"-named directory for each of the root paths. 
+ If the job you submit has multiple manifests with different root paths, the session has a separate "assetroot" directory for each root path. Job attachments groups a job's input files by root path. The root path for a group of files is their longest common subpath. Files on different Windows drives never have a common subpath, so each drive forms at least one separate root path. For example, suppose that you submit a job from Windows with the input files `C:\show\project.mb`, `C:\show\plates\bg.png`, and `D:\audio\mix.wav`. Job attachments places the files in two "assetroot" directories in the session's temporary directory: 
+
+```
+C:\show\project.mb    -> assetroot-{{3751a}}/project.mb
+C:\show\plates\bg.png -> assetroot-{{3751a}}/plates/bg.png
+D:\audio\mix.wav      -> assetroot-{{be92f}}/mix.wav
+```
+
+ The path mapping rules file contains a separate rule for each root path. For the preceding example, a session running on a Linux-based worker host has the following rules: 
+
+```
+{
+    "version": "pathmapping-1.0",
+    "path_mapping_rules": [
+        {
+            "source_path_format": "WINDOWS",
+            "source_path": "C:\\show",
+            "destination_path": "/sessions/session-{{5b33f}}/assetroot-{{3751a}}"
+        },
+        {
+            "source_path_format": "WINDOWS",
+            "source_path": "D:\\audio",
+            "destination_path": "/sessions/session-{{5b33f}}/assetroot-{{be92f}}"
+        }
+    ]
+}
+```
+
+ To find the location of every root path in the session, read the file at `{{Session.PathMappingRulesFile}}` rather than assuming that the session has a single "assetroot" directory. For more information about the path mapping rules file format, see [Path mapping](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#path-mapping) on the GitHub website. 
+
+ Job attachments preserves the relative directory structure of the files within each root path. However, it doesn't combine multiple root paths into a single directory tree, and it doesn't modify paths stored inside your files. If an application locates files by using paths that are relative to a project file, those relative references resolve only for files in the same root path as the project file. To keep relative references working, store a project file and the files it references under a common parent directory on the same drive. Alternatively, remap the paths in your job by using the path mapping rules. 
 
  If you need to reference the relocated file system location of one of your input files, directories, or file system locations you can either process the path mapping rules file in your job and perform the remapping yourself, or add a `PATH` type job parameter to the job template in your job bundle and pass the value that you need to remap as the value of that parameter. For example, the following example modifies the job bundle to have one of these job parameters and then submits a job with the file system location `/shared/projects/project2` as its value: 
 

@@ -203,4 +203,4 @@ After testing, you can remove the test project and the local channel.
    rmdir /s /q deadline-cloud-samples\conda_recipes\output
    ```
 
-For supported plugins with plugin sync examples, see [Sync plugins to Deadline Cloud workers](plugin-sync.md).
+For supported plugins with plugin sync examples, see [Deliver custom plugins with plugin sync](plugin-sync.md).

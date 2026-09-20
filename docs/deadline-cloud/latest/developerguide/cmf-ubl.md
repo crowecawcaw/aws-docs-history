@@ -12,8 +12,8 @@ To create the license server, you need a security group for your farm's VPC that
 **Topics**
 + [Step 1: Create a security group](#cmf-ubl-step-1)
 + [Step 2: Set up the license endpoint](#cmf-ubl-step-2)
-+ [Step 3: Connect a rendering application to an endpoint](#w2aac56c26c15)
-+ [Step 4: Delete a license endpoint](#w2aac56c26c17)
++ [Step 3: Connect a rendering application to an endpoint](#w2aac57c26c15)
++ [Step 4: Delete a license endpoint](#w2aac57c26c17)
 
 ## Step 1: Create a security group
 <a name="cmf-ubl-step-1"></a>
@@ -58,7 +58,7 @@ You can create your license endpoint from your dashboard in the Deadline Cloud [
 To remove a product from a license endpoint, in the metered products section, select the product and then choose **Remove**. In the confirmation, choose **Remove** again.
 
 ## Step 3: Connect a rendering application to an endpoint
-<a name="w2aac56c26c15"></a>
+<a name="w2aac57c26c15"></a>
 
 After the license endpoint is set up, applications use it the same as they use a third-party license server. You typically configure the license server for the application by setting an environment variable or other system setting, such as a Microsoft Windows registry key, to a license server port and address.
 
@@ -164,7 +164,7 @@ To test that licensing is working properly, you can render an image in VRay usin
 ```
 
 ## Step 4: Delete a license endpoint
-<a name="w2aac56c26c17"></a>
+<a name="w2aac57c26c17"></a>
 
 When deleting your customer-managed fleet, remember to delete your license endpoint. If you don't delete the license endpoint, you will continue to be charged for AWS PrivateLink fixed costs
 

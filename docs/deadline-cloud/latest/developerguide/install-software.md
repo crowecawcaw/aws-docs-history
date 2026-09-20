@@ -37,8 +37,29 @@ To install a digital content creation (DCC) adaptor on a customer-managed fleet
    pip install deadline-cloud-for-maya
    ```
 
-   The following table lists the adaptor package name and documentation link for each supported DCC application. All adaptor packages are available on the GitHub website:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/install-software.html)
+   The following table lists the adaptor package name and documentation link for each supported DCC application. All adaptor packages are available on the GitHub website:
+
+
+<table>
+<thead>
+  <tr><th>DCC application</th><th>Adaptor package</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/adobe-after-effects.html">Adobe After Effects</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-after-effects">deadline-cloud-for-after-effects</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/autodesk-3ds-max.html">Autodesk 3ds Max</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-3ds-max">deadline-cloud-for-3ds-max</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/autodesk-maya.html">Autodesk Maya</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-maya">deadline-cloud-for-maya</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/autodesk-vred.html">Autodesk VRED</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-vred">deadline-cloud-for-vred</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/blender.html">Blender</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-blender">deadline-cloud-for-blender</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/autodesk-maya.html">Chaos V-Ray for Maya</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-maya">deadline-cloud-for-maya</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/foundry-nuke.html">Foundry Nuke</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-nuke">deadline-cloud-for-nuke</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/keyshot.html">KeyShot Studio</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-keyshot">deadline-cloud-for-keyshot</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/maxon-cinema-4d.html">Maxon Cinema 4D</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-cinema-4d">deadline-cloud-for-cinema-4d</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/autodesk-maya.html">Maxon Redshift for Maya</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-maya">deadline-cloud-for-maya</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/sidefx-houdini.html">SideFX Houdini</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-houdini">deadline-cloud-for-houdini</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/epic-unreal-engine.html">Unreal Engine</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-unreal-engine">deadline-cloud-for-unreal-engine</a></td></tr>
+</tbody>
+</table>
+
 
 **Installing multiple adaptors on the same worker**  
 If you install more than one DCC adaptor on the same worker, install each adaptor into its own Python virtual environment. Adaptors can pin different version ranges for shared Python packages (for example, `deadline` or `openjd-adaptor-runtime`). An environment with multiple adaptors might fail with a `ResolutionImpossible` error. It might also silently downgrade a shared package and break the adaptors that need the newer version.
