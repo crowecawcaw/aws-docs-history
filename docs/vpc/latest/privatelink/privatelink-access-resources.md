@@ -17,8 +17,6 @@ When you access resources using resource endpoints, you are billed for each hour
 + [IP address types](#resource-endpoint-ip-address-type)
 + [Create a resource endpoint](use-resource-endpoint.md)
 + [Manage resource endpoints](manage-resource-endpoint.md)
-+ [Resource configuration](resource-configuration.md)
-+ [Resource gateway](resource-gateway.md)
 
 ## Overview
 <a name="resource-endpoint-overview"></a>

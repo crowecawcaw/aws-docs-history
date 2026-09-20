@@ -20,7 +20,7 @@ Create a resource configuration.
 
 1. For **Configuration type**, choose **Resource** for a single or child resource or **Resource group** for a group of child resources.
 
-1. Choose a resource gateway that you previously created or create a one now.
+1. Choose a resource gateway that you previously created or create one now.
 
 1. (Optional) To enter a custom domain name, do one of the following:
    + If you have a resource configuration of type single, you can enter a custom domain name. Resource consumers can use this domain name to access your resource configurations.

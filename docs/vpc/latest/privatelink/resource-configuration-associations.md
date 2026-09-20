@@ -3,7 +3,7 @@
 # Manage associations for a VPC Lattice resource configuration
 <a name="resource-configuration-associations"></a>
 
-Consumer accounts with which you share a resource configuration with and clients in your account can access the resource configuration either directly using a resource VPC endpoint or through a service-network endpoint. As a result your resource configuration will have endpoint associations and service network associations.
+Consumer accounts with which you share a resource configuration, and clients in your account, can access the resource configuration either directly using a resource VPC endpoint or through a service network endpoint. As a result, your resource configuration will have endpoint associations and service network associations.
 
 ## Manage service network resource associations
 <a name="resource-config-manage-sn-association"></a>
@@ -44,7 +44,7 @@ Use the [delete-service-network-resource-association](https://awscli.amazonaws.c
 ## Manage resource VPC endpoint associations
 <a name="resource-config-manage-ep-association"></a>
 
-Consumer accounts with access to your resource configuration or clients in your account can access the resource configuration using a resource VPC endpoint. If your resource configuration has a custom domain name, you can use enable private DNS to allow VPC Lattice to provision private hosted zones for your resource endpoint or service-network endpoint. With this, clients can directly curl the domain name to access the resource configuration. For more information, see [Custom domain names for resource consumers](resource-configuration.md#custom-domain-name-resource-consumers).
+Consumer accounts with access to your resource configuration or clients in your account can access the resource configuration using a resource VPC endpoint. If your resource configuration has a custom domain name, you can use enable private DNS to allow VPC Lattice to provision private hosted zones for your resource endpoint or service network endpoint. With this, clients can directly curl the domain name to access the resource configuration. For more information, see [Custom domain names for resource consumers](resource-configuration.md#custom-domain-name-resource-consumers).
 
 ------
 #### [ AWS Management Console ]
@@ -55,11 +55,11 @@ Consumer accounts with access to your resource configuration or clients in your 
 
 1. Select the resource configuration you want to connect to your VPC.
 
-1. Select the VPC, subnets and security groups.
+1. Select the VPC, subnets, and security groups.
 
 1. (Optional) To turn on private DNS and configure DNS options, select **Enable DNS name**.
 
-1. (Optional) To tag you VPC endpoint, choose **Add new tag**, and enter a tag key and tag value.
+1. (Optional) To tag your VPC endpoint, choose **Add new tag**, and enter a tag key and tag value.
 
 1. Choose **Create endpoint**.
 

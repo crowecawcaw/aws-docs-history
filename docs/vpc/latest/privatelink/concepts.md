@@ -71,7 +71,7 @@ The following are the possible states for an endpoint service:
 ### Resource configuration
 <a name="concepts-resource-configuration"></a>
 
-The resource provider creates a *resource configuration* to share a resource. A resource configuration is a logical object that represents either a single resource such as a database, or a group of resources. A resource can be an IP address, a domain-name target, or an [Amazon Relational Database Service](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) (Amazon RDS) database.
+The resource provider creates a *resource configuration* to share a resource. A resource configuration is a logical object that represents a single resource such as a database, a group of resources, or a segment of a network (a set of CIDR ranges). A resource can be an IP address, a domain-name target, or an [Amazon Relational Database Service](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) (Amazon RDS) database.
 
 When sharing with other accounts, the resource provider must share the resource through a [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) (AWS RAM) resource share to allow specific AWS principals in the other account to connect to the resource through a resource VPC endpoint.
 
@@ -100,6 +100,7 @@ A consumer creates a *VPC endpoint* to connect their VPC to an endpoint service 
 + `Interface` - Create an *interface endpoint* to send TCP or UDP traffic to an endpoint service. Traffic destined for the endpoint service is resolved using DNS.
 + `GatewayLoadBalancer` - Create a *Gateway Load Balancer endpoint* to send traffic to a fleet of virtual appliances using private IP addresses. You route traffic from your VPC to the Gateway Load Balancer endpoint using route tables. The Gateway Load Balancer distributes traffic to the virtual appliances and can scale with demand.
 + `Resource` - Create a *resource endpoint* to access a resource that was shared with you and resides in another VPC. A resource endpoint lets you privately and securely access resources such as a database, an Amazon EC2 instance, an application endpoint, a domain-name target, or an IP address that may be in a private subnet in another VPC or in an on premise environment. Resource endpoints don't require a load balancer, and lets you access the resource directly.
++ `Tunnel` - Create a *tunnel endpoint* to access a network segment that was shared with you from another VPC or account. A tunnel endpoint lets you privately and securely tunnel into a network segment (a list of CIDR ranges) and access any resource located in the segment. Tunnel endpoints require you to encapsulate application traffic in GENEVE.
 + `Service network` - Create a *service-network endpoint* to access a service network that you created or was shared with you. You can use a single service-network endpoint to privately and securely access multiple resources and services that are associated to a service network.
 
 There is another type of VPC endpoint, `Gateway`, which creates a *gateway endpoint* to send traffic to Amazon S3 or DynamoDB. Gateway endpoints do not use AWS PrivateLink, unlike the other types of VPC endpoints. For more information, see [Gateway endpoints](gateway-endpoints.md).

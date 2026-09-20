@@ -8,7 +8,7 @@ AWS PrivateLink is a highly available, scalable technology that you can use to p
 ## Use cases
 <a name="use-cases"></a>
 
-You can create VPC endpoints to connect clients in your VPC to services and resources that integrate with AWS PrivateLink. You can create your own VPC endpoint service and make it available to other AWS customers. For more information, see [AWS PrivateLink concepts](concepts.md).
+You can create AWS PrivateLink-based VPC endpoints to access services, resources, and network segments across VPC and account boundaries. You can create your own VPC endpoint service and make it available to other AWS customers. For more information, see [AWS PrivateLink concepts](concepts.md).
 
 In the following diagram, the VPC on the left has several Amazon EC2 instances in a private subnet and five VPC endpoints - three interface VPC endpoints, a resource VPC endpoint and a service-network VPC endpoint. The first interface VPC endpoint connects to an AWS service. The second interface VPC endpoint connects to a service hosted by another AWS account (a VPC endpoint service). The third interface VPC endpoint connects to an AWS Marketplace partner service. The resource VPC endpoint connects to a database. The service network VPC endpoint connects to a service network.
 
