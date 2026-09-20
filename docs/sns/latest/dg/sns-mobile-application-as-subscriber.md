@@ -32,9 +32,11 @@ You send push notification messages to both mobile devices and desktops using on
 + Microsoft Push Notification Service for Windows Phone (MPNS)
 + Windows Push Notification Services (WNS)
 
-Push notification services, such as APNs and FCM, maintain a connection with each app and associated mobile device registered to use their service. When an app and mobile device register, the push notification service returns a device token. Amazon SNS uses the device token to create a mobile endpoint, to which it can send direct push notification messages. In order for Amazon SNS to communicate with the different push notification services, you submit your push notification service credentials to Amazon SNS to be used on your behalf. For more information, see [Setting up push notifications with Amazon SNS](#sns-user-notifications-process-overview). 
+Push notification services, such as APNs and FCM, maintain a connection with each app and associated mobile device registered to use their service. When an app and mobile device register, the push notification service returns a device token. Amazon SNS uses the device token to create a mobile endpoint, to which it can send direct push notification messages.
 
- In addition to sending direct push notification messages, you can also use Amazon SNS to send messages to mobile endpoints subscribed to a topic. The concept is the same as subscribing other endpoint types, such as Amazon SQS, HTTP/S, email, and SMS, to a topic, as described in [What is Amazon SNS?](welcome.md). The difference is that Amazon SNS communicates using the push notification services in order for the subscribed mobile endpoints to receive push notification messages sent to the topic.
+For Amazon SNS to communicate with the different push notification services, you submit your push notification service credentials to Amazon SNS to be used on your behalf. For more information, see [Setting up push notifications with Amazon SNS](#sns-user-notifications-process-overview). 
+
+In addition to sending direct push notification messages, you can use Amazon SNS to send messages to mobile endpoints subscribed to a topic. The concept is the same as subscribing other endpoint types, such as Amazon SQS, HTTP/S, email, and SMS, to a topic, as described in [What is Amazon SNS?](welcome.md). The difference is that Amazon SNS communicates using the push notification services so that subscribed mobile endpoints receive push notification messages sent to the topic.
 
 ## Setting up push notifications with Amazon SNS
 <a name="sns-user-notifications-process-overview"></a>

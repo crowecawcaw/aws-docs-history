@@ -3,8 +3,8 @@
 # Amazon SNS message delivery
 <a name="message-delivery"></a>
 
-This topic describes how Amazon SNS handles message delivery across various scenarios. You'll learn about raw message delivery, where Amazon SNS delivers messages in their original, unmodified format to the endpoint. You'll also discover how to send messages from an Amazon SNS topic to an Amazon SQS queue in a different AWS account, providing insights into cross-account messaging.
+This topic describes how Amazon SNS handles message delivery. You'll learn about raw message delivery, where Amazon SNS delivers messages in their original, unmodified format to the endpoint. You'll also learn how to send messages from an Amazon SNS topic to an Amazon SQS queue in a different AWS account.
 
-This topic provides information on the delivery of Amazon SNS messages to an Amazon SQS queue or a Lambda function in different AWS Regions, how cross-region delivery works, and the considerations involved.
+This topic covers the delivery of Amazon SNS messages to an Amazon SQS queue or a Lambda function in a different AWS Region. It explains how cross-Region delivery works and what to consider when using it.
 
-Additionally, you'll learn how to monitor and interpret message delivery status, which provides critical information on whether messages were successfully delivered or encountered issues. In cases where message delivery fails, you'll understand the message delivery retry process, including how Amazon SNS automatically attempts to redeliver messages to ensure they reach their intended destinations. This topic also discusses the use of dead-letter queues to capture messages that could not be delivered after multiple attempts, enabling you to analyze and troubleshoot these failures effectively.
+You'll also learn how to monitor delivery status, which tells you whether messages were delivered or encountered issues. When delivery fails, Amazon SNS automatically retries to ensure messages reach their destinations. Messages that can't be delivered after multiple attempts go to a dead-letter queue. You can use the dead-letter queue to analyze and troubleshoot delivery failures.

@@ -5,7 +5,7 @@
 
 **Important**  
 Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
-+ [Message Data Protection](message-data-protection.md) is a feature in Amazon SNS used to define your own rules and policies to audit and control the content for data in motion, as opposed to data at rest.
-+ Message Data Protection provides governance, compliance, and auditing services for enterprise applications that are message-centric, so data ingress and egress can be controlled by the Amazon SNS topic owner, and content flows can be tracked and logged.
++ [Message Data Protection](message-data-protection.md) is a feature in Amazon SNS. With this feature, you can define rules and policies to audit and control content for data in motion, as opposed to data at rest.
++ Message Data Protection provides governance, compliance, and auditing services for message-centric enterprise applications. The Amazon SNS topic owner can control data ingress and egress, and content flows can be tracked and logged.
 + You can write payload-based governance rules to stop unauthorized payload content from entering your message streams.
 + You can grant different content-access permissions to individual subscribers, and audit the entire content-flow process.

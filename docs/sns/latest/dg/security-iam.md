@@ -238,8 +238,8 @@ To view examples of Amazon SNS identity-based policies, see [Identity-based poli
 <a name="security_iam_service-with-iam-resource-based-policies"></a>
 
 
-|  |  | 
-| --- |--- |
+| Feature | Supported | 
+| --- | --- | 
 | Supports resource-based policies | Yes | 
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are IAM *role trust policies* and Amazon S3 *bucket policies*. In services that support resource-based policies, service administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource-based policy. Principals can include accounts, users, roles, federated users, or AWS services.

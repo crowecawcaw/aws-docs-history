@@ -32,8 +32,8 @@ After this statement is added, the AWS account 1111-2222-3333 will have permissi
 
 **Additional information:**
 + **Custom policy management:** While `AddPermission` is convenient for granting permissions, it's often useful to manually manage the topic's access control policy for more complex scenarios, such as adding conditions or granting permissions to specific IAM roles or services. You can do this by using the `SetTopicAttributes` API to update the policy attribute directly.
-+ **Security best practices:** Be cautious when granting permissions to ensure that only trusted AWS accounts or entities have access to your Amazon SNS topics. Regularly review and audit the policies attached to your topics to maintain security.
-+ **Policy limits:** Keep in mind that there are limits to the size and complexity of Amazon SNS policies. If you need to add many permissions or complex conditions, ensure that your policy stays within these limits.
++ **Security best practices:** Be cautious when granting permissions to ensure only trusted AWS accounts or entities have access to your Amazon SNS topics. Regularly review and audit the policies attached to your topics to maintain security.
++ **Policy limits:** Keep in mind that there are limits to the size and complexity of Amazon SNS policies. If you need to add many permissions or complex conditions, make sure your policy stays within these limits.
 
 ## Limit subscriptions to HTTPS
 <a name="sns-limit-subscriptions-to-https"></a>
@@ -75,8 +75,8 @@ Here’s how you can create a policy that limits subscriptions to HTTPS:
 
 **Additional information:**
 + **Customizing access control.** This approach allows you to enforce more granular access controls, such as restricting subscription protocols, which is not possible through the `AddPermission` action alone. Custom policies provide flexibility for scenarios requiring specific conditions, such as protocol enforcement or IP address restrictions.
-+ **Security best practices.** Limiting subscriptions to HTTPS enhances the security of your notifications by ensuring that data in transit is encrypted. Regularly review your topic policies to ensure they meet your security and compliance requirements.
-+ **Policy testing.** Before applying the policy in a production environment, test it in a development environment to ensure it behaves as expected. This helps prevent accidental access issues or unintended restrictions.
++ **Security best practices.** Limiting subscriptions to HTTPS enhances the security of your notifications by ensuring that data in transit is encrypted. Regularly review your topic policies to make sure they meet your security and compliance requirements.
++ **Policy testing.** Before applying the policy in a production environment, test it in a development environment to make sure it behaves as expected. This helps prevent accidental access issues or unintended restrictions.
 
 ## Publish messages to an Amazon SQS queue
 <a name="sns-publish-messages-to-sqs-queue"></a>
@@ -109,8 +109,8 @@ The following is an example of an Amazon SQS policy that grants Amazon SNS permi
 This policy uses the `aws:SourceArn` condition to restrict access to the SQS queue based on the source of the messages being sent. This ensures that only messages originating from the specified SNS topic (in this case, arn:aws:sns:us-east-2:444455556666:MyTopic) are allowed to be delivered to the queue.
 
 **Additional information:**
-+ **Queue ARN.** Ensure you retrieve the correct ARN of your Amazon SQS queue using the `GetQueueAttributes` action. This ARN is essential for setting the correct permissions.
-+ **Security best practices.** When setting up policies, always follow the principle of least privilege. Grant only the necessary permissions to the Amazon SNS topic to interact with the Amazon SQS queue, and regularly review your policies to ensure they are up-to-date and secure
++ **Queue ARN.** Make sure you retrieve the correct ARN of your Amazon SQS queue using the `GetQueueAttributes` action. This ARN is essential for setting the correct permissions.
++ **Security best practices.** When setting up policies, always follow the principle of least privilege. Grant only the necessary permissions to the Amazon SNS topic to interact with the Amazon SQS queue, and regularly review your policies to make sure they are up-to-date and secure
 + **Default policies in Amazon SNS.** Amazon SNS doesn't automatically grant a default policy that allows other AWS services or accounts to access newly created topics. By default, Amazon SNS topics are created with no permissions, meaning they are private and only accessible to the account that created them. To enable access for other AWS services, accounts, or principals, you must explicitly define and attach an access policy to the topic. This aligns with the principle of least privilege, ensuring that no unintended access is granted by default.
 + **Testing and validation.** After setting the policy, test the integration by publishing messages to the Amazon SNS topic and verifying that they are successfully delivered to the Amazon SQS queue. This helps confirm that the policy is correctly configured.
 
@@ -121,7 +121,7 @@ To allow an Amazon S3 bucket from another AWS account to publish event notificat
 
 Here’s how you can set it up:
 
-1. **Write the policy.** The policy should grant the Amazon S3 service (s3.amazonaws.com) the necessary permissions to publish to your Amazon SNS topic. You will use the `SourceAccount` condition to ensure that only the specified AWS account, which owns the Amazon S3 bucket, can publish notifications to your topic.
+1. **Write the policy.** The policy should grant the Amazon S3 service (s3.amazonaws.com) the necessary permissions to publish to your Amazon SNS topic. You will use the `SourceAccount` condition to ensure only the specified AWS account, which owns the Amazon S3 bucket, can publish notifications to your topic.
 
    The following is an example policy:
 
@@ -173,8 +173,8 @@ Here’s how you can set it up:
   + Directory Service
   + AWS Lambda
   + AWS Systems Manager Incident Manager
-+ **Testing and validation.** After applying the policy, test the setup by triggering an event in the Amazon S3 bucket and confirming that it successfully publishes to your Amazon SNS topic. This will help ensure that your policy is correctly configured.
-+ **Security best practices.** Regularly review and audit your Amazon SNS topic policies to ensure they comply with your security requirements. Limiting access to only trusted accounts and services is essential for maintaining secure operations.
++ **Testing and validation.** After applying the policy, test the setup by triggering an event in the Amazon S3 bucket and confirming that it successfully publishes to your Amazon SNS topic. This will help make sure your policy is correctly configured.
++ **Security best practices.** Regularly review and audit your Amazon SNS topic policies to make sure they comply with your security requirements. Limiting access to only trusted accounts and services is essential for maintaining secure operations.
 
 ## Allow Amazon SES to publish to a topic that is owned by another account
 <a name="sns-allow-specified-service-to-publish-to-topic"></a>

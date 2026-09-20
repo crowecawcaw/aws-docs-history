@@ -15,7 +15,7 @@ The setting of this use case is an airline ticketing platform that operates in a
 
 The following diagram shows the architecture of this configuration:
 
-![An AWS architecture for an airline ticketing platform, illustrating how ticket sales data is processed and archived. It shows the flow of data from a Lambda function through an Amazon SNS topic, which then distributes messages to Amazon SQS queues for payment processing and fraud detection, handled by respective Lambda functions. The data is also streamed via Data Firehose to an Amazon S3 bucket for long-term archival, supporting compliance with data retention requirements. This setup enables the platform to run detailed analytics on ticket sales data using tools like Amazon Athena.](https://docs.aws.amazon.com/sns/latest/dg/images/sns-archiving-use-case.png)
+![An AWS architecture for an airline ticketing platform, illustrating how ticket sales data is processed and archived. It shows the flow of data from a Lambda function through an Amazon SNS topic, which then distributes messages to Amazon SQS queues for payment processing and fraud detection, handled by respective Lambda functions. The data is also streamed through Data Firehose to an Amazon S3 bucket for long-term archival, supporting compliance with data retention requirements. This setup enables the platform to run detailed analytics on ticket sales data using tools like Amazon Athena.](https://docs.aws.amazon.com/sns/latest/dg/images/sns-archiving-use-case.png)
 
 
 To run analytics and gain insights on ticket sales, the company runs SQL queries using Amazon Athena. For example, the company can query to learn about the most popular destinations and the most frequent flyers.

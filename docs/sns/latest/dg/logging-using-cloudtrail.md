@@ -3,15 +3,15 @@
 # Logging AWS SNS API calls using AWS CloudTrail
 <a name="logging-using-cloudtrail"></a>
 
-AWS SNS is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for SNS as events. The calls captured include calls from the SNS console and code calls to the SNS API operations. Using the information collected by CloudTrail, you can determine the request that was made to SNS, the IP address from which the request was made, when it was made, and additional details.
+AWS SNS integrates with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html). CloudTrail provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for SNS as events. The calls captured include calls from the SNS console and code calls to the SNS API operations. You can use the information collected by CloudTrail to determine the request that was made to SNS. You can also find the IP address from which the request was made, when it was made, and other details.
 
-Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
+Every event or log entry shows who made the request. The identity details help you determine the following:
 + Whether the request was made with root user or user credentials.
 + Whether the request was made on behalf of an IAM Identity Center user.
 + Whether the request was made with temporary security credentials for a role or federated user.
 + Whether the request was made by another AWS service.
 
-CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
+CloudTrail is active in your AWS account when you create the account. You automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
 For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
@@ -30,9 +30,9 @@ CloudTrail Lake event data stores and queries incur costs. When you create an ev
 
 Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can log data events for the SNS resource types by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
+You can log data events for the SNS resource types by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-The following table lists the SNS resource types for which you can log data events. The **Data event type (console)** column shows the value to choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type` value, which you would specify when configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail for the resource type. 
+The following table lists the SNS resource types for which you can log data events. The **Data event type (console)** column shows the value to choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type` value for configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail for the resource type.
 
 
 | Data event type (console) | resources.type value | Data APIs logged to CloudTrail | 
@@ -43,7 +43,7 @@ The following table lists the SNS resource types for which you can log data even
 **Note**  
 SNS resource type `AWS::SNS::PhoneNumber` is not logged by CloudTrail.
 
-You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
+You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields. This lets you log only events that are important to you. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
 For information about logging data events, see Logging data events with the AWS Management Console and Logging data events with the AWS CLI in the CloudTrail User Guide.
 
@@ -95,7 +95,7 @@ AWS SNS logs the following SNS control plane operations to CloudTrail as *manage
 + `[VerifySMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_VerifySMSSandboxPhoneNumber.html)`
 
 **Note**  
-When you are not logged in to Amazon Web Services (unauthenticated mode) and either the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) or [`Unsubscribe`](https://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html) actions are invoked, then they will not be logged to CloudTrail. Such as, when you choose the provided link in an email notification to confirm a pending subscription to a topic, the `ConfirmSubscription` action is invoked in unauthenticated mode. In this example, the `ConfirmSubscription` action would not be logged to CloudTrail.
+When you aren't logged in to Amazon Web Services (unauthenticated mode), CloudTrail does not log the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) or [`Unsubscribe`](https://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html) actions. For example, when you choose the provided link in an email notification to confirm a pending subscription, the `ConfirmSubscription` action is invoked in unauthenticated mode. In this example, the `ConfirmSubscription` action is not logged to CloudTrail.
 
 ## SNS event examples
 <a name="cloudtrail-event-examples"></a>

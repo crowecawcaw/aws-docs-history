@@ -9,7 +9,7 @@ Before you can start sending SMS messages from your AWS account while in the [SM
 
 1. Add the **destination phone numbers** you want to send messages to within the SMS sandbox.
 
-1. Verify the **phone numbers** to ensure that the destination phone numbers are valid for use in your SMS messages.
+1. Verify the **phone numbers** to make sure the destination phone numbers are valid for use in your SMS messages.
 
 **Add and verify destination phone numbers**
 

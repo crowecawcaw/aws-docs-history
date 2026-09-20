@@ -30,7 +30,7 @@ You have chosen to subscribe to the topic arn:aws:sns:us-east-2:123456789012:MyT
 ```
 
 **`SubscribeURL`**  
-The URL that you must visit in order to confirm the subscription. Alternatively, you can instead use the `Token` with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) action to confirm the subscription.
+The URL that you must visit to confirm the subscription. Alternatively, you can instead use the `Token` with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) action to confirm the subscription.
 
 **`Timestamp`**  
 The time (GMT) when the subscription confirmation was sent.

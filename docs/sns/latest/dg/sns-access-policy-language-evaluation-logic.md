@@ -15,8 +15,8 @@ The following flow chart and discussion describe in more detail how the decision
 
 
 
-|  |  | 
-| --- |--- |
+| Step | Description | 
+| --- | --- | 
 | 1 | The decision starts with a default deny. | 
 | 2 |  The enforcement code then evaluates all the policies that are applicable to the request (based on the resource, principal, action, and conditions). <br />The order in which the enforcement code evaluates the policies is not important. | 
 | 3 |  In all those policies, the enforcement code looks for an explicit deny instruction that would apply to the request.<br />If it finds even one, the enforcement code returns a decision of "deny" and the process is finished (this is an explicit deny; for more information, see [Explicit deny](sns-access-policy-language-key-concepts.md#Define_HardDeny)). | 

@@ -21,7 +21,7 @@ To send notifications from Amazon SNS to mobile endpoints—whether directly or 
 
 1. Depending on the platform you selected, you’ll need to provide specific credentials:
    + For **APNs** (Apple Push Notification Service) – Choose between **token-based** or **certificate-based** authentication.
-     + For token-based authentication, upload a **.p8 file** (generated via Keychain Access).
+     + For token-based authentication, upload a **.p8 file** (generated through Keychain Access).
      + For certificate-based authentication, upload a **.p12 file** (also exported from Keychain Access).
    + For **FCM** (Firebase Cloud Messaging) – Enter the **Server key** from Firebase Console.
    + For **other platforms** (such as ADM or GCM) – Enter the respective **API keys** or **credentials**.

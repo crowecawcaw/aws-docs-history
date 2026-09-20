@@ -85,7 +85,7 @@ Before your begin this tutorial, make sure you complete the [prerequisites](#dea
 ## To configure a dead-letter queue for an Amazon SNS subscription using an AWS SDK
 <a name="configure-dead-letter-queue-aws-sdk"></a>
 
-Before you run this example, make sure that you complete the [prerequisites](#dead-letter-queue-prerequisites).
+Before you run this example, make sure you complete the [prerequisites](#dead-letter-queue-prerequisites).
 
 To use an AWS SDK, you must configure it with your credentials. For more information, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html) in the *AWS SDKs and Tools Reference Guide*.
 

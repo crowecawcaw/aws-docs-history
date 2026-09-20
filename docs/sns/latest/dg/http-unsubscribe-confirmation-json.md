@@ -27,7 +27,7 @@ You have chosen to deactivate subscription arn:aws:sns:us-east-2:123456789012:My
 ```
 
 **`SubscribeURL`**  
-The URL that you must visit in order to re-confirm the subscription. Alternatively, you can instead use the `Token` with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) action to re-confirm the subscription.
+The URL that you must visit to re-confirm the subscription. Alternatively, you can instead use the `Token` with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) action to re-confirm the subscription.
 
 **`Timestamp`**  
 The time (GMT) when the unsubscribe confirmation was sent.

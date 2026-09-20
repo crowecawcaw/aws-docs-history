@@ -492,7 +492,7 @@ CloudFormation allows you to use a template file to create and configure a colle
 + A [filter policy](sns-subscription-filter-policies.md) that specifies that subscriber applications receive only the price updates that they need
 
 **Note**  
-If you test this code sample by publishing a message to the topic, make sure that you publish the message with the `business` attribute. Specify either `retail` or `wholesale` for the attribute value. Otherwise, the message is filtered out and not delivered to the subscribed queues. 
+If you test this code sample by publishing a message to the topic, make sure you publish the message with the `business` attribute. Specify either `retail` or `wholesale` for the attribute value. Otherwise, the message is filtered out and not delivered to the subscribed queues. 
 
 ```
 {

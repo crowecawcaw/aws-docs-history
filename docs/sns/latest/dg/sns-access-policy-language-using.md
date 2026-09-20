@@ -11,8 +11,8 @@ The following figure and table describe the general process of how access contro
 
 **Process for using access control with the Access Policy Language**  
 
-|  |  | 
-| --- |--- |
+| Step | Description | 
+| --- | --- | 
 | 1 | You write a policy for your resource.<br />For example, you write a policy to specify permissions for your Amazon SNS topics. | 
 | 2 | You upload your policy to AWS.<br />The AWS service itself provides an API you use to upload your policies. For example, you use the Amazon SNS `SetTopicAttributes` action to upload a policy for a particular Amazon SNS topic. | 
 | 3 | Someone sends a request to use your resource.<br />For example, a user sends a request to Amazon SNS to use one of your topics.  | 

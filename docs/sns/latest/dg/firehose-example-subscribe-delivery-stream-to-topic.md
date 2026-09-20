@@ -57,7 +57,7 @@ This topic explains how to create the following resources for the [message archi
 
 ------
 
-   In this policy, replace the AWS account number ({{123456789012}}) with your own, and change the AWS Region ({{us-east-1}}) accordingly.
+   In this policy, replace the AWS account number ({{123456789012}}) with your own. Also change the AWS Region ({{us-east-1}}) if needed.
 
 1. Choose **Review policy**.
 
@@ -75,9 +75,9 @@ For more information on creating IAM roles, see [Creating a role to delegate per
 
 1. Under **Details**, for **Protocol**, choose ****.
 
-1. For **Endpoint**, enter the Amazon Resource Name (ARN) of the **ticketUploadStream** delivery stream that you created earlier. For example, enter **arn:aws:firehose:us-east-1:123456789012:deliverystream/ticketUploadStream**.
+1. For **Endpoint**, enter the Amazon Resource Name (ARN) of the **ticketUploadStream** delivery stream that you created earlier. For example: **arn:aws:firehose:us-east-1:123456789012:deliverystream/ticketUploadStream**
 
-1. For **Subscription role ARN**, enter the ARN of the **ticketUploadStreamSubscriptionRole** IAM role that you created earlier. For example, enter **arn:aws:iam::123456789012:role/ticketUploadStreamSubscriptionRole**.
+1. For **Subscription role ARN**, enter the ARN of the **ticketUploadStreamSubscriptionRole** IAM role that you created earlier. For example: **arn:aws:iam::123456789012:role/ticketUploadStreamSubscriptionRole**
 
 1. Select the **Enable raw message delivery** check box.
 

@@ -9,7 +9,7 @@ To begin using Amazon SNS mobile push notifications, you'll need the following:
 + Amazon SNS configured to send push notification messages to the mobile endpoints.
 + A mobile app that is registered and configured to use one of the supported push notification services.
 
-Registering your application with a push notification service requires several steps. Amazon SNS needs some of the information you provide to the push notification service in order to send direct push notification messages to the mobile endpoint. Generally speaking, you need the required credentials for connecting to the push notification service, a device token or registration ID (representing your mobile device and mobile app) received from the push notification service, and the mobile app registered with the push notification service. 
+Registering your application with a push notification service requires several steps. Amazon SNS needs some of the information you provide to the push notification service to send direct push notification messages to the mobile endpoint. Generally speaking, you need the required credentials for connecting to the push notification service, a device token or registration ID (representing your mobile device and mobile app) received from the push notification service, and the mobile app registered with the push notification service. 
 
 The exact form the credentials take differs between mobile platforms, but in every case, these credentials must be submitted while making a connection to the platform. One set of credentials is issued for each mobile app, and it must be used to send a message to any instance of that app. 
 

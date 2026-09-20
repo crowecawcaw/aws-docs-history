@@ -31,6 +31,6 @@ This topic explains how to enable message delivery status logging for Amazon SNS
 
 1. Locate the log group named `sns/<region>/<account-id>/<topic-name>`.
 
-1. Ensure log streams exist for the configured endpoint protocol.
+1. Make sure log streams exist for the configured endpoint protocol.
 
 1. Send a test message to your topic and confirm that log entries appear, indicating successful or failed deliveries.

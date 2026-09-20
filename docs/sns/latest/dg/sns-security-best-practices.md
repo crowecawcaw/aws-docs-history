@@ -14,19 +14,19 @@ The guidance for these security features applies to common use cases and impleme
 The following are preventative security best practices for Amazon SNS.
 
 **Topics**
-+ [Ensure topics aren't publicly accessible](#ensure-topics-not-publicly-accessible)
++ [Make sure topics aren't publicly accessible](#ensure-topics-not-publicly-accessible)
 + [Implement least-privilege access](#implement-least-privilege-access)
 + [Use IAM roles for applications and AWS services which require Amazon SNS access](#use-iam-roles-for-applications-aws-services-which-require-access)
 + [Implement server-side encryption](#implement-server-side-encryption)
 + [Enforce encryption of data in transit](#enforce-encryption-data-in-transit)
 + [Consider using VPC endpoints to access Amazon SNS](#consider-using-vpc-endpoints-access-sns)
-+ [Ensure subscriptions are not configured to deliver to raw http endpoints](#http-subscription-configuration)
++ [Make sure subscriptions are not configured to deliver to raw http endpoints](#http-subscription-configuration)
 + [Enforce authentication on unsubscribe](#enforce-authentication-on-unsubscribe)
 
-### Ensure topics aren't publicly accessible
+### Make sure topics aren't publicly accessible
 <a name="ensure-topics-not-publicly-accessible"></a>
 
-Unless you explicitly require anyone on the internet to be able to read or write to your Amazon SNS topic, you should ensure that your topic isn't publicly accessible (accessible by everyone in the world or by any authenticated AWS user).
+Unless you explicitly require anyone on the internet to be able to read or write to your Amazon SNS topic, you should make sure your topic isn't publicly accessible (accessible by everyone in the world or by any authenticated AWS user).
 + Avoid creating policies with `Principal` set to `""`.
 + Avoid using a wildcard (`*`). Instead, name a specific user or users.
 
@@ -112,7 +112,7 @@ Amazon SNS VPC endpoints provide two ways to control access to your messages:
 
 For more information, see [Creating the endpoint](sns-vpc-create-endpoint.md#sns-vpc-endpoint-create) and [Creating an Amazon VPC endpoint policy for Amazon SNS](sns-vpc-endpoint-policy.md).
 
-### Ensure subscriptions are not configured to deliver to raw http endpoints
+### Make sure subscriptions are not configured to deliver to raw http endpoints
 <a name="http-subscription-configuration"></a>
 
 Avoid configuring subscriptions to deliver to a raw http endpoints. Always have subscriptions delivering to an endpoint domain name. For example, a subscription configured to deliver to an endpoint, `http://1.2.3.4/my-path`, should be changed to `http://my.domain.name/my-path`.

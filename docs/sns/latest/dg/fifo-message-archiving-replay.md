@@ -13,7 +13,7 @@ This functionality can be accessed through the AWS API, SDK, CloudFormation, and
 **Key use cases**
 + **Message recovery** – Recover messages lost due to downstream application failures by replaying them to the subscriber’s endpoint.
 + **State replication** – Replicate the state of an existing system in a new environment by replaying messages starting from a specific timestamp.
-+ **Error correction** – Resend missed messages during outages to ensure all events are processed correctly.
++ **Error correction** – Resend missed messages during outages to make sure all events are processed correctly.
 
 ### Components of message archiving and replay
 <a name="message-archiving-and-replay-components"></a>

@@ -51,7 +51,7 @@ For example, you can develop an application that publishes a message to an SNS t
 You can also use fanout to replicate data sent to your production environment with your test environment. Expanding upon the previous example, you can subscribe another SQS queue to the same SNS topic for new incoming orders. Then, by attaching this new SQS queue to your test environment, you can continue to improve and test your application using data received from your production environment.
 
 **Important**  
-Make sure that you consider data privacy and security before you send any production data to your test environment.
+Make sure you consider data privacy and security before you send any production data to your test environment.
 
 For more information, see the following resources:
 + [Fanout to Firehose delivery streams](sns-firehose-as-subscriber.md)
@@ -63,7 +63,7 @@ For more information, see the following resources:
 ### Application alerts
 <a name="SNSAlertsScenario"></a>
 
-Application and system alerts are notifications that are triggered by predefined thresholds. Amazon SNS can send these notifications to specified users via SMS and email. For example, you can receive immediate notification when an event occurs, such as a specific change to your Amazon EC2 Auto Scaling group, a new file uploaded to an Amazon S3 bucket, or a metric threshold breached in Amazon CloudWatch. For more information, see [Setting up Amazon SNS notifications](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/US_SetupSNS.html) in the *Amazon CloudWatch User Guide*.
+Application and system alerts are notifications that are triggered by predefined thresholds. Amazon SNS can send these notifications to specified users through SMS and email. For example, you can receive immediate notification when an event occurs, such as a specific change to your Amazon EC2 Auto Scaling group, a new file uploaded to an Amazon S3 bucket, or a metric threshold breached in Amazon CloudWatch. For more information, see [Setting up Amazon SNS notifications](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/US_SetupSNS.html) in the *Amazon CloudWatch User Guide*.
 
 ### User notifications
 <a name="SNSPushMessaging"></a>

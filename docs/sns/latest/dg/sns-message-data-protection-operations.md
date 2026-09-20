@@ -196,8 +196,41 @@ The **De-identify** operation masks or redacts sensitive data from published or 
             }
       }
   }
-  ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-operations.html)
+  ```
+
+
+<table>
+<thead>
+  <tr><th>Supported mask character</th><th>Name</th></tr>
+</thead>
+<tbody>
+  <tr><td>*</td><td>Asterisk</td></tr>
+  <tr><td>A-Z, a-z, and 0-9</td><td>Alphanumeric</td></tr>
+  <tr><td> </td><td>Space</td></tr>
+  <tr><td>!</td><td>Exclamation mark</td></tr>
+  <tr><td>$</td><td>Dollar sign</td></tr>
+  <tr><td>%</td><td>Percent sign</td></tr>
+  <tr><td>&amp;</td><td>Ampersand</td></tr>
+  <tr><td>()</td><td>Parenthesis</td></tr>
+  <tr><td>+</td><td>Plus sign</td></tr>
+  <tr><td>,</td><td>Comma</td></tr>
+  <tr><td>-</td><td>Hyphen</td></tr>
+  <tr><td>.</td><td>Period</td></tr>
+  <tr><td>/\</td><td>Slash, back slash</td></tr>
+  <tr><td>#</td><td>Number sign</td></tr>
+  <tr><td>:</td><td>Colon</td></tr>
+  <tr><td>;</td><td>Semicolon </td></tr>
+  <tr><td>=, &lt;&gt;</td><td>Equals. less or greater than</td></tr>
+  <tr><td>@</td><td>At sign</td></tr>
+  <tr><td>[]</td><td>Brackets</td></tr>
+  <tr><td>^</td><td>Caret symbol</td></tr>
+  <tr><td>_</td><td>Underscore</td></tr>
+  <tr><td>`</td><td>Backtick</td></tr>
+  <tr><td>|</td><td>Vertical bar</td></tr>
+  <tr><td>~</td><td>Tilde symbol</td></tr>
+</tbody>
+</table>
+
 + **RedactConfig** – Redact by removing the data entirely. For example, ssn: `123-45-6789` becomes ssn:` `.
 
   ```

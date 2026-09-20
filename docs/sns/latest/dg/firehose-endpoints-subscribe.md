@@ -3,7 +3,7 @@
 # Subscribing a Firehose delivery stream to an Amazon SNS topic
 <a name="firehose-endpoints-subscribe"></a>
 
-To deliver Amazon SNS notifications to [ delivery streams](sns-firehose-as-subscriber.md), first make sure that you've addressed all the [prerequisites](prereqs-kinesis-data-firehose.md). For a list of supported endpoints, see [ endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/fh.html) in the *Amazon Web Services General Reference*.
+To deliver Amazon SNS notifications to [ delivery streams](sns-firehose-as-subscriber.md), first make sure you've addressed all the [prerequisites](prereqs-kinesis-data-firehose.md). For a list of supported endpoints, see [ endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/fh.html) in the *Amazon Web Services General Reference*.
 
 **To subscribe a Firehose delivery stream to a topic**
 

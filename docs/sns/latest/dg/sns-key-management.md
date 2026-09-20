@@ -66,11 +66,11 @@ Before you can use SSE, you must configure AWS KMS key policies to allow encrypt
 You can also manage permissions for symmetric encryption KMS keys using IAM policies. For more information, see [Using IAM Policies with AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html).  
 While you can configure global permissions to send to and receive from Amazon SNS, AWS KMS requires explicitly naming the full ARN of KMSs in specific regions in the `Resource` section of an IAM policy.
 
-You must also ensure that the key policies of the AWS KMS key allow the necessary permissions. To do this, name the principals that produce and consume encrypted messages in Amazon SNS as users in the KMS key policy. 
+You must also make sure the key policies of the AWS KMS key allow the necessary permissions. To do this, name the principals that produce and consume encrypted messages in Amazon SNS as users in the KMS key policy. 
 
 Alternatively, you can specify the required AWS KMS actions and KMS ARN in an IAM policy assigned to the principals that publish and subscribe to receive encrypted messages in Amazon SNS. For more information, see [Managing Access to AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#managing-access) in the *AWS Key Management Service Developer Guide*.
 
-If selecting a customer-managed key for your Amazon SNS topic and you are using aliases to control access to KMS keys using IAM policies or KMS key policies with the condition key `kms:ResourceAliases`, ensure that the customer-managed key that is selected also has an alias associated. For more information on using alias to control access to KMS keys, see [Using aliases to control access to KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/alias-authorization.html) in the *AWS Key Management Service Developer Guide*.
+If selecting a customer-managed key for your Amazon SNS topic and you are using aliases to control access to KMS keys using IAM policies or KMS key policies with the condition key `kms:ResourceAliases`, make sure the customer-managed key that is selected also has an alias associated. For more information on using alias to control access to KMS keys, see [Using aliases to control access to KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/alias-authorization.html) in the *AWS Key Management Service Developer Guide*.
 
 ### Allow a user to send messages to a topic with SSE
 <a name="send-to-encrypted-topic"></a>
@@ -119,8 +119,31 @@ Several AWS services publish events to Amazon SNS topics. To allow these event s
        "Resource": "*"
      }]
    }
-   ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sns/latest/dg/sns-key-management.html)
+   ```
+
+
+<table>
+<thead>
+  <tr><th>Event source</th><th>Service principal</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/">Amazon CloudWatch</a></td><td><code>cloudwatch.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events</a></td><td><code>events.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-notify-sns.html">AWS CodeCommit</a></td><td><code>codecommit.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">AWS Database Migration Service</a></td><td><code>dms.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_enable_notifications.html">AWS Directory Service</a></td><td><code>ds.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings">Amazon DynamoDB</a></td><td><code>dynamodb.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html">Amazon Inspector</a></td><td><code>inspector.amazonaws.com </code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon Redshift</a></td><td><code>redshift.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_Events.html">Amazon RDS</a></td><td><code>events.rds.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Amazon Glacier</a></td><td><code>glacier.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-sns-notifications.html">Amazon Simple Email Service</a></td><td><code>ses.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.html">Amazon Simple Storage Service</a></td><td><code>s3.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/snowball/latest/api-reference/API_Notification.html">AWS Snowball Edge</a></td><td><code>importexport.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html">AWS Systems Manager Incident Manager</a></td><td>AWS Systems Manager Incident Manager consists of two service principles:<code>ssm-incidents.amazonaws.com</code>; <code> ssm-contacts.amazonaws.com</code></td></tr>
+</tbody>
+</table>
+
 **Note**  
 Some Amazon SNS event sources require you to provide an IAM role (rather than the service principal) in the AWS KMS key policy:  
 [Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html)

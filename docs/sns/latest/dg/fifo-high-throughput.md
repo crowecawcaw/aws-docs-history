@@ -10,9 +10,9 @@ High throughput FIFO topics in Amazon SNS efficiently manage high message throug
 
 The following use cases highlight the diverse applications of high throughput FIFO topics, showcasing their effectiveness across industries and scenarios:
 + **Real-time data processing:** Applications dealing with real-time data streams, such as event processing or telemetry data ingestion, can benefit from high throughput FIFO topics to handle the continuous influx of messages while preserving their order for accurate analysis.
-+ **E-commerce order processing:** In e-commerce platforms where maintaining the order of customer transactions is critical, high throughput FIFO topics ensure that orders are delivered sequentially and without delays, even during peak shopping seasons.
++ **E-commerce order processing:** In e-commerce platforms where maintaining the order of customer transactions is critical, high throughput FIFO topics ensure orders are delivered sequentially and without delays, even during peak shopping seasons.
 + **Financial services:** Financial institutions handling high-frequency trading or transactional data rely on high throughput FIFO topics to process market data and transactions with minimal latency while adhering to strict regulatory requirements for message ordering.
-+ **Media streaming:** Streaming platforms and media distribution services utilize high throughput FIFO topics to manage the delivery of media files and streaming content, ensuring smooth playback experiences for users while maintaining the correct order of content delivery
++ **Media streaming:** Streaming platforms and media distribution services use high throughput FIFO topics to manage the delivery of media files and streaming content, ensuring smooth playback experiences for users while maintaining the correct order of content delivery
 
 ## Partitions and data distribution for high throughput for Amazon SNS FIFO topics
 <a name="fifo-topic-partitians-and-data-distribution"></a>
@@ -34,7 +34,7 @@ Temporary [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html)
 When publishing a message to a FIFO topic, Amazon SNS uses the value of each message’s message group ID as input to an internal hash function. The output value from the hash function determines which partition processes the message, one or more message group IDs may be handled by a given partition.
 
 **Note**  
-Amazon SNS is optimized for uniform distribution of items across a FIFO topic's partitions, regardless of the number of partitions. AWS recommends that you use message group IDs that can have a large number of distinct values. 
+Amazon SNS is optimized for uniform distribution of items across a FIFO topic's partitions, regardless of the number of partitions. AWS recommends that you use message group IDs that can have many distinct values. 
 
 ## Enable high throughput on your Amazon SNS FIFO topic
 <a name="enable-high-throughput-on-fifo-topic"></a>

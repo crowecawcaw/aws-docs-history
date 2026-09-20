@@ -3,7 +3,7 @@
 # Monitoring Amazon SNS topics using CloudWatch
 <a name="sns-monitoring-using-cloudwatch"></a>
 
-Amazon SNS and Amazon CloudWatch are integrated so you can collect, view, and analyze metrics for every active Amazon SNS notification. Once you have configured CloudWatch for Amazon SNS, you can gain better insight into the performance of your Amazon SNS topics, push notifications, and SMS deliveries. For example, you can set an alarm to send you an email notification if a specified threshold is met for an Amazon SNS metric, such as `NumberOfNotificationsFailed`. For a list of all the metrics that Amazon SNS sends to CloudWatch, see [Amazon SNS metrics](#sns-metrics). For more information about Amazon SNS push notifications, see [Sending mobile push notifications with Amazon SNS](sns-mobile-application-as-subscriber.md). 
+Amazon SNS and Amazon CloudWatch are integrated so you can collect, view, and analyze metrics for every active Amazon SNS notification. After you have configured CloudWatch for Amazon SNS, you can gain better insight into the performance of your Amazon SNS topics, push notifications, and SMS deliveries. For example, you can set an alarm to send you an email notification if a specified threshold is met for an Amazon SNS metric, such as `NumberOfNotificationsFailed`. For a list of all the metrics that Amazon SNS sends to CloudWatch, see [Amazon SNS metrics](#sns-metrics). For more information about Amazon SNS push notifications, see [Sending mobile push notifications with Amazon SNS](sns-mobile-application-as-subscriber.md). 
 
 **Note**  
 The metrics you configure with CloudWatch for your Amazon SNS topics are automatically collected and pushed to CloudWatch at *1-minute* intervals. These metrics are gathered on all topics that meet the CloudWatch guidelines for being active. A topic is considered active by CloudWatch for up to six hours from the last activity (that is, any API call) on the topic.   
@@ -12,7 +12,7 @@ There is no charge for the Amazon SNS metrics reported in CloudWatch; they are p
 ## View CloudWatch metrics for Amazon SNS
 <a name="view-cloudwatch-metrics"></a>
 
-You can monitor metrics for Amazon SNS using the CloudWatch console, CloudWatch's own command line interface (CLI), or programmatically using the CloudWatch API. The following procedures show you how to access the metrics using the AWS Management Console.
+You can monitor metrics for Amazon SNS using the CloudWatch console, the CloudWatch command line interface (CLI), or programmatically using the CloudWatch API. The following procedures show you how to access the metrics using the AWS Management Console.
 
 **To view metrics using the CloudWatch console**
 

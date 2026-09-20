@@ -239,7 +239,7 @@ try {
 ## Setting SMS messaging preferences for country-specific delivery
 <a name="sms_preferences_country_specific"></a>
 
-You can manage and control your SMS traffic by sending messages only to specific destination countries. This ensures that your messages are sent only to approved countries, avoiding unwanted SMS charges. The following instructions use Amazon Pinpoint's Protect configuration to specify the countries you want to allow or block.
+You can manage and control your SMS traffic by sending messages only to specific destination countries. This ensures that your messages are sent only to approved countries, avoiding unwanted SMS charges. The following instructions use the Amazon Pinpoint Protect configuration to specify the countries you want to allow or block.
 
 1. Open the AWS SMS console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).
 
@@ -251,7 +251,7 @@ You can manage and control your SMS traffic by sending messages only to specific
 
 1. Deselect the checkboxes for the countries where you want to send messages. For example, to allow messages only to Australia, deselect the checkbox for **Australia**.
 
-1. In the **Protect configuration associations** section, under **Association type**, select **Account default**. This will ensure that the AWS End User Messaging SMS Protect configuration affects all messages sent through Amazon SNS, [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html), and the Amazon Pinpoint [`SendMessages`](https://docs.aws.amazon.com/pinpoint/latest/developerguide/send-messages-sms.html) API call.
+1. In the **Protect configuration associations** section, under **Association type**, select **Account default**. This will make sure the AWS End User Messaging SMS Protect configuration affects all messages sent through Amazon SNS, [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html), and the Amazon Pinpoint [`SendMessages`](https://docs.aws.amazon.com/pinpoint/latest/developerguide/send-messages-sms.html) API call.
 
 1. Choose **Create protect configuration** to save your settings.
 

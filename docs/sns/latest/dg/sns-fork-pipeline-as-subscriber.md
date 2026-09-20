@@ -23,7 +23,7 @@ For an AWS Event Fork Pipelines use case, see [Deploying and testing the Amazon 
 ## How AWS Event Fork Pipelines works
 <a name="how-sns-fork-works"></a>
 
-AWS Event Fork Pipelines is a serverless design pattern. However, it is also a suite of nested serverless applications based on AWS SAM (which you can deploy directly from the AWS Serverless Application Repository (AWS SAR) to your AWS account in order to enrich your event-driven platforms). You can deploy these nested applications individually, as your architecture requires.
+AWS Event Fork Pipelines is a serverless design pattern. However, it is also a suite of nested serverless applications based on AWS SAM (which you can deploy directly from the AWS Serverless Application Repository (AWS SAR) to your AWS account to enrich your event-driven platforms). You can deploy these nested applications individually, as your architecture requires.
 
 **Topics**
 + [The event storage and backup pipeline](#sns-fork-event-storage-and-backup-pipeline)
@@ -50,7 +50,7 @@ This pipeline is comprised of an Amazon SQS queue that buffers the events delive
 ![The Fork-Event-Storage-Backup-Pipeline, which is designed to process and back up events from an Amazon SNS topic. The flow starts with an Amazon SNS topic from which events are fanned out to an Amazon SQS queue. These filtered events are then processed by an Lambda function, which forwards them to an Data Firehose. The Firehose stream is responsible for buffering, transforming, and compressing the events before loading them into an Amazon S3 backup bucket. Finally, Amazon Athena can be used to query the stored data. The diagram uses a series of icons and arrows to illustrate the flow from one service to the next, clearly labeling each component of the pipeline.](https://docs.aws.amazon.com/sns/latest/dg/images/sns-fork-event-storage-and-backup-pipeline.png)
 
 
-To fine-tune the behavior of your Firehose stream, you can configure it to buffer, transform, and compress your events prior to loading them into the bucket. As events are loaded, you can use Amazon Athena to query the bucket using standard SQL queries. You can also configure the pipeline to reuse an existing Amazon S3 bucket or create a new one.
+To fine-tune the behavior of your Firehose stream, you can configure it to buffer, transform, and compress your events before loading them into the bucket. As events are loaded, you can use Amazon Athena to query the bucket using standard SQL queries. You can also configure the pipeline to reuse an existing Amazon S3 bucket or create a new one.
 
 ### The event search and analytics pipeline
 <a name="sns-fork-event-search-and-analytics-pipeline"></a>

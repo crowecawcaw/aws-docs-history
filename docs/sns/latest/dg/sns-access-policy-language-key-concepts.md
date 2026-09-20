@@ -23,7 +23,7 @@ A *policy* is a document (written in the access policy language) that acts as a 
 ![Compares two ways of organizing policy statements in Amazon SNS. On the left, a single policy (Policy A) contains two statements. On the right, the same two statements are split between two policies, with each policy containing one statement. The diagram illustrates that these two approaches are equivalent in terms of how permissions are defined and enforced.](https://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Statement_and_Policy.gif)
 
 
-Only ASCII characters are allowed in policy documents. You can utilize `aws:SourceAccount` and `aws:SourceOwner` to work around the scenario where you need to plug-in other AWS services' ARNs that contain non-ASCII characters. See the difference between [`aws:SourceAccount` versus `aws:SourceOwner`](sns-access-policy-use-cases.md#source-account-versus-source-owner).
+Only ASCII characters are allowed in policy documents. You can use `aws:SourceAccount` and `aws:SourceOwner` to work around the scenario where you need to plug-in other AWS services' ARNs that contain non-ASCII characters. See the difference between [`aws:SourceAccount` versus `aws:SourceOwner`](sns-access-policy-use-cases.md#source-account-versus-source-owner).
 
 
 

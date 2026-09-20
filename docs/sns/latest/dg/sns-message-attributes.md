@@ -27,7 +27,7 @@ Each message attribute consists of the following items:
 + **Type** – The supported message attribute data types are `String`, `String.Array`, `Number`, and `Binary`. The data type has the same restrictions on the content as the message body. For more information, see the [Message attribute data types and validation](#SNSMessageAttributes.DataTypes) section.
 + **Value** – The user-specified message attribute value. For string data types, the value attribute must follow the same content restrictions as the message body. However, if the message attribute is used for filtering, the value must be a valid JSON string to ensure compatibility with Amazon SNS subscription filter policies. For more information, see the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action in the *Amazon Simple Notification Service API Reference*.
 
-Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is 256 KB.
+Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is the topic's configured `MaximumMessageSize` (default 262,144 bytes). For more information, see [Publishing large messages with Amazon SNS](large-message-payloads.md).
 
 ## Message attribute data types and validation
 <a name="SNSMessageAttributes.DataTypes"></a>

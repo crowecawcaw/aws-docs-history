@@ -3,7 +3,7 @@
 # Using Amazon SNS for application-to-person messaging
 <a name="sns-user-notifications"></a>
 
-Amazon SNS application-to-person (A2P) messaging lets you to deliver notifications and alerts directly to your customers' mobile devices through SMS (Short Message Service). Using this feature, you can send push notifications to mobile apps, text messages to mobile phone numbers, and plain-text emails to email addresses. Additionally, you have the flexibility to distribute messages by using topics to reach multiple recipients, or publish messages directly to individual mobile endpoints for personalized communication.
+Amazon SNS application-to-person (A2P) messaging delivers notifications and alerts directly to your customers' mobile devices through SMS (Short Message Service). You can send push notifications to mobile apps, text messages to mobile phone numbers, and plain-text emails to email addresses. You can also use topics to reach multiple recipients at once, or publish directly to individual mobile endpoints for personalized communication.
 
 This topic explains how to use Amazon SNS for user notifications with subscribers such as mobile applications, mobile phone numbers, and email addresses.
 

@@ -19,3 +19,9 @@ An alphabetic name that identifies the sender of an SMS message. When you send a
 Sender IDs are supported in several countries and regions around the world. In some places, if you're a business that sends SMS messages to individual customers, you must use a sender ID that's pre-registered with a regulatory agency or industry group. For a complete list of countries and regions that support or require sender IDs, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html) in the *AWS End User Messaging SMS User Guide*.  
 There's no additional charge for using sender IDs. However, support and requirements for sender ID authentication varies by country. Several major markets (including Canada, China, and the United States) don't support using sender IDs. Some areas require that companies who send SMS messages to individual customers must use a sender ID that's pre-registered with a regulatory agency or industry group.  
 For additional information, see [Sender IDs](https://docs.aws.amazon.com/sms-voice/latest/userguide/sender-id.html) in the *AWS End User Messaging SMS User Guide*.
+
+**Topics**
++ [Sender IDs in Amazon SNS](channels-sms-originating-identities-sender-ids.md)
++ [P2P long codes](channels-sms-originating-identities-long-codes.md)
++ [Short codes](channels-sms-originating-identities-short-codes.md)
++ [Register an origination ID](channels-sms-originating-identities-origination-registrations.md)

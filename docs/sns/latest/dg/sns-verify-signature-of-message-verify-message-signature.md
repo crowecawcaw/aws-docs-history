@@ -20,7 +20,7 @@ Verifying the signature of an Amazon SNS message when using HTTP query-based req
    FIELDS=("Message" "MessageId" "Subject" "Timestamp" "TopicArn" "Type")
    ```
 **Note**  
-If any field contains escaped characters (for example, `\n`), convert them to their **original form** to ensure an exact match.
+If any field contains escaped characters (for example, `\n`), convert them to their **original form** to make sure an exact match.
 
 1. Locate the `SigningCertURL` field in the Amazon SNS message. This certificate contains the public key needed to verify the message signature. For example:
 
@@ -28,7 +28,7 @@ If any field contains escaped characters (for example, `\n`), convert them to th
    SIGNING_CERT_URL=$(jq -r '.SigningCertURL' "$MESSAGE_FILE")
    ```
 
-1. Ensure the `SigningCertURL` is from a trusted AWS domain (for example, https://sns.us-east-1.amazonaws.com). Reject any URLs **outside AWS domains** for security reasons.
+1. Make sure the `SigningCertURL` is from a trusted AWS domain (for example, https://sns.us-east-1.amazonaws.com). Reject any URLs **outside AWS domains** for security reasons.
 
 1. Download the **X.509 certificate **from the provided URL. For example:
 

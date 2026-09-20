@@ -9,7 +9,7 @@ Amazon SNS defines a *delivery policy* for each delivery protocol. The delivery 
 <a name="delivery-policies-for-protocols"></a>
 
 **Note**  
-With the exception of HTTP/S, you can't change Amazon SNS-defined delivery policies. Only HTTP/S supports custom policies. See [Creating an HTTP/S delivery policy](#creating-delivery-policy).
+Except for HTTP/S, you can't change Amazon SNS-defined delivery policies. Only HTTP/S supports custom policies. See [Creating an HTTP/S delivery policy](#creating-delivery-policy).
 Amazon SNS applies jittering to delivery retries. For more information, see the [Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) post on the *AWS Architecture Blog*.
 ** The total policy retry time for an HTTP/S endpoint cannot be greater than 3,600 seconds. This is a hard limit and cannot be increased**.
 
@@ -92,7 +92,7 @@ Amazon SNS considers all 5XX errors and 429 (too many requests sent) errors as r
 
 **Note**  
 This delivery policy uses the `maxReceivesPerSecond` property to throttle delivery traffic to an average of 10 messages per second per subscription. While this mechanism helps prevent your HTTP/S endpoint from being overwhelmed by high traffic, it's designed to maintain an average delivery rate and doesn't enforce a strict cap. Occasional delivery traffic spikes above the specified limit may occur, especially if your publishing rate is significantly higher than the throttling limit.  
-When the publishing (inbound) traffic exceeds the delivery (outbound) rate, it can result in a message backlog and higher delivery latency. To avoid such issues, ensure the `maxReceivesPerSecond` value aligns with your HTTP/S server's capacity and workload requirements.
+When the publishing (inbound) traffic exceeds the delivery (outbound) rate, it can result in a message backlog and higher delivery latency. To avoid such issues, make sure the `maxReceivesPerSecond` value aligns with your HTTP/S server's capacity and workload requirements.
 
 The following delivery policy example overrides the default content type for HTTP/S notification to `application/json`.
 

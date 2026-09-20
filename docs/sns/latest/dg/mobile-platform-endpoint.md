@@ -24,11 +24,11 @@ The [`CreatePlatformEndpoint`](https://docs.aws.amazon.com/sns/latest/api/API_Cr
 
 You should not call the create platform endpoint action immediately every time an app starts, because this approach does not always provide a working endpoint. This can happen, for example, when an app is uninstalled and reinstalled on the same device and the endpoint for it already exists but is disabled. A successful registration process should accomplish the following:
 
-1. Ensure a platform endpoint exists for this app-device combination.
+1. Make sure a platform endpoint exists for this app-device combination.
 
-1. Ensure the device token in the platform endpoint is the latest valid device token.
+1. Make sure the device token in the platform endpoint is the latest valid device token.
 
-1. Ensure the platform endpoint is enabled and ready to use.
+1. Make sure the platform endpoint is enabled and ready to use.
 
 ## Pseudo code
 <a name="mobile-platform-endpoint-pseudo-code"></a>
@@ -175,7 +175,7 @@ public class RegistrationExample {
 <a name="mobile-platform-endpoint-problems-outdated"></a>
 
 Especially for FCM endpoints, you may think it is best to store the first device token the application is issued and then call the create platform endpoint with that device token every time on application start-up. This may seem correct since it frees the app from having to manage the state of the device token and Amazon SNS will automatically update the device token to its latest value. However, this solution has a number of serious issues:
-+ Amazon SNS relies on feedback from FCM to update expired device tokens to new device tokens. FCM retains information about old device tokens for some time, but not indefinitely. Once FCM forgets about the connection between the old device token and the new device token, Amazon SNS will no longer be able to update the device token stored in the platform endpoint to its correct value; it will just disable the platform endpoint instead.
++ Amazon SNS relies on feedback from FCM to update expired device tokens to new device tokens. FCM retains information about old device tokens for some time, but not indefinitely. After FCM forgets about the connection between the old device token and the new device token, Amazon SNS will no longer be able to update the device token stored in the platform endpoint to its correct value; it will just disable the platform endpoint instead.
 + The platform application will contain multiple platform endpoints corresponding to the same device token.
 + Amazon SNS imposes a quota on the number of platform endpoints that can be created starting with the same device token. Eventually, the creation of new endpoints will fail with an invalid parameter exception and the following error message: "This endpoint is already registered with a different token."
 

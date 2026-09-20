@@ -9,9 +9,9 @@ To invoke Lambda functions using Amazon SNS notifications, you need the followin
 
 For information about creating a Lambda function to use with Amazon SNS, see [Using Lambda with Amazon SNS](https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html). For information about creating an Amazon SNS topic, see [Create a topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
 
- When you use Amazon SNS to deliver messages from opt-in regions to regions which are enabled by default, you must alter the policy created in the Lambda function by replacing the principal `sns.amazonaws.com` with `sns.<opt-in-region>.amazonaws.com`. 
+ When you use Amazon SNS to deliver messages from opt-in Regions to Regions which are enabled by default, you must alter the policy created in the Lambda function by replacing the principal `sns.amazonaws.com` with `sns.<opt-in-region>.amazonaws.com`. 
 
- For example, if you want to subscribe a Lambda function in US East (N. Virginia) to an Amazon SNS topic in Asia Pacific (Hong Kong), change the principal in the Lambda function policy to `sns.ap-east-1.amazonaws.com`. Opt-in regions include any regions launched after March 20, 2019, which includes Asia Pacific (Hong Kong), Middle East (Bahrain), EU (Milano), and Africa (Cape Town). Regions launched prior to March 20, 2019 are enabled by default. 
+ For example, if you want to subscribe a Lambda function in US East (N. Virginia) to an Amazon SNS topic in Asia Pacific (Hong Kong), change the principal in the Lambda function policy to `sns.ap-east-1.amazonaws.com`. Opt-in Regions include any Regions launched after March 20, 2019, which includes Asia Pacific (Hong Kong), Middle East (Bahrain), EU (Milano), and Africa (Cape Town). Regions launched before March 20, 2019 are enabled by default. 
 
 **Note**  
-AWS doesn't support cross-region delivery to Lambda from a region that is enabled by default to an opt-in region. Also, cross-region forwarding of Amazon SNS messages from opt-in regions to other opt-in regions is not supported. 
+AWS doesn't support cross-Region delivery to Lambda from a Region that is enabled by default to an opt-in Region. Also, cross-Region forwarding of Amazon SNS messages from opt-in Regions to other opt-in Regions is not supported. 

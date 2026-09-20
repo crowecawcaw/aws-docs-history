@@ -20,8 +20,8 @@ You can only delete a phone number 24 hours after [verifying the phone number](s
 
 1. Choose the specific phone number you want to delete, and then choose **Delete phone number**.
 
-1. To confirm that you want to delete the phone number, enter **delete me**, and then choose **Delete**.
+1. To confirm deletion, enter **delete me**, and then choose **Delete**.
 
-   Ensure that 24 hours or more have passed since you verified or attempted to verify the destination phone number before proceeding with the deletion.
+   Make sure 24 hours or more have passed since you verified or attempted to verify the destination phone number.
 
-1. Repeat these steps in each Region where you added the destination phone number and no longer plan to use it.
+1. Repeat these steps in each Region where you added the destination phone number.

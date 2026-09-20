@@ -3,14 +3,14 @@
 # Requesting increases to your monthly Amazon SNS SMS spending quota
 <a name="channels-sms-awssupport-spend-threshold"></a>
 
-Amazon SNS provides spending quotas to help you manage the maximum per-month cost incurred by sending SMS using your account. The spending quota limits your risk in case of malicious attack, and prevents your upstream application from sending more messages than expected. You can configure Amazon SNS to stop publishing SMS messages when it determines that sending an SMS message will incur a cost that exceeds your spending quota for the current month. 
+Amazon SNS provides spending quotas to help you manage the per-month cost of sending SMS. The spending quota limits your risk in case of malicious attack. It also prevents your upstream application from sending more messages than expected. You can configure Amazon SNS to stop publishing SMS messages when sending them would exceed your spending quota for the current month.
 
-To ensure your operations are not impacted, we recommend requesting a spending quota high enough to support your production workloads. For more information, see [Step 1: Open an Amazon SNS SMS case](#channels-sms-awssupport-spend-threshold-open). Once you have received the quota, you can manage your risk by applying the full quota, or a smaller value, as described in [Step 2: Update your SMS settings](#channels-sms-awssupport-spend-threshold-settings). By applying a smaller value, you can control your monthly spending with the option to scale up if necessary.
+To make sure your operations are not impacted, request a spending quota high enough to support your production workloads. For more information, see [Step 1: Open an Amazon SNS SMS case](#channels-sms-awssupport-spend-threshold-open). After you receive the quota, you can manage your risk by applying the full quota or a smaller value. For details, see [Step 2: Update your SMS settings](#channels-sms-awssupport-spend-threshold-settings). A smaller value lets you control monthly spending with the option to scale up.
 
 **Important**  
-Because Amazon SNS is a distributed system, it stops sending SMS messages within minutes if the spending quota is exceeded. During this period, if you continue to send SMS messages, you might incur costs that exceed your quota.
+Because Amazon SNS is a distributed system, it stops sending SMS messages within minutes of exceeding the spending quota. During this period, if you continue to send SMS messages, you might incur costs that exceed your quota.
 
-We set the spending quota for all new accounts at $1.00 (USD) per month. This quota is intended to let you test the message-sending capabilities of Amazon SNS. To request an increase to the SMS spending quota for your account, open a quota increase case in the AWS Support Center.
+We set the spending quota for all new accounts at $1.00 (USD) per month. This quota lets you test the message-sending features of Amazon SNS. To request an increase, open a quota increase case in the AWS Support Center.
 
 **Topics**
 + [Step 1: Open an Amazon SNS SMS case](#channels-sms-awssupport-spend-threshold-open)
@@ -22,7 +22,7 @@ We set the spending quota for all new accounts at $1.00 (USD) per month. This qu
 You can request an increase to your monthly spending quota by opening a quota increase case in the AWS Support Center.
 
 **Note**  
-Some of the fields on the request form are marked as "optional." However, Support requires all of the information that's mentioned in the following steps in order to process your request. If you don't provide all of the required information, you may experience delays in processing your request.
+The request form marks some fields as "optional." However, Support requires all of the information in the following steps. If you don't provide all of the required information, you may experience delays in processing your request.
 
 1. Sign in to the AWS Management Console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/).
 
@@ -32,12 +32,12 @@ Some of the fields on the request form are marked as "optional." However, Suppor
 
 1. Choose the **Looking for service limit increases?** link, then complete the following:
    + For **Limit type**, choose **SNS Text Messaging**.
-   + (Optional) For **Provide a link to the site or app which will be sending SMS messages**, provide information about the website, application, or service that will send SMS messages.
+   + (Optional) For **Provide a link to the site or app which will be sending SMS messages**, describe the website, application, or service that sends SMS messages.
    + (Optional) For **What type of messages do you plan to send**, choose the type of message that you plan to send using your long code:
      + **One Time Password** – Messages that provide passwords that your customers use to authenticate with your website or application.
      + **Promotional** – Noncritical messages that promote your business or service, such as special offers or announcements.
      + **Transactional** – Important informational messages that support customer transactions, such as order confirmations or account alerts. Transactional messages must not contain promotional or marketing content.
-   + (Optional) For **Which AWS Region will you be sending messages from**, choose the region that you'll be sending messages from.
+   + (Optional) For **Which AWS Region will you be sending messages from**, choose the Region that you'll be sending messages from.
    + (Optional) For **Which countries do you plan to send messages to**, enter the country or region that you want to purchase short codes in.
    + (Optional) In the **How do your customers opt to receive messages from you**, provide details about your opt-in process.
    + (Optional) In the **Please provide the message template that you plan to use to send messages to your customers** field, include the template that you will be using.
@@ -45,18 +45,18 @@ Some of the fields on the request form are marked as "optional." However, Suppor
 1. Under **Requests**, complete the following sections:
    + For the **Region**, choose the Region from which you'll be sending messages. 
 **Note**  
-The Region is required in the **Requests** section. Even if you provided this information in the **Case details** section you must also include it here.
+Include the Region in the **Requests** section. Even if you provided this information in the **Case details** section you must also include it here.
    + For **Resource Type**, choose** General Limits**.
    + For **Limit**, choose **Account Spend Threshold Increase**.
 
 1. For New limit value, enter the maximum amount (in USD) that you can spend on SMS each calendar month.
 
 1. Under **Case description**, for **Use case description**, provide the following details:
-   + The website or app of the company or service that's sending SMS messages.
-   + The service that's provided by your website or app, and how your SMS messages contribute to that service.
+   + The website or app of the company or service that sends SMS messages.
+   + The service that your website or app provides, and how your SMS messages contribute to that service.
    + How users sign up to voluntarily receive your SMS messages on your website, app, or other location.
 
-   If your requested spending quota (the value you specified for **New quota value**) exceeds $10,000 (USD), provide the following additional details for each country that you're messaging:
+   If your requested spending quota (the value you specified for **New quota value**) exceeds $10,000 (USD), provide the following details for each country that you're messaging:
    + Whether you're using a sender ID or short code. If you're using a sender ID, provide:
      + The sender ID.
      + Whether the sender ID is registered with wireless carriers in the country.
@@ -65,9 +65,9 @@ The Region is required in the **Requests** section. Even if you provided this in
    + The template for the messages that you send to the country.
    + (Optional) Character encoding needs, if any.
 
-1. (Optional) If you want to submit any further requests, choose **Add another request**. If you include multiple requests, provide the required information for each. For the required information, see the other sections within [Requesting support for Amazon SNS SMS messaging](channels-sms-awssupport.md).
+1. (Optional) If you want to submit any further requests, choose **Add another request**. If you include multiple requests, provide the required information for each. For the required information, see the other sections in [Requesting support for Amazon SNS SMS messaging](channels-sms-awssupport.md).
 
-1. Under **Contact options**, for **Preferred contact language**, choose the language in which you want to receive communications for this case.
+1. Under **Contact options**, for **Preferred contact language**, choose the language for communications about this case.
 
 1. When you finish, choose **Submit**.
 
@@ -80,7 +80,7 @@ If your use case doesn't align with our policies, we might be unable to grant yo
 ## Step 2: Update your SMS settings on the Amazon SNS console
 <a name="channels-sms-awssupport-spend-threshold-settings"></a>
 
-After we notify you that your monthly spending quota has been increased, you have to adjust the spending quota for your account on the Amazon SNS console.
+After we notify you that your monthly spending quota has been increased, you must adjust the spending quota for your account on the Amazon SNS console.
 
 **Important**  
 You must complete the following steps or your SMS spend limit will not be increased.
@@ -99,4 +99,4 @@ You might receive a warning that the entered value is larger than the default sp
 
 1. Choose **Save** changes.
 **Note**  
-If you get an "Invalid Parameter" error, check the contact from AWS Support and confirm that you entered the correct new SMS spend limit. If you still experience a problem, open a case in the AWS Support Center. 
+If you get an "Invalid Parameter" error, check the contact from AWS Support. Confirm that you entered the correct new SMS spend limit. If you still have a problem, open a case in the AWS Support Center. 

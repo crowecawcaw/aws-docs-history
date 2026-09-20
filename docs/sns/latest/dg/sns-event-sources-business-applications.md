@@ -5,7 +5,7 @@
 
 The following table describes how Amazon Chime integrates with Amazon SNS to send notifications for important meeting events, enabling you to stay informed about your communications and scheduling. 
 
-You can leverage this integration to utilize Amazon Chime SDK event notifications to enhance your collaboration tools within and outside your organization.
+You can use this integration to use Amazon Chime SDK event notifications to enhance your collaboration tools within and outside your organization.
 
 
 

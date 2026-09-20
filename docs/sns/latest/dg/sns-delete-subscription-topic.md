@@ -7,7 +7,7 @@ When a topic is deleted, its associated subscriptions are deleted asynchronously
 
 **Important**  
  Deleted Amazon SNS topics cannot be recovered. We recommend that you delete subscriptions before deleting a topic.   
- Once the subscription is deleted, it cannot be recovered. Published notifications to the Amazon SNS topic will not be delivered to that deleted subscription. You will have to re-create the subscription to receive notifications. 
+ After the subscription is deleted, it cannot be recovered. Published notifications to the Amazon SNS topic will not be delivered to that deleted subscription. You will have to re-create the subscription to receive notifications. 
 
 ## To delete an Amazon SNS topic or subscription using the AWS Management Console
 <a name="sns-delete-subscription-topic-console"></a>

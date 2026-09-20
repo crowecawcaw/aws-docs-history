@@ -3,7 +3,7 @@
 # Securing Amazon SNS data with server-side encryption
 <a name="sns-server-side-encryption"></a>
 
-Server-side encryption (SSE) lets you store sensitive data in encrypted topics by protecting the contents of messages in Amazon SNS topics using keys managed in AWS Key Management Service (AWS KMS).
+Server-side encryption (SSE) lets you store sensitive data in encrypted topics. SSE protects the contents of messages in Amazon SNS topics using keys managed in AWS Key Management Service (AWS KMS).
 
 SSE encrypts messages as soon as Amazon SNS receives them. The messages are stored in encrypted form, and only decrypted when they are sent.
 + For information about managing SSE using the AWS Management Console or the AWS SDK for Java (by setting the `KmsMasterKeyId` attribute using the `[CreateTopic](https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html)` and `[SetTopicAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html)` API actions), see [Setting up Amazon SNS topic encryption with server-side encryption](sns-enable-encryption-for-topic.md). 
@@ -14,7 +14,7 @@ All requests to topics with SSE enabled must use HTTPS and [Signature Version 4]
 For information about compatibility of other services with encrypted topics, see your service documentation.  
 Amazon SNS only supports symmetric encryption KMS keys. You cannot use any other type of KMS key to encrypt your service resources. For help determining whether a KMS key is a symmetric encryption key, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html).
 
-AWS KMS combines secure, highly available hardware and software to provide a key management system scaled for the cloud. When you use Amazon SNS with AWS KMS, the [data keys](#sse-key-terms) that encrypt your message data are also encrypted and stored with the data they protect.
+AWS KMS combines secure, highly available hardware and software to provide a key management system scaled for the cloud. When you use Amazon SNS with AWS KMS, the [data keys](#sse-key-terms) that encrypt your message data are also encrypted. They are stored with the data they protect.
 
 The following are benefits of using AWS KMS:
 + You can create and manage the [AWS KMS key](#sse-key-terms) yourself.

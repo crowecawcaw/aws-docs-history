@@ -16,7 +16,7 @@ You can authorize Amazon SNS to send push notifications to your applications by 
 The API key is a credential used when calling Firebase’s Legacy API. The FCM Legacy APIs will be removed by Google June 20, 2024. If you are currently using an API key as your platform credential, you can update the platform credential by selecting **Token** as the option, and uploading the associated JSON file for your Firebase application.
 
 **Token**  
-A short lived access token is used when calling the HTTP v1 API. This is Firebase’s suggested API for sending push notifications. In order to generate access tokens, Firebase provides developers a set of credentials in the form of a private key file (also referred to as a service.json file).
+A short lived access token is used when calling the HTTP v1 API. This is Firebase’s suggested API for sending push notifications. To generate access tokens, Firebase provides developers a set of credentials in the form of a private key file (also referred to as a service.json file).
 
 ## Prerequisite
 <a name="sns-fcm-authentication-prerequisite"></a>

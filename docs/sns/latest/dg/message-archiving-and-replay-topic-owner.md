@@ -3,7 +3,7 @@
 # Amazon SNS message archiving for FIFO topic owners
 <a name="message-archiving-and-replay-topic-owner"></a>
 
-Message archiving provides the ability to archive a single copy of all messages published to your topic. You can store published messages within your topic by enabling the message archive policy on the topic, which enables message archiving for all subscriptions linked to that topic. Messages can be archived for a minimum of one day to a maximum of 365 days.
+Message archiving lets you archive a single copy of all messages published to your topic. You can store published messages within your topic by enabling the message archive policy on the topic, which enables message archiving for all subscriptions linked to that topic. Messages can be archived for a minimum of one day to a maximum of 365 days.
 
 Additional charges apply when setting an archive policy. For pricing information, see [Amazon SNS pricing](https://aws.amazon.com/sns/pricing/).
 
@@ -89,7 +89,7 @@ To create an archive policy using CloudFormation see [`AWS::SNS::Topic`](https:/
 
 Before a subscriber can begin replaying messages from an encrypted topic, you must complete the following steps. Because past messages are replayed, Amazon SNS needs to be provisioned `Decrypt` access to the KMS key that was used to encrypt the messages in the archive.
 
-1. When you encrypt messages with a KMS key and store them within the topic, you must grant Amazon SNS the ability to decrypt these messages via Key Policy. For more, see [Grant decrypt permissions to Amazon SNS](#message-archiving-and-replay-topic-decrypt-permissions).
+1. When you encrypt messages with a KMS key and store them within the topic, you must grant Amazon SNS the ability to decrypt these messages through Key Policy. For more, see [Grant decrypt permissions to Amazon SNS](#message-archiving-and-replay-topic-decrypt-permissions).
 
 1. Enable AWS KMS for Amazon SNS. For more, see [Configuring AWS KMS permissions](sns-key-management.md#sns-what-permissions-for-sse).
 
@@ -99,7 +99,7 @@ When you add the new sections to your KMS key policy, do not change any existing
 ### Grant decrypt permissions to Amazon SNS
 <a name="message-archiving-and-replay-topic-decrypt-permissions"></a>
 
-In order for Amazon SNS to access encrypted messages from within your topic’s archive and replay them to subscribed endpoints, you must enable the Amazon SNS service principle to decrypt these messages.
+For Amazon SNS to access encrypted messages from within your topic’s archive and replay them to subscribed endpoints, you must enable the Amazon SNS service principle to decrypt these messages.
 
 The following is an example policy that is required to allow the Amazon SNS service principal to decrypt stored messages during a replay of historical messages from within your topic.
 

@@ -41,6 +41,8 @@ For email and email-json subscriptions, the topic display name is used as the se
 
    1. (Optional) For a FIFO topic, you can choose **content-based message deduplication** to enable default message deduplication. For more information, see [Amazon SNS message deduplication for FIFO topics](fifo-message-dedup.md).
 
+1. (Optional) To accept messages larger than 256 KiB, set **Maximum message size** to a value up to 1,024 KiB. For more information, see [Publishing large messages with Amazon SNS](large-message-payloads.md).
+
 1. (Optional) Expand the **Encryption** section and do the following. For more information, see [Securing Amazon SNS data with server-side encryption](sns-server-side-encryption.md).
 
    1. Choose **Enable encryption**.

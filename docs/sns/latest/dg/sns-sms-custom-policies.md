@@ -19,6 +19,6 @@ Use the following steps to manage custom IAM policies for Amazon SNS:
 
 1. Specify the IAM **users**, **groups**, or **roles** to which the policy should be attached. You can attach the policy directly to IAM users or groups, or associate it with IAM roles used by AWS services or applications.
 
-1. Review the IAM policy configuration to ensure it aligns with your access control requirements. Once verified, **save** the policy changes.
+1. Review the IAM policy configuration to make sure it aligns with your access control requirements. After verification, **save** the policy changes.
 
 1. Attach the **custom IAM policy** to the relevant IAM users, groups, or roles within your AWS account. This grants them the permissions defined in the policy for managing Amazon SNS resources.

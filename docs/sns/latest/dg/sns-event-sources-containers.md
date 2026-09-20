@@ -5,7 +5,7 @@
 
 The following table describes how Amazon SNS integrates with AWS container services such as Amazon EKS Distro and Amazon ECS, allowing you to track updates and security patches for Amazon EKS clusters and receive notifications for new ECS-optimized AMI releases. 
 
-You can leverage these integrations to maintain the security and efficiency of your container deployments by staying informed about important updates and changes.
+You can use these integrations to maintain the security and efficiency of your container deployments by staying informed about important updates and changes.
 
 
 | AWS service | Benefit of using with Amazon SNS | 

@@ -3,12 +3,12 @@
 # Filter policy constraints in Amazon SNS
 <a name="subscription-filter-policy-constraints"></a>
 
-When you’re setting up filter policies in Amazon SNS, there are a few important rules to keep in mind. These rules help ensure the effective application of filter policies while maintaining system performance and compatibility.
+When you’re setting up filter policies in Amazon SNS, there are a few important rules to keep in mind. These rules help make sure the effective application of filter policies while maintaining system performance and compatibility.
 
 ## Common policy constraints
 <a name="subscription-filter-policy-common-constraints"></a>
 
-When configuring filter policies in Amazon SNS, follow these important rules to ensure they work effectively while maintaining system performance and compatibility:
+When configuring filter policies in Amazon SNS, follow these important rules to make sure they work effectively while maintaining system performance and compatibility:
 + **String matching** – For string matching in the filter policy, the comparison is case-sensitive.
 + **Numeric matching** – For numeric matching, the value can range from -109 to 109 (-1 billion to 1 billion), with five digits of accuracy after the decimal point.
 + **Filter policy complexity** – The total combination of values in a filter policy must not exceed **150**. To calculate the total combination, multiply the number of values in each array in the filter policy.
@@ -106,7 +106,7 @@ x 2(nested level of key_e)
 ## Wildcard pattern usage guidelines
 <a name="filter-policy-constraints-wildcard"></a>
 
- Amazon SQS implements protections for when you register a filter policy containing wildcards to ensure that filter policies too complex are not created, as this would impact your application performance. 
+ Amazon SQS implements protections for when you register a filter policy containing wildcards to ensure filter policies too complex are not created, as this would impact your application performance. 
 
 **Pattern structure**
 

@@ -3,7 +3,7 @@
 # Sending SMS messages using Amazon SNS
 <a name="sms_sending-overview"></a>
 
-This section describes how to send SMS messages using Amazon SNS, including publishing to a topic, subscribing phone numbers to topics, setting attributes on messages, and publishing directly to mobile phones.
+This section describes how to send SMS messages with Amazon SNS. You can publish to a topic, subscribe phone numbers to topics, set attributes on messages, or publish directly to mobile phones.
 
 ## Publishing SMS messages to an Amazon SNS topic
 <a name="sms_publish-to-topic"></a>

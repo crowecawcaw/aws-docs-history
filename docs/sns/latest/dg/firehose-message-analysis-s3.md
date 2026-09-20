@@ -3,7 +3,7 @@
 # Analyzing Amazon SNS messages stored in Amazon S3 using Athena
 <a name="firehose-message-analysis-s3"></a>
 
-This page explains how to analyze Amazon SNS messages that are sent through delivery streams to Amazon Simple Storage Service (Amazon S3) destinations.
+This page explains how to analyze Amazon SNS messages sent through delivery streams to Amazon Simple Storage Service (Amazon S3) destinations.
 
 **To analyze SNS messages sent through Firehose delivery streams to Amazon S3 destinations**
 

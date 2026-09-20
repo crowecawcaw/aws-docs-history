@@ -82,7 +82,7 @@ aws sns publish \
 ```
 
 **Note**  
-Ensure that the JSON structure is valid. Add a comma after each key-value pair, except the last one.
+Make sure the JSON structure is valid. Add a comma after each key-value pair, except the last one.
 
 ### Inferring the APNs push type header from the payload
 <a name="inferring-push-type-header-from-payload"></a>
@@ -90,7 +90,7 @@ Ensure that the JSON structure is valid. Add a comma after each key-value pair, 
 If you don't set the `apns-push-type` APNs header, Amazon SNS sets header to `alert` or `background` depending on the `content-available` key in the `aps` dictionary of your JSON-formatted APNs payload configuration.
 
 **Note**  
-Amazon SNS is able to infer only `alert` or `background` headers, although the `apns-push-type` header can be set to other values.
+Amazon SNS can infer only `alert` or `background` headers, although the `apns-push-type` header can be set to other values.
 + `apns-push-type` is set to `alert`
   + If the `aps` dictionary contains `content-available` set to `1` and *one or more keys* that trigger user interactions.
   + If the `aps` dictionary contains `content-available` set to `0` *or* if the `content-available` key is absent.

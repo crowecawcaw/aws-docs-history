@@ -3,7 +3,7 @@
 # Subscribing to Amazon SNS daily SMS usage reports
 <a name="sms_stats_usage"></a>
 
-You can monitor your SMS deliveries by subscribing to daily usage reports from Amazon SNS. For each day that you send at least one SMS message, Amazon SNS delivers a usage report as a CSV file to the specified Amazon S3 bucket. It takes 24 hours for the SMS usage report to be available in the Amazon S3 bucket. 
+You can monitor your SMS deliveries by subscribing to daily usage reports from Amazon SNS. For each day that you send at least one SMS message, Amazon SNS delivers a usage report as a CSV file to the specified Amazon S3 bucket. The SMS usage report takes 24 hours to become available in the Amazon S3 bucket.
 
 ## Daily usage report information
 <a name="daily_usage_info"></a>
@@ -21,7 +21,7 @@ The usage report includes the following information for each SMS message that yo
 + Total number of parts
 
 **Note**  
-If Amazon SNS did not receive the part number, we set its value to zero.
+If Amazon SNS did not receive the part number, the value is set to zero.
 
 ## Subscribing to daily usage reports
 <a name="subscribe-to-daily-usage-reports"></a>

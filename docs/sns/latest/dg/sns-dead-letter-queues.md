@@ -18,7 +18,7 @@ In general, message delivery fails when Amazon SNS can't access a subscribed end
 ### Client-side errors
 <a name="client-side-errors"></a>
 
-Client-side errors can happen when Amazon SNS has stale subscription metadata. These errors commonly occur when an owner deletes the endpoint (for example, a Lambda function subscribed to an Amazon SNS topic) or when an owner changes the policy attached to the subscribed endpoint in a way that prevents Amazon SNS from delivering messages to the endpoint. Amazon SNS doesn't retry the message delivery that fails as a result of a client-side error.
+Client-side errors can happen when Amazon SNS has stale subscription metadata. These errors commonly occur when an owner deletes the endpoint (for example, a Lambda function subscribed to an Amazon SNS topic) or when an owner changes the policy attached to the subscribed endpoint in a way that prevents Amazon SNS from delivering messages to the endpoint. Amazon SNS doesn't retry the message delivery that fails because of a client-side error.
 
 ### Server-side errors
 <a name="server-side-errors"></a>
@@ -59,7 +59,7 @@ You can move messages out of a dead-letter queue in two ways:
 
 You can use Amazon CloudWatch metrics to monitor dead-letter queues associated with your Amazon SNS subscriptions. All Amazon SQS queues emit CloudWatch metrics at one-minute intervals. For more information, see [Available CloudWatch metrics for Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-available-cloudwatch-metrics.html) in the *Amazon Simple Queue Service Developer Guide*. All Amazon SNS subscriptions with dead-letter queues also emit CloudWatch metrics. For more information, see [Monitoring Amazon SNS topics using CloudWatch](sns-monitoring-using-cloudwatch.md).
 
-To be notified of activity in your dead-letter queues, you can use CloudWatch metrics and alarms. Setting up an alarm for the `NumberOfMessagesSent` metric is not suitable because this metric does not capture messages sent to a DLQ as a result of failed processing attempts. Instead, use the `ApproximateNumberOfMessagesVisible` metric, which captures all messages currently available in the DLQ, including those moved due to processing failures.
+To be notified of activity in your dead-letter queues, you can use CloudWatch metrics and alarms. Setting up an alarm for the `NumberOfMessagesSent` metric is not suitable because this metric does not capture messages sent to a DLQ because of failed processing attempts. Instead, use the `ApproximateNumberOfMessagesVisible` metric, which captures all messages currently available in the DLQ, including those moved due to processing failures.
 
 **Example CloudWatch alarm setup**
 

@@ -5,7 +5,7 @@
 
 The following table describes how Amazon SNS integrates with application integration services such as EventBridge and AWS Step Functions, enabling real-time data routing and notifications for business-critical applications. 
 
-You can leverage these integrations to receive alerts from EventBridge events and orchestrate workflows using Step Functions, enhancing the automation and responsiveness of your applications.
+You can use these integrations to receive alerts from EventBridge events and orchestrate workflows using Step Functions, enhancing the automation and responsiveness of your applications.
 
 
 | AWS service | Benefit of using with Amazon SNS | 

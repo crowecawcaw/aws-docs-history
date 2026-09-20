@@ -156,7 +156,7 @@ The two preceding examples are almost identical, but the first example contains 
 ### Use valid, safe links
 <a name="channels-sms-best-practices-appropriate-content-links"></a>
 
-If your message includes links, double-check the links to make sure that they work. Test your links on a device outside your corporate network to ensure that links resolve properly. Because of the 160-character limit of SMS messages, very long URLs could be split across multiple messages. You should use redirect domains to provide shortened URLs. However, you shouldn't use free link-shortening services such as tinyurl.com or bitly.com, because carriers tend to filter messages that include links on these domains. However, you can use paid link-shortening services as long as your links point to a domain that is dedicated to the exclusive use of your company or organization. 
+If your message includes links, double-check the links to make sure they work. Test your links on a device outside your corporate network to ensure links resolve properly. Because of the 160-character limit of SMS messages, very long URLs could be split across multiple messages. You should use redirect domains to provide shortened URLs. However, you shouldn't use free link-shortening services such as tinyurl.com or bitly.com, because carriers tend to filter messages that include links on these domains. However, you can use paid link-shortening services as long as your links point to a domain that is dedicated to the exclusive use of your company or organization. 
 
 **Don't do this:**  
 `Go to https://tinyurl.com/4585y8mr today for a special offer!`
@@ -178,7 +178,7 @@ The 160-character limitation of the SMS channel leads some senders to believe th
 ## Respond appropriately
 <a name="channels-sms-best-practices-respond-appropriately"></a>
 
-When a recipient replies to your messages, make sure that you respond with useful information. For example, when a customer responds to one of your messages with the keyword "HELP", send them information about the program that they're subscribed to, the number of messages you'll send each month, and the ways that they can contact you for more information. A HELP response might resemble the following example:
+When a recipient replies to your messages, make sure you respond with useful information. For example, when a customer responds to one of your messages with the keyword "HELP", send them information about the program that they're subscribed to, the number of messages you'll send each month, and the ways that they can contact you for more information. A HELP response might resemble the following example:
 
 `HELP: ExampleCorp alerts: email help@example.com or call 425-555-0199. 2 msgs/month. Msg & data rates may apply. Reply STOP to cancel.`
 
@@ -198,7 +198,7 @@ Finally, remove customers who are completely unengaged from your customer lists.
 ## Send at appropriate times
 <a name="channels-sms-best-practices-appropriate-times"></a>
 
-Only send messages during normal daytime business hours. If you send messages at dinner time or in the middle of the night, there's a good chance that your customers will unsubscribe from your lists in order to avoid being disturbed. Furthermore, it doesn't make sense to send SMS messages when your customers can't respond to them immediately. 
+Only send messages during normal daytime business hours. If you send messages at dinner time or in the middle of the night, there's a good chance that your customers will unsubscribe from your lists to avoid being disturbed. Furthermore, it doesn't make sense to send SMS messages when your customers can't respond to them immediately. 
 
 If you send campaigns or journeys to very large audiences, double-check the throughput rates for your origination numbers. Divide the number of recipients by your throughput rate to determine how long it will take to send messages to all of your recipients.
 
@@ -226,7 +226,7 @@ Amazon SNS accepts valid requests to send SMS messages and attempts to deliver t
 
 For mission-critical messaging programs, we recommend that you configure Amazon SNS in more than one AWS Region. Amazon SNS is available in several AWS Regions. For a complete list of Regions where Amazon SNS is available, see the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/sns.html). 
 
-The phone numbers that you use for SMS messages—including short codes, long codes, toll-free numbers, and 10DLC numbers—can't be replicated across AWS Regions. As a result, in order to use Amazon SNS in multiple Regions, you must request separate phone numbers in each Region where you want to use Amazon SNS. For example, if you use a short code to send text messages to recipients in the United States, you need to request separate short codes in each AWS Region that you plan to use.
+The phone numbers that you use for SMS messages—including short codes, long codes, toll-free numbers, and 10DLC numbers—can't be replicated across AWS Regions. As a result, to use Amazon SNS in multiple Regions, you must request separate phone numbers in each Region where you want to use Amazon SNS. For example, if you use a short code to send text messages to recipients in the United States, you need to request separate short codes in each AWS Region that you plan to use.
 
 In some countries, you can also use multiple types of phone numbers for added redundancy. For example, in the United States, you can request short codes, 10DLC numbers, and toll-free numbers. Each of these phone number types takes a different route to the recipient. Having multiple phone number types available—either in the same AWS Region or spread across multiple AWS Regions—provides an additional layer of redundancy, which can help improve resiliency.
 
@@ -262,7 +262,7 @@ A single SMS message can contain up to 140 bytes of information. The number of c
 
 If your message only uses [characters in the GSM 03.38 character set](#channels-sms-limitations-characters-gsm-alphabet), also known as the GSM 7-bit alphabet, it can contain up to 160 characters. If your message contains any characters that are outside the GSM 03.38 character set, it can have up to 70 characters. When you send an SMS message, Amazon SNS automatically determines the most efficient encoding to use.
 
-When a message contains more than the maximum number of characters, the message is split into multiple parts. When messages are split into multiple parts, each part contains additional information about the message part that precedes it. When the recipient's device receives message parts that are separated in this way, it uses this additional information to ensure that all of the message parts are displayed in the correct order. Depending on the recipient's mobile carrier and device, multiple messages might be displayed as a single message, or as a sequence of separate messages. As a result the number of characters in each message part is reduced to 153 (for messages that only contain GSM 03.38 characters) or 67 (for messages that contain other characters). You can estimate how many message parts your message contains before you send it by using SMS length calculator tools, several of which are available online. The maximum supported size of any message is 1600 GSM characters or 630 non-GSM characters. For more information about throughput and message size, see [SMS character limits in Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-limitations-mps.html) in the *Amazon Pinpoint User Guide*.
+When a message contains more than the maximum number of characters, the message is split into multiple parts. When messages are split into multiple parts, each part contains additional information about the message part that precedes it. When the recipient's device receives message parts that are separated in this way, it uses this additional information to make sure all of the message parts are displayed in the correct order. Depending on the recipient's mobile carrier and device, multiple messages might be displayed as a single message, or as a sequence of separate messages. As a result the number of characters in each message part is reduced to 153 (for messages that only contain GSM 03.38 characters) or 67 (for messages that contain other characters). You can estimate how many message parts your message contains before you send it by using SMS length calculator tools, several of which are available online. The maximum supported size of any message is 1600 GSM characters or 630 non-GSM characters. For more information about throughput and message size, see [SMS character limits in Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-limitations-mps.html) in the *Amazon Pinpoint User Guide*.
 
 To view the number of message parts for each message that you send, enable CloudWatch Logs for SMS deliveries. When you do, Amazon SNS produces CloudWatch Logs for your SMS deliveries that include the delivery status. The CloudWatch Log contains an attribute called `numberOfMessageParts`. This attribute specifies the number of message parts that the message contained.
 
@@ -294,7 +294,7 @@ The following table lists all of the characters that are present in the GSM 03.3
 </table>
 
 
-The GSM 03.38 character set includes several symbols in addition to those shown in the preceding table. However, each of these characters is counted as two characters because it also includes an invisible escape character:
+The GSM 03.38 character set includes several symbols besides those shown in the preceding table. However, each of these characters is counted as two characters because it also includes an invisible escape character:
 + ^
 + {
 + }

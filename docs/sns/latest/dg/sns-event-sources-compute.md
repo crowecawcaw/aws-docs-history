@@ -5,7 +5,7 @@
 
 The following table describes how Amazon SNS integrates with various AWS compute services, enabling you to receive notifications for key events such as Auto Scaling actions, EC2 Image Builder completions, Elastic Beanstalk environment changes, Lambda function outputs, and Lightsail metric thresholds. 
 
-You can leverage these integrations to efficiently manage your applications and resources by staying informed about critical updates and actions across AWS services.
+You can use these integrations to efficiently manage your applications and resources by staying informed about critical updates and actions across AWS services.
 
 
 | AWS service | Benefit of using with Amazon SNS | 

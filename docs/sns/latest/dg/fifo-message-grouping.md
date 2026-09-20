@@ -17,7 +17,7 @@ In the [auto parts price management example use case](fifo-example-use-case.md),
 ## Distributing data by message group IDs for improved performance
 <a name="fifo-message-grouping-message-group-ids"></a>
 
-To optimize delivery throughput, Amazon SNS FIFO topics deliver messages from different message groups in parallel, while message order is strictly maintained within each message group. Each individual message group can deliver a maximum of 300 messages per second. Therefore, to achieve high throughput for a single topic, use a large number of distinct message group IDs. By utilizing a diverse set of message groups, Amazon SNS FIFO topics automatically distributes messages across a larger number of parallel partitions.
+To optimize delivery throughput, Amazon SNS FIFO topics deliver messages from different message groups in parallel, while message order is strictly maintained within each message group. Each individual message group can deliver a maximum of 300 messages per second. Therefore, to achieve high throughput for a single topic, use many distinct message group IDs. By using a diverse set of message groups, Amazon SNS FIFO topics automatically distributes messages across a larger number of parallel partitions.
 
 **Note**  
 Amazon SNS FIFO topics are optimized for uniform distribution of messages across message group IDs, regardless of the number of groups. AWS recommends that you use a large number of distinct message group IDs for optimized performance.

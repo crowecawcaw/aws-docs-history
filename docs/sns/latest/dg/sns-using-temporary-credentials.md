@@ -3,11 +3,11 @@
 # Using temporary security credentials with Amazon SNS
 <a name="sns-using-temporary-credentials"></a>
 
-AWS Identity and Access Management (IAM) allows you to grant temporary security credentials to users and applications that need access to your AWS resources. These temporary security credentials are primarily used for IAM roles and federated access via industry-standard protocols such as SAML and OpenID Connect (OIDC).
+AWS Identity and Access Management (IAM) allows you to grant temporary security credentials to users and applications that need access to your AWS resources. These temporary security credentials are primarily used for IAM roles and federated access through industry-standard protocols such as SAML and OpenID Connect (OIDC).
 
 To effectively manage access to AWS resources, it's essential to understand the following key concepts:
 + **IAM Roles** – Roles are used to delegate access to AWS resources. Roles can be assumed by entities such as Amazon EC2 instances, Lambda functions, or users from other AWS accounts.
-+ **Federated Users** – These are users authenticated via external identity providers (IdPs) using SAML or OIDC. Federated access is recommended for human users, while IAM roles should be used for software applications.
++ **Federated Users** – These are users authenticated through external identity providers (IdPs) using SAML or OIDC. Federated access is recommended for human users, while IAM roles should be used for software applications.
 + **Roles Anywhere** – For external applications requiring AWS access, you can use IAM Roles Anywhere to securely manage access without creating long-term credentials.
 
 You can use temporary security credentials to make requests to Amazon SNS. The SDKs and API libraries compute the necessary signature using these credentials to authenticate your requests. Requests with expired credentials will be denied by Amazon SNS.
@@ -35,7 +35,7 @@ https://sns.us-east-2.amazonaws.com/
 
 1. **Obtain Temporary Security Credentials** – Use AWS STS to assume a role or get federated user credentials. This will provide you with an access key ID, secret access key, and security token.
 
-1. **Construct the Request** – Include the required parameters for your Amazon SNS action (for example, CreateTopic), and ensure you use HTTPS for secure communication.
+1. **Construct the Request** – Include the required parameters for your Amazon SNS action (for example, CreateTopic), and make sure you use HTTPS for secure communication.
 
 1. **Sign the Request** – Use the AWS Signature Version 4 process to sign your request. This involves creating a canonical request, string-to-sign, and then calculating the signature. For more on AWS Signature Version 4, see [Use Signature Version 4 signing](https://docs.aws.amazon.com/ebs/latest/userguide/ebsapis-using-sigv4.html) in the *Amazon EBS User Guide*.
 

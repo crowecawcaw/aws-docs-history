@@ -101,7 +101,7 @@ sns.setSubscriptionAttributes(request);
 ## Understanding the EndingPoint
 <a name="message-archiving-and-replay-understanding-endpoint"></a>
 
-When you apply a `ReplayPolicy` to an Amazon SNS subscription, the `EndingPoint` value is optional. If no `EndingPoint` is provided, the replay will start from the specified `StartingPoint` and continue until it catches up to the current time, including processing any newly published messages. Once caught up, the subscription will function as a regular subscription, receiving new messages as they are published.
+When you apply a `ReplayPolicy` to an Amazon SNS subscription, the `EndingPoint` value is optional. If no `EndingPoint` is provided, the replay will start from the specified `StartingPoint` and continue until it catches up to the current time, including processing any newly published messages. After it catches up, the subscription will function as a regular subscription, receiving new messages as they are published.
 
 If an `EndingPoint` is specified, the service will replay messages from the `StartingPoint` up to the `EndingPoint` and then stop. **This action effectively pauses the subscription.** While the subscription is paused, newly published messages will not be delivered to the subscribed endpoint.
 

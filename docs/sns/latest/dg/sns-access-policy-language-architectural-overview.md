@@ -9,8 +9,8 @@ The following figure and table describe the main components that interact to pro
 
 
 
-|  |  | 
-| --- |--- |
+| Item | Description | 
+| --- | --- | 
 | 1 | You, the resource owner. | 
 | 2 | Your resources (contained within the AWS service; for example, Amazon SQS queues). | 
 | 3 | Your policies.<br />Typically you have one policy per resource, although you could have multiple. The AWS service itself provides an API you use to upload and manage your policies. | 

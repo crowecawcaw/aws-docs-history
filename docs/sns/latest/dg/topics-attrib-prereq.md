@@ -35,7 +35,7 @@ The IAM role attached for delivery status logging must include the following per
 
 **Log group naming convention**
 
-By default, Amazon SNS creates CloudWatch log groups for delivery status logs using the following naming convention. Log streams within this group correspond to the endpoint protocols (for example, Lambda, Amazon SQS). Ensure you have permissions to view these logs in the CloudWatch Logs console.
+By default, Amazon SNS creates CloudWatch log groups for delivery status logs using the following naming convention. Log streams within this group correspond to the endpoint protocols (for example, Lambda, Amazon SQS). Make sure you have permissions to view these logs in the CloudWatch Logs console.
 
 ```
 sns/<region>/<account-id>/<topic-name>

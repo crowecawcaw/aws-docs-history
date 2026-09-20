@@ -5,7 +5,7 @@
 
 The following table describes how Amazon SNS integrates with AWS analytics services such as Athena, AWS Data Pipeline, and Amazon Redshift to provide real-time notifications for key events, including control limit breaches, pipeline status updates, and data warehouse activities.
 
-You can leverage these integrations to automate responses and maintain effective oversight of your data operations.
+You can use these integrations to automate responses and maintain effective oversight of your data operations.
 
 
 | AWS service | Benefit of using with Amazon SNS | 

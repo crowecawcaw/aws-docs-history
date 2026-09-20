@@ -3,7 +3,7 @@
 # Moving out of the Amazon SNS SMS sandbox
 <a name="sns-sms-sandbox-moving-to-production"></a>
 
-Moving your AWS account out of the [SMS sandbox](sns-sms-sandbox.md) requires that you first add, verify, and test destination phone numbers. After doing this, create a case with AWS Support.
+Moving your AWS account out of the [SMS sandbox](sns-sms-sandbox.md) requires you to first add, verify, and test destination phone numbers. After you complete these steps, create a case with AWS Support.
 
 **To request that your AWS account is moved out of the SMS sandbox**
 
@@ -13,15 +13,15 @@ Moving your AWS account out of the [SMS sandbox](sns-sms-sandbox.md) requires th
 
    1. In the navigation pane, under Mobile, choose **Text messaging (SMS)**.
 
-   1. In the Sandbox destination phone numbers section, [add and verify](sns-sms-sandbox-verifying-phone-numbers.md) one or more destination phone numbers. This verification ensures you can successfully send and receive messages.
+   1. In the Sandbox destination phone numbers section, [add and verify](sns-sms-sandbox-verifying-phone-numbers.md) one or more destination phone numbers. You can then send and receive messages.
 
 1. **Test SMS publishing**
 
-   1. Confirm that you are able to send and receive messages to at least one verified phone number. For more detailed instructions on how to publish SMS messages, see [Publishing SMS messages to a mobile phone using Amazon SNS](sms_sending-overview.md#sms_publish-to-phone).
+   1. Confirm that you can send and receive messages to at least one verified phone number. For more detailed instructions on publishing SMS messages, see [Publishing SMS messages to a mobile phone using Amazon SNS](sms_sending-overview.md#sms_publish-to-phone).
 
 1. **Initiate sandbox edit**
 
-   1. On the Amazon SNS console's **Mobile text messaging (SMS)** page, under **Account information**, choose **Exit SMS sandbox**. This action redirects you to the [Amazon Support Center](https://support.console.aws.amazon.com/support/home?#/case/create?issueType=service-limit-increase) and automatically creates a support case with the **Service quota increase** option selected.
+   1. On the Amazon SNS console's **Mobile text messaging (SMS)** page, under **Account information**, choose **Exit SMS sandbox**. This redirects you to the [Amazon Support Center](https://support.console.aws.amazon.com/support/home?#/case/create?issueType=service-limit-increase). It creates a support case with the **Service quota increase** option selected.
 
 1. **Fill out the form**
 

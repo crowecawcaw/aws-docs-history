@@ -7,7 +7,7 @@ Amazon SNS FIFO (first in, first out) topics support delivery to both Amazon SQS
 
 For workloads that need to preserve strict message ordering or de-duplication, the combination of Amazon SNS FIFO topics with [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) subscribed as the delivery endpoint provides enhance messaging between applications when the order of operations and events is critical, or where duplicates can’t be tolerated.
 
-For workloads that tolerate best-effort ordering and at-least-once delivery, subscribing [Amazon SQS standard queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html) to Amazon SNS FIFO topics provides the ability to lower costs, in addition to sharing queues across workloads that don't utilize FIFO.
+For workloads that tolerate best-effort ordering and at-least-once delivery, subscribing [Amazon SQS standard queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html) to Amazon SNS FIFO topics lets you lower costs, in addition to sharing queues across workloads that don't use FIFO.
 
 **Note**  
 To fan out messages from Amazon SNS FIFO topics to AWS Lambda functions, extra steps are required. First, subscribe Amazon SQS FIFO or standard queues to the topic. Then configure the queues to trigger the functions. For more information, see the [ SQS FIFO as an event source](https://aws.amazon.com/blogs/compute/new-for-aws-lambda-sqs-fifo-as-an-event-source/) post on the *AWS Compute Blog*. 

@@ -15,13 +15,13 @@ For information about monitoring CloudWatch metrics, setting CloudWatch alarms, 
 ## Viewing CloudWatch Logs
 <a name="sns-viewing-cloudwatch-logs"></a>
 
-You can collect information about successful and unsuccessful SMS message deliveries by enabling Amazon SNS to write to Amazon CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.
+You can collect data about successful and failed SMS deliveries. Enable Amazon SNS to write to Amazon CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.
 
 **To enable and view CloudWatch Logs for your SMS messages**
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-1. In the console menu, set the region selector to a [region that supports SMS messaging](https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html).
+1. In the console menu, set the Region selector to a [region that supports SMS messaging](https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html).
 
 1. On the navigation panel, choose **Text messaging (SMS)**.
 

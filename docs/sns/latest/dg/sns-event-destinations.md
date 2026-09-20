@@ -27,7 +27,7 @@ These integrations allow you to archive and analyze data, trigger custom busines
 ## A2P destinations
 <a name="sns-event-destinations-a2p"></a>
 
-The following table describes how Amazon SNS delivers application-to-person (A2P) notifications to various destinations, including mobile phones via SMS and native push notifications, email inboxes, Amazon Chime chat rooms, Slack channels, and operational insights to on-call teams via PagerDuty.
+The following table describes how Amazon SNS delivers application-to-person (A2P) notifications to various destinations, including mobile phones through SMS and native push notifications, email inboxes, Amazon Chime chat rooms, Slack channels, and operational insights to on-call teams through PagerDuty.
 
 These integrations enhance communication and operational efficiency by enabling real-time alerts and updates across multiple platforms and communication channels.
 
@@ -38,7 +38,7 @@ These integrations enhance communication and operational efficiency by enabling 
 | Email | Deliver events to inboxes as email messages. For more information, see [Amazon SNS email subscription setup and management](sns-email-notifications.md). | 
 | Platform endpoint | Deliver events to mobile phones as native push notifications. For more information, see [Sending mobile push notifications with Amazon SNS](sns-mobile-application-as-subscriber.md). | 
 | [Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html) | Deliver events to Amazon Chime chat rooms or Slack channels. For more information, see the following pages in the *Amazon Q Developer in chat applications Administrator Guide*:+  [Setting up Amazon Q Developer in chat applications with Amazon Chime](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html#chime-setup) <br />+  [Setting up Amazon Q Developer in chat applications with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html#slack-setup) <br />+  [Using Amazon Q Developer in chat applications with other AWS services](https://docs.aws.amazon.com/chatbot/latest/adminguide/related-services.html)  | 
-| PagerDuty | Deliver operational insights to on-call teams. For more information, see [Deliver ML-powered operational insights to your on-call teams via PagerDuty with Amazon DevOps Guru](https://aws.amazon.com/blogs/mt/deliver-ml-powered-operational-insights-to-your-on-call-teams-via-pagerduty-with-amazon-devops-guru/) on the *AWS Management & Governance Blog*. | 
+| PagerDuty | Deliver operational insights to on-call teams. For more information, see [Deliver ML-powered operational insights to your on-call teams through PagerDuty with Amazon DevOps Guru](https://aws.amazon.com/blogs/mt/deliver-ml-powered-operational-insights-to-your-on-call-teams-via-pagerduty-with-amazon-devops-guru/) on the *AWS Management & Governance Blog*. | 
 
 **Note**  
 You can deliver both native AWS events and custom events to chat apps:  

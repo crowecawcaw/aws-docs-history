@@ -7,7 +7,7 @@ You can use the Amazon SNS console to view statistics about your recent SMS deli
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-1. In the console menu, set the region selector to a [region that supports SMS messaging](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html).
+1. In the console menu, set the Region selector to a [region that supports SMS messaging](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html).
 
 1. On the navigation panel, choose **Text messaging (SMS)**.
 
