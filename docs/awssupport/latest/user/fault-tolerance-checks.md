@@ -580,7 +580,7 @@ Turn on detailed monitoring for your Amazon EC2 instances to increase the freque
 <a name="amazon-ecs-awslogs-driver-blockingmode"></a>
 
 **Description**  
-Checks for Amazon ECS task definitions configured with the AWSLogs logging driver in blocking mode. A driver configured in the blocking mode risks system availability.  
+Checks for Amazon ECS task definitions that are actively in use by running tasks or are among the 5 most recent revisions per task definition family, configured with the AWSLogs logging driver in blocking mode. A driver configured in the blocking mode risks system availability.  
 This check does not consider account-level driver configuration settings.  
 Results for this check are automatically refreshed several times daily, and refresh requests are not allowed. It might take a few hours for changes to appear.  
 For AWS Business Support\+, AWS Enterprise Support, or AWS Unified Operations plan customers, you can use the [BatchUpdateRecommendationResourceExclusion](https://docs.aws.amazon.com/trustedadvisor/latest/APIReference/API_BatchUpdateRecommendationResourceExclusion.html) API to include or exclude one or more resources from your Trusted Advisor results.
@@ -2340,8 +2340,22 @@ Red: Workloads are making cross-region calls to the AWS STS global endpoint in t
 
 **Recommended action**  
 To improve the resiliency and performance of your workloads, we recommend that you migrate from the STS global endpoint to the STS Regional endpoint. By using a Regional endpoint, you can use AWS STS in the same Region as your workloads.   
-The following is a list of AWS Identity and Access Management (IAM) Principals making cross-region calls to the AWS STS global endpoint in the US East (N. Virginia) Region. By following the steps in the blog post [How to use Regional AWS STS endpoints](https://aws.amazon.com/blogs/security/how-to-use-regional-aws-sts-endpoints/), you can reconfigure your workloads to use the Regional STS endpoint.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/awssupport/latest/user/fault-tolerance-checks.html)
+The following is a list of AWS Identity and Access Management (IAM) Principals making cross-region calls to the AWS STS global endpoint in the US East (N. Virginia) Region. By following the steps in the blog post [How to use Regional AWS STS endpoints](https://aws.amazon.com/blogs/security/how-to-use-regional-aws-sts-endpoints/), you can reconfigure your workloads to use the Regional STS endpoint.  
+
+
+<table>
+<thead>
+  <tr><th>Status</th><th>Principal ARN</th><th>IAM Principal Type</th><th>Action</th><th>Last Updated Time</th><th>Originating Region</th></tr>
+</thead>
+<tbody>
+  <tr><td>Red</td><td>arn:aws:iam::999999999999:role/example</td><td>Role</td><td>AssumeRole</td><td>2025-01-01T08:00.000Z</td><td>ca-west-1</td></tr>
+  <tr><td>Red</td><td>arn:aws:iam::123456789012:user/JohnDoe</td><td>User</td><td>GetCallerIdentity</td><td>2025-01-01T08:00.000Z</td><td>ca-west-1</td></tr>
+  <tr><td>Red</td><td>arn:aws:sts::123456789012:federated-user/&lt;Name&gt;</td><td>Federated User</td><td>GetCallerIdentity</td><td>2025-01-01T08:00.000Z</td><td>eu-west-2</td></tr>
+  <tr><td>Red</td><td>arn:aws:iam::123456789012:root</td><td>Root</td><td>AssumeRole</td><td>2025-01-01T08:00.000Z</td><td>il-central-1</td></tr>
+  <tr><td>Red</td><td>arn:aws:sts::0123456789012:assumed-role/aws:ec2-instance/i-0123456789example</td><td>EC2 Instance Identity Role</td><td>GetCallerIdentity</td><td>2025-01-01T08:00.000Z</td><td>us-west-1</td></tr>
+</tbody>
+</table>
+
 
 **Additional resources**  
 + [Manage AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)

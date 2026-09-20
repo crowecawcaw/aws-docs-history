@@ -13,6 +13,7 @@ For more information about the available checks, see the [AWS Trusted Advisor ch
 
 | Change date | Check name | Change description | 
 | --- | --- | --- | 
+| September 19, 2026 | Updated [c1dvkm4z6b: Amazon ECS AWSLogs driver in blocking mode](https://docs.aws.amazon.com/awssupport/latest/user/fault-tolerance-checks.html#amazon-ecs-awslogs-driver-blockingmode) | Updated the **Description** to indicate that the check evaluates only Amazon ECS task definitions that are actively in use by running tasks or that are among the 5 most recent revisions per task definition family. | 
 | September 8, 2026 | New [NitroV4 Amazon EC2 instances running outdated ENA driver](https://docs.aws.amazon.com/awssupport/latest/user/operational-excellence-checks.html#nitro-v4-outdated-ena-driver) | Added a new check that identifies Amazon EC2 instances running on Nitro system version 4 that use outdated Elastic Network Adapter (ENA) drivers. | 
 | August 27, 2026 | Updated Security Hub CSPM checks in Trusted Advisor | Trusted Advisor supports only AWS Security Hub CSPM controls available through July 8, 2026. For more information, see [Viewing AWS Security Hub CSPM controls in AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/security-hub-controls-with-trusted-advisor.html). | 
 | February 19, 2026 | New [Idle NAT gateways](https://docs.aws.amazon.com/awssupport/latest/user/cost-optimization-checks.html#idle-nat-gateways) | Added a new check to identify idle or underutilized NAT gateways that might be candidates for cost optimization. | 
