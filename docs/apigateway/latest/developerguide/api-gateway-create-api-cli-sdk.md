@@ -37,7 +37,7 @@ Use the following tutorial to create a PetStore API supporting the `GET /pets` a
 
 ------
 
-For more information about the AWS SDK for JavaScript v3, see [What's the AWS SDK for JavaScript?](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html). For more information about the SDK for Python (Boto3), see [AWS SDK for Python (Boto3)](https://docs.aws.amazon.com/pythonsdk). For more information about the AWS CLI, see [What is the AWS CLI?](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
+For more information about the AWS SDK for JavaScript v3, see [What's the AWS SDK for JavaScript?](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html). For more information about the SDK for Python (Boto3), see [AWS SDK for Python (Boto3)](https://docs.aws.amazon.com/sdk-for-python). For more information about the AWS CLI, see [What is the AWS CLI?](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
 
 ## Set up an edge-optimized PetStore API
 <a name="api-gateway-create-api-cli-sdk-tutorial"></a>

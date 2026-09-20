@@ -45,7 +45,7 @@ The following table shows how API Gateway applies the previous API mappings to e
 | `https://api.example.com/orders/v1/items` | API 3 | The request exactly matches this API mapping. | 
 | `https://api.example.com/orders/v2/items` | API 4 | The request exactly matches this API mapping. | 
 | `https://api.example.com/orders/v1/items/123` | API 3 | API Gateway chooses the mapping that has the longest matching path. The `123` at the end of the request doesn't affect the selection. See [Incoming requests to your custom domain name](#rest-api-mappings-incoming-requests). | 
-| `https://api.example.com/orders/v2/items/categories/5` | API 5 | API Gateway chooses the mapping that has the longest matching path. | 
+| `https://api.example.com/orders/v1/items/categories/5` | API 5 | API Gateway chooses the mapping that has the longest matching path. | 
 | `https://api.example.com/customers` | API 1 | API Gateway uses the empty mapping as a catch-all. | 
 | `https://api.example.com/ordersandmore` | API 2 | API Gateway chooses the mapping that has the longest matching prefix.<br />For a custom domain name configured with single-level mappings, such as only `https://api.example.com/orders` and `https://api.example.com/`, API Gateway would choose `API 1`, as there is no matching path with `ordersandmore`. | 
 

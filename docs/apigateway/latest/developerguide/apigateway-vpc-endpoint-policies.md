@@ -14,8 +14,21 @@ You might want to create a VPC endpoint policy to do the following tasks.
 <a name="apigateway-vpc-endpoint-policies-considerations"></a>
 
 The following are considerations for your VPC endpoint policy:
-+ The identity of the invoker is evaluated based on the `Authorization` header value. The VPC endpoint policy is evaluated first, and then API Gateway evaluates the request, based on the type of authorization configured on the method request. The following table shows how the VPC endpoint policy is evaluated based on the content of the `Authorization` header value.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-vpc-endpoint-policies.html)
++ The identity of the invoker is evaluated based on the `Authorization` header value. The VPC endpoint policy is evaluated first, and then API Gateway evaluates the request, based on the type of authorization configured on the method request. The following table shows how the VPC endpoint policy is evaluated based on the content of the `Authorization` header value.
+
+
+<table>
+<thead>
+  <tr><th>Content of the <code>Authorization</code> header value</th><th>How the VPC endpoint policy is evaluated</th></tr>
+</thead>
+<tbody>
+  <tr><td>No content</td><td>The invoker is evaluated as an anonymous user</td></tr>
+  <tr><td>Valid <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">SigV4 or SigV4a</a> signature</td><td>The invoker is evaluated as the authenticated IAM identity from the signature</td></tr>
+  <tr><td>Invalid <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">SigV4 or SigV4a</a> signature</td><td>API Gateway denies access</td></tr>
+  <tr><td>Non-SigV4 authorization information such as a bearer token</td><td>The invoker is evaluated as an anonymous user</td></tr>
+</tbody>
+</table>
+
 + If your access control depends on using a bearer token, such as a Lambda or Amazon Cognito authorizer, you can control your security perimeter by using [properties of the resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resource-properties).
 +  If your authorization controls use IAM authorization, you can control your security perimeter by using [properties of the resource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resource-properties) and [ properties of the principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resource-principal).
 + VPC endpoint policies can be used together with API Gateway resource policies. The API Gateway resource policy specifies which principals can access the API. The endpoint policy specifies who can access the VPC and which APIs can be called from the VPC endpoint. Your private API needs a resource policy but you don't need to create a custom VPC endpoint policy.

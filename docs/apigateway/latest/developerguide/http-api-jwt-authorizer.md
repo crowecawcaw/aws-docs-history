@@ -21,7 +21,7 @@ API Gateway uses the following general workflow to authorize requests to routes 
 
 1. Decode the token.
 
-1. Check the token's algorithm and signature by using the public key that is fetched from the issuer's `jwks_uri`. Currently, only RSA-based algorithms are supported. API Gateway can cache the public key for two hours. As a best practice, when you rotate keys, allow a grace period during which both the old and new keys are valid. 
+1. Check the token's algorithm and signature by using the public key that is fetched from the issuer's `jwks_uri`. Currently, only RSA-based algorithms are supported. API Gateway caches the public key for up to two hours on a best-effort basis. On a cache miss, API Gateway fetches the public key from the issuer over the network, which adds latency to the request that triggers it. APIs with a low or intermittent request rate are more likely to experience these fetches. Because a public key can remain cached for up to two hours, allow a grace period when you rotate keys, during which both the old and new keys are valid.
 
 1. Validate claims. API Gateway evaluates the following token claims:
    +  [`kid`](https://datatracker.ietf.org/doc/html/rfc7517#section-4.5) – The token must have a header claim that matches the key in the `jwks_uri` that signed the token.

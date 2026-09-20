@@ -52,7 +52,7 @@ The following are considerations for using endpoint access mode:
 <a name="apigateway-security-policies-considerations"></a>
 
 The following are considerations for security policies for REST APIs in API Gateway:
-+ You can import the security policy in an OpenAPI definition file. For more information, see [x-amazon-apigateway-endpoint-access-mode](openapi-extensions-security-policy.md).
++ You can import the security policy in an OpenAPI definition file. For more information, see [x-amazon-apigateway-security-policy](openapi-extensions-security-policy.md).
 + Your API can be mapped to a custom domain name with a different security policy than your API. When you invoke that custom domain name, API Gateway uses the security policy of the custom domain to negotiate the TLS handshake. If you disable your default API endpoint, this might affect how callers can invoke your API.
 + If you change your security policy, it takes about 15 minutes for the update to complete. You can monitor the `apiStatus` of your API. As your API updates, the `apiStatus` is `UPDATING` and when it completes, it will be `AVAILABLE`. When your API status is `UPDATING`, you can still invoke it.
 + API Gateway supports security policies on all APIs. However, you can only choose a security policy for REST APIs. API Gateway only supports the `TLS_1_2` security policy for HTTP or WebSocket APIs.

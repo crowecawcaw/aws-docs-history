@@ -3,7 +3,7 @@
 # Disable the default endpoint for REST APIs
 <a name="rest-api-disable-default-endpoint"></a>
 
-By default, clients can invoke your API by using the `execute-api` endpoint that API Gateway generates for your API. To ensure that clients can access your API only by using a custom domain name, disable the default `execute-api` endpoint. Clients can still connect to your default endpoint, but they will receive a `403 Forbidden` status code. Disabling the default endpoint affects all stages of the API. This setting takes affect when you update any setting on any stage, such as updating the deployment on the stage.
+By default, clients can invoke your API by using the `execute-api` endpoint that API Gateway generates for your API. To ensure that clients can access your API only by using a custom domain name, disable the default `execute-api` endpoint. Clients can still connect to your default endpoint, but they will receive a `403 Forbidden` status code. Disabling the default endpoint affects all stages of the API. This setting takes effect when you update any setting on any stage, such as updating the deployment on the stage.
 
 The following procedure shows how to disable the default endpoint for a REST API.
 

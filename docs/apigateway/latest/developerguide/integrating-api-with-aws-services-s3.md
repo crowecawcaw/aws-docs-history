@@ -307,7 +307,7 @@ In this step, you do the following:
 
 1. Choose **Save**.
 
-**To test the `/{folder}/{object} GET` method.**
+**To test the `/{folder}/{item} GET` method.**
 
 1. Choose the **Test** tab. You might need to choose the right arrow button to show the tab.
 

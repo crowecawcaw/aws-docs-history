@@ -46,7 +46,7 @@ A logical reference to a lifecycle state of your API (for example, 'dev', 'prod'
 An app creator who may or may not have an AWS account and interacts with the API that you, the API developer, have deployed. App developers are your customers. An app developer is typically identified by an [API key](#apigateway-definition-api-key).
 
 **Callback URL**  
-When a new client is connected to through a WebSocket connection, you can call an integration in API Gateway to store the client's callback URL. You can then use that callback URL to send messages to the client from the backend system.
+When a new client is connected through a WebSocket connection, you can call an integration in API Gateway to store the client's callback URL. You can then use that callback URL to send messages to the client from the backend system.
 
 **Developer portal**  <a name="apigateway-definition-developer-portal"></a>
 An application where API providers can share their APIs and API documentation to API consumers. APIs are grouped into products, which are a collection of REST API endpoints, API documentation, and supplemental product documentation.  
