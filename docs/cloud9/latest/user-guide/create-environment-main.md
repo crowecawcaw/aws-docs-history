@@ -69,15 +69,41 @@ Choosing a longer time period might result in more charges to your AWS account.
    + **AWS Systems Manager (SSM)** – This method accesses the environment using SSM without opening inbound ports.
    + **Secure Shell (SSH)** – This method accesses the environment using SSH and requires open inbound ports.
 
-1. <a name="create-environment-vpc-step"></a>Choose **VPC Settings** to display the Amazon Virtual Private Cloud and Subnet for your environment. AWS Cloud9 uses Amazon Virtual Private Cloud (Amazon VPC) to communicate with the newly created Amazon EC2 instance. For this tutorial, we recommend that you don't change the preselected default settings. With the default settings, AWS Cloud9 attempts to use the default VPC with its single subnet in the same AWS account and Region as the new environment. Depending on how Amazon VPC is set up, follow one of the following set of instructions.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html)
+1. <a name="create-environment-vpc-step"></a>Choose **VPC Settings** to display the Amazon Virtual Private Cloud and Subnet for your environment. AWS Cloud9 uses Amazon Virtual Private Cloud (Amazon VPC) to communicate with the newly created Amazon EC2 instance. For this tutorial, we recommend that you don't change the preselected default settings. With the default settings, AWS Cloud9 attempts to use the default VPC with its single subnet in the same AWS account and Region as the new environment. Depending on how Amazon VPC is set up, follow one of the following set of instructions.
+
+
+
+<table>
+<tbody>
+  <tr><td>If you're not sure what to choose, we recommend that you skip ahead to the next step in this procedure.<br />If you skip past <b>Network settings (advanced)</b> and leave the preselected default settings, AWS Cloud9 attempts to use the default VPC with its single subnet. AWS Cloud9 chooses the subnet based on the instance-type that you selected. These are in the same AWS account and AWS Region as the new environment.</td></tr>
+</tbody>
+</table>
+
 **Important**  
 If you selected **Existing compute** as your environment type, you can launch your instance into a public or private subnet.  
 **Public subnet**: Attach an internet gateway to the subnet to allow the instance SSM agent to communicate with Systems Manager.
 **Private subnet**: Create a NAT gateway to enable the instance to communicate with the internet and other AWS services.
 Currently, you can't use [AWS managed temporary credentials](security-iam.md#auth-and-access-control-temporary-managed-credentials) to allow the EC2 environment to access an AWS service on behalf of an AWS entity, such as an IAM user.  
- For more information about configuring subnets, see [VPC settings for AWS Cloud9 Development Environments](vpc-settings.md).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html)
+ For more information about configuring subnets, see [VPC settings for AWS Cloud9 Development Environments](vpc-settings.md).
+
+
+
+<table>
+<thead>
+  <tr><th> <b>Does the AWS account have access to an Amazon VPC?</b> </th><th> <b>Is that VPC in the same AWS account and Region as the new environment?</b> </th><th> <b>Is that VPC the default VPC for its AWS account?</b> </th><th> <b>Does that VPC contain a single subnet?</b> </th><th> <b>Follow these instructions</b> </th></tr>
+</thead>
+<tbody>
+  <tr><td>No</td><td>—</td><td>—</td><td>—</td><td>If no VPC exists, create one.<br />To create a VPC in the same AWS account and Region as the new environment, choose <b>Create new VPC</b>, and then follow the on-screen directions. For more information, see <a href="vpc-settings.md#vpc-settings-create-vpc">Create a VPC plus other VPC resources</a>.<br />To create a VPC in a different AWS account than the new environment, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">Working with Shared VPCs</a> in the <i>Amazon VPC User Guide</i>.</td></tr>
+  <tr><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Skip ahead to the next step in this procedure.<br />When you skip <b>Network settings (advanced)</b> and don't change the preselected default settings, AWS Cloud9 attempts to use the default VPC with its single subnet in the same account and Region as the new environment.</td></tr>
+  <tr><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>If the default VPC has multiple subnets, expand <b>Network settings (advanced)</b>. For <b>Subnet</b>, choose the subnet that you want AWS Cloud9 to use in the preselected default VPC.<br />If the default VPC has no subnets, create one. To do this, choose <b>Create new subnet</b>, and then follow the on-screen directions. For more information, see <a href="vpc-settings.md#vpc-settings-create-subnet">Create a subnet for AWS Cloud9</a>.</td></tr>
+  <tr><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Expand <b>Network settings</b>. For <b>Network (VPC)</b>, choose the VPC that you want AWS Cloud9 to use.</td></tr>
+  <tr><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>Expand <b>Network settings</b>. For <b>Network (VPC)</b>, choose the VPC that you want AWS Cloud9 to use.<br />If the chosen VPC has multiple subnets, expand <b>Network settings (advanced)</b>. For <b>Subnet</b>, choose the subnet that you want AWS Cloud9 to use in the chosen VPC.<br />If the chosen VPC has no subnets, create one. To do this, choose <b>Create new subnet</b>, and then follow the on-screen directions. For more information, see <a href="vpc-settings.md#vpc-settings-create-subnet">Create a subnet for AWS Cloud9</a>.</td></tr>
+  <tr><td>Yes</td><td>No</td><td>Yes</td><td>—</td><td>AWS Cloud9 can't use a default VPC in an AWS account that's different than the account for the new environment. Choose a different option in this list.</td></tr>
+  <tr><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>Expand <b>Network settings</b>. For <b>Network (VPC)</b>, choose the VPC that you want AWS Cloud9 to use. The VPC must be in the same Region as the new environment, even if the VPC is in a different account. </td></tr>
+  <tr><td>Yes</td><td>No</td><td>No</td><td>No</td><td>Expand <b>Network settings</b>. For <b>Network (VPC)</b>, choose the VPC that you want AWS Cloud9 to use.<br />For <b>Subnet</b>, choose the subnet you want AWS Cloud9 to use in the chosen VPC.<br />If the chosen VPC has no subnets, to create a subnet for a VPC in a different AWS account than the new environment, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">Working with Shared VPCs</a> in the <i>Amazon VPC User Guide</i>. The VPC and subnet must be in the same Region as the new environment, even if the VPC and subnet are in a different account. </td></tr>
+</tbody>
+</table>
+
 
    For more information about these choices, see [VPC settings for AWS Cloud9 Development Environments](vpc-settings.md).
 

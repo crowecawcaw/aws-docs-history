@@ -286,9 +286,41 @@ You can create and configure VPC endpoints using the AWS Management Console, AWS
 
    For the `Resource` element, replace `{bucket_name}` with the actual name of the bucket that's available in your AWS Region. For example, if you're using AWS Cloud9 in the Europe (Ireland) Region, you specify the following: `"Resource": "arn:aws:s3:::static-eu-west-1-prod-static-hld3vzaf7c4h/content/dependencies/`.
 
-   The following table lists the bucket names for the AWS Regions where AWS Cloud9 is available.  
-**Amazon S3 buckets in AWS Cloud9 Regions**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html)
+   The following table lists the bucket names for the AWS Regions where AWS Cloud9 is available.
+
+
+**Amazon S3 buckets in AWS Cloud9 Regions**  
+
+<table>
+<thead>
+  <tr><th>AWS Region</th><th>Bucket name</th></tr>
+</thead>
+<tbody>
+  <tr><td> US East (Ohio) </td><td><code>static-us-east-2-prod-static-1c3sfcvf9hy4m</code></td></tr>
+  <tr><td> US East (N. Virginia) </td><td><code>static-us-east-1-prod-static-mft1klnkc4hl</code></td></tr>
+  <tr><td> US West (Oregon) </td><td><code>static-us-west-2-prod-static-p21mksqx9zlr</code></td></tr>
+  <tr><td> US West (N. California) </td><td><code>static-us-west-1-prod-static-16d59zrrp01z0</code></td></tr>
+  <tr><td> Africa (Cape Town) </td><td><code>static-af-south-1-prod-static-v6v7i5ypdppv</code></td></tr>
+  <tr><td> Asia Pacific (Hong Kong) </td><td><code>static-ap-east-1-prod-static-171xhpfkrorh6</code></td></tr>
+  <tr><td> Asia Pacific (Mumbai) </td><td><code>static-ap-south-1-prod-static-ykocre202i9d</code></td></tr>
+  <tr><td> Asia Pacific (Osaka)</td><td><code>static-ap-northeast-3-prod-static-ivmxqzrx2ioi</code></td></tr>
+  <tr><td> Asia Pacific (Seoul) </td><td><code>static-ap-northeast-2-prod-static-1wxyctlhwiajm</code></td></tr>
+  <tr><td> Asia Pacific (Singapore)</td><td><code>static-ap-southeast-1-prod-static-13ibpyrx4vk6d</code></td></tr>
+  <tr><td> Asia Pacific (Sydney) </td><td><code>static-ap-southeast-2-prod-static-1cjsl8bx27rfu</code></td></tr>
+  <tr><td> Asia Pacific (Tokyo) </td><td><code>static-ap-northeast-1-prod-static-4fwvbdisquj8</code></td></tr>
+  <tr><td> Canada (Central) </td><td><code>static-ca-central-1-prod-static-g80lpejy486c</code></td></tr>
+  <tr><td> Europe (Frankfurt) </td><td><code>static-eu-central-1-prod-static-14lbgls2vrkh</code></td></tr>
+  <tr><td> Europe (Ireland) </td><td><code>static-eu-west-1-prod-static-hld3vzaf7c4h</code></td></tr>
+  <tr><td> Europe (London) </td><td><code>static-eu-west-2-prod-static-36lbg202837x</code></td></tr>
+  <tr><td> Europe (Milan) </td><td><code>static-eu-south-1-prod-static-1379tzkd3ni7d</code></td></tr>
+  <tr><td>Europe (Paris)</td><td><code>static-eu-west-3-prod-static-1rwpkf766ke58</code></td></tr>
+  <tr><td> Europe (Stockholm) </td><td><code>static-eu-north-1-prod-static-1qzw982y7yu7e</code></td></tr>
+  <tr><td> Middle East (Bahrain) </td><td><code>static-me-south-1-prod-static-gmljex38qtqx</code></td></tr>
+  <tr><td> South America (São Paulo) </td><td><code>static-sa-east-1-prod-static-1cl8k0y7opidt</code></td></tr>
+  <tr><td> Israel (Tel Aviv) </td><td><code>static-il-central-1-prod-static-k02vrnhcesue</code></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create Endpoint**.
 
