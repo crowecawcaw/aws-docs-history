@@ -121,7 +121,7 @@ Every time you create or update a MicroVM image, Lambda produces a new **version
 
 Three independent states track different aspects of the lifecycle:
 + **Image state** – the overall lifecycle of the MicroVM image resource (being created, ready to use, being updated, failed, or being deleted).
-+ **Version state** – the build progress of a specific version (pending, building, succeeded, or failed). Check `stateReason` or CloudWatch logs (`/aws/lambda/microvms/<image-name>`) for failure details.
++ **Version state** – the build progress of a specific version (pending, building, succeeded, or failed). Check `stateReason` or CloudWatch logs (`/aws/lambda-microvms/<image-name>`) for failure details.
 + **Version activation** – whether a successfully-built version is allowed to run MicroVMs. Lambda sets new versions to `ACTIVE` automatically; you can set a version to `INACTIVE` to disable it without deleting it.
 
 

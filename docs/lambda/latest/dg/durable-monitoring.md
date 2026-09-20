@@ -5,6 +5,9 @@
 
 You can monitor your durable functions using CloudWatch metrics, CloudWatch Logs, and tracing. Because durable functions can run for extended periods and span multiple function invocations, monitoring them requires understanding their unique execution patterns, including checkpoints, state transitions, and replay behavior.
 
+**Note**  
+For more information about the quotas that apply to durable functions, see [Durable functions quotas](gettingstarted-limits.md#durable-functions-quotas).
+
 ## CloudWatch metrics
 <a name="durable-monitoring-metrics"></a>
 

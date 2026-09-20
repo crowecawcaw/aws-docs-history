@@ -223,11 +223,11 @@ In Python 3.9 and later releases, Lambda includes the requestId of the invocatio
 ## Using the AWS SDK for Python (Boto3) in your handler
 <a name="python-handler-sdk"></a>
 
-Often, you'll use Lambda functions to interact with other AWS services and resources. The simplest way to interface with these resources is to use the AWS SDK for Python (Boto3). All [supported Lambda Python runtimes](lambda-runtimes.md#runtimes-supported) include a version of the SDK for Python.
+Often, you'll use Lambda functions to interact with other AWS services and resources. The simplest way to interface with these resources is to use the AWS SDK for Python (Boto3). All [supported Lambda Python runtimes](lambda-runtimes.md#runtimes-supported) include a version of the SDK for Python (Boto3).
 
 However, we strongly recommend that you include the SDK in your function's deployment package if your code needs to use it. Including the SDK in your deployment package gives you full control over your dependencies and reduces the risk of version misalignment issues with other libraries. See [Runtime dependencies in Python](python-package.md#python-package-dependencies) and [Backward compatibility](runtimes-update.md#runtime-update-compatibility) to learn more.
 
-To use the SDK for Python in your Lambda function, add the following statement to the import block at the beginning of your function code:
+To use the SDK for Python (Boto3) in your Lambda function, add the following statement to the import block at the beginning of your function code:
 
 ```
 import boto3

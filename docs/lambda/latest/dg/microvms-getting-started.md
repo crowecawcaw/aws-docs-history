@@ -143,7 +143,7 @@ When the build completes, the `state` field changes to `CREATED`:
 }
 ```
 
-If the state is `CREATE_FAILED`, check the build logs in CloudWatch under `/aws/lambda/microvms/my-first-microvm-image`.
+If the state is `CREATE_FAILED`, check the build logs in CloudWatch under `/aws/lambda-microvms/my-first-microvm-image`.
 
 ## Running your first MicroVM
 <a name="microvms-getting-started-run"></a>

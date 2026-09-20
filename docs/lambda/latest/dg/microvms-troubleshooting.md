@@ -38,7 +38,7 @@ This section provides solutions for common issues when working with Lambda Micro
 
 | Symptom | Possible cause and resolution | 
 | --- | --- | 
-| Image build fails (CREATION\_FAILED) | Check build logs at /aws/lambda/microvms/<image-name>. Verify Dockerfile syntax, Amazon S3 permissions, and base image availability. Run docker build locally to reproduce. | 
+| Image build fails (CREATION\_FAILED) | Check build logs at /aws/lambda-microvms/<image-name>. Verify Dockerfile syntax, Amazon S3 permissions, and base image availability. Run docker build locally to reproduce. | 
 | MicroVM stuck in PENDING | Wait and retry. If persistent, check service health. Verify your concurrency quota is not exhausted. | 
 | Application not responding after resume | Implement the /resume lifecycle hook to re-establish connections and validate state. Check that your app binds to port 8080 (or configured port) after resume. | 
 | 502 Bad Gateway from endpoint | Application crashed or is not listening. Check runtime logs. Verify EXPOSE and CMD in Dockerfile. If auto-resume, the MicroVM may have failed to resume (check state by using get-microvm). | 
