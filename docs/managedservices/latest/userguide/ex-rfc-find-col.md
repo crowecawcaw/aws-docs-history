@@ -65,9 +65,32 @@ You can use any `CreateRfc` parameters with any RFC whether or not they are part
 
 If you don’t write down the RFC ID, and need to find it later, you can use the AMS change management (CM) system to search for it and narrow the results with a filter or query.
 
-1. The CM API [ListRfcSummaries](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_ListRfcSummaries.html) operation has filters. You can [Filter](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_Filter.html) results based on an `Attribute` and `Value` combined in a logical AND operation, or based on an `Attribute`, a `Condition`, and `Values`.  
-**RFC filtering**    
-<a name="rfc-filtering-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/userguide/ex-rfc-find-col.html)
+1. The CM API [ListRfcSummaries](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_ListRfcSummaries.html) operation has filters. You can [Filter](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_Filter.html) results based on an `Attribute` and `Value` combined in a logical AND operation, or based on an `Attribute`, a `Condition`, and `Values`.
+
+
+**RFC filtering**  
+<a name="rfc-filtering-table"></a>
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Valid values</th><th>Valid conditions</th><th>Default condition</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td>ActualEndTime</td><td>Any string representing an ISO8601 datetime (for example, “20170101T000000Z”)</td><td>Before, After, Between</td><td>None</td><td>The Before or After condition only accepts one value in the Values field. The Between condition must have exactly two values in the Values field, where the first value should represent a date that happens before the second value</td></tr>
+  <tr><td>ActualStartTime</td><td>Any string representing an ISO8601 datetime (for example, “20170101T000000Z”)</td><td>Before, After, Between</td><td>None</td><td>The Before or After condition only accepts one value in the Values field. The Between condition must have exactly two values in the Values field, where the first value should represent a date that happens before the second value</td></tr>
+  <tr><td>AutomationStatusId</td><td>Manual, Automated</td><td>Equals</td><td>Equals</td><td>There are only two automation statuses</td></tr>
+  <tr><td>ChangeTypeId</td><td>Any valid change type ID; for example, ct-123h45t6uz7jl</td><td>Equals</td><td>Equals</td><td><a href="https://docs.aws.amazon.com/managedservices/latest/userguide/ug-find-ct-ex-section.html">Finding a Change Type or CSIO</a></td></tr>
+  <tr><td>ChangeTypeVersion</td><td>Any valid change type ID; for example, 1.0</td><td>Equals</td><td>Equals</td><td><a href="https://docs.aws.amazon.com/managedservices/latest/userguide/ug-find-ct-ex-section.html">Finding a Change Type or CSIO</a></td></tr>
+  <tr><td>CreatedBy</td><td>Any string (maximum allowed length is 2048 characters)</td><td>Contains</td><td>Contains</td><td>The CreatedBy field of the RFC contains the ARN of the user who created it</td></tr>
+  <tr><td>CreatedTime</td><td>Any string representing an ISO8601 datetime (for example, “20170101T000000Z”)</td><td>Before, After, Between</td><td>None</td><td>The Before or After condition only accepts one value in the Values field. The Between condition must have exactly two values in the Values field, where the first value should represent a date that happens before the second value</td></tr>
+  <tr><td>LastModifiedTime</td><td>Any string representing an ISO8601 datetime (for example, “20170101T000000Z”)</td><td>Before, After, Between</td><td>None</td><td>The Before or After condition only accepts one value in the Values field. The Between condition must have exactly two values in the Values field, where the first value should represent a date that happens before the second value</td></tr>
+  <tr><td>LastSubmittedTime</td><td>Any string representing an ISO8601 datetime (for example, “20170101T000000Z”)</td><td>Before, After, Between</td><td>None</td><td>The Before or After condition only accepts one value in the Values field. The Between condition must have exactly two values in the Values field, where the first value should represent a date that happens before the second value</td></tr>
+  <tr><td>RequestedEndTime</td><td>Any string representing an ISO8601 datetime (for example, “20170101T000000Z”)</td><td>Before, After, Between</td><td>None</td><td>The Before or After condition only accepts one value in the Values field. The Between condition must have exactly two values in the Values field, where the first value should represent a date that happens before the second value</td></tr>
+  <tr><td>RequestedStartTime</td><td>Any string representing an ISO8601 datetime (for example, “20170101T000000Z”)</td><td>Before, After, Between</td><td>None</td><td>The Before or After condition only accepts one value in the Values field. The Between condition must have exactly two values in the Values field, where the first value should represent a date that happens before the second value</td></tr>
+  <tr><td>RfcStatusId</td><td>Canceled, Editing, Failure, InProgress, PendingApproval, Rejected, Scheduled, Success</td><td>Equals</td><td>Equals</td><td>Refresh the RFC list in the AMS console or run <a href="https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_GetRfc.html">GetRfc</a></td></tr>
+  <tr><td>Title</td><td>Any valid RFC title</td><td>Contains</td><td>Contains</td><td>Regular expressions in each individual field are not supported. Case insensitive search</td></tr>
+</tbody>
+</table>
+
 
    Examples:
 

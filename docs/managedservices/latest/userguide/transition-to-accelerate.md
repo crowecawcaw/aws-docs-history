@@ -21,6 +21,7 @@ This guide helps you understand what is changing during the transition and what 
 + [Backup management](#transition-backup)
 + [Change management and configuration compliance](#transition-change-mgmt)
 + [Patch management](#transition-patching)
++ [Landing zone governance with AWS Control Tower (optional)](#transition-control-tower)
 + [Timeline and support](#transition-timeline)
 + [Related resources](#transition-related-resources)
 
@@ -31,7 +32,7 @@ AMS Advanced uses a preventive model: you make changes to your environment exclu
 
 AMS Accelerate uses a detect-and-respond model: you make changes directly using your preferred tools and workflows. Rather than blocking changes upfront, Accelerate monitors your environment and responds to risky configurations—automatically remediating, notifying you, or reporting findings depending on how you've configured each control. This gives you the speed and autonomy to operate at your own pace while AMS continues to protect your environment.
 
-Both plans share the same core operational services: monitoring, incident management, patch management, backup management, cost optimization, reporting, and dedicated CSDM and CA support. Some capabilities that are unique to AMS Advanced (such as the RFC system, managed access, and endpoint security) don't carry over directly—the table in the following section explains what's available in Accelerate and what you manage yourself.
+Both plans share the same core operational services: monitoring, incident management, patch management, backup management, cost optimization, reporting, and dedicated Cloud Service Delivery Manager (CSDM) and Cloud Architect (CA) support. Some capabilities that are unique to AMS Advanced (such as the RFC system, managed access, and endpoint security) don't carry over directly—the table in the following section explains what's available in Accelerate and what you manage yourself.
 
 It's also important to understand how AMS Operations engineers access your instances. In AMS Advanced, AMS Ops connect through the same bastion infrastructure using internal credentials. In Accelerate, AMS Ops use AWS Systems Manager Session Manager to access your instances when needed for incident response, patching, or operational tasks. This requires the SSM agent to be running on your instances and an IAM instance profile that authorizes communication with the AWS Systems Manager service. AMS Accelerate provides automated instance configuration that installs and maintains the SSM agent (and CloudWatch agent) on your EC2 instances—your CA helps you enable this during onboarding. If you already have the SSM agent deployed and a compatible instance profile, no additional setup is needed.
 
@@ -73,7 +74,7 @@ The following table summarizes what's available in Accelerate and what's differe
 | **EC2 instance access** | Customer-managed | You connect directly using your AD credentials over your existing network. AMS-managed bastion hosts are decommissioned. You can deploy your own bastions or use Session Manager. | 
 | **Endpoint security** | Customer-managed | You choose your own endpoint security vendor (including Trend Micro Vision One) and manage agent lifecycle. Customers who want AMS to monitor third-party security alerts can onboard to AWS Security Incident Response (SIR) at no additional cost—it's included for AMS customers. | 
 | **Change management (RFC system)** | Not available | The RFC system is not part of Accelerate. You use your preferred tools (Console, CLI, Terraform, AWS CloudFormation) directly. Configuration compliance monitors for risky changes after the fact. Operations on Demand is available if you need assisted change management. | 
-| **Landing zone management** | Customer-managed | For MALZ customers, core accounts (Management, Shared Services, Networking, Security, Logging) are handed over to you. AMS removes AMS-managed infrastructure from these accounts during offboarding. Your VPCs, subnets, and network configurations remain in place and are yours to manage. | 
+| **Landing zone management** | Customer-managed (MALZ: AWS Control Tower available) | For MALZ customers, AMS can transition your multi-account landing zone to AWS Control Tower, an AWS-native service that provides automated account provisioning, preventive guardrails, and centralized governance. Your core accounts (Management, Shared Services, Networking, Security, Logging) carry forward into AWS Control Tower's account structure. AMS removes AMS-managed infrastructure during offboarding; your VPCs, subnets, and network configurations remain in place. For more information, see [Landing zone governance with AWS Control Tower (optional)](#transition-control-tower). | 
 | **AMS AMIs** | Not available | AMS no longer produces monthly AMIs. Use standard AWS AMIs and EC2 Image Builder for your own pipelines. Operations on Demand offers managed AMI building if you have custom needs. | 
 
 ## EC2 instance access
@@ -194,6 +195,48 @@ The following operational details change after migration:
 + **Change process** – You no longer use the RFC system to create or modify maintenance windows. In Accelerate, you manage maintenance windows directly through the AWS Systems Manager console, API, or infrastructure-as-code.
 
 **Continuity:** Your patching doesn't stop during the transition. The migration is sequenced so that your maintenance windows and baselines are functional on the Accelerate side before the AMS Advanced infrastructure is removed. If any issue is detected, the migration can be reversed to restore AMS Advanced patching.
+
+## Landing zone governance with AWS Control Tower (optional)
+<a name="transition-control-tower"></a>
+
+For multi-account landing zone (MALZ) customers, AMS Advanced manages your multi-account landing zone today, handling account provisioning, preventive guardrails, and centralized logging and configuration compliance across your organization. After the transition to AMS Accelerate, landing zone management becomes customer-managed: your organization, accounts, and network configurations remain in place and are yours to operate. This section doesn't apply to single-account landing zone (SALZ) customers.
+
+To help you maintain centralized, automated governance in Accelerate, AWS offers AWS Control Tower, an AWS-native service purpose-built for multi-account environments. AWS Control Tower provides automated account provisioning, preventive guardrails, and centralized configuration compliance, giving you a supported path to continue the governance practices you rely on today. You can optionally have AMS enable AWS Control Tower as part of your transition engagement.
+
+MALZ and AWS Control Tower share the same foundational multi-account architecture. Your MALZ environment already has dedicated accounts for security operations (security account) and centralized logging (logging account), which map directly to AWS Control Tower's audit account and log archive account. The management account is the same in both models. Because these accounts already exist, enabling AWS Control Tower imports and builds on them rather than creating new ones. Your existing log storage, security tooling, and organizational structure carry forward.
+
+**Important**  
+AWS Control Tower can only be enabled during the transition, not after it. Before your transition is initiated, tell your CA if you want AWS Control Tower enabled. If you opt in, AMS enables it as part of your engagement. If you don't opt in, your accounts transition to Accelerate without it and you would need to enable AWS Control Tower yourself post-transition. All MALZ core accounts (Management, Security, Logging, Shared Services, Networking) must be transitioned to Accelerate before or during the AWS Control Tower enablement. Deciding early lets your CA plan prerequisites and sequencing into your transition.
+
+**What AWS Control Tower provides**  
+After you enable AWS Control Tower, you have the following capabilities:
++ Automated account provisioning through Account Factory
++ Preventive guardrails (controls) comparable to the Service Control Policies you had in MALZ
++ Centralized detective controls and logging managed from your management account
+
+AWS Control Tower also offers the following capabilities that go beyond what MALZ provides:
++ **Governance dashboard** – A centralized view of provisioned accounts, enabled controls, and noncompliant resources organized by account and organizational unit (OU).
++ **Proactive controls** – Controls that evaluate resources before deployment (through AWS CloudFormation hooks), preventing noncompliant resources from being created in the first place.
++ **Drift detection** – Continuous monitoring of your landing zone that alerts you when accounts or OUs diverge from your baseline configuration.
+
+After you enable AWS Control Tower, you can choose which controls to apply from the [AWS Control Tower controls reference](https://docs.aws.amazon.com/controltower/latest/controlreference/controls-reference.html), which spans multiple compliance frameworks, so you can match or extend the protections you had under AMS Advanced.
+
+**What AWS Control Tower doesn't provide**  
+AWS Control Tower doesn't recreate MALZ networking. Your networking account transitions to Accelerate just like other application accounts. Account Factory can create a standalone VPC in a new account, but it doesn't attach accounts to a transit gateway or set up shared egress and shared-services connectivity the way MALZ did. Cross-account networking remains your responsibility.
+
+**What to expect during the transition**  
+Enabling AWS Control Tower imports your current organization and accounts without creating new organizational units. Your existing security and logging accounts map to their AWS Control Tower equivalents (audit and log archive). AWS Config and AWS CloudTrail integration are enabled as part of setup, with other service integrations available self-service. AWS Control Tower requires AWS Config to be disabled in your accounts beforehand, which AMS coordinates for you. After setup, adding or changing controls is self-service.
+
+When you enable AWS Control Tower, AMS replaces your MALZ AWS CloudTrail setup with the AWS Control Tower organization trail. This is a deliberate switch to a single, organization-wide trail that changes how audit logs are structured:
++ **One organization trail instead of per-account trails** – MALZ deploys an in-account trail in every account; AWS Control Tower uses a single organization trail from your management account that automatically covers all member accounts.
++ **CloudWatch Logs retention is shorter (14 days instead of 10 years)** – Your durable audit history is preserved in the Amazon S3 log bucket in your log archive account; historical Amazon S3 logs aren't deleted. If you depend on long-lived CloudWatch Logs, plan for this change or update the retention setting self-service.
++ **Logs are centralized, not per-account** – MALZ writes events to a CloudWatch log group in each account; AWS Control Tower consolidates all events into the management account.
++ **Notifications move to your home Region** – MALZ delivers trail Amazon SNS notifications across all Regions from the security account; AWS Control Tower delivers from the log archive account in your home Region only.
+
+If these differences affect your workflows, discuss them with your CA before opting in.
+
+**Additional support through Operations on Demand**  
+AWS Control Tower is designed to be self-service for day-to-day governance tasks. For occasional customizations or one-off operational needs such as OU restructuring, SCP changes, drift remediation, SSO user management, AWS Control Tower upgrades, or building custom account-vending pipelines beyond what Account Factory provides, AMS Accelerate offers Operations on Demand (OOD). OOD is purchased in 20-hour monthly blocks with no long-term commitment. Talk to your CSDM or CA to scope an engagement.
 
 ## Timeline and support
 <a name="transition-timeline"></a>

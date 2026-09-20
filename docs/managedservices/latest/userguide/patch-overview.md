@@ -57,13 +57,68 @@ Retrieve the list of currently configured repositories with the following comman
 ```
 yum repolist
 ```
-+ **Amazon Linux** preconfigured repositories (usually four):    
-<a name="linux-repos"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/userguide/patch-overview.html)
-+ **Red Hat Enterprise Linux** preconfigured repositories (five for Red Hat Enterprise Linux 7 and five for Red Hat Enterprise Linux 6):    
-<a name="linux-repos"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/userguide/patch-overview.html)    
-<a name="linux-repos"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/userguide/patch-overview.html)
-+ **CentOS 7** preconfigured repositories (usually five):    
-<a name="linux-repos"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/userguide/patch-overview.html)
++ **Amazon Linux** preconfigured repositories (usually four):
+
+<a name="linux-repos"></a>
+<table>
+<thead>
+  <tr><th>Repository ID</th><th>Repository name</th></tr>
+</thead>
+<tbody>
+  <tr><td>amzn-main/latest</td><td>amzn-main-Base</td></tr>
+  <tr><td>amzn-updates/latest</td><td>amzn-updates-Base</td></tr>
+  <tr><td>epel/x86_64</td><td>Extra Packages for Enterprise Linux 6 - x86_64</td></tr>
+  <tr><td>pbis</td><td>PBIS Packages Updates</td></tr>
+</tbody>
+</table>
+
++ **Red Hat Enterprise Linux** preconfigured repositories (five for Red Hat Enterprise Linux 7 and five for Red Hat Enterprise Linux 6):
+
+<a name="linux-repos"></a>
+<table>
+<thead>
+  <tr><th>Repository ID</th><th>Repository name</th></tr>
+</thead>
+<tbody>
+  <tr><td>rhui-REGION-client-config-server-7/x86_64</td><td>Red Hat Update Infrastructure 2.0 Client Configuration Ser</td></tr>
+  <tr><td>rhui-REGION-rhel-server-releases/7Server/x86_64</td><td>Red Hat Enterprise Linux Server 7</td></tr>
+  <tr><td>rhui-REGION-rhel-server-releases/7Server/x86_64</td><td>Red Hat Enterprise Linux Server 7 RH Common(RPMs)</td></tr>
+  <tr><td>epel/x86_64</td><td>Extra Packages for Enterprise Linux 7 - x86_64</td></tr>
+  <tr><td>pbis</td><td>PBIS Packages Updates</td></tr>
+</tbody>
+</table>
+
+
+<a name="linux-repos"></a>
+<table>
+<thead>
+  <tr><th>Repository ID</th><th>Repository name</th></tr>
+</thead>
+<tbody>
+  <tr><td>rhui-REGION-client-config-server-6</td><td>Red Hat Update Infrastructure 2.0</td></tr>
+  <tr><td>rhui-REGION-rhel-server-releases</td><td>Red Hat Enterprise Linux Server 6 (RPMs)</td></tr>
+  <tr><td>rhui-REGION-rhel-server-rh-common</td><td>Red Hat Enterprise Linux Server 6 RH Common (RPMs)</td></tr>
+  <tr><td>epel</td><td>Extra Packages for Enterprise Linux 6 - x86_64</td></tr>
+  <tr><td>pbis</td><td>PBIS Packages Updates</td></tr>
+</tbody>
+</table>
+
++ **CentOS 7** preconfigured repositories (usually five):
+
+<a name="linux-repos"></a>
+<table>
+<thead>
+  <tr><th>Repository ID</th><th>Repository Name</th></tr>
+</thead>
+<tbody>
+  <tr><td>base/7/x86_64</td><td>CentOS-7 - Base</td></tr>
+  <tr><td>updates/7/x86_64</td><td>CentOS-7 - Updates</td></tr>
+  <tr><td>extras/7/x86_64</td><td>CentOS-7 - Extras</td></tr>
+  <tr><td>epel/x86_64</td><td>Extra Packages for Enterprise Linux 7 - x86_64</td></tr>
+  <tr><td>pbis</td><td>PBIS Packages Updates</td></tr>
+</tbody>
+</table>
+
 + For **Microsoft Windows Server**, all updates are detected and installed using the Windows Update Agent, which is configured to use the Windows Update catalog (this doesn't include updates from Microsoft Update).
 
   On Microsoft Windows operating systems, Patch Manager uses Microsoft’s cab file wsusscn2.cab as the source of available operating system security updates. This file contains information about the security-related updates that Microsoft publishes. Patch Manager downloads this file regularly from Microsoft and uses it to update the set of patches available for Windows instances. The file contains only updates that Microsoft identifies as being related to security. As the information in the file is processed, Patch Manager also removes updates that have been replaced by later updates. Therefore, only the most recent update is displayed and made available for installation. For example, if KB4012214 replaces KB3135456, only KB4012214 is made available as an update in Patch Manager.
