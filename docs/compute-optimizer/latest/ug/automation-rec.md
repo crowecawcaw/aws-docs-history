@@ -15,7 +15,7 @@ This section of the Recommended actions page summarizes the estimated monthly sa
 
 In the recommended actions table, you will find a list of optimization opportunities. The following recommended action types are supported:
 + Snapshot and delete unattached EBS volumes: This action is recommended for volumes unattached from EC2 instances for 32 or more days. Compute Optimizer creates a snapshot to back up your data before deleting the volume. For more information about this recommendation criteria, see [Idle criteria per resource](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html#idle-criteria).
-+ Upgrade EBS volume type: This action is recommended for volumes using previous generation volume types. Upgrading to newer generation volume types, such as gp3 and io2, provides better performance and cost efficiency with improved IOPS and throughput capabilities at lower prices. 
++ Upgrade EBS volume type: This action is recommended for volumes using previous generation volume types with an `Optimized` finding. Volumes with a `NotOptimized` finding are not eligible. Upgrading to newer generation volume types, such as gp3 and io2, provides better performance and cost efficiency with improved IOPS and throughput capabilities at lower prices. For the definition of each finding, see [EBS volume finding classifications](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-ebs-recommendations.html#ebs-recommendations-findings).
 
 There are several considerations when applying recommended actions:
 + The estimated monthly savings considers the snapshot cost based on the volume's provisioned size. Actual snapshot cost depends on the incremental EBS snapshot size. 
