@@ -147,14 +147,39 @@ If you have server-side encryption with customer-provided keys (SSE-C) blocked f
 For more information, see [ Protecting data using server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html) in the *Amazon Simple Storage Service User Guide*.
 
 Depending on which type of server-side encryption you want to use, specify the following form fields. 
-+ **Use SSE-S3, SSE-KMS, or DSSE-KMS** – If you want to use these types of server-side encryption, specify the following form fields in the request.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/RESTObjectPOST.html)
++ **Use SSE-S3, SSE-KMS, or DSSE-KMS** – If you want to use these types of server-side encryption, specify the following form fields in the request. 
+
+
+<table>
+<thead>
+  <tr><th> Name </th><th> Description </th><th> Required </th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>x-amz-server-side-encryption</code> </td><td>Specifies the server-side encryption algorithm to use when Amazon S3 creates an object. To use SSE-S3, specify <code>AES256</code>. To use SSE-KMS, specify <code>aws:kms</code>. To use DSSE-KMS, specify <code>aws:kms:dsse</code>.<br />Type: String<br />Valid Value: <code>aws:kms</code>, <code>AES256</code>, <code>aws:kms:dsse</code></td><td>Yes</td></tr>
+  <tr><td> <code>x-amz-server-side-encryption-aws-kms-key-id</code> </td><td>If the <code>x-amz-server-side-encryption</code> header has a valid value of <code>aws:kms</code> or <code>aws:kms:dsse</code>, this header specifies the ID of the AWS KMS key that was used to encrypt the object.<br />Type: String</td><td>Yes, if the value of <code>x-amz-server-side-encryption</code> is <code>aws:kms</code> or <code>aws:kms:dsse</code></td></tr>
+  <tr><td> <code>x-amz-server-side-encryption-context</code> </td><td>If <code>x-amz-server-side-encryption</code> has a valid value of <code>aws:kms</code> or <code>aws:kms:dsse</code>, this header specifies the encryption context for the object. The value of this header is a base64-encoded UTF-8 string that contains JSON-formatted key-value pairs for the encryption context.<br />Type: String</td><td>No</td></tr>
+  <tr><td> <code>x-amz-server-side-encryption-bucket-key-enabled</code> </td><td>If <code>x-amz-server-side-encryption</code> has a valid value of <code>aws:kms</code> or <code>aws:kms:dsse</code>, this header specifies whether Amazon S3 should use an S3 Bucket Key with SSE-KMS or DSSE-KMS. Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS or DSSE-KMS.<br />Type: Boolean</td><td>No</td></tr>
+</tbody>
+</table>
+
 **Note**  
 If you specify `x-amz-server-side-encryption:aws:kms` or `x-amz-server-side-encryption:aws:kms:dsse`, but do not provide `x-amz-server-side-encryption-aws-kms-key-id`, Amazon S3 uses the AWS managed key (`aws/S3`) to protect the data.
 + **Use SSE-C** – If you want to manage your own encryption keys, you must provide all the following form fields in the request. 
 **Note**  
-If you use SSE-C, the `ETag` value that Amazon S3 returns in the response is not the MD5 of the object.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/RESTObjectPOST.html)
+If you use SSE-C, the `ETag` value that Amazon S3 returns in the response is not the MD5 of the object.
+
+
+<table>
+<thead>
+  <tr><th> Name </th><th> Description </th><th> Required </th></tr>
+</thead>
+<tbody>
+  <tr><td><code>x-amz-server-side-encryption-customer-algorithm</code> </td><td>Specifies the algorithm to use to when encrypting the object.<br />Type: String<br />Default: None<br />Valid Value: <code>AES256</code><br />Constraints: Must be accompanied by valid <code>x-amz-server-side-encryption-customer-key</code> and <code>x-amz-server-side-encryption-customer-key-MD5</code> fields.</td><td> Yes </td></tr>
+  <tr><td><code>x-amz-server-side-encryption-customer-key</code> </td><td>Specifies the customer-provided base64-encoded encryption key for Amazon S3 to use in encrypting data. This value is used to store the object, and then it is discarded. Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header.<br />Type: String<br />Default: None<br />Constraints: Must be accompanied by valid <code>x-amz-server-side-encryption-customer-algorithm</code> and <code>x-amz-server-side-encryption-customer-key-MD5</code> fields.</td><td>Yes</td></tr>
+  <tr><td><code>x-amz-server-side-encryption-customer-key-MD5</code> </td><td>Specifies the base64-encoded 128-bit MD5 digest of the encryption key according to <a href="http://tools.ietf.org/html/rfc1321">RFC 1321</a>. Amazon S3 uses this header for a message-integrity check to ensure that the encryption key was transmitted without error.<br />Type: String<br />Default: None<br />Constraints: Must be accompanied by valid <code>x-amz-server-side-encryption-customer-algorithm</code> and <code>x-amz-server-side-encryption-customer-key</code> fields.</td><td> Yes </td></tr>
+</tbody>
+</table>
+
 
 ### Responses
 <a name="RESTObjectPOST-requests-responses"></a>

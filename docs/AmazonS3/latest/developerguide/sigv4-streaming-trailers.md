@@ -24,8 +24,19 @@ You must set `x-amz-trailer` to indicate the contents your are including in your
 You can use the examples in this section as a reference to check signature calculations in your code. Before you review the examples, note the following:
 
  
-+  The signature calculations in these examples use the following example security credentials.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/sigv4-streaming-trailers.html)
++  The signature calculations in these examples use the following example security credentials.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWSAccessKeyId</code></td><td><code>AKIAIOSFODNN7EXAMPLE</code></td></tr>
+  <tr><td><code>AWSSecretAccessKey</code></td><td><code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code></td></tr>
+</tbody>
+</table>
+
 + All examples use the request timestamp 20130524T000000Z (`Fri, 24 May 2013 00:00:00 GMT`).
 + All examples use `examplebucket` as the bucket name.
 + The bucket is assumed to be in the US East (N. Virginia) Region, and the credential `Scope` and the `Signing Key` calculations use `us-east-1` as the Region specifier.  For more information, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in the *Amazon Web Services General Reference*. 

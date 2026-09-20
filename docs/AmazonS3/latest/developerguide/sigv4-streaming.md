@@ -58,8 +58,21 @@ The following table describes the functions that are shown in the diagram. You n
 | UriEncode() | URI encode every byte. UriEncode() must enforce the following rules:+  URI encode every byte except the unreserved characters: 'A'-'Z', 'a'-'z', '0'-'9', '-', '.', '\_', and '\~'.  <br />+ The space character is a reserved character and must be encoded as "%20" (and not as "\+"). <br />+ Each URI encoded byte is formed by a '%' and the two-digit hexadecimal value of the byte. <br />+ Letters in the hexadecimal value must be uppercase, for example "%1A". <br />+ Encode the forward slash character, '/', everywhere except in the object key name. For example, if the object key name is `photos/Jan/sample.jpg`, the forward slash in the key name is not encoded.  The standard UriEncode functions provided by your development platform may not work because of differences in implementation and related ambiguity in the underlying RFCs. We recommend that you write your own custom UriEncode function to ensure that your encoding will work. <br />The following is an example UriEncode() function in Java.<pre>public static String UriEncode(CharSequence input, boolean encodeSlash) {<br />          StringBuilder result = new StringBuilder();<br />          for (int i = 0; i < input.length(); i++) {<br />              char ch = input.charAt(i);<br />              if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9') || ch == '_' || ch == '-' || ch == '~' || ch == '.') {<br />                  result.append(ch);<br />              } else if (ch == '/') {<br />                  result.append(encodeSlash ? "%2F" : ch);<br />              } else {<br />                  result.append(toHexUTF8(ch));<br />              }<br />          }<br />          return result.toString();<br />      }</pre> | 
 
 For information about the signing process, see [Signature Calculations for the Authorization Header: Transferring Payload in a Single Chunk (AWS Signature Version 4)](sig-v4-header-based-auth.md). The process is the same, except that the creation of `CanonicalRequest` differs as follows:
-+ In addition to the request headers you plan to add, you must include the following headers:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/sigv4-streaming.html)
++ In addition to the request headers you plan to add, you must include the following headers:
+
+
+<table>
+<thead>
+  <tr><th>Header</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>x-amz-content-sha256</code></td><td>This header is required for all AWS Signature Version 4 requests. Set the value to <code>STREAMING-AWS4-HMAC-SHA256-PAYLOAD</code> to indicate that the signature covers only headers and that there is no payload.</td></tr>
+  <tr><td><code>Content-Encoding</code></td><td>Set the value to <code>aws-chunked</code>. <br />Amazon S3 supports multiple content encoding values. You can specify your custom content-encoding when using the Signature Version 4 streaming API.<br />For example:<pre>Content-Encoding : aws-chunked,gzip</pre><br />Amazon S3 stores the resulting object without the <code>aws-chunked</code> value in the <code>content-encoding</code> header. If <code>aws-chunked</code> is the only value that you pass in the <code>content-encoding</code> header, S3 considers the <code>content-encoding</code> header empty and does not return this header when your retrieve the object. </td></tr>
+  <tr><td><code>x-amz-decoded-content-length</code></td><td> Set the value to the length, in bytes, of the data to be chunked, without counting any metadata. For example, if you are uploading a 4 GB file, set the value to 4294967296. This is the raw size of the object to be uploaded (data you want to store in Amazon S3).</td></tr>
+  <tr><td><code>Content-Length</code></td><td>Set the value to the actual size of the transmitted HTTP body, which includes the length of your data (value set for <code>x-amz-decoded-content-length</code>), plus chunk metadata. Each chunk has metadata, such as the signature of the previous chunk. Chunk calculations are discussed in the following section. If you include the <code>Transfer-Encoding</code> header and specify any value other than <code>identity</code>, you must not include the <code>Content-Length</code> header.</td></tr>
+</tbody>
+</table>
+
 
 You send the first chunk with the seed signature. You must construct the chunk as described in the following section.
 
@@ -96,8 +109,19 @@ Where:
 You can use the examples in this section as a reference to check signature calculations in your code. Before you review the examples, note the following:
 
  
-+  The signature calculations in these examples use the following example security credentials.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/sigv4-streaming.html)
++  The signature calculations in these examples use the following example security credentials.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWSAccessKeyId</code></td><td><code>AKIAIOSFODNN7EXAMPLE</code></td></tr>
+  <tr><td><code>AWSSecretAccessKey</code></td><td><code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code></td></tr>
+</tbody>
+</table>
+
 + All examples use the request timestamp 20130524T000000Z (`Fri, 24 May 2013 00:00:00 GMT`).
 + All examples use `examplebucket` as the bucket name.
 + The bucket is assumed to be in the US East (N. Virginia) Region, and the credential `Scope` and the `Signing Key` calculations use `us-east-1` as the Region specifier.  For more information, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in the *Amazon Web Services General Reference*. 

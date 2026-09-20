@@ -268,8 +268,19 @@ For step-by-step instructions on creating a signature, see [Task 3: Create a Sig
 You can use the examples in this section as a reference to check signature calculations in your code. The calculations shown in the examples use the following data:
 
  
-+  Example access keys.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/sig-v4-header-based-auth.html)
++  Example access keys.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWSAccessKeyId</code></td><td><code>AKIAIOSFODNN7EXAMPLE</code></td></tr>
+  <tr><td><code>AWSSecretAccessKey</code></td><td><code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code></td></tr>
+</tbody>
+</table>
+
 + Request timestamp of 20130524T000000Z (`Fri, 24 May 2013 00:00:00 GMT`).
 + Bucket name `examplebucket`.
 + The bucket is assumed to be in the US East (N. Virginia) Region. The credential `Scope` and the `Signing Key` calculations use `us-east-1` as the Region specifier. For information about other Regions, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in the *AWS General Reference*. 
