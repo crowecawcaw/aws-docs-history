@@ -3,6 +3,9 @@
 # WorkSpaces PCoIP zero client
 <a name="amazon-workspaces-pcoip-zero-client"></a>
 
+**Note**  
+End of support notice: On October 31, 2027, AWS will end support for PCoIP-based WorkSpaces Personal. After October 31, 2027, you will no longer be able to access the WorkSpaces console or WorkSpaces resources using the PCoIP protocol. For more information, see [PCoIP-based WorkSpaces Personal end of support](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-pcoip-end-of-support.html).
+
 You can set up and use a PCoIP zero client device with WorkSpaces. 
 
 ## Requirements
@@ -10,16 +13,16 @@ You can set up and use a PCoIP zero client device with WorkSpaces.
 
 To use a PCoIP zero client with WorkSpaces, you need the following:
 + PCoIP zero clients are compatible only with WorkSpaces that are using the PCoIP protocol.
-+ Your Tera2 zero client device must have firmware version 6.0.0 or later. If your Tera2 zero client device has a firmware version between 4.6.0 and 6.0.0, your WorkSpaces administrator must upgrade your device firmware through a Desktop Access subscription at [https://www.teradici.com/products/zero-clients\#buy](https://www.teradici.com/products/zero-clients#buy).
++ Your Tera2 zero client device must have firmware version 6.0.0 or later. If your Tera2 zero client device has a firmware version between 4.6.0 and 6.0.0, your WorkSpaces administrator must upgrade your device firmware through a [Desktop Access subscription](https://help.anyware.hp.com/s/desktopaccess) on the HP Anyware website.
 + WorkSpaces multi-factor authentication (MFA) requires a Tera2 zero client device with firmware version 6.0.0 or later.
 + Your WorkSpaces administrator might need to enable your zero client device to use USB printers and other USB peripheral devices. If you're having trouble using a USB printer or other USB peripheral devices, contact your WorkSpaces administrator for assistance. For more information, see [ USB printers and other USB peripherals aren't working for PCoIP zero clients](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-troubleshooting.html#pcoip_zero_client_usb) in the *Amazon WorkSpaces Administration Guide*.
 
-For a list of approved PCoIP zero client devices, see [PCoIP Zero Clients](https://www.teradici.com/resource-center/product-service-finder/pcoip-zero-clients) on the Teradici website.
+For a list of approved PCoIP zero client devices, see [PCoIP Zero Clients](https://anyware.hp.com/find/product/zero-clients) on the HP Anyware website.
 
 ## Connect to your WorkSpace
 <a name="zero_client_connect"></a>
 
-If your zero client device has firmware version 6.0.0 or later, you can connect to your WorkSpace. If your zero client device has a firmware version between 4.6.0 and 6.0.0, your WorkSpaces administrator must upgrade your device firmware through a Desktop Access subscription at [https://www.teradici.com/desktop-access](https://www.teradici.com/desktop-access).
+If your zero client device has firmware version 6.0.0 or later, you can connect to your WorkSpace. If your zero client device has a firmware version between 4.6.0 and 6.0.0, your WorkSpaces administrator must upgrade your device firmware through the Desktop Access subscription described earlier in [Requirements](#zero_client_reqs).
 
 **To connect to your WorkSpace**
 

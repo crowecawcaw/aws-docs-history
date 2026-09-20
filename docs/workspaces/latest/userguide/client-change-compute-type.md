@@ -15,8 +15,19 @@ Changing your WorkSpace compute type will change the amount that your organizati
 
 1. Open your WorkSpaces client and connect to your WorkSpace.
 
-1. Depending on which client you're using, do one of the following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/userguide/client-change-compute-type.html)
+1. Depending on which client you're using, do one of the following.
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>3.0+ client</td><td>Choose <b>Settings</b>, <b>Change Compute Type</b>.</td></tr>
+  <tr><td>1.0+ or 2.0+ client</td><td>Choose <b>My WorkSpace</b>, <b>Change compute type</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. The **Change compute type** dialog box displays the current compute type for your WorkSpace. Choose a different compute type from the list, and then choose **Update**.
 

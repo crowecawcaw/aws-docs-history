@@ -70,8 +70,19 @@ To ensure a good experience with your WorkSpace, verify that your client device 
 
 1. Open your WorkSpaces client. If this is the first time you have opened the client, you are prompted to enter the registration code that you received in the invitation email.
 
-1. Depending on which client you're using, do one of the following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/userguide/workspaces-user-getting-started.html)
+1. Depending on which client you're using, do one of the following.
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>Windows or Linux clients</td><td>In the upper-right corner of the client application, select the <b>Network</b> icon <img src="https://docs.aws.amazon.com/workspaces/latest/userguide/images/network-icon.png" alt="Network icon on the client application" />.</td></tr>
+  <tr><td>macOS client</td><td>Choose <b>Connections</b>, <b>Network</b>.</td></tr>
+</tbody>
+</table>
+
 
    The client application tests the network connection, ports, and round-trip time, and reports the results of these tests.
 

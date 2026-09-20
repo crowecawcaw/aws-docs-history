@@ -214,6 +214,8 @@ To view and manage your saved WorkSpaces, choose **Change** next to the currentl
 + Choose **Change color** (color icon) on a saved WorkSpace to change its color (useful for easy recognition in the list).
 + Choose **Remove** (trash icon) to remove a WorkSpace you no longer need.
 + Choose **Add a new WorkSpace** at the bottom of the list to add a new WorkSpace.
++ Ctrl\+Alt\+Shift\+ArrowDown—Minimize window
++ Ctrl\+Alt\+Shift\+F11—Clear keyboard focus
 
 ![The WorkSpace list with options to set default, rename, change color, and remove a WorkSpace.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-windows-newclient-workspace-list.png)
 

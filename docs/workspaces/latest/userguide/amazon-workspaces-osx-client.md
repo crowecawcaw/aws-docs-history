@@ -136,8 +136,18 @@ The WorkSpaces client applications support Japanese. However, Japanese WorkSpace
 
 **To select the client language**
 
-1. Depending on which client you're using, do one of the following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-osx-client.html)
+1. Depending on which client you're using, do one of the following.
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>3.0+ client</td><td>In the WorkSpaces client application, go to <b>Settings</b>, <b>Change Language</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. Enter your desired language in the **Select a language** list and choose **Save**.
 
@@ -168,8 +178,18 @@ If your screen resolution in WorkSpaces is low and objects look blurry, you need
 
 1. Start the WorkSpaces client application and log in to your WorkSpace.
 
-1. Depending on which client you're using, do one of the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-osx-client.html)
+1. Depending on which client you're using, do one of the following:
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>3.0+ client</td><td>Choose <b>View</b>, <b>Enter Full Screen On All Displays</b>. You can also toggle full screen mode by pressing Command+Option+Return.</td></tr>
+</tbody>
+</table>
+
 
 Your WorkSpace should now be extended across your displays. Whichever display you have designated as your primary display is also the primary display in WorkSpaces when you enter full screen mode.
 

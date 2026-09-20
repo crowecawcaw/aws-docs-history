@@ -18,7 +18,18 @@ While your WorkSpace rebuild is in progress, you are disconnected from the WorkS
 
 1. Open your WorkSpaces client and connect to your WorkSpace.
 
-1. Depending on which client you're using, do one of the following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/userguide/client-rebuild-workspace.html)
+1. Depending on which client you're using, do one of the following.
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>3.0+ client</td><td>Choose <b>Settings</b>, <b>Rebuild WorkSpace</b>.</td></tr>
+  <tr><td>1.0+ or 2.0+ client</td><td>Choose <b>My WorkSpace</b>, <b>Rebuild WorkSpace</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. In the **Rebuild WorkSpace** dialog box, review the information. If you choose to proceed with the rebuild, choose **Rebuild**.

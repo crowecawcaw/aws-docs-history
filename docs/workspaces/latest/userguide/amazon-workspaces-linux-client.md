@@ -184,8 +184,20 @@ The WorkSpaces client application extracts the Extended Display Information Data
 
 1. Depending on which client you're using, do one of the following:
 **Note**  
-If you are using client version is 2023.x with DCV WorkSpaces, and if there are three or more monitors connected, your WorkSpace can also extend full-screen across a selection of those available monitors. Selected monitors must be set adjacent or sharing a side with each other, in your display setting. DCV multi-monitor support is built using DCV technology. For more information about requirements and troubleshooting, see [ Extending full-screen across selected monitors](https://docs.aws.amazon.com/dcv/latest/userguide/full-screen-selected-monitors.html).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-linux-client.html)
+If you are using client version is 2023.x with DCV WorkSpaces, and if there are three or more monitors connected, your WorkSpace can also extend full-screen across a selection of those available monitors. Selected monitors must be set adjacent or sharing a side with each other, in your display setting. DCV multi-monitor support is built using DCV technology. For more information about requirements and troubleshooting, see [ Extending full-screen across selected monitors](https://docs.aws.amazon.com/dcv/latest/userguide/full-screen-selected-monitors.html).
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>2023.x+ client</td><td> <ul><li>Choose <b>Across a single monitor</b> to enter full screen mode on a single display (DCV only)</li><li>Choose <b>Across selective monitors</b> to enter full screen mode on selected displays (DCV only)</li><li>Choose <b>Across all monitors</b> to extend full screen mode on all display (for both PCoIP and DCV) </li><li>Toggle full screen mode by pressing Ctrl+Alt+Enter (PCoIP only)</li></ul> </td></tr>
+  <tr><td>3.0+ and 4.0+ client</td><td>Choose <b>View</b>, <b>Enter Full Screen On All Displays</b>. You can also toggle full screen mode by pressing Ctrl+Alt+Enter.</td></tr>
+  <tr><td>2.0+ client</td><td>Choose <b>View</b>, <b>Show Fullscreen</b>. You can also toggle full screen mode by pressing Ctrl+Alt+Enter.</td></tr>
+</tbody>
+</table>
+
 
 Your WorkSpace should now be extended across your displays. Whichever display you have designated as your primary display is also the primary display in WorkSpaces when you enter full screen mode.
 

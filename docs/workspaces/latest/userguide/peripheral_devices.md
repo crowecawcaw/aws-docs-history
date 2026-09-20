@@ -68,8 +68,19 @@ If your WorkSpace is using the DCV, versions 3.1.5 and later of the WorkSpaces c
 
 1. Log in to your DCV WorkSpace.
 
-1. Do one of the following, depending on which client you're using.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/userguide/peripheral_devices.html)
+1. Do one of the following, depending on which client you're using.
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>Windows client</td><td>To use a webcam on your DCV WorkSpace, select the <b>Devices</b> icon <img src="https://docs.aws.amazon.com/workspaces/latest/userguide/images/devices-icon.png" alt="Devices icon on upper-right corner of the WorkSpace" /> in the upper-right corner, and then select <b>Use this device on the remote WorkSpace</b>. Choose <b>Save</b>.<br />To use a webcam on your local computer instead of on your DCV WorkSpace, select the <b>Devices</b> icon <img src="https://docs.aws.amazon.com/workspaces/latest/userguide/images/devices-icon.png" alt="Devices icon on upper-right corner of the WorkSpace" /> in the upper-right corner, and then select <b>Use Locally</b>. Choose <b>Save</b>.</td></tr>
+  <tr><td>macOS client</td><td>To use a webcam on your DCV WorkSpace, choose <b>Connections</b>, <b>Devices</b>, and then select <b>Use this device on the remote WorkSpace</b>. Choose <b>Save</b>.<br />To use a webcam on your local computer instead of on your DCV WorkSpace, choose <b>Connections</b>, <b>Devices</b>, and then select <b>Use on local machine</b>. Choose <b>Save</b>.</td></tr>
+</tbody>
+</table>
+
 
 ## Smart cards
 <a name="devices-smart-cards"></a>

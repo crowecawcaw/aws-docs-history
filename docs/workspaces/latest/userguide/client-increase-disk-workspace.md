@@ -19,8 +19,19 @@ Increasing your WorkSpace disk size will increase the amount that your organizat
 
 1. Open your WorkSpaces client and connect to your WorkSpace.
 
-1. Depending on which client you're using, do one of the following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/userguide/client-increase-disk-workspace.html)
+1. Depending on which client you're using, do one of the following.
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>3.0+ client</td><td>Choose <b>Settings</b>, <b>Increase Disk Size</b>.</td></tr>
+  <tr><td>1.0+ or 2.0+ client</td><td>Choose <b>My WorkSpace</b>, <b>Increase disk size</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. The **Increase disk size** dialog box displays the current disk size of your C: drive and D: drive (or / and /home in Linux). If you proceed with the disk size increase, it also displays the amount by which your storage increases. 
 
