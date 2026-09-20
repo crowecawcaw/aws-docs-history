@@ -22,8 +22,32 @@ Before registering a Jira integration, verify that you have the following:
 **Switch out of multi-session**  
 The Jira integration cannot be configured while the AWS Management Console is in multi-session mode. Open the account menu in the top-right corner of the console, choose **Turn off multi-session support**, then sign back in and continue this setup.
 + A Jira Cloud site URL and the space keys of the Jira projects where the agent will create tickets.
-+ A Jira administrator who can install the AWS FinOps Agent Forge app on the Jira site and authorize the following OAuth permission scopes:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/finops-agent/latest/userguide/jira-integration.html)
++ A Jira administrator who can install the AWS FinOps Agent Forge app on the Jira site and authorize the following OAuth permission scopes:
+
+
+<table>
+<thead>
+  <tr><th>Scope</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>read:jira-work</code></td><td>View Jira issue data.</td></tr>
+  <tr><td><code>read:jira-user</code></td><td>View user profiles.</td></tr>
+  <tr><td><code>write:issue:jira</code></td><td>Create issues. The agent does not use the update permission during preview.</td></tr>
+  <tr><td><code>write:comment:jira</code></td><td>Create and update comments.</td></tr>
+  <tr><td><code>write:comment.property:jira</code></td><td>Create and update comment properties.</td></tr>
+  <tr><td><code>write:attachment:jira</code></td><td>Create and update attachments.</td></tr>
+  <tr><td><code>read:issue:jira</code></td><td>Read issues. Required by <code>write:issue:jira</code>.</td></tr>
+  <tr><td><code>read:comment:jira</code></td><td>Read comments. Required by <code>write:comment:jira</code>.</td></tr>
+  <tr><td><code>read:user:jira</code></td><td>Read user info.</td></tr>
+  <tr><td><code>read:group:jira</code></td><td>Read group info.</td></tr>
+  <tr><td><code>read:project:jira</code></td><td>Read project info.</td></tr>
+  <tr><td><code>read:project-role:jira</code></td><td>Read project roles.</td></tr>
+  <tr><td><code>read:avatar:jira</code></td><td>Read avatars.</td></tr>
+  <tr><td><code>read:comment.property:jira</code></td><td>Read comment properties.</td></tr>
+  <tr><td><code>read:app-system-token</code></td><td>Enables Forge to pass a token to a remote backend for Atlassian app REST APIs. Required to enable the service.</td></tr>
+</tbody>
+</table>
+
 
 If your AWS console administrator and Jira administrator are different people, the Jira administrator can configure the integration from the agent detail page within the same account after the agent is created.
 
