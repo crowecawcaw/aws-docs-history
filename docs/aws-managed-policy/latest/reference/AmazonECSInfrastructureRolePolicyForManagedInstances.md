@@ -16,13 +16,13 @@ You can attach `AmazonECSInfrastructureRolePolicyForManagedInstances` to your us
 <a name="AmazonECSInfrastructureRolePolicyForManagedInstances-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: September 26, 2025, 18:04 UTC 
-+ **Edited time:** February 26, 2026, 18:27 UTC
++ **Edited time:** September 15, 2026, 17:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonECSInfrastructureRolePolicyForManagedInstances`
 
 ## Policy version
 <a name="AmazonECSInfrastructureRolePolicyForManagedInstances-version"></a>
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -74,7 +74,6 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:ec2:*:*:fleet/*",
         "arn:aws:ec2:*:*:instance/*",
         "arn:aws:ec2:*:*:network-interface/*",
-        "arn:aws:ec2:*:*:launch-template/*",
         "arn:aws:ec2:*:*:volume/*"
       ],
       "Condition" : {
@@ -94,6 +93,21 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:ec2:*:*:security-group/*",
         "arn:aws:ec2:*::image/*"
       ]
+    },
+    {
+      "Sid" : "CreateFleetForECSManagedLaunchTemplates",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateFleet"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:launch-template/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "ec2:ResourceTag/AmazonECSManaged" : "true"
+        }
+      }
     },
     {
       "Sid" : "RunInstancesForManagedInstances",

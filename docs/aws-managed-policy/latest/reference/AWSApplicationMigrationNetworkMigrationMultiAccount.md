@@ -16,13 +16,13 @@ You can attach `AWSApplicationMigrationNetworkMigrationMultiAccount` to your use
 <a name="AWSApplicationMigrationNetworkMigrationMultiAccount-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 10, 2025, 09:04 UTC 
-+ **Edited time:** July 30, 2026, 07:42 UTC
++ **Edited time:** September 15, 2026, 13:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSApplicationMigrationNetworkMigrationMultiAccount`
 
 ## Policy version
 <a name="AWSApplicationMigrationNetworkMigrationMultiAccount-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -1103,6 +1103,21 @@ The policy's default version is the version that defines the permissions for the
         },
         "StringEquals" : {
           "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "CreateTransitGatewaySLR",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : [
+        "arn:aws:iam::*:role/aws-service-role/transitgateway.amazonaws.com/AWSServiceRoleForVPCTransitGateway"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "transitgateway.amazonaws.com"
         }
       }
     },

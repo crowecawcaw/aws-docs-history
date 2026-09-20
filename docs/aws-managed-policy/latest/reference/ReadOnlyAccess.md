@@ -16,13 +16,13 @@ You can attach `ReadOnlyAccess` to your users, groups, and roles.
 <a name="ReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 06, 2015, 18:39 UTC 
-+ **Edited time:** July 21, 2026, 18:42 UTC
++ **Edited time:** September 15, 2026, 18:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
 ## Policy version
 <a name="ReadOnlyAccess-version"></a>
 
-**Policy version:** v188 (default)
+**Policy version:** v189 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -355,6 +355,7 @@ The policy's default version is the version that defines the permissions for the
         "bedrock-agentcore:GetBrowser",
         "bedrock-agentcore:GetBrowserProfile",
         "bedrock-agentcore:GetBrowserSession",
+        "bedrock-agentcore:GetCapacityProvider",
         "bedrock-agentcore:GetCodeInterpreter",
         "bedrock-agentcore:GetCodeInterpreterSession",
         "bedrock-agentcore:GetConfigurationBundle",
@@ -375,6 +376,8 @@ The policy's default version is the version that defines the permissions for the
         "bedrock-agentcore:GetRecommendation",
         "bedrock-agentcore:GetTokenVault",
         "bedrock-agentcore:GetWorkloadIdentity",
+        "bedrock-agentcore:ListAgentRuntimeVersionsByCapacityProvider",
+        "bedrock-agentcore:ListCapacityProviders",
         "bedrock-agentcore:ListABTests",
         "bedrock-agentcore:ListAgentRuntimeEndpoints",
         "bedrock-agentcore:ListAgentRuntimes",
@@ -971,6 +974,8 @@ The policy's default version is the version that defines the permissions for the
         "devops-guru:SearchInsights",
         "devops-guru:StartCostEstimation",
         "directconnect:Describe*",
+        "directconnect:ListVirtualInterfaceRoutes",
+        "directconnect:ListVirtualInterfaceTestHistory",
         "discovery:Describe*",
         "discovery:Get*",
         "discovery:List*",
@@ -2771,6 +2776,8 @@ The policy's default version is the version that defines the permissions for the
         "sustainability:GetCarbonFootprintSummary",
         "sustainability:GetEstimatedCarbonEmissions",
         "sustainability:GetEstimatedCarbonEmissionsDimensionValues",
+        "sustainability:GetEstimatedWaterAllocation",
+        "sustainability:GetEstimatedWaterAllocationDimensionValues",
         "swf:Count*",
         "swf:Describe*",
         "swf:Get*",

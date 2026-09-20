@@ -16,13 +16,13 @@ You can attach `AWSSecurityAgentWebAppPolicy` to your users, groups, and roles.
 <a name="AWSSecurityAgentWebAppPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: February 05, 2026, 23:19 UTC 
-+ **Edited time:** June 11, 2026, 18:27 UTC
++ **Edited time:** September 18, 2026, 17:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSSecurityAgentWebAppPolicy`
 
 ## Policy version
 <a name="AWSSecurityAgentWebAppPolicy-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -72,6 +72,7 @@ The policy's default version is the version that defines the permissions for the
         "securityagent:BatchGetThreatModelJobTasks",
         "securityagent:BatchGetThreatModels",
         "securityagent:BatchGetThreats",
+        "securityagent:BatchGetValidationRuns",
         "securityagent:CreateCodeReview",
         "securityagent:CreateDesignReview",
         "securityagent:CreatePentest",
@@ -88,6 +89,7 @@ The policy's default version is the version that defines the permissions for the
         "securityagent:ListCodeReviews",
         "securityagent:ListDesignReviewComments",
         "securityagent:ListDesignReviews",
+        "securityagent:ListDiscoveredDomains",
         "securityagent:ListDiscoveredEndpoints",
         "securityagent:ListFindings",
         "securityagent:ListIntegratedResources",
@@ -103,10 +105,12 @@ The policy's default version is the version that defines the permissions for the
         "securityagent:StartCodeReviewJob",
         "securityagent:StartPentestJob",
         "securityagent:StartThreatModelJob",
+        "securityagent:StartValidationRun",
         "securityagent:StopCodeReviewJob",
         "securityagent:StopPentestJob",
         "securityagent:StopThreatModelJob",
         "securityagent:UpdateCodeReview",
+        "securityagent:UpdateDiscoveredDomains",
         "securityagent:UpdateFinding",
         "securityagent:UpdatePentest",
         "securityagent:UpdateThreat",

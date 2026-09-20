@@ -1328,6 +1328,7 @@
 + [AWSWAFConsoleReadOnlyAccess](AWSWAFConsoleReadOnlyAccess.md)
 + [AWSWAFFullAccess](AWSWAFFullAccess.md)
 + [AWSWAFReadOnlyAccess](AWSWAFReadOnlyAccess.md)
++ [AWSWellArchitectedAgentOrganizationsServiceRolePolicy](AWSWellArchitectedAgentOrganizationsServiceRolePolicy.md)
 + [AWSWellArchitectedAgentResourceScanningServiceRolePolicy](AWSWellArchitectedAgentResourceScanningServiceRolePolicy.md)
 + [AWSWellArchitectedDiscoveryServiceRolePolicy](AWSWellArchitectedDiscoveryServiceRolePolicy.md)
 + [AWSWellArchitectedOrganizationsServiceRolePolicy](AWSWellArchitectedOrganizationsServiceRolePolicy.md)

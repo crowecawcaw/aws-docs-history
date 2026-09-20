@@ -16,13 +16,13 @@ You can attach `ROSAKubeControllerPolicy` to your users, groups, and roles.
 <a name="ROSAKubeControllerPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: April 27, 2023, 20:09 UTC 
-+ **Edited time:** April 10, 2026, 16:12 UTC
++ **Edited time:** September 17, 2026, 19:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/ROSAKubeControllerPolicy`
 
 ## Policy version
 <a name="ROSAKubeControllerPolicy-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -111,6 +111,7 @@ The policy's default version is the version that defines the permissions for the
         "elasticloadbalancing:ModifyTargetGroup",
         "elasticloadbalancing:DeleteTargetGroup",
         "elasticloadbalancing:ApplySecurityGroupsToLoadBalancer",
+        "elasticloadbalancing:SetSecurityGroups",
         "elasticloadbalancing:CreateLoadBalancerListeners",
         "elasticloadbalancing:DeleteLoadBalancerListeners",
         "elasticloadbalancing:AttachLoadBalancerToSubnets",

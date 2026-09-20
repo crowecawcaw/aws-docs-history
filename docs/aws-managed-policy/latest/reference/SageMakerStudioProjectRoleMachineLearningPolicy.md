@@ -16,13 +16,13 @@ You can attach `SageMakerStudioProjectRoleMachineLearningPolicy` to your users, 
 <a name="SageMakerStudioProjectRoleMachineLearningPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 20, 2024, 21:55 UTC 
-+ **Edited time:** September 04, 2026, 18:57 UTC
++ **Edited time:** September 14, 2026, 20:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy`
 
 ## Policy version
 <a name="SageMakerStudioProjectRoleMachineLearningPolicy-version"></a>
 
-**Policy version:** v43 (default)
+**Policy version:** v44 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -698,7 +698,8 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "sagemaker:CreateUserProfile",
-        "sagemaker:DeleteUserProfile"
+        "sagemaker:DeleteUserProfile",
+        "sagemaker:UpdateUserProfile"
       ],
       "Resource" : "arn:aws:sagemaker:*:*:user-profile/*/${aws:PrincipalTag/datazone:userId}",
       "Condition" : {
@@ -712,7 +713,8 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "sagemaker:CreateUserProfile",
-        "sagemaker:DeleteUserProfile"
+        "sagemaker:DeleteUserProfile",
+        "sagemaker:UpdateUserProfile"
       ],
       "Resource" : "arn:aws:sagemaker:*:*:user-profile/*",
       "Condition" : {
