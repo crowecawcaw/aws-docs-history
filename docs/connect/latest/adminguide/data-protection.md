@@ -20,5 +20,5 @@ We strongly recommend that you never put confidential or sensitive information, 
 + [Encryption at rest in Connect Customer](encryption-at-rest.md)
 + [Encryption in transit in Connect Customer](encryption-in-transit.md)
 + [Key management in Connect Customer](key-management.md)
-+ [VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md)
-+ [Service improvement and how to opt out of using your data](data-opt-out.md)
++ [Amazon Connect Customer and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md)
++ [Amazon Connect Customer service improvement and how to opt out of using your data](data-opt-out.md)

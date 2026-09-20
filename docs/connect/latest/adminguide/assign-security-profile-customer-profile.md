@@ -8,6 +8,6 @@ Assign permissions for your agents' security profiles so that they can perform s
 **Topics**
 + [Update Customer Profiles permissions for agents](security-profile-customer-profile-agent.md)
 + [Update Customer Profiles permissions for flows](security-profile-customer-profile-contact-flows.md)
-+ [Update permissions for calculated attributes](security-profile-customer-profile-calc-attribs.md)
-+ [Security profile permissions for customer segments](security-profile-customer-profile-segmentation.md)
++ [Update permissions for calculated attributes in Connect Customer Customer Profiles](security-profile-customer-profile-calc-attribs.md)
++ [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md)
 + [Assign new Customer Profiles permissions in case of error](security-profile-customer-profile-issues.md)

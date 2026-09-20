@@ -14,10 +14,10 @@ For example, when a customer calls about a hotel reservation, an orchestrator AI
 + [Key capabilities](#agentic-self-service-key-capabilities)
 + [Tools for orchestrator AI agents](#agentic-self-service-default-tools)
 + [Set up agentic self-service](#agentic-self-service-setup)
-+ [Custom Return to Control tools](#agentic-self-service-custom-escalate)
-+ [Handle Return to Control tools in your flow](#agentic-self-service-escalation-flow)
-+ [Constant tools](#agentic-self-service-constant-tools)
-+ [Set up agentic self service chat end to end](setup-agentic-selfservice-end-to-end.md)
++ [Create custom Return to Control tools](#agentic-self-service-custom-escalate)
++ [Handle Return to Control tools in your contact flow](#agentic-self-service-escalation-flow)
++ [Use Constant tools for testing and development](#agentic-self-service-constant-tools)
++ [How to set up your agentic self service chat experience end to end](setup-agentic-selfservice-end-to-end.md)
 
 ## Key capabilities
 <a name="agentic-self-service-key-capabilities"></a>

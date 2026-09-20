@@ -85,7 +85,7 @@ If the contact's active Region is impaired, some information might be unavailabl
 You have full access to conversational analytics data across Regions, including:
 + In-progress contacts: Conversational analytics, voice transcripts (redacted and unredacted), and chat transcripts.
 + Completed contacts: All conversational analytics, voice transcripts (redacted and unredacted), and chat transcripts.
-+ Recordings: Screen and audio recordings are accessible regardless of the contact's active Region.
++ Recordings: Screen and audio recordings are accessible regardless of the contact's active Region. Agent screen recordings require additional setup on a Global Resiliency instance pair; see [Screen recording with Connect Customer Global Resiliency](screen-recording-global-resiliency.md).
 + Transcripts: Chat, IVR, and email transcripts are available across Regions.
 
 ### Contact actions

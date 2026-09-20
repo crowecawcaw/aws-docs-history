@@ -18,5 +18,5 @@ After you set up your AI agents, you can monitor their performance using AI agen
 
 **Topics**
 + [AI agent metrics](ai-agent-metrics.md)
-+ [AI agent traces](ai-agent-traces.md)
++ [AI agent traces using Contact search and Contact details](ai-agent-traces.md)
 + [Monitor AI agents using CloudWatch](monitor-ai-agents.md)

@@ -15,7 +15,7 @@ Using one phone number that is shared for both voice and SMS isn't supported.
 + [Step 3: Update flows to branch on SMS contacts](#branch-on-sms-contacts)
 + [Step 4: Test sending and receiving SMS messages](#test-sms)
 + [Step 5: Prerequisites for going into production](#verify-sms-config)
-+ [Step 6: (Optional) Self-managed opt-out](#sms-self-managed-opt-out)
++ [Step 6: (Optional) Set up self-managed opt-out message processing](#sms-self-managed-opt-out)
 + [Customers not receiving SMS messages?](#ts-sms-config)
 + [Next steps](#sms-nextsteps)
 

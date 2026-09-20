@@ -11,7 +11,7 @@ You use a .csv file to quickly specify time off allowances at a hourly level, fo
 **IT admins**: For the endpoints to add to your proxy exception list for this feature, see [Allow upload of time-off balances and allowances in Connect Customer scheduling](ccp-networking.md#endpoints-scheduling). 
 
 **Topics**
-+ [Download the time off csv template](#timeoff-csv-template)
++ [Download the time off .csv template](#timeoff-csv-template)
 + [Download time off for a forecast group](#download-timeoff-csv)
 + [Import group allowance .csv file](#upload-timeoff-csv)
 + [Example of using the time off allowances feature](#example-to-feature)

@@ -15,13 +15,13 @@ If you are a developer interested in building a third-party application, see the
 **Topics**
 + [Integration types](#3p-apps-integration-types)
 + [Required IAM permissions](#onboard-3p-apps-requirements)
-+ [Add a 3P app](#onboard-3p-apps-how-to-integrate)
++ [Add a third-party application](#onboard-3p-apps-how-to-integrate)
 + [Delete integrations](#delete-3p-apps)
-+ [Assign permissions](assign-security-profile-3p-apps.md)
-+ [Iframe permissions for 3P apps](3p-apps-iframe-permissions.md)
++ [Assign permissions to use third-party applications](assign-security-profile-3p-apps.md)
++ [Iframe permissions for third-party applications](3p-apps-iframe-permissions.md)
 + [Events and requests for 3P apps](3p-apps-events-requests.md)
-+ [Access 3P apps in the agent workspace](3p-apps-agent-workspace.md)
-+ [Set up SSO federation for 3P apps](3p-apps-sso.md)
++ [Access third-party applications in the agent workspace](3p-apps-agent-workspace.md)
++ [Set up SSO federation for third-party applications](3p-apps-sso.md)
 + [Use screen pop functionality of third-party applications in the Connect Customer agent workspace](no-code-ui-builder-app-integration.md)
 + [Workshop for building a third-party app](https://catalog.workshops.aws/amazon-connect-agent-empowerment/en-US/third-party-applications/test)
 

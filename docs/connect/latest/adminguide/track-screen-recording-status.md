@@ -8,6 +8,9 @@ With Amazon EventBridge, you can view the status of [agent screen recordings](ag
 **Note**  
 Screen recording status tracking with Amazon EventBridge is available in every AWS Region that supports [Connect Customer agent screen recording](agent-screen-recording.md), except AWS GovCloud (US-West).
 
+**Note**  
+If your instance uses Connect Customer Global Resiliency, set up your Amazon EventBridge rules and targets in both Regions of your instance pair. When an agent handles a contact that originated in the other Region, the contact's status events are split between the two Regions, and some events are delivered in both Regions. For more information, see [Screen recording with Global Resiliency](screen-recording-global-resiliency.md).
+
 You can integrate with other AWS services to get analytical or monitoring insights of agent screen recordings:
 + Query with [Amazon CloudWatch Log Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html)
 + Get near real-time alerts in an [Amazon Quick](https://aws.amazon.com/quicksight/) dashboard

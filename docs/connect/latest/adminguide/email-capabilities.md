@@ -11,7 +11,7 @@ Connect Customer Email integrates with [Amazon Simple Email Service (SES)](https
 
 **Topics**
 + [Receive emails](#email-capabilities-howreceived)
-+ [Email contacts](#email-capabilities-howtranslated)
++ [How email messages become email contacts](#email-capabilities-howtranslated)
 + [Every email message is a unique email contact](#email-capabilities-howmanaged)
 + [Email threads](#email-capabilities-howthreadsmanaged)
 + [Send email](#email-capabilities-howemailssent)

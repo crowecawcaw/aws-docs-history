@@ -13,8 +13,8 @@ Through streaming, you can receive the following event types:
 + COMPLETED or FAILED events published at the end of a contact analysis session.
 
 **Topics**
-+ [Enable contact analysis segment streams](enable-contact-analysis-segment-streams.md)
-+ [Voice: Data model for conversational analytics segment streams](real-time-contact-analysis-segment-streams-data-model.md)
-+ [Chat: Data model for conversational analytics segment streams](chat-real-time-contact-analysis-segment-streams-data-model.md)
-+ [Voice: Sample conversational analytics segment stream](sample-real-time-contact-analysis-segment-stream.md)
-+ [Chat: Sample conversational analytics segment stream](chat-sample-real-time-contact-analysis-segment-stream.md)
++ [Enable contact analysis segment streams to analyze conversational analytics conversations](enable-contact-analysis-segment-streams.md)
++ [Data model for conversational analytics segment streams to analyze voice contacts in conversational analytics](real-time-contact-analysis-segment-streams-data-model.md)
++ [Data model for conversational analytics segment streams to analyze chats in conversational analytics](chat-real-time-contact-analysis-segment-streams-data-model.md)
++ [Sample conversational analytics segment streams to analyze calls using conversational analytics](sample-real-time-contact-analysis-segment-stream.md)
++ [Sample conversational analytics streams to analyze chats in conversational analytics](chat-sample-real-time-contact-analysis-segment-stream.md)

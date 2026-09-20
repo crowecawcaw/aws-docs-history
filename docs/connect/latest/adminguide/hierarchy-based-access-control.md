@@ -85,7 +85,23 @@ Service linked roles are required to configure hierarchy-based access control. I
 
     For example, if you try to assign a user to a quick connect but you don't have access to the user's hierarchy, the operation fails. This is however not true for disassociations. You are able to disassociate a user freely even with hierarchy-based access control enforced assuming you have access to the quick connect. This is because disassociations are about discarding an existing relation (as opposed to new associations) between two resources and is modeled as part of the parent resource (in this case, the quick connect), which the user already has access to. 
 + Be thoughtful about the permissions granted on parent resources since users could be disassociated without their supervisor's knowledge.
-+ Disable access to the following functionality when you apply hierarchy-based access controls in the Connect Customer admin website.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/hierarchy-based-access-control.html)
++ Disable access to the following functionality when you apply hierarchy-based access controls in the Connect Customer admin website. 
+
+
+<table>
+<thead>
+  <tr><th> Functionality </th><th> Security profile permission that disables access </th></tr>
+</thead>
+<tbody>
+  <tr><td>Contact search</td><td>Contact search - View</td></tr>
+  <tr><td>Login/Login out report</td><td>Login/Login out report - View</td></tr>
+  <tr><td>Rules</td><td>Rules - View</td></tr>
+  <tr><td>Saved reports</td><td>Saved reports - View</td></tr>
+  <tr><td>Agent Hierarchy</td><td>Agent Hierarchy - View</td></tr>
+  <tr><td>Flow/Flow module</td><td>Flow modules - View</td></tr>
+  <tr><td>Scheduling</td><td>Schedule manager - View</td></tr>
+</tbody>
+</table>
+
 
   If you do not disable access to these resources, users with hierarchy-based access controls on a particular resource that view these pages in the Connect Customer admin website might see an unrestricted list of users. For more information about how to manage permissions, see [List of security profile permissions](security-profile-list.md).

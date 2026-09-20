@@ -16,12 +16,12 @@ Before you begin, note the following:
 + [Configure adherence thresholds](#schedule-adherence-configure)
 + [Where you can view schedule adherence](#schedule-adherence-view)
 + [Monitor adherence with thresholds](#monitor-adherence-thresholds)
-+ [Schedule adherence notifications](#schedule-adherence-notifications)
++ [Set up schedule adherence notifications](#schedule-adherence-notifications)
 + [What happens when ....](#schedule-adherence-what-happens)
-+ [Schedule Adherence metrics](scheduling-metrics.md)
-+ [Real-time Schedule Adherence](definition-real-time-schedule-adherence.md)
-+ [Examples of Agent Adherence calculations](calculating-agents-productivity-time.md)
-+ [Examples of adherence thresholds for agent shifts](schedule-adherence-examples.md)
++ [Schedule Adherence metrics in Connect Customer](scheduling-metrics.md)
++ [Real-time Schedule Adherence in Connect Customer](definition-real-time-schedule-adherence.md)
++ [Examples of Agent Adherence calculations in Connect Customer](calculating-agents-productivity-time.md)
++ [Examples of adherence thresholds for agent shifts in Connect Customer](schedule-adherence-examples.md)
 
 ## How adherence is determined
 <a name="schedule-adherence-determined"></a>

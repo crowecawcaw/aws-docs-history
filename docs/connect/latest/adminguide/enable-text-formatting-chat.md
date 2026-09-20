@@ -7,7 +7,7 @@ With Connect Customer message formatting, you can enable your customers and agen
 
 **Topics**
 + [Supported formatting types](#supported-format-types)
-+ [Enable message formatting](#how-to-enable-message-formatting)
++ [How to enable message formatting](#how-to-enable-message-formatting)
 + [How to add email and phone links](#add-email-phone-links)
 + [How to add chatbot messages](#add-bot-messages)
 

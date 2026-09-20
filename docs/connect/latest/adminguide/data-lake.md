@@ -8,8 +8,8 @@ You can use the Connect Customer data lake as a central location to query variou
 For information about related API actions, see [Data lake actions](https://docs.aws.amazon.com/connect/latest/APIReference/analyticsdataset-api.html) in the *Connect Customer API Reference*.
 
 **Topics**
-+ [Access the data lake](access-datalake.md)
-+ [Associate tables](datalake-tables.md)
++ [Access Connect Customer data lake](access-datalake.md)
++ [Associate tables for the Connect Customer analytics data lake](datalake-tables.md)
 + [Manage access to Resource link tables](manage-access-to-resource-link-tables.md)
-+ [Data type definitions](data-type-definitions.md)
-+ [Data retention](data-lake-data-retention.md)
++ [Data type definitions for the Connect Customer data lake](data-type-definitions.md)
++ [Data retention in the Connect Customer analytics data lake](data-lake-data-retention.md)

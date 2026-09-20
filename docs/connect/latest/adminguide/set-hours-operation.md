@@ -16,9 +16,9 @@ The first thing you need to do when you set up a queue is to specify the hours o
 + [How to specify midnight](#set-hours-operation-midnight)
 + [Examples](#set-hours-operation-examples)
 + [Add lunch and other breaks](#add-lunch-breaks)
-+ [Daylight saving time](#daylight-savings-time)
++ [What happens during daylight saving time](#daylight-savings-time)
 + [How flows use hours of operation](#use-check-hours-of-operation-block)
-+ [Set overrides for extended, reduced, and holiday hours](hours-of-operation-overrides.md)
++ [Identify dates where you need to override standard operating hours](hours-of-operation-overrides.md)
 + [View calendar that illustrates effective hours of operation](view-hours-of-operation-calendar.md)
 
 ## How many hours of operation and overrides can I create?

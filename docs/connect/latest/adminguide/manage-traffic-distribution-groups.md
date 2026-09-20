@@ -7,4 +7,4 @@ The topics in this section describe how to manage traffic distribution groups by
 
 **Topics**
 + [List traffic distribution groups](list-traffic-distribution-groups.md)
-+ [Delete traffic distribution groups](delete-traffic-distribution-groups.md)
++ [Delete traffic distribution groups in Connect Customer](delete-traffic-distribution-groups.md)

@@ -37,6 +37,20 @@ To pass any data to a module, or to get any data from a module, you need to pass
 
 For example, you want data that is written from Lambda (an External attribute) and pass it to the module so you can make a decision. Your Lambda identifies whether the customer is a VIP member. You need that information inside the module because if they are a VIP member, you want to play a prompt thanking them for their membership. Since default Lambda is not available inside a module, you use attributes to pass and retrieve data. 
 
+### Flow modules: archived or active state
+<a name="modules-archived-active-state"></a>
+
+**Important**  
+Archived or active state is not supported for flow modules in contact execution. Unlike flows, modules do not honor the archived or active lifecycle state during contact execution.
+
+If a module is archived, it is still executed when referenced by a flow. To stop a module from being executed, you must remove it from all flows that reference it.
+
+Key details:
++ Archived modules remain functional: An archived module continues to execute normally if it is invoked by an active flow.
++ Manual removal required: To fully decommission a module, you must manually remove all references to it from any flows that use it. Archiving alone does not stop its execution.
+
+**Recommendation**: Before archiving a module, review all flows that reference it. Search your flows on the **Flows** page in the Connect Customer console to identify flows that call the module. If you intend to stop the module from executing, update or remove the module reference in each associated flow before archiving.
+
 ## Use module within module
 <a name="use-module-within-module"></a>
 

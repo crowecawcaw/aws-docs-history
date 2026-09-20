@@ -124,3 +124,6 @@ You can use an **Invoke Lambda** block earlier in the journey flow to determine 
 ![The From field set dynamically with Namespace set to Lambda invocation, Key set to Result data, and Attribute set to sourcePhoneNumber.](https://docs.aws.amazon.com/connect/latest/adminguide/images/send-communication-dynamic-from-lambda.png)
 
 Your Lambda function can use any logic to determine the source address. Use any field name in the Lambda response, as long as it matches what you specify in the **From** field's dynamic reference.
+
+**Fallback for an unresolved dynamic source**  
+The dynamic source phone number can resolve to a null or empty value at runtime. For example, your Lambda function returns `null` for a profile's `sourcePhoneNumber`. In that case, the voice call falls back to the default source phone number set in the journey's telephony channel configuration. If the resolved value is instead a non-empty but invalid phone number (for example, not in E.164 format), the profile is not dialed and is dropped with an error that you can view as an event in your data lake.

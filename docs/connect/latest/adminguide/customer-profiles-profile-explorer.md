@@ -14,7 +14,7 @@ Connect Customer Customer Profiles Explorer is a dynamic, all-in-one dashboard t
 
 **Topics**
 + [Enable Profile explorer](enabling-profile-explorer.md)
-+ [Get started](getting-started-profile-explorer.md)
++ [Get started with Connect Customer Customer Profiles Profile Explorer](getting-started-profile-explorer.md)
 + [Manage layouts](manage-layouts.md)
 + [Layout definition](layout-definition.md)
 + [Add Profile explorer to the agent workspace](add-profileexplorer-to-agentworkspace.md)

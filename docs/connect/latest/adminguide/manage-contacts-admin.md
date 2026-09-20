@@ -10,8 +10,8 @@ You can also perform these actions programmatically using the [TransferContact](
 This section explains how to manage contacts by using the Connect Customer admin website.
 
 **Topics**
-+ [Transfer in-progress contacts](transfer-contacts-admin.md)
-+ [Reschedule contacts](reschedule-contacts-admin.md)
-+ [End contacts](end-contacts-admin.md)
-+ [Update task template](update-template-contacts-admin.md)
-+ [Tag contacts](tag-contacts-admin.md)
++ [Transfer in progress contacts to a quick connect agent or a queue in Connect Customer](transfer-contacts-admin.md)
++ [Reschedule contacts from the Contact details page in Connect Customer](reschedule-contacts-admin.md)
++ [End contacts from the Contact details page in Connect Customer](end-contacts-admin.md)
++ [Update the task template on an in-progress contact in Connect Customer](update-template-contacts-admin.md)
++ [Tag contacts on the Contact details page in Connect Customer](tag-contacts-admin.md)

@@ -32,8 +32,8 @@ This step has five parts to it.
 
 **Topics**
 + [Part 1: Create an Amazon Lex bot](#tutorial1-create-amazon-lex-bot-step1)
-+ [Part 2: Add intents](#tutorial-lex-bot-intents)
-+ [Part 3: Build and test](#tutorial-lex-bot-build)
++ [Part 2: Add intents to your Amazon Lex bot](#tutorial-lex-bot-intents)
++ [Part 3: Build and test the Amazon Lex bot](#tutorial-lex-bot-build)
 
 ### Part 1: Create an Amazon Lex bot
 <a name="tutorial1-create-amazon-lex-bot-step1"></a>

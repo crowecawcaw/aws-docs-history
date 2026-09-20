@@ -12,10 +12,10 @@ This section explains how to perform common scenarios using the Voice ID APIs.
 
 **Topics**
 + [Manage Connect Customer Voice ID domains](voiceid-domain-operations.md)
-+ [Connect Customer Integration Association APIs](voiceid-integration-association-apis.md)
-+ [Speaker, watchlist, and fraudster management APIs](voiceid-speaker-fraudster-management-apis.md)
++ [Voice ID and Connect Customer Integration Association APIs](voiceid-integration-association-apis.md)
++ [Connect Customer Voice ID speaker, watchlist, and fraudster management APIs](voiceid-speaker-fraudster-management-apis.md)
 + [Batch enrollment in Connect Customer Voice ID using audio data from prior calls](voiceid-batch-enrollment.md)
-+ [File schema for Speaker Enrollment Job](speaker-enrollment-job-schema.md)
++ [Input and output file schema for the Speaker Enrollment Job in Connect Customer Voice ID](speaker-enrollment-job-schema.md)
 + [Create and edit a fraudster watchlist in Connect Customer Voice ID](voiceid-fraudster-watchlist.md)
-+ [File schema for Fraudster Registration Job](fraudster-registration-schema.md)
++ [Input and output file schema for the Fraudster Registration Job in Connect Customer Voice ID](fraudster-registration-schema.md)
 + [Connect Customer Streams APIs to integrate Voice ID](voiceid-streams-apis.md)

@@ -12,10 +12,10 @@ Using `connect:*` in a custom IAM policy grants your users all of the Connect Cu
 Certain pages on the Connect Customer console, such as [Tasks](#tasks-page) and [Customer Profiles](#customer-profiles-page), require that you add permissions to your inline policies. 
 
 **Topics**
-+ [AmazonConnect\_FullAccess policy](#amazonconnectfullaccesspolicy)
-+ [AmazonConnectReadOnlyAccess policy](#amazonconnectreadonlyaccesspolicy)
-+ [Home page](#console-home-page-permissions)
-+ [Detail pages](#detail-pages)
++ [AWS managed policy: AmazonConnect\_FullAccess policy](#amazonconnectfullaccesspolicy)
++ [AWS managed policy: AmazonConnectReadOnlyAccess policy](#amazonconnectreadonlyaccesspolicy)
++ [Connect Customer console home page](#console-home-page-permissions)
++ [Detailed instance pages](#detail-pages)
 + [Overview page](#overview-page)
 + [Telephony page](#telephony-page)
 + [Data storage page](#data-storage-page)

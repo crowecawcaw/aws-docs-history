@@ -28,10 +28,10 @@ Connect Customer Global Resiliency provides a set of APIs that you use to:
 Global routing, analytics, and contact search are enabled by default for all new ACGR instances created on or after September 1, 2026. Existing ACGR instances can migrate to this feature set on request.
 
 **Topics**
-+ [Global Resiliency requirements](connect-global-resiliency-requirements.md)
-+ [Get started](get-started-connect-global-resiliency.md)
-+ [Manage traffic distribution groups](manage-traffic-distribution-groups.md)
-+ [Manage phone numbers across Regions](manage-phone-numbers-across-regions.md)
-+ [Manage chat across Regions](manage-chat-across-regions.md)
-+ [Global routing](global-routing-across-acgr-regions.md)
++ [Connect Customer Global Resiliency requirements](connect-global-resiliency-requirements.md)
++ [Get started with Connect Customer Global Resiliency](get-started-connect-global-resiliency.md)
++ [Manage traffic distribution groups using Connect Customer APIs](manage-traffic-distribution-groups.md)
++ [Manage phone numbers across Regions using Connect Customer APIs](manage-phone-numbers-across-regions.md)
++ [Manage chat in your Connect Customer instance across Regions](manage-chat-across-regions.md)
++ [Global routing across ACGR Regions](global-routing-across-acgr-regions.md)
 + [Metrics, Reports and Search across ACGR Regions](metrics-reports-and-search-across-acgr-regions.md)

@@ -94,6 +94,8 @@ Be sure to adhere to the following guidelines when you enter domains in the **Al
   + Maximum 256 characters per domain entry
   + Maximum 128,000 characters total input length
 
+If your instance uses Connect Customer Global Resiliency, include the Region-specific sub-domains for both Regions of your instance pair, for example `us-east-1.{{your-instance-alias}}.my.connect.aws,us-west-2.{{your-instance-alias}}.my.connect.aws`. For more information, see [Screen recording with Global Resiliency](screen-recording-global-resiliency.md).
+
 Following are examples of how to specify your domain.
 
 ##### Correct
@@ -101,6 +103,7 @@ Following are examples of how to specify your domain.
 + domain1.my.connect.aws,domain2.my.connect.aws
 + ddomain-1.my.connect.aws, 1-domain.my.connect.aws
 + domain-12.my.connect.aws
++ us-east-1.domain.my.connect.aws,us-west-2.domain.my.connect.aws (Region-specific sub-domains for a Connect Customer Global Resiliency instance pair)
 
 ##### Incorrect
 <a name="incorrect-examples"></a>

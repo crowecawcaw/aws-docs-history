@@ -15,6 +15,8 @@ When using cross-channel concurrency, Connect Customer checks which contact to o
 
 1. Connect Customer prioritizes the longest waiting contact if Priority and Delay are equal. Even though it's evaluating multiple channels at the same time, First-In First-Out is still respected.
 
+Connect Customer can sometimes offer the same contact to more than one agent. In that case, Connect Customer offers the contact to the agent who is handling the fewest contacts across all channels. Connect Customer compares time available only to break a tie. For an example, see [Example 7: Both agents are available, but one is already handling contacts on another channel](concepts-routing-profiles-priority.md#concepts-routing-profiles-priority-example7).
+
 For a detailed example of how Connect Customer routes contacts when cross-channel concurrency is set up, see [Example of how a contact is routed with cross-channel concurrency](routing-profiles.md#example-routing-concurrency). 
 
 To learn more about what the agent experiences in the Contact Control Panel when handling multiple chats, see [Use the Contact Control Panel (CCP) in Connect Customer to chat with contacts](chat-with-connect-contacts.md).

@@ -38,6 +38,11 @@ The following metrics are available for monitoring AI agent performance. For inf
 + [Proactive Intents Engaged](#metric-proactive-intents-engaged)
 + [Proactive Intent Engagement Rate](#metric-proactive-intent-engagement-rate)
 + [Proactive Intent Response Rate](#metric-proactive-intent-response-rate)
++ [Average AI Agent Invocation Latency](#metric-avg-ai-agent-invocation-latency)
++ [AI Agent Collaborators](#metric-ai-agent-collaborators)
++ [AI Agent Collaboration Invocations](#metric-ai-agent-collaboration-invocations)
++ [AI Agent Selection Accuracy](#metric-ai-agent-selection-accuracy)
++ [Context Fidelity Score](#metric-context-fidelity-score)
 
 ## Active AI Agents
 <a name="metric-active-ai-agents"></a>
@@ -202,7 +207,7 @@ This metric uses an automated LLM-based evaluation that analyzes the parameters 
 + **Precision:** Are there any extra, irrelevant, or fabricated parameters included?
 
 **Note**  
-This metric is updated every 24 hours. This metric is available as part of Connect Customer AI.
+This metric is available as part of Connect Customer AI.
 
 ## AI Tool Selection Accuracy
 <a name="metric-ai-tool-selection-accuracy"></a>
@@ -221,7 +226,7 @@ This metric uses an automated LLM-based evaluation that analyzes each tool call 
 + **Optimal selection:** Was there a more appropriate tool available that the AI agent missed?
 
 **Note**  
-This metric is updated every 24 hours. This metric is available as part of Connect Customer AI.
+This metric is available as part of Connect Customer AI.
 
 ## AI Tool Utilization Accuracy
 <a name="metric-ai-tool-utilization-accuracy"></a>
@@ -237,7 +242,7 @@ This metric measures the rate of correct tool utilization by [AI Agents](https:/
 This metric is the combined score of AI Tool Selection Accuracy and AI Tool Parameter Accuracy.
 
 **Note**  
-This metric is updated every 24 hours. This metric is available as part of Connect Customer AI.
+This metric is available as part of Connect Customer AI.
 
 ## Average AI Agent Conversation Turns
 <a name="metric-avg-ai-agent-conversation-turns"></a>
@@ -292,7 +297,7 @@ This metric uses an automated LLM-based evaluation that analyzes each customer t
 + **Immediate response scope:** Only the agent's responses before the next message are evaluated; later resolution doesn't count retroactively
 
 **Note**  
-This metric is updated every 24 hours. This metric is available as part of Connect Customer AI.
+This metric is available as part of Connect Customer AI.
 
 ## Faithfulness Score
 <a name="metric-faithfulness-score"></a>
@@ -312,7 +317,7 @@ This metric uses an automated LLM-based evaluation that analyzes each AI agent r
 + **Correct attribution:** Does the response correctly attribute statements and information to the right source in the conversation without fabricating or misaligning claims?
 
 **Note**  
-This metric is updated every 24 hours. This metric is available as part of Connect Customer AI.
+This metric is available as part of Connect Customer AI.
 
 ## Goal Success Rate
 <a name="metric-goal-success-rate"></a>
@@ -332,7 +337,7 @@ This metric uses an automated LLM-based evaluation that analyzes the complete co
 + **Appropriateness:** Did the AI agent use suitable tools and approaches?
 
 **Note**  
-This metric is updated every 24 hours. This metric is available as part of Connect Customer AI.
+This metric is available as part of Connect Customer AI.
 
 ## Knowledge Content References
 <a name="metric-knowledge-content-references"></a>
@@ -383,3 +388,68 @@ This metric measures the percentage of engaged proactive intents that were succe
 + **Metric type:** Percent
 + **Metric category:** AI Session
 + **GetMetricDataV2 API metric identifier:** `PROACTIVE_INTENT_RESPONSE_RATE`
+
+## Average AI Agent Invocation Latency
+<a name="metric-avg-ai-agent-invocation-latency"></a>
+
+This metric measures the average time an [AI agent](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-agents.html) takes before completing its task in milliseconds. It may involve multiple LLM calls (1 or more) and tool calls (0 or more).
++ **Metric type:** Double
++ **Metric category:** AI Agent
++ **GetMetricDataV2 API metric identifier:** `AVG_AI_AGENT_INVOCATION_LATENCY`
++ **Dashboard location:** AI Agent Performance Dashboard, Avg. AI Agent Invocation Latency
+
+## AI Agent Collaborators
+<a name="metric-ai-agent-collaborators"></a>
+
+This metric measures the distinct number of [AI agents](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-agents.html) that participated in a multi-agent interaction, including the orchestrator and each sub-agent it collaborated with via handoff or delegation.
++ **Metric type:** Integer
++ **Metric category:** AI Agent
++ **GetMetricDataV2 API metric identifier:** `AI_AGENT_COLLABORATORS`
++ **Dashboard location:** AI Agent Performance Dashboard, AI Agent Collaborators
+
+## AI Agent Collaboration Invocations
+<a name="metric-ai-agent-collaboration-invocations"></a>
+
+This metric measures the total number of times an [AI agent](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-agents.html) received a handoff or delegation from another AI agent.
++ **Metric type:** Integer
++ **Metric category:** AI Agent
++ **GetMetricDataV2 API metric identifier:** `AI_AGENT_COLLABORATION_INVOCATIONS`
++ **Dashboard location:** AI Agent Performance Dashboard, AI Agent Collaboration Invocations
+
+## AI Agent Selection Accuracy
+<a name="metric-ai-agent-selection-accuracy"></a>
+
+This metric measures the average accuracy score (0-1) evaluating whether the orchestrator [AI agent](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-agents.html) routed tasks to the correct sub-agent. A value of 1 indicates optimal selection.
++ **Metric type:** Double
++ **Metric category:** AI Agent
++ **GetMetricDataV2 API metric identifier:** `AI_AGENT_SELECTION_ACCURACY`
++ **Dashboard location:** AI Agent Performance Dashboard, AI Agent Selection Accuracy
+
+**Note**  
+This metric is available as part of Connect Customer AI.
+
+**Evaluation Criteria:**
+
+This metric uses an automated LLM-based evaluation that analyzes each routing decision made by the orchestrator AI agent. Each routing decision is scored as either correct or incorrect based on the following criteria:
++ **Appropriateness:** Was the selected sub-agent the right one for the customer's request?
++ **Capability match:** Does the selected sub-agent have the tools and knowledge to handle the task?
++ **Optimal routing:** Was there a more suitable sub-agent available that the orchestrator missed?
+
+## Context Fidelity Score
+<a name="metric-context-fidelity-score"></a>
+
+This metric measures the average fidelity score (0-1) evaluating whether the [AI agent](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-agents.html) provided accurate and complete context to the downstream agent during collaboration. A value of 1 indicates perfect context fidelity.
++ **Metric type:** Double
++ **Metric category:** AI Agent
++ **GetMetricDataV2 API metric identifier:** `CONTEXT_FIDELITY_SCORE`
++ **Dashboard location:** AI Agent Performance Dashboard, Context Fidelity Score
+
+**Note**  
+This metric is available as part of Connect Customer AI.
+
+**Evaluation Criteria:**
+
+This metric uses an automated LLM-based evaluation that analyzes the context passed between agents during handoff or delegation. Each context transfer is scored based on the following criteria:
++ **Completeness:** Was all relevant conversation context included in the handoff?
++ **Accuracy:** Was the context accurately represented without distortion or omission?
++ **Relevance:** Was unnecessary or misleading context excluded from the transfer?

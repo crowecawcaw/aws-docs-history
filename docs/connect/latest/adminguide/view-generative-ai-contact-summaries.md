@@ -44,12 +44,12 @@ You can access generative AI-powered post-contact summaries multiple ways:
 ![The properties page of the Set recording and analytics behavior block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-block-post-contact-summaries-ccp.png)
 
 1. Assign the following permissions to the agent's security profile:
-   + **Contact Control Panel (CCP) - conversational analytics data - Access**
-   + **Analytics and Optimization - conversational analytics–post-contact summary - View**
-   + **Analytics and Optimization - Recorded conversations (redacted)**, **View Recorded conversations (unredacted)**, **All** or **Access** (least privilege is **Access**, which we recommend)
-   + **Analytics and Optimization - Contact transcripts (unredacted)** – **Access**
+   + **Contact Control Panel (CCP) - conversational analytics data**
+   + **Analytics and Optimization - conversational analytics - post-contact summary**
+   + **Analytics and Optimization - Call recordings (redacted) - Access** or **Call recordings (unredacted) - Access** (least privilege is **redacted**, which we recommend)
+   + **Analytics and Optimization - Contact transcripts (redacted) - Access** or **Contact transcripts (unredacted) - Access** (least privilege is **redacted**, which we recommend)
    + **Analytics and Optimization - View my contacts ** or **Contact Search **
-   + **Analytics and Optimization - conversational analytics**
+   + **Analytics and Optimization - conversational analytics - View**
 
 **To enable post-contact summaries on Connect Customer admin website**
 
@@ -69,9 +69,10 @@ You can access generative AI-powered post-contact summaries multiple ways:
 
 1. Assign the following permissions to the user's security profile:
    + **Analytics and Optimization - Contact Search** OR **View my contacts**
-   + **Analytics and Optimization - conversational analytics–post-contact summary - View**
-   + **Analytics and Optimization - Recorded conversations (redacted)**, **View Recorded conversations (unredacted)**, **All** or **Access** (least privilege is **Access**, which we recommend)
-   + **Analytics and Optimization - conversational analytics**
+   + **Analytics and Optimization - conversational analytics - post-contact summary**
+   + **Analytics and Optimization - Call recordings (redacted) - Access** or **Call recordings (unredacted) - Access** (least privilege is **redacted**, which we recommend)
+   + **Analytics and Optimization - Contact transcripts (redacted) - Access** or **Contact transcripts (unredacted) - Access** (least privilege is **redacted**, which we recommend)
+   + **Analytics and Optimization - conversational analytics - View**
 
 ## Enable contact summaries for email
 <a name="enable-email-summaries"></a>

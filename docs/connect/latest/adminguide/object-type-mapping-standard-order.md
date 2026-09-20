@@ -8,5 +8,5 @@ The topics in this section provide the standard order definition, and the object
 **Topics**
 + [Amazon AppIntegrations access requirements](standard-order-appintegrations-requirements.md)
 + [Amazon EventBridge access requirements](standard-order-eventbridge-requirements.md)
-+ [Standard order definition](standard-order-definition.md)
-+ [Mapping Shopify objects](mapping-shopify-objects-standard-order.html.md)
++ [Customer Profiles standard order object fields](standard-order-definition.md)
++ [Mapping Shopify objects to the standard order in Connect Customer Customer Profiles](mapping-shopify-objects-standard-order.html.md)

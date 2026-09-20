@@ -65,7 +65,7 @@ In this example a routing profile has only two queues, and they have the same pr
 | Sales | 1 | 0 | 
 | Support | 1 | 0 | 
 
-For this routing profile, the oldest contact is routed first. It goes to the agent who has been idle for the longest time.
+For this routing profile, Connect Customer routes the oldest contact first. If the available agents aren't handling any contacts, Connect Customer routes it to the agent who has been idle for the longest time. If the agents are handling different numbers of contacts, Connect Customer routes it to the agent who is handling the fewest. For an example, see [Example 7: Both agents are available, but one is already handling contacts on another channel](#concepts-routing-profiles-priority-example7).
 
 ## Example 5: Agent is idle and Contact is in 30 second delay queue
 <a name="concepts-routing-profiles-priority-example5"></a>
@@ -85,14 +85,36 @@ For example:
 | Agent A | 1 | 1 | 
 | Agent B | 5 | 1 | 
 + **Both agents are available. Who will get the call? It depends ... **
-  + Routing always attempts to route to the longest available agent first.
+  + When the available agents aren't handling any contacts, routing attempts to route to the longest available agent first.
 
-    Agent A has a profile with Priority 1 for Queue 1, and Agent B has a profile with Priority 5 for Queue 1. Contact Z is added to Queue 1 while both agents are available. In this case, Contact Z will always be routed to whichever agent has been available for longer. If Agent B has been available longer, Contact Z will be routed to Agent B.
+    Agent A has a profile with Priority 1 for Queue 1, and Agent B has a profile with Priority 5 for Queue 1. Contact Z is added to Queue 1 while both agents are available and neither is handling a contact. In this case, Connect Customer always routes Contact Z to the agent who has been available for longer. If Agent B has been available longer, Connect Customer routes Contact Z to Agent B.
+
+    If the agents are handling different numbers of contacts, Connect Customer offers the contact to the agent who is handling the fewest. Connect Customer compares time available only to break a tie. For an example, see [Example 7: Both agents are available, but one is already handling contacts on another channel](#concepts-routing-profiles-priority-example7).
   + Priority for queues is relevant to searching for queues for an individual agent. It does not determine which agent out of multiple available agent will be routed contacts. 
 
     Let's say Contact Y is in Queue 2 and has been there longer than Contact Z in Queue 1. Agent A will be routed Contact Z even though it is newer. This is because Queue 1 has a higher priority in the agent's profile.
 + **Do Priority 5 agents get calls only when agents with higher priorities are not available? **
 
   No. Priority 5 agents receive calls from that queue only if their other priority queues are empty. One agent's priority setting for a queue does not impact when the queue is routed a contact relative to other agents, but relative to other queues in the agent's profile.
+
+## Example 7: Both agents are available, but one is already handling contacts on another channel
+<a name="concepts-routing-profiles-priority-example7"></a>
+
+In this example, two agents share a routing profile that is set up for cross-channel concurrency. This means Connect Customer can offer them a voice contact while they handle email. Both agents are available, but they aren't handling the same number of contacts. Contact Z is added to the voice queue.
+
+The following table shows how many contacts each agent is handling and how long each agent has been available.
+
+
+| Agent | Contacts being handled | Time available | 
+| --- | --- | --- | 
+| Agent A | 0 | 1 minute | 
+| Agent B | 2 emails | 10 minutes | 
+
+Connect Customer routes Contact Z to Agent A, even though Agent B has been available longer. When Connect Customer chooses between agents who can both take the contact, it first compares how many contacts each agent is handling across all channels. It then offers the contact to the agent who is handling the fewest. Connect Customer compares time available only when the agents are handling the same number of contacts.
+
+Connect Customer doesn't exclude Agent B from routing, and there is no misconfiguration. Connect Customer offers Agent B voice contacts again after Agent B is handling the same number of contacts as the other available agents, or fewer.
+
+**Note**  
+The comparison counts contacts on all channels, not only the channel of the contact that Connect Customer is routing. Connect Customer offers a voice contact to an agent who is handling one email before an agent who is handling two emails. This is true even if the agent who is handling two emails has been available longer.
 
 For instructions on how to set priority and delay for a routing profile, see [Create a routing profile in Connect Customer to link queues to agents](routing-profiles.md).

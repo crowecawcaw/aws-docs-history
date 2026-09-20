@@ -19,8 +19,21 @@ Each agent is assigned to one routing profile. For more information about routin
 
 1. In the **Routing Profile Details** section, in the **Name** box, enter a searchable display name. In the **Description** box, enter what the profile is used for. 
 
-1. In the **Channel Settings** section, enter or choose the following information:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
+1. In the **Channel Settings** section, enter or choose the following information:
+
+
+<table>
+<thead>
+  <tr><th>Item</th><th>Description</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Channel availability</b></td><td>Choose which types of contacts will be routed to agents who are assigned to this routing profile.</td><td></td></tr>
+  <tr><td><b>Maximum contacts per agent</b></td><td>For chat, task, and email channels, specify how many contacts that an agent can handle simultaneously, up to 10.<br />For emails, this field defines how many emails agents can receive, and double that number is how many outbound emails agents can initiate. For example, if you set <b>Maximum contacts per agent</b> to 5, agents can receive up to 5 emails and create up to 10 agent-initiated outbound emails.</td><td></td></tr>
+  <tr><td><b>Cross-channel concurrency</b></td><td>Choose one of the following options:<ul><li> <b>No other channels while agent is on {{channel}}</b>. For example, while an agent is on a chat, they will not receive a voice contact, email, or a task.  </li><li> <b>Allow other channel concurrently</b>. For example, while an agent is on a voice contact, they can be offered contacts from any other channels enabled in the routing profile, such as chats, emails, and tasks. </li></ul><br />See <a href="#example-routing-concurrency">Example of how a contact is routed with cross-channel concurrency</a>. </td><td></td></tr>
+  <tr><td><b>Workload type concurrency</b></td><td>(Task and Email channels only) Toggle this on to configure agent capacity per workload type instead of a single channel-level number. When enabled, the <b>Maximum contacts per agent</b> field is disabled for that channel, and you configure capacity through individual workload type rows instead. For more information, see <a href="channels-and-concurrency.md">Channels and concurrency for routing contacts in Connect Customer</a>.</td><td></td></tr>
+</tbody>
+</table>
+
 
 1. (Optional) Configure workload type concurrency.
 
@@ -28,8 +41,20 @@ Each agent is assigned to one routing profile. For more information about routin
 
    1. Under the channel (for example, **TASK**), choose **Add workload type**.
 
-   1. For each workload type row, configure the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
+   1. For each workload type row, configure the following:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Workload Type</b></td><td>Select a workload type value from the dropdown. These values come from the system predefined attribute <code>connect:WorkloadType</code>. You must create workload type values before they appear here. For more information, see <a href="predefined-attributes.md">Create predefined attributes for routing contacts to agents</a>.</td></tr>
+  <tr><td><b>Concurrency</b></td><td>Enter the number of contacts of this workload type the agent can handle simultaneously (1–10).</td></tr>
+  <tr><td><b>Cross-channel behavior</b></td><td>Choose how this workload type interacts with other channels: <b>No other channels or workload types</b>, <b>Only allow other workload types of the same channel</b>, or <b>Allow other channels concurrently</b>.</td></tr>
+</tbody>
+</table>
+
 
    1. Repeat for each workload type the agent should handle on this channel.
 
@@ -43,8 +68,24 @@ Each agent is assigned to one routing profile. For more information about routin
 **Important**  
 When you enable workload type concurrency for a channel, the channel-level **Maximum contacts per agent** and **Cross-channel concurrency** fields for that channel become inactive. All capacity and cross-channel settings are managed per workload type.
 
-1. In the **Queues** section, enter the following information:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html)
+1. In the **Queues** section, enter the following information:
+
+
+<table>
+<thead>
+  <tr><th>Item</th><th>Description</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Name</b></td><td>Use the dropdown menu or text field to choose a queue that you've already set up. You can add multiple queues to a routing profile.</td><td></td></tr>
+  <tr><td><b>Channels</b></td><td>Choose whether the queue is for chat, voice, email, task, or all of them. The channel that you specify here must also be specified in the <b>Channel Settings</b> section. If it isn't, contacts from that channel won't be routed to agents. </td><td></td></tr>
+  <tr><td><b>Priority</b></td><td>Specify the order in which contacts are to be handled for that queue. For example, a contact in a queue with a priority of 2 would be a lower priority than a contact in a queue with a priority of 1.</td><td></td></tr>
+  <tr><td><b>Delay (in seconds)</b></td><td>Enter the minimum amount of time a contact should be in the queue before they are routed to an available agent.<br />To learn more about how Priority and Delay work together, see <a href="concepts-routing-profiles-priority.md">Queue priority and delay examples to help you load balance Connect Customer contacts</a>.</td><td></td></tr>
+  <tr><td><b>Default outbound queue</b></td><td>Choose a queue to be associated with outbound calls or emails initiated by the agents. Outbound contacts respect the settings from the default outbound queue, such as caller ID and "From" email address. For more information, see <a href="create-queue.md">Create a queue using the Connect Customer admin website</a>.</td><td></td></tr>
+  <tr><td><b>Set routing order</b></td><td>By default Connect Customer routes new contacts to agents that have been in <b>Available</b> status the longest. You can customize this behavior, for example, to change the impact that outbound contacts have on the assignment of new inbound contacts.</td><td></td></tr>
+  <tr><td><b>Outbound calls should not impact routing order</b></td><td>Use this setting if you don't want agents who make outbound contacts to move to the bottom of the list for receiving inbound contacts.<br />By default new contacts are routed to the agent who has been in <b>Available</b> status longest. By making an outbound contact, the agent drops to the bottom of the list waiting for inbound contacts. You can use this setting to override that default logic and make sure that agents making outbound contacts still get their fair share of inbound contacts. </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. Add queue and channel combinations in the **Manual Assignment** section. Manual assignment supports tasks, emails, and chats.
 

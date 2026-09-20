@@ -8,7 +8,7 @@ This section shows the export output path for evaluations, provides an example o
 **Topics**
 + [Verify your S3 bucket](#verify-evaluation-s3bucket)
 + [Example output locations](#example-evaluationform-output-locations)
-+ [Known issue](#release-note-evaluation-output)
++ [Known issue: Two output files for the same evaluation](#release-note-evaluation-output)
 + [Example scores](#example-evaluation-output-file)
 + [Evaluation form metadata definitions](#evaluation-form-metadata)
 + [Sample exported evaluation](#exported-evaluation)

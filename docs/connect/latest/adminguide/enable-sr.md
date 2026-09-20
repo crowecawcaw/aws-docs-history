@@ -39,6 +39,9 @@ When you enable encryption, Connect Customer uses the KMS key to encrypt any int
 
 For more information about instance settings, see [Update settings for your Connect Customer instance](update-instance-settings.md). 
 
+**Note**  
+If your instance uses Connect Customer Global Resiliency, enable screen recording on both the source and replica instances — the data storage configuration is not copied to the replica Region. For more information, see [Screen recording with Global Resiliency](screen-recording-global-resiliency.md).
+
 ## Step 2: Download and install the Connect Customer Client Application
 <a name="install-sr-step2"></a>
 

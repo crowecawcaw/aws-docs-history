@@ -1,9 +1,9 @@
 
 
-# Get started
+# Get started with Manager assist
 <a name="manager-assist-getting-started"></a>
 
-Before you can use manager assist, assign the required permissions and verify access.
+Before you can use manager assist, set up an [AI agent domain](https://docs.aws.amazon.com/connect/latest/adminguide/ai-agent-initial-setup.html) and ensure the instance is opted in to [cross-Region inference (CRIS)](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) if your instance is in Asia Pacific (Seoul) or Asia Pacific (Singapore). If your instance has been opted out, contact AWS Support to opt in. In addition to these two requirements, assign the required permissions and verify access.
 
 ## Assign permissions
 <a name="manager-assist-permissions"></a>

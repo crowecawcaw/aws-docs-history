@@ -19,9 +19,9 @@ Calculated attributes automatically transform raw data in real-time into actiona
 For a list of AWS Regions where the calculated attributes APIs are available, see [Customer Profiles calculated attributes API availability by Region](regions.md#customerprofiles_calculatedattributesregion). 
 
 **Topics**
-+ [Getting started with calculated attributes](customerprofiles-calculated-attributes-admin-website.md)
-+ [Calculated attributes APIs](customerprofiles-calculated-attributes-apis.md)
-+ [Create a custom calculated attribute definition](customerprofiles-calculated-attributes-creating-definition.md)
-+ [Validate calculated attribute values](customerprofiles-calculated-attributes-validating-values.md)
-+ [Default calculated attributes](customerprofiles-default-calculated-attributes.md)
-+ [Error messages and resolutions](customerprofiles-calculated-attributes-troubleshooting.md)
++ [Getting started with calculated attributes in Connect Customer Customer Profiles](customerprofiles-calculated-attributes-admin-website.md)
++ [Connect Customer Customer Profiles calculated attributes APIs](customerprofiles-calculated-attributes-apis.md)
++ [Create a custom Connect Customer Customer Profiles calculated attribute definition](customerprofiles-calculated-attributes-creating-definition.md)
++ [Validate calculated attribute values in Connect Customer Customer Profiles using APIs](customerprofiles-calculated-attributes-validating-values.md)
++ [Default calculated attributes in Connect Customer Customer Profiles](customerprofiles-default-calculated-attributes.md)
++ [Error messages and resolutions for Connect Customer Customer Profiles calculated attributes](customerprofiles-calculated-attributes-troubleshooting.md)

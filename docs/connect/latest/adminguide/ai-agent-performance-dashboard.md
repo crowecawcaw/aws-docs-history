@@ -67,7 +67,7 @@ This section shows health of your AI-Agent initiated Self-Service interactions. 
   The proportion of sessions where AI agents successfully resolved customer issues. Value is between 0-1, where 1 indicates successful resolution across all sessions.
 + **Faithfulness score**:
 
-  The proportion of AI agent responses that remain faithful to the conversational context, including messages and tool call results. Value is between 0-1, where 1 indicates perfect contextual fidelity.
+  The proportion of sessions where AI agent responses remain faithful to the conversational context, including messages and tool call results. Value is between 0-1, where 1 indicates perfect contextual fidelity.
 
 The following image shows an example **Self-service AI performance summary** chart.
 
@@ -92,7 +92,7 @@ This widget shows the health of your agent-assisted interactions where AI provid
   Percentage of detected proactive intents clicked by human agents.
 + **Faithfulness score**:
 
-  The proportion of AI agent responses that remain faithful to the conversational context, including messages and tool call results. Value is between 0-1, where 1 indicates perfect contextual fidelity.
+  The proportion of sessions where AI agent responses remain faithful to the conversational context, including messages and tool call results. Value is between 0-1, where 1 indicates perfect contextual fidelity.
 
 The following image shows an example **Agent assistance AI performance summary** chart.
 
@@ -124,21 +124,45 @@ You can expand or collapse the use case rows to drill down into specific agent v
 + **Avg. AI agent conversation turns**:
 
   Average number of conversation turns the AI agent took to reach an outcome.
-+ **Helpful response**:
++ **Avg. AI agent invocation latency**:
 
-  The count of AI suggestions rated as helpful with a thumbs-up.
-+ **Unhelpful response**:
+  The average time an AI agent takes to complete its task in milliseconds.
++ **Goal success rate**:
 
-  The count of AI suggestions rated as unhelpful with a thumbs-down.
-+ **Tool use accuracy**:
+  The proportion of sessions where AI agents successfully resolved customer issues. Value is between 0-1, where 1 indicates successful resolution across all sessions.
++ **Faithfulness score**:
 
-  The rate of correct tool use by the AI agent. Value is between 0-1, where 1 indicates perfect use.
+  The proportion of sessions where AI agent responses remain faithful to the conversational context, including messages and tool call results. Value is between 0-1, where 1 indicates perfect contextual fidelity.
++ **Completeness score**:
+
+  The proportion of sessions where AI agent responses fully address all parts of customer requests. Value is between 0-1, where 1 indicates complete responses across all sessions.
 + **Tool selection accuracy**:
 
   The rate of correct tool selections by AI Agents. Value is between 0-1, where 1 indicates optimal selection.
 + **Tool parameter accuracy**:
 
   The rate of tool invocations where AI Agents provided the correct parameters. Value is between 0-1, where 1 indicates perfect parameter accuracy.
++ **Tool use accuracy**:
+
+  The rate of correct tool use by the AI agent. Value is between 0-1, where 1 indicates perfect use.
++ **AI agent collaborators**:
+
+  The distinct number of AI agents that participated in a multi-agent interaction, including the orchestrator and each sub-agent it collaborated with via handoff or delegation.
++ **AI agent collaboration invocations**:
+
+  The total number of times an AI agent received a handoff or delegation from another AI agent.
++ **AI agent selection accuracy**:
+
+  The average accuracy score (0-1) evaluating whether the orchestrator routed tasks to the correct sub-agent.
++ **Context fidelity score**:
+
+  The average fidelity score (0-1) evaluating whether the AI agent provided accurate and complete context to the downstream agent during collaboration.
++ **Helpful response**:
+
+  The count of AI suggestions rated as helpful with a thumbs-up.
++ **Unhelpful response**:
+
+  The count of AI suggestions rated as unhelpful with a thumbs-down.
 
 The following image shows an example **AI agents performance** table.
 

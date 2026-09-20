@@ -7,4 +7,4 @@ The topics in this section provide the standard communication record definition,
 
 **Topics**
 + [Customer Profiles standard communication record object fields](customer-profiles-standard-communication-record-object-fields.md)
-+ [Mapping Campaign objects to the standard communication record in Connect Customer Customer Profiles](mapping-campaign-objects-to-the-standard-communication-record-in-amazon-connect-customer-profiles.md)
++ [Mapping Campaign objects to the standard communication record in Amazon Connect Customer Profiles](mapping-campaign-objects-to-the-standard-communication-record-in-amazon-connect-customer-profiles.md)

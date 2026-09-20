@@ -11,4 +11,5 @@ Connect Customer AI agent offers two self-service approaches:
 
 **Topics**
 + [Use agentic self-service](agentic-self-service.md)
-+ [(legacy) Use generative AI-powered self-service](generative-ai-powered-self-service.md)
++ [Agent-to-agent collaboration](a2a-collaboration.md)
++ [(legacy) Use generative AI-powered self-service with AI agents](generative-ai-powered-self-service.md)

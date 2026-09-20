@@ -19,10 +19,10 @@ Following is an overview of logging for flows and bot interactions.
   + **Enable Bot Analytics, Transcripts, and AI Agent Traces in Amazon Connect** on the **Flows** page. This option ensures the log includes the Amazon Lex bot transcript.
 
 **Topics**
-+ [Storage for flow logs](contact-flow-logs-stored-in-cloudwatch.md)
-+ [Enable flow logs](contact-flow-logs.md)
-+ [Search flow logs](search-contact-flow-logs.md)
-+ [Data in flow logs](contact-flow-log-data.md)
++ [Flow logs stored in an Amazon CloudWatch log group](contact-flow-logs-stored-in-cloudwatch.md)
++ [Enable Connect Customer flow logs in an Amazon CloudWatch log group](contact-flow-logs.md)
++ [Search flow logs stored in an Amazon CloudWatch log group](search-contact-flow-logs.md)
++ [Data in flow logs stored in an Amazon CloudWatch log group](contact-flow-log-data.md)
 + [Track customers between multiple flows in your contact center](contact-flow-log-multiple-flows.md)
-+ [Create alerts for events in your flow logs](contact-flow-log-alerts.md)
-+ [Monitor automated interactions (IVR)](monitor-automated-interaction-logs.md)
++ [Create alerts for events in your flow logs stored in an Amazon CloudWatch log group](contact-flow-log-alerts.md)
++ [Monitor automated interactions (IVR) in Connect Customer](monitor-automated-interaction-logs.md)

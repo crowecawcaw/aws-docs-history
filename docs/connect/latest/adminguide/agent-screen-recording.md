@@ -14,10 +14,11 @@ The following diagram shows the high-level components of screen recording. For a
 
 **Topics**
 + [Connect Customer Client Application](amazon-connect-client-app.md)
-+ [System and network requirements](sr-system-req.md)
-+ [Enable screen recording](enable-sr.md)
-+ [Review agent screen recordings](review-screen-recordings.md)
-+ [Rule-based redaction for screen recordings](rule-based-redaction-screen-recording.md)
-+ [Download log files for the screen recording app](troubleshoot-sr.md)
++ [System and network requirements for screen recording in Connect Customer](sr-system-req.md)
++ [Enable screen recording for your Connect Customer instance](enable-sr.md)
++ [Review agent screen recordings in the Connect Customer Client Application](review-screen-recordings.md)
++ [Rule-based redaction for agent screen recordings in Connect Customer](rule-based-redaction-screen-recording.md)
++ [Download the Connect Customer Client Application log files for troubleshooting](troubleshoot-sr.md)
 + [Use Amazon EventBridge events to track screen recording status](track-screen-recording-status.md)
-+ [FAQ for screen recording capabilities](faq-screenrecording.md)
++ [Screen recording with Connect Customer Global Resiliency](screen-recording-global-resiliency.md)
++ [Frequently asked questions about Connect Customer screen recording capabilities](faq-screenrecording.md)

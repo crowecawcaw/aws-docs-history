@@ -9,7 +9,7 @@ This topic explains how to enable logging for AI agents.
 
 **Topics**
 + [Required IAM permissions](#permissions-cw-q)
-+ [Enable logging](#enable-assistant-logging)
++ [Enable logging for AI agents](#enable-assistant-logging)
 + [Supported log types](#supported-log-types-q)
 + [Check for CloudWatch Logs quotas](#cwl-quotas)
 + [Documenting CloudWatch Events by using Interactive Handler](#documenting-cw-events-ih)

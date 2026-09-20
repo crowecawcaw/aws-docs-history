@@ -12,16 +12,16 @@ To learn more about the pricing of step-by-step guides, on the Connect Customer 
 **Topics**
 + [Overview](#step-by-step-guided-experiences-overview)
 + [Complex JSON Object support](#step-by-step-guided-experiences-complex-json)
-+ [Enable step-by-step guides](enable-guided-experiences-sg.md)
-+ [View resource](view-resources-sg.md)
-+ [UI builder](no-code-ui-builder.md)
-+ [Invoke a guide at the start of a contact](how-to-invoke-a-flow-sg.md)
-+ [Deploy step-by-step guides in chats](step-by-step-guides-chat.md)
-+ [Display contact attributes in the agent workspace](display-contact-attributes-sg.md)
-+ [Enable agents to enter disposition codes](disposition-codes-sg.md)
-+ [PII Redaction](step-by-step-guides-pii-redaction.md)
-+ [View Integrations](integrate-views-with-connect-resources.md)
-+ [Use Guides in Workspace for Managers](use-guides-in-manager-workspace.md)
++ [Enable step-by-step guides in Connect Customer](enable-guided-experiences-sg.md)
++ [Views: UI templates to customize the Connect Customer agent workspace](view-resources-sg.md)
++ [Use the UI builder in Connect Customer for resources in step-by-step guides](no-code-ui-builder.md)
++ [Invoke a guide at the start of a contact in Connect Customer](how-to-invoke-a-flow-sg.md)
++ [Deploy step-by-step guides in Connect Customer chats](step-by-step-guides-chat.md)
++ [Display contact context in the agent workspace when a contact begins in Connect Customer](display-contact-attributes-sg.md)
++ [Enable Connect Customer contact center agents to enter disposition codes when a contact ends](disposition-codes-sg.md)
++ [Prevent PII from appearing in a contact record transcript using Connect Customer conversational analytics](step-by-step-guides-pii-redaction.md)
++ [Integrate Views with Connect Resources](integrate-views-with-connect-resources.md)
++ [Use Step by Step Guides in Workspace for Managers](use-guides-in-manager-workspace.md)
 
 ## Overview
 <a name="step-by-step-guided-experiences-overview"></a>

@@ -20,12 +20,12 @@ Manager assist preview is available in all supported languages. During the previ
 Responses might contain inaccuracies. Always validate insights against your Connect Customer dashboards and reports before you make business decisions.
 
 **Topics**
-+ [Get started](manager-assist-getting-started.md)
-+ [Capabilities overview](manager-assist-capabilities.md)
-+ [Investigations and recommendations](manager-assist-investigations.md)
++ [Get started with Manager assist](manager-assist-getting-started.md)
++ [Capabilities overview for manager assist](manager-assist-capabilities.md)
++ [Investigations and recommendations in manager assist](manager-assist-investigations.md)
 + [Visualizations](manager-assist-visualizations.md)
 + [Summaries](manager-assist-summaries.md)
-+ [Best practices](manager-assist-best-practices.md)
-+ [AI models and data processing](manager-assist-ai-models.md)
++ [Best practices for manager assist](manager-assist-best-practices.md)
++ [AI models and data processing for manager assist](manager-assist-ai-models.md)
 + [Manager assist contacts in metrics and reporting](manager-assist-metrics-reporting.md)
 + [Service quotas](manager-assist-quotas.md)

@@ -12,7 +12,7 @@ This topic explains how to set up your outbound caller ID name and number.
 + [Use E.164 format for international phone numbers](#international-calls-ccp)
 + [How to specify a custom caller ID number using a [Call phone number](call-phone-number.md) block](#call-number-block-how-it-works)
 + [CNAM](#CNAM)
-+ [Avoid labels like "spam"](#enroll-in-CNAM-services)
++ [How to avoid labels like "spam" and "telemarketer"](#enroll-in-CNAM-services)
 
 ## Outbound parameters: Set in queue
 <a name="set-callerID-name"></a>

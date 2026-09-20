@@ -15,16 +15,16 @@ To request a quota increase, see [Requesting a quota increase](https://docs.aws.
 **Topics**
 + [Important things to know](#important-quota-info)
 + [Connect Customer quotas](#connect-quotas)
-+ [AppIntegrations quotas](#app-integration-quotas)
-+ [agent assist quotas](#connect-ai-agents-quotas)
-+ [Cases quotas](#cases-quotas)
-+ [Conversational analytics quotas](#contactlens-quotas)
-+ [Customer Profiles quotas](#customer-profiles-quotas)
-+ [Outbound campaigns quotas](#outbound-communications-quotas)
-+ [Voice ID quotas](#voiceid-quotas)
++ [Connect Customer AppIntegrations service quotas](#app-integration-quotas)
++ [Connect Customer agent assist service quotas](#connect-ai-agents-quotas)
++ [Connect Customer Cases service quotas](#cases-quotas)
++ [Conversational analytics service quotas](#contactlens-quotas)
++ [Connect Customer Customer Profiles service quotas](#customer-profiles-quotas)
++ [Connect Customer Outbound campaigns service quotas](#outbound-communications-quotas)
++ [Connect Customer Voice ID service quotas](#voiceid-quotas)
 + [How contacts are counted](#contact-counting-criteria)
-+ [Plan ahead with quotas](plan-ahead-quotas.md)
-+ [Feature specifications](feature-limits.md)
++ [Plan ahead with Connect Customer quotas](plan-ahead-quotas.md)
++ [Connect Customer feature specifications](feature-limits.md)
 + [Countries that call centers using Connect Customer can call by default](country-code-allow-list.md)
 + [API throttling quotas](#api-throttling-quotas)
 
@@ -75,7 +75,7 @@ To request a quota increase, see [Requesting a quota increase](https://docs.aws.
 | Maximum duration that a task can be scheduled in future | 90 days | No | Not Adjustable | 
 | Maximum number of reschedules allowed for a task scheduled for a future time | 20 | No | Not Adjustable | 
 | Modules per instance | 200 | Yes | Resource Level | 
-| Phone numbers per instance | 5<br />It's possible to get an error message that "You've reached the limit of Phone Numbers," even if it's the first time you've claimed a phone number. All the issues that cause this error message require help from Support to resolve. | Yes | Resource Level | 
+| Phone numbers per instance | 10<br />It's possible to get an error message that "You've reached the limit of Phone Numbers," even if it's the first time you've claimed a phone number. All the issues that cause this error message require help from Support to resolve. | Yes | Resource Level | 
 | Predefined attributes per instance | 150 | Yes | Resource Level | 
 | Proficiencies per agent | 10 | Yes | Resource Level | 
 | Prompts per instance | 500 | Yes | Resource Level | 
@@ -316,7 +316,8 @@ Connect Customer throttling quotas are by account, and per Region, not by user a
 | \*[GetMetricData ](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html) | 5 | 8 | 
 | \*[GetMetricDataV2 ](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) | 10 | 10 | 
 | \*[GetCurrentMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetCurrentMetricData.html) | 5 | 8 | 
-| [SearchContacts](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchContacts.html) | .5 | 1 | 
+| [SearchContacts](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchContacts.html) when searching within a 2-week window by contact initiation time | 10 | 30 | 
+| [SearchContacts](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchContacts.html) when searching beyond a 2-week window by contact initiation time | 1 | 1 | 
 | [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html) | 5 | 8 | 
 | [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) | 5 | 8 | 
 | [CreatePersistentContactAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePersistentContactAssociation.html) | 5 | 8 | 

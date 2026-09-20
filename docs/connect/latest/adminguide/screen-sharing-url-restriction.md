@@ -24,8 +24,20 @@ You configure the lists of allowed URLs by using predefined attributes. Complete
    + To create allowed list for customer screen sharing, enter `screensharing:customer-allowed-urls`.
    + To create allowed list for agent screen sharing, enter `screensharing:agent-allowed-urls`.
 
-1. In the **Value** box, enter the allowed URL. It can be a fully formatted URL or a string pattern for substring matching, such as` https://mycompany` or ` /mytransactions`. The following table shows examples of valid formats.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/screen-sharing-url-restriction.html)
+1. In the **Value** box, enter the allowed URL. It can be a fully formatted URL or a string pattern for substring matching, such as` https://mycompany` or ` /mytransactions`. The following table shows examples of valid formats.
+
+
+<table>
+<thead>
+  <tr><th>Allowed URL</th><th>website URL</th></tr>
+</thead>
+<tbody>
+  <tr><td>https://mycompany.com</td><td>https://mycompany.com</td></tr>
+  <tr><td>/mytransactions</td><td>https://mycompany.com/mytransactions<br />https://othercompany.com/mytrasactions.com</td></tr>
+  <tr><td>mycompany.com</td><td>https://mycompany.com<br />https://internal.mycompany.com</td></tr>
+</tbody>
+</table>
+
 
 1. Save the list. The URLs appear on the **Predefined attributes** page, as shown in the following example.   
 ![The Predefined attributes page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/screen-sharing-restricted-urls.png)

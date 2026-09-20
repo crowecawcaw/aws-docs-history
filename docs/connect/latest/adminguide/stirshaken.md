@@ -12,7 +12,7 @@ When originating calls from United States direct-inward-dial (DID) or toll-free 
 + [Connect Customer attestation levels](#attestation-levels)
 + [Requirements for A-level attestation](#attestation-level-a)
 + [Requirements for B-level attestation](#attestation-level-b)
-+ [Examples of C-level attestation](#examples-c-attestation)
++ [Examples of calls that receive C-level attestation](#examples-c-attestation)
 + [Important things to know](#important-attestation)
 
 ## What is STIR/SHAKEN?

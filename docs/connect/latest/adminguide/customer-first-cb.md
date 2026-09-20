@@ -12,10 +12,10 @@ If you switch from Connect Customer after you've already activated and started u
 
 **Topics**
 + [The lifecycle of a customer first callback](#queued-callback-customer-first-callback-contact-lifecycle)
-+ [Retries](#customer-first-callback-retries)
++ [Retries for customer first callbacks](#customer-first-callback-retries)
 + [Metrics for customer first callbacks](#customer-first-callback-metrics)
-+ [Example contact records](#customer-first-callback-contact-lifecycle-contact-model)
-+ [Sample flows](#customer-first-callback-contact-lifecycle-sample-flows)
++ [Example contact records for customer first callbacks](#customer-first-callback-contact-lifecycle-contact-model)
++ [Sample flows for customer first callbacks](#customer-first-callback-contact-lifecycle-sample-flows)
 
 ## The lifecycle of a customer first callback
 <a name="queued-callback-customer-first-callback-contact-lifecycle"></a>

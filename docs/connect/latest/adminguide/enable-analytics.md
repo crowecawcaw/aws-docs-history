@@ -25,13 +25,13 @@ For new flows, the [Set recording, analytics and processing behavior](set-record
 + [Enable call recording and speech analytics](#enable-callrecording-speechanalytics)
 + [Enable chat analytics](#enable-chatanalytics)
 + [Enable email analytics](#enable-emailanalytics)
-+ [Enable redaction](#enable-redaction)
-+ [Review redaction for accuracy](#review-sensitive-data-redaction)
++ [Enable redaction of sensitive data](#enable-redaction)
++ [Review sensitive data redaction for accuracy](#review-sensitive-data-redaction)
 + [Disable sentiment analysis](#disable-sentiment-analysis-voice-and-chat)
 + [Dynamically enable redaction based on the customer's language](#dynamically-enable-analytics-contact-flow)
 + [Design a flow for key highlights](#call-summarization-agent)
 + [What if the flow block fails to enable conversational analytics?](#troubleshoot-contactlens-enablement)
-+ [Multi-party calls](#multiparty-calls-contactlens)
++ [Multi-party calls and conversational analytics](#multiparty-calls-contactlens)
 
 ## Important things to know
 <a name="important-set-behaviorblock"></a>

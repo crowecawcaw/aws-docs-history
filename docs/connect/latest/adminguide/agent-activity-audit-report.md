@@ -12,8 +12,8 @@ For example, if there's something in the audit report you want to recreate, or i
 + [Status definitions](#agent-activity-status-definitions)
 + [Status changes](#agent-activity-status-changes)
 + [When is the status Agent Disconnected, Contact Missed, or Rejected?](#rejected-missed-disconnected)
-+ [Required permissions](#agent-activity-audit-permissions)
-+ [Agent activity audit tag-based access control](agent-activity-audit-tag-based-access-control.md)
++ [Permissions required to view agent activity audit reports](#agent-activity-audit-permissions)
++ [Agent activity audit tag-based access control in Connect Customer](agent-activity-audit-tag-based-access-control.md)
 
 ## Run the agent activity audit report
 <a name="access-agent-activity-audit"></a>

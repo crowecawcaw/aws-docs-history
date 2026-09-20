@@ -11,13 +11,13 @@ The topics in this section provide information and steps to help you set up obje
 
 **Topics**
 + [Customer object type mapping terminology and concepts](customer-profiles-terminology.md)
-+ [Create an object type mapping](create-object-type-mapping.md)
++ [Create an object type mapping in Connect Customer Customer Profiles](create-object-type-mapping.md)
 + [Object type mapping definition details in Connect Customer Customer Profiles](object-type-mapping-definition-details.md)
 + [Additional properties of object types in Customer Profiles](additional-properties-object-types.md)
 + [Inferred profiles](inferred-profiles.md)
-+ [Contact record templates](ctr-contact-record-template.md)
++ [Contact record templates in Connect Customer Customer Profiles](ctr-contact-record-template.md)
 + [Associate the Contact Record with one profile found using the \_phone key in Customer Profiles](auto-associate-profile-using-phone-profile-key.md)
 + [Examples of object type mappings in Connect Customer Customer Profiles](examples-object-type-mappings.md)
 + [Implicit profile object types in Connect Customer Customer Profiles](implicit-profile-object-types.md)
-+ [Generative AI powered data mapping](genai-powered-data-mapping.md)
-+ [Customer Profiles data limits](customer-profiles-data-limits.md)
++ [Generative AI powered data mapping in Connect Customer](genai-powered-data-mapping.md)
++ [Connect Customer Customer Profiles data limits](customer-profiles-data-limits.md)

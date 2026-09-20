@@ -25,11 +25,34 @@ For a list of the required IAM permissions needed for Customer Profiles to acces
 
 1. Ingest files from S3 to Customer profile by using AWS console
 
-   **Sample Profiles (referenced in the following account-based profiles) CSV**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles-object-type-mappings.html)
+   **Sample Profiles (referenced in the following account-based profiles) CSV**
 
-   **Sample account-based profiles CSV**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles-object-type-mappings.html)
+
+<table>
+<thead>
+  <tr><th>FirstName</th><th>LastName</th><th>PersonalEmailAddress</th><th>PhoneNumber</th><th>State</th><th>CustomerId</th><th>ProfileType</th></tr>
+</thead>
+<tbody>
+  <tr><td>Sam</td><td>Joe</td><td>sam@example.com</td><td>1111111111</td><td>WA</td><td>456</td><td>PROFILE</td></tr>
+  <tr><td>John</td><td>Doe</td><td>john@example.com</td><td>2222222222</td><td>IL</td><td>789</td><td>PROFILE</td></tr>
+  <tr><td>Sally</td><td>Doe</td><td>sally@example.com</td><td>3333333333</td><td>OR</td><td>111</td><td>PROFILE</td></tr>
+</tbody>
+</table>
+
+
+   **Sample account-based profiles CSV**
+
+
+<table>
+<thead>
+  <tr><th>AccountId</th><th>ProfileType</th><th>PrimaryOwner</th><th>SecondaryOwner</th><th>EmailEngagementPreferences</th><th>PhoneEngagementPreferences</th></tr>
+</thead>
+<tbody>
+  <tr><td>ACC111</td><td>ACCOUNT_PROFILE</td><td>Sam Joe</td><td>John Doe</td><td>[{"KeyName":"CustomerId","KeyValue":"456","ContactType":"PersonalEmailAddress"},{"KeyName":"CustomerId","KeyValue":"789","ContactType":"PersonalEmailAddress"}]</td><td>[{"KeyName":"CustomerId","KeyValue":"456","ContactType":"PhoneNumber"},{"KeyName":"CustomerId","KeyValue":"789","ContactType":"PhoneNumber"}]</td></tr>
+  <tr><td>ACC112</td><td>ACCOUNT_PROFILE</td><td>John Doe</td><td>Sally Doe</td><td>[{"KeyName":"CustomerId","KeyValue":"111","ContactType":"PersonalEmailAddress"}]</td><td>[{"KeyName":"CustomerId","KeyValue":"111","ContactType":"PhoneNumber"}]</td></tr>
+</tbody>
+</table>
+
 
    **Example of engagement preferences with Email**:
 

@@ -18,12 +18,12 @@ For example, an agent activity-driven metric is **Non-Productive Time**.
 You can customize the report settings to get the view of the data that is most meaningful for your organization. You can change the time frame for the report, which metrics are included in the report, and how data is grouped in the report. After you have customized a report, you can save it for future reference. You can generate a report using a recurring schedule that you define.
 
 **Topics**
-+ [Apply tag-based access control](hm-tag-based-access-control.md)
++ [Apply granular access control to historical metrics reports in Connect Customer](hm-tag-based-access-control.md)
 + [Create a custom historical metrics report in Connect Customer](create-historical-metrics-report.md)
-+ [Report limits](historical-reporting-limits.md)
++ [Historical metrics report limits in Connect Customer](historical-reporting-limits.md)
 + [Schedule a historical metrics report in Connect Customer](schedule-historical-metrics-report.md)
 + [Update a historical metrics report](update-historical-metrics-report.md)
 + [Download a historical metrics report in Connect Customer](download-historical-metrics-report.md)
-+ [Show agent queues in a Queues table](show-agent-queues.md)
-+ [How many contacts in queue on a specific date](contacts-in-queue-on-specific-date.md)
++ [Show agent queues in a Queues table for historical metrics](show-agent-queues.md)
++ [Determine the number of contacts in a queue on a specific date](contacts-in-queue-on-specific-date.md)
 + [Agent activity audit report in Connect Customer](agent-activity-audit-report.md)

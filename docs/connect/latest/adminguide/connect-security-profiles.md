@@ -10,10 +10,10 @@ Security profiles help you manage who can access the Connect Customer dashboard 
 **Topics**
 + [Best practices for Connect Customer and Contact Control Panel (CCP) security profiles](security-profile-best-practices.md)
 + [Inherited permissions for Connect Customer and Contact Control Panel (CCP) security profiles](inherited-permissions.md)
-+ [List of security profile permissions](security-profile-list.md)
++ [List of security profile permissions in Connect Customer](security-profile-list.md)
 + [Default security profiles in Connect Customer](default-security-profiles.md)
 + [Assign a security profile for Connect Customer to a contact center user](assign-security-profile.md)
 + [Create a security profile in Connect Customer](create-security-profile.md)
 + [Update security profiles in Connect Customer](update-security-profiles.md)
-+ [Apply tag-based access control](tag-based-access-control.md)
-+ [Apply hierarchy-based access control](hierarchy-based-access-control.md)
++ [Apply tag-based access control in Connect Customer](tag-based-access-control.md)
++ [Apply hierarchy-based access control in Connect Customer](hierarchy-based-access-control.md)

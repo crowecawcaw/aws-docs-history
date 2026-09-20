@@ -53,6 +53,11 @@ The following tables contain ai agent data.
 | response\_helpful | int |  Yes  | The count of AI suggestions rated as helpful with a thumbs-up. | 
 | response\_not\_helpful | int |  Yes  | The count of AI suggestions rated as unhelpful with a thumbs-down. | 
 | data\_lake\_last\_processed\_timestamp | Timestamp |  Yes  | The timestamp, which shows the last time the record was touched by the data lake. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. | 
+| multi\_agent\_selection\_accuracy | double |  Yes  | The average accuracy score (0-1) evaluating whether the orchestrator AI agent routed tasks to the correct sub-agent. A value of 1 indicates optimal selection. | 
+| multi\_agent\_context\_fidelity | double |  Yes  | A score (0-1) evaluating whether the AI agent provided accurate and complete context to the downstream agent during collaboration. | 
+| multi\_agent\_orchestration\_mode | string |  Yes  | The collaboration mode used for multi-agent interaction. Valid values: DELEGATE, HANDOFF. | 
+| parent\_ai\_agent\_id | string |  Yes  | The ID of the parent (orchestrator) AI agent that initiated the collaboration. | 
+| is\_collaborator | boolean |  Yes  | Indicates whether this AI agent participated in a multi-agent interaction. True for both the orchestrator and its sub-agents. | 
 
 ## AI Agent Knowledge Base
 <a name="data-lake-ai-agent-knowledge-base"></a>

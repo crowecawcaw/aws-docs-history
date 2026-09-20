@@ -10,8 +10,8 @@ In Connect Customer, you can capture customer audio during an interaction with y
 The customer audio streams also include interactions with an Amazon Lex bot, if you're using one in your flow. 
 
 **Topics**
-+ [Plan for live media streaming](plan-live-media-streams.md)
-+ [Enable live media streaming](enable-live-media-streams.md)
-+ [Access Kinesis Video Streams Data](access-media-stream-data.md)
-+ [Test live media streaming](use-media-streams-blocks.md)
-+ [Contact attributes for live media streaming](media-streaming-attributes.md)
++ [Plan for live media streaming from Connect Customer to Kinesis Video Streams](plan-live-media-streams.md)
++ [Enable live media streaming in your Connect Customer instance](enable-live-media-streams.md)
++ [Develop live media streaming in Connect Customer](access-media-stream-data.md)
++ [Example flow for testing live media streaming in Connect Customer](use-media-streams-blocks.md)
++ [Contact attributes for live media streaming in Kinesis Video Streams](media-streaming-attributes.md)

@@ -13,6 +13,9 @@ To obtain access to this feature, contact your Connect Customer Solutions Archit
 
 You call the [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) API to create a replica of your Connect Customer instance in another AWS Region and to copy configuration information for Connect Customer resources across AWS Regions.
 
+**Note**  
+The `replicaAlias` attribute in the [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) API is now optional to support global routing for Connect Customer Global Resiliency (ACGR) instances. When you onboard to ACGR without global routing, you **must** specify a custom `replicaAlias` in your API call.
+
 **Topics**
 + [Important things to know](#important-info-automated-config)
 + [Characteristics of the replica instance](#replica-characteristics)
@@ -20,7 +23,7 @@ You call the [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIR
 + [What to do after the replica instance is created](#configure-replica-instance)
 + [When to contact AWS Support](#replica-cs)
 + [Why a ReplicateInstance call fails](#why-replicateinstance-fails)
-+ [Find the source Region of your instance](#how-to-find-source-region-of-instances)
++ [How to find the source Region of your Connect Customer instances](#how-to-find-source-region-of-instances)
 
 ## Important things to know
 <a name="important-info-automated-config"></a>

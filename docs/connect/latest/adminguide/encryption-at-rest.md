@@ -14,11 +14,11 @@ The recordings and chat transcripts that are stored in your Amazon S3 bucket are
 For more information about key management in Connect Customer, see [Key management in Connect Customer](key-management.md).
 
 **Topics**
-+ [Agentic CX designer](#encryption-at-rest-acxd)
-+ [Amazon AppIntegrations](#encryption-at-rest-appintegrations)
-+ [Connect Customer Cases](#encryption-at-rest-cases)
-+ [Connect Customer Customer Profiles](#encryption-at-rest-customer-profiles)
-+ [Connect Customer agent assist](#encryption-at-rest-wisdom)
++ [Agentic CX designer encryption at rest](#encryption-at-rest-acxd)
++ [Amazon AppIntegrations data encryption at rest](#encryption-at-rest-appintegrations)
++ [Connect Customer Cases encryption at rest](#encryption-at-rest-cases)
++ [Connect Customer Customer Profiles encryption at rest](#encryption-at-rest-customer-profiles)
++ [Connect Customer agent assist encryption at rest](#encryption-at-rest-wisdom)
 + [Connect Customer Voice ID encryption at rest](#encryption-at-rest-voiceid)
 + [Outbound campaigns encryption at rest](#encryption-at-rest-outboundcommunications)
 + [Forecasts, capacity plans, and schedules](#forecasts-encryption-at-rest-)

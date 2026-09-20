@@ -15,12 +15,12 @@ For information about how agents search for quick responses, see [Search for qui
 Even though quick responses use the agent assist APIs, quick responses don't lead to additional billing. You only pay for the chat message price or email price. For more information, see [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/).
 
 **Topics**
-+ [Assign security profile permissions](quick-response-permissions.md)
-+ [Set up a Connect Customer knowledge base](setup-knowledgebase.md)
-+ [Add quick responses for use with chat and email contacts](quick-responses.md)
-+ [Add attributes for personalizing quick responses](add-attributes.md)
-+ [Edit quick responses](edit-quick-responses.md)
++ [Assign permissions to manage quick responses in Connect Customer](quick-response-permissions.md)
++ [Set up a Connect Customer knowledge base to store quick responses](setup-knowledgebase.md)
++ [Add quick responses for use with chat and email contacts in Connect Customer](quick-responses.md)
++ [Add attributes for personalizing quick responses in Connect Customer](add-attributes.md)
++ [Edit quick responses in Connect Customer](edit-quick-responses.md)
 + [Delete quick responses in Connect Customer](delete-qr.md)
-+ [Import quick responses](add-data.md)
-+ [View the import history for your quick responses](view-import-history.md)
-+ [Enable quick responses in a custom CCP](enable-qr-search.md)
++ [Import quick responses to Connect Customer](add-data.md)
++ [View the import history for your Connect Customer quick responses](view-import-history.md)
++ [Enable Connect Customer quick responses in a custom Contact Control Panel (CCP)](enable-qr-search.md)

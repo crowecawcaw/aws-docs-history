@@ -27,12 +27,12 @@ The following sections describe the two primary connectivity options for using t
 + [Rerouting audio](#reroute-audio)
 + [Using Direct Connect](#using-directconnect)
 + [Agent workstation requirements for app, web, and video calling in Connect Customer](videocalling-networking-requirements.md)
-+ [Detailed Network Paths](detailed-network-paths.md)
++ [Detailed network paths for Connect Customer](detailed-network-paths.md)
 + [Use Connect Customer in a VDI environment](using-ccp-vdi.md)
 + [How call center agents connect to the Contact Control Panel (CCP)](ccp-connectivity.md)
-+ [How CCP uses WebRTC](ccp-uses-webrtc.md)
++ [How Contact Control Panel (CCP) uses WebRTC](ccp-uses-webrtc.md)
 + [Use an allowlist for integrated applications in Connect Customer](app-integration.md)
-+ [Update your domain](update-your-connect-domain.md)
++ [Update your Connect Customer domain](update-your-connect-domain.md)
 
 ## Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist
 <a name="option1"></a>

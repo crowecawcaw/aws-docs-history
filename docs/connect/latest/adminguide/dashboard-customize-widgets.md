@@ -8,7 +8,7 @@ You can customize specific widgets to create dashboards that best fit your busin
 You can delete or add new metrics, define widget level filters and groupings, re-order and re-size columns, and more. Additionally, you can add new custom metrics to specific widgets in your dashboards. For more information, see. [Custom metrics](custom-metrics-topic.md).
 
 **Topics**
-+ [Choose which metrics to display](#dashboard-changing-metrics)
++ [Choose which metrics to display in a widget](#dashboard-changing-metrics)
 + [Select custom time thresholds](#select-time-thresholds)
 + [Re-order the metrics](#reorder-metrics)
 + [Re-size columns](#reorder-metrics)
@@ -17,7 +17,7 @@ You can delete or add new metrics, define widget level filters and groupings, re
 + [Configure filters](#configure-filters)
 + [Filter by queue type](#filter-by-queue-type)
 + [Modify thresholds for summary widgets and tables](#dashboard-thresholds)
-+ [Add or remove widgets](#dashboard-add-widgets)
++ [Add or remove widgets on a dashboard](#dashboard-add-widgets)
 + [Move and resize widgets](#widgets-move-charts)
 + [Create custom dashboards](#dashboard-create-custom)
 + [Create custom calculations of service level metrics](#dashboard-custom-sl)
@@ -336,12 +336,10 @@ When compact mode is on, the following changes apply:
 + Summary widgets use smaller fonts and are no taller than two rows.
 + Compact mode hides widget descriptions.
 + The last updated time appears next to the widget name as a relative time, for example **Now** or **5 seconds ago**. To see the exact time, pause on it.
-+ Compact mode hides widget filters behind a filter icon. Choose the icon to **Show filters** or **Hide filters** for that widget.
-
-The following image shows the filter icon used to show or hide filters for a widget.
-
-![The filter icon used to show or hide filters in compact mode.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-show-hide-filter-toggle.png)
-
++ Compact mode hides widget filters behind a filter icon. Choose the icon to **Show filters** or **Hide filters** for that widget.  
+![The filter icon used to show or hide widget filters in compact mode.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-compact-mode-widget-level-show-hide-filter-toggle.png)
++ Compact mode hides dashboard level filters behind a filter icon. Choose the icon to **Show filters** or **Hide filters** for the dashboard.  
+![The filter icon used to show or hide dashboard filters in compact mode.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-compact-mode-show-hide-filter-toggle.png)
 
 ## Widget pagination
 <a name="dashboard-widget-pagination"></a>

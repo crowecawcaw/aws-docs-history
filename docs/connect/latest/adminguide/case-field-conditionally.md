@@ -27,9 +27,9 @@ You can apply case field conditions to multiple fields on a template.
 
 **Topics**
 + [Step 1: Create case field conditions](#step1-create-case-field-condition)
-+ [Step 2: Add the case field conditions to a template](#step2-add-casefieldcondition-template)
-+ [Example field case conditions](#example-case-conditions)
-+ [APIs to create field case conditions](#case-conditions-apis)
++ [Step 2: Add case field conditions to a template](#step2-add-casefieldcondition-template)
++ [Example case field conditions](#example-case-conditions)
++ [APIs to create case field conditions](#case-conditions-apis)
 
 ## Step 1: Create case field conditions
 <a name="step1-create-case-field-condition"></a>

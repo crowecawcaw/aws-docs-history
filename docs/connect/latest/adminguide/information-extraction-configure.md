@@ -20,8 +20,21 @@ Extraction definitions are instance-level resources that define what to extract 
 
 1. Choose **Create information extraction definition**.
 
-1. Configure the information extraction criteria:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/information-extraction-configure.html)
+1. Configure the information extraction criteria:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Name</b></td><td>The name of the information to extract. The name is included as input to the extraction process and appears as the label for the extracted information (unless you specify a display label). For example: <code>Reservation ID</code> or <code>Next steps promised</code>.</td></tr>
+  <tr><td><b>Display Label</b> (optional)</td><td>The label for the extracted information. The display label is not used as input to the extraction process.</td></tr>
+  <tr><td><b>Prompt Hint</b></td><td>Provide contextual cues or guidelines to identify the specific information you want to extract. Example: <code>A reservation identifier should be six characters long and only include letters A-Z and digits 0-9.</code></td></tr>
+  <tr><td><b>If information is not found</b></td><td>What to display when the information is not found in the contact. <b>Omit</b> hides the field entirely. <b>Replace with alternate word</b> to specify a fixed value (for example, "Not provided").</td></tr>
+</tbody>
+</table>
+
 **Tip**  
 Do not over-engineer the **Prompt Hint** — prompt engineering is already handled by conversational analytics. Keep hints brief and descriptive.
 
@@ -60,8 +73,21 @@ Rules are used to trigger the information extraction process. Add information ex
 
 1. Choose **Create a rule**, then select **Conversational analytics**.
 
-1. For **When** (event source), choose one of the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/information-extraction-configure.html)
+1. For **When** (event source), choose one of the following:
+
+
+<table>
+<thead>
+  <tr><th>Event source</th><th>When processed</th><th>Where results appear</th></tr>
+</thead>
+<tbody>
+  <tr><td>After-call work analysis is available</td><td>During after-contact work.</td><td>CCP (Extracted Information widget), Contact details page</td></tr>
+  <tr><td>After chat analysis is available</td><td>During after-contact work.</td><td>Contact details page</td></tr>
+  <tr><td>Post-call analysis is available</td><td>After the contact is closed and after-contact work is complete.</td><td>Contact search, Contact details page</td></tr>
+  <tr><td>Post-chat analysis is available</td><td>After the contact is closed and after-contact work is complete.</td><td>Contact search, Contact details page</td></tr>
+</tbody>
+</table>
+
 **Note**  
 If a post-contact analysis rule triggers an information extraction that was already completed by an after-call work analysis rule, the extraction is skipped and does not process a second time.
 **Note**  

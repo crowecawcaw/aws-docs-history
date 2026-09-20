@@ -15,7 +15,7 @@ You can create and manage prompts by using the Connect Customer admin site as de
 + [Maximum length for prompts](#max-length-for-prompts)
 + [Bulk upload of prompts not supported in UI, API, or CLI](#bulk-upload-prompts)
 + [Add text-to-speech to prompts in flow blocks in Amazon Polly](text-to-speech.md)
-+ [Create dynamic text strings in Play prompt blocks](create-dynamic-text-strings.md)
++ [Create dynamic text strings in Play prompt blocks in Connect Customer](create-dynamic-text-strings.md)
 + [Dynamically select which prompts to play in Connect Customer](dynamically-select-prompts.md)
 + [Set up prompts to play from an S3 bucket in Connect Customer](setup-prompts-s3.md)
 + [Choose the text-to-speech voice and language for audio prompts in Connect Customer](voice-for-audio-prompts.md)

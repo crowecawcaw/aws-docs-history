@@ -775,6 +775,50 @@ This metric measures the percentage of [AI Agents](create-ai-agents.md) invocati
 + Get total AI agent invocations count.
 + Calculate percentage: (AI agent invocation success / AI agent invocations) \* 100.0
 
+## AI Agent Collaboration Invocations
+<a name="ai-agent-collaboration-invocations"></a>
+
+This metric measures the total number of times an [AI agent](create-ai-agents.md) received a handoff or delegation from another AI agent.
+
+**Metric type**: Integer
+
+**Metric category**: AI Agent
+
+**How to access using the Connect Customer API**: 
++ : `AI_AGENT_COLLABORATION_INVOCATIONS`
+
+: 
++ Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), AI Agent Collaboration Invocations
+
+**Calculation logic**:
++ For each AI Agent record
++ If aiAgentId is NOT present, then skip this record.
++ If multiAgentOrchestrationMode is present (includes DELEGATE and HANDOFF modes), then count this record as 1.
++ Else, skip this record.
++ Return final\_result = sum of the counts from matching records.
+
+## AI Agent Collaborators
+<a name="ai-agent-collaborators"></a>
+
+This metric measures the distinct number of [AI agents](create-ai-agents.md) that participated in a multi-agent interaction, including the orchestrator and each sub-agent it collaborated with via handoff or delegation.
+
+**Metric type**: Integer
+
+**Metric category**: AI Agent
+
+**How to access using the Connect Customer API**: 
++ : `AI_AGENT_COLLABORATORS`
+
+: 
++ Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), AI Agent Collaborators
+
+**Calculation logic**:
++ For each AI Agent record
++ If aiAgentId is NOT present, then skip this record.
++ If isCollaborator is present and equals true, AND aiAgentNameVersion is present, then return aiAgentNameVersion.
++ Else, skip this record.
++ Return final\_result = approximate unique count of aiAgentNameVersion values from matching records.
+
 ## AI Agent Response Helpful
 <a name="ai-agent-response-helpful"></a>
 
@@ -826,6 +870,31 @@ This metric measures the count of AI suggestions rated as unhelpful with a thumb
 **Note**  
 This metric is updated every 6 hours.
 This metric is available as part of Connect Customer.
+
+## AI Agent Selection Accuracy
+<a name="ai-agent-selection-accuracy"></a>
+
+This metric measures the average accuracy score (0-1) evaluating whether the orchestrator [AI agent](create-ai-agents.md) routed tasks to the correct sub-agent. A value of 1 indicates optimal selection.
+
+**Metric type**: Double
+
+**Metric category**: AI Agent
+
+**How to access using the Connect Customer API**: 
++ : `AI_AGENT_SELECTION_ACCURACY`
+
+: 
++ Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), AI Agent Selection Accuracy
+
+**Calculation logic**:
++ For each AI Agent record
++ If aiAgentId is NOT present, then skip this record.
++ If multiAgentSelectionAccuracy is present, then set result = multiAgentSelectionAccuracy.
++ Else, skip this record.
++ Return final\_result = average of the result values from matching records.
+
+**Note**  
+This metric is available as part of Connect Customer AI.
 
 ## AI Response Completion Rate
 <a name="ai-response-completion-rate"></a>
@@ -1093,6 +1162,28 @@ This metric measures the average number of conversation turns that [AI Agents](c
   + Else, skip this record. 
 + Return final\_result = average of the result values from matching records.
 
+## Average AI Agent Invocation Latency
+<a name="average-ai-agent-invocation-latency"></a>
+
+This metric measures the average time an [AI agent](create-ai-agents.md) takes before completing its task in milliseconds. It may involve multiple LLM calls (1 or more) and tool calls (0 or more).
+
+**Metric type**: Double
+
+**Metric category**: AI Agent
+
+**How to access using the Connect Customer API**: 
++ : `AVG_AI_AGENT_INVOCATION_LATENCY`
+
+: 
++ Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), Avg. AI Agent Invocation Latency
+
+**Calculation logic**:
++ For each AI Agent record
++ If aiAgentId is NOT present, then skip this record.
++ If invocationLatency is present, then set result = invocationLatency.
++ Else, skip this record.
++ Return final\_result = average of the result values from matching records.
+
 ## Average AI Conversation Turns
 <a name="average-ai-conversation-turns"></a>
 
@@ -1186,6 +1277,31 @@ This metric measures the proportion of sessions where the Orchestration [AI Agen
 **Note**  
 This metric is updated every 24 hours.
 This metric is available as part of Connect Customer.
+
+## Context Fidelity Score
+<a name="context-fidelity-score"></a>
+
+This metric measures the average fidelity score (0-1) evaluating whether the [AI agent](create-ai-agents.md) provided accurate and complete context to the downstream agent during collaboration.
+
+**Metric type**: Double
+
+**Metric category**: AI Agent
+
+**How to access using the Connect Customer API**: 
++ : `CONTEXT_FIDELITY_SCORE`
+
+: 
++ Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), Context Fidelity Score
+
+**Calculation logic**:
++ For each AI Agent record
++ If aiAgentId is NOT present, then skip this record.
++ If multiAgentContextFidelity is present, then set result = multiAgentContextFidelity.
++ Else, skip this record.
++ Return final\_result = average of the result values from matching records.
+
+**Note**  
+This metric is available as part of Connect Customer AI.
 
 ## Faithfulness Score
 <a name="faithfulness-score"></a>

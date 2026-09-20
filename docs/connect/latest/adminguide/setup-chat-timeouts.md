@@ -12,8 +12,21 @@ This topic is about setting up chat timeouts for customer-agent conversations. I
 
 **You can set four different types of timers.**
 + You specify the amount of time that has to elapse before an action is taken.
-+ Any combination of timers can be used.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html)
++ Any combination of timers can be used. 
+
+
+<table>
+<thead>
+  <tr><th>Timer</th><th>Action at end of timer</th></tr>
+</thead>
+<tbody>
+  <tr><td>Customer idle timeout</td><td>Mark the customer as idle.</td></tr>
+  <tr><td>Customer auto-disconnect timeout</td><td>Automatically disconnect the agent from the chat due to customer idleness.</td></tr>
+  <tr><td>Agent idle timeout</td><td>Mark the agent as idle.</td></tr>
+  <tr><td>Agent auto-disconnect timeout</td><td>Automatically disconnect the agent from the chat due to agent idleness. </td></tr>
+</tbody>
+</table>
+
 
 **Specify all timers in minutes.**
 + Minimum: 2 minutes

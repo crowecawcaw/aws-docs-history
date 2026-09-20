@@ -213,14 +213,32 @@ Any communications sent from a campaign that **ignores total limits** will **not
 +  **Start**: Select an optional wait time before re-attempting. 
 
 Following is a list of disposition codes that are available in the **Disposition** dropdown menu for you to configure a retry rule. 
-+ **Voice channel (Agent and Automated Voice)**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/guided-campaign-builder.html)
++ **Voice channel (Agent and Automated Voice)**
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 **Note**  
 By default, you can only re-attempt one time unless you configure engagement preferences and upload data into Customer Profiles.
-+ **Email channel**     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/guided-campaign-builder.html)
-+ **SMS channel**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/guided-campaign-builder.html)
++ **Email channel** 
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
++ **SMS channel**
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
 The following image shows an example of setting the **Retry** rule for **Bounced** email.
 

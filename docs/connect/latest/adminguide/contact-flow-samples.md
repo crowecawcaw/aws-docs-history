@@ -28,7 +28,7 @@ Connect Customer includes a set of sample flows that show you how to perform com
 The topics in this section describe how each of the sample flows work.
 
 **Topics**
-+ [Sample inbound flow](sample-inbound-flow.md)
++ [Sample inbound flow in Connect Customer for the first contact experience](sample-inbound-flow.md)
 + [Sample flow in Connect Customer for A/B contact distribution testing](sample-ab-test.md)
 + [Sample customer queue priority flow in Connect Customer](sample-customer-queue-priority.md)
 + [Sample disconnect flow in Connect Customer](sample-disconnect.md)

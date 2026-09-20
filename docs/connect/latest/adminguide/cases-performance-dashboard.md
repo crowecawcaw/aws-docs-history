@@ -9,7 +9,7 @@ The dashboard provides a single place to view case operations metrics. Use the d
 
 **Topics**
 + [Enable access to the dashboard](#enable-cases-performance-dashboard)
-+ [Access control](#cases-dashboard-access-control)
++ [Access control for the Cases performance dashboard](#cases-dashboard-access-control)
 + [Specify "Time range" and "Compare to" benchmark](#cases-dashboard-timerange)
 + [Examples of "Time range" and "Compare to" configurations](#cases-dashboard-timerange-examples)
 + [Cases performance summary](#cases-performance-summary-chart)

@@ -7,5 +7,5 @@ The [Connect Customer Streams](https://github.com/aws/amazon-connect-streams) do
 
 **Topics**
 + [Using Connect Customer with third-party cookies](admin-3pcookies.md)
-+ [Embed CCP into Salesforce](salesforce-integration.md)
-+ [Embed CCP into Zendesk](zendesk-integration.md)
++ [Embed the Connect Customer Contact Control Panel (CCP) into Salesforce](salesforce-integration.md)
++ [Embed the Connect Customer Contact Control Panel (CCP) into Zendesk](zendesk-integration.md)

@@ -6,8 +6,8 @@
 You can port your existing phone numbers to your Connect Customer contact center. 
 
 **Topics**
-+ [Things to know before porting](things-to-know-before-porting.md)
-+ [South Korean porting regulations for your Connect Customer instance](porting-numbers-sk.md)
++ [Things to know before porting a phone number to Connect Customer](things-to-know-before-porting.md)
++ [Guidelines for porting phone numbers to your Connect Customer project in South Korea](porting-numbers-sk.md)
 + [Things to know about Thailand number porting](porting-numbers-th.md)
-+ [Porting your phone numbers](porting-your-phone-numbers.md)
-+ [After the porting process completes](porting-troubleshoot.md)
++ [Porting your phone numbers from your carrier to Connect Customer](porting-your-phone-numbers.md)
++ [Troubleshoot issues after porting phone numbers to Connect Customer](porting-troubleshoot.md)

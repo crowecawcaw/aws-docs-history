@@ -57,8 +57,38 @@ Additionally, you will need one or more relevant permissions to view specific re
 + When you filter metrics by tags and select **All accessible tags**, the system restricts data to permitted tags for the selected resource types.
 + If you have tag-based access controls enabled in your security profile, and you want to share a report with another user with a different security profile, use the Tag filter to select the resource(s) and select **All accessible tags** before saving the report, see example on the image below. This makes sure that the user opening the saved report with a different security profile will only view metrics on the same report based on the resource tags configured in their security profile.  
 ![The Tag filter with All accessible tags option selected.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-tbac-all-accessible-tags.png)
-+ Dashboard widgets that do not have a default groupings are filtered by a default resource tag filter. The following table shows the resource type applied as a default filter for each widget:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/dashboard-tag-based-access-control.html)
++ Dashboard widgets that do not have a default groupings are filtered by a default resource tag filter. The following table shows the resource type applied as a default filter for each widget:
+
+
+<table>
+<thead>
+  <tr><th>Widget Name</th><th>Resource Type</th></tr>
+</thead>
+<tbody>
+  <tr><td>Agent assistance AI performance summary</td><td>QUEUE</td></tr>
+  <tr><td>Agent evaluation performance overview</td><td>AGENT</td></tr>
+  <tr><td>Agent performance overview</td><td>AGENT</td></tr>
+  <tr><td>AI agent performance trend</td><td>QUEUE</td></tr>
+  <tr><td>Average execution duration</td><td>TEST_CASE</td></tr>
+  <tr><td>Average handle time</td><td>AGENT</td></tr>
+  <tr><td>Average queue answer time and contacts queued trend</td><td>QUEUE</td></tr>
+  <tr><td>Average speed of answer</td><td>QUEUE</td></tr>
+  <tr><td>Contact performance summary</td><td>AGENT</td></tr>
+  <tr><td>Contact volume</td><td>QUEUE</td></tr>
+  <tr><td>Contacts analyzed by conversational analytics</td><td>AGENT</td></tr>
+  <tr><td>Contacts handled and average handle time trend</td><td>QUEUE</td></tr>
+  <tr><td>Current queue overview</td><td>QUEUE</td></tr>
+  <tr><td>Evaluation score trend</td><td>AGENT</td></tr>
+  <tr><td>Flow durations over time comparison</td><td>FLOWS</td></tr>
+  <tr><td>Flow outcome rates over time comparison</td><td>FLOWS</td></tr>
+  <tr><td>Flows performance summary</td><td>FLOWS</td></tr>
+  <tr><td>Intraday performance overview</td><td>QUEUE</td></tr>
+  <tr><td>Queue performance summary</td><td>QUEUE</td></tr>
+  <tr><td>Self service AI performance summary</td><td>QUEUE</td></tr>
+  <tr><td>Test execution summary</td><td>TEST_CASE</td></tr>
+</tbody>
+</table>
+
 + The following metrics do not support filtering or grouping by routing profile when the user's access to routing profiles is tag restricted. A widget or report that filters or groups one of these metrics by routing profile returns no data, even when your security profile permissions and resource tags are configured correctly. To view the data, filter or group by queue instead.
   + **Contacts in queue**
   + **Oldest contact age**

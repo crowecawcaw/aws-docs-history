@@ -14,10 +14,12 @@ To do this, you need the **Analytics and Optimization** - **Saved reports (admin
 
 1. On the navigation menu, choose **Analytics and Optimization**, **Dashboards and reports**. 
 
-1. On the **View Reports** page, choose **All reports**.
+1. On the **Dashboards and reports** page, choose **All reports**.
 
 1. Use the filters to search by report name, report type, published status, and user.
+**Note**  
+You cannot search for report owners who have been removed as users from the Connect Customer instance.
 
-1. To delete reports, select the reports by using the boxes on the left and then choose **Remove**, as shown in the following image.
+1. To delete reports, select the reports by using the boxes on the left and then choose **Delete**, as shown in the following image.
 
-![The View reports page, the Remove button. page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-queue-dashboard-saved-reports.png)
+![The Dashboards and reports page, the All reports tab, the Delete button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/hmr-queue-dashboard-saved-reports.png)

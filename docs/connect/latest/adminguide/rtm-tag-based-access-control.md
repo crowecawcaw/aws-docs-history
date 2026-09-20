@@ -9,7 +9,7 @@ You can configure tag-based access controls by using the Connect Customer admin 
 
 **Topics**
 + [Important things to know](#rtm-tag-based-access-control-limitations)
-+ [How to enable tag-based access control](#rtm-tag-based-access-control-how-to-enable)
++ [How to enable tag-based access control for real-time metrics](#rtm-tag-based-access-control-how-to-enable)
 + [How to view hundreds of agents, queues, and routing profiles on the real-time metrics report](#view-tag-based-agents)
 + [How to transition to tag-based access control](#rtm-tag-based-access-control-transitioning)
 + [Required security profile permissions](#rtm-tag-based-access-control-permissions)

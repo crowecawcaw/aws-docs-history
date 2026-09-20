@@ -28,7 +28,7 @@ This topic explains how to add tags to contacts, activate the cost allocation ta
 **Topics**
 + [Things to know about user-defined tags](#about-user-defined-tags)
 + [Step 1: Add user-defined tags to contacts](#step1-tagcontacts)
-+ [Step 2: Activate cost allocation tags](#step2-activate-tags)
++ [Step 2: Activate cost allocation tags in the AWS Billing console](#step2-activate-tags)
 + [Step 3: View cost and usage trends using cost allocation tags](#step3-view-billingapp)
 + [(Optional) Step 4: Enable Cost and Usage reports in the AWS Billing and Cost Management console](#step4-cost-and-usage-reports)
 + [More reporting options](#step5-contactlevel-cost-and-usage-reports)

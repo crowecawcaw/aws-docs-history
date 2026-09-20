@@ -25,14 +25,14 @@ New events are added to the agent event stream when you choose **Enhanced contac
 If you choose to start with the default three-party capability enabled by the [Set recording and analytics behavior](set-recording-behavior.md) block, and then later switch to **Enhanced contact monitoring capabilities**, know that new events will be added to the agent event stream. This will cause problems if you have customized your contact center based on the previous agent event stream.
 
 **Topics**
-+ [When, what, and where for contact recordings](about-recording-behavior.md)
++ [When, what, and where for contact recordings in Connect Customer](about-recording-behavior.md)
 + [How to set up S3 Object Lock for immutable call recordings](s3-object-lock-call-recordings.md)
-+ [Comparison of multi-party and three-party functionality](three-party-multi-party-comparison.md)
-+ [Enable enhanced multi-party contact monitoring](monitor-conversations.md)
-+ [Enable three-party call monitoring](enable-three-party-monitoring.md)
++ [Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Connect Customer](three-party-multi-party-comparison.md)
++ [Enable enhanced multi-party contact monitoring in Connect Customer](monitor-conversations.md)
++ [Enable three-party call monitoring in Connect Customer](enable-three-party-monitoring.md)
 + [Enable contact recording](set-up-recordings.md)
-+ [Assign permissions](monitor-conversations-permissions.md)
-+ [Monitor live conversations](monitor-conversations-howto.md)
-+ [Barge live voice and chat conversations](monitor-barge.md)
-+ [Review recorded conversations](review-recorded-conversations.md)
-+ [Troubleshoot monitoring conversations](ts-monitoring-conversations.md)
++ [Assign permissions to monitor live conversations in the Connect Customer Contact Control Panel (CCP)](monitor-conversations-permissions.md)
++ [Listen to live conversations or read live chats in Connect Customer](monitor-conversations-howto.md)
++ [Barge into live voice and chat conversations between contact center agents and customers](monitor-barge.md)
++ [Review recorded conversations between agents and customers using Connect Customer](review-recorded-conversations.md)
++ [Troubleshoot agent conversation monitoring ability in Connect Customer](ts-monitoring-conversations.md)

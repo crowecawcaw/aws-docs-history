@@ -99,8 +99,18 @@ You must enable SAML for your Connect Customer instance to use Connect Customer 
 
 ------
 
-1. Add an attribute mapping to your identity provider application using the following attribute and value strings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/integrate-idp.html)
+1. Add an attribute mapping to your identity provider application using the following attribute and value strings.
+
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>https://aws.amazon.com/SAML/Attributes/Role</td><td>{{saml-role-arn}},{{identity-provider-arn}}</td></tr>
+</tbody>
+</table>
+
 
 1. Configure the Assertion Consumer Service (ACS) URL of your identity provider to point to your personalized SAML sign-in URL. Use the following example for the ACS URL:
 

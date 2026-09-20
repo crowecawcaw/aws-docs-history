@@ -30,5 +30,5 @@ The following image shows the parts of the agent workspace:
 
 **Topics**
 + [Customize the theme of the agent workspace](customize-theme-agent-workspace.md)
-+ [Access the Worklist app](worklist-app.md)
-+ [Integrate third-party applications (3P apps)](3p-apps.md)
++ [Access the Worklist app in the agent workspace](worklist-app.md)
++ [Integrate third-party applications in the agent workspace](3p-apps.md)

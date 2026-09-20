@@ -6,29 +6,29 @@
 This topic lists the AWS Regions where Connect Customer features are available.
 
 **Topics**
-+ [Connect Customer](#amazonconnect_region)
++ [Connect Customer availability by Region](#amazonconnect_region)
 + [Agent workspace and step-by-step guides](#agentworkspace_region)
 + [Agent workspace third-party applications](#agentworkspace_3p_region)
 + [agent assist](#q-connect_region)
 + [Data lake](#analytics_datalake_region)
-+ [AppIntegrations](#appintegrations_region)
-+ [Cases](#cases_region)
++ [AppIntegrations availability by Region](#appintegrations_region)
++ [Cases availability by Region](#cases_region)
 + [Messaging integrations](#messaging-integrations_region)
 + [Communications widget](#chatwidget_region)
-+ [Conversational analytics](#contactlens_region)
-+ [Customer authentication](#customerauthentication_region)
-+ [Customer Profiles](#customerprofiles_region)
-+ [Customer Profiles calculated attributes API](#customerprofiles_calculatedattributesregion)
++ [Conversational analytics availability by Region](#contactlens_region)
++ [Customer authentication availability by Region](#customerauthentication_region)
++ [Customer Profiles availability by Region](#customerprofiles_region)
++ [Customer Profiles calculated attributes API availability by Region](#customerprofiles_calculatedattributesregion)
 + [External Tool](#externaltool_region)
 + [Forecasting & agent scheduling](#optimization_region)
 + [Amazon Connect agentic voice](#gv_region)
 + [Agentic CX Designer](#agentic-cx_region)
-+ [Global Resiliency](#gr_region)
++ [Global Resiliency availability by Region](#gr_region)
 + [In-app, web, and video calling capabilities](#inapp_region)
 + [Live media streaming](#livemediastreaming_region)
 + [Outbound campaigns](#campaigns_region)
 + [Tasks](#tasks_region)
-+ [Voice ID](#voiceid_region)
++ [Voice ID availability by Region](#voiceid_region)
 
 ## Connect Customer availability by Region
 <a name="amazonconnect_region"></a>

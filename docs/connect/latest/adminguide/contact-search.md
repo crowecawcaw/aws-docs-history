@@ -89,8 +89,21 @@ Before users can search for contacts in Connect Customer, or access detailed con
 Deleting a hierarchy level severs the link to existing contacts. This action can not be reversed.
 When you change a user's hierarchy group, it might take a couple of minutes for their contact search results to reflect their new permissions.
 
-  The following table lists the typical permissions and what contacts can be viewed on **Contact search** and **Contact details** pages.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/contact-search.html)
+  The following table lists the typical permissions and what contacts can be viewed on **Contact search** and **Contact details** pages.
+
+
+<table>
+<thead>
+  <tr><th>Contact search permission</th><th>View My Contacts permission</th><th>Restrict Contact Access permission</th><th>Which contacts can be viewed</th></tr>
+</thead>
+<tbody>
+  <tr><td>Enabled</td><td>Disabled</td><td>Disabled</td><td>All</td></tr>
+  <tr><td>Enabled</td><td>Disabled</td><td>Enabled</td><td>All contacts within your agent hierarchy, handled by an agent at your hierarchy level or below.</td></tr>
+  <tr><td>Disabled</td><td>Enabled</td><td>Disabled</td><td>Only contacts handled by the user (agent) to whom the permission is granted.</td></tr>
+  <tr><td>Disabled</td><td>Disabled</td><td>Disabled</td><td>No contacts</td></tr>
+</tbody>
+</table>
+
 **Important**  
 We do not recommend assigning permissions in any other combination than what is shown in the preceding table.
 + **Conversational analytics**: On the ** Contact details** page for a contact, you can view graphs that summarize conversational analytics: customer sentiment trend, sentiment, and non-talk time. 

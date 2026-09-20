@@ -7,15 +7,15 @@ The Login/Logout report displays the login and logout information for the users 
 
 **Topics**
 + [Why your Login/Logout report might appear incorrect](#login-logout-incorrect)
-+ [Report limit: 10,000 rows](#login-logout-considerations)
-+ [Required permissions](#loginlogout-report-permissions)
++ [Login/Logout report limit: 10,000 rows](#login-logout-considerations)
++ [Required permissions to access the Login/Logout report](#loginlogout-report-permissions)
 + [Generate a Login/Logout report](#loginlogout-report-generate)
 + [Edit a Saved Login/Logout Report](#loginlogout-report-edit)
 + [Download a Login/Logout report as a CSV file](#loginlogout-report-downloadcsv)
 + [Share a Login/Logout report](#loginlogout-report-share)
 + [Schedule a Login/Logout report](#loginlogout-report-schedule)
 + [Delete a Saved Login/Logout report](#loginlogout-report-delete)
-+ [Tag-based and hierarchy-based access controls](#login-logout-tag-based-access-control)
++ [Tag-based and hierarchy-based access controls for the Login/Logout report](#login-logout-tag-based-access-control)
 
 ## Why your Login/Logout report might appear incorrect
 <a name="login-logout-incorrect"></a>

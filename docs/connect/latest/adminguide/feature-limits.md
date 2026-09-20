@@ -14,11 +14,11 @@ The following tables list the various Connect Customer feature specifications.
 + [WhatsApp business messaging feature specifications](#whatsapp-specs)
 + [Email feature specifications](#email-feature-specs)
 + [Task feature specifications](#feature-limits-tasks)
-+ [Forecasting, capacity planning, and scheduling](#forecasting-cap-planning-scheduling-specs)
-+ [Integration association resource](#integration-association-resource-feature-specs)
-+ [Connect Customer conversational analytics](#contact-lens-feature-specs)
-+ [Evaluation forms](#evaluationforms-feature-specs)
-+ [Connect Customer Rules](#rules-feature-specs)
++ [Forecasting, capacity planning, and scheduling feature specifications](#forecasting-cap-planning-scheduling-specs)
++ [Integration association resource feature specifications](#integration-association-resource-feature-specs)
++ [Connect Customer conversational analytics feature specifications](#contact-lens-feature-specs)
++ [Evaluation forms feature specifications](#evaluationforms-feature-specs)
++ [Connect Customer Rules feature specifications](#rules-feature-specs)
 
 
 | Item | Feature Specification  | 

@@ -9,13 +9,13 @@ Connect Customer is a unified omnichannel solution built to empower personalized
 
 
 **Topics**
-+ [Set up your phone numbers](ag-overview-numbers.md)
-+ [Set up your customer's chat experience](enable-chat-in-app.md)
-+ [Set up SMS messaging](setup-sms-messaging.md)
-+ [Add the Connect Customer widget to your website](connect-widget-on-website.md)
-+ [Enable Apple Messages for Business](apple-messages-for-business.md)
++ [Set up contact center phone numbers for your Connect Customer instance](ag-overview-numbers.md)
++ [Set up your customer's chat experience in Connect Customer](enable-chat-in-app.md)
++ [Set up SMS messaging in Connect Customer](setup-sms-messaging.md)
++ [Add the Connect Customer widget to your website to accept chat, task, email, and web calling contacts](connect-widget-on-website.md)
++ [Enable Apple Messages for Business with Connect Customer](apple-messages-for-business.md)
 + [Set up WhatsApp Business messaging](whatsapp-integration.md)
 + [Set up in-app, web, video calling, and screen sharing capabilities](inapp-calling.md)
-+ [Set up tasks](concepts-getting-started-tasks.md)
-+ [Set up email](setup-email-channel.md)
-+ [Create quick responses](create-quick-responses.md)
++ [Set up tasks in Connect Customer](concepts-getting-started-tasks.md)
++ [Set up email in Connect Customer](setup-email-channel.md)
++ [Create quick responses for use with chat and email contacts in Connect Customer](create-quick-responses.md)

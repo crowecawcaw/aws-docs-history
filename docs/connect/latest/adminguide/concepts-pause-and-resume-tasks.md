@@ -14,7 +14,7 @@ You can also pause fully automated tasks to address force majeure events (natura
 + [When can a paused task be resumed?](#when-resume-tasks)
 + [Programmatically pause and resume tasks](#programmatically-pause-and-resume-tasks)
 + [Configure a flow to pause and resume tasks](#pause-and-resume-flow)
-+ [Contact event stream](#ces-pause-and-resume-tasks)
++ [New events in the contact event stream and agent event stream](#ces-pause-and-resume-tasks)
 + [Pause and resume task events in contact records](#ctr-pause-and-resume-tasks)
 + [Metrics](#metrics-pause-and-resume-tasks)
 

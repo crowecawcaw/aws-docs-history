@@ -12,10 +12,10 @@ As a prerequisite to building segments in Connect Customer, your administrator m
 Customer segments only contain customer profiles in your Connect Customer Customer Profiles domain. Customer Profiles can be ingested from S3 or external applications, or created through the agent workspace, Contact Flows, or API. For more information about customer profiles, see [What is a customer profile in Connect Customer?](customer-profiles-what-data.md).
 
 **Topics**
-+ [Build customer segments](customer-segments-building-segments.md)
-+ [Manage segments](customer-segments-managing-segments.md)
-+ [Create segments from imported files](customer-segments-imported-files.md)
-+ [Export segments to a CSV file](customer-segments-exporting-segments.md)
-+ [Track segment membership changes](customer-segments-membership-events.md)
-+ [Use the segment AI assistant](customer-segments-ai-assistant.md)
-+ [Troubleshooting](customer-segments-troubleshooting.md)
++ [Build customer segments in Connect Customer](customer-segments-building-segments.md)
++ [Manage customer segments in Connect Customer](customer-segments-managing-segments.md)
++ [Create segments from imported files in Connect Customer](customer-segments-imported-files.md)
++ [Export customer segments to a CSV file in Connect Customer](customer-segments-exporting-segments.md)
++ [Track segment membership changes in Connect Customer](customer-segments-membership-events.md)
++ [Use the segment AI assistant in Connect Customer](customer-segments-ai-assistant.md)
++ [Troubleshooting customer segments in Connect Customer](customer-segments-troubleshooting.md)

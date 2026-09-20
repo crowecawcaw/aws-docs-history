@@ -13,19 +13,19 @@ If you are unable to access the scheduling tables by using Option 1, try using O
 
 **Topics**
 + [Important things to know](#data-lake-important)
-+ [Agent data](data-lake-agent-data.md)
-+ [Contact data](data-lake-contact-data.md)
-+ [Contact analytics data](data-lake-contact-analytics-data.md)
-+ [AI agent data](data-lake-ai-agent-data.md)
-+ [Flow data](data-lake-flow-data.md)
-+ [Bot analytics data](data-lake-botdata.md)
-+ [Cases data](data-lake-cases-data.md)
-+ [Configuration data](data-lake-configuration-data.md)
-+ [Forecasting data](data-lake-forecasting-data.md)
-+ [Outbound campaigns data](data-lake-outbound-campaigns-data.md)
-+ [Resource tags data](data-lake-resource-tags-data.md)
-+ [Scheduling data](data-lake-scheduling.md)
-+ [Reference queries](data-lake-reference-queries.md)
++ [Agent data in the Connect Customer data lake](data-lake-agent-data.md)
++ [Contact data in the Connect Customer data lake](data-lake-contact-data.md)
++ [Contact analytics data in the Connect Customer data lake](data-lake-contact-analytics-data.md)
++ [AI agent data in the Connect Customer data lake](data-lake-ai-agent-data.md)
++ [Flow data in the Connect Customer data lake](data-lake-flow-data.md)
++ [Bot analytics data in the Connect Customer analytics data lake](data-lake-botdata.md)
++ [Cases data in the Connect Customer analytics data lake](data-lake-cases-data.md)
++ [Configuration data in the Connect Customer data lake](data-lake-configuration-data.md)
++ [Forecasting data in the Connect Customer analytics data lake](data-lake-forecasting-data.md)
++ [Outbound campaigns data in the Connect Customer data lake](data-lake-outbound-campaigns-data.md)
++ [Resource tags data in the Connect Customer data lake](data-lake-resource-tags-data.md)
++ [Scheduling data in the Connect Customer analytics data lake](data-lake-scheduling.md)
++ [Reference queries for the Connect Customer data lake](data-lake-reference-queries.md)
 
 ## Important things to know
 <a name="data-lake-important"></a>

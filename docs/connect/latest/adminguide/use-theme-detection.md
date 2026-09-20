@@ -7,8 +7,26 @@ Use theme detection to discover previously unknown or emerging contact themes fr
 
 ## Important things to know
 <a name="important-td"></a>
-+ Theme detection is available in the following languages supported by Connect Customer conversational analytics:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/use-theme-detection.html)
++ Theme detection is available in the following languages supported by Connect Customer conversational analytics: 
+
+
+<table>
+<thead>
+  <tr><th>Language (country)</th><th>Language code</th></tr>
+</thead>
+<tbody>
+  <tr><td>English (United States)</td><td>en-US</td></tr>
+  <tr><td>English (United Kingdom)</td><td>en-GB</td></tr>
+  <tr><td>English (Australia)</td><td>en-AU</td></tr>
+  <tr><td>English (India)</td><td>en-IN</td></tr>
+  <tr><td>English (Ireland)</td><td>en-IE</td></tr>
+  <tr><td>English (Scotland)</td><td>en-AB</td></tr>
+  <tr><td>English (Wales)</td><td>en-WL</td></tr>
+  <tr><td>English (New Zealand)</td><td>en-NZ</td></tr>
+  <tr><td>English (South Africa)</td><td>en-ZA</td></tr>
+</tbody>
+</table>
+
 + Theme detection is supported on contacts that were created on or after January 30, 2023.
 + The **Generate themes report** button is enabled only when your saved search contains at least 300 contacts with issues detected by conversational analytics. 
 + The theme detection report is generated for the 3,000 most recent contacts.

@@ -62,8 +62,21 @@ If you do not set the `VDIPlatform` parameter, Connect Customer automatically de
 
 1. Confirm that the MMR browser extension is installed and active. In the virtual desktop browser, choose the **Multimedia Redirection** extension icon. When the CCP is open, the extension status shows as loaded (highlighted icon), and **Call Redirection** displays a check mark indicating it is active. For more information, see [Browser extension status](https://learn.microsoft.com/en-us/azure/virtual-desktop/multimedia-redirection-video-playback-calls#browser-extension-status) in the Microsoft documentation.
 
-   The extension icon changes to indicate the redirection status. The following table shows the icon states that are relevant to call redirection.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/using-ccp-vdi-azure-step-by-step.html)
+   The extension icon changes to indicate the redirection status. The following table shows the icon states that are relevant to call redirection.
+
+
+<table>
+<thead>
+  <tr><th>Icon</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-extension-status-loaded.png" alt="The multimedia redirection extension is loaded." /> </td><td>The extension is loaded, indicating that the website can be redirected.</td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-extension-status-call.png" alt="The multimedia redirection extension is currently redirecting a call." /> </td><td>The extension is currently redirecting a call.</td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-extension-status-not-loaded.png" alt="The multimedia redirection extension is not loaded." /> </td><td>The extension is not loaded, indicating that content on the web page is not redirected.</td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/connect/latest/adminguide/images/azure-mmr-extension-status-error.png" alt="The multimedia redirection extension failed to load correctly." /> </td><td>The extension failed to load correctly. You might need to reinstall the extension or the Remote Desktop Multimedia Redirection Service, and then try again.</td></tr>
+</tbody>
+</table>
+
 
 1. Confirm that call redirection is enabled. Open the browser developer tools (F12), and in the console run the following command. The expected result is `true`.
 

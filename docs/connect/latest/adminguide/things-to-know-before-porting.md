@@ -23,9 +23,9 @@ With number portability, you can transfer your telelphone numbers to other carri
 Also the carrier for Connect Customer. This is the carrier that the phone number is being ported to, and will own the phone number after the porting is completed. 
 
 **Topics**
-+ [What is phone number porting?](what-is-phone-number-porting.md)
-+ [How much does it cost?](fees-for-number-porting.md)
-+ [Can my number be ported?](what-numbers-can-be-ported.md)
-+ [How long does it take to port numbers?](how-long-for-number-porting.md)
-+ [Can I cancel a scheduled porting?](cancel-port-request.md)
-+ [When do I cancel my current telecom service?](cancel-current-service.md)
++ [What does it mean to port phone numbers to Connect Customer?](what-is-phone-number-porting.md)
++ [How much does porting a number to Connect Customer cost?](fees-for-number-porting.md)
++ [Phone numbers that you can port to Connect Customer](what-numbers-can-be-ported.md)
++ [How long does it take to port phone numbers to Connect Customer?](how-long-for-number-porting.md)
++ [Can I cancel a scheduled phone number porting in Connect Customer?](cancel-port-request.md)
++ [When do I cancel my current telecom service when porting numbers to Connect Customer?](cancel-current-service.md)

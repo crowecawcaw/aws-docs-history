@@ -10,7 +10,7 @@ When customers interact with your IVR, they press keypad digits in response to p
 **Topics**
 + [Supported channels](#touchtone-buffering-supported-channels)
 + [Supported blocks](#touchtone-buffering-supported-blocks)
-+ [Configure touchtone buffering](#touchtone-buffering-configure)
++ [Configure a flow for touchtone buffering](#touchtone-buffering-configure)
 + [The buffer lifecycle](#touchtone-buffering-lifecycle)
 + [Block capabilities](#touchtone-buffering-block-capabilities)
 + [Flow logging changes](#touchtone-buffering-flow-logging)

@@ -26,7 +26,7 @@ Continue reading this topic if you use a firewall, SAML, or other connectors suc
 
 **Topics**
 + [Custom code and integrations](#new-domain-custom)
-+ [Firewall allow list](#new-domain-allow-list)
++ [Firewall allowlist](#new-domain-allow-list)
 + [About the Connect Customer access URL and emergency login](#about-access-url)
 + [Personal settings](#new-domain-settings)
 + [Transport Layer Security (TLS)](#new-domain-tls)

@@ -46,6 +46,9 @@ During a video call or screen sharing session, agents are able to see the custom
 + **Does screen recording work with custom CCP and custom agent applications? **
 
    Screen recording is designed to work with custom CCP and agent workspace built with the [Connect Customer Streams JS library](https://github.com/amazon-connect/amazon-connect-streams). We recommend testing your custom solution before deploying screen recording in production. 
++ **Does screen recording work with Connect Customer Global Resiliency?**
+
+  Yes. Screen recording is supported on Connect Customer Global Resiliency instance pairs, including after you shift agents between Regions. Additional setup is required: you must enable screen recording storage in both Regions and add both Regions' domains to the Connect Customer Client Application allowlist. For details, see [Screen recording with Global Resiliency](screen-recording-global-resiliency.md).
 + **Can I use screen recording anywhere in the world?**
 
   Screen recording is available in AWS GovCloud (US) and all AWS commercial Regions where Connect Customer is available. However, your use of screen recording might be subject to compliance with privacy and other laws. Please consult your compliance team before enabling this capability for your agents.

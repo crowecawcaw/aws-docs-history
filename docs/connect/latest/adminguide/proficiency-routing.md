@@ -36,13 +36,45 @@ The step durations in this example, such as 30 seconds, are only illustrative. S
 
 **To route the contact to the above requirements, complete the following steps:**
 
-1. **Create predefined attributes**: For example, add `Technology` as a predefined attribute in **User Management**, **Predefined Attributes** with `AWS DynamoDB` as one of the values.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/proficiency-routing.html)
+1. **Create predefined attributes**: For example, add `Technology` as a predefined attribute in **User Management**, **Predefined Attributes** with `AWS DynamoDB` as one of the values.
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Technology</td><td>AWS Kinesis</td></tr>
+  <tr><td>Technology</td><td>AWS DynamoDB</td></tr>
+  <tr><td>Technology</td><td>AWS EC2</td></tr>
+  <tr><td>Technology</td><td>AWS Neptune</td></tr>
+</tbody>
+</table>
+
 **Note**  
 **Connect:French** is already available as a value in system attribute **Connect:Language** as a predefined attribute. You can use this in your routing criteria. You can also add up to 128 customer languages as values to **Connect:Language**.
 
-1. **Associate proficiencies to users**: There are 2 agents, Agent1 and Agent 2, who speak French and are proficient in AWS DynamoDB as shown below. In **User Management**, **Show Advanced Settings** associate the following proficiencies to the Agent1 and Agent2.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/connect/latest/adminguide/proficiency-routing.html)
+1. **Associate proficiencies to users**: There are 2 agents, Agent1 and Agent 2, who speak French and are proficient in AWS DynamoDB as shown below. In **User Management**, **Show Advanced Settings** associate the following proficiencies to the Agent1 and Agent2.
+
+
+<table>
+<thead>
+  <tr><th>Agent Name</th><th>Predefined Attribute</th><th>Value</th><th>Proficiency Level</th></tr>
+</thead>
+<tbody>
+  <tr><td>Agent1</td><td>Technology</td><td>AWS Kinesis</td><td>2</td></tr>
+  <tr><td>Agent1</td><td>Technology</td><td>AWS Dynamo DB</td><td>5</td></tr>
+  <tr><td>Agent1</td><td>Technology</td><td>AWS EC2</td><td>4</td></tr>
+  <tr><td>Agent1</td><td>Language</td><td>French</td><td>3</td></tr>
+  <tr><td>Agent1</td><td>Language</td><td>English</td><td>4</td></tr>
+  <tr><td>Agent2</td><td>Technology</td><td>AWS Dynamo DB</td><td>3</td></tr>
+  <tr><td>Agent2</td><td>Technology</td><td>AWS EC2</td><td>5</td></tr>
+  <tr><td>Agent2</td><td>Technology</td><td>AWS Neptune</td><td>5</td></tr>
+  <tr><td>Agent2</td><td>Language</td><td>French</td><td>4</td></tr>
+  <tr><td>Agent2</td><td>Language</td><td>English</td><td>3</td></tr>
+</tbody>
+</table>
+
 
 1. **Set routing criteria**: Use this flow block to create the following routing criteria manually or dynamically using JSON that is created by invoking a Lambda function as shown in a potential Inbound flow. Create the following routing criteria:
 

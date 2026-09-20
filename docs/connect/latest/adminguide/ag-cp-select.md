@@ -11,11 +11,11 @@ You can change autopopulation behavior if you wish. For more information, see [ 
 Before agents can access customer profiles, the Connect Customer administrator must enable the Customer Profiles feature and grant agents the appropriate permissions. For more information, see [Enable Customer Profiles for your Connect Customer instance](enable-customer-profiles.md).
 
 **Topics**
-+ [Auto-populate the customer profile](#example1-select-customer-profile)
-+ [Accept incoming contact, no customer profile found](#example2-select-customer-profile)
-+ [Search when not on contact](#example3-select-customer-profile)
-+ [Autopopulate results in multiple profiles found](#example4-autopop-multiple-customer-profiles)
-+ [Create a new customer profile](ag-cp-create.md)
++ [Example 1: Auto-populate the customer profile](#example1-select-customer-profile)
++ [Example 2: Accept incoming contact, no customer profile found](#example2-select-customer-profile)
++ [Example 3: Search when not on contact](#example3-select-customer-profile)
++ [Example 4: Autopopulate results in multiple profiles found](#example4-autopop-multiple-customer-profiles)
++ [Create a new customer profile in the Connect Customer agent workspace](ag-cp-create.md)
 + [Search for a customer profile in the agent workspace](ag-cp-search.md)
 
 ## Example 1: Auto-populate the customer profile

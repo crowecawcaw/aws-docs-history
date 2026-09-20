@@ -14,12 +14,12 @@ To make it easy for non-developers to create AI prompts, Connect Customer provid
 + [Choose the AI prompt model (optional)](#select-ai-prompt-model)
 + [Edit the AI prompt template](#edit-ai-prompt-template)
 + [Save and publish your AI prompt](#publish-ai-prompt)
-+ [Guidelines for AI prompts](#yaml-ai-prompts)
-+ [Add variables](#supported-variables-yaml)
++ [Guidelines for writing for AI prompts in YAML](#yaml-ai-prompts)
++ [Add variables to your AI prompt](#supported-variables-yaml)
 + [Optimize your AI prompts](#guidelines-optimize-prompt)
 + [Prompt latency optimization by using prompt caching](#latency-optimization-prompt-caching)
 + [Supported models for system/custom prompts](#cli-create-aiprompt)
-+ [Amazon Nova Pro model for self-service pre-processing](#nova-pro-aiprompt)
++ [Amazon Nova Pro model for self-service pre-processing AI prompts](#nova-pro-aiprompt)
 
 ## Choose a type of AI prompt
 <a name="choose-ai-prompt-type"></a>

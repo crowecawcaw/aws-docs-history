@@ -208,12 +208,12 @@ Agents can handle multiple email contacts simultaneously, up to the limits confi
 1. The selected email contact is displayed in the CCP interface.
 
 **Topics**
-+ [Overview](#accept-emails-overview)
-+ [Receiving email contacts](#accept-emails-receiving)
-+ [Email interface](#accept-emails-interface)
-+ [Reading emails](#accept-emails-reading)
-+ [Responding to emails](#accept-emails-responding)
-+ [Contact states](#accept-emails-states)
-+ [Managing contacts](#accept-emails-managing)
-+ [Select From address](agent-select-from-email.md)
-+ [Forward emails](agent-forward-email.md)
++ [Overview of email contact handling](#accept-emails-overview)
++ [Receiving and accepting email contacts](#accept-emails-receiving)
++ [Email contact interface in the CCP](#accept-emails-interface)
++ [Reading and reviewing email content](#accept-emails-reading)
++ [Composing and sending email responses](#accept-emails-responding)
++ [Email contact states](#accept-emails-states)
++ [Managing email contacts](#accept-emails-managing)
++ [Select a From email address](agent-select-from-email.md)
++ [Forward email contacts to external email addresses](agent-forward-email.md)

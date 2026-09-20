@@ -15,7 +15,7 @@ If an agent gets an error when they try to end a contact before shifting Regions
 
 **Topics**
 + [Requirements](#update-agent-traffic-distribution-requirements)
-+ [Enable both Regions during regular operations](#change-signin-weights)
++ [Enable both AWS Regions during regular operations](#change-signin-weights)
 + [How to shift all telephony traffic and agents across AWS Regions](#shift-all-traffic)
 + [Regional switch UI banner](#regional-switch-ui-banner)
 
