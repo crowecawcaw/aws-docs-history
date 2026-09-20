@@ -113,8 +113,20 @@ When exporting the data in CSV format, this field specifies the character that s
 1. If the value itself contains the quote character (") then it will be escaped using an escape character. For example, if the value is `Time"stream`, where (\\) is the configured escape character, then it will be escaped as `Time\"stream`. 
 
 1. If the value contains the configured escape character, it will be escaped. For example, if the value is `Time\stream`, then it will be escaped as `Time\\stream`. 
-If the exported output contains complex data type in the like Arrays, Rows or Timeseries, it will be serialized as a JSON string. Following is an example.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/timestream/latest/developerguide/export-unload-concepts.html)
+If the exported output contains complex data type in the like Arrays, Rows or Timeseries, it will be serialized as a JSON string. Following is an example.
+
+
+<table>
+<thead>
+  <tr><th>Data type</th><th>Actual value</th><th>How the value is escaped in CSV format [serialized JSON string]</th></tr>
+</thead>
+<tbody>
+  <tr><td>Array</td><td><code>[ 23,24,25 ]</code></td><td><code>"[23,24,25]"</code></td></tr>
+  <tr><td>Row</td><td><code>( x=23.0, y=hello )</code></td><td><code>"{\"x\":23.0,\"y\":\"hello\"}"</code></td></tr>
+  <tr><td>Timeseries</td><td><code>[ ( time=1970-01-01 00:00:00.000000010, value=100.0 ),( time=1970-01-01 00:00:00.000000012, value=120.0 ) ]</code></td><td><code>"[{\"time\":\"1970-01-01 00:00:00.000000010Z\",\"value\":100.0},{\"time\":\"1970-01-01 00:00:00.000000012Z\",\"value\":120.0}]"</code></td></tr>
+</tbody>
+</table>
+
 
 INCLUDE\_HEADER  
 

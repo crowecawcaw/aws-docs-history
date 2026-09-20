@@ -252,8 +252,22 @@ To generate the associated `measure_name` following our recommendation, there ar
    host-254 - 7051
    ```
 
-   Resulting dataset    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/timestream/latest/developerguide/data-modeling.html)
+   Resulting dataset
+
+
+<table>
+<thead>
+  <tr><th>time</th><th>host_name</th><th>location</th><th>measure_name</th><th>server_type</th><th>cpu_usage</th><th>available_memory</th><th>cpu_temp</th></tr>
+</thead>
+<tbody>
+  <tr><td>2022-09-07 21:48:44 .000000000</td><td>host-1235</td><td>us-east1</td><td>6445</td><td>5.8xl</td><td>55</td><td>16.2</td><td>78</td></tr>
+  <tr><td>R2022-09-07 21:48:44 .000000000</td><td>host-3587</td><td>us-west1</td><td>6399</td><td>5.8xl</td><td>62</td><td>18.1</td><td>81</td></tr>
+  <tr><td>2022-09-07 21:48:45.000000000</td><td>host-258743</td><td>eu-central</td><td>640</td><td>5.8xl</td><td>88</td><td>9.4</td><td>91</td></tr>
+  <tr><td>2022-09-07 21:48:45 .000000000</td><td>host-35654</td><td>us-east2</td><td>2093</td><td>5.8xl</td><td>29</td><td>24</td><td>54</td></tr>
+  <tr><td>R2022-09-07 21:48:45 .000000000</td><td>host-254</td><td>us-west1</td><td>7051</td><td>5.8xl</td><td>44</td><td>32</td><td>48</td></tr>
+</tbody>
+</table>
+
 
 1. *For real-time ingestion*—You need to generate the `measure_name` in-flight as data is coming in.
 

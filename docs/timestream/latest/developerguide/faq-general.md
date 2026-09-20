@@ -20,9 +20,25 @@ Enterprise is designed for production workloads that require high availability a
 + **Multi-node clusters** – Enterprise supports multi-node deployments across multiple Availability Zones with dedicated ingest, query, and compactor nodes. Core is limited to a single node.
 + **Read replicas** – Enterprise supports query-only nodes to scale read-heavy workloads independently from ingest.
 + **Historical queries** – Enterprise includes single series indexing for optimized long-term data analysis, making it suitable for months or years of data retention.
-Choose Core for near real-time monitoring where cost is a priority. Choose Enterprise when you need high availability, compaction, or long-term data analysis.    
-**Core vs Enterprise Feature Comparison**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/timestream/latest/developerguide/faq-general.html)
+Choose Core for near real-time monitoring where cost is a priority. Choose Enterprise when you need high availability, compaction, or long-term data analysis.  
+
+
+**Core vs Enterprise Feature Comparison**  
+
+<table>
+<thead>
+  <tr><th>Feature</th><th>Core</th><th>Enterprise</th></tr>
+</thead>
+<tbody>
+  <tr><td>Deployment</td><td>Single-node</td><td>Multi-node across AZs</td></tr>
+  <tr><td>Compaction</td><td>Not included</td><td>Included</td></tr>
+  <tr><td>Read replicas</td><td>Not available</td><td>Query-only node scaling</td></tr>
+  <tr><td>Historical queries</td><td>Limited (~3 days)</td><td>Months/years with indexing</td></tr>
+  <tr><td>High availability</td><td>Single node</td><td>Multi-AZ</td></tr>
+  <tr><td>Best for</td><td>Dev/test, real-time dashboards</td><td>Production, long-term analytics</td></tr>
+</tbody>
+</table>
+
 
 **Which AWS Regions support Amazon Timestream for InfluxDB 3?**  
 For the current list of supported AWS Regions and endpoints, see [Amazon Timestream endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/timestream.html) in the AWS General Reference.
