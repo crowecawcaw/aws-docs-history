@@ -104,7 +104,7 @@ LOCATION ...
 PARTITIONED BY (bucket(16, ship_date), year(ship_date));
 ```
 
-The `TABLE PROPERTIES` clause defines the extra table properties for this Iceberg table. The supported table properties are `format-version` and `compression_type`. The `format-version` property specifies the Iceberg table format version. Possible values are `'2'` (default) and `'3'`. The `compression_type` property defines the default Parquet data file compression. If not specified, `snappy` is used as the compression codec. The possible values for `compression_type` are: `zstd`, `brotli`, `gzip`, `snappy`, and `uncompressed`.
+The `TABLE PROPERTIES` clause defines the extra table properties for this Iceberg table. The supported table properties are `format-version` and `compression_type`. The `format-version` property specifies the Iceberg table format version. Possible values are `'2'` (default) and `'3'`. The `compression_type` property defines the default Parquet data file compression. If not specified, `zstd` is used as the compression codec. The possible values for `compression_type` are: `zstd`, `brotli`, `gzip`, `snappy`, and `uncompressed`.
 
 For Iceberg v3 tables, you can specify default values for columns using the DEFAULT keyword. Default column values are supported only for Iceberg v3 tables. Amazon Redshift returns an error if you specify a default value on an Iceberg v2 table. Only literal values are supported as defaults.
 

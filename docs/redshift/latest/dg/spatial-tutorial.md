@@ -118,8 +118,19 @@ Use the following procedure to create tables and load test data.
    select count(*) from zipcode;
    ```
 
-   The following results show the number of rows in each table of test data.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/spatial-tutorial.html)
+   The following results show the number of rows in each table of test data.
+
+
+<table>
+<thead>
+  <tr><th>Table name</th><th>Rows</th></tr>
+</thead>
+<tbody>
+  <tr><td>accommodations</td><td>22,248</td></tr>
+  <tr><td>zipcode</td><td>190</td></tr>
+</tbody>
+</table>
+
 
 ## Step 2: Query spatial data
 <a name="spatial-tutorial-query"></a>

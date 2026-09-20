@@ -260,8 +260,25 @@ Assuming you have an Apache Kafka cluster available, the first step is to define
 
    To turn on auto refresh, use `AUTO REFRESH YES`. The default behavior is manual refresh. 
 
-1. Metadata columns include the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/materialized-view-streaming-ingestion-getting-started-MSK.html)
+1. Metadata columns include the following:
+
+
+<table>
+<thead>
+  <tr><th>Metadata column</th><th>Data type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> kafka_partition </td><td> bigint </td><td> Partition id of the record from the Kafka topic </td></tr>
+  <tr><td> kafka_offset </td><td> bigint </td><td> Offset of the record in the Kafka topic for a given partition </td></tr>
+  <tr><td> kafka_timestamp_type </td><td> char(1) </td><td>Type of timestamp used in the Kafka record:<ul><li><i>C</i> – Record creation time (CREATE_TIME) on the client side</li><li><i>L</i> – Record append time (LOG_APPEND_TIME) on the Kafka server side </li><li><i>U</i> – Record creation time is not available (NO_TIMESTAMP_TYPE)</li></ul></td></tr>
+  <tr><td> kafka_timestamp </td><td> timestamp without time zone </td><td> The timestamp value for the record </td></tr>
+  <tr><td> kafka_key </td><td> varbyte </td><td> The key of the Kafka record </td></tr>
+  <tr><td> kafka_value </td><td> varbyte </td><td> The record received from Kafka </td></tr>
+  <tr><td> kafka_headers </td><td> super </td><td> The header of the record received from Kafka </td></tr>
+  <tr><td> refresh_time </td><td> timestamp without time zone </td><td> The time the refresh started </td></tr>
+</tbody>
+</table>
+
 
    It's important to note if you have business logic in your materialized view definition that results in business logic errors, this can result in ingestion failures in streaming ingestion in some cases. This might lead to you having to drop and re-create the materialized view. To avoid this, we recommend that you keep your business logic simple and run additional logic on the data after you ingest it.
 

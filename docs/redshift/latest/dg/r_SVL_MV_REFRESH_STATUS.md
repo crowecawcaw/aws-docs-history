@@ -5,11 +5,13 @@
 # SVL\_MV\_REFRESH\_STATUS
 <a name="r_SVL_MV_REFRESH_STATUS"></a>
 
-The SVL\_MV\_REFRESH\_STATUS view contains a row for the refresh activity of materialized views. 
+The SVL\_MV\_REFRESH\_STATUS view contains a row for the refresh activity of materialized views, including Iceberg materialized views created with USING ICEBERG. 
 
 For more information about materialized views, see [Materialized views in Amazon Redshift](materialized-view-overview.md).
 
 SVL\_MV\_REFRESH\_STATUS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
+
+For Iceberg materialized views, the `schema_name` column contains the AWS Glue database name, and `mv_name` contains the Iceberg table name. Iceberg materialized view refresh status values include "MV was already updated" (when the materialized view is not stale), "Refresh successfully recomputed MV from scratch" (full refresh), and "Refresh successfully updated MV incrementally" (incremental refresh).
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_MV\_REFRESH\_HISTORY](SYS_MV_REFRESH_HISTORY.md). The data in the SYS monitoring view is formatted to be easier to use and understand. We recommend that you use the SYS monitoring view for your queries.
 

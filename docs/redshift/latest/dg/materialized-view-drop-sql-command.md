@@ -38,6 +38,8 @@ Only the owner of a materialized view can use `DROP MATERIALIZED VIEW` on that v
 
 When you write a drop statement for a materialized view and a view with a matching name exists, it results in an error that instructs you to use DROP VIEW. An error occurs even in a case where you use `DROP MATERIALIZED VIEW IF EXISTS`.
 
+Dropping an Iceberg materialized view is a metadata-only operation. Amazon Redshift removes the table entry from the AWS Glue Data Catalog but does not delete the underlying data files or Iceberg metadata files in Amazon S3. You are responsible for removing orphaned files after dropping an Iceberg materialized view. To remove orphaned data and metadata files, use [Deleting orphan files](https://docs.aws.amazon.com/glue/latest/dg/orphan-file-deletion.html) in AWS Glue or table maintenance for Amazon S3 Table Buckets.
+
 ## Example
 <a name="mv_DROP_MATERIALIZED_VIEW-examples"></a>
 

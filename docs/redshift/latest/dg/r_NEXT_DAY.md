@@ -24,8 +24,24 @@ A column of data type `DATE` or `TIMESTAMP` or an expression that implicitly eva
 
  *day*   
 A string containing the name of any day. Capitalization doesn't matter.  
-Valid values are as follows.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/r_NEXT_DAY.html)
+Valid values are as follows.  
+
+
+<table>
+<thead>
+  <tr><th>Day</th><th>Values</th></tr>
+</thead>
+<tbody>
+  <tr><td>Sunday</td><td>Su, Sun, Sunday</td></tr>
+  <tr><td>Monday</td><td>M, Mo, Mon, Monday</td></tr>
+  <tr><td>Tuesday</td><td>Tu, Tue, Tues, Tuesday</td></tr>
+  <tr><td>Wednesday</td><td>W, We, Wed, Wednesday</td></tr>
+  <tr><td>Thursday</td><td>Th, Thu, Thurs, Thursday</td></tr>
+  <tr><td>Friday</td><td>F, Fr, Fri, Friday</td></tr>
+  <tr><td>Saturday</td><td>Sa, Sat, Saturday</td></tr>
+</tbody>
+</table>
+
 
 ## Return type
 <a name="r_NEXT_DAY-return-type"></a>

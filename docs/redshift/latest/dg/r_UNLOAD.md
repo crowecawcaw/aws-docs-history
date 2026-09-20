@@ -40,7 +40,7 @@ authorization
 [ option, ...] 
 
 where authorization is
-IAM_ROLE { default | 'arn:aws:iam::{{<AWS account-id-1>}}:role/{{<role-name>}}[,arn:aws:iam::{{<AWS account-id-2>}}:role/{{<role-name>}}][,...]' }
+IAM_ROLE { default | 'SESSION' | 'arn:aws:iam::{{<AWS account-id-1>}}:role/{{<role-name>}}[,arn:aws:iam::{{<AWS account-id-2>}}:role/{{<role-name>}}][,...]' }
             
 where option is
 | [ FORMAT [ AS ] ] CSV | PARQUET | JSON
@@ -94,9 +94,13 @@ REGION is required when the Amazon S3 bucket isn't in the same AWS Region as the
 *authorization*  
 The UNLOAD command needs authorization to write data to Amazon S3. The UNLOAD command uses the same parameters the COPY command uses for authorization. For more information, see [Authorization parameters](copy-parameters-authorization.md) in the COPY command syntax reference.
 
-IAM\_ROLE { default \| 'arn:aws:iam::{{<AWS account-id-1>}}:role/{{<role-name>}}'   <a name="unload-iam"></a>
+IAM\_ROLE { default \| 'SESSION' \| 'arn:aws:iam::{{<AWS account-id-1>}}:role/{{<role-name>}}' }  <a name="unload-iam"></a>
 Use the default keyword to have Amazon Redshift use the IAM role that is set as default and associated with the cluster when the UNLOAD command runs.  
-Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses for authentication and authorization. If you specify IAM\_ROLE, you can't use ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY, SESSION\_TOKEN, or CREDENTIALS. The IAM\_ROLE can be chained. For more information, see [Chaining IAM roles](https://docs.aws.amazon.com/redshift/latest/mgmt/authorizing-redshift-service.html#authorizing-redshift-service-chaining-roles) in the *Amazon Redshift Management Guide*.
+Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses for authentication and authorization. The IAM\_ROLE can be chained. For more information, see [Chaining IAM roles](https://docs.aws.amazon.com/redshift/latest/mgmt/authorizing-redshift-service.html#authorizing-redshift-service-chaining-roles) in the *Amazon Redshift Management Guide*.  
+Use the `SESSION` keyword to unload data using the credentials of your current IAM-federated session. This option is available only when you connect to Amazon Redshift with an IAM-federated identity.  
+With `SESSION`, Amazon Redshift uses the same Amazon S3 permissions that your federated identity already has. Amazon Redshift doesn't assume a cluster IAM role, so you don't need to attach one to the cluster or workgroup for this access.  
+When you specify `SESSION`, you can't combine it with any other authorization method.  
+To unload with `SESSION`, you must have the permissions listed in [Required privileges and permissions](#r_UNLOAD-permissions). For an example of configuring a federated identity, see [Using a federated identity to manage Amazon Redshift access to local resources and Amazon Redshift Spectrum external tables](https://docs.aws.amazon.com/redshift/latest/mgmt/authorization-fas-spectrum.html).
 
 [ FORMAT [AS] ] CSV \| PARQUET \| JSON  <a name="unload-csv"></a>
 Keywords to specify the unload format to override the default format.   
@@ -137,11 +141,11 @@ You can't use FIXEDWIDTH with DELIMITER or HEADER.
 
 ENCRYPTED [AUTO]  <a name="unload-parameters-encrypted"></a>
 Specifies that the output files on Amazon S3 are encrypted using Amazon S3 server-side encryption. If MANIFEST is specified, the manifest file is also encrypted. For more information, see [Unloading encrypted data files](t_unloading_encrypted_files.md). If you don't specify the ENCRYPTED parameter, UNLOAD automatically creates encrypted files using Amazon S3 server-side encryption with AWS-managed encryption keys (SSE-S3).   
-For ENCRYPTED, you might want to unload to Amazon S3 using server-side encryption with an AWS KMS key (SSE-KMS). If so, use the [KMS_KEY_ID](#unload-parameters-kms-key-id) parameter to provide the key ID. You can't use the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials) parameter with the KMS\_KEY\_ID parameter. If you run an UNLOAD command for data using KMS\_KEY\_ID, you can then do a COPY operation for the same data without specifying a key.   
-If ENCRYPTED AUTO is used, the UNLOAD command fetches the default AWS KMS encryption key on the target Amazon S3 bucket property and encrypts the files written to Amazon S3 with the AWS KMS key. If the bucket doesn't have the default AWS KMS encryption key, UNLOAD automatically creates encrypted files using Amazon Redshift server-side encryption with AWS-managed encryption keys (SSE-S3). You can't use this option with KMS\_KEY\_ID, MASTER\_SYMMETRIC\_KEY, or CREDENTIALS that contains master\_symmetric\_key. 
+For ENCRYPTED, you might want to unload to Amazon S3 using server-side encryption with an AWS KMS key (SSE-KMS). If so, use the [KMS_KEY_ID](#unload-parameters-kms-key-id) parameter to provide the key ID. If you run an UNLOAD command for data using KMS\_KEY\_ID, you can then do a COPY operation for the same data without specifying a key.   
+If ENCRYPTED AUTO is used, the UNLOAD command fetches the default AWS KMS encryption key on the target Amazon S3 bucket property and encrypts the files written to Amazon S3 with the AWS KMS key. If the bucket doesn't have the default AWS KMS encryption key, UNLOAD automatically creates encrypted files using Amazon Redshift server-side encryption with AWS-managed encryption keys (SSE-S3). You can't use this option with KMS\_KEY\_ID or MASTER\_SYMMETRIC\_KEY. 
 
 KMS\_KEY\_ID '*key-id*'  <a name="unload-parameters-kms-key-id"></a>
-Specifies the key ID for an AWS Key Management Service (AWS KMS) key to be used to encrypt data files on Amazon S3. For more information, see [What is AWS Key Management Service?](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) If you specify KMS\_KEY\_ID, you must specify the [ENCRYPTED](#unload-parameters-encrypted) parameter also. If you specify KMS\_KEY\_ID, you can't authenticate using the CREDENTIALS parameter. Instead, use either [Using the IAM\_ROLE parameter](copy-parameters-authorization.md#copy-iam-role) or [Using the ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY parameters](copy-parameters-authorization.md#copy-access-key-id). 
+Specifies the key ID for an AWS Key Management Service (AWS KMS) key to be used to encrypt data files on Amazon S3. For more information, see [What is AWS Key Management Service?](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) If you specify KMS\_KEY\_ID, you must specify the [ENCRYPTED](#unload-parameters-encrypted) parameter also. To authenticate, use the [Using the IAM\_ROLE parameter](copy-parameters-authorization.md#copy-iam-role) parameter. 
 
 BZIP2   
 Unloads data to one or more bzip2-compressed files per slice. Each resulting file is appended with a `.bz2` extension. 

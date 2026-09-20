@@ -31,6 +31,8 @@ IAM_ROLE 'arn:aws:iam::12345678901:role/MyRedshiftRole';
 
 The AWS user must have, at a minimum, the permissions listed in [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions).
 
+If you connect with an IAM-federated identity, you can also load using the credentials of your current session by specifying `IAM_ROLE 'SESSION'`, rather than assuming a cluster IAM role. For more information, see [SESSION](copy-parameters-authorization.md#copy-iam-role-session). For an example of configuring a federated identity, see [Using a federated identity to manage Amazon Redshift access to local resources and Amazon Redshift Spectrum external tables](https://docs.aws.amazon.com/redshift/latest/mgmt/authorization-fas-spectrum.html).
+
 ## Key-based access control
 <a name="loading-data-access-key-based"></a>
 

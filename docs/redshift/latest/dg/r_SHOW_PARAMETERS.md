@@ -36,8 +36,19 @@ The name of the database that contains the function to list.
 The name of the schema that contains the function to list.
 
 *filter\_pattern*  
-A valid UTF-8 character expression with a pattern to match parameter names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/r_SHOW_PARAMETERS.html)
+A valid UTF-8 character expression with a pattern to match parameter names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:  
+
+
+<table>
+<thead>
+  <tr><th>Metacharacter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>%</td><td>Matches any sequence of zero or more characters</td></tr>
+  <tr><td>_</td><td>Matches any single character</td></tr>
+</tbody>
+</table>
+
 
 ## Examples
 <a name="r_SHOW_PARAMETERS-examples"></a>

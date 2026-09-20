@@ -5,9 +5,11 @@
 # SYS\_MV\_REFRESH\_HISTORY
 <a name="SYS_MV_REFRESH_HISTORY"></a>
 
-The results include information about the refresh history of all materialized views. The results include the refresh type, such as manual or auto, and the status of the most recent refresh. 
+The results include information about the refresh history of all materialized views, including Iceberg materialized views created with USING ICEBERG. The results include the refresh type, such as manual or auto, and the status of the most recent refresh. 
 
 SYS\_MV\_REFRESH\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
+
+For Iceberg materialized views, the `mv_id` column is NULL. Use the `mv_name`, `schema_name`, and `database_name` columns to identify the materialized view. The `schema_name` column contains the AWS Glue database name for Iceberg materialized views.
 
 ## Table columns
 <a name="SYS_MV_REFRESH_HISTORY-table-columns"></a>
@@ -20,7 +22,7 @@ SYS\_MV\_REFRESH\_HISTORY is visible to all users. Superusers can see all rows; 
 | transaction\_id | bigint | The transaction identifier. | 
 | database\_name | char(128) | The database that contains the materialized view. | 
 | schema\_name | char(128) | The schema of the materialized view. | 
-| mv\_id | bigint | Object ID of the materialized view. | 
+| mv\_id | bigint | Object ID of the materialized view. For Iceberg materialized views, this value is NULL because Iceberg materialized views are not registered in the Amazon Redshift internal catalog. | 
 | mv\_name | char(128) | The materialized view name. | 
 | refresh\_type | char(32) | The type of refresh, such as manual or auto. | 
 | status | text | The status of the refresh. For detailed information about statuses, see the status column for [SVL\_MV\_REFRESH\_STATUS](r_SVL_MV_REFRESH_STATUS.md). | 

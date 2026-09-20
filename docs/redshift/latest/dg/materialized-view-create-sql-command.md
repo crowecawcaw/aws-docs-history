@@ -18,6 +18,29 @@ CREATE MATERIALIZED VIEW mv_name
 AS query
 ```
 
+The following syntax creates a materialized view that stores its data as an Apache Iceberg table. For more information, see [Materialized views stored as Apache Iceberg tables](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-iceberg.html).
+
+```
+CREATE MATERIALIZED VIEW mv_name
+USING ICEBERG
+[LOCATION 's3://bucket/path/']
+[PARTITIONED BY (partition_transform [, ...])]
+[TABLE PROPERTIES ('property_name' = 'property_value' [, ...])]
+AS query
+```
+
+where *partition\_transform* is:
+
+```
+    column_name |
+    YEAR( column_name ) |
+    MONTH( column_name ) |
+    DAY( column_name ) |
+    HOUR( column_name ) |
+    BUCKET( integer, column_name ) |
+    TRUNCATE( integer, column_name )
+```
+
 ## Parameters
 <a name="mv_CREATE_MATERIALIZED_VIEW-parameters"></a>
 
@@ -39,6 +62,21 @@ If the query contains an SQL command that doesn't support incremental refresh, A
 AUTO REFRESH  
 A clause that defines whether the materialized view should be automatically refreshed with latest changes from its base tables. The default value is `NO`. For more information, see [Refreshing a materialized view](materialized-view-refresh.md).
 
+USING ICEBERG  
+Specifies that the materialized view stores its data as an Apache Iceberg table in Amazon S3. When you specify USING ICEBERG, the materialized view data is written as Parquet files in Iceberg format and registered in the AWS Glue Data Catalog. For more information, see [Materialized views stored as Apache Iceberg tables](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-iceberg.html).
+
+ *mv\_name*   
+When you use USING ICEBERG, the materialized view name must use catalog-qualified notation. You can use three-part notation (`awsdatacatalog.{{database}}.{{mv_name}}`), Amazon S3 Tables notation (`"{{bucket}}@s3tablescatalog".{{database}}.{{mv_name}}`), or two-part notation with an external schema (`{{external_schema}}.{{mv_name}}`). The target database must exist in the AWS Glue Data Catalog.
+
+LOCATION  
+The Amazon S3 path where Iceberg data and metadata files are stored. The path must point to an empty location. The Amazon S3 bucket must be in the same AWS Region as the Amazon Redshift cluster or workgroup. Omit this parameter when using Amazon S3 Table Buckets, because Amazon S3 Tables manages the storage location automatically. For tables created using external schemas or the `awsdatacatalog` root catalog, LOCATION is required.
+
+PARTITIONED BY (partition\_transform [, ...])  
+Specifies one or more Iceberg partition transforms for the materialized view. Amazon Redshift supports all Iceberg v2 partition transforms except `void`. A single column cannot appear in multiple transforms.
+
+TABLE PROPERTIES ('property\_name' = 'property\_value' [, ...])  
+Specifies Iceberg table properties. For example, use `'write.parquet.compression-codec' = 'zstd'` to set the Parquet compression codec.
+
 ## Usage notes
 <a name="mv_CREATE_MARTERIALIZED_VIEW_usage"></a>
 
@@ -47,6 +85,28 @@ To create a materialized view, you must have the following privileges:
 + Table-level or column-level SELECT privilege on the base tables to create a materialized view. If you have column-level privileges on specific columns, you can create a materialized view on only those columns.
 
  You can create a materialized view from a remote datasharing cluster by providing the external database name at the `mv_name`. 
+
+### Iceberg materialized views
+<a name="mv_CREATE_MATERIALIZED_VIEW_iceberg_usage"></a>
+
+To create an Iceberg materialized view, you must have CREATE TABLE permission in the target AWS Glue Data Catalog database. The IAM role associated with the external schema (the MV definer role) must have SELECT permission via AWS Lake Formation on all source tables referenced in the query.
+
+All identifiers in the materialized view definition (table names, column names, aliases) must be lowercase. The AWS Glue Data Catalog stores identifiers in lowercase for Hive compatibility. Amazon Redshift rejects CREATE MATERIALIZED VIEW statements with USING ICEBERG that contain uppercase identifiers.
+
+Creating or refreshing Iceberg materialized views is not supported when `enable_case_sensitive_identifier` is set to `true`. This restriction exists because the AWS Glue Data Catalog does not support case-sensitive identifiers. If your cluster or workgroup has `enable_case_sensitive_identifier` enabled, set it to `false` for the session before creating or refreshing Iceberg materialized views:
+
+```
+SET enable_case_sensitive_identifier TO false;
+```
+
+Source tables must be in Apache Iceberg format version 2 or lower. Non-Iceberg tables cannot be used as source tables for Iceberg materialized views.
+
+You can't use the following with Iceberg materialized views:
++ BACKUP clause
++ DISTSTYLE, DISTKEY, or SORTKEY clauses
++ References to Amazon Redshift native tables, temporary tables, or system tables
+
+For more information about Iceberg materialized view capabilities and limitations, see [Materialized views stored as Apache Iceberg tables](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-iceberg.html).
 
 ## Incremental refresh for materialized views in a datashare
 <a name="mv_CREATE_MARTERIALIZED_VIEW_datashare"></a>
@@ -82,6 +142,13 @@ You can't define a materialized view that references or includes any of the foll
 + You don't have to manually run [ANALYZE](r_ANALYZE.md) on materialized views. This happens currently only by using AUTO ANALYZE. For more information, see [Analyzing tables](t_Analyzing_tables.md).
 + RLS-protected or DDM-protected tables. 
 + Materialized view creation from remote datasharing clusters does not support references on other materialized views, Spectrum tables, tables defined in a different Redshift cluster and UDFs. These are supported for materialized view creation from the local (producer) cluster. 
+
+For Iceberg materialized views created with USING ICEBERG, the following additional limitations apply:
++ Source tables must be in Apache Iceberg format.
++ All identifiers must be lowercase.
++ User-defined functions and mutable functions are not allowed.
++ Source tables must be in the same AWS Region and account as the materialized view.
++ AWS Lake Formation filtered (FGAC) tables cannot be used as source tables.
 
 ## Examples
 <a name="mv_CREATE_MARTERIALIZED_VIEW_examples"></a>
@@ -178,3 +245,38 @@ For details about materialized view overview and SQL commands used to refresh an
 + [Materialized views in Amazon Redshift](materialized-view-overview.md)
 + [REFRESH MATERIALIZED VIEW](materialized-view-refresh-sql-command.md)
 + [DROP MATERIALIZED VIEW](materialized-view-drop-sql-command.md)
+
+The following example creates an Iceberg materialized view in an Amazon S3 Table Bucket with partitioning.
+
+```
+CREATE MATERIALIZED VIEW "my-bucket@s3tablescatalog".analytics.sales_by_region
+USING ICEBERG
+PARTITIONED BY (region)
+AS SELECT region, count(*) as order_count, sum(amount) as total_sales
+   FROM "my-bucket@s3tablescatalog".production.orders
+   GROUP BY region;
+```
+
+The following example creates an Iceberg materialized view in a general-purpose Amazon S3 bucket with a partition transform and compression specified.
+
+```
+CREATE MATERIALIZED VIEW awsdatacatalog.mydb.daily_revenue
+USING ICEBERG
+LOCATION 's3://my-analytics-bucket/mvs/daily_revenue/'
+PARTITIONED BY (day(order_date))
+TABLE PROPERTIES ('write.parquet.compression-codec' = 'zstd')
+AS SELECT order_date, sum(amount) as revenue, count(*) as num_orders
+   FROM awsdatacatalog.mydb.orders
+   GROUP BY order_date;
+```
+
+The following example creates an Iceberg materialized view using an external schema with two-part notation.
+
+```
+CREATE MATERIALIZED VIEW my_ext_schema.customer_totals
+USING ICEBERG
+LOCATION 's3://my-analytics-bucket/mvs/customer_totals/'
+AS SELECT customer_id, count(*) as order_count, sum(amount) as total_spent
+   FROM my_ext_schema.orders
+   GROUP BY customer_id;
+```

@@ -185,9 +185,9 @@ The JSONPaths file must contain only a single JSON object (not an array). The JS
 To use a JSONPaths file, add the JSON or AVRO keyword to the COPY command. Specify the S3 bucket name and object path of the JSONPaths file using the following format.
 
 ```
-COPY tablename 
-FROM 'data_source' 
-CREDENTIALS '{{credentials-args}}' 
+COPY tablename
+FROM 'data_source'
+IAM_ROLE 'arn:aws:iam::{{<aws-account-id>}}:role/{{<role-name>}}'
 FORMAT AS { AVRO | JSON } 's3://jsonpaths_file';
 ```
 

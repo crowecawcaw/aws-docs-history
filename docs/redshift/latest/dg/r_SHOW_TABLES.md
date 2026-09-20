@@ -40,8 +40,19 @@ The name of the schema that contains the tables to list.
 To show AWS Glue Data Catalog tables, provide the AWS Glue database name as the schema name.
 
  *filter\_pattern*   
-A valid UTF-8 character expression with a pattern to match table names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/r_SHOW_TABLES.html)
+A valid UTF-8 character expression with a pattern to match table names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:  
+
+
+<table>
+<thead>
+  <tr><th>Metacharacter</th><th>Description </th></tr>
+</thead>
+<tbody>
+  <tr><td><code>%</code> </td><td>Matches any sequence of zero or more characters.</td></tr>
+  <tr><td><code>_</code></td><td>Matches any single character.</td></tr>
+</tbody>
+</table>
+
 If *filter\_pattern* does not contain metacharacters, then the pattern only represents the string itself; in that case LIKE acts the same as the equals operator. 
 
  *row\_limit*   
@@ -67,4 +78,12 @@ SHOW TABLES FROM SCHEMA dev.s1 LIKE '%view' LIMIT 1;
  database_name | schema_name |    table_name     | table_type |              table_acl               | remarks | owner | last_altered_time | last_modified_time | dist_style |   table_subtype   
 ---------------+-------------+-------------------+------------+--------------------------------------+---------+-------+-------------------+--------------------+------------+-------------------
  dev           | s1          | late_binding_view | VIEW       | {alice=arwdRxtDPA/alice,bob=d/alice} |         | alice |                   |                    |            | LATE BINDING VIEW
+```
+
+Iceberg materialized views appear with `table_subtype = 'MATERIALIZED VIEW'` in SHOW TABLES output. Unlike standard (RMS) materialized views which have `table_type = 'VIEW'`, Iceberg materialized views have `table_type = 'EXTERNAL TABLE'`.
+
+The following example lists tables in a AWS Glue database, where Iceberg materialized views can be identified by `table_subtype`:
+
+```
+SHOW TABLES FROM SCHEMA awsdatacatalog.mydb LIKE '%';
 ```

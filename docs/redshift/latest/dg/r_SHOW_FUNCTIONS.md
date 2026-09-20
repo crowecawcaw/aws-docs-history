@@ -38,8 +38,19 @@ The name of the database that contains the functions to list.
 The name of the schema that contains the functions to list.
 
 *filter\_pattern*  
-A valid UTF-8 character expression with a pattern to match function names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/r_SHOW_FUNCTIONS.html)
+A valid UTF-8 character expression with a pattern to match function names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:  
+
+
+<table>
+<thead>
+  <tr><th>Metacharacter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>%</td><td>Matches any sequence of zero or more characters</td></tr>
+  <tr><td>_</td><td>Matches any single character</td></tr>
+</tbody>
+</table>
+
 Note that the filter\_pattern only matches the function name.
 
 *row\_limit*  

@@ -20,7 +20,6 @@ COPY supports columnar formatted data with the following considerations:
   + [FILLRECORD](copy-parameters-data-conversion.md#copy-fillrecord)
   + [FROM](copy-parameters-data-source-s3.md#copy-parameters-from)
   + [IAM\_ROLE](copy-parameters-authorization.md#copy-iam-role)
-  + [CREDENTIALS](copy-parameters-authorization.md#copy-credentials)
   + [STATUPDATE ](copy-parameters-data-load.md#copy-statupdate)
   + [MANIFEST](copy-parameters-data-source-s3.md#copy-manifest)
   + [EXPLICIT\_IDS](copy-parameters-data-conversion.md#copy-explicit-ids)

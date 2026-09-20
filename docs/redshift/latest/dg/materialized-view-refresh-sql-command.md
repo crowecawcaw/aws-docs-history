@@ -50,6 +50,21 @@ Some operations in Amazon Redshift interact with materialized views. Some of the
 + Background vacuum operations might be blocked if materialized views aren't refreshed. After an internally defined threshold period, a vacuum operation is allowed to run. When this vacuum operation happens, any dependent materialized views are marked for recomputation upon the next refresh (even if they are incremental). For information about VACUUM, see [VACUUM](r_VACUUM_command.md). For more information about events and state changes, see [STL\_MV\_STATE](r_STL_MV_STATE.md).
 + Some user-initiated operations on base tables force a materialized view to be fully recomputed next time that a REFRESH operation is run. Examples of such operations are a manually invoked VACUUM, a classic resize, an ALTER DISTKEY operation, an ALTER SORTKEY operation, and a truncate operation. Automatic operations in some cases can also result in a materialized view being fully recomputed the next time a REFRESH operation is run. For example, an auto-vacuum delete operation can cause a full recompute. For more information about events and state changes, see [STL\_MV\_STATE](r_STL_MV_STATE.md). 
 
+### Iceberg materialized views
+<a name="mv_REFRESH_MATERIALIZED_VIEW_iceberg_usage"></a>
+
+For Iceberg materialized views created with USING ICEBERG, the following usage notes apply:
++ The caller must have ALTER permission on the materialized view. The MV definer role (the IAM role recorded at create time) must have SELECT permission on all source tables.
++ Amazon Redshift determines whether the materialized view is stale by comparing the current Iceberg snapshot IDs of source tables against the snapshot IDs recorded at the last refresh. If all snapshot IDs match, Amazon Redshift returns "Materialized view is up to date" without further processing.
++ For incremental refresh, Amazon Redshift supports only COUNT and SUM aggregate functions. Materialized views using other aggregates (MIN, MAX, AVG) use full refresh.
++ Multiple Amazon Redshift clusters can attempt to refresh the same Iceberg materialized view concurrently. Amazon Redshift uses optimistic concurrency control (OCC) through the AWS Glue Data Catalog to ensure that only one refresh succeeds. If another cluster completes the refresh first, the local operation returns success.
++ CASCADE and RESTRICT options are not supported for Iceberg materialized views.
++ If metadata integrity validation detects that the materialized view was modified outside of Amazon Redshift, Amazon Redshift automatically performs a full refresh to restore consistency.
+
+The following operations on base tables force a full recomputation on the next refresh:
++ Source table snapshot expiration (when snapshots recorded at the last refresh are no longer available).
++ Data modification on the materialized view by an external engine or tool.
+
 ## Cascading refresh
 <a name="mv_REFRESH_MATERIALIZED_VIEW_cascading"></a>
 
@@ -92,6 +107,18 @@ The COUNT, SUM, MIN, MAX, and AVG aggregate functions are supported.
 + Accessing tables from more than one database.
 
 For more information about materialized-view limitations, including the effect of background operations like VACUUM on materialized-view refresh operations, see [Usage notes](#mv_REFRESH_MARTERIALIZED_VIEW_usage).
+
+For Iceberg materialized views, Amazon Redshift doesn't support incremental refresh for materialized views defined with any of the following SQL elements:
++ OUTER JOIN (RIGHT, LEFT, or FULL)
++ Set operations: INTERSECT, EXCEPT. UNION ALL is supported for incremental refresh.
++ Aggregate functions other than COUNT and SUM
++ DISTINCT aggregate functions, such as COUNT(DISTINCT) and SUM(DISTINCT)
++ Window functions
++ Subqueries
++ GROUPING SETS, ROLLUP, CUBE
++ DISTINCT
+
+When incremental refresh is not supported, Amazon Redshift automatically performs a full refresh.
 
 ## Examples
 <a name="mv_REFRESH_MARTERIALIZED_VIEW_examples"></a>

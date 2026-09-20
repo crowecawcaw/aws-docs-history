@@ -131,8 +131,23 @@ Assuming you have a Kinesis Data Streams stream available, the first step is to 
 
    To turn on auto refresh, use `AUTO REFRESH YES`. The default behavior is manual refresh. Note when you use CAN\_JSON\_PARSE, it's possible that records that can't be parsed are skipped.
 
-   Metadata columns include the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/materialized-view-streaming-ingestion-getting-started.html)
+   Metadata columns include the following:
+
+
+<table>
+<thead>
+  <tr><th>Metadata column</th><th>Data type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> approximate_arrival_timestamp </td><td> timestamp without time zone </td><td> The approximate time that the record was inserted into the Kinesis stream </td></tr>
+  <tr><td> partition_key </td><td> varchar(256) </td><td> The key used by Kinesis to assign the record to a shard </td></tr>
+  <tr><td> shard_id </td><td> char(20) </td><td> The unique identifier of the shard within the stream from which the record was retrieved </td></tr>
+  <tr><td> sequence_number </td><td> varchar(128) </td><td> The unique identifier of the record from the Kinesis shard </td></tr>
+  <tr><td> refresh_time </td><td> timestamp without time zone </td><td> The time the refresh started </td></tr>
+  <tr><td> kinesis_data </td><td> varbyte </td><td> The record from the Kinesis stream </td></tr>
+</tbody>
+</table>
+
 
    It's important to note if you have business logic in your materialized view definition that business-logic errors can cause streaming ingestion to be blocked in some cases. This might lead to you having to drop and re-create the materialized view. To avoid this, we recommend that you keep your logic as simple as possible and perform most of your business-logic checks on the data after it's ingested.
 

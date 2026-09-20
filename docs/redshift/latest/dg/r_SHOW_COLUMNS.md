@@ -41,8 +41,19 @@ To show AWS Glue Data Catalog tables, provide the AWS Glue database name as the 
 The name of the table that contains the columns to list. 
 
  *filter\_pattern*   
-A valid UTF-8 character expression with a pattern to match column names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/r_SHOW_COLUMNS.html)
+A valid UTF-8 character expression with a pattern to match column names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:  
+
+
+<table>
+<thead>
+  <tr><th>Metacharacter</th><th>Description </th></tr>
+</thead>
+<tbody>
+  <tr><td><code>%</code> </td><td>Matches any sequence of zero or more characters.</td></tr>
+  <tr><td><code>_</code></td><td>Matches any single character.</td></tr>
+</tbody>
+</table>
+
 If *filter\_pattern* does not contain metacharacters, then the pattern only represents the string itself; in that case LIKE acts the same as the equals operator. 
 
  *row\_limit*   

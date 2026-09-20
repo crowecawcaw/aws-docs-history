@@ -17,6 +17,8 @@ You can define a materialized view in terms of other materialized views. Use *ma
 
 This approach is especially useful for reusing precomputed joins for different aggregate or GROUP BY options. For example, take a materialized view that joins customer information (containing millions of rows) with item order detail information (containing billions of rows). This is an expensive query to compute on demand repeatedly. You can use different GROUP BY options for the materialized views created on top of this materialized view and join with other tables. Doing this saves compute time otherwise used to run the expensive underlying join every time. The [STV\_MV\_DEPS](r_STV_MV_DEPS.md) table shows the dependencies of a materialized view on other materialized views. 
 
+You can also create materialized views that store their data as Apache Iceberg tables in Amazon S3 or Amazon S3 Table Buckets, and are registered in the AWS Glue Data Catalog. These Iceberg materialized views are accessible to any engine that supports the Iceberg format, including Apache Spark, Amazon Athena, Trino, and others. Iceberg materialized views support incremental refresh and can be refreshed from any Amazon Redshift cluster with appropriate permissions. For more information, see [Materialized views stored as Apache Iceberg tables](materialized-view-iceberg.md).
+
 When you create a materialized view, Amazon Redshift runs the user-specified SQL statement to gather the data from the base table or tables and stores the result set. The following illustration provides an overview of the materialized view `tickets_mv` that an SQL query defines by using two base tables, `events` and `sales`.
 
 ![A materialized view defined using data from two base tables.](https://docs.aws.amazon.com/redshift/latest/dg/images/materialized-view.png)
@@ -48,6 +50,7 @@ For information about system tables and views to monitor materialized views, see
 + [Materialized view queries](materialized-view-query.md)
 + [Automatic query rewriting to use materialized views](materialized-view-auto-rewrite.md)
 + [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md)
++ [Materialized views stored as Apache Iceberg tables](materialized-view-iceberg.md)
 + [Refreshing a materialized view](materialized-view-refresh.md)
 + [Automated materialized views](materialized-view-auto-mv.md)
 + [Using a user-defined function (UDF) in a materialized view](materialized-view-UDFs.md)

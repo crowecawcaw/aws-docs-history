@@ -218,8 +218,31 @@ OBJECTIVE str
 Specifies an objective recognized by the algorithm. Amazon Redshift supports reg:squarederror, reg:squaredlogerror, reg:logistic, reg:pseudohubererror, reg:tweedie, binary:logistic, binary:hinge, multi:softmax. For more information about these objectives, see [Learning task parameters](https://xgboost.readthedocs.io/en/latest/parameter.html#learning-task-parameters) in the XGBoost documentation.
 
 HYPERPARAMETERS { DEFAULT \| DEFAULT EXCEPT ( key ‘value’ (,..) ) }  
-Specifies whether the default XGBoost parameters are used or overridden by user-specified values. The values must be enclosed with single quotes. Following are examples of parameters for XGBoost and their defaults.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/r_create_model_use_cases.html)
+Specifies whether the default XGBoost parameters are used or overridden by user-specified values. The values must be enclosed with single quotes. Following are examples of parameters for XGBoost and their defaults.  
+
+
+<table>
+<thead>
+  <tr><th>Parameter name</th><th>Parameter value </th><th>Default value</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td>num_class</td><td>Integer</td><td>Required for Multiclass classification.</td><td>N/A</td></tr>
+  <tr><td>num_round</td><td>Integer</td><td>100</td><td>N/A</td></tr>
+  <tr><td>tree_method</td><td>String</td><td>Auto</td><td>N/A</td></tr>
+  <tr><td>max_depth</td><td>Integer</td><td>6</td><td>[0 , 10]</td></tr>
+  <tr><td>min_child_weight</td><td>Float</td><td>1</td><td>MinValue: 0, MaxValue: 120</td></tr>
+  <tr><td>subsample</td><td>Float</td><td>1</td><td>MinValue: 0.5, MaxValue: 1</td></tr>
+  <tr><td>gamma</td><td>Float</td><td>0</td><td>MinValue: 0, MaxValue: 5</td></tr>
+  <tr><td>alpha</td><td>Float</td><td>0</td><td>MinValue: 0, MaxValue: 1000</td></tr>
+  <tr><td>eta</td><td>Float</td><td>0.3</td><td>MinValue: 0.1, MaxValue: 0.5</td></tr>
+  <tr><td>colsample_byleve</td><td>Float</td><td>1</td><td>MinValue: 0.1, MaxValue: 1</td></tr>
+  <tr><td>colsample_bynode</td><td>Float</td><td>1</td><td>MinValue: 0.1, MaxValue: 1</td></tr>
+  <tr><td>colsample_bytree</td><td>Float</td><td>1</td><td>MinValue: 0.5, MaxValue: 1</td></tr>
+  <tr><td>lambda</td><td>Float</td><td>1</td><td>MinValue: 0, MaxValue: 1000</td></tr>
+  <tr><td>max_delta_step</td><td>Integer</td><td>0</td><td>[0, 10]</td></tr>
+</tbody>
+</table>
+
 
 The following example prepares data for XGBoost.
 

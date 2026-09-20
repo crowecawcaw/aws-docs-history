@@ -23,7 +23,7 @@ Use the [SHOW TABLES](r_SHOW_TABLES.md) command for table discovery. SHOW TABLES
 | redshift\_database\_name | text | The name of the local Amazon Redshift database. | 
 | schemaname | text  | The name of the Amazon Redshift external schema for the external table.  | 
 | tablename | text | The name of the external table. | 
-| tabletype | text | The type of table. Some values are TABLE, VIEW, MATERIALIZED VIEW, or " " empty string that represents no information. | 
+| tabletype | text | The type of table. Values include TABLE, VIEW, MATERIALIZED VIEW, or an empty string that represents no information. Iceberg materialized views created with USING ICEBERG appear with tabletype = 'MATERIALIZED VIEW'. | 
 | location | text | The location of the table. | 
 | input\_format | text  | The input format | 
 | output\_format | text | The output format. | 
@@ -50,4 +50,12 @@ apg_tpch    | partsupp
 apg_tpch    | region
 apg_tpch    | supplier
 (8 rows)
+```
+
+The following example lists Iceberg materialized views in external schemas:
+
+```
+SELECT schemaname, tablename, location
+FROM svv_external_tables
+WHERE tabletype = 'MATERIALIZED VIEW';
 ```

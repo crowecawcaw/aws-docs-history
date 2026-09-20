@@ -117,8 +117,25 @@ Loads fields that match *null\_string* as NULL, where *null\_string* can be any 
 If you attempt to load nulls into a column defined as NOT NULL, the COPY command will fail.
 
 REMOVEQUOTES   <a name="copy-removequotes"></a>
-Removes surrounding quotation marks from strings in the incoming data. All characters within the quotation marks, including delimiters, are retained. If a string has a beginning single or double quotation mark but no corresponding ending mark, the COPY command fails to load that row and returns an error. The following table shows some simple examples of strings that contain quotation marks and the resulting loaded values.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/copy-parameters-data-conversion.html)
+Removes surrounding quotation marks from strings in the incoming data. All characters within the quotation marks, including delimiters, are retained. If a string has a beginning single or double quotation mark but no corresponding ending mark, the COPY command fails to load that row and returns an error. The following table shows some simple examples of strings that contain quotation marks and the resulting loaded values.  
+
+
+<table>
+<thead>
+  <tr><th>Input String </th><th>Loaded Value with REMOVEQUOTES Option </th></tr>
+</thead>
+<tbody>
+  <tr><td>"The delimiter is a pipe (|) character"</td><td>The delimiter is a pipe (|) character</td></tr>
+  <tr><td>'Black' </td><td>Black </td></tr>
+  <tr><td>"White" </td><td>White </td></tr>
+  <tr><td>Blue' </td><td>Blue' </td></tr>
+  <tr><td>'Blue </td><td><i>Value not loaded: error condition</i> </td></tr>
+  <tr><td>"Blue </td><td><i>Value not loaded: error condition</i> </td></tr>
+  <tr><td>' ' 'Black' ' ' </td><td>' 'Black' ' </td></tr>
+  <tr><td>' ' </td><td><i>&lt;white space&gt;</i> </td></tr>
+</tbody>
+</table>
+
 
 ROUNDEC   <a name="copy-roundec"></a>
 Rounds up numeric values when the scale of the input value is greater than the scale of the column. By default, COPY truncates values when necessary to fit the scale of the column. For example, if a value of `20.259` is loaded into a DECIMAL(8,2) column, COPY truncates the value to `20.25` by default. If ROUNDEC is specified, COPY rounds the value to `20.26`. The INSERT command always rounds values when necessary to match the column's scale, so a COPY command with the ROUNDEC parameter behaves the same as an INSERT command.

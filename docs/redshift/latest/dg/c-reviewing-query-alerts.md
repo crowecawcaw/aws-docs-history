@@ -27,5 +27,19 @@ To use the [STL\_ALERT\_EVENT\_LOG](r_STL_ALERT_EVENT_LOG.md) system table to id
 
 1. Evaluate the results for your query. Use the following table to locate potential solutions for any issues that you have identified.
 **Note**  
-Not all queries have rows in STL\_ALERT\_EVENT\_LOG, only those with identified issues.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/c-reviewing-query-alerts.html)
+Not all queries have rows in STL\_ALERT\_EVENT\_LOG, only those with identified issues.
+
+
+<table>
+<thead>
+  <tr><th>Issue</th><th>Event value</th><th>Solution value</th><th>Recommended solution</th></tr>
+</thead>
+<tbody>
+  <tr><td>Statistics for the tables in the query are missing or out of date.</td><td>Missing query planner statistics</td><td>Run the ANALYZE command </td><td>See <a href="query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date">Table statistics missing or out of date</a>.</td></tr>
+  <tr><td>There is a nested loop join (the least optimal join) in the query plan.</td><td>Nested Loop Join in the query plan</td><td>Review the join predicates to avoid Cartesian products </td><td>See <a href="query-performance-improvement-opportunities.md#nested-loop">Nested loop</a>.</td></tr>
+  <tr><td>The scan skipped a relatively large number of rows that are marked as deleted but not vacuumed, or rows that have been inserted but not committed. </td><td>Scanned a large number of deleted rows</td><td>Run the VACUUM command to reclaim deleted space </td><td> See <a href="query-performance-improvement-opportunities.md#ghost-rows-or-uncommitted-rows">Ghost rows or uncommitted rows</a>. </td></tr>
+  <tr><td>More than 1,000,000 rows were redistributed for a hash join or aggregation. </td><td>Distributed a large number of rows across the network:RowCount rows were distributed in order to process the aggregation</td><td>Review the choice of distribution key to collocate the join or aggregation </td><td> See <a href="query-performance-improvement-opportunities.md#suboptimal-data-distribution">Suboptimal data distribution</a>. </td></tr>
+  <tr><td>More than 1,000,000 rows were broadcast for a hash join. </td><td>Broadcasted a large number of rows across the network</td><td>Review the choice of distribution key to collocate the join and consider using distributed tables </td><td> See <a href="query-performance-improvement-opportunities.md#suboptimal-data-distribution">Suboptimal data distribution</a>. </td></tr>
+  <tr><td>A DS_DIST_ALL_INNER redistribution style was indicated in the query plan, which forces serial execution because the entire inner table was redistributed to a single node.</td><td>DS_DIST_ALL_INNER for Hash Join in the query plan</td><td>Review the choice of distribution strategy to distribute the inner, rather than outer, table </td><td> See <a href="query-performance-improvement-opportunities.md#suboptimal-data-distribution">Suboptimal data distribution</a>. </td></tr>
+</tbody>
+</table>

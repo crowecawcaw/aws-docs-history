@@ -100,10 +100,9 @@ The most commonly used data repository is an Amazon S3 bucket. You can also load
 + [COPY from Amazon DynamoDB](copy-parameters-data-source-dynamodb.md)
 
 Authorization  <a name="r_COPY-syntax-overview-credentials"></a>
-A clause that indicates the method that your cluster uses for authentication and authorization to access other AWS resources. The COPY command needs authorization to access data in another AWS resource, including in Amazon S3, Amazon EMR, Amazon DynamoDB, and Amazon EC2. You can provide that authorization by referencing an IAM role that is attached to your cluster or by providing the access key ID and secret access key for an IAM user.   
+A clause that indicates the method that your cluster uses for authentication and authorization to access other AWS resources. The COPY command needs authorization to access data in another AWS resource, including in Amazon S3, Amazon EMR, Amazon DynamoDB, and Amazon EC2. You provide that authorization by referencing an IAM role that is attached to your cluster.   
 + [Authorization parameters](copy-parameters-authorization.md) 
 + [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based) 
-+ [Key-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based) 
 
 ## Optional parameters
 <a name="r_COPY-syntax-overview-optional-parameters"></a>

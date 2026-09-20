@@ -53,8 +53,19 @@ To include groups, specify `INCLUDE`. The default is empty, which means include 
 To exclude groups, specify `EXCLUDE`. The default is empty, which means do not exclude any groups if `AUTO_CREATE_ROLES` is on.
 
  *filter\_pattern*   
-A valid UTF-8 character expression with a pattern to match group names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_IDENTITY_PROVIDER.html)
+A valid UTF-8 character expression with a pattern to match group names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:  
+
+
+<table>
+<thead>
+  <tr><th>Metacharacter</th><th>Description </th></tr>
+</thead>
+<tbody>
+  <tr><td><code>%</code> </td><td>Matches any sequence of zero or more characters.</td></tr>
+  <tr><td><code>_</code></td><td>Matches any single character.</td></tr>
+</tbody>
+</table>
+
 If *filter\_pattern* does not contain metacharacters, then the pattern only represents the string itself; in that case LIKE acts the same as the equals operator.   
 *filter\_pattern* supports the following characters:  
 +  Uppercase and lowercase alphabetic characters (A-Z and a-z) 

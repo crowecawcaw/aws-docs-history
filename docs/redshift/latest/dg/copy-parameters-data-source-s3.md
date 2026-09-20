@@ -100,19 +100,19 @@ If a manifest file is used, the MANIFEST parameter must be specified with the CO
 For more information, see [Loading data from Amazon S3](t_Loading-data-from-S3.md).
 
 *authorization*  
-The COPY command needs authorization to access data in another AWS resource, including in Amazon S3, Amazon EMR, Amazon DynamoDB, and Amazon EC2. You can provide that authorization by referencing an AWS Identity and Access Management (IAM) role that is attached to your cluster (role-based access control) or by providing the access credentials for a user (key-based access control). For increased security and flexibility, we recommend using IAM role-based access control. For more information, see [Authorization parameters](copy-parameters-authorization.md).
+The COPY command needs authorization to access data in another AWS resource, including in Amazon S3, Amazon EMR, Amazon DynamoDB, and Amazon EC2. You can provide that authorization by referencing an AWS Identity and Access Management (IAM) role that is attached to your cluster (role-based access control). For Amazon S3 data, IAM-federated identities can use session credentials by specifying `IAM_ROLE 'SESSION'`. For more information, see [Authorization parameters](copy-parameters-authorization.md).
 
 MANIFEST  <a name="copy-manifest"></a>
 Specifies that a manifest is used to identify the data files to be loaded from Amazon S3. If the MANIFEST parameter is used, COPY loads data from the files listed in the manifest referenced by *'s3://copy\_from\_s3\_manifest\_file'*. If the manifest file isn't found, or isn't properly formed, COPY fails. For more information, see [Using a manifest to specify data files](loading-data-files-using-manifest.md).
 
 ENCRYPTED  <a name="copy-encrypted"></a>
 A clause that specifies that the input files on Amazon S3 are encrypted using client-side encryption with customer managed keys. For more information, see [Loading encrypted data files from Amazon S3](c_loading-encrypted-files.md). Don't specify ENCRYPTED if the input files are encrypted using Amazon S3 server-side encryption (SSE-KMS or SSE-S3). COPY reads server-side encrypted files automatically.  
-If you specify the ENCRYPTED parameter, you must also specify the [MASTER_SYMMETRIC_KEY](#copy-master-symmetric-key) parameter or include the **master\_symmetric\_key** value in the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials) string.  
+If you specify the ENCRYPTED parameter, you must also specify the [MASTER_SYMMETRIC_KEY](#copy-master-symmetric-key) parameter.  
 If the encrypted files are in compressed format, add the GZIP, LZOP, BZIP2, or ZSTD parameter.  
 Manifest files and JSONPaths files must not be encrypted, even if the ENCRYPTED option is specified.
 
 MASTER\_SYMMETRIC\_KEY '*root\_key*'  <a name="copy-master-symmetric-key"></a>
-The root symmetric key that was used to encrypt data files on Amazon S3. If MASTER\_SYMMETRIC\_KEY is specified, the [ENCRYPTED](#copy-encrypted) parameter must also be specified. MASTER\_SYMMETRIC\_KEY can't be used with the CREDENTIALS parameter. For more information, see [Loading encrypted data files from Amazon S3](c_loading-encrypted-files.md).  
+The root symmetric key that was used to encrypt data files on Amazon S3. If MASTER\_SYMMETRIC\_KEY is specified, the [ENCRYPTED](#copy-encrypted) parameter must also be specified. For more information, see [Loading encrypted data files from Amazon S3](c_loading-encrypted-files.md).  
 If the encrypted files are in compressed format, add the GZIP, LZOP, BZIP2, or ZSTD parameter.
 
 REGION [AS] '*aws-region*'  <a name="copy-region"></a>
