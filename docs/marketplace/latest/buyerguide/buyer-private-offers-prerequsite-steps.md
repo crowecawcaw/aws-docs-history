@@ -6,7 +6,8 @@
 When a typical private offer is negotiated, you pay the entire amount of the offer when you accept it, unless you are using third-party financing. With third-party financing, the financier pays the contract on your behalf and invoices you based on the agreed payment schedule. Before you accept a private offer, verify the billing structure for your company, your method of payment for AWS billing, your preferred currency, and your tax settings.
 
 **Note**  
-Certain sellers offer the option to request a private offer for their product in AWS Marketplace. For participating sellers, a **Request private offer** button appears on the product detail page. To request a private offer, choose the button and provide request details. You'll receive a confirmation email summarizing your request, and an AWS representative will contact you.
+Certain sellers offer the option to request a private offer for their product in AWS Marketplace. For participating sellers, a **Request private offer** button appears on the product detail page. To request a private offer, choose the button and provide your contact details and a description of your use case.  
+You'll receive a confirmation email summarizing your request, and the seller will contact you to discuss your requirements.
 
 ## Verifying your AWS Billing and Cost Management preferences
 <a name="buyer-private-offers-prerequsite-steps-billing"></a>

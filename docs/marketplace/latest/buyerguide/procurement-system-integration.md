@@ -28,4 +28,32 @@ Additional notes about integrating with procurement systems include the followin
 ## UNSPSC codes used by AWS Marketplace
 <a name="procurement-integration-setup-unspsc-codes"></a>
 
-AWS Marketplace uses the following United Nations Standard Products and Services code (UNSPSC) for software listings that are sent back to the procurement cart: 43232701
+AWS Marketplace uses United Nations Standard Products and Services codes (UNSPSC) to classify line items that are sent back to the procurement cart. The code assigned to each line item depends on the line item type.
+
+
+| Line item type | UNSPSC code | Description | When used | 
+| --- | --- | --- | --- | 
+| Service (amount-based) | 81162000 | IT Service Delivery | An offer with a single, non-usage charge (for example, a contract upfront charge). Quantity is set to 1 and the unit price equals the full charge amount. Only one invoice can post against the purchase order line. | 
+| Material (quantity-based) | 43232701 | Software | Any usage-based charge (for example, pay-as-you-go (PAYG)), or an offer with more than one charge (for example, multiple flexible payment schedule (FPS) installments). Quantity is calculated from the charge amount (the amount divided by 0.01) and the unit price is $0.01. Multiple invoices can post against the purchase order line. | 
+
+### How line item type is determined
+<a name="procurement-integration-unspsc-line-item-type"></a>
+
+AWS Marketplace automatically classifies each line item based on the pricing terms of the offer.
+
+Service  
+The line item represents an offer with a single, non-usage charge (for example, a contract upfront charge or a $0 agreement). These are amount-based line items with a quantity of 1, and only one invoice can post against the purchase order line.
+
+Material  
+The line item represents an offer that has a usage or consumption-based charge, or an offer with more than one charge (for example, multiple flexible payment schedule installments). These are quantity-based line items, and multiple invoices can post against the purchase order line.
+
+For offers that combine both contract and usage charges (for example, a SaaS contract with additional usage pricing), the classification depends on how you choose to structure the purchase order line items:
++ **Single line item** – If any charge is usage-based, or the offer has more than one charge (for example, multiple scheduled flexible payment schedule installments), the consolidated line item is classified as Material. Only an offer with a single, non-usage charge is classified as Service.
++ **Split line items** – Each charge is classified independently. Contract charges are Service line items and usage charges are Material line items.
+
+### Procurement system configuration
+<a name="procurement-integration-unspsc-configuration"></a>
+
+Procurement systems such as Coupa can use the UNSPSC code to automatically map line items to the correct purchasing category (for example, mapping 81162000 to a Services category).
+
+AWS Marketplace also includes a `LineType` extrinsic in the cXML purchase order output message (POOM) that procurement systems can use for additional classification logic.

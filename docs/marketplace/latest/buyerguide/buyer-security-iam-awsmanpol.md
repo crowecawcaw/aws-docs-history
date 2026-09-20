@@ -242,6 +242,7 @@ In AWS Marketplace Vendor Insights, an assessor is equal to a buyer, and a vendo
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacefullaccess) — updates to existing policy | AWS Marketplace added permissions to list received licenses, list payment program status, and tag or untag CloudFormation resources during stack creation. | September 11, 2026 | 
 | [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions) — updates to existing policy | AWS Marketplace added Discovery API permissions for searching listings, retrieving product and offer details, and listing purchase and fulfillment options. | May 7, 2026 | 
 | [AWSMarketplaceDiscoveryFullAccess](#security-iam-awsmanpol-awsmarketplacediscoveryfullaccess) — new policy | AWS Marketplace added a new policy that provides full access to the AWS Marketplace Discovery API for searching and retrieving product and pricing information. | May 7, 2026 | 
 | [AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only) — updates to existing policy | AWS Marketplace added read-only permissions for Discovery API operations including searching listings, retrieving product and offer details, and listing purchase and fulfillment options. | May 7, 2026 | 
