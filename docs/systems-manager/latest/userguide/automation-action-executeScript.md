@@ -105,8 +105,21 @@ inputs:
 ------
 
 Runtime  
-The runtime language to be used for running the provided script. `aws:executeScript` supports the runtimes in the following table.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/automation-action-executeScript.html)
+The runtime language to be used for running the provided script. `aws:executeScript` supports the runtimes in the following table.  
+
+
+<table>
+<thead>
+  <tr><th>Runtime name</th><th>Runtime value for {{runtime}} input</th></tr>
+</thead>
+<tbody>
+  <tr><td>Python 3.12</td><td><b>python3.12</b></td></tr>
+  <tr><td>Python 3.11</td><td><b>python3.11</b></td></tr>
+  <tr><td>Python 3.10 </td><td><b>python3.10</b></td></tr>
+  <tr><td>PowerShell 7.4 (<code>dotnet8</code>)</td><td><b>PowerShell 7.4</b></td></tr>
+</tbody>
+</table>
+
 Type: String  
 Required: Yes  
 For python runtimes, the environment provides 512MB of memory and 512MB of disk space. For PowerShell runtimes, the environment provides 1024MB of memory and 512MB of disk space.

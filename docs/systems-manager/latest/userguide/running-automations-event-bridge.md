@@ -28,8 +28,19 @@ Use the following procedure to configure a runbook as the target of a EventBridg
 
 1. For **Event bus**, choose the event bus that you want to associate with this rule. If you want this rule to respond to matching events that come from your own AWS account, select **default**. When an AWS service in your account emits an event, it always goes to your account’s default event bus.
 
-1. Choose how the rule is triggered.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/running-automations-event-bridge.html)
+1. Choose how the rule is triggered.
+
+
+<table>
+<thead>
+  <tr><th>To create a rule based on...</th><th>Do this...</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Event</td><td> <ol><li> For <b>Rule type</b>, choose <b>Rule with an event pattern</b>. </li><li> Choose <b>Next</b>. </li><li> For <b>Event source</b>, choose <b>AWS events or EventBridge partner events</b>. </li><li> In the <b>Event pattern</b> section, do one of the following: <ul><li> To use a template to create your event pattern, choose <b>Event pattern form</b> and choose <b>Event source</b>, <b>AWS service</b>, and <b>Event type</b>. If you choose <b>All Events</b> as the event type, all events emitted by the AWS service will match the rule. <br />To customize the template, choose <b>Custom pattern (JSON editor)</b> and make your changes. </li><li> To use a custom event pattern, choose <b>Custom pattern (JSON editor)</b> and create your event pattern. </li></ul> </li></ol> </td><td></td></tr>
+  <tr><td>Schedule</td><td> <ol><li> For <b>Rule type</b>, choose <b>Schedule</b>. </li><li> Choose <b>Next</b>. </li><li> For <b>Schedule pattern</b>, do one of the following: <ul><li> To use a cron expression to define the schedule, choose <b>A fine-grained schedule that runs at a specific time, such as 8:00 a.m. PST on the first Monday of every month</b> and enter the cron expression. </li><li> To use a rate expression to define the schedule, choose <b>A schedule that runs at a regular rate, such as every 10 minutes</b> and enter the rate expression. </li></ul> </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 

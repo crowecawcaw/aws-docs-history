@@ -21,16 +21,42 @@ On Amazon Linux 2 and Amazon Linux 2023, the patch selection process is as follo
 
    If no `updateinfo.xml` file is found, whether patches are installed depend on settings for **Include non-security updates** and **Auto-approval**. For example, if non-security updates are permitted, they're installed when the auto-approval time arrives.
 
-1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table.  
-**Update notice attributes**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table.
+
+
+**Update notice attributes**  
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>type</td><td>Corresponds to the value of the Classification key attribute in the patch baseline's <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html</a> data type. Denotes the type of package included in the update notice. <br />You can view the list of supported values by using the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html">https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html</a></b> or the API operation <b><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html</a></b>. You can also view the list in the <b>Approval rules</b> area of the <b>Create patch baseline</b> page or <b>Edit patch baseline</b> page in the Systems Manager console.</td></tr>
+  <tr><td>severity</td><td>Corresponds to the value of the Severity key attribute in the patch baseline's <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html</a> data type. Denotes the severity of the packages included in the update notice. Usually only applicable for <i>Security</i> update notices.<br />You can view the list of supported values by using the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html">https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html</a></b> or the API operation <b><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html</a></b>. You can also view the list in the <b>Approval rules</b> area of the <b>Create patch baseline</b> page or <b>Edit patch baseline</b> page in the Systems Manager console.</td></tr>
+  <tr><td>update_id</td><td>Denotes the advisory ID, such as <i>ALAS-2017-867</i>. The advisory ID can be used in the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches</a> attribute in the patch baseline.</td></tr>
+  <tr><td>references</td><td>Contains additional information about the update notice, such as a CVE ID (format: <i>CVE-2017-1234567</i>). The CVE ID can be used in the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches</a> attribute in the patch baseline.</td></tr>
+  <tr><td>issued</td><td>Corresponds to <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchRule.html#EC2-Type-PatchRule-ApproveAfterDays">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchRule.html#EC2-Type-PatchRule-ApproveAfterDays</a> in the patch baseline. Denotes the released date (issued date) of the packages included in the update notice. A comparison between the current timestamp and the value of this attribute plus the <code>ApproveAfterDays</code> is used to determine if the patch is approved for deployment. </td></tr>
+</tbody>
+</table>
+
 
    For information about accepted formats for lists of approved patches and rejected patches, see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md).
 
 1. The product of the managed node is determined by SSM Agent. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type.
 
-1. Packages are selected for the update according to the following guidelines.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. Packages are selected for the update according to the following guidelines.
+
+
+<table>
+<thead>
+  <tr><th>Security option</th><th>Patch selection</th></tr>
+</thead>
+<tbody>
+  <tr><td>Pre-defined default patch baselines provided by AWS and custom patch baselines where the <b>Include non-security updates</b> check box is <i>not</i> selected</td><td>For each update notice in <code>updateinfo.xml</code>, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update. If multiple packages are applicable after applying the patch baseline definition, the latest version is used.<br />For Amazon Linux 2, the equivalent yum command for this workflow is:<pre>sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y</pre><br />For Amazon Linux 2023, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade-minimal --sec-severity=Critical --sec-severity=Important --bugfix -y</pre></td></tr>
+  <tr><td>Custom patch baselines where the <b>Include non-security updates</b> check box <i>is</i> selected with a SEVERITY list of <code>[Critical, Important] </code>and a CLASSIFICATION list of <code>[Security, Bugfix]</code></td><td>Besides applying the security updates that were selected from <code>updateinfo.xml</code>, Patch Manager applies nonsecurity updates that otherwise meet the patch filtering rules.<br />For Amazon Linux 2, the equivalent yum command for this workflow is:<pre>sudo yum update --security --sec-severity=Critical,Important --bugfix -y</pre><br />For Amazon Linux 2023, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade --security --sec-severity=Critical --sec-severity=Important --bugfix -y</pre> New packages that replace now-obsolete packages with different names are installed if you run these <code>yum</code> or <code>dnf</code> commands outside of Patch Manager. However, they are <i>not</i> installed by the equivalent Patch Manager operations. </td></tr>
+</tbody>
+</table>
+
 
 For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md).
 
@@ -45,16 +71,42 @@ On CentOS Stream, the patch selection process is as follows:
 
    If there is no `updateinfo.xml` found, which always includes the default repos, whether patches are installed depends on settings for **Include non-security updates** and **Auto-approval**. For example, if non-security updates are permitted, they're installed when the auto-approval time arrives.
 
-1. If `updateinfo.xml` is present, each update notice in the file includes several attributes that denote the properties of the packages in the notice, as described in the following table.  
-**Update notice attributes**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. If `updateinfo.xml` is present, each update notice in the file includes several attributes that denote the properties of the packages in the notice, as described in the following table.
+
+
+**Update notice attributes**  
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>type</td><td>Corresponds to the value of the Classification key attribute in the patch baseline's <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html</a> data type. Denotes the type of package included in the update notice. <br />You can view the list of supported values by using the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html">https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html</a></b> or the API operation <b><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html</a></b>. You can also view the list in the <b>Approval rules</b> area of the <b>Create patch baseline</b> page or <b>Edit patch baseline</b> page in the Systems Manager console.</td></tr>
+  <tr><td>severity</td><td>Corresponds to the value of the Severity key attribute in the patch baseline's <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html</a> data type. Denotes the severity of the packages included in the update notice. Usually only applicable for <i>Security</i> update notices.<br />You can view the list of supported values by using the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html">https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html</a></b> or the API operation <b><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html</a></b>. You can also view the list in the <b>Approval rules</b> area of the <b>Create patch baseline</b> page or <b>Edit patch baseline</b> page in the Systems Manager console.</td></tr>
+  <tr><td>update_id</td><td>Denotes the advisory ID, such as <i>CVE-2019-17055</i>. The advisory ID can be used in the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches</a> attribute in the patch baseline.</td></tr>
+  <tr><td>references</td><td>Contains additional information about the update notice, such as a CVE ID (format: <i>CVE-2019-17055</i>) or a Bugzilla ID (format: <i>1463241</i>). The CVE ID and Bugzilla ID can be used in the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches</a> attribute in the patch baseline.</td></tr>
+  <tr><td>issued</td><td>Corresponds to <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchRule.html#EC2-Type-PatchRule-ApproveAfterDays">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchRule.html#EC2-Type-PatchRule-ApproveAfterDays</a> in the patch baseline. Denotes the released date (issued date) of the packages included in the update notice. A comparison between the current timestamp and the value of this attribute plus the <code>ApproveAfterDays</code> is used to determine if the patch is approved for deployment.</td></tr>
+</tbody>
+</table>
+
 
    For information about accepted formats for lists of approved patches and rejected patches, see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md).
 
 1. In all cases, the product of the managed node is determined by SSM Agent. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type.
 
-1. Packages are selected for the update according to the following guidelines.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. Packages are selected for the update according to the following guidelines.
+
+
+<table>
+<thead>
+  <tr><th>Security option</th><th>Patch selection</th></tr>
+</thead>
+<tbody>
+  <tr><td>Pre-defined default patch baselines provided by AWS and custom patch baselines where the <b>Include non-security updates</b> check box is <i>not</i> selected</td><td>For each update notice in <code>updateinfo.xml</code>, if it exists in a custom repository, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update. If multiple packages are applicable after applying the patch baseline definition, the latest version is used.<br />For CentOS Stream where <code>updateinfo.xml</code> is present, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade-minimal ‐‐sec-severity=Critical ‐‐sec-severity=Important ‐‐bugfix -y</pre></td></tr>
+  <tr><td>Custom patch baselines where the <b>Include non-security updates</b> check box <i>is</i> selected with a SEVERITY list of <code>[Critical, Important]</code> and a CLASSIFICATION list of <code>[Security, Bugfix]</code></td><td>Besides applying the security updates that were selected from <code>updateinfo.xml</code>, if it exists in a custom repository, Patch Manager applies nonsecurity updates that otherwise meet the patch filtering rules.<br />For CentOS Stream where <code>updateinfo.xml</code> is present, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade ‐‐security ‐‐sec-severity=Critical ‐‐sec-severity=Important ‐‐bugfix -y</pre><br />For default repos and custom repos without <code>updateinfo.xml</code>, you <i>must</i> select the <b>Include non-security updates</b> check box to update operating system (OS) packages. New packages that replace now-obsolete packages with different names are installed if you run these <code>yum</code> or <code>dnf</code> commands outside of Patch Manager. However, they are <i>not</i> installed by the equivalent Patch Manager operations. </td></tr>
+</tbody>
+</table>
+
 
 For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md).
 
@@ -111,8 +163,19 @@ On macOS, the patch selection process is as follows:
 
 1. The product of the managed node is determined by SSM Agent. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type.
 
-1. Packages are selected for the update according to the following guidelines.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. Packages are selected for the update according to the following guidelines.
+
+
+<table>
+<thead>
+  <tr><th>Security option</th><th>Patch selection</th></tr>
+</thead>
+<tbody>
+  <tr><td>Pre-defined default patch baselines provided by AWS and custom patch baselines where the <b>Include non-security updates</b> check box is <i>not</i> selected</td><td>For each available package update, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update. If multiple packages are applicable after applying the patch baseline definition, the latest version is used.</td></tr>
+  <tr><td>Custom patch baselines where the <b>Include non-security updates</b> check box <i>is</i> selected</td><td>Besides applying the security updates that were identified by using <code>InstallHistory.plist </code>, Patch Manager applies nonsecurity updates that otherwise meet the patch filtering rules.</td></tr>
+</tbody>
+</table>
+
 
 For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md).
 
@@ -125,16 +188,42 @@ On Oracle Linux, the patch selection process is as follows:
 **Note**  
 The `updateinfo.xml` file might not be available if the repo isn't one managed by Oracle. If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Include non-security updates** and **Auto-approval**. For example, if non-security updates are permitted, they're installed when the auto-approval time arrives.
 
-1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table.  
-**Update notice attributes**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table.
+
+
+**Update notice attributes**  
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>type</td><td>Corresponds to the value of the Classification key attribute in the patch baseline's <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html</a> data type. Denotes the type of package included in the update notice. <br />You can view the list of supported values by using the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html">https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html</a></b> or the API operation <b><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html</a></b>. You can also view the list in the <b>Approval rules</b> area of the <b>Create patch baseline</b> page or <b>Edit patch baseline</b> page in the Systems Manager console.</td></tr>
+  <tr><td>severity</td><td>Corresponds to the value of the Severity key attribute in the patch baseline's <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html</a> data type. Denotes the severity of the packages included in the update notice. Usually only applicable for <i>Security</i> update notices.<br />You can view the list of supported values by using the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html">https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html</a></b> or the API operation <b><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html</a></b>. You can also view the list in the <b>Approval rules</b> area of the <b>Create patch baseline</b> page or <b>Edit patch baseline</b> page in the Systems Manager console.</td></tr>
+  <tr><td>update_id</td><td>Denotes the advisory ID, such as <i>CVE-2019-17055</i>. The advisory ID can be used in the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches</a> attribute in the patch baseline.</td></tr>
+  <tr><td>references</td><td>Contains additional information about the update notice, such as a CVE ID (format: <i>CVE-2019-17055</i>) or a Bugzilla ID (format: <i>1463241</i>). The CVE ID and Bugzilla ID can be used in the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches</a> attribute in the patch baseline.</td></tr>
+  <tr><td>issued</td><td>Corresponds to <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchRule.html#EC2-Type-PatchRule-ApproveAfterDays">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchRule.html#EC2-Type-PatchRule-ApproveAfterDays</a> in the patch baseline. Denotes the released date (issued date) of the packages included in the update notice. A comparison between the current timestamp and the value of this attribute plus the <code>ApproveAfterDays</code> is used to determine if the patch is approved for deployment.</td></tr>
+</tbody>
+</table>
+
 
    For information about accepted formats for lists of approved patches and rejected patches, see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md).
 
 1. The product of the managed node is determined by SSM Agent. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type.
 
-1. Packages are selected for the update according to the following guidelines.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. Packages are selected for the update according to the following guidelines.
+
+
+<table>
+<thead>
+  <tr><th>Security option</th><th>Patch selection</th></tr>
+</thead>
+<tbody>
+  <tr><td>Pre-defined default patch baselines provided by AWS and custom patch baselines where the <b>Include non-security updates</b> check box is <i>not</i> selected</td><td>For each update notice in <code>updateinfo.xml</code>, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update. If multiple packages are applicable after applying the patch baseline definition, the latest version is used.<br />For version 7 managed nodes, the equivalent yum command for this workflow is:<pre>sudo yum update-minimal --sec-severity=Important,Moderate --bugfix -y</pre><br />For version 8 and 9 managed nodes, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade-minimal --security --sec-severity=Moderate --sec-severity=Important</pre></td></tr>
+  <tr><td>Custom patch baselines where the <b>Include non-security updates</b> check box <i>is</i> selected with a SEVERITY list of <code>[Critical, Important]</code> and a CLASSIFICATION list of <code>[Security, Bugfix]</code></td><td>Besides applying the security updates that were selected from <code>updateinfo.xml</code>, Patch Manager applies nonsecurity updates that otherwise meet the patch filtering rules.<br />For version 7 managed nodes, the equivalent yum command for this workflow is:<pre>sudo yum update --security --sec-severity=Critical,Important --bugfix -y</pre><br />For version 8 and 9 managed nodes, the equivalent dnf command for this workflow is: <pre>sudo dnf upgrade --security --sec-severity=Critical, --sec-severity=Important --bugfix y</pre> New packages that replace now-obsolete packages with different names are installed if you run these <code>yum</code> or <code>dnf</code> commands outside of Patch Manager. However, they are <i>not</i> installed by the equivalent Patch Manager operations. </td></tr>
+</tbody>
+</table>
+
 
 For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md).
 
@@ -147,16 +236,42 @@ On AlmaLinux, Red Hat Enterprise Linux (RHEL), and Rocky Linux, the patch select
 **Note**  
 The `updateinfo.xml` file might not be available if the repo isn't one managed by Red Hat. If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Include non-security updates** and **Auto-approval**. For example, if non-security updates are permitted, they're installed when the auto-approval time arrives.
 
-1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table.  
-**Update notice attributes**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table.
+
+
+**Update notice attributes**  
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>type</td><td>Corresponds to the value of the Classification key attribute in the patch baseline's <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html</a> data type. Denotes the type of package included in the update notice. <br />You can view the list of supported values by using the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html">https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html</a></b> or the API operation <b><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html</a></b>. You can also view the list in the <b>Approval rules</b> area of the <b>Create patch baseline</b> page or <b>Edit patch baseline</b> page in the Systems Manager console.</td></tr>
+  <tr><td>severity</td><td>Corresponds to the value of the Severity key attribute in the patch baseline's <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html</a> data type. Denotes the severity of the packages included in the update notice. Usually only applicable for <i>Security</i> update notices.<br />You can view the list of supported values by using the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html">https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html</a></b> or the API operation <b><a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html</a></b>. You can also view the list in the <b>Approval rules</b> area of the <b>Create patch baseline</b> page or <b>Edit patch baseline</b> page in the Systems Manager console.</td></tr>
+  <tr><td>update_id</td><td>Denotes the advisory ID, such as <i>RHSA-2017:0864</i>. The advisory ID can be used in the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches</a> attribute in the patch baseline.</td></tr>
+  <tr><td>references</td><td>Contains additional information about the update notice, such as a CVE ID (format: <i>CVE-2017-1000371</i>) or a Bugzilla ID (format: <i>1463241</i>). The CVE ID and Bugzilla ID can be used in the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches</a> attribute in the patch baseline.</td></tr>
+  <tr><td>issued</td><td>Corresponds to <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchRule.html#EC2-Type-PatchRule-ApproveAfterDays">https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchRule.html#EC2-Type-PatchRule-ApproveAfterDays</a> in the patch baseline. Denotes the released date (issued date) of the packages included in the update notice. A comparison between the current timestamp and the value of this attribute plus the <code>ApproveAfterDays</code> is used to determine if the patch is approved for deployment.</td></tr>
+</tbody>
+</table>
+
 
    For information about accepted formats for lists of approved patches and rejected patches, see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md).
 
 1. The product of the managed node is determined by SSM Agent. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type.
 
-1. Packages are selected for the update according to the following guidelines.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-linux-rules.html)
+1. Packages are selected for the update according to the following guidelines.
+
+
+<table>
+<thead>
+  <tr><th>Security option</th><th>Patch selection</th></tr>
+</thead>
+<tbody>
+  <tr><td>Pre-defined default patch baselines provided by AWS and custom patch baselines where the <b>Include non-security updates</b> check box is <i>not</i> selected in any rule</td><td>For each update notice in <code>updateinfo.xml</code>, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update. If multiple packages are applicable after applying the patch baseline definition, the latest version is used.<br />For RHEL 7, the equivalent yum command for this workflow is:<pre>sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y</pre><br />For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8 and 9, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade-minimal --sec-severity=Critical --sec-severity=Important --bugfix -y</pre></td></tr>
+  <tr><td>Custom patch baselines where the <b>Include non-security updates</b> check box <i>is</i> selected with a SEVERITY list of <code>[Critical, Important]</code> and a CLASSIFICATION list of <code>[Security, Bugfix]</code></td><td>Besides applying the security updates that were selected from <code>updateinfo.xml</code>, Patch Manager applies nonsecurity updates that otherwise meet the patch filtering rules.<br />For RHEL 7, the equivalent yum command for this workflow is:<pre>sudo yum update --security --sec-severity=Critical,Important --bugfix -y</pre><br />For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8 and 9, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade --sec-severity=Critical --sec-severity=Important --bugfix -y</pre> New packages that replace now-obsolete packages with different names are installed if you run these <code>yum</code> or <code>dnf</code> commands outside of Patch Manager. However, they are <i>not</i> installed by the equivalent Patch Manager operations. </td></tr>
+</tbody>
+</table>
+
 
 For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md).
 

@@ -42,27 +42,87 @@ To use an offset with an assocation, you must specify the `--apply-only-at-cron-
 If you create an association or a maintenance window with a cron expression that targets a day that has already passed in the current period, but add a schedule offset date that falls in the future, the association or maintenance window won't run in the period. It will go into effect in the following period. For example, if you specify a cron expression that would have run a maintenance window yesterday and add a schedule offset of two days, the maintenance window won't run tomorrow. 
 
 **Required fields**  
-Cron expressions for maintenance windows have six required fields. Cron expressions for associations have five. (State Manager doesn't currently support specifying months in cron expressions for associations.) An additional field, the `Seconds` field (the first in a cron expression), is optional. Fields are separated by a space.    
-**Cron expression examples**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html)
+Cron expressions for maintenance windows have six required fields. Cron expressions for associations have five. (State Manager doesn't currently support specifying months in cron expressions for associations.) An additional field, the `Seconds` field (the first in a cron expression), is optional. Fields are separated by a space.  
+
+
+**Cron expression examples**  
+
+<table>
+<thead>
+  <tr><th>Minutes</th><th>Hours</th><th>Day of month</th><th>Month</th><th>Day of week</th><th>Year</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10</td><td>*</td><td>*</td><td>?</td><td>*</td><td>Run at 10:00 am (UTC) every day</td></tr>
+  <tr><td>15</td><td>12</td><td>*</td><td>*</td><td>?</td><td>*</td><td>Run at 12:15 PM (UTC) every day</td></tr>
+  <tr><td>0</td><td>18</td><td>?</td><td>*</td><td>MON-FRI</td><td>*</td><td>Run at 6:00 PM (UTC) every Monday through Friday (maintenance windows only)</td></tr>
+  <tr><td>0</td><td>8</td><td>1</td><td>*</td><td>?</td><td>*</td><td>Run at 8:00 AM (UTC) every 1st day of the month</td></tr>
+</tbody>
+</table>
+
 Day-of-week ranges (such as `MON-FRI`) and comma-separated day lists (such as `MON,TUE,WED`) are supported for maintenance windows only. For associations, you must specify a single day (such as `MON`) or use `*` for every day.
 
 **Supported values**  
-The following table shows supported values for required cron entries.    
-**Supported values for cron expressions**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html)
+The following table shows supported values for required cron entries.  
+
+
+**Supported values for cron expressions**  
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Values</th><th>Wildcards</th></tr>
+</thead>
+<tbody>
+  <tr><td>Minutes</td><td><code>0</code>-<code>59</code></td><td><code>, - * /</code></td></tr>
+  <tr><td>Hours</td><td><code>0</code>-<code>23</code></td><td><code>, - * /</code></td></tr>
+  <tr><td>Day-of-month</td><td><code>1</code>-<code>31</code></td><td><code>, - * ? / L W</code></td></tr>
+  <tr><td>Month (maintenance windows only)</td><td><code>1</code>-<code>12</code> or <code>JAN</code>-<code>DEC</code></td><td><code>, - * /</code></td></tr>
+  <tr><td>Day-of-week</td><td><code>1</code>-<code>7</code> or <code>SUN</code>-<code>SAT</code></td><td><code>, - * ? / L #</code></td></tr>
+  <tr><td>Year</td><td><code>1970</code>-<code>2199</code></td><td><code>, - * /</code></td></tr>
+</tbody>
+</table>
+
 You can't specify a value in the day-of-month and in the day-of-week fields in the same cron expression. If you specify a value in one of the fields, use a ? (question mark) in the other field.
 
 **Wildcards for cron expressions**  
 The following table shows the wildcard values that cron expressions support.  
-Systems Manager doesn't support cron expressions that lead to rates faster than 5 minutes for maintenance windows. For State Manager associations, you must use a scheduling interval of at least 30 minutes. For more information about association scheduling limitations, see [Cron and rate expressions for associations](#reference-cron-and-rate-expressions-association). Support for specifying both a day-of-week and a day-of-month value isn't complete. Use the question mark (?) character in one of these fields.   
-**Supported wildcards for cron expressions**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html)
+Systems Manager doesn't support cron expressions that lead to rates faster than 5 minutes for maintenance windows. For State Manager associations, you must use a scheduling interval of at least 30 minutes. For more information about association scheduling limitations, see [Cron and rate expressions for associations](#reference-cron-and-rate-expressions-association). Support for specifying both a day-of-week and a day-of-month value isn't complete. Use the question mark (?) character in one of these fields. 
+
+
+**Supported wildcards for cron expressions**  
+
+<table>
+<thead>
+  <tr><th>Wildcard</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>,</b></td><td>The <code>,</code> (comma) wildcard includes additional values. In the Month field, JAN,FEB,MAR would include January, February, and March.</td></tr>
+  <tr><td><b>-</b></td><td>The <code>-</code> (dash) wildcard specifies ranges. In the Day field, 1-15 would include days 1 through 15 of the specified month.</td></tr>
+  <tr><td><b>*</b></td><td>The <code>*</code> (asterisk) wildcard includes all values in the field. In the Hours field, * would include every hour.</td></tr>
+  <tr><td><b>/</b></td><td>The <code>/</code> (forward slash) wildcard specifies increments. In the Minutes field, you could enter 1/10 to specify every tenth minute, starting from the first minute of the hour. So 1/10 specifies the first, 11th, 21st, and 31st minute, and so on.</td></tr>
+  <tr><td><b>?</b></td><td>The <code>?</code> (question mark) wildcard specifies one or another. In the Day-of-month field you could enter 7 and if you didn't care what day of the week the 7th was, you could enter ? in the Day-of-week field.</td></tr>
+  <tr><td><b>L</b></td><td>The <code>L</code> wildcard in the Day-of-month or Day-of-week fields specifies the last day of the month or week.</td></tr>
+  <tr><td><b>W</b></td><td>The <code>W</code> wildcard in the Day-of-month field specifies a weekday. In the Day-of-month field, 3W specifies the day closest to the third weekday of the month.</td></tr>
+  <tr><td><b>#</b></td><td>The <code>#</code> wildcard in the day-of-week field followed by a number between one and five specifies a given day of the month. 5#3 specifies the 3rd Thursday of the month.</td></tr>
+</tbody>
+</table>
+
 
 **Rate expressions**  
-Rate expressions have the following two required fields. Fields are separated by spaces.    
-**Required fields for rate expressions**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html)
+Rate expressions have the following two required fields. Fields are separated by spaces.  
+
+
+**Required fields for rate expressions**  
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Values</th></tr>
+</thead>
+<tbody>
+  <tr><td>Value</td><td>positive number, such as <code>1</code> or <code>15</code></td></tr>
+  <tr><td>Unit</td><td><code>minute</code><br /><code>minutes</code><br /><code>hour</code><br /><code>hours</code><br /><code>day</code><br /><code>days</code></td></tr>
+</tbody>
+</table>
+
 If the value is equal to `1`, then the unit must be singular. Similarly, for values greater than `1`, the unit must be plural. For example, `rate(1 hours)` and `rate(5 hour)` aren't valid, but `rate(1 hour)` and `rate(5 hours)` are valid.
 
 **Topics**

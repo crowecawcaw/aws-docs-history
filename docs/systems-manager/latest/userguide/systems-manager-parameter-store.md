@@ -41,7 +41,7 @@ If you manage credentials such as usernames, passwords, or any other secrets, we
 | Encryption | Optional with `SecureString` and AWS KMS | AWS managed encryption at rest; optional additional customer managed key | AWS KMS encryption at rest with an AWS managed or customer managed key | 
 | Credential rotation | None | Not applicable | Automatic, with native database integrations | 
 | Cost | Standard tier free; advanced tier and higher throughput billed | Billed per configuration request | Billed per secret per month and per API call | 
-| Deployment | Versioning without pre-deployment validation or automatic rollback | Gradual rollout, pre-deployment validation, and automatic rollback on CloudWatch Logs alarms | Versioning with staging labels | 
+| Deployment | Versioning without pre-deployment validation or automatic rollback | Gradual rollout, pre-deployment validation, and automatic rollback on Amazon CloudWatch alarms | Versioning with staging labels | 
 
 ## Parameter Store features
 <a name="parameter-store-features"></a>
@@ -50,6 +50,8 @@ Parameter Store supports the following features:
 + **Centralized configuration updates**
 
   Update your configuration without code changes or redeployments, improving operational agility and reducing risk. For example, you can update /myapp/prod/inventory-service-endpoint to point to a new endpoint after migrating the inventory service.
+**Note**  
+A parameter update takes effect on the next read, with no validation, gradual rollout, or automatic revert. For configuration where a bad value could cause an outage, AWS AppConfig adds a managed deployment workflow. It validates the change (using JSON Schema or Lambda), rolls it out gradually, and monitors your Amazon CloudWatch alarms. If an alarm is triggered, AWS AppConfig automatically rolls back the change (this requires the necessary IAM permissions). See [Working with deployment strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html).
 + **High-performance throughput option**
 
   Parameter Store provides a default throughput suitable for lower-scale workloads. For large or latency-sensitive applications that need higher request rates, you can enable high-throughput mode for an additional cost.
@@ -69,8 +71,10 @@ Parameter Store supports the following features:
   You can reference parameter values from other AWS services. Here are some examples:
   + Lambda functions can retrieve parameters and secrets using the [Parameters and Secrets Lambda Extension](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-integration-lambda-extensions.html).
   + Amazon Elastic Container Service and AWS Fargate allow you to [inject environmental variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/secrets-envvar-ssm-paramstore.html) whose values are managed centrally in Parameter Store.
+**Note**  
+Environment variables from Parameter Store are resolved when a task starts. A running task needs a new task or a forced deployment to pick up a changed value. For configuration that should update without replacing tasks, run the AWS AppConfig Agent as an additional container to serve the latest values to your application. For secrets, use AWS Secrets Manager. See [What is AWS AppConfig Agent?](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-agent.html)
   + AWS CloudFormation templates can reference [parameter values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references-ssm.html).
-  + AWS AppConfig lets you create [configuration profiles that reference parameters](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.html). You can safely deploy configuration changes using features such as gradual rollouts, alarm-based rollbacks, and built-in data validation.
+  + With AWS AppConfig, you can create [configuration profiles that reference a parameter](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.html) in Parameter Store, adding deployment safety (gradual rollout, validation, and automatic rollback on a configured Amazon CloudWatch alarm) while Parameter Store remains your source.
   + AWS CodeBuild lets you [define environmental variables](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) whose values are dynamically retrieved from Parameter Store at build time.
 + **Shared account access**
 

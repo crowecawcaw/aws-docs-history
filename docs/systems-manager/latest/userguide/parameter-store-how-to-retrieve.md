@@ -281,4 +281,7 @@ aws ssm delete-parameters \
 +  Define a naming convention for applications, environments, and teams. For more information, see [https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-hierarchies.html#ps-hierarchy-examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-hierarchies.html#ps-hierarchy-examples). 
 +  Use IAM policies to control who can read or update each parameter path. 
 + Use `SecureString` for configuration values that require encryption, such as service endpoints and account identifiers. For secrets such as database credentials, API keys, or tokens, we recommend AWS Secrets Manager, which provides purpose built security controls including automatic rotation and cross-region replication.
-+  Use `AWS AppConfig` for feature flags and dynamic application configuration. 
++ Use `AWS AppConfig` for feature flags and dynamic application configuration.
+
+**Note**  
+For feature flags and configuration that changes at runtime, AWS AppConfig extends Parameter Store with several deployment safety features. These include validation before deployment (JSON Schema or Lambda), gradual rollouts, automatic rollback on a configured Amazon CloudWatch alarm, and local caching through the AWS AppConfig Agent. To learn more, see [What is AWS AppConfig?](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html)

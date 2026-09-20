@@ -110,6 +110,7 @@ Select an OS platform to see the supported major and minor versions.
 | --- | --- | --- | --- | 
 | 8.x |  | ✓ | ✓ | 
 | 9.x |  | ✓ | ✓ | 
+| 10.x |  | ✓ | ✓ | 
 
 
 **SUSE Linux Enterprise Server (SLES)**  

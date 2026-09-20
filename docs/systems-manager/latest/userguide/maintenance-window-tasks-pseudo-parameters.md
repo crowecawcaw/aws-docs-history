@@ -107,11 +107,53 @@ The following list describes the pseudo parameters that you can specify using th
 
   If the target type you specify is `RESOURCE_GROUP`, the value referenced for the task execution is the full ARN of the resource. For example: `arn:aws:ec2:us-east-1:123456789012:instance/i-078a280217EXAMPLE`. The following table provides sample `TARGET_ID` values for particular resource types in a resource group. 
 **Note**  
-`TARGET_ID` isn't supported for Run Command tasks.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-window-tasks-pseudo-parameters.html)
+`TARGET_ID` isn't supported for Run Command tasks.
+
+
+<table>
+<thead>
+  <tr><th>Resource type</th><th>Example TARGET_ID</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWS::CloudWatch::Alarm</code></td><td><code>arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyCloudWatchAlarmi-078a280217EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::DynamoDB::Table</code></td><td><code>arn:aws:dynamodb:us-east-1:123456789012:table/MyTable</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::Instance</code></td><td><code>arn:aws:ec2:us-east-1:123456789012:instance/i-078a280217EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::Image</code></td><td><code>arn:aws:ec2:us-east-1:123456789012:image/ami-02250b3732EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::SecurityGroup</code></td><td><code>arn:aws:ec2:us-east-1:123456789012:security-group/sg-cEXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::Snapshot</code></td><td><code>arn:aws:ec2:us-east-1:123456789012:snapshot/snap-03866bf003EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::Volume</code></td><td><code>arn:aws:ec2:us-east-1:123456789012:volume/vol-0912e04d78EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::ECS::Service</code></td><td><code>arn:aws:ecs:us-east-1:123456789012:service/my-ecs-service</code></td><td></td></tr>
+  <tr><td><code>AWS::RDS::DBCluster</code></td><td><code>arn:aws:rds:us-east-2:123456789012:cluster:My-Cluster</code></td><td></td></tr>
+  <tr><td><code>AWS::RDS::DBInstance</code></td><td><code>arn:aws:rds:us-east-1:123456789012:db:My-SQL-Instance</code></td><td></td></tr>
+  <tr><td><code>AWS::S3::Bucket</code></td><td><code>arn:aws:s3:::amzn-s3-demo-bucket</code></td><td></td></tr>
+  <tr><td><code>AWS::SSM::ManagedInstance</code></td><td><code>arn:aws:ssm:us-east-1:123456789012:managed-instance/mi-0feadcf2d9EXAMPLE</code></td><td></td></tr>
+</tbody>
+</table>
+
 + **`RESOURCE_ID`**: The short ID of a resource type contained in a resource group. The following table provides sample `RESOURCE_ID` values for particular resource types in a resource group. 
 **Note**  
-`RESOURCE_ID` isn't supported for Run Command tasks.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-window-tasks-pseudo-parameters.html)
+`RESOURCE_ID` isn't supported for Run Command tasks.
+
+
+<table>
+<thead>
+  <tr><th>Resource type</th><th>Example RESOURCE_ID</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWS::CloudWatch::Alarm</code></td><td><code>MyCloudWatchAlarm</code></td><td></td></tr>
+  <tr><td><code>AWS::DynamoDB::Table</code></td><td><code>MyTable</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::Instance</code></td><td><code>i-078a280217EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::Image</code></td><td><code>ami-02250b3732EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::SecurityGroup</code></td><td><code>sg-cEXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::Snapshot</code></td><td><code>snap-03866bf003EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::EC2::Volume</code></td><td><code>vol-0912e04d78EXAMPLE</code></td><td></td></tr>
+  <tr><td><code>AWS::ECS::Service</code></td><td><code>my-ecs-service</code></td><td></td></tr>
+  <tr><td><code>AWS::RDS::DBCluster</code></td><td><code>My-Cluster</code></td><td></td></tr>
+  <tr><td><code>AWS::RDS::DBInstance</code></td><td><code>My-SQL-Instance</code></td><td></td></tr>
+  <tr><td><code>AWS::S3::Bucket</code></td><td><code> amzn-s3-demo-bucket</code></td><td></td></tr>
+  <tr><td><code>AWS::SSM::ManagedInstance</code></td><td><code>mi-0feadcf2d9EXAMPLE</code></td><td></td></tr>
+</tbody>
+</table>
+
 **Note**  
 If the AWS resource group you specify includes resource types that don't yield a `RESOURCE_ID` value, and aren't listed in the preceding table, then the `RESOURCE_ID` parameter isn't populated. An execution invocation will still occur for that resource. In these cases, use the `TARGET_ID` pseudo parameter instead, which will be replaced with the full ARN of the resource.
