@@ -44,8 +44,26 @@ The SAP notes listed in Table 1 have useful information regarding SAP BOBI deplo
 ## Technical Requirements
 <a name="bobi-linux-technical-requirements"></a>
 + Ensure that any services you will use for your SAP BOBI Platform deployment are not constrained by default AWS service limits. You can find the details at [Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html). You can increase soft limits by submitting a support ticket to AWS.
-+ Make sure that the following information is available in relevance to your existing AWS resources. You will need this information while executing AWS Command Line Interface (AWS CLI) commands to create your Amazon EC2 and Amazon Elastic Block Store (Amazon EBS) resources:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-businessobjects/bobi-linux-prerequisites.html)
++ Make sure that the following information is available in relevance to your existing AWS resources. You will need this information while executing AWS Command Line Interface (AWS CLI) commands to create your Amazon EC2 and Amazon Elastic Block Store (Amazon EBS) resources:
+
+
+<table>
+<thead>
+  <tr><th>Information You Need</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Region ID</td><td> AWS Region where you want to deploy your AWS resources.</td></tr>
+  <tr><td>Availability Zone</td><td> <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> within your target region where you want to deploy your resources.</td></tr>
+  <tr><td>Amazon VPC ID</td><td>Amazon Virtual Private Cloud (Amazon VPC) where you want to deploy your Amazon EC2 instance for SAP installation.</td></tr>
+  <tr><td>Subnet ID</td><td>Subnet where you want to deploy your Amazon EC2 instance.</td></tr>
+  <tr><td>AMI ID</td><td>Amazon Machine Image (AMI) that will be used to launch your Amazon EC2 instance. You can find latest Linux AMIs on <a href="https://aws.amazon.com/marketplace/b/2649367011?page=1&amp;filters=operating_system&amp;operating_system=SUSE%2CRHEL">AWS Marketplace</a>.</td></tr>
+  <tr><td>Key Pair</td><td>Make sure that you have generated the key pair in your target region, and that you have access to the private key.</td></tr>
+  <tr><td>Security Group ID</td><td>Name of the security group that you want to assign to your Amazon EC2 instance.</td></tr>
+  <tr><td>Access key ID</td><td>Access key for your AWS account that will be used with AWS CLI tools.</td></tr>
+  <tr><td>Secret access key</td><td>Secret key for your AWS account that will be used with AWS CLI tools.</td></tr>
+</tbody>
+</table>
+
   + Ensure that you have a key pair that you can use to launch your Amazon EC2 instances. See [Amazon EC2 Key Pairs for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) if you need to create a key.
   + Ensure that you have the network details like VPC ID, Subnet ID, and so on, of the VPC where you plan to launch your Amazon EC2 instances to host your SAP BOBI Platform applications.
   + Ensure that the required ports are open on the security group attached to your Amazon EC2 instance to allow log in to the operating system.
