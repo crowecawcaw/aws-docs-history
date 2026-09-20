@@ -64,9 +64,23 @@ The following procedure can be used to add nodes to a cluster.
 
 1. Complete the information requested in the **Add Node** dialog box.
 
-1. Choose the **Apply Immediately - Yes** button to add this node immediately, or choose **No** to add this node during the cluster's next maintenance window.  
-**Impact of New Add and Remove Requests on Pending Requests**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.AddNode.html)
+1. Choose the **Apply Immediately - Yes** button to add this node immediately, or choose **No** to add this node during the cluster's next maintenance window.
+
+
+**Impact of New Add and Remove Requests on Pending Requests**  
+
+<table>
+<thead>
+  <tr><th>Scenarios</th><th>Pending Operation</th><th>New Request</th><th>Results</th></tr>
+</thead>
+<tbody>
+  <tr><td>Scenario 1</td><td>Delete</td><td>Delete</td><td>The new delete request, pending or immediate, replaces the pending delete request.<br />For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request to delete nodes 0002 and 0004 is issued, only nodes 0002 and 0004 will be deleted. Nodes 0001, 0003, and 0007 will not be deleted.</td></tr>
+  <tr><td>Scenario 2</td><td>Delete</td><td>Create</td><td>The new create request, pending or immediate, replaces the pending delete request.<br />For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request to create a node is issued, a new node will be created and nodes 0001, 0003, and 0007 will not be deleted.</td></tr>
+  <tr><td>Scenario 3</td><td>Create</td><td>Delete</td><td>The new delete request, pending or immediate, replaces the pending create request.<br />For example, if there is a pending request to create two nodes and a new request is issued to delete node 0003, no new nodes will be created and node 0003 will be deleted.</td></tr>
+  <tr><td>Scenario 4</td><td>Create</td><td>Create</td><td>The new create request is added to the pending create request.<br />For example, if there is a pending request to create two nodes and a new request is issued to create three nodes, the new requests is added to the pending request and five nodes will be created.If the new create request is set to <b>Apply Immediately - Yes</b>, all create requests are performed immediately. If the new create request is set to <b>Apply Immediately - No</b>, all create requests are pending.</td></tr>
+</tbody>
+</table>
+
 
    To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown. You cannot have both pending creations and pending deletions. 
 

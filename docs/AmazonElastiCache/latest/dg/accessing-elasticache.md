@@ -132,23 +132,91 @@ You also need to enable IP forwarding, which is disabled by default:
    + Two inbound rules
      + With Memcached, the first rule is to allow TCP connections from trusted clients to each cache port forwarded from the NAT instance (11211 - 11213).
      + With Valkey and Redis OSS, the first rule is to allow TCP connections from trusted clients to each cache port forwarded from the NAT instance (6379 - 6381).
-     + A second rule to allow SSH access to trusted clients.  
-**NAT instance security group - inbound rules with Memcached**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/accessing-elasticache.html)  
-**NAT instance security group - inbound rules with Valkey or Redis OSS**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/accessing-elasticache.html)
-   + With Memcached, an outbound rule to allow TCP connections to cache port (11211).  
-**NAT instance security group - outbound rule**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/accessing-elasticache.html)
-   + With Valkey or Redis OSS, an outbound rule to allow TCP connections to cache port (6379).  
-**NAT instance security group - outbound rule**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/accessing-elasticache.html)
-   + With Memcached, an inbound rule for the cluster's security group that allows TCP connections from the NAT instance to the cache port (11211).  
-**Cluster instance security group - inbound rule**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/accessing-elasticache.html)
-   + With Valkey or Redis OSS, an inbound rule for the cluster's security group that allows TCP connections from the NAT instance to the cache port (6379).  
-**Cluster instance security group - inbound rule**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/accessing-elasticache.html)
+     + A second rule to allow SSH access to trusted clients.
+
+
+**NAT instance security group - inbound rules with Memcached**  
+
+<table>
+<thead>
+  <tr><th> Type </th><th> Protocol </th><th> Port range </th><th> Source </th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP Rule</td><td>TCP</td><td>11211-11213</td><td>198.51.100.27/32</td></tr>
+  <tr><td>SSH</td><td>TCP</td><td>22</td><td>198.51.100.27/32</td></tr>
+</tbody>
+</table>
+
+
+
+**NAT instance security group - inbound rules with Valkey or Redis OSS**  
+
+<table>
+<thead>
+  <tr><th> Type </th><th> Protocol </th><th> Port range </th><th> Source </th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP Rule</td><td>TCP</td><td>6379-6380</td><td>198.51.100.27/32</td></tr>
+  <tr><td>SSH</td><td>TCP</td><td>22</td><td>203.0.113.73/32</td></tr>
+</tbody>
+</table>
+
+   + With Memcached, an outbound rule to allow TCP connections to cache port (11211).
+
+
+**NAT instance security group - outbound rule**  
+
+<table>
+<thead>
+  <tr><th> Type </th><th> Protocol </th><th> Port range </th><th> Destination </th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP Rule</td><td>TCP</td><td>11211</td><td>sg-ce56b7a9 (NAT Security Group)</td></tr>
+</tbody>
+</table>
+
+   + With Valkey or Redis OSS, an outbound rule to allow TCP connections to cache port (6379).
+
+
+**NAT instance security group - outbound rule**  
+
+<table>
+<thead>
+  <tr><th> Type </th><th> Protocol </th><th> Port range </th><th> Destination </th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP Rule</td><td>TCP</td><td>6379</td><td>sg-ce56b7a9 (NAT Security Group)</td></tr>
+</tbody>
+</table>
+
+   + With Memcached, an inbound rule for the cluster's security group that allows TCP connections from the NAT instance to the cache port (11211).
+
+
+**Cluster instance security group - inbound rule**  
+
+<table>
+<thead>
+  <tr><th> Type </th><th> Protocol </th><th> Port range </th><th> Source </th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP Rule</td><td>TCP</td><td>11211</td><td>sg-ce56b7a9 (NAT Security Group)</td></tr>
+</tbody>
+</table>
+
+   + With Valkey or Redis OSS, an inbound rule for the cluster's security group that allows TCP connections from the NAT instance to the cache port (6379).
+
+
+**Cluster instance security group - inbound rule**  
+
+<table>
+<thead>
+  <tr><th> Type </th><th> Protocol </th><th> Port range </th><th> Source </th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP Rule</td><td>TCP</td><td>6379</td><td>sg-ce56b7a9 (NAT Security Group)</td></tr>
+</tbody>
+</table>
+
 
 1. Validate the rules.
    + Confirm that the trusted client is able to SSH to the NAT instance.

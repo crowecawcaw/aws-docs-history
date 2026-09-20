@@ -12,7 +12,7 @@ ElastiCache Valkey version 8.2 provides support for Vector Search on node-based 
 
 You can also use search on your existing clusters by upgrading from any version of Valkey, or Redis OSS to Valkey versions mentioned above, in a [few clicks with no downtime](VersionManagement.HowTo.md).
 
-Search is currently available on all ElastiCache instance types other than nodes with data tiering. Using search on t2, t3, and t4g instances requires increasing the memory reserve to at least 50% for micro and 30% for small instances. See [this page](redis-memory-management.md) to find out more.
+Search is currently available on all ElastiCache instance types other than nodes with data tiering. Using search on t3 and t4g instances requires increasing the memory reserve to at least 50% for micro and 30% for small instances. See [this page](redis-memory-management.md) to find out more.
 
 ## Parametric restrictions
 <a name="parametric-restrictions"></a>

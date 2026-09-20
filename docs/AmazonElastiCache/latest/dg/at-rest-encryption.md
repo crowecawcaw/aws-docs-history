@@ -33,9 +33,9 @@ The following constraints on ElastiCache at-rest encryption should be kept in mi
 + At-rest encryption is supported on replication groups running Valkey 7.2 and later, and Redis OSS version 4.0.10 or later.
 + At-rest encryption is supported only for replication groups running in an Amazon VPC.
 + At-rest encryption is only supported for replication groups running the following node types.
-  + R8g, R7g, R6gd, R6g, R5, R4, R3
-  + M8g, M7g, M6g, M5, M4, M3
-  + T4g, T3, T2
+  + R8g, R7g, R6gd, R6g, R5, R4
+  + M8g, M7g, M6g, M5, M4
+  + T4g, T3
   + C8gn, C7gn
 
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md)

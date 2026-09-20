@@ -25,8 +25,20 @@ RBAC is designed to support the introduction of [ACL](https://valkey.io/topics/a
 + You can't use the `reset` command as a part of an access string. You specify passwords with API parameters, and ElastiCache for Valkey and Redis OSS manages passwords. Thus, you can't use `reset` because it would remove all passwords for a user.
 + Redis OSS 6 introduces the [ACL LIST](https://valkey.io/commands/acl-list) command. This command returns a list of users along with the ACL rules applied to each user. ElastiCache supports the `ACL LIST` command, but does not include support for password hashes as Redis OSS does. With ElastiCache, you can use the [DescribeUsers](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUsers.html) operation to get similar information, including the rules contained within the access string. However, [DescribeUsers](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUsers.html) doesn't retrieve a user password. 
 + Other read-only commands supported by ElastiCache for Valkey and Redis OSS include [ACL WHOAMI](https://valkey.io/commands/acl-whoami), [ACL USERS](https://valkey.io/commands/acl-users), and [ACL CAT](https://valkey.io/commands/acl-cat). ElastiCache for Valkey and Redis OSS doesn't support any other write-based ACL commands.
-+ The following limits apply:    
-<a name="quotas-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html)
++ The following limits apply:
+
+<a name="quotas-table"></a>
+<table>
+<thead>
+  <tr><th>Resource</th><th>Maximum allowed</th></tr>
+</thead>
+<tbody>
+  <tr><td>Users per user group</td><td>100</td></tr>
+  <tr><td>Number of users</td><td>1000</td></tr>
+  <tr><td>Number of user groups</td><td>100</td></tr>
+</tbody>
+</table>
+
 
 **RBAC with Valkey**
 

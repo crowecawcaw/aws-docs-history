@@ -50,9 +50,6 @@ The following constraints on Amazon ElastiCache in-transit encryption should be 
 
   If your cluster runs an engine version that doesn't support this modification, the in-transit encryption option appears disabled (greyed out) in the AWS Management Console when you attempt to modify the cluster. To enable in-transit encryption in this case, you must upgrade your engine version to Valkey 7.2 or later, or Redis OSS version 7 or later.
 + In-transit encryption is supported only for replication groups running in an Amazon VPC.
-+ In-transit encryption is not supported for replication groups running the following node types: M1, M2.
-
-  For more information, see [Supported node types](CacheNodes.SupportedTypes.md).
 + In-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`.
 + Ensure that your caching client supports TLS connectivity and that you have enabled it in client configuration. 
 + Starting April 28, 2026, AWS will update the minimum supported TLS version to 1.2 on ElastiCache for Valkey version 7.2 and above, and ElastiCache for Redis OSS version 6 and above. Customers must update their client software before that date. This update helps you meet security, compliance, and regulatory needs. 
@@ -64,9 +61,6 @@ The following constraints on Amazon ElastiCache in-transit encryption should be 
 + In-transit encryption is supported on clusters running Memcached versions 1.6.12 and later.
 + In-transit encryption supports Transport Layer Security (TLS) versions 1.2 and 1.3.
 + In-transit encryption is supported only for clusters running in an Amazon VPC.
-+ In-transit encryption is not supported for replication groups running the following node types: M1, M2, M3, R3, T2.
-
-  For more information, see [Supported node types](CacheNodes.SupportedTypes.md).
 + In-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`.
 + You can enable in-transit encryption on a cluster only when creating the cluster. You cannot toggle in-transit encryption on and off by modifying a cluster. 
 + Ensure that your caching client supports TLS connectivity and that you have enabled it in client configuration.

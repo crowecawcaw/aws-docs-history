@@ -33,8 +33,38 @@ Use the following CLI operations to work with global datastores:
 
   The following table lists each AWS Region and its global datastore ID prefix.
 
-      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Redis-Global-Datastores-CLI.html)
+  
+
+
+
+<table>
+<thead>
+  <tr><th>Region Name/Region</th><th>Prefix</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (Ohio) Region<br /><code>us-east-2</code></td><td><code>fpkhr</code></td></tr>
+  <tr><td>US East (N. Virginia) Region<br /><code>us-east-1</code></td><td><code>ldgnf</code></td></tr>
+  <tr><td>US West (N. California) Region<br /><code>us-west-1</code></td><td><code>virxk</code></td></tr>
+  <tr><td>US West (Oregon) Region<br /><code>us-west-2</code></td><td><code>sgaui</code></td></tr>
+  <tr><td>Canada (Central) Region<br /><code>ca-central-1</code></td><td><code>bxodz</code></td></tr>
+  <tr><td>Asia Pacific (Mumbai) Region<br /><code>ap-south-1</code></td><td><code>erpgt</code></td></tr>
+  <tr><td>Asia Pacific (Tokyo) Region<br /><code>ap-northeast-1</code></td><td><code>quwsw</code></td></tr>
+  <tr><td>Asia Pacific (Seoul) Region<br /><code>ap-northeast-2</code></td><td><code>lfqnh</code></td></tr>
+  <tr><td>Asia Pacific (Osaka) Region <br /><code>ap-northeast-3</code></td><td><code>nlapn</code></td></tr>
+  <tr><td>Asia Pacific (Singapore) Region<br /><code>ap-southeast-1</code></td><td><code>vlqxn</code></td></tr>
+  <tr><td>Asia Pacific (Sydney) Region<br /><code>ap-southeast-2</code></td><td><code>vbgxd</code></td></tr>
+  <tr><td>Europe (Frankfurt) Region<br /><code>eu-central-1</code></td><td><code>iudkw</code></td></tr>
+  <tr><td>Europe (Ireland) Region<br /><code>eu-west-1</code></td><td><code>gxeiz</code></td></tr>
+  <tr><td>Europe (London) Region<br /><code>eu-west-2</code></td><td><code>okuqm</code></td></tr>
+  <tr><td>EU (Paris) Region<br /><code>eu-west-3</code></td><td><code>fgjhi</code></td></tr>
+  <tr><td>South America (São Paulo) Region<br /><code>sa-east-1</code></td><td><code>juxlw</code></td></tr>
+  <tr><td>China (Beijing) Region<br /><code>cn-north-1</code></td><td><code>emvgo</code></td></tr>
+  <tr><td>China (Ningxia) Region<br /><code>cn-northwest-1</code></td><td><code>ckbem</code></td></tr>
+  <tr><td>Asia Pacific (Hong Kong) Region<br /><code>ap-east-1</code></td><td><code>knjmp</code></td></tr>
+  <tr><td>AWS GovCloud (US-West)<br /><code>us-gov-west-1</code></td><td><code>sgwui</code></td></tr>
+</tbody>
+</table>
+
 +  [create-replication-group](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html) – Use this operation to create secondary clusters for a global datastore by supplying the name of the global datastore to the `--global-replication-group-id` parameter.
 
   ```

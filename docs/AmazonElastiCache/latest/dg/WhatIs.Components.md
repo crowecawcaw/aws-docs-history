@@ -146,9 +146,6 @@ Read replicas guard against potential data loss because your data is replicated 
 
 You can also leverage Global datastores. By using the Global Datastore for Redis OSS feature, you can work with fully managed, fast, reliable, and secure replication across AWS Regions. Using this feature, you can create cross-Region read replica clusters for ElastiCache to enable low-latency reads and disaster recovery across AWS Regions. For more information, see [Replication across AWS Regions using global datastores](Redis-Global-Datastore.md).
 
-**Replication: Limits and exclusions**
-+ Multi-AZ is not supported on node types T1.
-
 ## ElastiCache endpoints
 <a name="WhatIs.Components.Endpoints"></a>
 

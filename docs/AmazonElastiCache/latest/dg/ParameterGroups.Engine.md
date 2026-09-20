@@ -498,7 +498,7 @@ Redis OSS 2.6.13 was the first version of Redis OSS supported by ElastiCache. Th
 
 - **`appendonly`**
   - **Details:** Default: no<br />Type: string<br />Modifiable: Yes<br />Changes Take Effect: Immediately
-  - **Description:** Enables or disables Redis' append only file feature (AOF). AOF captures any Redis OSS commands that change data in the cache, and is used to recover from certain node failures. <br />The default value is *no*, meaning AOF is turned off. Set this parameter to *yes* to enable AOF.<br />For more information, see [Mitigating Failures](disaster-recovery-resiliency.md#FaultTolerance). Append Only Files (AOF) is not supported for cache.t2.\* nodes. For nodes of this type, the `appendonly` parameter value is ignored.   For Multi-AZ replication groups, AOF is not allowed. 
+  - **Description:** Enables or disables Redis' append only file feature (AOF). AOF captures any Redis OSS commands that change data in the cache, and is used to recover from certain node failures. <br />The default value is *no*, meaning AOF is turned off. Set this parameter to *yes* to enable AOF.<br />For more information, see [Mitigating Failures](disaster-recovery-resiliency.md#FaultTolerance). For Multi-AZ replication groups, AOF is not allowed. 
 
 - **`appendfsync`**
   - **Details:** Default: everysec<br />Type: string<br />Modifiable: Yes<br />Changes Take Effect: Immediately
@@ -567,9 +567,6 @@ Redis OSS 2.6.13 was the first version of Redis OSS supported by ElastiCache. Th
 - **`maxclients` This value applies to all instance types except those explicity specified**
   - **Details:**
     - Default: 65000<br />Type: integer<br />Modifiable: No
-    - t2.medium Default: 20000<br />Type: integer<br />Modifiable: No
-    - t2.small Default: 20000<br />Type: integer<br />Modifiable: No
-    - t2.micro Default: 20000<br />Type: integer<br />Modifiable: No
     - t4g.micro Default: 20000<br />Type: integer<br />Modifiable: No
     - t3.medium Default: 46000<br />Type: integer<br />Modifiable: No
     - t3.small Default: 46000<br />Type: integer<br />Modifiable: No
@@ -636,9 +633,6 @@ The `maxmemory` parameter cannot be modified.
 
 |  Node type  | Maxmemory (bytes) | 
 | --- | --- | 
-| cache.t2.micro | 581959680 | 
-| cache.t2.small | 1665138688 | 
-| cache.t2.medium | 3461349376 | 
 | cache.t3.micro | 536870912 | 
 | cache.t3.small | 1471026299 | 
 | cache.t3.medium | 3317862236 | 
@@ -742,27 +736,12 @@ The `maxmemory` parameter cannot be modified.
 
 |  Node type  | Maxmemory (bytes) | 
 | --- | --- | 
-| cache.t1.micro | 142606336 | 
-| cache.t2.micro | 581959680 | 
-| cache.t2.small | 1665138688 | 
-| cache.t2.medium | 3461349376 | 
 | cache.t3.micro | 536870912 | 
 | cache.t3.small | 1471026299 | 
 | cache.t3.medium | 3317862236 | 
 | cache.t4g.micro | 536870912 | 
 | cache.t4g.small | 1471026299 | 
 | cache.t4g.medium | 3317862236 | 
-| cache.m1.small | 943718400 | 
-| cache.m1.medium | 3093299200 | 
-| cache.m1.large | 7025459200 | 
-| cache.m1.xlarge | 14889779200 | 
-| cache.m2.xlarge | 17091788800 | 
-| cache.m2.2xlarge | 35022438400 | 
-| cache.m2.4xlarge | 70883737600 | 
-| cache.m3.medium | 2988441600 | 
-| cache.m3.large | 6501171200 | 
-| cache.m3.xlarge | 14260633600 | 
-| cache.m3.2xlarge | 29989273600 | 
 | cache.m4.large | 6892593152 | 
 | cache.m4.xlarge | 15328501760 | 
 | cache.m4.2xlarge | 31889126359 | 
@@ -788,12 +767,6 @@ The `maxmemory` parameter cannot be modified.
 | cache.m7g.8xlarge | 111325552312 | 
 | cache.m7g.12xlarge | 168715971994 | 
 | cache.m7g.16xlarge | 225000375228 | 
-| cache.c1.xlarge | 6501171200 | 
-| cache.r3.large | 14470348800 | 
-| cache.r3.xlarge | 30513561600 | 
-| cache.r3.2xlarge | 62495129600 | 
-| cache.r3.4xlarge | 126458265600 | 
-| cache.r3.8xlarge | 254384537600 | 
 | cache.r4.large | 13201781556 | 
 | cache.r4.xlarge | 26898228839 | 
 | cache.r4.2xlarge | 54197537997 | 
@@ -836,7 +809,6 @@ The `maxmemory` parameter cannot be modified.
 
 **Note**  
 All current generation instance types are created in an Amazon Virtual Private Cloud VPC by default.  
-T2 instances do not support Redis OSS AOF.  
 Redis OSS configuration variables `appendonly` and `appendfsync` are not supported.
 
 ## Memcached specific parameters
@@ -995,9 +967,6 @@ Although most parameters have a single value, some parameters have different val
 
 |  Node type  | max\_cache\_memory (in megabytes)  | num\_threads  | 
 | --- | --- | --- | 
-| cache.t2.micro | 555 | 1 | 
-| cache.t2.small | 1588 | 1 | 
-| cache.t2.medium | 3301 | 2 | 
 | cache.t3.micro | 512 | 2 | 
 | cache.t3.small | 1402 | 2 | 
 | cache.t3.medium | 3364 | 2 | 
@@ -1083,6 +1052,3 @@ Although most parameters have a single value, some parameters have different val
 | cache.c8gn.8xlarge | 62806 | 32 | 
 | cache.c8gn.12xlarge | 95222 | 48 | 
 | cache.c8gn.16xlarge | 127638 | 64 | 
-
-**Note**  
-All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).

@@ -17,7 +17,7 @@ Instance types with burstable network performance use a network I/O credit mecha
 + [Current Generation (Memcached)](#CacheNodes.CurrentGen-Memcached)
 + [Current Generation (Valkey)](#CacheNodes.CurrentGen-Valkey)
 + [Current Generation (Redis OSS)](#CacheNodes.CurrentGen-Redis)
-+ [Burstable Performance Instances](#CacheNodes.Burstable)
++ [Burstable Performance Nodes](#CacheNodes.Burstable)
 + [Supported node types by AWS Region](#CacheNodes.SupportedTypesByRegion)
 + [Related Information](#CacheNodes.RelatedInfo)
 
@@ -351,12 +351,12 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache.c7gn.12xlarge | 6.2 | Yes | Yes | Yes | 150 | N/A | 78.56 | 
 | cache.c7gn.16xlarge | 6.2 | Yes | Yes | Yes | 200 | N/A | 105.81 | 
 
-## Burstable Performance Instances
+## Burstable Performance Nodes
 <a name="CacheNodes.Burstable"></a>
 
-You can launch general-purpose burstable T4g, T3-Standard and T2-Standard cache nodes in Amazon ElastiCache. These nodes provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted. A *CPU credit* provides the performance of a full CPU core for one minute.
+You can launch general-purpose burstable T4g and T3-Standard cache nodes in Amazon ElastiCache. These nodes provide a baseline level of CPU performance with the ability to burst CPU usage at any time until the accrued credits are exhausted. A *CPU credit* provides the performance of a full CPU core for one minute.
 
-Amazon ElastiCache's T4g, T3 and T2 nodes are configured as standard and suited for workloads with an average CPU utilization that is consistently below the baseline performance of the instance. To burst above the baseline, the node spends credits that it has accrued in its CPU credit balance. If the node is running low on accrued credits, performance is gradually lowered to the baseline performance level. This gradual lowering ensures the node doesn't experience a sharp performance drop-off when its accrued CPU credit balance is depleted. For more information, see [CPU Credits and Baseline Performance for Burstable Performance Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) in the *Amazon EC2 User Guide*.**
+Amazon ElastiCache's T4g and T3 nodes are configured as standard and suited for workloads with an average CPU utilization that is consistently below the baseline performance of the instance. To burst above the baseline, the node spends credits that it has accrued in its CPU credit balance. If the node is running low on accrued credits, performance is gradually lowered to the baseline performance level. This gradual lowering ensures the node doesn't experience a sharp performance drop-off when its accrued CPU credit balance is depleted. For more information, see [CPU Credits and Baseline Performance for Burstable Performance Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html) in the *Amazon EC2 User Guide*.**
 
 The following table lists the burstable performance node types, the rate at which CPU credits are earned per hour. It also shows the maximum number of earned CPU credits that a node can accrue and the number of vCPUs per node. In addition, it gives the baseline performance level as a percentage of a full core performance (using a single vCPU).
 
@@ -378,9 +378,6 @@ The following table lists the burstable performance node types, the rate at whic
 \*\* The baseline performance in the table is per vCPU. Some node sizes that have more than one vCPU. For these, calculate the baseline CPU utilization for the node by multiplying the vCPU percentage by the number of vCPUs.
 
 The following CPU credit metrics are available for T3 and T4g burstable performance instances:
-
-**Note**  
-These metrics are not available for T2 burstable performance instances.
 + `CPUCreditUsage`
 + `CPUCreditBalance`
 
@@ -388,7 +385,7 @@ For more information on these metrics, see [CPU Credit Metrics](https://docs.aws
 
 In addition, be aware of these details:
 + All current generation node types are created in a virtual private cloud (VPC) based on Amazon VPC by default.
-+ Redis OSS append-only files (AOF) aren't supported for T2 instances. Redis OSS configuration variables `appendonly` and `appendfsync` aren't supported.
++ Redis OSS configuration variables `appendonly` and `appendfsync` aren't supported.
 
 ## Supported node types by AWS Region
 <a name="CacheNodes.SupportedTypesByRegion"></a>
