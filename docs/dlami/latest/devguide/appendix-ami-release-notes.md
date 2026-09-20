@@ -31,7 +31,9 @@ Below are the release notes for X86 Base DLAMI:
 + [Base GPU AMI (Amazon Linux 2023)](aws-deep-learning-x86-base-gpu-ami-amazon-linux-2023.md)
 + [Base GPU AMI (Ubuntu 26.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-26-04.md)
 + [Base GPU AMI (Ubuntu 24.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-24-04.md)
++ [Base GPU AMI (Ubuntu Pro 24.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-pro-24-04.md)
 + [Base GPU AMI (Ubuntu 22.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-22-04.md)
++ [Base GPU AMI (Ubuntu Pro 22.04)](aws-deep-learning-x86-base-gpu-ami-ubuntu-pro-22-04.md)
 
 ### ARM64 Base DLAMI Release Notes
 <a name="arm64-base-dlami"></a>
@@ -45,7 +47,9 @@ Below are the release notes for ARM64 Base DLAMI:
 + [ARM64 Base GPU AMI (Amazon Linux 2023)](aws-deep-learning-arm64-base-gpu-ami-amazon-linux-2023.md)
 + [ARM64 Base GPU AMI (Ubuntu 26.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-26-04.md)
 + [ARM64 Base GPU AMI (Ubuntu 24.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-24-04.md)
++ [ARM64 Base GPU AMI (Ubuntu Pro 24.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-pro-24-04.md)
 + [ARM64 Base GPU AMI (Ubuntu 22.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-22-04.md)
++ [ARM64 Base GPU AMI (Ubuntu Pro 22.04)](aws-deep-learning-arm64-base-gpu-ami-ubuntu-pro-22-04.md)
 
  **AWS Neuron** 
 + Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-base-dlami).
