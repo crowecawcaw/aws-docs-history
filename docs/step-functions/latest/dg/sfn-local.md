@@ -58,8 +58,19 @@ The downloadable version of AWS Step Functions is provided as an executable JAR 
 
 **To set up and run Step Functions on your computer**
 
-1. Download Step Functions using the following links.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/step-functions/latest/dg/sfn-local.html)
+1. Download Step Functions using the following links. 
+
+
+<table>
+<thead>
+  <tr><th>Download Links</th><th>Checksum</th></tr>
+</thead>
+<tbody>
+  <tr><td> <a href="https://s3.amazonaws.com/stepfunctionslocal/StepFunctionsLocal.tar.gz">.tar.gz</a> </td><td> <a href="https://s3.amazonaws.com/stepfunctionslocal/StepFunctionsLocal.tar.gz.md5">.tar.gz.md5</a> </td></tr>
+  <tr><td> <a href="https://s3.amazonaws.com/stepfunctionslocal/StepFunctionsLocal.zip">.zip</a> </td><td> <a href="https://s3.amazonaws.com/stepfunctionslocal/StepFunctionsLocal.zip.md5">.zip.md5</a> </td></tr>
+</tbody>
+</table>
+
 
 1. Extract the `.zip` file.
 
