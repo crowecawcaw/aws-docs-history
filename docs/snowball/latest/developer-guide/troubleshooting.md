@@ -7,8 +7,20 @@ AWS Snowball Edge is no longer available to new customers. New customers should 
 
 Keep the following general guidelines in mind when troubleshooting.
 + Objects in Amazon S3 have a maximum file size of 5 TB.
-+ Objects transferred onto an AWS Snowball Edge device have a maximum key length of 933 bytes. Key names that include characters that take up more than 1 byte each still have a maximum key length of 933 bytes. When determining key length, you include the file or object name and also its path or prefixes. Thus, files with short file names within a heavily nested path can have keys longer than 933 bytes. The bucket name is not factored into the path when determining the key length. Some examples follow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/snowball/latest/developer-guide/troubleshooting.html)
++ Objects transferred onto an AWS Snowball Edge device have a maximum key length of 933 bytes. Key names that include characters that take up more than 1 byte each still have a maximum key length of 933 bytes. When determining key length, you include the file or object name and also its path or prefixes. Thus, files with short file names within a heavily nested path can have keys longer than 933 bytes. The bucket name is not factored into the path when determining the key length. Some examples follow.
+
+
+<table>
+<thead>
+  <tr><th>Object name</th><th>Bucket name</th><th>Path plus bucket name</th><th>Key Length</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>sunflower-1.jpg</code></td><td><code>pictures</code></td><td><code>sunflower-1.jpg</code></td><td>15 characters</td></tr>
+  <tr><td><code>receipts.csv</code></td><td><code>MyTaxInfo</code></td><td><code>/Users/Eric/Documents/2016/January/</code></td><td>47 characters</td></tr>
+  <tr><td><code>bhv.1</code></td><td><code>$7$zWwwXKQj$gLAOoZCj$r8p</code></td><td><code>/.VfV/FqGC3QN$7BXys3KHYePfuIOMNjY83dVx ugPYlxVg/evpcQEJLT/rSwZc$MlVVf/$hwefVISRqwepB$/BiiD/PPF$twRAjrD/fIMp/0NY</code></td><td>135 characters</td></tr>
+</tbody>
+</table>
+
 + For security purposes, jobs using an AWS Snowball Edge device must be completed within 360 days of being prepared. If you need to keep one or more devices for longer than 360 days, see [Updating the SSL certificate on Snowball Edge devices](update-ssl-cert.md). Otherwise, after 360 days,the device becomes locked, can no longer be accessed, and must be returned. If the AWS Snowball Edge device becomes locked during an import job, we can still transfer the existing data on the device into Amazon S3.
 + If you encounter unexpected errors using an AWS Snowball Edge device, we want to hear about it. Copy the relevant logs and include them along with a brief description of the issues that you encountered in a message to AWS Support. For more information about logs, see [Configuring and using the Snowball Edge Client](using-client-commands.md).
 

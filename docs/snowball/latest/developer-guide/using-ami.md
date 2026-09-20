@@ -86,9 +86,25 @@ AMIs from AWS Marketplace include **aws-marketplace** in the **Source** column.
 
 1. In the **AMI ID** column, choose the AMI ID of the AMI.
 
-1. In the **Image summary** of the AMI, ensure the **Product codes** are supported by your Region. For more information, see the table below.  
-**Supported AWS Marketplace AMI product codes**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/snowball/latest/developer-guide/using-ami.html)
+1. In the **Image summary** of the AMI, ensure the **Product codes** are supported by your Region. For more information, see the table below.
+
+
+**Supported AWS Marketplace AMI product codes**  
+
+<table>
+<thead>
+  <tr><th>AMI operating system</th><th>Product code</th></tr>
+</thead>
+<tbody>
+  <tr><td>Ubuntu Server 14.04 LTS</td><td>b3dl4415quatdndl4qa6kcu45</td></tr>
+  <tr><td>CentOS 7 (x86_64)</td><td>aw0evgkw8e5c1q413zgy5pjce</td></tr>
+  <tr><td>Ubuntu 16.04 LTS</td><td>csv6h7oyg29b7epjzg7qdr7no</td></tr>
+  <tr><td>Amazon Linux 2</td><td>avyfzznywektkgl5qv5f57ska</td></tr>
+  <tr><td>Ubuntu 20.04 LTS</td><td>a8jyynf4hjutohctm41o2z18m</td></tr>
+  <tr><td>Ubuntu 22.04 LTS</td><td>47xbqns9xujfkkjt189a13aqe</td></tr>
+</tbody>
+</table>
+
 
 1. Then, also ensure the **Platform details** contains one of entries from the list below.
    + Amazon Linux, Ubuntu, or Debian
