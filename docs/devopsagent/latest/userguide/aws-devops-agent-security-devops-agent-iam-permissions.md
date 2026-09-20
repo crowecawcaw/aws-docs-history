@@ -16,6 +16,58 @@ These actions control access to Agent Space configuration and management:
 + **aidevops:GetAgentSpace** – Allows users to view details about an Agent Space, including its configuration, status, and associated accounts. Users need this permission to access an Agent Space in the AWS Management Console.
 + **aidevops:GetAssociation** – Allows users to view details about a specific account association, including the IAM role configuration and connection status.
 + **aidevops:ListAssociations** – Allows users to list all AWS account associations configured for an Agent Space, including both primary and secondary accounts.
++ **aidevops:AssociateService** – Allows users to add a service association, such as an AWS account or a third-party tool, to an Agent Space.
++ **aidevops:UpdateAssociation** – Allows users to change the configuration of an existing association, such as its IAM role or credentials.
++ **aidevops:DisassociateService** – Allows users to remove an association from an Agent Space.
++ **aidevops:ValidateAwsAssociations** – Allows users to check that the AWS account associations of an Agent Space are configured correctly.
++ **aidevops:ListWebhooks** – Allows users to list the webhooks that belong to an association.
+
+**Resource-level permissions for association actions**
+
+Association actions authorize against the Agent Space, and some also authorize against the association itself. Use the request to determine which resources an action checks:
++ An action that targets one association, identified by an association ID in the request (for example, GetAssociation), authorizes against two resources: the association ARN, `arn:aws:aidevops:region:account-id:agentspace/agent-space-id/association/association-id`, and the Agent Space ARN. A statement that allows such an action must cover both ARNs.
++ An action that targets the associations of an Agent Space as a group, without an association ID in the request (for example, ListAssociations), authorizes against the Agent Space ARN, `arn:aws:aidevops:region:account-id:agentspace/agent-space-id`.
+
+Granting an action on `arn:aws:aidevops:region:account-id:agentspace/*` covers both cases, because the pattern matches the Agent Space ARN and the association ARNs under it. A statement scoped only to an association ARN does not grant access to an action that targets one association, because it does not cover the Agent Space ARN.
+
+Tag conditions apply to the Agent Space, because associations do not carry tags.
+
+To restrict association actions by Agent Space tag, use two statements:
++ One statement without a condition, scoped to the association ARN.
++ One statement with the tag condition, scoped to the Agent Space ARN.
+
+```
+{
+  "Version": "2012-10-17",		 	 	 		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aidevops:GetAssociation",
+        "aidevops:UpdateAssociation",
+        "aidevops:DisassociateService",
+        "aidevops:ListWebhooks"
+      ],
+      "Resource": "arn:aws:aidevops:us-east-1:111122223333:agentspace/*/association/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aidevops:GetAssociation",
+        "aidevops:UpdateAssociation",
+        "aidevops:DisassociateService",
+        "aidevops:ListWebhooks"
+      ],
+      "Resource": "arn:aws:aidevops:us-east-1:111122223333:agentspace/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/team": "platform"
+        }
+      }
+    }
+  ]
+}
+```
 
 ## Investigation and execution actions
 <a name="investigation-and-execution-actions"></a>

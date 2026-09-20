@@ -10,7 +10,7 @@ Model Context Protocol (MCP) servers extend AWS DevOps Agent's investigation cap
 
 Before connecting an MCP server, ensure your server meets these requirements:
 + **Streamable HTTP transport protocol** – Only MCP servers that implement the Streamable HTTP transport protocol are supported.
-+ **Authentication support** – Your MCP server must support one of the following authentication methods: OAuth 2.0 (Client Credentials or 3LO), API key/token-based authentication, or AWS Signature Version 4 (SigV4).
++ **Authentication support** – Your MCP server must support one of the following authentication methods: OAuth 2.0 (Client Credentials or 3LO), API key/token-based authentication, one or more secrets sent in HTTP headers that you name, or AWS Signature Version 4 (SigV4).
 
 ## Security considerations
 <a name="security-considerations"></a>
@@ -89,6 +89,12 @@ Select the authentication method for your MCP server:
 
 1. Choose **Next**
 
+**Multi auth headers** – If your MCP server expects one or more secrets in HTTP headers that you name:
+
+1. Select **Multi auth headers**.
+
+1. Choose **Next**.
+
 **AWS SigV4** – If your MCP server uses AWS Signature Version 4 authentication:
 
 1. Select **AWS SigV4**
@@ -140,6 +146,24 @@ Configure additional authorization parameters based on the selected authenticati
 
 1. Choose **Next**
 
+**For Multi auth headers:**
+
+Multi auth headers authentication sends up to three secrets to your MCP server, each in a header that you name. Use it for servers that need more than one credential. Datadog, for example, expects an API key in `DD-API-KEY` and an application key in `DD-APPLICATION-KEY`. A server that needs a single secret in a header of your choosing also works.
+
+1. Under **Authentication headers**, choose **Add header**.
+
+1. Enter the following for each header your MCP server expects:
+   + **Header name** – The name of the header, for example `DD-API-KEY`. Names can contain letters, numbers, hyphens, and underscores, up to 256 characters.
+   + **Secret** – The value to send in that header, up to 4,096 characters of printable ASCII. The console masks the value as you type it.
+
+1. Repeat for each header, up to three. Header names must be unique. Names that differ only by letter case count as the same name, so you can't add both `X-Api-Key` and `x-api-key`.
+
+1. Choose **Next**.
+
+AWS DevOps Agent rejects header names that HTTP infrastructure or the MCP protocol reserves. Reserved names include `Host`, `Content-Type`, `Content-Length`, `Cookie`, `User-Agent`, `Accept`, and `Mcp-Session-Id`. Names that begin with `x-amz-`, `x-amzn-`, `x-forwarded-`, `Proxy-`, or `Sec-` are also rejected. `Authorization` is allowed, so you can register a server that expects a token in `Authorization` and a second secret in another header.
+
+AWS DevOps Agent stores each secret encrypted and does not display it again after you register the server. Keep your own copy if you need the values later. This differs from the optional **Custom Headers** field on the AWS SigV4 configuration step, which sends plaintext values with each signed request.
+
 **For AWS SigV4:**
 
 AWS SigV4 authentication allows AWS DevOps Agent to connect to MCP servers that use AWS Signature Version 4 for request signing. This is useful for MCP servers hosted behind Amazon API Gateway or other AWS services that support SigV4 authentication.
@@ -162,7 +186,7 @@ AWS SigV4 authentication allows AWS DevOps Agent to connect to MCP servers that 
 ### Step 4: Review and submit
 <a name="step-4-review-and-submit"></a>
 
-1. Review all the MCP server configuration details
+1. Review all the MCP server configuration details. If you chose Multi auth headers authentication, the review step lists your header names with their secrets obfuscated.
 
 1. Choose **Submit** to complete the registration
 
@@ -203,7 +227,7 @@ To control whether the agent can invoke an MCP tool as a read-only or mutating a
 + **OAuth 3LO (Three-Legged OAuth)** – Re-run the authorization flow to refresh the stored token. You don't re-enter the client credentials. When you submit, AWS DevOps Agent redirects you to the provider's consent page to complete the re-authorization. Optionally, you can override the authorization URL. If you leave it blank, AWS DevOps Agent discovers it from your MCP server's metadata.
 + **AWS SigV4** – Update the server name, endpoint, description, AWS Region, service, IAM role, and custom headers.
 
-MCP servers that use OAuth Client Credentials can't be updated in place. To change those credentials, remove any active associations, deregister the MCP server, and re-register it with the new values.
+MCP servers that use OAuth Client Credentials or Multi auth headers can't be updated in place. Multi auth headers authentication is available at registration only, so there is no path to rotate a secret or rename a header on a registered server. To change those credentials, remove any active associations, deregister the MCP server, and re-register it with the new values.
 
 **Viewing connected MCP servers** – To see all MCP servers connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **MCP Servers** section. You can also update selected tools here.
 

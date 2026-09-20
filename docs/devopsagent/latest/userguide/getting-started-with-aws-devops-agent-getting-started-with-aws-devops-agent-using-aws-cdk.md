@@ -245,7 +245,7 @@ This example uses the `skill` and `custom_agent` asset types. The same `CfnAsset
 ### Step 1: Create the content stack
 <a name="step-1-create-the-content-stack"></a>
 
-Create a file named `lib/content-stack.ts` with the following contents. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The stack automatically wires this reference by using the value from the custom agent's `attrAssetId` attribute.
+Create a file named `lib/content-stack.ts` with the following contents. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The stack automatically wires this reference by using the value from the custom agent's `attrAssetId` attribute. The custom agent's `skills` list also takes asset IDs rather than names, so it uses the skill's `attrAssetId`. This also gives the stack an implicit dependency, so the skill is created before the agent that attaches it.
 
 ```
 import * as cdk from 'aws-cdk-lib';
@@ -287,7 +287,7 @@ export class ContentStack extends cdk.Stack {
       assetType: 'custom_agent',
       metadata: {
         name: 'rds-firefighter',
-        skills: ['rds-performance-investigation'],
+        skills: [skill.attrAssetId],
       },
       files: [
         {
@@ -296,7 +296,6 @@ export class ContentStack extends cdk.Stack {
         },
       ],
     });
-    customAgent.node.addDependency(skill);
 
     // A time-based trigger that runs the custom agent on a schedule
     const dailyTrigger = new CfnTrigger(this, 'DailyTrigger', {

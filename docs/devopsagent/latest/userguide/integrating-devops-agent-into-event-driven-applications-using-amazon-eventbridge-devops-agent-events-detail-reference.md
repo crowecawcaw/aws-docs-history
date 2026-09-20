@@ -5,6 +5,8 @@
 
 Events from AWS services have common metadata fields, including `source`, `detail-type`, `account`, `region`, and `time`. These events also contain a `detail` field with data specific to the service. For AWS DevOps Agent events, the `source` is always `aws.aidevops` and the `detail-type` identifies the specific event.
 
+The `time` field is the time that the investigation or mitigation was last updated. It is not the time that EventBridge received the event. Fields in `detail` that have no value are omitted rather than set to `null`. As a result, you must treat `metadata.execution_id` and `data.summary_record_id` as optional.
+
 ## Investigation events
 <a name="investigation-events"></a>
 
@@ -63,7 +65,7 @@ The following is the JSON structure for investigation events.
 + `data.status` (string) – The current status. Values: `PENDING_START`, `IN_PROGRESS`, `COMPLETED`, `FAILED`, `TIMED_OUT`, `CANCELLED`, `PENDING_TRIAGE`, `LINKED`, `SKIPPED`.
 + `data.created_at` (string) – ISO 8601 timestamp when the task was created.
 + `data.updated_at` (string) – ISO 8601 timestamp when the task was last updated.
-+ `data.summary_record_id` (string) – The identifier of the summary record containing investigation findings. Included when a summary is generated for the completed investigation. You can retrieve the summary content through the AWS DevOps Agent API by using this identifier to look up the journal record with a record type of `investigation_summary_md`.
++ `data.summary_record_id` (string) – The identifier of the summary record containing investigation findings. Included when a summary record was written for the execution, and omitted otherwise, including on a completed investigation that produced no summary. The event does not contain the summary text. To read it, call [ListJournalRecords](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListJournalRecords.html) with the event's `metadata.agent_space_id` and `metadata.execution_id`, a `recordType` of `investigation_summary_md`, and select the returned record whose `recordId` matches this value. For more information about retrieving the summary, see [Retrieving an investigation or mitigation summary](configuring-integrations-and-knowledge-integrating-devops-agent-into-event-driven-applications-using-amazon-eventbridge-index.html#retrieving-an-investigation-or-mitigation-summary).
 
 **Example: Investigation Completed event**
 
@@ -183,7 +185,7 @@ The following is the JSON structure for mitigation events.
 + `data.status` (string) – The current status. Values: `IN_PROGRESS`, `COMPLETED`, `FAILED`, `TIMED_OUT`, `CANCELLED`.
 + `data.created_at` (string) – ISO 8601 timestamp when the task was created.
 + `data.updated_at` (string) – ISO 8601 timestamp when the task was last updated.
-+ `data.summary_record_id` (string) – The identifier of the summary record containing mitigation findings. Included when a summary is generated for the completed mitigation. You can retrieve the summary content through the AWS DevOps Agent API by using this identifier to look up the journal record with a record type of `mitigation_summary_md`.
++ `data.summary_record_id` (string) – The identifier of the summary record containing mitigation findings. Included when a summary record was written for the execution, and omitted otherwise, including on a completed mitigation that produced no summary. The event does not contain the summary text. Retrieve it with `ListJournalRecords` as described in [Investigation events](#investigation-events), using a `recordType` of `mitigation_summary_md`.
 
 **Example: Mitigation Completed event**
 

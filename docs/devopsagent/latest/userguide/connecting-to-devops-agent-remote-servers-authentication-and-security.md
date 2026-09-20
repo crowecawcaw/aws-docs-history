@@ -1,35 +1,7 @@
 
 
-# Connect to DevOps Agent remote servers
-<a name="accessing-devops-agent-connect-to-devops-agent-remote-servers"></a>
-
-AWS DevOps Agent provides dedicated remote servers for the Model Context Protocol (MCP) and Agent-to-Agent (A2A) protocol. Use these servers to connect your IDE, CLI, or custom agent integrations to an Agent Space.
-
-## Supported protocols
-<a name="supported-protocols"></a>
-+ **MCP (Model Context Protocol)** – Connect IDE and CLI clients such as Kiro, Claude Code, Cursor, and other MCP-compatible tools.
-+ **A2A (Agent-to-Agent) v1.0** – Connect autonomous agents for agent-to-agent communication.
-
-## Endpoints
-<a name="endpoints"></a>
-
-Remote servers are available at a regional URL:
-
-```
-https://connect.aidevops.{region}.api.aws
-```
-
-
-| Protocol | Path | Method | 
-| --- | --- | --- | 
-| MCP | /mcp | POST | 
-| A2A | /a2a/\* | POST | 
-| A2A agent card | /.well-known/agent-card.json | GET | 
-
-For the list of available Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md).
-
-## Authentication
-<a name="authentication"></a>
+# Authentication and security
+<a name="connecting-to-devops-agent-remote-servers-authentication-and-security"></a>
 
 Two authentication methods are available for both MCP and A2A endpoints:
 + **Access token (Bearer)** – A single token scoped to one Agent Space. Simplest setup for individual use.
@@ -79,70 +51,6 @@ Two authentication methods are available for both MCP and A2A endpoints:
 
 After creating a token, the web app displays a configuration example that you can copy directly into your client.
 
-## Connect with Kiro
-<a name="connect-with-kiro"></a>
-
-For [Kiro](https://kiro.dev/) users, a dedicated **AWS DevOps Agent** power is available from the IDE or from the [Kiro Powers marketplace](https://kiro.dev/powers/#aws-devops-agent).
-
-**Step 1: Install the power**
-
-Install the **aws-devops-agent** power from the Powers marketplace.
-
-**Step 2: Set environment variables**
-
-Set the following environment variables to configure the connection:
-
-```
-DEVOPS_AGENT_TOKEN=<your-access-token>
-DEVOPS_AGENT_REGION=<your-agent-space-region>
-```
-
-**Step 3: Approve the variables in Kiro**
-
-Go to **Settings** > **MCP Approved Env Vars** and approve `DEVOPS_AGENT_TOKEN` and `DEVOPS_AGENT_REGION`. Kiro does not pass environment variables to MCP servers until they are approved.
-
-**Step 4: Restart Kiro**
-
-Restart Kiro to apply the changes.
-
-The Kiro power includes `aws-mcp` as a fallback, which provides direct AWS API access when the remote server endpoint is unavailable.
-
-## Connect with Claude Code
-<a name="connect-with-claude-code"></a>
-
-For [Claude Code](https://code.claude.com/docs/en/overview) users, AWS DevOps Agent is available from the **aws-agents-for-devsecops** Claude plugin, which brings both AWS DevOps Agent and AWS Security Agent capabilities into Claude. Install it from [Claude plugins](https://claude.com/plugins/aws-agents-for-devsecops) or the [source repository](https://github.com/aws/agent-toolkit-for-aws/tree/main/plugins/aws-agents-for-devsecops).
-
-1. Install the **aws-agents-for-devsecops** plugin.
-
-1. Run the `/aws-agents-for-devsecops:setup-devops-agent` command to configure your connection.
-
-## Connect with other MCP clients
-<a name="connect-with-other-mcp-clients"></a>
-
-For any MCP-compatible client, configure the server with:
-+ **URL** – `https://connect.aidevops.{region}.api.aws/mcp`
-+ **Authorization header** – `Bearer <your-token>`
-+ **Timeout** – 120 seconds minimum (initial responses can take 5–30 seconds; ongoing chat sessions may take longer)
-
-This configuration also works with Kiro and Claude Code if you prefer to configure the connection manually instead of using the dedicated power or plugin.
-
-Example MCP configuration:
-
-```
-{
-  "mcpServers": {
-    "aws-devops-agent": {
-      "url": "https://connect.aidevops.{region}.api.aws/mcp",
-      "headers": {
-        "Authorization": "Bearer <your-access-token>"
-      }
-    }
-  }
-}
-```
-
-Replace `{region}` with your Agent Space's Region (for example, `us-east-1`) and `<your-access-token>` with the token value.
-
 ## Use SigV4 authentication
 <a name="use-sigv4-authentication"></a>
 
@@ -188,47 +96,6 @@ The proxy signs each request with your local AWS credentials, so no access token
 <a name="multi-agent-space-routing"></a>
 
 In SigV4 mode, pass `agent_space_id` on each tool call to specify which Agent Space to use. This makes it possible to route across multiple Agent Spaces from a single client.
-
-## A2A integration
-<a name="a2a-integration"></a>
-
-The A2A endpoint implements the [A2A v1.0 specification](https://a2a-protocol.org/latest/specification/) using HTTP\+JSON binding.
-
-### Request headers
-<a name="request-headers"></a>
-
-Pass the following headers on A2A requests.
-
-
-| Header | Required | Description | 
-| --- | --- | --- | 
-| A2A-Version | Yes | Must be 1.0. The server rejects requests that omit it or send another value with HTTP 400. | 
-| Authorization | Yes | Access token (Bearer <access-token>) or an AWS SigV4 signature. The mcp-proxy-for-aws proxy adds the SigV4 signature for you. | 
-| X-Agent-Space-Id | SigV4 only | Target Agent Space ID. With SigV4, the server resolves the Agent Space from this header. With a Bearer token, the token identifies the Agent Space and the server ignores this header. | 
-| Content-Type | Body only | application/json for requests that send a body, such as message:send. | 
-
-### Agent card discovery
-<a name="agent-card-discovery"></a>
-
-Retrieve the agent card at:
-
-```
-GET https://connect.aidevops.{region}.api.aws/.well-known/agent-card.json
-```
-
-### Supported operations
-<a name="supported-operations"></a>
-+ `SendMessage` – Send a message and receive a response.
-+ `SendStreamingMessage` – Stream responses as they are generated.
-+ `GetTask` – Check the status of an asynchronous task.
-+ `ListTasks` – List tasks for an Agent Space.
-+ `CancelTask` – Cancel a running task.
-+ `SubscribeToTask` – Subscribe to task updates through server-sent events.
-
-### Skills
-<a name="skills"></a>
-+ **investigate** – Deep asynchronous analysis of operational issues (5–8 minutes).
-+ **chat** – Instant answers to operational questions.
 
 ## Security considerations
 <a name="security-considerations"></a>

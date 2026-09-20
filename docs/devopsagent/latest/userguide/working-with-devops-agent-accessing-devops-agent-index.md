@@ -18,14 +18,14 @@ The web app is the primary interface for DevOps Agent. Use conversational chat t
 ## Model Context Protocol (MCP) integration
 <a name="model-context-protocol-mcp-integration"></a>
 
-You can access AWS DevOps Agent capabilities directly from MCP-compatible clients and IDEs such as Kiro, Claude Code, and Cursor. AWS DevOps Agent provides a dedicated remote MCP endpoint that you connect to using an access token or AWS SigV4 credentials. From your development environment, you can investigate incidents, optimize costs, review architecture, and map topology. For setup instructions, including the Kiro power and Claude Code plugin, see [Connect to DevOps Agent remote servers](accessing-devops-agent-connect-to-devops-agent-remote-servers.md).
+You can access AWS DevOps Agent capabilities directly from MCP-compatible clients and IDEs such as Kiro, Claude Code, and Cursor. AWS DevOps Agent provides a dedicated remote MCP endpoint that you connect to using an access token or AWS SigV4 credentials. From your development environment, you can investigate incidents, optimize costs, review architecture, and map topology. For setup instructions, including the Kiro power and Claude Code plugin, see [Connecting to the DevOps Agent MCP server](connecting-to-devops-agent-remote-servers-connecting-to-the-devops-agent-mcp-server.md).
 
 The [AWS MCP Server](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html) is also available for direct AWS API access, and serves as a fallback when the remote server endpoint is unavailable.
 
 ## Agent-to-Agent (A2A) integration
 <a name="agent-to-agent-a2a-integration"></a>
 
-You can connect autonomous agents to AWS DevOps Agent through a dedicated Agent-to-Agent (A2A) v1.0 remote endpoint, using an access token or AWS SigV4 credentials. Agents can send messages, stream responses, and manage asynchronous tasks for agent-to-agent communication. For setup instructions, see [Connect to DevOps Agent remote servers](accessing-devops-agent-connect-to-devops-agent-remote-servers.md).
+You can connect autonomous agents to AWS DevOps Agent through a dedicated Agent-to-Agent (A2A) v1.0 remote endpoint, using an access token or AWS SigV4 credentials. Agents can send messages, stream responses, and manage asynchronous tasks for agent-to-agent communication. For setup instructions, see [Integrating with the DevOps Agent A2A server](connecting-to-devops-agent-remote-servers-integrating-with-the-devops-agent-a2a-server.md).
 
 ## Agent Client Protocol (ACP) integration
 <a name="agent-client-protocol-acp-integration"></a>
@@ -41,3 +41,5 @@ Webhooks allow external systems to automatically trigger AWS DevOps Agent invest
 <a name="aws-devops-agent-api"></a>
 
 AWS DevOps Agent provides APIs for programmatic access to agent capabilities. You can create and manage Agent Spaces, trigger investigations, and retrieve findings. For more information, see the [AWS DevOps Agent API Reference](https://docs.aws.amazon.com/devopsagent/latest/APIReference/).
+
+For more information about the regional service endpoints to use for API requests, see [Service endpoints](about-aws-devops-agent-supported-regions.md) in [Supported Regions](about-aws-devops-agent-supported-regions.md).

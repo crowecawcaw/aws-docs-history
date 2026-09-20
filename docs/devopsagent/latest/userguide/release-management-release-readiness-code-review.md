@@ -128,6 +128,13 @@ Findings from verification testing are included in the final release readiness r
 
 You can use [Agent instructions](about-aws-devops-agent-agent-instructions.md) (AGENTS.md) to tune how verification testing is performed — for example, specifying which test commands to run, what constitutes a passing build, or which parts of the application to exercise during verification.
 
+### Reviewing verification test results
+<a name="reviewing-verification-test-results"></a>
+
+When a change has verification test results, you can review them in two places:
++ **In the console** — The change detail view includes a **Tests** tab whenever verification results exist. The tab lists the executed tests and their pass/fail outcomes, shown alongside the standards, dependency, and access-control findings so you can assess functional risk in context.
++ **From your source control** — If you review changes on a connected GitHub, GitLab, or Azure DevOps repository, the pull request or merge request comment also includes a **View test report** link. The link deep-links to the **Tests** tab for that change, so you can reach the results without leaving your code review workflow.
+
 ### Allowed network destinations
 <a name="allowed-network-destinations"></a>
 

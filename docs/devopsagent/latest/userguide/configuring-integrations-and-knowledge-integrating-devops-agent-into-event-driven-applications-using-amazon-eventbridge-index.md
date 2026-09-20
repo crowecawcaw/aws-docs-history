@@ -32,6 +32,10 @@ The following diagram shows how EventBridge routes AWS DevOps Agent events.
 
 AWS DevOps Agent sends the following events to EventBridge. All events use the source `aws.aidevops`.
 
+AWS DevOps Agent emits these events for investigations, including the mitigation phase of an investigation. Other kinds of agent work, such as incident prevention evaluations and custom agent invocations, do not emit these events.
+
+The `time` field of each event is the time that the investigation or mitigation was last updated, not the time that EventBridge received the event. A field with no value is omitted from `detail` rather than set to `null`.
+
 ### Supported investigation events
 <a name="supported-investigation-events"></a>
 
@@ -47,7 +51,7 @@ AWS DevOps Agent sends the following events to EventBridge. All events use the s
 | Investigation Cancelled | An investigation was canceled before completion. | 
 | Investigation Pending Triage | An investigation is awaiting triage before active analysis begins. | 
 | Investigation Linked | An investigation was linked to a related incident or ticket. | 
-| Investigation Skipped | An investigation was skipped because it matched skip criteria defined in a skill. | 
+| Investigation Skipped | An investigation was skipped because it matched skip criteria defined in a skill. The event does not include the reason that the investigation was skipped. | 
 
 ### Supported mitigation events
 <a name="supported-mitigation-events"></a>
@@ -123,6 +127,84 @@ The following event pattern matches events from a specific agent space.
 ```
 
 For more information about event patterns, see [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide*.
+
+## Retrieving an investigation or mitigation summary
+<a name="retrieving-an-investigation-or-mitigation-summary"></a>
+
+A `Completed` event identifies the summary that the agent produced, but it does not contain the summary text. The summary is stored as a journal record. To read it, call the [ListJournalRecords](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListJournalRecords.html) operation with values taken from the event.
+
+
+| Value from the event | `ListJournalRecords` parameter | 
+| --- | --- | 
+| detail.metadata.agent\_space\_id | agentSpaceId (required) | 
+| detail.metadata.execution\_id | executionId (required) | 
+| Not in the event | recordType — use investigation\_summary\_md for an investigation summary, or mitigation\_summary\_md for a mitigation summary | 
+
+`ListJournalRecords` returns a list of [JournalRecord](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_JournalRecord.html) objects. An execution can have more than one summary record of the same type. Select the record whose `recordId` matches `detail.data.summary_record_id`, then read its `content`. AWS DevOps Agent has no operation that returns a single journal record by ID.
+
+Note the following before you build on `summary_record_id`:
++ The field is present only when a summary record was written for the execution. A `Completed` event without it means that no summary is available for that execution, so you must handle its absence.
++ `Failed`, `Timed Out`, and `Cancelled` events never include it.
++ To retrieve the summary, you need the `aidevops:ListJournalRecords` permission in the account that runs your event consumer.
+
+For more information about permissions, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md).
+
+**Retrieve a summary with the AWS CLI**
+
+The following command lists the investigation summary records for an execution:
+
+```
+aws devops-agent list-journal-records \
+  --agent-space-id e5f6g7h8-9012-34ab-cdef-example00000 \
+  --execution-id b2c3d4e5-6789-01ab-cdef-example22222 \
+  --record-type investigation_summary_md
+```
+
+**Process a completed investigation in AWS Lambda**
+
+The following Python function shows one way for a rule target to handle these events. It is a sample, not a required implementation. EventBridge supports other target types, and your target decides what to do with an event. This example reads the summary for a completed investigation, and ignores an event that carries no summary:
+
+```
+import boto3
+
+devops_agent = boto3.client("devops-agent")
+
+INVESTIGATION_SUMMARY = "investigation_summary_md"
+MITIGATION_SUMMARY = "mitigation_summary_md"
+
+
+def lambda_handler(event, context):
+    detail = event["detail"]
+    metadata = detail["metadata"]
+    data = detail["data"]
+
+    summary_record_id = data.get("summary_record_id")
+    if not summary_record_id:
+        # A completed task does not always produce a summary.
+        return {"summary": None}
+
+    record_type = (
+        MITIGATION_SUMMARY
+        if event["detail-type"].startswith("Mitigation")
+        else INVESTIGATION_SUMMARY
+    )
+
+    paginator = devops_agent.get_paginator("list_journal_records")
+    pages = paginator.paginate(
+        agentSpaceId=metadata["agent_space_id"],
+        executionId=metadata["execution_id"],
+        recordType=record_type,
+    )
+
+    for page in pages:
+        for record in page["records"]:
+            if record["recordId"] == summary_record_id:
+                return {"summary": record["content"]}
+
+    return {"summary": None}
+```
+
+Use `detail-type` to decide which record type to request. Both investigation and mitigation events report `data.task_type` as `INVESTIGATION`, so `task_type` does not distinguish them.
 
 ## Amazon EventBridge permissions
 <a name="amazon-eventbridge-permissions"></a>

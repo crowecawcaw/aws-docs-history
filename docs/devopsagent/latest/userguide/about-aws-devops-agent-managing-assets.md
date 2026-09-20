@@ -188,8 +188,10 @@ A `custom_agent` asset defines a specialized agent configuration with a curated 
 
 **Optional `metadata` properties:**
 + **tools** (array of strings) – The tool identifiers the custom agent is allowed to use. Defaults to an empty list when omitted.
-+ **skills** (array of strings) – The skill identifiers the custom agent loads. Defaults to an empty list when omitted.
-+ **memory\_stores** (array of strings) – The identifiers of the memory stores the custom agent can read and write. Defaults to an empty list when omitted. A custom agent accesses only the stores listed here.
++ **skills** (array of strings) – The asset IDs of the skills the custom agent loads. Defaults to an empty list when omitted. Each entry must be the `assetId` of an existing `skill` asset in the same Agent Space—not the skill's `name`.
++ **memory\_stores** (array of strings) – The asset IDs of the memory stores the custom agent can read and write. Defaults to an empty list when omitted. Each entry must be the `assetId` of an existing `memory_store` asset in the same Agent Space—not the store's `name`. A custom agent accesses only the stores listed here.
+
+Each entry in `skills` and `memory_stores` must resolve to an existing asset of the matching type in the Agent Space. If an entry does not resolve, your request fails with a `ValidationException`. Because a `name` is not an asset ID, supplying a name fails this check. The same validation applies to `CreateAsset` and `UpdateAsset`.
 
 **Example `metadata`:**
 
@@ -197,8 +199,8 @@ A `custom_agent` asset defines a specialized agent configuration with a curated 
 {
   "name": "rds-firefighter",
   "tools": ["cloudwatch:GetMetricData", "rds:DescribeDBInstances"],
-  "skills": ["rds-performance-investigation"],
-  "memory_stores": ["incident-runbooks"]
+  "skills": ["ki-7f3c1a92-4d5e-4b8a-9c1f-2e6d8b4a5c70"],
+  "memory_stores": ["ki-1b9e4d07-8a2c-4f61-b3d5-9c7e0a2f8b14"]
 }
 ```
 
@@ -812,9 +814,24 @@ To create the skill deactivated, or to deactivate it later, set `status` in `Met
 ### Create a custom agent
 <a name="create-a-custom-agent"></a>
 
-A custom agent is the same resource with a different `AssetType`, `Metadata`, and content. The following template creates an `incident-runbooks` memory store, then a `custom_agent` asset that curates a set of tools, skills, and attached memory stores. The `skills` and `memory_stores` lists reference assets by their `name` metadata—here, the `rds-performance-investigation` skill you created earlier and the `incident-runbooks` store defined alongside the agent. Because those references are by name, use `DependsOn` so the store is created before the agent that attaches it.
+A custom agent is the same resource with a different `AssetType`, `Metadata`, and content. The following template creates an `incident-runbooks` memory store, then a `custom_agent` asset that curates a set of tools, skills, and attached memory stores.
+
+The `skills` and `memory_stores` lists reference assets by their **asset ID**, not by their `name`. For an asset defined in the same template, use `Fn::GetAtt` to pass its `AssetId`—that resolves to the bare ID the service expects and makes CloudFormation order the two resources, so no `DependsOn` is needed. Here the `incident-runbooks` store is defined alongside the agent, so it uses `Fn::GetAtt`. The `rds-performance-investigation` skill was created by the separate stack in [Create a skill](#create-a-skill), so its asset ID comes in as a template parameter—take the value from that stack's `SkillAssetId` output.
+
+Use `Fn::GetAtt <Resource>.AssetId` rather than `Ref <Resource>`: the resource's primary identifier is the pair `AgentSpaceId` and `AssetId`, so `Ref` on the asset resource returns the two joined by a vertical bar, which fails validation. (`Ref` on the `SkillAssetId` *parameter* below is a parameter lookup and is correct.)
 
 ```
+Parameters:
+  AgentSpaceId:
+    Type: String
+    Description: The ID of the Agent Space that owns these assets.
+  SkillAssetId:
+    Type: String
+    Description: >-
+      The AssetId of the rds-performance-investigation skill, taken from the
+      SkillAssetId output of the skill stack.
+
+Resources:
   IncidentRunbooksStore:
     Type: AWS::DevOpsAgent::Asset
     Properties:
@@ -832,7 +849,6 @@ A custom agent is the same resource with a different `AssetType`, `Metadata`, an
 
   RdsFirefighter:
     Type: AWS::DevOpsAgent::Asset
-    DependsOn: IncidentRunbooksStore
     Properties:
       AgentSpaceId: !Ref AgentSpaceId
       AssetType: custom_agent
@@ -842,15 +858,17 @@ A custom agent is the same resource with a different `AssetType`, `Metadata`, an
           - cloudwatch:GetMetricData
           - rds:DescribeDBInstances
         skills:
-          - rds-performance-investigation
+          - !Ref SkillAssetId
         memory_stores:
-          - incident-runbooks
+          - !GetAtt IncidentRunbooksStore.AssetId
       Files:
         - Path: AGENT.md
           ContentText: |
             # RDS Firefighter
             Custom agent for RDS incidents.
 ```
+
+If the skill you want to attach was created outside CloudFormation, or by a stack that does not output its asset ID, call `ListAssets` on the Agent Space to find the skill's `assetId` and pass that value in. Declaring a new `AWS::DevOpsAgent::Asset` for a skill that already exists creates a second skill rather than adopting the existing one.
 
 The other asset types work the same way—set `AssetType` and supply the `Metadata` keys that type requires (see [Asset types](#asset-types)). For example, an `agents_md` asset sets `AssetType: agents_md` with `Metadata` containing `agent_type: INCIDENT_TRIAGE` and an `AGENTS.md` file.
 
@@ -948,6 +966,8 @@ aws devops-agent create-asset --cli-input-json file://create-attachment.json
 
 **Create a custom agent:**
 
+Replace the `skills` entry with the `assetId` returned when you created the skill.
+
 ```
 aws devops-agent create-asset \
   --agent-space-id 8f6187a7-0388-4926-8217-3a0fe32f757c \
@@ -955,7 +975,7 @@ aws devops-agent create-asset \
   --metadata '{
     "name": "rds-firefighter",
     "tools": ["cloudwatch:GetMetricData", "rds:DescribeDBInstances"],
-    "skills": ["rds-performance-investigation"]
+    "skills": ["ki-7f3c1a92-4d5e-4b8a-9c1f-2e6d8b4a5c70"]
   }' \
   --content '{
     "file": {

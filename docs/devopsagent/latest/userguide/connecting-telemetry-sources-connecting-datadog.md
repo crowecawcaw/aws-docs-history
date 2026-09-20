@@ -165,7 +165,7 @@ The following template works for standard monitor alerts, including metric, log,
 | description | $TEXT\_ONLY\_MSG | The event text with Markdown stripped. Prefer this over $EVENT\_MSG, whose Markdown formatting adds noise. | 
 | service | A literal service name | Optional. A static string identifying the source, such as datadog or your service's name. | 
 | timestamp | Omit | Optional. Datadog's date variables ($DATE, $DATE\_POSIX) are epoch values, not the ISO 8601 format this field expects, so omit the field. | 
-| data | Datadog context variables | Optional but recommended. Everything in data is passed to the agent as the original event, giving the investigation the monitor query, scope, tags, and a link back to the Datadog event. | 
+| data | Datadog context variables | Optional. The template fills data with monitor context, such as the query, scope, tags, and a link back to the Datadog event. The webhook accepts data, but doesn't include its contents in the investigation context. Only title, description, priority, and the incident reference reach the agent. Put anything the investigation needs in $TEXT\_ONLY\_MSG or in the monitor message. | 
 
 #### Step 3.3: Reference the webhook from your monitors
 <a name="step-33-reference-the-webhook-from-your-monitors"></a>

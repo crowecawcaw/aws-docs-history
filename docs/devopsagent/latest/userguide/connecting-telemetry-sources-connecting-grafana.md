@@ -102,7 +102,7 @@ In your Grafana instance, navigate to **Alerting > Contact points > Notification
 {{ end }}
 ```
 
-This template formats Grafana alerts into the webhook payload structure expected by AWS DevOps Agent. It maps alert labels, annotations, and status into the appropriate fields, and includes all alert labels as metadata.
+This template formats Grafana alerts into the webhook payload structure expected by AWS DevOps Agent. It maps alert labels, annotations, and status into the appropriate fields, and copies every alert label into `data.metadata`. For more information about what the agent receives from `data`, see [Limitations](#limitations).
 
 **Note:** This template processes only the first alert in a group. Grafana groups multiple firing alerts into a single notification by default. To ensure each alert is sent individually, configure your notification policies to group by `alertname`. Additionally, this template does not escape special JSON characters in label values or annotations. Ensure that alert labels and the `summary` annotation do not contain characters such as double quotes or newlines, which would produce invalid JSON.
 
@@ -136,6 +136,7 @@ When a matching alert fires, Grafana will send the formatted payload to AWS DevO
 
 ## Limitations
 <a name="limitations"></a>
++ **Alert labels in `data`** – The notification template copies every alert label into `data.metadata`. This field grows with the number of labels on your alert rules. The webhook accepts `data`, but doesn't include its contents in the investigation context. Only `title`, `description`, `priority`, and the incident reference reach the agent. Put anything an investigation needs in the alert's `summary` annotation, which the template maps to `description`.
 + **ClickHouse data source tools** – ClickHouse data source tools are not currently supported.
 + **Proactive incident prevention** – [Proactive incident prevention](production-operations-proactive-incident-prevention.md) does not currently use Grafana tools. Support is planned for a future release.
 

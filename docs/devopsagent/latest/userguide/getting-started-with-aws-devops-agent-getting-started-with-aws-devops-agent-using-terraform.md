@@ -334,7 +334,7 @@ This example uses the `skill` and `custom_agent` asset types. The same `awscc_de
 ### Step 1: Add the configuration
 <a name="step-1-add-the-configuration"></a>
 
-Create a file named `assets.tf` with the following contents. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The configuration wires this automatically from the custom agent's `asset_id` attribute.
+Create a file named `assets.tf` with the following contents. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The configuration wires this automatically from the custom agent's `asset_id` attribute. The custom agent's `skills` list also takes asset IDs rather than names, so it references the skill's `asset_id` attribute. This also gives Terraform an implicit dependency, so the skill is created before the agent that attaches it.
 
 Note that the `metadata` and `action` arguments are JSON documents passed as strings, so this example uses `jsonencode`.
 
@@ -372,7 +372,7 @@ resource "awscc_devopsagent_asset" "example_custom_agent" {
 
   metadata = jsonencode({
     name   = "rds-firefighter"
-    skills = ["rds-performance-investigation"]
+    skills = [awscc_devopsagent_asset.example_skill.asset_id]
   })
 
   files = [{
@@ -382,8 +382,6 @@ resource "awscc_devopsagent_asset" "example_custom_agent" {
       Custom agent for RDS incidents.
     EOT
   }]
-
-  depends_on = [awscc_devopsagent_asset.example_skill]
 }
 
 # A time-based trigger that runs the custom agent on a schedule

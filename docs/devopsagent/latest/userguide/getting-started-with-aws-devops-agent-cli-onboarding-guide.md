@@ -573,7 +573,7 @@ The response includes webhook information for integration. You can use this webh
 
 You can give the agent custom knowledge and automate it on a schedule by creating assets and a trigger in the agent space. This example creates a skill, a memory store, a custom agent, and a time-based trigger that runs the custom agent daily. For more information about managing assets, see [Managing assets](about-aws-devops-agent-managing-assets.md).
 
-Create a skill the agent loads when relevant:
+Create a skill the agent loads when relevant. Note the `assetId` in the response—the custom agent below attaches the skill by that ID:
 
 ```
 aws devops-agent create-asset \
@@ -595,13 +595,13 @@ aws devops-agent create-asset \
   --region <REGION>
 ```
 
-Create a custom agent that a trigger can invoke. Note the `assetId` in the response—the trigger references it as `custom:<assetId>`:
+Create a custom agent that a trigger can invoke. Replace `<SKILL_ASSET_ID>` with the `assetId` returned when you created the skill. Note the `assetId` in this response too—the trigger references it as `custom:<assetId>`:
 
 ```
 aws devops-agent create-asset \
   --agent-space-id <AGENT_SPACE_ID> \
   --asset-type custom_agent \
-  --metadata '{"name":"rds-firefighter","skills":["rds-performance-investigation"]}' \
+  --metadata '{"name":"rds-firefighter","skills":["<SKILL_ASSET_ID>"]}' \
   --content '{"file":{"path":"AGENT.md","body":{"text":"# RDS Firefighter\nCustom agent for RDS incidents."}}}' \
   --region <REGION>
 ```

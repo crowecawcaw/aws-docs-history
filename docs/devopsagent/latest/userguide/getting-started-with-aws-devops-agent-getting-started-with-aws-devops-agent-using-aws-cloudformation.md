@@ -355,7 +355,7 @@ You must complete Part 1 before you proceed. This template requires the `AgentSp
 ### Step 1: Create the template
 <a name="step-1-create-the-template"></a>
 
-Save the following template as `devops-agent-content.yaml`. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The template wires this automatically with `Fn::GetAtt`.
+Save the following template as `devops-agent-content.yaml`. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The template wires this automatically with `Fn::GetAtt`. The custom agent's `skills` and `memory_stores` lists also take asset IDs, so they use `Fn::GetAtt` on the skill and memory store in this template. This also makes CloudFormation create those two before the agent that attaches them.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -404,16 +404,15 @@ Resources:
   # A custom agent with attached memory stores that a trigger can invoke
   ExampleCustomAgent:
     Type: AWS::DevOpsAgent::Asset
-    DependsOn: ExampleMemoryStore
     Properties:
       AgentSpaceId: !Ref AgentSpaceId
       AssetType: custom_agent
       Metadata:
         name: rds-firefighter
         skills:
-          - rds-performance-investigation
+          - !GetAtt ExampleSkill.AssetId
         memory_stores:
-          - payments-runbook
+          - !GetAtt ExampleMemoryStore.AssetId
       Files:
         - Path: AGENT.md
           ContentText: |
