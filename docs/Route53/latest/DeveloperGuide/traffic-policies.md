@@ -157,19 +157,19 @@ Choose the applicable rule or endpoint based on the design for your configuratio
 **Failover rule**  
 Choose this option when you want to configure active-passive failover, in which one resource takes all traffic when it's available and the other resource takes all traffic when the first resource isn't available.  
 For more information, see [Active-passive failover](dns-failover-types.md#dns-failover-types-active-passive).  
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
+Evaluate target health is checked by default. It evaluates the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
 
 **Geolocation rule**  
 Choose this option when you want Amazon Route 53 to respond to DNS queries based on the location of your users.  
 For more information, see [Geolocation routing](routing-policy-geo.md).  
 When you choose **Geolocation rule**, you also choose the country or the state in the United States that requests originate from.  
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
+Evaluate target health is checked by default. It evaluates the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
 
 **Latency rule**  
 Choose this option when you have resources in multiple Amazon EC2 data centers that perform the same function, and you want Route 53 to respond to DNS queries with the resources that provide the best latency.  
 When you choose **Latency rule**, you also choose an AWS Region.  
 For more information, see [Latency-based routing](routing-policy-latency.md).  
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
+Evaluate target health is checked by default. It evaluates the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
 
 **Geoproximity rule**  
 Choose this option when you want Route 53 to respond to DNS queries based on the location of your resources and, optionally, on a bias that you specify. The bias allows you to send more traffic to a resource or more traffic away from a resource.  
@@ -183,7 +183,7 @@ If you use AWS Local Zones, you must first enable them. For more information, se
 For available Local Zones, see [AWS Local Zones locations](https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/).  
 To learn about the difference between AWS Regions and Local Zones, see [Regions and Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 User Guide*.  
 A single geoproximity routing policy cannot contain two or more locations that are geographically situated within the same metropolitan area.   
-Additionally, some AWS Regions and Local Zones, such as US West (Oregon) and Portland, US, are situated too close to one another to be used within the same geoproximity routing policy. If you require traffic routing to more than one location within the same metropolitan area, instead define a geoproximity routing policy that results in a 50/50 weighted routing rule (WRR) for two different endpoints in the area, thereby distributing traffic evenly between those endpoints.  
+Additionally, some AWS Regions and Local Zones, such as US West (Oregon) and Portland, US, are situated too close to one another to be used within the same geoproximity routing policy. If you need to route traffic to more than one location within the same metropolitan area, define a geoproximity routing policy that creates a 50/50 weighted routing rule (WRR) for two endpoints in the area. This distributes traffic evenly between those endpoints.  
 **Coordinates**  
 If you chose **Custom (enter coordinates)** for **Endpoint location**, enter the latitude and longitude of the location of the resource. Note the following:  
 + Latitude represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
@@ -198,18 +198,18 @@ To optionally change the size of the geographic region from which Route 53 rout
 + To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of -1 to -99. Route 53 expands the size of adjacent regions.
 The effect of changing the value of **Bias** is relative, based on the location of other resources, rather than absolute, based on distance. As a result, the effect of a change is difficult to predict. For example, depending on where your resources are, changing the bias from 10 to 15 can mean the difference between adding or subtracting a significant amount of traffic from the New York City metropolitan area. We recommend that you change the bias in small increments and evaluate the results, and then make additional changes if appropriate.
 For more information, see [Geoproximity routing](routing-policy-geoproximity.md).
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
+Evaluate target health is checked by default. It evaluates the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
 
 **Multivalue answer rule**  
 Choose this option when you want Route 53 to respond to DNS queries with up to eight healthy answers, selected approximately at random.   
 For more information, see [Multivalue answer routing](routing-policy-multivalue.md).  
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
+Evaluate target health is checked by default. It evaluates the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
 
 **Weighted rule**  
 Choose this option when you have multiple resources that perform the same function (for example, web servers that serve the same website) and you want Route 53 to route traffic to those resources in proportions that you specify (for example, 1/3 to one server and 2/3 to the other).  
 When you choose **Weighted rule**, enter the weight that you want to apply to this rule.  
 For more information, see [Weighted routing](routing-policy-weighted.md).  
-Evaluate target health is checked by default and it will evaluate the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check if you want to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
+Evaluate target health is checked by default. It evaluates the health of the target endpoint to which traffic is routed through an alias record. If your endpoint doesn't receive DNS traffic through an alias record, clear this option and create a health check to monitor the endpoint health. For more information, see [Creating and updating health checks](health-checks-creating.md).
 
 **Endpoint**  
 Choose this option to specify the resource, such as a CloudFront distribution or an Elastic Load Balancing load balancer, that you want to route DNS queries to.

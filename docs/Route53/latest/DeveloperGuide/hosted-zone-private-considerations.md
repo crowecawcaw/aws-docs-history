@@ -61,7 +61,7 @@ If you have private and public hosted zones that have overlapping namespaces, su
 
    If there's no matching private hosted zone, then VPC Resolver forwards the request to a public DNS resolver, and your request is resolved as a regular DNS query.
 
-1. If there's a private hosted zone name that matches the domain name in the request, the hosted zone is searched for a record that matches the domain name and DNS type in the request, such as an A record for accounting.example.com.
+1. If a private hosted zone name matches the domain name in the request, VPC Resolver searches the hosted zone for a record that matches the domain name and DNS type, such as an A record for accounting.example.com.
 **Note**  
 If there's a matching private hosted zone but there's no record that matches the domain name and type in the request, VPC Resolver doesn't forward the request to a public DNS resolver. Instead, it returns NXDOMAIN (non-existent domain) to the client.
 

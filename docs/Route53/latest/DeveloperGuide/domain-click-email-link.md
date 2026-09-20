@@ -49,8 +49,20 @@ Use the applicable procedure to resend confirmation or authorization emails.
 
 1. Check the spam folder in your email application for an email from one of the following email addresses.
 
-   If too much time has passed, the link won't work any longer, but you'll know where to look for the confirmation email when we send you another one.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-click-email-link.html)
+   If too much time has passed, the link won't work any longer, but you'll know where to look for the confirmation email when we send you another one.
+
+
+
+<table>
+<thead>
+  <tr><th>TLDs</th><th>Email address that the approval or confirmation email comes from</th></tr>
+</thead>
+<tbody>
+  <tr><td>.fr</td><td>nic@nic.fr</td></tr>
+  <tr><td>All others</td><td>One of the following email addresses:<ul><li> noreply@registrar.amazon </li><li> noreply@domainnameverification.net </li><li> noreply@emailverification.info </li></ul></td></tr>
+</tbody>
+</table>
+
 **Note**  
 The emails might contain links to www.registrar.amazon. These links are safe to use.  
 For some TLDs, the verification email might not include the domain name in the subject or body of the email.
@@ -83,8 +95,21 @@ If the current registrar for the domain won't let you turn off privacy protectio
 
 1. Check the spam folder in your email application for an email from one of the following email addresses.
 
-   If too much time has passed, the link won't work any longer, but you'll know where to look for the authorization email when we send you another one.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-click-email-link.html)
+   If too much time has passed, the link won't work any longer, but you'll know where to look for the authorization email when we send you another one.
+
+
+
+<table>
+<thead>
+  <tr><th>TLDs</th><th>Email address that the approval or confirmation email comes from</th></tr>
+</thead>
+<tbody>
+  <tr><td>.com.au and .net.au</td><td>no-reply@ispapi.net<br />The email contains a link to https://approve.domainadmin.com.</td></tr>
+  <tr><td>.fr</td><td>nic@nic.fr</td></tr>
+  <tr><td>All others</td><td>One of the following email addresses:<ul><li> noreply@registrar.amazon </li><li> noreply@domainnameverification.net </li><li> noreply@emailverification.info </li></ul></td></tr>
+</tbody>
+</table>
+
 **Note**  
 The emails might contain links to www.registrar.amazon. These links are safe to use.  
 For some TLDs, the verification email might not include the domain name in the subject or body of the email.
@@ -109,8 +134,20 @@ For the first 15 days after you request a transfer, you can determine the status
 
 1. Check the spam folder in your email application for an email from one of the following email addresses.
 
-   If too much time has passed, the link won't work any longer, but you'll know where to look for the authorization email when we send you another one.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-click-email-link.html)
+   If too much time has passed, the link won't work any longer, but you'll know where to look for the authorization email when we send you another one.
+
+
+
+<table>
+<thead>
+  <tr><th>TLDs</th><th>Email address that the authorization email comes from</th></tr>
+</thead>
+<tbody>
+  <tr><td>.fr</td><td>nic@nic.fr</td></tr>
+  <tr><td>All others</td><td>One of the following email addresses:<ul><li> noreply@registrar.amazon </li><li> noreply@domainnameverification.net </li><li> noreply@emailverification.info </li></ul></td></tr>
+</tbody>
+</table>
+
 **Note**  
 The emails might contain links to www.registrar.amazon. These links are safe to use.  
 For some TLDs, the verification email might not include the domain name in the subject or body of the email.

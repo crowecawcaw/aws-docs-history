@@ -16,9 +16,9 @@ Here are the most common reasons that your domain is not available on the intern
 ## You registered a new domain, but you didn't choose the link in the confirmation email
 <a name="troubleshooting-domain-unavailable-didnt-click-link"></a>
 
-When you register a new domain, ICANN requires that we get confirmation that the email address for the registrant contact is valid. To get confirmation, we send an email that contains a link. (If you don't respond to the first email, we resend the same email up to two more times.) You have between 3 and 15 days to choose the link, depending on the top-level domain. After that time, the link stops working.
+When you register a new domain, ICANN requires that we get confirmation that the email address for the registrant contact is valid. To get confirmation, we send an email that contains a link. You have between 3 and 15 days to choose the link, depending on the top-level domain. After that time, the link stops working.
 
-If you don't choose the link in the email in the allotted amount of time, ICANN requires that we suspend the domain. For information about how to resend the confirmation email to the registrant contact, see [Resending authorization and confirmation emails](domain-click-email-link.md).
+If you don't choose the link in the email in the allotted amount of time, ICANN requires that we suspend the domain, which makes it unavailable on the internet. For information about how to resend the confirmation email to the registrant contact, see [Resending authorization and confirmation emails](domain-click-email-link.md).
 
 ## You transferred domain registration to Amazon Route 53, but you didn't transfer DNS service
 <a name="troubleshooting-domain-unavailable-transferred-domain-not-dns"></a>

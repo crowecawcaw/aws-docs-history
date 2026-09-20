@@ -378,7 +378,7 @@ If you change the owner of the domain, as described in [What triggers a domain o
 **Email address for the registrant contact (only for some TLDs)**  
 For some TLDs, if you change the email address for the registrant contact, we send an email to the old and the new email address for the registrant contact. Someone at both email addresses must follow the instructions in the email to authorize the change.
 
-For changes to the domain owner or the email address for the registrant contact, if we don't receive authorization for the change within 3-15 days, depending on the top-level domain, we must cancel the request as required by ICANN.
+For changes to the domain owner or the email address for the registrant contact, if we don't receive authorization for the change within 3-15 days, depending on the top-level domain, we may cancel the change request.
 
 ### Email addresses that authorization emails come from
 <a name="domain-transfer-to-route-53-authorize-transfer-email-addresses"></a>
@@ -389,9 +389,9 @@ All email comes from one of the following email addresses.
 
 | TLDs | Email address that authorization email comes from | 
 | --- | --- | 
-| .com.au and .net.au | no-reply@ispapi.net<br />The email contains a link to http://transfers.ispapi.net. | 
+| .com.au and .net.au | One of the following email addresses:+  no-reply@ispapi.net (contains a link to http://transfers.ispapi.net) <br />+  icann-transfers@key-systems.net  | 
 | .fr | nic@nic.fr, if you're changing the registrant contact for a .fr domain name at the same time that you're transferring the domain. (The email is sent both to the current registrant contact and the new registrant contact.) | 
-| All others | One of the following email addresses:+  noreply@registrar.amazon <br />+  noreply@domainnameverification.net <br />+  noreply@emailverification.info  | 
+| All others | One of the following email addresses:+  noreply@registrar.amazon <br />+  noreply@domainnameverification.net <br />+  noreply@emailverification.info <br />+  icann-transfers@key-systems.net  | 
 
 To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md).
 

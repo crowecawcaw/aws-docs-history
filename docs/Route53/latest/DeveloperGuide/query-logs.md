@@ -14,7 +14,7 @@ After you configure query logging, Route 53 will send logs to CloudWatch Logs. 
 
 Query logs contain only the queries that DNS resolvers send to Route 53. If a DNS resolver has already cached the response to a query (such as the IP address for a load balancer for example.com), the resolver will continue to return the cached response without sending the query to Route 53 until the TTL for the corresponding record expires. 
 
-Depending on how many DNS queries are submitted for a domain name (example.com) or subdomain name (www.example.com), which resolvers your users are using, and the TTL for the record, query logs might contain information about only one query out of every several thousand queries that are submitted to DNS resolvers. For more information about how DNS works, see [How internet traffic is routed to your website or web application](welcome-dns-service.md).
+Query logs might not capture every DNS query. The number of logged queries depends on how many queries are submitted for a domain name (example.com) or subdomain name (www.example.com), which resolvers your users use, and the TTL for the record. In some cases, logs contain only one query out of every several thousand. For more information about how DNS works, see [How internet traffic is routed to your website or web application](welcome-dns-service.md).
 
 If you don't need detailed logging information, you can use Amazon CloudWatch metrics to see the total number of DNS queries that Route 53 responds to for a hosted zone. For more information, see [Viewing DNS query metrics for a public hosted zone](hosted-zone-public-viewing-query-metrics.md).
 

@@ -18,9 +18,9 @@ For preventing issues during active transfers, see [Preventing common Route 53 
 ## You didn't choose the link in the authorization email
 <a name="troubleshooting-domain-transfer-failed-click-link"></a>
 
-When you transfer domain registration to Amazon Route 53, we're required by ICANN, the governing body for domain registration, to get authorization for the transfer from the registrant contact for the domain. To get authorization, we send you an email that contains a link. You have between 5 and 15 days to choose the link, depending on the top-level domain. After that time, the link stops working.
+For some top-level domains, the registry requires the registrant contact to authorize the transfer. In those cases, we send an email that contains a link. You have between 5 and 15 days to choose the link, depending on the top-level domain. After that time, the link stops working.
 
-If you don't choose the link in the email in the allotted amount of time, ICANN requires that we cancel the transfer. For information about how to resend the authorization email to the registrant contact, see [Resending authorization and confirmation emails](domain-click-email-link.md).
+If you don't choose the link in the email in the allotted amount of time, we cancel the transfer. For information about how to resend the authorization email to the registrant contact, see [Resending authorization and confirmation emails](domain-click-email-link.md).
 
 ## The authorization code that you got from the current registrar is not valid
 <a name="troubleshooting-domain-transfer-failed-authorization-code-invalid"></a>
@@ -36,7 +36,7 @@ If you request the transfer of a domain to Amazon Route 53 and you don't receiv
 ## "Parameters in request are not valid" error when trying to transfer a .es domain to Amazon Route 53
 <a name="troubleshooting-domain-transfer-failed-parameters-in-request-are-not-valid"></a>
 
-Amazon Route 53 returns a "Parameters in request are not valid" error when you try to transfer a .es domain to Route 53 and the contact type of the registrant contact is **Company**. To complete the transfer, change the contact type of the registrant to **Person**, and re-submit. 
+If Amazon Route 53 returns a "Parameters in request are not valid" error when you try to transfer a .es domain to Route 53, verify that all required identification fields for the registrant contact are correctly formatted. For .es domains, the registry requires specific identification details depending on whether the registrant is a person or a company. Also verify that the contact type of the administrative, technical, and billing contacts is **Person**; only the registrant contact can be a company. For more information about required fields, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md).
 
 ## Is the internationalized domain name you're transferring to Amazon Route 53 listed in punycode?
 <a name="troubleshooting-domain-transfer-failed-internationalized-domain-names"></a>
@@ -76,7 +76,7 @@ To resolve this issue:
 ### "Transfer authorization email not received" or "Authorization timeout"
 <a name="troubleshooting-domain-transfer-error-authorization-timeout"></a>
 
-This error occurs when you don't choose the authorization link in the transfer confirmation email within the required timeframe (typically 5 days). ICANN requires this authorization step for all domain transfers.
+This error occurs when you don't choose the authorization link in the transfer confirmation email within the required timeframe (typically 5 days). For some top-level domains, the registry requires this authorization step.
 
 If you didn't receive the authorization email or missed the deadline, check the following:
 + Check your spam or junk mail folder. Transfer authorization emails are sometimes filtered by email providers.

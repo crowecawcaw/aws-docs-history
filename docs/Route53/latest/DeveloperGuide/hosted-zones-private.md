@@ -11,7 +11,7 @@ A *private hosted zone* is a container that holds information about how you want
 
    For more information about records, see [Working with records](rrsets-working-with.md). For information about the Amazon VPC requirements for using private hosted zones, see [Using private hosted zones](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-private-hosted-zones) in the *Amazon VPC User Guide*.
 
-1. When an application submits a DNS query for db.example.com, Route 53 returns the corresponding IP address. To get an answer from a private hosted zone you also have to be running an EC2 instance in one of the associated VPCs (or have an inbound endpoint from a hybrid setup.) If you try to query a private hosted zone from outside the VPCs or your hybrid setup, the query is recursively resolved on the internet.
+1. When an application submits a DNS query for db.example.com, Route 53 returns the corresponding IP address. To get an answer from a private hosted zone, you must be running an EC2 instance in one of the associated VPCs or have an inbound endpoint from a hybrid setup. If you query a private hosted zone from outside the VPCs or your hybrid setup, the query is resolved recursively on the internet.
 
 1. The application uses the IP address that it got from Route 53 to establish a connection with the database server.
 

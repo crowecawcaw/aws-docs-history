@@ -17,8 +17,9 @@ The ID of the AWS account that created the VPC.
 **region**  
 The AWS Region that you created the VPC in.
 
-**vpc\_id**  
-The ID of the VPC that the query originated in.
+**vpc\_id \| resource\_id**  
++ `vpc_id` – The ID of the VPC that the query originated in. VPC ID is not included when the query logging configuration is applied through Route 53 Profiles.
++ `resource_id` – The ID of the Route 53 Profile that the query logging configuration is associated with. Included only when the configuration is associated with a Route 53 Profile.
 
 **query\_timestamp**  
 The date and time that the query was submitted, in ISO 8601 format and Coordinated Universal Time (UTC), for example, `2017-03-16T19:20:177Z`.   

@@ -32,9 +32,22 @@ The preparation steps help you minimize the risk of onboarding to DNSSEC by moni
 
 1. Lower the zone's maximum TTL.
 
-   The zone’s maximum TTL is the longest TTL record in the zone. In the following example zone, the zone’s maximum TTL is 1 day (86400 seconds).  
-**Example zone records**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html)
+   The zone’s maximum TTL is the longest TTL record in the zone. In the following example zone, the zone’s maximum TTL is 1 day (86400 seconds).
+
+
+**Example zone records**  
+
+<table>
+<thead>
+  <tr><th>Name</th><th>TTL</th><th>Record class</th><th>Record type</th><th>Record data</th></tr>
+</thead>
+<tbody>
+  <tr><td>example.com.</td><td>900</td><td>IN</td><td>SOA</td><td>ns1.example.com. hostmaster.example.com. 2002022401 10800 15 604800 300</td></tr>
+  <tr><td>example.com.</td><td>900</td><td>IN</td><td>NS</td><td>ns1.example.com.</td></tr>
+  <tr><td>route53.example.com.</td><td>86400</td><td>IN</td><td>TXT</td><td><b>some txt record</b></td></tr>
+</tbody>
+</table>
+
 
    Lowering the zone's maximum TTL helps reduce the wait time between enabling signing and the insertion of the Delegation Signer (DS) record. We recommend lowering the zone's maximum TTL to 1 hour (3600 seconds). You can then roll back after only an hour if any resolver has problems with caching signed records.
 
@@ -42,9 +55,20 @@ The preparation steps help you minimize the risk of onboarding to DNSSEC by moni
 
 1. Lower the SOA TTL and SOA minimum field.
 
-   The SOA minimum field is the last field in the SOA record data. In the following example SOA record, the minimum field has the value of 5 minutes (300 seconds).  
-**Example SOA record**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html)
+   The SOA minimum field is the last field in the SOA record data. In the following example SOA record, the minimum field has the value of 5 minutes (300 seconds).
+
+
+**Example SOA record**  
+
+<table>
+<thead>
+  <tr><th>Name</th><th>TTL</th><th>Record class</th><th>Record type</th><th>Record data</th></tr>
+</thead>
+<tbody>
+  <tr><td>example.com.</td><td>900</td><td>IN</td><td>SOA</td><td>ns1.example.com. hostmaster.example.com. 2002022401 10800 15 604800 300</td></tr>
+</tbody>
+</table>
+
 
    The SOA TTL and SOA minimum field determines how long resolvers remember negative answers. After you enable signing, Route 53 name servers start returning NSEC records for negative answers. The NSEC contains information that resolvers might use to synthesize a negative answer. If you have to roll back because the NSEC information caused a resolver to assume a negative answer for a name, then you only have to wait for the maximum of the SOA TTL and SOA minimum field for the resolver to stop the assumption.
 

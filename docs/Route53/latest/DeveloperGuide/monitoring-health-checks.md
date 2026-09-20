@@ -227,8 +227,24 @@ Choose the value that you want Route 53 to evaluate for this health check:
 For the alarm targets that are based on latency (**TCP connection time**, **Time to complete SSL handshake**, **Time to first byte**), choose whether you want CloudWatch to calculate latency for Route 53 health checkers in a specific region or for all regions (**Global**).  
 Note that if you choose a Region, Route 53 measures latency only twice per minute, and the number of samples will be smaller than if you choose all regions. As a result, outlying values are more likely. To prevent spurious alarm notifications, we recommend that you specify a larger number of consecutive periods that the health check must fail before CloudWatch sends you a notification.   
 **Fulfill condition**  
-Use the following settings to determine when CloudWatch should trigger an alarm.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-health-checks.html)  
+Use the following settings to determine when CloudWatch should trigger an alarm.  
+
+
+
+<table>
+<thead>
+  <tr><th>Alarm target</th><th>Recommended condition</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Health check status</b></td><td><b>Minimum</b> &lt; 1</td><td>Route 53 health checkers report when the endpoint is unhealthy.</td></tr>
+  <tr><td><b>Health checkers that report the endpoint healthy (%)</b></td><td><b>Average</b> &lt; <i>desired percentage</i></td><td><i>Health checks that monitor an endpoint only</i> – Route 53 considers the status of a health check to be unhealthy when less than 18% of health checkers report that the status is healthy. Don't choose <b>Sample Count</b> for this metric because the range of sample counts can change as Route 53 adds more health checking regions. <b>Average</b> will always accurately represent the percentage of checkers that are reporting the status of a health check.</td></tr>
+  <tr><td><b>Number of healthy child health checks</b></td><td><b>Minimum</b> &lt; <i>desired number of healthy child health checks</i></td><td>The <b>Minimum</b> statistic returns the most conservative value and represents the worst-case scenario.</td></tr>
+  <tr><td><b>TCP connection time</b></td><td><b>Average</b> &gt; <i>desired time in milliseconds</i></td><td><b>Average</b> is a more consistent value than other statistics.</td></tr>
+  <tr><td><b>Time to complete SSL handshake</b></td><td><b>Average</b> &gt; <i>desired time in milliseconds</i></td><td><b>Average</b> is a more consistent value than other statistics.</td></tr>
+  <tr><td><b>Time to first byte</b></td><td><b>Average</b> &gt; <i>desired time in milliseconds</i></td><td><b>Average</b> is a more consistent value than other statistics.</td></tr>
+</tbody>
+</table>
+  
 **For at least {{x}} consecutive periods of {{y}} minutes/hours/day**  
 Specify how many consecutive time periods that the specified value must meet the criteria before Route 53 sends notification. Then specify the length of the time period.
 

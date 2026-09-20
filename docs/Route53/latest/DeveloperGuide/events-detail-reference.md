@@ -3,7 +3,7 @@
 # Resolver DNS Firewall events detail reference
 <a name="events-detail-reference"></a>
 
-All events from AWS services have a common set of fields containing metadata about the event, such as the AWS service that is the source of the event, the time the event was generated, the account and region in which the event took place, and others. For definitions of these general fields, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*. 
+All events from AWS services have a common set of fields containing metadata about the event. These fields include the source service, the time the event was generated, and the account and Region where the event took place. For definitions of these general fields, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*. 
 
 In addition, each event has a `detail` field that contains data specific to that particular event. The reference below defines the detail fields for the various DNS Firewall events.
 
