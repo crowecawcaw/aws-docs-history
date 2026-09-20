@@ -249,8 +249,20 @@ BYOL is not supported for Amazon EKS add-on delivery.
 
   **File name: `aws_mp_addon_parameters.json` **
 **Note**  
-The `aws_mp_addon_parameters.json` file enables the **Add-on access ** section in the **Add-on configuration settings** page of the Amazon EKS console    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/marketplace/latest/userguide/container-product-policies.html)
+The `aws_mp_addon_parameters.json` file enables the **Add-on access ** section in the **Add-on configuration settings** page of the Amazon EKS console
+
+
+<table>
+<thead>
+  <tr><th>Field name</th><th>Type</th><th>Notes</th><th>Example value</th></tr>
+</thead>
+<tbody>
+  <tr><td>isPodIdentityCompatible</td><td>Boolean</td><td>Only `true` is supported for now. Field shows if the permissions described in the following permissionsList list are fitting with pod-identity</td><td>TRUE</td></tr>
+  <tr><td>serviceAccount</td><td>String</td><td>The name of the service account the add-on will use to access the permissions</td><td><code>kpow</code></td></tr>
+  <tr><td>managedPolicies</td><td>List&lt;String&gt;</td><td>List of policy arns to use for this service account that may be assumed by the EKS add-on</td><td><code>["arn:aws:iam::aws:policy/ReadOnlyAccess"]</code></td></tr>
+</tbody>
+</table>
+
 **Note**  
 Pay-as-you-go (PAYG) add-on products from AWS Marketplace can't use Amazon EKS Pod Identity and must use IAM Roles for Service Accounts (IRSA) for access control.
 + **Version updates** – Amazon EKS releases new Kubernetes versions a few weeks after the upstream release. As new Amazon EKS cluster versions become generally available, vendors have 45 days to certify or update their software to be compatible with the new Amazon EKS cluster version release. If your current versions of the add-on supports the new Kubernetes version, validate and certify the same so that we can update the version compatibility matrix. If a new add-on version is needed to support the new Kubernetes version release, then please submit the new version for onboarding.

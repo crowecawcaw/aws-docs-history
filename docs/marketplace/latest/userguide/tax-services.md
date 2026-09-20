@@ -146,21 +146,23 @@ Buyers who are GST-registered may use the AWS-generated tax invoice to support i
 ### Access to Tax Invoices
 <a name="tax-services-singapore-access"></a>
 
-Eligible Sellers are responsible for accessing copies of AWS-generated tax invoices through the Tax and Compliance Portal on the AWS Marketplace Management Portal for the purposes of preparing and supporting their GST return filings. AWS will retain tax invoices and related documentation for a minimum period of ten (10) years from the date of issue. Eligible Sellers remain responsible for their own record-keeping obligations under Singapore GST law.
+Eligible Sellers can access copies of AWS-generated tax invoices through the Tax and Compliance Portal on the AWS Marketplace Management Portal. Eligible Sellers are responsible for using these invoices to prepare and support their GST return filings. AWS will retain tax invoices and related documentation for a minimum period of 10 years from the date of issue. Eligible Sellers remain responsible for their own record-keeping obligations under Singapore GST law.
 
-Buyers will receive their tax invoices electronically via the usual AWS billing and notification channels.
+Buyers will receive their tax invoices electronically through the usual AWS billing and notification channels.
 
 ### Changes to GST Registration Status or Details
 <a name="tax-services-singapore-registration-changes"></a>
 
-Eligible Sellers are responsible for ensuring that their GST registration details reflected on AWS-generated tax invoices are accurate at all times. Changes whilst the Eligible Seller remains GST-registered (including changes to the Eligible Seller's legal name, registered address, or other registration details) may be updated self-service via the AWS Billing Console. Eligible Sellers must ensure that such details are updated at least one (1) month before the effective date of the relevant change.
+Eligible Sellers are responsible for ensuring that their GST registration details reflected on AWS-generated tax invoices are accurate at all times. While the Eligible Seller remains GST-registered, changes to details such as the Eligible Seller's legal name, registered address, or other registration details can be updated through the Tax Registration page in AWS Partner Central.
 
-Where an Eligible Seller's GST registration ceases to exist (including where registration is cancelled, lapsed, or otherwise terminated), the Eligible Seller must notify AWS in writing immediately. AWS will cease generating GST tax invoices on behalf of that Eligible Seller with effect from the date of deregistration. The Eligible Seller will be responsible for any GST implications (including any penalties that may be imposed by the IRAS) arising from a failure to provide timely notification, including in respect of any tax invoices generated or GST collected by AWS on behalf of Eligible Sellers after the date of deregistration.
+Where an Eligible Seller's GST registration ceases to exist (including where registration is cancelled, lapsed, or otherwise terminated), the Eligible Seller must update their GST registration status through the Tax Registration page in AWS Partner Central as soon as practicable. This update must be made no later than the effective date of the change. AWS will stop generating GST tax invoices on behalf of that Eligible Seller from the date the update is made in the Tax Registration page.
 
-### Updates to This Page
+The Eligible Seller is responsible for any GST implications arising from a failure to provide timely notification. This includes any penalties that might be imposed by the IRAS, and any tax invoices generated or GST collected by AWS on behalf of the Eligible Seller after the date of deregistration.
+
+### Updates to This Section
 <a name="tax-services-singapore-updates"></a>
 
-AWS may update the requirements on this page from time to time, including to reflect changes in applicable tax laws or regulations. While AWS will endeavour to notify Sellers of significant updates, Sellers are responsible for monitoring and complying with the current requirements as published on this page.
+AWS might update the requirements in this section from time to time to reflect changes in applicable tax laws or regulations. Although AWS will endeavor to notify Sellers of significant updates, Sellers are responsible for monitoring and complying with the current requirements as published in this section.
 
 ## South Africa: Tax Collection, Tax Invoicing, Tax Reporting and Tax Remittance
 <a name="tax-services-south-africa"></a>

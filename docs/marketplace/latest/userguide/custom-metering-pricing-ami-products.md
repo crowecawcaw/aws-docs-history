@@ -76,8 +76,21 @@ Use the following definitions to complete the fields of the Product Load Form fo
 +  **Title** – If you already have a product on AWS Marketplace and you're adding the same product with the AWS Marketplace Metering Service, include the FCP category and dimension in parentheses to differentiate them (for example, “PRODUCT TITLE (Data)”). 
 +  **Pricing Model** –From the dropdown list, choose **Usage**. 
 +  **FCP Category** – The category in which customers are charged for paid products with a **Usage** pricing component. From the dropdown list, choose **Users**, **Hosts**, **Data**, or **Bandwidth**. 
-+  **FCP Unit** –The unit of measurement on which customers are charged for paid products with a **Usage** pricing component. Options will appear in the dropdown list based on the FCP category you selected. The following table lists the valid units for each category.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/marketplace/latest/userguide/custom-metering-pricing-ami-products.html)
++  **FCP Unit** –The unit of measurement on which customers are charged for paid products with a **Usage** pricing component. Options will appear in the dropdown list based on the FCP category you selected. The following table lists the valid units for each category. 
+
+
+<table>
+<thead>
+  <tr><th> <b>Category </b> </th><th> <b>Valid units </b> </th></tr>
+</thead>
+<tbody>
+  <tr><td> Users </td><td> UserHrs </td></tr>
+  <tr><td> Hosts </td><td> HostHrs </td></tr>
+  <tr><td> Data </td><td> MB, GB, TB </td></tr>
+  <tr><td> Bandwidth </td><td> Mbps, Gbps </td></tr>
+</tbody>
+</table>
+
 +  **FCP Dimension Name** – The name used when sending metering records by calling the `MeterUsage` operation. It is visible in billing reports. However, because it isn't external-facing, the name doesn't need to be user-friendly. The name can be no more than 15 characters and can only include alphanumeric and underscore characters. After you set the name and make the product public, you can't change it. Changing the name requires a new AMI. 
 +  **FCP Dimension Description** – The customer-facing statement that describes the dimension for the product. The description (can be no more than 70 characters and should be user-friendly. Examples of descriptions include: Administrators per hour and Per Mbps bandwidth provisioned. After the product is published, you can't change this description. 
 +  **FCP Rate** – The software charge per unit for this product. This field supports eight decimal places. 
