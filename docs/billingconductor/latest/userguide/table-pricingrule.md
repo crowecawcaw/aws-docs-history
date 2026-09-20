@@ -9,3 +9,5 @@ After you create a pricing rule, you can view the details of the pricing rule in
 + Type
 + Details
 + Rate
+
+For SKU-scoped pricing rules that use a custom rate, the **Type** column displays **Custom**.
