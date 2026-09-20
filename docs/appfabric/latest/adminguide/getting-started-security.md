@@ -78,8 +78,20 @@ Before you begin the steps to authorize applications, review and verify prerequi
 
 1. You can check the status of your app authorization at any time on the **App authorizations** page listed in the navigation pane, under status for each application. A **Connected** status means that your app authorization has been granted for AppFabric for security to connect to the application and is complete.
 
-1. Possible app authorization statuses are shown in the following table, including troubleshooting steps that you can take to fix related errors.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/appfabric/latest/adminguide/getting-started-security.html)
+1. Possible app authorization statuses are shown in the following table, including troubleshooting steps that you can take to fix related errors.
+
+
+<table>
+<thead>
+  <tr><th>Status name</th><th>Status description</th><th>Troubleshooting steps</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Pending</b></td><td>A status of Pending means that an app authorization for the application is created, but AppFabric for security isn't yet connected to the application.</td><td>When you see this status, select <b>Connect</b> from the <b>Actions</b> dropdown of the <b>App authorization</b> page to initiate a connection. If this error persists, check if your browser's pop-up blocker is disabled. If there is any error message, like <b>400 Bad Request</b> in the pop-up window, check that all the information, such as tenant ID, client ID, and client secret, is correctly entered. It's also possible that the app authorization of the application isn't created correctly. For more information, see <a href="supported-applications.md">Supported applications</a>.</td></tr>
+  <tr><td><b>Connection validation failed</b></td><td>A status of Connection validation failed means that AppFabric for security can't validate the connection of the app authorization with an application.</td><td>Check that all the information, such as tenant ID, client ID and client secret, is entered correctly for the app authorization.</td></tr>
+  <tr><td><b>Token auto-rotation failed</b></td><td>A status of token auto-rotation failed means that the OAuth refresh token has failed after the app authorization was successfully connected.</td><td>If this error persists, check the authentication application of the application. For more information, see <a href="supported-applications.md">Supported applications</a>.</td></tr>
+</tbody>
+</table>
+
 
 1. To authorize additional applications, repeat steps 1 through 8 as needed.
 
@@ -117,8 +129,19 @@ You can also create ingestions from the **Ingestions** page, accessible from the
 
 1. You can also check the state of your ingestions and status of your ingestion destinations at any time on the **Ingestions** page from the navigation pane. On this page, you can see the tenant name created upon creating app authorization, destination, and state of your ingestions. A state of **Enabled** for your ingestion means that your ingestion is enabled. If you choose the tenant name of an app authorization on this page, you can see a detail page for that app authorization, including destination details and status. A status of **Active** for your ingestion destination means that the destination is set up properly and active. If the app authorization has the **Connected** status and the ingestion destination status is **Active**, then the audit log should be processed and delivered. If the app authorization status or the ingestion destination status are any of the failed states, the audit log will not be processed or delivered even if the ingestion status is enabled. To fix an app authorization failure, see [Step 2. Authorize applications](#getting-started-2-authorize-application).
 
-1. Possible ingestion and ingestion destination statuses are shown in the following table, with troubleshooting steps that you can take to fix any error status.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/appfabric/latest/adminguide/getting-started-security.html)
+1. Possible ingestion and ingestion destination statuses are shown in the following table, with troubleshooting steps that you can take to fix any error status.
+
+
+<table>
+<thead>
+  <tr><th>State or status name</th><th>Description </th><th>Troubleshooting steps</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Disabled</b></td><td>A <b>Disabled</b> state for the ingestion means that your ingestion is disabled.</td><td>You can enable the ingestion by selecting <b>Enable</b> from the <b>Actions</b> dropdown of the <b>Ingestions</b> page.</td></tr>
+  <tr><td><b>Failed</b></td><td>A <b>Failed</b> state for the ingestion destination means that the ingestion destination isn't accepting the audit log. For example, this status might occur because of a full storage location.</td><td>To fix these issues, go to the Amazon S3 or Firehose consoles.</td></tr>
+</tbody>
+</table>
+
 
 ## Step 4: Use the user access tool
 <a name="getting-started-4-user-access-tool"></a>
@@ -131,8 +154,30 @@ Using the AppFabric for security user access tool, security and IT Admin teams c
 
 1. In the **Search results** section, you see a list of all authorized applications that the user has access to. To show the user’s name in the application and their status (if available), select a search result.
 
-1. A message of **User found** in the search results column means that the user can access the app listed. The following table shows the possible search results, errors, and the actions that you can take to address the errors.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/appfabric/latest/adminguide/getting-started-security.html)
+1. A message of **User found** in the search results column means that the user can access the app listed. The following table shows the possible search results, errors, and the actions that you can take to address the errors.
+
+
+<table>
+<thead>
+  <tr><th>Search result</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>The user not found</td><td>No user is found with the email address used.</td></tr>
+  <tr><td>An authorization token was not found. Connect the app authorization for the application.</td><td>Check that all the information, such as tenant ID, client ID, and client secret, is entered correctly for the app authorization.</td></tr>
+  <tr><td>The authorization token was revoked. Connect the app authorization for the application.</td><td>Check that all the information, such as tenant ID, client ID, and client secret, is entered correctly for the app authorization.</td></tr>
+  <tr><td>We were unable to rotate the authorization token. Connect the app authorization for the application.</td><td>The OAuth refresh token has failed after the app authorization was successfully connected. If this error persists, check the authentication application of the application. For more information, see <a href="supported-applications.md">Supported applications</a>.</td></tr>
+  <tr><td>The required permissions were not found. Connect the app authorization for the application.</td><td>Check that all the information, such as tenant ID, client ID, and client secret, is entered correctly for the app authorization.</td></tr>
+  <tr><td>The app authorization is not valid.</td><td>Check that all the information, such as tenant ID, client ID, and client secret, is entered correctly for the app authorization.</td></tr>
+  <tr><td>We couldn't call the application API due to insufficient permissions.</td><td>Check that all the information, such as tenant ID, client ID, and client secret, is entered correctly for the app authorization.</td></tr>
+  <tr><td>The application request limit was exceeded.</td><td>This is an error message that was received from the application. You can try to search an email address later.</td></tr>
+  <tr><td>Application encountered an internal server error</td><td>This is an error message that was received from the application. You can try to search an email address later.</td></tr>
+  <tr><td>Application encountered a bad gateway error</td><td>This is an error message that was received from the application. You can try to search an email address later.</td></tr>
+  <tr><td>Application is not ready to handle the request</td><td>This is an error message that was received from the application. You can try to search an email address later.</td></tr>
+  <tr><td>The application encountered a bad request error.</td><td>This is an error message we received from the application. You can try to search an email again later.</td></tr>
+  <tr><td>The application encountered a service unavailable error.</td><td>This is an error message we received from the application. You can try to search an email again later.</td></tr>
+</tbody>
+</table>
+
 
 ## Step 5: Connect AppFabric for security data in security tools and other destinations
 <a name="getting-started-5-connect-appfabric-to-security-tools"></a>
