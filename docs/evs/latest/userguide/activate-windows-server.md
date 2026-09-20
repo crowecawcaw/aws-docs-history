@@ -1,7 +1,7 @@
 
 
-# Configure Windows Server Activation
-<a name="evs-activate-windows-server"></a>
+# Activating Windows Server on entitled VMs
+<a name="activate-windows-server"></a>
 
 Amazon EVS provides Windows Server activation for VMs that have Windows Server entitlements. You must create an EVS Windows Server activation VPC endpoint within the VPC you used for your Amazon EVS environment. Each entitled VM must then be configured to connect to this activation endpoint. VPC endpoints can only be created if you have an active Amazon EVS environment.
 

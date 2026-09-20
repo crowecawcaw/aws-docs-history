@@ -7,6 +7,7 @@ The following table describes the documentation releases for Amazon Elastic VMwa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Restructured the Windows Server entitlements documentation](https://docs.aws.amazon.com/evs/latest/userguide/entitlements.html) | Restructured the Windows Server entitlements documentation into a dedicated section with expanded topics covering setup, maintenance, and troubleshooting. | September 11, 2026 | 
 | [Added support for instance type](https://docs.aws.amazon.com/evs/latest/userguide/versions-provided.html) | Amazon EVS now supports the i7i.metal-48xl instance type for use with VMware Cloud Foundation (VCF) environments.<br />This bare-metal instance type is available across all VMware Cloud Foundation (VCF) versions. | August 27, 2026 | 
 | [Added Amazon EVS Custom Addon depot topic](https://docs.aws.amazon.com/evs/latest/userguide/addon-depot.html) | Added documentation for accessing the Amazon EVS Custom Addon depot. You can use the `GetDepotUrl` API action to retrieve a depot URL and configure it as a download source in vSphere Lifecycle Manager (vLCM) to sync and install the Amazon EVS Custom Addon. | May 21, 2026 | 
 | [Added support for 32 hosts per EVS environment](https://docs.aws.amazon.com/evs/latest/userguide/evs-env-create-host.html) | Amazon EVS now supports up to 32 hosts per EVS environment. | May 18, 2026 | 

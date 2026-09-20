@@ -3,7 +3,7 @@
 # Update an Amazon EVS environment connector
 <a name="evs-env-update-connector"></a>
 
-You can update an existing connector to change the appliance FQDN or point to a different Secrets Manager secret for authentication. For example, you may need to update the FQDN if the appliance endpoint changes, or switch to a different secret. You can also update the values of the existing Secrets Manager secret directly when rotating vCenter credentials, so that no connector update is required.
+You can update an existing connector to change the appliance fully qualified domain name (FQDN) or point to a different Secrets Manager secret for authentication. For example, you may need to update the FQDN if the appliance endpoint changes, or switch to a different secret. You can also update the values of the existing Secrets Manager secret directly when rotating vCenter credentials, so that no connector update is required.
 
 More info on connectors can be found under [Concepts and components of Amazon EVS](concepts.md#concepts-connector).
 
@@ -11,7 +11,7 @@ More info on connectors can be found under [Concepts and components of Amazon EV
 Only one property of a connector can be updated at a time.
 
 **Note**  
-The connector must be in an Active or Update Failed state to be updated.
+The connector must be in an `ACTIVE` or `UPDATE_FAILED` state to be updated. If the connector is in a `CREATING` or `UPDATING` state, wait for it to reach the `ACTIVE` state before you attempt the update.
 
 **Note**  
 If updating the FQDN, the new FQDN must be valid, match the domain name used when creating your EVS environment, and be unique across all connectors in the environment.

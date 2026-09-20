@@ -1,24 +1,13 @@
 
 
-# Delete an Amazon EVS entitlement
-<a name="evs-env-delete-entitlement"></a>
+# Deleting Windows Server entitlements
+<a name="delete-entitlements"></a>
 
-You can delete Windows Server entitlements for one or more virtual machines (VMs) in your Amazon EVS environment. When you delete an entitlement, Amazon EVS stops tracking Windows Server entitlement usage for the specified VM. After deletion, the VM no longer has a Windows Server entitlement through AWS.
+When you no longer need AWS-offered Windows Server licensing for your VMs, delete their Windows Server entitlements. When you delete an entitlement, Amazon EVS stops tracking Windows Server entitlement usage for the specified VM. After deletion, the VM no longer has a Windows Server entitlement through AWS.
 
-More info on entitlements can be found under [Concepts and components of Amazon EVS](concepts.md#concepts-windows-server-license-entitlement).
-
-**Note**  
-You can only delete up to 100 entitlements at a time.
-
-**Note**  
-You must specify the VM IDs to delete entitlements from.
-
-**Note**  
-After deletion, the VMs will no longer have Windows Server entitlements through AWS.
+Note the following constraint: you can delete up to 100 entitlements at a time.
 
  **To delete an Amazon EVS entitlement** 
-
-Follow these steps to delete an Amazon EVS entitlement.
 
 **Example**  
 
@@ -50,7 +39,7 @@ Follow these steps to delete an Amazon EVS entitlement.
        --vm-ids vm-003 vm-001
    ```
 
-1. To verify completion, list the entitlements and confirm the deleted VMs are no longer present.
+1. To verify completion, list the entitlement.
 
    ```
    aws evs list-vm-entitlements \

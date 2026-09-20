@@ -15,8 +15,20 @@ Use credentials with the minimum permissions required for the appliance type. Fo
 
 Before you create a connector, store the appliance credentials in AWS Secrets Manager and tag the secret so that Amazon EVS can access it. Each connector maps to a single appliance FQDN, so create a separate secret for each appliance.
 
-1. In AWS Secrets Manager, create a secret that contains the keys for your connector type:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/evs/latest/userguide/evs-env-create-connector.html)
+1. In AWS Secrets Manager, create a secret that contains the keys for your connector type:
+
+
+<table>
+<thead>
+  <tr><th>Connector type</th><th>VCF version</th><th>Required secret keys</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>VCENTER</code> </td><td>5.2.x, 9.0.x, 9.1.x</td><td> <code>username</code> and <code>password</code> </td><td>Monitors VM lifecycle events for entitled VMs.</td></tr>
+  <tr><td> <code>OPERATIONS_MANAGER</code> </td><td>9.0.x, 9.1.x</td><td> <code>username</code> and <code>password</code> </td><td>VCF 9.0.x and 9.1.x appliance that Amazon EVS uses to connect to and stay in sync with your VMware deployment. Replaces the license-management functions of SDDC Manager.</td></tr>
+  <tr><td> <code>SDDC_MANAGER</code> </td><td>5.2.x</td><td> <code>apiKey</code> </td><td>VCF 5.2.x appliance that Amazon EVS uses to validate host counts and license-key coverage.</td></tr>
+</tbody>
+</table>
+
 
    The values must be the login credentials for the dedicated user you created for the appliance specified in the connector.
 

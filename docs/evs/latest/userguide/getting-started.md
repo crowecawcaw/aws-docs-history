@@ -1048,8 +1048,21 @@ Ensure both the Tier-0 and Tier-1 gateways have **Non-preemptive** failover. Non
 
 1. Under **BGP Neighbors**, configure peering between the Edge nodes and the VPC Route Server endpoints. We recommend a **full mesh**: each of the two Edge nodes peers with **both** Route Server endpoints, for four BGP sessions in total. A full mesh keeps routes propagating if a Route Server endpoint goes into maintenance. At minimum, configure two sessions, with each Edge node peering with one endpoint.
 
-   For a full mesh, add four neighbors. Set the **Remote AS** of every neighbor to the VPC Route Server ASN (for example, `65022`) and the **Address family** to IPv4 Unicast.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/evs/latest/userguide/getting-started.html)
+   For a full mesh, add four neighbors. Set the **Remote AS** of every neighbor to the VPC Route Server ASN (for example, `65022`) and the **Address family** to IPv4 Unicast.
+
+
+<table>
+<thead>
+  <tr><th>Neighbor</th><th>Neighbor address</th><th>Source interface</th></tr>
+</thead>
+<tbody>
+  <tr><td>Edge 1 → endpoint 1</td><td> <code>&lt;route-server-endpoint-1-ip&gt;</code> </td><td>Uplink interface on Edge node 1</td></tr>
+  <tr><td>Edge 1 → endpoint 2</td><td> <code>&lt;route-server-endpoint-2-ip&gt;</code> </td><td>Uplink interface on Edge node 1</td></tr>
+  <tr><td>Edge 2 → endpoint 1</td><td> <code>&lt;route-server-endpoint-1-ip&gt;</code> </td><td>Uplink interface on Edge node 2</td></tr>
+  <tr><td>Edge 2 → endpoint 2</td><td> <code>&lt;route-server-endpoint-2-ip&gt;</code> </td><td>Uplink interface on Edge node 2</td></tr>
+</tbody>
+</table>
+
 **Note**  
 The Edge uplink interfaces and the Route Server endpoints are in different subnets, so these are multihop BGP sessions. Set the BGP multihop limit to at least 2, and ensure the Tier-0 gateway can reach each Route Server endpoint IP address (for example, with a static route to the endpoint by way of the uplink gateway).
 

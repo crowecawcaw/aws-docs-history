@@ -120,9 +120,7 @@ After you have created an entitlement, and powered on a VM, Amazon EVS starts mo
 **Warning**  
 Supported guest operating systems are Windows Server 2016 and later.
 
-For instructions, see [Create an Amazon EVS environment connector](evs-env-create-connector.md) and [Create an Amazon EVS entitlement](evs-env-create-entitlement.md).
-
-After creating entitlements, you can configure each Windows Server VM to activate through a VPC Endpoint. For instructions, see [Configure Windows Server Activation](evs-activate-windows-server.md).
+For instructions, see [Windows Server entitlements](entitlements.md).
 
 ## VMware Hybrid Cloud Extension (HCX)
 <a name="concepts-hcx"></a>
