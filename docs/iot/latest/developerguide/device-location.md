@@ -27,7 +27,7 @@ The measurement data collected from various sources is resolved, and the geoloca
 AWS IoT Core Device Location partners with third-party vendors to resolve the measurement data and to provide an estimated device location. The following table shows the measurement types and the third-party location solvers, and information about supported devices. For information about LoRaWAN devices and configuring device location for them, see [Configuring position of LoRaWAN resources](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/lorawan-configure-location.html).
 
 **Note**  
-General IoT devices and Sidewalk devices can use the device location MQTT topics to obtain the location information. For Wi-Fi, Cellular, and IP address measurement types, if the devices publish the measurement data to the [reserved topics](device-location-reserved-topics.md) in the defined GeoJSON format, AWS IoT Core Device Location can resolve the location of the device. For GNSS measurement type, the device must have the LR11xx chip to scan the measurement data for obtaining the resolved location information using the GNSS solver. For information about obtaining location information for LoRaWAN devices, see [Configuring position for LoRaWAN resources](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/lorawan-configure-location.html) in the *AWS IoT Wireless documentation*.
+General IoT devices and Sidewalk devices can use the device location MQTT topics to obtain the location information. For Wi-Fi, Cellular, and IP address measurement types, if the devices publish the measurement data to the [reserved topics](device-location-reserved-topics.md) in the defined GeoJSON format, AWS IoT Core Device Location can resolve the location of the device. For GNSS and multi-frame GNSS measurement types, the device must have the LR11xx chip to scan the measurement data for obtaining the resolved location information using the GNSS or multi-frame GNSS solver. For information about obtaining location information for LoRaWAN devices, see [Configuring position for LoRaWAN resources](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/lorawan-configure-location.html) in the *AWS IoT Wireless documentation*.
 
 
 **Measurement types and solvers**  
@@ -38,7 +38,11 @@ General IoT devices and Sidewalk devices can use the device location MQTT topics
 | Cellular radio towers: GSM, LTE, CDMA, SCDMA, WCMDA, and TD-SCDMA data | Cellular based solver  | General IoT devices, LoRaWAN, and Amazon Sidewalk devices | 
 | IP address | IP reverse lookup solver | Any IoT device that connects over TCP/IP | 
 | GNSS scan data (NAV messages) | GNSS solver | General IoT devices, LoRaWAN, and Amazon Sidewalk devices | 
+| Multi-frame GNSS scan data (multiple NAV messages from the same device) | Multi-frame GNSS solver | General IoT devices | 
 | Bluetooth Low Energy (BLE) | BLE based solver | Amazon Sidewalk devices | 
+
+**Note**  
+The GNSS and multi-frame GNSS measurement types are mutually exclusive. A single request can use the `Gnss` measurement type to resolve the location from a single NAV message capture, or the `GnssMultiFrame` measurement type to resolve the location from multiple NAV message captures from the same device, but it can't contain both in the same request.
 
 For more information about the location solvers and examples that show the device payload for the various measurement types, see [Location solvers and device payload](device-location-solvers-payload.md).
 
@@ -62,7 +66,7 @@ The following steps show how AWS IoT Core Device Location works.
 
 **Process measurement data**
 
-   The measurement data is processed, and AWS IoT Core Device Location chooses the measurement data to be used, which can be Wi-Fi, cellular, GNSS scan, or IP address information.
+   The measurement data is processed, and AWS IoT Core Device Location chooses the measurement data to be used, which can be Wi-Fi, cellular, GNSS scan, multi-frame GNSS scan, or IP address information.
 
 1. 
 

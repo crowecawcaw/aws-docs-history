@@ -81,9 +81,23 @@ Do not use personally identifiable information in your thing name. The thing nam
 
    1. Download each of the certificate and key files and save them for later. You'll need to install these files on your device.
 
-      When you save your certificate files, give them the names in the following table. These are the file names used in later examples.  
-**Certificate file names**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/create-iot-resources.html)
+      When you save your certificate files, give them the names in the following table. These are the file names used in later examples.
+
+
+**Certificate file names**  
+
+<table>
+<thead>
+  <tr><th>File</th><th>File path</th></tr>
+</thead>
+<tbody>
+  <tr><td>Private key</td><td><code>private.pem.key</code></td></tr>
+  <tr><td>Public key</td><td><i>(not used in these examples)</i></td></tr>
+  <tr><td>Device certificate</td><td><code>device.pem.crt</code></td></tr>
+  <tr><td>Root CA certificate</td><td><code>Amazon-root-CA-1.pem</code></td></tr>
+</tbody>
+</table>
+
 
    1. To download the root CA file for these files, choose the **Download** link of the root CA certificate file that corresponds to the type of data endpoint and cipher suite you're using. In this tutorial, choose **Download** to the right of **RSA 2048 bit key: Amazon Root CA 1** and download the **RSA 2048 bit key: Amazon Root CA 1** certificate file.
 **Important**  

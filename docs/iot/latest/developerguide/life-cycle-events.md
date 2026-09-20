@@ -37,8 +37,30 @@ The name of your IoT thing. `thingName` will only be included if the client is c
 True if the client initiated the disconnect. Otherwise, false. Found in disconnect messages only.
 
 **disconnectReason**  
-The reason why the client is disconnecting. Found in disconnect messages only. The following table contains valid values and whether the broker will send [Last Will and Testament (LWT) messages](mqtt.md#mqtt-lwt) when the disconnection occurs.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/life-cycle-events.html)
+The reason why the client is disconnecting. Found in disconnect messages only. The following table contains valid values and whether the broker will send [Last Will and Testament (LWT) messages](mqtt.md#mqtt-lwt) when the disconnection occurs.  
+
+
+<table>
+<thead>
+  <tr><th>Disconnect reason</th><th>Description</th><th>The broker will send the LWT messages</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AUTH_ERROR</code></td><td>The client failed to authenticate or authorization failed.</td><td>Yes1</td></tr>
+  <tr><td><code>CLIENT_INITIATED_DISCONNECT</code></td><td>The client indicates that it will disconnect. The client can do this by sending either a MQTT <code>DISCONNECT</code> control packet or a <code>Close frame</code> if the client is using a WebSocket connection.</td><td>No</td></tr>
+  <tr><td><code>CLIENT_ERROR</code></td><td>The client did something wrong that causes it to disconnect. For example, a client will be disconnected for sending more than 1 MQTT <code>CONNECT</code> packet on the same connection or if the client attempts to publish with a payload that exceeds the payload limit.</td><td>Yes</td></tr>
+  <tr><td><code>CONNECTION_LOST</code></td><td>The client-server connection is cut off. This can happen during a period of high network latency or when the internet connection is lost.</td><td>Yes</td></tr>
+  <tr><td><code>DUPLICATE_CLIENTID</code></td><td>The client is using a client ID that is already in use. In this case, the client that is already connected will be disconnected with this disconnect reason.</td><td>Yes</td></tr>
+  <tr><td><code>FORBIDDEN_ACCESS</code></td><td>The client is not allowed to be connected. For example, a client with a denied IP address will fail to connect.</td><td>Yes1</td></tr>
+  <tr><td><code>MQTT_KEEP_ALIVE_TIMEOUT</code></td><td>If there is no client-server communication for 1.5x of the client's keep-alive time, the client is disconnected.</td><td>Yes</td></tr>
+  <tr><td><code>SERVER_ERROR</code></td><td>Disconnected due to unexpected server issues.</td><td>Yes</td></tr>
+  <tr><td><code>SERVER_INITIATED_DISCONNECT</code></td><td>Server intentionally disconnects a client for operational reasons.</td><td>Yes</td></tr>
+  <tr><td><code>API_INITIATED_DISCONNECT</code></td><td>The client was disconnected using the <code>DeleteConnection</code> API. </td><td>Yes2</td></tr>
+  <tr><td><code>THROTTLED</code></td><td>The client is disconnected for exceeding a throttling limit.</td><td>Yes</td></tr>
+  <tr><td><code>WEBSOCKET_TTL_EXPIRATION</code></td><td>The client is disconnected because a WebSocket has been connected longer than its time-to-live value.</td><td>Yes</td></tr>
+  <tr><td><code>CUSTOMAUTH_TTL_EXPIRATION</code></td><td>The client is disconnected because it has been connected longer than the time-to-live value of its custom authorizer.</td><td>Yes</td></tr>
+</tbody>
+</table>
+
 1If the device has an active connection before receiving this error.  
 2To prevent Last Will and Testament (LWT) messages, set `preventWillMessage=true` to override the `DeleteConnection` API's default LWT sending behavior.
 

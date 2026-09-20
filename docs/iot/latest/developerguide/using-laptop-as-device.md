@@ -128,9 +128,22 @@ For more information, see the [AWS IoT Device SDK for Python GitHub repository](
   mkdir ~/certs
   ```
 
-  Into the new subdirectory, copy the files to the destination file paths shown in the following table.  
-**Certificate file names**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/using-laptop-as-device.html)
+  Into the new subdirectory, copy the files to the destination file paths shown in the following table.
+
+
+**Certificate file names**  
+
+<table>
+<thead>
+  <tr><th>File</th><th>File path</th></tr>
+</thead>
+<tbody>
+  <tr><td>Private key</td><td><code>~/certs/private.pem.key</code></td></tr>
+  <tr><td>Device certificate</td><td><code>~/certs/device.pem.crt</code></td></tr>
+  <tr><td>Root CA certificate</td><td><code>~/certs/Amazon-root-CA-1.pem</code></td></tr>
+</tbody>
+</table>
+
 
   Run this command to list the files in the `certs` directory and compare them to those listed in the table.
 
@@ -147,9 +160,22 @@ For more information, see the [AWS IoT Device SDK for Python GitHub repository](
   mkdir %USERPROFILE%\certs
   ```
 
-  Into the new subdirectory, copy the files to the destination file paths shown in the following table.  
-**Certificate file names**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/using-laptop-as-device.html)
+  Into the new subdirectory, copy the files to the destination file paths shown in the following table.
+
+
+**Certificate file names**  
+
+<table>
+<thead>
+  <tr><th>File</th><th>File path</th></tr>
+</thead>
+<tbody>
+  <tr><td>Private key</td><td><code>%USERPROFILE%\certs\private.pem.key</code></td></tr>
+  <tr><td>Device certificate</td><td><code>%USERPROFILE%\certs\device.pem.crt</code></td></tr>
+  <tr><td>Root CA certificate</td><td><code>%USERPROFILE%\certs\Amazon-root-CA-1.pem</code></td></tr>
+</tbody>
+</table>
+
 
   Run this command to list the files in the `certs` directory and compare them to those listed in the table.
 

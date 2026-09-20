@@ -261,9 +261,22 @@ The sample app requires the certificate files that authenticate the device to be
 
    How you copy the certificate files to your device depends on the device and operating system and isn't described here. However, if your device supports a graphical user interface (GUI) and has a web browser, you can perform the procedure described in [Create AWS IoT resources](create-iot-resources.md) from your device's web browser to download the resulting files directly to your device.
 
-   The commands in the next section assume that your key and certificate files are stored on the device as shown in this table.  
-**Certificate file names**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/connecting-to-existing-device.html)
+   The commands in the next section assume that your key and certificate files are stored on the device as shown in this table.
+
+
+**Certificate file names**  
+
+<table>
+<thead>
+  <tr><th>File</th><th>File path</th></tr>
+</thead>
+<tbody>
+  <tr><td>Root CA certificate</td><td><code>~/certs/Amazon-root-CA-1.pem</code></td></tr>
+  <tr><td>Device certificate</td><td><code>~/certs/device.pem.crt</code></td></tr>
+  <tr><td>Private key</td><td><code>~/certs/private.pem.key</code></td></tr>
+</tbody>
+</table>
+
 
 To run the sample app, you need the following information:
 

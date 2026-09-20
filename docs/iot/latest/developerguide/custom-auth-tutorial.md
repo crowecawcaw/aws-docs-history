@@ -477,8 +477,21 @@ Note that when invoking the authorizer from the command line, `protocolData` is 
 
       1. If there's a **Host** key that's checked, uncheck this one.
 
-      1. At the bottom of the list of headers add these new headers and confirm they are checked. Replace the **Host** value with your {{device\_data\_endpoint\_address}} and the **x-amz-customauthorizer-signature** value with the signature string that you used with the **test-invoke-authorize** command in the previous section.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/custom-auth-tutorial.html)
+      1. At the bottom of the list of headers add these new headers and confirm they are checked. Replace the **Host** value with your {{device\_data\_endpoint\_address}} and the **x-amz-customauthorizer-signature** value with the signature string that you used with the **test-invoke-authorize** command in the previous section.
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>x-amz-customauthorizer-name</b></td><td><b>my-new-authorizer</b></td></tr>
+  <tr><td><b>Host</b></td><td>{{device_data_endpoint_address}}</td></tr>
+  <tr><td><b>tokenKeyName</b></td><td><b>tokenKeyValue</b></td></tr>
+  <tr><td><b>x-amz-customauthorizer-signature</b></td><td>{{dBwykzlb+fo+JmSGdwoGr8dyC2qB/IyLefJJr+rbCvmu9Jl4KHAA9DG+V+MMWu09YSA86+64Y3Gt4tOykpZqn9mnVB1wyxp+0bDZh8hmqUAUH3fwi3fPjBvCa4cwNuLQNqBZzbCvsluv7i2IMjEg+CPY0zrWt1jr9BikgGPDxWkjaeehbQHHTo357TegKs9pP30Uf4TrxypNmFswA5k7QIc01n4bIyRTm90OyZ94R4bdJsHNig1JePgnuOBvMGCEFE09jGjjszEHfgAUAQIWXiVGQj16BU1xKpTGSiTAwheLKUjITOEXAMPLECK3aHKYKY+d1vTvdthKtYHBq8MjhzJ0kggbt29VQJCb8RilN/P5+vcVniSXWPplyB5jkYs9UvG08REoy64AtizfUhvSul/r/F3VV8ITtQp3aXiUtcspACi6ca+tsDuXf3LzCwQQF/YSUy02u5XkWn+sto6KCkpNlkD0wU8gl3+kOzxrthnQ8gEajd5Iylx230iqcXo3osjPha7JDyWM5o+KEWckTe91I1mokDr5sJ4JXixvnJTVSx1li49IalW4en1DAkc1a0s2U2UNm236EXAMPLELotyh7h+flFeloZlAWQFHxRlXsPqiVKS1ZIUClaZWprh/orDJplpiWfBgBIOgokJIDGP9gwhXIIk7zWrGmWpMK9o=}}</td></tr>
+</tbody>
+</table>
+
 
    1. In the Body tab:
 

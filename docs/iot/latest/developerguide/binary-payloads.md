@@ -57,7 +57,7 @@ When you use \* to refer to the message payload as raw binary data, you can add 
     ```
 
 The following rule actions don't support binary payloads so you must decode them.
-+ Some rule actions don't support binary payload input, such as a [Lambda action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html#lambda-rule), so you must decode binary payloads. The Lambda rule action can receive binary data, if it's base64 encoded and in a JSON payload. You can do this by changing the rule to the following.
++ Some rule actions don't support binary payload input, such as a [Lambda action](lambda-rule-action.md), so you must decode binary payloads. The Lambda rule action can receive binary data, if it's base64 encoded and in a JSON payload. You can do this by changing the rule to the following.
 
   ```
   SELECT encode(*, 'base64') AS data FROM 'my_topic'

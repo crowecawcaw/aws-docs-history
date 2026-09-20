@@ -144,12 +144,12 @@ The InfluxDB action is metered based on the outbound payload size in 5 KiB incre
 ## Per-element templates for array payloads
 <a name="influxdb-per-element-templates"></a>
 
-When your IoT devices send batched time-series data as a JSON array, you can use the **“per-element substitution templates”** to resolve values from each individual array element. This routes each data point to a different table or applies element-specific tags. For more information, see [Per-element templates](https://docs.aws.amazon.com/iot/latest/developerguide/per-element-templates.html).
+When your IoT devices send batched time-series data as a JSON array, you can use the **“per-element substitution templates”** to resolve values from each individual array element. This routes each data point to a different table or applies element-specific tags. For more information, see [Per-element substitution for array payloads in AWS IoT rules](iot-substitution-templates.md#iot-array-payload-shorthand).
 
 ### Syntax of two [substitution templates](iot-substitution-templates.md)
 <a name="influxdb-per-element-templates-syntax"></a>
 + `${expression}` – Resolves at message scope, against the incoming device message. Evaluated once for each message; the same value applies to every point in the array.
-+ `@{expression}` – Resolves at element scope, against an individual element of the payload produced by the rule's SQL SELECT statement. Re-evaluated for each array element, so each point can get a different value. For more information, see [`@{expression}` reference](https://docs.aws.amazon.com/iot/latest/developerguide/per-element-expression.html).
++ `@{expression}` – Resolves at element scope, against an individual element of the payload produced by the rule's SQL SELECT statement. Re-evaluated for each array element, so each point can get a different value. For more information, see [`@{expression}` reference](iot-substitution-templates.md#iot-array-payload-shorthand).
 
 Use `@{...}` in `tableName` and tag values to resolve the expression against each array element individually.
 

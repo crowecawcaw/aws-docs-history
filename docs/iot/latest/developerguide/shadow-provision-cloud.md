@@ -94,9 +94,22 @@ Do not use personally identifiable information in your thing name. The thing nam
 
 1. We recommend that you download each of the certificate files on the **Certificate created\!** page into a location where you can easily find them. You'll need to install these files for running the sample application.
 
-   We recommend that you download the files into a `certs` subdirectory in your `home` directory on the Raspberry Pi and name each of them with a simpler name as suggested in the following table.  
-**Certificate file names**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/shadow-provision-cloud.html)
+   We recommend that you download the files into a `certs` subdirectory in your `home` directory on the Raspberry Pi and name each of them with a simpler name as suggested in the following table.
+
+
+**Certificate file names**  
+
+<table>
+<thead>
+  <tr><th>File</th><th>File path</th></tr>
+</thead>
+<tbody>
+  <tr><td>Root CA certificate</td><td><code>~/certs/Amazon-root-CA-1.pem</code></td></tr>
+  <tr><td>Device certificate</td><td><code>~/certs/device.pem.crt</code></td></tr>
+  <tr><td>Private key</td><td><code>~/certs/private.pem.key</code></td></tr>
+</tbody>
+</table>
+
 
 1. After you activate the certificate to enable connections to AWS IoT, choose **Attach a policy** and make sure you attach the policy that you created earlier (for example, **My\_Device\_Shadow\_policy**) to the thing.
 

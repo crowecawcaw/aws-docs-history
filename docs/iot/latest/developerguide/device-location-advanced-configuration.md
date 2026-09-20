@@ -3,10 +3,10 @@
 # Advanced configuration for AWS IoT Core Device Location
 <a name="device-location-advanced-configuration"></a>
 
-You can use the `AdvancedConfiguration` parameter to customize how AWS IoT Core Device Location resolves the location of your devices. This parameter is supported when using the [GetPositionEstimate](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetPositionEstimate.html) API operation or the AWS IoT console.
+You can use the `AdvancedConfiguration` parameter to customize how AWS IoT Core Device Location resolves the location of your devices. This parameter is supported when using the [GetPositionEstimate](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetPositionEstimate.html) API operation, the AWS IoT console, or the device location MQTT topics.
 
 **Note**  
-The `AdvancedConfiguration` parameter is optional and currently supported only for the HTTP API flow. It is not supported for the MQTT or LoRaWAN device location flows.  
+The `AdvancedConfiguration` parameter is optional and currently supported for the HTTP API flow and the MQTT device location flow. It is not supported for the LoRaWAN device location flow.  
 Existing integrations that do not use this parameter are not affected and continue to work as before. When the parameter is not specified, the default confidence level of 68 percent is used, which is the default behavior prior to the introduction of this parameter.
 
 **Topics**

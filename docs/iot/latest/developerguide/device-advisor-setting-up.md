@@ -155,8 +155,22 @@ We recommend that you create an IAM user to use when you run Device Advisor test
 
 1. Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 
-   To grant users programmatic access, choose one of the following options.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-setting-up.html)
+   To grant users programmatic access, choose one of the following options.
+
+
+
+<table>
+<thead>
+  <tr><th>Which user needs programmatic access?</th><th>To</th><th>By</th></tr>
+</thead>
+<tbody>
+  <tr><td>IAM</td><td>(Recommended) Use console credentials as temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs.</td><td>Following the instructions for the interface that you want to use.<ul><li> For the AWS CLI, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sign-in.html">Login for AWS local development</a> in the <i>AWS Command Line Interface User Guide</i>. </li><li> For AWS SDKs, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/access-login.html">Login for AWS local development</a> in the <i>AWS SDKs and Tools Reference Guide</i>. </li></ul></td></tr>
+  <tr><td>Workforce identity<br />(Users managed in IAM Identity Center)</td><td>Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs.</td><td>Following the instructions for the interface that you want to use.<ul><li> For the AWS CLI, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html">Configuring the AWS CLI to use AWS IAM Identity Center</a> in the <i>AWS Command Line Interface User Guide</i>. </li><li> For AWS SDKs, tools, and AWS APIs, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/access-sso.html">IAM Identity Center authentication</a> in the <i>AWS SDKs and Tools Reference Guide</i>. </li></ul></td></tr>
+  <tr><td>IAM</td><td>Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs.</td><td>Following the instructions in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using temporary credentials with AWS resources</a> in the <i>IAM User Guide</i>.</td></tr>
+  <tr><td>IAM</td><td>(Not recommended)Use long-term credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs.</td><td>Following the instructions for the interface that you want to use.<ul><li> For the AWS CLI, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-user.html">Authenticating using IAM user credentials</a> in the <i>AWS Command Line Interface User Guide</i>. </li><li> For AWS SDKs and tools, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/access-iam-users.html">Authenticate using long-term credentials</a> in the <i>AWS SDKs and Tools Reference Guide</i>. </li><li> For AWS APIs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing access keys for IAM users</a> in the <i>IAM User Guide</i>. </li></ul></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next: Permissions**.
 

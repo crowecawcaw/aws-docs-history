@@ -12,6 +12,7 @@ To resolve the device location, specify one or more of these measurement data ty
 + [Cellular based solver](#location-solvers-cellular)
 + [IP reverse lookup solver](#location-solvers-ip)
 + [GNSS solver](#location-solvers-gnss)
++ [Multi-frame GNSS solver](#location-solvers-gnss-multiframe)
 + [BLE solver for Amazon Sidewalk enabled devices](#location-solvers-ble)
 
 ## Wi-Fi based solver
@@ -271,6 +272,9 @@ Use the GNSS (Global Navigation Satellite System) solver to retrieve the device 
 
 This solver can be used with LoRaWAN devices and Amazon Sidewalk enabled devices, as well as other devices that have been provisioned with AWS IoT devices that have been provisioned with AWS IoT. For general IoT devices, if the devices support location estimation using GNSS, when the GNSS scan information is received from the device, the transceivers resolve the location information. For LoRaWAN devices, the devices must have the LoRa Edge chipset. When an uplink message is received from the device, the GNSS scan data is sent to AWS IoT for LoRaWAN or AWS IoT for Amazon Sidewalk, and the location is estimated based on the scan results from the transceivers.
 
+**Note**  
+The `Gnss` and `GnssMultiFrame` measurement types are mutually exclusive. A single request can't contain both.
+
 ### GNSS solver payload example
 <a name="location-solvers-gnss-payload"></a>
 
@@ -289,6 +293,51 @@ Before AWS IoT Core Device Location can resolve the device location, you must re
         "CaptureTimeAccuracy": {{number}},        // optional
         "Payload": "{{string}}",                  // required
         "Use2DSolver": {{boolean}}                // optional
+   }
+}
+```
+
+## Multi-frame GNSS solver
+<a name="location-solvers-gnss-multiframe"></a>
+
+Use the multi-frame GNSS (Global Navigation Satellite System) solver to retrieve the device location using the information contained in multiple GNSS scan result messages or NAV messages that were captured by the same device. You provide the captures in the `Captures` list. You can optionally provide additional GNSS assistance information, which reduces the number of variables that the solver must use to search for signals. By providing this assistance information, which includes the position, altitude, and the capture time and accuracy information, the solver can easily identify the satellites in view and compute the device location.
+
+**Note**  
+The `Gnss` and `GnssMultiFrame` measurement types are mutually exclusive. A single request can't contain both.
+
+### Multi-frame GNSS solver payload example
+<a name="location-solvers-gnss-multiframe-payload"></a>
+
+The following code shows an example of the JSON payload from the device that contains the measurement data. When AWS IoT Core Device Location receives the multi-frame GNSS scan information containing the captures in the measurement data, it uses the transceivers and any additional assistance information included to search for signals and resolve the location information. To retrieve the information, either provide the JSON payload using this format, or specify values for the [GnssMultiFrame](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetPositionEstimate.html#iotwireless-GetPositionEstimate-request-GnssMultiFrame) parameter of the [GetPositionEstimate](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetPositionEstimate.html) API operation.
+
+**Note**  
+Before AWS IoT Core Device Location can resolve the device location, you must remove the destination byte from each capture payload.
+The number of captures provided in the `Captures` list must be one of the following values: 2, 4, 8, 16, or 32.
+When a request has `Use2DSolver` set to `true`, you must also provide `AssistAltitude`. Otherwise, the request fails with a validation error.
+
+```
+{   
+    "Timestamp": {{1664313161}},                  // optional
+    "GnssMultiFrame": { 
+        "AssistAltitude": {{number}},             // optional
+        "AssistPosition": {{[ number ]}},         // optional
+        "CaptureTimeAccuracy": {{number}},        // optional
+        "Use2DSolver": {{boolean}},               // optional
+        "Captures": [                         // required, must be 2, 4, 8, 16, or 32 captures
+            {
+                "Payload": "{{string}}",          // required
+                "CaptureTime": {{number}}         // optional
+            },
+            {
+                "Payload": "{{string}}",          // required
+                "CaptureTime": {{number}}         // optional
+            },
+                        ...
+            {
+                "Payload": "{{string}}",          // required
+                "CaptureTime": {{number}}         // optional
+            }
+        ]
    }
 }
 ```

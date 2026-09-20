@@ -17,8 +17,19 @@ The **AWS IoT Core - control plane** endpoints provide access to functions th
 + 
 
 **Endpoints**  
-The **AWS IoT Core - control plane** and **AWS IoT Core Device Advisor control plane** endpoints are Region specific and are listed in [AWS IoT Core Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html). The formats of the endpoints are as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/connect-to-iot.html)
+The **AWS IoT Core - control plane** and **AWS IoT Core Device Advisor control plane** endpoints are Region specific and are listed in [AWS IoT Core Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/iot-core.html). The formats of the endpoints are as follows.
+
+
+<table>
+<thead>
+  <tr><th>Endpoint purpose</th><th>Endpoint format</th><th>Serves</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>AWS IoT Core - control plane</b> </td><td><a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html#iot-core-control-plane-endpoints">AWS IoT Control Plane endpoints</a></td><td><a href="https://docs.aws.amazon.com/iot/latest/apireference/API_Operations_AWS_IoT.html">AWS IoT Control Plane API</a></td></tr>
+  <tr><td><b>AWS IoT Core Device Advisor - control plane</b> </td><td><code>api.iotdeviceadvisor.aws-region.amazonaws.com</code></td><td><a href="https://docs.aws.amazon.com/iot/latest/apireference/API_Operations_AWS_IoT_Core_Device_Advisor.html">AWS IoT Core Device Advisor Control Plane API</a> </td></tr>
+</tbody>
+</table>
+
   + **IPv4 endpoints** — IPv4 endpoints support only IPv4 traffic, and are available for all Regions.
 
     IPv4 endpoints use the following naming convention:
@@ -59,8 +70,21 @@ The AWS IoT device endpoints support communication between your IoT devices and 
 + 
 
 **Endpoints**  
-The device endpoints support AWS IoT Core and AWS IoT Device Management functions. They are specific to your AWS account and you can see what they are by using the **[describe-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html)** command.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/connect-to-iot.html)
+The device endpoints support AWS IoT Core and AWS IoT Device Management functions. They are specific to your AWS account and you can see what they are by using the **[describe-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html)** command.
+
+
+<table>
+<thead>
+  <tr><th>Endpoint purpose</th><th>Endpoint format</th><th>Serves</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>AWS IoT Core - data plane</b></td><td>See <a href="iot-connect-devices.md#iot-connect-device-endpoints">AWS IoT device data and service endpoints</a>.</td><td><a href="https://docs.aws.amazon.com/iot/latest/apireference/API_Operations_AWS_IoT_Data_Plane.html">AWS IoT Data Plane API</a></td></tr>
+  <tr><td><b>AWS IoT Device Management - jobs data</b></td><td>See <a href="iot-connect-devices.md#iot-connect-device-endpoints">AWS IoT device data and service endpoints</a>.</td><td><a href="https://docs.aws.amazon.com/iot/latest/apireference/API_Operations_AWS_IoT_Jobs_Data_Plane.html">AWS IoT Jobs Data Plane API</a></td></tr>
+  <tr><td><b>AWS IoT Device Advisor - data plane</b></td><td>See <a href="device-advisor-setting-up.md#da-configure-device">Configure your device</a>.</td><td>Not applicable</td></tr>
+  <tr><td><b>AWS IoT Device Management - secure tunneling</b></td><td><code>api.tunneling.iot.aws-region.amazonaws.com</code></td><td><a href="https://docs.aws.amazon.com/iot/latest/apireference/API_Operations_AWS_IoT_Secure_Tunneling.html">AWS IoT Secure Tunneling API</a></td></tr>
+</tbody>
+</table>
+
 
   If you are using dual-stack endpoints (IPv4 and IPv6) for data plane operations, use the `iot:Data-ATS` endpoint type. `iot:Jobs` can be used for IPv4 only. For more information about these endpoints and the functions that they support, see [AWS IoT device data and service endpoints](iot-connect-devices.md#iot-connect-device-endpoints).
 + 
@@ -83,8 +107,19 @@ AWS IoT Core for LoRaWAN connects wireless gateways and devices to AWS IoT Core.
 + 
 
 **Endpoints**  
-AWS IoT Core for LoRaWAN manages the gateway connections to account and Region-specific AWS IoT Core endpoints. Gateways can connect to your account's Configuration and Update Server (CUPS) endpoint that AWS IoT Core for LoRaWAN provides.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/connect-to-iot.html)
+AWS IoT Core for LoRaWAN manages the gateway connections to account and Region-specific AWS IoT Core endpoints. Gateways can connect to your account's Configuration and Update Server (CUPS) endpoint that AWS IoT Core for LoRaWAN provides.
+
+
+<table>
+<thead>
+  <tr><th>Endpoint purpose</th><th>Endpoint format</th><th>Serves</th></tr>
+</thead>
+<tbody>
+  <tr><td>Configuration and Update Server (CUPS)</td><td><code>account-specific-prefix.cups.lorawan.aws-region.amazonaws.com:443</code> </td><td>Gateway communication with the Configuration and Update Server provided by AWS IoT Core for LoRaWAN</td></tr>
+  <tr><td>LoRaWAN Network Server (LNS)</td><td><code>account-specific-prefix.gateway.lorawan.aws-region.amazonaws.com:443</code></td><td>Gateway communication with the LoRaWAN Network Server provided by AWS IoT Core for LoRaWAN</td></tr>
+</tbody>
+</table>
+
 + 
 
 **SDKs**  

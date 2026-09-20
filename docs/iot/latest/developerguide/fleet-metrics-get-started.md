@@ -61,8 +61,20 @@ To use fleet metrics, enable fleet indexing. To enable fleet indexing for your t
    done
    ```
 
-   This script creates ten things to represent ten sensors. Each thing has attributes of `temperature`, `rackId`, and `stateNormal` as described in the following table:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/fleet-metrics-get-started.html)
+   This script creates ten things to represent ten sensors. Each thing has attributes of `temperature`, `rackId`, and `stateNormal` as described in the following table:
+
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Data type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>temperature</code></td><td>Number</td><td>Temperature value in Fahrenheit</td></tr>
+  <tr><td><code>rackId</code></td><td>String</td><td>ID of the server rack that contains sensors</td></tr>
+  <tr><td><code>stateNormal</code></td><td>Boolean</td><td>Whether the sensor's temperature value is normal or not</td></tr>
+</tbody>
+</table>
+
 
    The output of this script contains ten JSON files. One of the JSON file looks like the following:
 

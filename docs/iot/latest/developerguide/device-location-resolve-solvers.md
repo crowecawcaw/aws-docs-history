@@ -150,6 +150,10 @@ The following command shows an example of how to resolve the location using this
 **Note**  
 When running the `get-position-estimate` CLI command, you must specify the output JSON file as the first input. This JSON file will store the estimated location information obtained as response from the CLI in GeoJSON format. For example, the following command stores the location information in the {{locationout.json}} file.
 
+**Note**  
+The `GnssMultiFrame` measurement type and the `AdvancedConfiguration` parameter are available only in AWS CLI version 2.  
+AWS CLI version 1 is in maintenance mode and approaching end of support, and features introduced in version 2 are not backported to version 1. To use them with the AWS CLI, migrate to [AWS CLI version 2](https://docs.aws.amazon.com/cli/latest/userguide/).
+
 ```
 aws iotwireless get-position-estimate {{locationout.json}} \
     --ip IpAddress="{{54.240.198.35}}" \ 
@@ -208,6 +212,7 @@ This error indicates that no location information was found or solved by AWS IoT
   + The MAC address or cellular tower information is not sufficient.
   + The IP address is not available to look up and retrieve the location.
   + The GNSS payload is not sufficient.
+  + The multi-frame GNSS captures are not sufficient.
 
   To resolve the error in such cases, check whether your measurement data contains sufficient information required to resolve the device location.
 + 

@@ -372,8 +372,20 @@ For this exercise, imagine that your device contains a temperature control and a
 
    You should see the same output as you saw in the [Getting started tutorial](connecting-to-existing-device.md#gs-device-node-app-run).
 
-1. For this exercise, change these command line parameters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/sdk-tutorials.html)
+1. For this exercise, change these command line parameters.
+
+
+<table>
+<thead>
+  <tr><th>Action</th><th>Command line parameter</th><th>Effect</th></tr>
+</thead>
+<tbody>
+  <tr><td>add</td><td><b>--message</b> <code>""</code></td><td>Configure <code>pubsub.py</code> to listen only </td></tr>
+  <tr><td>add</td><td><b>--count</b> <code>2</code></td><td>End the program after receiving two messages</td></tr>
+  <tr><td>change</td><td><b>--topic</b> <code>device/+/details</code></td><td>Define the topic filter to subscribe to</td></tr>
+</tbody>
+</table>
+
 
    Making these changes to the initial command line results in this command line. Enter this command in the terminal window for your device.
 
@@ -393,8 +405,19 @@ For this exercise, imagine that your device contains a temperature control and a
 
    If you see something like this on your terminal, your device is ready and listening for messages where the topic names start with `device` and end with `/detail`. So, let's test that.
 
-1. Here are a couple of messages that your device might receive.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/sdk-tutorials.html)
+1. Here are a couple of messages that your device might receive.
+
+
+<table>
+<thead>
+  <tr><th>Topic name</th><th>Message payload</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>device/temp/details</code></td><td><code>{ "desiredTemp": 20, "currentTemp": 15 }</code></td></tr>
+  <tr><td><code>device/light/details</code></td><td><code>{ "desiredLight": 100, "currentLight": 50 }</code></td></tr>
+</tbody>
+</table>
+
 
 1. Using the MQTT test client in the AWS IoT console, send the messages described in the previous step to your device.
 
@@ -467,8 +490,19 @@ Building on the previous exercise, modify the `pubsub.py` sample app to evaluate
 
 1. In the **Subscriptions** column of the MQTT test client, choose **device/\+/details**.
 
-1. For each of the topics in this table, do the following in the MQTT test client:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/sdk-tutorials.html)
+1. For each of the topics in this table, do the following in the MQTT test client:
+
+
+<table>
+<thead>
+  <tr><th>Topic name</th><th>Message payload</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>device/temp/details</code></td><td><code>{ "desiredTemp": 20, "currentTemp": 15 }</code></td></tr>
+  <tr><td><code>device/light/details</code></td><td><code>{ "desiredLight": 100, "currentLight": 50 }</code></td></tr>
+</tbody>
+</table>
+
 
    1. In **Publish**, enter the value from the **Topic name** column in the table.
 

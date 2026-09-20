@@ -105,10 +105,11 @@ The message payload format follows a similar structure as the AWS IoT Wireless A
 + An optional `Timestamp` string, which corresponds to the date and time the location was resolved. The `Timestamp` string can have a minimum length of 1 and maximum length of 10.
 + An optional `MessageId` string, which can be used to map the request to the response. If you specify this string, the message published to the `get_position_estimate/accepted` or `get_position_estimate/rejected` topics will contain this `MessageId`. The `MessageID` string can have a minimum length of 1 and maximum length of 256.
 + The measurement data from the device that contains one or more of the following measurement types:
-  + [`WiFiAccessPoint`](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_WiFiAccessPoint.html)
-  + [`CellTowers`](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_CellTowers.html)
-  + [`IpAddress`](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_Ip.html)
-  + [`Gnss`](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_Gnss.html)
+  + [WiFiAccessPoint](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_WiFiAccessPoint.html)
+  + [CellTowers](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_CellTowers.html)
+  + [IpAddress](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_Ip.html)
+  + [Gnss](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_Gnss.html)
+  + [GnssMultiFrame](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GnssMultiFrame.html)
 
 The following shows a sample message payload.
 
