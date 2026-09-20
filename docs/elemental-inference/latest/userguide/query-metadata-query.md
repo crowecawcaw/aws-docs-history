@@ -243,6 +243,7 @@ The response contains contextual classification results. The following example s
         "contextualMetadata": {
           "type": "SHOT",
           "startPts": 1800,
+          "domain": "Sports",
           "iabTaxonomy": {
             "version": "V3_1",
             "categories": [
@@ -271,6 +272,7 @@ The response contains contextual classification results. The following example s
         "contextualMetadata": {
           "type": "SCENE",
           "startPts": 1710,
+          "domain": "Sports",
           "iabTaxonomy": {
             "version": "V3_1",
             "categories": [
@@ -310,6 +312,7 @@ Contextual metadata provides content classifications that you can use for contex
 + **contextualMetadata** – The top-level object containing classification results.
   + `type` – The granularity of the classification. `SHOT` for a single continuous camera take, or `SCENE` for a group of related consecutive shots. Elemental Inference returns both shot-level and scene-level items for a time range, so a shot item and the scene item that contains it can both appear in the response.
   + `startPts` – The presentation timestamp at which the shot or scene begins. For a scene, this value can be earlier than the `pts` of the item and earlier than the start of the requested time range.
+  + `domain` – The high-level content category of the video, such as `Sports`, `News`, or `Entertainment`.
   + **iabTaxonomy** – IAB Content Taxonomy classifications. This field is omitted when Elemental Inference does not match any category.
     + `version` – The taxonomy version used (currently `V3_1`).
     + `categories` – An array of matched content categories. Each category includes:
