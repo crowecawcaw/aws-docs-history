@@ -4414,11 +4414,39 @@ This release improves how Amazon IVS processes *vertical input*; e.g., content b
 
 There are three changes:
 
-1. (Affects `Standard` channels only) Vertical input is scaled based on the contentâ€™s width, resulting in less downscaling and visually higher quality output. For example, here is how this change impacts 720x1280 input:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html)
+1. (Affects `Standard` channels only) Vertical input is scaled based on the contentâ€™s width, resulting in less downscaling and visually higher quality output. For example, here is how this change impacts 720x1280 input:
 
-1. (Affects `Standard` channels only) The only renditions that are generated are those with width less than or equal to your input width. For example, if your input is 720x1280, you get 720p, 480p, 360p, and 160p renditions. If your input width is between renditions, you get all renditions with lower widths than your input. For example, here is how this change impacts 540x960 input:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html)
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Old Width x Height</th><th>New Width x Height</th></tr>
+</thead>
+<tbody>
+  <tr><td>1280p</td><td>720 x 1280</td><td>â€”</td></tr>
+  <tr><td>720p</td><td>404 x 720</td><td>720 x 1280</td></tr>
+  <tr><td>480p</td><td>268 x 480</td><td>480 x 852</td></tr>
+  <tr><td>360p</td><td>200 x 360</td><td>360 x 640</td></tr>
+  <tr><td>160p</td><td>88 x 160</td><td>160 x 284</td></tr>
+</tbody>
+</table>
+
+
+1. (Affects `Standard` channels only) The only renditions that are generated are those with width less than or equal to your input width. For example, if your input is 720x1280, you get 720p, 480p, 360p, and 160p renditions. If your input width is between renditions, you get all renditions with lower widths than your input. For example, here is how this change impacts 540x960 input:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Old Width x Height</th><th>New Width x Height</th></tr>
+</thead>
+<tbody>
+  <tr><td>960p</td><td>540 x 960</td><td>â€”</td></tr>
+  <tr><td>720p</td><td>404 x 720</td><td>â€”</td></tr>
+  <tr><td>480p</td><td>268 x 480</td><td>480 x 852</td></tr>
+  <tr><td>360p</td><td>200 x 360</td><td>360 x 640</td></tr>
+  <tr><td>160p</td><td>88 x 160</td><td>160 x 284</td></tr>
+</tbody>
+</table>
+
 
 1. (Affects `Standard` and `Basic` channels) Renditions for vertical input use a more conventional naming scheme based on width instead of height. For example, 360x640 input to a `Basic` channel has one output rendition named 360p.
 

@@ -342,5 +342,17 @@ Use the following information to help diagnose and fix common issues that you mi
   To get started, see [Creating Your First IAM Delegated User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*.
 + **I want to allow people outside my AWS account to access my Amazon IVS resources.**
 
-  You can create a role that users in other accounts or people outside your organization can use to access your resources. You can specify who is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant people access to your resources. For related information, see these sections of the *IAM User Guide*:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/security-iam.html)
+  You can create a role that users in other accounts or people outside your organization can use to access your resources. You can specify who is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant people access to your resources. For related information, see these sections of the *IAM User Guide*:
+
+
+<table>
+<thead>
+  <tr><th>To learn ...</th><th>See ...</th></tr>
+</thead>
+<tbody>
+  <tr><td>How to provide access to your resources across AWS accounts that you own</td><td><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html">Providing Access to an IAM User in Another AWS Account That You Own</a></td></tr>
+  <tr><td>How to provide access to your resources to third-party AWS accounts</td><td><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html">Providing Access to AWS Accounts Owned by Third Parties</a></td></tr>
+  <tr><td>How to provide access through <i>identity federation</i></td><td><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.html">Providing Access to Externally Authenticated Users (Identity Federation)</a></td></tr>
+  <tr><td>The difference between using roles and resource-based policies for cross-account access</td><td><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html">Cross Account Resource Access in IAM</a></td></tr>
+</tbody>
+</table>
