@@ -84,8 +84,18 @@ You create your file system in the Amazon FSx console. Note that all FSx for Lus
    + For **Virtual Private Cloud (VPC)**, choose the VPC that you want to associate with your file system. For this getting started exercise, choose the same VPC that you chose for your Amazon EC2 instance.
    + For **VPC security groups**, the ID for the default security group for your VPC should be already added.
 
-     If you're not using the default security group, make sure that the following inbound rule is added to the security group you're using for this getting started exercise.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/LustreGuide/getting-started.html)
+     If you're not using the default security group, make sure that the following inbound rule is added to the security group you're using for this getting started exercise.
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Source</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>0-65535</td><td> Custom {{<code>the_ID_of_this_security_group</code>}} </td><td>Inbound Lustre traffic rule</td></tr>
+</tbody>
+</table>
+
 **Important**  
 Make sure that the security group you are using follows the configuration instructions provided in [File system access control with Amazon VPC](limit-access-security-groups.md). You must set up the security group to allow inbound traffic on ports 988 and 1018-1023 from the security group itself or the full subnet CIDR, which is required to allow the file system hosts to communicate with each other.
 If you are creating an EFA-enabled file system, make sure you specify an [EFA-enabled security group](limit-access-security-groups.md#efa-security-groups).

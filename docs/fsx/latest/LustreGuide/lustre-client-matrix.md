@@ -38,7 +38,8 @@ We highly recommend using the Lustre version for your FSx for Lustre file system
 </thead>
 <tbody>
   <tr><td></td><td></td><td></td><td></td><td></td><td><b>2.10</b></td><td><b>2.12</b></td><td><b>2.15</b></td><td></td></tr>
-  <tr><td>Ubuntu</td><td>24</td><td>6.17.0-1007</td><td>6.17.0*</td><td>2.15</td><td>no</td><td>yes</td><td>yes</td><td></td></tr>
+  <tr><td>Ubuntu</td><td>24</td><td>7.0.0-1012</td><td>7.0.0*</td><td>2.15</td><td>no</td><td>yes</td><td>yes</td><td></td></tr>
+  <tr><td></td><td></td><td>6.17.0-1007</td><td>6.17.0-1020</td><td>2.15</td><td>no</td><td>yes</td><td>yes</td><td></td></tr>
   <tr><td></td><td></td><td>6.14.0-1012</td><td>6.14.0-1018</td><td>2.15</td><td>no</td><td>yes</td><td>yes</td><td></td></tr>
   <tr><td></td><td></td><td>6.8.0-1024</td><td>6.8.0-1033</td><td>2.15</td><td>no</td><td>yes</td><td>yes</td><td></td></tr>
   <tr><td></td><td>22</td><td>6.8.0-1017</td><td>6.8.0*</td><td>2.15</td><td>no</td><td>yes</td><td>yes</td><td></td></tr>

@@ -38,7 +38,7 @@ The following are prerequisites for using EFA-enabled file systems:
 + Install the EFA modules and configure EFA interfaces on your client instances. For more information, see [Configuring EFA clients](configure-efa-clients.md).
 
 **To access your file system using GPUDirect Storage (GDS):**
-+ Use an Amazon EC2 P5, P5e, P5en, or P6-B200 client instance.
++ Use an Amazon EC2 P5, P5e, P5en, P6-B200, or P6-B300 client instance.
 + Install the NVIDIA Compute Unified Device Architecture (CUDA) package, the open source NVIDIA driver, and the NVIDIA GPUDirect Storage Driver on your client instance. For more information, see [Install the GDS driver (optional)](configure-efa-clients.md#install-gds-driver).
 
 **To access your file system using ENA Express:**

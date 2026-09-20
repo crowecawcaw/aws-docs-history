@@ -63,7 +63,7 @@ If you are using a [Deep Learning AMI](https://docs.aws.amazon.com/dlami/latest/
 This step is only required if you plan to use NVIDIA GPUDirect Storage (GDS) with FSx for Lustre.
 
 Requirements:
-+ Amazon EC2 P5, P5e, P5en, or P6-B200 instance
++ Amazon EC2 P5, P5e, P5en, P6-B200, or P6-B300 instance
 + NVIDIA GDS driver version 2.24.2 or higher
 
 **To install the NVIDIA GPUDirect Storage driver on your client instance**
@@ -159,8 +159,7 @@ The `configure-efa-fsx-lustre-client.sh` script automatically configures EFA int
 | p5en.48xlarge | 8 | 
 | p5e.48xlarge | 8 | 
 | p5.48xlarge | 8 | 
-| Other instances with multiple network cards | 2 | 
-| Other instances with a single network card | 1 | 
+| Other instances | All available EFA interfaces | 
 
 Each configured EFA interface on a client instance counts as one connection against the 1024 EFA connection limit when connected to an FSx for Lustre file system.
 

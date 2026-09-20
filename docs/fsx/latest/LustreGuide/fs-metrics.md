@@ -76,6 +76,8 @@ The `AWS/FSx` namespace includes the following metadata metrics. The `CPUUtiliza
 | FileCreateOperations | Total number of file create operations.<br />Unit: Count | 
 | FileOpenOperations | Total number of file open operations.<br />Unit: Count | 
 | FileDeleteOperations | Total number of file delete operations.<br />Unit: Count | 
+| DirectoryCreateOperations | Total number of directory create operations.<br />Unit: Count | 
+| DirectoryDeleteOperations | Total number of directory delete operations.<br />Unit: Count | 
 | StatOperations | Total number of stat operations.<br />Unit: Count | 
 | RenameOperations | Total number of directory renames, whether in-place directory renames or cross directory renames.<br />Unit: Count | 
 

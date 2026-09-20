@@ -75,8 +75,21 @@ Next, you add inbound rules to the security group that you just created to enabl
 
 1. Select the security group you just created if it's not already selected. For **Actions**, choose **Edit inbound rules**.
 
-1. Add the following inbound rules.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html)
+1. Add the following inbound rules.
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port Range</th><th>Source</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP rule</td><td>TCP</td><td>988</td><td>Choose <b>Custom</b> and enter the security group ID of the security group that you just created</td><td>Allows Lustre traffic between FSx for Lustre file servers</td></tr>
+  <tr><td>Custom TCP rule</td><td>TCP</td><td>988</td><td>Choose <b>Custom</b> and enter the security group IDs of the security groups associated with your Lustre clients</td><td>Allows Lustre traffic between FSx for Lustre file servers and Lustre clients</td></tr>
+  <tr><td>Custom TCP rule</td><td>TCP</td><td>1018-1023</td><td>Choose <b>Custom</b> and enter the security group ID of the security group that you just created</td><td>Allows Lustre traffic between FSx for Lustre file servers</td></tr>
+  <tr><td>Custom TCP rule</td><td>TCP</td><td>1018-1023</td><td>Choose <b>Custom</b> and enter the security group IDs of the security groups associated with your Lustre clients</td><td>Allows Lustre traffic between FSx for Lustre file servers and Lustre clients</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save** to save and apply the new inbound rules.
 
@@ -86,8 +99,21 @@ By default, security group rules allow all outbound traffic (All, 0.0.0.0/0). If
 
 1.  Choose the same security group to which you just added the inbound rules. For **Actions**, choose **Edit outbound rules**. 
 
-1. Add the following outbound rules.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html)
+1. Add the following outbound rules.
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port Range</th><th>Source</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP rule</td><td>TCP</td><td>988</td><td>Choose <b>Custom</b> and enter the security group ID of the security group that you just created</td><td>Allow Lustre traffic between FSx for Lustre file servers</td></tr>
+  <tr><td>Custom TCP rule</td><td>TCP</td><td>988</td><td>Choose <b>Custom</b> and enter the security group IDs of the security group associated with your Lustre clients</td><td>Allow Lustre traffic between FSx for Lustre file servers and Lustre clients</td></tr>
+  <tr><td>Custom TCP rule</td><td>TCP</td><td>1018-1023</td><td>Choose <b>Custom</b> and enter the security group ID of the security group that you just created</td><td>Allows Lustre traffic between FSx for Lustre file servers</td></tr>
+  <tr><td>Custom TCP rule</td><td>TCP</td><td>1018-1023</td><td>Choose <b>Custom</b> and enter the security group IDs of the security groups associated with your Lustre clients</td><td>Allows Lustre traffic between FSx for Lustre file servers and Lustre clients</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save** to save and apply the new outbound rules.
 

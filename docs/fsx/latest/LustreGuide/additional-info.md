@@ -62,8 +62,24 @@ Implementing this solution incurs billing for the associated AWS services. For m
 **Note**  
 By default, this template launches in the US East (N. Virginia) AWS Region. Amazon FSx for Lustre is currently only available in specific AWS Regions. You must launch this solution in an AWS Region where Amazon FSx for Lustre is available. For more information, see the Amazon FSx section of [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the *AWS General Reference*.
 
-1. For **Parameters**, review the parameters for the template and modify them for the needs of your file system. This solution uses the following default values.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/LustreGuide/additional-info.html)
+1. For **Parameters**, review the parameters for the template and modify them for the needs of your file system. This solution uses the following default values.
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon FSx for Lustre file system ID</td><td>No default value</td><td>The file system ID for the file system that you want to back up.</td></tr>
+  <tr><td>CRON schedule pattern for backups.</td><td>0 0/4 * * ? *</td><td>The schedule to run the CloudWatch event, triggering a new backup and deleting old backups outside of the retention period.</td></tr>
+  <tr><td>Backup retention (days)</td><td>7</td><td>The number of days to keep user-initiated backups. The Lambda function deletes user-initiated backups older than this number of days.</td></tr>
+  <tr><td>Name for backups</td><td>user-scheduled backup</td><td>The name for these backups, which appears in the <b>Backup Name</b> column of the Amazon FSx for Lustre Management Console.</td></tr>
+  <tr><td>Backup notifications</td><td>Yes</td><td>Choose whether to be notified when backups are successfully initiated. A notification is always sent if there's an error.</td></tr>
+  <tr><td>Email address</td><td>No default value</td><td>The email address to subscribe to the SNS notifications.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 
