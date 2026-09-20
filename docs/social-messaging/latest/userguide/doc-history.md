@@ -7,6 +7,7 @@ The following table describes the documentation releases for AWS End User Messag
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [WhatsApp calling support](#doc-history) | AWS End User Messaging Social now supports WhatsApp voice calling, letting your business place and receive voice calls with WhatsApp users in the conversation. For more information, see [WhatsApp calling](https://docs.aws.amazon.com/social-messaging/latest/userguide/whatsapp-calling.html). | September 17, 2026 | 
 | [Dynamic Flows support](#doc-history) | AWS End User Messaging Social now supports Dynamic WhatsApp Flows that exchange data with your endpoint at runtime, along with business public key management for end-to-end encryption. For more information, see [Setting up Dynamic Flows](https://docs.aws.amazon.com/social-messaging/latest/userguide/managing-flows-dynamic.html). | September 3, 2026 | 
 | [Conversions API support](#doc-history) | AWS End User Messaging Social now supports sending conversion events for "Ads that Click to WhatsApp" campaigns to Meta for ad attribution and optimization. For more information, see [Sending WhatsApp conversion events](https://docs.aws.amazon.com/social-messaging/latest/userguide/conversions-api.html). | August 7, 2026 | 
 | [WhatsApp Flows support](#doc-history) | AWS End User Messaging Social now supports creating and managing WhatsApp Flows for interactive, multi-screen experiences. For more information, see [Managing WhatsApp Flows](https://docs.aws.amazon.com/social-messaging/latest/userguide/managing-flows.html). | June 8, 2026 | 
