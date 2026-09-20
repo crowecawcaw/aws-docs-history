@@ -28,7 +28,7 @@ If you already have an AWS account, skip to the next task. If you don't have an 
 
 **To create an AWS account**
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup).
+1. Open [https://signin.aws.amazon.com/signup?request\_type=register](https://signin.aws.amazon.com/signup?request_type=register).
 
 1. Follow the online instructions.
 

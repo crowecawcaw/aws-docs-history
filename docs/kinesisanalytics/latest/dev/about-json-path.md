@@ -218,8 +218,18 @@ Additional considerations for working with JSONPath are as follows:
   $.orders[0:].itemId
   ```
 
-  The preceding expression returns the following from the preceding JSON example record.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/about-json-path.html)
+  The preceding expression returns the following from the preceding JSON example record.
+
+
+
+<table>
+<tbody>
+  <tr><td>null</td></tr>
+  <tr><td>null</td></tr>
+  <tr><td>null</td></tr>
+</tbody>
+</table>
+
 
 ## Related Topics
 <a name="about-json-path.Related"></a>
