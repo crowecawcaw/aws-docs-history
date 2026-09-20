@@ -12,6 +12,42 @@ Download the Workload onboarding questionnaire:
 + [English version](https://d3oc37omrta8ht.cloudfront.net/AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx)
 + [Japanese version](https://d3oc37omrta8ht.cloudfront.net/JP_AWS-Incident-Detection-and-Response-Workload-Onboarding-Questionnaire.xlsx)
 
+To start onboarding a workload to AWS Incident Detection and Response, follow these steps to create a new onboarding support case:
+
+**Important**  
+To onboard a workload in a single account, create the support case from that account or the payer account.
+For a workload that spans multiple accounts, create the support case from the payer account and list all the account IDs.
+You can onboard workloads only from accounts enrolled in AWS Enterprise Support or AWS Unified Operations.
+If you create the support case from the incorrect account, you might experience delays and requests for additional information before AWS Incident Detection and Response can onboard your workload.
+
+**Create an onboarding support case**
+
+1. Go to the [AWS Support Center](https://console.aws.amazon.com/support/home#/), and then select **Create case**.
+
+1. Complete the support case form:
+   + Select **Technical support**.
+   + For **Service**, choose **Incident Detection and Response**.
+   + For **Category**, choose **Onboard New Workload**.
+   + For **Severity**, choose **General guidance**.
+
+1. Enter a **Subject**. For example:
+
+   [Onboard] AWS Incident Detection and Response - {{workload\_name}}
+
+1. Enter a **Description** for the support case and include the following information:
+   + **Workload name:** Your workload name.
+   + **Account ID(s):** The account ID to onboard. If you onboard a workload with resources in multiple AWS accounts, list all account IDs.
+
+1. In the **Additional contacts - optional** section, enter any email addresses that you want to receive correspondence about this request.
+
+1. Choose **Submit**.
+
+After you submit the onboarding support case, you can add more email contacts. Reply to the case and include them in the **Additional contacts - optional** section.
+
+After you submit the Workload onboarding questionnaire, the AWS Incident Detection and Response team reviews the information you provided and follows up through the onboarding support case if any questions arise or you need to provide more details.
+
+Refer to the following guidance for help completing the Workload onboarding questionnaire.
+
 ## Workload details - General questions
 <a name="idr-gs-questions-general"></a>
 
