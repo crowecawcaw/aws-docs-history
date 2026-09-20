@@ -22,8 +22,26 @@
 
 ### Implementation steps
 <a name="implementation-steps"></a>
-+  Identify the key performance metrics such as latency or packet loss to collect. AWS provides several tools that can help you to collect these metrics. By using the following tools, you can further inspect information about the traffic usage, network access, and logs:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_networking_optimize_network_configuration_based_on_metrics.html)
++  Identify the key performance metrics such as latency or packet loss to collect. AWS provides several tools that can help you to collect these metrics. By using the following tools, you can further inspect information about the traffic usage, network access, and logs: 
+
+
+<table>
+<thead>
+  <tr><th> AWS tool </th><th> Where to use </th></tr>
+</thead>
+<tbody>
+  <tr><td> <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-it-is-ipam.html">Amazon VPC IP Address Manager</a>. </td><td> Use IPAM to plan, track, and monitor IP addresses for your AWS and on-premises workloads. This is a best practice to optimize IP address usage and allocation. </td></tr>
+  <tr><td> <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow logs</a> </td><td> Use VPC Flow Logs to capture detailed information about traffic to and from network interfaces in your VPCs. With VPC Flow Logs, you can diagnose overly restrictive or permissive security group rules and determine the direction of the traffic to and from the network interfaces. </td></tr>
+  <tr><td> <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html">AWS Transit Gateway Flow Logs</a> </td><td> Use AWS Transit Gateway Flow Logs to capture information about the IP traffic going to and from your transit gateways. </td></tr>
+  <tr><td> <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">DNS query logging</a> </td><td> Log information about public or private DNS queries Route 53 receives. With DNS logs, you can optimize DNS configurations by understanding the domain or subdomain that was requested or Route 53 EDGE locations that responded to DNS queries. </td></tr>
+  <tr><td> <a href="https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html">Reachability Analyzer</a> </td><td> Reachability Analyzer helps you analyze and debug network reachability. Reachability Analyzer is a configuration analysis tool that allows you to perform connectivity testing between a source resource and a destination resource in your VPCs. This tool helps you verify that your network configuration matches your intended connectivity. </td></tr>
+  <tr><td> <a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/what-is-network-access-analyzer.html">Network Access Analyzer</a> </td><td> Network Access Analyzer helps you understand network access to your resources. You can use Network Access Analyzer to specify your network access requirements and identify potential network paths that do not meet your specified requirements. By optimizing your corresponding network configuration, you can understand and verify the state of your network and demonstrate if your network on AWS meets your compliance requirements. </td></tr>
+  <tr><td> <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch</a> </td><td> Use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch</a> and turn on the appropriate metrics for network options. Make sure to choose the right network metric for your workload. For example, you can turn on metrics for VPC Network Address Usage, VPC NAT Gateway, AWS Transit Gateway, VPN tunnel, AWS Network Firewall, Elastic Load Balancing, and AWS Direct Connect. Continually monitoring metrics is a good practice to observe and understand your network status and usage, which helps you optimize network configuration based on your observations. </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/about-aws/whats-new/2022/11/network-manager-real-time-performance-monitoring-aws-global-network/">AWS Network Manager</a> </td><td> Using AWS Network Manager, you can monitor the real-time and historical performance of the <a href="https://aws.amazon.com/about-aws/global-infrastructure/global_network/">AWS Global Network</a> for operational and planning purposes. Network Manager provides aggregate network latency between AWS Regions and Availability Zones and within each Availability Zone, allowing you to better understand how your application performance relates to the performance of the underlying AWS network. </td></tr>
+  <tr><td><a href="https://aws.amazon.com/blogs/aws/cloudwatch-rum/"> Amazon CloudWatch RUM </a></td><td> Use Amazon CloudWatch RUM to collect the metrics that give you the insights that help you identify, understand, and improve user experience. </td></tr>
+</tbody>
+</table>
+
 +  Identify top talkers and application traffic patterns using VPC and AWS Transit Gateway Flow Logs. 
 +  Assess and optimize your current network architecture including VPCs, subnets, and routing. As an example, you can evaluate how different VPC peering or AWS Transit Gateway can help you improve the networking in your architecture. 
 +  Assess the routing paths in your network to verify that the shortest path between destinations is always used. Network Access Analyzer can help you do this. 

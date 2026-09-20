@@ -24,8 +24,21 @@
 ### Implementation steps
 <a name="implementation-steps"></a>
 +  Understand the current configurations (like instance type, storage size, or database engine version) of your data store. 
-+  Review AWS documentation and best practices to learn about recommended configuration options that can help improve the performance of your data store. Key data store options to consider are the following:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_data_evaluate_configuration_options_data_store.html)
++  Review AWS documentation and best practices to learn about recommended configuration options that can help improve the performance of your data store. Key data store options to consider are the following: 
+
+
+<table>
+<thead>
+  <tr><th> Configuration option </th><th> Examples </th></tr>
+</thead>
+<tbody>
+  <tr><td> Offloading reads (like read replicas and caching) </td><td> <ul><li>  For DynamoDB tables, you can offload reads using DAX for caching.  </li><li>  You can create an Amazon ElastiCache (Redis OSS) cluster and configure your application to read from the cache first, falling back to the database if the requested item is not present.  </li><li>  Relational databases such as Amazon RDS and Aurora, and provisioned NoSQL databases such as Neptune and Amazon DocumentDB all support adding read replicas to offload the read portions of the workload.  </li><li>  Serverless databases such as DynamoDB will scale automatically. Ensure that you have enough read capacity units (RCU) provisioned to handle the workload.  </li></ul> </td></tr>
+  <tr><td> Scaling writes (like partition key sharding or introducing a queue) </td><td> <ul><li>  For relational databases, you can increase the size of the instance to accommodate an increased workload or increase the provisioned IOPs to allow for an increased throughput to the underlying storage.  </li><li>  You can also introduce a queue in front of your database rather than writing directly to the database. This pattern allows you to decouple the ingestion from the database and control the flow-rate so the database does not get overwhelmed.   </li><li>  Batching your write requests rather than creating many short-lived transactions can help improve throughput in high-write volume relational databases.  </li><li>  Serverless databases like DynamoDB can scale the write throughput automatically or by adjusting the provisioned write capacity units (WCU) depending on the capacity mode.   </li><li>  You can still run into issues with hot partitions when you reach the throughput limits for a given partition key. This can be mitigated by choosing a more evenly distributed partition key or by write-sharding the partition key.   </li></ul> </td></tr>
+  <tr><td> Policies to manage the lifecycle of your datasets </td><td> <ul><li>  You can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Amazon S3 Lifecycle</a> to manage your objects throughout their lifecycle. If your access patterns are unknown, changing, or unpredictable, you can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html">Amazon S3 Intelligent-Tiering</a>, which monitors access patterns and automatically moves objects that have not been accessed to lower-cost access tiers. You can leverage <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Amazon S3 Storage Lens</a> metrics to identify optimization opportunities and gaps in lifecycle management.  </li><li>  <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">Amazon EFS lifecycle management</a> automatically manages file storage for your file systems.  </li></ul> </td></tr>
+  <tr><td> Connection management and pooling </td><td> <ul><li>  Amazon RDS Proxy can be used with Amazon RDS and Aurora to manage connections to the database.   </li><li>  Serverless databases such as DynamoDB do not have connections associated with them, but consider the provisioned capacity and automatic scaling policies to deal with spikes in load.  </li></ul> </td></tr>
+</tbody>
+</table>
+
 +  Perform experiments and benchmarking in non-production environment to identify which configuration option can address your workload requirements. 
 +  Once you have experimented, plan your migration and validate your performance metrics. 
 +  Use AWS monitoring (like [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)) and optimization (like [Amazon S3 Storage Lens](https://aws.amazon.com/s3/storage-lens/)) tools to continuously optimize your data store using real-world usage pattern. 

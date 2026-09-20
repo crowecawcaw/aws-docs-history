@@ -29,8 +29,20 @@
 
 ### Implementation steps
 <a name="implementation-steps"></a>
-+  Compute instances, containers, and functions provide mechanisms for elasticity, either in combination with autoscaling or as a feature of the service. Here are some examples of automatic scaling mechanisms:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_compute_hardware_scale_compute_resources_dynamically.html)
++  Compute instances, containers, and functions provide mechanisms for elasticity, either in combination with autoscaling or as a feature of the service. Here are some examples of automatic scaling mechanisms: 
+
+
+<table>
+<thead>
+  <tr><th> Autoscaling Mechanism </th><th> Where to use </th></tr>
+</thead>
+<tbody>
+  <tr><td> <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling</a> </td><td> To ensure you have the correct number of <a href="https://aws.amazon.com/ec2/">Amazon EC2</a> instances available to handle the user load for your application. </td></tr>
+  <tr><td> <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling</a> </td><td> To automatically scale the resources for individual AWS services beyond Amazon EC2 such as <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> functions or <a href="https://aws.amazon.com/ecs/">Amazon Elastic Container Service (Amazon ECS)</a> services. </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/blogs/aws/introducing-karpenter-an-open-source-high-performance-kubernetes-cluster-autoscaler/">Kubernetes Cluster Autoscaler/Karpenter</a> </td><td> To automatically scale Kubernetes clusters. </td></tr>
+</tbody>
+</table>
+
 +  Scaling is often discussed related to compute services like Amazon EC2 Instances or AWS Lambda functions. Be sure to also consider the configuration of non-compute services like [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/auto-scaling.html) to match the demand. 
 +  Verify that the metrics for scaling match the characteristics of the workload being deployed. If you are deploying a video transcoding application, 100% CPU utilization is expected and should not be your primary metric. Use the depth of the transcoding job queue instead. You can use a [customized metric](https://aws.amazon.com/blogs/mt/create-amazon-ec2-auto-scaling-policy-memory-utilization-metric-linux/) for your scaling policy if required. To choose the right metrics, consider the following guidance for Amazon EC2: 
   +  The metric should be a valid utilization metric and describe how busy an instance is. 

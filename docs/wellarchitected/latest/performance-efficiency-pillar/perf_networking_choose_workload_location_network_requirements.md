@@ -39,10 +39,34 @@ Evaluate options for resource placement to reduce network latency and improve th
 +  Use [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) to run workloads like video rendering. Local Zones allow you to benefit from having compute and storage resources closer to end users. 
 +  Use [AWS Outposts](https://aws.amazon.com/outposts/) for workloads that need to remain on-premises and where you want that workload to run seamlessly with the rest of your other workloads in AWS. 
 +  Applications like high-resolution live video streaming, high-fidelity audio, and augmented reality or virtual reality (AR/VR) require ultra-low-latency for 5G devices. For such applications, consider [AWS Wavelength](https://aws.amazon.com/wavelength/). AWS Wavelength embeds AWS compute and storage services within 5G networks, providing mobile edge computing infrastructure for developing, deploying, and scaling ultra-low-latency applications. 
-+  Use local caching or [AWS Caching Solutions](https://aws.amazon.com/caching/aws-caching/) for frequently used assets to improve performance, reduce data movement, and lower environmental impact.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_networking_choose_workload_location_network_requirements.html)
-+  Use services that can help you run code closer to users of your workload like the following:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_networking_choose_workload_location_network_requirements.html)
++  Use local caching or [AWS Caching Solutions](https://aws.amazon.com/caching/aws-caching/) for frequently used assets to improve performance, reduce data movement, and lower environmental impact. 
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>When to use</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://aws.amazon.com/cloudfront/">Amazon CloudFront</a></td><td>Use to cache static content such as images, scripts, and videos, as well as dynamic content such as API responses or web applications.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/elasticache/">Amazon ElastiCache</a></td><td>Use to cache content for web applications.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/dynamodb/dax/">DynamoDB Accelerator</a></td><td>Use to add in-memory acceleration to your DynamoDB tables.</td></tr>
+</tbody>
+</table>
+
++  Use services that can help you run code closer to users of your workload like the following: 
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>When to use</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://aws.amazon.com/lambda/edge/">Lambda@edge</a></td><td>Use for compute-heavy operations that are initiated when objects are not in the cache.</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html">Amazon CloudFront Functions</a></td><td>Use for simple use cases like HTTP(s) requests or response manipulations that can be initiated by short-lived functions.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/greengrass/">AWS IoT Greengrass</a></td><td>Use to run local compute, messaging, and data caching for connected devices.</td></tr>
+</tbody>
+</table>
+
 +  Some applications require fixed entry points or higher performance by reducing first byte latency and jitter, and increasing throughput. These applications can benefit from networking services that provide static anycast IP addresses and TCP termination at edge locations. [AWS Global Accelerator](https://aws.amazon.com/global-accelerator/) can improve performance for your applications by up to 60% and provide quick failover for multi-region architectures. AWS Global Accelerator provides you with static anycast IP addresses that serve as a fixed entry point for your applications hosted in one or more AWS Regions. These IP addresses permit traffic to ingress onto the AWS global network as close to your users as possible. AWS Global Accelerator reduces the initial connection setup time by establishing a TCP connection between the client and the AWS edge location closest to the client. Review the use of AWS Global Accelerator to improve the performance of your TCP/UDP workloads and provide quick failover for multi-Region architectures. 
 
 ## Resources

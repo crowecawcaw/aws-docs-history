@@ -24,8 +24,22 @@
 ## Implementation steps
 <a name="implementation-steps"></a>
 +  Understand your workload compute requirements. Key requirements to consider include processing needs, traffic patterns, data access patterns, scaling needs, and latency requirements. 
-+  Learn about different [AWS compute services](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html) for your workload. For more information, see [PERF01-BP01 Learn about and understand available cloud services and features](perf_architecture_understand_cloud_services_and_features.md). Here are some key AWS compute options, their characteristics, and common use cases:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_compute_hardware_select_best_compute_options.html)
++  Learn about different [AWS compute services](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/compute-services.html) for your workload. For more information, see [PERF01-BP01 Learn about and understand available cloud services and features](perf_architecture_understand_cloud_services_and_features.md). Here are some key AWS compute options, their characteristics, and common use cases: 
+
+
+<table>
+<thead>
+  <tr><th> AWS service </th><th> Key characteristics </th><th> Common use cases </th></tr>
+</thead>
+<tbody>
+  <tr><td> <a href="https://aws.amazon.com/ec2/">Amazon Elastic Compute Cloud (Amazon EC2)</a> </td><td> Has dedicated option for hardware, license requirements, large selection of different instance families, processor types and compute accelerators </td><td> Lift and shift migrations, monolithic application, hybrid environments, enterprise applications </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/ecs/">Amazon Elastic Container Service (Amazon ECS)</a>, <a href="https://aws.amazon.com/eks/">Amazon Elastic Kubernetes Service (Amazon EKS)</a>  </td><td> Easy deployment, consistent environments, scalable </td><td> Microservices, hybrid environments </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> </td><td>  <a href="https://aws.amazon.com/serverless/">Serverless compute</a> service that runs code in response to events and automatically manages the underlying compute resources. </td><td> Microservices, event-driven applications </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/batch/">AWS Batch</a> </td><td> Efficiently and dynamically provisions and scales <a href="https://aws.amazon.com/ecs/">Amazon Elastic Container Service (Amazon ECS)</a>, <a href="https://aws.amazon.com/eks/">Amazon Elastic Kubernetes Service (Amazon EKS)</a>, and <a href="https://aws.amazon.com/fargate/">AWS Fargate</a> compute resources, with an option to use On-Demand or Spot Instances based on your job requirements </td><td> HPC, train ML models </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/lightsail/">Amazon Lightsail</a> </td><td> Preconfigured Linux and Windows application for running small workloads </td><td> Simple web applications, custom website </td></tr>
+</tbody>
+</table>
+
 +  Evaluate cost (like hourly charge or data transfer) and management overhead (like patching and scaling) associated to each compute option. 
 +  Perform experiments and benchmarking in a non-production environment to identify which compute option can best address your workload requirements. 
 +  Once you have experimented and identified your new compute solution, plan your migration and validate your performance metrics. 
