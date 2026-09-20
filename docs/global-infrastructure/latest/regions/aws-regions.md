@@ -75,7 +75,7 @@ You can enable a Region in one of the following ways:
 
 **To enable a Region**
 
-1. Sign in to the [AWS Global View console](https://console.aws.amazon.com/ec2globalview/home#RegionsAndZones).
+1. Sign in to the [AWS Global View console](https://console.aws.amazon.com/awsglobalview/home#RegionsAndZones).
 
 1. From the navigation pane, choose **Regions and Zones**.
 
@@ -132,19 +132,33 @@ To enable a Region from the AWS Billing and Cost Management console, see [Enable
 + Middle East (Bahrain)
 + Middle East (UAE)
 
-## Example commands
+## View Region information
 <a name="regions-example-commands"></a>
 
-The following AWS CLI commands demonstrate how to get information about the Regions for your account.
+You can list the Regions for your account, get the opt-in status of a Region, and get the long name of a Region.
+
+------
+#### [ Console ]
+
+**To view Regions and their status in the console**
+
+1. Sign in to the [AWS Global View console](https://console.aws.amazon.com/awsglobalview/home#RegionsAndZones).
+
+1. On the **Regions** tab, the **Status** column shows whether a Region is **Enabled by default**, **Enabled**, or **Disabled**.
+
+1. To filter the Regions by a particular status, choose the Search field, choose **Status**, and then choose a value.
+
+------
+#### [ AWS CLI ]
 
 **To list the Regions enabled by default**  
-Use the following [list-regions](https://docs.aws.amazon.com/cli/latest/reference/account/list-regions.html) command.
+Use the following AWS CLI [list-regions](https://docs.aws.amazon.com/cli/latest/reference/account/list-regions.html) command.
 
 ```
 aws account list-regions --region-opt-status-contains ENABLED_BY_DEFAULT --query Regions[*].RegionName
 ```
 
-The following is example output.
+The following is example output:
 
 ```
 [
@@ -169,20 +183,20 @@ The following is example output.
 ```
 
 **To list the Regions enabled for your account**  
-Use the following [list-regions](https://docs.aws.amazon.com/cli/latest/reference/account/list-regions.html) command to list both Regions enabled by default and Regions enabled for your account.
+Use the following AWS CLI [list-regions](https://docs.aws.amazon.com/cli/latest/reference/account/list-regions.html) command to list both Regions enabled by default and Regions enabled for your account.
 
 ```
 aws account list-regions --region-opt-status-contains ENABLED_BY_DEFAULT ENABLED --query Regions[*].RegionName
 ```
 
-**To list the opt-in status of a Region**  
-Use the following [get-region-opt-status](https://docs.aws.amazon.com/cli/latest/reference/account/get-region-opt-status.html) command.
+**To get the opt-in status of a Region**  
+Use the following AWS CLI [get-region-opt-status](https://docs.aws.amazon.com/cli/latest/reference/account/get-region-opt-status.html) command.
 
 ```
 aws account get-region-opt-status --region-name af-south-1
 ```
 
-The following is example output.
+The following is example output:
 
 ```
 {
@@ -192,7 +206,7 @@ The following is example output.
 ```
 
 **To get the long name of a Region**  
-Use the following [get-parameters-by-path](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters-by-path.html) command. Replace {{region-code}} with the code for the Region. You might need to modify the quotes to get the example to work with your terminal.
+Use the following AWS CLI [get-parameters-by-path](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters-by-path.html) command. Replace {{region-code}} with the code for the Region. You might need to modify the quotes to get the example to work with your terminal.
 
 ```
 aws ssm get-parameters-by-path \
@@ -201,8 +215,77 @@ aws ssm get-parameters-by-path \
     --output text
 ```
 
-The following is example output where {{region-code}} is `af-south-1`.
+The following is example output where {{region-code}} is `af-south-1`:
 
 ```
 Africa (Cape Town)
 ```
+
+------
+#### [ PowerShell ]
+
+**To list the Regions enabled by default**  
+Use the following AWS Tools for PowerShell [Get-ACCTRegionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-ACCTRegionList.html) command.
+
+```
+(Get-ACCTRegionList -RegionOptStatusContain ENABLED_BY_DEFAULT).RegionName
+```
+
+The following is example output:
+
+```
+ap-northeast-1
+ap-northeast-2
+ap-northeast-3
+ap-south-1
+ap-southeast-1
+ap-southeast-2
+ca-central-1
+eu-central-1
+eu-north-1
+eu-west-1
+eu-west-2
+eu-west-3
+sa-east-1
+us-east-1
+us-east-2
+us-west-1
+us-west-2
+```
+
+**To list the Regions enabled for your account**  
+Use the following AWS Tools for PowerShell [Get-ACCTRegionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-ACCTRegionList.html) command to list both Regions enabled by default and Regions enabled for your account.
+
+```
+(Get-ACCTRegionList -RegionOptStatusContain ENABLED_BY_DEFAULT,ENABLED).RegionName
+```
+
+**To get the opt-in status of a Region**  
+Use the following AWS Tools for PowerShell [Get-ACCTRegionOptStatus](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-ACCTRegionOptStatus.html) command.
+
+```
+Get-ACCTRegionOptStatus -RegionName af-south-1
+```
+
+The following is example output:
+
+```
+Value
+-----
+DISABLED
+```
+
+**To get the long name of a Region**  
+Use the following AWS Tools for PowerShell [Get-SSMParametersByPath](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMParametersByPath.html) command. Replace {{region-code}} with the code for the Region.
+
+```
+(Get-SSMParametersByPath -Path /aws/service/global-infrastructure/regions/{{region-code}} | Where-Object Name -like "*longName*").Value
+```
+
+The following is example output where {{region-code}} is `af-south-1`:
+
+```
+Africa (Cape Town)
+```
+
+------

@@ -9,7 +9,7 @@ The code for an Availability Zone is its Region code followed by a letter identi
 
 For accounts created before November 2025, in our oldest Regions, we independently map Availability Zones to codes for each AWS account. For example, the `us-east-1a` Availability Zone for your account might not be the same physical location as it is in another account. Accounts created starting November 2025, get the same Availability Zones mapped to codes. For more information, see [Regions with independently mapped Availability Zones](az-ids.md#independently-mapped-azs).
 
-Each Availability Zone has an AZ ID, which is the same physical location in every AWS account. An AZ ID consists of the first three letters of the Region code, followed by the number at the end of the Region code, followed by `-az`, followed by a number. For example, `euw1-az1`, `euw1-az2`, and `euw1-az3` are the AZ IDs for the Availability Zones in the `eu-west-1` Region. For more information, see [AZ IDs](az-ids.md).
+Each Availability Zone has an AZ ID, which is the same physical location in every AWS account. An AZ ID consists of a Region-specific prefix, followed by `-az`, followed by a number. For example, `euw1-az1`, `euw1-az2`, and `euw1-az3` are the AZ IDs for the Availability Zones in the `eu-west-1` Region. For more information, see [AZ IDs](az-ids.md).
 
 The geography for an Availability Zone is the specific physical location of its infrastructure. This information can help you meet your regulatory, compliance, and operational requirements.
 
@@ -21,7 +21,7 @@ The geography for an Availability Zone is the specific physical location of its 
 + [Middle East](#zones-middle-east)
 + [South America](#zones-south-america)
 + [Constrained Availability Zones](#constrained-zones)
-+ [Example commands](#zones-example-commands)
++ [View Availability Zone information](#zones-example-commands)
 
 ## North America
 <a name="zones-north-america"></a>
@@ -194,33 +194,61 @@ The following table lists the Availability Zones in South America.
 
 As Availability Zones grow over time, our ability to expand them can become constrained. If this happens, we might restrict you from creating zonal resources in a constrained Availability Zone, unless you already have resources in that Availability Zone. Eventually, we might also remove the constrained Availability Zone from the list of Availability Zones for new accounts. Therefore, your account might have a different number of available Availability Zones in a Region than another account does.
 
-## Example commands
+## View Availability Zone information
 <a name="zones-example-commands"></a>
 
-The following AWS CLI commands demonstrate how to get information about the Availability Zones for your account.
+You can list the Availability Zones for your account and describe a single Availability Zone, including the AZ ID for each Availability Zone.
 
-**To list the Availability Zones of a Region**  
-Use the following [describe-availability-zones](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html) command. To include any Local Zones and Wavelength that are opted in for your account, omit the `--filters` option.
+------
+#### [ Console ]
+
+**To view AZ IDs in the console**
+
+1. Open the [AWS Global View console](https://console.aws.amazon.com/awsglobalview/home#RegionsAndZones).
+
+1. On the **Regions** tab, select a Region, and then choose **View details**.
+
+1. On the **Zones** tab, find the rows with a **Zone type** of **Availability zone**. The **Zone ID** column shows the AZ ID for each Availability Zone.
+
+------
+#### [ AWS CLI ]
+
+**To list the Availability Zones in a Region**  
+Use the following [describe-availability-zones](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html) command. To include any Local Zones and Wavelength Zones that are opted in for your account, omit the `--filters` option.
 
 ```
-aws ec2 describe-availability-zones --filters Name=zone-type,Values=availability-zone --region {{us-east-2}} --query AvailabilityZones[].ZoneName
+aws ec2 describe-availability-zones \
+  --filters Name=zone-type,Values=availability-zone \
+  --region {{us-east-2}} \
+  --query "AvailabilityZones[].{ZoneName:ZoneName,ZoneId:ZoneId}"
 ```
 
 The following is example output for the US East (Ohio) Region.
 
 ```
 [
-    "us-east-2a",
-    "us-east-2b",
-    "us-east-2c"
+    {
+        "ZoneName": "us-east-2a",
+        "ZoneId": "use2-az1"
+    },
+    {
+        "ZoneName": "us-east-2b",
+        "ZoneId": "use2-az2"
+    },
+    {
+        "ZoneName": "us-east-2c",
+        "ZoneId": "use2-az3"
+    }
 ]
 ```
 
 **To describe an Availability Zone**  
-Use the following [describe-availability-zones](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html) command.
+To view the details of a single Availability Zone, use the following [describe-availability-zones](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html) command.
 
 ```
-aws ec2 describe-availability-zones --zone-name {{us-east-2a}} --region {{us-east-2}}
+aws ec2 describe-availability-zones \
+  --zone-name {{us-east-2a}} \
+  --region {{us-east-2}}
 ```
 
 The following is example output for `us-east-2a` in the US East (Ohio) Region.
@@ -237,8 +265,70 @@ The following is example output for `us-east-2a` in the US East (Ohio) Region.
             "GroupName": "us-east-2-zg-1",
             "NetworkBorderGroup": "us-east-2",
             "ZoneType": "availability-zone",
+            "GroupLongName": "US East (Ohio) 1",
+            "Geography": [
+                {
+                    "Name": "United States of America"
+                }
+            ],
+            "SubGeography": [
+                {
+                    "Name": "Ohio"
+                }
+            ],
             "State": "available"
         }
     ]
 }
 ```
+
+------
+#### [ PowerShell ]
+
+**To list the Availability Zones in a Region**  
+Use the following [Get-EC2AvailabilityZone](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2AvailabilityZone.html) command. To include any Local Zones and Wavelength Zones that are opted in for your account, omit the `-Filter` parameter.
+
+```
+Get-EC2AvailabilityZone `
+    -Filter @{Name="zone-type";Values="availability-zone"} `
+    -Region {{us-east-2}} |
+Select-Object ZoneName, ZoneId
+```
+
+The following is example output for the US East (Ohio) Region.
+
+```
+ZoneName   ZoneId
+--------   ------
+us-east-2a use2-az1
+us-east-2b use2-az2
+us-east-2c use2-az3
+```
+
+**To describe an Availability Zone**  
+To view the details of a single Availability Zone, use the following [Get-EC2AvailabilityZone](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2AvailabilityZone.html) command.
+
+```
+Get-EC2AvailabilityZone -ZoneName {{us-east-2a}} -Region {{us-east-2}}
+```
+
+The following is example output for `us-east-2a` in the US East (Ohio) Region.
+
+```
+Geography          : {United States of America}
+GroupLongName      : US East (Ohio) 1
+GroupName          : us-east-2-zg-1
+Messages           :
+NetworkBorderGroup : us-east-2
+OptInStatus        : opt-in-not-required
+ParentZoneId       :
+ParentZoneName     :
+RegionName         : us-east-2
+State              : available
+SubGeography       : {Ohio}
+ZoneId             : use2-az1
+ZoneName           : us-east-2a
+ZoneType           : availability-zone
+```
+
+------
