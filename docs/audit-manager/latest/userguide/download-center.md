@@ -28,13 +28,37 @@ Follow these steps to browse your files in the download center.
 
 1. Choose the **Assessment reports** tab to view the assessment reports that are available to download.
    + This tab shows the assessment reports that you've generated. Assessment reports remain available in the download center until you delete them. 
-   + To see the latest status of your assessment report, choose the refresh icon (⟳) to reload the table. Each row in the assessment reports table shows the name of the report, its creation date, and one of the following statuses:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/download-center.html)
+   + To see the latest status of your assessment report, choose the refresh icon (⟳) to reload the table. Each row in the assessment reports table shows the name of the report, its creation date, and one of the following statuses:
+
+
+<table>
+<thead>
+  <tr><th>Status</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>In progress</b> </td><td>Audit Manager is generating the assessment report. </td></tr>
+  <tr><td><b>Ready</b></td><td>The assessment report is available for you to download.</td></tr>
+  <tr><td><b>Error</b></td><td>The assessment report failed to generate. In this case, Audit Manager displays a message that describes the error. <br />For information about how to resolve these errors, see <a href="assessment-report-issues.md">Troubleshooting assessment report issues</a>.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose the **Exports** tab to view the CSV exports that are available to download.
    + This tab shows the evidence finder search results that you exported in the last seven days. CSV files are removed from the download center after seven days, but they remain available in your [export destination](https://docs.aws.amazon.com/audit-manager/latest/userguide/settings-export-destination.html) S3 bucket. For instructions on how to find an evidence finder CSV export in your S3 destination bucket, see [Viewing your results after you've exported them](exporting-search-results-from-evidence-finder.md#viewing-results-after-export).
-   + To see the latest status of your CSV exports, choose the refresh icon (⟳) to reload the table. Each row in the exports table shows the file name, its export date, and one of the following statuses:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/download-center.html)
+   + To see the latest status of your CSV exports, choose the refresh icon (⟳) to reload the table. Each row in the exports table shows the file name, its export date, and one of the following statuses:
+
+
+<table>
+<thead>
+  <tr><th>Status</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>In progress</b> </td><td>Audit Manager is preparing the CSV file. </td></tr>
+  <tr><td><b>Ready</b></td><td>The export succeeded and the file is available for you to download.</td></tr>
+  <tr><td><b>Error</b></td><td>The export failed. In this case, Audit Manager displays a message that describes the error. <br />For information about how to resolve these errors, see <a href="evidence-finder-issues.md#csv-exports"></a>.</td></tr>
+</tbody>
+</table>
+
 **Note**  
 Keep in mind that the exports tab might also display CSV files for queries that you ran directly in AWS CloudTrail Lake. This includes queries made in the CloudTrail console or using the CloudTrail API. CloudTrail exports appear on this tab if you queried the Audit Manager event data store, and you chose to save the results to Amazon S3.
 

@@ -35,8 +35,20 @@ Changing a control status to *Reviewed* is final. After you set the status of a 
 
 1. From the assessment page, choose the **Controls** tab, scroll down to the **Control sets** table, and then choose the name of a control to open it.
 
-1. Choose **Update control status** at the top right of the page, and then choose a status:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/change-assessment-control-status.html)
+1. Choose **Update control status** at the top right of the page, and then choose a status:
+
+
+<table>
+<thead>
+  <tr><th>Status</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Under review</b></td><td>Choose this status if you haven't reviewed the control yet. </td></tr>
+  <tr><td><b>Reviewed</b></td><td>Choose this status if you have finished reviewing the evidence for this control, and you want to continue collecting or adding evidence.</td></tr>
+  <tr><td><b>Inactive</b></td><td>Choose this status if you want to stop collecting automated evidence for this control. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Update control status** to confirm your choice.
 

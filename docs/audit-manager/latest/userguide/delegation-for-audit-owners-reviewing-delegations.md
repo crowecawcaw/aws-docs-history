@@ -27,8 +27,22 @@ Follow these steps to find and review the delegations that you previously create
 
 1. In the navigation pane, choose **Delegations**. 
 
-1. Review the **Delegations** page, which includes a table with the following information:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/delegation-for-audit-owners-reviewing-delegations.html)
+1. Review the **Delegations** page, which includes a table with the following information: 
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Delegated to</b></td><td>The AWS account that you delegated the control set to. </td></tr>
+  <tr><td><b>Date</b></td><td>The date when you delegated the control set. </td></tr>
+  <tr><td><b>Status</b></td><td>The current status of the delegation. </td></tr>
+  <tr><td><b>Assessment</b></td><td>The name of the assessment with a link to the assessment detail page. </td></tr>
+  <tr><td><b>Control set</b></td><td>The name of the control set that was delegated for review. </td></tr>
+</tbody>
+</table>
+
 
 1. Find the assessment and control set that the delegate reviewed and submitted to you, and choose the name of the assessment to open it.
 

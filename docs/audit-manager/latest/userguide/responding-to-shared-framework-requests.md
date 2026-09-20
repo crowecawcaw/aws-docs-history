@@ -107,8 +107,22 @@ After you accept or decline a shared framework, you can return to the **Share re
 
 1. Choose the **Received requests** tab.
 
-1. Find the **All statuses** dropdown list, and select one of the following filters:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/responding-to-shared-framework-requests.html)
+1. Find the **All statuses** dropdown list, and select one of the following filters:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Active</b></td><td>This filter displays share requests that you haven't yet accepted or declined.</td></tr>
+  <tr><td><b>Expiring</b></td><td>This filter displays share requests that expire in the next 30 days.</td></tr>
+  <tr><td><b>Shared</b></td><td>This filter displays share requests that you accepted. The shared framework is now available in your framework library.</td></tr>
+  <tr><td><b>Inactive</b></td><td>This filter displays share requests that were declined or expired.</td></tr>
+  <tr><td><b>Failed</b></td><td>This filter displays the share requests that weren't sent successfully. Choose the word <b>Failed</b> to view more details.</td></tr>
+</tbody>
+</table>
+
 
 ## Next steps
 <a name="responding-to-shared-framework-requests-what-now"></a>

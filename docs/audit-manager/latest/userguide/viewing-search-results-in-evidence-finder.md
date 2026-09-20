@@ -65,8 +65,20 @@ Your viewing preferences control what you see on the results page.
 
 1. Choose the settings icon (⚙) at the top of the **View results** table.
 
-1. Review and change the following settings as needed:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/viewing-search-results-in-evidence-finder.html)
+1. Review and change the following settings as needed:
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Select visible table columns</b></td><td>Use the toggle option to change which columns are displayed.</td></tr>
+  <tr><td><b>Page size</b></td><td>Select a radio button to specify how many results are shown on each page.</td></tr>
+  <tr><td><b>Wrap text</b></td><td>Select the check box to wrap long lines of text for better readability.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Confirm** to save your preferences.
 

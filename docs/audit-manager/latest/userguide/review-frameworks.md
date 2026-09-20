@@ -33,18 +33,65 @@ Make sure your IAM identity has appropriate permissions to view frameworks in AW
 1. Review the framework details using the following information as reference.
 
 **Framework details section**  
-This section provides an overview of the framework. In this section, you can review the following information:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/review-frameworks.html)
-If you're viewing a custom framework, you can also see the following details:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/review-frameworks.html)
+This section provides an overview of the framework. In this section, you can review the following information:  
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Description</b></td><td>A description of the framework, if one was provided.</td></tr>
+  <tr><td><b>Framework type</b></td><td>Specifies whether the framework is a standard framework or a custom framework.</td></tr>
+  <tr><td><b>Compliance type</b></td><td>The compliance standard or regulation that the framework supports. </td></tr>
+</tbody>
+</table>
+
+If you're viewing a custom framework, you can also see the following details:  
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Created by</b></td><td>The account that created the custom framework.</td></tr>
+  <tr><td><b>Date created</b></td><td>The date when the custom framework was created.</td></tr>
+  <tr><td><b>Last updated</b></td><td>The date when this framework was last edited.</td></tr>
+</tbody>
+</table>
+
 
 **Controls tab**  
-This tab lists the controls in the framework, grouped by control set. On this tab, you can review the following information:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/review-frameworks.html)
+This tab lists the controls in the framework, grouped by control set. On this tab, you can review the following information:  
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Controls grouped by control set</b></td><td>Choose the tree view icon to see the controls that belong to each control set.</td></tr>
+  <tr><td><b>Type</b></td><td>Specifies whether the control is a standard control or a custom control.</td></tr>
+  <tr><td><b>Data sources</b></td><td>Specifies the data source where Audit Manager collects evidence from for that framework control.</td></tr>
+</tbody>
+</table>
+
 
 **Tags tab**  
- This tab lists the tags that are associated with the framework. On this tab, you can review the following information:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/review-frameworks.html)
+ This tab lists the tags that are associated with the framework. On this tab, you can review the following information:  
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Key</b></td><td>The tag key (for example, a compliance standard, regulation, or category).</td></tr>
+  <tr><td><b>Value</b></td><td>The tag value.</td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ AWS CLI ]

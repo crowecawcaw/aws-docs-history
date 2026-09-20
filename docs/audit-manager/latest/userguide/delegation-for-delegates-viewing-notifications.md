@@ -23,8 +23,22 @@ Make sure your IAM identity has appropriate permissions to view notifications in
 
 1. Choose **Notifications** in the left navigation pane. 
 
-1. On the **Notifications** page, review the list of control sets that have been delegated to you for review. The table includes the following information:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/delegation-for-delegates-viewing-notifications.html)
+1. On the **Notifications** page, review the list of control sets that have been delegated to you for review. The table includes the following information:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Date</b></td><td>The date when the control set was delegated. </td></tr>
+  <tr><td><b>Assessment</b></td><td>The name of the assessment that's associated with the control set. </td></tr>
+  <tr><td><b>Control set</b></td><td>The name of the control set. </td></tr>
+  <tr><td><b>Source</b></td><td>The user or role that delegated the control set to you. </td></tr>
+  <tr><td><b>Description</b></td><td>Instructions that are provided by the audit owner. </td></tr>
+</tbody>
+</table>
+
 
 **Tip**  
 You can also subscribe to an SNS topic to receive email alerts when a control set is delegated to you for review. For more information, see [Notifications in AWS Audit Manager](notifications.md).

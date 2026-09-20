@@ -90,8 +90,23 @@ You can select the **Sent requests** tab to see a list of all the share requests
 
 1. Choose the **Sent requests** tab.
 
-1. (Optional) Apply filters to fine-tune which sent requests are visible. You can do this by finding the **All statuses** dropdown list, and changing the filter to one of the following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html)
+1. (Optional) Apply filters to fine-tune which sent requests are visible. You can do this by finding the **All statuses** dropdown list, and changing the filter to one of the following.
+
+
+<table>
+<thead>
+  <tr><th>Status</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Active</b></td><td>This filter displays share requests that are awaiting a response from the recipient.</td></tr>
+  <tr><td><b>Expiring</b></td><td>This filter displays share requests that expire in the next 30 days.</td></tr>
+  <tr><td><b>Shared</b></td><td>This filter displays share requests that were accepted by the recipient. The shared custom framework now exists in the recipient's framework library.</td></tr>
+  <tr><td><b>Inactive</b></td><td>This filter displays share requests that were declined, revoked, or expired before the recipient took action. Choose the word <b>Inactive</b> to view more details.</td></tr>
+  <tr><td><b>Replicating</b></td><td>This indicates an accepted share request that's being replicated to the recipient's framework library.</td></tr>
+  <tr><td><b>Failed</b></td><td>This filter displays the share requests that weren't successfully sent to the recipient. Choose the word <b>Failed</b> to view more details.</td></tr>
+</tbody>
+</table>
+
 
 **Note**  
 It can take up to 15 minutes to process a share request. As a result, if an error occurred when sending your share request to the recipient, the *Failed* status might not display immediately. We recommend that you check back later to confirm that your share request was sent successfully. 

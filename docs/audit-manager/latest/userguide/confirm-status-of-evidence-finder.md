@@ -34,8 +34,22 @@ You can check the current status of evidence finder using the Audit Manager cons
 
 1. Under **Enable evidence finder – optional**, review the current status.
 
-   Each status is defined as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/confirm-status-of-evidence-finder.html)
+   Each status is defined as follows:
+
+
+<table>
+<thead>
+  <tr><th>Status</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Evidence finder isn't enabled</b></td><td>You haven't successfully enabled evidence finder yet. </td></tr>
+  <tr><td><b>You have requested to enable evidence finder</b></td><td>Your request is pending the event data store being created.</td></tr>
+  <tr><td><b>Evidence finder is enabled</b></td><td>The event data store was created. You can now use evidence finder. <br />Depending how much evidence you have, it takes up to seven days to backfill the new event data store with your past evidence data. A blue information panel indicates that the data backfill is in progress. Feel free to start exploring evidence finder in the meantime. However, keep in mind that not all data is available until the backfill is complete. </td></tr>
+  <tr><td><b>You have requested to disable evidence finder</b></td><td>Your request is pending the event data store being deleted.</td></tr>
+  <tr><td><b>Evidence finder has been disabled</b></td><td>Evidence finder has been permanently disabled and the event data store is deleted. </td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ AWS CLI ]

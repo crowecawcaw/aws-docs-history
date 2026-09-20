@@ -42,8 +42,22 @@ As a delegate, you help audit owners to review the collected evidence for contro
 
 1. In the left navigation pane, choose **Notifications**. 
 
-1. On the **Notifications** page, you review the list of control sets that have been delegated to you. The notifications table includes the following information:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/tutorial-for-delegates.html)
+1. On the **Notifications** page, you review the list of control sets that have been delegated to you. The notifications table includes the following information:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Date</b> </td><td>The date when the control set was delegated. </td></tr>
+  <tr><td><b>Assessment</b></td><td>The name of the assessment that's associated with the control set. You can choose an assessment name to open the assessment detail page.</td></tr>
+  <tr><td><b>Control set</b></td><td>The name of the control set that was delegated to you for review. </td></tr>
+  <tr><td><b>Source</b></td><td>The user or role that delegated the control set to you. </td></tr>
+  <tr><td><b>Description</b></td><td>The review instructions that were provided by the audit owner. </td></tr>
+</tbody>
+</table>
+
 
 **Tip**  
 You can also subscribe to an SNS topic to receive email alerts when a control set is assigned to you for review. For more information, see [Notifications in AWS Audit Manager](notifications.md).

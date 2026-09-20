@@ -43,8 +43,18 @@ You can review a common control using the Audit Manager console, the AWS Control
 This section describes the common control.
 
 **Evidence sources tab**  
-This tab includes the following information:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/control-library-review-common-controls.html)
+This tab includes the following information:  
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Core controls</b></td><td>These are the core controls that collect evidence to support the common control.<ul><li> When you collect evidence for this common control, you automatically collect evidence for all of the core controls that are listed here. When each of these core controls is implemented successfully, this helps to demonstrate that you’re meeting the requirements of the common control. </li><li> Each core control uses a predefined grouping of data sources to collect evidence about an AWS service. AWS manages these data sources for you. This means that they’re automatically updated whenever regulations and standards change and new data sources are identified. Choose any core control to see the underlying data sources.  </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 **Related requirements tab**  
 When you collect evidence for this common control, the same evidence can help you to demonstrate compliance with the requirements of the related standard controls that are listed on this tab. Choose any standard control to see more details.   

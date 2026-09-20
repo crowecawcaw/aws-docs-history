@@ -38,12 +38,39 @@ You can review the details of a custom control by using the Audit Manager consol
 This section describes the custom control and lists the [data source types](https://docs.aws.amazon.com/audit-manager/latest/userguide/concepts.html#control-data-source) that it uses to collect evidence. It also provides information about when the control was created and last updated.
 
 **Evidence sources tab**  
-This tab shows where the custom control collects evidence from. It includes the following information:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/control-library-review-custom-controls.html)
+This tab shows where the custom control collects evidence from. It includes the following information:  
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Common controls</b></td><td>These are the common controls that collect evidence to support the custom control.<br />Common controls collect evidence using underlying data sources that AWS manages for you. For every common control that’s listed, Audit Manager collects the relevant evidence for all of the supporting core controls. Choose a common control to see the related core controls.</td></tr>
+  <tr><td><b>Core controls</b></td><td>These are the core controls that collect evidence to support the custom control.<br />Core controls collect evidence by using a predefined group of data sources that AWS manages for you. Choose a core control to see the underlying data sources.</td></tr>
+  <tr><td><b>Data sources</b></td><td>These are the data sources that collect evidence to support the custom control. These data sources aren't managed for you by AWS. You're responsible for maintaining them. <ul><li> <b>Name</b> – The name of the data source. </li><li> <b>Type</b> – The type of data source that the evidence comes from. <ul><li> If Audit Manager collects the evidence, the type can be <i>AWS Security Hub CSPM</i>, <i>AWS Config</i>, <i>AWS CloudTrail</i>, or <i>AWS API calls</i>.  </li><li> If you upload your own evidence, the type is <i>Manual</i>. A description indicates if the required manual evidence is a <i>File upload</i> or a <i>Text response</i>. </li></ul> </li><li> <b>Mapping</b> – The specific keyword that's used to collect evidence. <ul><li> If the type is <i>AWS Config</i>, the mapping is an AWS Config rule (such as <code>SNS_ENCRYPTED_KMS</code>). </li><li> If the type is <i>AWS Security Hub CSPM</i>, the mapping is a Security Hub CSPM control (such as <code>EC2.1</code>). </li><li> If the type is <i>AWS API calls</i>, the mapping is an API call (such as <code>kms_ListKeys</code>). </li><li> If the type is <i>AWS CloudTrail</i>, the mapping is a CloudTrail event (such as <code>CreateAccessKey</code>). </li></ul> </li><li> <b>Frequency</b> – How often Audit Manager collects evidence for an AWS API call data source. </li></ul></td></tr>
+</tbody>
+</table>
+
 
 **Details tab**  
-This tab includes the following information:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/control-library-review-custom-controls.html)
+This tab includes the following information:  
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Instructions</b></td><td>The directions that describe how to test and remediate the control.</td></tr>
+  <tr><td><b>Testing information</b></td><td>The recommended testing procedures.</td></tr>
+  <tr><td><b>Action plan</b></td><td>The recommended actions to take if you need to remediate the control.</td></tr>
+  <tr><td><b>Tags</b></td><td>The tags that are associated with the control.</td></tr>
+  <tr><td><b>Key</b></td><td>The tag key (for example, a compliance standard, regulation, or category).</td></tr>
+  <tr><td><b>Value</b></td><td>The tag value.</td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ AWS CLI ]

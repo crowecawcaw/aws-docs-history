@@ -72,8 +72,21 @@ A compliance standard is a structured set of guidelines that detail the processe
 A control is a safeguard or countermeasure that’s prescribed for an information system or an organization. Controls are designed to protect the confidentiality, integrity, and availability of your information, and to meet a set of defined requirements. They provide an assurance that your resources are operating as intended, your data is reliable, and your organization is compliant with applicable laws and regulations.  
 In Audit Manager, a control can also represent a question in a vendor risk assessment questionnaire. In this case, a control is a specific question that asks information about an organization’s security and compliance posture.  
 Controls collect evidence continually when they’re active in your Audit Manager assessments. You can also manually add evidence to any control. Each piece of evidence is a record that helps you to demonstrate compliance with the control’s requirements.  
-Audit Manager provides the following types of controls:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/concepts.html)
+Audit Manager provides the following types of controls:  
+
+
+<table>
+<thead>
+  <tr><th>Control type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Common control</b></td><td>You can think of a common control as an action that helps you to fulfill a control objective. Because common controls aren’t specific to any compliance standard, they help you to collect evidence that can support a range of overlapping compliance obligations. <br />For example, let's say you have a control objective called <i>Data classification and handling</i>. To fulfill this objective, you could implement a common control called <i>Access controls</i> to monitor and detect unauthorized access to your resources.<ul><li> <i>Automated common controls</i> collect evidence for you. They consist of a grouping of one or more related core controls. In turn, each of these core controls automatically collects relevant evidence from a predefined group of AWS data sources. AWS manages these underlying data sources for you, and updates them whenever regulations and standards change and new data sources are identified.  </li><li> <i>Manual common controls</i> require you to upload your own evidence. This is because they typically require the provision of physical records, or details about events that happen outside of your AWS environment. For this reason, there are often no AWS data sources that can produce evidence to support the manual common control’s requirements. </li></ul><br />You can’t edit a common control. However, you can use any common control as an evidence source when you <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/customize-control-from-scratch.html">create a custom control</a>.</td></tr>
+  <tr><td><b>Core control</b></td><td>This is a prescriptive guideline for your AWS environment. You can think of a core control as an action that helps you to meet the requirements of a common control. <br />For example, let's say you use a common control called <i>Access controls</i> to monitor unauthorized access to your resources. To support this common control, you could use the core control called <i>Block public read access in S3 buckets</i>.<br />Because core controls aren’t specific to any compliance standard, they collect evidence that can support a range of overlapping compliance obligations. Each core control uses one or more data sources to collect evidence about a specific AWS service. AWS manages these underlying data sources for you, and updates them whenever regulations and standards change and new data sources are identified.<br />You can’t edit a core control. However, you can use any core control as an evidence source when you <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/customize-control-from-scratch.html">create a custom control</a>.</td></tr>
+  <tr><td><b>Standard control</b></td><td>This is a prebuilt control that Audit Manager provides.<br />You can use standard controls to assist you with audit preparation for a specific compliance standard. Each standard control is related to a specific standard <a href="#framework"></a> in Audit Manager, and collects evidence that you can use to demonstrate compliance with that framework. Standard controls collect evidence from underlying data sources that AWS manages. These data sources are automatically updated whenever regulations and standards change and new data sources are identified.  You can’t edit standard controls. However, you can <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/customize-control-from-existing.html">make an editable copy</a> of any standard control.</td></tr>
+  <tr><td><b>Custom control</b></td><td>This is a control that you create in Audit Manager to meet your specific compliance requirements.<br /> You can create a custom control from scratch, or make an editable copy of an existing standard control. When you create a custom control, you can define specific <a href="#evidence-source"></a>s that determine where Audit Manager collects evidence from. After you create a custom control, you can edit that control or add it to a custom framework. You can also <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/customize-control-from-existing.html">make an editable copy</a> of any custom control. </td></tr>
+</tbody>
+</table>
+
 
 **Control domain**  
 You can think of a control domain as a category of controls that’s not specific to any compliance standard. An example of a control domain is *Data protection*.   
@@ -115,8 +128,21 @@ Audit Manager uses *data sources* to collect evidence for a control. A data sour
   + For custom controls, you can provide your own name. 
   + The Audit Manager API refers to a data source name as a [sourceName](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ControlMappingSource.html#auditmanager-Type-ControlMappingSource-sourceName).
 A single control can have multiple data source types and multiple mappings. For example, one control might collect evidence from a mixture of data source types (such as AWS Config and Security Hub CSPM). Another control might have AWS Config as its only data source type, with multiple AWS Config rules as mappings.  
-The following table lists the automated data source types and shows examples of some corresponding mappings.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/concepts.html)
+The following table lists the automated data source types and shows examples of some corresponding mappings.  
+
+
+<table>
+<thead>
+  <tr><th>Data source type</th><th>Description</th><th>Mapping example</th></tr>
+</thead>
+<tbody>
+  <tr><td>AWS Security Hub CSPM</td><td>Use this data source type to capture a snapshot of your resource security posture. <br />Audit Manager uses the name of a Security Hub CSPM control as the mapping keyword, and reports the result of that security check directly from Security Hub CSPM.</td><td><code>EC2.1</code></td></tr>
+  <tr><td>AWS Config</td><td>Use this data source type to capture a snapshot of your resource security posture. <br />Audit Manager uses the name of an AWS Config rule as the mapping keyword, and reports the result of that rule check directly from AWS Config.</td><td><code>SNS_ENCRYPTED_KMS</code></td></tr>
+  <tr><td>AWS CloudTrail</td><td>Use this data source type to track a specific user activity that's needed in your audit. <br />Audit Manager uses the name of a CloudTrail event as the mapping keyword, and collects the related user activity from your CloudTrail logs.</td><td><code>CreateAccessKey</code></td></tr>
+  <tr><td>AWS API calls</td><td>Use this data source type to take a snapshot of your resource configuration through an API call to a specific AWS service. <br />Audit Manager uses the name of API call as the mapping keyword, and collects the API response.</td><td><code>kms_ListKeys</code></td></tr>
+</tbody>
+</table>
+
 
 **Delegate**  
 A delegate is an AWS Audit Manager user with limited permissions. Delegates typically have specialized business or technical expertise. For example, these expertise might be in data retention policies, training plans, network infrastructure, or identity management. Delegates help audit owners review collected evidence for controls that are in their area of expertise. Delegates can review control sets and their related evidence, add comments, upload additional evidence, and update the status of each of the controls that you assign to them for review.   
@@ -129,8 +155,19 @@ Audit owners assign specific control sets to delegates, not entire assessments. 
 
 **Evidence**  
 Evidence is a record that contains the information that's needed to demonstrate compliance with a control's requirements. Examples of evidence include a change activity invoked by a user, and a system configuration snapshot.   
-There are two main types of evidence in Audit Manager: *automated evidence* and *manual evidence*.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/concepts.html)
+There are two main types of evidence in Audit Manager: *automated evidence* and *manual evidence*.  
+
+
+<table>
+<thead>
+  <tr><th>Evidence type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Automated evidence</b></td><td>This is the evidence that Audit Manager collects automatically. This includes the following three categories of automated evidence:<ol><li> <b>Compliance check</b> — The result of a compliance check is captured from AWS Security Hub CSPM, AWS Config, or both.  <br />Examples of compliance checks include a security check result from Security Hub CSPM for a PCI DSS control, and an AWS Config rule evaluation for a HIPAA control.  <br />For more information, see <a href="control-data-sources-config.md">AWS Config Rules supported by AWS Audit Manager</a> and <a href="control-data-sources-ash.md">AWS Security Hub CSPM controls supported by AWS Audit Manager</a>. </li><li> <b>User activity</b>— User activity that changes a resource configuration is captured from CloudTrail logs as that activity occurs.  <br />Examples of user activities include a route table update, an Amazon RDS instance backup setting change, and an S3 bucket encryption policy change.  <br />For more information, see <a href="control-data-sources-cloudtrail.md">AWS CloudTrail event names supported by AWS Audit Manager</a>. </li><li> <b>Configuration data</b> — A snapshot of the resource configuration is captured directly from an AWS service on a daily, weekly, or monthly basis.  <br />Examples of configuration snapshots include a list of routes for a VPC route table, an Amazon RDS instance backup setting, and an S3 bucket encryption policy.  <br />For more information, see <a href="control-data-sources-api.md">AWS API calls supported by AWS Audit Manager</a>. </li></ol></td></tr>
+  <tr><td><b>Manual evidence</b></td><td>This is the evidence that you add to Audit Manager yourself. There are three ways to add your own evidence:<ol><li> Import a file from Amazon S3 </li><li> Upload a file from your browser </li><li> Enter a text response to a risk assessment question </li></ol><br />For more information, see <a href="upload-evidence.md">Adding manual evidence in AWS Audit Manager</a>.</td></tr>
+</tbody>
+</table>
+
 Automated evidence collection starts when you create an assessment. This is an ongoing process, and Audit Manager collects evidence at different frequencies depending on the evidence type and the underlying data source. For more information, see [Understanding how AWS Audit Manager collects evidence](how-evidence-is-collected.md).   
 For instructions on how to review evidence in an assessment, see [Reviewing evidence in AWS Audit Manager](review-evidence.md).
 
@@ -141,8 +178,19 @@ We recommend that you use AWS managed sources. Whenever an AWS managed source is
 See also: [](#aws-managed-source), [](#customer-managed-source).
 
 **Evidence collection method**  
-There are two ways that a control can collect evidence.       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/concepts.html)
+There are two ways that a control can collect evidence.   
+
+
+<table>
+<thead>
+  <tr><th>Evidence collection method</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Automated</b></td><td>Automated controls automatically collect evidence from AWS data sources. This automated evidence can help you to demonstrate full or partial compliance with the control.</td></tr>
+  <tr><td><b>Manual</b></td><td>Manual controls require you to <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html">upload your own evidence</a> to demonstrate compliance with the control.</td></tr>
+</tbody>
+</table>
+
 You can attach manual evidence to any automated control. In many cases, a combination of automated and manual evidence is needed to demonstrate full compliance with a control. Although Audit Manager can provide automated evidence that’s helpful and relevant, some automated evidence might only demonstrate partial compliance. In this case, you can supplement the automated evidence that Audit Manager provides with your own evidence.  
 For example:  
 + The [AWS Generative AI Best Practices Framework v2](aws-generative-ai-best-practices.md) contains a control called `Error analysis`. This control requires you to identify when inaccuracies are detected in your model usage. It also requires you to conduct a thorough error analysis to understand the root causes and take corrective action.
@@ -160,8 +208,19 @@ An export destination is the default S3 bucket where Audit Manager saves the fil
 
 **Framework**  
 An Audit Manager framework structures and automate assessments for a specific standard or risk governance principle. These frameworks include a collection of prebuilt or customer defined controls, and they help you to map your AWS resources to the requirements of these controls.   
-There are two types of framework in Audit Manager.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/concepts.html)
+There are two types of framework in Audit Manager.  
+
+
+<table>
+<thead>
+  <tr><th>Framework type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Standard framework</b></td><td>This is a prebuilt framework that is based on AWS best practices for various compliance standards and regulations. <br />You can use standard frameworks to assist with audit preparation for a specific compliance standard or regulation, such as PCI DSS or HIPAA.</td></tr>
+  <tr><td><b>Custom framework</b></td><td>This is a customized frameworks that you define as an Audit Manager user. <br />You can use custom frameworks to assist with audit preparation according to your specific GRC requirements. </td></tr>
+</tbody>
+</table>
+
 For instructions on how to create and manage frameworks, see [Using the framework library to manage frameworks in AWS Audit Manager](framework-library.md).   
 AWS Audit Manager assists in collecting evidence that's relevant for verifying compliance with specific compliance standards and regulations. However, it doesn't assess your compliance itself. The evidence that's collected through AWS Audit Manager therefore might not include all the information about your AWS usage that's needed for audits. AWS Audit Manager isn't a substitute for legal counsel or compliance experts.
 
@@ -201,8 +260,20 @@ A resource assessment is the process of assessing an individual resource. This a
 Resource compliance refers to the evaluation status of a resource that was assessed when collecting compliance check evidence.  
 Audit Manager collects compliance check evidence for controls that use AWS Config and Security Hub CSPM as a data source type. Multiple resources might be assessed during this evidence collection. As a result, a single piece of compliance check evidence can include one or more resources.   
 You can use the **Resource compliance** filter in evidence finder to explore compliance status at the resource level. After your search is complete, you can then preview the resources that matched your search query.  
-In evidence finder, there are three possible values for resource compliance:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/audit-manager/latest/userguide/concepts.html)
+In evidence finder, there are three possible values for resource compliance:  
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Non-compliant</b></td><td>This refers to resources with compliance check issues. <br />This happens if Security Hub reports a <i>Fail</i> result for the resource, or if AWS Config reports a <i>Non-compliant</i> result.</td></tr>
+  <tr><td><b>Compliant</b></td><td>This refers to resources that don’t have compliance check issues. <br />This happens if Security Hub CSPM reports a <i>Pass</i> result for the resource, or if AWS Config reports a <i>Compliant</i> result. </td></tr>
+  <tr><td><b>Inconclusive</b></td><td>This refers to resources for which a compliance check isn’t available or applicable. <br />This happens if AWS Config or Security Hub CSPM is the underlying data source type, but those services aren't enabled. <br />This also happens if the underlying data source type doesn't support compliance checks (such as manual evidence, AWS API calls, or CloudTrail).</td></tr>
+</tbody>
+</table>
+
 
 ## S
 <a name="auditmanager-concepts-S"></a>
