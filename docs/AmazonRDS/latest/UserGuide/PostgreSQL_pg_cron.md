@@ -227,8 +227,20 @@ cron.schedule (schedule,
 );
 ```
 
-**Parameters**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_pg_cron.html)
+**Parameters**  
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>job_name</code> </td><td>The name of the cron job.</td></tr>
+  <tr><td><code>schedule</code> </td><td>Text indicating the schedule for the cron job. The format is the standard cron format.</td></tr>
+  <tr><td><code>command</code></td><td>Text of the command to run.</td></tr>
+</tbody>
+</table>
+
 
 **Examples**  
 
@@ -261,8 +273,19 @@ cron.unschedule (job_id);
 cron.unschedule (job_name);
 ```
 
-**Parameters**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_pg_cron.html)
+**Parameters**  
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>job_id</code> </td><td>A job identifier that was returned from the <code>cron.schedule</code> function when the cron job was scheduled.</td></tr>
+  <tr><td><code>job_name</code> </td><td>The name of a cron job that was scheduled with the <code>cron.schedule</code> function.</td></tr>
+</tbody>
+</table>
+
 
 **Examples**  
 

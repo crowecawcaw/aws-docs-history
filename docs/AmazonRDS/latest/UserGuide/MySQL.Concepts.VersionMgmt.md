@@ -417,7 +417,7 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250818 is available.
 + [CVE-2025-50101](https://nvd.nist.gov/vuln/detail/CVE-2025-50101)
 + [CVE-2025-50102](https://nvd.nist.gov/vuln/detail/CVE-2025-50102)
 + [CVE-2025-50098](https://nvd.nist.gov/vuln/detail/CVE-2025-50098)
-+ [CVE-2025-53023](hhttps://nvd.nist.gov/vuln/detail/CVE-2025-53023)
++ [CVE-2025-53023](https://nvd.nist.gov/vuln/detail/CVE-2025-53023)
 + [CVE-2025-50081](https://nvd.nist.gov/vuln/detail/CVE-2025-50081)
 + [CVE-2025-50085](https://nvd.nist.gov/vuln/detail/CVE-2025-50085)
 + [CVE-2025-50077](https://nvd.nist.gov/vuln/detail/CVE-2025-50077)

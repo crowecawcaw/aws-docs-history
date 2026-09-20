@@ -14,7 +14,7 @@ To create a proxy endpoint, follow these instructions:
 
 1.  In the navigation pane, choose **Proxies**. 
 
-1.  Click the name of the proxy that you want to create a new endpoint for. 
+1.  Choose the name of the proxy that you want to create a new endpoint for. 
 
     The details page for that proxy appears. 
 

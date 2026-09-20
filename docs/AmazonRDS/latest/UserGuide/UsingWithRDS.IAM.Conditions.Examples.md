@@ -6,7 +6,7 @@
 Following are examples of how you can use condition keys in Amazon RDS IAM permissions policies. 
 
 ## Example 1: Grant permission to create a DB instance that uses a specific DB engine and isn't MultiAZ
-<a name="w2aac58c48c33c21b5"></a>
+<a name="w2aac58c48c35c21b5"></a>
 
 The following policy uses an RDS condition key and allows a user to create only DB instances that use the MySQL database engine and don't use MultiAZ. The `Condition` element indicates the requirement that the database engine is MySQL. 
 
@@ -40,7 +40,7 @@ The following policy uses an RDS condition key and allows a user to create only 
 ------
 
 ## Example 2: Explicitly deny permission to create DB instances for certain DB instance classes and create DB instances that use Provisioned IOPS
-<a name="w2aac58c48c33c21b7"></a>
+<a name="w2aac58c48c35c21b7"></a>
 
 The following policy explicitly denies permission to create DB instances that use the DB instance classes `r3.8xlarge` and `m4.10xlarge`, which are the largest and most expensive DB instance classes. This policy also prevents users from creating DB instances that use Provisioned IOPS, which incurs an additional cost. 
 
@@ -87,7 +87,7 @@ Explicitly denying permission supersedes any other permissions granted. This ens
 ------
 
 ## Example 3: Limit the set of tag keys and values that can be used to tag a resource
-<a name="w2aac58c48c33c21b9"></a>
+<a name="w2aac58c48c35c21b9"></a>
 
 The following policy uses an RDS condition key and allows the addition of a tag with the key `stage` to be added to a resource with the values `test`, `qa`, and `production`.
 

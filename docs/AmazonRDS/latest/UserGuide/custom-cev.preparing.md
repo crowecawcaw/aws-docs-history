@@ -79,8 +79,21 @@ When you have identified the installation files that you want for your CEV, down
 
 1. In the search box, enter **Oracle Database Enterprise Edition** or **Oracle Database Standard Edition 2** and choose **Search**.
 
-1. Choose one of the following base releases:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.preparing.html)
+1. Choose one of the following base releases:
+
+
+<table>
+<thead>
+  <tr><th>Database version</th><th>Enterprise Edition</th><th>Standard Edition 2</th></tr>
+</thead>
+<tbody>
+  <tr><td>Oracle Database 19c</td><td><b>DLP: Oracle Database 19c Enterprise Edition 19.3.0.0.0 ( Oracle Database Enterprise Edition )</b></td><td><b>DLP: Oracle Database 19c Standard Edition 2 19.3.0.0.0 ( Oracle Database Standard Edition 2 )</b></td></tr>
+  <tr><td>Oracle Database 18c</td><td><b>DLP: Oracle Database 18c Enterprise Edition 18.0.0.0.0 ( Oracle Database Enterprise Edition )</b></td><td><b>DLP: Oracle Database Standard Edition 2 18.0.0.0.0 ( Oracle Database Standard Edition 2 )</b></td></tr>
+  <tr><td>Oracle Database 12c Release 2 (12.2.0.1)</td><td><b>DLP: Oracle Database 12c Enterprise Edition 12.2.0.1.0 ( Oracle Database Enterprise Edition )</b></td><td><b>DLP: Oracle Database Standard Edition 2 12.2.0.1.0 ( Oracle Database Standard Edition 2 )</b></td></tr>
+  <tr><td>Oracle Database 12c Release 1 (12.1.0.2)</td><td><b>DLP: Oracle Database 12c Enterprise Edition 12.1.0.2.0 ( Oracle Database Enterprise Edition )</b></td><td><b>DLP: Oracle Database Standard Edition 2 12.1.0.2.0 ( Oracle Database Standard Edition 2 )</b></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Continue**.
 
@@ -96,8 +109,22 @@ When you have identified the installation files that you want for your CEV, down
 
 1. Choose **Continue**, and then sign the Oracle License Agreement.
 
-1. Choose the .zip file that corresponds to your database release:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.preparing.html)
+1. Choose the .zip file that corresponds to your database release:
+
+
+<table>
+<thead>
+  <tr><th>Database release and edition</th><th>Zip files</th><th>SHA-256 hash</th></tr>
+</thead>
+<tbody>
+  <tr><td>19c EE and SE2</td><td><b>V982063-01.zip</b></td><td><code>BA8329C757133DA313ED3B6D7F86C5AC42CD9970A28BF2E6233F3235233AA8D8</code></td></tr>
+  <tr><td>18c EE and SE2</td><td><b>V978967-01.zip</b></td><td><code>C96A4FD768787AF98272008833FE10B172691CF84E42816B138C12D4DE63AB96</code></td></tr>
+  <tr><td>12.2.0.1 EE and SE2</td><td><b>V839960-01.zip</b></td><td><code>96ED97D21F15C1AC0CCE3749DA6C3DAC7059BB60672D76B008103FC754D22DDE</code></td></tr>
+  <tr><td>12.1.0.2 EE</td><td><b>V46095-01_1of2.zip</b> <b>V46095-01_2of2.zip</b></td><td><code>31FDC2AF41687B4E547A3A18F796424D8C1AF36406D2160F65B0AF6A9CD47355</code> for V46095-01_1of2.zip<br /><code>03DA14F5E875304B28F0F3BB02AF0EC33227885B99C9865DF70749D1E220ACCD</code> for V46095-01_2of2.zip</td></tr>
+  <tr><td>12.1.0.2 SE2</td><td><b>V77388-01_1of2.zip</b> <b>V77388-01_2of2.zip</b></td><td><code>73873369753230F5A0921F95ACEADB591388CB06ED72A7F3AEA7BCBCEA2403BC</code> for V77388-01_1of2.zip<br /><code>2492E1BE1E3E3531DA83D0843C09C08E435AC8CEFD9A00C0DF56BE4F15CEEBF3</code> for V77388-01_2of2.zip</td></tr>
+</tbody>
+</table>
+
 
 1. Download your desired Oracle patches from `updates.oracle.com` or `support.oracle.com` to your local system. You can find the URLs for the patches in the following locations:
    + The readme files in the .zip file that you downloaded in [Step 1 (Optional): Download the manifest templates](#custom-cev.preparing.templates)

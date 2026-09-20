@@ -8,6 +8,10 @@ End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Cu
 
 Following, you can find instructions for creating, managing, and maintaining your RDS Custom for Oracle DB instances.
 
+For information about RDS Custom for Oracle end of support, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md).
+
+For information about custom option groups for RDS Custom for Oracle, see [Working with option groups in RDS Custom for Oracle](custom-oracle-option-groups.md).
+
 **Topics**
 + [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md)
 + [RDS Custom for Oracle workflow](custom-concept.workflow.md)

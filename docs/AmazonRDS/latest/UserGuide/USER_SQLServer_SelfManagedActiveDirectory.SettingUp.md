@@ -24,13 +24,13 @@ To set up a self-managed AD, take the following steps.
 
 1. Open **Active Directory Users and Computers** and select the domain where you want to create your OU.
 
-1. Right-click the domain and choose **New**, then **Organizational Unit**.
+1. Open the context (right-click) menu for the domain and choose **New**, then **Organizational Unit**.
 
 1. Enter a name for the OU.
 
 1. Keep the box selected for **Protect container from accidental deletion**.
 
-1. Click **OK**. Your new OU will appear under your domain.
+1. Choose **OK**. Your new OU will appear under your domain.
 
 ## Step 2: Create an AD domain service account in your AD
 <a name="USER_SQLServer_SelfManagedActiveDirectory.SettingUp.CreateADuser"></a>
@@ -41,13 +41,13 @@ The domain service account credentials will be used for the secret in AWS Secret
 
 1. Open **Active Directory Users and Computers** and select the domain and OU where you want to create your user.
 
-1. Right-click the **Users** object and choose **New**, then **User**.
+1. Open the context (right-click) menu for the **Users** object and choose **New**, then **User**.
 
-1. Enter a first name, last name, and logon name for the user. Click **Next**.
+1. Enter a first name, last name, and logon name for the user. Choose **Next**.
 
-1. Enter a password for the user. Don't select **"User must change password at next login"**. Don't select **"Account is disabled"**. Click **Next**.
+1. Enter a password for the user. Don't select **"User must change password at next login"**. Don't select **"Account is disabled"**. Choose **Next**.
 
-1. Click **OK**. Your new user will appear under your domain.
+1. Choose **OK**. Your new user will appear under your domain.
 
 ## Step 3: Delegate control to the AD domain service account
 <a name="USER_SQLServer_SelfManagedActiveDirectory.SettingUp.DelegateControl"></a>
@@ -56,17 +56,17 @@ The domain service account credentials will be used for the secret in AWS Secret
 
 1. Open **Active Directory Users and Computers** MMC snap-in and select the domain where you want to create your user.
 
-1. Right-click the OU that you created earlier and choose **Delegate Control**.
+1. Open the context (right-click) menu for the OU that you created earlier and choose **Delegate Control**.
 
-1. On the **Delegation of Control Wizard**, click **Next**.
+1. On the **Delegation of Control Wizard**, choose **Next**.
 
-1. On the **Users or Groups** section, click **Add**.
+1. On the **Users or Groups** section, choose **Add**.
 
-1. On the **Select Users, Computers, or Groups** section, enter the AD domain service account you created and click **Check Names**. If your AD domain service account check is successful, click **OK**.
+1. On the **Select Users, Computers, or Groups** section, enter the AD domain service account you created and choose **Check Names**. If your AD domain service account check is successful, choose **OK**.
 
-1. On the **Users or Groups** section, confirm your AD domain service account was added and click **Next**.
+1. On the **Users or Groups** section, confirm your AD domain service account was added and choose **Next**.
 
-1. On the **Tasks to Delegate** section, choose **Create a custom task to delegate** and click **Next**.
+1. On the **Tasks to Delegate** section, choose **Create a custom task to delegate** and choose **Next**.
 
 1. On the **Active Directory Object Type** section:
 
@@ -76,7 +76,7 @@ The domain service account credentials will be used for the secret in AWS Secret
 
    1. Select **Create selected objects in this folder**.
 
-   1. Select **Delete selected objects in this folder** and click **Next**.
+   1. Select **Delete selected objects in this folder** and choose **Next**.
 
 1. On the **Permissions** section:
 
@@ -84,11 +84,11 @@ The domain service account credentials will be used for the secret in AWS Secret
 
    1. Select **Validated write to DNS host name**.
 
-   1. Select **Validated write to service principal name** and click **Next**.
+   1. Select **Validated write to service principal name** and choose **Next**.
 
    1. To enable Kerberos authentication, keep **Property-specific** selected and select **Write servicePrincipalName** from the list.
 
-1. For **Completing the Delegation of Control Wizard**, review and confirm your settings and click **Finish**.
+1. For **Completing the Delegation of Control Wizard**, review and confirm your settings and choose **Finish**.
 
 1. For Kerberos authentication, open the DNS Manager and open **Server** properties.
 
@@ -117,19 +117,19 @@ The KMS key is used to encrypt your AWS secret.
 
    1. For **Key material origin**, choose **KMS**.
 
-   1. For **Regionality**, choose **Single-Region key** and click **Next**.
+   1. For **Regionality**, choose **Single-Region key** and choose **Next**.
 
 1. For **Alias**, provide a name for the KMS key.
 
 1. (Optional) For **Description**, provide a description of the KMS key.
 
-1. (Optional) For **Tags**, provide a tag the KMS key and click **Next**.
+1. (Optional) For **Tags**, provide a tag the KMS key and choose **Next**.
 
 1. For **Key administrators**, provide the name of an IAM user and select it.
 
-1. For **Key deletion**, keep the box selected for **Allow key administrators to delete this key** and click **Next**.
+1. For **Key deletion**, keep the box selected for **Allow key administrators to delete this key** and choose **Next**.
 
-1. For **Key users**, provide the same IAM user from the previous step and select it. Click **Next**.
+1. For **Key users**, provide the same IAM user from the previous step and select it. Choose **Next**.
 
 1. Review the configuration.
 
@@ -149,7 +149,7 @@ The KMS key is used to encrypt your AWS secret.
    }
    ```
 
-1. Click **Finish**.
+1. Choose **Finish**.
 
 ## Step 5: Create an AWS secret
 <a name="USER_SQLServer_SelfManagedActiveDirectory.SettingUp.CreateSecret"></a>
@@ -172,13 +172,13 @@ The KMS key is used to encrypt your AWS secret.
 
    1. For the value of the second key, enter the password that you created for the AD user on your domain.
 
-1. For **Encryption key**, enter the KMS key that you created in a previous step and click **Next**.
+1. For **Encryption key**, enter the KMS key that you created in a previous step and choose **Next**.
 
 1. For **Secret name**, enter a descriptive name that helps you find your secret later.
 
 1. (Optional) For **Description**, enter a description for the secret name.
 
-1. For **Resource permission**, click **Edit**.
+1. For **Resource permission**, choose **Edit**.
 
 1. Add the following policy to the permission policy:
 **Note**  
@@ -220,10 +220,10 @@ We recommend that you use the `aws:sourceAccount` and `aws:sourceArn` conditions
 
 ------
 
-1. Click **Save** then click **Next**.
+1. Choose **Save** then choose **Next**.
 
 1. For **Configure rotation settings**, keep the default values and choose **Next**.
 
-1. Review the settings for the secret and click **Store**.
+1. Review the settings for the secret and choose **Store**.
 
 1. Choose the secret you created and copy the value for the **Secret ARN**. This will be used in the next step to set up self-managed Active Directory.

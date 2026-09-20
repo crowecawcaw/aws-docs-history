@@ -9,6 +9,8 @@ For example, you can create a full backup from your local server, store it on S3
 
 Native backup and restore is available in all AWS Regions for Single-AZ and Multi-AZ DB instances, including Multi-AZ DB instances with read replicas. Native backup and restore is available for all editions of Microsoft SQL Server supported on Amazon RDS.
 
+For information about importing SQL Server databases from DB snapshots, see [Importing and exporting SQL Server data using other methods](SQLServer.Procedural.Importing.Snapshots.md).
+
 The following diagram shows the supported scenarios.
 
 ![Native Backup and Restore Architecture.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-bak-file.png)

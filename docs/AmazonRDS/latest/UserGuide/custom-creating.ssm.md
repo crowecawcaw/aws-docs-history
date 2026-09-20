@@ -27,7 +27,7 @@ Session Manager allows you to access Amazon EC2 instances through a browser-base
 
 1. In the navigation pane, choose **Instances**.
 
-1. Look for the name of your EC2 instance, and then click the instance ID associated with it. For example, the instance ID might be `i-abcdefghijklm01234`.
+1. Look for the name of your EC2 instance, and then choose the instance ID associated with it. For example, the instance ID might be `i-abcdefghijklm01234`.
 
 1. Choose **Connect**.
 

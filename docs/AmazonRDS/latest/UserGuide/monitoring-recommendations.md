@@ -13,6 +13,8 @@ Recommendations will be in any of the following status: active, dismissed, pendi
 
 You can view or dismiss the recommendations. You can apply a configuration based active recommendation immediately, schedule it in the next maintenance window, or dismiss it. For threshold based proactive and machine learning based reactive recommendations, you need to review the suggested cause of the issue and then perform the recommended actions to fix the issue. 
 
+For information about viewing and responding to recommendations, see [Viewing Amazon RDS recommendations](UserRecommendationsView.md).
+
 Recommendations are supported in the following AWS Regions:
 + US East (Ohio)
 + US East (N. Virginia)

@@ -20,7 +20,7 @@ To track license usage of your SQL Server DB instances, you can create a self-ma
 
 To create a self-managed license in AWS License Manager to track the license usage of your RDS for SQL Server DB instances:
 
-1. Go to [https://console.aws.amazon.com/license-manager/](https://console.aws.amazon.com/license-manager/).
+1. Open the [AWS License Manager console](https://console.aws.amazon.com/license-manager/).
 
 1. Choose **Create self-managed license**.
 

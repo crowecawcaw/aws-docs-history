@@ -51,8 +51,20 @@ For more information about these categories, see the [IBM Db2 documentation](htt
 
 {{category\_setting}}  
 The setting for the specified audit category. The data type is `varchar`.  
-The following table shows the valid category setting values for each category.      
-<a name="db2-option-reference"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-sp-managing-audit-policies.html)
+The following table shows the valid category setting values for each category.  
+
+<a name="db2-option-reference"></a>
+<table>
+<thead>
+  <tr><th>Category</th><th>Valid category settings</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>ALL</code><br /><code>AUDIT</code><br /><code>CHECKING</code><br /><code>CONTEXT</code><br /><code>OBJMAINT</code><br /><code>SECMAINT</code><br /><code>SYSADMIN</code><br /><code>VALIDATE</code></td><td><code>BOTH|FAILURE|SUCCESS|NONE</code></td></tr>
+  <tr><td><code>ERROR</code></td><td><code>AUDIT|NORMAL</code>. The default is <code>NORMAL</code>.</td></tr>
+  <tr><td><code>EXECUTE</code></td><td><code>BOTH,WITH|BOTH,WITHOUT|FAILURE,WITH|FAILURE,WITHOUT|SUCCESS,WITH|SUCCESS,WITHOUT|NONE</code></td></tr>
+</tbody>
+</table>
+
 
 ### Usage notes
 <a name="db2-sp-configure-db-audit-usage-notes"></a>

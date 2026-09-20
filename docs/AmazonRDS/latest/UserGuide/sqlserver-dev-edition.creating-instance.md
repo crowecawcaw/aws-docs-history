@@ -11,7 +11,7 @@ Launching Developer Edition instance on RDS for SQL Server follows a two-step pr
 | Parameter | Developer Edition | 
 | --- | --- | 
 | `--engine` | `sqlserver-dev-ee` (Enterprise Edition capabilities) or `sqlserver-dev-se` (Standard Edition capabilities, SQL Server 2025 only) | 
-| `--engine-version` | Custom engine version (e.g., `17.00.4045.5.cev-dev-ss2025-cu5`) | 
+| `--engine-version` | Custom engine version (for example, `17.00.4045.5.cev-dev-ss2025-cu5`) | 
 | `--license-model` | bring-your-own-license | 
 
 ## Console

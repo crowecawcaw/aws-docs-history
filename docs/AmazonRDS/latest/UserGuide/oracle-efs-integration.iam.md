@@ -118,7 +118,7 @@ In this step, you create a file system policy for your EFS file system.
 
 1. Choose the **File system policy** tab.
 
-   If the policy is empty, then the default EFS file system policy is in use. For more information, see [Default EFS file system policy](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy ) in the *Amazon Elastic File System User Guide*.
+   If the policy is empty, then the default EFS file system policy is in use. For more information, see [Default EFS file system policy](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy) in the *Amazon Elastic File System User Guide*.
 
 1. Choose **Edit**. The **File system policy** page appears.
 

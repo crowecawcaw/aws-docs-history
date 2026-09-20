@@ -83,8 +83,22 @@ There are also advanced administrative tasks for working with SQL Server DB inst
 The Amazon RDS implementation of Microsoft SQL Server on a DB instance has some limitations that you should be aware of:
 + The maximum number of databases supported on a DB instance depends on the instance class type and the availability mode—Single-AZ, Multi-AZ Database Mirroring (DBM), or Multi-AZ Availability Groups (AGs). The Microsoft SQL Server system databases don't count toward this limit. 
 
-  The following table shows the maximum number of supported databases for each instance class type and availability mode. Use this table to help you decide if you can move from one instance class type to another, or from one availability mode to another. If your source DB instance has more databases than the target instance class type or availability mode can support, modifying the DB instance fails. You can see the status of your request in the **Events** pane.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html)
+  The following table shows the maximum number of supported databases for each instance class type and availability mode. Use this table to help you decide if you can move from one instance class type to another, or from one availability mode to another. If your source DB instance has more databases than the target instance class type or availability mode can support, modifying the DB instance fails. You can see the status of your request in the **Events** pane. 
+
+
+<table>
+<thead>
+  <tr><th>Instance class type</th><th>vCPU configured on RDS</th><th>Single-AZ</th><th>Multi-AZ with DBM</th><th>Multi-AZ with Always On AGs</th></tr>
+</thead>
+<tbody>
+  <tr><td>db.*.micro to db.*.medium</td><td>N/A</td><td>30</td><td>N/A</td><td>N/A</td></tr>
+  <tr><td>db.*.large</td><td>N/A</td><td>30</td><td>30</td><td>30</td></tr>
+  <tr><td>db.*.xlarge to db.*.16xlarge</td><td>4 vCPUs - 64 vCPUs</td><td>100</td><td>50</td><td>75</td></tr>
+  <tr><td>db.*.24xlarge to db.*.32xlarge</td><td>4 vCPUs - 64 vCPUs</td><td>100</td><td>50</td><td>75</td></tr>
+  <tr><td>db.*.24xlarge to db.*.32xlarge</td><td>96 vCPUs - 128 vCPUs</td><td>100</td><td> 50</td><td>100</td></tr>
+</tbody>
+</table>
+
 
   \* Represents the different instance class types. 
 

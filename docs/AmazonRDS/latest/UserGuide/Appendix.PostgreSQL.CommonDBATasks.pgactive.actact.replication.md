@@ -240,7 +240,7 @@ pgactivelink logs conflict incidents in the `pgactive.pgactive_conflict_history`
 + No limits are applied to field numbers, array elements, or field lengths
 + Enabling this feature may not be advisable if you work with multi-megabyte rows that might trigger conflicts
 
- Since the conflict history table contains data from every table in the database (each with potentially different schemas), logged row values are stored as JSON fields. The JSON is created using `row_to_json`, similar to calling it directly from SQL. PostgreSQL doesn't provide a `json_to_row` function, so you'll need table-specific code (in PL/pgSQL, PL/Python, PL/Perl, etc.) to reconstruct a composite-typed tuple from the logged JSON.
+ Since the conflict history table contains data from every table in the database (each with potentially different schemas), logged row values are stored as JSON fields. The JSON is created using `row_to_json`, similar to calling it directly from SQL. PostgreSQL doesn't provide a `json_to_row` function, so you'll need table-specific code (in PL/pgSQL, PL/Python, PL/Perl, and so on) to reconstruct a composite-typed tuple from the logged JSON.
 
 **Note**  
 Support for user-defined conflicts is planned as a future extension feature.

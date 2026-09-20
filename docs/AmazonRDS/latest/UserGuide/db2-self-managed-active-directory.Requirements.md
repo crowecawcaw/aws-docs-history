@@ -23,9 +23,23 @@ Make sure that you have an on-premises or other self-managed Microsoft AD that y
 
 Make sure that you meet the following network requirements:
 + Configure connectivity between the Amazon VPC where you want to create the RDS for Db2 DB instance and your self-managed AD. You can set up connectivity using AWS Direct Connect, AWS VPN, VPC peering, or AWS Transit Gateway.
-+ For VPC security groups, the default security group for your default VPC is already added to your RDS for Db2 DB instance in the console. Make sure that the security group and the VPC network ACLs for the subnets where you're creating your RDS for Db2 DB instance allow traffic on the ports identified in the following table.  
-**Required ports for self-managed AD**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-self-managed-active-directory.Requirements.html)
++ For VPC security groups, the default security group for your default VPC is already added to your RDS for Db2 DB instance in the console. Make sure that the security group and the VPC network ACLs for the subnets where you're creating your RDS for Db2 DB instance allow traffic on the ports identified in the following table.
+
+
+**Required ports for self-managed AD**  
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Ports</th><th>Role</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP/UDP</td><td>53</td><td>Domain Name System (DNS)</td></tr>
+  <tr><td>TCP/UDP</td><td>88</td><td>Kerberos authentication</td></tr>
+  <tr><td>TCP/UDP</td><td>464</td><td>Change/Set password</td></tr>
+  <tr><td>TCP/UDP</td><td>389</td><td>Lightweight Directory Access Protocol (LDAP)</td></tr>
+</tbody>
+</table>
+
 + Generally, the domain DNS servers are located in the AD domain controllers. You do not need to configure the VPC DHCP option set to use this feature. For more information, see [DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in the *Amazon VPC User Guide*.
 
 **Important**  

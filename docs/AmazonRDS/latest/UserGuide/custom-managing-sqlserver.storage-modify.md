@@ -12,7 +12,7 @@ The following limitations apply to modifying the storage for an RDS Custom for S
 + The minimum allocated storage size for RDS Custom for SQL Server is 20 GiB. The maximum storage limit for io1, gp2, and gp3 is 16 TiB while io2 supports 64 TiB.
 + As with Amazon RDS, you can't decrease the allocated storage. This is a limitation of Amazon Elastic Block Store (Amazon EBS) volumes. For more information, see [Working with storage for Amazon RDS DB instances](USER_PIOPS.StorageTypes.md)
 + Storage autoscaling isn't supported for RDS Custom for SQL Server DB instances.
-+ Any storage volumes that you manually attach to your RDS Custom DB instance are not considered for storage scaling. Only the RDS-provided default data volumes, i.e., the D drive, are considered for storage scaling.
++ Any storage volumes that you manually attach to your RDS Custom DB instance are not considered for storage scaling. Only the RDS-provided default data volumes, that is, the D drive, are considered for storage scaling.
 
   For more information, see [RDS Custom support perimeter](custom-concept.md#custom-troubleshooting.support-perimeter).
 + Scaling storage usually doesn't cause any outage or performance degradation of the DB instance. After you modify the storage size for a DB instance, the status of the DB instance is **storage-optimization**.

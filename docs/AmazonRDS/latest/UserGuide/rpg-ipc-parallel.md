@@ -59,7 +59,7 @@ Short-lived queries that frequently initiate and terminate parallel workers can 
 Limited CPU, memory, or I/O capacity can cause bottlenecks in parallel execution, leading to increased wait times across all IPC events. For example, if CPU is saturated, worker processes may take longer to start up or process their portion of work.
 
 **Complex query structures**  
-Queries with multiple levels of parallelism (e.g., parallel joins followed by parallel aggregations) can lead to more complex IPC patterns and potentially increased wait times, especially for `IPC:ExecuteGather` events.
+Queries with multiple levels of parallelism (for example, parallel joins followed by parallel aggregations) can lead to more complex IPC patterns and potentially increased wait times, especially for `IPC:ExecuteGather` events.
 
 **Large result sets**  
 Queries that produce large result sets may cause increased `IPC:ExecuteGather` wait times as the leader process spends more time collecting and processing results from worker processes.
@@ -164,4 +164,4 @@ If experiencing connection exhaustion, review application connection pooling str
 ### Review and optimize maintenance operations
 <a name="rpg-ipc-parallel-maintenance"></a>
 
-Coordinate index creation and other maintenance tasks to prevent resource contention. Consider scheduling these operations during off-peak hours. Avoid scheduling heavy maintenance (e.g., parallel index builds) during periods of high user query load. These operations can consume parallel workers and impact performance for regular queries.
+Coordinate index creation and other maintenance tasks to prevent resource contention. Consider scheduling these operations during off-peak hours. Avoid scheduling heavy maintenance (for example, parallel index builds) during periods of high user query load. These operations can consume parallel workers and impact performance for regular queries.

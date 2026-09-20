@@ -45,7 +45,7 @@ Use the following steps to create an organization unit in your AD:
 
 1. Open **Active Directory Users and Computers** and select the domain where you want to create your OU.
 
-1. Right-click the domain and choose **New**, then **Organization Unit**.
+1. Open the context (right-click) menu for the domain and choose **New**, then **Organization Unit**.
 
 1. Enter a name for the OU.
 
@@ -64,13 +64,13 @@ The domain user credentials are used for the secret in Secrets Manager.
 
 1. Open **Active Directory Users and Computers** and select the domain and OU where you want to create the user.
 
-1. Right-click the **Users** object and choose **New**, then **User**.
+1. Open the context (right-click) menu for the **Users** object and choose **New**, then **User**.
 
-1. Enter a first name, last name, and login name for the user. Click **Next**.
+1. Enter a first name, last name, and login name for the user. Choose **Next**.
 
-1. Enter a password for the user. Don't select **User must change password at next login** or **Account is disabled.**. Click **Next**.
+1. Enter a password for the user. Don't select **User must change password at next login** or **Account is disabled.**. Choose **Next**.
 
-1. Click **OK**. You new user appears under your domain.
+1. Choose **OK**. You new user appears under your domain.
 
 ## Step 3: Delegate control to the AD user in self-managed or AWS Managed Microsoft AD
 <a name="custom-sqlserver-WinAuth.settingUp.Delegate"></a>
@@ -79,17 +79,17 @@ The domain user credentials are used for the secret in Secrets Manager.
 
 1. Open **Active Directory Users and Computers** MMC snap-in and select your domain.
 
-1. Right-click on the OU you created earlier and choose **Delegate Control**.
+1. Open the context (right-click) menu for the OU you created earlier and choose **Delegate Control**.
 
-1. In the **Delegation Control Wizard**, click **Next**.
+1. In the **Delegation Control Wizard**, choose **Next**.
 
-1. In **Users or Groups** section, click **Add**.
+1. In **Users or Groups** section, choose **Add**.
 
-1. In **Select Users, Computers, or Groups**, enter the AD user you created and click **Check Names**. If your AD user check is successful, click **OK**.
+1. In **Select Users, Computers, or Groups**, enter the AD user you created and choose **Check Names**. If your AD user check is successful, choose **OK**.
 
-1. In the **Users or Groups** section, confirm your AD user was added and click **Next**.
+1. In the **Users or Groups** section, confirm your AD user was added and choose **Next**.
 
-1. In the **Tasks to Delegate** section, choose **Create a custom task to delegate** and click **Next**.
+1. In the **Tasks to Delegate** section, choose **Create a custom task to delegate** and choose **Next**.
 
 1. In the **Active Directory Object Type** section:
 
@@ -99,7 +99,7 @@ The domain user credentials are used for the secret in Secrets Manager.
 
    Select **Create selected objects in this folder**
 
-   Select **Delete selected objects in this folder** and click **Next**.
+   Select **Delete selected objects in this folder** and choose **Next**.
 
 1. In the **Permissions** section:
 
@@ -107,9 +107,9 @@ The domain user credentials are used for the secret in Secrets Manager.
 
    Select **Validated write to DNS host name**.
 
-   Select **Validated write to service principal name** and click **Next**.
+   Select **Validated write to service principal name** and choose **Next**.
 
-1. In **Completing the Delegation of Control Wizard**, confirm your settings and click **Finish**.
+1. In **Completing the Delegation of Control Wizard**, confirm your settings and choose **Finish**.
 
 ## Step 4: Create a secret
 <a name="custom-sqlserver-WinAuth.settingUp.ASM"></a>
@@ -127,9 +127,9 @@ Create the secret in the same AWS account and Region that contains the RDS Custo
 + For **Secret name**, choose the secret name starting with `do-not-delete-rds-custom-` to allow your instance profile to access this secret. IF you want to choose a different name for the secret, update `RDSCustomInstanceProfile` to access **Secret name**.
 + (Optional) For **Description**, enter a description for the secret name.
 + Add the tags `Key="AWSRDSCustom",Value="custom-sqlserver"` 
-+ Click **Save**, then **Next**.
++ Choose **Save**, then **Next**.
 + For **Configure rotation settings**, keep the default values and choose **Next**.
-+ Review the settings for the secret and click **Store**.
++ Review the settings for the secret and choose **Store**.
 + Choose the new secret and copy the value for **Secret ARN**. We use this in the next step to set up you Active Directory.
 
 ------

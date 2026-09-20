@@ -10,6 +10,8 @@ RDS for PostgreSQL supports Trusted Language Extensions for PostgreSQL through t
 
 In some cases, rather than installing an extension, you might add a specific module to the list of `shared_preload_libraries` in your RDS for PostgreSQL DB instance's custom DB parameter group. Typically, the default DB cluster parameter group loads only the `pg_stat_statements`, but several other modules are available to add to the list. For example, you can add scheduling capability by adding the `pg_cron` module, as detailed in [Scheduling maintenance with the PostgreSQL pg\_cron extension](PostgreSQL_pg_cron.md). As another example, you can log query execution plans by loading the `auto_explain` module. To learn more, see [Logging execution plans of queries](https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-tune-query-performance/#) in the AWS knowledge center.
 
+For information about using the `pgactive` extension for active-active replication, see [Using pgactive to support active-active replication](Appendix.PostgreSQL.CommonDBATasks.pgactive.md).
+
 Depending on your version of RDS for PostgreSQL, installing an extension might require `rds_superuser` permissions, as follows: 
 + For RDS for PostgreSQL versions 12 and earlier versions, installing extensions requires `rds_superuser` privileges.
 + For RDS for PostgreSQL version 13 and higher versions, users (roles) with create permissions on a given database instance can install and use any *trusted extensions*. For a list of trusted extensions, see [PostgreSQL trusted extensions](PostgreSQL.Concepts.General.FeatureSupport.Extensions.md#PostgreSQL.Concepts.General.Extensions.Trusted). 
@@ -17,6 +19,8 @@ Depending on your version of RDS for PostgreSQL, installing an extension might r
 You can also specify precisely which extensions can be installed on your RDS for PostgreSQL DB instance, by listing them in the `rds.allowed_extensions` parameter. For more information, see [Restricting installation of PostgreSQL extensions](PostgreSQL.Concepts.General.FeatureSupport.Extensions.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction).
 
 To learn more about the `rds_superuser` role, see [Understanding PostgreSQL roles and permissions](Appendix.PostgreSQL.CommonDBATasks.Roles.md).
+
+For information about delegated extension support in RDS for PostgreSQL, see [Using Amazon RDS delegated extension support for PostgreSQL](RDS_delegated_ext.md).
 
 **Topics**
 + [Using functions from the orafce extension](Appendix.PostgreSQL.CommonDBATasks.orafce.md)

@@ -105,8 +105,18 @@ Before you create your DB instance, consider the following additional prerequisi
 + To tailor the configuration parameters for your DB instance, specify a DB parameter group with the required parameter settings. For information about creating or modifying a DB parameter group, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md). 
 **Important**  
 If you are using the BYOL model for Amazon RDS for Db2, before creating a DB instance, you must first create a custom parameter group that contains your IBM Site ID and IBM Customer ID. For more information, see [Bring your own license (BYOL) for Db2](db2-licensing.md#db2-licensing-options-byol).
-+ Determine the TCP/IP port number to specify for your DB instance. The firewalls at some companies block connections to the default ports for RDS DB instances. If your company firewall blocks the default port, choose another port for your DB instance. The default ports for Amazon RDS DB engines are:    
-<a name="dbengineports"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html)
++ Determine the TCP/IP port number to specify for your DB instance. The firewalls at some companies block connections to the default ports for RDS DB instances. If your company firewall blocks the default port, choose another port for your DB instance. The default ports for Amazon RDS DB engines are:
+
+<a name="dbengineports"></a>
+<table>
+<thead>
+  <tr><th>RDS for Db2</th><th>RDS for MariaDB</th><th>RDS for MySQL</th><th>RDS for Oracle</th><th>RDS for PostgreSQL</th><th>RDS for SQL Server</th></tr>
+</thead>
+<tbody>
+  <tr><td>50000</td><td>3306</td><td>3306</td><td>1521</td><td>5432</td><td>1433</td></tr>
+</tbody>
+</table>
+
 
   For RDS for SQL Server, the following ports are reserved, and you can't use them when you create a DB instance: `1234, 1434, 3260, 3343, 3389, 47001,` and `49152-49156`.
 

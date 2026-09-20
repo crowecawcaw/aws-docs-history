@@ -178,7 +178,7 @@ A CloudFormation template is a JSON or YAML text file that contains the configur
 
 To download the template file, open the following link, [MariaDB CloudFormation template](https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-mariadb-main.template.yaml).
 
-In the Github page, click the *Download raw file* button to save the template YAML file.
+In the Github page, choose the *Download raw file* button to save the template YAML file.
 
 ### Configure your resources using CloudFormation
 <a name="CHAP_GettingStarted.CFN.MariabDB.Step2"></a>
@@ -220,7 +220,7 @@ If you use `0.0.0.0/0` for SSH access, you make it possible for all IP addresses
 
    1. Under **Database Monitoring configuration**, set **Enable RDS Performance Insights** to false.
 
-   1. Leave all other settings as the default values. Click **Next** to continue.
+   1. Leave all other settings as the default values. Choose **Next** to continue.
 
 1. In the **Review stack** page, select **Submit** after checking the database and Linux bastion host options.
 

@@ -164,4 +164,4 @@ For more information about connection pooling, see the following resources:
 ### Upgrade your RDS for PostgreSQL version
 <a name="wait-event.lw-lock-manager.actions.pg-version"></a>
 
-If your current version of RDS for PostgreSQL is lower than 12, upgrade to version 12 or higher. PostgreSQL versions 12 and later have an improved partition mechanism. For more information about version 12, see [PostgreSQL 12.0 Release Notes]( https://www.postgresql.org/docs/release/12.0/). For more information about upgrading RDS for PostgreSQL, see [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.PostgreSQL.md).
+If your current version of RDS for PostgreSQL is lower than 12, upgrade to version 12 or higher. PostgreSQL versions 12 and later have an improved partition mechanism. For more information about version 12, see [PostgreSQL 12.0 Release Notes](https://www.postgresql.org/docs/release/12.0/). For more information about upgrading RDS for PostgreSQL, see [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.PostgreSQL.md).

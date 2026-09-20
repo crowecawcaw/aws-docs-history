@@ -5,7 +5,7 @@
 
 In this tutorial, you use a Lambda function to write data to an [Amazon Relational Database Service](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) (Amazon RDS) database through RDS Proxy. Your Lambda function reads records from an Amazon Simple Queue Service (Amazon SQS) queue and writes a new item to a table in your database whenever a message is added. In this example, you use the AWS Management Console to manually add messages to your queue. The following diagram shows the AWS resources you use to complete the tutorial.
 
-![An instance of the AWS Management Console connects to an Amazon SQS standard queue, which connects to a Lambda function, which further connects to a RDS for MySQL database through RDS Proxy.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_1.png)
+![Architecture diagram: the console, an Amazon SQS queue, a Lambda function, and RDS for MySQL connected through RDS Proxy.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_1.png)
 
 
 With Amazon RDS, you can run a managed relational database in the cloud using common database products like Microsoft SQL Server, MariaDB, MySQL, Oracle Database, and PostgreSQL. By using Lambda to access your database, you can read and write data in response to events, such as a new customer registering with your website. Your function, database instance, and proxy scale automatically to meet periods of high demand.
@@ -36,7 +36,7 @@ Before you begin, complete the steps in the following sections:
 ## Create an Amazon RDS DB instance
 <a name="vpc-rds-create-RDS-instance"></a>
 
-![Tutorial workflow diagram showing you are the create database step.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step1.png)
+![Tutorial workflow diagram with the create database step highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step1.png)
 
 
 An Amazon RDS DB instance is an isolated database environment running in the AWS Cloud. An instance can contain one or more user-created databases. Unless you specify otherwise, Amazon RDS creates new database instances in the default VPC included in your AWS account. For more information about Amazon VPC, see the [Amazon Virtual Private Cloud User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
@@ -68,7 +68,7 @@ In this tutorial, you create a new instance in your AWS account's default VPC an
 ## Create Lambda function and proxy
 <a name="auto-create-Lambda"></a>
 
-![Tutorial workflow diagram showing you are in the Lambda function step creating an execution role.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step2.png)
+![Tutorial workflow diagram with the create Lambda function and proxy step highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step2.png)
 
 
 You can use the RDS console to create a Lambda function and a proxy in the same VPC as the database. 
@@ -98,7 +98,7 @@ The wizard completes the set up and provides a link to the Lambda console to rev
 ## Create a function execution role
 <a name="vpc-rds-create-execution-role"></a>
 
-![Tutorial workflow diagram showing you are in the Lambda function step creating an execution role.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step3.png)
+![Tutorial workflow diagram with the create execution role step highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step3.png)
 
 
 Before you create your Lambda function, you create an execution role to give your function the necessary permissions. For this tutorial, Lambda needs permission to manage the network connection to the VPC containing your database instance and to poll messages from an Amazon SQS queue.
@@ -136,7 +136,7 @@ Later in the tutorial, you need the Amazon Resource Name (ARN) of the execution 
 ## Create a Lambda deployment package
 <a name="vpc-rds-create-deployment-package"></a>
 
-![Tutorial workflow diagram showing you are in the Lambda function step creating a deployment package](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step4.png)
+![Tutorial workflow diagram with the create deployment package step highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step4.png)
 
 
 The following example Python code uses the [PyMySQL](https://pymysql.readthedocs.io/en/latest/) package to open a connection to your database. The first time you invoke your function, it also creates a new table called `Customer`. The table uses the following schema, where `CustID` is the primary key:
@@ -279,7 +279,7 @@ Now configure the function with the execution role you created earlier. This gra
 ## Test your Lambda function in the console
 <a name="vpc-rds-test-function"></a>
 
-![Tutorial workflow diagram showing you are in the Lambda function step testing the function](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step5.png)
+![Tutorial workflow diagram with the test function step highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step5.png)
 
 
 You can now use the Lambda console to test your function. You create a test event which mimics the data your function will receive when you invoke it using Amazon SQS in the final stage of the tutorial. Your test event contains a JSON object specifying a customer ID and customer name to add to the `Customer` table your function creates.
@@ -329,7 +329,7 @@ In the **Execution results** tab, you should see results similar to the followin
 ## Create an Amazon SQS queue
 <a name="vpc-rds-create-queue"></a>
 
-![Tutorial workflow diagram showing you are in the message queue step creating the queue.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step6.png)
+![Tutorial workflow diagram with the create queue step highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step6.png)
 
 
 You have successfully tested the integration of your Lambda function and Amazon RDS database instance. Now you create the Amazon SQS queue you will use to invoke your Lambda function in the final stage of the tutorial.
@@ -345,7 +345,7 @@ You have successfully tested the integration of your Lambda function and Amazon 
 ## Create an event source mapping to invoke your Lambda function
 <a name="vpc-rds-create-event-source-mapping"></a>
 
-![Tutorial workflow diagram showing you are in the message queue step creating an event source mapping.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step7.png)
+![Tutorial workflow diagram with the create event source mapping step highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step7.png)
 
 
 An [event source mapping](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html) is a Lambda resource which reads items from a stream or queue and invokes a Lambda function. When you configure an event source mapping, you can specify a batch size so that records from your stream or queue are batched together into a single payload. In this example, you set the batch size to 1 so that your Lambda function is invoked every time you send a message to your queue. You can configure the event source mapping using either the AWS CLI or the Lambda console.
@@ -367,7 +367,7 @@ You are now ready to test your complete setup by adding a message to your Amazon
 ## Test and monitor your setup
 <a name="vpc-rds-test-setup"></a>
 
-![Tutorial workflow diagram showing you are in the test and monitor step.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step8.png)
+![Tutorial workflow diagram with the test and monitor step highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/TUT_Lambda_step8.png)
 
 
 To test your complete setup, add messages to your Amazon SQS queue using the console. You then use CloudWatch Logs to confirm that your Lambda function is writing records to your database as expected.

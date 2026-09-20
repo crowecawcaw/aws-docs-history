@@ -14,7 +14,7 @@ Avoid scheduling jobs to run during the maintenance and backup windows for your 
 In Multi-AZ deployments, SQL Server Agent jobs are replicated from the primary host to the secondary host when the job replication feature is turned on. For more information, see [Turning on SQL Server Agent job replication](#SQLServerAgent.Replicate).  
 Multi-AZ deployments have a limit of 10,000 SQL Server Agent jobs. If you need a higher limit, request an increase by contacting Support. Open the [AWS Support Center](https://console.aws.amazon.com/support/home#/) page, sign in if necessary, and choose **Create case**. Choose **Service limit increase**. Complete and submit the form.
 
-To view the history of an individual SQL Server Agent job in SQL Server Management Studio (SSMS), open Object Explorer, right-click the job, and then choose **View History**.
+To view the history of an individual SQL Server Agent job in SQL Server Management Studio (SSMS), open Object Explorer, open the context (right-click) menu for the job, and then choose **View History**.
 
 Because SQL Server Agent is running on a managed host in a DB instance, some actions aren't supported:
 + Running replication jobs and running command-line scripts by using ActiveX, Windows command shell, or Windows PowerShell aren't supported.

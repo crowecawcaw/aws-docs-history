@@ -33,6 +33,8 @@ You can use DB instances running MySQL inside a virtual private cloud (VPC) base
 **Important**  
 To deliver a managed service experience, Amazon RDS doesn't provide shell access to DB instances. It also restricts access to certain system procedures and tables that need advanced privileges. You can access your database using standard SQL clients such as the mysql client. However, you can't access the host directly by using Telnet or Secure Shell (SSH).
 
+For information about additional options for importing data into RDS for MySQL, see [Importing data into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.Other.md).
+
 **Topics**
 + [MySQL feature support on Amazon RDS](MySQL.Concepts.FeatureSupport.md)
 + [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md)

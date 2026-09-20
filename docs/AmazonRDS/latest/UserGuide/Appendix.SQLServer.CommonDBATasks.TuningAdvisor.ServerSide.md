@@ -5,7 +5,7 @@
 
 Writing scripts to create a server-side trace can be complex and is beyond the scope of this document. This section contains sample scripts that you can use as examples. As with a client-side trace, the goal is to create a workload file or trace table that you can open using the Database Engine Tuning Advisor.
 
-The following is an abridged example script that starts a server-side trace and captures details to a workload file. The trace initially saves to the file RDSTrace.trc in the D:\\RDSDBDATA\\Log directory and rolls-over every 100 MB so subsequent trace files are named RDSTrace\_1.trc, RDSTrace\_2.trc, etc.
+The following is an abridged example script that starts a server-side trace and captures details to a workload file. The trace initially saves to the file RDSTrace.trc in the D:\\RDSDBDATA\\Log directory and rolls-over every 100 MB so subsequent trace files are named RDSTrace\_1.trc, RDSTrace\_2.trc, and so on.
 
 ```
 DECLARE @file_name NVARCHAR(245) = 'D:\RDSDBDATA\Log\RDSTrace';

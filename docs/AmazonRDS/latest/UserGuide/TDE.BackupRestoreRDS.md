@@ -147,9 +147,8 @@ SELECT * FROM msdb.dbo.rds_fn_list_user_tde_certificates();
 The output resembles the following. Not all columns are shown here.
 
 
-|  |  |  |  |  |  |  |  |  |  |  | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| name | certificate\_id | principal\_id | pvt\_key\_encryption\_type\_desc | issuer\_name | cert\_serial\_number | thumbprint | subject | start\_date | expiry\_date | pvt\_key\_last\_backup\_date | 
+| `name` | `certificate_id` | `principal_id` | `pvt_key_encryption_type_desc` | `issuer_name` | `cert_serial_number` | `thumbprint` | `subject` | `start_date` | `expiry_date` | `pvt_key_last_backup_date` | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | UserTDECertificate\_tde\_cert | 343 | 1 | ENCRYPTED\_BY\_MASTER\_KEY | AnyCompany Shipping | 79 3e 57 a3 69 fd 1d 9e 47 2c 32 67 1d 9c ca af | 0x6BB218B34110388680B FE1BA2D86C695096485B5 | AnyCompany Shipping | 2022-04-05 19:49:45.0000000 | 2023-04-05 19:49:45.0000000 | NULL | 
 
 ## Dropping restored TDE certificates

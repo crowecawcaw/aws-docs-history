@@ -36,12 +36,34 @@ The following general-purpose DB instance classes are available:
 
   For the RDS for Oracle DB engines, Amazon RDS no longer supports db.m4 DB instance classes. If you had previously created RDS for Oracle db.m4 DB instances, Amazon RDS automatically upgrades those DB instances to equivalent db.m5 DB instance classes.
 
-  For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-support process for this DB instance class using the following schedule. For all RDS DB instances that use this instance class, we recommend that you upgrade to a newer generation DB instance class as soon as possible.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.Types.html)
+  For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-support process for this DB instance class using the following schedule. For all RDS DB instances that use this instance class, we recommend that you upgrade to a newer generation DB instance class as soon as possible.
+
+
+<table>
+<thead>
+  <tr><th>Action or recommendation</th><th>Date</th></tr>
+</thead>
+<tbody>
+  <tr><td>Starting on this date, Amazon RDS began automatically upgrading instances using db.m4 to the newer generation db.m5 instance class. Creating DB instances using the db.m4 instance class is no longer supported.</td><td>June 1, 2024</td></tr>
+  <tr><td>Amazon RDS ends support for db.m4.</td><td>December 31, 2024</td></tr>
+</tbody>
+</table>
+
 + **db.m3** – General-purpose DB instance classes that provide more computing capacity than the previous db.m1 instance classes.
 
-  For the RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-life process for db.m3 DB instance classes using the following schedule, which includes upgrade recommendations. For all RDS DB instances that use db.m3 DB instance classes, we recommend that you upgrade to a higher generation DB instance class as soon as possible.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.Types.html)
+  For the RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-life process for db.m3 DB instance classes using the following schedule, which includes upgrade recommendations. For all RDS DB instances that use db.m3 DB instance classes, we recommend that you upgrade to a higher generation DB instance class as soon as possible.
+
+
+<table>
+<thead>
+  <tr><th>Action or recommendation</th><th>Dates</th></tr>
+</thead>
+<tbody>
+  <tr><td>You can no longer create RDS DB instances that use db.m3 DB instance classes.</td><td>Now</td></tr>
+  <tr><td>Amazon RDS started automatic upgrades of RDS DB instances that use db.m3 DB instance classes to equivalent db.m5 DB instance classes.</td><td>February 1, 2023</td></tr>
+</tbody>
+</table>
+
 
 ## Memory-optimized instance class types
 <a name="Concepts.DBInstanceClass.Types.memory"></a>
@@ -72,15 +94,48 @@ The memory-optimized R family supports the following instance class types:
 + **db.r5** – Instance classes optimized for memory-intensive applications. These instance classes offer improved networking performance. They are powered by the AWS Nitro System, a combination of dedicated hardware and lightweight hypervisor.
 + **db.r4** – Instance classes that provide improved networking over previous db.r3 instance classes.
 
-  For the RDS for Oracle DB engines, Amazon RDS has started the end-of-life process for db.r4 DB instance classes using the following schedule, which includes upgrade recommendations. For RDS for Oracle DB instances that use db.r4 instance classes, we recommend that you upgrade to a higher generation instance class as soon as possible.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.Types.html)
+  For the RDS for Oracle DB engines, Amazon RDS has started the end-of-life process for db.r4 DB instance classes using the following schedule, which includes upgrade recommendations. For RDS for Oracle DB instances that use db.r4 instance classes, we recommend that you upgrade to a higher generation instance class as soon as possible.
 
-  For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-support process for this DB instance class using the following schedule. For all RDS DB instances that use this instance class, we recommend that you upgrade to a newer generation DB instance class as soon as possible.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.Types.html)
+
+<table>
+<thead>
+  <tr><th>Action or recommendation</th><th>Dates</th></tr>
+</thead>
+<tbody>
+  <tr><td>You can no longer create RDS for Oracle DB instances that use db.r4 DB instance classes.  </td><td>Now</td></tr>
+  <tr><td>Amazon RDS started automatic upgrades of RDS for Oracle DB instances that use db.r4 DB instance classes to equivalent db.r5 DB instance classes.</td><td>April 17, 2023</td></tr>
+</tbody>
+</table>
+
+
+  For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-support process for this DB instance class using the following schedule. For all RDS DB instances that use this instance class, we recommend that you upgrade to a newer generation DB instance class as soon as possible.
+
+
+<table>
+<thead>
+  <tr><th>Action or recommendation</th><th>Dates</th></tr>
+</thead>
+<tbody>
+  <tr><td>Starting on this date, Amazon RDS began automatically upgrading instances using db.r4 to the newer generation db.r5 instance class. Creating DB instances using the db.m4 instance class is no longer supported.</td><td>June 1, 2024</td></tr>
+  <tr><td>Amazon RDS ends support for db.r4.</td><td>December 31, 2024</td></tr>
+</tbody>
+</table>
+
 + **db.r3** – Instance classes that provide memory optimization.
 
-  For the RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-life process for db.r3 DB instance classes using the following schedule, which includes upgrade recommendations. For all RDS DB instances that use db.r3 DB instance classes, we recommend that you upgrade to a higher generation DB instance class as soon as possible.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.Types.html)
+  For the RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-life process for db.r3 DB instance classes using the following schedule, which includes upgrade recommendations. For all RDS DB instances that use db.r3 DB instance classes, we recommend that you upgrade to a higher generation DB instance class as soon as possible.
+
+
+<table>
+<thead>
+  <tr><th>Action or recommendation</th><th>Dates</th></tr>
+</thead>
+<tbody>
+  <tr><td>You can no longer create RDS DB instances that use db.r3 DB instance classes.</td><td>Now</td></tr>
+  <tr><td>Amazon RDS started automatic upgrades of RDS DB instances that use db.r3 DB instance classes to equivalent db.r5 DB instance classes.</td><td>February 1, 2023</td></tr>
+</tbody>
+</table>
+
 
 ## Compute-optimized instance class type
 <a name="Concepts.DBInstanceClass.Types.compute"></a>
@@ -100,8 +155,19 @@ The following burstable-performance DB instance class types are available:
 + **db.t3** – Instance classes that provide a baseline performance level, with the ability to burst to full CPU usage. The db.t3 instances are configured for Unlimited mode. These instance classes provide more computing capacity than the previous db.t2 instance classes. They are powered by the AWS Nitro System, a combination of dedicated hardware and lightweight hypervisor. 
 + **db.t2** – Instance classes that provide a baseline performance level, with the ability to burst to full CPU usage. The db.t2 instances are configured for Unlimited mode. We recommend using these instance classes only for development and test servers, or other non-production servers.
 
-  For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-support process for this DB instance class using the following schedule. For all RDS DB instances that use this instance class, we recommend that you upgrade to a newer generation DB instance class as soon as possible.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.Types.html)
+  For the RDS for MariaDB, RDS for MySQL, RDS for SQL Server, and RDS for PostgreSQL DB engines, Amazon RDS has started the end-of-support process for this DB instance class using the following schedule. For all RDS DB instances that use this instance class, we recommend that you upgrade to a newer generation DB instance class as soon as possible.
+
+
+<table>
+<thead>
+  <tr><th>Action or recommendation</th><th>Dates</th></tr>
+</thead>
+<tbody>
+  <tr><td>Starting on this date, Amazon RDS began automatically upgrading instances using db.t2 to the newer generation db.t3 instance class. Creating DB instances using the db.t2 instance class is no longer supported.</td><td>June 1, 2024</td></tr>
+  <tr><td>Amazon RDS ends support for db.t2.</td><td>December 31, 2024</td></tr>
+</tbody>
+</table>
+
 
 **Note**  
 The DB instance classes that use the AWS Nitro System (db.m5, db.r5, db.t3) are throttled on combined read plus write workload.

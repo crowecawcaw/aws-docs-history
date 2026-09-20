@@ -8,8 +8,25 @@ Make sure that you have met the following network configurations:
 + Make sure that the security group and the VPC network ACLs for the subnet(s) where you're creating your RDS Custom for SQL Server DB instance allow traffic on the ports and in the directions shown in the following diagram.  
 ![Microsoft Active Directory network configuration port rules.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom_sqlserver_ActiveDirectory_Requirements_NetworkConfig.png)
 
-  The following table identifies the role of each port.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-sqlserver-WinAuth.NWConfigPorts.html)
+  The following table identifies the role of each port.
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Ports</th><th>Role</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP/UDP</td><td>53</td><td>Domain Name System (DNS)</td></tr>
+  <tr><td>TCP/UDP</td><td>88</td><td>Kerberos authentication</td></tr>
+  <tr><td>TCP/UDP</td><td>464</td><td>Change/Set password</td></tr>
+  <tr><td>TCP/UDP</td><td>389</td><td>Lightweight Directory Access Protocol (LDAP)</td></tr>
+  <tr><td>TCP</td><td>135</td><td>Distributed Computing Environment / End Point Mapper (DCE / EPMAP)</td></tr>
+  <tr><td>TCP</td><td>445</td><td>Directory Services SMB file sharing</td></tr>
+  <tr><td>TCP</td><td>636</td><td>Lightweight Directory Access Protocol over TLS/SSL (LDAPS)</td></tr>
+  <tr><td>TCP</td><td>49152 - 65535</td><td>Ephemeral ports for RPC</td></tr>
+</tbody>
+</table>
+
 + Generally, the domain DNS servers are located in the AD domain controllers. You do not need to configure the VPC DHCP option set to use this feature. For more information, see [DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in the *Amazon VPC User Guide*.
 
 **Important**  

@@ -5,6 +5,8 @@
 
 In the following sections, you can find information about augmenting Amazon RDS instances running the Microsoft SQL Server DB engine.
 
+For information about accessing transaction log backups, see [Access to transaction log backups with RDS for SQL Server](USER.SQLServer.AddlFeat.TransactionLogAccess.md).
+
 **Topics**
 + [Using Password Policy for SQL Server logins on RDS for SQL Server](SQLServer.Concepts.General.PasswordPolicy.Using.md)
 + [Integrating an Amazon RDS for SQL Server DB instance with Amazon S3](User.SQLServer.Options.S3-integration.md)
