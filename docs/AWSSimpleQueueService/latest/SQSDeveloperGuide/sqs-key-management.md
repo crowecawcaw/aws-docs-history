@@ -53,8 +53,20 @@ When changing the KMS key for encrypting your Amazon SQS messages, be aware that
 
 ------
 
-   Replace "service" in the above example with the *Service name* of the event source. Event sources include the following services.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-key-management.html)
+   Replace "service" in the above example with the *Service name* of the event source. Event sources include the following services.
+
+
+<table>
+<thead>
+  <tr><th>Event source</th><th>Service name</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.html">Amazon CloudWatch Events</a></td><td><code>events.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html">Amazon S3 event notifications</a></td><td><code>s3.amazonaws.com</code></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html">Amazon SNS topic subscriptions</a></td><td><code>sns.amazonaws.com</code></td></tr>
+</tbody>
+</table>
+
 
 1.  [Configure an existing SSE queue](sqs-configure-sse-existing-queue.md) using the ARN of your KMS key.
 
