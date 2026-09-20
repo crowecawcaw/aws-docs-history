@@ -40,8 +40,26 @@ Use the following procedure to create a DataBrew recipe job.
 
 1. For Amazon S3 output destinations only, you have further choices:
 
-   1. Choose one of the available data output formats for Amazon S3, optional compression, and an optional custom delimiter. Supported delimiters for output files are the same as those for input: comma, colon, semicolon, pipe, tab, caret, backslash, and space. For formatting details, see the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/databrew/latest/dg/jobs.recipe.html)
+   1. Choose one of the available data output formats for Amazon S3, optional compression, and an optional custom delimiter. Supported delimiters for output files are the same as those for input: comma, colon, semicolon, pipe, tab, caret, backslash, and space. For formatting details, see the following table.
+
+
+<table>
+<thead>
+  <tr><th><b>Format</b></th><th> <b>File extension (uncompressed)</b> </th><th> <b>File extensions (compressed)</b> </th></tr>
+</thead>
+<tbody>
+  <tr><td>Comma-separated values</td><td><code>.csv</code></td><td><code>.csv.snappy</code>, <code>.csv.gz</code>, <code>.csv.lz4</code>, <code>csv.bz2</code>, <code>.csv.deflate</code>, <code>csv.br</code></td></tr>
+  <tr><td>Tab-separated values</td><td><code>.csv</code></td><td><code>.tsv.snappy</code>, <code>.tsv.gz</code>, <code>.tsv.lz4</code>, <code>tsv.bz2</code>, <code>.tsv.deflate</code>, <code>tsv.br</code></td></tr>
+  <tr><td>Apache Parquet </td><td><code>.parquet</code></td><td><code>.parquet.snappy</code>, <code>.parquet.gz</code>, <code>.parquet.lz4</code>, <code>.parquet.lzo</code>, <code>.parquet.br</code></td></tr>
+  <tr><td>AWS Glue Parquet</td><td>Not supported</td><td><code>.glue.parquet.snappy</code></td></tr>
+  <tr><td>Apache Avro</td><td><code>.avro</code></td><td><code>.avro.snappy</code>, <code>.avro.gz</code>, <code>.avro.lz4</code>, <code>.avro.bz2</code>, <code>.avro.deflate</code>, <code>.avro.br</code></td></tr>
+  <tr><td>Apache ORC</td><td><code>.orc</code></td><td><code>.orc.snappy</code>, <code>.orc.lzo</code>, <code>.orc.zlib</code></td></tr>
+  <tr><td>XML</td><td><code>.xml</code></td><td><code>.xml.snappy</code>, <code>.xml.gz</code>, <code>.xml.lz4</code>, <code>.xml.bz2</code>, <code>.xml.deflate</code>, <code>.xml.br</code></td></tr>
+  <tr><td>JSON (JSON Lines format only)</td><td> <code>.json</code> </td><td><code>.json.snappy</code>, <code>.json.gz</code>, <code>.json.lz4</code>, <code>json.bz2</code>, <code>.json.deflate</code>, <code>.json.br</code></td></tr>
+  <tr><td>Tableau Hyper</td><td>Not supported</td><td>Not applicable</td></tr>
+</tbody>
+</table>
+
 
    1. <a name="singlefileoutput"></a>Choose whether to output a single file or multiple files. There are three options for file output with Amazon S3:
       + **Autogenerate files (recommended)** – Has DataBrew determine the optimal number of output files.
