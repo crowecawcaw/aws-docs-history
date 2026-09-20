@@ -397,8 +397,21 @@ Amazon Pinpoint automatically excludes all segments that contain 100 endpoints o
 
 1. Under the message editor, choose **Send a test message**.
 
-1. In the **Send a test message** dialog box, under **Send a test message to**, choose one of the options in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/pinpoint/latest/userguide/campaigns-message.html)
+1. In the **Send a test message** dialog box, under **Send a test message to**, choose one of the options in the following table.
+
+
+<table>
+<thead>
+  <tr><th>If you're sending...</th><th>Choose...</th><th>And then enter...</th></tr>
+</thead>
+<tbody>
+  <tr><td>An email</td><td><b>Email addresses</b></td><td>A comma-separated list of valid email addresses.</td></tr>
+  <tr><td>An in-app message</td><td>Either <b>Endpoint IDs</b> or <b>A Segment</b>.</td><td>A comma-separated list of endpoint IDs, or a single segment. You can also build a new segment for the test.</td></tr>
+  <tr><td>An SMS message</td><td><b>Phone numbers</b></td><td>A comma-separated list of E.164-formatted phone numbers.</td></tr>
+  <tr><td>A mobile push notification</td><td>Either <b>Endpoint IDs</b> or <b>Device tokens</b></td><td>A comma-separated list of endpoint IDs or device tokens, depending on the type of address you chose.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Send message**.
 

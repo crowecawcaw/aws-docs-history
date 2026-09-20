@@ -43,8 +43,58 @@ In this section, you create at least one environment to use with Amazon Pinpoint
 **Note**  
 At a minimum, you only need to create one environment for a single AWS Region, and that AWS Region must contain one project. If you haven't created a project in one of the previously listed AWS Regions, see [Creating an Amazon Pinpoint project with email support](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-setup-create.html) in the *Amazon Pinpoint User Guide*.
 
-1. Create six new variables: `endpoint`, `region`, `serviceName`, `accountId`, `accessKey`, and `secretAccessKey`. Use the following table to determine which value to enter in the **Initial Value** and **Current Value** columns for each variable.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/pinpoint/latest/userguide/tutorials-using-postman-configuration.html)
+1. Create six new variables: `endpoint`, `region`, `serviceName`, `accountId`, `accessKey`, and `secretAccessKey`. Use the following table to determine which value to enter in the **Initial Value** and **Current Value** columns for each variable. 
+
+
+<table>
+<thead>
+  <tr><th>Region</th><th>Variable</th><th>Initial and Current value</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="6">US East (N. Virginia)</td><td><code>endpoint</code></td><td><b>pinpoint.us-east-1.amazonaws.com</b></td></tr>
+  <tr><td><code>region</code></td><td><b>us-east-1</b></td></tr>
+  <tr><td><code>serviceName</code></td><td><b>mobiletargeting</b></td></tr>
+  <tr><td><code>accountId</code></td><td><i>(your AWS account ID)</i></td></tr>
+  <tr><td><code>accessKey</code></td><td><i>(your IAM access key ID)</i></td></tr>
+  <tr><td><code>secretAccessKey</code></td><td><i>(your IAM secret access key)</i></td></tr>
+  <tr><td colspan="3"></td></tr>
+  <tr><td rowspan="6">US West (Oregon)</td><td><code>endpoint</code></td><td><b>pinpoint.us-west-2.amazonaws.com</b></td></tr>
+  <tr><td><code>region</code></td><td><b>us-west-2</b></td></tr>
+  <tr><td><code>serviceName</code></td><td><b>mobiletargeting</b></td></tr>
+  <tr><td><code>accountId</code></td><td><i>(your AWS account ID)</i></td></tr>
+  <tr><td><code>accessKey</code></td><td><i>(your IAM access key ID)</i></td></tr>
+  <tr><td><code>secretAccessKey</code></td><td><i>(your IAM secret access key)</i></td></tr>
+  <tr><td colspan="3"></td></tr>
+  <tr><td rowspan="6">Asia Pacific (Mumbai)</td><td><code>endpoint</code></td><td><b>pinpoint.ap-south-1.amazonaws.com</b></td></tr>
+  <tr><td><code>region</code></td><td><b>ap-south-1</b></td></tr>
+  <tr><td><code>serviceName</code></td><td><b>mobiletargeting</b></td></tr>
+  <tr><td><code>accountId</code></td><td><i>(your AWS account ID)</i></td></tr>
+  <tr><td><code>accessKey</code></td><td><i>(your IAM access key ID)</i></td></tr>
+  <tr><td><code>secretAccessKey</code></td><td><i>(your IAM secret access key)</i></td></tr>
+  <tr><td colspan="3"></td></tr>
+  <tr><td rowspan="6">Asia Pacific (Sydney)</td><td><code>endpoint</code></td><td><b>pinpoint.ap-southeast-2.amazonaws.com</b></td></tr>
+  <tr><td><code>region</code></td><td><b>ap-southeast-2</b></td></tr>
+  <tr><td><code>serviceName</code></td><td><b>mobiletargeting</b></td></tr>
+  <tr><td><code>accountId</code></td><td><i>(your AWS account ID)</i></td></tr>
+  <tr><td><code>accessKey</code></td><td><i>(your IAM access key ID)</i></td></tr>
+  <tr><td><code>secretAccessKey</code></td><td><i>(your IAM secret access key)</i></td></tr>
+  <tr><td colspan="3"></td></tr>
+  <tr><td rowspan="6">Europe (Frankfurt)</td><td><code>endpoint</code></td><td><b>pinpoint.eu-central-1.amazonaws.com</b></td></tr>
+  <tr><td><code>region</code></td><td><b>eu-central-1</b></td></tr>
+  <tr><td><code>serviceName</code></td><td><b>mobiletargeting</b></td></tr>
+  <tr><td><code>accountId</code></td><td><i>(your AWS account ID)</i></td></tr>
+  <tr><td><code>accessKey</code></td><td><i>(your IAM access key ID)</i></td></tr>
+  <tr><td><code>secretAccessKey</code></td><td><i>(your IAM secret access key)</i></td></tr>
+  <tr><td colspan="3"></td></tr>
+  <tr><td rowspan="6">Europe (Ireland)</td><td><code>endpoint</code></td><td><b>pinpoint.eu-west-1.amazonaws.com</b></td></tr>
+  <tr><td><code>region</code></td><td><b>eu-west-1</b></td></tr>
+  <tr><td><code>serviceName</code></td><td><b>mobiletargeting</b></td></tr>
+  <tr><td><code>accountId</code></td><td><i>(your AWS account ID)</i></td></tr>
+  <tr><td><code>accessKey</code></td><td><i>(your IAM access key ID)</i></td></tr>
+  <tr><td><code>secretAccessKey</code></td><td><i>(your IAM secret access key)</i></td></tr>
+</tbody>
+</table>
+
 
    After you create these variables, the **MANAGE ENVIRONMENTS** window resembles the example shown in the following image.  
 ![The Manage Environments window in Postman. The screenshot shows an environment named "US East (N. Virginia)". The environment contains the following variables: A variable named "endpoint" and an initial value of "pinpoint.us-east-1.amazonaws.com". A variable named "region" and an initial value of "us-east-1". A variable named "serviceName" and an initial value of "mobiletargeting". A variable named "accountId" and an initial value of 123456789012 (a fictitious AWS account ID). A variable named "accessKey" and an initial value of AKIAIOSFODNN7EXAMPLE (a fictitious access key ID). A variable named "secretAccessKey" and an initial value of wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY (a fictitious secret access key).](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_2.1_4.png)

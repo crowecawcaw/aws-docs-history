@@ -77,8 +77,22 @@ You can include only one segment in the **Journey entry** activity. If you need 
 
    You can also optionally choose **Refresh on segment update**. If you enable this feature, new endpoints are added to the journey when the segment is updated. For this feature to work as expected, you must also choose a refresh interval.
 
-   The following table describes how changes to segment membership are handled in various situations.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/pinpoint/latest/userguide/journeys-entry-activity.html)
+   The following table describes how changes to segment membership are handled in various situations.
+
+
+
+<table>
+<thead>
+  <tr><th>Refresh interval</th><th>Status of <b>Refresh on segment update</b> option</th><th>Behavior</th></tr>
+</thead>
+<tbody>
+  <tr><td>Set to <b>Never</b></td><td>Not enabled</td><td>Only endpoints that were members of the original segment are processed. Any endpoints added before the journey starts are included. Endpoints that are added to or removed from the segment after the journey starts aren't processed.</td></tr>
+  <tr><td>Set to <b>Never</b></td><td>Enabled</td><td>If the journey is currently processing endpoints, any changes to the segment are evaluated. However, if the journey has finished processing endpoints, any endpoints that were added or removed after the journey started aren't included.</td></tr>
+  <tr><td>Set to a period of time</td><td>Not enabled</td><td>Any endpoints that are added to a dynamic segment, or that are common across segment updates, are processed other journey limits allow it. Removed endpoints aren't processed by the journey. The journey re-evaluates the segment membership based on the segment criteria that were present when the journey was first launched. If you modify the criteria for the segment after launching a journey that uses this option, the journey will not consider the new criteria when re-evaluating the segment. </td></tr>
+  <tr><td>Set to a period of time</td><td>Enabled</td><td>Changes to both dynamic and imported segments are evaluated and updated based on the refresh interval. Changes are also evaluated when segments are changed. Any segment endpoints that are added, or that are common across segment updates, are processed if allowed by other journey limits. Removed endpoints aren't processed by the journey.</td></tr>
+</tbody>
+</table>
+
 
 1. (Optional) For **Description**, enter text that describes the activity. When you save the activity, this text appears as its label.
 
