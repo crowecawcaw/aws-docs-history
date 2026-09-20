@@ -21,8 +21,15 @@ Phone calls initiated with Support center are recorded, to better improve respon
 **Important**  
 Phone and chat support is designed to help with support cases, incidents and service requests. For RFC issues, use the correspondence option on the relevant RFC details page, to reach an AMS engineer.
 
-1. If you want to find an existing service request, select a service request status filter in the drop-down list.    
-<a name="sr-filter-options"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/serv-req-mgmt-examples.html)
+1. If you want to find an existing service request, select a service request status filter in the drop-down list.
+
+<a name="sr-filter-options"></a>
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiSRfilterBox.png" alt="Dropdown menu showing ticket status options including Unassigned, Open, Reopened, and Resolved." /> </td><td><ul><li>All service requests that are not yet resolved.</li><li>A new service request that is not yet assigned.</li><li>A service request that has been assigned.</li><li>A service request that you reopened.</li><li>An assigned, complicated, service request.</li><li>Service requests that require your feedback before the next step.</li><li>Service requests to which you have recently submitted information.</li><li>A service request that has concluded.</li><li>All service requests in the account.</li></ul></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create**.
 
