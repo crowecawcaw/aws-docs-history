@@ -34,8 +34,17 @@ For example, consider the following documents in a MongoDB collection called myC
 { "_id" : ObjectId("5a94815f40bd44d1b02bdfe0"), "a" : 1, "b" : 2, "c" : 3 }
 { "_id" : ObjectId("5a94815f40bd44d1b02bdfe1"), "a" : 4, "b" : 5, "c" : 6 }
 ```
-After migrating the data to a relational database table using document mode, the data is structured as follows. The data fields in the MongoDB document are consolidated into the` _doc` column.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html)
+After migrating the data to a relational database table using document mode, the data is structured as follows. The data fields in the MongoDB document are consolidated into the` _doc` column.  
+
+
+<table>
+<tbody>
+  <tr><td>oid_id</td><td>_doc</td></tr>
+  <tr><td>5a94815f40bd44d1b02bdfe0</td><td><code>{ "a" : 1, "b" : 2, "c" : 3 }</code></td></tr>
+  <tr><td>5a94815f40bd44d1b02bdfe1</td><td><code>{ "a" : 4, "b" : 5, "c" : 6 }</code></td></tr>
+</tbody>
+</table>
+
 You can optionally set the extra connection attribute `extractDocID` to *true* to create a second column named `"_id"` that acts as the primary key. If you are going to use CDC, set this parameter to *true*.  
 When using CDC with sources that produce [multi-document transactions](https://www.mongodb.com/docs/manual/reference/method/Session.startTransaction/#mongodb-method-Session.startTransaction), the `ExtractDocId` parameter **must be** set to *true*. If this parameter is not enabled, the AWS DMS task will fail when it encounters a multi-document transaction.  
 In document mode, AWS DMS manages the creation and renaming of collections like this:  
@@ -45,8 +54,17 @@ If the target endpoint is Amazon DocumentDB, run the migration in **Document mod
 
 **Table mode**  
 In table mode, AWS DMS transforms each top-level field in a MongoDB document into a column in the target table. If a field is nested, AWS DMS flattens the nested values into a single column. AWS DMS then adds a key field and data types to the target table's column set.   
-For each MongoDB document, AWS DMS adds each key and type to the target table's column set. For example, using table mode, AWS DMS migrates the previous example into the following table.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html)
+For each MongoDB document, AWS DMS adds each key and type to the target table's column set. For example, using table mode, AWS DMS migrates the previous example into the following table.  
+
+
+<table>
+<tbody>
+  <tr><td>oid_id</td><td>a</td><td>b</td><td>c</td></tr>
+  <tr><td>5a94815f40bd44d1b02bdfe0</td><td>1</td><td>2</td><td>3</td></tr>
+  <tr><td>5a94815f40bd44d1b02bdfe1</td><td>4</td><td>5</td><td>6</td></tr>
+</tbody>
+</table>
+
 Nested values are flattened into a column containing dot-separated key names. The column is named the concatenation of the flattened field names separated by periods. For example, AWS DMS migrates a JSON document with a field of nested values such as `{"a" : {"b" : {"c": 1}}}` into a column named `a.b.c.`  
 To create the target columns, AWS DMS scans a specified number of MongoDB documents and creates a set of all the fields and their types. AWS DMS then uses this set to create the columns of the target table. If you create or modify your MongoDB source endpoint using the console, you can specify the number of documents to scan. The default value is 1000 documents. If you use the AWS CLI, you can use the extra connection attribute `docsToInvestigate`.  
 In table mode, AWS DMS manages documents and collections like this:  

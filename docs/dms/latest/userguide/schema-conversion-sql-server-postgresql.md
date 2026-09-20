@@ -42,8 +42,20 @@ Controls how procedures that store the output of `EXEC` into a table are convert
 **Default:** `false`
 
 **Schema names** (`SchemaNameTemplate`)  
-Controls how the target PostgreSQL schema name is generated from the SQL Server two-part naming convention (database \+ schema).      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-sql-server-postgresql.html)
+Controls how the target PostgreSQL schema name is generated from the SQL Server two-part naming convention (database \+ schema).  
+
+
+<table>
+<thead>
+  <tr><th>Console label</th><th>API/CLI value</th><th>Generated target schema name</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>DB_SCHEMA</b></td><td><code>DB_SCHEMA</code></td><td>{{database}}_{{schema}} (for example, <code>AdventureWorks_dbo</code>). Use when migrating multiple databases to the same PostgreSQL instance to avoid name collisions.</td></tr>
+  <tr><td><b>DB</b></td><td><code>DB</code></td><td>{{database}} (for example, <code>AdventureWorks</code>).</td></tr>
+  <tr><td><b>SCHEMA</b></td><td><code>SCHEMA</code></td><td>{{schema}} (for example, <code>dbo</code>). Use when migrating a single database and you want clean schema names without a database prefix.</td></tr>
+</tbody>
+</table>
+
 **Type:** String (enum)  
 **Default:** `DB_SCHEMA`
 

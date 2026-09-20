@@ -12,8 +12,19 @@ When you use the API or AWS CLI, specify conversion path settings under the sect
 Each setting shows the AWS Management Console label followed by the API and AWS CLI parameter name in parentheses. Use the parameter name when configuring settings with the API or AWS CLI.
 
 **Generate row id** (`GenerateRowId`)  
-Your source Oracle database can use the `ROWID` pseudocolumn. MySQL doesn't support similar functionality. This setting specifies whether DMS Schema Conversion emulates the `ROWID` pseudocolumn in the converted code.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-oracle-mysql.html)
+Your source Oracle database can use the `ROWID` pseudocolumn. MySQL doesn't support similar functionality. This setting specifies whether DMS Schema Conversion emulates the `ROWID` pseudocolumn in the converted code.  
+
+
+<table>
+<thead>
+  <tr><th>Console label</th><th>API/CLI value</th><th>Behavior</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Don't generate</b></td><td><code>false</code></td><td>DMS Schema Conversion doesn't emulate the <code>ROWID</code> pseudocolumn and leaves references as action items. Use this when your source Oracle code doesn't use <code>ROWID</code>. The converted code runs faster.</td></tr>
+  <tr><td><b>Use the bigint data type to emulate the ROWID pseudocolumn</b></td><td><code>true</code></td><td>DMS Schema Conversion emulates the <code>ROWID</code> pseudocolumn in the converted code by using the <code>bigint</code> data type.</td></tr>
+</tbody>
+</table>
+
 **Type:** Boolean (`true` \| `false`)  
 **Default:** `false`  
 For the Oracle to MySQL conversion path, `GenerateRowId` is a Boolean (`true` \| `false`) and emulates the `ROWID` pseudocolumn by using the `bigint` data type only. For the Oracle to PostgreSQL conversion path, the same setting is a string enumeration that also offers a `character varying` emulation option (`GENERATE_AS_CHARACTER_DOMAIN_TYPE`). For more information, see [Oracle to PostgreSQL conversion settings](schema-conversion-oracle-postgresql.md).

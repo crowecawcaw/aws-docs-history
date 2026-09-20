@@ -13,8 +13,20 @@ The following settings are available for the Oracle to Amazon Redshift conversio
 
 **Maximum number of tables for target** (`RedshiftTablesNumber`)  
 Specifies the maximum number of tables that DMS Schema Conversion can apply to your target Amazon Redshift cluster. Amazon Redshift has quotas that limit the number of tables for different cluster node types.  
-The following table describes the valid values for this setting.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-oracle-redshift.html)
+The following table describes the valid values for this setting.  
+
+
+<table>
+<thead>
+  <tr><th>Console value</th><th>Behavior</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Auto</code></td><td>DMS Schema Conversion determines the number of tables to apply to your target Amazon Redshift cluster depending on the node type.</td></tr>
+  <tr><td><code>9900</code></td><td>Limits the target to 9,900 tables.</td></tr>
+  <tr><td><code>100000</code></td><td>Limits the target to 100,000 tables.</td></tr>
+</tbody>
+</table>
+
 DMS Schema Conversion converts all your source tables, even if the number of tables exceeds your Amazon Redshift cluster quota. DMS Schema Conversion stores the converted code in your project but doesn't apply it to the target database. If you reach the Amazon Redshift cluster quota when you apply the converted code, DMS Schema Conversion displays a warning message.  
 For information about Amazon Redshift table quotas, see [Quotas and limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html).  
 **Type:** String (`Auto` \| `9900` \| `100000`)  

@@ -29,8 +29,20 @@ You must create your tables before migrating data to make sure that AWS DMS uses
 
 1. Identify columns with data types that Babelfish doesn't support. Then, change the affected columns in the target table to use supported data types, or create a transformation rule that removes them during the migration task. For more information see, [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md).
 
-   The following table lists source data types not supported by Babelfish, and the corresponding recommended target data type to use.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Babelfish.html)
+   The following table lists source data types not supported by Babelfish, and the corresponding recommended target data type to use.
+
+
+<table>
+<thead>
+  <tr><th>Source data type</th><th>Recommended Babelfish data type </th></tr>
+</thead>
+<tbody>
+  <tr><td>HIERARCHYID</td><td>NVARCHAR(250)</td></tr>
+  <tr><td>GEOMETRY</td><td>VARCHAR(MAX)</td></tr>
+  <tr><td>GEOGRAPHY</td><td>VARCHAR(MAX)</td></tr>
+</tbody>
+</table>
+
 
 **To set Aurora capacity units (ACUs) level for your Aurora PostgreSQL Serverless V2 source database**
 

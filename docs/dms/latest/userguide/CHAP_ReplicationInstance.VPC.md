@@ -297,8 +297,21 @@ You create a replication subnet group to define which subnets to use. You must s
 
 1. Choose **Create subnet group**. 
 
-1. On the **Create replication subnet group** page, specify your replication subnet group information. The following table describes the settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.VPC.html)
+1. On the **Create replication subnet group** page, specify your replication subnet group information. The following table describes the settings.
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Name</b> </td><td>Enter a name for the replication subnet group that contains from 8 to 16 printable ASCII characters (excluding /,", and @). The name should be unique for your account for the AWS Region that you selected. You can choose to add some intelligence to the name such as including the AWS Region and task you are performing, for example <b>DMS-default-VPC</b>.</td></tr>
+  <tr><td> <b>Description</b> </td><td>Enter a brief description of the replication subnet group.</td></tr>
+  <tr><td> <b>VPC</b> </td><td>Choose the VPC that you want to use for database migration. Keep in mind that the VPC must have at least one subnet in at least two Availability Zones. </td></tr>
+  <tr><td> <b>Add subnets</b> </td><td>Choose the subnets you want to include in the replication subnet group. You must choose subnets in at least two Availability Zones.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create subnet group**.
 

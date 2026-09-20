@@ -48,7 +48,7 @@ For additional details on working with SQL Server source databases and AWS DMS, 
 The following limitations apply when using a SQL Server database as a source for AWS DMS:
 + The identity property for a column isn't migrated to a target database column.
 + The SQL Server endpoint doesn't support the use of tables with sparse columns.
-+ Windows Authentication isn't supported.
++ AWS DMS doesn't support NT LAN Manager (NTLM) authentication for Microsoft SQL Server source endpoints. Starting with version 3.5.3, AWS DMS supports Kerberos authentication for these endpoints. For more information, see [AWS DMS Kerberos Authentication Architecture Overview](CHAP_Security.Kerberos.md#CHAP_Security.Kerberos.architecture).
 + Changes to computed fields in a SQL Server aren't replicated.
 + Temporal tables aren't supported.
 + SQL Server partition switching isn't supported.
@@ -260,8 +260,22 @@ When you start an AWS DMS task for the first time, it might take longer than usu
 
    You can use either a public DNS server or an on-premises DNS server to resolve the availability group listener, the primary replica, and the secondary replicas. To use an on-premises DNS server, configure the Amazon Route 53 Resolver. For more information, see [Using your own on-premises name server](CHAP_BestPractices.md#CHAP_BestPractices.Rte53DNSResolver).
 
-1. Add the following extra connection attributes to your source endpoint.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html)
+1. Add the following extra connection attributes to your source endpoint.
+
+
+<table>
+<thead>
+  <tr><th>Extra connection attribute</th><th>Value</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>applicationIntent</code></td><td><code>ReadOnly</code></td><td>Without this ODBC setting, the replication task is routed to the primary availability group replica. For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery?view=sql-server-ver15"> SQL Server Native Client Support for High Availability, Disaster Recovery</a> in the SQL Server documentation. </td></tr>
+  <tr><td><code>multiSubnetFailover</code></td><td><code>yes</code></td><td>For more information, see <a href="https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery?view=sql-server-ver15"> SQL Server Native Client Support for High Availability, Disaster Recovery</a> in the SQL Server documentation. </td></tr>
+  <tr><td><code>alwaysOnSharedSynchedBackupIsEnabled</code></td><td><code>false</code></td><td>For more information, see <a href="#CHAP_Source.SQLServer.ConnectionAttrib">Endpoint settings when using SQL Server as a source for AWS DMS</a>.</td></tr>
+  <tr><td><code>activateSafeguard</code></td><td><code>false</code></td><td>For more information, see <a href="#CHAP_Source.SQLServer.AlwaysOn.Secondary.limitations">Limitations</a> following.</td></tr>
+  <tr><td><code>setUpMsCdcForTables</code></td><td><code>false</code></td><td>For more information, see <a href="#CHAP_Source.SQLServer.AlwaysOn.Secondary.limitations">Limitations</a> following.</td></tr>
+</tbody>
+</table>
+
 
 1. Enable the distribution option on all replicas in your availability group. Add all nodes to the distributors list. For more information, see [To set up distribution](CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.CDC.MSCDC.Setup).
 

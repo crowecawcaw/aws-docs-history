@@ -105,8 +105,25 @@ You begin a database migration in one of two ways:
 **To create a target endpoint using the AWS DMS console**
 
 This endpoint is for your Redis OSS target that is already running. 
-+ On the console, choose **Endpoints** from the navigation pane and then choose **Create Endpoint**. The following table describes the settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Redis.html)
++ On the console, choose **Endpoints** from the navigation pane and then choose **Create Endpoint**. The following table describes the settings.
+
+
+<table>
+<thead>
+  <tr><th> For this option </th><th> Do this </th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Endpoint type</b></td><td>Choose the <b>Target</b> endpoint type.</td></tr>
+  <tr><td><b>Endpoint identifier</b></td><td>Enter the name of your endpoint. For example, include the type of endpoint in the name, such as <b>my-redis-target</b>.</td></tr>
+  <tr><td><b>Target engine</b></td><td>Choose <b>Redis OSS</b> as the type of database engine that you want this endpoint to connect.</td></tr>
+  <tr><td><b>Cluster name</b></td><td>Enter the DNS name of your Redis OSS cluster.</td></tr>
+  <tr><td><b>Port</b></td><td>Enter the port number of your Redis OSS cluster. </td></tr>
+  <tr><td><b>SSL security protocol</b></td><td>Choose either <b>Plain text</b> or <b>SSL encryption</b>.<br /><b>Plain text</b>—This option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. <br /><b>SSL encryption</b>—If you choose this option, enter an SSL Certificate Authority (CA) certificate ARN to verify the server’s certificate and make an encrypted connection.<br />For on-premises Redis OSS, DMS supports both public and private Certificate Authority (CA). For ElastiCache (Redis OSS), DMS supports only a public CA.</td></tr>
+  <tr><td><b>Authentication type</b></td><td>Choose the type of authentication to perform while connecting to Redis OSS. Options include, <b>None</b>, <b>Authentication role</b>, and <b>Authentication token</b>.<br />If you choose Authentication role, provide an <b>Authentication username</b> and an <b>Authentication password</b>.<br />If you choose Authentication token, provide an <b>Authentication password</b> only.</td></tr>
+  <tr><td><b>Replication instance</b></td><td><b>[Optional]</b> Only if you intend to test your connection, choose the name of the replication instance you previously entered on the <b>Create replication instance</b> page.</td></tr>
+</tbody>
+</table>
+
 
 When you're finished providing all information for your endpoint, AWS DMS creates your Redis OSS target endpoint for use during database migration.
 

@@ -23,9 +23,22 @@ You can use the following data stores as source endpoints for data migration usi
   + The Enterprise, Standard (version 2016 and higher), and Developer editions support CDC (ongoing) replication in addition to full-load.
   + The Express edition isn't supported.
 + MySQL versions 5.5, 5.6, 5.7, 8.0, and 8.4
-**Note**    
-**MySQL and DMS Compatibility**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.Sources.html)
+**Note**  
+
+
+**MySQL and DMS Compatibility**  
+
+<table>
+<thead>
+  <tr><th>MySQL Version</th><th>DMS Version</th><th>Compressed transaction payload supporting</th></tr>
+</thead>
+<tbody>
+  <tr><td>8</td><td>3.4.0 and above</td><td>No</td></tr>
+  <tr><td>8.0 (Google Cloud)</td><td>3.4.6 and above</td><td>No</td></tr>
+  <tr><td>8.4</td><td>3.5.4 and above</td><td>No</td></tr>
+</tbody>
+</table>
+
 + MariaDB (supported as a MySQL-compatible data source) versions 10.0 (only versions 10.0.24 and higher), 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.
 **Note**  
 Support for MariaDB as a source is available in all AWS DMS versions where MySQL is supported.
@@ -57,9 +70,22 @@ AWS DMS only supports PostgreSQL version 17.x and 18.x in versions 3.5.4 (see [l
 **Note**  
 AWS DMS does not support SQL Server Express. The Web edition is only supported for full-load only replication.
 + MySQL versions 5.5, 5.6, 5.7, 8.0, and 8.4.
-**Note**    
-**MySQL and DMS Compatibility**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.Sources.html)
+**Note**  
+
+
+**MySQL and DMS Compatibility**  
+
+<table>
+<thead>
+  <tr><th>MySQL Version</th><th>DMS Version</th><th>Compressed transaction payload supporting</th></tr>
+</thead>
+<tbody>
+  <tr><td>8</td><td>3.4.0 and above</td><td>No</td></tr>
+  <tr><td>8.0 (Google Cloud)</td><td>3.4.6 and above</td><td>No</td></tr>
+  <tr><td>8.4</td><td>3.5.4 and above</td><td>No</td></tr>
+</tbody>
+</table>
+
 + MariaDB (supported as a MySQL-compatible data source) versions 10.0.24 to 10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.
 **Note**  
 Support for MariaDB as a source is available in all AWS DMS versions where MySQL is supported.

@@ -15,8 +15,27 @@ Before you create a migration project in AWS DMS, make sure that you create the 
 
 1. Choose **Migration projects**. The **Migration projects** page opens.
 
-1. Choose **Create migration project**. The following table describes the settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/migration-projects-create.html)
+1. Choose **Create migration project**. The following table describes the settings.
+
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Name</b></td><td>Enter a name for your migration project. Make sure that you use a unique name for your migration project so that you can easily identify it.</td></tr>
+  <tr><td><b>Instance profile</b></td><td>Choose your instance profile to use for your migration project.</td></tr>
+  <tr><td><b>Source</b></td><td>Choose <b>Browse</b>, and then choose your source data provider.</td></tr>
+  <tr><td><b>Secret ID</b></td><td>Choose the Amazon Resource Name (ARN) of your secret in Secrets Manager that stores your source database credentials.</td></tr>
+  <tr><td><b>IAM role</b></td><td>Choose an IAM role to provide access to your source database credentials in Secrets Manager.</td></tr>
+  <tr><td><b>Target</b></td><td>Choose <b>Browse</b>, and then choose your target data provider.</td></tr>
+  <tr><td><b>Secret ID</b></td><td>Choose the ARN of your secret in Secrets Manager that stores your target database credentials.</td></tr>
+  <tr><td><b>IAM role</b></td><td>Choose an IAM role to provide access to your target database credentials in Secrets Manager.</td></tr>
+  <tr><td><b>Transformation rules</b></td><td>(Optional) If you create a migration project for DMS Schema Conversion, then choose <b>Add transformation rule</b> to set up transformation rules. Transformation rules make it possible for you to change the object names according to the rule that you specify. For more information, see <a href="sc-transformation-rules.md">Transformation rules</a>. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create migration project**.
 

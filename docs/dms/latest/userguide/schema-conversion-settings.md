@@ -12,8 +12,22 @@ The following two settings apply to every conversion path. Each setting shows th
 
 **Comments in converted SQL code** (`ShowSeverityLevelInSql`)  
 Controls the minimum severity level of action items for which DMS Schema Conversion inserts a comment into the converted SQL output. Only action items at or above the chosen level receive a comment.  
-**Values:**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-settings.html)
+**Values:**  
+
+
+<table>
+<thead>
+  <tr><th>Console label</th><th>API/CLI value</th><th>Action items that receive a comment</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Errors only</b></td><td><code>CRITICAL</code></td><td>Critical errors that prevent the object from working</td></tr>
+  <tr><td><b>Errors and warnings</b></td><td><code>HIGH</code></td><td>Critical errors and high-severity warnings</td></tr>
+  <tr><td rowspan="3"><b>All messages</b></td><td><code>MEDIUM</code></td><td>Critical, high, and medium-severity action items</td></tr>
+  <tr><td><code>LOW</code></td><td>All action items except informational notes</td></tr>
+  <tr><td><code>INFO</code></td><td>All action items, including informational notes</td></tr>
+</tbody>
+</table>
+
 **Default:** `CRITICAL`
 
 **Use generative AI to convert schemas** (`EnableGenAiConversion`)  

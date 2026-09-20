@@ -20,8 +20,20 @@ Specifies whether DMS Schema Conversion maps IBM Db2 for z/OS numeric columns wi
 **Default:** `false`
 
 `SchemaNameTemplate`  
-Controls how the target schema name is generated from the IBM Db2 for z/OS database and schema names.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-db2-zos-db2.html)
+Controls how the target schema name is generated from the IBM Db2 for z/OS database and schema names.  
+
+
+<table>
+<thead>
+  <tr><th>API/CLI value</th><th>Generated target schema name</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>DB_SCHEMA</code></td><td>{{database}}_{{schema}}. Use when migrating multiple databases to the same target instance to avoid name collisions.</td></tr>
+  <tr><td><code>DB</code></td><td>{{database}}</td></tr>
+  <tr><td><code>SCHEMA</code></td><td>{{schema}}. Use when migrating a single database and you want clean schema names without a database prefix.</td></tr>
+</tbody>
+</table>
+
 **Type:** String (enum)  
 **Default:** `DB_SCHEMA`
 

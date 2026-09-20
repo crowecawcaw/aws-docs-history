@@ -139,6 +139,9 @@ AWS DMS supports CDC on Amazon RDS PostgreSQL databases when the DB instance is 
 
 1.  When using Aurora PostgreSQL as a source with CDC, set `synchronous_commit` to `ON`.
 
+**Note**  
+If you use [IAM database authentication](CHAP_Endpoints.Creating.IAMRDS.md) for your PostgreSQL DB instance, set the `rds.iam_auth_for_replication` parameter in your DB parameter group to 1.
+
 **To use PostgreSQL MultiAZ DB Cluster Read Replica for CDC (ongoing replication)**
 
 1. Set the `rds.logical_replication` and `sync_replication_slots` parameters in your DB CLUSTER parameter group to 1. This static parameters require a reboot of the DB instance to take effect.

@@ -187,8 +187,20 @@ You can specify table or view segments as ranges of column values. When you do s
 
       All of the non-null data is replicated, even if you don't define data ranges for all of the columns in the table or view.
 
-   For example, suppose that you define three column-value arrays for columns COL1, COL2, and COL3 as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.html)
+   For example, suppose that you define three column-value arrays for columns COL1, COL2, and COL3 as follows.
+
+
+<table>
+<thead>
+  <tr><th>COL1</th><th>COL2</th><th>COL3</th></tr>
+</thead>
+<tbody>
+  <tr><td>10</td><td>30</td><td>105</td></tr>
+  <tr><td>20</td><td>20</td><td>120</td></tr>
+  <tr><td>100</td><td>12</td><td>99</td></tr>
+</tbody>
+</table>
+
 
    You have defined three segment boundaries for a possible total of four segments.
 

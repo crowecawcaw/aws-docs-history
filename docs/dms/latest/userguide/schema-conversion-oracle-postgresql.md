@@ -25,14 +25,37 @@ Choose the engine version for your target database. This setting is the PostgreS
 **Default:** `15`
 
 **Materialized views** (`MaterializedViewConvert`)  
-Specifies how DMS Schema Conversion converts Oracle materialized views on the target.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-oracle-postgresql.html)
+Specifies how DMS Schema Conversion converts Oracle materialized views on the target.  
+
+
+<table>
+<thead>
+  <tr><th>API/CLI value</th><th>Result on target</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>TABLE</code></td><td>DMS Schema Conversion creates a regular table with the same columns. Use this when you manage refresh manually or with a replication tool.</td></tr>
+  <tr><td><code>MATERIALIZED_VIEW</code></td><td>DMS Schema Conversion creates a PostgreSQL <code>MATERIALIZED VIEW</code>. Use this when the target supports <code>REFRESH MATERIALIZED VIEW</code>.</td></tr>
+</tbody>
+</table>
+
 **Type:** String (`TABLE` \| `MATERIALIZED_VIEW`)  
 **Default:** `TABLE`
 
 **Generate row id** (`GenerateRowId`)  
-Your source Oracle database can use the `ROWID` pseudocolumn. PostgreSQL doesn't support similar functionality. This setting specifies whether DMS Schema Conversion emulates the `ROWID` pseudocolumn in the converted code, and which data type DMS Schema Conversion uses for emulation.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-oracle-postgresql.html)
+Your source Oracle database can use the `ROWID` pseudocolumn. PostgreSQL doesn't support similar functionality. This setting specifies whether DMS Schema Conversion emulates the `ROWID` pseudocolumn in the converted code, and which data type DMS Schema Conversion uses for emulation.  
+
+
+<table>
+<thead>
+  <tr><th>Console label</th><th>API/CLI value</th><th>Behavior</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Don't generate</b></td><td><code>false</code></td><td>DMS Schema Conversion doesn't emulate the <code>ROWID</code> pseudocolumn and leaves references as action items. Use this when your source Oracle code doesn't use <code>ROWID</code>. The converted code runs faster.</td></tr>
+  <tr><td><b>Use the bigint data type to emulate the ROWID pseudocolumn</b></td><td><code>true</code></td><td>DMS Schema Conversion emulates the <code>ROWID</code> pseudocolumn in the converted code by using the <code>bigint</code> data type.</td></tr>
+  <tr><td><b>Use the character varying data type to emulate the ROWID pseudocolumn</b></td><td><code>GENERATE_AS_CHARACTER_DOMAIN_TYPE</code></td><td>DMS Schema Conversion emulates the <code>ROWID</code> pseudocolumn in the converted code by using the <code>character varying</code> data type.</td></tr>
+</tbody>
+</table>
+
 **Type:** String (enum)  
 **Default:** `false`
 

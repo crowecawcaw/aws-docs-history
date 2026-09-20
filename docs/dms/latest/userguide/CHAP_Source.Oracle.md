@@ -649,6 +649,12 @@ exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_DIRECTORIES','{{dms_user}}','S
 -- Required when the source database is Oracle Data guard, and Oracle Standby is used in the latest release of DMS version 3.4.6, version 3.4.7, and higher.
 
 exec rdsadmin.rdsadmin_util.grant_sys_object('V_$DATAGUARD_STATS', '{{dms_user}}', 'SELECT');
+
+-- (for serverless replication)
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_SEGMENTS', '{{dms_user}}', 'SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('V_$TABLESPACE', '{{dms_user}}', 'SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_TAB_SUBPARTITIONS', '{{dms_user}}', 'SELECT');
+exec rdsadmin.rdsadmin_util.grant_sys_object('DBA_EXTENTS', '{{dms_user}}', 'SELECT');
 ```
 
 For more information on using Amazon RDS Active Dataguard Standby (ADG) with AWS DMS see [Using an Amazon RDS Oracle Standby (read replica) as a source with Binary Reader for CDC in AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.StandBy).

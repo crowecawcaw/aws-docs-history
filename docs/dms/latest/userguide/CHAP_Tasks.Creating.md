@@ -28,11 +28,43 @@ The following procedure assumes that you have already specified replication inst
 1. On the navigation pane, choose **Database migration tasks**, and then choose **Create task**.
 
 1. On the **Create database migration task** page, in the **Task configuration** section, specify the task options. The following table describes the settings.  
-![Create task](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-gs-wizard4.png)    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.Creating.html)
+![Create task](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-gs-wizard4.png)
 
-1. In the **Task Settings** section, specify values for editing your task, target table preparation mode, stop task, LOB settings, validation, and logging.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.Creating.html)
+
+<table>
+<thead>
+  <tr><th> For this option </th><th> Do this </th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Task identifier</b> </td><td>Enter a name for the task.</td></tr>
+  <tr><td> <b>Descriptive Amazon Resource Name (ARN) - <i>optional</i></b> </td><td>A friendly name to override the default AWS DMS ARN. You can't change this name after you create the task.</td></tr>
+  <tr><td> <b>Replication instance</b> </td><td>Shows the replication instance to be used.</td></tr>
+  <tr><td> <b>Source database endpoint</b> </td><td>Shows the source endpoint to be used.</td></tr>
+  <tr><td> <b>Target database endpoint</b> </td><td>Shows the target endpoint to be used.</td></tr>
+  <tr><td> <b>Migration type</b> </td><td>Choose the migration method you want to use. You can choose to have just the existing data migrated to the target database or have ongoing changes sent to the target database in addition to the migrated data.</td></tr>
+</tbody>
+</table>
+
+
+1. In the **Task Settings** section, specify values for editing your task, target table preparation mode, stop task, LOB settings, validation, and logging.
+
+
+<table>
+<thead>
+  <tr><th> For this option </th><th> Do this </th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Editing mode</b> </td><td>Choose whether to use the Wizard or the JSON editor to specify your task settings. If you choose Wizard, the following options will be displayed. </td></tr>
+  <tr><td> <b>CDC start mode for source transactions</b> </td><td>This setting is only visible if you choose <b>Replicate data changes only</b> for <b>Migration type</b> in the preceding section.<br /><b>Disable custom CDC start mode</b> – If you choose this option, you can start your task either automatically by using the <b>Automatically on create</b> option following, or manually by using the console.<br /><b>Enable custom CDC start mode</b> – If you choose this option, you can specify a custom UTC start time to start processing changes.</td></tr>
+  <tr><td> <b>Target table preparation mode</b> </td><td>This setting is only visible if you choose <b>Migrate existing data</b> or <b>Migrate existing data and replicate ongoing changes</b> for <b>Migration type</b> in the preceding section.<br /><b>Do nothing</b> – In <b>Do nothing</b> mode, AWS DMS assumes that the target tables have been pre-created on the target. If the tables aren't empty, conflicts might occur during data migration and can result in a DMS task error. If the target table doesn't exist, DMS creates the table for you. Your table structure remains as is and any existing data is left in the table. <b>Do nothing</b> mode is appropriate for CDC-only tasks when the target tables have been backfilled from the source and ongoing replication is applied to keep the source and target in sync. To pre-create tables, you can use DMS Schema Conversion. For more information, see <a href="CHAP_SchemaConversion.md">Converting database schemas using DMS Schema Conversion</a>.<br /><b>Drop tables on target</b> – In <b>Drop tables on target</b> mode, AWS DMS drops the target tables and recreates them before starting the migration. This approach ensures that the target tables are empty when the migration starts. AWS DMS creates only the objects required to efficiently migrate the data: tables, primary keys, and in some cases, unique indexes. AWS DMS doesn't create secondary indexes, nonprimary key constraints, or column data defaults. If you are performing a full load plus CDC or CDC-only task, we recommend that you pause the migration at this point. Then, create secondary indexes that support filtering for update and delete statements.<br />You might need to perform some configuration on the target database when you use <b>Drop tables on target</b> mode. For example, for an Oracle target, AWS DMS can't create a schema (database user) for security reasons. In this case, you pre-create the schema user so AWS DMS can create the tables when the migration starts. For most other target types, AWS DMS creates the schema and all associated tables with the proper configuration parameters.<br /><b>Truncate</b> – In <b>Truncate</b> mode, AWS DMS truncates all target tables before the migration starts. If the target table doesn't exist, DMS creates the table for you. Your table structure remains as is but tables are truncated at the target. <b>Truncate</b> mode is appropriate for full load or full load plus CDC migrations where the target schema has been pre-created before the migration starts. To pre-create tables, you can use DMS Schema Conversion. For more information, see <a href="CHAP_SchemaConversion.md">Converting database schemas using DMS Schema Conversion</a>.If your target is MongoDB, <b>Truncate</b> mode doesn’t truncate tables at the target. Instead, it drops the collection and loses all the indices. Avoid <b>Truncate</b> mode when your target is MongoDB. </td></tr>
+  <tr><td> <b>Stop task after full load completes</b> </td><td>This setting is only visible if you choose <b>Migrate existing data and replicate ongoing changes</b> for <b>Migration type</b> in the preceding section.<br /><b>Don't stop</b> – Don't stop the task but immediately apply cached changes and continue on.<br /><b>Stop before applying cached changes</b> – Stop the task before the application of cached changes. Using this approach, you can add secondary indexes that might speed the application of changes.<br /><b>Stop after applying cached changes</b> – Stop the task after cached changes have been applied. Using this approach, you can add foreign keys if you are using transactional apply.</td></tr>
+  <tr><td> <b>Include LOB columns in replication</b> </td><td><b>Don't include LOB columns</b> – LOB columns are excluded from the migration.<br /><b>Full LOB mode</b> – Migrate complete LOBs regardless of size. AWS DMS migrates LOBs piecewise in chunks controlled by the <b>LOB Chunk size</b> parameter. This mode is slower than using Limited LOB mode.<br /><b>Limited LOB mode</b> – Truncate LOBs to the value of the <b>Max LOB size</b> parameter. This mode is faster than using Full LOB mode.</td></tr>
+  <tr><td> <b>Maximum LOB size (kb)</b> </td><td>In <b>Limited LOB Mode</b>, LOB columns that exceed the setting of <b>Max LOB size</b> are truncated to the specified <b>Max LOB Size</b> value.</td></tr>
+  <tr><td> <b>Enable validation</b> </td><td>Enables data validation, to verify that the data is migrated accurately from the source to the target. For more information, see <a href="CHAP_Validating.md">AWS DMS data validation</a>.</td></tr>
+  <tr><td> <b>Enable CloudWatch logs</b> </td><td>Enables logging by Amazon CloudWatch.</td></tr>
+</tbody>
+</table>
+
 
 1. In the **Premigration assessment** section, choose whether to run a premigration assessment. A premigration assessment warns you of potential migration issues before starting your database migration task. For more information, see [Enabling and working with premigration assessments](CHAP_Tasks.AssessmentReport.md). 
 

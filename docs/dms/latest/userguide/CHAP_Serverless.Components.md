@@ -84,15 +84,46 @@ To create a serverless replication between two existing AWS DMS endpoints, do th
 
 1. On the navigation pane, choose **Serverless replications**, and then choose **Create replication**.
 
-1. On the **Create replication** page, specify your serverless replication configuration:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Serverless.Components.html)
+1. On the **Create replication** page, specify your serverless replication configuration:
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Name</b> </td><td>Enter a name to identify the replication, such as <b>DMS-replication</b>. </td></tr>
+  <tr><td> <b>Descriptive Amazon Resource Name (ARN)- Optional</b> </td><td>You can use this optional parameter to provide a description of the replication. </td></tr>
+  <tr><td> <b>Source database endpoint</b> </td><td>Choose existing endpoints in your account. Note that AWS DMS Serverless only supports a subset of the endpoint types that AWS DMS standard supports. </td></tr>
+  <tr><td> <b>Target database endpoint</b> </td><td>Choose existing endpoints in your account. Note that AWS DMS Serverless only supports a subset of the endpoint types that AWS DMS standard supports. </td></tr>
+  <tr><td> <b>Replication type</b> </td><td>Choose a replication type based on your requirements: <ul><li><b>Full load</b>: AWS DMS migrates existing data only.</li><li><b>Full load and change data capture (CDC)</b>: AWS DMS migrates existing data and changes that occur during replication.</li><li><b>Change data capture (CDC)</b>: AWS DMS only migrates changes that occur after you start replication.</li></ul> </td></tr>
+</tbody>
+</table>
+
 
    In the **Settings** section, set the settings that your replication requires.
 
    In the **Table mappings** section, set up table mapping to define rules to select and filter data that you are replicating. Before you specify your mapping, make sure that you review the documentation section on data type mapping for your source and your target database. For information about data type mapping for your source and target databases, see the data types section for your source and target endpoint types in the [Working with AWS DMS endpoints](CHAP_Endpoints.md) topic.
 
-   In the **Compute settings** section, set the following settings. For information about Compute Config settings, see [Compute Config](#CHAP_Serverless.computeconfig).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Serverless.Components.html)
+   In the **Compute settings** section, set the following settings. For information about Compute Config settings, see [Compute Config](#CHAP_Serverless.computeconfig).
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>VPC</b> </td><td>Choose an existing VPC. </td></tr>
+  <tr><td> <b>Subnet group</b> </td><td>Choose an existing subnet group. </td></tr>
+  <tr><td> <b>VPC security group(s)</b> </td><td>Choose <b>default</b> if it isn't already chosen. </td></tr>
+  <tr><td> <b>AWS KMS key</b> </td><td>Choose an appropriate KMS key. For information about KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Creating keys</a> in the <i>AWS Key Management Service API Reference</i>. </td></tr>
+  <tr><td> <b>Deployment</b> </td><td>Leave as is. </td></tr>
+  <tr><td> <b>Availability Zone</b> </td><td>Leave as is. </td></tr>
+  <tr><td> <b>Minimum DMS capacity units (DCU) - (Optional)</b> </td><td>Leave blank to use the default value of 1 DCU. </td></tr>
+  <tr><td> <b>Maximum DMS capacity units (DCU)</b> </td><td>Choose <b>16 DCU</b>. </td></tr>
+</tbody>
+</table>
+
 
    Leave the **Maintenance** settings as they are.
 
@@ -111,8 +142,24 @@ To modify your replication configuration, use the `modify-replication-config` ac
 
 1. In the navigation pane, choose **Serverless replications**.
 
-1. Choose the replication you want to modify. The following table describes the modifications you can make based on the current state of the replication.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Serverless.Components.html)
+1. Choose the replication you want to modify. The following table describes the modifications you can make based on the current state of the replication. 
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Description</th><th>Allowed States</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Name</b> </td><td>You can change the name of the replication. Enter a name for the replication that contains from 8 to 16 printable ASCII characters (excluding /,", and @). The name should be unique for your account for the AWS Region you selected. You can choose to add some details to the name, such as including the AWS Region and task you are performing, for example: <b>west2-mysql2mysql-config1</b>.</td><td><code>ReplicationState</code> is <code>CREATED</code>, <code>STOPPED</code>, or <code>FAILED</code>.</td></tr>
+  <tr><td> <b>Source database endpoint</b> </td><td>Choose a new existing source endpoint as the source for the replication.</td><td><code>ReplicationState</code> is <code>CREATED</code>, or <code>FAILED</code> when <code>ProvisionState</code> is <code>null</code>. </td></tr>
+  <tr><td> <b>Target database endpoint</b> </td><td>Choose a new existing target endpoint as the target for the replication.</td><td><code>ReplicationState</code> is <code>CREATED</code>, or <code>FAILED</code> when <code>ProvisionState</code> is <code>null</code>.</td></tr>
+  <tr><td> <b>Replication type</b> </td><td>You can modify the type of a serverless replication.</td><td><code>ReplicationState</code> is <code>CREATED</code>, or <code>FAILED</code> when <code>ProvisionState</code> is <code>null</code>.</td></tr>
+  <tr><td> <b>Replication Settings</b> </td><td>You can modify the replication settings, including the target table preparation mode, whether to include LOB columns in replication, maximum LOB size, validation, and logging. For more information, see <a href="CHAP_Tasks.CustomizingTasks.TaskSettings.md">Task settings</a>.</td><td><code>ReplicationState</code> is <code>CREATED</code>, <code>STOPPED</code>, or <code>FAILED</code>.</td></tr>
+  <tr><td> <b>Table mappings</b> </td><td>You can modify the table mapping settings for a serverless replication, including the selection rules and the transformation rules. For more information, see <a href="CHAP_Tasks.CustomizingTasks.TableMapping.md">Table mapping</a>.</td><td><code>ReplicationState</code> is <code>CREATED</code>, <code>STOPPED</code>, or <code>FAILED</code>.</td></tr>
+  <tr><td> <b>Compute config</b> </td><td>You can modify the compute configuration settings for a serverless replication, including the networking settings, scaling settings, and maintenance settings. For information about Compute Config settings, see <a href="#CHAP_Serverless.computeconfig">Compute Config</a>.</td><td><ul><li>You can modify the following scaling, maintenance, and network settings when the <code>ReplicationState</code> is <code>CREATED</code>, <code>STOPPED</code>, or <code>FAILED</code>:  <ul><li><code>MinCapacityUnits</code></li><li><code>MaxCapacityUnits</code></li><li><code>MultiAZ</code></li><li><code>PreferredMaintenanceWindow</code></li><li><code>VpcSecurityGroupIds</code></li></ul></li><li>You can modify the following networking and security settings when the <code>ReplicationState</code> is <code>CREATED</code>, or <code>FAILED</code> when <code>ProvisionState</code> is <code>null</code>: <ul><li><code>AvailabilityZone</code></li><li><code>DnsNameServers</code></li><li><code>KmsKeyId</code></li><li><code>ReplicationSubnetGroupId</code></li></ul></li></ul></td></tr>
+</tbody>
+</table>
+
 
 **Note**  
 You cannot modify endpoints associated to a DMS task when the task status is starting or running.

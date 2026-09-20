@@ -20,8 +20,20 @@ Controls how IBM Db2 for z/OS numeric columns without explicit precision are map
 **Default:** `false`
 
 `SchemaNameTemplate`  
-Controls how the target PostgreSQL schema name is generated from the IBM Db2 for z/OS database and schema names.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-db2-zos-postgresql.html)
+Controls how the target PostgreSQL schema name is generated from the IBM Db2 for z/OS database and schema names.  
+
+
+<table>
+<thead>
+  <tr><th>API/CLI value</th><th>Generated target schema name</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>DB_SCHEMA</code></td><td>{{database}}_{{schema}}. Use when migrating multiple databases to the same PostgreSQL instance to avoid name collisions.</td></tr>
+  <tr><td><code>DB</code></td><td>{{database}}</td></tr>
+  <tr><td><code>SCHEMA</code></td><td>{{schema}}. Use when migrating a single database and you want clean schema names without a database prefix.</td></tr>
+</tbody>
+</table>
+
 **Type:** String (enum)  
 **Default:** `DB_SCHEMA`
 
@@ -91,14 +103,40 @@ Controls whether DMS Schema Conversion scales the number of generated partitions
 **Default:** `false`
 
 `StringRepresentationOfDate`  
-Controls the string format used when representing IBM Db2 `DATE` values in converted code.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-db2-zos-postgresql.html)
+Controls the string format used when representing IBM Db2 `DATE` values in converted code.  
+
+
+<table>
+<thead>
+  <tr><th>API/CLI value</th><th>Format</th><th>Example</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>ISO</code></td><td><code>YYYY-MM-DD</code></td><td><code>2024-01-15</code></td></tr>
+  <tr><td><code>EUR</code></td><td><code>DD.MM.YYYY</code></td><td><code>15.01.2024</code></td></tr>
+  <tr><td><code>USA</code></td><td><code>MM/DD/YYYY</code></td><td><code>01/15/2024</code></td></tr>
+  <tr><td><code>JIS</code></td><td><code>YYYY-MM-DD</code></td><td><code>2024-01-15</code></td></tr>
+</tbody>
+</table>
+
 **Type:** String (enum)  
 **Default:** `ISO`
 
 `StringRepresentationOfTime`  
-Controls the string format used when representing IBM Db2 `TIME` values in converted code.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-db2-zos-postgresql.html)
+Controls the string format used when representing IBM Db2 `TIME` values in converted code.  
+
+
+<table>
+<thead>
+  <tr><th>API/CLI value</th><th>Format</th><th>Example</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>ISO</code></td><td><code>HH:MM:SS</code></td><td><code>14:30:00</code></td></tr>
+  <tr><td><code>EUR</code></td><td><code>HH.MM.SS</code></td><td><code>14.30.00</code></td></tr>
+  <tr><td><code>USA</code></td><td><code>HH:MM AM/PM</code></td><td><code>02:30 PM</code></td></tr>
+  <tr><td><code>JIS</code></td><td><code>HH:MM:SS</code></td><td><code>14:30:00</code></td></tr>
+</tbody>
+</table>
+
 **Type:** String (enum)  
 **Default:** `ISO`
 
