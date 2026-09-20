@@ -32,6 +32,21 @@ If you are extracting embedded captions from the input and using embedded captio
   + If you are converting embedded captions to another format (that is, you create several captions selectors, one for each track), specify the captions channel number from the input that holds the track that you want. To do that, select the channel number from the dropdown list. For example, select **1** to choose CC1.
 **Note**  
 AWS Elemental Server doesn't automatically detect which language is in each track (channel). You can specify that when you set up the output captions so that AWS Elemental Server passes the language code metadata for the captions channel into the output for downstream use.
-+ **Force 608 to 708 Upconvert**: The embedded source captions may be EIA-608 captions or CEA-708 captions or both EIA-608 and CEA-708. You can specify how you want these captions to be handled when the AWS Elemental encoder is ingesting content. The following table describes the behavior for various scenarios.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-server/latest/ug/embedded.html)
++ **Force 608 to 708 Upconvert**: The embedded source captions may be EIA-608 captions or CEA-708 captions or both EIA-608 and CEA-708. You can specify how you want these captions to be handled when the AWS Elemental encoder is ingesting content. The following table describes the behavior for various scenarios.
+
+
+<table>
+<thead>
+  <tr><th>EIA-608 in Source</th><th>CEA-708 in Source</th><th>Upconvert Field</th><th>Result</th></tr>
+</thead>
+<tbody>
+  <tr><td>Yes</td><td>No</td><td>Checked</td><td>CEA-708 data is created based on the EIA-608 data and EIA-608 data is added as 608-compatibility bits in the CEA-708 data.</td></tr>
+  <tr><td>Yes</td><td>No</td><td>Unchecked</td><td>Original EIA-608 is preserved.</td></tr>
+  <tr><td>No</td><td>Yes</td><td>Checked</td><td>Original CEA-708 is preserved. </td></tr>
+  <tr><td>No</td><td>Yes</td><td>Unchecked</td><td>Original CEA-708 is preserved.</td></tr>
+  <tr><td>Yes</td><td>Yes</td><td>Checked</td><td><b>Not recommended.</b><br />CEA-708 data is discarded. New CEA-708 data is created based on the EIA-608 data and EIA-608 data is added as 608-compatibility bits in the CEA-708 data.<br />The new CEA-708 data does not include any CEA-708 formatting features.</td></tr>
+  <tr><td>Yes</td><td>Yes</td><td>Unchecked</td><td>Original EIA-608 is preserved and original CEA-708 is preserved.</td></tr>
+</tbody>
+</table>
+
 + Use **SCTE-20 if Embedded Unavailable**: This field appears only if you set the Source to “Embedded.” If the source captions combine embedded (EIA-608 or CEA-708) and SCTE-20, you may want to check this field: the encoder gives preference to the 608/708 embedded captions but switches to use the SCTE-20 captions when necessary. If you leave this field unchecked, the encoder never uses the SCTE-20 captions.
