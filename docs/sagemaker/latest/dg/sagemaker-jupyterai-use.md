@@ -24,8 +24,22 @@ Before using the `%%ai` and `%ai` commands to invoke a language model, load the 
 + **For models hosted by AWS:**
   + To invoke a model deployed in SageMaker AI, pass the string `sagemaker-endpoint:{{endpoint-name}}` to the `%%ai` magic command with the required parameters below, then add your prompt in the following lines.
 
-    The following table lists the required and optional parameters when invoking models hosted by SageMaker AI or Amazon Bedrock.<a name="sagemaker-jupyterai-jumpstart-inference-params"></a>    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-jupyterai-use.html)
+    The following table lists the required and optional parameters when invoking models hosted by SageMaker AI or Amazon Bedrock.<a name="sagemaker-jupyterai-jumpstart-inference-params"></a>
+
+
+<table>
+<thead>
+  <tr><th><b>Parameter Name</b></th><th><b>Parameter</b></th><th><b>Short Version</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td>Request schema</td><td><code>--request-schema</code></td><td><code>-q</code></td><td> <b>Required</b>: The JSON object the endpoint expects, with the prompt being substituted into any value that matches the string literal <code>&lt;prompt&gt;</code>. </td></tr>
+  <tr><td>Region name</td><td><code>--region-name</code></td><td><code>-n</code></td><td> <b>Required</b>: The AWS Region where the model is deployed. </td></tr>
+  <tr><td>Response path</td><td><code>--response-path</code></td><td><code>-p</code></td><td> <b>Required</b>: A JSONPath string used to extract the language model's output from the JSON response of the endpoint. </td></tr>
+  <tr><td>Extra model parameters</td><td><code>--model-parameters</code></td><td><code>-m</code></td><td> <b>Optional</b>: A JSON value specifying additional parameters to be passed to the model. The accepted value is parsed into a dictionary, unpacked, and directly passed to the provider class. This is useful when the endpoint or the model requires custom parameters. For example, in Llama 2 models when accepting the End User License Agreement (EULA) is necessary, you can pass the EULA acceptance to the endpoint using <code>-m {"endpoint_kwargs":{"CustomAttributes":"accept_eula=true"}}</code>. Alternatively, you can use the <code>-m</code> parameter to pass extra model parameters, such as setting the maximum number of tokens for a model's generated response. For example, when working with an AI21 Labs Jurassic model: <code>-m {"model_kwargs":{"maxTokens":256}}</code>. </td></tr>
+  <tr><td>Output format</td><td><code>--format</code></td><td><code>-f</code></td><td> <b>Optional</b>: The IPython display used to render the output. It can be any of the following values <code>[code|html|image|json|markdown|math|md|text]</code>, provided that the invoked model supports the specified format. </td></tr>
+</tbody>
+</table>
+
 
     The following command invokes a Llama 2 7B model hosted by SageMaker AI.
 

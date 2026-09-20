@@ -8010,11 +8010,62 @@ Base DLAMI release note is available [here](https://docs.aws.amazon.com/dlami/la
   Driver Version: 570.195.03     
   CUDA Version: 12.8
   ```
-+ Major versions    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-ami-eks.html)
++ Major versions
+
+
+
+<table>
+<thead>
+  <tr><th>package name</th><th>version</th></tr>
+</thead>
+<tbody>
+  <tr><td>framework_version</td><td>70</td></tr>
+  <tr><td>gdr_copy</td><td>2.4.1</td></tr>
+  <tr><td>supported_ec2_instances</td><td>G4dn, G5, G6, Gr6, G6e, P4d, P4de, P5, P5e, P5en</td></tr>
+  <tr><td>efa_version</td><td>1.43.3</td></tr>
+  <tr><td>ebs_volume_type</td><td>gp3</td></tr>
+  <tr><td>nvidia_driver</td><td>570.195.03</td></tr>
+  <tr><td>python_location</td><td>/usr/bin/python3.10</td></tr>
+  <tr><td>nvidia_cuda_stack</td><td>/usr/local/cuda-12.1,/usr/local/cuda-12.2,/usr/local/cuda-12.3,/usr/local/cuda-12.4</td></tr>
+  <tr><td>ssm_agent_version</td><td>3.3.3050.0</td></tr>
+  <tr><td>kernel_version</td><td>5.10.244-240.965.amzn2.x86_64</td></tr>
+  <tr><td>nvidia_container_toolkit_version</td><td>1.17.8</td></tr>
+  <tr><td>ofi_nccl_version</td><td>1.16.3</td></tr>
+  <tr><td>operating_system</td><td>Amazon Linux 2</td></tr>
+  <tr><td>default_cuda</td><td>/usr/local/cuda-12.1/</td></tr>
+  <tr><td>compute_architecture</td><td>x86_64</td></tr>
+</tbody>
+</table>
+
 + Added packages: No packages were added in this release.
-+ Updated packages    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-ami-eks.html)
++ Updated packages
+
+
+
+<table>
+<thead>
+  <tr><th>package name</th><th>previous version</th><th>new version</th></tr>
+</thead>
+<tbody>
+  <tr><td>boto3</td><td>1.40.46</td><td>1.40.49</td></tr>
+  <tr><td>botocore</td><td>1.40.46</td><td>1.40.49</td></tr>
+  <tr><td>fastapi</td><td>0.118.0</td><td>0.118.2</td></tr>
+  <tr><td>filelock</td><td>3.19.1</td><td>3.20.0</td></tr>
+  <tr><td>importlib_metadata</td><td>8.7.0</td><td>8.0.0</td></tr>
+  <tr><td>jaraco.context</td><td>6.0.1</td><td>5.3.0</td></tr>
+  <tr><td>jaraco.functools</td><td>4.3.0</td><td>4.0.1</td></tr>
+  <tr><td>matplotlib</td><td>3.10.6</td><td>3.10.7</td></tr>
+  <tr><td>packaging</td><td>25</td><td>24.2</td></tr>
+  <tr><td>platformdirs</td><td>4.4.0</td><td>4.5.0</td></tr>
+  <tr><td>propcache</td><td>0.4.0</td><td>0.4.1</td></tr>
+  <tr><td>rich</td><td>14.1.0</td><td>14.2.0</td></tr>
+  <tr><td>tomli</td><td>2.2.1</td><td>2.3.0</td></tr>
+  <tr><td>types-python-dateutil</td><td>2.9.0.20250822</td><td>2.9.0.20251008</td></tr>
+  <tr><td>virtualenv</td><td>20.34.0</td><td>20.35.1</td></tr>
+  <tr><td>websocket-client</td><td>1.8.0</td><td>1.9.0</td></tr>
+</tbody>
+</table>
+
 + Removed packages: No packages were removed in this release.
 
 **AL2023x86**
@@ -8029,11 +8080,65 @@ Base DLAMI release note is available [here](https://docs.aws.amazon.com/dlami/la
   Driver Version: 580.95.05  
   CUDA Version: 13.0
   ```
-+ Major versions    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-ami-eks.html)
++ Major versions
+
+
+
+<table>
+<thead>
+  <tr><th>package name</th><th>version</th></tr>
+</thead>
+<tbody>
+  <tr><td>gdr_copy</td><td>2.5.1</td></tr>
+  <tr><td>supported_ec2_instances</td><td>G4dn, G5, G6, Gr6, G6e, P4d, P4de, P5, P5e, P5en, P6-B200</td></tr>
+  <tr><td>efa_version</td><td>1.43.3</td></tr>
+  <tr><td>ebs_volume_type</td><td>gp3</td></tr>
+  <tr><td>nvidia_gds_version</td><td>1.15.0.42</td></tr>
+  <tr><td>nvidia_driver</td><td>580.95.05</td></tr>
+  <tr><td>python_location</td><td>/usr/bin/python3.9</td></tr>
+  <tr><td>nvidia_cuda_stack</td><td>/usr/local/cuda-12.6,/usr/local/cuda-12.8,/usr/local/cuda-12.9,/usr/local/cuda-13.0</td></tr>
+  <tr><td>ssm_agent_version</td><td>3.3.3050.0</td></tr>
+  <tr><td>kernel_version</td><td>6.1.153-175.280.amzn2023.x86_64</td></tr>
+  <tr><td>nvidia_container_toolkit_version</td><td>1.17.8</td></tr>
+  <tr><td>dcgm_version</td><td>4.4.1</td></tr>
+  <tr><td>ofi_nccl_version</td><td>1.16.3</td></tr>
+  <tr><td>operating_system</td><td>Amazon Linux 2023.9.20250929</td></tr>
+  <tr><td>default_cuda</td><td>/usr/local/cuda-12.9/</td></tr>
+  <tr><td>compute_architecture</td><td>x86_64</td></tr>
+</tbody>
+</table>
+
 + Added packages: No packages were added in this release.
-+ Updated packages    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-ami-eks.html)
++ Updated packages
+
+
+
+<table>
+<thead>
+  <tr><th>package name</th><th>previous version</th><th>new version</th></tr>
+</thead>
+<tbody>
+  <tr><td>boto3</td><td>1.40.46</td><td>1.40.49</td></tr>
+  <tr><td>botocore</td><td>1.40.46</td><td>1.40.49</td></tr>
+  <tr><td>fastapi</td><td>0.118.0</td><td>0.118.2</td></tr>
+  <tr><td>gdrcopy</td><td>2.5-1</td><td>2.5.1-1</td></tr>
+  <tr><td>gdrcopy-devel</td><td>2.5-1</td><td>2.5.1-1</td></tr>
+  <tr><td>gdrcopy-kmod</td><td>2.5-1dkms</td><td>2.5.1-1dkms</td></tr>
+  <tr><td>jaraco.context</td><td>6.0.1</td><td>5.3.0</td></tr>
+  <tr><td>jaraco.functools</td><td>4.3.0</td><td>4.0.1</td></tr>
+  <tr><td>more-itertools</td><td>10.8.0</td><td>10.3.0</td></tr>
+  <tr><td>packaging</td><td>25</td><td>24.2</td></tr>
+  <tr><td>propcache</td><td>0.4.0</td><td>0.4.1</td></tr>
+  <tr><td>pydantic</td><td>2.11.10</td><td>2.12.0</td></tr>
+  <tr><td>pydantic_core</td><td>2.33.2</td><td>2.41.1</td></tr>
+  <tr><td>rich</td><td>14.1.0</td><td>14.2.0</td></tr>
+  <tr><td>types-python-dateutil</td><td>2.9.0.20250822</td><td>2.9.0.20251008</td></tr>
+  <tr><td>typing_extensions</td><td>4.12.2</td><td>4.15.0</td></tr>
+  <tr><td>virtualenv</td><td>20.34.0</td><td>20.35.1</td></tr>
+  <tr><td>websocket-client</td><td>1.8.0</td><td>1.9.0</td></tr>
+</tbody>
+</table>
+
 + Removed packages: No packages were removed in this release.
 
 **AL2023 ARM64**
@@ -8048,11 +8153,72 @@ Base DLAMI release note is available [here](https://docs.aws.amazon.com/dlami/la
   Driver Version: 580.95.05    
   CUDA Version: 13.0
   ```
-+ Major versions    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-ami-eks.html)
++ Major versions
+
+
+
+<table>
+<thead>
+  <tr><th>package name</th><th>version</th></tr>
+</thead>
+<tbody>
+  <tr><td>gdr_copy</td><td>2.5</td></tr>
+  <tr><td>supported_ec2_instances</td><td>G5g, P6e-GB200</td></tr>
+  <tr><td>efa_version</td><td>1.43.3</td></tr>
+  <tr><td>ebs_volume_type</td><td>gp3</td></tr>
+  <tr><td>nvidia_driver</td><td>580.95.05</td></tr>
+  <tr><td>python_location</td><td>/usr/bin/python3.9</td></tr>
+  <tr><td>nvidia_cuda_stack</td><td>/usr/local/cuda-12.6,/usr/local/cuda-12.8,/usr/local/cuda-12.9,/usr/local/cuda-13.0</td></tr>
+  <tr><td>ssm_agent_version</td><td>3.3.3050.0</td></tr>
+  <tr><td>kernel_version</td><td>6.12.46-66.121.amzn2023.aarch64</td></tr>
+  <tr><td>nvidia_container_toolkit_version</td><td>1.17.8</td></tr>
+  <tr><td>dcgm_version</td><td>4.4.1</td></tr>
+  <tr><td>ofi_nccl_version</td><td>1.16.3</td></tr>
+  <tr><td>operating_system</td><td>Amazon Linux 2023.9.20250929</td></tr>
+  <tr><td>default_cuda</td><td>/usr/local/cuda-12.9/</td></tr>
+  <tr><td>compute_architecture</td><td>aarch64</td></tr>
+</tbody>
+</table>
+
 + Added packages: No packages were added in this release.
-+ Updated packages    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-ami-eks.html)
++ Updated packages
+
+
+
+<table>
+<thead>
+  <tr><th>package name</th><th>previous version</th><th>new version</th></tr>
+</thead>
+<tbody>
+  <tr><td>aiohttp</td><td>3.12.15</td><td>3.13.0</td></tr>
+  <tr><td>attrs</td><td>25.3.0</td><td>25.4.0</td></tr>
+  <tr><td>boto3</td><td>1.40.45</td><td>1.40.49</td></tr>
+  <tr><td>botocore</td><td>1.40.45</td><td>1.40.49</td></tr>
+  <tr><td>cattrs</td><td>25.2.0</td><td>25.3.0</td></tr>
+  <tr><td>certifi</td><td>2025.8.3</td><td>2025.10.5</td></tr>
+  <tr><td>efa</td><td>2.17.2-1.amzn2023</td><td>2.17.3-1.amzn2023</td></tr>
+  <tr><td>fastapi</td><td>0.118.0</td><td>0.118.2</td></tr>
+  <tr><td>frozenlist</td><td>1.7.0</td><td>1.8.0</td></tr>
+  <tr><td>importlib_metadata</td><td>8.7.0</td><td>8.0.0</td></tr>
+  <tr><td>jaraco.context</td><td>5.3.0</td><td>6.0.1</td></tr>
+  <tr><td>multidict</td><td>6.6.4</td><td>6.7.0</td></tr>
+  <tr><td>narwhals</td><td>2.6.0</td><td>2.7.0</td></tr>
+  <tr><td>nh3</td><td>0.3.0</td><td>0.3.1</td></tr>
+  <tr><td>propcache</td><td>0.3.2</td><td>0.4.1</td></tr>
+  <tr><td>pydantic</td><td>2.11.9</td><td>2.12.0</td></tr>
+  <tr><td>pydantic_core</td><td>2.33.2</td><td>2.41.1</td></tr>
+  <tr><td>pylint</td><td>3.3.8</td><td>3.3.9</td></tr>
+  <tr><td>python-json-logger</td><td>3.3.0</td><td>4.0.0</td></tr>
+  <tr><td>rich</td><td>14.1.0</td><td>14.2.0</td></tr>
+  <tr><td>tomli</td><td>2.2.1</td><td>2.0.1</td></tr>
+  <tr><td>types-python-dateutil</td><td>2.9.0.20250822</td><td>2.9.0.20251008</td></tr>
+  <tr><td>virtualenv</td><td>20.34.0</td><td>20.35.1</td></tr>
+  <tr><td>websocket-client</td><td>1.8.0</td><td>1.9.0</td></tr>
+  <tr><td>yarl</td><td>1.20.1</td><td>1.22.0</td></tr>
+  <tr><td>zipp</td><td>3.19.2</td><td>3.23.0</td></tr>
+</tbody>
+</table>
+
 + Removed packages: No packages were removed in this release.
 
 ## SageMaker HyperPod AMI releases for Amazon EKS: September 29, 2025

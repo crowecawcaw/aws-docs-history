@@ -139,8 +139,22 @@ The URI must identify a pre-built SageMaker Clarify container image. `ContainerE
 
 1. Specify an IAM role for the `RoleArn` parameter. The role must have a trust relationship with Amazon SageMaker AI. It can be used to perform the SageMaker API operations listed in the following table. We recommend using the Amazon SageMaker AIFullAccess managed policy, which grants full access to SageMaker AI. For more information on this policy, see [AWS managed policy: AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess). If you have concerns about granting full access, the minimal permissions required depend on whether you provide a model or an endpoint name. Using an endpoint name allows for granting fewer permissions to SageMaker AI.
 
-   The following table contains API operations used by the SageMaker Clarify processing job. An **X** under **Model name** and **Endpoint name** notes the API operation that is required for each input.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/clarify-processing-job-configure-parameters.html)
+   The following table contains API operations used by the SageMaker Clarify processing job. An **X** under **Model name** and **Endpoint name** notes the API operation that is required for each input.
+
+
+<table>
+<thead>
+  <tr><th>API Operation</th><th>Model name</th><th>Endpoint name</th><th>What is it used for</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTags.html">ListTags</a></td><td>X</td><td></td><td>Tags of the job are applied to the shadow endpoint.</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a></td><td>X</td><td></td><td>Create endpoint config using the model name that you provided</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a></td><td>X</td><td></td><td>Create shadow endpoint using the endpoint config.</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a></td><td>X</td><td>X</td><td>Describe endpoint for its status, the endpoint must be InService to serve requests.</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">InvokeEndpoint</a></td><td>X</td><td>X</td><td>Invoke the endpoint for predictions.</td></tr>
+</tbody>
+</table>
+
 
    For more information about required permissions, see [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md).
 

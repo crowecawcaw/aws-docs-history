@@ -143,8 +143,14 @@ Configure how nodes in your cluster are provisioned. Your choice affects Amazon 
    + **Use default lifecycle scripts** — Default lifecycle scripts are uploaded to the chosen Amazon S3 bucket and used to provision nodes. This option uses the scripts from the [Awsome Distributed Training repository](https://github.com/awslabs/awsome-distributed-training/tree/main/1.architectures/5.sagemaker-hyperpod/LifecycleScripts/base-config) (ADTR).
    + **Use custom lifecycle scripts** — Choose lifecycle scripts from an Amazon S3 bucket. This corresponds to the `OnCreate` path in the API, where your scripts own the entire provisioning sequence, including when Slurm starts. HyperPod does not run AMI-based configuration when this option is selected.
 
-   The following table summarizes the three options:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/smcluster-getting-started-slurm-console.html)
+   The following table summarizes the three options:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
 1. For **Extension script file in S3 - *optional*** (appears when you choose **None** under **Lifecycle scripts**), enter the Amazon S3 URI of your extension script. The extension script allows you to provision additional optional capabilities, such as observability, System Security Services Daemon (SSSD), and Amazon S3 bucket mounting, on top of default configurations without managing the entire set of lifecycle scripts.
 

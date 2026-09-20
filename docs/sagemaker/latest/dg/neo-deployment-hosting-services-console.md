@@ -26,8 +26,22 @@ You must satisfy the [ prerequisites](https://docs.aws.amazon.com/sagemaker/late
    + **Environment variables**:
      + Leave this field blank for **SageMaker XGBoost**.
      + If you trained your model using SageMaker AI, specify the environment variable `SAGEMAKER_SUBMIT_DIRECTORY` as the Amazon S3 bucket URI that contains the training script. 
-     + If you did not train your model using SageMaker AI, specify the following environment variables:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/neo-deployment-hosting-services-console.html)
+     + If you did not train your model using SageMaker AI, specify the following environment variables: 
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Values for MXNet and PyTorch</th><th>Values TensorFlow</th></tr>
+</thead>
+<tbody>
+  <tr><td>SAGEMAKER_PROGRAM</td><td>inference.py</td><td>inference.py</td></tr>
+  <tr><td>SAGEMAKER_SUBMIT_DIRECTORY</td><td>/opt/ml/model/code</td><td>/opt/ml/model/code</td></tr>
+  <tr><td>SAGEMAKER_CONTAINER_LOG_LEVEL</td><td>20</td><td>20</td></tr>
+  <tr><td>SAGEMAKER_REGION</td><td>&lt;your region&gt;</td><td>&lt;your region&gt;</td></tr>
+  <tr><td>MMS_DEFAULT_RESPONSE_TIMEOUT</td><td>500</td><td>Leave this field blank for TF</td></tr>
+</tbody>
+</table>
+
 
 1. Confirm that the information for the containers is accurate, and then choose **Create model**. On the **Create model landing page**, choose **Create endpoint**.   
 ![Create Model landing page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-create-model-land-page.png)

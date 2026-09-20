@@ -21,8 +21,21 @@ This section contains information about how to prevent and resolve some of the c
 
   ```
   W-9001-model-stdout com.amazonaws.ml.mms.wlm.WorkerLifeCycle - AttributeError: 'NoneType' object has no attribute 'transform'
-  ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/neo-troubleshooting-inference.html)
+  ```
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>SAGEMAKER_PROGRAM</td><td>inference.py</td></tr>
+  <tr><td>SAGEMAKER_SUBMIT_DIRECTORY</td><td>/opt/ml/model/code</td></tr>
+  <tr><td>SAGEMAKER_CONTAINER_LOG_LEVEL</td><td>20</td></tr>
+  <tr><td>SAGEMAKER_REGION</td><td>&lt;your region&gt;</td></tr>
+</tbody>
+</table>
+
 + Make sure that the `MMS_DEFAULT_RESPONSE_TIMEOUT` environment variable is set to 500 or a higher value while creating the Amazon SageMaker AI model; otherwise, the following error message may be seen on the terminal: 
 
   ```

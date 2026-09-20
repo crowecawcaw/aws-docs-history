@@ -35,8 +35,20 @@ You can configure the Amazon Bedrock role manually if you would rather use your 
 You must also have a dataset that is formatted for fine-tuning large language models (LLMs). The following is a list of requirements for your dataset:
 + The dataset must be tabular and contain at least two columns of text data–one input column (which contains example prompts to the model) and one output column (which contains example responses from the model).
 
-  An example is the following:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/canvas-fm-chat-fine-tune.html)
+  An example is the following: 
+
+
+<table>
+<thead>
+  <tr><th>Input</th><th>Output</th></tr>
+</thead>
+<tbody>
+  <tr><td>What are your shipping terms?</td><td>We offer free shipping on all orders over $50. Orders under $50 have a shipping fee of $5.99.</td></tr>
+  <tr><td>How can I return an item?</td><td>To return an item, please visit our returns center and follow the instructions. You must provide your order number and the reason for the return.</td></tr>
+  <tr><td>I'm having trouble with my product. What can I do?</td><td>Please contact our customer support team and we will be happy to help you troubleshoot the issue.</td></tr>
+</tbody>
+</table>
+
 + We recommend that the dataset has at least 100 text pairs (rows of corresponding input and output items). This ensures that the foundation model has enough data for fine-tuning and increases the accuracy of its responses.
 + Each input and output item should contain a maximum of 512 characters. Anything longer is reduced to 512 characters when fine-tuning the foundation model.
 

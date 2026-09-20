@@ -24,11 +24,11 @@ As of August 2024, the `forecasting-deepar` container is no longer receiving sec
 ## AWS Deep Learning Containers (DLC) support policy
 <a name="pre-built-containers-support-policy-dlc"></a>
 
-AWS Deep Learning Containers are a set of Docker images for training and serving deep learning models. To view available images, see [Available Deep Learning Containers Images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md) in the Deep Learning Containers GitHub repository.
+AWS Deep Learning Containers are a set of Docker images for training and serving deep learning models. To view available images, see [Available Deep Learning Containers Images](https://aws.github.io/deep-learning-containers/reference/available_images/) on the Deep Learning Containers GitHub website.
 
-DLCs hit their end of patch date 365 days after their GitHub release date. Patch updates for DLCs are not “in-place” updates. You must delete the existing image on your instance and pull the latest container image without terminating your instance. For more information, see [Framework Support Policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html) in the *AWS Deep Learning Containers Developer Guide*. 
+DLCs hit their end of patch date 365 days after their GitHub release date. Patch updates for DLCs are not “in-place” updates. You must delete the existing image on your instance and pull the latest container image without terminating your instance. For more information, see [Framework Support Policy](https://aws.github.io/deep-learning-containers/reference/support_policy/) on the Deep Learning Containers GitHub website. 
 
-Reference the [AWS Deep Learning Containers Framework Support Policy table](https://aws.amazon.com/releasenotes/dlc-support-policy/) to check which frameworks and versions are actively supported for AWS DLCs. You can reference the framework associated with a DLC in the support policy table for any images that are not explicitly listed. For example, you can reference **PyTorch** in the support policy table for DLC images such as `huggingface-pytorch-inference` and `stabilityai-pytorch-inference`.
+Reference the [AWS Deep Learning Containers Framework Support Policy table](https://aws.github.io/deep-learning-containers/reference/support_policy/#supported-frameworks) on the Deep Learning Containers GitHub website to check which frameworks and versions are actively supported for AWS DLCs. You can reference the framework associated with a DLC in the support policy table for any images that are not explicitly listed. For example, you can reference **PyTorch** in the support policy table for DLC images such as `huggingface-pytorch-inference` and `stabilityai-pytorch-inference`.
 
 **Note**  
 If a DLC uses the HuggingFace [Transformers](https://huggingface.co/docs/transformers/en/index) SDK, then only the image with the latest Transfromers version is supported. For more information, see **HuggingFace** for the Region of your choice in the [Docker Registry Paths and Example Code](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths.html). 
@@ -36,18 +36,19 @@ If a DLC uses the HuggingFace [Transformers](https://huggingface.co/docs/transfo
 ## SageMaker AI ML Framework Container support policy
 <a name="pre-built-containers-support-policy-ml-framework"></a>
 
-The SageMaker AI ML Framework Containers are a set of Docker images for training and serving machine learning workloads with environments optimized for common frameworks such as XGBoost and Scikit Learn. To view available SageMaker AI ML Framework Containers, see [Docker Registry Paths and Example Code](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths.html). Navigate to the AWS Region of your choice, and browse images with the **(algorithm)** tag. SageMaker AI ML Framework Containers also adhere to the [AWS Deep Learning Containers framework support policy](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/support-policy.html). 
+The SageMaker AI ML Framework Containers are a set of Docker images for training and serving machine learning workloads with environments optimized for common frameworks such as XGBoost and Scikit Learn. To view available SageMaker AI ML Framework Containers, see [Docker Registry Paths and Example Code](https://docs.aws.amazon.com/sagemaker/latest/dg-ecr-paths/sagemaker-algo-docker-registry-paths.html). Navigate to the AWS Region of your choice, and browse images with the **(algorithm)** tag. SageMaker AI ML Framework Containers also adhere to the [AWS Deep Learning Containers framework support policy](https://aws.github.io/deep-learning-containers/reference/support_policy/) on the Deep Learning Containers GitHub website. 
 
-To retrieve the latest image version for XGBoost 1.7-1 in framework mode, use the following SageMaker Python SDK commands: 
+To retrieve the latest image version for XGBoost 3.2-0 in framework mode, use the following SageMaker Python SDK commands: 
 
 ```
-from sagemaker.core import image_uris
-image_uris.retrieve(framework='xgboost',region='us-east-1',version='3.0-5')
+from sagemaker import image_uris
+image_uris.retrieve(framework='xgboost',region='us-east-1',version='3.2-0')
 ```
 
 
-| Framework | Current version | GitHub GA | End of patch | 
+| Framework | Current version | GA | End of patch | 
 | --- | --- | --- | --- | 
+| XGBoost | 3.2-0 | 05/13/2026 | 05/13/2027 | 
 | XGBoost | 3.0-5 | 11/17/2025 | 11/17/2026 | 
 | XGBoost | 1.7-1 | 03/06/2023 | 03/06/2025 | 
 | XGBoost | 1.5-1 | 02/21/2022 | 02/21/2023 | 
@@ -55,7 +56,9 @@ image_uris.retrieve(framework='xgboost',region='us-east-1',version='3.0-5')
 | XGBoost | 1.2-2 | 09/20/2020 | 09/20/2021 | 
 | XGBoost | 1.2-1 | 07/19/2020 | 07/19/2021 | 
 | XGBoost | 1.0-1 | >4 years | Not supported | 
-| Scikit-Learn | 1.4-2 | 10/30/2025 | 10/30/2026 | 
+| Scikit-Learn | 1.9-0 | 07/16/2026 | 07/16/2027 | 
+| Scikit-Learn | 1.4-2-py312 | 04/21/2026 | 10/30/2026 | 
+| Scikit-Learn | 1.4-2 | 10/30/2025 | Not supported | 
 | Scikit-Learn | 1.2-1 | 03/06/2023 | 03/06/2025 | 
 | Scikit-Learn | 1.0-1 | 04/07/2022 | 04/07/2023 | 
 | Scikit-Learn | 0.23-1 | 3/6/2023 | 06/02/2021 | 
@@ -100,7 +103,7 @@ Patch updates for built-in container images are “in-place” updates. To stay 
 We make an exception when there is a major version update. For example, if the HuggingFace Text Generation Inference (TGI) toolkit updates to TGI 2.0, then we continue to support the most recent version of TGI 1.4 for a period of three months from the date of the GitHub release.
 
 
-| Toolkit container | Current version | GitHub GA | End of patch | 
+| Toolkit container | Current version | GA | End of patch | 
 | --- | --- | --- | --- | 
 | TGI | tgi2.3.1 | 10/14/2024 | 11/14/2024 | 
 | TGI | optimum0.0.25 | 10/04/2024 | 11/04/2024 | 

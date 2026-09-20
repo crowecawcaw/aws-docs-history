@@ -150,8 +150,20 @@ For binary classification, we recommend using the `'binary'` averaging strategy
 +  **Balanced classification accuracy: **Numerical score that ranges from `0` (worst) and `1` (best). 
   +  **For binary classification**: This score is calculated the same as accuracy. 
   +  **For multiclass classification**: This score averages the individual recall scores for all classes. 
-    +  For the following example outputs:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/clarify-accuracy-evaluation.html)
+    +  For the following example outputs: 
+
+
+<table>
+<thead>
+  <tr><th> Review text </th><th> Ground truth label </th><th> Class name </th><th> Predicted label </th></tr>
+</thead>
+<tbody>
+  <tr><td> Delicious cake! Would buy again. </td><td> 3 </td><td> brownie </td><td> 3 </td></tr>
+  <tr><td> Tasty cake! R ecommended. </td><td> 2 </td><td> pound cake </td><td> 2 </td></tr>
+  <tr><td> Terrible! Gross cake. </td><td> 1 </td><td> pound cake </td><td> 2 </td></tr>
+</tbody>
+</table>
+
       +  **Class 1 recall**: 0 
       +  **Class 2 recall**: 1 
       +  **Class 3 recall**: 1 

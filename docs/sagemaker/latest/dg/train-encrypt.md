@@ -21,8 +21,19 @@ Before enabling inter-container traffic encryption on training or hyperparameter
 
 **To enable inter-container traffic encryption (API)**
 
-1.  Add the following inbound and outbound rules in the security group for your private VPC:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html)
+1.  Add the following inbound and outbound rules in the security group for your private VPC:
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Port Range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>UDP</code></td><td><code>500</code></td><td>{{Self Security Group ID}}</td></tr>
+  <tr><td><code>ESP 50</code></td><td><code>N/A</code></td><td>{{Self Security Group ID}}</td></tr>
+</tbody>
+</table>
+
 
 1. When you send a request to the [`CreateTrainingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html) or [`CreateHyperParameterTuningJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html) API, specify `True` for the `EnableInterContainerTrafficEncryption` parameter.
 

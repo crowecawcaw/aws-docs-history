@@ -43,8 +43,21 @@ These instructions demonstrate how to enable SageMaker smart sifting with your t
 
    1. If your dataset is not in these format, you should proceed to the rest of this step to create a custom batch transform using `SiftingBatchTransform`. 
 
-      In cases in which your dataset isn’t in one of the supported formats by SageMaker smart sifting, you might run into errors. Such data format errors can be resolved by adding the `batch_format_index` or `batch_transforms` parameter to the `SiftingDataloader` class, which you set up in step 4. The following shows example errors due to an incompatible data format and resolutions for them.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/train-smart-sifting-apply-to-pytorch-script.html)
+      In cases in which your dataset isn’t in one of the supported formats by SageMaker smart sifting, you might run into errors. Such data format errors can be resolved by adding the `batch_format_index` or `batch_transforms` parameter to the `SiftingDataloader` class, which you set up in step 4. The following shows example errors due to an incompatible data format and resolutions for them.
+
+
+<table>
+<thead>
+  <tr><th>Error Message</th><th>Resolution</th></tr>
+</thead>
+<tbody>
+  <tr><td>Batches of type {{{type(batch)}}} are not supported by default.</td><td>This error indicates the batch format is not supported by default. You should implement a custom batch transform class, and use this by specifying it to the <code>batch_transforms</code> parameter of the <code>SiftingDataloader</code> class.</td></tr>
+  <tr><td>Unable to index the batch of type {{{type(batch)}}}</td><td>This error indicates the batch object cannot be indexed normally. User must implement a custom batch transform and pass this using the <code>batch_transforms</code> parameter.</td></tr>
+  <tr><td>Batch size {{{batch_size}}} does not match dimension 0 or dimension 1 sizes</td><td>This error occurs when the provided batch size does not match the 0th or 1st dimensions of the batch. User must implement a custom batch transform and pass this using the <code>batch_transforms</code> parameter.</td></tr>
+  <tr><td>Both dimension 0 and dimension 1 match batch size</td><td>This error indicates that since multiple dimensions match the provided batch size, more information is required to sift the batch. The user can provide the <code>batch_format_index</code> parameter to indicate if the batch is indexable by sample or feature. Users may also implement a custom batch transform, but this is more work than required.</td></tr>
+</tbody>
+</table>
+
 
       To resolve the aforementioned issues, you need to create a custom batch transform class using the `SiftingBatchTransform` module. A batch transform class should consist of a pair of transform and reverse-transform functions. The function pair converts your data format to a format that SageMaker smart sifting algorithm can process. After you create a batch transform class, the class returns a `SiftingBatch` object that you'll pass to the `SiftingDataloader` class in step 4.
 

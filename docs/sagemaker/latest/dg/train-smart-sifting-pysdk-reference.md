@@ -13,8 +13,25 @@ This page provides a reference of Python modules you need for applying SageMaker
 The SageMaker smart sifting configuration class.
 
 **Parameters**
-+ `beta_value` (float) – A beta (constant) value. It is used to calculate the probability of selecting a sample for training based on the percentile of the loss in the loss values history. Lowering the beta value results in a lower percentage of data sifted, and raising it results in a higher percentage of data sifted. There’s no minimum or maximum value for the beta value, other than it must be a positive value. The following reference table gives information for sifting rates with respect to `beta_value`.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/train-smart-sifting-pysdk-reference.html)
++ `beta_value` (float) – A beta (constant) value. It is used to calculate the probability of selecting a sample for training based on the percentile of the loss in the loss values history. Lowering the beta value results in a lower percentage of data sifted, and raising it results in a higher percentage of data sifted. There’s no minimum or maximum value for the beta value, other than it must be a positive value. The following reference table gives information for sifting rates with respect to `beta_value`.
+
+
+<table>
+<thead>
+  <tr><th><code>beta_value</code></th><th>Proportion of data kept (%)</th><th>Proportion of data sifted out (%)</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.1</td><td>90.91</td><td>9.01</td></tr>
+  <tr><td>0.25</td><td>80</td><td>20</td></tr>
+  <tr><td>0.5</td><td>66.67</td><td>33.33</td></tr>
+  <tr><td>1</td><td>50</td><td>50</td></tr>
+  <tr><td>2</td><td>33.33</td><td>66.67</td></tr>
+  <tr><td>3</td><td>25</td><td>75</td></tr>
+  <tr><td>10</td><td>9.09</td><td>90.92</td></tr>
+  <tr><td>100</td><td>0.99</td><td>99.01</td></tr>
+</tbody>
+</table>
+
 + `loss_history_length` (int) – The number of previous training losses to store for the relative threshold loss based sampling.
 + `loss_based_sift_config` (dict or a `LossConfig` object) – Specify a `LossConfig` object that returns the SageMaker smart sifting Loss interface configuration.
 

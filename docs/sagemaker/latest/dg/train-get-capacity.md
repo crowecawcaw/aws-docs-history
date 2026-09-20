@@ -64,7 +64,10 @@ When you configure a VPC, the subnets you specify determine which Availability Z
 
 On-Demand is the default capacity option for SageMaker Training Jobs. Instances are provisioned when a training job starts and released when it completes. You pay per second of compute, with no upfront commitment to run ad-hoc jobs. The required capacity for the jobs is allocated on a best-effort basis, based on the availability in the Region during the submission of the job.
 
-If On-Demand capacity is not available for your requested instance type, the training job enters a waiting state. You can configure the wait period from 2 hours to 28 days by setting `MaxPendingTimeInSeconds`. If capacity does not become available within that period, the job fails with an `InsufficientCapacityError`.
+If On-Demand capacity is not available for your requested instance type, the training job enters a waiting state. You can configure the wait period from 30 minutes to 28 days by setting `MaxPendingTimeInSeconds`. If capacity does not become available within that period, the job fails with an `InsufficientCapacityError`.
+
+**Tip**  
+To reduce the chance of waiting, submit an ordered list of candidate instance types instead of one and let SageMaker launch the job on the first type that has capacity. For more information, see [Instance preference lists for training jobs](train-instance-preferences.md).
 
 **Tip**  
 To preserve On-Demand capacity between consecutive training jobs, enable Managed Warm Pools. Warm Pools retain provisioned instances after a job completes, so subsequent jobs reuse the same instances without re-acquiring capacity. This is useful for iterative workloads such as hyperparameter tuning or debugging distributed training.
@@ -95,3 +98,6 @@ Flexible Training Plans support a specific set of instance types and are availab
 
 **Tip**  
 For best practices on distributed training workloads with SageMaker Training Jobs, see [Training large language models on Amazon SageMaker: Best practices](https://aws.amazon.com/blogs/machine-learning/training-large-language-models-on-amazon-sagemaker-best-practices/).
+
+**Tip**  
+To combine a plan with On-Demand capacity in one job, list the plan-backed instance type first and an On-Demand type after it. The job uses the plan when it has capacity and otherwise starts on the On-Demand type. For more information, see [Instance preference lists for training jobs](train-instance-preferences.md).

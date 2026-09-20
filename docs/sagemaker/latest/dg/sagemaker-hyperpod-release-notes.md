@@ -130,8 +130,20 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
 SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod clusters with Slurm](sagemaker-hyperpod-slurm.md) and [Orchestrating SageMaker HyperPod clusters with Amazon EKS](sagemaker-hyperpod-eks.md).
 
 **New features and improvements**
-+ Added the following IAM condition keys for more granular access control in the [`CreateCluster`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCluster.html) and [`UpdateCluster`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateCluster.html) API operations.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-release-notes.html)
++ Added the following IAM condition keys for more granular access control in the [`CreateCluster`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCluster.html) and [`UpdateCluster`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateCluster.html) API operations.
+
+
+<table>
+<thead>
+  <tr><th>Condition key</th><th>Description</th><th></th><th></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html#amazonsagemaker-sagemaker_InstanceTypes">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html#amazonsagemaker-sagemaker_InstanceTypes</a></td><td>Control access based on the specified instance types.</td><td></td><td></td><td></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html#amazonsagemaker-sagemaker_VpcSubnets">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html#amazonsagemaker-sagemaker_VpcSubnets</a></td><td>Restrict cluster creation or updates to specific Amazon VPC subnets.</td><td></td><td></td><td></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html#amazonsagemaker-sagemaker_VpcSecurityGroupIds">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html#amazonsagemaker-sagemaker_VpcSecurityGroupIds</a></td><td>Manage access based on Amazon VPC security group IDs.</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
 
 ## SageMaker HyperPod release notes: February 20, 2025
 <a name="sagemaker-hyperpod-release-notes-20250220"></a>

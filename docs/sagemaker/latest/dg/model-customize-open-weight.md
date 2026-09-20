@@ -49,7 +49,8 @@ The following table shows the supported fine-tuning recipes for each model, incl
 | Meta | Llama 3.2 Instruct 3B | meta-textgeneration-llama-3-2-3b-instruct | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
 | Meta | Llama 3.2 Instruct 1B | meta-textgeneration-llama-3-2-1b-instruct | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
 | Meta | Llama 3.1 Instruct 8B | meta-textgeneration-llama-3-1-8b-instruct | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
-| NVIDIA | Nemotron 3 Super 120B (A12B) | huggingface-llm-nvidia-nemotron-3-super-120b-a12b-bf16 | ✓ |  |  |  | ✓ |  | ✓ |  | 
-| NVIDIA | Nemotron 3 Nano 30B (A3B) | huggingface-reasoning-nvidia-nemotron-3-nano-30b-a3b-bf16 | ✓ | ✓ |  |  | ✓ | ✓ | ✓ | ✓ | 
+| NVIDIA | Nemotron 3 Super 120B (A12B) | huggingface-llm-nvidia-nemotron-3-super-120b-a12b-bf16 | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
+| NVIDIA | Nemotron 3 Nano 30B (A3B) | huggingface-reasoning-nvidia-nemotron-3-nano-30b-a3b-bf16 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
+| NVIDIA | Nemotron 3.5 Lightning 30B (A3B) | huggingface-reasoning-nemotron-3-5-lightning-30b-a3b-bf16 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | OpenAI | GPT OSS 120B | openai-reasoning-gpt-oss-120b | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
 | OpenAI | GPT OSS 20B | openai-reasoning-gpt-oss-20b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 

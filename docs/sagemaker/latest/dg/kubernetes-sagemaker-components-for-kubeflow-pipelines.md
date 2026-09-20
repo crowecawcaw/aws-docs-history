@@ -74,45 +74,125 @@ We encourage users to utilize Version 2 of a SageMaker AI component wherever it 
 <a name="ground-truth-components"></a>
 + **Ground Truth**
 
-  The Ground Truth component enables you to submit SageMaker AI Ground Truth labeling jobs directly from a Kubeflow Pipelines workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/kubernetes-sagemaker-components-for-kubeflow-pipelines.html)
+  The Ground Truth component enables you to submit SageMaker AI Ground Truth labeling jobs directly from a Kubeflow Pipelines workflow.
+
+
+<table>
+<thead>
+  <tr><th>Version 1 of the component</th><th>Version 2 of the component</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/ground_truth">SageMaker AI Ground Truth Kubeflow Pipelines component version 1</a></td><td>X</td></tr>
+</tbody>
+</table>
+
 + **Workteam**
 
-  The Workteam component enables you to create SageMaker AI private workteam jobs directly from a Kubeflow Pipelines workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/kubernetes-sagemaker-components-for-kubeflow-pipelines.html)
+  The Workteam component enables you to create SageMaker AI private workteam jobs directly from a Kubeflow Pipelines workflow.
+
+
+<table>
+<thead>
+  <tr><th>Version 1 of the component</th><th>Version 2 of the component</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/workteam">SageMaker AI create private workteam Kubeflow Pipelines component version 1</a></td><td>X</td></tr>
+</tbody>
+</table>
+
 
 ### Data processing components
 <a name="data-processing-components"></a>
 + **Processing**
 
-  The Processing component enables you to submit processing jobs to SageMaker AI directly from a Kubeflow Pipelines workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/kubernetes-sagemaker-components-for-kubeflow-pipelines.html)
+  The Processing component enables you to submit processing jobs to SageMaker AI directly from a Kubeflow Pipelines workflow.
+
+
+<table>
+<thead>
+  <tr><th>Version 1 of the component</th><th>Version 2 of the component</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/process">SageMaker Processing Kubeflow Pipeline component version 1</a></td><td>X</td></tr>
+</tbody>
+</table>
+
 
 ### Training components
 <a name="training-components"></a>
 + **Training**
 
-  The Training component allows you to submit SageMaker Training jobs directly from a Kubeflow Pipelines workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/kubernetes-sagemaker-components-for-kubeflow-pipelines.html)
+  The Training component allows you to submit SageMaker Training jobs directly from a Kubeflow Pipelines workflow.
+
+
+<table>
+<thead>
+  <tr><th>Version 1 of the component</th><th>Version 2 of the component</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/train">SageMaker Training Kubeflow Pipelines component version 1</a></td><td><a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/TrainingJob">SageMaker Training Kubeflow Pipelines component version 2</a></td></tr>
+</tbody>
+</table>
+
 + **Hyperparameter Optimization**
 
-  The Hyperparameter Optimization component enables you to submit hyperparameter tuning jobs to SageMaker AI directly from a Kubeflow Pipelines workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/kubernetes-sagemaker-components-for-kubeflow-pipelines.html)
+  The Hyperparameter Optimization component enables you to submit hyperparameter tuning jobs to SageMaker AI directly from a Kubeflow Pipelines workflow.
+
+
+<table>
+<thead>
+  <tr><th>Version 1 of the component</th><th>Version 2 of the component</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/hyperparameter_tuning">SageMaker AI hyperparameter optimization Kubeflow Pipeline component version 1</a></td><td>X</td></tr>
+</tbody>
+</table>
+
 
 ### Inference components
 <a name="inference-components-kfp"></a>
 + **Hosting Deploy**
 
-  The Hosting components allow you to deploy a model using SageMaker AI hosting services from a Kubeflow Pipelines workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/kubernetes-sagemaker-components-for-kubeflow-pipelines.html)
+  The Hosting components allow you to deploy a model using SageMaker AI hosting services from a Kubeflow Pipelines workflow.
+
+
+<table>
+<thead>
+  <tr><th>Version 1 of the component</th><th>Version 2 of the component</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/deploy">SageMaker AI Hosting Services - Create Endpoint Kubeflow Pipeline component version 1</a>.</td><td>Version 2 of the Hosting components consists of the three sub-components needed to create a hosting deployment on SageMaker AI.<ul><li> A <a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/Modelv2">SageMaker AI Model Kubeflow Pipelines component version 2</a> responsible for the model artifacts and the model image registry path that contains the inference code. </li><li> A <a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/EndpointConfig">SageMaker AI Endpoint Configuration Kubeflow Pipelines component version 2</a> responsible for defining the configuration of the endpoint such as the instance type, models, number of instances, and serverless inference option. </li><li> A <a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/Endpoint">SageMaker AI Endpoint Kubeflow Pipelines component version 2</a> responsible for creating or updating the endpoint on SageMaker AI as specified in the endpoint configuration. </li></ul></td></tr>
+</tbody>
+</table>
+
 + **Batch Transform**
 
-  The Batch Transform component allows you to run inference jobs for an entire dataset in SageMaker AI from a Kubeflow Pipelines workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/kubernetes-sagemaker-components-for-kubeflow-pipelines.html)
+  The Batch Transform component allows you to run inference jobs for an entire dataset in SageMaker AI from a Kubeflow Pipelines workflow.
+
+
+<table>
+<thead>
+  <tr><th>Version 1 of the component</th><th>Version 2 of the component</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/batch_transform">SageMaker AI Batch Transform Kubeflow Pipeline component version 1</a></td><td>X</td></tr>
+</tbody>
+</table>
+
 + **Model Monitor**
 
-  The Model Monitor components allow you to monitor the quality of SageMaker AI machine learning models in production from a Kubeflow Pipelines workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/kubernetes-sagemaker-components-for-kubeflow-pipelines.html)
+  The Model Monitor components allow you to monitor the quality of SageMaker AI machine learning models in production from a Kubeflow Pipelines workflow.
+
+
+<table>
+<thead>
+  <tr><th>Version 1 of the component</th><th>Version 2 of the component</th></tr>
+</thead>
+<tbody>
+  <tr><td>X</td><td>The Model Monitor components consist of four sub-components for monitoring drift in a model.<ul><li> A <a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/DataQualityJobDefinition">SageMaker AI Data Quality Job Definition Kubeflow Pipelines component version 2</a> responsible for monitoring drift in data quality. </li><li> A <a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/ModelQualityJobDefinition">SageMaker AI Model Quality Job Definition Kubeflow Pipelines component version 2</a> responsible for monitoring drift in model quality metrics. </li><li> A <a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/ModelBiasJobDefinition">SageMaker AI Model Bias Job Definition Kubeflow Pipelines component version 2</a> responsible for monitoring bias in a model's predictions. </li><li> A <a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/ModelExplainabilityJobDefinition">SageMaker AI Model Explainability Job Definition Kubeflow Pipelines component version 2</a> responsible for monitoring drift in feature attribution. </li></ul><br />Additionally, for on-schedule monitoring at a specified frequency, a fifth component, <a href="https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker/MonitoringSchedule">SageMaker AI Monitoring Schedule Kubeflow Pipelines component version 2</a>, is responsible for monitoring the data collected from a real-time endpoint on a schedule.<br />For more information on Amazon SageMaker Model Monitor, see <a href="model-monitor.md">Data and model quality monitoring with Amazon SageMaker Model Monitor</a>.</td></tr>
+</tbody>
+</table>
+
 
 ## IAM permissions
 <a name="iam-permissions"></a>

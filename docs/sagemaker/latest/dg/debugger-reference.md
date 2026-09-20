@@ -170,12 +170,36 @@ The following exceptions are available:
 The following list shows the scope of validity and considerations for using Debugger on training jobs with deep learning frameworks and various distributed training options.
 + **Horovod**
 
-  Scope of validity of using Debugger for training jobs with Horovod    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/debugger-reference.html)
+  Scope of validity of using Debugger for training jobs with Horovod
+
+
+<table>
+<thead>
+  <tr><th>Deep Learning Framework</th><th>Apache MXNet</th><th>TensorFlow 1.x</th><th>TensorFlow 2.x</th><th>TensorFlow 2.x with Keras</th><th>PyTorch</th></tr>
+</thead>
+<tbody>
+  <tr><td>Monitoring system bottlenecks</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Profiling framework operations</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Debugging model output tensors</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+</tbody>
+</table>
+
 + **SageMaker AI distributed data parallel**
 
-  Scope of validity of using Debugger for training jobs with SageMaker AI distributed data parallel    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/debugger-reference.html)
+  Scope of validity of using Debugger for training jobs with SageMaker AI distributed data parallel
+
+
+<table>
+<thead>
+  <tr><th>Deep Learning Framework</th><th>TensorFlow 2.x</th><th>TensorFlow 2.x with Keras</th><th>PyTorch</th></tr>
+</thead>
+<tbody>
+  <tr><td>Monitoring system bottlenecks</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Profiling framework operations</td><td>No*</td><td>No**</td><td>Yes</td></tr>
+  <tr><td>Debugging model output tensors</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+</tbody>
+</table>
+
 
   \* Debugger does not support framework profiling for TensorFlow 2.x.
 

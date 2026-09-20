@@ -74,8 +74,20 @@ Before calling the invocations request, SageMaker AI attempts to invoke the exec
 
 1. The values that the model container returns when SageMaker AI invokes the execution-parameters endpoint>
 
-1. The default parameter values, listed in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html)
+1. The default parameter values, listed in the following table.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Default Values</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>MaxConcurrentTransforms</code> </td><td>1</td></tr>
+  <tr><td> <code>BatchStrategy</code> </td><td><code>MULTI_RECORD</code></td></tr>
+  <tr><td> <code>MaxPayloadInMB</code> </td><td>6</td></tr>
+</tbody>
+</table>
+
 
 The response for a `GET` execution-parameters request is a JSON object with keys for `MaxConcurrentTransforms`, `BatchStrategy`, and `MaxPayloadInMB` parameters. This is an example of a valid response:
 
