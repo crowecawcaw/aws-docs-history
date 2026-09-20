@@ -36,8 +36,23 @@ Use the following procedure to connect to your Oracle data warehouse source data
      1. Choose **Populate** to automatically fill in all values in the database connection dialog box from Secrets Manager.
 
      For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.SecretsManager.md).
-   + To enter the Oracle source data warehouse connection information manually, use the following instructions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Source.OracleDW.html)
+   + To enter the Oracle source data warehouse connection information manually, use the following instructions:
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Type</b></td><td>Choose the connection type to your database. Depending on your type, provide the following additional information: <ul><li><b>SID</b> <ul><li> <b>Server name</b>: The Domain Name System (DNS) name or IP address of your source database server. </li><li> <b>Server port</b>: The port used to connect to your source database server. </li><li><b>Oracle SID</b>: The Oracle System ID (SID). To find the Oracle SID, submit the following query to your Oracle database: <br /><code>SELECT sys_context('userenv','instance_name') AS SID FROM dual;</code> </li></ul> </li><li><b>Service Name</b> <ul><li> <b>Server name</b>: The DNS name or IP address of your source database server. </li><li> <b>Server port</b>: The port used to connect to your source database server. </li><li><b>Service Name</b>: The name of the Oracle service to connect to. </li></ul> </li><li><b>TNS alias</b> <ul><li><b>TNS file path</b>: The path to the file that contains the Transparent Network Substrate (TNS) name connection information. </li><li><b>TNS file path</b>: The TNS alias from this file to use to connect to the source database. </li></ul> </li><li><b>TNS connect identifier</b> <ul><li><b>TNS connect identifier</b>: The identifier for the registered TNS connection information.</li></ul> </li></ul></td></tr>
+  <tr><td><b>User name</b> and <b>Password</b></td><td>Enter the database credentials to connect to your source database server. <br />AWS SCT uses the password to connect to your source database only when you choose to connect to your database in a project. To guard against exposing the password for your source database, AWS SCT doesn't store the password by default. If you close your AWS SCT project and reopen it, you are prompted for the password to connect to your source database as needed.</td></tr>
+  <tr><td><b>Use SSL</b></td><td>Choose this option to use Secure Sockets Layer (SSL) to connect to your database. Provide the following additional information, as applicable, on the <b>SSL</b> tab:<ul><li> <b>SSL authentication</b>: Select this option to use SSL authentication for the connection. </li><li> <b>Trust store</b>: The location of a trust store containing certificates. </li><li> <b>Key store</b>: The location of a key store containing a private key and certificates. This value is required if <b>SSL authentication</b> is selected and is otherwise optional. </li></ul></td></tr>
+  <tr><td><b>Store password</b></td><td>AWS SCT creates a secure vault to store SSL certificates and database passwords. By turning this option on, you can store the database password and connect quickly to the database without having to enter the password. </td></tr>
+  <tr><td><b>Oracle driver path</b></td><td>Enter the path to the driver to use to connect to the source database. For more information, see <a href="CHAP_Installing.JDBCDrivers.md">Installing JDBC drivers for AWS Schema Conversion Tool</a>. <br />If you store the driver path in the global project settings, the driver path doesn't appear on the connection dialog box. For more information, see <a href="CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings">Storing driver paths in the global settings</a>. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Test Connection** to verify that AWS SCT can connect to your source database. 
 

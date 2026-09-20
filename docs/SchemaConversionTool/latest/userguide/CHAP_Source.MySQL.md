@@ -45,8 +45,24 @@ Use the following procedure to connect to your MySQL source database with the AW
      1. Choose **Populate** to automatically fill in all values in the database connection dialog box from Secrets Manager.
 
      For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.SecretsManager.md).
-   + To enter the MySQL source database connection information manually, use the following instructions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Source.MySQL.html)
+   + To enter the MySQL source database connection information manually, use the following instructions:
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Server name</b></td><td>Enter the Domain Name System (DNS) name or IP address of your source database server. <br />You can connect to your source MySQL database using an IPv6 address protocol. To do so, make sure that you use square brackets to enter the IP address, as shown in the following example.<pre>[2001:db8:ffff:ffff:ffff:ffff:ffff:fffe]</pre></td></tr>
+  <tr><td><b>Server port</b></td><td>Enter the port used to connect to your source database server. </td></tr>
+  <tr><td><b>User name</b> and <b>Password</b></td><td>Enter the database credentials to connect to your source database server. <br />AWS SCT uses the password to connect to your source database only when you choose to connect to your database in a project. To guard against exposing the password for your source database, AWS SCT doesn't store the password by default. If you close your AWS SCT project and reopen it, you are prompted for the password to connect to your source database as needed. </td></tr>
+  <tr><td><b>Use SSL</b></td><td>Choose this option to use Secure Sockets Layer (SSL) to connect to your database. Provide the following additional information, as applicable, on the <b>SSL</b> tab: <ul><li> <b>Require SSL</b>: Choose this option to connect to the server only through SSL. <br />If you choose <b>Require SSL</b>, it means that if the server doesn't support SSL, you can't connect to the server. If you don't choose <b>Require SSL</b> and the server doesn't support SSL, you can still connect to the server without using SSL. For more information, see <a href="https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-secure-connections.html">Configuring MySQL to Use Secure Connections</a>.  </li><li> <b>Verify server certificate</b>: Select this option to verify the server certificate by using a trust store.  </li><li> <b>Trust store</b>: The location of a trust store containing certificates.  </li></ul></td></tr>
+  <tr><td><b>Store password</b></td><td>AWS SCT creates a secure vault to store SSL certificates and database passwords. Enabling this option lets you store the database password and to connect quickly to the database without having to enter the password. </td></tr>
+  <tr><td><b>MySql driver path</b></td><td>Enter the path to the driver to use to connect to the source database. For more information, see <a href="CHAP_Installing.JDBCDrivers.md">Installing JDBC drivers for AWS Schema Conversion Tool</a>. <br />If you store the driver path in the global project settings, the driver path doesn't appear on the connection dialog box. For more information, see <a href="CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings">Storing driver paths in the global settings</a>. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Test Connection** to verify that AWS SCT can connect to your source database. 
 

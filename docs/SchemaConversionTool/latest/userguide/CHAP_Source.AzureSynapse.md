@@ -37,8 +37,23 @@ Use the following procedure to connect to your Azure Synapse Analytics data ware
      1. Choose **Populate** to automatically fill in all values in the database connection dialog box from Secrets Manager.
 
      For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.SecretsManager.md).
-   + To enter the connection information for the Azure Synapse Analytics data warehouse manually, use the following instructions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Source.AzureSynapse.html)
+   + To enter the connection information for the Azure Synapse Analytics data warehouse manually, use the following instructions:
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Server name</b></td><td>Enter the Domain Name Service (DNS) name or IP address of your source database server. </td></tr>
+  <tr><td><b>SQL pool</b></td><td>Enter the name of the Azure SQL pool.</td></tr>
+  <tr><td><b>User name</b> and <b>Password</b></td><td>Enter the database credentials to connect to your source database server. <br />AWS SCT uses the password to connect to your source database only when you choose to connect to your database in a project. To guard against exposing the password for your source database, AWS SCT doesn't store the password by default. If you close your AWS SCT project and reopen it, you are prompted for the password to connect to your source database as needed.</td></tr>
+  <tr><td><b>Use SSL</b></td><td>Choose this option to use Secure Sockets Layer (SSL) to connect to your database. Provide the following additional information, as applicable, on the <b>SSL</b> tab:<ul><li> <b>Trust server certificate</b>: Choose this option to trust the server certificate. </li><li> <b>Trust store</b>: A trust store that you set up in the <b>Global settings</b>.  </li></ul></td></tr>
+  <tr><td><b>Store password</b></td><td>AWS SCT creates a secure vault to store SSL certificates and database passwords. By turning on this option, you can store the database password and connect quickly to the database without entering the password. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Test Connection** to verify that AWS SCT can connect to your source database.
 

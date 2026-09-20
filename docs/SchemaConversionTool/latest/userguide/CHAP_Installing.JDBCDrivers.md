@@ -51,8 +51,24 @@ You can use the following steps to install the JDBC drivers on your Linux system
    PROMPT>sudo mkdir –p /usr/local/jdbc-drivers
    ```
 
-1. Install the JDBC driver for your database engine using the commands shown following.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Installing.JDBCDrivers.html)
+1. Install the JDBC driver for your database engine using the commands shown following. 
+
+
+
+<table>
+<thead>
+  <tr><th>Database engine</th><th>Installation commands</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon Aurora (MySQL compatible)</td><td> <pre>PROMPT> cd /usr/local/jdbc-drivers<br />PROMPT> sudo tar xzvf /tmp/mysql-connector-java-X.X.X.tar.gz</pre> </td></tr>
+  <tr><td>Amazon Aurora (PostgreSQL compatible)</td><td> <pre>PROMPT> cd /usr/local/jdbc-drivers<br />PROMPT> sudo cp -a /tmp/postgresql-X.X.X.jre7.tar .</pre> </td></tr>
+  <tr><td>Microsoft SQL Server</td><td> <pre>PROMPT> cd /usr/local/jdbc-drivers<br />PROMPT> sudo tar xzvf /tmp/sqljdbc_X.X.X_enu.tar.gz </pre> </td></tr>
+  <tr><td>MySQL</td><td> <pre>PROMPT> cd /usr/local/jdbc-drivers<br />PROMPT> sudo tar xzvf /tmp/mysql-connector-java-X.X.X.tar.gz</pre> </td></tr>
+  <tr><td>Oracle</td><td> <pre>PROMPT> cd /usr/local/jdbc-drivers<br />PROMPT> sudo mkdir oracle-jdbc<br />PROMPT> cd oracle-jdbc<br />PROMPT> sudo cp  -a /tmp/ojdbc8.jar .</pre> </td></tr>
+  <tr><td>PostgreSQL</td><td> <pre>PROMPT> cd /usr/local/jdbc-drivers<br />PROMPT> sudo cp -a /tmp/postgresql-X.X.X.jre7.tar .</pre> </td></tr>
+</tbody>
+</table>
+
 
 ## Storing driver paths in the global settings
 <a name="CHAP_Installing.JDBCDrivers.Settings"></a>

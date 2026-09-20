@@ -34,8 +34,23 @@ Apache Cassandra to Amazon DynamoDB
    The **New application conversion project** dialog box appears.   
 ![The New application conversion project dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-new-project.png)
 
-1. Add the following project information.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Converting.App.Generic.html)
+1. Add the following project information. 
+
+
+
+<table>
+<thead>
+  <tr><th> For this parameter </th><th> Do this </th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Name</b></td><td>Enter a name for your application conversion project. Each database schema conversion project can have one or more child application conversion projects, so choose a name that makes sense if you add more projects later. </td></tr>
+  <tr><td><b>Location</b></td><td>Enter the location of the source code for your application. </td></tr>
+  <tr><td><b>Language</b></td><td>Choose one of the following: <ul><li><b>Java</b></li><li><b>C++</b></li><li><b>C#</b></li><li><b>Any</b></li></ul></td></tr>
+  <tr><td><b>Target parameter style</b></td><td>Choose the syntax to use for bind variables in the converted code. Different database platforms use different syntax for bind variables. Choose one of the following options: <ul><li><b>Same as in source</b></li><li><b>Positional (?)</b></li><li><b>Indexed (:1)</b></li><li><b>Indexed ($1)</b></li><li><b>Named (@name)</b></li><li><b>Named (:name)</b></li><li><b>Named (&amp;name)</b></li><li><b>Named ($name)</b></li><li><b>Named (#name)</b></li><li><b>Named (!name!)</b></li></ul></td></tr>
+  <tr><td><b>Choose the source database schema</b></td><td>In the source tree, choose the schema that your application uses. Make sure that this schema is part of a mapping rule. </td></tr>
+</tbody>
+</table>
+
 
 1. Select **Don't cast bind variables to SQL types** to avoid conversion of bind variables types to SQL types. This option is available only for an Oracle to PostgreSQL conversion.
 

@@ -42,8 +42,26 @@ Use the following procedure to connect to your Teradata source database with the
      1. Choose **Populate** to automatically fill in all values in the database connection dialog box from Secrets Manager.
 
      For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.SecretsManager.md).
-   + To enter the Teradata source database connection information manually, use the following instructions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Source.Teradata.html)
+   + To enter the Teradata source database connection information manually, use the following instructions:
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Connection name</b> </td><td>Enter a name for your database. AWS SCT displays this name in the tree in the left panel.</td></tr>
+  <tr><td><b>Server name</b></td><td>Enter the Domain Name System (DNS) name or IP address of your source database server. </td></tr>
+  <tr><td><b>Server port</b></td><td>Enter the port used to connect to your source database server. </td></tr>
+  <tr><td><b>Database</b></td><td>Enter the name of the Teradata database.</td></tr>
+  <tr><td><b>User name</b> and <b>Password</b></td><td>Enter the database credentials to connect to your source database server.<br />AWS SCT uses the password to connect to your source database only when you choose to connect to your database in a project. To guard against exposing the password for your source database, AWS SCT doesn't store the password by default. If you close your AWS SCT project and reopen it, you are prompted for the password to connect to your source database as needed.</td></tr>
+  <tr><td><b>Store password</b></td><td>AWS SCT creates a secure vault to store SSL certificates and database passwords. By turning this option on, you can store the database password and connect quickly to the database without having to enter the password. </td></tr>
+  <tr><td><b>Encrypt data</b></td><td>Choose this option to encrypt data that you exchange with the database. If you choose this option, then the port number 443 is used to transfer encrypted data between AWS SCT and your Teradata database.</td></tr>
+  <tr><td><b>Teradata driver path</b></td><td>Enter the path to the driver to use to connect to the source database. For more information, see <a href="CHAP_Installing.JDBCDrivers.md">Installing JDBC drivers for AWS Schema Conversion Tool</a>. <br />If you store the driver path in the global project settings, the driver path doesn't appear on the connection dialog box. For more information, see <a href="CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings">Storing driver paths in the global settings</a>. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Test Connection** to verify that AWS SCT can connect to your source database. 
 

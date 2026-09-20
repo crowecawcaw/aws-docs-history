@@ -13,8 +13,22 @@ You can create a new database migration project using the new project wizard. Th
 
    1. On the **File** menu, choose **New project wizard**. The **Create a new database migration project** dialog box opens. 
 
-   1. To enter the source database connection information, use the following instructions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_UserInterface.Wizard.html)
+   1. To enter the source database connection information, use the following instructions:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Project name</b></td><td>Enter a name for your project, which is stored locally on your computer.</td></tr>
+  <tr><td><b>Location</b></td><td>Enter the location for your local project file.</td></tr>
+  <tr><td><b>Source type</b></td><td>Choose one of the following options: <b>SQL database</b>, <b>NoSQL database</b>, or <b>ETL</b>.<br />If you want to see the summary report that includes all the migration destinations, choose <b>SQL database</b>.</td></tr>
+  <tr><td><b>Source engine</b></td><td>Choose your source database engine.</td></tr>
+  <tr><td><b>Migration strategy</b></td><td>Choose one of the following options:<ul><li> <b>I want to switch engines and optimize for the cloud</b> – This option converts your source database to a new database engine. </li><li> <b>I want to keep the same engine but optimize for the cloud</b> – This option keeps your database engine as is and moves the database from on-premises to the cloud. </li><li> <b>I want to see a combined report for database engine switch and optimization for the cloud</b> – This option compares the migration complexity of all available migration options. </li></ul><br />If you want to see the aggregated assessment report that includes all migration destinations, choose the last option.</td></tr>
+</tbody>
+</table>
+
 
    1. Choose **Next**. The **Connect to the source database** page opens.
 

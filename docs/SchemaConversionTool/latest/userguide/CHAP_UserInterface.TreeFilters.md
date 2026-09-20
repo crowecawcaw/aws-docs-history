@@ -26,8 +26,22 @@ For tree filters, keep the following in mind:
 
    The undo filter icon is grayed out because no filter is currently applied.
 
-1. Enter the following information in the **Filter** dialog box. Options in the dialog box are different for each database engine.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_UserInterface.TreeFilters.html)  
+1. Enter the following information in the **Filter** dialog box. Options in the dialog box are different for each database engine.
+
+
+<table>
+<thead>
+  <tr><th>AWS SCT filter option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Level</b></td><td>Choose <b>Categories</b> to filter objects by categories.<br />Choose <b>Statuses</b> to filter objects by statuses.</td></tr>
+  <tr><td><b>Type</b></td><td> For <b>Categories</b> in <b>Level</b>, choose the categories of filtered objects. Choose <b>Any loaded</b> to display objects from all categories. <br /> For <b>Statuses</b> in <b>Level</b>, choose the status of filtered objects. You can choose one of the following options: <ul><li> <b>Converted</b> to display all converted objects </li><li> <b>Has actions</b> to display all objects that have conversion issues </li><li> <b>Encrypted</b> to display all encrypted objects </li></ul></td></tr>
+  <tr><td><b>Condition</b></td><td> For <b>Categories</b> in <b>Level</b>, choose the filtering condition between <b>Like</b> and <b>Not like</b>. <br /> For <b>Statuses</b> in <b>Level</b>, the filtering condition option isn't available. </td></tr>
+  <tr><td><b>Value</b></td><td>For <b>Categories</b> in <b>Level</b>, enter the <b>Value</b> to filter the tree by this value.<br /> Use the percent (<code>%</code>) as a wildcard to display all objects. <br /> For <b>Statuses</b> in <b>Level</b>, choose the <b>Value</b> between <b>True</b> and <b>False</b>. </td></tr>
+  <tr><td><b>And/Or</b></td><td>Choose <code>AND</code> or <code>OR</code> logical operators to apply multiple filter clauses. </td></tr>
+</tbody>
+</table>
+  
 ![The filter icon for the schema tree](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/filter-tree-db.png)
 
 1. Choose **Add new clause** to add an additional filter clause. AWS SCT can apply multiple filter clauses using `AND` or `OR` logical operators. 

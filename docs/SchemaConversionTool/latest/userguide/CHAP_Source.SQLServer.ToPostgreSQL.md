@@ -86,9 +86,22 @@ Some things to consider when migrating a SQL Server schema to PostgreSQL:
   To ensure the uniqueness of index names, AWS SCT gives you the option to generate unique index names if your index names are not unique. To do this, choose the option **Generate unique index names** in the project properties. By default, this option is enabled. If this option is enabled, unique index names are created using the format IX\_table\_name\_index\_name. If this option is disabled, index names aren’t changed.
 + A GOTO statement and a label can be used to change the order that statements are run in. Any Transact-SQL statements that follow a GOTO statement are skipped and processing continues at the label. GOTO statements and labels can be used anywhere within a procedure, batch, or statement block. GOTO statements can also be nested.
 
-  PostgreSQL doesn’t use GOTO statements. When AWS SCT converts code that contains a GOTO statement, it converts the statement to use a BEGIN…END or LOOP…END LOOP statement. You can find examples of how AWS SCT converts GOTO statements in the table following.  
-**SQL Server GOTO statements and the converted PostgreSQL statements**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Source.SQLServer.ToPostgreSQL.html)
+  PostgreSQL doesn’t use GOTO statements. When AWS SCT converts code that contains a GOTO statement, it converts the statement to use a BEGIN…END or LOOP…END LOOP statement. You can find examples of how AWS SCT converts GOTO statements in the table following.
+
+
+**SQL Server GOTO statements and the converted PostgreSQL statements**  
+
+<table>
+<thead>
+  <tr><th>SQL Server statement</th><th>PostgreSQL statement</th></tr>
+</thead>
+<tbody>
+  <tr><td><pre>BEGIN<br />   ....<br />   statement1;<br />   ....<br />   GOTO label1;<br />   statement2;<br />   ....<br />   label1:<br />   Statement3;<br />   ....<br />END</pre></td><td><pre>BEGIN<br /> label1:<br /> BEGIN<br />   ....<br />   statement1;<br />   ....<br />   EXIT label1;<br />   statement2;<br />   ....<br /> END;<br />   Statement3;<br />   ....<br />END</pre></td></tr>
+  <tr><td><pre>BEGIN<br />   ....<br />   statement1;<br />   ....<br />   label1:<br />   statement2;<br />   ....<br />   GOTO label1;<br />   statement3;<br />   ....<br />   statement4;<br />   ....<br />END</pre></td><td><pre>BEGIN<br />   ....<br />   statement1;<br />   ....<br />   label1:<br />   LOOP<br />    statement2;<br />    ....<br />    CONTINUE label1;<br />    EXIT label1;<br />   END LOOP; <br />    statement3;<br />    ....<br />    statement4;<br />    ....<br />END</pre></td></tr>
+  <tr><td><pre>BEGIN<br />   ....<br />   statement1;<br />   ....<br />   label1:<br />   statement2;<br />   ....<br />   statement3;<br />   ....<br />   statement4;<br />   ....<br />END</pre></td><td><pre>BEGIN<br />   ....<br />   statement1;<br />   ....<br />   label1:<br />   BEGIN<br />    statement2;<br />    ....    <br />    statement3;<br />    ....<br />    statement4;<br />    ....    <br />   END; <br />END</pre></td></tr>
+</tbody>
+</table>
+
 + PostgreSQL doesn't support a MERGE statement. AWS SCT emulates the behavior of a MERGE statement in the following ways:
   + By INSERT ON CONFLICT construction.
   + By using the UPDATE FROM DML statement, such as MERGE without a WHEN NOT MATCHED clause.

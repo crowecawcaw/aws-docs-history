@@ -76,8 +76,25 @@ Use the following procedure to connect to your source database with the AWS Sche
      1. Choose **Populate** to automatically fill in all values in the database connection dialog box from Secrets Manager.
 
      For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.SecretsManager.md).
-   + To enter the Snowflake source data warehouse connection information manually, use the following instructions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Source.Snowflake.html)
+   + To enter the Snowflake source data warehouse connection information manually, use the following instructions:
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Server name</b></td><td>Enter the Domain Name System (DNS) name or IP address of your source database server. </td></tr>
+  <tr><td><b>Server port</b></td><td>Enter the port used to connect to your source database server. </td></tr>
+  <tr><td><b>Database</b></td><td>Enter the name of the Snowflake database.</td></tr>
+  <tr><td><b>User name</b> and <b>Password</b></td><td>Enter the database credentials to connect to your source database server. <br />AWS SCT stores your password in an encrypted format only if you explicitly request it.</td></tr>
+  <tr><td><b>Use SSL</b></td><td>Choose this option if you want to use Secure Sockets Layer (SSL) to connect to your database. Provide the following additional information, as applicable, on the <b>SSL</b> tab: <ul><li> <b>Private key path</b>: The location of a private key.  </li><li> <b>Passphrase</b>: The passphrase for the private key. </li></ul><br />For more information about SSL support for Snowflake, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-ssl-support.html">Configure security options for connections</a>. </td></tr>
+  <tr><td><b>Store password</b></td><td>AWS SCT creates a secure vault to store SSL certificates and database passwords. If you set this option, you can store the database password. Doing this means that you can connect quickly to the database without having to enter the password. </td></tr>
+  <tr><td><b>Snowflake driver path</b></td><td>Enter the path to the driver to use to connect to the source database. For more information, see <a href="CHAP_Installing.JDBCDrivers.md">Installing JDBC drivers for AWS Schema Conversion Tool</a>. <br />If you store the driver path in the global project settings, the driver path doesn't appear on the connection dialog box. For more information, see <a href="CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings">Storing driver paths in the global settings</a>. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Test Connection** to verify that AWS SCT can connect to your source database. 
 

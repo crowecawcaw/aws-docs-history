@@ -22,8 +22,22 @@ Use the following procedure to store AWS credentials globally.
 
 1. Choose **AWS service profiles**, and then choose **Add a new AWS service profile**. 
 
-1. Enter your AWS information as follows.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_UserInterface.Profiles.html)
+1. Enter your AWS information as follows. 
+
+
+<table>
+<thead>
+  <tr><th>AWS SCT option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Profile name</b></td><td>Enter a name for your profile.</td></tr>
+  <tr><td><b>AWS access key</b></td><td>Enter your AWS access key.</td></tr>
+  <tr><td><b>AWS secret key</b></td><td>Enter your AWS secret access key. For more information about AWS access keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing access keys</a> in the <i>IAM User Guide</i>.</td></tr>
+  <tr><td><b>Region</b></td><td>Choose the AWS Region for your profile.</td></tr>
+  <tr><td><b>Amazon S3 bucket folder</b></td><td>Choose the Amazon S3 bucket for your profile. You need to specify a bucket only if you are using a feature that connects to Amazon S3. For more information about the required privileges, see <a href="#CHAP_UserInterface.Profiles.Permissions">Permissions for using the AWS service profile</a>.</td></tr>
+</tbody>
+</table>
+
 
    Choose **Use FIPS endpoint for S3** if you need to comply with the security requirements for the Federal Information Processing Standard (FIPS). FIPS endpoints are available in the following AWS Regions:
    + US East (N. Virginia) Region

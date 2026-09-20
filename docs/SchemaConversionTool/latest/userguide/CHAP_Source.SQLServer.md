@@ -139,8 +139,27 @@ Use the following procedure to connect to your Microsoft SQL Server source datab
      1. Choose **Populate** to automatically fill in all values in the database connection dialog box from Secrets Manager.
 
      For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.SecretsManager.md).
-   + To enter the Microsoft SQL Server source database connection information manually, use the following instructions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Source.SQLServer.html)
+   + To enter the Microsoft SQL Server source database connection information manually, use the following instructions:
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Server name</b></td><td>Enter the Domain Name Service (DNS) name or IP address of your source database server.<br />You can connect to your source SQL Server database using an IPv6 address protocol. To do so, make sure that you use square brackets to enter the IP address, as shown in the following example.<pre>[2001:db8:ffff:ffff:ffff:ffff:ffff:fffe]</pre></td></tr>
+  <tr><td><b>Server port</b></td><td>Enter the port used to connect to your source database server.</td></tr>
+  <tr><td><b>Instance name</b></td><td>Enter the instance name for the SQL Server database. To find the instance name, run the query <code>SELECT @@servername;</code> on your SQL Server database.</td></tr>
+  <tr><td><b>Authentication</b></td><td>Choose the authentication type from <b>Windows Authentication</b> and <b>SQL Server Authentication</b>.</td></tr>
+  <tr><td><b>User name</b> and <b>Password</b></td><td>Enter the database credentials to connect to your source database server.<br />AWS SCT uses the password to connect to your source database only when you choose to connect to your database in a project. To guard against exposing the password for your source database, AWS SCT doesn't store the password by default. If you close your AWS SCT project and reopen it, you are prompted for the password to connect to your source database as needed.</td></tr>
+  <tr><td><b>Use SSL</b></td><td>Choose this option to use Secure Sockets Layer (SSL) to connect to your database. Provide the following additional information, as applicable, on the <b>SSL</b> tab: <ul><li> <b>Trust server certificate</b>: Select this option to trust the server certificate. </li><li> <b>Trust store</b>: The location of a trust store containing certificates. For this location to appear in the <b>Global settings</b> section, make sure to add it.  </li></ul></td></tr>
+  <tr><td><b>Store password</b></td><td>AWS SCT creates a secure vault to store SSL certificates and database passwords. Enabling this option lets you store the database password and to connect quickly to the database without having to enter the password. </td></tr>
+  <tr><td><b>Sql Server Driver Path</b></td><td>Enter the path to the driver to use to connect to the source database. For more information, see <a href="CHAP_Installing.JDBCDrivers.md">Installing JDBC drivers for AWS Schema Conversion Tool</a>. <br />If you store the driver path in the global project settings, the driver path doesn't appear on the connection dialog box. For more information, see <a href="CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings">Storing driver paths in the global settings</a>. </td></tr>
+  <tr><td><b>Windows Authentication library</b></td><td>Enter the path to the <code>sqljdbc_auth.dll</code> file. By default, this file is installed in the following location:<br /><code>&lt;installation directory of the JDBC driver&gt;sqljdbc_&lt;version&gt;\&lt;language&gt;\auth\</code> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Test Connection** to verify that AWS SCT can connect to your source database. 
 

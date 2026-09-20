@@ -221,13 +221,39 @@ Use the following procedure to install extraction agents. Repeat this procedure 
 
 1. Download and install the latest version of Amazon Corretto 11. For more information, see [Downloads for Amazon Corretto 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html) in the *Amazon Corretto 11 User Guide*.
 
-1. Locate the installer file for your extraction agent in a subfolder named agents. For each computer operating system, the correct file to install the extraction agent is shown following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/agents.html)
+1. Locate the installer file for your extraction agent in a subfolder named agents. For each computer operating system, the correct file to install the extraction agent is shown following.
+
+
+
+<table>
+<thead>
+  <tr><th>Operating system</th><th>File name</th></tr>
+</thead>
+<tbody>
+  <tr><td>Microsoft Windows</td><td><code>aws-schema-conversion-tool-extractor-2.0.1.build-number.msi</code></td></tr>
+  <tr><td>RHEL</td><td><code>aws-schema-conversion-tool-extractor-2.0.1.build-number.x86_64.rpm</code></td></tr>
+  <tr><td>Ubuntu Linux</td><td><code>aws-schema-conversion-tool-extractor-2.0.1.build-number.deb</code></td></tr>
+</tbody>
+</table>
+
 
 1. Install the extraction agent on a separate computer by copying the installer file to the new computer. 
 
-1. Run the installer file. Use the instructions for your operating system, shown following.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/agents.html)
+1. Run the installer file. Use the instructions for your operating system, shown following. 
+
+
+
+<table>
+<thead>
+  <tr><th>Operating system</th><th>Installation instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td>Microsoft Windows</td><td>Double-click the file to run the installer.</td></tr>
+  <tr><td>RHEL</td><td>Run the following commands in the folder that you downloaded or moved the file to. <pre>sudo rpm -ivh aws-schema-conversion-tool-extractor-2.0.1.{{build-number}}.x86_64.rpm<br />sudo ./sct-extractor-setup.sh --config</pre></td></tr>
+  <tr><td>Ubuntu Linux</td><td>Run the following commands in the folder that you downloaded or moved the file to. <pre>sudo dpkg -i aws-schema-conversion-tool-extractor-2.0.1.{{build-number}}.deb<br />sudo ./sct-extractor-setup.sh --config</pre></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**, accept the license agreement, and choose **Next**.
 
@@ -318,8 +344,21 @@ Use the following procedure to start extraction agents. Repeat this procedure on
 Extraction agents act as listeners. When you start an agent with this procedure, the agent starts listening for instructions. You send the agents instructions to extract data from your data warehouse in a later section. 
 
 **To start your extraction agent**
-+ On the computer that has the extraction agent installed, run the command listed following for your operating system.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/agents.html)
++ On the computer that has the extraction agent installed, run the command listed following for your operating system. 
+
+
+
+<table>
+<thead>
+  <tr><th>Operating system</th><th>Start command</th></tr>
+</thead>
+<tbody>
+  <tr><td>Microsoft Windows</td><td>Double-click the <code>StartAgent.bat</code> batch file.</td></tr>
+  <tr><td>RHEL</td><td>Run the following command in the path to the folder that you installed the agent: <br /><code>sudo initctl start sct-extractor</code></td></tr>
+  <tr><td>Ubuntu Linux</td><td>Run the following command in the path to the folder that you installed the agent. Use the command appropriate for your version of Ubuntu. <br />Ubuntu 14.04: <code>sudo initctl start sct-extractor</code><br />Ubuntu 15.04 and higher: <code>sudo systemctl start sct-extractor</code></td></tr>
+</tbody>
+</table>
+
 
 To check the status of the agent, run the same command but replace `start` with `status`. 
 
@@ -808,8 +847,23 @@ Partition3: WHERE LO_TAX > 15005.5 AND LO_TAX <= 25005.95
 
 1. Choose the table where you want to set up virtual partitioning. Open the context (right-click) menu for the table, and choose **Add virtual partitioning**.
 
-1. In the **Add virtual partitioning** dialog box, enter the information as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/agents.html)
+1. In the **Add virtual partitioning** dialog box, enter the information as follows.
+
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Partition type</b></td><td>Choose <b>RANGE</b>. The dialog box UI changes depending on the type you choose.</td></tr>
+  <tr><td><b>Column name</b></td><td>Choose the column that you want to partition.</td></tr>
+  <tr><td><b>Column type</b></td><td>Choose the data type for the values in the column.</td></tr>
+  <tr><td><b>Values</b></td><td>Add new values by typing each value in the <b>New Value</b> box, then choosing the plus sign to add the value.</td></tr>
+  <tr><td><b>Load from file</b></td><td>(Optional) Enter the name of a .csv file that contains the partition values.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **OK**.
 
@@ -840,8 +894,23 @@ You can use the LIST partition type to filter the source data if you want to exc
 
 1. Choose the table where you want to set up virtual partitioning. Open the context (right-click) menu for the table, and choose **Add virtual partitioning**.
 
-1. In the **Add virtual partitioning** dialog box, enter the information as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/agents.html)
+1. In the **Add virtual partitioning** dialog box, enter the information as follows.
+
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Partition type</b></td><td>Choose <b>LIST</b>. The dialog box UI changes depending on the type you choose.</td></tr>
+  <tr><td><b>Column name</b></td><td>Choose the column that you want to partition.</td></tr>
+  <tr><td><b>New value</b></td><td>Type a value here to add it to the set of partitioning values.</td></tr>
+  <tr><td><b>Include other values</b></td><td>Choose this option to create a default partition where all values that don’t meet the partitioning criteria are stored.</td></tr>
+  <tr><td><b>Load from file</b></td><td>(Optional) Enter the name of a .csv file that contains the partition values.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **OK**.
 
@@ -868,8 +937,23 @@ PartitionN: WHERE LO_ORDERDATE >= USER_VALUE_N AND LO_ORDERDATE <= ‘2017-08-13
 
 1. Choose the table where you want to set up virtual partitioning. Open the context (right-click) menu for the table, and choose **Add virtual partitioning**.
 
-1. In the **Add virtual partitioning** dialog box, enter information as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/agents.html)
+1. In the **Add virtual partitioning** dialog box, enter information as follows.
+
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Partition type</b></td><td>Choose <b>DATE AUTO SPLIT</b>. The dialog box UI changes depending on the type you choose.</td></tr>
+  <tr><td><b>Column name</b></td><td>Choose the column that you want to partition.</td></tr>
+  <tr><td><b>Start date</b></td><td>Type a start date.</td></tr>
+  <tr><td><b>End date</b></td><td>Type an end date.</td></tr>
+  <tr><td><b>Interval</b></td><td>Enter the interval unit, and choose the value for that unit.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **OK**.
 
