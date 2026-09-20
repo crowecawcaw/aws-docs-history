@@ -29,8 +29,30 @@ If you have a redundant Conductor File configuration, perform this procedure on 
    [elemental@hostname elemental_se]$ sudo ./configure
    ```
 
-1. The following prompts appear. Complete each prompt as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/configguide/config-cond-cf-cg-script.html)
+1. The following prompts appear. Complete each prompt as follows.
+
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Enter this server’s Hostname</code></td><td>This is already set to the value that you entered or accepted during node installation. For more information, see <a href="https://docs.aws.amazon.com/elemental-server/latest/configguide">AWS Elemental Server Configuration Guide</a>.<br />Change the value only if you realize that you have given the same hostname to more than one hardware unit in the cluster.</td></tr>
+  <tr><td><code>Is eth0 a management interface?</code></td><td>This is already set to the value that you entered or accepted during node installation. For more information, see <a href="https://docs.aws.amazon.com/elemental-server/latest/configguide">AWS Elemental Server Configuration Guide</a>.</td></tr>
+  <tr><td><code>Does eth0 use DHCP to get its IP address?</code></td><td>This is already set to the value that you entered or accepted during node installation. For more information, see <a href="https://docs.aws.amazon.com/elemental-server/latest/configguide">AWS Elemental Server Configuration Guide</a>.</td></tr>
+  <tr><td><code>Enter eth0's IP address: </code></td><td>This is already set to the value that you entered or accepted during node installation. For more information, see <a href="https://docs.aws.amazon.com/elemental-server/latest/configguide">AWS Elemental Server Configuration Guide</a>.</td></tr>
+  <tr><td><code>Enter eth0's NETMASK:</code></td><td>This is already set to the value that you entered or accepted during node installation. For more information, see <a href="https://docs.aws.amazon.com/elemental-server/latest/configguide">AWS Elemental Server Configuration Guide</a>.</td></tr>
+  <tr><td><code>Enter eth0's Gateway (or type none):</code></td><td>This is already set to the value that you entered or accepted during node installation. For more information, see <a href="https://docs.aws.amazon.com/elemental-server/latest/configguide">AWS Elemental Server Configuration Guide</a>.</td></tr>
+  <tr><td><code>Keep this configured nameserver: 10.6.16.10?</code></td><td>Skip; you will set up a nameserver on the web interface.</td></tr>
+  <tr><td><code>Would you like to configure eth1?</code></td><td>Skip; you will set up more Ethernet devices on the web interface.</td></tr>
+  <tr><td><code>The firewall for this system is currently disabled. Would you like to enable it?</code></td><td>Skip; you can set up the firewall on the web interface.</td></tr>
+  <tr><td><code>Configure this node as the secondary node?</code></td><td>See the following section <i>Configuring the Conductor Nodes</i>.</td></tr>
+  <tr><td><code>Select time zone ('n' for more)</code></td><td>Change the time zone as appropriate. This impacts only the web interface.</td></tr>
+  <tr><td><code>Would you like to start the Elemental service now?</code></td><td>Type <b>Yes</b>.</td></tr>
+</tbody>
+</table>
+
 
 **Configuring the Conductor File Nodes**  
 Take the appropriate action:

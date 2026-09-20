@@ -33,8 +33,25 @@ Before you begin this process, make sure that you've done the following:
 
 1. In the **Add Network Dialog** dialog, select **bond** as the device type. The dialog immediately expands to include more fields.
 
-1. Complete the fields as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/configguide/config-cond-cf-cg-ethernet-bond.html)
+1. Complete the fields as follows:
+
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Bond ID</b></td><td>A number that is unique among your bonded interfaces.</td></tr>
+  <tr><td><b>Management</b></td><td><ul><li>Checked: if you are creating a bond in order to bond two management interfaces. For example, if you want to set up both eth0 and eth1 as management interfaces, with eth1 as a backup in case eth0 fails.</li><li>Unchecked: if you are not bonding two management interfaces.</li></ul></td></tr>
+  <tr><td><b>Description</b></td><td>Optional.</td></tr>
+  <tr><td><b>IP Address</b>, <b>Netmask</b>, and <b>Gateway</b></td><td>The fields appear only if you set Address Mode to Static. <br />The eth0, eth1, and bond0 devices should all be on the same subnet.</td></tr>
+  <tr><td><b>Static Routes</b></td><td>Optional.</td></tr>
+  <tr><td><b>Mode</b></td><td>Choose the mode that meets your networking requirements.</td></tr>
+  <tr><td>More fields</td><td>Depending on the mode, more fields may appear. Complete them as required to meet your networking requirements.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save**. The new device appears in the Network Devices list.
 
