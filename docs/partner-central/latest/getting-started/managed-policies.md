@@ -104,7 +104,6 @@ With this policy, you can manage channel programs and partner relationships in A
 + View and manage channel relationships
 + Manage channel handshakes
 + View and manage distribution engagement requests
-+ Manage and submit deal registration requests
 + Access Guides and Amazon Q (Partner Assistant)
 + Access Partner Central support
 
