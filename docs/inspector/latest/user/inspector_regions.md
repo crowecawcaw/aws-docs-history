@@ -101,12 +101,74 @@
 This section describes the availability of Amazon Inspector features by AWS Region.
 
 **Agentless EC2 scanning for Amazon EC2 Regions**  
- The following table shows the AWS Regions where agentless scanning for Amazon EC2 is currently available.       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/inspector/latest/user/inspector_regions.html)
+ The following table shows the AWS Regions where agentless scanning for Amazon EC2 is currently available.   
+
+
+<table>
+<thead>
+  <tr><th>Region Name</th><th>Region code</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (N. Virginia)</td><td>us-east-1</td></tr>
+  <tr><td>US East (Ohio)</td><td>us-east-2</td></tr>
+  <tr><td>US West (N. California)</td><td>us-west-1</td></tr>
+  <tr><td>US West (Oregon)</td><td>us-west-2</td></tr>
+  <tr><td>Africa (Cape Town)</td><td>af-south-1</td></tr>
+  <tr><td>Asia Pacific (Hong Kong)</td><td>ap-east-1</td></tr>
+  <tr><td>Asia Pacific (Tokyo)</td><td>ap-northeast-1</td></tr>
+  <tr><td>Asia Pacific (Seoul)</td><td>ap-northeast-2</td></tr>
+  <tr><td>Asia Pacific (Osaka)</td><td>ap-northeast-3</td></tr>
+  <tr><td>Asia Pacific (Mumbai)</td><td>ap-south-1</td></tr>
+  <tr><td>Asia Pacific (Hyderabad)</td><td>ap-south-2</td></tr>
+  <tr><td>Asia Pacific (Singapore)</td><td>ap-southeast-1</td></tr>
+  <tr><td>Asia Pacific (Sydney)</td><td>ap-southeast-2</td></tr>
+  <tr><td>Asia Pacific (Jakarta)</td><td>ap-southeast-3</td></tr>
+  <tr><td>Asia Pacific (Melbourne)</td><td>ap-southeast-4</td></tr>
+  <tr><td>Asia Pacific (Malaysia)</td><td>ap-southeast-5</td></tr>
+  <tr><td>Asia Pacific (Thailand)</td><td>ap-southeast-7</td></tr>
+  <tr><td>Canada (Central)</td><td>ca-central-1</td></tr>
+  <tr><td>Canada West (Calgary)</td><td>ca-west-1</td></tr>
+  <tr><td>Europe (Stockholm)</td><td>eu-north-1</td></tr>
+  <tr><td>Europe (Frankfurt)</td><td>eu-central-1</td></tr>
+  <tr><td>Europe (Zurich)</td><td>eu-central-2</td></tr>
+  <tr><td>Europe (Ireland)</td><td>eu-west-1</td></tr>
+  <tr><td>Europe (London)</td><td>eu-west-2</td></tr>
+  <tr><td>Europe (Paris)</td><td>eu-west-3</td></tr>
+  <tr><td>Europe (Milan)</td><td>eu-south-1</td></tr>
+  <tr><td>Europe (Spain)</td><td>eu-south-2</td></tr>
+  <tr><td>Israel (Tel Aviv)</td><td>il-central-1</td></tr>
+  <tr><td>Middle East (UAE)</td><td>me-central-1</td></tr>
+  <tr><td>Middle East (Bahrain)</td><td>me-south-1</td></tr>
+  <tr><td>Mexico (Central)</td><td>mx-central-1</td></tr>
+  <tr><td>South America (São Paulo)</td><td>sa-east-1</td></tr>
+  <tr><td>AWS GovCloud (US-East)</td><td>us-gov-east-1</td></tr>
+  <tr><td>AWS GovCloud (US-West)</td><td>us-gov-west-1</td></tr>
+</tbody>
+</table>
+
 
 **Lambda code scanning Regions**  
- The following table shows the AWS Regions where [Lambda code scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html) is currently available.       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/inspector/latest/user/inspector_regions.html)
+ The following table shows the AWS Regions where [Lambda code scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html) is currently available.   
+
+
+<table>
+<thead>
+  <tr><th>Region Name</th><th>Region code</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (N. Virginia)</td><td>us-east-1</td></tr>
+  <tr><td>US West (Oregon)</td><td>us-west-2</td></tr>
+  <tr><td>US East (Ohio)</td><td>us-east-2</td></tr>
+  <tr><td>Asia Pacific (Sydney)</td><td>ap-southeast-2</td></tr>
+  <tr><td>Asia Pacific (Tokyo)</td><td>ap-northeast-1</td></tr>
+  <tr><td>Europe (Frankfurt)</td><td>eu-central-1</td></tr>
+  <tr><td>Europe (Ireland)</td><td>eu-west-1</td></tr>
+  <tr><td>Europe (London)</td><td>eu-west-2</td></tr>
+  <tr><td>Europe (Stockholm)</td><td>eu-north-1</td></tr>
+  <tr><td>Asia Pacific (Singapore)</td><td>ap-southeast-1</td></tr>
+</tbody>
+</table>
+
  If you try to enable Lambda code scanning with the Amazon Inspector [Enable](https://docs.aws.amazon.com/inspector/v2/APIReference/API_Enable.html) API in an AWS Region where Lambda code scanning isn't available, you receive the following access denied error:   
 
 ```
@@ -114,8 +176,27 @@ An error occurred (AccessDeniedException) when calling the Enable operation: Lam
 ```
 
 **Amazon Inspector Code Security Regions**  
- The following table shows the AWS Regions where Amazon Inspector Code Security is currently available.       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/inspector/latest/user/inspector_regions.html)
+ The following table shows the AWS Regions where Amazon Inspector Code Security is currently available.   
+
+
+<table>
+<thead>
+  <tr><th>Region Name</th><th>Region code</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (N. Virginia)</td><td>us-east-1</td></tr>
+  <tr><td>US West (Oregon)</td><td>us-west-2</td></tr>
+  <tr><td>US East (Ohio)</td><td>us-east-2</td></tr>
+  <tr><td>Asia Pacific (Sydney)</td><td>ap-southeast-2</td></tr>
+  <tr><td>Asia Pacific (Tokyo)</td><td>ap-northeast-1</td></tr>
+  <tr><td>Europe (Frankfurt)</td><td>eu-central-1</td></tr>
+  <tr><td>Europe (Ireland)</td><td>eu-west-1</td></tr>
+  <tr><td>Europe (London)</td><td>eu-west-2</td></tr>
+  <tr><td>Europe (Stockholm)</td><td>eu-north-1</td></tr>
+  <tr><td>Asia Pacific (Singapore)</td><td>ap-southeast-1</td></tr>
+</tbody>
+</table>
+
 
 **AWS GovCloud (US) Regions**  
  For the latest information, see [Amazon Inspector](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-inspector2.html) in the *AWS GovCloud (US) User Guide*. 

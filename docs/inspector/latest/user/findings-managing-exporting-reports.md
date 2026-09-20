@@ -268,8 +268,14 @@ If a report includes data for all or many findings, it can take a long time to g
      If you choose the **JSON** option, the report will include all the fields for each finding. For a list of possible JSON fields see the [Finding](https://docs.aws.amazon.com/inspector/v2/APIReference/API_Finding.html) data type in the Amazon Inspector API reference.
    + To create a comma-separated values (.csv) file that contains the data, choose **CSV**.
 
-     If you choose the **CSV** option, the report will include only a subset of the fields for each finding, approximately 45 fields that report key attributes of a finding. The fields include: *Finding Type, Title, Severity, Status, Description, First Seen, Last Seen, Fix Available, AWS account ID, Resource ID, Resource Tags*, and *Remediation*. These are in addition to fields that capture scoring details and reference URLs for each finding. The following is a sample of the CSV headers in a findings report:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/inspector/latest/user/findings-managing-exporting-reports.html)
+     If you choose the **CSV** option, the report will include only a subset of the fields for each finding, approximately 45 fields that report key attributes of a finding. The fields include: *Finding Type, Title, Severity, Status, Description, First Seen, Last Seen, Fix Available, AWS account ID, Resource ID, Resource Tags*, and *Remediation*. These are in addition to fields that capture scoring details and reference URLs for each finding. The following is a sample of the CSV headers in a findings report:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
 1. Under **Export location**, for **S3 URI**, specify the S3 bucket where you want to store the report:
    + To store the report in a bucket that your account owns, choose **Browse S3**. Amazon Inspector displays a table of the S3 buckets for your account. Select the row for the bucket that you want, and then choose **Choose**.
