@@ -50,8 +50,22 @@ The JSON formatting of entities in Verified Permissions using the `entityList` p
 + In Verified Permissions, a JSON object must have all of its key-value pairs wrapped in a JSON object with the name of `Record`.
 + A JSON list in Verified Permissions must be wrapped in a JSON key-value pair where the key name is `Set` and the value is the original JSON list from Cedar.
 + For `String`, `Long`, and `Boolean` type names, each key-value pair from Cedar is replaced by a JSON object in Verified Permissions. The name of the object is the original key name. Inside the JSON object, there is one key-value pair where the key name is the type name of the scalar value (`String`, `Long`, or `Boolean`) and the value is the value from the Cedar entity.
-+ The syntax formatting of Cedar entities and Verified Permissions entities differs in the following ways:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology-differences-avp-cedar.html)
++ The syntax formatting of Cedar entities and Verified Permissions entities differs in the following ways:
+
+
+<table>
+<thead>
+  <tr><th> <b>Cedar format</b> </th><th> <b>Verified Permissions format</b> </th></tr>
+</thead>
+<tbody>
+  <tr><td><code>uid</code></td><td><code>Identifier</code></td></tr>
+  <tr><td><code>type</code></td><td><code>EntityType</code></td></tr>
+  <tr><td><code>id</code></td><td><code>EntityId</code></td></tr>
+  <tr><td><code>attrs</code></td><td><code>Attributes</code></td></tr>
+  <tr><td><code>parents</code></td><td><code>Parents</code></td></tr>
+</tbody>
+</table>
+
 
 **Example - Lists**  
 The following examples show how a list of entities is expressed in Cedar and Verified Permissions, respectively.  
