@@ -28,8 +28,21 @@ You can modify a channel even if it is running.
 
 1. If the new profile includes channel parameters, complete those parameters. When you are ready, choose **Next**.
 
-   **Examples of changes in channel parameters**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/ug/changing-the-profile-used-by-multiple-channels.html)
+   **Examples of changes in channel parameters**
+
+
+<table>
+<thead>
+  <tr><th>Original Profile for a Channel</th><th>New Profile for a Channel</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Three channel parameters</td><td>Two channel parameters, mapped to the same two fields as the original profile. <br /> A third parameter channel which does not exist in the new profile.</td><td>None. For the two parameter channels that still exist, the values already in the channel are preserved and used. <br />For the channel parameter that has been dropped, a value is no longer required in the channel; the value that is “hard-coded” (or implied, that is, a system default) in the new profile is used.</td></tr>
+  <tr><td>Three channel parameters</td><td>Four total channel parameters:<ul><li> Three channel parameters, mapped to the same three fields as the original profile. </li><li> One new channel parameter. </li></ul></td><td>You are prompted to provide a value for the new channel parameter.</td></tr>
+  <tr><td>One channel parameter, for example, {{input_network_location}}</td><td>A channel parameter, mapped to the same field as the original profile. This channel parameter, however, has a different name. For example {{input_nw_location}}</td><td>You are prompted to provide a value for the new channel parameter. </td></tr>
+  <tr><td>One channel parameter, for example, {{input_network_location}}</td><td>The same channel parameter, but mapped to a different field.</td><td>Conductor Live treats the channel parameter as a new parameter. You are prompted to provide a value for the new channel parameter.<br />You should try to avoid this problem by tying each channel parameter name to a specific field. Avoid generic names such as {{field 1}}</td></tr>
+</tbody>
+</table>
+
 
    You might get any combination of these types of discrepancies, and you are prompted to handle all of them.
 

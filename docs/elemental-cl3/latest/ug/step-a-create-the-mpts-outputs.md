@@ -7,8 +7,21 @@
 
 1. On the Conductor Live main menu, choose **MPTS**. Then choose **New MPTS**. The **Create a New MPTS** dialog appears.
 
-1. Complete the fields in the top section of the dialog. For information about a field, hover on the upper-right corner of the field and choose the **?** icon. Pay particular attention to the following fields.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/ug/step-a-create-the-mpts-outputs.html)
+1. Complete the fields in the top section of the dialog. For information about a field, hover on the upper-right corner of the field and choose the **?** icon. Pay particular attention to the following fields.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name</td><td>Any name.</td></tr>
+  <tr><td>Transport Stream ID</td><td>The PID for the transport stream in the MPTS.</td></tr>
+  <tr><td>Node</td><td>The node where you want the MPTS to run. The list shows all active nodes. It doesn't include backup nodes in a redundancy group</td></tr>
+  <tr><td>Transport Stream Bitrate</td><td>The total bitrate for the MPTS. <br />All the SPTS channels in the MPTS will use a portion of this bitrate.</td></tr>
+</tbody>
+</table>
+
 
 1. Complete the fields in the **Output** tab and the **Advanced** tab. For more information about the significant fields, see the sections after this procedure.
 
