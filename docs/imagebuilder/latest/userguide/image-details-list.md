@@ -290,6 +290,7 @@ Details on the **Image build versions** page in the Image Builder console includ
 + **Date created** – The date and time when Image Builder created the image build version.
 + **Image status** – The current status of the image build version. Status can relate to the image build or disposition. For example, during the build process, you might see a status of `Building` or `Distributing`. For disposition of the image, you might see a status of `Deprecated` or `Deleted`.
 + **Reason for failure** – The reason for the image status. The Image Builder console only displays the reason when the build fails (**Image status** equals `Failed`).
++ **Failure details** – Structured details about where the build failed, displayed when you choose a `Failed` image status. Details can include the stage that failed, the workflow step, the component step that raised the error, and the destination Regions that failed. The failed workflow step links to its runtime detail. For more information, see [Find the cause of a failed image build with failure context](image-failure-context.md).
 + **Security findings** – The aggregated image scan findings for the referenced image build version.
 + **ARN** – The Amazon Resource Name (ARN) for the referenced version of the image resource.
 + **Log stream** – A link to the log stream detail for the referenced image build version.

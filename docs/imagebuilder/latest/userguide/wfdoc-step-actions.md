@@ -238,7 +238,7 @@ Specify the step action in the workflow document.
   action: CollectImageMetadata
   onFailure: Abort
   inputs:
-      instanceId: $.stepOutputs.{{LaunchStep}}.instanceId
+      instanceId.$: $.stepOutputs.{{LaunchStep}}.instanceId
 ```
 
 Use output from the step action in the workflow document.
@@ -551,7 +551,7 @@ Specify the step action in the workflow document.
   action: ExecuteComponents
   onFailure: Abort
   inputs:
-      instanceId: $.stepOutputs.{{LaunchStep}}.instanceId
+      instanceId.$: $.stepOutputs.{{LaunchStep}}.instanceId
 ```
 
 Use output from the step action in the workflow document.
@@ -996,7 +996,7 @@ Specify the step action in the workflow document.
   action: SanitizeInstance
   onFailure: Abort
   inputs:
-      instanceId: $.stepOutputs.{{LaunchStep}}.instanceId
+      instanceId.$: $.stepOutputs.{{LaunchStep}}.instanceId
 ```
 
 Use the output of the step action value in the workflow document.

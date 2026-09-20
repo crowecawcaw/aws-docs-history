@@ -21,9 +21,9 @@ Conditional expressions support a maximum nesting depth of 4 levels. If you nest
 
 ```
 if:
-  - <conditional expression>:
-      [then: <step action>]
-      [else: <step action>]
+  <conditional expression>:
+    [then: <step action>]
+    [else: <step action>]
 ```
 
 

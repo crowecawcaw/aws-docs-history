@@ -12,6 +12,7 @@ You can use the Troubleshoot feature, powered by AWS DevOps Agent, to diagnose f
 
 **Topics**
 + [Troubleshoot pipeline builds](#troubleshooting-pipelines)
++ [Find the cause of a failed image build with failure context](image-failure-context.md)
 + [Troubleshooting scenarios](#image-builder-troubleshooting-scenarios)
 + [Troubleshoot failed builds with AI - Preview](devops-agent-troubleshooting.md)
 + [Troubleshoot builds with an AI coding agent](agent-toolkit-skill.md)
@@ -24,6 +25,8 @@ If an Image Builder pipeline build fails, Image Builder returns an error message
 ```
 Workflow Execution ID: {{wf-12345abc-6789-0123-abc4-567890123abc}} failed with reason: …
 ```
+
+A failed image also carries structured failure context that names the workflow step, component step, or distribution that caused the failure. For more information, see [Find the cause of a failed image build with failure context](image-failure-context.md).
 
 Image Builder arranges and directs image build actions through a series of steps that are defined for the runtime stages in its standard image creation process. The build and test stages of the process each have an associated workflow. When Image Builder runs a workflow to build or test a new image, it generates a workflow metadata resource that keeps track of runtime details.
 

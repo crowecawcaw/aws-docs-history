@@ -41,7 +41,7 @@ If the Image Builder service is using the role when you try to delete the resour
 1. Verify that no pipeline builds are running before you start. To cancel a running build, use the `cancel-image-creation` command from the AWS CLI.
 
    ```
-   aws imagebuilder cancel-image-creation --image-build-version-arn {{arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/sample-pipeline}}
+   aws imagebuilder cancel-image-creation --image-build-version-arn {{arn:aws:imagebuilder:us-east-1:123456789012:image/sample-image/1.0.0/1}}
    ```
 
 1. Change all pipeline schedules to use a manual build process, or delete them if you won't be using them again. For more information about deleting resources, see [Delete outdated or unused Image Builder resources](delete-resources.md).

@@ -24,7 +24,7 @@ Use the output as the basis for your update request JSON file.
 
 **Create a CLI input JSON file**
 
-   Use your favorite file editing tool to create a JSON file with the following keys, plus values that are valid for your environment. This example uses a file named `create-component.json`:
+   Use your favorite file editing tool to create a JSON file with the following keys, plus values that are valid for your environment. This example uses a file named `update-image-pipeline.json`:
 
    ```
    	{

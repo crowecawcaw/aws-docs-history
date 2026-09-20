@@ -1596,7 +1596,7 @@ The action module returns an error when the following occurs:
     action: ListFiles
     inputs:
       - path: /Sample/MyFolder/
-        fileNamePattern: *log
+        fileNamePattern: '*log'
 ```
 
 **Input example: list files that end with "log" (Windows)**
@@ -1606,7 +1606,7 @@ The action module returns an error when the following occurs:
     action: ListFiles
     inputs:
       - path: C:\Sample\MyFolder\
-        fileNamePattern: *log
+        fileNamePattern: '*log'
 ```
 
 **Input example: list files recursively**
@@ -2513,6 +2513,32 @@ If both "include" and "exclude" lists are provided, the resulting list of update
         - KB1234567
         - '*Security*'
 ```
+
+**Expand the set of Windows updates that UpdateOS installs**
+
+On Windows, **UpdateOS** searches for and installs every update that applies to the instance. The search includes only updates that are not hidden and not already installed. The search draws from the update services that are registered on the instance with the Windows Update Agent, the Windows component that manages update sources. By default, the only registered service is the Windows Update service. This service provides operating system updates only.
+
+The `include` and `exclude` inputs filter the results of that search. These inputs select updates from, or remove updates from, the set that the search already returned. They cannot add an update that the search did not return. To install a broader set of updates than the default, you broaden what the search covers instead of changing the filters.
+
+To have **UpdateOS** also install updates for other Microsoft products, opt in to the Microsoft Update service on the instance before the **UpdateOS** step runs. These products include drivers, Microsoft Office, and SQL Server. To opt in, add an earlier [ExecutePowerShell (Windows)](#action-modules-executepowershell) step in the same component that registers the Microsoft Update service with the Windows Update Agent. After you opt in, the **UpdateOS** search returns the additional updates. Your `include` and `exclude` filters then apply to that broader set.
+
+The following component document step uses PowerShell to register the Microsoft Update service:
+
+```
+  - name: OptInToMicrosoftUpdate
+    action: ExecutePowerShell
+    onFailure: Abort
+    maxAttempts: 3
+    inputs:
+      commands:
+        - |
+          $serviceManager = New-Object -ComObject Microsoft.Update.ServiceManager
+          # Register the Microsoft Update service by using its public service ID
+          $serviceManager.AddService2('7971f918-a847-4430-9279-4a52d1efe18d', 7, '') | Out-Null
+```
+
+**Note**  
+The Microsoft Update service ID `7971f918-a847-4430-9279-4a52d1efe18d` is a well-known public identifier that Microsoft defines. This **ExecutePowerShell** step must appear before the **UpdateOS** step in the component so that you opt in before the update search runs.
 
 **Output**
 

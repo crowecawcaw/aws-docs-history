@@ -20,6 +20,7 @@ The images that you build from your custom base image are in your AWS account. Y
 **Topics**
 + [AMI elements](#ami-image-elements)
 + [Component management](#ibhow-component-management)
++ [Resource names and ARNs](#ibhow-resource-names)
 + [Resources created](#image-builder-resources)
 + [Distribution](#image-builder-distribution)
 + [Sharing Resources](#ibhow-sharing)
@@ -52,6 +53,15 @@ Image Builder uses AWSTOE to perform all on-instance activities. These include b
 You can use AWSTOE test components to validate your image, and ensure that it functions as expected, prior to creating the final image.
 
 Generally, each test component consists of a YAML document that contains a test script, a test binary, and test metadata. The test script contains the orchestration commands to start the test binary, which can be written in any language supported by the OS. Exit status codes indicate the test outcome. Test metadata describes the test and its behavior; for example, the name, description, paths to test binary, and expected duration.
+
+## Resource names and ARNs
+<a name="ibhow-resource-names"></a>
+
+When you create an Image Builder resource, Image Builder generates the resource ARN from a normalized form of the name that you provide. Understanding this normalization helps you avoid unexpected naming conflicts when you create similarly named resources. Normalization converts the name to lowercase and replaces spaces and underscores with hyphens. For example, a component named `My Component_v2` appears in its ARN as `my-component-v2`.
+
+Normalization applies to all Image Builder resource types, including components, recipes, images, image pipelines, infrastructure configurations, distribution configurations, lifecycle policies, and workflows.
+
+Resource names must be unique to your account in each AWS Region. Because the ARN is based on the normalized name, names that differ only in case, spaces, or underscores conflict with each other. For example, you can't create an image recipe named `my recipe` if you already have one named `My_Recipe` with the same version. When names conflict, the create request fails with a `ResourceAlreadyExistsException` error. For versioned resources, the name combines with the semantic version to determine uniqueness. Resources that support build versions, such as components and workflows, instead create a new build version when you reuse a name and version with changed content.
 
 ## Resources created
 <a name="image-builder-resources"></a>

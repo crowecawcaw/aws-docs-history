@@ -98,6 +98,7 @@ Each step can include the following attributes.
 | inputs | Contains parameters that the step action needs to run. You can specify key values as static values, or with a JSONPath variable that resolves to the correct data type. | Dict | Yes |  |  | 
 | name | The name of the step. This name must be unique within the workflow document. | String | Yes |  | Length must be between 3-128 characters.<br />Can include alphanumeric characters and `_`. No spaces. | 
 | onFailure | Configures the action to take if the step fails, as follows.+  `Abort` – Fails the step, fails the workflow, and doesn't run any remaining steps after the step that failed. If rollback is enabled, the rollback begins with the step that failed, and continues until all steps that allow it are rolled back. <br />+  `Continue` – Fails the step, but continues to run remaining steps after the step that failed. In this case, there is no rollback.  | String | No | `Abort` | `Abort` \| `Continue` | 
+| retry | Configures Image Builder to automatically run the step again if it fails. For more information, see [Retry failed workflow steps](#wfdoc-step-retry). | Dict | No | No retries | The `retry` attribute contains the following fields:+  `maxAttempts` (required) – The total number of times that the step can run, including the first attempt. Valid values: 1–10. <br />+  `backoffSeconds` (optional) – The number of seconds that Image Builder waits before it starts each retry attempt. If you don't set a value, Image Builder waits 30 seconds. Valid values: 0–600.  | 
 | rollbackEnabled | Configures whether the step will be rolled back if a failure occurs. You can use a static Boolean value or a dynamic JSONPath variable that resolves to a Boolean value. | Boolean | No | `true` | `true` \| `false` \| or a JSONPath variable that resolves to true or false.  | 
 | timeoutSeconds | The maximum time, in seconds, that the step runs before failing and retrying, if retries apply. | Integer | No | Depends on the default defined for the step action, if applicable. | Cannot be more than the max timeout of the step action | 
 | waitSeconds | The time, in seconds, for which the step execution will pause. | Integer | No | 0 | Cannot be more than timeoutSeconds of the step action | 
@@ -129,6 +130,40 @@ steps:
     if:
       booleanEquals: true
       value: "$.parameters.waitForActionAtEnd"
+```
+
+#### Retry failed workflow steps
+<a name="wfdoc-step-retry"></a>
+
+By default, each step in a workflow runs one time. To have Image Builder automatically run a step again when it fails, add the `retry` attribute to the step. The `retry` attribute contains the following fields.
++ `maxAttempts` (required) – The total number of times that the step can run, including the first attempt. For example, if you set `maxAttempts` to `3` and every attempt fails, the step runs three times before Image Builder marks it as failed. Valid values: 1–10.
++ `backoffSeconds` (optional) – The number of seconds that Image Builder waits before it starts each retry attempt. If you don't set a value, Image Builder waits 30 seconds. To retry immediately, set the value to `0`. Valid values: 0–600.
+
+Retries work as follows:
++ The `timeoutSeconds` value for the step applies to each attempt separately. The timeout clock restarts when a retry attempt starts.
++ If the step still fails after the final attempt, the `onFailure` behavior for the step applies.
+
+Some step actions have additional retry behavior:
++ Before it retries a `LaunchInstance` step, Image Builder terminates the instance that the failed attempt launched. The retry attempt launches a new instance.
++ When it retries an `ExecuteComponents` step, Image Builder runs your components again from the beginning. It doesn't undo changes that a failed attempt already made on the instance. Before you configure retries for a step that runs components, make sure that your components can safely run more than once.
+
+To see how many times a step ran, use the `GetWorkflowStepExecution` or `ListWorkflowStepExecutions` API operations. The response includes the `attemptNumber` and `maxAttempts` fields for the step.
+
+**Note**  
+The `retry` attribute for a workflow step is separate from the `maxAttempts` field, which retries an individual step within a AWSTOE component document. For more information, see [Use the AWSTOE component document framework for custom components](toe-use-documents.md).
+
+**Example**
+
+```
+steps:
+  - name: LaunchBuildInstance
+    action: LaunchInstance
+    onFailure: Abort
+    retry:
+      maxAttempts: 3
+      backoffSeconds: 60
+    inputs:
+      waitFor: "ssmAgent"
 ```
 
 ### Workflow document outputs

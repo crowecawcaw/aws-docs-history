@@ -75,5 +75,5 @@ aws imagebuilder create-image --image-recipe-arn arn:aws:imagebuilder:{{us-west-
 To cancel an in-progress image build, use the **cancel-image-creation** command, as follows:
 
 ```
-aws imagebuilder cancel-image-creation --image-build-version-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:image/{{my-example-recipe}}/2019.12.03/1
+aws imagebuilder cancel-image-creation --image-build-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-example-recipe}}/2019.12.03/1
 ```

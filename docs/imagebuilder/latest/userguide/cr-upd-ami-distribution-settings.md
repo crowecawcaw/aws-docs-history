@@ -288,7 +288,7 @@ The following example shows how to use the **[update-distribution-configuration]
    			"amiDistributionConfiguration": {
    				"name": "Name {{imagebuilder:buildDate}}",
    				"description": "An example image name with parameter references",
-   				"launchPermissions": {
+   				"launchPermission": {
    					"userIds": [
    						"987654321012"
    					]
@@ -299,10 +299,10 @@ The following example shows how to use the **[update-distribution-configuration]
    			"region": "eu-west-2",
    			"amiDistributionConfiguration": {
    				"name": "My {{imagebuilder:buildVersion}} image {{imagebuilder:buildDate}}",
-   				"tags": {
+   				"amiTags": {
    					"KeyName": "Some value"
    				},
-   				"launchPermissions": {
+   				"launchPermission": {
    					"userIds": [
    						"100000000001"
    					]

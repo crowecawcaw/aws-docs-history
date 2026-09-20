@@ -28,7 +28,7 @@ You can also set up scheduling rules for the default event bus to perform an act
   For more information about using cron expressions with EventBridge, see [Cron expressions](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions) in the *Amazon EventBridge User Guide*.
 + **rate expressions** – The following example of a rate expression schedules a task to run every 12 hours:
 
-  `rate(12 hour)`
+  `rate(12 hours)`
 
   For more information about using rate expressions with EventBridge, see [Rate expressions](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-rate-expressions) in the *Amazon EventBridge User Guide*.
 

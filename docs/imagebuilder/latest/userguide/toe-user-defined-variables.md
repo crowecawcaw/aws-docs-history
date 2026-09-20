@@ -337,3 +337,133 @@ phases:
           commands:
             - echo "{{ aws:ssm:resolve(parameter-name) }}"
 ```
+
+## Use environment variables
+<a name="toe-env-variables"></a>
+
+AWSTOE can resolve operating system environment variables that are set on the build or test instance. To reference an environment variable, prefix the variable name with `env:`. For example, `{{ env:{{MY_VAR}} }}` resolves to the value of the `MY_VAR` environment variable on the instance.
+
+AWSTOE matches environment variable names exactly. A name can contain any characters that are valid for the operating system, including dots, spaces, and parentheses. For example, `{{ env:ProgramFiles(x86) }}` is a valid reference on Windows.
+
+The following example shows how to reference an environment variable in a component:
+
+```
+name: UseEnvironmentVariable
+description: This sample component prints out the value of an environment variable.
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: EchoEnvironmentVariable
+        action: ExecuteBash
+        inputs:
+          commands:
+            - echo "The value of SOME_VAR is {{ env:{{SOME_VAR}} }}."
+```
+
+### Environment variables that Image Builder provides
+<a name="toe-ib-env-variables"></a>
+
+When Image Builder runs a component on a build or test instance, it sets environment variables that describe the current image build. Your components read these values with the AWSTOE `env:` variable prefix described earlier in this topic.
+
+Image Builder provides the following environment variables.
+
+
+| Name | Description | 
+| --- | --- | 
+| `IMAGE_WORKFLOW_EXECUTION_ID` | The ID of the workflow execution for the current image build. | 
+| `IMAGE_STEP_EXECUTION_ID` | The ID of the workflow step execution that is running the component. | 
+| `IMAGE_BUILD_VERSION_ARN` | The Amazon Resource Name (ARN) of the image build version that Image Builder creates. | 
+| `IMAGE_PIPELINE_ARN` | The ARN of the image pipeline. This value is an empty string when the build does not run from a pipeline. | 
+| `IMAGE_PHASE` | The current image build stage: `BUILDING` during the build stage, or `TESTING` during the test stage.<br />This stage is distinct from the AWSTOE component document phases (`build`, `validate`, and `test`). The `IMAGE_PHASE` value never takes a component document phase name. | 
+| `IMAGE_VERSION` | The semantic version of the image (for example, `2.1.1`). | 
+| `IMAGE_BUILD_VERSION` | The build version number of the image (for example, `1`). | 
+
+The following example shows how to read Image Builder environment variables in a component:
+
+```
+name: UseImageBuilderEnvironmentVariables
+description: This sample component prints out Image Builder environment variable values.
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: EchoImageBuildValues
+        action: ExecuteBash
+        inputs:
+          commands:
+            - echo "Image phase: {{ env:IMAGE_PHASE }}."
+            - echo "Image build version ARN: {{ env:IMAGE_BUILD_VERSION_ARN }}."
+```
+
+## Use instance metadata (IMDS) variables
+<a name="toe-imds-variables"></a>
+
+AWSTOE can resolve values from the Amazon EC2 Instance Metadata Service (IMDS) on the build or test instance. To reference a metadata value, prefix the metadata path with `aws:imds:`. The path is relative to the instance metadata `meta-data/` category. For example, `{{ aws:imds:instance-id }}` resolves to the instance ID. The reference `{{ aws:imds:placement/region }}` resolves to the AWS Region.
+
+**Unsupported metadata paths**  
+AWSTOE does not support the `iam/` and `identity-credentials/` metadata paths. These paths return sensitive credential data. AWSTOE rejects references to them when it validates the component document.
+
+For more information about instance metadata, see [Use instance metadata to manage your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+
+The following example shows how to reference an IMDS value in a component:
+
+```
+name: UseInstanceMetadataVariable
+description: This sample component prints out the instance ID from IMDS.
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: EchoInstanceId
+        action: ExecuteBash
+        inputs:
+          commands:
+            - echo "The instance ID is {{ aws:imds:instance-id }}."
+```
+
+## Use context variables
+<a name="toe-context-variables"></a>
+
+AWSTOE provides context variables that describe the current execution and instance. To reference a context variable, prefix the key with `context:`. For example, `{{ context:accountId }}` resolves to the AWS account ID.
+
+AWSTOE provides the following context variables.
+
+
+| Key | Description | 
+| --- | --- | 
+| `executionId` | The ID of the current AWSTOE execution. | 
+| `accountId` | The ID of the AWS account that the instance runs in. | 
+| `region` | The AWS Region that the instance runs in. | 
+| `osPlatform` | The operating system platform of the instance (for example, `linux` or `windows`). | 
+| `osName` | The operating system name (for example, `Amazon Linux` or `Ubuntu`). On Linux, AWSTOE reads this value from `/etc/os-release`. | 
+| `osVersion` | The operating system version (for example, `2023`). On Linux, AWSTOE reads this value from `/etc/os-release`. On Windows and macOS, this value is an empty string. | 
+| `date` | The current date in UTC, in `YYYY-MM-DD` format (for example, `2026-06-15`). | 
+| `dateTime` | The current date and time in UTC, in RFC 3339 format (for example, `2026-06-15T10:30:00Z`). | 
+| `uuid` | A randomly generated version 4 UUID. | 
+| `hostname` | The hostname of the instance. | 
+| `phase` | The name of the currently running phase. | 
+| `step` | The name of the currently running step. | 
+
+**Note**  
+To get the instance ID, use the IMDS variable `{{ aws:imds:instance-id }}` rather than a context variable.
+
+The following example shows how to reference context variables in a component:
+
+```
+name: UseContextVariables
+description: This sample component prints out context variable values.
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: EchoContextValues
+        action: ExecuteBash
+        inputs:
+          commands:
+            - echo "Account: {{ context:accountId }}, OS: {{ context:osName }}."
+```

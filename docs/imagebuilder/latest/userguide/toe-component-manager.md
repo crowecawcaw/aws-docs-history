@@ -35,46 +35,12 @@ AWS is phasing out support for TLS versions 1.0 and 1.1. To access the S3 bucket
 | AMD64 | macOS 10.14.x (Mojave), 10.15.x (Catalina), 11.x (Big Sur), 12.x (Monterey) | https://awstoe-{{region}}.s3.{{region}}.amazonaws.com/latest/darwin/amd64/awstoe | [https://awstoe-us-east-1.s3.us-east-1.amazonaws.com/latest/darwin/amd64/awstoe](https://awstoe-us-east-1.s3.us-east-1.amazonaws.com/latest/darwin/amd64/awstoe) | 
 | AMD64 | Windows Server 2012 R2, 2016, 2019, and 2022 |  `https://awstoe-<region>.s3.<region>.amazonaws.com/latest/windows/amd64/awstoe.exe` | [https://awstoe-us-east-1.s3.us-east-1.amazonaws.com/latest/windows/amd64/awstoe.exe](https://awstoe-us-east-1.s3.us-east-1.amazonaws.com/latest/windows/amd64/awstoe.exe) | 
 | ARM64 | AL 2 and 2023<br />RHEL 7, 8, and 9<br />Ubuntu 16.04, 18.04, 20.04, 22.04, and 24.04<br />CentOS 7 and 8<br />CentOS Stream 8<br />SUSE 12 and 15 | https://awstoe-<region>.s3.<region>.amazonaws.com/latest/linux/arm64/awstoe | [https://awstoe-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/arm64/awstoe](https://awstoe-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/arm64/awstoe) | 
+| ARM64 | macOS 11.x (Big Sur) and later | https://awstoe-{{region}}.s3.{{region}}.amazonaws.com/latest/darwin/arm64/awstoe | [https://awstoe-us-east-1.s3.us-east-1.amazonaws.com/latest/darwin/arm64/awstoe](https://awstoe-us-east-1.s3.us-east-1.amazonaws.com/latest/darwin/arm64/awstoe) | 
 
 ## Supported Regions
 <a name="toe-supported-regions"></a>
 
-AWSTOE is supported as a standalone application in the following Regions.
-
-
-| AWS Region name | AWS Region | 
-| --- | --- | 
-| US East (Ohio) | us-east-2 | 
-| US East (N. Virginia) | us-east-1 | 
-| AWS GovCloud (US-East) | us-gov-east-1 | 
-| AWS GovCloud (US-West) | us-gov-west-1 | 
-| US West (N. California) | us-west-1 | 
-| US West (Oregon) | us-west-2 | 
-| Africa (Cape Town) | af-south-1 | 
-| Asia Pacific (Hong Kong) | ap-east-1 | 
-| Asia Pacific (Osaka) | ap-northeast-3 | 
-| Asia Pacific (Seoul) | ap-northeast-2 | 
-| Asia Pacific (Mumbai) | ap-south-1 | 
-| Asia Pacific (Hyderabad) | ap-south-2 | 
-| Asia Pacific (Singapore) | ap-southeast-1 | 
-| Asia Pacific (Sydney) | ap-southeast-2 | 
-| Asia Pacific (Jakarta) | ap-southeast-3 | 
-| Asia Pacific (Tokyo) | ap-northeast-1 | 
-| Canada (Central) | ca-central-1 | 
-| Europe (Frankfurt) | eu-central-1 | 
-| Europe (Zurich) | eu-central-2 | 
-| Europe (Stockholm) | eu-north-1 | 
-| Europe (Milan) | eu-south-1 | 
-| Europe (Spain) | eu-south-2 | 
-| Europe (Ireland) | eu-west-1 | 
-| Europe (London) | eu-west-2 | 
-| Europe (Paris) | eu-west-3 | 
-| Israel (Tel Aviv) | il-central-1 | 
-| Middle East (UAE) | me-central-1 | 
-| Middle East (Bahrain) | me-south-1 | 
-| South America (São Paulo) | sa-east-1 | 
-| China (Beijing) | cn-north-1 | 
-| China (Ningxia) | cn-northwest-1 | 
+AWSTOE is supported as a standalone application in all AWS Regions where EC2 Image Builder is available. When Image Builder launches in a new Region, the AWSTOE application download for that Region becomes available. For a list of the Regions where Image Builder is available, see [Image Builder Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html) in the *AWS General Reference*.
 
 ## AWSTOE command reference
 <a name="toe-commands"></a>

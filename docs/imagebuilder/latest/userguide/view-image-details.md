@@ -42,6 +42,9 @@ The current status of the image build version. Status can relate to the image bu
 **Reason for failure**  
 The reason for the image status. The Image Builder console only displays the reason when the build fails (**Image status** equals `Failed`).
 
+**Failure details**  
+Structured details about where the build failed, displayed when you choose a `Failed` image status. Details can include the stage that failed, the workflow step, the component step that raised the error, and the destination Regions that failed. The failed workflow step links to its runtime detail. For more information, see [Find the cause of a failed image build with failure context](image-failure-context.md).
+
 ### Output resources tab
 <a name="view-image-details-console-output-tab"></a>
 

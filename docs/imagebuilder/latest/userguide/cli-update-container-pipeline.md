@@ -27,14 +27,14 @@ Use the output as the basis for your update request JSON file.
 
 **Create a CLI input JSON file**
 
-   Use your favorite file editing tool to create a JSON file with the following keys, plus values that are valid for your environment. This example uses a file named `create-component.json`:
+   Use your favorite file editing tool to create a JSON file with the following keys, plus values that are valid for your environment. This example uses a file named `update-image-pipeline.json`:
 
    ```
    {
-   	"imagePipelineArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-pipeline/{{my-example-pipeline}}",
-   	"containerRecipeArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:container-recipe/{{my-example-recipe}}/2020.12.08",
-   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
-   	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
+   	"imagePipelineArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}}",
+   	"containerRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:container-recipe/{{my-example-recipe}}/2020.12.08",
+   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
+   	"distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
    	"imageTestsConfiguration": {
    		"imageTestsEnabled": true,
    		"timeoutMinutes": 120

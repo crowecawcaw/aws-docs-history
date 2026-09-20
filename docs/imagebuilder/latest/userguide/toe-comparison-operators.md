@@ -85,20 +85,20 @@ Tests if the string specified for `stringLessThan` is less than the string speci
 ```
 # Evaluates to true
 # This comparison operator isn't case sensitive
-stringlessThan: 'A'
+stringLessThan: 'A'
 value: 'a'
 
 # Evaluates to true - 'a' is less than 'b'
-stringlessThan: 'b'
+stringLessThan: 'b'
 value: 'a'
 
 # Evaluates to true
 # Numeric strings compare as less than alphabetic strings
-stringlessThan: 'a'
+stringLessThan: 'a'
 value: '0'
 
 # Evaluates to false
-stringlessThan: '0'
+stringLessThan: '0'
 value: 'a'
 ```
 

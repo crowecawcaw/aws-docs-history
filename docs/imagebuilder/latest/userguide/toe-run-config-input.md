@@ -5,7 +5,7 @@
 
 To streamline command line input for your AWSTOE **run** command, you can include settings for command parameters and options in a JSON format input configuration file with a `.json` file extension. AWSTOE can read your file from one of the following locations:
 + A local file path ({{./config.json}}).
-+ An S3 bucket ({{s3://<bucket-path>/<bucket-name>/config.json}}).
++ An S3 bucket ({{s3://<bucket-name>/<key-path>/config.json}}).
 
 When you enter the **run** command, you can specify the input configuration file using the **--config** parameter. For example:
 
@@ -66,7 +66,7 @@ The following example shows an input configuration file that runs the `build` an
 {
    "documents": [
      {
-       "path": "<file path>/awstoe/sampledoc.yaml>",
+       "path": "<file path>/awstoe/sampledoc.yaml",
        "parameters": [
          {
            "name": "dayofweek",
@@ -75,7 +75,7 @@ The following example shows an input configuration file that runs the `build` an
        ]
      },
      {
-       "path": "<file path>/awstoe/conversation-intro.yaml>",
+       "path": "<file path>/awstoe/conversation-intro.yaml",
        "parameters": [
          {
            "name": "greeting",

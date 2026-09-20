@@ -92,6 +92,7 @@ After the aggregate analysis, you can choose a drill-down prompt to investigate 
 <a name="devops-agent-troubleshooting-checks"></a>
 
 When you troubleshoot a failed build, the analysis covers the following areas:
++ **Failure context** – Reads the structured failure details on the failed image to scope the investigation to the stage, workflow step, component step, or destination that failed. For more information, see [Find the cause of a failed image build with failure context](image-failure-context.md).
 + **Build logs and Amazon CloudWatch logs** – Checks for errors, non-zero exit codes, timeouts, and stack traces.
 + **Workflow step executions** – Identifies the failed step and examines its details.
 + **Networking and permissions** – Reviews IAM instance profile permissions, security groups, subnet routing, NAT gateways, internet gateways, and VPC endpoints.

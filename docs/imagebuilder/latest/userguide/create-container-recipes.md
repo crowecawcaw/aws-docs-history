@@ -138,7 +138,7 @@ To provide the data values as command line parameters, refer to the parameter na
    + **components** (array of objects, optional) – Contains an array of `ComponentConfiguration` objects. Components are optional for container recipes. You can customize the output image with BUILD components, with instructions in your Dockerfile template (for example, `RUN` or `COPY` statements), or both. TEST components validate the image but don't modify it.
 **Note**  
 Image Builder installs components in the order that you specified them in the recipe. However, CIS hardening components always run last to ensure that the benchmark tests run against your output image.
-     + **componentARN** (string, required) – The component ARN.
+     + **componentArn** (string, required) – The component ARN.
 **Tip**  
 To use the example to create your own container recipe, replace the example ARNs with the ARNs for the components that you are using for your recipe,. These include the AWS Region, name, and the version number for each.
      + **parameters** (array of objects) – Contains an array of `ComponentParameter` objects. If an input parameter is required, but doesn't have a default value defined in the component, you must provide a value. Image Builder won't create the recipe version if there are any required parameters that are missing and don't have a default value defined.
