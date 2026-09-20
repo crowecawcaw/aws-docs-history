@@ -53,10 +53,13 @@ Choose a tab to view setup instructions for your preferred authentication method
 ------
 #### [ OAuth (simple) ]
 
-With OAuth, you sign in using the same credentials you use for the AWS Management Console. When you first connect, your MCP client opens a browser window to AWS Sign-In. After you authenticate and authorize access, tokens refresh automatically in the background.
+With OAuth, you sign in using the same credentials you use for the AWS Management Console. When you first connect, your MCP client opens a browser window to AWS Sign-In. After you authenticate and authorize access, tokens refresh automatically in the background until the refresh token expires.
 
 **Note**  
 Authorizing an agent does not grant it any additional AWS permissions. AWS evaluates every request against your IAM policies, service control policies, resource control policies, and permission boundaries.
+
+**Important**  
+The OAuth token expires based on the session duration configured for the IAM role used for authentication and can be extended for up to 12 hours. After the session expires, re-authenticate through the browser.
 
 **Prerequisites**  
 Grant OAuth sign-in permissions to your IAM role or user. You can attach the `AWSMcpServiceActionsFullAccess` managed policy, or add the `signin:AuthorizeOAuth2Access` and `signin:CreateOAuth2Token` actions to your IAM policy.
@@ -82,6 +85,57 @@ No explicit Allow for `partnercentral:*` actions is required for MCP protocol ac
 
 **Configure your MCP client**  
 Use one of the following clients to connect.
+
+**Amazon Quick**  
+Create a connector and install it in Quick Desktop.
+
+**Part 1: Create the connector**  
+Complete the following steps in Amazon Quick.
+
+1. In the left panel of Amazon Quick, open **Capabilities** → **Connectors**.
+
+1. Choose **Create** → **Web Connectors**. Quick web opens in your default browser.
+
+1. Select the **Create for your team** tab, then choose **Model Context Protocol**.
+
+1. Choose **No, Create New** and enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name</td><td>Partner Central Agents</td></tr>
+  <tr><td>Description</td><td>MCP to Partner Central Agents</td></tr>
+  <tr><td>MCP server endpoint</td><td><code>https://partnercentral-agents-mcp.us-east-1.api.aws/mcp</code></td></tr>
+  <tr><td>Connection type</td><td>Public network</td></tr>
+  <tr><td>Auth connection type</td><td>Public network</td></tr>
+</tbody>
+</table>
+
+
+1. Choose **Next**.
+
+1. For **Auth configuration**, select **Default OAuth app**.
+
+1. Choose **Create and Continue**. A browser popup opens to sign in with your Partner Central account — select your existing signed-in account.
+
+1. After the popup closes, choose **Next** to reach the review section.
+
+1. In the **Publish** section, select the aliases you want to share the connector with (including your own), or share with your entire organization. You can also designate other owners for the users you select here.
+
+**Part 2: Connect in Quick Desktop**  
+Install the connector in your desktop application.
+
+1. In Quick Desktop, open **Capabilities**.
+
+1. On the **Connectors** tab, choose **Browse More** and search for **Partner Central Agents**. It might take a few minutes to appear.
+
+1. Choose **Install**.
+
+**Re-sign in to the connector**  
+To sign in again after the token expires, the connector owner must open the connector page in Quick web and choose **Sign In**.
 
 **Claude Code CLI**  
 Run the following command:
@@ -113,40 +167,6 @@ Add as a remote MCP server with the following URL:
 ```
 https://partnercentral-agents-mcp.us-east-1.api.aws/mcp
 ```
-
-**Amazon Quick**  
-Create a connector and install it in Quick Desktop.
-
-**Part 1: Create the connector**  
-Complete the following steps in Amazon Quick.
-
-1. In the left panel of Amazon Quick, open **Capabilities** → **Connectors**.
-
-1. Choose **Create** → **Web Connectors**. Quick web opens in your default browser.
-
-1. Select the **Create for your team** tab, then choose **Model Context Protocol**.
-
-1. Choose **No, Create New** and enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/partner-central/latest/developer-guide/mcp-getting-started.html)
-
-1. Choose **Next**.
-
-1. For **Auth configuration**, select **Default OAuth app**.
-
-1. Choose **Create and Continue**. A browser popup opens to sign in with your Partner Central account — select your existing signed-in account.
-
-1. After the popup closes, choose **Next** to reach the review section.
-
-1. In the **Publish** section, select the aliases you want to share the connector with (including your own), or share with your entire organization.
-
-**Part 2: Connect in Quick Desktop**  
-Install the connector in your desktop application.
-
-1. In Quick Desktop, open **Capabilities**.
-
-1. On the **Connectors** tab, choose **Browse More** and search for **Partner Central Agents**. It might take a few minutes to appear.
-
-1. Choose **Install**.
 
 **Note**  
 If your client is not listed, use the endpoint URL above. If tool calls fail due to credential errors, append `?oauth=initialize` to the URL to explicitly trigger the OAuth sign-in flow.

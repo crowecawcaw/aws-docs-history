@@ -27,8 +27,20 @@ The agent maintains conversation context within a session, so you can ask follow
 <a name="mcp-sendmessage-parameters"></a>
 + `content` (required) — Array of content blocks. Each block must include a `type` field that determines the block structure. You can include multiple blocks in a single message (e.g., text \+ document attachment).
 
-  Content block types:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/partner-central/latest/developer-guide/mcp-tools-reference.html)
+  Content block types:
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Fields</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>text</code></td><td><code>type</code> (required), <code>text</code> (required)</td><td>User message text sent to the agent</td></tr>
+  <tr><td><code>document</code></td><td><code>type</code> (required), <code>filename</code> (required), <code>s3Uri</code> (required)</td><td>File attachment for the agent to analyze. The <code>s3Uri</code> must include a <code>versionId</code> parameter.</td></tr>
+  <tr><td><code>tool_approval_response</code></td><td><code>type</code> (required), <code>toolUseId</code> (required), <code>decision</code> (required), <code>message</code> (optional)</td><td>Response to a human-in-the-loop approval request</td></tr>
+</tbody>
+</table>
+
 + `catalog` (required) — Target environment for the operation.
 
   Valid values: `"AWS"` (production), `"Sandbox"` (testing)
