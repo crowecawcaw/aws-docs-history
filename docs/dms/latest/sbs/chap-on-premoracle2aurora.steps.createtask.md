@@ -18,14 +18,56 @@ To create a migration task, do the following:
 
 1. Choose **Create Task**.
 
-1. On the **Create Task** page, specify the task options. The following table describes the settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-on-premoracle2aurora.steps.createtask.html)
+1. On the **Create Task** page, specify the task options. The following table describes the settings.
 
-1. Next, set the Advanced settings as shown following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-on-premoracle2aurora.steps.createtask.html)
 
-1. Set additional parameters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-on-premoracle2aurora.steps.createtask.html)
+<table>
+<thead>
+  <tr><th>For This Option</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Task name</b> </td><td>It’s always a good idea to give your task a descriptive name that helps organization.</td></tr>
+  <tr><td> <b>Task description</b> </td><td>Enter a description for the task.</td></tr>
+  <tr><td> <b>Source endpoint</b> </td><td>Select your source endpoint.</td></tr>
+  <tr><td> <b>Target endpoint</b> </td><td>Select your target endpoint.</td></tr>
+  <tr><td> <b>Replication instance</b> </td><td>Select a replication instance on which to run the task. Remember, your source and target endpoints must be accessible from this instance.</td></tr>
+  <tr><td> <b>Migration type</b> </td><td>You can use three different migration types with AWS DMS.<br /> <i>1. Migrate existing data</i> <br />If you select this option, AWS DMS migrates only your existing data. Changes to your source data aren’t captured and applied to your target. If you can afford taking an outage for the duration of the full load, migrating with this option is simple and straight forward. This method is also good to use when creating test copies of your database.<br /> <i>2. Migrate existing data and replicate ongoing changes</i> <br />With this option, AWS DMS captures changes while migrating your existing data. AWS DMS continues to capture and apply changes even after the bulk data has been loaded. Eventually the source and target databases will be in sync, allowing for a minimal downtime migration. To do this, take the following steps:<br />* Shut the application down<br />* Let the final change flow through to the target<br />* Perform any administrative tasks such as enabling foreign keys and triggers<br />* Start the application pointing to the new target database<br />Note that AWS DMS loads the bulk data table-by-table, &lt;n&gt; tables at a time. As the full load progresses, AWS DMS begins applying cached changes to the target tables as soon as possible. During the bulk load, referential integrity is violated, therefore existing foreign keys must be disabled for the full load. Once the full load is complete, your target database has integrity and changes are applied as transactions.<br /> <i>3. Replicate data changes only</i> <br />In some cases you might choose to load bulk data using a different method. This approach generally only applies to homogeneous migrations.</td></tr>
+  <tr><td> <b>Start task on create</b> </td><td>In most situations having the task start immediately is fine. Sometimes you might want to delay the start of a task, for instance, to change logging levels.</td></tr>
+</tbody>
+</table>
+
+
+1. Next, set the Advanced settings as shown following.
+
+
+<table>
+<thead>
+  <tr><th>For This Option</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Target table preparation mode</b> </td><td> AWS DMS allows you to specify how you would like your target tables prepared prior to loading.<br /> <b>Do nothing</b> - When you select this option, AWS DMS does nothing to prepare your tables. Your table structure remains as is and any existing data is left in the table. You can use this method to consolidate data from multiple systems.<br /> <b>Drop tables on target</b> - Typically you use this option when you want AWS DMS to create your target table for you. When you select this option, AWS DMS drops and recreates the tables to migrate before migration.<br /> <b>Truncate</b> - Select this option if you want to pre-create some or all of the tables on your target system, maybe with the AWS Schema Conversion Tool. When you select this option, AWS DMS truncates a target table prior to loading it. If the target table doesn’t exist, AWS DMS creates the table for you.</td></tr>
+  <tr><td> <b>Include LOB columns in replication</b> </td><td>Large objects, (LOBs) can sometimes be difficult to migrate between systems. AWS DMS offers a number of options to help with the tuning of LOB columns. To see which and when datatypes are considered LOBS by AWS DMS, see the AWS DMS documentation.<br /> <b>Don’t include LOB columns</b> - When you migrate data from one database to another, you might take the opportunity to rethink how your LOBs are stored, especially for heterogeneous migrations. If you want to do so, there’s no need to migrate the LOB data.<br /> <b>Full LOB mode</b> - In <b>full LOB mode</b> AWS DMS migrates all LOBs from source to target regardless of size. In this configuration, AWS DMS has no information about the maximum size of LOBs to expect. Thus, LOBs are migrated one at a time, piece by piece. Full LOB mode can be quite slow.<br /> <b>Limited LOB mode</b> - In <b>limited LOB mode</b>, you set a maximum size LOB that AWS DMS should accept. Doing so allows AWS DMS to pre-allocate memory and load the LOB data in bulk. LOBs that exceed the maximum LOB size are truncated and a warning is issued to the log file. In<b> limited LOB mode</b> you get significant performance gains over <b>full LOB mode</b>. We recommend that you use <b>limited LOB mode</b> whenever possible.<br />Note that with Oracle, LOBs are treated as VARCHAR data types whenever possible. This approach means AWS DMS fetches them from the database in bulk, which is significantly faster than other methods. The maximum size of a VARCHAR in Oracle is 64K, therefore a limited LOB size of less than 64K is optimal when Oracle is your source database.</td></tr>
+  <tr><td> <b>Max LOB size (K)</b> </td><td>When a task is configured to run in <b>limited LOB mode</b>, this option determines the maximum size LOB that AWS DMS accepts. Any LOBs that are larger than this value will be truncated to this value.</td></tr>
+  <tr><td> <b>LOB chunk size (K)</b> </td><td>When a task is configured to use <b>full LOB mode</b>, AWS DMS retrieves LOBs in pieces. This option determines the size of each piece. When setting this option, pay particular attention to the maximum packet size allowed by your network configuration. If the LOB chunk size exceeds your maximum allowed packet size, you might see disconnect errors.</td></tr>
+  <tr><td> <b>Custom CDC start time</b> </td><td>This parameter pertains to tasks configured to replicate data changes only. It tells AWS DMS where to start looking for changes in the change stream.</td></tr>
+  <tr><td> <b>Enable logging</b> </td><td>Always enable logging.</td></tr>
+</tbody>
+</table>
+
+
+1. Set additional parameters.
+
+
+<table>
+<thead>
+  <tr><th>For This Option</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Create control table(s) in target schema</b> </td><td> AWS DMS requires some control tables in the target database. By default those tables are created in the same database as your data. This parameter allows you to tell AWS DMS to puts those artifacts somewhere else.</td></tr>
+  <tr><td> <b>Maximum number of tables to load in parallel</b> </td><td> AWS DMS performs a table-by-table load of your data. This parameter allows you to control how many tables AWS DMS will load in parallel. The default is 8, which is optimal in most situations.</td></tr>
+</tbody>
+</table>
+
 
 1. Specify any table mapping settings.
 

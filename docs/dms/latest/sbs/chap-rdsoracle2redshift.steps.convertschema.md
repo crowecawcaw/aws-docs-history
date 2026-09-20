@@ -11,16 +11,48 @@ To convert an Oracle schema to an Amazon Redshift schema using AWS Schema Conver
 
 1. Choose **Add source** to add a source Oracle database to your project, then choose **Oracle**, and choose **Next**.
 
-1. Enter the following information, and then choose **Test Connection**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2redshift.steps.convertschema.html)  
+1. Enter the following information, and then choose **Test Connection**.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Connection name</b> </td><td>Enter <code>Oracle DW</code>. AWS SCT displays this name in the tree in the left panel.</td></tr>
+  <tr><td> <b>Type</b> </td><td>Choose <b>SID</b>.</td></tr>
+  <tr><td> <b>Server name</b> </td><td>Use the <b>OracleJDBCConnectionString</b> value you used to connect to the Oracle DB instance, but remove the JDBC prefix information and the port and database name suffix. For example, a sample connection string you use with SQL Workbench/J might be <code> "jdbc:oracle:thin:@abc12345678.cqi87654abc.us-west-2.rds.amazonaws.com:1521:ORCL"</code>. For AWS SCT <b>Server name</b>, you remove <code>"jdbc:oracle:thin:@"</code> and <code>":1521:ORCL"</code> and use just the server name: <code>"abc12345678.cqi87654abc.us-west-2.rds.amazonaws.com"</code>.</td></tr>
+  <tr><td> <b>Server port</b> </td><td>Enter <code>1521</code>.</td></tr>
+  <tr><td> <b>Oracle SID</b> </td><td>Enter <code>ORCL</code>.</td></tr>
+  <tr><td> <b>User name</b> </td><td>Enter <code>oraadmin</code>.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Enter <code>oraadmin123</code>.</td></tr>
+</tbody>
+</table>
+  
 ![Connecting to an Amazon RDS for Oracle DB instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift11.png)
 
 1. Choose **OK** to close the alert box, then choose **Connect** to close the dialog box and to connect to the Oracle DB instance.
 
 1. Choose **Add target** to add a target Amazon Redshift database to your project, then choose **Amazon Redshift**, and choose **Next**.
 
-1. Enter the following information and then choose **Test Connection**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2redshift.steps.convertschema.html)
+1. Enter the following information and then choose **Test Connection**.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Connection name</b> </td><td>Enter <code>Amazon Redshift</code>. AWS SCT displays this name in the tree in the right panel.</td></tr>
+  <tr><td> <b>Type</b> </td><td>Choose <b>SID</b>.</td></tr>
+  <tr><td> <b>Server name</b> </td><td>Use the <b>RedshiftJDBCConnectionString</b> value you used to connect to the Amazon Redshift cluster, but remove the JDBC prefix information and the port suffix. For example, a sample connection string you use with SQL Workbench/J might be " jdbc:redshift://oracletoredshiftdwusingdms-redshiftcluster-abc123567.abc87654321.us-west-2.redshift.amazonaws.com:5439/test". For AWS SCT <b>Server name</b>, you remove " jdbc:redshift://" and :5439/test" to use just the server name: "oracletoredshiftdwusingdms-redshiftcluster-abc123567.abc87654321.us-west-2.redshift.amazonaws.com"</td></tr>
+  <tr><td> <b>Server port</b> </td><td>Enter <code>5439</code>.</td></tr>
+  <tr><td> <b>User name</b> </td><td>Enter <code>redshiftadmin</code>.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Enter <code>Redshift#123</code>.</td></tr>
+  <tr><td> <b>Use AWS Glue </b> </td><td>Turn off this option.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **OK** to close the alert box, then choose **Connect** to connect to the Amazon Redshift DB instance.
 

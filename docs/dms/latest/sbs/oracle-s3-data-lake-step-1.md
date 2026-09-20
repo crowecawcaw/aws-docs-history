@@ -21,7 +21,22 @@ For information about best practices for using AWS DMS, see [Database Migration 
 
 1. Choose **Replication instances**, then choose **Create replication instance**.
 
-1. On the **Create replication instance** page, enter the following information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/oracle-s3-data-lake-step-1.html)
+1. On the **Create replication instance** page, enter the following information.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Name</b> </td><td>Enter <code>oracle-s3-migration-replication-instance</code>. If you use multiple replication servers or sharing a user, choose a name that helps you quickly differentiate between the different servers.</td></tr>
+  <tr><td> <b>Description</b> </td><td>Enter <code>Replication instance that suports Oracle to S3 data lake migration</code>. You can change the description to fit your use case.</td></tr>
+  <tr><td> <b>Instance class</b> </td><td>Choose <code>dms.c5.12xlarge</code>.</td></tr>
+  <tr><td> <b>VPC</b> </td><td>Choose the virtual private cloud (VPC) where AWS DMS launches your replication instance. If possible, select the same VPC in which either your source or target database resides (or both).</td></tr>
+  <tr><td> <b>Multi AZ</b> </td><td>Choose <b>Yes</b>.</td></tr>
+  <tr><td> <b>Publicly accessible</b> </td><td>Turn off this option.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create**.

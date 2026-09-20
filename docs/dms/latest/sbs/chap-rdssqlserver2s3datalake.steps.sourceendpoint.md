@@ -15,8 +15,27 @@ To create a source endpoint, do the following:
 
 1. Choose **Create endpoint**.
 
-1. On the **Create endpoint** page, enter the following information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdssqlserver2s3datalake.steps.sourceendpoint.html)
+1. On the **Create endpoint** page, enter the following information.
+
+
+<table>
+<thead>
+  <tr><th>For This Parameter</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Endpoint type</b> </td><td>Choose <b>Source endpoint</b>, turn on <b>Select RDS DB instance</b>, and choose <code>datalake-source-db</code> RDS instance.</td></tr>
+  <tr><td> <b>Endpoint identifier</b> </td><td>Enter <b>datalake-source-db</b>.</td></tr>
+  <tr><td> <b>Source engine</b> </td><td>Choose <b>Microsoft SQL Server</b>.</td></tr>
+  <tr><td> <b>Access to endpoint database</b> </td><td>Choose <b>Provide access information manually</b>.</td></tr>
+  <tr><td> <b>Server name</b> </td><td>Enter the database server name on Amazon RDS.</td></tr>
+  <tr><td> <b>Port</b> </td><td>Enter <b>1433</b>.</td></tr>
+  <tr><td> <b>Secure Socket Layer (SSL) mode</b> </td><td>Choose <b>none</b>.</td></tr>
+  <tr><td> <b>User name</b> </td><td>Enter <b>dms_user</b>.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Enter the password that you created for the <code>dms_user</code> user.</td></tr>
+  <tr><td> <b>Database name</b> </td><td>Enter <b>AdventureWorks</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create endpoint**.
 

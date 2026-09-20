@@ -21,8 +21,24 @@ Now you need to provision the necessary AWS resources for this walkthrough. Do t
 
 1. Click **Choose file**, and then choose the `Oracle_Aurora_For_DMSDemo.template` file that you extracted from the `dms-sbs-RDSOracle2Aurora.zip` archive.
 
-1. Choose **Next**. On the **Specify Details** page, provide parameter values as shown following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2aurora.steps.launchrdswcloudformation.html)  
+1. Choose **Next**. On the **Specify Details** page, provide parameter values as shown following.
+
+
+<table>
+<thead>
+  <tr><th>For This Parameter</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Stack Name</b> </td><td>Enter <code>DMSdemo</code>.</td></tr>
+  <tr><td> <b>OracleDBName</b> </td><td>Provide a unique name for your database. The name should begin with a letter. The default is <code>ORCL</code>.</td></tr>
+  <tr><td> <b>OracleDBUsername</b> </td><td>Specify the admin (DBA) user for managing the Oracle instance. The default is <code>oraadmin</code>.</td></tr>
+  <tr><td> <b>OracleDBPassword</b> </td><td>Provide the password for the admin user. The default is <code>oraadmin123</code> .</td></tr>
+  <tr><td> <b>AuroraDBUsername</b> </td><td>Specify the admin (DBA) user for managing the Aurora MySQL instance. The default is <code>auradmin</code> .</td></tr>
+  <tr><td> <b>AuroraDBPassword</b> </td><td>Provide the password for the admin user. The default is <code>auradmin123</code> .</td></tr>
+  <tr><td> <b>ClientIP</b> </td><td>Specify the IP address in CIDR (x.x.x.x/32) format for your local computer. You can get your IP address from <a href="https://www.whatsmyip.org/">whatsmyip.org</a>. Your RDS instances' security group will allow ingress to this IP address. The default is access from anywhere (0.0.0.0/0), which is not recommended; you should use your IP address for this walkthrough.</td></tr>
+</tbody>
+</table>
+  
 ![Specify Details page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora3.png)
 
 1. Choose **Next**. On the **Configure stack options** page, shown following, choose **Next**.  

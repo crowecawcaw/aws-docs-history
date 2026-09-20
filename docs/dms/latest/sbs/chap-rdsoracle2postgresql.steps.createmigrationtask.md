@@ -5,8 +5,24 @@
 
 Using an AWS DMS task, you can specify which schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data and replicates ongoing changes.
 
-1. On the **Create Task** page, specify the task options. The following table describes the settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.createmigrationtask.html)
+1. On the **Create Task** page, specify the task options. The following table describes the settings.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Task name</b> </td><td>Enter a name for the migration task.</td></tr>
+  <tr><td> <b>Task description</b> </td><td>Enter a description for the task.</td></tr>
+  <tr><td> <b>Source endpoint</b> </td><td>Shows the Oracle source endpoint.<br />If you have more than one endpoint in the account, then choose the correct endpoint from the list.</td></tr>
+  <tr><td> <b>Target endpoint</b> </td><td>Shows the PostgreSQL target endpoint.</td></tr>
+  <tr><td> <b>Replication instance</b> </td><td>Shows the AWS DMS replication instance.</td></tr>
+  <tr><td> <b>Migration type</b> </td><td>Choose <b>Migrate existing data and replicate ongoing changes</b>.</td></tr>
+  <tr><td> <b>Start task on create</b> </td><td>Select this option.</td></tr>
+</tbody>
+</table>
+
 
    The page should look like the following:  
 ![Create task page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgressql23.png)

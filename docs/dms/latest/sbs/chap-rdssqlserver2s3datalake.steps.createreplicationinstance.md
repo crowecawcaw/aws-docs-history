@@ -18,7 +18,24 @@ To create an AWS DMS replication instance, do the following:
 
 1. On the Welcome page, choose **Create replication instance** to start a database migration.
 
-1. On the **Create replication instance** page, specify your replication instance information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdssqlserver2s3datalake.steps.createreplicationinstance.html)
+1. On the **Create replication instance** page, specify your replication instance information.
+
+
+<table>
+<thead>
+  <tr><th>For This Parameter</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Name</b> </td><td>Enter <code>datalake-migration-ri</code>. If you are using multiple replication servers or sharing a user, choose a name that helps you quickly differentiate between the different servers.</td></tr>
+  <tr><td> <b>Description</b> </td><td>Enter <code>Migrate SQL Server to Amazon S3 data lake</code>.</td></tr>
+  <tr><td> <b>Instance class</b> </td><td>Choose <code>dms.c5.xlarge</code>. Each size and type of instance class has increasing CPU, memory, and I/O capacity.</td></tr>
+  <tr><td> <b>Engine version</b> </td><td>Leave the default value, which is the latest stable version of the AWS DMS replication engine.</td></tr>
+  <tr><td> <b>Allocated storage (GiB)</b> </td><td>Choose <code>50</code>.</td></tr>
+  <tr><td> <b>VPC</b> </td><td>Choose the virtual private cloud (VPC) in which your replication instance will launch. If possible, select the same VPC in which either your source or target database resides (or both).</td></tr>
+  <tr><td> <b>Multi AZ</b> </td><td>If you choose <b>Yes</b>, AWS DMS creates a second replication server in a different Availability Zone for failover if there is a problem with the primary replication server.</td></tr>
+  <tr><td> <b>Publicly accessible</b> </td><td>If either your source or target database resides outside of the VPC in which your replication server resides, you must make your replication server policy publicly accessible.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create**.

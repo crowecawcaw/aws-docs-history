@@ -11,16 +11,45 @@ To convert a SQL Server schema to an Aurora MySQL schema, do the following:
 
 1. Choose **Add source** to add a source Microsoft SQL Server database to your project, then choose **Microsoft SQL Server**, and choose **Next**.
 
-1. Enter the following information, and then choose **Test connection**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-sqlserver2aurora.steps.convertschema.html)  
+1. Enter the following information, and then choose **Test connection**.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Connection name</b> </td><td>Enter <code>Microsoft SQL Server</code>. AWS SCT displays this name in the tree in the left panel.</td></tr>
+  <tr><td> <b>Server name</b> </td><td>Enter the server name.</td></tr>
+  <tr><td> <b>Server port</b> </td><td>Enter the SQL Server port number. The default is <code>1433</code>.</td></tr>
+  <tr><td> <b>Instance name</b> </td><td>Enter the SQL Server database instance name.</td></tr>
+  <tr><td> <b>User name</b> </td><td>Enter the SQL Server admin user name.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Enter the password for the admin user.</td></tr>
+</tbody>
+</table>
+  
 ![Test Connection to SQL Server Database](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsqlserver2aurora-sctconnectsqlserv.png)
 
 1. Choose **OK** to close the alert box. Then choose **Connect** to close the dialog box and connect to the Microsoft SQL Server database instance. AWS SCT displays the structure of the Microsoft SQL Server database instance in the left panel.
 
 1. Choose **Add target** to add a target Amazon Aurora MySQL database to your project, then choose **Amazon Aurora (MySQL compatible)**, and choose **Next**.
 
-1. Enter the following information and then choose **Test Connection**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-sqlserver2aurora.steps.convertschema.html)
+1. Enter the following information and then choose **Test Connection**.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Connection name</b> </td><td>Enter <code>Aurora MySQL</code>. AWS SCT displays this name in the tree in the right panel.</td></tr>
+  <tr><td> <b>Server name</b> </td><td>Enter the server name.</td></tr>
+  <tr><td> <b>Server port</b> </td><td>Enter the SQL Server port number. The default is <code>3306</code>.</td></tr>
+  <tr><td> <b>User name</b> </td><td>Enter the Aurora MySQL admin user name.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Enter the password for the admin user.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **OK** to close the alert box. Then choose **Connect** to close the dialog box and connect to the Aurora MySQL database instance.
 

@@ -7,8 +7,22 @@ After the AWS CloudFormation stack has been created, test the connection to the 
 
 To test the connection to your Oracle DB instance and create the sample schema, do the following:
 
-1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Create a new connection profile using the following information as shown following    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2aurora.steps.connectoracle.html)
+1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Create a new connection profile using the following information as shown following
+
+
+<table>
+<thead>
+  <tr><th>For This Parameter</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>New profile</b> name</td><td>Enter <code>RDSOracleConnection</code>.</td></tr>
+  <tr><td> <b>Driver</b> </td><td>Choose <code>Oracle (oracle.jdbc.OracleDriver)</code>.</td></tr>
+  <tr><td> <b>URL</b> </td><td>Use the <b>OracleJDBCConnectionString</b> value you recorded when you examined the output details of the DMSdemo stack in a previous step.</td></tr>
+  <tr><td> <b>Username</b> </td><td>Enter <code>oraadmin</code>.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Provide the password for the admin user that you assigned when creating the Oracle DB instance using the AWS CloudFormation template.</td></tr>
+</tbody>
+</table>
+
 
 1. To test the connection, choose **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.  
 ![Connecting to the Oracle DB instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora9.png)

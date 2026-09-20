@@ -212,32 +212,150 @@ You can restore your backup files from your Amazon S3 bucket to a create new Ama
 
 1. In the **Create database by restoring from S3** page, specify the following settings in the following sections:
 
-   1. In the **S3 Destination** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
+   1. In the **S3 Destination** section, specify the following:
 
-   1. In the **Engine Options** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
 
-   1. In the **IAM role** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>S3 Bucket</b> </td><td>Select the Amazon S3 bucket where your backup files are stored.</td></tr>
+  <tr><td> <b>S3 Prefix (Optional)</b> </td><td>Specify a file path prefix for the files stored in your Amazon S3 bucket. The <b>S3 Bucket Prefix</b> is optional. If you don’t specify a prefix, then Amazon Aurora MySQL will create the DB cluster using all of the files in the root folder of the S3 bucket. If you specify a prefix, then Amazon Aurora MySQL will create the DB cluster using the files in the S3 bucket where the full path for the file begins with the specified prefix.<br />Amazon Aurora MySQL does not traverse subfolders in your S3 bucket looking for backup files. Only the files from the folder identified by the <b>S3 Bucket Prefix</b> are used. If you store your backup files in a subfolder in your S3 bucket, then you must specify a prefix that identifies the full path to the folder where the files are stored.<br />For example, if you store your backup files in a subfolder of your S3 bucket named <code>backups</code>, and you have multiple sets of backup files, each in its own directory (<code>gzip_backup1</code>, <code>gzip_backup2</code>, and so on), then you would specify a prefix of <code>backups/gzip_backup1</code> to restore from the files in the <code>gzip_backup1</code> folder.</td></tr>
+</tbody>
+</table>
 
-   1. In the **Settings** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
 
-   1. In the **DB Instance Class** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
+   1. In the **Engine Options** section, specify the following:
 
-   1. In the **Availability & durability** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
 
-   1. In the **Connectivity** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Engine Type</b> </td><td>Keep Amazon Aurora selected.</td></tr>
+  <tr><td> <b>Edition</b> </td><td>Keep Amazon Aurora with MySQL compatibility selected.</td></tr>
+  <tr><td> <b>Version</b> </td><td>Specify the version of the MySQL database that the backup files were created from, for example <code>5.7</code>. MySQL version 5.6 and 5.7 are supported.</td></tr>
+</tbody>
+</table>
 
-   1. In the **Database authentication** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
 
-   1. In the **Additional configuration** section, specify the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-mysql2aurora.html)
+   1. In the **IAM role** section, specify the following:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>IAM Role</b> </td><td>Choose the IAM role that you created to authorize Amazon Aurora MySQL to access Amazon S3 on your behalf. If you have not created an IAM role, you can choose <b>Create a New Role</b> to create one.</td></tr>
+</tbody>
+</table>
+
+
+   1. In the **Settings** section, specify the following:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>DB cluster identifier</b> </td><td>Enter a name for your DB cluster. This identifier will be used in the endpoint address for the primary instance of your DB cluster.<br />The DB instance identifier has the following constraints:<ul><li> It must contain from 1 to 63 alphanumeric characters or hyphens. </li><li> Its first character must be a letter. </li><li> It cannot end with a hyphen or contain two consecutive hyphens. </li><li> It must be unique for all DB instances per user, for each region. </li></ul></td></tr>
+  <tr><td> <b>Master Username</b> </td><td>Enter a name using alphanumeric characters that you will use as the master user name to log on to your DB cluster. The default privileges granted to the master user name account include: <code>create, drop, references, event, alter, delete, index, insert, select, update, create temporary tables, lock tables, trigger, create view, show view, alter routine, create routine, execute, create user, process, show databases, grant option</code>.</td></tr>
+  <tr><td> <b>Auto generate a password</b> </td><td>Leave unchecked.</td></tr>
+  <tr><td> <b>Master Password</b> </td><td>Enter a password that contains from 8 to 41 printable ASCII characters (excluding /,", and @) for your master user password.</td></tr>
+  <tr><td> <b>Confirm Password</b> </td><td>Retype the Master Password.</td></tr>
+</tbody>
+</table>
+
+
+   1. In the **DB Instance Class** section, specify the following:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>DB Instance Class</b> </td><td>Select a DB instance class that defines the processing and memory requirements for each instance in the DB cluster. Aurora MySQL supports the <code>db.r3.large</code>, <code>db.r3.xlarge</code>, <code>db.r3.2xlarge</code>, <code>db.r3.4xlarge</code>, and <code>db.r3.8xlarge</code> DB instance classes. For more information about DB instance class options, see the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">Amazon RDS documentation.</a>.</td></tr>
+</tbody>
+</table>
+
+
+   1. In the **Availability & durability** section, specify the following:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Multi-AZ Deployment</b> </td><td>Determine if you want to create Aurora MySQL Replicas in other Availability Zones for failover support. For more information about multiple Availability Zones, see the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Amazon RDS documentation</a>.</td></tr>
+</tbody>
+</table>
+
+
+   1. In the **Connectivity** section, specify the following:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Virtual private cloud (VPC)</b> </td><td>Select the VPC that will host the DB cluster. Select <b>Create a New VPC</b> to have Amazon RDS create a VPC for you. For more information, see earlier in this topic.</td></tr>
+  <tr><td> <b>Subnet group</b> </td><td>Select the DB subnet group to use for the DB cluster. Select <b>Create a New DB Subnet Group</b> to have Amazon RDS create a DB subnet group for you. For more information, see earlier in this topic.</td></tr>
+  <tr><td> <b>Public access</b> </td><td>Select <b>Yes</b> to give the DB cluster a public IP address; otherwise, select <b>No</b>. The instances in your DB cluster can be a mix of both public and private DB instances. For more information about hiding instances from public access, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.CreateInstance.html">Amazon RDS documentation</a>.</td></tr>
+  <tr><td> <b>VPC Security Group(s)</b> </td><td>Select one or more VPC security groups to secure network access to the DB cluster. Select <b>Create a New VPC Security Group</b> to have Amazon RDS create a VPC security group for you. For more information, see earlier in this topic.</td></tr>
+  <tr><td> <b>Availability Zone</b> </td><td>Determine if you want to specify a particular Availability Zone. For more information about Availability Zones, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Amazon RDS documentation</a>.</td></tr>
+  <tr><td> <b>Database Port</b> </td><td>Specify the port that applications and utilities will use to access the database. Aurora MySQL DB clusters default to the default MySQL port, 3306. The firewalls at some companies block connections to the default MySQL port. If your company firewall blocks the default port, choose another port for the new DB cluster.</td></tr>
+</tbody>
+</table>
+
+
+   1. In the **Database authentication** section, specify the following:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Database Authentication</b> </td><td>Leave <b>Password authentication</b> selected.</td></tr>
+</tbody>
+</table>
+
+
+   1. In the **Additional configuration** section, specify the following:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Initial Database Name</b> </td><td>Enter a name for your database of up to 8 alphanumeric characters. If you don’t provide a name, Amazon RDS will not create a database on the DB cluster you are creating.</td></tr>
+  <tr><td> <b>DB cluster parameter Group</b> </td><td>Select a parameter group for the cluster. Aurora MySQL has a default parameter group you can use, or you can create your own parameter group. For more information about parameter groups, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.CreateInstance.html">Amazon RDS documentation</a>.</td></tr>
+  <tr><td> <b>DB parameter Group</b> </td><td>Select a parameter group for the database.</td></tr>
+  <tr><td> <b>Option Group</b> </td><td>Select an option group. Aurora MySQL has a default option group you can use, or you can create your own option group. For more information about option groups, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.CreateInstance.html">Amazon RDS documentation</a>.</td></tr>
+  <tr><td> <b>Failover Priority</b> </td><td>Choose a failover priority for the instance. If you don’t select a value, the default is <b>tier-1</b>. This priority determines the order in which Aurora MySQL Replicas are promoted when recovering from a primary instance failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.CreateInstance.html">Amazon RDS documentation</a>.</td></tr>
+  <tr><td> <b>Backup Retention Period</b> </td><td>Select the length of time, from 1 to 35 days, that Aurora MySQL will retain backup copies of the database. Backup copies can be used for point-in-time restores (PITR) of your database, timed down to the second.</td></tr>
+  <tr><td> <b>Copy tags to snapshots</b> </td><td>Leave checked.</td></tr>
+  <tr><td> <b>Enable Encryption</b> </td><td>Check the box to enable encryption at rest for this DB cluster. Leave <b> AWS KMS Key</b> set to <b>(default) aws/rds</b>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.CreateInstance.html">Amazon RDS documentation</a>.</td></tr>
+  <tr><td> <b>Backtrack</b> </td><td>Leave unchecked.</td></tr>
+  <tr><td> <b>Enable Performance insights</b> </td><td>Leave checked. Leave <b>Retention Period</b> and <b> AWS KMS Key</b> as they are.</td></tr>
+  <tr><td> <b>Enable Enhanced Monitoring</b> </td><td>Choose <b>Yes</b> to enable gathering metrics in real time for the operating system that your DB cluster runs on. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.CreateInstance.html">Amazon RDS documentation</a>.</td></tr>
+  <tr><td> <b>Granularity</b> </td><td>This option is only available if <b>Enable Enhanced Monitoring</b> is set to <b>Yes</b>. Set the interval, in seconds, between times at which metrics are collected for your DB cluster.</td></tr>
+  <tr><td> <b>Monitoring role</b> </td><td>Leave as <b>default</b>.</td></tr>
+  <tr><td> <b>Log exports</b> </td><td>Leave unchecked.</td></tr>
+  <tr><td> <b>Enable auto Minor Version Upgrade</b> </td><td>Check this box if you want to enable your Aurora MySQL DB cluster to receive minor MySQL DB engine version upgrades automatically when they become available.<br />The <b>Auto Minor Version Upgrade</b> option only applies to upgrades to MySQL minor engine versions for your Amazon Aurora MySQL DB cluster. It doesn’t apply to regular patches applied to maintain system stability.</td></tr>
+  <tr><td> <b>Maintenance Window</b> </td><td>Select the weekly time range during which system maintenance can occur.</td></tr>
+  <tr><td> <b>Enable deletion protection</b> </td><td>Leave unchecked.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Launch DB Instance** to launch your Aurora MySQL DB instance, and then choose **Close** to close the wizard.
 

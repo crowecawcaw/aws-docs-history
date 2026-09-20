@@ -124,8 +124,23 @@ To create a target endpoint, do the following:
 
 1. Choose **Endpoints**, and then choose **Create endpoint**.
 
-1. On the **Create endpoint** page, enter the following information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdssqlserver2s3datalake.steps.targetendpoint.html)
+1. On the **Create endpoint** page, enter the following information.
+
+
+<table>
+<thead>
+  <tr><th>For This Parameter</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Endpoint type</b> </td><td>Choose <b>Target endpoint</b>, and turn off <b>Select RDS DB instance</b>.</td></tr>
+  <tr><td> <b>Endpoint identifier</b> </td><td>Enter <b>adventure-works-datalake-target</b>.</td></tr>
+  <tr><td> <b>Target engine</b> </td><td>Choose <b>Amazon S3</b>.</td></tr>
+  <tr><td> <b>Service access role ARN</b> </td><td>Enter the IAM role that can access your Amazon S3 data lake.</td></tr>
+  <tr><td> <b>Bucket name</b> </td><td>Enter <b>adventure-works-datalake</b>.</td></tr>
+  <tr><td> <b>Bucket folder</b> </td><td>Enter <b>US-WEST-DATA</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. Expand the **Endpoint settings** section, choose **Wizard**, and then choose **Add new setting** to add the settings as shown on the following image.  
 ![Target endpoint settings.](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdssqlserver2s3datalake-target-endpoint-settings.png)

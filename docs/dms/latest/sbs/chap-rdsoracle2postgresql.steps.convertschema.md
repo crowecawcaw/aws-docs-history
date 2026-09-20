@@ -11,16 +11,47 @@ To convert an Oracle schema to a PostgreSQL schema using AWS Schema Conversion T
 
 1. Choose **Add source** to add a source Oracle database to your project, then choose **Oracle**, and choose **Next**.
 
-1. Enter the following information, and then choose **Test Connection**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.convertschema.html)  
+1. Enter the following information, and then choose **Test Connection**.
+
+
+<table>
+<thead>
+  <tr><th>For This Parameter</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Connection name</b> </td><td>Enter <code>Oracle</code>. AWS SCT displays this name in the tree in the left panel.</td></tr>
+  <tr><td> <b>Type</b> </td><td>Choose <b>SID</b>.</td></tr>
+  <tr><td> <b>Server name</b> </td><td>Enter the server name.</td></tr>
+  <tr><td> <b>Server port</b> </td><td>Enter the Oracle port number. The default is <code>1521</code>.</td></tr>
+  <tr><td> <b>Oracle SID</b> </td><td>Enter the database SID.</td></tr>
+  <tr><td> <b>User name</b> </td><td>Enter the Oracle admin username.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Enter the password for the admin user.</td></tr>
+</tbody>
+</table>
+  
 ![Connecting to an Oracle DB instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2postgresql11.png)
 
 1. Choose **OK** to close the alert box, then choose **Connect** to close the dialog box and to connect to the Oracle DB instance.
 
 1. Choose **Add target** to add a target PostgreSQL database to your project, then choose ** Amazon RDS for PostgreSQL**, and choose **Next**.
 
-1. Enter the following information and then choose **Test Connection**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2postgresql.steps.convertschema.html)
+1. Enter the following information and then choose **Test Connection**.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Connection name</b> </td><td>Enter <code> Amazon RDS for PostgreSQL</code>. AWS SCT displays this name in the tree in the right panel.</td></tr>
+  <tr><td> <b>Server name</b> </td><td>Enter the server name.</td></tr>
+  <tr><td> <b>Server port</b> </td><td>Enter the PostgreSQL port number. The default is <code>5432</code>.</td></tr>
+  <tr><td> <b>Database</b> </td><td>Enter the database name.</td></tr>
+  <tr><td> <b>User name</b> </td><td>Enter the PostgreSQL admin username.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Enter the password for the admin user.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **OK** to close the alert box, then choose **Connect** to connect to the Amazon RDS for PostgreSQL DB instance.
 

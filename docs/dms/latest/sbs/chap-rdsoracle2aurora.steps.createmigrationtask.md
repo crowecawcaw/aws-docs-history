@@ -5,8 +5,24 @@
 
 Using a AWS DMS task, you can specify what schema to migrate and the type of migration. You can migrate existing data, migrate existing data and replicate ongoing changes, or replicate data changes only. This walkthrough migrates existing data only.
 
-1. On the **Create Task** page, specify the task options. The following table describes the settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2aurora.steps.createmigrationtask.html)
+1. On the **Create Task** page, specify the task options. The following table describes the settings.
+
+
+<table>
+<thead>
+  <tr><th>For This Parameter</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Task name</b> </td><td>Enter <code>migratehrschema</code>.</td></tr>
+  <tr><td> <b>Task description</b> </td><td>Enter a description for the task.</td></tr>
+  <tr><td> <b>Source endpoint</b> </td><td>Shows <code>orasource</code> (the Amazon RDS for Oracle endpoint).</td></tr>
+  <tr><td> <b>Target endpoint</b> </td><td>Shows <code>aurtarget</code> (the Amazon Aurora MySQL endpoint).</td></tr>
+  <tr><td> <b>Replication instance</b> </td><td>Shows <code>DMSdemo-repserver</code> (the AWS DMS replication instance created in an earlier step).</td></tr>
+  <tr><td> <b>Migration type</b> </td><td>Choose <b>Migrate existing data</b>.</td></tr>
+  <tr><td> <b>Start task on create</b> </td><td>Select this option.</td></tr>
+</tbody>
+</table>
+
 
    The page should look like the following:  
 ![Create task page](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2aurora23.png)

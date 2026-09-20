@@ -94,10 +94,43 @@ For more information about this option, see [Step 6: Create an AWS DMS Task](ora
 
 1. Choose **Endpoints**, then choose **Create endpoint**.
 
-1. On the **Create endpoint** page, enter the following information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/oracle-s3-data-lake-step-5.html)
+1. On the **Create endpoint** page, enter the following information.
 
-1. Expand the **Endpoint settings** section, choose **Wizard**, and then choose **Add new setting** to add the following information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/oracle-s3-data-lake-step-5.html)
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Endpoint type</b> </td><td>Choose <b>Target endpoint</b>, and turn off <b>Select RDS DB instance</b>.</td></tr>
+  <tr><td> <b>Endpoint identifier</b> </td><td>Enter <code>oracle-datalake-target</code>.</td></tr>
+  <tr><td> <b>Target engine</b> </td><td>Choose <b> Amazon S3 </b>.</td></tr>
+  <tr><td> <b>Service access role ARN</b> </td><td>Enter the IAM role that can access your Amazon S3 data lake.</td></tr>
+  <tr><td> <b>Bucket name</b> </td><td>Enter <code>s3-data-lake</code>.</td></tr>
+  <tr><td> <b>Bucket folder</b> </td><td>Enter <code>Oracledb</code>.</td></tr>
+</tbody>
+</table>
+
+
+1. Expand the **Endpoint settings** section, choose **Wizard**, and then choose **Add new setting** to add the following information.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>CdcMinFileSize</td><td>64000</td></tr>
+  <tr><td>CdcMaxBatchInterval</td><td>3600</td></tr>
+  <tr><td>CdcPath</td><td>Oracledb</td></tr>
+  <tr><td>DataFormat</td><td>parquet</td></tr>
+  <tr><td>DatePartitionDelimiter</td><td>DASH</td></tr>
+  <tr><td>DatePartitionEnabled</td><td>TRUE</td></tr>
+  <tr><td>DatePartitionSequence</td><td>YYYYMMDD</td></tr>
+  <tr><td>ParquetVersion</td><td>PARQUET_2_0</td></tr>
+  <tr><td>TimestampColumnName</td><td>sourcetscolumn</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create endpoint**.

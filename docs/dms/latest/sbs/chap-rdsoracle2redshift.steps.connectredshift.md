@@ -5,8 +5,22 @@
 
 Next, test your connection to your Amazon Redshift database.
 
-1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Choose the **Create a new connection profile** icon. Connect to the Amazon Redshift database in SQL Workbench/J by using the information shown following.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/chap-rdsoracle2redshift.steps.connectredshift.html)
+1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Choose the **Create a new connection profile** icon. Connect to the Amazon Redshift database in SQL Workbench/J by using the information shown following.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>New profile</b> name</td><td>Enter <code>RedshiftConnection</code>.</td></tr>
+  <tr><td> <b>Driver</b> </td><td>Choose <code>Redshift (com.amazon.redshift.jdbc42.Driver)</code>.</td></tr>
+  <tr><td> <b>URL</b> </td><td>Use the <b>RedshiftJDBCConnectionString</b> value you recorded when you examined the output details of the DMSdemo stack in a previous step.</td></tr>
+  <tr><td> <b>Username</b> </td><td>Enter <code>redshiftadmin</code>.</td></tr>
+  <tr><td> <b>Password</b> </td><td>Enter <code>Redshift#123</code>.</td></tr>
+</tbody>
+</table>
+
 
 1. Test the connection by choosing **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.  
 ![Connecting to the Amazon Redshift DB instance](https://docs.aws.amazon.com/dms/latest/sbs/images/sbs-rdsor2redshift10.png)

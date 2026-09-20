@@ -178,8 +178,31 @@ Increasing this parameter induces additional load on the source database, replic
 
 1. Choose **Database migration tasks**, then choose **Create task**.
 
-1. On the **Create database migration task** page, enter the following information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/sbs/oracle-s3-data-lake-step-6.html)
+1. On the **Create database migration task** page, enter the following information.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Task identifier</b> </td><td>Enter <code>Oracle-to-S3-data-lake</code>.</td></tr>
+  <tr><td> <b>Replication instance</b> </td><td>Choose <b>oracle-s3-migration-replication-instance</b>. You configured this value in Step 1.</td></tr>
+  <tr><td> <b>Source database endpoint</b> </td><td>Choose <b>datalake-source-db</b>. You configured this value in Step 3.</td></tr>
+  <tr><td> <b>Target database endpoint</b> </td><td>Choose <b>oracle-datalake-target</b>. You configured this value in Step 5.</td></tr>
+  <tr><td> <b>Migration type</b> </td><td>Choose <b>Migrate existing data and replicate ongoing changes</b>.</td></tr>
+  <tr><td> <b>Editing mode</b> </td><td>Choose <b>Wizard</b>.</td></tr>
+  <tr><td> <b>Custom CDC stop mode for source transactions</b> </td><td>Choose <b>Disable custom CDC stop mode</b>.</td></tr>
+  <tr><td> <b>Target table preparation mode</b> </td><td>Choose <b>Do nothing</b>.</td></tr>
+  <tr><td> <b>Stop task after full load completes</b> </td><td>Choose <b>Don’t stop</b>.</td></tr>
+  <tr><td> <b>Include LOB columns in replication</b> </td><td>Choose <b>Limited LOB mode</b>.</td></tr>
+  <tr><td> <b>Maximum LOB size (KB)</b> </td><td>Enter <code>32</code>.</td></tr>
+  <tr><td> <b>Advanced task settings</b>, <b>Full load tuning settings</b>, <b>Maximum number of tables to load in parallel</b> </td><td>Enter <code>49</code>.</td></tr>
+  <tr><td> <b>Enable validation</b> </td><td>Turn off because Amazon S3 doesn’t support validation.</td></tr>
+  <tr><td> <b>Enable CloudWatch logs</b> </td><td>Turn on.</td></tr>
+</tbody>
+</table>
+
 
 1. Keep the default values for other parameters, and choose **Create task**.
 
