@@ -57,9 +57,31 @@ For each dashboard, you can do the following:
 
 If you want to perform additional analyses of these metrics with CloudWatch, choose **Metrics** in the left navigation pane of the CloudWatch console and then choose **AWS/Config**. For more information on what you can do from the CloudWatch console, see [Using Amazon CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) and [Using Amazon CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html) in the *CloudWatch User Guide*.
 
-**AWS Config Usage Metrics**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/config/latest/developerguide/viewing-the-aws-config-dashboard.html)
+**AWS Config Usage Metrics**  
+
+
+<table>
+<thead>
+  <tr><th>Metric</th><th>Description</th><th>Unit</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Configuration Items Recorded</code></td><td>The number of configuration items recorded for each resource type or all resource types. A configuration item represents a point-in-time view of the various attributes of a supported AWS resource. For more information about configuration items or supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#config-items.html">Configuration Items</a> and <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html.html">Supported Resource Types</a>.</td><td>Count</td><td></td></tr>
+</tbody>
+</table>
+
 You can select the resource type that you want to view by using the dropdown list. By default, it is set to view all resource types.
 
-**AWS Config Success Metrics**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/config/latest/developerguide/viewing-the-aws-config-dashboard.html)
+**AWS Config Success Metrics**  
+
+
+<table>
+<thead>
+  <tr><th>Metric</th><th>Description</th><th>Unit</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Change Notifications Delivery Failed</code></td><td>The number of failed change notification deliveries to the Amazon SNS topic for your delivery channel. A change notification informs you about a change to the configuration state of your AWS resources. You can use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigStreamDeliveryInfo.html">ConfigStreamDeliveryInfo</a> API to get the <code>lastErrorCode</code> or <code>lastErrorMessage</code> for the last attempted delivery for a change notification. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html">Managing the Delivery Channel</a>.</td><td>Count</td><td></td></tr>
+  <tr><td><code>Config History Export Failed</code></td><td>The number of failed configuration history exports to your Amazon S3 bucket. A configuration history is a collection of the configuration items for a given resource over a specified time period. For more information about configuration history, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#config-history">Configuration History</a>.</td><td>Count</td><td></td></tr>
+  <tr><td><code>Configuration Recorder Insufficient Permissions Failure</code></td><td>The number of failed permission access attempts due to the IAM role policy for all the configuration recorders in your account and AWS Region having insufficient permissions. The configuration recorder detects changes in to the resource types in scope. For the configuration recorder to record your AWS resource configurations, it requires the necessary IAM permissions. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html#iam-role-policies-describe-apis"> IAM Role Policy for Getting Configuration Details</a>.</td><td>Count</td><td></td></tr>
+  <tr><td><code>Config Snapshot Export Failed</code></td><td>The number of failed configuration snapshot exports to your Amazon S3 bucket. A configuration snapshot is a collection of the configuration items for the supported resources in your account. For more information about configuration snapshots, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#config-snapshot">Configuration Snapshot</a>.</td><td>Count</td><td></td></tr>
+</tbody>
+</table>

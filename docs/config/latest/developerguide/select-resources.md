@@ -63,9 +63,27 @@ Global resource types onboarded before February 2022 (`AWS::IAM::Group`, `AWS::I
 The following IAM resource types are global resources: IAM users, groups, roles, and customer managed policies. These resource types can be recorded by AWS Config in Regions where AWS Config was available before February 2022. This list where you cannot record the global IAM resource types includes the following Regions: Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (Melbourne), Asia Pacific (Thailand), Canada West (Calgary), Europe (Spain), Europe (Zurich), Israel (Tel Aviv), Mexico (Central), and Middle East (UAE).  
 To prevent duplicate configuration items (CIs), you should consider only recording the global IAM resource types one time in one of the supported Regions. This can also help you avoid unneccessary evaluations and API throttling.  
 **Global resource types \| Home Region Only**  
-Global resources for the following services are only recorded by AWS Config in the home Region of the global resource type: Amazon Elastic Container Registry Public, AWS Global Accelerator, Amazon Route 53, Amazon CloudFront, and AWS WAF. For these global resources, the same instance of the resource type can be used in multiple AWS Regions, but the configuration items (CIs) are only recorded in the home Region for the commercial partition or AWS GovCloud (US-West) for the AWS GovCloud (US) partition.    
-**Home Regions for Global Resource Types**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/config/latest/developerguide/select-resources.html)  
+Global resources for the following services are only recorded by AWS Config in the home Region of the global resource type: Amazon Elastic Container Registry Public, AWS Global Accelerator, Amazon Route 53, Amazon CloudFront, and AWS WAF. For these global resources, the same instance of the resource type can be used in multiple AWS Regions, but the configuration items (CIs) are only recorded in the home Region for the commercial partition or AWS GovCloud (US-West) for the AWS GovCloud (US) partition.  
+
+
+**Home Regions for Global Resource Types**  
+
+<table>
+<thead>
+  <tr><th>AWS Service</th><th>Resource Type Value</th><th>Home Region</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon Elastic Container Registry Public</td><td><code>AWS::ECR::PublicRepository</code></td><td>US East (N. Virginia) Region</td></tr>
+  <tr><td rowspan="3">AWS Global Accelerator</td><td><code>AWS::GlobalAccelerator::Listener</code></td><td>US West (Oregon) Region</td></tr>
+  <tr><td><code>AWS::GlobalAccelerator::EndpointGroup</code></td><td>US West (Oregon) Region</td></tr>
+  <tr><td><code>AWS::GlobalAccelerator::Accelerator</code></td><td>US West (Oregon) Region</td></tr>
+  <tr><td rowspan="2">Amazon Route 53</td><td><code>AWS::Route53::HostedZone</code></td><td>US East (N. Virginia) Region</td></tr>
+  <tr><td><code>AWS::Route53::HealthCheck</code></td><td>US East (N. Virginia) Region</td></tr>
+  <tr><td>Amazon CloudFront</td><td><code>AWS::CloudFront::Distribution</code></td><td>US East (N. Virginia) Region</td></tr>
+  <tr><td>AWS WAF</td><td><code>AWS::WAFv2::WebACL</code></td><td>US East (N. Virginia) Region</td></tr>
+</tbody>
+</table>
+  
 **Global resource types \| Aurora global clusters**  
 `AWS::RDS::GlobalCluster` is a global resource that is recorded in all supported AWS Config Regions where the customer managed configuration recorder is enabled. This global resource type is unique in that if you enable the recording of this resource in one Region, AWS Config will record configuration items (CIs) for this resource type in all your enabled Regions.  
 If you do not want to record `AWS::RDS::GlobalCluster` in all enabled Regions, use one of the following recording strategies for the AWS Config console:  
