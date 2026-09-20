@@ -35,9 +35,24 @@ To mix audio descriptions in your output by using the MediaConvert console:
 
 1. Specify the total number of **Output channels**. For example, for a stereo output select **2**.
 
-1. Specify mixing levels under **Channel mapping**. For example, to mix an audio description audio signal from channel 3 across left and right channels in a stereo output, and to mute the data stream, enter the following:   
-**Channel mapping**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/mediaconvert/latest/ug/audio-description-use.html)
+1. Specify mixing levels under **Channel mapping**. For example, to mix an audio description audio signal from channel 3 across left and right channels in a stereo output, and to mute the data stream, enter the following: 
+
+
+**Channel mapping**  
+
+<table>
+<thead>
+  <tr><th>Inputs</th><th colspan="2">Outputs</th></tr>
+</thead>
+<tbody>
+  <tr><td></td><td>L (0)</td><td>R (1)</td></tr>
+  <tr><td>1</td><td><b>0</b></td><td><b>-60</b></td></tr>
+  <tr><td>2</td><td><b>-60</b></td><td><b>0</b></td></tr>
+  <tr><td>3</td><td><b>0</b></td><td><b>0</b></td></tr>
+  <tr><td>4</td><td><b>-60</b></td><td><b>-60</b></td></tr>
+</tbody>
+</table>
+
 **Note**  
 When played over speakers, audio description data streams sound like noise. Mute the data stream in your output by setting its channel mapping to **-60**, as shown in the previous channel mapping example table.
 
