@@ -17,8 +17,23 @@ Before you begin to set up user-attribute mapping, review the following importan
 + By default, mapped email addresses are unverified. You can't verify a mapped email address using a one-time code. Instead, map an attribute from your IdP to get the verification status. For example, Google and most OIDC providers include the `email_verified` attribute.
 + You can map identity provider (IdP) tokens to custom attributes in your user pool. Social providers present an access token, and OIDC providers present an access and ID token. To map a token, add a custom attribute with a maximum length of 2,048 characters, grant your app client write access to the attribute, and map `access_token` or `id_token` from the IdP to the custom attribute.
 + For each mapped user pool attribute, the maximum value length of 2,048 characters must be large enough for the value that Amazon Cognito obtains from the IdP. Otherwise, Amazon Cognito reports an error when users sign in to your application. Amazon Cognito doesn't support mapping IdP tokens to custom attributes when the tokens are more than 2,048 characters long.
-+ Amazon Cognito derives the `username` attribute in a federated user's profile from specific claims that your federated IdP passes, as shown in the following table. Amazon Cognito prepends this attribute value with the name of your IdP, for example `MyOIDCIdP_[sub]`. When you want your federated users to have an attribute that exactly matches an attribute in your external user directory, map that attribute to a Amazon Cognito sign-in attribute like `preferred_username`.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html)
++ Amazon Cognito derives the `username` attribute in a federated user's profile from specific claims that your federated IdP passes, as shown in the following table. Amazon Cognito prepends this attribute value with the name of your IdP, for example `MyOIDCIdP_[sub]`. When you want your federated users to have an attribute that exactly matches an attribute in your external user directory, map that attribute to a Amazon Cognito sign-in attribute like `preferred_username`.
+
+
+<table>
+<thead>
+  <tr><th>Identity Provider</th><th><code>username</code> source attribute</th></tr>
+</thead>
+<tbody>
+  <tr><td>Facebook</td><td><code>id</code></td></tr>
+  <tr><td>Google</td><td><code>sub</code></td></tr>
+  <tr><td>Login with Amazon</td><td><code>user_id</code></td></tr>
+  <tr><td>Sign in with Apple</td><td><code>sub</code></td></tr>
+  <tr><td>SAML providers</td><td><code>NameID</code></td></tr>
+  <tr><td>OpenID Connect (OIDC) providers</td><td><code>sub</code></td></tr>
+</tbody>
+</table>
+
 + When a user pool is [case insensitive](user-pool-case-sensitivity.md), Amazon Cognito converts the entire automatically generated username of a federated user to lowercase, including the IdP name prefix. The following is an example username for a case-sensitive user pool: `MySAML_TestUser@example.com`. The following is the same username for a case-*insensitive* user pool: `mysaml_testuser@example.com`.
 
   In case-insensitive user pools, your Lambda triggers that process the username must account for changes to the entire username. These changes include any mixed-case values from the username source attributes that you mapped from your IdP. To link your IdP to a user pool with a different case-sensitivity setting than your current pool, create a new user pool.

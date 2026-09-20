@@ -82,8 +82,19 @@ One or more key-value pairs that you can provide as custom input to the Lambda f
 **userAttributes**  
 This field is required.   
 This field must contain one or more name-value pairs that Amazon Cognito stores in the user profile in your user pool and uses as user attributes. You can include both standard and custom user attributes. Custom attributes require the `custom:` prefix to distinguish them from standard attributes. For more information, see [Custom attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-custom-attributes.html).  
-To reset their passwords in the forgot-password flow, a user must have either a verified email address or a verified phone number. Amazon Cognito sends a message containing a reset password code to the email address or phone number in the user attributes.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html)
+To reset their passwords in the forgot-password flow, a user must have either a verified email address or a verified phone number. Amazon Cognito sends a message containing a reset password code to the email address or phone number in the user attributes. 
+
+
+<table>
+<thead>
+  <tr><th>Attributes</th><th>Requirement</th></tr>
+</thead>
+<tbody>
+  <tr><td>Any attributes marked as required when you created your user pool</td><td>If any required attributes are missing during the migration, Amazon Cognito uses default values.</td></tr>
+  <tr><td><code>username</code></td><td>Required if you configured your user pool with alias attributes in addition to username for sign-in, and the user has entered an valid alias value as a username. This alias value can be an email address, preferred username, or phone number.<br />If the request and the user pool meet the alias requirements, the response from your function must assign the <code>username</code> parameter that it received to an alias attribute, Also, the response must assign your own value to the <code>username</code> attribute. If your user pool doesn't meet the conditions required to map the received <code>username</code> to an alias, then the <code>username</code> parameter in the response must either exactly match the request, or be omitted. <code>username</code> must be unique in the user pool. </td></tr>
+</tbody>
+</table>
+
 
 **finalUserStatus**  
 You can set this parameter to `CONFIRMED` to auto-confirm your users so that they can sign in with their previous passwords. When you set a user to `CONFIRMED`, they do not need to take additional action before they can sign in. If you don't set this attribute to `CONFIRMED`, it's set to `RESET_REQUIRED`.  

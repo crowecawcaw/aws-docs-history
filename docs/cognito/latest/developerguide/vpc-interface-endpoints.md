@@ -382,10 +382,8 @@ The following example policy grants access to identity pool administrative actio
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceVpce": "{{vpce-1a2b3c4d}}"
-                },
-                "StringEquals": {
-                   "cognito-identity:IdentityPoolArn": "arn:aws:cognito-identity:{{us-east-1}}:{{123456789012}}:identitypool/{{us-east-1:12345678-ffff-ffff-ffff-123456}}"
+                    "aws:SourceVpce": "{{vpce-1a2b3c4d}}",
+                    "cognito-identity:IdentityPoolArn": "arn:aws:cognito-identity:{{us-east-1}}:{{123456789012}}:identitypool/{{us-east-1:12345678-ffff-ffff-ffff-123456}}"
                 }
             }
         }

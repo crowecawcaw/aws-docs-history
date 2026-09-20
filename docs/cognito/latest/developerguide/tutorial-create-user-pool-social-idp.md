@@ -252,8 +252,21 @@ In this section, you configure a social IdP in your user pool using the client I
    + **Facebook** – Enter the **app client ID** and **app client secret** that was generated in the previous section, and then choose an API version (for example, version 2.12). We recommend choosing the latest possible version—each Facebook API has a lifecycle and deprecation date. Facebook scopes and attributes can vary between API versions. We recommend testing your social identity log in with Facebook to ensure that federation works as intended.
    + **Sign in with Apple** – Enter the **Services ID**, **Team ID**, **Key ID**, and **private key** that was generated in the previous section.
 
-1. Enter the names of the **Authorized scopes** that you want to use. Scopes define which user attributes (such as `name` and `email`) you want to access with your app. For Facebook, these should be separated by commas. For Google and Login with Amazon, they should be separated by spaces. For Sign in with Apple, select the check boxes for the scopes you want access to.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool-social-idp.html)
+1. Enter the names of the **Authorized scopes** that you want to use. Scopes define which user attributes (such as `name` and `email`) you want to access with your app. For Facebook, these should be separated by commas. For Google and Login with Amazon, they should be separated by spaces. For Sign in with Apple, select the check boxes for the scopes you want access to.
+
+
+<table>
+<thead>
+  <tr><th>Social identity provider</th><th>Example scopes</th></tr>
+</thead>
+<tbody>
+  <tr><td>Facebook</td><td><code>public_profile, email</code></td></tr>
+  <tr><td>Google</td><td><code>profile email openid</code></td></tr>
+  <tr><td>Login with Amazon</td><td><code>profile postal_code</code></td></tr>
+  <tr><td>Sign in with Apple</td><td><code>email name</code></td></tr>
+</tbody>
+</table>
+
 
    Your app user is prompted to consent to providing these attributes to your app. For more information about social provider scopes, see the documentation from Google, Facebook, Login with Amazon, or Sign in with Apple. 
 

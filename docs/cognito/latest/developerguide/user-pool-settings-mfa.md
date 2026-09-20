@@ -34,8 +34,24 @@ Before you set up MFA, consider the following:
   + [Choice-based sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-choice) only offers `PASSWORD` and `PASSWORD_SRP` factors in all app clients when MFA is required in the user pool. For more information about username-password flows, see [Sign-in with persistent passwords](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-password) and [Sign-in with persistent passwords and secure payload](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-srp) in the **Authentication** chapter of this guide.
   + In user pools where MFA is optional, users who have configured an MFA factor can only sign in with username-password authentication flows in choice-based sign-in. These users are eligible for all [client-based sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-client) flows.
 
-  The following table describes the effect of user pool MFA settings and user configuration of MFA factors on users' ability to sign in with passwordless factors.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html)
+  The following table describes the effect of user pool MFA settings and user configuration of MFA factors on users' ability to sign in with passwordless factors.
+
+
+<table>
+<thead>
+  <tr><th>User pool MFA setting</th><th>User MFA status</th><th>Webauthn/OTP available</th><th>Prompted for MFA after password sign-in</th><th>Can sign in with WebAuthn/OTP</th></tr>
+</thead>
+<tbody>
+  <tr><td>Required</td><td>Configured</td><td>No</td><td>Yes</td><td>No</td></tr>
+  <tr><td>Required</td><td>Not configured</td><td>No</td><td>No (can't sign in)</td><td>No</td></tr>
+  <tr><td>Optional</td><td>Configured</td><td>Can set up WebAuthn but can't sign in with passkey</td><td>Yes</td><td>No</td></tr>
+  <tr><td>Optional</td><td>Not configured</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Optional (with passkey MFA enabled)</td><td>Passkey MFA configured</td><td>Yes</td><td>Yes (passkey with user verification satisfies MFA independently)</td><td>Yes (passkey with user verification satisfies MFA independently)</td></tr>
+  <tr><td>Required (with passkey MFA enabled)</td><td>Passkey MFA configured</td><td>Yes</td><td>Yes (passkey with user verification satisfies MFA independently)</td><td>Yes (passkey with user verification satisfies MFA independently)</td></tr>
+  <tr><td>Off</td><td>Any</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+</tbody>
+</table>
+
 + A user's preferred MFA method influences the methods they can use to recover their password. Users whose preferred MFA is by email message can't receive a password-reset code by email. Users whose preferred MFA is by SMS message can't receive a password-reset code by SMS.
 
   Your [password recovery](managing-users-passwords.md#user-pool-password-reset-and-recovery) settings must provide an alternative option when users aren't eligible for your preferred password-reset method. For example, your recovery mechanisms might have email as first priority and email MFA might be an option in your user pool. In this case, add SMS-message account recovery as a second option or use administrative API operations to reset passwords for those users.

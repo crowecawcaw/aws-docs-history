@@ -18,6 +18,7 @@ When you have an AWS WAF web ACL associated with a user pool, Amazon Cognito for
 + Your request might result in a payload that is larger than the limits of what AWS WAF can inspect. See [Oversize request component handling](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) in the *AWS WAF Developer Guide* to learn how to configure how AWS WAF handles oversize requests from Amazon Cognito.
 + You can’t associate a web ACL that uses AWS WAF [Fraud Control account takeover prevention (ATP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html) with an Amazon Cognito user pool. The ATP feature is in the `AWS-AWSManagedRulesATPRuleSet` managed rule group. Before you associate a web ACL with a user pool, be sure that it doesn’t use this managed rule group.
 + When you have an AWS WAF web ACL associated with a user pool, and a rule in your web ACL presents a CAPTCHA, this can cause an unrecoverable error in managed login TOTP registration. To create a rule that has a CAPTCHA action and doesn't affect managed login TOTP, see [Configuring your AWS WAF web ACL for managed login TOTP MFA](user-pool-settings-mfa-totp.md#totp-waf).
++ When a rule in your web ACL returns a custom block response, Amazon Cognito adds a Content-Security-Policy header to that response. This policy allows scripts only from the same origin as your user pool domain and from the AWS WAF CAPTCHA and challenge scripts that Amazon Cognito provides. It blocks any other inline or third-party script, including a script that your custom response body uses to redirect the user. For more information, see [Content-Security-Policy on custom block responses](#user-pool-waf-custom-response-csp).
 
 AWS WAF inspects requests to the following endpoints.
 
@@ -34,6 +35,19 @@ Your options to customize the error response depends on the way you make an API 
 You can customize the error code and response body of managed login requests. You can only present a CAPTCHA for your user to solve in managed login.
 For requests that you make with the Amazon Cognito[ user pools API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/Welcome.html), you can customize the response body of a request that receives a **Block** response. You can also specify a custom error code in the range 400–499.
 The AWS Command Line Interface (AWS CLI) and the AWS SDKs return a `ForbiddenException` error to requests that produce a **Block** or **CAPTCHA** response.
+
+## Content-Security-Policy on custom block responses
+<a name="user-pool-waf-custom-response-csp"></a>
+
+If your custom block response relies on scripts, this policy can affect how it behaves. When a web ACL rule returns a custom block response to managed login or the classic hosted UI, Amazon Cognito adds a Content-Security-Policy (CSP) header to that response. CSP is a browser security mechanism that restricts which scripts and other resources a page can load. The policy restricts the response as follows:
++ The response can include scripts and other resources from the same origin as your user pool domain.
++ The response can include the AWS WAF CAPTCHA and challenge scripts that Amazon Cognito provides. Amazon Cognito allowlists these scripts so that AWS WAF CAPTCHA and challenge rule actions continue to work.
+
+Any other inline script, and any script hosted on a domain other than your user pool domain, doesn't run. This includes a script that a custom response body uses to redirect the user, submit a form, or send a network request.
+
+If your custom response needs to redirect the user, return an HTTP 3xx status code and a `Location` header instead of a script-based redirect. This pattern doesn't depend on script execution and isn't affected by the CSP.
+
+This behavior applies in all AWS Regions where you can associate a web ACL with a user pool.
 
 ## Associating a web ACL with your user pool
 <a name="user-pool-waf-setting-up"></a>

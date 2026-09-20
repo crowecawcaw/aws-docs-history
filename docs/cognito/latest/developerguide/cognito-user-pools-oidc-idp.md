@@ -46,9 +46,24 @@ Before you add an OIDC IdP to your user pool configuration and assign it to app 
 
 **To register with an OIDC IdP**
 
-1. Create a developer account with the OIDC IdP.  
-**Links to OIDC IdPs**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-oidc-idp.html)
+1. Create a developer account with the OIDC IdP.
+
+
+**Links to OIDC IdPs**  
+
+<table>
+<thead>
+  <tr><th>OIDC IdP</th><th>How to Install</th><th>OIDC Discovery URL</th></tr>
+</thead>
+<tbody>
+  <tr><td>Salesforce</td><td><a href="https://help.salesforce.com/s/articleView?id=xcloud.service_provider_define_oid.htm&amp;type=5">Salesforce as an OpenID Connect Identity Provider</a></td><td><code>https://MyDomainName.my.salesforce.com/.well-known/openid-configuration</code></td></tr>
+  <tr><td>OneLogin</td><td><a href="https://developers.onelogin.com/openid-connect/connect-to-onelogin">Connect an OIDC enabled app</a></td><td><code>https://your-domain.onelogin.com/oidc/2/.well-known/openid-configuration</code></td></tr>
+  <tr><td>JumpCloud</td><td><a href="https://jumpcloud.com/support/sso-with-oidc">SSO with OIDC</a></td><td><code>https://oauth.id.jumpcloud.com/.well-known/openid-configuration</code></td></tr>
+  <tr><td>Okta</td><td><a href="https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#OIDCWizard">Install an Okta identity provider</a></td><td><code>https://Your Okta subdomain.okta.com/.well-known/openid-configuration</code></td></tr>
+  <tr><td>Microsoft Entra ID</td><td><a href="https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc">OpenID Connect on the Microsoft identity platform</a></td><td><code>https://login.microsoftonline.com/{tenant}/v2.0</code><br />Values of <code>tenant</code> can include a tenant ID, <code>common</code>, <code>organizations</code>, or <code>consumers</code>.</td></tr>
+</tbody>
+</table>
+
 
 1. Register your user pool domain URL with the `/oauth2/idpresponse` endpoint with your OIDC IdP. This ensures that the OIDC IdP later accepts it from Amazon Cognito when it authenticates users.
 

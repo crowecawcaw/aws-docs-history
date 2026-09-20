@@ -496,8 +496,20 @@ This section shows how you can use a social identity provider to sign in a user 
       ```
 
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. 
-      +  The app signs in the user with a social IdP and obtains the provider token. Identity pools accept these artifacts from social providers:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-identity-pools-application.html)
+      +  The app signs in the user with a social IdP and obtains the provider token. Identity pools accept these artifacts from social providers:
+
+
+<table>
+<thead>
+  <tr><th>Identity provider</th><th>Cognito provider key</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td>Google</td><td><code>accounts.google.com</code></td><td>OAuth 2.0 tokens from Google Sign-In</td></tr>
+  <tr><td>Facebook</td><td><code>graph.facebook.com</code></td><td>Access tokens from Facebook Login</td></tr>
+  <tr><td>Amazon</td><td><code>www.amazon.com</code></td><td>OAuth tokens from Login with Amazon</td></tr>
+</tbody>
+</table>
+
 
         After successful authentication with the social provider, your app receives an OAuth response containing the access token and other authentication details:
 
@@ -597,8 +609,20 @@ This section shows how you can use a social identity provider to sign in a user 
       ```
 
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. 
-      +  The app signs in the user with a social IdP and obtains the provider token. Identity pools accept these artifacts from social providers:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-identity-pools-application.html)
+      +  The app signs in the user with a social IdP and obtains the provider token. Identity pools accept these artifacts from social providers:
+
+
+<table>
+<thead>
+  <tr><th>Identity provider</th><th>Cognito provider key</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td>Google</td><td><code>accounts.google.com</code></td><td>OAuth 2.0 tokens from Google Sign-In</td></tr>
+  <tr><td>Facebook</td><td><code>graph.facebook.com</code></td><td>Access tokens from Facebook Login</td></tr>
+  <tr><td>Amazon</td><td><code>www.amazon.com</code></td><td>OAuth tokens from Login with Amazon</td></tr>
+</tbody>
+</table>
+
 
         After successful authentication with the social provider, your app receives an OAuth response containing the access token and other authentication details:
 
@@ -731,8 +755,18 @@ The enhanced flow provides a streamlined approach to obtaining AWS credentials t
       ```
 
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. 
-      +  The app signs in the user with a Amazon Cognito. After successful authentication with the user pool, your app receives an OAuth 2.0 response containing the ID token (JWT). Identity pools accept JWT ID tokens from user pools using this provider key format:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-identity-pools-application.html)
+      +  The app signs in the user with a Amazon Cognito. After successful authentication with the user pool, your app receives an OAuth 2.0 response containing the ID token (JWT). Identity pools accept JWT ID tokens from user pools using this provider key format:
+
+
+<table>
+<thead>
+  <tr><th>Identity provider</th><th>Cognito provider key</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon Cognito user pool</td><td><code>cognito-idp.{region}.amazonaws.com/{user-pool-id}</code></td><td>JWT ID tokens from Amazon Cognito user pools</td></tr>
+</tbody>
+</table>
+
 
         After successful authentication with the user pool, your app receives an OAuth 2.0 response containing the ID token (JWT):
 
@@ -967,8 +1001,18 @@ This section shows how you can use a SAML identity provider to sign in a user an
       ```
 
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests.
-      +  The app signs in the user with a SAML IdP and obtains the SAML response. Identity pools accept SAML assertions from enterprise providers using the SAML provider ARN as the key:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-identity-pools-application.html)
+      +  The app signs in the user with a SAML IdP and obtains the SAML response. Identity pools accept SAML assertions from enterprise providers using the SAML provider ARN as the key:
+
+
+<table>
+<thead>
+  <tr><th>Identity provider</th><th>Cognito provider key</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td>SAML Provider</td><td><code>arn:aws:iam::111122223333:saml-provider/EXAMPLE</code></td><td>SAML assertions from enterprise IdPs</td></tr>
+</tbody>
+</table>
+
 
         After successful authentication with the SAML provider, your app receives a SAML response via HTTP POST to your callback URL:
 
@@ -1082,8 +1126,18 @@ This section shows how you can use an OIDC identity provider to sign in a user a
       ```
 
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests.
-      +  The app signs in the user with an OIDC IdP and obtains the ID token. Identity pools accept OIDC tokens from enterprise providers:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-identity-pools-application.html)
+      +  The app signs in the user with an OIDC IdP and obtains the ID token. Identity pools accept OIDC tokens from enterprise providers:
+
+
+<table>
+<thead>
+  <tr><th>Identity provider</th><th>Cognito provider key</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td>OIDC Provider</td><td><code>example-provider.com/oauth2/default</code></td><td>OIDC ID tokens from enterprise IdPs</td></tr>
+</tbody>
+</table>
+
 
         After successful authentication with the OIDC provider, your app receives an OAuth 2.0 response containing the tokens:
 
@@ -1185,8 +1239,18 @@ This section shows how you can use an OIDC identity provider to sign in a user a
       ```
 
    1. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests.
-      +  The app signs in the user with an OIDC IdP and obtains the ID token. Identity pools accept OIDC tokens from enterprise providers:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cognito/latest/developerguide/getting-started-identity-pools-application.html)
+      +  The app signs in the user with an OIDC IdP and obtains the ID token. Identity pools accept OIDC tokens from enterprise providers:
+
+
+<table>
+<thead>
+  <tr><th>Identity provider</th><th>Cognito provider key</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td>OIDC Provider</td><td><code>example-provider.com/oauth2/default</code></td><td>OIDC ID tokens from enterprise IdPs</td></tr>
+</tbody>
+</table>
+
 
         After successful authentication with the OIDC provider, your app receives an OAuth 2.0 response containing the tokens:
 
