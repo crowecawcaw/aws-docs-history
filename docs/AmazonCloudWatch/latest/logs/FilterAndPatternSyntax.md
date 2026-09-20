@@ -52,7 +52,7 @@ Either *m* or *n* can be omitted if you chose not to define a minimum or maximum
 + `|`: Boolean "Or", which matches the term on either side of the vertical bar. For example:
   + `%gra|ey%` can match "gray" or "grey"
   + `%^starting|^initializing|^shutting down%` can match match "starting ...", or "initializing ...", or "shutting down", but won't match "skipping initializing ..."
-  + `%abcc|ab[^c]$` can match match "abcc ..." and "aba ..." but won't match "aac ..."
+  + `%abcc|ab[^c]$%` can match "abcc ..." and "aba", but won't match "aac ..."
 + `\`: Escape character, which allows you to use the literal meaning of an operator instead of its special meaning. For example, `%\[.\]%` matches any single character surrounded by "[" and "]" since the brackets are escaped, such as "[a]", "[b]", "[7]", "[@]", "[]]", and "[ ]".
 **Note**  
 ` %10\.10\.0\.1%` is the correct way to create a regex to match the IP address 10.10.0.1.

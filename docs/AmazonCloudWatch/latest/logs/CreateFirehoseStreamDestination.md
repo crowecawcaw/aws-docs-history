@@ -86,7 +86,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
            },
            "Action": "sts:AssumeRole",
            "Condition": {
-               "StringLike": {
+               "ArnLike": {
                    "aws:SourceArn": [
                        "arn:aws:logs:{{region}}:{{sourceAccountId}}:*",
                        "arn:aws:logs:{{region}}:{{recipientAccountId}}:*"
@@ -123,7 +123,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
                    },
                    "Action": "sts:AssumeRole",
                    "Condition": {
-                       "StringLike": {
+                       "ArnLike": {
                            "aws:SourceArn": [
                                "arn:aws:logs:{{region}}:{{sourceAccountId}}:*",
                                "arn:aws:logs:{{region}}:{{recipientAccountId}}:*"

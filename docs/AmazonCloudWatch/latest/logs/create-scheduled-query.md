@@ -64,12 +64,16 @@ For detailed IAM policy examples, see [Identity and access management for Amazon
    1. Choose **Auto-create a new role with default permissions** to automatically set up an IAM role with the permissions required for CloudWatch Logs to deliver query results to Amazon S3.
 
    1. Choose **Use an existing role** to select an existing IAM role with the required policies for CloudWatch Logs to deliver query results to Amazon S3. Use the search field to find and select the appropriate IAM role from the list.
+**Note**  
+If role manager is enabled in your account, CloudWatch attaches the role for you, and the role options described here (for example the **Create new role** button) are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information about IAM role creation, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
 1. In the **IAM role for scheduled query execution** section, choose one of the following options:
 
    1. Choose **Auto-create a new role with default permissions** to automatically set up an IAM role with the permissions required for CloudWatch Logs to execute scheduled queries.
 
    1. Choose **Use an existing role** to select an existing IAM role with the required policies for CloudWatch Logs to execute scheduled queries. Use the search field to find and select the appropriate IAM role from the list.
+**Note**  
+If role manager is enabled in your account, CloudWatch attaches the role for you, and the role options described here (for example the **Create new role** button) are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information about IAM role creation, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
 1. Choose **Create schedule** to create the scheduled query.
 

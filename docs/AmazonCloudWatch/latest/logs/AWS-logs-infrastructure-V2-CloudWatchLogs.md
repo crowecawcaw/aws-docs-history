@@ -3,7 +3,10 @@
 # Logs sent to CloudWatch Logs
 <a name="AWS-logs-infrastructure-V2-CloudWatchLogs"></a>
 
-**User permissions**
+For an AWS CLI example, see [Create a delivery to CloudWatch Logs](AWS-vended-logs-permissions-V2.md#vended-logs-same-account-example-cwl).
+
+## User permissions
+<a name="AWS-logs-infrastructure-V2-CloudWatchLogs-user-permissions"></a>
 
 To enable sending logs to CloudWatch Logs, you must be signed in with the following permissions.
 
@@ -69,7 +72,8 @@ To enable sending logs to CloudWatch Logs, you must be signed in with the follow
 
 ------
 
-**Log group resource policy**
+## Log group resource policy
+<a name="AWS-logs-infrastructure-V2-CloudWatchLogs-log-group-resource-policy"></a>
 
 The log group where the logs are being sent must have a resource policy that includes certain permissions. If the log group currently does not have a resource policy, and the user setting up the logging has the `logs:PutResourcePolicy`, `logs:DescribeResourcePolicies`, and `logs:DescribeLogGroups` permissions for the log group, then AWS automatically creates the following policy for it when you begin sending the logs to CloudWatch Logs. For newly created subscriptions, resource policies are configured at the log group level and have a maximum size of 51,200 bytes. If an existing account-level resource policy already grants permissions through wildcards, a separate log group level policy would not be created. To check the logGroup-level resource policy for a specific log group, use the `describe-resource-policies` command with the `--resource-arn` parameter set to the log group ARN and the `--policy-scope` parameter set to `RESOURCE`.
 

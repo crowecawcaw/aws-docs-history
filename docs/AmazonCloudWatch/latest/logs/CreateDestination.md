@@ -59,7 +59,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
                "Service": "logs.amazonaws.com"
            },
            "Condition": {
-               "StringLike": {
+               "ArnLike": {
                    "aws:SourceArn": [
                        "arn:aws:logs:{{region}}:{{sourceAccountId}}:*",
                        "arn:aws:logs:{{region}}:{{recipientAccountId}}:*"

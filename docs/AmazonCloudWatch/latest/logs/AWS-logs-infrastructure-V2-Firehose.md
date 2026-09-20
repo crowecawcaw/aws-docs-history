@@ -3,7 +3,10 @@
 # Logs sent to Firehose
 <a name="AWS-logs-infrastructure-V2-Firehose"></a>
 
-**User permissions**
+For an AWS CLI example, see [Create a delivery to Firehose](AWS-vended-logs-permissions-V2.md#vended-logs-same-account-example-firehose).
+
+## User permissions
+<a name="AWS-logs-infrastructure-V2-Firehose-user-permissions"></a>
 
 To enable sending logs to Firehose, you must be signed in with the following permissions.
 
@@ -75,7 +78,8 @@ To enable sending logs to Firehose, you must be signed in with the following per
 
 ------
 
-**IAM roles used for resource permissions**
+## IAM roles used for resource permissions
+<a name="AWS-logs-infrastructure-V2-Firehose-resource-permissions"></a>
 
 Because Firehose does not use resource policies, AWS uses IAM roles when setting up these logs to be sent to Firehose. AWS creates a service-linked role named **AWSServiceRoleForLogDelivery**. This service-linked role includes the following permissions.
 

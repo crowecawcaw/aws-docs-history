@@ -164,21 +164,21 @@ Where you send query results determines what you can do with them. This choice s
 Amazon S3 destinations are optimized for storage and batch processing. When you need to keep query results for months or years, analyze trends over time, or feed data into analytics platforms, Amazon S3 provides cost-effective storage with unlimited retention. EventBridge destinations are optimized for real-time automation. When query results should trigger immediate actions—like sending alerts, starting workflows, or updating systems—EventBridge delivers results as events that your applications can respond to instantly. By default all query completion events are automatically sent as events to the default event bus, enabling integration with downstream processing systems, Lambda functions, or other event-driven architectures. Results are only published to destinations when query is executed successfully. Lookup table destinations are optimized for keeping reference data current. A lookup table destination automatically populates or refreshes the specified lookup table with the query results on each scheduled execution, so other queries can reference the latest data with the `lookup` command.
 
 **Amazon S3 destinations**  
-Store query results as JSON files for long-term retention and batch processing. Best for:  
+Store query results as JSON files for long-term retention and batch processing. Amazon S3 destinations work best for the following scenarios:  
 + Historical analysis and data archiving
 + Integration with data lakes and analytics platforms
 + Compliance and audit requirements
 + Cost-effective storage of large result sets
 
 **EventBridge destinations**  
-Send query results as events for real-time processing and automation. You can retrieve query results using the queryId sent in the event upto 30 days only as we store results for 30 days. Best for:  
+Send query results as events for real-time processing and automation. Use the `queryId` in the event to retrieve the query results, which remain available for 30 days after the query runs. EventBridge destinations work best for the following scenarios:  
 + Triggering automated responses to query results
 + Integration with serverless workflows and Lambda functions
 + Real-time alerting and notification systems
 + Event-driven architectures and microservices
 
 **Lookup table destinations**  
-Automatically create or refresh a lookup table with query results on each scheduled execution. Each refresh is a full replacement of the table content. Best for:  
+Automatically create or refresh a lookup table with query results on each scheduled execution. Each refresh is a full replacement of the table content. Lookup table destinations work best for the following scenarios:  
 + Keeping reference data current for the `lookup` command in your log queries
 + Maintaining allowlists, denylists, or entity inventories derived from log data
 + Enriching queries with recent activity summaries, such as active user or resource lists
@@ -186,9 +186,13 @@ Automatically create or refresh a lookup table with query results on each schedu
 ## Query result format and structure
 <a name="scheduled-queries-result-format"></a>
 
-For Amazon S3 destinations - Query results are delivered in JSON format with the same structure as the GetQueryResults API response. For Amazon EventBridge understanding the format of scheduled query results helps you design downstream processing and integration workflows.
+Scheduled queries deliver results in JSON format, but each destination type receives a different payload. For a lookup table destination, the query results become the content of the lookup table, and each run replaces that content. For more information, see [Configuring lookup table destinations for scheduled queries](scheduled-queries-lookup-table-destination.md).
 
-Query results are delivered in JSON format with the following structure:
+Amazon S3 destinations receive the result rows of the query. Each object contains a JSON array with one entry for each row in the result set, and each entry maps the output field names of the query to their values. The object does not contain query metadata or query statistics, and it omits the `@ptr` field even if the query requests it, because that field is usable only in the console.
+
+EventBridge destinations receive query metadata, including the query statistics, but no result rows. To retrieve the rows of a completed query, call [GetQueryResults](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html) with the value of `queryId` from the event.
+
+The following example shows the event that CloudWatch Logs publishes to EventBridge when a scheduled query completes.
 
 ```
 {
@@ -204,28 +208,118 @@ Query results are delivered in JSON format with the following structure:
     ],
     "detail": {
         "queryId": "2038fd57-ab4f-4018-bb2f-61d363f4a004",
-        "queryString": "fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 10000",
+        "queryString": "fields @timestamp, @message, @logStream\n| filter @message like /ERROR/\n| sort @timestamp desc\n| limit 10000",
         "logGroupIdentifiers": [
             "/aws/lambda/my-function"
         ],
         "status": "Complete",
         "startTime": 1763465460,
         "statistics": {
-            "recordsMatched": 0,
-            "recordsScanned": 0,
+            "recordsMatched": 1842,
+            "recordsScanned": 48325,
             "estimatedRecordsSkipped": 0,
-            "bytesScanned": 0,
+            "bytesScanned": 12081250,
             "estimatedBytesSkipped": 0,
-            "logGroupsScanned": 1
+            "logGroupsScanned": 1,
+            "resultCount": 1842
         }
     }
 }
 ```
 
+This query does not aggregate, and it returned fewer rows than its `limit` of 10,000, so each of the 1,842 matching log events became one output row and `recordsMatched` and `resultCount` are equal. A query that aggregates, or one whose result set is truncated by `limit`, produces a `resultCount` lower than `recordsMatched`. For more information, see [Understanding recordsScanned, recordsMatched, and resultCount](#scheduled-queries-record-counts).
+
 Key elements include:
-+ `statistics` - Query performance metrics including records matched, scanned, bytes processed, and estimated skipped data
++ `statistics` - Counters that describe how much log data the query read and how large the result set is. For a description of each field, see the following table.
 + `startTime` - When the query execution started (Unix timestamp)
 + `queryString` - The actual query that was executed
 + `queryId` - Query id of the query using which results can be retrieved
 + `logGroupIdentifiers` - List of log groups that were queried
 + `status` - Query execution status (Complete, Failed, etc.)
+
+The following table describes each field in the `statistics` object. For the API definitions of these fields, see [QueryStatistics](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_QueryStatistics.html).
+
+
+| Field | Description | 
+| --- | --- | 
+| recordsScanned | The total number of log events scanned during the query. | 
+| recordsMatched | The number of log events that matched the query string. This value counts log events, not output rows. For the number of rows in the result set, use resultCount. | 
+| resultCount | The number of rows in the query result set. This value counts only the rows that survived all operations in the query, so it might be less than recordsMatched. It covers all pages of results that GetQueryResults returns. For more information, see [Understanding recordsScanned, recordsMatched, and resultCount](#scheduled-queries-record-counts). | 
+| estimatedRecordsSkipped | An estimate of the number of log events that were skipped when processing this query, because the query contained an indexed field. Skipping these entries lowers query costs and improves the query performance time. For more information, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md). | 
+| bytesScanned | The total number of bytes in the log events scanned during the query. | 
+| estimatedBytesSkipped | An estimate of the number of bytes in the log events that were skipped when processing this query, because the query contained an indexed field. | 
+| logGroupsScanned | The number of log groups that were scanned by this query. | 
+
+## Understanding recordsScanned, recordsMatched, and resultCount
+<a name="scheduled-queries-record-counts"></a>
+
+Three of the query statistics count different things, and comparing them directly can be misleading. Each one measures a different stage of query processing:
++ `recordsScanned` - The number of log events that the query read from your log groups. This is the input to the query.
++ `recordsMatched` - The number of those log events that matched the query string. This value counts log events.
++ `resultCount` - The number of rows in the result set that the query produced. This value counts output rows.
+
+Each stage narrows the data. A command such as `stats` combines many log events into a single output row, so `resultCount` can be much smaller than `recordsMatched`. A large `recordsMatched` with a small `resultCount` does not mean that rows are missing from the result set.
+
+**Example – Aggregation**
+
+The following query counts the error messages in each log stream of one log group over a one-hour period.
+
+```
+filter @message like /ERROR/
+| stats count(*) as errorCount by @logStream
+```
+
+If the query reads 1,500,000 log events, 24,318 of them contain `ERROR`, and those matching log events come from 12 log streams, then the query completes with the following statistics.
+
+```
+"statistics": {
+    "recordsMatched": 24318,
+    "recordsScanned": 1500000,
+    "estimatedRecordsSkipped": 0,
+    "bytesScanned": 450000000,
+    "estimatedBytesSkipped": 0,
+    "logGroupsScanned": 1,
+    "resultCount": 12
+}
+```
+
+`stats` produces one row for each log stream, so `resultCount` is 12 while `recordsMatched` is 24,318. The 12 values of `errorCount` add up to 24,318.
+
+**Example – Post-aggregation filter**
+
+The following query keeps only the log streams that produced more than 1,000 errors.
+
+```
+filter @message like /ERROR/
+| stats count(*) as errorCount by @logStream
+| filter errorCount > 1000
+```
+
+The final `filter` command runs after grouping, so it removes rows from the result set instead of log events from the scan. If 3 of the 12 log streams have an `errorCount` greater than 1,000, then `resultCount` is 3 instead of 12. `recordsScanned` and `bytesScanned` do not change, because the query reads the same log data either way.
+
+**Example – Limit**
+
+A `limit` command reduces `resultCount` without any aggregation. The following query returns the 100 most recent error messages.
+
+```
+filter @message like /ERROR/
+| sort @timestamp desc
+| limit 100
+```
+
+If the query scans the same 1,500,000 log events and matches the same 24,318, then `resultCount` is 100, because `limit` caps the result set at 100 rows. In the console, you see this relationship as **Showing 100 of 24,318 records matched**.
+
+Each statistic answers a different question.
+
+**How many rows did this query return?**  
+Use `resultCount`. A value of 0 means that the query produced no rows. Do not use `recordsMatched` for this purpose, because it counts log events rather than rows.
+
+**How much log data did this query read?**  
+Use `recordsScanned` and `bytesScanned`. Scan volume determines the cost and the run time of a query. To reduce it, shorten the time range, query fewer log groups, or create field indexes. For more information, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md).
+
+**How many log events matched this query?**  
+Use `recordsMatched`.
+
+**Note**  
+CloudWatch Logs omits a statistic from the `statistics` object when no value is available for it, rather than reporting the statistic as 0.  
+If your event consumer does not find `resultCount` in an event, treat the value as unknown rather than as 0. Write event consumers so that they tolerate statistics that are absent and ignore statistics that they do not recognize.

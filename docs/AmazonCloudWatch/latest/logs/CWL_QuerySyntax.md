@@ -57,6 +57,7 @@ All Logs Insights QL query commands are supported on log groups in the Standard 
 | **` sessionize`** | Groups events into sessions by identity fields and inactivity gap. | 
 | **` countFrequent`** | Returns an approximate count of each unique field-value combination, sorted in descending order. | 
 | **` where`** | Acts as a grammar alias for the `filter` command and accepts identical syntax. | 
+| ** [estimate](CWL_QuerySyntax-Estimate.md)** | Returns the estimated bytes that the query would scan over the selected log groups and time range, without running the query. | 
 | ** [Other operations and functions](CWL_QuerySyntax-operations-functions.md)** | CloudWatch Logs Insights also supports many comparison, arithmetic, datetime, numeric, string, IP address, and general functions and operations.  | 
 
 The following sections provide more details about the CloudWatch Logs Insights query commands.
@@ -95,6 +96,7 @@ The following sections provide more details about the CloudWatch Logs Insights q
 + [sessionize](CWL_QuerySyntax-Sessionize.md)
 + [countFrequent](CWL_QuerySyntax-CountFrequent.md)
 + [where](CWL_QuerySyntax-Where.md)
++ [estimate](CWL_QuerySyntax-Estimate.md)
 + [Boolean, comparison, numeric, datetime, and other functions](CWL_QuerySyntax-operations-functions.md)
 + [Hashing functions](CWL_QuerySyntax-hash-functions.md)
 + [Time-series functions](CWL_QuerySyntax-timeseries-functions.md)

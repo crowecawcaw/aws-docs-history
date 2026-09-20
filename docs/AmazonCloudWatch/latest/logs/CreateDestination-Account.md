@@ -8,7 +8,7 @@ All steps in this procedure are to be done in the log data recipient account.
 
 For this example, the log data recipient account has an AWS account ID of 999999999999, while the log data sender AWS account ID is 111111111111.
 
- This example creates a destination using a Amazon Kinesis Data Streams stream called RecipientStream, and a role that enables CloudWatch Logs to write data to it. 
+ This example creates a destination using an Amazon Kinesis Data Streams stream called RecipientStream, and a role that enables CloudWatch Logs to write data to it. 
 
 When the destination is created, CloudWatch Logs sends a test message to the destination on the recipient account’s behalf. When the subscription filter is active later, CloudWatch Logs sends log events to the destination on the source account’s behalf.
 
@@ -59,7 +59,7 @@ When the destination is created, CloudWatch Logs sends a test message to the des
                "Service": "logs.amazonaws.com"
            },
            "Condition": {
-               "StringLike": {
+               "ArnLike": {
                    "aws:SourceArn": [
                        "arn:aws:logs:{{region}}:{{sourceAccountId}}:*",
                        "arn:aws:logs:{{region}}:{{recipientAccountId}}:*"

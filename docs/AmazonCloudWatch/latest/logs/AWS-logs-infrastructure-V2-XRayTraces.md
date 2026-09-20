@@ -3,7 +3,10 @@
 # Traces sent to X-Ray
 <a name="AWS-logs-infrastructure-V2-XRayTraces"></a>
 
-**User permissions**
+For an AWS CLI example, see [Create a delivery to X-Ray](AWS-vended-logs-permissions-V2.md#vended-logs-same-account-example-xray).
+
+## User permissions
+<a name="AWS-logs-infrastructure-V2-XRayTraces-user-permissions"></a>
 
 To enable sending traces to AWS X-Ray, you must be signed in with the following permissions.
 
@@ -67,7 +70,8 @@ To enable sending traces to AWS X-Ray, you must be signed in with the following 
 
 ------
 
-**X-Ray resource policy**
+## X-Ray resource policy
+<a name="AWS-logs-infrastructure-V2-XRayTraces-resource-policy"></a>
 
 The destination account where the traces are being sent must have a resource policy that includes certain permissions. When the user setting up the tracing has `xray:PutResourcePolicy` and `xray:ListResourcePolicies` permissions in the account, AWS automatically creates the resource policy when you begin sending traces to X-Ray. The policy that is created depends on the source service :
 
@@ -135,6 +139,7 @@ For other services that support trace delivery, AWS creates a resource policy sc
 }
 ```
 
-**Enable transaction search**
+## Enable transaction search
+<a name="AWS-logs-infrastructure-V2-XRayTraces-transaction-search"></a>
 
 To enable sending traces to X-Ray, you must enable [transaction search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.html).

@@ -78,7 +78,7 @@ Restrict your CloudWatch subscription filter pattern to match the capacity of yo
        "Principal": { "Service": "logs.amazonaws.com" },
        "Action": "sts:AssumeRole",
        "Condition": { 
-           "StringLike": { "aws:SourceArn": "arn:aws:logs:{{region}}:{{123456789012}}:*" } 
+           "ArnLike": { "aws:SourceArn": "arn:aws:logs:{{region}}:{{123456789012}}:*" } 
         }
       }
    }
@@ -348,7 +348,7 @@ The actual log data, represented as an array of log event records. The "id" prop
 ## Example 3: Subscription filters with Amazon Data Firehose
 <a name="FirehoseExample"></a>
 
-In this example, you'll create a CloudWatch Logs subscription that sends any incoming log events that match your defined filters to your Amazon Data Firehose delivery stream. Data sent from CloudWatch Logs to Amazon Data Firehose is already compressed with gzip level 6 compression, so you do not need to use compression within your Firehose delivery stream. You can then use the decompression feature in Firehose to automatically decompress the logs. For more information, see [ Send CloudWatch Logs to Firehose](https://docs.aws.amazon.com/logs/SubscriptionFilters.html#FirehoseExample).
+In this example, you'll create a CloudWatch Logs subscription that sends any incoming log events that match your defined filters to your Amazon Data Firehose delivery stream. Data sent from CloudWatch Logs to Amazon Data Firehose is already compressed with gzip level 6 compression, so you do not need to use compression within your Firehose delivery stream. You can then use the decompression feature in Firehose to automatically decompress the logs. For more information, see [ Send CloudWatch Logs to Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html#FirehoseExample).
 
 **Note**  
 Before you create the Firehose stream, calculate the volume of log data that will be generated. Be sure to create a Firehose stream that can handle this volume. If the stream cannot handle the volume, the log stream will be throttled. For more information about Firehose stream volume limits, see [Amazon Data Firehose Data Limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html). 
@@ -497,7 +497,7 @@ Before you create the Firehose stream, calculate the volume of log data that wil
        "Principal": { "Service": "logs.amazonaws.com" },
        "Action": "sts:AssumeRole",
        "Condition": { 
-            "StringLike": { 
+            "ArnLike": { 
                 "aws:SourceArn": "arn:aws:logs:{{region}}:{{123456789012}}:*"
             } 
         }

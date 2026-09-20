@@ -182,8 +182,26 @@ On Ubuntu, run `apt-get update` before running the commands below.
 **Note**  
 For more information about the current version and the version history of `awslogs-agent-setup`, see [CHANGELOG.txt](https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/CHANGELOG.txt).
 
-   The CloudWatch Logs agent installer requires certain information during setup. Before you start, you need to know which log file to monitor and its time stamp format. You should also have the following information ready.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html)
+   The CloudWatch Logs agent installer requires certain information during setup. Before you start, you need to know which log file to monitor and its time stamp format. You should also have the following information ready.
+
+
+<table>
+<thead>
+  <tr><th>Item</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>AWS access key ID</td><td>Press Enter if using an IAM role. Otherwise, enter your AWS access key ID.</td></tr>
+  <tr><td>AWS secret access key</td><td>Press Enter if using an IAM role. Otherwise, enter your AWS secret access key.</td></tr>
+  <tr><td>Default Region name</td><td>Press Enter. The default is us-east-2. You can set this to us-east-1, us-west-1, us-west-2, ap-south-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-northeast-1, eu-central-1, eu-west-1, or sa-east-1.</td></tr>
+  <tr><td>Default output format</td><td>Leave blank and press Enter.</td></tr>
+  <tr><td>Path of log file to upload</td><td>The location of the file that contains the log data to send. The installer suggests a path for you.</td></tr>
+  <tr><td>Destination Log Group name</td><td>The name for your log group. The installer suggests a log group name for you.</td></tr>
+  <tr><td>Destination Log Stream name</td><td>By default, this is the name of the host. The installer suggests a host name for you.</td></tr>
+  <tr><td>Timestamp format</td><td>Specify the format of the time stamp within the specified log file. Choose custom to specify your own format.</td></tr>
+  <tr><td>Initial position</td><td>How data is uploaded. Set this to start_of_file to upload everything in the data file. Set to end_of_file to upload only newly appended data.</td></tr>
+</tbody>
+</table>
+
 
    After you have completed these steps, the installer asks about configuring another log file. You can run the process as many times as you like for each log file. If you have no more log files to monitor, choose **N** when prompted by the installer to set up another log. For more information about the settings in the agent configuration file, see [CloudWatch Logs agent reference](AgentReference.md).
 **Note**  
