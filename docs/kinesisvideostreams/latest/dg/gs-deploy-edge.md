@@ -54,8 +54,14 @@ The jar included with the kvs-edge-agent.tar.gz does not have the dependencies. 
 
    Type `mv ./target/libs.jar ./KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/`.
 
-1. **Optional.** Configure properties. The Amazon Kinesis Video Streams Edge Agent accepts the following environment variables in AWS IoT Greengrass mode:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/gs-deploy-edge.html)
+1. **Optional.** Configure properties. The Amazon Kinesis Video Streams Edge Agent accepts the following environment variables in AWS IoT Greengrass mode:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    Open `kvs-edge-agent/KvsEdgeComponent/recipes/recipe.yaml` and modify the run script to add any of the preceding environment variables.
 **Important**  

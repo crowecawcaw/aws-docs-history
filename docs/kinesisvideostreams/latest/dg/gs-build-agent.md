@@ -52,8 +52,14 @@ The jar included with the `kvs-edge-agent.tar.gz` does not have the dependencies
 
    Type `mv ./target/libs.jar ./KvsEdgeComponent/artifacts/aws.kinesisvideo.KvsEdgeComponent/{{EdgeAgentVersion}}/`.
 
-1. Set environment variables using the values from previous steps. The following table provides descriptions for the variables.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/gs-build-agent.html)
+1. Set environment variables using the values from previous steps. The following table provides descriptions for the variables.
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
 1. Clear the GStreamer cache. Type:
 
@@ -63,8 +69,14 @@ The jar included with the `kvs-edge-agent.tar.gz` does not have the dependencies
 
    For more information, see the [GStreamer registry documentation](https://gstreamer.freedesktop.org/documentation/gstreamer/gstregistry.html?gi-language=c).
 
-1. Prepare and run the java command. The Amazon Kinesis Video Streams Edge Agent accepts the following arguments:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/gs-build-agent.html)
+1. Prepare and run the java command. The Amazon Kinesis Video Streams Edge Agent accepts the following arguments:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    To set these, add `-D{{java-property-name}}={{value}}` to the java command used to run the jar.
 
