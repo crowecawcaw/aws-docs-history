@@ -100,8 +100,20 @@ This section shows you how to create code reviews and get recommendations using 
            s3_bucket: codeguru-reviewermyactions-bucket  # S3 Bucket with "codeguru-reviewer-*" prefix
    ```
 
-   The following is a list of parameters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/create-code-reviews.html)
+   The following is a list of parameters.
+
+
+<table>
+<thead>
+  <tr><th>Argument</th><th>Required</th><th>Description</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>s3_bucket</td><td>Yes</td><td>User-owned bucket which starts with the prefix <code>codeguru-reviewer-</code>. Must be in the same Region as your application.</td><td></td></tr>
+  <tr><td>build_path</td><td>No</td><td>Path to build artifact(s) directory. JAR files in this directory are uploaded for review. The build artifacts are required to get the complete set of security recommendations.</td><td></td></tr>
+  <tr><td>kms_key_id</td><td>No</td><td>The key ID uniquely identifies an AWS KMS key within an account and Region. </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. Run your workflow in GitHub to start the code analysis. When the build is complete, review your recommendations in the GitHub **Security** tab.
 
