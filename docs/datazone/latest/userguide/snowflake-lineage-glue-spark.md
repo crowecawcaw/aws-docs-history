@@ -31,8 +31,18 @@ The AWS Glue Spark runtime bundles the OpenLineage Spark integration and the Ama
 
 1. In the AWS Glue console, open the job and choose **Job details**. Under **Advanced properties**, find **Dependent JARs path** and add the S3 URI of the uploaded JAR.
 
-1. Still in **Job details**, add the following job parameter:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/datazone/latest/userguide/snowflake-lineage-glue-spark.html)
+1. Still in **Job details**, add the following job parameter:
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>--user-jars-first</code></td><td><code>true</code></td></tr>
+</tbody>
+</table>
+
 
    This makes the AWS Glue Spark runtime load your uploaded `openlineage-java` client instead of the version bundled with AWS Glue.
 

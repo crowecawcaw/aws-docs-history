@@ -42,8 +42,22 @@ Amazon DataZone enables teams and analytics users to collaborate on projects by 
   + Project members can be SSO users, SSO groups, and IAM users
   + Project members can request subscription to the assets in the data catalog
 
-    Subscription approvals are provided to the projects    
-<a name="project-designations-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/datazone/latest/userguide/datazone-concepts.html)
+    Subscription approvals are provided to the projects
+
+<a name="project-designations-table"></a>
+<table>
+<thead>
+  <tr><th></th><th>Create/delete projects</th><th>Create/delete project profiles</th><th>Create/delete environment profiles</th><th>Create/delete environments</th><th>Add/delete members to projects</th><th>Search and discovery</th><th>Create/delete metadata forms/glossaries</th><th>Create data source runs and ingest data</th><th>Publish data and create asset filters</th><th>Request subscriptions</th><th>Approve/reject subscription requests</th><th>Read subscribed data from Amazon Athena and Amazon Redshift</th></tr>
+</thead>
+<tbody>
+  <tr><td>Owner</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Contributor</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Consumer</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>No </td><td>Yes</td><td>No </td><td>No </td><td>No</td><td>Yes</td><td>No </td><td>Yes</td></tr>
+  <tr><td>Viewer</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Steward</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+</tbody>
+</table>
+
 + In a Amazon DataZone project, environments are collections of zero or more configured resources (for example, an Amazon S3, an AWS Glue database, or an Amazon Athena workgroup), with a given set of IAM principals who can operate on those resources. Environments are created by using environment proﬁles which are pre-configured sets of resources and blueprints that provide reusable templates for creating environments. Environment profiles define settings such as the AWS account or region in which environments are deployed. 
 
 ## What are Amazon DataZone blueprints?
@@ -170,8 +184,22 @@ In Amazon DataZone, metadata forms define the metadata that is collected and sav
 A domain administrator applies a metadata form to assets in their domain by adding the metadata form to their domain. Asset publishers then provide any optional and required field values in the metadata form. 
 
 **Project**  
-In Amazon DataZone, projects enable a group of users to collaborate on various business use cases that involve creating assets in project inventories and thus making them discoverable by all project members, and then publishing, discovering, subscribing to, and consuming assets in the Amazon DataZone catalog. Project members consume assets from the Amazon DataZone catalog and produce new assets using one or more analytical workflows. Project members can be owners, contributors, consumers, stewards, and viewers.       
-<a name="project-designations-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/datazone/latest/userguide/datazone-concepts.html)
+In Amazon DataZone, projects enable a group of users to collaborate on various business use cases that involve creating assets in project inventories and thus making them discoverable by all project members, and then publishing, discovering, subscribing to, and consuming assets in the Amazon DataZone catalog. Project members consume assets from the Amazon DataZone catalog and produce new assets using one or more analytical workflows. Project members can be owners, contributors, consumers, stewards, and viewers.   
+
+<a name="project-designations-table"></a>
+<table>
+<thead>
+  <tr><th></th><th>Create/delete projects</th><th>Create/delete project profiles</th><th>Create/delete environment profiles</th><th>Create/delete environments</th><th>Add/delete members to projects</th><th>Search and discovery</th><th>Create/delete metadata forms/glossaries</th><th>Create data source runs and ingest data</th><th>Publish data and create asset filters</th><th>Request subscriptions</th><th>Approve/reject subscription requests</th><th>Read subscribed data from Amazon Athena and Amazon Redshift</th></tr>
+</thead>
+<tbody>
+  <tr><td>Owner</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Contributor</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Consumer</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>No </td><td>Yes</td><td>No </td><td>No </td><td>No</td><td>Yes</td><td>No </td><td>Yes</td></tr>
+  <tr><td>Viewer</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Steward</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>To be managed by domain unit member</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+</tbody>
+</table>
+
  Project owners can add or remove other users as owners or contributors and they can modify or delete projects. Other restrictions on contributors can be defined with policies. When a user creates a project, they become the first owner of that project.
 
 **Environment**  
