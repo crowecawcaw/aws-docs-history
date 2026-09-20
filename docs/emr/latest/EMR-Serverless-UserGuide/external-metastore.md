@@ -14,8 +14,18 @@ You can configure your EMR Serverless Spark and Hive jobs to connect to an exter
 
 1. Create a MySQL or Aurora PostgreSQL database in a private subnet in your Amazon VPC. For information about how to create an Amazon RDS database, refer to [Creating an Amazon RDS DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html). 
 
-1. Modify the security group of your MySQL or Aurora database to allow JDBC connections from your EMR Serverless security group by following the steps in [Modifying an Amazon RDS DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html). Add a rule for inbound traffic to the RDS security group from one of your EMR Serverless security groups.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/external-metastore.html)
+1. Modify the security group of your MySQL or Aurora database to allow JDBC connections from your EMR Serverless security group by following the steps in [Modifying an Amazon RDS DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html). Add a rule for inbound traffic to the RDS security group from one of your EMR Serverless security groups.
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>3306</td><td><code>emr-serverless-security-group</code></td></tr>
+</tbody>
+</table>
+
 
 ## Configure Spark options
 <a name="external-metastore-spark"></a>

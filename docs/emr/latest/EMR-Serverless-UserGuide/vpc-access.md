@@ -59,14 +59,44 @@ We suggest that you create a separate security group for EMR Serverless applicat
 
 **Example — Communication with Amazon Redshift clusters**  
 
-1. Add a rule for inbound traffic to the Amazon Redshift security group from one of the EMR Serverless security groups.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/vpc-access.html)
+1. Add a rule for inbound traffic to the Amazon Redshift security group from one of the EMR Serverless security groups.
 
-1. Add a rule for outbound traffic from one of the EMR Serverless security groups. Do this in one of two ways. First, open outbound traffic to all ports.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/vpc-access.html)
 
-   Alternatively, you can restrict outbound traffic to Amazon Redshift clusters. This is useful only when the application must communicate with Amazon Redshift clusters and nothing else.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/vpc-access.html)
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>5439</td><td><code>emr-serverless-security-group</code></td></tr>
+</tbody>
+</table>
+
+
+1. Add a rule for outbound traffic from one of the EMR Serverless security groups. Do this in one of two ways. First, open outbound traffic to all ports.
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Destination</th></tr>
+</thead>
+<tbody>
+  <tr><td>All traffic</td><td>TCP</td><td>ALL</td><td>0.0.0.0/0</td></tr>
+</tbody>
+</table>
+
+
+   Alternatively, you can restrict outbound traffic to Amazon Redshift clusters. This is useful only when the application must communicate with Amazon Redshift clusters and nothing else.
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>5439</td><td><code>redshift-security-group</code></td></tr>
+</tbody>
+</table>
+
 
 ## Configure application
 <a name="vpc-configure-app"></a>
