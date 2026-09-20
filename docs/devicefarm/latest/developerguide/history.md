@@ -8,6 +8,7 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date Changed | 
 | --- | --- | --- | 
+| Xcode 27 support |  Device Farm now offers Xcode 27 on the macos\_tahoe test host, supporting iOS 18 to 27. See [Supported software within custom test environments](custom-test-environments-hosts-software.md) to learn more.  | September 14, 2026 | 
 | Test Insights reports |  Test Insights reports are now available for supported frameworks in custom test environments. Test Insights include passed, failed, skipped, and errored test counts for each job and run; detailed test output with timestamps and stack traces; and test and job execution times. See [Test Insights](reports.md#reports-test-insights) to learn more.  | August 6, 2026 | 
 | macos\_tahoe iOS test host |  Device Farm now supports the macos\_tahoe test host (macOS Tahoe, version 26) with an updated set of [Supported software within custom test environments](custom-test-environments-hosts-software.md).  | August 3, 2026 | 
 | Appium endpoint support |  Device Farm now offers a fully-managed Appium endpoint for remote device testing, enabling quick test development and debugging. This complements the existing server-side execution method, where tests are uploaded and run directly on Device Farm. While server-side execution is ideal for CI/CD pipelines and large-scale testing, the new local Appium endpoint allows faster iteration and development of tests on real devices.  | November 17, 2025 | 

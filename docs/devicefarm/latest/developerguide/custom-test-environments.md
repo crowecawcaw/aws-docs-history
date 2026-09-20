@@ -3,6 +3,9 @@
 # Custom test environments in AWS Device Farm
 <a name="custom-test-environments"></a>
 
+**Note**  
+iOS 27 public devices are now available on Device Farm, served by the macos\_tahoe test host running Xcode 27. Point your test spec at macos\_tahoe and choose an iOS 27 device to get started.
+
 AWS Device Farm enables configuring a custom environment for automated testing (custom mode), which is the recommended approach for all Device Farm users. To learn more about environments in Device Farm, see [Test environments](https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-environments.html). 
 
 Benefits of the Custom Mode as opposed to the Standard Mode include: 

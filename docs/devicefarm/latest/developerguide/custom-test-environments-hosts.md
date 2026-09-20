@@ -3,6 +3,9 @@
 # Hosts for custom test environments
 <a name="custom-test-environments-hosts"></a>
 
+**Note**  
+iOS 27 public devices are now available on Device Farm, served by the macos\_tahoe test host running Xcode 27. Point your test spec at macos\_tahoe and choose an iOS 27 device to get started.
+
  Device Farm supports a set of operating systems with pre-configured software through the use of a test host environment. During test execution, Device Farm utilizes Amazon-managed instances (hosts) that dynamically connect to the selected device under test. This instance is fully cleaned up and not re-used between runs, and is terminated with its generated artifacts after the test run concludes. 
 
 **Topics**

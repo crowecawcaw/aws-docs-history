@@ -50,6 +50,7 @@ For any other required software, you can modify the test spec file to install fr
 |  Appium 3  |  amazon\_linux\_2 <br /> macos\_sequoia <br /> macos\_tahoe  |  `devicefarm-cli use appium 3`  | 
 |  Appium 2  |  amazon\_linux\_2 <br /> macos\_sequoia <br /> macos\_tahoe  |  `devicefarm-cli use appium 2`  | 
 |  Appium 1  |  amazon\_linux\_2  |  `devicefarm-cli use appium 1`  | 
+|  Xcode 27  |  macos\_tahoe <br />(supports iOS 18 to 27) |  `devicefarm-cli use xcode 27`  | 
 |  Xcode 26  |  macos\_sequoia <br /> macos\_tahoe  |  `devicefarm-cli use xcode 26`  | 
 |  Xcode 16  |  macos\_sequoia  |  `devicefarm-cli use xcode 16`  | 
 
