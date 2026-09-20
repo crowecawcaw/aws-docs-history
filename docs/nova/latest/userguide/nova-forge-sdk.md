@@ -3,7 +3,7 @@
 # Customizing with SageMaker Python SDK
 <a name="nova-forge-sdk"></a>
 
-The SageMaker Python SDK v3.0 introduces a modern, modular API for training, fine-tuning, deploying, and managing models on SageMaker. The SDK supports multiple training methods including continued pre-training (CPT), supervised fine-tuning (SFT), direct preference optimization (DPO), reinforcement fine-tuning (RFT), and multi-turn reinforcement learning (MTRL). You can run training jobs on SageMaker Training Jobs and SageMaker HyperPod.
+The SageMaker Python SDK v3.0 introduces a modern, modular API for training, fine-tuning, deploying, and managing models on SageMaker. The SDK supports multiple training methods including continued pre-training (CPT), supervised fine-tuning (SFT), reinforcement fine-tuning (RFT), and multi-turn reinforcement learning (MTRL). You can run training jobs on SageMaker Training Jobs and SageMaker HyperPod.
 
 ## Quick Links
 <a name="nova-forge-sdk-quick-links"></a>
@@ -19,7 +19,7 @@ Follow these steps to go from installation to your first training job:
 + No more finding the right recipes or container URI for your training techniques.
 + Bring your own training recipes or use the defaults with parameter overrides.
 + The SDK validates your configuration against supported model and instance combinations, preventing errors before training starts.
-+ Support for multiple training methods including continued pre-training (CPT), supervised fine-tuning (SFT), direct preference optimization (DPO), reinforcement fine-tuning (RFT), and multi-turn reinforcement learning (MTRL), with both LoRA and full-rank approaches.
++ Support for multiple training methods including continued pre-training (CPT), supervised fine-tuning (SFT), reinforcement fine-tuning (RFT), and multi-turn reinforcement learning (MTRL), with both LoRA and full-rank approaches.
 + Integrated Amazon CloudWatch monitoring enables you to track training progress in real-time.
 + Integrated MLflow to track training experiments with SageMaker AI MLflow tracking servers.
 
@@ -51,8 +51,6 @@ The SDK supports the following models and techniques within the Amazon Nova fami
 | Continued Pre-training | [All Nova Models](https://docs.aws.amazon.com/nova/latest/userguide/nova-model-recipes.html#nova-model-get-recipes) (SMHP only) | 
 | Supervised Fine-tuning LoRA | [All Nova Models](https://docs.aws.amazon.com/nova/latest/userguide/nova-model-recipes.html#nova-model-get-recipes) | 
 | Supervised Fine-tuning Full-Rank | [All Nova Models](https://docs.aws.amazon.com/nova/latest/userguide/nova-model-recipes.html#nova-model-get-recipes) | 
-| Direct Preference Optimization LoRA | Nova 1.0 models | 
-| Direct Preference Optimization Full-Rank | Nova 1.0 models | 
 | Reinforcement Fine-tuning LoRA | Nova Lite 2.0 | 
 | Reinforcement Fine-tuning Full-Rank | Nova Lite 2.0 | 
 | Multi-turn Reinforcement Fine-tuning LoRA | Nova Lite 2.0 | 
@@ -63,7 +61,7 @@ The SDK supports the following models and techniques within the Amazon Nova fami
 
 A Restricted Model Package (RMP) is a SageMaker AI Model Package that wraps proprietary model artifacts in platform-managed escrow storage. RMPs allow you to authorize and control usage of these models through IAM policies without granting direct access to the underlying artifacts. Model data cannot be downloaded, exported, or viewed directly. It can only be used within authorized AWS services. RMPs exist within Model Package Groups marked with `StorageType: "Restricted"`.
 
-When you train a model using multi-turn reinforcement learning (MTRL) on SageMaker Training Jobs Serverless, the output is delivered as an RMP ARN within a Model Package Group, rather than an S3 path. This differs from other training methods (such as SFT, DPO, or RFT) where the output is an S3 path to the model checkpoint.
+When you train a model using multi-turn reinforcement learning (MTRL) on SageMaker Training Jobs Serverless, the output is delivered as an RMP ARN within a Model Package Group, rather than an S3 path. This differs from other training methods (such as SFT or RFT) where the output is an S3 path to the model checkpoint.
 
 To use MTRL, use the `MultiTurnRLTrainer` class. When training on SageMaker Training Jobs Serverless, you can optionally specify an `output_model_package_group` to control where the output RMP is registered. If omitted, the SDK auto-creates a Model Package Group for you. For more information and code examples, see [Restricted Model Packages](nova-rmp.md).
 
@@ -143,7 +141,7 @@ trainer = SFTTrainer(
 job = trainer.train(wait=False)
 ```
 
-The SDK also provides `CPTTrainer` for continued pre-training, `DPOTrainer` for direct preference optimization, `RLVRTrainer` for reinforcement fine-tuning, and `MultiTurnRLTrainer` for multi-turn reinforcement learning. Each follows the same pattern: provide a model, compute configuration, training dataset, and output path.
+The SDK also provides `CPTTrainer` for continued pre-training, `RLVRTrainer` for reinforcement fine-tuning, and `MultiTurnRLTrainer` for multi-turn reinforcement learning. Each follows the same pattern: provide a model, compute configuration, training dataset, and output path.
 
 ### 3. Monitor
 <a name="nova-forge-sdk-monitor"></a>

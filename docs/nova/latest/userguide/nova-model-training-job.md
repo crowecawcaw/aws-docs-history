@@ -13,7 +13,5 @@ For best practices, see [Best Practices](nova-forge-sft.md#best-practices).
 + [Customizing with SageMaker Python SDK](nova-forge-sdk.md)
 + [Restricted Model Packages](nova-rmp.md)
 + [Fine-tune Nova 1.0](nova-fine-tune-1.md)
-+ [Amazon Nova distillation](nova-distillation.md)
-+ [Direct Preference Optimization (DPO)](nova-dpo-smtj.md)
 + [Monitoring Progress Across Iterations](nova-model-monitor.md)
 + [Evaluating your SageMaker AI-trained model](nova-model-evaluation.md)

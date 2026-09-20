@@ -31,7 +31,7 @@ The following documentation resources will help you when using Amazon Nova.
 
 | Model | Model ID | Description | Status | Release date | Context window | Input modalities | Output modalities | 
 | --- |--- |--- |--- |--- |--- |--- |--- |
-| Amazon Nova Premier | amazon.nova-premier-v1:0 | Amazon Nova Premier is our most capable multimodal model for complex tasks and the best teacher for distilling custom models for cost-effective applications. | Active | 4/30/2025 | 1M | Text, Image, Video | Text | 
+| Amazon Nova Premier | amazon.nova-premier-v1:0 | Amazon Nova Premier is our most capable multimodal model for complex tasks. | Active | 4/30/2025 | 1M | Text, Image, Video | Text | 
 | Amazon Nova Pro | amazon.nova-pro-v1:0 | Amazon Nova Pro is designed for highly complex use cases requiring advanced processing, creativity, and code generation. The model supports image, video, and text inputs and outputs text.  | Active | 12/2/2024 | 300k | Text, Image, Video | Text | 
 | Amazon Nova Lite | amazon.nova-lite-v1:0 | Amazon Nova Lite balances intelligence, latency, and cost-effectiveness. It's optimized for complex scenarios where low latency (minimal delay) is crucial, such as interactive agents that need to orchestrate multiple tool calls simultaneously. The model supports image, video, and text inputs and outputs text. | Active | 12/2/2024 | 300k | Text, Image, Video | Text | 
 | Amazon Nova Micro | amazon.nova-micro-v1:0 | Amazon Nova Micro is the fastest and most affordable option, optimized for large-scale, latency-sensitive deployments like conversational interfaces, chats, and high-volume tasks, such as classification, routing, entity extraction, and document summarization. | Active | 12/2/2024 | 128k | Text | Text | 

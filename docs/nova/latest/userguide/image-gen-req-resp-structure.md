@@ -344,10 +344,22 @@ The `imageGenerationConfig` field is common to all task types except `BACKGROUND
   + Low values (1.1-3) - More creative freedom for the AI, potentially more aesthetic, but low contrast and less prompt-adherent results
   + Medium values (4-7) - Balanced approach, typically recommended for most generations
   + High values (8-10) - Strict prompt adherence, which can produce more precise results but sometimes at the cost of natural aesthetics and increased color saturation
-+ `numberOfImages` (Optional) – The number of images to generate.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/nova/latest/userguide/image-gen-req-resp-structure.html)
-+ `seed` (Optional) – Determines the initial noise setting for the generation process. Changing the seed value while leaving all other parameters the same will produce a totally new image that still adheres to your prompt, dimensions, and other settings. It is common to experiment with a variety of seed values to find the perfect image.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/nova/latest/userguide/image-gen-req-resp-structure.html)
++ `numberOfImages` (Optional) – The number of images to generate.
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
++ `seed` (Optional) – Determines the initial noise setting for the generation process. Changing the seed value while leaving all other parameters the same will produce a totally new image that still adheres to your prompt, dimensions, and other settings. It is common to experiment with a variety of seed values to find the perfect image.
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
 **Important**  
 Resolution (`width` and `height`), `numberOfImages`, and `quality` all have an impact on the time it takes for generation to complete. The AWS SDK has a default `read_timeout` of 60 seconds which can easily be exceeded when using higher values for these parameters. Therefore, it is recommended that you increase the `read_timeout` of your invocation calls to at least 5 minutes (300 seconds). The code examples demonstrate how to do this.

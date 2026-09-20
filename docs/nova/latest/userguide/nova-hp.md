@@ -26,14 +26,6 @@ The following tables summarize the computational requirements for SageMaker Hype
 | Amazon Nova Pro | 8,192 | 12 | ml.p5.48xlarge | GPU H100 | 
 
 
-**Direct preference optimization (DPO)**  
-
-| Model | Sequence length | Number of nodes | Instance | Accelerator | 
-| --- |--- |--- |--- |--- |
-| Direct Preference Optimization (Full) | 32,768 | 2, 4, or 6 | ml.p5.48xlarge | GPU H100 | 
-| Direct Preference Optimization (LoRA) | 32,768 | 2, 4, or 6 | ml.p5.48xlarge | GPU H100 | 
-
-
 **Fine-tuning**  
 
 | Model | Technique | Sequence length | Number of nodes | Instance | Accelerator | 
@@ -46,13 +38,6 @@ The following tables summarize the computational requirements for SageMaker Hype
 | Amazon Nova 1 Pro | Supervised Fine-Tuning (Full) | 65,536 | 6 | ml.p5.48xlarge | GPU H100 | 
 
 
-**Distillation**  
-
-| Model | Nodes | Instance | 
-| --- |--- |--- |
-| Model Distillation for Post-Training | 1 | ml.r5.24xlarge | 
-
-
 **Evaluation**  
 
 | Model | Sequence length | Nodes | Instance | Accelerator | 
@@ -63,15 +48,6 @@ The following tables summarize the computational requirements for SageMaker Hype
 | Standard Text Benchmarks | 8,192 | 1 | ml.p5.48xlarge | GPU H100 | 
 | Custom Dataset Evaluation | 8,192 | 1 | ml.p5.48xlarge | GPU H100 | 
 | Multi-Modal Benchmarks | 8,192 | 1 | ml.p5.48xlarge | GPU H100 | 
-
-
-**Proximal policy optimization**  
-
-| Model | Critic Model Instance Count | Reward Model Instance Count | Anchor Model Instance Count | Actor Train | Actor Generation | Number of Instances | Total Hours Per Run | P5 Hours | Instance Type | 
-| --- |--- |--- |--- |--- |--- |--- |--- |--- |--- |
-| Amazon Nova Micro | 1 | 1 | 1 | 2 | 2 | 7 | 8 | 56 | ml.p5.48xlarge | 
-| Amazon Nova Lite | 1 | 1 | 1 | 2 | 2 | 7 | 16 | 112 | ml.p5.48xlarge | 
-| Amazon Nova Pro | 1 | 1 | 1 | 6 | 2 | 11 | 26 | 260 | ml.p5.48xlarge | 
 
 **Topics**
 + [Compute requirements for Amazon Nova 1 models](#nova-hp-compute-1)

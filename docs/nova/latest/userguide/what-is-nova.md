@@ -16,7 +16,7 @@ Amazon Nova delivers powerful foundation models across three categories: underst
 
 | Model | Category | Description | Use cases | Regions | 
 | --- |--- |--- |--- |--- |
-| Amazon Nova Premier | Understanding | Most capable multimodal model for complex tasks and best teacher for distilling custom models for cost-effective applications. Comprehends diverse inputs including text, images, video, documents, and code. | Interactive chat interfaces, Retrieval-Augmented Generation (RAG) systems, agentic applications, video analysis, UI workflow automation | US East (N. Virginia)1, AWS GovCloud (US-West) | 
+| Amazon Nova Premier | Understanding | Most capable multimodal model for complex tasks. Comprehends diverse inputs including text, images, video, documents, and code. | Interactive chat interfaces, Retrieval-Augmented Generation (RAG) systems, agentic applications, video analysis, UI workflow automation | US East (N. Virginia)1, AWS GovCloud (US-West) | 
 | Amazon Nova Pro | Understanding | Highly capable multimodal model with best combination of accuracy, speed, and cost for a wide range of tasks. Comprehends diverse inputs including text, images, video, documents, and code. | Interactive chat interfaces, Retrieval-Augmented Generation (RAG) systems, agentic applications, video analysis, UI workflow automation | US East (N. Virginia)1, Asia Pacific (Sydney)1, Europe (London)1, AWS GovCloud (US-West) | 
 | Amazon Nova Lite | Understanding | Very low cost multimodal model with lightning fast processing for image, video, and text inputs. Comprehends diverse inputs including text, images, video, documents, and code. | Interactive chat interfaces, Retrieval-Augmented Generation (RAG) systems, agentic applications, video analysis, UI workflow automation | US East (N. Virginia)1, Asia Pacific (Sydney)1, Europe (London)1, AWS GovCloud (US-West) | 
 | Amazon Nova Micro | Understanding | Text-only model that delivers the lowest latency responses at very low cost. | Interactive chat interfaces, Retrieval-Augmented Generation (RAG) systems, agentic applications | US East (N. Virginia)1, Asia Pacific (Sydney)1, Europe (London)1, AWS GovCloud (US-West) | 
@@ -60,7 +60,6 @@ The following tables provide detailed specifications for each Amazon Nova model 
 | Bedrock Evaluations | Yes (text only) | Yes (text only) | Yes (text only) | Yes | 
 | Bedrock Prompt flows | Yes | Yes | Yes | Yes | 
 | Bedrock Studio | Yes | Yes | Yes | Yes | 
-| Bedrock Model Distillation | *Teacher to*: Pro, Lite, and Micro | *Teacher to*: Lite and Micro<br />*Student of*: Premier | *Student of*: Premier and Pro | *Student of*: Premier and Pro | 
 
 *1Optimized for these 15 languages: English, German, Spanish, French, Italian, Japanese, Korean, Arabic, Simplified Chinese, Russian, Hindi, Portuguese, Dutch, Turkish, and Hebrew.*
 

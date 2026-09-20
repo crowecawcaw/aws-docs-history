@@ -578,11 +578,11 @@ The `eval` section controls how the container executes evaluations.
 
 | Parameter | Required | Default | Description | 
 | --- | --- | --- | --- | 
-| fail\_on\_error | No | false | Stop the evaluation if any sample fails. Set to true for strict validation. | 
+| fail\_on\_error | No | true | Abort on the first sample error. Set false to never abort. See [Errors and Limits](https://inspect.aisi.org.uk/options.html#errors-and-limits) on the Inspect AI website. | 
 | max\_connections | No | 10 | Number of parallel requests to the inference endpoint | 
-| max\_retries | No | 3 | Number of retry attempts for failed inference requests | 
+| max\_retries | No | 3 | Retries per model request on transient errors. Does not retry failed samples. | 
 | timeout | No | 600 | Request timeout in seconds for each inference call | 
-| extra\_args | No | — | Additional key-value pairs passed directly to the Inspect AI eval command | 
+| extra\_args | No | — | Additional arguments for the Inspect AI task. See task definition and Inspect AI arguments for supported options in the [Inspect AI documentation](https://inspect.aisi.org.uk/options.html). | 
 
 **Decoding parameters**
 
@@ -676,6 +676,7 @@ eval:
   extra_args:
     - "--display"
     - "plain"
+    - "--retry-on-error=3"  # for tasks where samples should be retried on error
 
 output:
   s3_path: s3://your-bucket/eval/output/
@@ -919,6 +920,12 @@ The container logs show progress through the following stages:
 | Evaluation | Varies by benchmark size and model latency | 
 | Cleanup | 1–2 minutes | 
 
+**Where to find errors**  
+Failed samples and error details are recorded in the following locations:  
+**`.eval` log** — Use `inspect view` to see error messages for each failed sample.
+**Training job logs** — CloudWatch log group `/aws/sagemaker/TrainingJobs` (stream prefix = job name).
+**SageMaker Inference endpoint logs (managed-endpoint runs)** — CloudWatch log group `/aws/sagemaker/Endpoints/<endpoint-name>`.
+
 ## Step 7: View and interpret results
 <a name="nova-eval-container-step7"></a>
 
@@ -1104,6 +1111,10 @@ If evaluation scores are unexpectedly low or inconsistent, check the following s
 + **temperature** — Set to `0.0` for deterministic, reproducible results
 + **max\_tokens** — Ensure the value is large enough for the model to complete its response
 + **completion\_mode** — For base (non-chat) models, set `completion_mode: true` in your recipe to use completion-style prompting instead of chat format
+
+**Eval aborts on a sample error**
+
+If the evaluation stops after a sample error, adjust `fail_on_error` in your recipe. To retry failed samples, add `--retry-on-error=N` to `extra_args`. See the "Where to find errors" note in [Step 6: Monitor the job](#nova-eval-container-step6).
 
 ## Data privacy
 <a name="nova-eval-container-data-privacy"></a>

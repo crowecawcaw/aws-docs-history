@@ -106,7 +106,7 @@ This saves you the effort of adding the `-n kubeflow` in every command when inte
 <a name="nova-hp-essential-commands-guide-start-job"></a>
 
 **Note**  
-If running PPO/RFT jobs, ensure you add label selector settings to `src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/cluster/k8s.yaml` so that all pods are schedule on the same node.  
+If running RFT jobs, make sure you add label selector settings to `src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/cluster/k8s.yaml` so that all pods are schedule on the same node.  
 
 ```
 label_selector:
