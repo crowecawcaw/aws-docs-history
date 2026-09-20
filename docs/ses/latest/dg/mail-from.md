@@ -73,8 +73,20 @@ These procedures show you how to configure a custom MAIL FROM domain for an enti
 
 1. Publish the MX and SPF (type TXT) records to the DNS server of the custom MAIL FROM domain:
 
-   In the **Custom MAIL FROM domain** pane, the **Publish DNS records** table now displays the MX and SPF (type TXT) records in that you have to publish (add) to your domain's DNS configuration. These records use the formats shown in the following table.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/mail-from.html)
+   In the **Custom MAIL FROM domain** pane, the **Publish DNS records** table now displays the MX and SPF (type TXT) records in that you have to publish (add) to your domain's DNS configuration. These records use the formats shown in the following table. 
+
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Type</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>{{subdomain}}.{{domain}}.{{com}}</td><td>MX</td><td> 10 feedback-smtp.{{region}}.amazonses.com </td></tr>
+  <tr><td>{{subdomain}}.{{domain}}.{{com}}</td><td>TXT</td><td>"v=spf1 include:amazonses.com ~all"</td></tr>
+</tbody>
+</table>
+
 
    In the preceding records,
    + {{subdomain}}.{{domain}}.{{com}} will be populated with your MAIL FROM subdomain
@@ -91,8 +103,24 @@ To successfully set up a custom MAIL FROM domain with Amazon SES, you must publi
 
    If you use a different DNS provider, you have to publish the DNS records to the MAIL FROM domain's DNS server manually. The procedure for adding DNS records to your domain's DNS server varies based on your web hosting service or DNS provider. 
 
-   The procedures for publishing DNS records for your domain depend on which DNS provider you use. The following table includes links to the documentation for a few widely used DNS providers. This list isn't exhaustive and doesn't signify endorsement; likewise, if your DNS provider isn't listed, it doesn't imply they don't support MAIL FROM domain configuration.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/mail-from.html)
+   The procedures for publishing DNS records for your domain depend on which DNS provider you use. The following table includes links to the documentation for a few widely used DNS providers. This list isn't exhaustive and doesn't signify endorsement; likewise, if your DNS provider isn't listed, it doesn't imply they don't support MAIL FROM domain configuration.
+
+
+<table>
+<thead>
+  <tr><th>DNS/Hosting provider name</th><th>Documentation link</th></tr>
+</thead>
+<tbody>
+  <tr><td>GoDaddy</td><td> <ul><li> MX: <a href="https://www.godaddy.com/help/add-an-mx-record-19234">Add an MX record</a> (external link) </li><li> TXT: <a href="https://www.godaddy.com/help/add-a-txt-record-19232">Add a TXT record</a> (external link) </li></ul> </td></tr>
+  <tr><td>DreamHost</td><td> <ul><li> MX: <a href="https://help.dreamhost.com/hc/en-us/articles/215035328">How do I change my MX records?</a> (external link) </li><li> TXT: <a href="https://help.dreamhost.com/hc/en-us/articles/215414867-How-do-I-add-custom-DNS-records-">How do I add custom DNS records?</a> (external link) </li></ul> </td></tr>
+  <tr><td>Cloudflare</td><td> <ul><li> MX: <a href="https://support.cloudflare.com/hc/en-us/articles/218069617-How-do-I-add-or-edit-mail-or-MX-records-">How do I add or edit mail or MX records? </a> (external link) </li><li> TXT: <a href="https://support.cloudflare.com/hc/en-us/articles/360019093151">Managing DNS records in Cloudflare</a> (external link) </li></ul> </td></tr>
+  <tr><td>HostGator</td><td> <ul><li> MX: <a href="https://www.hostgator.com/help/article/mail-exchange-record-what-to-put-for-your-mx-record">Set up MX Records</a> (external link) </li><li> TXT: <a href="https://www.hostgator.com/help/article/manage-dns-records-with-hostgatorenom">Manage DNS Records with HostGator/eNom</a> (external link) </li></ul> </td></tr>
+  <tr><td>Namecheap</td><td> <ul><li> MX: <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/322/2237/how-can-i-set-up-mx-records-required-for-mail-service">How can I set up MX records required for mail service? </a> (external link) </li><li> TXT: <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/317/2237/how-do-i-add-txtspfdkimdmarc-records-for-my-domain">How do I add TXT/SPF/DKIM/DMARC records for my domain? </a> (external link) </li></ul> </td></tr>
+  <tr><td>Names.co.uk</td><td> <ul><li> MX: <a href="https://www.names.co.uk/support/domains/1156-changing_your_domains_dns_settings.html">Changing your domain's DNS settings</a> (external link) </li><li> TXT: <a href="https://www.names.co.uk/support/1156-changing_your_domains_dns_settings.html">Changing your domains DNS Settings</a> (external link) </li></ul> </td></tr>
+  <tr><td>Wix</td><td> <ul><li> MX: <a href="https://support.wix.com/en/article/adding-or-updating-mx-records-in-your-wix-account">Adding or Updating MX Records in Your Wix Account</a> (external link) </li><li> TXT: <a href="https://support.wix.com/en/article/adding-or-updating-txt-records-in-your-wix-account">Adding or Updating TXT Records in Your Wix Account</a> (external link) </li></ul> </td></tr>
+</tbody>
+</table>
+
 
    When Amazon SES detects that the records are in place, you receive an email informing you that your custom MAIL FROM domain was set up successfully. Depending on your DNS provider, there might be a delay of up to 72 hours before Amazon SES detects the MX record.
 
@@ -130,8 +158,20 @@ You can't set up a custom MAIL FROM domain for addresses on a domain that you do
 
 1. Publish the MX and SPF (type TXT) records to the DNS server of the custom MAIL FROM domain:
 
-   In the **Custom MAIL FROM domain** pane, the **Publish DNS records** table now displays the MX and SPF (type TXT) records in that you have to publish (add) to your domain's DNS configuration. These records use the formats shown in the following table.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/mail-from.html)
+   In the **Custom MAIL FROM domain** pane, the **Publish DNS records** table now displays the MX and SPF (type TXT) records in that you have to publish (add) to your domain's DNS configuration. These records use the formats shown in the following table. 
+
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Type</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>{{subdomain}}.{{domain}}.{{com}}</td><td>MX</td><td> 10 feedback-smtp.{{region}}.amazonses.com </td></tr>
+  <tr><td>{{subdomain}}.{{domain}}.{{com}}</td><td>TXT</td><td>"v=spf1 include:amazonses.com ~all"</td></tr>
+</tbody>
+</table>
+
 
    In the preceding records,
    + {{subdomain}}.{{domain}}.{{com}} will be populated with your MAIL FROM subdomain
@@ -147,8 +187,24 @@ To successfully set up a custom MAIL FROM domain with Amazon SES, you must publi
 
    If you use a different DNS provider, you have to publish the DNS records to the MAIL FROM domain's DNS server manually. The procedure for adding DNS records to your domain's DNS server varies based on your web hosting service or DNS provider. 
 
-   The procedures for publishing DNS records for your domain depend on which DNS provider you use. The following table includes links to the documentation for a few widely used DNS providers. This list isn't exhaustive and doesn't signify endorsement; likewise, if your DNS provider isn't listed, it doesn't imply they don't support MAIL FROM domain configuration.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/mail-from.html)
+   The procedures for publishing DNS records for your domain depend on which DNS provider you use. The following table includes links to the documentation for a few widely used DNS providers. This list isn't exhaustive and doesn't signify endorsement; likewise, if your DNS provider isn't listed, it doesn't imply they don't support MAIL FROM domain configuration.
+
+
+<table>
+<thead>
+  <tr><th>DNS/Hosting provider name</th><th>Documentation link</th></tr>
+</thead>
+<tbody>
+  <tr><td>GoDaddy</td><td> <ul><li> MX: <a href="https://www.godaddy.com/help/add-an-mx-record-19234">Add an MX record</a> (external link) </li><li> TXT: <a href="https://www.godaddy.com/help/add-a-txt-record-19232">Add a TXT record</a> (external link) </li></ul> </td></tr>
+  <tr><td>DreamHost</td><td> <ul><li> MX: <a href="https://help.dreamhost.com/hc/en-us/articles/215035328">How do I change my MX records?</a> (external link) </li><li> TXT: <a href="https://help.dreamhost.com/hc/en-us/articles/215414867-How-do-I-add-custom-DNS-records-">How do I add custom DNS records?</a> (external link) </li></ul> </td></tr>
+  <tr><td>Cloudflare</td><td> <ul><li> MX: <a href="https://support.cloudflare.com/hc/en-us/articles/218069617-How-do-I-add-or-edit-mail-or-MX-records-">How do I add or edit mail or MX records? </a> (external link) </li><li> TXT: <a href="https://support.cloudflare.com/hc/en-us/articles/360019093151">Managing DNS records in Cloudflare</a> (external link) </li></ul> </td></tr>
+  <tr><td>HostGator</td><td> <ul><li> MX: <a href="https://www.hostgator.com/help/article/changing-mx-records-windows">Changing MX records - Windows</a> (external link) </li><li> TXT: <a href="https://www.hostgator.com/help/article/manage-dns-records-with-hostgatorenom">Manage DNS Records with HostGator/eNom</a> (external link) </li></ul> </td></tr>
+  <tr><td>Namecheap</td><td> <ul><li> MX: <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/322/2237/how-can-i-set-up-mx-records-required-for-mail-service">How can I set up MX records required for mail service? </a> (external link) </li><li> TXT: <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/317/2237/how-do-i-add-txtspfdkimdmarc-records-for-my-domain">How do I add TXT/SPF/DKIM/DMARC records for my domain? </a> (external link) </li></ul> </td></tr>
+  <tr><td>Names.co.uk</td><td> <ul><li> MX: <a href="https://www.names.co.uk/support/domains/1156-changing_your_domains_dns_settings.html">Changing your domain's DNS settings</a> (external link) </li><li> TXT: <a href="https://www.names.co.uk/support/1156-changing_your_domains_dns_settings.html">Changing your domains DNS Settings</a> (external link) </li></ul> </td></tr>
+  <tr><td>Wix</td><td> <ul><li> MX: <a href="https://support.wix.com/en/article/adding-or-updating-mx-records-in-your-wix-account">Adding or Updating MX Records in Your Wix Account</a> (external link) </li><li> TXT: <a href="https://support.wix.com/en/article/adding-or-updating-txt-records-in-your-wix-account">Adding or Updating TXT Records in Your Wix Account</a> (external link) </li></ul> </td></tr>
+</tbody>
+</table>
+
 
    When Amazon SES detects that the records are in place, you receive an email informing you that your custom MAIL FROM domain was set up successfully. Depending on your DNS provider, there might be a delay of up to 72 hours before Amazon SES detects the MX record.
 

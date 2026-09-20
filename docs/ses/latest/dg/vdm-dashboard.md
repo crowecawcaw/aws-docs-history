@@ -3,7 +3,7 @@
 # Virtual Deliverability Manager dashboard
 <a name="vdm-dashboard"></a>
 
-The dashboard offers high level views of your account’s deliverability program, such as easy to read cards and time series graphs that show deliverability and reputation through open/click and delivery rates and bounce/complaint stats. The dashboard also offers a more detailed view, enabling you to drill down to more detailed specific table data when there’s an issue that's tied to a particular ISP, sending identity, or configuration set that's associated with an email campaign.
+The dashboard offers high level views of your account’s deliverability program, such as easy to read cards and time series graphs that show deliverability and reputation through open/click and delivery rates and bounce/complaint stats. The dashboard also offers a more detailed view, enabling you to drill down to more detailed specific table data when there’s an issue that's tied to a particular ISP, sending identity, configuration set, or tenant that's associated with an email campaign.
 
 Being able to see things from a high overall level with the ability to also view the specific details allows you to focus on the problematic areas of your deliverability rather than needing to review your email program as a whole. This level of insight also gives you the ability to catch trends and possible problems before they turn into larger deliverability problems, like deferrals or blocks. 
 
@@ -53,7 +53,7 @@ All dates & times are UTC.
 For **Relative range** dates, the last day ends on its UTC midnight timestamp. For example, if you choose *Last 7 days*, the seventh day would be yesterday, ending at midnight.
 If the date range is greater than 30 days, the *% Difference* column in the *Account statistics* table and the change percentages in the cards will not have a value (indicated by dash `-`).
 
-1. The cards, time series graphs, and all of the drill-down tables, *Accounts statistics*, *ISP*, *Sending identities*, and *Configuration sets*, display metric totals calculated from the date range entered, and use the metric math described in [How dashboard metrics are calculated](#vdm-dashboard-rates). 
+1. The cards, time series graphs, and all of the drill-down tables, *Accounts statistics*, *ISP*, *Sending identities*, *Configuration sets*, and *Tenants*, display metric totals calculated from the date range entered, and use the metric math described in [How dashboard metrics are calculated](#vdm-dashboard-rates). 
    + To create a local `.csv` file of the data you’re currently viewing in either the *ISP*, *Sending identities*, or *Configuration sets* table, select its **Export** button.
 
 1. Time series graphs charting **Volume** and **Rate** progression for the date range you entered are shown in the **Metrics** pane. Hovering over a date interval in the graphs will show the exact volume count or rate percentage based on a daily aggregation. You can filter the metrics you want to see using the *Select metrics* dropdown.
@@ -86,11 +86,23 @@ If the date range is greater than 30 days, the *% Difference* column will not ha
      + An ISP table will be displayed listing all the ISPs the configuration set was used to send mail to with metrics given for each ISP as calculated from the date range entered.
    + To create a local `.csv` file of the data you’re currently viewing in this table, select its **Export** button.
 
+1. Choose the **Tenants** tab to display the **Tenants** table.
+**Note**  
+The **Tenants** tab is only applicable if you're managing your email sending through tenants. For more information, see [Tenants](tenants.md).
+   + This table displays metrics for *Send volume*, *Delivered*, *Transient & Permanent bounces*, *Complaints*, *Opens & Clicks* for each of your tenants as calculated from the date range entered.
+   + To filter specific tenants, inside the *Compare tenants* search box, choose the corresponding check box for each tenant to include. You can also use the sending status filter to list tenants that share a sending status.
+   + To drill-down on a specific tenant, choose its name in the **Tenant** column.
+     + Cards will appear displaying *Delivery rate*, *Complaints*, *Transient & Permanent bounces*, *Open & Click rates* for the selected tenant as calculated from the date range entered.
+     + The time series graphs will refresh displaying all the metrics for the selected tenant as calculated from the date range entered.
+     + An ISP table will be displayed listing all the ISPs the tenant sent mail to with metrics given for each ISP as calculated from the date range entered.
+     + Tables will be displayed listing the sending identities and configuration sets associated with the tenant, and any reputation findings for the tenant.
+   + To create a local `.csv` file of the data you're currently viewing in this table, select its **Export** button.
+
 1. Choose the **Messages** tab to display the **Messages** table.
 
    This is an interactive table that provides a way for you to search and find your sent messages. For each message, you can track its current delivery and engagement status, event history, and see the response returned by the mailbox provider. The following points cover the ways you can search for particular messages:
    + Selecting inside the date range picker, you can filter on messages you’ve sent within the last 30 days. If you don’t select a date range, your search will default to the last 7 days including the current day within your timezone.
-   + In the *Search messages* field you can filter on *Recipient*, *From address*, *Subject line*, *ISP*, *Engagement event*, *Delivery event*, and *Message ID* — the following properties apply:
+   + In the *Search messages* field you can filter on *Recipient*, *From address*, *Subject line*, *ISP*, *Tenant name*, *Engagement event*, *Delivery event*, and *Message ID* — the following properties apply:
      + Depending on the filter type, you either enter a case sensitive text string, or select a value from a list.
      + *Engagement event* is limited to a single value, *Subject line* can have up to two values, and all other filters can have up to five values per search. Filtering by *Message ID* will exclude any other filters you may have selected including the date range.
      + The *Message ID* column is hidden by default, but can be displayed by selecting the gear icon to customize how you view the **Messages** table.
@@ -286,6 +298,29 @@ If your filtered search returns more than 10,000 messages, the 10,000 messages i
       },
       "ExportDestination": {
           "DataFormat": "JSON"
+      }
+  }
+  ```
++ In this example, the input file is using [`MessageInsightsDataSource`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_MessageInsightsDataSource.html) parameters to filter on messages sent by the tenant named "example-tenant" that had a last delivery event of "DELIVERY", and a .csv format specified for the output file:
+
+  ```
+  {
+      "ExportDataSource": {
+          "MessageInsightsDataSource": {
+              "StartDate": "2023-07-01T00:00:00",
+              "EndDate": "2023-07-10T00:00:00",
+              "Include": {
+                  "TenantName": [
+                      "example-tenant"
+                  ],
+                  "LastDeliveryEvent": [
+                      "DELIVERY"
+                  ]
+              }
+          }
+      },
+      "ExportDestination": {
+          "DataFormat": "CSV"
       }
   }
   ```

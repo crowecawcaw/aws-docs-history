@@ -22,8 +22,19 @@ Enabling your emails to display a BIMI logo requires some prerequisites to be in
 
 1. Configure your domain with Easy DKIM. See [Easy DKIM in Amazon SES](send-email-authentication-dkim-easy.md).
 
-1. Configure your domain with DMARC by publishing a TXT record with your DNS provider with the following enforcement policy specifics required for BIMI similar to either of the two examples:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-bimi.html)
+1. Configure your domain with DMARC by publishing a TXT record with your DNS provider with the following enforcement policy specifics required for BIMI similar to either of the two examples:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Type</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>_dmarc.example.com</code></td><td><code>TXT</code></td><td><code>v=DMARC1;p=quarantine;pct=100;rua=mailto:dmarcreports@example.com</code></td></tr>
+  <tr><td><code>_dmarc.example.com</code></td><td><code>TXT</code></td><td><code>v=DMARC1;p=reject;rua=mailto:dmarcreports@example.com</code></td></tr>
+</tbody>
+</table>
+
 
    In the preceding DMARC policy example as required for BIMI:
    + `{{example.com}}` should be replaced with your domain or subdomain name.
@@ -41,8 +52,19 @@ Enabling your emails to display a BIMI logo requires some prerequisites to be in
 
 1. Create and publish a BIMI DNS record that includes a URL to your logo. When an [ESP that supports BIMI](https://bimigroup.org/bimi-infographic/) checks your DMARC record, it will also look for a BIMI record containing the URL for your logo's `.svg` file, and if configured, the URL for your VMC's `.pem` file. If the records match, they'll display your BIMI logo.
 
-   Configure your domain with BIMI by publishing a TXT record with your DNS provider with the following values as shown—sending from a domain is represented in the first example; sending from a subdomain is represented in the second example:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-bimi.html)
+   Configure your domain with BIMI by publishing a TXT record with your DNS provider with the following values as shown—sending from a domain is represented in the first example; sending from a subdomain is represented in the second example:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Type</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>default._bimi.example.com</code></td><td rowspan="2"><code>TXT</code></td><td rowspan="2"><code>v=BIMI1;l=https://myhostingserver.com/images/logo.svg;a=https://myhostingserver.com/certificate/vmc_2023‑01‑01.pem</code></td></tr>
+  <tr><td><code>default._bimi.marketing.example.com</code></td></tr>
+</tbody>
+</table>
+
 
    In the preceding BIMI record examples:
    + The name value should literally specify `default._bimi.` as a subdomain of `{{example.com}}` or `{{marketing.example.com}}` which should be replaced with your domain or subdomain name.

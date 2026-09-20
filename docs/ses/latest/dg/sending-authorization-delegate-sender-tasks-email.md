@@ -23,12 +23,38 @@ As with any Amazon SES email sender, if you access Amazon SES through the Amazon
 <a name="sending-authorization-delegate-sender-tasks-api-sendrawemail"></a>
 
 If you want to use `SendRawEmail` so that you can control the format of your emails, you can specify the delegated authorized identity in one of two ways:
-+ **Pass optional parameters to the `SendRawEmail` API**. The required parameters are described in the following table:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/sending-authorization-delegate-sender-tasks-email.html)
++ **Pass optional parameters to the `SendRawEmail` API**. The required parameters are described in the following table:
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>SourceArn</code></td><td>The ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter of <code>SendRawEmail</code>. If you only specify the <code>SourceArn</code>, Amazon SES sets the "From" address and the "Return Path" addresses to the identity that you specified in <code>SourceArn</code>. </td></tr>
+  <tr><td><code>FromArn</code></td><td>The ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.</td></tr>
+  <tr><td><code>ReturnPathArn</code></td><td>The ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter of <code>SendRawEmail</code>.</td></tr>
+</tbody>
+</table>
+
 + **Include X-headers in the email**. X-headers are custom headers that you can use in addition to standard email headers (such as the From, Reply-To, or Subject headers). Amazon SES recognizes three X-headers that you can use to specify sending authorization parameters:
 **Important**  
-Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/sending-authorization-delegate-sender-tasks-email.html)
+Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.
+
+
+
+<table>
+<thead>
+  <tr><th>X-Header</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>X-SES-SOURCE-ARN</code></td><td>Corresponds to the <code>SourceArn</code>.</td></tr>
+  <tr><td><code>X-SES-FROM-ARN</code></td><td>Corresponds to the <code>FromArn</code>.</td></tr>
+  <tr><td><code>X-SES-RETURN-PATH-ARN</code></td><td>Corresponds to the <code>ReturnPathArn</code>.</td></tr>
+</tbody>
+</table>
+
 
   Amazon SES removes all X-headers from the email before sending it. If you include multiple instances of an X-header, Amazon SES uses only the first instance.
 

@@ -14,10 +14,36 @@ In the CloudWatch console, you'll find the metrics under **Metrics** > **All met
 received any mail that would match any of your rules.
 
 The following message metrics are available:
-+ **Message receiving**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/receiving-email-metrics.html)
-+ **Message publishing**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/receiving-email-metrics.html)
++ **Message receiving**
+
+
+<table>
+<thead>
+  <tr><th>Scope</th><th>Metric</th><th>Description</th><th>Dimension</th></tr>
+</thead>
+<tbody>
+  <tr><td>Receipt Rule Set Metrics</td><td>Received</td><td>SES successfully received a message that has at least one rule that applies. This metric can only have a value of <code>1</code>.</td><td>RuleSetName</td></tr>
+  <tr><td>Receipt Rule Metrics</td><td>Received</td><td>SES successfully received a message and will try to process the applied rule. This metric can only have a value of <code>1</code>.</td><td>RuleName</td></tr>
+</tbody>
+</table>
+
++ **Message publishing**
+
+
+<table>
+<thead>
+  <tr><th>Scope</th><th>Metric</th><th>Description</th><th>Dimension</th></tr>
+</thead>
+<tbody>
+  <tr><td>Receipt Rule Set Metrics</td><td>PublishSuccess</td><td>SES successfully executed all rules that apply within a rule set.</td><td>RuleSetName</td></tr>
+  <tr><td>Receipt Rule Metrics</td><td>PublishSuccess</td><td>SES successfully executed a rule that applies to the receiving message.</td><td>RuleName</td></tr>
+  <tr><td>Receipt Rule Set Metrics</td><td>PublishFailure</td><td>SES encountered an error when it tried to execute rules within a rule set, execution will be retried.</td><td>RuleSetName</td></tr>
+  <tr><td>Receipt Rule Metrics</td><td>PublishFailure</td><td>SES encountered an error when it tried to execute the actions in a rule—depending on the error, execution may be retried.</td><td>RuleName</td></tr>
+  <tr><td>Receipt Rule Set Metrics</td><td>PublishExpired</td><td>SES will no longer retry to execute the rules because they didn't succeed within 36 hours, or encountered non-retriable error.</td><td>RuleSetName</td></tr>
+  <tr><td>Receipt Rule Metrics</td><td>PublishExpired</td><td>SES will no longer retry to execute the rule's actions because they didn’t succeed within 36 hours.</td><td>RuleName</td></tr>
+</tbody>
+</table>
+
 
 **Note**  
 In the preceding tables, the term *applies* means that the sender is not blocklisted by IP Filters or is on SES's internal blocklist, and the rule has matching recipient conditions and matching TLS policy.

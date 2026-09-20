@@ -50,8 +50,18 @@ Now that you've created a key pair, you have to add the public key as a TXT reco
 
 1. Sign in to the management console for your DNS or hosting provider.
 
-1. Add a new text record to the DNS configuration for your domain. The record should use the following format:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-bring-your-own.html)
+1. Add a new text record to the DNS configuration for your domain. The record should use the following format:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Type</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>{{selector}}._domainkey.{{example.com}}</td><td>TXT</td><td>p={{yourPublicKey}}</td></tr>
+</tbody>
+</table>
+
 
    In the preceding example, make the following changes:
    + Replace {{selector}} with a unique name that identifies the key.
@@ -64,8 +74,25 @@ When you publish (add) your public key to your DNS provider, it must be formatte
 You have to delete the first and last lines (`-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`, respectively) of the generated public key. Additionally, you have to remove the line breaks in the generated public key. The resulting value is a string of characters with no spaces or line breaks.
 You must include the `p=` prefix as shown in the *Value* column in the table above.
 
-   Different providers have different procedures for updating DNS records. The following table includes links to the documentation for a few widely used DNS providers. This list isn't exhaustive and doesn't signify endorsement; likewise, if your DNS provider isn't listed, it doesn't imply you can't use the domain with Amazon SES.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-bring-your-own.html)
+   Different providers have different procedures for updating DNS records. The following table includes links to the documentation for a few widely used DNS providers. This list isn't exhaustive and doesn't signify endorsement; likewise, if your DNS provider isn't listed, it doesn't imply you can't use the domain with Amazon SES.
+
+
+<table>
+<thead>
+  <tr><th>DNS/Hosting provider</th><th>Documentation link</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon Route 53</td><td><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-editing.html">Editing Records</a> in the <i>Amazon Route 53 Developer Guide</i></td></tr>
+  <tr><td>GoDaddy</td><td><a href="https://www.godaddy.com/help/add-a-txt-record-19232">Add a TXT record</a> (external link)</td></tr>
+  <tr><td>DreamHost</td><td><a href="https://help.dreamhost.com/hc/en-us/articles/215414867-How-do-I-add-custom-DNS-records-">How do I add custom DNS records?</a> (external link)</td></tr>
+  <tr><td>Cloudflare</td><td><a href="https://support.cloudflare.com/hc/en-us/articles/360019093151">Managing DNS records in Cloudflare</a> (external link)</td></tr>
+  <tr><td>HostGator</td><td><a href="https://www.hostgator.com/help/article/manage-dns-records-with-hostgatorenom">Manage DNS Records with HostGator/eNom</a> (external link)</td></tr>
+  <tr><td>Namecheap</td><td><a href="https://www.namecheap.com/support/knowledgebase/article.aspx/317/2237/how-do-i-add-txtspfdkimdmarc-records-for-my-domain">How do I add TXT/SPF/DKIM/DMARC records for my domain? </a> (external link)</td></tr>
+  <tr><td>Names.co.uk</td><td><a href="https://www.names.co.uk/support/1156-changing_your_domains_dns_settings.html">Changing your domains DNS Settings</a> (external link)</td></tr>
+  <tr><td>Wix</td><td><a href="https://support.wix.com/en/article/adding-or-updating-txt-records-in-your-wix-account">Adding or Updating TXT Records in Your Wix Account</a> (external link)</td></tr>
+</tbody>
+</table>
+
 
 ## Step 3: Configure and verify a domain to use BYODKIM
 <a name="send-email-authentication-dkim-bring-your-own-configure-identity"></a>

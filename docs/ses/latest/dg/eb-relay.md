@@ -74,8 +74,19 @@ Ensure that your intended recipient destinations are SES verified email identiti
 
       1. Choose **Other type of secret** in **Secret type**.
 
-      1. Enter the following keys and values in **Key/value pairs**:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/eb-relay.html)
+      1. Enter the following keys and values in **Key/value pairs**:
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>username</code></td><td><i>my_username</i></td></tr>
+  <tr><td><code>password</code></td><td><i>my_password</i></td></tr>
+</tbody>
+</table>
+
 **Note**  
 For both of the keys, you must only enter `username` and `password` as shown (anything else will cause authentication to fail). For the values, enter your own username and password respectively.
 

@@ -15,7 +15,18 @@ The following procedure shows how to create a shared credentials file in your ho
 
 1. In the text file you just created, replace `YOUR_AWS_ACCESS_KEY` with your unique AWS access key ID, and replace `YOUR_AWS_SECRET_ACCESS_KEY` with your unique AWS secret access key.
 
-1. Save the file. The following table shows the correct location and file name for your operating system.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/create-shared-credentials-file.html)
+1. Save the file. The following table shows the correct location and file name for your operating system.
+
+
+<table>
+<thead>
+  <tr><th>If you're using...</th><th>Save the file as...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Windows</td><td><code>C:\Users\&lt;yourUserName&gt;\.aws\credentials</code></td></tr>
+  <tr><td>Linux, macOS, or Unix</td><td><code>~/.aws/credentials</code></td></tr>
+</tbody>
+</table>
+
 **Important**  
 Don't include a file extension when saving the credentials file.

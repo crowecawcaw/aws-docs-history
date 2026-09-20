@@ -181,8 +181,21 @@ To add contacts in bulk to your contact list, complete the following steps.
 
   In the preceding examples, replace {{example1@amazon.com}} and {{example2@amazon.com}} with the email addresses you want to add to the contact list. Replace the `attributesData` values with the values specific to the contact. Additionally, replace {{Sports}} and {{Cycling}} with the `topicName` that applies to your contact. The acceptable `topicPreferences` are {{OPT\_IN}} and {{OPT\_OUT}}.
 
-  The following attributes are supported when uploading your contacts into an Amazon S3 object in either CSV or JSON format:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/sending-email-list-management.html)
+  The following attributes are supported when uploading your contacts into an Amazon S3 object in either CSV or JSON format:
+
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>emailAddress</code></td><td>The contact's email address. This is a mandatory field.</td></tr>
+  <tr><td><code>unsubscribeAll</code></td><td>A boolean value status noting if the contact is unsubscribed from all contact list topics.</td></tr>
+  <tr><td><code>topicPreferences</code></td><td>The contact's preferences for being opted-in to or opted-out of topics.</td></tr>
+  <tr><td><code>attributesData</code></td><td>The attribute data attached to a contact.</td></tr>
+</tbody>
+</table>
+
 + Give SES permission to read the Amazon S3 object.
 
   When applied to an Amazon S3 bucket, the following policy gives SES permission to read that bucket. For more information about attaching policies to Amazon S3 buckets, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) in the *Amazon Simple Storage Service User Guide*.

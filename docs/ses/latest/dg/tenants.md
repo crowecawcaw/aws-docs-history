@@ -239,6 +239,8 @@ This header tells SES which tenant should be used for the email sending operatio
 aws sesv2 get-tenant --tenant-name "MyTenant"
 ```
 
+If you've enabled Virtual Deliverability Manager for your account, the Virtual Deliverability Manager dashboard provides per-tenant deliverability metrics including send volume, bounces, complaints, opens, and clicks, with drill-down by ISP. Each tenant's detail page shows associated sending identities, configuration sets, and reputation findings. For more information, see [Using the dashboard (console)](vdm-dashboard.md#vdm-dashboard-console). To get started with Virtual Deliverability Manager, see [Getting started](vdm-get-started.md).
+
 ### Pausing and unpausing tenants
 <a name="pausing-and-unpausing-tenants"></a>
 
@@ -392,7 +394,7 @@ The following detail-types are available:
 
 **For reputation findings:**
 + `Advisor Recommendation Status Open`
-+ `Advisor Recommendation Status Closed`
++ `Advisor Recommendation Status Resolved`
 
 **Setting up EventBridge rules**
 

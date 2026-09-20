@@ -59,8 +59,25 @@ This walkthrough begins by first creating a rule set to contain your rules and p
 
 1. (Optional) On the **Add recipient conditions** page, use the following procedure to specify one or more recipient conditions. You can have a maximum of 100 recipient conditions per receipt rule.
 
-   1. Under **Recipient conditions**, choose **Add new recipient condition** to specify the receiving email address or domain to which you want to apply the receipt rule. The following table uses the address *user@example.com* to show how to specify recipient conditions.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html)
+   1. Under **Recipient conditions**, choose **Add new recipient condition** to specify the receiving email address or domain to which you want to apply the receipt rule. The following table uses the address *user@example.com* to show how to specify recipient conditions. 
+
+
+
+<table>
+<thead>
+  <tr><th>If you want to...</th><th>Specify the following recipient...</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td>Match a specific email address.</td><td><i>user@example.com</i></td><td>Also matches variations of the address that contain labels (such as <i>user+123@example.com</i> and <i>user+xyz@example.com</i>). However, if you specify an address that contains a label, only that specific address is matched.</td></tr>
+  <tr><td>Match all addresses within a domain, but not those within its subdomains.</td><td><i>example.com</i></td><td></td></tr>
+  <tr><td>Match all addresses within a specific subdomain, but not those within the parent domain.</td><td><i>subdomain.example.com</i></td><td></td></tr>
+  <tr><td>Match all addresses within all subdomains, but not those within the parent domain.</td><td><i>.example.com</i></td><td>Note the period (.) before the domain name.</td></tr>
+  <tr><td>Match all addresses within a domain, and all addresses within all of its subdomains.</td><td><i>example.com</i><i>.example.com</i></td><td>Create two separate recipients: one with the domain name, and one with a period followed by the domain name.</td></tr>
+  <tr><td>Match all recipients in all verified domains</td><td>[None]</td><td>Leave the recipient field blank.</td></tr>
+  <tr><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
 **Important**  
 If multiple Amazon SES accounts receive email on a common domain (for example, if multiple teams in the same company each have separate Amazon SES accounts), Amazon SES processes all matching receipt rules simultaneously for each of those accounts. This behavior may result in a situation where one account generates a bounce, while another account accepts the email.  
 We recommend that you coordinate with other teams in your organization that use Amazon SES to ensure that each account uses unique receipt rules, and that those rules do not overlap. In these situations, it is best to configure your receipt rules to use only email addresses or subdomains that are unique to your group or team.

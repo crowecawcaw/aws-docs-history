@@ -8,7 +8,7 @@ Deliverability—ensuring your emails reach recipient inboxes instead of spam or
 Virtual Deliverability Manager offers two complementary sets of deliverability capabilities:
 
 **SES deliverability**  
-SES deliverability provides insights and recommendations for email sent through Amazon SES—helping you monitor delivery rates, track engagement, identify reputation issues, and resolve configuration problems that affect inbox placement. It includes a dashboard for viewing deliverability data at the account, ISP, sending identity, and configuration set levels, and an advisor that flags infrastructure issues and recommends solutions. See [SES deliverability](vdm-ses-deliverability.md).
+SES deliverability provides insights and recommendations for email sent through Amazon SES—helping you monitor delivery rates, track engagement, identify reputation issues, and resolve configuration problems that affect inbox placement. It includes a dashboard for viewing deliverability data at the account, ISP, sending identity, configuration set, and tenant levels, and an advisor that flags infrastructure issues and recommends solutions. See [SES deliverability](vdm-ses-deliverability.md).
 
 **Global deliverability**  
 Global deliverability extends your visibility beyond Amazon SES with analytics based on a representative sample of your sending—across every provider your domains send through, not just Amazon SES. It includes campaign analytics, inbox placement rates, inbox placement testing, and blocklist monitoring. See [Global deliverability](vdm-global-deliverability.md).
