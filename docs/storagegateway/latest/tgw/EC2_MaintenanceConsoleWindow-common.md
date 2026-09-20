@@ -9,8 +9,21 @@ You can connect to your Amazon EC2 instance by using a Secure Shell (SSH) client
 
 1. Log in to your local console. If you are connecting to your EC2 instance from a Windows computer, log in as *admin*.
 
-1. After you log in, you see the **AWS Storage Gateway - Configuration** main menu, from which you can perform various tasks.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/storagegateway/latest/tgw/EC2_MaintenanceConsoleWindow-common.html)
+1. After you log in, you see the **AWS Storage Gateway - Configuration** main menu, from which you can perform various tasks.
+
+
+<table>
+<thead>
+  <tr><th>To Learn About This Task</th><th>See This Topic</th></tr>
+</thead>
+<tbody>
+  <tr><td>Configure a SOCKS proxy for your gateway</td><td><a href="EC2_MaintenanceRoutingProxy-common.md">Routing your gateway deployed on EC2 through an HTTP proxy</a> </td></tr>
+  <tr><td>Test network connectivity</td><td> <a href="EC2_MaintenanceTestGatewayConnectivity-common.md">Testing gateway network connectivity</a> </td></tr>
+  <tr><td>Run Storage Gateway console commands</td><td> <a href="EC2_MaintenanceGatewayConsole-common.md">Running Storage Gateway commands on the local console</a> </td></tr>
+  <tr><td>View a system resource check</td><td> <a href="EC2_system-resource-check-common.md">Viewing your gateway system resource status</a>.</td></tr>
+</tbody>
+</table>
+
 
 To shut down the gateway, enter **0**.
 
