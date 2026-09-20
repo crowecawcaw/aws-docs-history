@@ -14,8 +14,22 @@ Firehose support for Apache Iceberg tables has the following considerations and 
   If a **Direct PUT** stream experiences throttling due to higher data ingest volumes that exceed the throughput capacity of a Firehose stream, then Firehose automatically increases the throughput limit of the stream until the throttling is contained. Depending on increased throughput and throttling, it might take longer for Firehose to increase the throughput of a stream to the desired levels. Because of this, continue to retry the failed data ingest records. If you expect the data volume to increase in sudden large bursts, or if your new stream needs a higher throughput than the default throughput limit, request to increase the throughput limit.
 + **Throughput and Partition Scaling** – The service is optimized to support either a large number of Iceberg partitions or very high ingest throughput. As ingest throughput increases, the number of partitions that can be actively written to decreases.
 
-  Here are the limits for ingest throughput and max active partitions supported.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/firehose/latest/dev/apache-iceberg-considerations.html)
+  Here are the limits for ingest throughput and max active partitions supported.
+
+
+<table>
+<thead>
+  <tr><th>Ingest Throughput</th><th>Max Active Partitions supported</th></tr>
+</thead>
+<tbody>
+  <tr><td>≤ 20 MB/s</td><td>Up to ~3,000</td></tr>
+  <tr><td>20–40 MB/s</td><td>1000</td></tr>
+  <tr><td>40–400 MB/s</td><td>100</td></tr>
+  <tr><td>400–750 MB/s</td><td>50</td></tr>
+  <tr><td>750 MB/s–1.5 GB/s</td><td>1</td></tr>
+</tbody>
+</table>
+
 **Note**  
 Ingest throughput here refers to the volume of data Firehose processes and writes to your Iceberg tables, measured *after* any Lambda transformation – not the volume of data sent to the stream at the source. If you use a Lambda function that expands your records, your processed throughput can be significantly higher than your source ingest volume, and the applicable max active partitions limit is based on the larger, post-transformation throughput.
 + **S3 Transaction Per Second (TPS) **– To optimize S3 performance, if you are using Kinesis Data Streams or Amazon MSK as a source, we recommend that you partition the source record using a proper partition key. In that way, data records that are routed to the same Iceberg table are mapped to one or a few source partitions know as shards. If possible, spread data records belonging to different target Iceberg tables into different partitions/shards, so that you can use all the aggregate throughput available across all the partitions/shards of the source topic/stream.
