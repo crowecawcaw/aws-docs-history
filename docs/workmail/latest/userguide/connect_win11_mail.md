@@ -16,7 +16,24 @@ If you are using the Mail app for Microsoft Windows 11, you may receive incompat
 
 1. Choose **Add Account**, and then choose **Advanced Setup**.
 
-1. Choose **Internet email**, and then provide the following information:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workmail/latest/userguide/connect_win11_mail.html)
+1. Choose **Internet email**, and then provide the following information:
+
+
+<table>
+<thead>
+  <tr><th>Required Information</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Email address</b></td><td>Email address associated with your Amazon WorkMail account</td></tr>
+  <tr><td><b>Password</b></td><td>Your password</td></tr>
+  <tr><td><b>User name</b></td><td>Email address associated with your Amazon WorkMail account</td></tr>
+  <tr><td><b>Account name</b></td><td>Your account name</td></tr>
+  <tr><td><b>Send your message using this name</b></td><td>Your account name</td></tr>
+  <tr><td><b>Incoming email server</b></td><td>The endpoint matching the AWS Region in which your mailbox is located:<ul><li> US West (Oregon) <br />imap.mail.us-west-2.awsapps.com </li><li> US East (N. Virginia) <br />imap.mail.us-east-1.awsapps.com </li><li> Europe (Ireland) <br />imap.mail.eu-west-1.awsapps.com  If you don't know the AWS Region where your mailbox is located, contact your system administrator.  </li></ul></td></tr>
+  <tr><td><b>Account type</b></td><td>IMAP4</td></tr>
+  <tr><td><b>Outgoing (SMTP) email server</b></td><td>The endpoint matching the AWS Region where your mailbox is located:<ul><li> US West (Oregon) <br />smtp.mail.us-west-2.awsapps.com </li><li> US East (N. Virginia) <br />smtp.mail.us-east-1.awsapps.com </li><li> Europe (Ireland) <br />smtp.mail.eu-west-1.awsapps.com  If you don't know the AWS Region where your mailbox is located, contact your system administrator.  </li></ul></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Sign in**.

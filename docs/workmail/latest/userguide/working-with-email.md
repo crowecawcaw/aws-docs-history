@@ -43,8 +43,20 @@ Reading the email in your inbox.
 
 1. Select the row of the message to read. Press **Enter** to open the message in a new tab.
 
-1. Use **Tab** to read the **Response** toolbar. You can select **Reply**, **Reply All**, **Forward**, or **Delete**. You can navigate using the screen reader or the following keyboard shortcuts:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workmail/latest/userguide/working-with-email.html)
+1. Use **Tab** to read the **Response** toolbar. You can select **Reply**, **Reply All**, **Forward**, or **Delete**. You can navigate using the screen reader or the following keyboard shortcuts: 
+
+
+<table>
+<thead>
+  <tr><th>Action</th><th>Windows</th><th>Mac</th></tr>
+</thead>
+<tbody>
+  <tr><td>Reply</td><td>Ctrl+R</td><td>Cmd+R</td></tr>
+  <tr><td>Reply all</td><td>Ctrl+Shift+Y</td><td>Cmd+Shift+Y</td></tr>
+  <tr><td>Forward</td><td>Ctrl+F</td><td>Cmd+F</td></tr>
+</tbody>
+</table>
+
 
 1. Type your reply in the message form. To send the message, use **Shift\+Tab** until the screen reader reads *Send button*. Press **Enter** to send.
 
