@@ -49,8 +49,26 @@ These revisions to the AWS SAM template do the following:
   + `Linear`: Traffic is shifted in equal increments with an equal number of minutes between each increment. You can choose from predefined linear options that specify the percentage of traffic that's shifted in each increment and the number of minutes between each increment. 
   + `AllAtOnce`: All traffic is shifted from the original Lambda function to the updated Lambda function version at once. 
 
-  The following table outlines other traffic-shifting options that are available beyond the one used in the example.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/automating-updates-to-serverless-apps.html)
+  The following table outlines other traffic-shifting options that are available beyond the one used in the example. 
+
+
+<table>
+<thead>
+  <tr><th>Deployment Preference Type</th></tr>
+</thead>
+<tbody>
+  <tr><td>Canary10Percent30Minutes</td></tr>
+  <tr><td>Canary10Percent5Minutes</td></tr>
+  <tr><td>Canary10Percent10Minutes</td></tr>
+  <tr><td>Canary10Percent15Minutes</td></tr>
+  <tr><td>Linear10PercentEvery10Minutes</td></tr>
+  <tr><td>Linear10PercentEvery1Minute</td></tr>
+  <tr><td>Linear10PercentEvery2Minutes</td></tr>
+  <tr><td>Linear10PercentEvery3Minutes</td></tr>
+  <tr><td>AllAtOnce</td></tr>
+</tbody>
+</table>
+
 + `Alarms`: These are CloudWatch alarms that are triggered by any errors raised by the deployment. When encountered, they automatically roll back your deployment. For example, if the updated code you're deploying causes errors within the application. Another example is if any [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-metrics.html) or custom CloudWatch metrics that you specified have breached the alarm threshold.
 + `Hooks`: These are pre-traffic and post-traffic test functions that run checks before traffic shifting starts to the new version, and after traffic shifting completes.
   + `PreTraffic`: Before traffic shifting starts, CodeDeploy invokes the pre-traffic hook Lambda function. This Lambda function must call back to CodeDeploy and indicate success or failure. If the function fails, it aborts and reports a failure back to CloudFormation. If the function succeeds, CodeDeploy proceeds to traffic shifting.
