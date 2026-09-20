@@ -43,8 +43,21 @@ The information in this section assumes that you are familiar with the general s
 
 1. In the **General input settings** section choose **Add audio selectors**. Fields for one audio selector (**Audio Selectors 1**) appear.
 
-1. Complete the fields as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/feature-dolby-E-input.html)
+1. Complete the fields as follows.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Audio selector name</b></td><td>Assign a name to the Dolby E program. For example, <b>DolbyE program1</b>.</td></tr>
+  <tr><td><b>Selector settings</b></td><td>From the drop-down menu, choose <b>Audio track selection</b>.</td></tr>
+  <tr><td><b>Dolby E decode</b></td><td>Choose <b>Audio Dolby E decode</b>. The <b>Dolby E program selection</b> field appears. The drop-down menu shows the eight possible Dolby E programs. </td></tr>
+  <tr><td><b>Dolby E program selection</b></td><td>Select the Dolby E program that you want to extract. For example, <b>PROGRAM_1</b>.</td></tr>
+</tbody>
+</table>
+
 
    Don't select the Add tracks field. This field doesn't apply to Dolby E audio.
 
@@ -64,8 +77,21 @@ The information in this section assumes that you are familiar with the general s
 
 1. In the **General input settings** section choose **Add audio selectors**. Fields for one audio selector (**Audio Selectors 1**) appear.
 
-1. Complete the fields as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/feature-dolby-E-input.html)
+1. Complete the fields as follows.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Audio selector name</b></td><td>Assign a name to the Dolby E program. For example, <b>DolbyE passthrough</b>.</td></tr>
+  <tr><td><b>Selector settings</b></td><td>From the drop-down menu, choose <b>Audio track selection</b>.</td></tr>
+  <tr><td><b>Dolby E decode</b></td><td>Choose <b>Audio Dolby E decode</b>. The <b>Dolby E program selection</b> field appears. The drop-down menu shows the eight possible Dolby E programs. </td></tr>
+  <tr><td><b>Dolby E program selection</b></td><td>Select the Dolby E program that you want to extract. For example, <b>ALL_CHANNELS</b>.</td></tr>
+</tbody>
+</table>
+
 
 ## Setting up the input to extract and pass through
 <a name="dolby-atmos-output-setup-combination"></a>

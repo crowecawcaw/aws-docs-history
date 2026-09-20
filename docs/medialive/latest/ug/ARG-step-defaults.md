@@ -18,8 +18,21 @@ This information might be useful to the client player that is playing this media
 **To determine defaults and auto-selection behavior**
 + For each audio rendition in the rendition group, choose the behavior from the following table. Each audio can have a different value. 
 
-  Each row in the following table describes a different behavior.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/ARG-step-defaults.html)
+  Each row in the following table describes a different behavior.
+
+
+<table>
+<thead>
+  <tr><th>Value for a given audio rendition</th><th>Client player behavior</th><th>Representation in HLS Manifest</th></tr>
+</thead>
+<tbody>
+  <tr><td> Alternate Audio, Auto Select, Default</td><td>The client player should select this audio rendition. Only one audio renditions in the rendition group should be set as the default, otherwise the client player might behave unexpectedly. </td><td><code>EXT-X-MEDIA</code> with <code>DEFAULT=YES</code>, <code>AUTOSELECT=YES</code></td></tr>
+  <tr><td>Alternate Audio, Auto Select, Not Default</td><td>The client player might select this audio rendition. Any number of renditions in the rendition group can be set this way. </td><td><code>EXT-X-MEDIA</code> with <code>DEFAULT=NO</code>, <code>AUTOSELECT=YES</code></td></tr>
+  <tr><td>Alternate Audio, not Auto Select</td><td>The client player should never select this audio rendition. Any number of renditions in the rendition group can be set this way. </td><td><code>EXT-X-MEDIA</code> with <code>DEFAULT=NO</code>, <code>AUTOSELECT=NO</code></td></tr>
+  <tr><td> Audio-Only Variant Stream </td><td>The client can play back this audio-only rendition instead of video, in low-bandwidth scenarios. </td><td><code>EXT-X-STREAM-INF</code> </td></tr>
+</tbody>
+</table>
+
 
 **Example 1**  
 In this example you want to set up the audio rendition group so that the client player can auto-select any of the renditions. You also want a default audio in the rendition group in case the client player is not set up with a default.  

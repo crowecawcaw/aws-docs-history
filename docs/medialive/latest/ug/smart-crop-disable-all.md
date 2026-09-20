@@ -18,8 +18,21 @@ Use `update-channel` to make changes in the MediaLive channel.
 
 1. In the `InferenceSettings` section of the JSON, remove the `feedARN` line.
 
-1. Make changes to remove the special configuration that applies to each feature that is enabled.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/smart-crop-disable-all.html)
+1. Make changes to remove the special configuration that applies to each feature that is enabled.
+
+
+<table>
+<thead>
+  <tr><th>Feature</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Event clipping</td><td>There are no changes to make because there is no special configuration for this feature.</td></tr>
+  <tr><td>Smart crop</td><td>You must reconfigure every output that is set up for smart crop.<ol><li> Identify all the video encodes (video descriptions) for the target outputs where smart crop is enabled. For example, one target output might be the video encode (video description) named <code>high_resolution</code> in an output named <code>output_A</code> in the output group named <code>My_outputgroup</code>. </li><li> In the JSON for each video description that you identified, change these parameters: <ul><li> <code>Width</code> and <code>Height</code>: Set to values that are suitable when there is no Elemental Inference features occurring. </li><li> <code>ScalingBehavior</code>: Set to a value other than <code>SMART_CROP</code>.  </li></ul> </li></ol></td></tr>
+  <tr><td>Smart Subtitles</td><td>Remove all <code>SmartSubtitleSourceSettings</code> caption selectors from input attachments. Remove or update caption descriptions that reference those selectors. Remove the captions-only subtitle outputs.</td></tr>
+  <tr><td>Contextual metadata enrichment</td><td>Remove <code>SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS</code> from the <code>EnrichmentMethods</code> array in <code>InferenceSettings</code>, or set <code>EnrichmentMethods</code> to an empty array.</td></tr>
+</tbody>
+</table>
+
 
 See [Setting up Elemental Inference features for the first time](smart-crop-procedure-cli-create.md) for an example of the JSON as it appears before you make these changes.
 

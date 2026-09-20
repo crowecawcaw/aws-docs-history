@@ -47,8 +47,19 @@ The following table maps each portion in the example to the portion in the synta
 
 **To specify the location for the output**
 
-1. Enter the different portions of the destination in the appropriate fields.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/framecapture-destinations.html)
+1. Enter the different portions of the destination in the appropriate fields. 
+
+
+<table>
+<thead>
+  <tr><th>Portion of the destination URL</th><th>Field</th><th>Example</th></tr>
+</thead>
+<tbody>
+  <tr><td>protocol, bucket, folders, baseFilename</td><td>The two <b>URL</b> fields in the <b>Frame capture group destinations</b> section.The data before the first slash is the bucket name. The data after the last slash is the baseFilename. The data in between is the folders.<br />Specify two destinations when the channel is set up as a <a href="channel-class.md">standard channel</a>, or one destination when it is set up as a single-pipeline channel. </td><td><code>s3ssl://amzn-s3-demo-bucket1/sports-thumbnails/delivery/curling</code></td></tr>
+  <tr><td>nameModifier</td><td>The <b>Name modifier</b> field in the <b>Frame capture outputs</b> section.If you choose to include a modifier, you can enter a string such as <b>-high</b>, to indicate a high-resolution output.<br />Or you can enter a variable ID (such as <code>$dt$</code>) to ensure that the modifier is different for each file segment. For a list of variable data identifiers, see <a href="variable-data-identifiers.md">Identifiers for variable data in MediaLive</a>.</td><td><code>$dft$</code></td></tr>
+</tbody>
+</table>
+
 
 1. Leave the **Credentials** section blank in both the **Frame capture group destinations** sections. MediaLive has permission to write to the S3 bucket via the trusted entity. Someone in your organization should have already set up these permissions. For more information, see [Access requirements for the trusted entity](trusted-entity-requirements.md).
 

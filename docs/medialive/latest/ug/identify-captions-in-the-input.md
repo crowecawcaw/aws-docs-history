@@ -63,8 +63,21 @@ You end up with a list of captions selectors to create. For example:
 
 1. You must specify the location of the captions.
 
-   Complete the **PID** or **Language** code fields in one of the ways described in the following table. Each row in the table describes a valid way to complete these two fields.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/identify-captions-in-the-input.html)
+   Complete the **PID** or **Language** code fields in one of the ways described in the following table. Each row in the table describes a valid way to complete these two fields.
+
+
+<table>
+<thead>
+  <tr><th>PID</th><th>Language Code</th><th>Result</th></tr>
+</thead>
+<tbody>
+  <tr><td>Specified</td><td>Blank</td><td>Extracts captions from the specified PID.</td></tr>
+  <tr><td>Blank</td><td>Specified</td><td>Extracts the captions from the first PID that MediaLive encounters that matches the specified language. This might or might not be the PID with the lowest number.</td></tr>
+  <tr><td>Specified</td><td>Specified</td><td>Extracts the captions from the specified PID. MediaLive ignores the language code, therefore we recommend you leave it blank.</td></tr>
+  <tr><td>Blank</td><td>Blank</td><td>Valid only if the source is DVB-Sub and the output is DVB-Sub. With this combination of PID and Language, all input DVB-Sub PIDs are included in the output.Not valid for SCTE-27.</td></tr>
+</tbody>
+</table>
+
 
 1. If you plan to convert the captions to WebVTT, you must also specify the language of the captions.
 
@@ -89,8 +102,23 @@ Read this section if the input captions are any of the following: embedded (EIA-
 + **EIA-608 track number** – This field specifies the language to extract. Complete as follows: 
   + If you are setting up for embedded passthrough only (you are creating only one captions selector for the input embedded captions), this field is ignored, so keep the default.
   + If you are converting embedded to another format (you are creating several captions selectors, one for each language), specify the number of the CC instance (from the input) that holds the language that you want.
-+ **Convert 608 to 708**: The embedded source captions can be EIA-608 captions, CEA-708 captions, or both EIA-608 and CEA-708. You can specify how you want these captions to be handled when AWS Elemental MediaLive is ingesting content. The following table describes the behavior for various scenarios.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/identify-captions-in-the-input.html)
++ **Convert 608 to 708**: The embedded source captions can be EIA-608 captions, CEA-708 captions, or both EIA-608 and CEA-708. You can specify how you want these captions to be handled when AWS Elemental MediaLive is ingesting content. The following table describes the behavior for various scenarios.
+
+
+<table>
+<thead>
+  <tr><th>EIA-608 in source</th><th>CEA-708 in source</th><th>Convert field</th><th>Result</th></tr>
+</thead>
+<tbody>
+  <tr><td>Yes</td><td>No</td><td><b>Upconvert</b></td><td>CEA-708 data is created based on the EIA-608 data. EIA-608 data is added as 608-compatibility bits in the CEA-708 data.</td></tr>
+  <tr><td>Yes</td><td>No</td><td><b>Disabled</b></td><td>Original EIA-608 is preserved.</td></tr>
+  <tr><td>No</td><td>Yes</td><td><b>Upconvert</b></td><td>Original CEA-708 is preserved. </td></tr>
+  <tr><td>No</td><td>Yes</td><td><b>Disabled</b></td><td>Original CEA-708 is preserved.</td></tr>
+  <tr><td>Yes</td><td>Yes</td><td><b>Upconvert</b></td><td>CEA-708 data is discarded. New CEA-708 data is created based on the EIA-608 data. EIA-608 data is added as 608-compatibility bits in the CEA-708 data.<br />The new CEA-708 data will not include any CEA-708 formatting features.<br />Not recommended.</td></tr>
+  <tr><td>Yes</td><td>Yes</td><td><b>Disabled</b></td><td>Original EIA-608 is preserved and original CEA-708 is preserved.</td></tr>
+</tbody>
+</table>
+
 + **SCTE-20 detection** – If the source captions combine embedded (EIA-608 or CEA-708) and SCTE-20, you might want to set this field to **Auto**. AWS Elemental MediaLive gives preference to the 608/708 embedded captions but switches to use the SCTE-20 captions when necessary. If you set this field to **Off**, AWS Elemental MediaLive never uses the SCTE-20 captions.
 
 ## Information for Teletext

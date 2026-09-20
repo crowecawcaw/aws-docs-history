@@ -5,8 +5,26 @@
 
 You must decide on the number of video encodes and their codecs. Follow this procedure for each output group. 
 
-1. Determine the maximum number of encodes that are allowed in the output group. The following rules apply for each type of output group.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/channel-planning-video-encodes.html)
+1. Determine the maximum number of encodes that are allowed in the output group. The following rules apply for each type of output group.
+
+
+
+<table>
+<thead>
+  <tr><th>Type of output group</th><th>Rule for video encodes</th></tr>
+</thead>
+<tbody>
+  <tr><td>Archive</td><td>One or more video encodes.</td></tr>
+  <tr><td>CMAF Ingest</td><td>One or more video encodes. Typically, there are multiple video encodes.</td></tr>
+  <tr><td>Frame Capture</td><td>One video encode.</td></tr>
+  <tr><td>HLS or MediaPackage</td><td>One or more video encodes. Typically, there are multiple video encodes.</td></tr>
+  <tr><td>Microsoft Smooth</td><td>One or more video encodes. Typically, there are multiple video encodes.</td></tr>
+  <tr><td>RTMP</td><td>One video encode.</td></tr>
+  <tr><td>SRT</td><td>One or more video encodes.</td></tr>
+  <tr><td>UDP</td><td>One or more video encodes. </td></tr>
+</tbody>
+</table>
+
 
 1. If the output group allows more than one video encode, decide how many you want. Keep in mind that you can create multiple output encodes from the single video source that MediaLive ingests.
 

@@ -33,5 +33,18 @@ You can't remove the watermarks from the audio, but if your playback devices don
 
 1. Go to the output group and output where you want to include the ID3 tags.
 
-   (If the output group is **MediaPackage**, you don't have to set up the output. The ID3 tags are always passed through, if the output is a standard output.)    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/feature-nielsen-id3.html)
+   (If the output group is **MediaPackage**, you don't have to set up the output. The ID3 tags are always passed through, if the output is a standard output.)
+
+
+
+<table>
+<thead>
+  <tr><th>Output group</th><th>Section</th><th>Instruction</th><th></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Archive</b></td><td><b>Output settings</b></td><td>Choose <b>PID settings</b>. In <b>Nielsen ID3</b>, choose <b>PASSTHROUGH</b>.</td><td></td><td></td></tr>
+  <tr><td><b>CMAF Ingest</b></td><td><b>CMAF Ingest settings</b></td><td>In <b>Nielsen ID3 Behavior</b>, choose <b>PASSTHROUGH</b>.</td><td></td><td></td></tr>
+  <tr><td><b>HLS</b></td><td><b>Output settings</b></td><td>The contain must be a standard HLS container. Verify the value in the <b>HLS Settings</b> field.Choose <b>PID settings</b>. In <b>Nielsen ID3 behavior</b>, choose <b>PASSTHROUGH</b>.</td><td></td><td></td></tr>
+  <tr><td><b>UDP</b></td><td><b>Output settings</b></td><td>Choose <b>Network settings</b>, then choose <b>PID settings</b>. In <b>Nielsen ID3</b>, choose <b>PASSTHROUGH</b>.</td><td></td><td></td></tr>
+</tbody>
+</table>

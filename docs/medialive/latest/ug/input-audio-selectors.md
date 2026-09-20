@@ -11,8 +11,27 @@ You can create a maximum of 20 audio selectors in one channel.
 
 1. Decide if you need to create any audio selectors. When you planned the channel, you should have [identified the audio assets](channel-map-output-source.md) that you need to extract from this input. 
 
-   The following table specifies whether you need to create an audio selector in order to extract that audio. In the table, find your input type and read across the row for guidance.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/input-audio-selectors.html)
+   The following table specifies whether you need to create an audio selector in order to extract that audio. In the table, find your input type and read across the row for guidance.
+
+
+<table>
+<thead>
+  <tr><th>Input type</th><th>Add an audio selector?</th><th>Type of selector</th></tr>
+</thead>
+<tbody>
+  <tr><td>CDI</td><td>Yes, if the input contains more than one audio asset.</td><td>TrackObtain the number and language for each track from the content provider for example, "track 1 is French".</td></tr>
+  <tr><td>Elemental Link</td><td>Yes, if the input contains more than one audio asset.If you don't create audio selectors, MediaLive will encode the input audio according to your channel's configured audio outputs.</td><td>TrackObtain the number and language for each track from the content provider for example, "track 1 is French".</td></tr>
+  <tr><td>HLS</td><td>Yes, if the input contains more than one audio asset</td><td>PID (recommended) or language.Note that if you select by language, MediaLive selects the first instance of that language that it encounters. That might not be the language version you want.</td></tr>
+  <tr><td>MediaConnect</td><td>Yes, if the input contains more than one audio asset</td><td>PID (recommended) or languageNote that if you select by language, MediaLive selects the first instance of that language that it encounters. That might not be the language version you want.</td></tr>
+  <tr><td>MediaConnect Router</td><td>Yes, if the input contains more than one audio asset</td><td>PID (recommended) or languageNote that if you select by language, MediaLive selects the first instance of that language that it encounters. That might not be the language version you want.</td></tr>
+  <tr><td>MP4</td><td>Yes, if the input contains more than one audio asset</td><td>Track or languageIf you choose track, obtain the number and language for each track from the content provider for example, "track 1 is French".</td></tr>
+  <tr><td>RTMP</td><td>NoMediaLive extracts the single audio asset that the input contains</td><td>Not applicable</td></tr>
+  <tr><td>RTP</td><td>Yes, if the input contains more than one audio asset</td><td>PID (recommended) or languageNote that if you select by language, MediaLive selects the first instance of that language that it encounters. That might not be the language version you want.</td></tr>
+  <tr><td>SMPTE 2110</td><td>Yes</td><td>TrackObtain the number and language for each track from the content provider for example, "track 1 is French".</td></tr>
+  <tr><td>SRT</td><td>Yes</td><td>TrackObtain the number and language for each track from the content provider for example, "track 1 is French".</td></tr>
+</tbody>
+</table>
+
 
    If the input contains more than one audio asset and you don't create a selector, MediaLive selects the first audio it encounters.
 

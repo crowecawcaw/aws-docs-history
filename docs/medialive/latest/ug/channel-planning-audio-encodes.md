@@ -5,8 +5,26 @@
 
 You must decide on the number of audio encodes. Follow this procedure for each output group. 
 
-1. Determine the maximum number of encodes that are allowed in the output group. The following rules apply for each type of output group.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/channel-planning-audio-encodes.html)
+1. Determine the maximum number of encodes that are allowed in the output group. The following rules apply for each type of output group.
+
+
+
+<table>
+<thead>
+  <tr><th>Type of output group</th><th>Rule for audio encodes</th></tr>
+</thead>
+<tbody>
+  <tr><td>Archive</td><td>Zero or more audio encodes.</td></tr>
+  <tr><td>CMAF Ingest</td><td>Zero or more audio encodes. Typically, there are multiple audio encodes. </td></tr>
+  <tr><td>Frame Capture</td><td>Zero audio encodes.</td></tr>
+  <tr><td>HLS or MediaPackage</td><td>Zero or more audio encodes. Typically, there are multiple audio encodes. </td></tr>
+  <tr><td>Microsoft Smooth</td><td>Zero or more audio encodes. Typically, there are multiple audio encodes. </td></tr>
+  <tr><td>RTMP</td><td>Zero or one audio encodes. </td></tr>
+  <tr><td>SRT</td><td>One or more audio encodes.</td></tr>
+  <tr><td>UDP</td><td>One or more audio encodes. </td></tr>
+</tbody>
+</table>
+
 
 1. If the output group allows more than one audio encode, decide how many you want. These guidelines apply:
    + Each different combination of output codec, coding mode, and language is one encode.

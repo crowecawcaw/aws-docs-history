@@ -26,5 +26,22 @@ The information in this section assumes that you are familiar with the general s
 
    You can include CBET watermarks and NAES II (N2) and NAES VI (NW) watermarks in the same output audio. But if you choose **NW Only**, you can't also choose **NAES II and NW** or **Nielsen CBET** for that audio encode.
 
-1. Complete the fields as shown in the table.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/watermark-procedure.html)
+1. Complete the fields as shown in the table. 
+
+
+<table>
+<thead>
+  <tr><th>Area</th><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="3"><b>CBET Settings</b></td><td><b>CBET Source ID (CSID)</b></td><td>The value that you obtained from Nielsen.</td></tr>
+  <tr><td><b>CBET Check Digits</b></td><td>The value that you obtained from Nielsen.</td></tr>
+  <tr><td><b>CBET Stepaside</b></td><td><b>ENABLED</b>: Nielsen watermarks that are already in the source are left intact. MediaLive will insert new watermarks only in portions of the audio where there are no existing watermarks. <b>DISABLED</b>: Existing Nielsen watermarks are removed. MediaLive will insert new watermarks throughout the audio. </td></tr>
+  <tr><td rowspan="3"><b>NAES II and NW Settings</b></td><td><b>Source ID (SID)</b></td><td>The value that you obtained from Nielsen.</td></tr>
+  <tr><td><b>Check Digits</b></td><td>The value that you obtained from Nielsen.</td></tr>
+  <tr><td><b>Timezone</b></td><td>Choose a time zone to apply to the watermarks. Or leave as UTC, which is the default.</td></tr>
+  <tr><td rowspan="3"><b>NW Only Settings</b></td><td><b>Source ID (SID)</b></td><td>The value that you obtained from Nielsen.</td></tr>
+  <tr><td><b>Check Digits</b></td><td>The value that you obtained from Nielsen.</td></tr>
+  <tr><td><b>Timezone</b></td><td>Choose a time zone to apply to the watermarks. Or leave as UTC, which is the default.</td></tr>
+</tbody>
+</table>

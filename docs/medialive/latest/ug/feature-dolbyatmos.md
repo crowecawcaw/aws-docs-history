@@ -70,8 +70,26 @@ Follow this procedure if the source audio is Dolby Digital Plus, to convert the 
 
 1. Create the output where you want to add the audio encode. 
 
-1. In the **Stream settings** section for the output, choose the **Audio** section. Complete the fields as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/feature-dolbyatmos.html)
+1. In the **Stream settings** section for the output, choose the **Audio** section. Complete the fields as follows.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Audio Selector Name</b></td><td>Choose the audio selector that you set up in the input.</td></tr>
+  <tr><td><b>Codec Settings</b></td><td>Choose <b>EAC3 ATMOS</b>.</td></tr>
+  <tr><td><b>Bitrate</b></td><td>Choose a value that is applicable to the coding mode.</td></tr>
+  <tr><td><b>Coding mode</b></td><td>Choose the coding mode you want. For more information, see <a href="#dolby-atmos-output-supported-outputs">Supported outputs</a>.</td></tr>
+  <tr><td><b>Dialnorm</b></td><td>Enter the average loudness of your audio content as a positive integer (1–31), representing the magnitude in dBFS. For example, for content at -23 dBFS, enter 23. Dolby decoders use this value to make gain attenuation decisions on playback.</td></tr>
+  <tr><td><b>DRC Line</b></td><td rowspan="2">Choose a Dolby dynamic range compression profile. For more information about how each profile handles compression, see the Dynamic Range Control section of Dolby's Metadata guide for developers: <a href="https://professionalsupport.dolby.com/s/article/A-Guide-to-Dolby-Metadata">A Guide to Dolby Metadata</a>.</td></tr>
+  <tr><td><b>DRC RF</b></td></tr>
+  <tr><td><b>Surround Trim</b></td><td rowspan="2">Choose the maximum amount of attenuation to apply to Surround and Height channels when the downstream player isn't configured to handle Dolby Digital Plus with Dolby Atmos and must remix the channels.</td></tr>
+  <tr><td><b>Height Trim</b></td></tr>
+</tbody>
+</table>
+
 
 1. Complete the additional audio fields as desired.
 

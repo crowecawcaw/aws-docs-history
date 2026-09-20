@@ -18,8 +18,18 @@ MediaLive doesn't interpret the ad avail decoration information in the manifest 
 
 Inserts a CUE: DURATION for each ad avail. Does not insert any CUE-OUT CONT (continuation tags) to indicate to a client player joining midbreak that there is a current avail. This does not insert a CUE-IN tag at the end of the avail.
 
-**Structure**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/sample-manifests-hls.html)
+**Structure**  
+
+
+<table>
+<thead>
+  <tr><th>Segment</th><th>Tag</th><th>Tag Count</th></tr>
+</thead>
+<tbody>
+  <tr><td>Segment in which the ad avail starts.</td><td>1 CUE: DURATION tag</td><td>1</td></tr>
+</tbody>
+</table>
+
 
 **Tag contents**  
 + CUE:DURATION contains the following:
@@ -38,8 +48,21 @@ This is the tag for an ad avail lasting 414.171 PTS:
 ## Ad marker: Elemental
 <a name="sample-manifests-hls-elemental"></a>
 
-**Structure**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/sample-manifests-hls.html)
+**Structure**  
+
+
+
+<table>
+<thead>
+  <tr><th>Segment</th><th>Tag</th><th>Tag Count</th></tr>
+</thead>
+<tbody>
+  <tr><td>Segment in which the ad avail starts.</td><td>CUE-OUT</td><td>1</td></tr>
+  <tr><td>Each succeeding segment.</td><td>CUE-OUT-CONT</td><td>0-n</td></tr>
+  <tr><td>Segment in which ad avail ends.</td><td>CUE-IN</td><td>1</td></tr>
+</tbody>
+</table>
+
 
 **Tag contents**  
 + CUE-OUT contains DURATION
@@ -67,8 +90,23 @@ This is the tag for an ad avail lasting 414.171 PTS:
 ## Ad marker: SCTE 35 enhanced
 <a name="sample-manifests-hls-scte-35-enhanced"></a>
 
-Structure      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/sample-manifests-hls.html)
+Structure  
+
+
+
+<table>
+<thead>
+  <tr><th>Segment</th><th>Tag</th><th>Tag Count</th></tr>
+</thead>
+<tbody>
+  <tr><td>Segment in which the ad avail starts.</td><td>OATCLS-SCTE35</td><td>1</td></tr>
+  <tr><td>Segment in which the ad avail starts.</td><td>ASSET</td><td>1</td></tr>
+  <tr><td>Segment in which the ad avail starts.</td><td>CUE-OUT</td><td>1</td></tr>
+  <tr><td>Each succeeding segment.</td><td>CUE-OUT-CONT</td><td>0-n</td></tr>
+  <tr><td>Segment in which ad avail ends.</td><td>CUE-IN</td><td>1</td></tr>
+</tbody>
+</table>
+
 
 Tag contents  
 + OATCLS-SCTE35 containing the base64 encoded raw bytes of the original SCTE 35 ad avail message.
