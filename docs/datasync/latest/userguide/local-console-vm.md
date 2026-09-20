@@ -61,8 +61,27 @@ The default network configuration for the agent is Dynamic Host Configuration Pr
 
 1. On the **AWS DataSync Activation - Configuration** main menu, enter **1** to begin configuring your network.
 
-1. On the ** Network Configuration** menu, choose one of the following options.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/datasync/latest/userguide/local-console-vm.html)
+1. On the ** Network Configuration** menu, choose one of the following options.
+
+
+<table>
+<thead>
+  <tr><th>To</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>Get information about your network adapter</td><td>Enter <b>1</b>.<br />A list of adapter names appears, and you are prompted to enter an adapter name—for example, <b>eth0</b>. If the adapter you specify is in use, network information for that adapter is displayed, as in the following example:<pre>IP Preference: IPv4<br />MAC address: 52:54:12:a4:f7:7d<br />									<br />IPv4 address: 192.168.100.482<br />Netmask: 255.255.255.0<br />Gateway: 192.168.100.4<br />DHCP enabled: Yes<br />									<br />IPv6 address: abcd:4444:e5ee:fd00::4daf<br />Prefix length: 128<br />Gateway: fe80::5021:ff:ff88:4acd<br />DHCPV6 enabled: Yes<br />									<br />DNS: abcd:4444:e5ee:fd00::1<br />DNS: 192.168.100.4</pre><br />You use the same adapter name when you configure a static IP address (option <b>3</b>) as when you set your agent's default route adapter (option <b>5</b>).</td></tr>
+  <tr><td>Configure DHCP</td><td>Enter <b>2</b>.<br />Choose an IP version to use, and then configure the network interface to use DHCP.</td></tr>
+  <tr><td>Configure a static IP address for your agent</td><td>Enter <b>3</b>.<br />You are prompted to choose the IP protocol to use, IPv4, IPv6, or both. Then you're prompted to enter the Network adapter name to configure a static IP address.  If your agent has already been activated, you must shut it down and restart it from the DataSync console for the settings to take effect. </td></tr>
+  <tr><td>Reset all your agent's network configuration to DHCP</td><td>Enter <b>4</b>.<br />Choose the IP version to reset to DHCP. All network interfaces for the chosen IP version are set to use DHCP.<br />  If your agent has already been activated, you must shut down and restart your agent from the DataSync console for the settings to take effect. </td></tr>
+  <tr><td>Set your agent's default route adapter</td><td>Enter <b>5</b>.<br />The available adapters for your agent are shown, and you are prompted to choose one of the adapters—for example, <b>eth0</b>.</td></tr>
+  <tr><td>Edit your agent's Domain Name System (DNS) configuration</td><td>Enter <b>6</b>.The available adapters of the primary and secondary DNS servers are displayed. You are prompted to provide the new IP address. </td></tr>
+  <tr><td>View your agent's DNS configuration</td><td>Enter <b>7</b>.<br />The available adapters of the primary and secondary DNS servers are displayed.For some versions of the VMware hypervisor, you can edit the adapter configuration in this menu.</td></tr>
+  <tr><td>View routing tables</td><td>Enter <b>8</b>.<br />Choose the IP version (IPv4, IPv6, or both) to view the default route table for your agent.</td></tr>
+  <tr><td>View your agent's IP version for data transfers</td><td>Enter <b>9</b>.<br />The agent's IP version setting for data transfers displays, either <code>IPv4</code>, <code>IPv6</code>, <code>IPv4 (auto)</code>, or <code>IPv6 (auto)</code>.</td></tr>
+  <tr><td>Edit your agent's IP protocol for data transfers</td><td>Enter <b>10</b>.<br />The available IP version settings for data transfers display. You can choose either <code>IPv4</code>, <code>IPv6</code>, <code>IPv4 (auto)</code>, or <code>IPv6 (auto)</code>. For more information about your agent's IP version setting for data transfers, see <a href="datasync-network.md#ipv6-support">IPv6 support</a>.</td></tr>
+</tbody>
+</table>
+
 
 ## Checking your agent's system resources
 <a name="system-resource-check"></a>
@@ -108,8 +127,21 @@ You can view and manage your agent's system time server configuration.
 
 1. On the **AWS DataSync Activation - Configuration** main menu, enter the option for **System Time Management** (such as **5** for VMware agent).
 
-1. On the **System Time Management** menu, do one of the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/datasync/latest/userguide/local-console-vm.html)
+1. On the **System Time Management** menu, do one of the following:
+
+
+<table>
+<thead>
+  <tr><th>To</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td>View system time and service status</td><td>Enter <b>1</b>.<br />View the current system time in UTC, time service status, active time servers, and synchronization status.</td></tr>
+  <tr><td>Synchronize system time</td><td>Enter <b>2</b>.<br />A prompt displays to synchronize the time server immediately.<br />In some situations, an agent's time might drift. For example, there might be a prolonged network outage and your hypervisor host and agent don't get time updates, so your agent's time is different from the actual time. When there's a time drift like this, a discrepancy occurs between the stated times when operations (such as snapshots occur) and the actual times that the operations occur.</td></tr>
+  <tr><td>Restart system time service</td><td>Enter <b>3</b>.<br />A prompt displays to restart the time synchronization service.</td></tr>
+  <tr><td>Manage time server configuration</td><td>Enter <b>4</b>.<br />View and manage your time server settings. Add or remove time servers and server pools, and set preferred servers for precise synchronization.</td></tr>
+</tbody>
+</table>
+
 
 ## Running maintenance-related commands for your agent
 <a name="command-prompts"></a>
@@ -122,7 +154,32 @@ In your DataSync agent's local console, you can perform some maintenance tasks a
 
 1. On the **AWS DataSync Activation - Configuration** main menu, enter **5** (or **6** for a VMware VM) for the **Command Prompt**.
 
-1. Use the following commands to perform the following tasks with your agent.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/datasync/latest/userguide/local-console-vm.html)
+1. Use the following commands to perform the following tasks with your agent.
+
+
+<table>
+<thead>
+  <tr><th>Command</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>dig</b></td><td>Look up DNS information about the host.</td></tr>
+  <tr><td><b>diskclean</b></td><td>Perform disk cleanup.</td></tr>
+  <tr><td><b>exit</b></td><td>Return to the console configuration menu.</td></tr>
+  <tr><td><b>h</b></td><td>Display a list of available commands.</td></tr>
+  <tr><td><b>ifconfig</b></td><td>Display or configure network interfaces.</td></tr>
+  <tr><td><b>ip</b></td><td>Display or configure routing, devices, and tunnels.</td></tr>
+  <tr><td><b>iptables</b></td><td>Set up and maintain IPv4 packet filtering and NAT.</td></tr>
+  <tr><td><b>ip6tables</b></td><td>Set up and maintain IPv6 packet filtering and NAT.</td></tr>
+  <tr><td><b>ncport</b></td><td>Test connectivity to a specific network TCP port.</td></tr>
+  <tr><td><b>nping</b></td><td>Get information to troubleshoot network issues.</td></tr>
+  <tr><td><b>passwd</b></td><td>Change user password.</td></tr>
+  <tr><td><b>save-iptables</b></td><td>Save IPv4 table firewall rules permanently.</td></tr>
+  <tr><td><b>save-ip6tables</b></td><td>Save IPv6 table firewall rules permanently.</td></tr>
+  <tr><td><b>save-routing-table</b></td><td>Save a newly added routing table entry.</td></tr>
+  <tr><td><b>sslcheck</b></td><td>Verify whether an SSL certificate is valid.</td></tr>
+  <tr><td><b>tcptraceroute</b></td><td>Collect <code>traceroute</code> output on TCP traffic to a destination. </td></tr>
+</tbody>
+</table>
+
 
 1. Follow the onscreen instructions.

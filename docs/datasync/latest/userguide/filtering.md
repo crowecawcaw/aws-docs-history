@@ -31,8 +31,20 @@ A pattern within a filter. For example, `*.tmp` is a pattern that's part of the 
 + When you are transferring data from or to an Amazon S3 bucket, DataSync treats the `/` character in the object key as the equivalent of a folder on a file system.
 
 **Special characters**  
-Following are special characters for use with filtering.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/datasync/latest/userguide/filtering.html)
+Following are special characters for use with filtering.  
+
+
+<table>
+<thead>
+  <tr><th>Special character</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>*</code> (wildcard)</td><td>A character used to match zero or more characters. For example, <code>/movies_folder*</code> matches both <code>/movies_folder</code> and <code>/movies_folder1</code>.</td></tr>
+  <tr><td><code>|</code> (pipe delimiter)</td><td>A character used as a delimiter between patterns. It enables specifying multiple patterns, any of which can match the filter. For example, <code>*.tmp</code><code>|</code><code>*.temp</code> matches files ending with either <code>tmp</code> or <code>temp</code>. This delimiter isn't needed when you add patterns on the console because you add each pattern on a separate line. </td></tr>
+  <tr><td><code>\</code> (backslash)</td><td>A character used for escaping special characters (*, |, \) in a file or object name. <br />A double backslash (\\) is required when a backslash is part of a file name. Similarly, \\\\ represents two consecutive backslashes in a file name. <br />A backslash followed by a pipe (\|) is required when a pipe is part of a file name.<br />A backslash (\) followed by any other character, or at the end of a pattern, is ignored.</td></tr>
+</tbody>
+</table>
+
 
 ## Example filters
 <a name="sample-filters"></a>

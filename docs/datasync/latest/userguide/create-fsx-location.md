@@ -29,8 +29,19 @@ We recommend that this user belong to a Microsoft Active Directory group for adm
   + The **Domain Admins** group, which is the default delegated administrators group.
   + A custom delegated administrators group with user rights that allow DataSync to copy object ownership permissions and Windows access control lists (ACLs).
 **Important**  
-You can't change the delegated administrators group after the file system has been deployed. You must either redeploy the file system or restore it from a backup to use the custom delegated administrator group with the following user rights that DataSync needs to copy metadata.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html)
+You can't change the delegated administrators group after the file system has been deployed. You must either redeploy the file system or restore it from a backup to use the custom delegated administrator group with the following user rights that DataSync needs to copy metadata.
+
+
+<table>
+<thead>
+  <tr><th>User right</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Restore files and directories</b> (<code>SE_RESTORE_NAME</code>)</td><td>Allows DataSync to copy object ownership, permissions, file metadata, and NTFS discretionary access lists (DACLs).<br />This user right is usually granted to members of the <b>Domain Admins</b> and <b>Backup Operators</b> groups (both of which are default Active Directory groups).</td></tr>
+  <tr><td><b>Manage auditing and security log</b> (<code>SE_SECURITY_NAME</code>)</td><td>Allows DataSync to copy NTFS system access control lists (SACLs).<br />This user right is usually granted to members of the <b>Domain Admins</b> group. </td></tr>
+</tbody>
+</table>
+
 + If you want to copy Windows ACLs and are transferring between an SMB file server and FSx for Windows File Server file system or between FSx for Windows File Server file systems, the users that you provide DataSync must belong to the same Active Directory domain or have an Active Directory trust relationship between their domains.
 
 **Warning**  
