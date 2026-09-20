@@ -33,8 +33,18 @@ When you create or register an app in the Azure portal, the secret ID represents
 You can access your client ID by selecting the name of your application in the Azure portal and then navigating to the overview page. The Application (client) ID is the client ID.
 **Note**  
 We recommend that you regularly refresh or rotate your credentials and secret. Provide only the necessary access level for your own security. We do **not** recommend that you re-use credentials and secrets across data sources, and connector versions 1.0 and 2.0 (where applicable).
-+ Added the following permissions for the connector application:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-exchange.html)
++ Added the following permissions for the connector application:
+
+
+<table>
+<thead>
+  <tr><th><b>Microsoft Graph</b></th><th><b>Office 365 Exchange Online</b></th></tr>
+</thead>
+<tbody>
+  <tr><td> <ul><li> Mail.Read (Application) </li><li> Mail.ReadBasic (Application) </li><li> Mail.ReadBasic.All (Application) </li><li> Calendars.Read (Application) </li><li> User.Read.All (Application) </li><li> Contacts.Read (Application) </li><li> Notes.Read.All (Application) </li><li> Directory.Read.All (Application) </li><li> EWS.AccessAsUser.All (Delegated) </li></ul></td><td>full_access_as_app (Application)</td></tr>
+</tbody>
+</table>
+
 + Checked each document is unique in Microsoft Exchange and across other data sources you plan to use for the same index. Each data source that you want to use for an index must not contain the same document across the data sources. Document IDs are global to an index and must be unique per index.
 
 **In your AWS account, make sure you have:**

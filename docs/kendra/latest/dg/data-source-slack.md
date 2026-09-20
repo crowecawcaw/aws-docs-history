@@ -45,8 +45,18 @@ If you use the bot token as part of your Slack credentials, you cannot index dir
 **Note**  
 We recommend that you regularly refresh or rotate your credentials and secret. Provide only the necessary access level for your own security. We do **not** recommend that you re-use credentials and secrets across data sources, and connector versions 1.0 and 2.0 (where applicable).
 + Noted your Slack workspace team ID from your Slack workspace main page URL. For example, {{https://app.slack.com/client/T0123456789/... }} where {{T0123456789}} is the team ID.
-+ Added the following Oauth scopes/permissions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html)
++ Added the following Oauth scopes/permissions:
+
+
+<table>
+<thead>
+  <tr><th><b>User token scope</b></th><th><b>Bot token scope</b></th></tr>
+</thead>
+<tbody>
+  <tr><td> <ul><li> channels:history </li><li> channels:read </li><li> emoji:read </li><li> files:read </li><li> groups:history </li><li> groups:read </li><li> im:history </li><li> im:read </li><li> mpim:history </li><li> mpim:read </li><li> team:read </li><li> users.profile:read </li><li> users:read </li><li> users:read.email </li></ul> </td><td> <ul><li> channels:history </li><li> channels:manage </li><li> channels:read </li><li> conversations.connect:manage </li><li> conversations.connect:read </li><li> files:read </li><li> groups:history </li><li> groups:read </li><li> im:history </li><li> im:read </li><li> mpim:history </li><li> mpim:read </li><li> reactions:read </li><li> team:read </li><li> usergroups:read </li><li> users.profile:read </li><li> users:read </li><li> users:read.email </li></ul> </td></tr>
+</tbody>
+</table>
+
 + Checked each document is unique in Slack and across other data sources you plan to use for the same index. Each data source that you want to use for an index must not contain the same document across the data sources. Document IDs are global to an index and must be unique per index.
 
 **In your AWS account, make sure you have:**

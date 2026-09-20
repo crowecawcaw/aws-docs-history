@@ -40,8 +40,26 @@ When you create or register an app in the Azure portal, the secret ID represents
 You can access your client ID by selecting the name of your application in the Azure portal and then navigating to the overview page. The Application (client) ID is the client ID.
 **Note**  
 We recommend that you regularly refresh or rotate your credentials and secret. Provide only the necessary access level for your own security. We do **not** recommend that you re-use credentials and secrets across data sources, and connector versions 1.0 and 2.0 (where applicable).
-+ Added the necessary permissions. You can choose to add all permissions, or you can limit the scope by selecting fewer permissions based on which entities you'd like to crawl. The following table lists the application level permissions by corresponding entity:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-teams.html)
++ Added the necessary permissions. You can choose to add all permissions, or you can limit the scope by selecting fewer permissions based on which entities you'd like to crawl. The following table lists the application level permissions by corresponding entity:
+
+
+<table>
+<thead>
+  <tr><th>Entity</th><th>Required Permissions for Data Sync</th><th>Required Permissions for Identity Sync</th></tr>
+</thead>
+<tbody>
+  <tr><td>Channel Post</td><td> <ul><li> ChannelMessage.Read.All </li><li> Group.Read.All </li><li> User.Read </li><li> User.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Channel Attachment</td><td> <ul><li> ChannelMessage.Read.All </li><li> Group.Read.All </li><li> User.Read </li><li> User.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Channel Wiki</td><td> <ul><li> Group.Read.All </li><li> User.Read </li><li> User.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Chat Message</td><td> <ul><li> Chat.Read.All </li><li> ChatMessage.Read.All </li><li> ChatMember.Read.All </li><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Meeting Chat</td><td> <ul><li> Chat.Read.All </li><li> ChatMessage.Read </li><li> ChatMember.Read.All </li><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Chat Attachment</td><td> <ul><li> Chat.Read.All </li><li> ChatMessage.Read </li><li> ChatMember.Read.All </li><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Meeting File</td><td> <ul><li> Chat.Read.All </li><li> ChatMessage.Read.All </li><li> ChatMember.Read.All </li><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li><li> Files.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Calendar Meeting</td><td> <ul><li> Chat.Read.All </li><li> ChatMessage.Read.All </li><li> ChatMember.Read.All </li><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li><li> Files.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+  <tr><td>Meeting Notes</td><td> <ul><li> User.Read </li><li> User.Read.All </li><li> Group.Read.All </li><li> Files.Read.All </li></ul> </td><td>TeamMember.Read.All</td></tr>
+</tbody>
+</table>
+
 + Checked each document is unique in Microsoft Teams and across other data sources you plan to use for the same index. Each data source that you want to use for an index must not contain the same document across the data sources. Document IDs are global to an index and must be unique per index.
 
 **In your AWS account, make sure you have:**

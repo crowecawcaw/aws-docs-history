@@ -49,30 +49,80 @@ We recommend that you regularly refresh or rotate your credentials and secret. P
 + **If using authentication type other than Basic authentication:** Copied the tenant ID of your SharePoint instance. For details on how to find your tenant ID, see [Find your Microsoft 365 tenant ID](https://learn.microsoft.com/en-us/sharepoint/find-your-office-365-tenant-id).
 + If you need to migrate to cloud user authentication with Microsoft Entra, see [Microsoft documentation on cloud authentication](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/migrate-from-federation-to-cloud-authentication).
 + **For OAuth 2.0 authentication and OAuth 2.0 refresh token authentication:** Noted your **Basic authentication** credentials containing the user name and password you use to connect to SharePoint Online and the client ID and client secret generated after registering SharePoint with Azure AD.
-  + **If you're not using ACL**, added the following permissions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-v2-sharepoint.html)
+  + **If you're not using ACL**, added the following permissions:
+
+
+<table>
+<thead>
+  <tr><th><b>Microsoft Graph</b></th><th><b>SharePoint</b></th></tr>
+</thead>
+<tbody>
+  <tr><td> <ul><li> Notes.Read.All (Application)—Read all OneNote notebooks </li><li> Sites.Read.All (Application)—Read items in all site collections </li></ul></td><td><ul><li> AllSites.Read (Delegated)—Read items in all site collections </li></ul></td></tr>
+</tbody>
+</table>
+
 **Note**  
 Note.Read.All and Sites.Read.All are required only if you want to crawl OneNote Documents.  
 If you want to crawl specific sites, the permission can be restricted to specific sites rather than all sites available in the domain. You configure **Sites.Selected (Application)** permission. With this API permission, you need to set access permission on every site explicitly through Microsoft Graph API. For more information, see [Microsoft's blog on Sites.Selected permissions](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/develop-applications-that-use-sites-selected-permissions-for-spo/ba-p/3790476).
-  + **If you're using ACL**, added the following permissions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-v2-sharepoint.html)
+  + **If you're using ACL**, added the following permissions:
+
+
+<table>
+<thead>
+  <tr><th><b>Microsoft Graph</b></th><th><b>SharePoint</b></th></tr>
+</thead>
+<tbody>
+  <tr><td> <ul><li> Group.Member.Read.All (Application)—Read all group memberships </li><li> Notes.Read.All (Application)—Read all OneNote notebooks </li><li> Sites.FullControl.All (Delegated)—Required to retrieve ACLs of the documents </li><li> Sites.Read.All (Application)—Read items in all site collections </li><li> User.Read.All (Application)—Read all users' full profiles </li></ul></td><td><ul><li> AllSites.Read (Delegated)—Read items in all site collections </li></ul></td></tr>
+</tbody>
+</table>
+
 **Note**  
 GroupMember.Read.All and User.Read.All are required only if **Identity crawler** is activated.  
 If you want to crawl specific sites, the permission can be restricted to specific sites rather than all sites available in the domain. You configure **Sites.Selected (Application)** permission. With this API permission, you need to set access permission on every site explicitly through Microsoft Graph API. For more information, see [Microsoft's blog on Sites.Selected permissions](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/develop-applications-that-use-sites-selected-permissions-for-spo/ba-p/3790476).
 + **For Azure AD App-Only authentication:** Private key and the Client ID you generated after registering SharePoint with Azure AD. Also note the X.509 certificate.
-  + **If you're not using ACL**, added the following permissions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-v2-sharepoint.html)
+  + **If you're not using ACL**, added the following permissions:
+
+
+<table>
+<thead>
+  <tr><th><b>SharePoint</b></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><ul><li> Sites.Read.All (Application)—Required to access items and lists in all site collections </li></ul></td><td></td></tr>
+</tbody>
+</table>
+
 **Note**  
 If you want to crawl specific sites, the permission can be restricted to specific sites rather than all sites available in the domain. You configure **Sites.Selected (Application)** permission. With this API permission, you need to set access permission on every site explicitly through Microsoft Graph API. For more information, see [Microsoft's blog on Sites.Selected permissions](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/develop-applications-that-use-sites-selected-permissions-for-spo/ba-p/3790476).
-  + **If you're using ACL**, added the following permissions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-v2-sharepoint.html)
+  + **If you're using ACL**, added the following permissions:
+
+
+<table>
+<thead>
+  <tr><th><b>SharePoint</b></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><ul><li> Sites.FullControl.All (Application)—Required to retrieve ACLs of the documents </li></ul></td><td></td></tr>
+</tbody>
+</table>
+
 **Note**  
 If you want to crawl specific sites, the permission can be restricted to specific sites rather than all sites available in the domain. You configure **Sites.Selected (Application)** permission. With this API permission, you need to set access permission on every site explicitly through Microsoft Graph API. For more information, see [Microsoft's blog on Sites.Selected permissions](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/develop-applications-that-use-sites-selected-permissions-for-spo/ba-p/3790476).
 + **For SharePoint App-Only authentication:** Noted your SharePoint client ID and client secret generated while granting permission to SharePoint App Only, and your Client ID and Client secret generated when you registered your SharePoint app with Azure AD.
 **Note**  
 SharePoint App-Only Authentication is *not* supported for SharePoint 2013 version.
-  + **(Optional) If you're crawling OneNote documents and using **Identity crawler****, added the following permissions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kendra/latest/dg/data-source-v2-sharepoint.html)
+  + **(Optional) If you're crawling OneNote documents and using **Identity crawler****, added the following permissions:
+
+
+<table>
+<thead>
+  <tr><th><b>Microsoft Graph</b></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td> <ul><li> GroupMember.Read.All (Application)—Read all group memberships </li><li> Notes.Read.All (Application)—Read all OneNote notebooks </li><li> Sites.Read.All (Application)—Read items in all site collections </li><li> User.Read.All (Application)—Read all users' full profiles </li></ul></td><td></td></tr>
+</tbody>
+</table>
+
 **Note**  
 No API permissions are required for crawling entities using **Basic authentication** and SharePoint **App-only authentication**.
 
