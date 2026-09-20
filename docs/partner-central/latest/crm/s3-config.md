@@ -69,8 +69,27 @@ The following steps explain how to enter the correct system configuration settin
 
 1. Locate the **AWS Partner CRM Connector Settings**, and choose **Manage**. 
 
-1. Choose **New**, and then enter the required values from the following table.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/partner-central/latest/crm/s3-config.html)
+1. Choose **New**, and then enter the required values from the following table. 
+
+
+<table>
+<thead>
+  <tr><th> <b>Custom setting field</b> </th><th> <b>Purpose</b> </th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Name</b></td><td>Field isn’t used, but because it’s required, you can set it to any value.</td></tr>
+  <tr><td><b>Bucket name</b></td><td>Bucket name that was provisioned for the partner. It’s different for beta and production environments. </td></tr>
+  <tr><td><b>Default account</b></td><td>An 18-digit record ID of the default account that’s used when standard opportunities are used as the target object in Salesforce. Because <b>AccountID</b> is required on standard opportunities, the default account field allows new inbound opportunities from AWS to have a default account tied to. This can be any account record in your Salesforce organization that the integration user has access to from the sharing settings.</td></tr>
+  <tr><td><b>Outbound batch size</b></td><td>Number of records sent in a single payload from your Salesforce organization to AWS. This is common for both opportunities and leads. We recommend a value between 1–50. For example, if you set the batch size to 50, each opportunity payload sent from your organization to AWS contains 50 opportunity records. </td></tr>
+  <tr><td><b>Retry count</b></td><td>In the event of a failure, this value represents the number of times the transaction is retried.</td></tr>
+  <tr><td><b>Retry cutoff days</b></td><td>If a record continues to fail, this value is the number of days after which a retry is no longer attempted. </td></tr>
+  <tr><td><b>Partner ID</b></td><td>Unique partner identifier that is shared as part of enablement. </td></tr>
+  <tr><td><b>Sync log retention</b></td><td>Number of days to retain the synchronization logs. </td></tr>
+  <tr><td><b>Version</b></td><td>For the new data model, choose version 2. For the previous data model, choose version 1. </td></tr>
+  <tr><td><b>Create New Account from Default Account</b></td><td>Enables the connector to create a new account based on the default account provided by the partner. When you select this option, it enables dynamic account creation during the integration process, ensuring that new opportunities or engagements can be associated with appropriate account records even when the exact account doesn't exist in the target system. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save**. 
 

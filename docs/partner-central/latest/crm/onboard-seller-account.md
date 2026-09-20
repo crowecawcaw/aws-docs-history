@@ -11,8 +11,29 @@ The following steps explain how to onboard AWS Seller accounts to the CRM connec
 
 1. In the **New named credential** form, enter the values from the following table. 
 **Note**  
-For {{unique\_account\_prefix}}, use a descriptor for the AWS account, such as SellerA; SellerB. For example, **AWS\_SELLER\_CATALOG\_sellerA**. Always use the same prefix for the named credentials related to the AWS seller account.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/partner-central/latest/crm/onboard-seller-account.html)
+For {{unique\_account\_prefix}}, use a descriptor for the AWS account, such as SellerA; SellerB. For example, **AWS\_SELLER\_CATALOG\_sellerA**. Always use the same prefix for the named credentials related to the AWS seller account.
+
+
+<table>
+<thead>
+  <tr><th> <b>Field</b> </th><th> <b>Value</b> </th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Label</b> </td><td>AWS SELLER CATALOG </td></tr>
+  <tr><td> <b>Name</b> </td><td>AWS_SELLER_CATALOG_{{unique_account_prefix}} </td></tr>
+  <tr><td> <b>URL</b> </td><td>https://catalog.marketplace.us-east-1.amazonaws.com </td></tr>
+  <tr><td> <b>Identity type</b> </td><td>Named Principal </td></tr>
+  <tr><td> <b>Authentication protocol</b> </td><td>AWS signature version 4</td></tr>
+  <tr><td> <b>AWS access key ID</b> </td><td>The ID of the IAM user's access key</td></tr>
+  <tr><td> <b>AWS secret access key</b> </td><td>The IAM user's secret access key</td></tr>
+  <tr><td> <b>AWS Region</b> </td><td>us-east-1</td></tr>
+  <tr><td> <b>AWS service</b> </td><td>aws-marketplace</td></tr>
+  <tr><td> <b>Generate authorization header</b> </td><td>checked </td></tr>
+  <tr><td> <b>Allow merge fields in HTTP header</b> </td><td>checked </td></tr>
+  <tr><td> <b>Allow merge fields in HTTP body</b> </td><td>unchecked </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save**.
 

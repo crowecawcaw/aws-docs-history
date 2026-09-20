@@ -21,8 +21,28 @@ The AWS Partner CRM connector uses the partner's Salesforce organization credent
 
 1.  Under **Named credentials**, choose **New earlier**. 
 
-1.  In the **New named credential** form, enter the values from the following table.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/partner-central/latest/crm/guided-setup-apis.html)
+1.  In the **New named credential** form, enter the values from the following table. 
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Label</b></td><td>AWS Partner Central API</td></tr>
+  <tr><td><b>URL</b></td><td>https://partnercentral-selling.us-east-1.api.aws</td></tr>
+  <tr><td><b>Identity type</b></td><td>Named Principal </td></tr>
+  <tr><td><b>Authentication protocol</b></td><td>AWS signature version 4</td></tr>
+  <tr><td><b>AWS access key ID</b></td><td>Cloud-Ops provides the ID during the prerequisite steps</td></tr>
+  <tr><td><b>AWS secret access key</b></td><td>Cloud-Ops provides the access key during the prerequisite steps</td></tr>
+  <tr><td><b>AWS Region</b></td><td>us-east-1</td></tr>
+  <tr><td><b>AWS service</b></td><td>partnercentral-selling</td></tr>
+  <tr><td><b>Generate authorization header</b></td><td>checked</td></tr>
+  <tr><td><b>Allow merge fields in HTTP header</b></td><td>checked</td></tr>
+  <tr><td><b>Allow merge fields in HTTP body</b></td><td>unchecked</td></tr>
+</tbody>
+</table>
+
 
 1.  Choose **Save**. 
 
