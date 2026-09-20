@@ -137,10 +137,22 @@ aws amscm create-rfc --change-type-id "ct-2052miu12d8fn" --change-type-version "
 + Before you use this CT, you must first store your new master user password in one of the following:
   + [AWS Systems Manager (SSM) Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
   + [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
-+ To use **SSM (AWS Systems Manager) Parameter Store**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/ctref/management-advanced-rds-database-stack-update-master-user-password.html)
-+ To use **AWS Secrets Manager**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/ctref/management-advanced-rds-database-stack-update-master-user-password.html)
++ To use **SSM (AWS Systems Manager) Parameter Store**
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
++ To use **AWS Secrets Manager**
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 + To learn more about Amazon RDS, including size recommendations, see [ Documentation](https://aws.amazon.com/documentation/rds/). 
 
 ## Execution Input Parameters
