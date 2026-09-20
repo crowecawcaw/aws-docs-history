@@ -56,9 +56,22 @@ Certificates must specify an algorithm and key size. ACM supports these RSA and 
 + ECDSA 521 bit (`EC_secp521r1`)
 ACM can request new certificates using algorithms marked with an asterisk (\*). Other algorithms are for [imported](import-certificate.md) certificates only.  
 For private PKI certificates signed by a AWS Private CA CA, the signing algorithm family (RSA or ECDSA) must match the CA's secret key algorithm family.
-ECDSA keys are smaller and more computationally efficient than RSA keys of comparable security, but not all network clients support ECDSA. This table, adapted from [NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf), compares RSA and ECDSA key sizes (in bits) for equivalent security strengths:    
-**Comparing security for algorithms and keys**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/acm/latest/userguide/acm-certificate-characteristics.html)
+ECDSA keys are smaller and more computationally efficient than RSA keys of comparable security, but not all network clients support ECDSA. This table, adapted from [NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf), compares RSA and ECDSA key sizes (in bits) for equivalent security strengths:  
+
+
+**Comparing security for algorithms and keys**  
+
+<table>
+<thead>
+  <tr><th>Security strength</th><th>RSA key size</th><th>ECDSA key size</th></tr>
+</thead>
+<tbody>
+  <tr><td>128</td><td>3072</td><td>256</td></tr>
+  <tr><td>192</td><td>7680</td><td>384</td></tr>
+  <tr><td>256</td><td>15360</td><td>521</td></tr>
+</tbody>
+</table>
+
 Security strength, as a power of 2, relates to the number of guesses needed to break the encryption. For example, both a 3072-bit RSA key and a 256-bit ECDSA key can be retrieved with no more than 2128 guesses.  
 For help choosing an algorithm, see the AWS blog post [How to evaluate and use ECDSA certificates in AWS Certificate Manager](https://aws.amazon.com/blogs/security/how-to-evaluate-and-use-ecdsa-certificates-in-aws-certificate-manager/).  
 [Integrated services](https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html) allow only supported algorithms and key sizes for their resources. Support varies based on whether the certificate is imported into IAM or ACM. For details, see each service's documentation:  
@@ -76,9 +89,25 @@ The following [Punycode](https://datatracker.ietf.org/doc/html/rfc3492) requirem
 
 1. Domain names beginning with the pattern "<character><character>--" must match "xn--".
 
-1. Domain names beginning with "xn--" must also be valid Internationalized Domain Names.  
-**Punycode examples**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/acm/latest/userguide/acm-certificate-characteristics.html)
+1. Domain names beginning with "xn--" must also be valid Internationalized Domain Names.
+
+
+**Punycode examples**  
+
+<table>
+<thead>
+  <tr><th>Domain Name</th><th>Fulfills #1</th><th>Fulfills #2</th><th>Allowed</th><th>Note</th></tr>
+</thead>
+<tbody>
+  <tr><td>example.com</td><td>n/a</td><td>n/a</td><td>✓</td><td>Does not start with "&lt;character&gt;&lt;character&gt;--"</td></tr>
+  <tr><td>a--example.com</td><td>n/a</td><td>n/a</td><td>✓</td><td>Does not start with "&lt;character&gt;&lt;character&gt;--"</td></tr>
+  <tr><td>abc--example.com</td><td>n/a</td><td>n/a</td><td>✓</td><td>Does not start with "&lt;character&gt;&lt;character&gt;--"</td></tr>
+  <tr><td>xn--xyz.com</td><td>Yes</td><td>Yes</td><td>✓</td><td>Valid Internationalized Domain Name (resolves to 简.com)</td></tr>
+  <tr><td>xn--example.com</td><td>Yes</td><td>No</td><td>✗</td><td>Not a valid Internationalized Domain Name</td></tr>
+  <tr><td>ab--example.com</td><td>No</td><td>No</td><td>✗</td><td>Must start with "xn--"</td></tr>
+</tbody>
+</table>
+
 
 **Validity Period**  <a name="validity-term"></a>
 ACM certificates are valid for 198 days.
