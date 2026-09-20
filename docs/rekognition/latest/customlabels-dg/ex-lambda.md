@@ -37,8 +37,19 @@ Later you add the source code and optionally a layer to the Lambda function.
 
 1. On the **Environment variables** pane, choose **Edit**.
 
-1. Add the following environment variables. For each variable choose **Add enviroment variable** and then enter the variable key and value.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/ex-lambda.html)
+1. Add the following environment variables. For each variable choose **Add enviroment variable** and then enter the variable key and value. 
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>MODEL_ARN</td><td>The Amazon Resource Name (ARN) of the model that you want your Lambda function to use. You can get the model ARN from the <b>Use Model</b> tab of the model's details page in the Amazon Rekognition Custom Labels console.</td></tr>
+  <tr><td>CONFIDENCE</td><td>The minimum value (0–100) for the model's confidence in the prediction for a label. The Lambda function doesn't return labels with confidence values lower than this value. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save** to save the environment variables.
 

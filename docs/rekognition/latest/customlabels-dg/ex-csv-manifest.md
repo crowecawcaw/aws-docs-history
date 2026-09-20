@@ -46,8 +46,18 @@ The script records the first entry for each image in a deduplicated image CSV fi
 
 **To create a manifest file from a CSV file**
 
-1. Create a CSV file with the following fields in each row (one row per image). Don't add a header row to the CSV file.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/ex-csv-manifest.html)
+1. Create a CSV file with the following fields in each row (one row per image). Don't add a header row to the CSV file.
+
+
+<table>
+<thead>
+  <tr><th>Field 1</th><th>Field 2</th><th>Field n</th></tr>
+</thead>
+<tbody>
+  <tr><td>The image name or the Amazon S3 path the image. For example, <code>s3://my-bucket/flowers/train/camellia1.jpg</code>. You can't have a mixture of images with the Amazon S3 path and images without. </td><td>The first image level label for the image.</td><td>One or more additional image-level labels separated by commas. Add only if you want to create a manifest file that supports <a href="getting-started.md#gs-multi-label-image-classification-example">Multi-label image classification</a>.</td></tr>
+</tbody>
+</table>
+
 
    For example `camellia1.jpg,camellia,with_leaves` or `s3://my-bucket/flowers/train/camellia1.jpg,camellia,with_leaves` 
 
