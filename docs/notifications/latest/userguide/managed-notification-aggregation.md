@@ -1,23 +1,38 @@
 
 
-# Aggregating and deduplicating AWS managed notifications in AWS User Notifications
+# Aggregating and deduplicating AWS managed notifications in User Notifications
 <a name="managed-notification-aggregation"></a>
 
-AWS managed notification aggregation is a standard feature available to all management accounts and delegated administrators that have [enabled trusted access](uno-orgs.md) with AWS Organizations. Managed notification aggregation organizes and streamlines your view of events that impact multiple accounts within an organization. User Notifications uses information from AWS Organizations to aggregate events across accounts within an organization and provides an organized view of events affecting multiple accounts.
+You can aggregate AWS Health managed notifications across accounts within the same organization. To use aggregation, your management account or delegated administrator must [enable trusted access](uno-orgs.md) with AWS Organizations. User Notifications then combines related events from multiple member accounts into a single notification, reducing the total number of notifications you receive.
 
- In addition, User Notifications deduplicates emails when an account contact is shared between the management account (or delegated administrator) and the member account. This reduces the total number of individual notifications you receive. 
+ For AWS Health managed notifications, User Notifications also deduplicates emails when you share an account contact between the management account (or delegated administrator) and a member account. This reduces the number of individual notifications you receive. 
 
 ## Event aggregation process
 <a name="aggregation-process"></a>
 
- AWS managed notifications use an event aggregation logic that combines related events to reduce notification volume while maintaining timely delivery of critical information. Events are aggregated based on two key factors: 
+ AWS managed notifications use an event aggregation logic that combines related events to reduce the number of notifications while maintaining timely delivery of critical information. Events are aggregated based on two key factors: 
 
 **Topics**
 +  Communication ID - Events sharing the same `communicationId` are considered related 
 **Note**  
-Events are sent to User Notifications via an API integration that uses the same format as Amazon EventBridge. For more information, see [Reference: AWS Health events Amazon EventBridge schema](https://docs.aws.amazon.com/health/latest/ug//aws-health-events-eventbridge-schema) in the *AWS Health User Guide*.
-+  Time window - Events with the same `communicationId` are aggregated within specific time periods based on managed notification sub-category:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/notifications/latest/userguide/managed-notification-aggregation.html)
+Events are sent to User Notifications through an API integration that uses the same format as Amazon EventBridge. For more information, see [Reference: AWS Health events Amazon EventBridge schema](https://docs.aws.amazon.com/health/latest/ug/aws-health-events-eventbridge-schema.html) in the *AWS Health User Guide*.
++  Time window - Events with the same `communicationId` are aggregated within specific time periods based on managed notification sub-category. The following table lists the sub-categories and time windows that apply to AWS Health managed notifications. 
+
+
+**AWS Health managed notification sub-categories and aggregation time windows**  
+
+<table>
+<thead>
+  <tr><th><code>Sub-category</code></th><th>Time window</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Account-Specific Issues</code></td><td>1 minute</td></tr>
+  <tr><td><code>Security</code></td><td>10 minutes</td></tr>
+  <tr><td><code>Health Operations</code></td><td>10 minutes</td></tr>
+  <tr><td><code>Billing Notification</code></td><td>10 minutes</td></tr>
+</tbody>
+</table>
+
 
 ## Aggregating AWS managed notifications
 <a name="notification-aggregation"></a>

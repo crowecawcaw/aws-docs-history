@@ -29,13 +29,13 @@ Configuring notifications for organization accounts creates read-only notificati
 ## AWS managed notifications with organizations
 <a name="managed-notifications-orgs"></a>
 
-User Notifications uses AWS Organizations in accounts that enable AWS managed notifications and aggregation and deduplication to:
+For AWS Health managed notifications, User Notifications uses AWS Organizations to:
 + [Aggregate AWS managed notifications across accounts](managed-notification-aggregation.md#notification-aggregation) in management and delegated administrator accounts
 +  [Deduplicate AWS managed notifications across accounts](managed-notification-aggregation.md#managed-notification-dedupe) 
 
 For example, if management and member accounts within the same organization share a billing contact, and the same event occurs in both accounts, the billing contact receives only one notification that references the event in both accounts.
 
-If management and member accounts within the same organization both enable AWS managed notifications and an event occurs in a member account, both the management and member account receive a notification. However, if an event occurs in a member account and only the management account enabled AWS managed notifications, only the management account receives a notification.
+When an event occurs in a member account, the management account, delegated administrator accounts, and the member account all receive an AWS Health managed notification.
 
 ## Enabling trusted access
 <a name="enable-ta"></a>
