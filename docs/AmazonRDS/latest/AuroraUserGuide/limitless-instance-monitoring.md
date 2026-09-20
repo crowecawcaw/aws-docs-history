@@ -118,7 +118,7 @@ Shards experience performance issues from three primary causes: resource constra
 ### Shard resource utilization
 <a name="limitless-instance-monitoring-shard-utilization"></a>
 
-A shard with popular shard keys will have more data and higher workloads. This manifests as resource utilization, i.e. the instance will consume more ACUs.
+A shard with popular shard keys will have more data and higher workloads. This manifests as resource utilization, that is, the instance will consume more ACUs.
 
 **Remediation strategies:**
 

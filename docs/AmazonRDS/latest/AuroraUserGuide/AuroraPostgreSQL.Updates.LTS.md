@@ -18,7 +18,7 @@ If you want to remain on an LTS minor version for the duration of its lifecycle,
 +  The database version for your Aurora PostgreSQL cluster has all the DB engine features and bug fixes that your application needs. 
 
  The current LTS releases for Aurora PostgreSQL are as follows: 
-+ PostgreSQL 17.7. It was released on March 25, 2026. For more information, see [ PostgreSQL 17.7](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html#aurorapostgresql-versions-version177x) in the *Release Notes for Aurora PostgreSQL*. 
++ PostgreSQL 17.7. It was released on December 18, 2025. For more information, see [ PostgreSQL 17.7](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html#aurorapostgresql-versions-version177x) in the *Release Notes for Aurora PostgreSQL*. 
 + PostgreSQL 16.8. It was released on April 07, 2025. For more information, see [ PostgreSQL 16.8](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html#aurorapostgresql-versions-version168x) in the *Release Notes for Aurora PostgreSQL*. 
 + PostgreSQL 15.10. It was released on December 27, 2024. For more information, see [ PostgreSQL 15.10](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html#aurorapostgresql-versions-version1510x) in the *Release Notes for Aurora PostgreSQL*. 
 + PostgreSQL 14.6. It was released on January 20, 2023. For more information, see [ PostgreSQL 14.6](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html#AuroraPostgreSQL.Updates.20180305.146X) in the *Release Notes for Aurora PostgreSQL*. 

@@ -5,6 +5,10 @@
 
 Following, you can find usage information for Babelfish, including some of the differences between working with Babelfish and SQL Server, and between Babelfish and PostgreSQL databases. 
 
+For information about how Babelfish handles transactions, see [Transaction isolation levels in Babelfish](babelfish-transaction.md).
+
+For information about the PostgreSQL and AWS extensions that Babelfish supports, see [Using Aurora PostgreSQL extensions with Babelfish](babelfish-postgres-aws-extensions.md).
+
 **Topics**
 + [Getting information from the Babelfish system catalog](babelfish-query-database.md)
 + [Managing permissions and access control in Babelfish for Aurora PostgreSQL](babelfish-permissions.md)

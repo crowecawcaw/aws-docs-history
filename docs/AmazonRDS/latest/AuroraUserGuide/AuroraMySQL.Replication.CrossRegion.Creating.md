@@ -28,8 +28,33 @@
 
 1. For **Actions**, choose **Create cross-Region read replica**.
 
-1.  On the **Create cross region read replica** page, choose the option settings for your cross-Region read replica DB cluster, as described in the following table.    
-<a name="cross-region-read-replica-settings"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.CrossRegion.Creating.html)
+1.  On the **Create cross region read replica** page, choose the option settings for your cross-Region read replica DB cluster, as described in the following table.
+
+<a name="cross-region-read-replica-settings"></a>
+<table>
+<thead>
+  <tr><th> Option </th><th> Description </th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Destination region</b> </td><td> Choose the AWS Region to host the new cross-Region read replica DB cluster. </td></tr>
+  <tr><td> <b>Destination DB subnet group</b> </td><td> Choose the DB subnet group to use for the cross-Region read replica DB cluster. </td></tr>
+  <tr><td> <b>Publicly accessible</b> </td><td> Choose <b>Yes</b> to give the cross-Region read replica DB cluster a public IP address; otherwise, select <b>No</b>. </td></tr>
+  <tr><td> <b>Encryption</b> </td><td> Select <b>Enable Encryption</b> to turn on encryption at rest for this DB cluster. For more information, see <a href="Overview.Encryption.md">Encrypting Amazon Aurora resources</a>. </td></tr>
+  <tr><td> <b>AWS KMS key</b> </td><td> Only available if <b>Encryption</b> is set to <b>Enable Encryption</b>. Select the AWS KMS key to use for encrypting this DB cluster. For more information, see <a href="Overview.Encryption.md">Encrypting Amazon Aurora resources</a>. </td></tr>
+  <tr><td> <b>DB instance class</b> </td><td> Choose a DB instance class that defines the processing and memory requirements for the primary instance in the DB cluster. For more information about DB instance class options, see <a href="Concepts.DBInstanceClass.md">Amazon AuroraDB instance classes</a>. </td></tr>
+  <tr><td> <b>Multi-AZ deployment</b> </td><td> Choose <b>Yes</b> to create a read replica of the new DB cluster in another Availability Zone in the target AWS Region for failover support. For more information about multiple Availability Zones, see <a href="Concepts.RegionsAndAvailabilityZones.md">Regions and Availability Zones</a>.</td></tr>
+  <tr><td> <b>Read replica source</b> </td><td> Choose the source DB cluster to create a cross-Region read replica for.</td></tr>
+  <tr><td> <b>DB instance identifier</b> </td><td> Type a name for the primary instance in your cross-Region read replica DB cluster. This identifier is used in the endpoint address for the primary instance of the new DB cluster. <br /> The DB instance identifier has the following constraints: <ul><li>  It must contain from 1 to 63 alphanumeric characters or hyphens. </li><li>  Its first character must be a letter. </li><li>  It cannot end with a hyphen or contain two consecutive hyphens. </li><li>  It must be unique for all DB instances for each AWS account, for each AWS Region. </li></ul><br /> Because the cross-Region read replica DB cluster is created from a snapshot of the source DB cluster, the master user name and master password for the read replica are the same as the master user name and master password for the source DB cluster. </td></tr>
+  <tr><td> <b>DB cluster identifier</b> </td><td> Type a name for your cross-Region read replica DB cluster that is unique for your account in the target AWS Region for your replica. This identifier is used in the cluster endpoint address for your DB cluster. For information on the cluster endpoint, see <a href="Aurora.Overview.Endpoints.md">Amazon Aurora endpoint connections</a>.<br /> The DB cluster identifier has the following constraints:<ul><li>  It must contain from 1 to 63 alphanumeric characters or hyphens.  </li><li>  Its first character must be a letter.  </li><li>  It cannot end with a hyphen or contain two consecutive hyphens.  </li><li>  It must be unique for all DB clusters for each AWS account, for each AWS Region.  </li></ul></td></tr>
+  <tr><td> <b>Priority</b> </td><td> Choose a failover priority for the primary instance of the new DB cluster. This priority determines the order in which Aurora Replicas are promoted when recovering from a primary instance failure. If you don't select a value, the default is <b>tier-1</b>. For more information, see <a href="Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance">Fault tolerance for an Aurora DB cluster</a>. </td></tr>
+  <tr><td> <b>Database port</b> </td><td> Specify the port for applications and utilities to use to access the database. Aurora DB clusters default to the default MySQL port, 3306. Firewalls at some companies block connections to this port. If your company firewall blocks the default port, choose another port for the new DB cluster. </td></tr>
+  <tr><td> <b>Enhanced monitoring</b> </td><td> Choose <b>Enable enhanced monitoring</b> to turn on gathering metrics in real time for the operating system that your DB cluster runs on. For more information, see <a href="USER_Monitoring.OS.md">Monitoring OS metrics with Enhanced Monitoring</a>. </td></tr>
+  <tr><td> <b>Monitoring Role</b> </td><td> Only available if <b>Enhanced Monitoring</b> is set to <b>Enable enhanced monitoring</b>. Choose the IAM role that you created to permit Amazon RDS to communicate with Amazon CloudWatch Logs for you, or choose <b>Default</b> to have RDS create a role for you named <code>rds-monitoring-role</code>. For more information, see <a href="USER_Monitoring.OS.md">Monitoring OS metrics with Enhanced Monitoring</a>. </td></tr>
+  <tr><td> <b>Granularity</b> </td><td> Only available if <b>Enhanced Monitoring</b> is set to <b>Enable enhanced monitoring</b>. Set the interval, in seconds, between when metrics are collected for your DB cluster. </td></tr>
+  <tr><td> <b>Auto minor version upgrade</b> </td><td> This setting doesn't apply to Aurora MySQL DB clusters. <br /> For more information about engine updates for Aurora MySQL, see <a href="AuroraMySQL.Updates.md">Database engine updates for Amazon Aurora MySQL</a>. </td></tr>
+</tbody>
+</table>
+
 
 1.  Choose **Create** to create your cross-Region read replica for Aurora.
 

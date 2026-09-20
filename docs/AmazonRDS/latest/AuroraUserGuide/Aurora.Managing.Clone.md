@@ -5,6 +5,8 @@
 
 By using Aurora cloning, you can create a new cluster that initially shares the same data pages as the original, but is a separate and independent volume. The process is designed to be fast and cost-effective. The new cluster with its associated data volume is known as a *clone*. Creating a clone is faster and more space-efficient than physically copying the data using other techniques, such as restoring a snapshot.
 
+For information about cloning a volume across VPCs, see [Cross-VPC cloning with Amazon Aurora](Aurora.Managing.Clone.Cross-VPC.md).
+
 **Topics**
 + [Overview of Aurora cloning](#Aurora.Clone.Overview)
 + [Limitations of Aurora cloning](#Aurora.Managing.Clone.Limitations)

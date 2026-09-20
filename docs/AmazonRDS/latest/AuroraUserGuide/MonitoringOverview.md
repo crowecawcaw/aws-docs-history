@@ -5,6 +5,8 @@
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon Aurora and your other AWS solutions. AWS provides various monitoring tools to watch Amazon Aurora, report when something is wrong, and take automatic actions when appropriate.
 
+For information about accessing the monitoring tools for your Amazon Aurora resources, see [Viewing cluster status](accessing-monitoring.md).
+
 **Topics**
 + [Automated monitoring tools](#MonitoringOverview.tools.automated)
 + [Manual monitoring tools](#monitoring_manual_tools)

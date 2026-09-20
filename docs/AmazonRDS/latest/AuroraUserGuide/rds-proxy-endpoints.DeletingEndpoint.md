@@ -16,9 +16,9 @@
 
 1.  In the navigation pane, choose **Proxies**. 
 
-1.  In the list, choose the proxy whose endpoint you want to endpoint. Click the proxy name to view its details page. 
+1.  In the list, choose the proxy whose endpoint you want to endpoint. Choose the proxy name to view its details page. 
 
-1.  In the **Proxy endpoints** section, choose the endpoint that you want to delete. You can select one or more endpoints in the list, or click the name of a single endpoint to view the details page. 
+1.  In the **Proxy endpoints** section, choose the endpoint that you want to delete. You can select one or more endpoints in the list, or choose the name of a single endpoint to view the details page. 
 
 1.  On the proxy details page, under the **Proxy endpoints** section, choose **Delete**. Or, on the proxy endpoint details page, for **Actions**, choose **Delete**. 
 

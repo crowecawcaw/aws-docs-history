@@ -27,8 +27,24 @@ You can view a subset of categorized Aurora metrics in the default Last Hour vie
 
 In addition, some Aurora metrics are either shown only for specific instance classes, or only for DB instances, or with different names and different units of measurement:
 + The `CPUCreditBalance` and `CPUCreditUsage` metrics are displayed only for Aurora MySQL `db.t2` instance classes and for Aurora PostgreSQL `db.t3` instance classes.
-+ The following metrics that are displayed with different names, as listed:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Monitoring.Metrics.RDSAvailability.html)
++ The following metrics that are displayed with different names, as listed:
+
+
+<table>
+<thead>
+  <tr><th>Metric</th><th>Display name</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AuroraReplicaLagMaximum</code></td><td>Replica lag maximum</td></tr>
+  <tr><td><code>AuroraReplicaLagMinimum</code></td><td>Replica lag minimum</td></tr>
+  <tr><td><code>DDLThroughput</code></td><td>DDL</td></tr>
+  <tr><td><code>NetworkReceiveThroughput</code></td><td>Network throughput</td></tr>
+  <tr><td><code>VolumeBytesUsed</code></td><td>[Billed] Volume bytes used</td></tr>
+  <tr><td><code>VolumeReadIOPs</code></td><td>[Billed] Volume read IOPS</td></tr>
+  <tr><td><code>VolumeWriteIOPs</code></td><td>[Billed] Volume write IOPS</td></tr>
+</tbody>
+</table>
+
 + The following metrics apply to an entire Aurora DB cluster, but are displayed only when viewing DB instances for an Aurora DB cluster in the Amazon RDS console:
   + `VolumeBytesUsed`
   + `VolumeReadIOPs`

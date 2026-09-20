@@ -27,7 +27,7 @@ With the PostgreSQL logs from your Aurora PostgreSQL DB cluster published as Clo
    max(@duration_sec) as max_duration_sec 
    by bin(5 min)
    ```  
-![Query in the query editor.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-query.png)
+![The CloudWatch Logs Insights query editor showing the autovacuum execution time query.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-query.png)
 
 1. Choose the **Visualization** tab.  
 ![The Visualization tab.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-visualization.png)
@@ -37,17 +37,17 @@ With the PostgreSQL logs from your Aurora PostgreSQL DB cluster published as Clo
 1. In **Select a dashboard**, either select a dashboard or enter a name to create a new dashboard.
 
 1. In **Widget type**, choose a widget type for your visualization.  
-![The dashboard.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-dashboard.png)
+![Choosing a widget type when adding the visualization to a dashboard.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-dashboard.png)
 
 1. (Optional) Add more widgets based on your log query results.
 
    1. Choose **Add widget**.
 
    1. Choose a widget type, such as **Line**.  
-![Choose a widget.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-widget.png)
+![Choosing a widget type such as Line for a new dashboard widget.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-widget.png)
 
    1. In the **Add to this dashboard** window, choose **Logs**.  
-![Add logs to the dashboard.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-add-logs-to-dashboard.png)
+![The Add to this dashboard window with the Logs option selected.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-add-logs-to-dashboard.png)
 
    1. In **Select log group(s)**, select the log group for your DB cluster.
 
@@ -65,9 +65,9 @@ With the PostgreSQL logs from your Aurora PostgreSQL DB cluster published as Clo
       avg(@tuples_not_removable) as avg_tuples_not_removable 
       by bin(5 min)
       ```  
-![Query in the query editor.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-query2.png)
+![The CloudWatch Logs Insights query editor showing the autovacuum tuple statistics query.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-query2.png)
 
    1. Choose **Create widget**.
 
       Your dashboard should look similar to the following image.  
-![Dashboard with two graphs.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-dashboard-two-graphs.png)
+![CloudWatch dashboard with autovacuum execution time and tuple statistics graphs.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-cwl-insights-dashboard-two-graphs.png)

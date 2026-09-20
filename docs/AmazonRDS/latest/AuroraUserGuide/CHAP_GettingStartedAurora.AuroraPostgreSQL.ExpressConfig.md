@@ -211,10 +211,10 @@ None
 
 1. Under the connectivity & Security tab, select CloudShell.
 
-1. Click Launch Cloudshell  
+1. Choose **Launch Cloudshell**  
 ![The CloudShell launch button in the connectivity and security tab.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image5.png)
 
-1. Click Run on prompt window. The command is pre-prepopulated with relevant information to connect to your specific cluster.  
+1. Choose **Run** on the prompt window. The command is prepopulated with relevant information to connect to your specific cluster.  
 ![The CloudShell prompt window with pre-populated connection command.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image6.png)
 
 1. You should see psql login and the “postgres =>” prompt, enabling you to run SQL commands.  

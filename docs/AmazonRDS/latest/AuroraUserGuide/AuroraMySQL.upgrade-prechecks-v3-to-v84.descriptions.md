@@ -485,8 +485,21 @@ INSTALL COMPONENT 'file://component_keyring_file';
 -- Verify
 SELECT * FROM mysql.component WHERE component_urn LIKE '%keyring%';
 ```
-The following table lists deprecated plugins and their replacements:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.html)
+The following table lists deprecated plugins and their replacements:  
+
+
+<table>
+<thead>
+  <tr><th>Plugin</th><th>Replacement</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>keyring_file</code></td><td><code>component_keyring_file</code></td></tr>
+  <tr><td><code>keyring_encrypted_file</code></td><td><code>component_keyring_encrypted_file</code></td></tr>
+  <tr><td><code>keyring_oci</code></td><td><code>component_keyring_oci</code></td></tr>
+  <tr><td><code>authentication_fido</code></td><td><code>authentication_webauthn</code></td></tr>
+</tbody>
+</table>
+
 
 **checkTableCommand**  
 **Precheck level: Error, Warning, or Notice**  

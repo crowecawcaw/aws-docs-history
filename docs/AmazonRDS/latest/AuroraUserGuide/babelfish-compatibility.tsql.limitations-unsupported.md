@@ -191,7 +191,6 @@ The following built-in functions aren't supported:
 **Statements, operators, other functions**
 + EVENTDATA function
 + GET\_TRANSMISSION\_STATUS
-+ OPENXML
 
 ## Syntax that isn't supported
 <a name="babelfish-compatibility.tsql.limitations-unsupported-list5"></a>

@@ -167,7 +167,7 @@ Automated backup resources are created when you set backup retention period valu
 ### Tag-Specifications Parameter
 <a name="USER_Tagging.AutomatedBackups.TagSpecifications"></a>
 
-APIs that support the `--tag-specifications` request parameter (like [create-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html), [restore-db-instance-from-db-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html), [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html), etc.) can tag automated backups (Resource Type: `auto-backup` or `cluster-auto-backup`) during creation.
+APIs that support the `--tag-specifications` request parameter (like [create-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html), [restore-db-instance-from-db-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html), [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html), and so on) can tag automated backups (Resource Type: `auto-backup` or `cluster-auto-backup`) during creation.
 
 #### Tagging cluster automated backups
 <a name="USER_Tagging.AutomatedBackups.TagSpecifications.Cluster"></a>

@@ -34,8 +34,31 @@ You can add Aurora Replicas to a DB cluster using the AWS Management Console, th
 
    The **Add reader** page appears.
 
-1. On the **Add reader** page, specify options for your Aurora Replica. The following table shows settings for an Aurora Replica.    
-<a name="aurora_replica_settings"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.html)
+1. On the **Add reader** page, specify options for your Aurora Replica. The following table shows settings for an Aurora Replica.
+
+<a name="aurora_replica_settings"></a>
+<table>
+<thead>
+  <tr><th>For this option</th><th>Do this</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Availability zone</b> </td><td>Determine if you want to specify a particular Availability Zone. The list includes only those Availability Zones that are mapped to the DB subnet group that you chose when you created the DB cluster. For more information about Availability Zones, see <a href="Concepts.RegionsAndAvailabilityZones.md">Regions and Availability Zones</a>.</td></tr>
+  <tr><td> <b>Publicly accessible</b> </td><td>Select <code>Yes</code> to give the Aurora Replica a public IP address; otherwise, select <code>No</code>. For more information about hiding Aurora Replicas from public access, see <a href="USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Hiding">Hiding a DB cluster in a VPC from the internet</a>.</td></tr>
+  <tr><td> <b>Encryption</b> </td><td>Select <code>Enable encryption</code> to enable encryption at rest for this Aurora Replica. For more information, see <a href="Overview.Encryption.md">Encrypting Amazon Aurora resources</a>.</td></tr>
+  <tr><td> <b>DB instance class</b> </td><td>Select a DB instance class that defines the processing and memory requirements for the Aurora Replica. For more information about DB instance class options, see <a href="Concepts.DBInstanceClass.md">Amazon AuroraDB instance classes</a>.</td></tr>
+  <tr><td> <b>Aurora replica source</b> </td><td>Select the identifier of the primary instance to create an Aurora Replica for.</td></tr>
+  <tr><td> <b>DB instance identifier</b> </td><td>Enter a name for the instance that is unique for your account in the AWS Region you selected. You might choose to add some intelligence to the name such as including the AWS Region and DB engine you selected, for example <b>aurora-read-instance1</b>.</td></tr>
+  <tr><td> <b>Priority</b> </td><td>Choose a failover priority for the instance. If you don't select a value, the default is <b>tier-1</b>. This priority determines the order in which Aurora Replicas are promoted when recovering from a primary instance failure. For more information, see <a href="Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance">Fault tolerance for an Aurora DB cluster</a>.</td></tr>
+  <tr><td> <b>Database port</b> </td><td>The port for an Aurora Replica is the same as the port for the DB cluster.</td></tr>
+  <tr><td> <b>DB parameter group</b> </td><td>Select a parameter group. Aurora has a default parameter group you can use, or you can create your own parameter group. For more information about parameter groups, see <a href="USER_WorkingWithParamGroups.md">Parameter groups for Amazon Aurora</a>.</td></tr>
+  <tr><td><b>Performance Insights</b> </td><td>The <b>Turn on Performance Insights</b> check box is selected by default. The value isn't inherited from the writer instance. For more information, see <a href="USER_PerfInsights.md">Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora</a>.</td></tr>
+  <tr><td><b>Enhanced monitoring</b></td><td>Choose <b>Enable enhanced monitoring</b> to enable gathering metrics in real time for the operating system that your DB cluster runs on. For more information, see <a href="USER_Monitoring.OS.md">Monitoring OS metrics with Enhanced Monitoring</a>. </td></tr>
+  <tr><td><b>Monitoring Role</b></td><td>Only available if <b>Enhanced Monitoring</b> is set to <b>Enable enhanced monitoring</b>. Choose the IAM role that you created to permit Amazon RDS to communicate with Amazon CloudWatch Logs for you, or choose <b>Default</b> to have RDS create a role for you named <code>rds-monitoring-role</code>. For more information, see <a href="USER_Monitoring.OS.md">Monitoring OS metrics with Enhanced Monitoring</a>. </td></tr>
+  <tr><td><b>Granularity</b></td><td>Only available if <b>Enhanced Monitoring</b> is set to <b>Enable enhanced monitoring</b>. Set the interval, in seconds, between when metrics are collected for your DB cluster.</td></tr>
+  <tr><td> <b>Auto minor version upgrade</b> </td><td>Select <b>Enable auto minor version upgrade</b> if you want to enable your Aurora DB cluster to receive minor DB Engine version upgrades automatically when they become available.<br />The <b>Auto minor version upgrade</b> setting applies to both Aurora PostgreSQL and Aurora MySQL DB clusters. For Aurora MySQL 2.x clusters, this setting upgrades the clusters to a maximum version of 2.07.2.<br />For more information about engine updates for Aurora PostgreSQL, see <a href="AuroraPostgreSQL.Updates.md">Database engine updates for Amazon Aurora PostgreSQL</a>.<br />For more information about engine updates for Aurora MySQL, see <a href="AuroraMySQL.Updates.md">Database engine updates for Amazon Aurora MySQL</a>.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Add reader** to create the Aurora Replica.
 

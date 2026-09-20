@@ -13,8 +13,22 @@ To associate an IAM role with a DB cluster you do two things:
 
 1. Set the cluster-level parameter for the related AWS service to the ARN for the associated IAM role.
 
-   The following table describes the cluster-level parameter names for the IAM roles used to access other AWS services.    
-<a name="aurora_cluster_params_iam_roles"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.AddRoleToDBCluster.html)
+   The following table describes the cluster-level parameter names for the IAM roles used to access other AWS services.
+
+<a name="aurora_cluster_params_iam_roles"></a>
+<table>
+<thead>
+  <tr><th>Cluster-level parameter</th><th>Description</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>aws_default_lambda_role</code></td><td>Used when invoking a Lambda function from your DB cluster.</td><td></td></tr>
+  <tr><td><code>aws_default_logs_role</code></td><td>Used when publishing log data from your DB cluster to Amazon CloudWatch Logs with the <code>server_audit_logs_upload</code> parameter. For more information about publishing log data to Amazon CloudWatch Logs, see <a href="AuroraMySQL.Integrating.CloudWatch.md">Publishing Amazon Aurora MySQL logs to Amazon CloudWatch Logs</a>.</td><td></td></tr>
+  <tr><td><code>aws_default_s3_role</code></td><td>Used when invoking the <code>LOAD DATA FROM S3</code>, <code>LOAD XML FROM S3</code>, or <code>SELECT INTO OUTFILE S3</code> statement from your DB cluster.<br />In Aurora MySQL version 2, the IAM role specified in this parameter is used if an IAM role isn't specified for <code>aurora_load_from_s3_role</code> or <code>aurora_select_into_s3_role</code> for the appropriate statement.<br />In Aurora MySQL version 3 and version 8.4, the IAM role specified for this parameter is always used.</td><td></td></tr>
+  <tr><td><code>aurora_load_from_s3_role</code></td><td>Used when invoking the <code>LOAD DATA FROM S3</code> or <code>LOAD XML FROM S3</code> statement from your DB cluster. If an IAM role is not specified for this parameter, the IAM role specified in <code>aws_default_s3_role</code> is used.<br />In Aurora MySQL version 3 and version 8.4, this parameter isn't available.</td><td></td></tr>
+  <tr><td><code>aurora_select_into_s3_role</code></td><td>Used when invoking the <code>SELECT INTO OUTFILE S3</code> statement from your DB cluster. If an IAM role is not specified for this parameter, the IAM role specified in <code>aws_default_s3_role</code> is used.<br />In Aurora MySQL version 3 and version 8.4, this parameter isn't available.</td><td></td></tr>
+</tbody>
+</table>
+
 
 To associate an IAM role to permit your Amazon RDS cluster to communicate with other AWS services on your behalf, take the following steps.
 

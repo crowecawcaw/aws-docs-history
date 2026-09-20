@@ -94,8 +94,36 @@ You can create an Aurora read replica for an RDS for PostgreSQL DB instance by u
 1. Choose the RDS for PostgreSQL DB instance that you want to use as the source for your Aurora read replica. For **Actions**, choose **Create Aurora read replica**. If this choice doesn't display, it means that a compatible Aurora PostgreSQL version isn't available in the Region.   
 ![Create Aurora read replica.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurorapgres-migrate.png)
 
-1. On the Create Aurora read replica settings page, you configure the properties for the Aurora PostgreSQL DB cluster as shown in the following table. The Replica DB cluster is created from a snapshot of the source DB instance using the same 'master' user name and password as the source, so you can't change these at this time.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.html)
+1. On the Create Aurora read replica settings page, you configure the properties for the Aurora PostgreSQL DB cluster as shown in the following table. The Replica DB cluster is created from a snapshot of the source DB instance using the same 'master' user name and password as the source, so you can't change these at this time. 
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>DB instance class</b> </td><td>Choose a DB instance class that meets the processing and memory requirements primary instance in the DB cluster. For more information, see <a href="Concepts.DBInstanceClass.md">Amazon AuroraDB instance classes</a>.</td></tr>
+  <tr><td> <b>Multi-AZ deployment</b> </td><td>Not available during the migration</td></tr>
+  <tr><td> <b>DB instance identifier</b> </td><td>Enter the name that you want to give to the DB instance. This identifier is used in the endpoint address for the primary instance of the new DB cluster. <br />The DB instance identifier has the following constraints: <ul><li> It must contain 1–63 alphanumeric characters or hyphens. </li><li> Its first character must be a letter. </li><li> It can't end with a hyphen or contain two consecutive hyphens. </li><li> It must be unique for all DB instances for each AWS account, for each AWS Region. </li></ul></td></tr>
+  <tr><td> <b>Virtual Private Cloud (VPC)</b> </td><td>Choose the VPC to host the DB cluster. Choose <b>Create new VPC</b> to have Amazon RDS create a VPC for you. For more information, see <a href="Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites">DB cluster prerequisites</a>.</td></tr>
+  <tr><td> <b>DB subnet group</b> </td><td>Choose the DB subnet group to use for the DB cluster. Choose <b>Create new DB Subnet Group</b> to have Amazon RDS create a DB subnet group for you. For more information, see <a href="Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites">DB cluster prerequisites</a>.</td></tr>
+  <tr><td> <b>Public accessibility</b> </td><td>Choose <b>Yes</b> to give the DB cluster a public IP address; otherwise, choose <b>No</b>. The instances in your DB cluster can be a mix of both public and private DB instances. For more information about hiding instances from public access, see <a href="USER_VPC.WorkingWithRDSInstanceinaVPC.md#USER_VPC.Hiding">Hiding a DB cluster in a VPC from the internet</a>.</td></tr>
+  <tr><td> <b>Availability zone</b> </td><td>Determine if you want to specify a particular Availability Zone. For more information about Availability Zones, see <a href="Concepts.RegionsAndAvailabilityZones.md">Regions and Availability Zones</a>.</td></tr>
+  <tr><td> <b>VPC security groups</b> </td><td>Choose one or more VPC security groups to secure network access to the DB cluster. Choose <b>Create new VPC security group</b> to have Amazon RDS create a VPC security group for you. For more information, see <a href="Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites">DB cluster prerequisites</a>.</td></tr>
+  <tr><td> <b>Database port</b> </td><td>Specify the port for applications and utilities to use to access the database. Aurora PostgreSQL DB clusters default to the default PostgreSQL port, 5432. Firewalls at some companies block connections to this port. If your company firewall blocks the default port, choose another port for the new DB cluster.</td></tr>
+  <tr><td> <b>DB parameter group</b> </td><td>Choose a DB parameter group for the Aurora PostgreSQL DB cluster. Aurora has a default DB parameter group you can use, or you can create your own DB parameter group. For more information about DB parameter groups, see <a href="USER_WorkingWithParamGroups.md">Parameter groups for Amazon Aurora</a>.</td></tr>
+  <tr><td> <b>DB cluster parameter group</b> </td><td>Choose a DB cluster parameter group for the Aurora PostgreSQL DB cluster. Aurora has a default DB cluster parameter group you can use, or you can create your own DB cluster parameter group. For more information about DB cluster parameter groups, see <a href="USER_WorkingWithParamGroups.md">Parameter groups for Amazon Aurora</a>.</td></tr>
+  <tr><td> <b>Encryption</b> </td><td>Choose <b>Enable encryption</b> for your new Aurora DB cluster to be encrypted at rest. If you choose <b>Enable encryption</b>, also choose a KMS key as the <b>AWS KMS key</b> value.</td></tr>
+  <tr><td> <b>Priority</b> </td><td>Choose a failover priority for the DB cluster. If you don't choose a value, the default is <b>tier-1</b>. This priority determines the order in which Aurora Replicas are promoted when recovering from a primary instance failure. For more information, see <a href="Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance">Fault tolerance for an Aurora DB cluster</a>.</td></tr>
+  <tr><td> <b>Backup retention period</b> </td><td>Choose the length of time, 1–35 days, for Aurora to retain backup copies of the database. Backup copies can be used for point-in-time restores (PITR) of your database down to the second.</td></tr>
+  <tr><td><b>Enhanced monitoring</b></td><td>Choose <b>Enable enhanced monitoring</b> to enable gathering metrics in real time for the operating system that your DB cluster runs on. For more information, see <a href="USER_Monitoring.OS.md">Monitoring OS metrics with Enhanced Monitoring</a>. </td></tr>
+  <tr><td><b>Monitoring Role</b></td><td>Only available if you chose <b>Enable enhanced monitoring</b>. The AWS Identity and Access Management (IAM) role to use for Enhanced Monitoring. For more information, see <a href="USER_Monitoring.OS.Enabling.md">Setting up and enabling Enhanced Monitoring</a>.</td></tr>
+  <tr><td><b>Granularity</b></td><td>Only available if you chose <b>Enable enhanced monitoring</b>. Set the interval, in seconds, between when metrics are collected for your DB cluster. </td></tr>
+  <tr><td> <b>Auto minor version upgrade</b> </td><td>Choose <b>Yes</b> to enable your Aurora PostgreSQL DB cluster to receive minor PostgreSQL DB engine version upgrades automatically when they become available.<br />The <b>Auto minor version upgrade</b> option only applies to upgrades to PostgreSQL minor engine versions for your Aurora PostgreSQL DB cluster. It doesn't apply to regular patches applied to maintain system stability.</td></tr>
+  <tr><td> <b>Maintenance window</b> </td><td>Choose the weekly time range during which system maintenance can occur.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create read replica**.
 

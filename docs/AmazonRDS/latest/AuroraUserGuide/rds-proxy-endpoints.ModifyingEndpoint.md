@@ -14,7 +14,7 @@ To modify your proxy endpoints, follow these instructions:
 
 1.  In the navigation pane, choose **Proxies**. 
 
-1. In the list, choose the proxy whose endpoint you want to modify. Click the proxy name to view its details page.
+1. In the list, choose the proxy whose endpoint you want to modify. Choose the proxy name to view its details page.
 
 1.  In the **Proxy endpoints** section, choose the endpoint that you want to modify. You can select it in the list, or click its name to view the details page. 
 

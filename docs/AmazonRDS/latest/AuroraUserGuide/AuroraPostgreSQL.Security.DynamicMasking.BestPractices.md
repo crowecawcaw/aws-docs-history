@@ -53,7 +53,7 @@ Assign the policy admin role to specific individuals rather than groups. This ta
 ## Secure masking function development
 <a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices.MaskingDevelopment"></a>
 
-Develop masking functions using early binding semantics to ensure proper dependency tracking and prevent late binding vulnerabilities such as search path modification during runtime. It is recommended to use `BEGIN ATOMIC` syntax for SQL functions to enable compile-time validation (i.e. early binding) and dependency management.
+Develop masking functions using early binding semantics to ensure proper dependency tracking and prevent late binding vulnerabilities such as search path modification during runtime. It is recommended to use `BEGIN ATOMIC` syntax for SQL functions to enable compile-time validation (that is, early binding) and dependency management.
 
 ```
 -- Example - Secure masking function with early binding

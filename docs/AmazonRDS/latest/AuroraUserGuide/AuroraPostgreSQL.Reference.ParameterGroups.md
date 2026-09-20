@@ -307,7 +307,7 @@ For a listing of the DB instance parameters for this same default DB cluster par
 | pgaudit.log\_catalog | Specifies that session logging should be enabled in the case where all relations in a statement are in pg\_catalog. | –  | 
 | pgaudit.log\_level | Specifies the log level that will be used for log entries. | –  | 
 | pgaudit.log\_parameter | Specifies that audit logging should include the parameters that were passed with the statement. | –  | 
-| pgaudit.log\_relation | Specifies whether session audit logging should create a separate log entry for each relation (TABLE, VIEW, etc.) referenced in a SELECT or DML statement. | –  | 
+| pgaudit.log\_relation | Specifies whether session audit logging should create a separate log entry for each relation (TABLE, VIEW, and so on) referenced in a SELECT or DML statement. | –  | 
 | pgaudit.log\_statement\_once | Specifies whether logging will include the statement text and parameters with the first log entry for a statement/substatement combination or with every entry. | –  | 
 | pgaudit.role | Specifies the master role to use for object audit logging. | –  | 
 | pg\_bigm.enable\_recheck | It specifies whether to perform Recheck which is an internal process of full text search. | on  | 
@@ -634,7 +634,7 @@ For a listing of the DB cluster parameters for this same default DB parameter gr
 | pgaudit.log\_catalog | Specifies that session logging should be enabled in the case where all relations in a statement are in pg\_catalog. | –  | 
 | pgaudit.log\_level | Specifies the log level that will be used for log entries. | –  | 
 | pgaudit.log\_parameter | Specifies that audit logging should include the parameters that were passed with the statement. | –  | 
-| pgaudit.log\_relation | Specifies whether session audit logging should create a separate log entry for each relation (TABLE, VIEW, etc. referenced in a SELECT or DML statement. | –  | 
+| pgaudit.log\_relation | Specifies whether session audit logging should create a separate log entry for each relation (TABLE, VIEW, and so on) referenced in a SELECT or DML statement. | –  | 
 | pgaudit.log\_statement\_once | Specifies whether logging will include the statement text and parameters with the first log entry for a statement/substatement combination or with every entry. | –  | 
 | pgaudit.role | Specifies the master role to use for object audit logging. | –  | 
 | pg\_bigm.enable\_recheck | It specifies whether to perform Recheck which is an internal process of full text search. | on  | 

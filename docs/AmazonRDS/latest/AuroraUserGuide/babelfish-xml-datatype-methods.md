@@ -14,6 +14,6 @@ Starting with version 5.4.0, Babelfish now supports stored procedures sp\_xml\_p
 
 ## Limitations in Babelfish XML procedures and methods
 <a name="babelfish-xml-datatype-methods-limitations"></a>
-+ Babelfish only supports XPATH 1.0 syntax for second argument (i.e. ROWPATTERN) of OPENXML().
++ Babelfish only supports XPATH 1.0 syntax for second argument (that is, ROWPATTERN) of OPENXML().
 + The meta-properties and flag 8 are not currently not supported in OPENXML().
-+ Babelfish only supports XPATH 1.0 syntax for first argument (i.e. XQuery) of VALUE() datatype method.
++ Babelfish only supports XPATH 1.0 syntax for first argument (that is, XQuery) of VALUE() datatype method.

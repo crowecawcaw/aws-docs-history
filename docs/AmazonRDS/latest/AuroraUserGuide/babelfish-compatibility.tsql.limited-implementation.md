@@ -24,8 +24,19 @@ As of version 1.2.0 of Babelfish, the following features currently have limited 
 + **TOP N PERCENT clause** – Babelfish provides support for the TOP N PERCENT clause with some limitations. SELECT operations are supported while UPDATE, DELETE and INSERT operations with TOP N PERCENT are not supported. The WITH TIES option and subqueries within the TOP clause are also not supported. When the expression value exceeds 100, behavior differs:
   + For SQL Server – Throws an error.
   + For Babelfish – Treats the value as valid and returns results.
-+ **Schema creation, ownership, and permissions** – Permissions to create and access objects in a schema owned by a non-DBO user (using `CREATE SCHEMA {{schema name}} AUTHORIZATION {{user name}}`) differ for SQL Server and Babelfish non-DBO users, as shown in the following table:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-compatibility.tsql.limited-implementation.html)
++ **Schema creation, ownership, and permissions** – Permissions to create and access objects in a schema owned by a non-DBO user (using `CREATE SCHEMA {{schema name}} AUTHORIZATION {{user name}}`) differ for SQL Server and Babelfish non-DBO users, as shown in the following table:
+
+
+<table>
+<thead>
+  <tr><th>Database user (non-DBO) who owns the schema can do the following:</th><th>SQL Server</th><th>Babelfish</th></tr>
+</thead>
+<tbody>
+  <tr><td>Create objects in the schema without additional grants by the DBO?</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Access objects created by DBO in the schema without additional grants?</td><td>Yes</td><td>No</td></tr>
+</tbody>
+</table>
+
 + **CREATE OR ALTER VIEW / ALTER VIEW syntax** – The support for these syntax in Babelfish has the following limitations:
   + These statements cannot be used on views that have an INSTEAD-OF trigger attached.
   + These statements cannot be used on views that have another view based on this view.

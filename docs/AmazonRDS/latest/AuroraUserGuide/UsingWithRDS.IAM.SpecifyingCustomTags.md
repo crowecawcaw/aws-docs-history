@@ -69,7 +69,7 @@ Following are examples of how you can use custom tags in Amazon Aurora IAM permi
 All examples use the us-west-2 region and contain fictitious account IDs.
 
 ### Example 1: Grant permission for actions on a resource with a specific tag with two different values
-<a name="w2aac73c48c33c23c29b6"></a>
+<a name="w2aac73c48c35c23c29b6"></a>
 
 The following policy allows permission to perform the `CreateDBSnapshot` API operation on DB instances with either the `stage` tag set to `development` or `test`.
 
@@ -158,7 +158,7 @@ The following policy allows permission to perform the `ModifyDBInstance` API ope
 ------
 
 ### Example 2: Explicitly deny permission to create a DB instance that uses specified DB parameter groups
-<a name="w2aac73c48c33c23c29b8"></a>
+<a name="w2aac73c48c35c23c29b8"></a>
 
 The following policy explicitly denies permission to create a DB instance that uses DB parameter groups with specific tag values. You might apply this policy if you require that a specific customer-created DB parameter group always be used when creating DB instances. Policies that use `Deny` are most often used to restrict access that was granted by a broader policy.
 
@@ -191,7 +191,7 @@ Explicitly denying permission supersedes any other permissions granted. This ens
 ------
 
 ### Example 3: Grant permission for actions on a DB instance with an instance name that is prefixed with a user name
-<a name="w2aac73c48c33c23c29c10"></a>
+<a name="w2aac73c48c35c23c29c10"></a>
 
 The following policy allows permission to call any API (except to `AddTagsToResource` or `RemoveTagsFromResource`) on a DB instance that has a DB instance name that is prefixed with the user's name and that has a tag called `stage` equal to `devo` or that has no tag called `stage`.
 

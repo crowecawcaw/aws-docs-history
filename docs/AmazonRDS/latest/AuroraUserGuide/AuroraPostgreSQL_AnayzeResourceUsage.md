@@ -42,7 +42,7 @@ You need the **Resource ID** of your DB instance to query the CloudWatch **Logs 
 
    `filter @logStream = <resource ID> | parse @message "\"Aurora Storage Daemon\"*memoryUsedPc\":*,\"cpuUsedPc\":*," as a,memoryUsedPc,cpuUsedPc | display memoryUsedPc,cpuUsedPc #| stats avg(xcpu) as avgCpu by bin(5m) | limit 10000`
 
-1. Click **Run query**.
+1. Choose **Run query**.
 
    The storage utilization graph is displayed.
 

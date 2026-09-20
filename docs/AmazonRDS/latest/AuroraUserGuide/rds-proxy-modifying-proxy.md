@@ -57,7 +57,7 @@ If you didn't find the settings listed that you want to change, use the followin
      Enabling this setting can cause session variables of one connection to impact other connections. This can cause errors or correctness issues if your queries depend on session variable values set outside of the current transaction. Consider using this option after verifying it is safe for your applications to share database connections across client connections.
 
      The following patterns can be considered safe:
-     + `SET` statements where there is no change to the effective session variable value, i.e., there is no change to the session variable.
+     + `SET` statements where there is no change to the effective session variable value, that is, there is no change to the session variable.
      + You change the session variable value and execute a statement in the same transaction.
 
      For more information, see [Avoiding pinning an RDS Proxy](rds-proxy-pinning.md). 

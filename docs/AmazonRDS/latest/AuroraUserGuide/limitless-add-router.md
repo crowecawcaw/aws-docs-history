@@ -25,8 +25,19 @@ Adding a router has the following prerequisites:
   ```
 **Note**  
 If you change your AWS account's default CA certificate after the DB shard group is created, the new router will use the new CA certificate, which is different from the existing router's CA certificate. Depending on your trust store, some connections might fail.
-+ To enable system-initiated router addition, set the following DB cluster parameters in a custom DB cluster parameter group associated with your DB cluster:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/limitless-add-router.html)
++ To enable system-initiated router addition, set the following DB cluster parameters in a custom DB cluster parameter group associated with your DB cluster:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>rds_aurora.limitless_enable_auto_scale</code></td><td><code>on</code></td></tr>
+  <tr><td><code>rds_aurora.limitless_auto_scale_options</code></td><td>Either <code>add_router</code> or <code>add_router,split_shard</code></td></tr>
+</tbody>
+</table>
+
 
   For more information, see [DB cluster parameter groups for Amazon Aurora DB clusters](USER_WorkingWithDBClusterParamGroups.md).
 

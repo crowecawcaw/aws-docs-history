@@ -7,6 +7,8 @@ This topic focuses on some common Aurora MySQL DB performance issues, and how to
 + Server performance – The entire database server runs slower.
 + Query performance – One or more queries take longer to run.
 
+For information about troubleshooting replication lag on Aurora MySQL DB clusters, see [Troubleshooting binary log replication lag for Aurora MySQL](aurora-mysql-troubleshooting-replication-lag.md).
+
 ## AWS monitoring options
 <a name="aurora-mysql-troubleshooting.monitoring"></a>
 

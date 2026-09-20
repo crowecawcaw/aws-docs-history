@@ -16,6 +16,8 @@ If you encounter an issue with your Aurora PostgreSQL DB cluster, your AWS suppo
 You can use PG Collector to help gather valuable database information in a consolidated HTML file. For more information on PG Collector, how to run it, and how to download the HTML report, see [PG Collector](https://github.com/awslabs/pg-collector).  
 Upon successful completion, and unless otherwise noted, the script returns output in a readable HTML format. The script is designed to exclude any data or security details from the HTML that might compromise your business. It also makes no modifications to your database or its environment. However, if you find any information in the HTML that you are uncomfortable sharing, feel free to remove the problematic information before uploading the HTML. When the HTML is acceptable, upload it using the attachments section in the case details of your support case.
 
+For information about local write forwarding on Aurora PostgreSQL secondary DB clusters, see [Local write forwarding in Aurora PostgreSQL](aurora-postgresql-write-forwarding.md).
+
 **Topics**
 + [Working with the database preview environment](working-with-the-apg-database-preview-environment.md)
 + [Security with Amazon Aurora PostgreSQL](AuroraPostgreSQL.Security.md)

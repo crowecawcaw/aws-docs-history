@@ -9,7 +9,7 @@ Query plan management lets you control how and when query execution plans change
 + [Proactive plan management to help prevent performance regression](#AuroraPostgreSQL.Optimize.BestPractice.Proactive)
   + [Ensuring plan stability after a major version upgrade](#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade)
     + [Version-specific considerations](#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade.VersionSpecific)
-      + [Amazon Aurora PostgreSQL version 18 and later](#w2aac34d108c15b9b7c19b3)
+      + [Amazon Aurora PostgreSQL version 18 and later](#w2aac34d110c15b9b7c19b3)
 + [Reactive plan management to detect and repair performance regressions](#AuroraPostgreSQL.Optimize.BestPractice.Reactive)
 
 ## Proactive plan management to help prevent performance regression
@@ -55,7 +55,7 @@ For information about upgrading the query plan management extension, see [Upgrad
 <a name="AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade.VersionSpecific"></a>
 
 ##### Amazon Aurora PostgreSQL version 18 and later
-<a name="w2aac34d108c15b9b7c19b3"></a>
+<a name="w2aac34d110c15b9b7c19b3"></a>
 
 After upgrading to Aurora PostgreSQL version 18 and later, queries that include preceding C-style comments (`/* ... */`) have a different `sql_hash` than in previous versions. For these queries, the plan `status` and `enabled` settings captured before the upgrade are not automatically applied because the SQL hashes differ.
 

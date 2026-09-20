@@ -5,6 +5,10 @@
 
 Following, you can find several best practices for managing your Amazon Aurora PostgreSQL DB cluster. Be sure to also review basic maintenance tasks. For more information, see [Performance and scaling for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Managing.md). 
 
+For information about managing databases with a high number of objects, see [Managing high object counts in Amazon Aurora PostgreSQL](PostgreSQL.HighObjectCount.md).
+
+For initial troubleshooting steps for Aurora PostgreSQL performance, see [Initial troubleshooting for common PostgreSQL performance issues in Aurora PostgreSQL](PostgreSQL.InitialTroubleshooting.md).
+
 **Topics**
 + [Avoiding slow performance, automatic restart, and failover for Aurora PostgreSQL DB instances](#AuroraPostgreSQL.BestPractices.Avoiding)
 + [Diagnosing table and index bloat](AuroraPostgreSQL.diag-table-ind-bloat.md)

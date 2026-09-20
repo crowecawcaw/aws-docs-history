@@ -65,7 +65,7 @@ To monitor precheck status, you can view the following events on your DB cluster
 | Precheck status | Event message | Action | 
 | --- | --- | --- | 
 | Started | Upgrade preparation in progress: Starting online upgrade prechecks. | None | 
-| Failed | Database cluster is in a state that cannot be upgraded: Upgrade prechecks failed. For more details, see the upgrade-prechecks.log file.<br />For more information on troubleshooting the cause of the upgrade failure, see<br />[https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Upgrading.Troubleshooting.html](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Upgrading.Troubleshooting.html) | Review `upgrade-prechecks.log` for errors. <br />Remediate errors.<br />Retry the upgrade. | 
+| Failed | Database cluster is in a state that cannot be upgraded: Upgrade prechecks failed. For more details, see the upgrade-prechecks.log file.<br />For more information on troubleshooting the cause of the upgrade failure, see<br />[AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Upgrading.Troubleshooting.html](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Upgrading.Troubleshooting.html) | Review `upgrade-prechecks.log` for errors. <br />Remediate errors.<br />Retry the upgrade. | 
 | Succeeded | Upgrade preparation in progress: Completed online upgrade prechecks. | Precheck succeeded with no errors returned.<br />Review `upgrade-prechecks.log` for warnings and notices. | 
 
 For more information on viewing events, see [Viewing Amazon RDS events](USER_ListEvents.md).

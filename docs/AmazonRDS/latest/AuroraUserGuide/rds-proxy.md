@@ -19,6 +19,8 @@ By using Amazon RDS Proxy, you can allow your applications to pool and share dat
 
  RDS Proxy is fully compatible with the engine versions that it supports. You can enable RDS Proxy for most applications with no code changes. For a list of supported engine versions, see [Supported Regions and Aurora DB engines for Amazon RDS Proxy](Concepts.Aurora_Fea_Regions_DB-eng.Feature.RDS_Proxy.md). 
 
+For information about connection management, failover, and monitoring when you use RDS Proxy, see [Best practices with RDS Proxy](rds-proxy-best-practices.md).
+
 **Topics**
 + [Region and version availability](#rds-proxy.RegionVersionAvailability)
 + [Quotas and limitations for RDS Proxy](#rds-proxy.limitations)

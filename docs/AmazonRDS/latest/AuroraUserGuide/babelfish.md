@@ -18,6 +18,10 @@ Babelfish runs the Transact-SQL (T-SQL) language with some differences. For more
 
 In the following sections, you can find information about setting up and using a Babelfish for Aurora PostgreSQL DB cluster.
 
+For information about managing Babelfish version updates, see [Managing Babelfish for Aurora PostgreSQL version updates](babelfish-information.md).
+
+For information about Active Directory and Kerberos security for Babelfish, see [Setting up Kerberos authentication using Active Directory security groups for Babelfish](babelfish-kerberos-securityad.md).
+
 **Topics**
 + [Babelfish limitations](babelfish-limitations.md)
 + [Understanding Babelfish architecture and configuration](babelfish-understanding-overview-howitworks.md)

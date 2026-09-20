@@ -100,8 +100,8 @@ To solve this issue, remove the schema parameter from all calls to the Data API 
 
 If you experience issues when connecting to Data API using IPv6 endpoints, check the following potential causes:
 + **Network doesn't support IPv6**: Verify that your network infrastructure supports IPv6 and that IPv6 routing is configured correctly.
-+ **DNS resolution issues**: Ensure that your DNS resolver can resolve AAAA records for the dual-stack endpoints (e.g., `rds-data.us-east-1.api.aws`).
-+ **Security group configuration**: Update security group rules to allow IPv6 traffic on port 443 (HTTPS). Add rules for IPv6 CIDR blocks (e.g., `::/0` for all IPv6 addresses).
++ **DNS resolution issues**: Ensure that your DNS resolver can resolve AAAA records for the dual-stack endpoints (for example, `rds-data.us-east-1.api.aws`).
++ **Security group configuration**: Update security group rules to allow IPv6 traffic on port 443 (HTTPS). Add rules for IPv6 CIDR blocks (for example, `::/0` for all IPv6 addresses).
 + **Network ACL configuration**: Ensure that network ACLs allow IPv6 traffic on the required ports.
 + **Client library compatibility**: Verify that your HTTP client libraries and AWS SDKs support IPv6 and dual-stack connectivity.
 + **VPC endpoint configuration**: If using PrivateLink, ensure that your VPC endpoint is configured to support IPv6 and that the associated subnets have IPv6 CIDR blocks assigned.

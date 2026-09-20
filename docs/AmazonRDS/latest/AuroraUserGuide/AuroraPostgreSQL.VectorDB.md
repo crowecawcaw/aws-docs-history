@@ -146,8 +146,22 @@ While preparing Aurora PostgreSQL to be used as the vector store for a Knowledge
   ```
 
   This command will create the `bedrock_kb` table in the `bedrock_integration` schema.
-+ When creating the table, make sure to configure it with the specified columns and data types. You can use your preferred column names instead of those listed in the table. Remember to take a note of the names you chose for reference during the Knowledge Base set up.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.VectorDB.html)
++ When creating the table, make sure to configure it with the specified columns and data types. You can use your preferred column names instead of those listed in the table. Remember to take a note of the names you chose for reference during the Knowledge Base set up.
+
+
+<table>
+<thead>
+  <tr><th>Column name</th><th>Data type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>id</td><td>UUID primary key</td><td>Contains unique identifiers for each record.</td></tr>
+  <tr><td>chunks</td><td>Text</td><td>Contains the chunks of raw text from your data sources.</td></tr>
+  <tr><td>embedding</td><td>Vector</td><td>Contains the vector embeddings of the data sources.</td></tr>
+  <tr><td>metadata</td><td>JSON</td><td>Contains metadata required to carry out source attribution and to enable data ingestion and querying.</td></tr>
+  <tr><td>custom_metadata</td><td>JSONB</td><td>(Optional) Defines the target column where Amazon Bedrock writes metadata details from your data sources.</td></tr>
+</tbody>
+</table>
+
 
 With these details, you can now create a Knowledge Base in the Bedrock console. For more detailed information on setting up a vector index and creating a Knowledge Base information, see [Create a vector store in Amazon Aurora](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) and [Create a vector store in Amazon Aurora](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create.html).
 

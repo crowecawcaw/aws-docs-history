@@ -68,7 +68,7 @@ From Aurora PostgreSQL 16 version, **Multiple databases** is chosen by default a
 1. For **Failover priority**, choose a failover priority for the instance. If you don't choose a value, the default is `tier-1`. This priority determines the order in which replicas are promoted when recovering from a primary instance failure. For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance).
 
 1. For **Backup retention period**, choose the length of time (1–35 days) that Aurora retains backup copies of the database. You can use backup copies for point-in-time restores (PITR) of your database down to the second. The default retention period is seven days.  
-![Choose an Aurora PostgreSQL version.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_7.png)
+![Choose a backup retention period for your Aurora PostgreSQL cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_7.png)
 
 1. Choose **Copy tags to snapshots** to copy any DB instance tags to a DB snapshot when you create a snapshot.
 **Note**  

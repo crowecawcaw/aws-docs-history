@@ -20,8 +20,20 @@ Aurora storage automatically scales with the data in your cluster volume. As you
 The size of your cluster volume is evaluated on an hourly basis to determine your storage costs. For pricing information, see the [Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing).
 
 Even though an Aurora cluster volume can scale up in size to many tebibytes, you are only charged for the space that you use in the volume. The mechanism for determining billed storage space depends on the version of your Aurora cluster.
-+ When Aurora data is removed from the cluster volume, the overall billed space decreases by a comparable amount. This dynamic resizing behavior happens when underlying tablespaces are dropped or reorganized to require less space. Thus, you can reduce storage charges by dropping tables and databases that you no longer need. Dynamic resizing applies to certain Aurora versions. The following are the Aurora versions where the cluster volume dynamically resizes as you remove data:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Performance.html)
++ When Aurora data is removed from the cluster volume, the overall billed space decreases by a comparable amount. This dynamic resizing behavior happens when underlying tablespaces are dropped or reorganized to require less space. Thus, you can reduce storage charges by dropping tables and databases that you no longer need. Dynamic resizing applies to certain Aurora versions. The following are the Aurora versions where the cluster volume dynamically resizes as you remove data:
+
+
+<table>
+<thead>
+  <tr><th>Database engine</th><th>Versions with dynamic resizing</th></tr>
+</thead>
+<tbody>
+  <tr><td>Aurora MySQL</td><td> <ul><li> Version 3 (compatible with MySQL 8.0): all supported versions </li><li> Version 2 (compatible with MySQL 5.7): 2.11 and higher </li></ul> </td></tr>
+  <tr><td>Aurora PostgreSQL</td><td>All supported versions</td></tr>
+  <tr><td>Aurora serverless</td><td>All supported versions</td></tr>
+</tbody>
+</table>
+
 + In Aurora versions lower than those in the preceding list, the cluster volume can reuse space that's freed up when you remove data, but the volume itself never decreases in size.
 
 Dynamic resizing applies to operations that physically remove or resize tablespaces within the cluster volume. Thus, it applies to SQL statements such as `DROP TABLE`, `DROP DATABASE`, `TRUNCATE TABLE`, and `ALTER TABLE ... DROP PARTITION`. It doesn't apply to deleting rows using the `DELETE` statement. If you delete a large number of rows from a table, you can run the Aurora MySQL `OPTIMIZE TABLE` statement or use the Aurora PostgreSQL `pg_repack` extension afterward to reorganize the table and dynamically resize the cluster volume.
