@@ -57,8 +57,20 @@ If you want to use the same settings used in another deployment group (including
 
    If you want to change the settings, continue to the next step. Otherwise, skip to step 15.
 
-1. To change the deployment settings for the blue/green deployment, change any of the following settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codedeploy/latest/userguide/applications-create-blue-green.html)
+1. To change the deployment settings for the blue/green deployment, change any of the following settings.
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Options</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Traffic rerouting</b></td><td> <ul><li> <b>Reroute traffic immediately</b>: As soon as instances in the replacement environment are provisioned and the latest application revision is installed on them, they are registered with the specified load balancers and target groups automatically, causing traffic to be rerouted to them. Instances in the original environment are then deregistered. </li><li> <b>I will choose whether to reroute traffic</b>: Instances in the replacement environment are not registered with the specified load balancers and target groups unless you manually reroute traffic. If the wait time you specify passes without traffic being rerouted, the deployment status is changed to Stopped. </li></ul> </td></tr>
+  <tr><td><b>Deployment configuration</b></td><td>Choose the rate at which instances in the replacement environment are registered with the load balancers and target groups, such as one at a time or all at once.  After traffic is successfully routed to the replacement environment, instances in the original environment are deregistered all at once no matter which deployment configuration was selected. <br />For more information, see <a href="deployment-configurations.md">Working with deployment configurations in CodeDeploy</a>.</td></tr>
+  <tr><td><b>Original instances</b></td><td> <ul><li> <b>Terminate the original instances in the deployment group</b>: After traffic is rerouted to the replacement environment, the instances that were deregistered from the load balancers and target groups are terminated following the wait period you specify. </li><li> <b>Keep the original instances in the deployment group running</b>: After traffic is rerouted to the replacement environment, the instances that were deregistered from the load balancers and target groups are kept running. </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 1. (Optional) In **Advanced**, configure options you want to include in the deployment, such as Amazon SNS notification triggers, Amazon CloudWatch alarms, or automatic rollbacks.
 

@@ -22,8 +22,18 @@ You can use the console or the AWS CLI to create notification rules for AWS Code
 
    For more information, see [Understanding notification contents and security](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/security.html#security-notifications).
 
-1.  In **Events that trigger notifications**, select the events for which you want to send notifications.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codedeploy/latest/userguide/notification-rule-create.html)
+1.  In **Events that trigger notifications**, select the events for which you want to send notifications. 
+
+
+<table>
+<thead>
+  <tr><th>Category</th><th>Events</th></tr>
+</thead>
+<tbody>
+  <tr><td>Deployment</td><td>Failed<br />Succeeded<br />Started</td></tr>
+</tbody>
+</table>
+
 
 1. In **Targets**, choose **Create SNS topic**.
 **Note**  

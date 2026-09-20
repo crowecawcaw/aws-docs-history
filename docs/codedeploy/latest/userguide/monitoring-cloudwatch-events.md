@@ -35,8 +35,19 @@ The remainder of this topic describes the basic procedure for creating a CloudWa
 
 1. Specify the state changes the rule applies to:
    + To make a rule that applies to all state changes, choose **Any state**.
-   + To make a rule that applies to some state changes only, choose **Specific state(s)**, and then choose one or more status values from the list. The following table lists the status values you can choose:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-cloudwatch-events.html)
+   + To make a rule that applies to some state changes only, choose **Specific state(s)**, and then choose one or more status values from the list. The following table lists the status values you can choose:
+
+
+
+<table>
+<thead>
+  <tr><th>Deployment status values</th><th>Instance status values</th></tr>
+</thead>
+<tbody>
+  <tr><td>FAILURE <br />START<br />STOP<br />QUEUED<br />READY<br />SUCCESS</td><td>FAILURE <br />START <br />READY<br />SUCCESS </td></tr>
+</tbody>
+</table>
+
 
 1. Specify which CodeDeploy applications the rule applies to:
    + To make a rule that applies to all applications, choose **Any application**, and then skip to step 8.

@@ -152,11 +152,66 @@ Sign in with the same user that you set up in [Getting started with CodeDeploy](
 
 1. In **Revision location**, enter the location of the sample application for your operating system and Region.
 
-   **For Amazon Linux and RHEL Amazon EC2 instances**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codedeploy/latest/userguide/tutorials-auto-scaling-group-create-deployment.html)
+   **For Amazon Linux and RHEL Amazon EC2 instances**
 
-   **For Windows Server Amazon EC2 instances**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codedeploy/latest/userguide/tutorials-auto-scaling-group-create-deployment.html)
+
+
+<table>
+<thead>
+  <tr><th>Region</th><th>Location of sample application</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (Ohio) Region</td><td><code>http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>US East (N. Virginia) Region</td><td><code>http://s3.amazonaws.com/aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>US West (N. California) Region</td><td><code>http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>US West (Oregon) Region</td><td><code>http://s3-us-west-2.amazonaws.com/aws-codedeploy-us-west-2/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Canada (Central) Region</td><td><code>http://s3-ca-central-1.amazonaws.com/aws-codedeploy-ca-central-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Europe (Ireland) Region</td><td><code>http://s3-eu-west-1.amazonaws.com/aws-codedeploy-eu-west-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Europe (London) Region</td><td><code>http://s3-eu-west-2.amazonaws.com/aws-codedeploy-eu-west-2/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Europe (Paris) Region</td><td><code>http://s3-eu-west-3.amazonaws.com/aws-codedeploy-eu-west-3/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Europe (Frankfurt) Region</td><td><code>http://s3-eu-central-1.amazonaws.com/aws-codedeploy-eu-central-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Israel (Tel Aviv) Region</td><td><code>https://aws-codedeploy-il-central-1.s3.il-central-1.amazonaws.com/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Asia Pacific (Hong Kong) Region</td><td><code>https://aws-codedeploy-ap-east-1.s3.ap-east-1.amazonaws.com/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Asia Pacific (Tokyo) Region</td><td><code>http://s3-ap-northeast-1.amazonaws.com/aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Asia Pacific (Seoul) Region</td><td><code>http://s3-ap-northeast-2.amazonaws.com/aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Asia Pacific (Singapore) Region</td><td><code>http://s3-ap-southeast-1.amazonaws.com/aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Asia Pacific (Sydney) Region</td><td><code>http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Asia Pacific (Melbourne) Region</td><td><code>https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>Asia Pacific (Mumbai) Region</td><td><code>http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+  <tr><td>South America (São Paulo) Region</td><td><code>http://s3-sa-east-1.amazonaws.com/aws-codedeploy-sa-east-1/samples/latest/SampleApp_Linux.zip</code></td></tr>
+</tbody>
+</table>
+
+
+   **For Windows Server Amazon EC2 instances**
+
+
+
+<table>
+<thead>
+  <tr><th>Region</th><th>Location of sample application</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (Ohio) Region</td><td><code>http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>US East (N. Virginia) Region</td><td><code>http://s3.amazonaws.com/aws-codedeploy-us-east-1/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>US West (N. California) Region</td><td><code>http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>US West (Oregon) Region</td><td><code>http://s3-us-west-2.amazonaws.com/aws-codedeploy-us-west-2/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Canada (Central) Region</td><td><code>http://s3-ca-central-1.amazonaws.com/aws-codedeploy-ca-central-1/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Europe (Ireland) Region</td><td><code>http://s3-eu-west-1.amazonaws.com/aws-codedeploy-eu-west-1/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Europe (London) Region</td><td><code>http://s3-eu-west-2.amazonaws.com/aws-codedeploy-eu-west-2/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Europe (Paris) Region</td><td><code>http://s3-eu-west-3.amazonaws.com/aws-codedeploy-eu-west-3/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Europe (Frankfurt) Region</td><td><code>http://s3-eu-central-1.amazonaws.com/aws-codedeploy-eu-central-1/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Israel (Tel Aviv) Region</td><td><code>https://aws-codedeploy-il-central-1.s3.il-central-1.amazonaws.com/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Asia Pacific (Hong Kong) Region</td><td><code>https://aws-codedeploy-ap-east-1.s3.ap-east-1.amazonaws.com/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Asia Pacific (Seoul) Region</td><td><code>http://s3-ap-northeast-2.amazonaws.com/aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Asia Pacific (Singapore) Region</td><td><code>http://s3-ap-southeast-1.amazonaws.com/aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Asia Pacific (Sydney) Region</td><td><code>http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Asia Pacific (Melbourne) Region</td><td><code>https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>Asia Pacific (Mumbai) Region</td><td><code>http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/samples/latest/SampleApp_Windows.zip</code></td></tr>
+  <tr><td>South America (São Paulo) Region</td><td><code>http://s3-sa-east-1.amazonaws.com/aws-codedeploy-sa-east-1/samples/latest/SampleApp_Windows.zip</code></td></tr>
+</tbody>
+</table>
+
 
     **For Ubuntu Server Amazon EC2 instances**
 

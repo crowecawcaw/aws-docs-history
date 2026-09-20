@@ -52,8 +52,36 @@ Sign in to the AWS Management Console with the same account you used in [Getting
 
 1. Choose **Create Stack**.
 
-1. In **Choose a template**, choose **Specify an Amazon S3 template URL**. In the box, type the location of the CloudFormation template for your Region, and then choose **Next**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-ec2-create-cloudformation-template.html)
+1. In **Choose a template**, choose **Specify an Amazon S3 template URL**. In the box, type the location of the CloudFormation template for your Region, and then choose **Next**.
+
+
+
+<table>
+<thead>
+  <tr><th>Region</th><th>Location of CloudFormation template</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (Ohio) Region</td><td><code>http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>US East (N. Virginia) Region</td><td><code>http://s3.amazonaws.com/aws-codedeploy-us-east-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>US West (N. California) Region</td><td><code>http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>US West (Oregon) Region</td><td><code>http://s3-us-west-2.amazonaws.com/aws-codedeploy-us-west-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Canada (Central) Region</td><td><code>http://s3-ca-central-1.amazonaws.com/aws-codedeploy-ca-central-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Europe (Ireland) Region</td><td><code>http://s3-eu-west-1.amazonaws.com/aws-codedeploy-eu-west-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Europe (London) Region</td><td><code>http://s3-eu-west-2.amazonaws.com/aws-codedeploy-eu-west-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Europe (Paris) Region</td><td><code>http://s3-eu-west-3.amazonaws.com/aws-codedeploy-eu-west-3/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Europe (Frankfurt) Region</td><td><code>http://s3-eu-central-1.amazonaws.com/aws-codedeploy-eu-central-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Israel (Tel Aviv) Region</td><td><code>http://s3-il-central-1.amazonaws.com/aws-codedeploy-il-central-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Hong Kong) Region</td><td><code>http://s3-ap-east-1.amazonaws.com/aws-codedeploy-ap-east-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Tokyo) Region</td><td><code>http://s3-ap-northeast-1.amazonaws.com/aws-codedeploy-ap-northeast-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Seoul) Region</td><td><code>http://s3-ap-northeast-2.amazonaws.com/aws-codedeploy-ap-northeast-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Singapore) Region</td><td><code>http://s3-ap-southeast-1.amazonaws.com/aws-codedeploy-ap-southeast-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Sydney) Region</td><td><code>http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Melbourne) Region</td><td><code>https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Mumbai) Region</td><td><code>http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>South America (São Paulo) Region</td><td><code>aws-codedeploy-ap-northeast-1.s3.sa-east-1.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+</tbody>
+</table>
+
 
 1. In the **Stack name** box, type a name for the stack (for example, **CodeDeployDemoStack**).
 
@@ -104,8 +132,36 @@ To verify the CodeDeploy agent is running on the Amazon EC2 instances, see [Mana
 
    {{keyName}} is the instance key pair name. Type the key pair name only, not the key pair file extension.
 
-   {{template-url}} is the location of the CloudFormation template for your Region:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-ec2-create-cloudformation-template.html)
+   {{template-url}} is the location of the CloudFormation template for your Region:
+
+
+
+<table>
+<thead>
+  <tr><th>Region</th><th>Location of CloudFormation template</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (Ohio) Region</td><td><code>http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>US East (N. Virginia) Region</td><td><code>http://s3.amazonaws.com/aws-codedeploy-us-east-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>US West (N. California) Region</td><td><code>http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>US West (Oregon) Region</td><td><code>http://s3-us-west-2.amazonaws.com/aws-codedeploy-us-west-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Canada (Central) Region</td><td><code>http://s3-ca-central-1.amazonaws.com/aws-codedeploy-ca-central-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Europe (Ireland) Region</td><td><code>http://s3-eu-west-1.amazonaws.com/aws-codedeploy-eu-west-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Europe (London) Region</td><td><code>http://s3-eu-west-2.amazonaws.com/aws-codedeploy-eu-west-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Europe (Paris) Region</td><td><code>http://s3-eu-west-3.amazonaws.com/aws-codedeploy-eu-west-3/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Europe (Frankfurt) Region</td><td><code>http://s3-eu-central-1.amazonaws.com/aws-codedeploy-eu-central-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Israel (Tel Aviv) Region</td><td><code>http://s3-il-central-1.amazonaws.com/aws-codedeploy-il-central-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Hong Kong) Region</td><td><code>http://s3-ap-east-1.amazonaws.com/aws-codedeploy-ap-east-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Tokyo) Region</td><td><code>http://s3-ap-northeast-1.amazonaws.com/aws-codedeploy-ap-northeast-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Seoul) Region</td><td><code>http://s3-ap-northeast-2.amazonaws.com/aws-codedeploy-ap-northeast-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Singapore) Region</td><td><code>http://s3-ap-southeast-1.amazonaws.com/aws-codedeploy-ap-southeast-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Sydney) Region</td><td><code>http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Melbourne) Region</td><td><code>https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>Asia Pacific (Mumbai) Region</td><td><code>http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+  <tr><td>South America (São Paulo) Region</td><td><code>aws-codedeploy-ap-northeast-1.s3.sa-east-1.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json</code></td></tr>
+</tbody>
+</table>
+
 
    This command creates a CloudFormation stack named **CodeDeployDemoStack**, using the CloudFormation template in the specified Amazon S3 bucket. The Amazon EC2 instance is based on the t1.micro instance type, but you can use any type. It is tagged with the value **CodeDeployDemo**, but you can tag it with any value. It has the specified instance key pair applied.
 
