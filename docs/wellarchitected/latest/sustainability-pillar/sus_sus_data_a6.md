@@ -24,8 +24,20 @@ Remove unneeded or redundant data to minimize the storage resources required to 
 ### Implementation steps
 <a name="implementation-steps"></a>
 +  **Evaluate public datasets:** Evaluate if you can avoid storing data by using existing publicly available datasets in [AWS Data Exchange](https://aws.amazon.com/data-exchange/) and [Open Data on AWS](https://registry.opendata.aws/). 
-+  **De-deplicate data:** Use mechanisms that can deduplicate data at the block and object level. Here are some examples of how to deduplicate data on AWS:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_data_a6.html)
++  **De-deplicate data:** Use mechanisms that can deduplicate data at the block and object level. Here are some examples of how to deduplicate data on AWS: 
+
+
+<table>
+<thead>
+  <tr><th>Storage service</th><th>Deduplication mechanism</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://aws.amazon.com/s3/">Amazon S3</a></td><td>Use <a href="https://aws.amazon.com/blogs/big-data/integrate-and-deduplicate-datasets-using-aws-lake-formation-findmatches/">AWS Lake Formation FindMatches</a> to find matching records across a dataset (including ones without identifiers) by using the new FindMatches ML Transform.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/fsx/">Amazon FSx</a></td><td>Use <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-data-dedup.html">data deduplication</a> on Amazon FSx for Windows.</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon Elastic Block Store snapshots</a></td><td>Snapshots are incremental backups, which means that only the blocks on the device that have changed after your most recent snapshot are saved.</td></tr>
+</tbody>
+</table>
+
 +  **Use lifecycle policies:** Use lifecycle policies to automate unneeded data deletion. Use native service features like [Amazon DynamoDB Time To Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html), [Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html), or [Amazon CloudWatch log retention](https://docs.aws.amazon.com/managedservices/latest/userguide/log-customize-retention.html) for deletion. 
 +  **Use data virtualization:** Use data virtualization capabilities on AWS to maintain data at its source and avoid data duplication. 
   +  [Cloud Native Data Virtualization on AWS](https://www.youtube.com/watch?v=BM6sMreBzoA) 

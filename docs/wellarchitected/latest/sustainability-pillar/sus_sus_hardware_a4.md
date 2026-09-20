@@ -27,8 +27,20 @@ Managed services shift responsibility to AWS for maintaining high utilization an
 
 1. **Inventory your workload:** Inventory your workload for services and components. 
 
-1. **Identify candidates:** Assess and identify components that can be replaced by managed services. Here are some examples of when you might consider using a managed service:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_hardware_a4.html)
+1. **Identify candidates:** Assess and identify components that can be replaced by managed services. Here are some examples of when you might consider using a managed service: 
+
+
+<table>
+<thead>
+  <tr><th>Task</th><th>What to use on AWS</th></tr>
+</thead>
+<tbody>
+  <tr><td>Hosting a database</td><td> Use managed <a href="https://aws.amazon.com/rds/">Amazon Relational Database Service (Amazon RDS)</a> instances instead of maintaining your own Amazon RDS instances on <a href="https://aws.amazon.com/ec2/">Amazon Elastic Compute Cloud (Amazon EC2)</a>. </td></tr>
+  <tr><td>Hosting a container workload</td><td>Use <a href="https://aws.amazon.com/fargate/">AWS Fargate</a>, instead of implementing your own container infrastructure.</td></tr>
+  <tr><td>Hosting web apps</td><td>Use <a href="https://aws.amazon.com/amplify/hosting/">AWS Amplify Hosting</a> as fully managed CI/CD and hosting service for static websites and server-side rendered web apps.</td></tr>
+</tbody>
+</table>
+
 
 1. **Create a migration plan:** Identify dependencies and create a migrations plan. Update runbooks and playbooks accordingly. 
    + The [AWS Application Discovery Service](https://aws.amazon.com/application-discovery/) automatically collects and presents detailed information about application dependencies and utilization to help you make more informed decisions as you plan your migration 

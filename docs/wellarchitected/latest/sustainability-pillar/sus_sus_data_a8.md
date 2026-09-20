@@ -28,8 +28,20 @@ Use shared file systems or object storage to access common data and minimize the
   +  Aggregate data where detailed (record-level information is not required). 
   +  See [Well-Architected Lab - Optimize Data Pattern Using Amazon Redshift Data Sharing](https://catalog.workshops.aws/well-architected-sustainability/en-US/3-data/optimize-data-pattern-using-redshift-data-sharing). 
   +  Consider [Cross-account data sharing in AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/cross-account-permissions.html). 
-+  **Use edge services:** Use services that can help you run code closer to users of your workload.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_data_a8.html)
++  **Use edge services:** Use services that can help you run code closer to users of your workload. 
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>When to use</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://aws.amazon.com/lambda/edge/">Lambda@Edge</a></td><td>Use for compute-heavy operations that are run when objects are not in the cache.</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html">CloudFront Functions</a></td><td>Use for simple use cases such as HTTP(s) request/response manipulations that can be initiated by short-lived functions.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/greengrass/">AWS IoT Greengrass</a></td><td>Run local compute, messaging, and data caching for connected devices.</td></tr>
+</tbody>
+</table>
+
 
 ## Resources
 <a name="resources"></a>
