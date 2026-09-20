@@ -21,8 +21,19 @@ Once the policy is attached, you can sign in as the user and test the policy.
 
 To perform the steps in this tutorial, you need to already have the following:
 + An AWS account that you can sign in to as an IAM user with administrative permissions.
-+ A test IAM user that has no permissions assigned or group memberships as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html)
++ A test IAM user that has no permissions assigned or group memberships as follows:
+
+
+
+<table>
+<thead>
+  <tr><th>User name</th><th>Group </th><th>Permissions</th></tr>
+</thead>
+<tbody>
+  <tr><td>PolicyUser</td><td>&lt;none&gt;</td><td>&lt;none&gt;</td></tr>
+</tbody>
+</table>
+
 
 ## Step 1: Create the policy
 <a name="step1-create-policy"></a>

@@ -205,7 +205,9 @@ The IAM user named `John` in account 777788889999 calls the AWS STS [AssumeRole]
       "assumedRoleId": "AIDAQRSTUVWXYZEXAMPLE:John-EC2-dev",
       "arn": "arn:aws:sts::111122223333:assumed-role/EC2-dev/John-EC2-dev"
     },
-  "sourceIdentity": "John"
+    "sourceIdentity": "John",
+    "sessionTokenSize": 1428,
+    "sessionTokenUtilization": 34
   },
   "resources": [
     {
@@ -254,7 +256,9 @@ The second example shows the assumed role account's (111122223333) CloudTrail lo
       "assumedRoleId": "AIDAQRSTUVWXYZEXAMPLE:John-EC2-dev",     
       "arn": "arn:aws:sts::111122223333:assumed-role/EC2-dev/John-EC2-dev"   
       },
-  "sourceIdentity": "John"
+    "sourceIdentity": "John",
+    "sessionTokenSize": 1428,
+    "sessionTokenUtilization": 34
   },
   "requestID": "4EXAMPLE-0e8d-11e4-96e4-e55c0EXAMPLE",
   "sharedEventID": "bEXAMPLE-efea-4a70-b951-19a88EXAMPLE",
@@ -330,7 +334,9 @@ The following example shows a CloudTrail log entry for a request made by John Do
             "assumedRoleId": "AROAIFR7WHDTSOYQYHFUE:Role2WithTags",
             "arn": "arn:aws:sts::111111111111:assumed-role/test-role/Role2WithTags"
         },
-    "sourceIdentity": "John"
+        "sourceIdentity": "John",
+        "sessionTokenSize": 1652,
+        "sessionTokenUtilization": 40
     },
     "requestID": "b96b0e4e-e561-11e9-8b3f-7b396EXAMPLE",
     "eventID": "1917948f-3042-46ec-98e2-62865EXAMPLE",
@@ -438,7 +444,9 @@ The following example shows a CloudTrail log entry for a request made for the AW
             "assumedRoleId": "AROAD35QRSTUVWEXAMPLE:MyAssignedRoleSessionName",
             "arn": "arn:aws:sts::444455556666:assumed-role/SAMLTestRoleShibboleth/MyAssignedRoleSessionName"
         },
-        "packedPolicySize": 1,
+        "packedPolicySize": 34,
+        "sessionTokenSize": 1428,
+        "sessionTokenUtilization": 34,
         "subject": "SamlExample",
         "subjectType": "transient",
         "issuer": "https://server.example.com/idp/shibboleth",
@@ -522,7 +530,9 @@ The CloudTrail log entry also contains an `additionalEventData` field with an `i
       "arn": "arn:aws:sts::444455556666:assumed-role/FederatedWebIdentityRole/{{<assigned role session name>}}"
     },
     "provider": "arn:aws:iam::444455556666:oidc-provider/{{<issuer url of OIDC provider>}}",
-    "audience": "{{<id of application>}}"
+    "audience": "{{<id of application>}}",
+    "sessionTokenSize": 1536,
+    "sessionTokenUtilization": 37
   },
   "additionalEventData": {
     "identityProviderConnectionVerificationMethod": "IAMTrustStore"
@@ -602,7 +612,9 @@ The following example shows a CloudTrail log entry for an AWS STS request made t
         "assumedRoleUser": {
             "assumedRoleId": "AROA987654321EXAMPLE:test-global-assume-role",
             "arn": "arn:aws:sts::777788889999:assumed-role/test-role/test-global-assume-role"
-        }
+        },
+        "sessionTokenSize": 1096,
+        "sessionTokenUtilization": 26
     },
     "additionalEventData": {
         "RequestDetails": {
@@ -677,7 +689,9 @@ For comparison, the following example shows a CloudTrail log entry for an AWS ST
         "assumedRoleUser": {
             "assumedRoleId": "AROA987654321EXAMPLE:test-global-assume-role",
             "arn": "arn:aws:sts::777788889999:assumed-role/test-role/test-global-assume-role"
-        }
+        },
+        "sessionTokenSize": 1096,
+        "sessionTokenUtilization": 26
     },
     "additionalEventData": {
         "RequestDetails": {

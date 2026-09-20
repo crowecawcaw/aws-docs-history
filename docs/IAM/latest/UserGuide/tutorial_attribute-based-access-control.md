@@ -108,8 +108,21 @@ The following policy allows a user to assume any role in your account with the `
 
 1. Create the following IAM users, attach the `access-assume-role` permissions policy. Make sure you select **Provide user access to the AWS Management Console**, and then add the following tags.
 
-       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html)
+   
+
+
+<table>
+<thead>
+  <tr><th>User name</th><th>User tag key</th><th>User tag value</th></tr>
+</thead>
+<tbody>
+  <tr><td>access-Arnav-peg-eng</td><td><code>access-project</code><br /><code>access-team</code><br /><code>cost-center</code> </td><td><code>peg</code><br /><code>eng</code><br /><code>987654</code> </td></tr>
+  <tr><td>access-Mary-peg-qas</td><td><code>access-project</code><br /><code>access-team</code><br /><code>cost-center</code></td><td><code>peg</code><br /><code>qas</code><br /><code>987654</code></td></tr>
+  <tr><td>access-Saanvi-uni-eng</td><td><code>access-project</code><br /><code>access-team</code><br /><code>cost-center</code></td><td><code>uni</code><br /><code>eng</code><br /><code>123456</code></td></tr>
+  <tr><td>access-Carlos-uni-qas</td><td><code>access-project</code><br /><code>access-team</code><br /><code>cost-center</code> </td><td><code>uni</code><br /><code>qas</code><br /><code>123456</code> </td></tr>
+</tbody>
+</table>
+
 
 ## Step 2: Create the ABAC policy
 <a name="tutorial_abac_step2"></a>
@@ -264,11 +277,38 @@ Secrets Manager displays alerts that you don't have permissions for additional A
 
    1. Choose **Store** to attempt to create the secret. When the storage fails, return to the previous Secrets Manager console pages and use the next tag set from the following table. The last tag set is allowed and will successfully create the secret.
 
-   The following table shows ABAC tag combinations for the `test-access-peg-eng` role.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html)
+   The following table shows ABAC tag combinations for the `test-access-peg-eng` role.
 
-1. Sign out and repeat the first three steps of this procedure for each of the following roles and tag values. In the fourth step in this procedure, test any set of missing tags, optional tags, disallowed tags, and invalid tag values that you choose. Then use the required tags to create a secret with the following tags and name.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html)
+
+<table>
+<thead>
+  <tr><th><code>access-project</code> Tag value</th><th><code>access-team</code> Tag value</th><th><code>cost-center</code> Tag value</th><th>Additional tags</th><th>Expected behavior</th></tr>
+</thead>
+<tbody>
+  <tr><td>(none)</td><td>(none)</td><td>(none)</td><td>(none)</td><td>Denied because the <code>access-project</code> tag value does not match the role's value of <code>peg</code>.</td></tr>
+  <tr><td><code>uni</code> </td><td><code>eng</code> </td><td><code>987654</code> </td><td>(none)</td><td>Denied because the <code>access-project</code> tag value does not match the role's value of <code>peg</code>.</td></tr>
+  <tr><td><code>peg</code></td><td><code>qas</code></td><td><code>987654</code> </td><td>(none)</td><td>Denied because the <code>access-team</code> tag value does not match the role's value of <code>eng</code>.</td></tr>
+  <tr><td><code>peg</code></td><td><code>eng</code></td><td><code>123456</code> </td><td>(none)</td><td>Denied because the <code>cost-center</code> tag value does not match the role's value of <code>987654</code>. </td></tr>
+  <tr><td><code>peg</code> </td><td><code>eng</code></td><td><code>987654</code> </td><td>Owner = Jane</td><td>Denied because the additional tag <code>owner</code> is not allowed by the policy, even though all three required tags are present and their values match the role's values. </td></tr>
+  <tr><td><code>peg</code> </td><td><code>eng</code></td><td><code>987654</code> </td><td>Name = Jane</td><td>Allowed because all three required tags are present and their values match the role's values. You are also allowed to include the optional <code>Name</code> tag.</td></tr>
+</tbody>
+</table>
+
+
+1. Sign out and repeat the first three steps of this procedure for each of the following roles and tag values. In the fourth step in this procedure, test any set of missing tags, optional tags, disallowed tags, and invalid tag values that you choose. Then use the required tags to create a secret with the following tags and name.
+
+
+<table>
+<thead>
+  <tr><th>User name</th><th>Role name</th><th>Secret name</th><th>Secret tags</th></tr>
+</thead>
+<tbody>
+  <tr><td>access-Mary-peg-qas</td><td>access-peg-quality-assurance</td><td>test-access-peg-qas</td><td>access-project = <code>peg</code><br />access-team = <code>qas</code><br />cost-center = <code>987654</code></td></tr>
+  <tr><td>access-Saanvi-uni-eng</td><td>access-uni-engineering</td><td>test-access-uni-eng</td><td>access-project = <code>uni</code><br />access-team = <code>eng</code><br />cost-center = <code>123456</code></td></tr>
+  <tr><td>access-Carlos-uni-qas</td><td>access-uni-quality-assurance</td><td>test-access-uni-qas</td><td>access-project = <code>uni</code><br />access-team = <code>qas</code><br />cost-center = <code>123456</code> </td></tr>
+</tbody>
+</table>
+
 
 ## Step 5: Test viewing secrets
 <a name="tutorial_abac_step5"></a>
@@ -299,8 +339,33 @@ The policy that you attached to each role allows the employees to view any secre
 
 1. On the details page for the secret, your role's tags determine whether you can view the page content. Compare the name of your role to the name of your secret. If they share the same team name, then the `access-team` tags match. If they don't match, then access is denied.
 
-   The following table shows ABAC secret viewing behavior for each role.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html)
+   The following table shows ABAC secret viewing behavior for each role.
+
+
+<table>
+<thead>
+  <tr><th>Role name</th><th>Secret name</th><th>Expected behavior</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="4"><code>access-peg-engineering</code> </td><td><code>test-access-peg-eng</code> </td><td>Allowed</td></tr>
+  <tr><td>test-access-peg-qas</td><td>Denied</td></tr>
+  <tr><td>test-access-uni-eng</td><td>Allowed</td></tr>
+  <tr><td>test-access-uni-qas</td><td>Denied</td></tr>
+  <tr><td rowspan="4">access-peg-quality-assurance </td><td>test-access-peg-eng </td><td>Denied</td></tr>
+  <tr><td>test-access-peg-qas</td><td>Allowed</td></tr>
+  <tr><td>test-access-uni-eng</td><td>Denied</td></tr>
+  <tr><td>test-access-uni-qas</td><td>Allowed</td></tr>
+  <tr><td rowspan="4">access-uni-engineering </td><td>test-access-peg-eng </td><td>Allowed</td></tr>
+  <tr><td>test-access-peg-qas</td><td>Denied</td></tr>
+  <tr><td>test-access-uni-eng</td><td>Allowed</td></tr>
+  <tr><td>test-access-uni-qas</td><td>Denied</td></tr>
+  <tr><td rowspan="4">access-uni-quality-assurance </td><td>test-access-peg-eng </td><td>Denied</td></tr>
+  <tr><td>test-access-peg-qas</td><td>Allowed</td></tr>
+  <tr><td>test-access-uni-eng</td><td>Denied</td></tr>
+  <tr><td>test-access-uni-qas</td><td>Allowed</td></tr>
+</tbody>
+</table>
+
 
 1. From the breadcrumbs at the top of the page, choose **Secrets** to return to the list of secrets. Repeat the steps in this procedure using different roles to test whether you can view each of the secrets.
 
@@ -389,8 +454,25 @@ The `access-same-project-team` policy that is attached to the roles allows the e
 
 1. For each role, try to update the secret description and then try to delete the following secrets. For more information, see [Modifying a Secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_update-secret.html) and [Deleting and Restoring a Secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_delete-restore-secret.html) in the *AWS Secrets Manager User Guide*.
 
-   The following table shows ABAC secret updating and deleting behavior for each role.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html)
+   The following table shows ABAC secret updating and deleting behavior for each role.
+
+
+<table>
+<thead>
+  <tr><th>Role name</th><th>Secret name</th><th>Expected behavior</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="3">access-peg-engineering</td><td>test-access-peg-eng</td><td>Allowed</td></tr>
+  <tr><td>test-access-uni-eng</td><td>Denied</td></tr>
+  <tr><td>test-access-uni-qas</td><td>Denied</td></tr>
+  <tr><td rowspan="2">access-peg-quality-assurance</td><td>test-access-peg-qas</td><td>Allowed</td></tr>
+  <tr><td>test-access-uni-eng</td><td>Denied</td></tr>
+  <tr><td rowspan="2">access-uni-engineering</td><td>test-access-uni-eng</td><td>Allowed</td></tr>
+  <tr><td>test-access-uni-qas</td><td>Denied</td></tr>
+  <tr><td>access-peg-quality-assurance</td><td>test-access-uni-qas</td><td>Allowed</td></tr>
+</tbody>
+</table>
+
 
 ## Summary
 <a name="tutorial-abac-summary"></a>

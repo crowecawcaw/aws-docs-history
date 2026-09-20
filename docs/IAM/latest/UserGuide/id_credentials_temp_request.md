@@ -96,7 +96,9 @@ In addition to the temporary security credentials, the response includes the Ama
   <Arn>arn:aws:sts::123456789012:assumed-role/demo/John</Arn>
   <AssumedRoleId>ARO123EXAMPLE123:John</AssumedRoleId>
 </AssumedRoleUser>
-<PackedPolicySize>8</PackedPolicySize>
+<PackedPolicySize>34</PackedPolicySize>
+<SessionTokenSize>1428</SessionTokenSize>
+<SessionTokenUtilization>34</SessionTokenUtilization>
 </AssumeRoleResult>
 <ResponseMetadata>
 <RequestId>c6104cbe-af31-11e0-8154-cbc7ccf896c7</RequestId>
@@ -105,7 +107,7 @@ In addition to the temporary security credentials, the response includes the Ama
 ```
 
 **Note**  
-An AWS conversion compresses the passed session policies and session tags into a packed binary format that has a separate limit. Your request can fail for this limit even if your plaintext meets the other requirements. The `PackedPolicySize` response element indicates by percentage how close the policies and tags for your request are to the upper size limit.
+Session policies and session tags add to the session token size. If the token exceeds the size limit, your request fails, even if your plaintext is within the other limits. The `SessionTokenUtilization` response element shows what percentage of the size limit the token uses. The `PackedPolicySize` response element is deprecated. Use `SessionTokenUtilization` instead.
 
 ## Requesting credentials through an OIDC provider
 <a name="api_assumerolewithwebidentity"></a>
@@ -212,7 +214,9 @@ In addition to the temporary security credentials, the response includes the Ama
   <Arn>arn:aws:sts::123456789012:federated-user/Jean</Arn>
   <FederatedUserId>123456789012:Jean</FederatedUserId>
 </FederatedUser>
-<PackedPolicySize>4</PackedPolicySize>
+<PackedPolicySize>26</PackedPolicySize>
+<SessionTokenSize>1105</SessionTokenSize>
+<SessionTokenUtilization>26</SessionTokenUtilization>
 </GetFederationTokenResult>
 <ResponseMetadata>
 <RequestId>c6104cbe-af31-11e0-8154-cbc7ccf896c7</RequestId>
@@ -221,7 +225,7 @@ In addition to the temporary security credentials, the response includes the Ama
 ```
 
 **Note**  
-An AWS conversion compresses the passed session policies and session tags into a packed binary format that has a separate limit. Your request can fail for this limit even if your plaintext meets the other requirements. The `PackedPolicySize` response element indicates by percentage how close the policies and tags for your request are to the upper size limit.
+Session policies and session tags add to the session token size. If the token exceeds the size limit, your request fails, even if your plaintext is within the other limits. The `SessionTokenUtilization` response element shows what percentage of the size limit the token uses. The `PackedPolicySize` response element is deprecated. Use `SessionTokenUtilization` instead.
 
 AWS recommends that you grant permissions at the resource level (for example, you attach a resource-based policy to an Amazon S3 bucket), you can omit the `Policy` parameter. However, if you do not include a policy for the AWS STS federated user principal, the temporary security credentials will not grant any permissions. In this case, you *must* use resource policies to grant the federated user access to your AWS resources.
 
@@ -272,6 +276,8 @@ The `AUTHPARAMS` parameter in the example is a placeholder for your *signature*.
   <Expiration>2011-07-11T19:55:29.611Z</Expiration>
   <AccessKeyId>AKIAIOSFODNN7EXAMPLE</AccessKeyId>
 </Credentials>
+<SessionTokenSize>856</SessionTokenSize>
+<SessionTokenUtilization>20</SessionTokenUtilization>
 </GetSessionTokenResult>
 <ResponseMetadata>
 <RequestId>58c5dbae-abef-11e0-8cfe-09039844ac7d</RequestId>

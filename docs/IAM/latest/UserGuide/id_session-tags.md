@@ -47,7 +47,7 @@ Operations that support session tagging can fail under the following conditions:
 + The plaintext of your session tag keys exceeds 128 characters.
 + The plaintext of your session tag values exceeds 256 characters.
 + The total size of the plaintext of session policies exceeds 2048 characters.
-+ The total packed size of the combined session policies and tags is too large. If the operation fails, the error message shows how close the policies and tags combined come to the upper size limit, by percentage.
++ Session policies and session tags add to the session token size. If the token exceeds the size limit, the operation fails. The error message reports your session token size and the maximum allowed size, both in bytes. Monitor `SessionTokenUtilization` in the AWS STS API response to track your usage.
 
 ## Things to know about session tags
 <a name="id_session-tags_know"></a>
@@ -65,7 +65,7 @@ Before you use session tags, review the following details about sessions and tag
 + You can view the principal tags for your session, including the session tags, in the AWS CloudTrail logs. For more information, see [Viewing session tags in CloudTrail](#id_session-tags_ctlogs).
 + You must pass a single value for each session tag. AWS STS does not support multi-valued session tags. 
 + You can pass a maximum of 50 session tags. The number and size of IAM resources in an AWS account are limited. For more information, see [IAM and AWS STS quotas](reference_iam-quotas.md).
-+ An AWS conversion compresses the passed session policies and session tags combined into a packed binary format with a separate limit. If you exceed this limit, the AWS CLI or AWS API error message shows how close the policies and tags combined come to the upper size limit, by percentage.
++ Session policies and session tags add to the session token size. If the token exceeds the size limit, the AWS CLI or AWS API returns an error. The error message reports your session token size and the maximum allowed size, both in bytes. The `SessionTokenUtilization` response element shows what percentage of the size limit the token uses. The `PackedPolicySize` response element is deprecated. Use `SessionTokenUtilization` instead.
 
 ## Permissions required to add session tags
 <a name="id_session-tags_permissions-required"></a>

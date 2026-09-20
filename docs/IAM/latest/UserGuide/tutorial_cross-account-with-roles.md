@@ -44,8 +44,20 @@ Before you use IAM roles to delegate resource access across AWS accounts, it's i
 
 This tutorial assumes that you have the following already in place:
 + **Two** separate AWS accounts that you can use, one to represent the **Originating** account, and one to represent the **Destination** account.
-+ Users and roles in the **Originating** account created and configured as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html)
++ Users and roles in the **Originating** account created and configured as follows:
+
+
+
+<table>
+<thead>
+  <tr><th>Job title</th><th>User</th><th>Permissions</th></tr>
+</thead>
+<tbody>
+  <tr><td>Developer</td><td>David</td><td rowspan="2">Both users can sign in and use the AWS Management Console in the <b>Originating</b> account.</td></tr>
+  <tr><td>Analyst</td><td>Jane</td></tr>
+</tbody>
+</table>
+
 + You do not need to create any users in the **Destination** account.
 + An Amazon S3 bucket created in the **Destination** account. You can call it `amzn-s3-demo-bucket-shared-container` in this tutorial, but because S3 bucket names must be globally unique, you must use a bucket with a different name.
 
