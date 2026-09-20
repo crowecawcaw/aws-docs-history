@@ -26,7 +26,7 @@ CloudFront offers an alternative Optional client certificate validation mode tha
 Optional mode is ideal for gradual migration to mTLS authentication, supporting clients with certificates and clients without certificates, or maintaining backward compatibility with legacy clients.
 
 **Note**  
-In optional mode, Connection Functions are still invoked even when clients don't present certificates. This allows you to implement custom logic such as logging client IP addresses or applying different policies based on whether certificates are presented.
+In optional mode, Connection Functions are still invoked even when clients don't present certificates. With this, you can implement custom logic such as logging client IP addresses or applying different policies based on whether certificates are presented.
 
 ### To configure optional mode (Console)
 <a name="configure-optional-mode-console-new"></a>
@@ -58,7 +58,7 @@ Use the mTLS helper functions in viewer-request CloudFront Functions to rename, 
 ## Passthrough mode
 <a name="passthrough-mode-details"></a>
 
-Passthrough mode allows customers with existing mTLS implementations at their origins to use CloudFront. CloudFront terminates the TLS connection and forwards the client certificate to your origin as HTTP headers. Your origin performs all certificate validation — including chain verification, revocation checking, and custom policy enforcement.
+With passthrough mode, you can use CloudFront with your existing mTLS implementations at your origins. CloudFront terminates the TLS connection and forwards the client certificate to your origin as HTTP headers. Your origin performs all certificate validation — including chain verification, revocation checking, and custom policy enforcement.
 
 ### How passthrough mode works
 <a name="passthrough-how-it-works"></a>
@@ -76,7 +76,7 @@ Passthrough mode allows customers with existing mTLS implementations at their or
 Clients can also connect without presenting a certificate. Your origin or Connection Function handles empty certificate scenarios.
 
 **Note**  
-In passthrough mode, Connection Functions are still invoked even when clients don't present certificates. This allows you to implement custom logic such as logging client IP addresses or applying different policies based on whether certificates are presented.
+In passthrough mode, Connection Functions are still invoked even when clients don't present certificates. With this, you can implement custom logic such as logging client IP addresses or applying different policies based on whether certificates are presented.
 
 ### Configuration requirements
 <a name="passthrough-configuration-requirements"></a>
@@ -106,7 +106,7 @@ In passthrough mode, Connection Functions are still invoked even when clients do
 #### AWS CLI
 <a name="enable-passthrough-cli"></a>
 
-Ensure all cache behaviors reference the managed `CachingDisabled` policy, then update the distribution configuration:
+Make sure all cache behaviors reference the managed `CachingDisabled` policy, then update the distribution configuration:
 
 ```
 {
@@ -121,7 +121,7 @@ Ensure all cache behaviors reference the managed `CachingDisabled` policy, then 
 
 CloudFront adds the following headers to the request sent to your origin:
 + `Client-Cert` — The end-entity (leaf) certificate presented by the client, base64-encoded.
-+ `Client-Cert-Chain` — The certificate chain (excluding the leaf), as a structured field list. Each certificate is base64-encoded. `Client-Cert-Chain` is a List type header. It may appear multiple times in a request. Concatenating all values preserves the original chain order. `Client-Cert-Chain` is omitted when the client presents only a single certificate.
++ `Client-Cert-Chain` — The certificate chain (excluding the leaf), as a structured field list. Each certificate is base64-encoded. `Client-Cert-Chain` is a List type header. It might appear multiple times in a request. Concatenating all values preserves the original chain order. `Client-Cert-Chain` is omitted when the client presents only a single certificate.
 
 CloudFront drops any incoming `Client-Cert` or `Client-Cert-Chain` headers from the client request before adding the actual certificate data. This prevents header spoofing.
 

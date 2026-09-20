@@ -12,14 +12,14 @@ A trust store is a repository of CA certificates that CloudFront uses to validat
 
 When you implement mutual TLS with CloudFront, the trust store defines which Certificate Authorities you trust to issue valid client certificates. CloudFront validates each client certificate against your trust store during the TLS handshake. Only clients presenting certificates that chain to one of the CAs in your trust store will be authenticated successfully.
 
-Trust stores in CloudFront are account-level resources that you can associate with multiple distributions. This allows you to maintain consistent certificate validation policies across your entire CloudFront deployment while simplifying CA certificate management.
+Trust stores in CloudFront are account-level resources that you can associate with multiple distributions. With this, you can maintain consistent certificate validation policies across your entire CloudFront deployment while simplifying CA certificate management.
 
 ## Certificate Authority support
 <a name="ca-support"></a>
 
-CloudFront supports certificates issued by both AWS Private Certificate Authority and third-party private Certificate Authorities. This flexibility allows you to use your existing certificate infrastructure or leverage AWS managed certificate services based on your organizational requirements.
+CloudFront supports certificates issued by both AWS Private Certificate Authority and third-party private Certificate Authorities. With this flexibility, you can use your existing certificate infrastructure or leverage AWS managed certificate services based on your organizational requirements.
 + **AWS Private Certificate Authority:** You can use certificates issued by AWS Private CA, which provides a managed private certificate authority service. This integration simplifies certificate lifecycle management and provides seamless integration with other AWS services.
-+ **Third-party private Certificate Authorities:** You can also use certificates from your existing private Certificate Authority infrastructure, including enterprise CAs or other third-party certificate providers. This allows you to maintain your current certificate management processes while adding CloudFront's mTLS capabilities.
++ **Third-party private Certificate Authorities:** You can also use certificates from your existing private Certificate Authority infrastructure, including enterprise CAs or other third-party certificate providers. With this, you can maintain your current certificate management processes while adding CloudFront mTLS capabilities.
 
 ## Certificate requirements and specifications
 <a name="certificate-requirements"></a>
@@ -162,7 +162,7 @@ There are two avenues to associate a trust store within the CloudFront console: 
 ### To associate a trust store (AWS CLI)
 <a name="associate-trust-store-cli"></a>
 
-Trust stores can be associated to distributions via the DistributionConfig.ViewerMtlsConfig property. This means we first need to fetch the distribution config and then provide the ViewerMtlsConfig in a subsequent UpdateDistribution request.
+Trust stores can be associated to distributions by using the DistributionConfig.ViewerMtlsConfig property. This means you first need to fetch the distribution config and then provide the ViewerMtlsConfig in a subsequent UpdateDistribution request.
 
 ```
 // First fetch the distribution

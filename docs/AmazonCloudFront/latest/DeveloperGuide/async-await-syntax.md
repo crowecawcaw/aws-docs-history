@@ -3,7 +3,7 @@
 # Use async and await
 <a name="async-await-syntax"></a>
 
-CloudFront Functions JavaScript runtime functions 2.0 provide `async` and `await` syntax to handle `Promise` objects. Promises represent delayed results that can be accessed via the `await` keyword in functions marked as `async`. Various new WebCrypto functions use Promises.
+CloudFront Functions JavaScript runtime functions 2.0 provide `async` and `await` syntax to handle `Promise` objects. Promises represent delayed results that can be accessed by using the `await` keyword in functions marked as `async`. Various new WebCrypto functions use Promises.
 
 For more information about `Promise` objects, see [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 

@@ -53,7 +53,7 @@ If you want to use an alternate domain name such as example.com in URLs, you mus
 **(Optional) `Path`**  
 The path for the requested file. If you don't specify a `Path` attribute, the default value is the path in the URL.  
 **`Secure`**  
-Requires that the viewer encrypt cookies before sending a request. We recommend that you send the `Set-Cookie` header over an HTTPS connection to ensure that the cookie attributes are protected from man-in-the-middle attacks.  
+Requires that the viewer encrypt cookies before sending a request. We recommend that you send the `Set-Cookie` header over an HTTPS connection to make sure that the cookie attributes are protected from man-in-the-middle attacks.  
 **`HttpOnly`**  
 Defines how the browser (where supported) interacts with the cookie value. With `HttpOnly`, the cookie values are inaccessible to JavaScript. This precaution can help mitigate cross-site scripting (XSS) attacks. For more information, see [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies).  
 **`CloudFront-Expires`**  
@@ -189,7 +189,20 @@ The method that you use to hash and sign the policy statement depends on your pr
 
 1. Base64-encode the string using MIME base64 encoding. For more information, see [Section 6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8) in *RFC 2045, MIME (Multipurpose Internet Mail Extensions) Part One: Format of Internet Message Bodies*.
 
-1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-setting-signed-cookie-canned-policy.html)
+1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.
+
+
+
+<table>
+<thead>
+  <tr><th>Replace these invalid characters</th><th>With these valid characters</th></tr>
+</thead>
+<tbody>
+  <tr><td>+</td><td>- (hyphen)</td></tr>
+  <tr><td>=</td><td>_ (underscore)</td></tr>
+  <tr><td>/</td><td>~ (tilde)</td></tr>
+</tbody>
+</table>
+
 
 1. Include the resulting value in the `Set-Cookie` header for the `CloudFront-Signature` name-value pair. Then return to [To set a signed cookie using a canned policy](#private-content-setting-signed-cookie-canned-policy-procedure) add the `Set-Cookie` header for `CloudFront-Key-Pair-Id`.

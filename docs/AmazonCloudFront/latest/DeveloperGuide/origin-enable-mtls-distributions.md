@@ -8,7 +8,7 @@ After obtaining a client certificate through AWS Certificate Manager and configu
 ## Prerequisites and requirements
 <a name="origin-mtls-prerequisites-requirements"></a>
 
-Before enabling origin mTLS on a CloudFront distribution, ensure you have:
+Before enabling origin mTLS on a CloudFront distribution, make sure you have:
 + A client certificate stored in AWS Certificate Manager in the US East (N. Virginia) Region (us-east-1)
 + Origin servers configured to require mutual TLS authentication and validate client certificates
 + Origin servers presenting certificates from publicly trusted Certificate Authorities
@@ -44,7 +44,7 @@ Per-origin configuration allows you to specify different client certificates for
 
 1. In the **Origin settings** section, choose **Customize origin settings**
 
-1. Configure your first origin (domain name, protocol, etc.)
+1. Configure your first origin (domain name, protocol, and so on)
 
 1. In the origin configuration, find **mTLS**
 
@@ -61,7 +61,7 @@ Per-origin configuration allows you to specify different client certificates for
 
 1. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home).
 
-1. From the distribution list, select the distribution you want to modify. (Note: Ensure your distribution is on a **Pro or Premium or Pay As You Go** pricing plan. If not, you must upgrade your pricing plan before enabling origin mTLS)
+1. From the distribution list, select the distribution you want to modify. (Note: Make sure your distribution is on a **Pro or Premium or Pay As You Go** pricing plan. If not, you must upgrade your pricing plan before enabling origin mTLS)
 
 1. Choose the **Origins** tab
 

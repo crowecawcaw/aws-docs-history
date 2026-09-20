@@ -51,9 +51,9 @@ Using Lambda@Edge can help you configure your CloudFront distribution to serve p
 
 To serve private content using CloudFront, you do the following:
 + Require that your users (viewers) access content using [signed URLs or signed cookies](PrivateContent.md).
-+ Restrict access to your origin so that it's only available from CloudFront's origin-facing servers. To do this, you can do one of the following:
++ Restrict access to your origin so that it's only available from CloudFront origin-facing servers. To do this, you can do one of the following:
   + For an Amazon S3 origin, you can [use an origin access control (OAC)](private-content-restricting-access-to-s3.md).
   + For a custom origin, you can do the following:
-    + If the custom origin is protected by an Amazon VPC security group or AWS Firewall Manager, you can [use the CloudFront managed prefix list](LocationsOfEdgeServers.md#managed-prefix-list) to allow inbound traffic to your origin from only CloudFront's origin-facing IP addresses.
+    + If the custom origin is protected by an Amazon VPC security group or AWS Firewall Manager, you can [use the CloudFront managed prefix list](LocationsOfEdgeServers.md#managed-prefix-list) to allow inbound traffic to your origin from only CloudFront origin-facing IP addresses.
     + Use a custom HTTP header to restrict access to only requests from CloudFront. For more information, see [Restrict access to files on custom origins](private-content-overview.md#forward-custom-headers-restrict-access) and [Add custom headers to origin requests](add-origin-custom-headers.md). For an example that uses a custom header to restrict access to an Application Load Balancer origin, see [Restrict access to Application Load Balancers](restrict-access-to-load-balancer.md).
     + If the custom origin requires custom access control logic, you can use Lambda@Edge to implement that logic, as described in this blog post: [Serving Private Content Using Amazon CloudFront & Lambda@Edge](https://aws.amazon.com/blogs/networking-and-content-delivery/serving-private-content-using-amazon-cloudfront-aws-lambdaedge/).

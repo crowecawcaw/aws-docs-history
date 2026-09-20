@@ -964,7 +964,7 @@ def lambda_handler(event, context):
 
 This function demonstrates how an origin-request trigger can be used to change the Amazon S3 origin from which the content is fetched, based on request properties.
 
-In this example, we use the value of the `CloudFront-Viewer-Country` header to update the S3 bucket domain name to a bucket in a Region that is closer to the viewer. This can be useful in several ways:
+In this example, you use the value of the `CloudFront-Viewer-Country` header to update the S3 bucket domain name to a bucket in a Region that is closer to the viewer. This can be useful in several ways:
 + It reduces latencies when the Region specified is nearer to the viewer's country.
 + It provides data sovereignty by making sure that data is served from an origin that's in the same country that the request came from.
 

@@ -14,7 +14,11 @@ IPv6 is the next-generation internet protocol designed to replace IPv4. While IP
 ## IPv6 viewer requests
 <a name="ipv6-viewer-requests"></a>
 
-In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the `IpAddress` parameter to restrict the IP addresses that can access your content, do not enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For information about creating signed URLs by using a custom policy, see [Create a signed URL using a custom policy](private-content-creating-signed-url-custom-policy.md). For information about creating signed cookies by using a custom policy, see [Set signed cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md).
+In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, don't enable IPv6 if both of the following are true:
++ You use signed URLs or signed cookies to restrict access to your content.
++ You use a custom policy that includes the `IpAddress` parameter to restrict which IP addresses can access your content.
+
+If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For information about creating signed URLs by using a custom policy, see [Create a signed URL using a custom policy](private-content-creating-signed-url-custom-policy.md). For information about creating signed cookies by using a custom policy, see [Set signed cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md).
 
 If you're using a Route 53 alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
 + You enable IPv6 for the distribution

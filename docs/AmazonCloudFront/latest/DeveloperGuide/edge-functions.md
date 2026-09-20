@@ -13,6 +13,9 @@ You can write lightweight functions in JavaScript for high-scale, latency-sensit
 **Lambda@Edge**  
 Lambda@Edge is an extension of [AWS Lambda](https://aws.amazon.com/lambda/) that offers powerful and flexible computing for complex functions and full application logic closer to your viewers, and is highly secure. Lambda@Edge functions run in a Node.js or Python runtime environment. You publish them to a single AWS Region, but when you associate the function with a CloudFront distribution, Lambda@Edge automatically replicates your code around the world.
 
+**CloudFront Connection Functions**  
+You can write lightweight JavaScript functions that run during the mTLS connection handshake to validate client certificates, implement custom authentication logic, and handle certificate revocation. Like CloudFront Functions, Connection Functions are a native feature of CloudFront that you can build, test, and deploy entirely within CloudFront. For more information, see [Customize with CloudFront Connection Functions](customize-connections-validation-with-connection-functions.md).
+
 If you run AWS WAF on CloudFront, you can use AWS WAF inserted headers for both CloudFront Functions and Lambda@Edge. This works for viewer and origin requests and responses.
 
 **Topics**

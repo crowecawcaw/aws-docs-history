@@ -25,7 +25,7 @@ We recommend that you use ACM to provision, manage, and deploy SSL/TLS certifica
 If you got your certificate from a third-party CA, import the certificate into ACM or upload it to the IAM certificate store:
 
 **ACM (recommended)**  
-ACM lets you import third-party certificates from the ACM console, as well as programmatically. For information about importing a certificate to ACM, see [Importing Certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide*. You must import the certificate in the US East (N. Virginia) Region.
+With ACM, you can import third-party certificates from the ACM console, as well as programmatically. For information about importing a certificate to ACM, see [Importing Certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide*. You must import the certificate in the US East (N. Virginia) Region.
 
 **IAM certificate store**  
 (Not recommended) Use the following AWS CLI command to upload your third-party certificate to the IAM certificate store.  

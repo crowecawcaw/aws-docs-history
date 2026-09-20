@@ -5,11 +5,11 @@
 
 CloudFront Connection Functions are a specialized type of CloudFront Functions that run during the TLS handshake when a client attempts to establish an mTLS connection. Your Connection Function can access client certificate information, mTLS configuration parameters, certificate revocation check results, and the client IP address.
 
-Connection functions are invoked after CloudFront performs standard certificate validation (trust chain, expiry, signature verification) but can run even if certificate revocation checks fail. This allows you to implement custom logic for handling revoked certificates or adding additional validation criteria.
+Connection functions are invoked after CloudFront performs standard certificate validation (trust chain, expiry, signature verification) but can run even if certificate revocation checks fail. With this, you can implement custom logic for handling revoked certificates or adding additional validation criteria.
 
 After you create and publish a Connection Function, make sure to add an association for the connection request event type with an mTLS-enabled distribution. This makes the function run each time a client attempts to establish an mTLS connection with CloudFront.
 
-CloudFront Connection Functions follow a two-stage lifecycle that allows you to develop and test functions before deploying them to production. This workflow ensures that your Connection Functions work correctly before they affect live traffic.
+CloudFront Connection Functions follow a two-stage lifecycle that you can use to develop and test functions before deploying them to production. This workflow makes sure that your Connection Functions work correctly before they affect live traffic.
 
 **Topics**
 + [Function stages](#connection-function-stages)
@@ -50,7 +50,7 @@ Connection functions differ from viewer request and viewer response functions in
 + Connection functions have access to TLS certificate information instead of HTTP request/response data
 + Connection functions can only allow or deny the connection, not modify HTTP data
 + Connection functions are only invoked for new TLS connections, not for connection reuse
-+ TLS session resumption is not supported with mTLS to ensure certificate validation occurs on every connection
++ TLS session resumption is not supported with mTLS to make sure certificate validation occurs on every connection
 + Connection functions run in addition to standard viewer request and viewer response functions
 + You associate Connection Functions at the distribution level, instead of at the cache behavior level.
 + Connection functions only support JavaScript runtime 2.0.

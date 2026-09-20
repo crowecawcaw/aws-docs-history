@@ -15,4 +15,4 @@ Use the CloudFront console to test your Connection Function with sample certific
 
 1. Review the execution logs to verify your function logic
 
-Test with both valid and revoked certificates to ensure your function handles both scenarios correctly. The execution logs show console.log output and any errors that occur during function execution.
+Test with both valid and revoked certificates to make sure your function handles both scenarios correctly. The execution logs show console.log output and any errors that occur during function execution.

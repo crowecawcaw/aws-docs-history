@@ -8,12 +8,12 @@
 ## Certificate Authority support
 <a name="origin-ca-support"></a>
 
-CloudFront origin mTLS requires client certificates with Extended Key Usage (EKU) for TLS Client Authentication. Due to this requirement, you must issue certificates from your Certificate Authority and import them into AWS Certificate Manager. ACM's automatic certificate provisioning and renewal features are not available for origin mTLS client certificates. CloudFront origin mTLS supports client certificates from two sources:
+CloudFront origin mTLS requires client certificates with Extended Key Usage (EKU) for TLS Client Authentication. Due to this requirement, you must issue certificates from your Certificate Authority and import them into AWS Certificate Manager. ACM automatic certificate provisioning and renewal features are not available for origin mTLS client certificates. CloudFront origin mTLS supports client certificates from two sources:
 + **AWS Private Certificate Authority:** You can issue certificates from AWS Private CA using certificate templates that include TLS Client Authentication in the Extended Key Usage field (such as the EndEntityClientAuthCertificate template). After issuing the certificate from AWS Private CA, you must import it into ACM in the US East (N. Virginia) Region (us-east-1). This approach provides the security benefits of AWS Private CA while giving you control over certificate lifecycle management.
-+ **Third-party private Certificate Authorities:** You can also issue certificates from your existing private Certificate Authority infrastructure and import them into ACM. This allows you to maintain your current certificate management processes while leveraging CloudFront's origin mTLS capabilities. Certificates must include TLS Client Authentication in the Extended Key Usage field and must be in PEM format with the certificate, private key, and certificate chain.
++ **Third-party private Certificate Authorities:** You can also issue certificates from your existing private Certificate Authority infrastructure and import them into ACM. This allows you to maintain your current certificate management processes while leveraging CloudFront origin mTLS capabilities. Certificates must include TLS Client Authentication in the Extended Key Usage field and must be in PEM format with the certificate, private key, and certificate chain.
 
 **Important**  
-For both AWS Private CA and third-party CAs, you are responsible for monitoring certificate expiration dates and importing renewed certificates into ACM before expiration. ACM's automatic renewal feature does not apply to imported certificates used for origin mTLS.
+For both AWS Private CA and third-party CAs, you are responsible for monitoring certificate expiration dates and importing renewed certificates into ACM before expiration. ACM automatic renewal feature does not apply to imported certificates used for origin mTLS.
 
 ## Certificate requirements and specifications
 <a name="origin-certificate-requirements"></a>
@@ -39,7 +39,7 @@ For both AWS Private CA and third-party CAs, you are responsible for monitoring 
   + SHA256, SHA384, SHA512 with RSA
   + SHA256, SHA384, SHA512 with ECDSA
   + SHA256, SHA384, SHA512 with RSASSA-PSS with MGF1
-+ **Extended Key Usage (required):** The certificate requires the Extended Key Usage (EKU) extension set to TLS Client Authentication, ensuring it is authorized for mTLS purposes
++ **Extended Key Usage (required):** The certificate requires the Extended Key Usage (EKU) extension set to TLS Client Authentication, making sure it is authorized for mTLS purposes
 
 ### Server certificate requirements
 <a name="origin-server-certificate-requirements"></a>
@@ -70,7 +70,7 @@ Prerequisites:
    PCA_ARN="arn:aws:acm-pca:region:account:certificate-authority/12345678..."
    ```
 
-1. Use OpenSSL to generate an ECDSA P-256 private key (prime256v1 curve) and Certificate Signing Request (CSR), ensuring the -nodes flag is used to keep the private key unencrypted as required for ACM import.
+1. Use OpenSSL to generate an ECDSA P-256 private key (prime256v1 curve) and Certificate Signing Request (CSR), making sure the -nodes flag is used to keep the private key unencrypted as required for ACM import.
 
    ```
    openssl req -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -nodes \

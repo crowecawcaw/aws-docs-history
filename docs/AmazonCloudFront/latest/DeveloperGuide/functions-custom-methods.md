@@ -30,7 +30,7 @@ Use this method to return the key value for the key name that you specify.
 get("{{key}}", {{options}});
 ```
 + `key`: The name of the key whose value needs to be fetched
-+ `options`: There is one option, `format`. It ensures that the function parses the data correctly. Possible values:
++ `options`: There is one option, `format`. It makes sure that the function parses the data correctly. Possible values:
   + `string`: (Default) UTF8 encoded
   + `json` 
   + `bytes`: Raw binary data buffer

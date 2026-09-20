@@ -14,7 +14,7 @@ This topic explains how to use the CloudFront console to create a distribution.<
 
 1. Upload your content to your origin servers. You make your objects publicly readable, or you can use CloudFront signed URLs to restrict access to your content. 
 **Important**  
-You are responsible for ensuring the security of your origin server. You must ensure that CloudFront has permission to access the server and that the security settings safeguard your content.
+You are responsible for making sure the security of your origin server. You must make sure that CloudFront has permission to access the server and that the security settings safeguard your content.
 
 1. Create your CloudFront distribution:
    + For a detailed procedure that creates a distribution in the CloudFront console, see [Create a CloudFront distribution in the console](#create-console-distribution).

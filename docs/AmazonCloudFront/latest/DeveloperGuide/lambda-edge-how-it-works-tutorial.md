@@ -113,7 +113,7 @@ Now that you have a Lambda function to update security headers, configure the Cl
 1. In the **Deploy to Lambda@Edge** pane, under **Configure CloudFront trigger**, enter the following information:
    + **Distribution** – The CloudFront distribution ID to associate with your function. In the dropdown list, choose the distribution ID.
    + **Cache behavior** – The cache behavior to use with the trigger. For this example, leave the value set to **\***, which means your distribution's default cache behavior. For more information, see [Cache behavior settings](DownloadDistValuesCacheBehavior.md) in the [All distribution settings reference](distribution-web-values-specify.md) topic.
-   + **CloudFront event** – The trigger that specifies when your function runs. We want the security headers function to run whenever CloudFront returns a response from the origin. In the dropdown list, choose **Origin response**. For more information, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md).
+   + **CloudFront event** – The trigger that specifies when your function runs. The security headers function should run whenever CloudFront returns a response from the origin. In the dropdown list, choose **Origin response**. For more information, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md).
 
 1. Select the **Confirm deploy to Lambda@Edge** check box.
 
@@ -126,7 +126,7 @@ Now that you have a Lambda function to update security headers, configure the Cl
 ## Step 5: Verify that the function runs
 <a name="lambda-edge-how-it-works-tutorial-verify"></a>
 
-Now that you've created your Lambda function and configured a trigger to run it for a CloudFront distribution, check to make sure that the function is accomplishing what you expect it to. In this example, we check the HTTP headers that CloudFront returns, to make sure that the security headers are added.<a name="lambda-edge-how-it-works-tutorial-verify-proc"></a>
+Now that you've created your Lambda function and configured a trigger to run it for a CloudFront distribution, check to make sure that the function is accomplishing what you expect it to. In this example, you check the HTTP headers that CloudFront returns, to make sure that the security headers are added.<a name="lambda-edge-how-it-works-tutorial-verify-proc"></a>
 
 **To verify that your Lambda@Edge function adds security headers**
 
@@ -134,7 +134,7 @@ Now that you've created your Lambda function and configured a trigger to run it 
 
    For more information about the CloudFront domain name to use in the file URL, see [Customize the URL format for files in CloudFront](LinkFormat.md).
 
-1. Open your browser's Web Developer toolbar. For example, in your browser window in Chrome, open the context (right-click) menu, and then choose **Inspect**.
+1. Open your browser's Web Developer toolbar. For example, in your browser window in Chrome, open the context menu, and then choose **Inspect**.
 
 1. Choose the **Network** tab.
 

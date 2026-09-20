@@ -35,9 +35,22 @@ This is a Boolean setting (`true` or `false`) that determines if CloudFront adds
 **Access-Control-Allow-Headers**  
 Specifies the header names that CloudFront uses as values for the `Access-Control-Allow-Headers` header in responses to CORS preflight requests. Valid values for this setting include HTTP header names or the wildcard character (`*`), which indicates that all headers are allowed.   
 The `Authorization` header can't use a wildcard and must be listed explicitly.
-    
-**Examples of valid use of the wildcard character**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html)
+  
+
+
+**Examples of valid use of the wildcard character**  
+
+<table>
+<thead>
+  <tr><th>Example</th><th>Will match</th><th>Will not match</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>x-amz-*</code></td><td><code>x-amz-test</code><br /><code>x-amz-</code></td><td><code>x-amz</code></td></tr>
+  <tr><td><code>x-*-amz</code></td><td><code>x-test-amz</code><br /><code>x--amz</code></td><td></td></tr>
+  <tr><td><code>*</code></td><td>All headers except <code>Authorization</code></td><td><code>Authorization</code></td></tr>
+</tbody>
+</table>
+
 
 **Access-Control-Allow-Methods**  
 Specifies the HTTP methods that CloudFront uses as values for the `Access-Control-Allow-Methods` header in responses to CORS preflight requests. Valid values are `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`, and `ALL`. `ALL` is a special value that includes all of the listed HTTP methods.
@@ -50,8 +63,24 @@ Specifies the values that CloudFront can use in the `Access-Control-Allow-Origin
   + Top-level domains (`example.*`)
   + To the right of subdomains (`test.*.example.org`) or within any subdomains (`*test.example.org`)
   + Inside of terms (`exa*mple.org)`
-For examples of ways to use the wildcard character, see the following table.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html)
+For examples of ways to use the wildcard character, see the following table.  
+
+
+<table>
+<thead>
+  <tr><th>Example</th><th>Will match</th><th>Will not match</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>http://*.example.org</code></td><td><code>http://www.example.org</code><br /><code>http://test.example.org</code></td><td><code>https://test.example.org</code><br /><code>https://test.example.org:123</code><br /><code>http://test.example.org:123</code></td></tr>
+  <tr><td><code>*.example.org</code></td><td><code>test.example.org</code><br /><code>test.test.example.org</code><br /><code>.example.org</code><br /><code>http://test.example.org</code><br /><code>https://test.example.org</code></td><td><code>http://test.example.org:123</code><br /><code>https://test.example.org:123</code></td></tr>
+  <tr><td><code>example.org</code></td><td><code>http://example.org</code><br /><code>https://example.org</code></td><td></td></tr>
+  <tr><td><code>http://example.org</code></td><td></td><td><code>https://example.org</code><br /><code>http://example.org:123</code></td></tr>
+  <tr><td><code>http://example.org:*</code></td><td><code>http://example.org:123</code><br /><code>http://example.org</code></td><td></td></tr>
+  <tr><td><code>http://example.org:1*3</code></td><td><code>http://example.org:123</code><br /><code>http://example.org:1893</code><br /><code>http://example.org:13</code></td><td></td></tr>
+  <tr><td><code>*.example.org:1*</code></td><td><code>test.example.org:123</code></td><td></td></tr>
+</tbody>
+</table>
+
 
 **Access-Control-Expose-Headers**  
 Specifies the header names that CloudFront uses as values for the `Access-Control-Expose-Headers` header in responses to CORS requests. Valid values for this setting include HTTP header names or the wildcard character (`*`).
@@ -121,9 +150,9 @@ Each custom header also has its own **Origin override** setting:
 ## Remove headers
 <a name="understanding-response-headers-policies-remove-headers"></a>
 
-You can specify headers that you want CloudFront to remove from the responses it receives from the origin so the headers are not included in the responses that CloudFront sends to viewers. CloudFront removes the headers from every response it sends to viewers, whether the objects is served from CloudFront's cache or from the origin. For example, you can remove headers that are of no use to browsers, such as `X-Powered-By` or `Vary`, so that CloudFront removes these headers from the responses that it sends to viewers.
+You can specify headers that you want CloudFront to remove from the responses it receives from the origin so the headers are not included in the responses that CloudFront sends to viewers. CloudFront removes the headers from every response it sends to viewers, whether the objects is served from CloudFront cache or from the origin. For example, you can remove headers that are of no use to browsers, such as `X-Powered-By` or `Vary`, so that CloudFront removes these headers from the responses that it sends to viewers.
 
-When you specify headers to remove using a response headers policy, CloudFront removes the headers first and then adds any headers that are specified in other sections of the response headers policy (CORS headers, security headers, custom headers, etc.). If you specify a header to remove but also add the same header in another section of the policy, CloudFront includes the header in the responses that it sends to viewers.
+When you specify headers to remove using a response headers policy, CloudFront removes the headers first and then adds any headers that are specified in other sections of the response headers policy (CORS headers, security headers, custom headers, and so on). If you specify a header to remove but also add the same header in another section of the policy, CloudFront includes the header in the responses that it sends to viewers.
 
 **Note**  
 You can use a response headers policy to remove the `Server` and `Date` headers that CloudFront received from the origin, so that these headers (as received from the origin) are not included in the responses that CloudFront sends to viewers. However, if you do that, CloudFront adds its own version of these headers to responses that it sends to viewers. For the `Server` header that CloudFront adds, the header's value is `CloudFront`.
@@ -256,13 +285,13 @@ This `Server-Timing` header indicates the following:
 + CloudFront used a cached DNS result for the origin (`cdn-upstream-dns;dur=0`).
 + It took 114 milliseconds for CloudFront to complete the TCP (and TLS, if applicable) connection to the origin (`cdn-upstream-connect;dur=114`).
 + It took 177 milliseconds for CloudFront to receive the first byte of the response from the origin, after completing the request (`cdn-upstream-fbl;dur=177`).
-+ The requested object wasn't in CloudFront's cache (`cdn-cache-miss`).
++ The requested object wasn't in CloudFront cache (`cdn-cache-miss`).
 + The request was received at the edge location identified by the code `PHX50-C2` (`cdn-pop;desc="PHX50-C2"`).
 + The CloudFront unique ID for this request was `yNPsyYn7skvTzwWkq3Wcc8Nj_foxUjQUe9H1ifslzWhb0w7aLbFvGg==` (`cdn-rid;desc="yNPsyYn7skvTzwWkq3Wcc8Nj_foxUjQUe9H1ifslzWhb0w7aLbFvGg=="`).
 + It took 436 milliseconds for CloudFront to send the first byte of the response to the viewer, after receiving the viewer request (`cdn-downstream-fbl;dur=436`).
 
 **Example – cache hit**  
-The following example shows a `Server-Timing` header that a viewer might receive when the requested object is in CloudFront's cache.  
+The following example shows a `Server-Timing` header that a viewer might receive when the requested object is in CloudFront cache.  
 
 ```
 Server-Timing: cdn-cache-hit,cdn-pop;desc="SEA19-C1",cdn-rid;desc="nQBz4aJU2kP9iC3KHEq7vFxfMozu-VYBwGzkW9diOpeVc7xsrLKj-g==",cdn-hit-layer;desc="REC",cdn-downstream-fbl;dur=137

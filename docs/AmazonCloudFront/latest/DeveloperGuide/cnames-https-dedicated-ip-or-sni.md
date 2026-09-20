@@ -62,7 +62,7 @@ This method works for every HTTPS request, regardless of the browser or other vi
 
 **Note**  
 Dedicated IPs are not static IPs and can change over time. The IP address that is returned for the edge location is allocated dynamically from the IP address ranges of the [CloudFront edge servers list](LocationsOfEdgeServers.md).  
-The IP address ranges for CloudFront edge servers are subject to change. To be notified of IP address changes, [subscribe to AWS Public IP Address Changes via Amazon SNS](https://aws.amazon.com/blogs/aws/subscribe-to-aws-public-ip-address-changes-via-amazon-sns/).
+The IP address ranges for CloudFront edge servers are subject to change. To be notified of IP address changes, [subscribe to AWS Public IP Address Changes by using Amazon SNS](https://aws.amazon.com/blogs/aws/subscribe-to-aws-public-ip-address-changes-via-amazon-sns/).
 
 ## Request permission to use three or more dedicated IP SSL/TLS certificates
 <a name="cnames-and-https-multiple-certificates"></a>
@@ -77,6 +77,6 @@ You can only associate a single SSL/TLS certificate to a CloudFront distribution
 
 1. Go to the [Support Center](https://console.aws.amazon.com/support/home?#/case/create?issueType=service-limit-increase&limitType=service-code-cloudfront-distributions) and create a case.
 
-1. Indicate how many certificates you need permission to use, and describe the circumstances in your request. We'll update your account as soon as possible.
+1. Indicate how many certificates you need permission to use, and describe the circumstances in your request. Your account will be updated as soon as possible.
 
 1. Continue with the next procedure.

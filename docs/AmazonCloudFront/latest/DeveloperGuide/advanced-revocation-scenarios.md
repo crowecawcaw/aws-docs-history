@@ -68,12 +68,12 @@ async function connectionHandler(connection) {
 ```
 
 **Note**  
-Using issuer identifier \+ serial number creates longer keys, which may reduce the total number of entries you can store in the KeyValueStore.
+Using issuer identifier \+ serial number creates longer keys, which might reduce the total number of entries you can store in the KeyValueStore.
 
 ## Add custom data to connection logs
 <a name="add-custom-data-logs"></a>
 
-Connection functions can add custom data to CloudFront connection logs using the logCustomData method. This lets you include revocation check results, certificate information, or other relevant data in your logs.
+Connection functions can add custom data to CloudFront connection logs using the logCustomData method. With this, you can include revocation check results, certificate information, or other relevant data in your logs.
 
 ```
 async function connectionHandler(connection) {

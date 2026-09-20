@@ -5,6 +5,8 @@
 
 E-commerce and marketplace applications handle sensitive data — customer sessions, payment flows, and premium content. This checklist covers the security controls specific to a CloudFront distribution with an ElastiCache (Valkey) caching layer. Apply these controls in addition to the general CloudFront security best practices described in [Configure secure access and restrict access to content](SecurityAndPrivateContent.md).
 
+This checklist complements the configuration guidance in [CloudFront for e-commerce and marketplace applications](ecommerce-marketplace-distribution.md).
+
 ## Signed URLs and cookies for premium content
 <a name="ecommerce-sec-signed-urls"></a>
 

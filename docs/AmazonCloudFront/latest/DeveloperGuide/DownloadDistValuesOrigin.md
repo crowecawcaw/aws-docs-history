@@ -3,7 +3,7 @@
 # Origin settings
 <a name="DownloadDistValuesOrigin"></a>
 
-When you use the CloudFront console to create or update a distribution, you provide information about one or more locations, known as *origins*, where you store the original versions of your web content. CloudFront gets your web content from your origins and serves it to viewers via a worldwide network of edge servers.
+When you use the CloudFront console to create or update a distribution, you provide information about one or more locations, known as *origins*, where you store the original versions of your web content. CloudFront gets your web content from your origins and serves it to viewers by using a worldwide network of edge servers.
 
 For the current maximum number of origins that you can create for a distribution, or to request a higher quota, see [General quotas on distributions](cloudfront-limits.md#limits-web-distributions).
 
@@ -137,7 +137,7 @@ When a user enters `example.com/acme/index.html` in a browser, CloudFront sends 
 ## Name
 <a name="DownloadDistValuesId"></a>
 
-A name is a string that uniquely identifies this origin in this distribution. If you create cache behaviors in addition to the default cache behavior, you use the name that you specify here to identify the origin that you want CloudFront to route a request to when the request matches the path pattern for that cache behavior.
+A name is a string that uniquely identifies this origin in this distribution. You might create cache behaviors in addition to the default cache behavior. In this case, you use the name that you specify here to identify the origin that you want CloudFront to route a request to when the request matches the path pattern for that cache behavior.
 
 ## Origin access (Amazon S3 origins only)
 <a name="DownloadDistValuesOAIRestrictBucketAccess"></a>
@@ -212,7 +212,7 @@ Response completion timeout doesn't support the [continuous deployment](continuo
 
 The time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. If the complete response isn't received from the origin by this time, CloudFront ends the connection.
 
-Unlike **Response timeout**, which is the wait time for *individual* response packets, **Response completion timeout** is the *maximum* allowed amount of time that CloudFront waits for the response to complete. You can use this setting to ensure that CloudFront doesn't wait indefinitely for a slow or unresponsive origin, even if other timeout settings allow for a longer wait.
+Unlike **Response timeout**, which is the wait time for *individual* response packets, **Response completion timeout** is the *maximum* allowed amount of time that CloudFront waits for the response to complete. You can use this setting to make sure that CloudFront doesn't wait indefinitely for a slow or unresponsive origin, even if other timeout settings allow for a longer wait.
 
 This maximum timeout includes what you specified for other timeout settings and the number of **Connection attempts** for each retry. You can use these settings together to specify how long CloudFront waits for the full request and when to end the request, regardless if it's complete or not.
 

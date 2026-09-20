@@ -5,6 +5,8 @@
 
 An e-commerce or marketplace application serves three distinct content types through a single CloudFront distribution: static assets (product images, CSS, JavaScript), dynamic pages (product listings, search results), and API responses (cart, inventory, pricing). Each content type requires different cache behavior, TTL, and origin configuration to balance freshness against performance.
 
+For the security controls that apply to marketplace and e-commerce distributions, see [Security checklist for marketplace distributions](ecommerce-security-checklist.md).
+
 ## Architecture overview
 <a name="ecommerce-architecture-overview"></a>
 
@@ -15,7 +17,7 @@ A marketplace CloudFront distribution uses multiple cache behaviors to route req
 
 | Component | Content served | Purpose | 
 | --- | --- | --- | 
-| CloudFront distribution | All content (single domain) | Global edge caching, TLS termination, request routing via cache behaviors | 
+| CloudFront distribution | All content (single domain) | Global edge caching, TLS termination, request routing by using cache behaviors | 
 | Amazon S3 origin (static assets) | Product images, CSS, JS, fonts | Durable object storage with origin access control (OAC). Immutable content with long TTLs. | 
 | ALB origin (dynamic content) | Product pages, search, API endpoints | Routes to application servers. Short TTLs or no caching for personalized content. | 
 | ElastiCache cluster (Valkey) | Product catalog, inventory counts, session data | Application-level cache between ALB and database. Sub-millisecond reads for frequently accessed data. | 
@@ -38,7 +40,7 @@ Cache behaviors determine how CloudFront handles requests based on URL path patt
 | `Default (*)` | ALB | 0 (no cache) | CachingDisabled | Default behavior forwards uncached requests to the application for server-side rendering. Pages that include personalized content (recommendations, user name) should not be cached at the edge. | 
 
 **Note**  
-Order cache behaviors from most specific to least specific. CloudFront evaluates path patterns in the order listed and uses the first match. Place `/api/cart/*` before `/api/*` to ensure cart requests bypass caching.
+Order cache behaviors from most specific to least specific. CloudFront evaluates path patterns in the order listed and uses the first match. Place `/api/cart/*` before `/api/*` to make sure cart requests bypass caching.
 
 For more information about cache behaviors, see [Cache behavior settings](DownloadDistValuesCacheBehavior.md).
 
@@ -83,7 +85,7 @@ Use an Amazon S3 bucket as the origin for product images and static assets. Conf
 ### ALB origin for dynamic content
 <a name="ecommerce-alb-origin"></a>
 
-Use an Application Load Balancer as the origin for dynamic product pages, search, and API endpoints. The ALB routes to your application servers (Amazon EC2 instances, Amazon ECS tasks, or Lambda functions via target groups).
+Use an Application Load Balancer as the origin for dynamic product pages, search, and API endpoints. The ALB routes to your application servers (Amazon EC2 instances, Amazon ECS tasks, or Lambda functions by using target groups).
 
 
 **ALB origin settings**  
@@ -138,7 +140,7 @@ The following sections answer common questions about caching strategies for e-co
 ### How do I handle personalized content with caching?
 <a name="ecommerce-faq-personalization"></a>
 
-Separate personalized elements from cacheable content. Serve the page shell (product details, images, descriptions) from CloudFront cache, and load personalized elements (recommendations, cart count, user name) via client-side API calls that bypass caching. With this approach, you can cache the expensive page rendering and keep personalization current.
+Separate personalized elements from cacheable content. Serve the page shell (product details, images, descriptions) from CloudFront cache, and load personalized elements (recommendations, cart count, user name) by using client-side API calls that bypass caching. With this approach, you can cache the expensive page rendering and keep personalization current.
 
 ### How do I choose between invalidation and short TTLs?
 <a name="ecommerce-faq-invalidation"></a>
@@ -148,7 +150,7 @@ Use short TTLs (5–60 seconds) for content that changes frequently and predicta
 ### How do I prepare for flash sales and traffic spikes?
 <a name="ecommerce-faq-flash-sale"></a>
 
-CloudFront scales automatically to handle traffic spikes. To maximize cache hit ratio during a sale: pre-warm product pages by requesting them before the event starts, increase API TTLs temporarily (for example, increase inventory TTL from 5s to 15s) to absorb more traffic at the edge, and ensure your ElastiCache cluster has enough memory headroom for increased cache writes. Monitor the CloudFront cache hit ratio metric during the event.
+CloudFront scales automatically to handle traffic spikes. To maximize cache hit ratio during a sale: pre-warm product pages by requesting them before the event starts, increase API TTLs temporarily (for example, increase inventory TTL from 5s to 15s) to absorb more traffic at the edge, and make sure your ElastiCache cluster has enough memory headroom for increased cache writes. Monitor the CloudFront cache hit ratio metric during the event.
 
 ### Should I use Origin Shield for my marketplace?
 <a name="ecommerce-faq-multi-region"></a>

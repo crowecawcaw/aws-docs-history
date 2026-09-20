@@ -3,7 +3,7 @@
 # Manage how long content stays in the cache (expiration)
 <a name="Expiration"></a>
 
-You can control how long your files stay in a CloudFront cache before CloudFront forwards another request to your origin. Reducing the duration allows you to serve dynamic content. Increasing the duration means that your users get better performance because your files are more likely to be served directly from the edge cache. A longer duration also reduces the load on your origin.
+You can control how long your files stay in a CloudFront cache before CloudFront forwards another request to your origin. By reducing the duration, you can serve dynamic content. Increasing the duration means that your users get better performance because your files are more likely to be served directly from the edge cache. A longer duration also reduces the load on your origin.
 
 Typically, CloudFront serves a file from an edge location until the cache duration that you specified passes—that is, until the file expires. After it expires, the next time the edge location gets a request for the file, CloudFront forwards the request to the origin to verify that the cache contains the latest version of the file. The response from the origin depends on whether the file has changed:
 + If the CloudFront cache already has the latest version, the origin returns a status code `304 Not Modified`.
@@ -29,7 +29,7 @@ You can also control how long errors (for example, `404 Not Found`) stay in a Cl
 <a name="expiration-individual-objects"></a>
 
 You can use the `Cache-Control` and `Expires` headers to control how long objects stay in the cache. Settings for **Minimum TTL**, **Default TTL**, and **Maximum TTL ** also affect cache duration, but here's an overview of how headers can affect cache duration: 
-+ The `Cache-Control max-age` directive lets you specify how long (in seconds) that you want an object to remain in the cache before CloudFront gets the object again from the origin server. The minimum expiration time CloudFront supports is 0 seconds. The maximum value is 100 years. Specify the value in the following format:
++ With the `Cache-Control max-age` directive, you can specify how long (in seconds) that you want an object to remain in the cache before CloudFront gets the object again from the origin server. The minimum expiration time CloudFront supports is 0 seconds. The maximum value is 100 years. Specify the value in the following format:
 
   `Cache-Control: max-age=`{{seconds}}
 
@@ -38,7 +38,7 @@ You can use the `Cache-Control` and `Expires` headers to control how long object
   `Cache-Control: max-age=3600`
 
   If you want objects to stay in CloudFront edge caches for a different duration than they stay in browser caches, you can use the `Cache-Control max-age` and `Cache-Control s-maxage` directives together. For more information, see [Specify the amount of time that CloudFront caches objects](#ExpirationDownloadDist).
-+ The `Expires` header field lets you specify an expiration date and time using the format specified in [RFC 2616, Hypertext Transfer Protocol -- HTTP/1.1 Section 3.3.1, Full Date](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1), for example:
++ With the `Expires` header field, you can specify an expiration date and time using the format specified in [RFC 2616, Hypertext Transfer Protocol -- HTTP/1.1 Section 3.3.1, Full Date](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1), for example:
 
   `Sat, 27 Jun 2015 23:59:59 GMT`
 
@@ -86,7 +86,7 @@ CloudFront will serve the stale content up to the value of the `stale-while-reva
 ### `Stale-If-Error`
 <a name="stale-if-error-only"></a>
 
-This directive allows CloudFront to serve stale content from the cache if the origin is unreachable or returns an error code that is between 500 and 600. This ensures that viewers can access content even during an origin outage.
+This directive allows CloudFront to serve stale content from the cache if the origin is unreachable or returns an error code that is between 500 and 600. This makes sure that viewers can access content even during an origin outage.
 
 **Example: `Stale-If-Error`**  
 CloudFront does the following when you set the `Cache-Control` header to use these directives.   

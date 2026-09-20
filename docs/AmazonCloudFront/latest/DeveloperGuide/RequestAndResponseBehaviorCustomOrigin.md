@@ -85,7 +85,7 @@ Some applications, such as load balancers (including Elastic Load Balancing), we
 **Note**  
 The `X-Forwarded-For` header contains IPv4 addresses (such as 192.0.2.44) and IPv6 addresses (such as 2001:0db8:85a3::8a2e:0370:7334).  
 When parsing IPv6 addresses in the `X-Forwarded-For` header, use standard IP address parsing libraries that can handle any valid RFC 4291 IPv6 format.  
-Also note that the `X-Forwarded-For` header may be modified by every node on the path to the current server (CloudFront). For more information, see section 8.1 in [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). You can also modify the header using CloudFront edge compute functions.
+Also note that the `X-Forwarded-For` header might be modified by every node on the path to the current server (CloudFront). For more information, see section 8.1 in [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). You can also modify the header using CloudFront edge compute functions.
 
 ### Client-side SSL authentication
 <a name="RequestCustomClientSideSslAuth"></a>
@@ -361,7 +361,7 @@ Your origin cannot send more than one 100-Continue response to CloudFront. After
 
 ### Caching
 <a name="ResponseCustomCaching"></a>
-+ Ensure that the origin server sets valid and accurate values for the `Date` and `Last-Modified` header fields.
++ Make sure that the origin server sets valid and accurate values for the `Date` and `Last-Modified` header fields.
 + CloudFront normally respects a `Cache-Control: no-cache` header in the response from the origin. For an exception, see [Simultaneous requests for the same object (request collapsing)](#request-custom-traffic-spikes).
 
 ### Canceled requests
@@ -387,7 +387,7 @@ If you enable cookies for a cache behavior, and if the origin returns cookies wi
 If the TCP connection between CloudFront and your origin drops while your origin is returning an object to CloudFront, CloudFront behavior depends on whether your origin included a `Content-Length` header in the response:
 + **Content-Length header** – CloudFront returns the object to the viewer as it gets the object from your origin. However, if the value of the `Content-Length` header doesn't match the size of the object, CloudFront doesn't cache the object.
 + **Transfer-Encoding: Chunked** – CloudFront returns the object to the viewer as it gets the object from your origin. However, if the chunked response is not complete, CloudFront does not cache the object.
-+ **No Content-Length header** – CloudFront returns the object to the viewer and caches it, but the object may not be complete. Without a `Content-Length` header, CloudFront cannot determine whether the TCP connection was dropped accidentally or on purpose.
++ **No Content-Length header** – CloudFront returns the object to the viewer and caches it, but the object might not be complete. Without a `Content-Length` header, CloudFront cannot determine whether the TCP connection was dropped accidentally or on purpose.
 
 We recommend that you configure your HTTP server to add a `Content-Length` header to prevent CloudFront from caching partial objects.
 

@@ -153,7 +153,7 @@ Owners and consumers can identify shared VPC origins using the CloudFront consol
 When you unshare a resource, the AWS accounts (consuming accounts) can no longer use that resource for new distributions or update existing distributions.
 
 **Note**  
-If you unshare a resource, existing distributions that are still using that resource remain active and will continue to serve traffic. However, these distributions can't be edited until the unshared resource is removed as the origin. We recommend that you ensure that any consuming accounts stop using the unshared resource before you unshare it.
+If you unshare a resource, existing distributions that are still using that resource remain active and will continue to serve traffic. However, these distributions can't be edited until the unshared resource is removed as the origin. We recommend that you make sure that any consuming accounts stop using the unshared resource before you unshare it.
 
 To unshare a shared VPC origin that you own, you must remove it from the resource share. You can do this using the CloudFront console, AWS RAM console, or the AWS CLI.
 
@@ -179,7 +179,7 @@ Use the [disassociate-resource-share](https://docs.aws.amazon.com/cli/latest/ref
 ### Permissions for owners
 <a name="perms-owner"></a>
 
-As the resource-owning account, ensure that any consuming accounts stop using the resource before you unshare or delete it.
+As the resource-owning account, make sure that any consuming accounts stop using the resource before you unshare or delete it.
 
 ### Permissions for consumers
 <a name="perms-consumer"></a>

@@ -211,7 +211,7 @@ Optional. When you create a distribution, you can include a comment of up to 128
 ## Distribution state
 <a name="DownloadDistValuesEnabled"></a>
 
-Indicates whether you want the distribution to be enabled or disabled once it's deployed:
+Indicates whether you want the distribution to be enabled or disabled after it's deployed:
 + *Enabled* means that as soon as the distribution is fully deployed you can deploy links that use the distribution's domain name and users can retrieve content. Whenever a distribution is enabled, CloudFront accepts and handles any end-user requests for content that use the domain name associated with that distribution. 
 
   When you create, modify, or delete a CloudFront distribution, it takes time for your changes to propagate to the CloudFront database. An immediate request for information about a distribution might not show the change. Propagation usually completes within minutes, but a high system load or network partition might increase this time. 

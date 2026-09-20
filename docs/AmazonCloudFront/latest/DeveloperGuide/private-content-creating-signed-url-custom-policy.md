@@ -96,8 +96,21 @@ For example policy statements that control access to files in a variety of ways,
 
 1. Base64-encode the policy statement using MIME base64 encoding. For more information, see [Section 6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8) in *RFC 2045, MIME (Multipurpose Internet Mail Extensions) Part One: Format of Internet Message Bodies*.
 
-1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html)
+1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.
+
+
+
+<table>
+<thead>
+  <tr><th>Replace these invalid characters</th><th>With these valid characters</th></tr>
+</thead>
+<tbody>
+  <tr><td>+</td><td>- (hyphen)</td></tr>
+  <tr><td>=</td><td>_ (underscore)</td></tr>
+  <tr><td>/</td><td>~ (tilde)</td></tr>
+</tbody>
+</table>
+
 
 1. Append the resulting value to your signed URL after `Policy=`.
 
@@ -206,7 +219,7 @@ The following example custom policy in a signed URL specifies that a user can ac
 ### Example policy statement: Access all files in a directory from a range of IP addresses
 <a name="private-content-custom-policy-statement-example-all-objects"></a>
 
-The following example custom policy allows you to create signed URLs for any file in the `training` directory, as indicated by the asterisk wildcard character (`*`) in the `Resource` parameter. Users can access the file from an IP address in the range `192.0.2.0/24` until January 31, 2023 10:00 AM UTC:
+With the following example custom policy, you can create signed URLs for any file in the `training` directory, as indicated by the asterisk wildcard character (`*`) in the `Resource` parameter. Users can access the file from an IP address in the range `192.0.2.0/24` until January 31, 2023 10:00 AM UTC:
 
 ```
 {
@@ -233,7 +246,7 @@ Each signed URL with which you use this policy has a URL that identifies a speci
 ### Example policy statement: Access all files associated with a key pair ID from one IP address
 <a name="private-content-custom-policy-statement-example-one-ip"></a>
 
-The following example custom policy allows you to create signed URLs for any file associated with any distribution, as indicated by the asterisk wildcard character (`*`) in the `Resource` parameter. The signed URL must use the `https://` protocol, not `http://`. The user must use the IP address `192.0.2.10/32`. (The value `192.0.2.10/32` in CIDR notation refers to a single IP address, `192.0.2.10`.) The files are available only from January 31, 2023 10:00 AM UTC until February 2, 2023 10:00 AM UTC:
+With the following example custom policy, you can create signed URLs for any file associated with any distribution, as indicated by the asterisk wildcard character (`*`) in the `Resource` parameter. The signed URL must use the `https://` protocol, not `http://`. The user must use the IP address `192.0.2.10/32`. (The value `192.0.2.10/32` in CIDR notation refers to a single IP address, `192.0.2.10`.) The files are available only from January 31, 2023 10:00 AM UTC until February 2, 2023 10:00 AM UTC:
 
 ```
 {
@@ -288,7 +301,20 @@ The method that you use to hash and sign the policy statement depends on your pr
 
 1. Base64-encode the string using MIME base64 encoding. For more information, see [Section 6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8) in *RFC 2045, MIME (Multipurpose Internet Mail Extensions) Part One: Format of Internet Message Bodies*.
 
-1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html)
+1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.
+
+
+
+<table>
+<thead>
+  <tr><th>Replace these invalid characters</th><th>With these valid characters</th></tr>
+</thead>
+<tbody>
+  <tr><td>+</td><td>- (hyphen)</td></tr>
+  <tr><td>=</td><td>_ (underscore)</td></tr>
+  <tr><td>/</td><td>~ (tilde)</td></tr>
+</tbody>
+</table>
+
 
 1. Append the resulting value to your signed URL after `&Signature=`, and return to [To create a signed URL using a custom policy](#private-content-creating-signed-url-custom-policy-procedure) to finish concatenating the parts of your signed URL.

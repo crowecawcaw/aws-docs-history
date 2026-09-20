@@ -53,7 +53,7 @@ Configure your distribution to require CloudFront to use the same protocol as vi
 
 After you've made these changes, update your application on your custom origin to only accept requests that include the custom headers that you’ve configured CloudFront to send.
 
-The combination of **Viewer Protocol Policy** and **Origin Protocol Policy** ensure that the custom headers are encrypted in transit. However, we recommend that you periodically do the following to rotate the custom headers that CloudFront forwards to your origin:
+The combination of **Viewer Protocol Policy** and **Origin Protocol Policy** make sure that the custom headers are encrypted in transit. However, we recommend that you periodically do the following to rotate the custom headers that CloudFront forwards to your origin:
 
 1. Update your CloudFront distribution to begin forwarding a new header to your custom origin.
 

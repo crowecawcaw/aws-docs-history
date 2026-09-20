@@ -39,7 +39,7 @@ To change the multi-tenant distribution for a distribution tenant, you update th
 
 1. Search for the distribution tenant. Use the dropdown menu in the search bar to filter by domain, name, distribution ID, certificate ID, connection group ID, or web ACL ID.
 
-1. Choose the distribution tenant's name.
+1. Choose the distribution tenant name.
 
 1. To update general **Details**, choose **Edit**, make the updates, and choose **Update distribution tenant**.
 

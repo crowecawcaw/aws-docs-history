@@ -213,7 +213,7 @@ This code assumes that you configured the OAC with the default signing behavior 
 
 This configuration allows the OAC to manage SigV4 authorization correctly with Lambda by using the Lambda hostname. The payload is signed by using SigV4 from the IAM identity that's authorized for the Lambda function URL, which is designated as the `IAM_AUTH` type. 
 
-The template demonstrates how to handle signed payload hash values in the x-amz-content-sha256 header for `POST` requests from the client side. Specifically, this template is designed to manage form data payloads. The template enables secure file uploads to a Lambda function URL through CloudFront, and uses AWS authentication mechanisms to ensure that only authorized requests can access the Lambda function.
+The template demonstrates how to handle signed payload hash values in the x-amz-content-sha256 header for `POST` requests from the client side. Specifically, this template is designed to manage form data payloads. The template enables secure file uploads to a Lambda function URL through CloudFront, and uses AWS authentication mechanisms to make sure that only authorized requests can access the Lambda function.
 
 **The code includes the following functionality:**  
 Meets the requirement for including the payload hash in the x-amz-content-sha256 header

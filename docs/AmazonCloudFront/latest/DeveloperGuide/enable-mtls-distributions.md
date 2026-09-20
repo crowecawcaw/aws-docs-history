@@ -6,7 +6,7 @@
 ## Prerequisites and requirements
 <a name="mtls-prerequisites-requirements"></a>
 
-CloudFront's mutual TLS verify mode requires all clients to present valid certificates during the TLS handshake and rejects connections without valid certificates. Before enabling mutual TLS on a CloudFront distribution, ensure you have:
+CloudFront mutual TLS verify mode requires all clients to present valid certificates during the TLS handshake and rejects connections without valid certificates. Before enabling mutual TLS on a CloudFront distribution, make sure you have:
 + Created a trust store with your Certificate Authority certificates
 + Associated the trust store with your CloudFront distribution
 + Ensured all distribution cache behaviors use an HTTPS-only viewer protocol policy
@@ -30,7 +30,7 @@ Viewer mTLS cannot be configured in the process of creating a new distribution i
 
 1. From the distribution list, select the distribution you want to modify.
 
-1. Ensure the Viewer protocol policy is set to **Redirect HTTP to HTTPS** or **HTTPS Only** for all cache behaviors. (You can choose the **Cache behaviors** tab to view and update any cache behaviors with HTTP protocol policies.)
+1. Make sure the Viewer protocol policy is set to **Redirect HTTP to HTTPS** or **HTTPS Only** for all cache behaviors. (You can choose the **Cache behaviors** tab to view and update any cache behaviors with HTTP protocol policies.)
 
 1. Choose the **General** tab.
 

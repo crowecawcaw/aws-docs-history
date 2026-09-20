@@ -5,7 +5,7 @@
 
 CloudFront Connection Functions enable you to write lightweight JavaScript functions for mTLS certificate validation and custom authentication logic. Your Connection Function code can validate client certificates, implement device-specific authentication rules, handle certificate revocation scenarios, and make allow/deny decisions for TLS connections at CloudFront edge locations worldwide.
 
-Connection functions provide a powerful way to extend CloudFront's built-in certificate validation with your own business logic. Unlike viewer request and viewer response functions that process HTTP data, Connection Functions operate at the TLS layer and have access to certificate information, client IP addresses, and TLS connection details. This makes them ideal for implementing zero-trust security models, device authentication systems, and custom certificate validation policies that go beyond standard PKI validation.
+Connection functions provide a powerful way to extend CloudFront built-in certificate validation with your own business logic. Unlike viewer request and viewer response functions that process HTTP data, Connection Functions operate at the TLS layer and have access to certificate information, client IP addresses, and TLS connection details. This makes them ideal for implementing zero-trust security models, device authentication systems, and custom certificate validation policies that go beyond standard PKI validation.
 
 Your Connection Function code runs in a secure, isolated environment with submillisecond startup times and can scale to handle millions of connections per second. The runtime is optimized for certificate validation workloads and provides built-in integration with CloudFront KeyValueStore for real-time data lookup operations, enabling sophisticated authentication scenarios like certificate revocation list checking and device allowlist validation.
 
@@ -32,7 +32,7 @@ Common Connection Function use cases include:
 + **Multi-tenant certificate validation** – Implement tenant-specific validation rules where different certificate authorities or validation criteria apply based on the client certificate issuer or subject attributes.
 + **Time-based access control** – Enforce time-based restrictions where certificates are only valid during specific hours, maintenance windows, or business periods, even if the certificate itself hasn't expired.
 
-Connection functions run after CloudFront performs standard certificate validation (trust chain verification, expiry checks, and signature validation) but before the TLS connection is established. This timing gives you the flexibility to add custom validation criteria while benefiting from CloudFront's built-in certificate validation. Your function receives the results of standard validation and can make informed decisions about whether to allow or deny the connection based on both standard and custom criteria.
+Connection functions run after CloudFront performs standard certificate validation (trust chain verification, expiry checks, and signature validation) but before the TLS connection is established. This timing gives you the flexibility to add custom validation criteria while benefiting from CloudFront built-in certificate validation. Your function receives the results of standard validation and can make informed decisions about whether to allow or deny the connection based on both standard and custom criteria.
 
 When designing your Connection Function, consider the performance implications of your validation logic. Functions have a 5-millisecond execution limit, so complex operations should be optimized for speed. Use KeyValueStore for fast data lookups rather than complex calculations, and structure your validation logic to fail fast for invalid certificates.
 
@@ -159,7 +159,7 @@ Unlike viewer request and viewer response functions, Connection Functions cannot
 ## CloudFront Connection Functions JavaScript runtime features
 <a name="connection-function-javascript-runtime"></a>
 
-CloudFront Connection Functions use the CloudFront Functions JavaScript runtime 2.0, which provides a secure and high-performance environment specifically optimized for certificate validation workloads. The runtime is designed to start in sub-milliseconds and handle millions of concurrent executions across CloudFront's global edge network.
+CloudFront Connection Functions use the CloudFront Functions JavaScript runtime 2.0, which provides a secure and high-performance environment specifically optimized for certificate validation workloads. The runtime is designed to start in sub-milliseconds and handle millions of concurrent executions across CloudFront global edge network.
 
 The runtime environment includes comprehensive JavaScript language support:
 + **ECMAScript 2020 (ES11) support** – Modern JavaScript features including optional chaining (?.) and nullish coalescing (??)
@@ -167,19 +167,19 @@ The runtime environment includes comprehensive JavaScript language support:
 + **Console logging** – Use console.log() for debugging and monitoring certificate validation decisions. Logs are available in real-time during testing and can help troubleshoot validation logic in development
 + **KeyValueStore integration** – Native access to CloudFront KeyValueStore for ultra-fast data lookup operations, enabling real-time certificate revocation checking, device allowlist validation, and tenant-specific configuration retrieval
 
-Connection functions are optimized for high-performance for certificate validation scenarios. The runtime automatically handles memory management, garbage collection, and resource cleanup to ensure consistent performance across millions of concurrent connections. All operations are designed to be deterministic and fast, with KeyValueStore lookups typically completing in microseconds.
+Connection functions are optimized for high-performance for certificate validation scenarios. The runtime automatically handles memory management, garbage collection, and resource cleanup to make sure consistent performance across millions of concurrent connections. All operations are designed to be deterministic and fast, with KeyValueStore lookups typically completing in microseconds.
 
-The runtime environment is completely isolated between function executions, ensuring that no data leaks between different client connections. Each function execution starts with a clean state and has no access to previous execution results or client data from other connections.
+The runtime environment is completely isolated between function executions, making sure that no data leaks between different client connections. Each function execution starts with a clean state and has no access to previous execution results or client data from other connections.
 
 ## CloudFront Connection Function helper methods and APIs
 <a name="connection-function-helper-methods"></a>
 
-CloudFront Connection Functions provide specialized helper methods designed to simplify certificate validation decisions and enhance observability. These methods are optimized for the connection validation workflow and integrate seamlessly with CloudFront's connection logging and monitoring systems.
+CloudFront Connection Functions provide specialized helper methods designed to simplify certificate validation decisions and enhance observability. These methods are optimized for the connection validation workflow and integrate seamlessly with CloudFront connection logging and monitoring systems.
 + **connection.allow()** – Allow the TLS connection to proceed. This method signals CloudFront to complete the TLS handshake and allow the client to establish the connection. Use this when certificate validation passes and any custom authentication logic is satisfied
 + **connection.deny()** – Deny the TLS connection and terminate the handshake. This method immediately closes the connection and prevents any HTTP traffic from flowing. The client will receive a TLS connection error. Use this for invalid certificates, failed authentication, or policy violations
 + **connection.logCustomData()** – Add custom data to connection logs (up to 800 bytes of UTF-8 text). This method allows you to include validation results, certificate details, or decision rationale in CloudFront connection logs for security monitoring, compliance auditing, and troubleshooting
 
-These methods provide a clean, declarative interface for making connection decisions and logging relevant information for monitoring and debugging. The allow/deny pattern ensures that your function's intent is clear and that CloudFront can optimize connection handling based on your decision. Custom logging data is immediately available in CloudFront connection logs and can be used with log analysis tools for security monitoring and operational insights.
+These methods provide a clean, declarative interface for making connection decisions and logging relevant information for monitoring and debugging. The allow/deny pattern makes sure that your function's intent is clear and that CloudFront can optimize connection handling based on your decision. Custom logging data is immediately available in CloudFront connection logs and can be used with log analysis tools for security monitoring and operational insights.
 
 Always call either connection.allow() or connection.deny() before your function completes. If neither method is called, CloudFront will deny the connection by default as a security precaution.
 
@@ -199,9 +199,9 @@ For optimal performance, structure your KeyValueStore keys to minimize lookup op
 ## Use async and await
 <a name="connection-function-async-await"></a>
 
-Connection functions support asynchronous operations using async/await syntax, which is essential when working with KeyValueStore operations or other asynchronous tasks. The async/await pattern ensures that your function waits for KeyValueStore lookups to complete before making connection decisions, while maintaining the high-performance characteristics required for TLS handshake processing.
+Connection functions support asynchronous operations using async/await syntax, which is essential when working with KeyValueStore operations or other asynchronous tasks. The async/await pattern makes sure that your function waits for KeyValueStore lookups to complete before making connection decisions, while maintaining the high-performance characteristics required for TLS handshake processing.
 
-Proper async/await usage is critical for Connection Functions because KeyValueStore operations, while very fast, are still network operations that require coordination across CloudFront's distributed infrastructure. The runtime automatically handles promise resolution and ensures that your function completes within the 5-millisecond execution limit.
+Proper async/await usage is critical for Connection Functions because KeyValueStore operations, while very fast, are still network operations that require coordination across CloudFront distributed infrastructure. The runtime automatically handles promise resolution and makes sure that your function completes within the 5-millisecond execution limit.
 
 **Example : Async Connection Function with KeyValueStore**  
 
@@ -228,9 +228,9 @@ async function connectionHandler(connection) {
 }
 ```
 
-Always use async/await when calling KeyValueStore methods or other asynchronous operations. The Connection Function runtime handles promise resolution automatically and ensures proper execution flow within the strict timing constraints of TLS handshake processing. Avoid using .then() or callback patterns, as async/await provides cleaner error handling and better performance in the Connection Function environment.
+Always use async/await when calling KeyValueStore methods or other asynchronous operations. The Connection Function runtime handles promise resolution automatically and makes sure proper execution flow within the strict timing constraints of TLS handshake processing. Avoid using .then() or callback patterns, as async/await provides cleaner error handling and better performance in the Connection Function environment.
 
-When designing async Connection Functions, structure your code to minimize the number of KeyValueStore operations and perform them as early as possible in your validation logic. This ensures maximum performance and reduces the risk of timeout issues during high-traffic periods. Consider batching related validation checks and using the most efficient KeyValueStore method (exists() vs get()) for your use case.
+When designing async Connection Functions, structure your code to minimize the number of KeyValueStore operations and perform them as early as possible in your validation logic. This makes sure maximum performance and reduces the risk of timeout issues during high-traffic periods. Consider batching related validation checks and using the most efficient KeyValueStore method (exists() vs get()) for your use case.
 
 ## Connection function code examples
 <a name="connection-function-code-examples"></a>

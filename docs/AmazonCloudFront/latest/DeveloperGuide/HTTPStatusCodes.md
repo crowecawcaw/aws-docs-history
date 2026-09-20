@@ -127,7 +127,7 @@ CloudFront does the following:
 1. After the error caching minimum TTL has elapsed, CloudFront tries again to get the requested object by forwarding another request to your origin. If the object isn't requested frequently, CloudFront might evict it from the edge cache while your origin server is still returning 5xx responses. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md).
 
 **Tip**  
-If you configure the `stale-if-error` or `Stale-While-Revalidate` directive, you can specify how long the stale objects are available in the edge cache. This allows you to continue serving content for your viewers even when your origin is unavailable. For information, see [Serve stale (expired) content](Expiration.md#stale-content). 
+If you configure the `stale-if-error` or `Stale-While-Revalidate` directive, you can specify how long the stale objects are available in the edge cache. With this, you can continue serving content for your viewers even when your origin is unavailable. For information, see [Serve stale (expired) content](Expiration.md#stale-content). 
 CloudFront will only serve an object that is stale up to the specified [maximum TTL](DownloadDistValuesCacheBehavior.md#DownloadDistValuesMaxTTL) value. After this duration, the object won't be available from the edge cache.
 
 ## HTTP 4xx and 5xx status codes that CloudFront caches
@@ -141,8 +141,8 @@ CloudFront caches the following HTTP 4xx and 5xx status codes returned by your o
 If you're using the [CachingDisabled](using-managed-cache-policies.md#managed-cache-policy-caching-disabled) managed cache policy, CloudFront won't cache these status codes or custom error pages.
 
 
-|  |  | 
-| --- |--- |
+| HTTP status code | Description | 
+| --- | --- | 
 | 404 | Not Found | 
 | 414 | Request-URI Too Large | 
 | 500 | Internal Server Error | 
@@ -157,8 +157,8 @@ If you're using the [CachingDisabled](using-managed-cache-policies.md#managed-ca
 CloudFront only caches the following HTTP 4xx status codes returned by your origin if your origin returns a `Cache-Control max-age` or `Cache-Control s-maxage` header. If you have configured a custom error page for one of these HTTP status codes – and your origin returns one of the cache control headers – CloudFront caches the custom error page. 
 
 
-|  |  | 
-| --- |--- |
+| HTTP status code | Description | 
+| --- | --- | 
 | 400 | Bad Request | 
 | 403 | Forbidden | 
 | 405 | Method Not Allowed | 

@@ -286,5 +286,5 @@ Because you can receive multiple access logs per hour, we recommend that you com
 One way to analyze your access logs is to use [Amazon Athena](https://aws.amazon.com/athena/). Athena is an interactive query service that can help you analyze data for AWS services, including CloudFront. To learn more, see [ Querying Amazon CloudFront Logs](https://docs.aws.amazon.com/athena/latest/ug/cloudfront-logs.html) in the *Amazon Athena User Guide*.
 
 In addition, the following AWS blog posts discuss some ways to analyze access logs.
-+ [ Amazon CloudFront Request Logging](https://aws.amazon.com/blogs/aws/amazon-cloudfront-request-logging/) (for content delivered via HTTP)
++ [ Amazon CloudFront Request Logging](https://aws.amazon.com/blogs/aws/amazon-cloudfront-request-logging/) (for content delivered by using HTTP)
 + [ Enhanced CloudFront Logs, Now With Query Strings](https://aws.amazon.com/blogs/aws/enhanced-cloudfront-logs-now-with-query-strings/)

@@ -5,6 +5,8 @@
 
 You can create CloudFront multi-tenant distributions with settings that can be reused across multiple distribution tenants. With a multi-tenant distribution, you can have CloudFront configure your distribution settings for you, based on your content origin type. For more details about the preconfigured settings, see [Preconfigured distribution settings reference](template-preconfigured-origin-settings.md).
 
+To move an existing standard distribution to a multi-tenant distribution, see [Migrate to a multi-tenant distribution](template-migrate-distribution.md).
+
 Benefits of using a multi-tenant distribution instead of a standard distribution include:
 + Reducing operational burden.
 + Reusable configurations for web admins and software providers to manage CloudFront distribution for multiple web applications that deliver content to end users.

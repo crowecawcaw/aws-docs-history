@@ -8,7 +8,7 @@ CloudFront Connection Functions allow you to implement custom certificate valida
 ## What are Connection Functions?
 <a name="what-are-connection-functions"></a>
 
-Connection Functions are JavaScript functions that run during the TLS handshake after client certificates have been validated. The validated client certificate is passed to the Connection Function at which point the Connection Function can make an additional determination on whether to grant access or not. For detailed information about Connection Functions, see [Customize at the edge with CloudFront Functions](cloudfront-functions.md).
+Connection Functions are JavaScript functions that run during the TLS handshake after client certificates have been validated. The validated client certificate is passed to the Connection Function at which point the Connection Function can make an additional determination on whether to grant access or not. For detailed information about Connection Functions, see [Customize with CloudFront Connection Functions](customize-connections-validation-with-connection-functions.md).
 
 ## How Connection Functions work with mTLS
 <a name="how-connection-functions-work"></a>

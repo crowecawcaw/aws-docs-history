@@ -7,6 +7,8 @@ You can use CloudFront Functions to write lightweight functions in JavaScript fo
 
 To help you write function code for CloudFront Functions, see the following topics. For code examples, see [CloudFront Functions examples for CloudFront](service_code_examples_cloudfront_functions_examples.md) and the [amazon-cloudfront-functions repository](https://github.com/aws-samples/amazon-cloudfront-functions) on GitHub.
 
+To use CBOR Web Tokens (CWT) for token-based authentication and authorization at CloudFront edge locations, see [CWT support for CloudFront Functions](cwt-support-cloudfront-functions.md).
+
 **Topics**
 + [Determine function purpose](function-code-choose-purpose.md)
 + [Event structure](functions-event-structure.md)

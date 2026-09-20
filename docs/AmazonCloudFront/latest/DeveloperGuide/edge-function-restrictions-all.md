@@ -32,9 +32,11 @@ All other combinations of edge functions are allowed. The following table explai
 
 
 <table>
+<thead>
+  <tr><th colspan="2"></th><th colspan="2"><b>CloudFront Functions</b></th></tr>
+  <tr><th colspan="2"></th><th><b>Viewer request</b></th><th><b>Viewer response</b></th></tr>
+</thead>
 <tbody>
-  <tr><td rowspan="2" colspan="2"></td><td colspan="2"><b>CloudFront Functions</b></td></tr>
-  <tr><td><b>Viewer request</b></td><td><b>Viewer response</b></td></tr>
   <tr><td rowspan="4"><b>Lambda@Edge</b></td><td><b>Viewer request</b></td><td>Not allowed</td><td>Not allowed</td></tr>
   <tr><td><b>Origin request</b></td><td>Allowed</td><td>Allowed</td></tr>
   <tr><td><b>Origin response</b></td><td>Allowed</td><td>Allowed</td></tr>

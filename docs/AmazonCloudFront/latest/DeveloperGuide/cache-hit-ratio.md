@@ -24,7 +24,7 @@ To increase your cache hit ratio, you can configure your origin to add a [Cache-
 ## Use Origin Shield
 <a name="cache-hit-ratio-use-origin-shield"></a>
 
-CloudFront Origin Shield can help improve the cache hit ratio of your CloudFront distribution, because it provides an additional layer of caching in front of your origin. When you use Origin Shield, all requests from all of CloudFront’s caching layers to your origin come from a single location. CloudFront can retrieve each object using a single origin request from Origin Shield, and all other layers of the CloudFront cache (edge locations and [regional edge caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches)) can retrieve the object from Origin Shield.
+CloudFront Origin Shield can help improve the cache hit ratio of your CloudFront distribution, because it provides an additional layer of caching in front of your origin. When you use Origin Shield, all requests from all of the CloudFront caching layers to your origin come from a single location. CloudFront can retrieve each object using a single origin request from Origin Shield, and all other layers of the CloudFront cache (edge locations and [regional edge caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches)) can retrieve the object from Origin Shield.
 
 For more information, see [Use Amazon CloudFront Origin Shield](origin-shield.md).
 
@@ -49,7 +49,7 @@ If you configure CloudFront to cache based on cookie values, you can improve cac
 
   For example, suppose you have just one cache behavior for your distribution and that you're using the distribution both for dynamic content, such as `.js` files, and for `.css` files that rarely change. CloudFront caches separate versions of your `.css` files based on cookie values, so each CloudFront edge location forwards a request to your origin for every new cookie value or combination of cookie values.
 
-  If you create a cache behavior for which the path pattern is `*.css` and for which CloudFront doesn't cache based on cookie values, then CloudFront forwards requests for `.css` files to your origin for only the first request that an edge location receives for a given `.css` file and for the first request after a `.css` file expires.
+  Suppose you create a cache behavior whose path pattern is `*.css`, and the behavior doesn't cache based on cookie values. In that case, CloudFront forwards requests for `.css` files to your origin for only the first request that an edge location receives for a given `.css` file and for the first request after a `.css` file expires.
 + If possible, create separate cache behaviors for dynamic content when cookie values are unique for each user (such as a user ID), and dynamic content that varies based on a smaller number of unique values.
 
 For more information, see [Cache content based on cookies](Cookies.md). If you want to review the cookies that CloudFront forwards to your origin, see the values in the `cs(Cookie)` column of your CloudFront log files. For more information, see [Access logs (standard logs)](AccessLogs.md).

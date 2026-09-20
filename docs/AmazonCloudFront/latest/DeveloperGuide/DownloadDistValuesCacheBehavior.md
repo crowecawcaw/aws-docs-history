@@ -94,7 +94,7 @@ The maximum length of a path pattern is 255 characters. The value can contain an
 ### Path normalization
 <a name="path-normalization"></a>
 
-CloudFront normalizes URI paths consistent with [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986#section-6) and then matches the path with the correct cache behavior. Once the cache behavior is matched, CloudFront sends the raw URI path to the origin. If they don't match, requests are instead matched to your default cache behavior. 
+CloudFront normalizes URI paths consistent with [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986#section-6) and then matches the path with the correct cache behavior. After the cache behavior is matched, CloudFront sends the raw URI path to the origin. If they don't match, requests are instead matched to your default cache behavior. 
 
 Some characters are normalized and removed from the path, such as multiple slashes (`//`) or periods (`..`). This can alter the URL that CloudFront uses to match the intended cache behavior. 
 

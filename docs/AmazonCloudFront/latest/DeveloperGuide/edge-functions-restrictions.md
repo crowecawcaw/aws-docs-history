@@ -7,7 +7,7 @@ The following topics describe the restrictions that apply to CloudFront Function
 
 Each topic provides detailed information about the limitations and constraints you should consider when you develop and deploy edge functions with CloudFront. 
 
-Understanding these restrictions helps you ensure that your edge functions operate as expected and comply with the supported features.
+Understanding these restrictions helps you make sure that your edge functions operate as expected and comply with the supported features.
 
 **Topics**
 + [Restrictions on all edge functions](edge-function-restrictions-all.md)

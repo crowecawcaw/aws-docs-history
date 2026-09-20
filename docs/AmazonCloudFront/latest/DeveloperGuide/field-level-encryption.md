@@ -3,9 +3,9 @@
 # Use field-level encryption to help protect sensitive data
 <a name="field-level-encryption"></a>
 
-With Amazon CloudFront, you can enforce secure end-to-end connections to origin servers by using HTTPS. Field-level encryption adds an additional layer of security that lets you protect specific data throughout system processing so that only certain applications can see it.
+With Amazon CloudFront, you can enforce secure end-to-end connections to origin servers by using HTTPS. Field-level encryption adds an additional layer of security that you can use to protect specific data throughout system processing so that only certain applications can see it.
 
-Field-level encryption allows you to enable your users to securely upload sensitive information to your web servers. The sensitive information provided by your users is encrypted at the edge, close to the user, and remains encrypted throughout your entire application stack. This encryption ensures that only applications that need the data—and have the credentials to decrypt it—are able to do so.
+With field-level encryption, you can enable your users to securely upload sensitive information to your web servers. The sensitive information provided by your users is encrypted at the edge, close to the user, and remains encrypted throughout your entire application stack. This encryption makes sure that only applications that need the data—and have the credentials to decrypt it—are able to do so.
 
 To use field-level encryption, when you configure your CloudFront distribution, specify the set of fields in POST requests that you want to be encrypted, and the public key to use to encrypt them. You can encrypt up to 10 data fields in a request. (You can’t encrypt all of the data in a request with field-level encryption; you must specify individual fields to encrypt.)
 
@@ -127,12 +127,12 @@ Make sure that you don’t use overlapping characters for different field name p
 After you create one or more field-level encryption profiles, create a configuration that specifies the content type of the request that includes the data to be encrypted, the profile to use for encryption, and other options that specify how you want CloudFront to handle encryption.
 
 For example, when CloudFront can’t encrypt the data, you can specify whether CloudFront should block or forward a request to your origin in the following scenarios:
-+ **When a request’s content type isn’t in a configuration** – If you haven’t added a content type to a configuration, you can specify whether CloudFront should forward the request with that content type to the origin without encrypting data fields, or block the request and return an error.
++ **When a request’s content type isn’t in a configuration** – You might not have added a content type to a configuration. In this case, you can specify whether CloudFront forwards the request with that content type to the origin without encrypting data fields, or blocks the request and returns an error.
 **Note**  
 If you add a content type to a configuration but haven’t specified a profile to use with that type, CloudFront always forwards requests with that content type to the origin.
 + **When the profile name provided in a query argument is unknown** – When you specify the `fle-profile` query argument with a profile name that doesn’t exist for your distribution, you can specify whether CloudFront should send the request to the origin without encrypting data fields, or block the request and return an error.
 
-In a configuration, you can also specify whether providing a profile as a query argument in a URL overrides a profile that you’ve mapped to the content type for that query. By default, CloudFront uses the profile that you’ve mapped to a content type, if you specify one. This lets you have a profile that’s used by default but decide for certain requests that you want to enforce a different profile.
+In a configuration, you can also specify whether providing a profile as a query argument in a URL overrides a profile that you’ve mapped to the content type for that query. By default, CloudFront uses the profile that you’ve mapped to a content type, if you specify one. With this, you can have a profile that’s used by default but decide for certain requests that you want to enforce a different profile.
 
 So, for example, you might specify (in your configuration) **SampleProfile** as the query argument profile to use. Then you could use the URL `https://d1234.cloudfront.net?fle-profile=SampleProfile` instead of `https://d1234.cloudfront.net`, to have CloudFront use **SampleProfile** for this request, instead of the profile you’d set up for the content type of the request.
 

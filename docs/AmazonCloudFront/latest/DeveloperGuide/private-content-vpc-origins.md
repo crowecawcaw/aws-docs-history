@@ -85,7 +85,7 @@ The following procedure shows you how to create a VPC origin for your new CloudF
 ## Create a VPC origin (existing distribution)
 <a name="existing-vpc-origin"></a>
 
-The following procedure shows you how to create a VPC origin for your existing CloudFront distribution in the CloudFront console, which helps to ensure continuous availability of your applications. Alternatively, you can use the [CreateVpcOrigin](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateVpcOrigin.html) and [UpdateDistributionWithStagingConfig](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionWithStagingConfig.html) API operations with the AWS CLI or an AWS SDK.
+The following procedure shows you how to create a VPC origin for your existing CloudFront distribution in the CloudFront console, which helps to make sure continuous availability of your applications. Alternatively, you can use the [CreateVpcOrigin](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateVpcOrigin.html) and [UpdateDistributionWithStagingConfig](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionWithStagingConfig.html) API operations with the AWS CLI or an AWS SDK.
 
 Optionally, you could choose to add your VPC origin to your existing distribution without creating a staging distribution.
 

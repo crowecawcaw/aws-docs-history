@@ -10,6 +10,12 @@ Security is a shared responsibility between AWS and you. The [shared responsibil
 + **Security in the cloud** – Your responsibility is determined by the AWS service that you use. You are also responsible for other factors including the sensitivity of your data, your organization’s requirements, and applicable laws and regulations. 
 
 This documentation helps you understand how to apply the shared responsibility model when using CloudFront. The following topics show you how to configure CloudFront to meet your security and compliance objectives. You also learn how to use other AWS services that help you to monitor and secure your CloudFront resources.
++ [Data protection in Amazon CloudFront](data-protection-summary.md) – Protect your data in transit and at rest.
++ [Identity and Access Management for Amazon CloudFront](security-iam.md) – Manage access to CloudFront resources and permissions.
++ [Logging and monitoring in Amazon CloudFront](logging-and-monitoring.md) – Track requests and monitor the health of your distributions.
++ [Compliance validation for Amazon CloudFront](compliance.md) – Understand how CloudFront meets compliance programs.
++ [Resilience in Amazon CloudFront](disaster-recovery-resiliency.md) – Learn about the resilience of the CloudFront infrastructure.
++ [Infrastructure security in Amazon CloudFront](infrastructure-security.md) – Learn about infrastructure security for CloudFront.
 
 **Topics**
 + [Data protection in Amazon CloudFront](data-protection-summary.md)

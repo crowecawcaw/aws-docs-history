@@ -90,7 +90,7 @@ Using the previous examples specified in the multi-tenant distribution, the orig
 
 
 **Example**  
-You want to create multiple websites (tenants) for your customers, and you need to ensure that each distribution tenant resource uses the correct values.  
+You want to create multiple websites (tenants) for your customers, and you need to make sure that each distribution tenant resource uses the correct values.  
 
 1. You create a multi-tenant distribution and include two parameters for the distribution tenant configuration.
 

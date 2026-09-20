@@ -27,6 +27,6 @@ Do *not* use the current domain name that's associated with your standard distri
 **Important**  
 This resets the cache key for your content. After this, CloudFront starts caching your content using the new cache key. For more information, see [Understand the cache key](understanding-the-cache-key.md).
 
-1. Update your DNS record to point your domain to the CloudFront routing endpoint for your distribution tenant. Once you complete this step, your domain will be ready to serve traffic to your distribution tenant. For more information, see [Point domains to CloudFront](managed-cloudfront-certificates.md#point-domains-to-cloudfront).
+1. Update your DNS record to point your domain to the CloudFront routing endpoint for your distribution tenant. After you complete this step, your domain will be ready to serve traffic to your distribution tenant. For more information, see [Point domains to CloudFront](managed-cloudfront-certificates.md#point-domains-to-cloudfront).
 
 1. (Optional) After you successfully migrate your domain to a distribution tenant, you can use a different CloudFront managed certificate that covers the domain name for your distribution tenant. To request a managed certificate, create a separate TXT record to issue the certificate and follow the steps here in [Complete domain setup](managed-cloudfront-certificates.md#complete-domain-ownership).

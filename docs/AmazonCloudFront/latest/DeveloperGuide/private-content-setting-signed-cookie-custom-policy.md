@@ -54,7 +54,7 @@ If you want to use an alternate domain name such as example.com in URLs, you mus
 **(Optional) `Path`**  
 The path for the requested file. If you don't specify a `Path` attribute, the default value is the path in the URL.  
 **`Secure`**  
-Requires that the viewer encrypt cookies before sending a request. We recommend that you send the `Set-Cookie` header over an HTTPS connection to ensure that the cookie attributes are protected from man-in-the-middle attacks.  
+Requires that the viewer encrypt cookies before sending a request. We recommend that you send the `Set-Cookie` header over an HTTPS connection to make sure that the cookie attributes are protected from man-in-the-middle attacks.  
 **`HttpOnly`**  
 Requires that the viewer send the cookie only in HTTP or HTTPS requests.  
 **`CloudFront-Policy`**  
@@ -156,8 +156,21 @@ To create a policy statement for a custom policy, complete the following steps. 
 
 1. Base64-encode the policy statement using MIME base64 encoding. For more information, see [Section 6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8) in *RFC 2045, MIME (Multipurpose Internet Mail Extensions) Part One: Format of Internet Message Bodies*.
 
-1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-setting-signed-cookie-custom-policy.html)
+1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.
+
+
+
+<table>
+<thead>
+  <tr><th>Replace these invalid characters</th><th>With these valid characters</th></tr>
+</thead>
+<tbody>
+  <tr><td>+</td><td>- (hyphen)</td></tr>
+  <tr><td>=</td><td>_ (underscore)</td></tr>
+  <tr><td>/</td><td>~ (tilde)</td></tr>
+</tbody>
+</table>
+
 
 1. Include the resulting value in your `Set-Cookie` header after `CloudFront-Policy=`.
 
@@ -247,7 +260,7 @@ The following example custom policy in a signed cookie specifies that a user can
 ### Example policy statement: Access all files in a directory from a range of IP addresses
 <a name="private-content-custom-policy-statement-signed-cookies-example-all-objects"></a>
 
-The following example custom policy allows you to create signed cookies for any file in the `training` directory, as indicated by the \* wildcard character in the `Resource` parameter. Users can access the file from an IP address in the range `192.0.2.0/24` until January 1, 2013 10:00 am UTC:
+With the following example custom policy, you can create signed cookies for any file in the `training` directory, as indicated by the \* wildcard character in the `Resource` parameter. Users can access the file from an IP address in the range `192.0.2.0/24` until January 1, 2013 10:00 am UTC:
 
 ```
 {
@@ -274,7 +287,7 @@ Each signed cookie in which you use this policy includes a base URL that identif
 ### Example policy statement: Access all files associated with a key pair ID from one IP address
 <a name="private-content-custom-policy-statement-signed-cookies-example-one-ip"></a>
 
-The following sample custom policy allows you to set signed cookies for any file associated with any distribution, as indicated by the \* wildcard character in the `Resource` parameter. The user must use the IP address `192.0.2.10/32`. (The value `192.0.2.10/32` in CIDR notation refers to a single IP address, `192.0.2.10`.) The files are available only from January 1, 2013 10:00 am UTC until January 2, 2013 10:00 am UTC:
+With the following sample custom policy, you can set signed cookies for any file associated with any distribution, as indicated by the \* wildcard character in the `Resource` parameter. The user must use the IP address `192.0.2.10/32`. (The value `192.0.2.10/32` in CIDR notation refers to a single IP address, `192.0.2.10`.) The files are available only from January 1, 2013 10:00 am UTC until January 2, 2013 10:00 am UTC:
 
 ```
 {
@@ -329,7 +342,20 @@ The method that you use to hash and sign the policy statement depends on your pr
 
 1. Base64-encode the string using MIME base64 encoding. For more information, see [Section 6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8) in *RFC 2045, MIME (Multipurpose Internet Mail Extensions) Part One: Format of Internet Message Bodies*.
 
-1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-setting-signed-cookie-custom-policy.html)
+1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.
+
+
+
+<table>
+<thead>
+  <tr><th>Replace these invalid characters</th><th>With these valid characters</th></tr>
+</thead>
+<tbody>
+  <tr><td>+</td><td>- (hyphen)</td></tr>
+  <tr><td>=</td><td>_ (underscore)</td></tr>
+  <tr><td>/</td><td>~ (tilde)</td></tr>
+</tbody>
+</table>
+
 
 1. Include the resulting value in the `Set-Cookie` header for the `CloudFront-Signature=` name-value pair, and return to [To set a signed cookie using a custom policy](#private-content-setting-signed-cookie-custom-policy-procedure) to add the `Set-Cookie` header for `CloudFront-Key-Pair-Id`.

@@ -33,7 +33,7 @@ To set up AWS Lambda to run Lambda functions that are based on CloudFront events
 
 1. If you chose **Author from scratch** in step 4, skip to step 7.
 
-   If you chose a blueprint in step 4, the **cloudfront** section lets you create one trigger, which associates this function with a cache in a CloudFront distribution and a CloudFront event. We recommend that you choose **Remove** at this point, so there isn't a trigger for the function when it's created. Then you can add triggers later. 
+   If you chose a blueprint in step 4, you can use the **cloudfront** section to create one trigger, which associates this function with a cache in a CloudFront distribution and a CloudFront event. We recommend that you choose **Remove** at this point, so there isn't a trigger for the function when it's created. Then you can add triggers later. 
 **Tip**  
 We recommend that you test and debug the function before adding triggers. If you add a trigger now, the function will run as soon as you create the function and it finishes replicating to AWS locations around the world, and the corresponding distribution is deployed.
 

@@ -115,7 +115,7 @@ For an example `event` object, see [Example event object](#functions-event-struc
 ## Response object
 <a name="functions-event-structure-response"></a>
 
-The `response` object contains a representation of a CloudFront-to-viewer HTTP response. In the `event` object that's passed to your function, the `response` object represents CloudFront's actual response to a viewer request.
+The `response` object contains a representation of a CloudFront-to-viewer HTTP response. In the `event` object that's passed to your function, the `response` object represents CloudFront actual response to a viewer request.
 
 If your function code returns a `response` object, it must use this same structure.
 

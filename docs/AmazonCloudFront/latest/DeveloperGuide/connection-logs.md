@@ -28,7 +28,7 @@ Connection logs are available only for distributions with mutual TLS authenticat
 Before enabling connection logs:
 + Configure mutual TLS for your CloudFront distribution
 + Enable connection logs for your CloudFront distribution
-+ Ensure you have the required permissions for your chosen logging destination
++ Make sure you have the required permissions for your chosen logging destination
 + For cross-account delivery, configure appropriate IAM policies
 
 ### To enable connection logs (Console)
@@ -84,7 +84,7 @@ aws logs create-delivery \
 ```
 
 **Note**  
-When using the CloudWatch API, you must specify the US East (N. Virginia) Region (us-east-1) even when delivering logs to other regions.
+When using the CloudWatch API, you must specify the US East (N. Virginia) Region (us-east-1) even when delivering logs to other Regions.
 
 ## Connection log fields
 <a name="connection-log-fields"></a>
@@ -110,7 +110,7 @@ Connection logs include detailed information about each TLS connection attempt:
 | clientLeafCertSubject | Subject field of the client's certificate | C=US, ST=WA, L=Seattle, O=Amazon.com, OU=CloudFront, CN=client.test.mtls.net | 
 | clientLeafCertIssuer | Issuer field of the client's certificate | C=US, ST=WA, L=Seattle, O=Amazon.com, OU=CloudFront, CN=test.mtls.net | 
 | clientLeafCertValidity | Validity period of the client's certificate | NotBefore=2025-06-05T23:28:21Z;NotAfter=2125-05-12T23:28:21Z | 
-| connectionLogCustomData | Custom data added via Connection Functions | REVOKED:00:b1:43:ed:93:d2:d8:f3:9d | 
+| connectionLogCustomData | Custom data added by using Connection Functions | REVOKED:00:b1:43:ed:93:d2:d8:f3:9d | 
 
 ## Connection error codes
 <a name="connection-error-codes"></a>

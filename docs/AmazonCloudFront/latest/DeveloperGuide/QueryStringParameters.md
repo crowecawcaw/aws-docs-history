@@ -20,7 +20,7 @@ In this example, if the main page for your website is `main.html`, the following
 
 Note the following:
 + Some HTTP servers don't process query string parameters and, therefore, don't return different versions of an object based on parameter values. For these origins, if you configure CloudFront to forward query string parameters to the origin, CloudFront still caches based on the parameter values even though the origin returns identical versions of the object to CloudFront for every parameter value.
-+ For query string parameters to work as described in the example above with the languages, you must use the `&` character as the delimiter between query string parameters. If you use a different delimiter, you may get unexpected results, depending on which parameters you specify for CloudFront to use as a basis for caching, and the order in which the parameters appear in the query string.
++ For query string parameters to work as described in the example above with the languages, you must use the `&` character as the delimiter between query string parameters. If you use a different delimiter, you might get unexpected results, depending on which parameters you specify for CloudFront to use as a basis for caching, and the order in which the parameters appear in the query string.
 
   The following examples show what happens if you use a different delimiter and you configure CloudFront to cache based only on the `color` parameter: 
   + In the following request, CloudFront caches your content based on the value of the `color` parameter, but CloudFront interprets the value as {{red;size=large}}:

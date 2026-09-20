@@ -146,11 +146,11 @@ To grant full access to the CloudFront console, you grant the permissions in the
 Here's why the permissions are required:
 
 **`acm:ListCertificates`**  
-When you're creating and updating distributions by using the CloudFront console and you want to configure CloudFront to require HTTPS between the viewer and CloudFront or between CloudFront and the origin, lets you view a list of ACM certificates.  
+When you're creating and updating distributions by using the CloudFront console and you want to configure CloudFront to require HTTPS between the viewer and CloudFront or between CloudFront and the origin, you can view a list of ACM certificates.  
 This permission isn't required if you aren't using the CloudFront console.
 
 **`cloudfront:*`**  
-Lets you perform all CloudFront actions.
+You can perform all CloudFront actions.
 
 **`cloudwatch:DescribeAlarms` and `cloudwatch:PutMetricAlarm`**  
 Let you create and view CloudWatch alarms in the CloudFront console. See also `sns:ListSubscriptionsByTopic` and `sns:ListTopics`.  
@@ -161,15 +161,15 @@ Lets CloudFront render CloudWatch metrics in the CloudFront console.
 This permission isn't required if you aren't using the CloudFront console.
 
 **`elasticloadbalancing:DescribeLoadBalancers`**  
-When creating and updating distributions, lets you view a list of Elastic Load Balancing load balancers in the list of available origins.  
+When creating and updating distributions, you can view a list of Elastic Load Balancing load balancers in the list of available origins.  
 This permission isn't required if you aren't using the CloudFront console.
 
 **`iam:ListServerCertificates`**  
-When you're creating and updating distributions by using the CloudFront console and you want to configure CloudFront to require HTTPS between the viewer and CloudFront or between CloudFront and the origin, lets you view a list of certificates in the IAM certificate store.  
+When you're creating and updating distributions by using the CloudFront console and you want to configure CloudFront to require HTTPS between the viewer and CloudFront or between CloudFront and the origin, you can view a list of certificates in the IAM certificate store.  
 This permission isn't required if you aren't using the CloudFront console.
 
 **`s3:ListAllMyBuckets`**  
-When you're creating and updating distributions, lets you perform the following operations:  
+When you're creating and updating distributions, you can perform the following operations:  
 + View a list of S3 buckets in the list of available origins
 + View a list of S3 buckets that you can save access logs in
 This permission isn't required if you aren't using the CloudFront console.
@@ -179,11 +179,11 @@ When you're creating or updating distributions that restrict access to S3 bucket
 This permission isn't required if you aren't using the CloudFront console.
 
 **`sns:ListSubscriptionsByTopic` and `sns:ListTopics`**  
-When you create CloudWatch alarms in the CloudFront console, lets you choose an SNS topic for notifications.  
+When you create CloudWatch alarms in the CloudFront console, you can choose an SNS topic for notifications.  
 These permissions aren't required if you aren't using the CloudFront console.
 
 **`waf:GetWebACL` and `waf:ListWebACLs`**  
-Lets you view a list of AWS WAF web ACLs in the CloudFront console.  
+You can view a list of AWS WAF web ACLs in the CloudFront console.  
 These permissions aren't required if you aren't using the CloudFront console.
 
 ### Permission-only actions for the CloudFront console
@@ -264,7 +264,7 @@ The following permissions policy grants the user permissions to view all distrib
 ### Example 2: Allow creating, updating, and deleting distributions
 <a name="security_iam_id-based-policy-examples-allow-create-update-delete-distributions"></a>
 
-The following permissions policy allows users to create, update, and delete distributions by using the CloudFront console:
+With the following permissions policy, you can create, update, and delete distributions by using the CloudFront console:
 
 ------
 #### [ JSON ]
@@ -314,7 +314,7 @@ The `cloudfront:ListCloudFrontOriginAccessIdentities` permission allows users to
 ### Example 3: Allow creating and listing invalidations
 <a name="security_iam_id-based-policy-examples-allow-create-list-invalidations"></a>
 
-The following permissions policy allows users to create and list invalidations. It includes read access to CloudFront distributions because you create and view invalidations by first displaying settings for a distribution:
+With the following permissions policy, you can create and list invalidations. It includes read access to CloudFront distributions because you create and view invalidations by first displaying settings for a distribution:
 
 ------
 #### [ JSON ]

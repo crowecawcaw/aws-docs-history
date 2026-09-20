@@ -43,6 +43,6 @@ Use the following procedure to create test links for the objects in your CloudFr
 
 1. Save the HTML code in a file that has an .html file name extension.
 
-1. Open your webpage in a browser to ensure that you can see your object.
+1. Open your webpage in a browser to make sure that you can see your object.
 
 The browser returns your page with the embedded image file, served from the edge location that CloudFront determined was appropriate to serve the object.

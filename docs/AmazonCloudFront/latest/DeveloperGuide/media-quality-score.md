@@ -15,7 +15,7 @@ To achieve this, CloudFront does the following:
 
 1. Next, CloudFront tracks the score for each origin and uses this information to determine the origin with the higher score when a new request arrives.
 
-The media quality score for your origins can change in real time. CloudFront determines this by consuming the MQCS changes, and switches between origins to ensure that viewers see the higher media quality content. For more information, see [Leveraging media quality scores with MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/userguide/mqcs.html) in the *AWS Elemental MediaPackage V2 User Guide*.
+The media quality score for your origins can change in real time. CloudFront determines this by consuming the MQCS changes, and switches between origins to make sure that viewers see the higher media quality content. For more information, see [Leveraging media quality scores with MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/userguide/mqcs.html) in the *AWS Elemental MediaPackage V2 User Guide*.
 
 MQAR helps CloudFront determine, as early as possible, whether there’s an issue that could potentially impact customers. For example, issues such as network connection, video processing, audio loss or drops, encoder speed problems can affect the media quality score for your viewers.
 

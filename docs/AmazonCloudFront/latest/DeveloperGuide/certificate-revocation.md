@@ -8,13 +8,13 @@ When certificates need to be revoked — due to compromise, policy changes, or t
 + **CloudFront Functions and KeyValueStore** — You maintain a list of revoked certificate serial numbers in a CloudFront KeyValueStore. A Connection Function queries the KeyValueStore during the TLS handshake and allows or denies the connection. This gives you full control over revocation data, update timing, and custom logic like grace periods or IP-based exceptions.
 
 
-**Comparison: OCSP vs. CloudFront Functions with KeyValueStore**  
+**Comparison: OCSP versus CloudFront Functions with KeyValueStore**  
 
 |  | OCSP | CloudFront Functions \+ KeyValueStore | 
 | --- | --- | --- | 
 | Data source | Certificate Authority's OCSP responder | You manage the revocation list | 
 | Update mechanism | Real-time query to CA | You push updates to KeyValueStore | 
-| Custom logic | Available via Connection Functions | Built into your function code | 
+| Custom logic | Available by using Connection Functions | Built into your function code | 
 | External dependency | Requires CA OCSP responder availability | No external dependency | 
 | Best for | CAs that maintain OCSP responders; real-time CA-authoritative status | Self-managed revocation; custom policies; CAs without OCSP support | 
 
@@ -32,7 +32,7 @@ CloudFront validates the entire certificate chain — the leaf certificate and u
 
 Enable OCSP on your trust store. When enabled, CloudFront automatically performs OCSP validation for any client certificate that contains an OCSP responder URL in its Authority Information Access (AIA) extension. Once OCSP is enabled, every certificate in the client certificate chain below the trust anchor must have an OCSP URL. If any certificate below the trust anchor doesn't contain an OCSP URL, CloudFront does not establish the connection. Certificates in the trust store (trust anchors) are exempt from this requirement.
 
-CloudFront caches OCSP responses at the edge to reduce round-trip time and protect against OCSP responder downtime. OCSP responses are cached for approximately 30 minutes, and updated revocation status may take up to 30 minutes to be reflected.
+CloudFront caches OCSP responses at the edge to reduce round-trip time and protect against OCSP responder downtime. OCSP responses are cached for approximately 30 minutes, and updated revocation status might take up to 30 minutes to be reflected.
 
 ### OCSP results in Connection Functions
 <a name="ocsp-results-connection-functions"></a>
@@ -165,7 +165,7 @@ The certificate revocation process works as follows:
 
 1. Your function denies the connection for revoked certificates.
 
-This approach provides near-real-time revocation checking across CloudFront's global edge network.
+This approach provides near-real-time revocation checking across CloudFront global edge network.
 
 To implement this approach, you need:
 + A distribution configured with viewer mTLS
@@ -275,12 +275,12 @@ Use the CloudFront console to test your Connection Function with sample certific
 + Choose **Test function** to see the execution results.
 + Review the execution logs to verify your function logic.
 
-Test with both valid and revoked certificates to ensure your function handles both scenarios correctly.
+Test with both valid and revoked certificates to make sure your function handles both scenarios correctly.
 
 ### Step 4: Associate the function to your distribution
 <a name="step4-associate-function"></a>
 
-Once you publish your Connection Function, associate it with your mTLS-enabled distribution to activate certificate revocation checking. Navigate to your distribution settings, scroll to the "Viewer mutual authentication (mTLS)" section, select your Connection Function, and save the changes.
+After you publish your Connection Function, associate it with your mTLS-enabled distribution to activate certificate revocation checking. Navigate to your distribution settings, scroll to the "Viewer mutual authentication (mTLS)" section, select your Connection Function, and save the changes.
 
 ## Advanced revocation strategies
 <a name="advanced-revocation-strategies"></a>
@@ -325,4 +325,4 @@ async function connectionHandler(connection) {
 }
 ```
 
-This pattern gives you immediate revocation via KVS (no cache delay) plus CA-authoritative revocation via OCSP, with custom exception handling in between.
+This pattern gives you immediate revocation by using KVS (no cache delay) plus CA-authoritative revocation by using OCSP, with custom exception handling in between.

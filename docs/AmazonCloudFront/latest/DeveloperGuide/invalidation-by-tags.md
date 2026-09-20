@@ -5,6 +5,8 @@
 
 Amazon CloudFront supports tag invalidations, which lets you invalidate cached objects based on semantic tags rather than URL paths. This gives you flexible control over cache invalidation without requiring your URL structure to match your invalidation strategy.
 
+Before you invalidate content by cache tags, review the requirements and considerations in [What you need to know when invalidating tags](invalidation-specifying-tags.md).
+
 ## How tag invalidation works
 <a name="invalidation-by-tags-how-it-works"></a>
 
@@ -112,7 +114,7 @@ aws cloudfront get-invalidation \
 + **Changing the header name**: Tag invalidations are looked up against the current `CacheTagConfig` configuration. If you change the `HeaderName` in the `CacheTagConfig`, invalidations issued to objects cached with tags under the old header name will no longer be evaluated. If you need to change the header name, start returning both the new and the old cache tags headers with your objects, then issue a path invalidation (for example, `/*`) or invalidate existing tags before changing the header name to avoid serving stale content. Once that's done you can stop sending the old cache tags header with your objects.
 + **Removing CacheTagConfig**: When you remove ` CacheTagConfig` from a distribution, CloudFront stops extracting tags from origin responses. Existing cached objects with tags are served normally until they expire or are invalidated by path.
 + **Backward compatibility**: Existing path and wildcard invalidations continue to work unchanged. Tag invalidations are additive — you can use both methods on the same distribution.
-+ **Distribution tenants**: Tag invalidation is also supported for distribution tenants via the ` CreateInvalidationForDistributionTenant` API.
++ **Distribution tenants**: Tag invalidation is also supported for distribution tenants by using the ` CreateInvalidationForDistributionTenant` API.
 
 ## Use case examples
 <a name="invalidation-by-tags-examples"></a>

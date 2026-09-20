@@ -3,6 +3,8 @@
 # Request Anycast static IPs to use for allowlisting
 <a name="request-static-ips"></a>
 
+You can also bring your own IP address range to use with CloudFront instead of CloudFront-provided Anycast static IPs. For more information, see [Bring your own IP to CloudFront using IPAM](bring-your-own-ip-address-using-ipam.md).
+
 You can request Anycast static IPs from CloudFront to use with your distributions. Anycast static IP lists can contain only IPv4 IP addresses or both IPv4 and IPv6 IP addresses. These IP addresses are dedicated to your AWS account and spread across geographic regions.
 
 You can request 21 Anycast static IP addresses to allowlist with network providers so that you can waive data charges for viewers who access your application. Alternatively, you can use these static IPs within outbound security firewalls to control traffic exchange with approved applications. Anycast static IP lists can be used with one or more distributions.
@@ -118,7 +120,7 @@ Before you begin, request and create an Anycast static IP list as explained in t
 
 **To associate an Anycast static IP list with a new connection group**
 
-1. Ensure you have enabled connection groups under **Settings**.
+1. Make sure you have enabled connection groups under **Settings**.
 
 1. Create a connection group. For more information, see [Create custom connection group](custom-connection-group.md).
 

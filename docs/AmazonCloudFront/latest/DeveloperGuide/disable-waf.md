@@ -5,7 +5,7 @@
 
 If your distribution doesn't need AWS WAF security protections, you can disable this feature by using the CloudFront console. 
 
-If you previously enabled AWS WAF protection and didn't choose an existing WAF configuration (also known as one-click protection), CloudFront automatically created a web ACL for you. For web ACLs created this way, the CloudFront console will disassociate the resource and delete the web ACL. 
+If you previously enabled AWS WAF protection and didn't choose an existing WAF configuration (also known as one-choose protection), CloudFront automatically created a web ACL for you. For web ACLs created this way, the CloudFront console will disassociate the resource and delete the web ACL. 
 
 Disassociating a web ACL is different from deleting it. Disassociating removes the web ACL from your distribution, but it's not deleted from your AWS account. For more information, see [Associating or disassociating a web ACL with an AWS resource](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-associating-aws-resource.html) in the *AWS WAF, AWS Firewall Manager, and AWS Shield Advanced Developer Guide*.
 
@@ -27,4 +27,4 @@ See the following procedure to disable AWS WAF protections and disassociate the 
 
 **Notes**  
 If you disabled AWS WAF security protection and you still want to delete the web ACL from your AWS account, you can delete it manually. Follow the procedure to [delete a web ACL](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-deleting.html). In the AWS WAF & Shield console, for the **Web ACLs** page, you *must* choose the **Global (CloudFront)** list to find the web ACLs.
-When you delete a distribution from the CloudFront console, CloudFront will attempt to also delete the web ACL if you chose one-click protection. This is best effort and isn't always guaranteed. For more information, see [Delete a distribution](HowToDeleteDistribution.md).
+When you delete a distribution from the CloudFront console, CloudFront will attempt to also delete the web ACL if you chose one-choose protection. This is best effort and isn't always guaranteed. For more information, see [Delete a distribution](HowToDeleteDistribution.md).

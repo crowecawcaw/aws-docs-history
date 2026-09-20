@@ -3,7 +3,7 @@
 # Cache content based on request headers
 <a name="header-caching"></a>
 
-CloudFront lets you choose whether you want CloudFront to forward headers to your origin and to cache separate versions of a specified object based on the header values in viewer requests. This allows you to serve different versions of your content based on the device the user is using, the location of the viewer, the language the viewer is using, and a variety of other criteria.
+With CloudFront, you can choose whether you want CloudFront to forward headers to your origin and to cache separate versions of a specified object based on the header values in viewer requests. With this, you can serve different versions of your content based on the device the user is using, the location of the viewer, the language the viewer is using, and a variety of other criteria.
 
 **Topics**
 + [Headers and distributions – overview](#header-caching-web)

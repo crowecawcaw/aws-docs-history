@@ -24,7 +24,7 @@ Currently, the module only support MAC0 structure with HS256 (HMAC-SHA256) algor
 ## Token structure
 <a name="token-structure"></a>
 
-This section covers the token structure that is expected by the CWT module. The module expects the token to be correctly tagged and identifiable (e.g. COSE MAC0). Moreover, as for the structure of the token, the module follows the standards set by [CBOR Object Signing and Encryption (COSE) [RFC 8152]](https://datatracker.ietf.org/doc/html/rfc8152).
+This section covers the token structure that is expected by the CWT module. The module expects the token to be correctly tagged and identifiable (for example COSE MAC0). Moreover, as for the structure of the token, the module follows the standards set by [CBOR Object Signing and Encryption (COSE) [RFC 8152]](https://datatracker.ietf.org/doc/html/rfc8152).
 
 ```
 ( // CWT Tag (Tag value: 61) --- optional    

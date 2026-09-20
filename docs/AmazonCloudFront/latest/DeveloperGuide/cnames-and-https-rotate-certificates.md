@@ -3,7 +3,7 @@
 # Rotate SSL/TLS certificates
 <a name="cnames-and-https-rotate-certificates"></a>
 
-When your SSL/TLS certificates are near expiration, you need to rotate them to ensure the security for your distribution and avoid service disruption for your viewers. You can rotate them in the following ways:
+When your SSL/TLS certificates are near expiration, you need to rotate them to make sure the security for your distribution and avoid service disruption for your viewers. You can rotate them in the following ways:
 + For SSL/TLS certificates provided by AWS Certificate Manager (ACM), you don't need to rotate them. ACM *automatically* manages certificate renewals for you. For more information, see [Managed certificate renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) in the *AWS Certificate Manager User Guide*.
 + If you're using a third-party certificate authority and you imported the certificates into ACM (recommended) or uploaded them to the IAM certificate store, you must occasionally replace one certificate with another.
 

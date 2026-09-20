@@ -250,7 +250,7 @@ There are also quotas on the number of SSL certificates that you can import into
 ## Quotas on cookies (legacy cache settings)
 <a name="limits-allowlisted-cookies"></a>
 
-These quotas apply to CloudFront's legacy cache settings. We recommend using a [cache policy](controlling-the-cache-key.md) or [origin request policy](controlling-origin-requests.md) instead of the legacy settings.
+These quotas apply to CloudFront legacy cache settings. We recommend using a [cache policy](controlling-the-cache-key.md) or [origin request policy](controlling-origin-requests.md) instead of the legacy settings.
 
 
 
@@ -262,7 +262,7 @@ These quotas apply to CloudFront's legacy cache settings. We recommend using a [
 ## Quotas on query strings (legacy cache settings)
 <a name="limits-allowlisted-query-strings"></a>
 
-These quotas apply to CloudFront's legacy cache settings. We recommend using a [cache policy](controlling-the-cache-key.md) or [origin request policy](controlling-origin-requests.md) instead of the legacy settings.
+These quotas apply to CloudFront legacy cache settings. We recommend using a [cache policy](controlling-the-cache-key.md) or [origin request policy](controlling-origin-requests.md) instead of the legacy settings.
 
 
 

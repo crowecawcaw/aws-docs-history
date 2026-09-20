@@ -441,7 +441,7 @@ If you're using Amazon S3 as the origin for a CloudFront distribution and you mo
 
 When you're using OAIs, CloudFront uses the Region (among other values) to calculate the signature that it uses to request objects from your bucket. For more information about OAIs, see [Use an origin access identity (legacy, not recommended)](private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai). For a list of AWS Regions that support Signature Version 2, see [Signature Version 2 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html) in the *Amazon Web Services General Reference*.
 
-To force a faster update to CloudFront's records, you can update your CloudFront distribution, for example, by updating the **Description** field on the **General** tab in the CloudFront console. When you update a distribution, CloudFront immediately checks the Region that your bucket is in. Propagation of the change to all edge locations should take only a few minutes.
+To force a faster update to CloudFront records, you can update your CloudFront distribution, for example, by updating the **Description** field on the **General** tab in the CloudFront console. When you update a distribution, CloudFront immediately checks the Region that your bucket is in. Propagation of the change to all edge locations should take only a few minutes.
 
 ### Use an Amazon S3 Multi-Region Access Point
 <a name="using-s3-mrap-as-origin"></a>

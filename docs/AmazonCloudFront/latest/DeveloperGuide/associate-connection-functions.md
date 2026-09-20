@@ -33,7 +33,7 @@ Use these filters when managing multiple Connection Functions across different d
 <a name="connection-function-deployment-considerations"></a>
 
 Consider these factors when deploying Connection Functions:
-+ **Global deployment** – Connection functions deploy to all CloudFront edge locations worldwide, which may take several minutes
++ **Global deployment** – Connection functions deploy to all CloudFront edge locations worldwide, which might take several minutes
 + **Version management** – Each published version creates a new LIVE function that replaces the previous version
 + **Rollback strategy** – Plan for rollback by keeping previous working versions of your function code
 + **Testing in production** – Consider using separate distributions for staging and production environments

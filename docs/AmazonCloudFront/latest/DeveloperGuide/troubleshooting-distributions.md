@@ -128,7 +128,7 @@ To use Amazon CloudFront with an Amazon S3 origin, you must sign up for both Clo
 ### Are your Amazon S3 bucket and object permissions set correctly?
 <a name="Troubleshooting.Permissions"></a>
 
-If you're using CloudFront with an Amazon S3 origin, the original versions of your content are stored in an S3 bucket. To serve the content to your viewers, we recommend that you use CloudFront Origin Access Control (OAC) to secure Amazon S3 bucket access. This means your S3 bucket is reachable only through CloudFront. OAC controls viewer access and secure delivery via CloudFront. For more information about OAC, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md).
+If you're using CloudFront with an Amazon S3 origin, the original versions of your content are stored in an S3 bucket. To serve the content to your viewers, we recommend that you use CloudFront Origin Access Control (OAC) to secure Amazon S3 bucket access. This means your S3 bucket is reachable only through CloudFront. OAC controls viewer access and secure delivery by using CloudFront. For more information about OAC, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md).
 
 For more information about managing your bucket access, see [Blocking public access to your Amazon S3 storage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) in the *Amazon S3 User Guide*.
 
@@ -169,7 +169,7 @@ Make sure that the URL that you're referencing uses the domain name (or CNAME) o
 ### Do you need help troubleshooting a custom origin?
 <a name="Troubleshooting.CustomOrigin"></a>
 
-If you need AWS to help you troubleshoot a custom origin, we probably will need to inspect the `X-Amz-Cf-Id` header entries from your requests. If you are not already logging these entries, you might want to consider it for the future. For more information, see [Use Amazon EC2 (or another custom origin)](DownloadDistS3AndCustomOrigins.md#concept_CustomOrigin). For further help, see the [AWS Support Center](https://console.aws.amazon.com/support/home?#/).
+If you need AWS to help you troubleshoot a custom origin, AWS will probably need to inspect the `X-Amz-Cf-Id` header entries from your requests. If you are not already logging these entries, you might want to consider it for the future. For more information, see [Use Amazon EC2 (or another custom origin)](DownloadDistS3AndCustomOrigins.md#concept_CustomOrigin). For further help, see the [AWS Support Center](https://console.aws.amazon.com/support/home?#/).
 
 ## Error message: Certificate: <certificate-id> is being used by CloudFront
 <a name="troubleshooting-certificate-error"></a>

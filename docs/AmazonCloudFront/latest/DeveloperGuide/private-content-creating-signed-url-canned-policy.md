@@ -100,7 +100,7 @@ Note the following:
 + **Protocol** – The value must begin with `http://` or `https://`.
 + **Query string parameters** – If you have no query string parameters, omit the question mark.
 + **Alternate domain names** – If you specify an alternate domain name (CNAME) in the URL, you must specify the alternate domain name when referencing the file in your webpage or application. Do not specify the Amazon S3 URL for the object.
-+ **Special characters** – If the URL for your resource contains an asterisk (`*`) or question mark (`?`) character (for instance, in the object key name), you must URL-encode those characters (`%2A` for `*` and `%3F` for `?`). This is because CloudFront interprets unencoded `*` and `?` characters as wildcard characters in the resource path. If these characters are not URL-encoded, the signed URL may grant broader access than intended.
++ **Special characters** – If the URL for your resource contains an asterisk (`*`) or question mark (`?`) character (for instance, in the object key name), you must URL-encode those characters (`%2A` for `*` and `%3F` for `?`). This is because CloudFront interprets unencoded `*` and `?` characters as wildcard characters in the resource path. If these characters are not URL-encoded, the signed URL might grant broader access than intended.
 
 **DateLessThan**  
 The expiration date and time for the URL in Unix time format (in seconds) and Coordinated Universal Time (UTC). For example, January 1, 2026 10:00 am UTC converts to 1767290400 in Unix time format.  
@@ -153,7 +153,20 @@ The method that you use to hash and sign the policy statement depends on your pr
 
 1. Base64-encode the string using MIME base64 encoding. For more information, see [Section 6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8) in *RFC 2045, MIME (Multipurpose Internet Mail Extensions) Part One: Format of Internet Message Bodies*.
 
-1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-canned-policy.html)
+1. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters.
+
+
+
+<table>
+<thead>
+  <tr><th>Replace these invalid characters</th><th>With these valid characters</th></tr>
+</thead>
+<tbody>
+  <tr><td>+</td><td>- (hyphen)</td></tr>
+  <tr><td>=</td><td>_ (underscore)</td></tr>
+  <tr><td>/</td><td>~ (tilde)</td></tr>
+</tbody>
+</table>
+
 
 1. Append the resulting value to your signed URL after `&Signature=`, and return to [To create a signed URL using a canned policy](#private-content-creating-signed-url-canned-policy-procedure) to finish concatenating the parts of your signed URL.

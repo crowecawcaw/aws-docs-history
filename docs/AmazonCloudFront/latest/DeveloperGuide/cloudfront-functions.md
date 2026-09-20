@@ -10,7 +10,7 @@ When you associate a CloudFront function with a CloudFront distribution, CloudFr
 + Before CloudFront returns the response to the viewer (viewer response)
 + During TLS connection establishment (connection request) - currently available for mutual TLS (mTLS) connections
 
-For more information about CloudFront Functions, see the following topics:
+For more information about CloudFront Functions, see the following topics. For a tutorial that stores data in a key value store, see [Tutorial: Create a CloudFront function that includes key values](functions-tutorial-kvs.md). After you write, test, and publish a function, you associate it with a cache behavior in your distribution – see [Associate functions with distributions](associate-function.md).
 
 **Topics**
 + [Tutorial: Create a simple function with CloudFront Functions](functions-tutorial.md)

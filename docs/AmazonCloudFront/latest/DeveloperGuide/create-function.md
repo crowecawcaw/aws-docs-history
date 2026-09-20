@@ -101,4 +101,4 @@ CloudFront Functions reuse ARNs for functions with the same name. You may encoun
 If you receive a `TaggingConflict` error, you can:  
 Wait a few minutes and retry the operation.
 Use a different function name. This avoids the ARN reuse conflict entirely.
-If your template creates both a KeyValueStore and a Function that references it, add an explicit `DependsOn` to ensure the KVS is fully provisioned before the function is created.
+If your template creates both a KeyValueStore and a Function that references it, add an explicit `DependsOn` to make sure the KVS is fully provisioned before the function is created.

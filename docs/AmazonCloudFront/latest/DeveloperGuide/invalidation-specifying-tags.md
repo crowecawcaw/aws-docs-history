@@ -44,4 +44,4 @@ If you change the `HeaderName` in `CacheTagConfig`, invalidations issued against
 1. Stop returning the old header from your origin.
 
  **Distribution tenants**   
-Tag invalidation is also supported for distribution tenants via the ` CreateInvalidationForDistributionTenant` API.
+Tag invalidation is also supported for distribution tenants by using the ` CreateInvalidationForDistributionTenant` API.

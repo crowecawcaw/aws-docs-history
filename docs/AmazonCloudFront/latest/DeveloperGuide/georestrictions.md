@@ -34,8 +34,8 @@ Here’s how geographic restrictions work:
 1. CloudFront returns an HTTP status code `403 (Forbidden)` to the user.
 
 **Note**  
-Geographic restrictions do not apply to certificate validation requests for CloudFront managed certificates. When you use a CloudFront managed certificate, requests to the `/.well-known/pki-validation/` path are excluded from geographic restriction rules. This ensures that Certificate Authorities can validate your certificate from the multiple geographically distributed network perspectives required for issuance and renewal, regardless of your geographic restriction configuration.  
-If you use AWS WAF with your distribution, ensure that your AWS WAF rules (including bot control rules) do not block requests to the `/.well-known/pki-validation/` path. Blocking these requests can prevent certificate validation from completing successfully.
+Geographic restrictions do not apply to certificate validation requests for CloudFront managed certificates. When you use a CloudFront managed certificate, requests to the `/.well-known/pki-validation/` path are excluded from geographic restriction rules. This makes sure that Certificate Authorities can validate your certificate from the multiple geographically distributed network perspectives required for issuance and renewal, regardless of your geographic restriction configuration.  
+If you use AWS WAF with your distribution, make sure that your AWS WAF rules (including bot control rules) do not block requests to the `/.well-known/pki-validation/` path. Blocking these requests can prevent certificate validation from completing successfully.
 
 You can optionally configure CloudFront to return a custom error message to the user, and you can specify how long you want CloudFront to cache the error response for the requested file. The default value is 10 seconds. For more information, see [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md).
 

@@ -163,7 +163,7 @@ You can also choose to create your own key pair and upload the public key. Cloud
 
 1. In the **Create Key Pair** dialog box, choose **Download Private Key File**, and then save the file on your computer.
 **Important**  
-Save the private key for your CloudFront key pair in a secure location, and set permissions on the file so that only the desired administrators can read it. If someone gets your private key, they can generate valid signed URLs and signed cookies and download your content. You cannot get the private key again, so if you lose or delete it, you must create a new CloudFront key pair.
+Save the private key for your CloudFront key pair in a secure location, and set permissions on the file so that only you can read it. If someone gets your private key, they can generate valid signed URLs and signed cookies and download your content. You cannot get the private key again, so if you lose or delete it, you must create a new CloudFront key pair.
 
 1. Record the key pair ID for your key pair. (In the AWS Management Console, this is called the **Access Key ID**.) You’ll use it when you create signed URLs or signed cookies.
 
@@ -178,14 +178,14 @@ If you’re using .NET or Java to create signed URLs or signed cookies, you cann
   openssl pkcs8 -topk8 -nocrypt -in private_key.pem -inform PEM -out {{private_key.der}} -outform DER
   ```
 
-  To ensure that the encoder works correctly, add the JAR for the Bouncy Castle Java cryptography APIs to your project and then add the Bouncy Castle provider.
+  To make sure that the encoder works correctly, add the JAR for the Bouncy Castle Java cryptography APIs to your project and then add the Bouncy Castle provider.
 
 ## Add a signer to a distribution
 <a name="private-content-adding-trusted-signers"></a>
 
 A signer is the trusted key group (recommended) or CloudFront key pair that can create signed URLs and signed cookies for a distribution. To use signed URLs or signed cookies with a CloudFront distribution, you must specify a signer.
 
-Signers are associated with cache behaviors. This allows you to require signed URLs or signed cookies for some files and not for others in the same distribution. A distribution requires signed URLs or cookies only for files that are associated with the corresponding cache behaviors.
+Signers are associated with cache behaviors. With this, you can require signed URLs or signed cookies for some files and not for others in the same distribution. A distribution requires signed URLs or cookies only for files that are associated with the corresponding cache behaviors.
 
 Similarly, a signer can only sign URLs or cookies for files that are associated with the corresponding cache behaviors. For example, if you have one signer for one cache behavior and a different signer for a different cache behavior, neither signer can create signed URLs or cookies for files that are associated with the other cache behavior.
 

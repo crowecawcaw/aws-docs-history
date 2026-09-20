@@ -53,4 +53,4 @@ When the origin is an Amazon S3 bucket and the request’s optimal regional edge
 
 The following diagram illustrates how requests and responses flow through CloudFront edge locations and regional edge caches.
 
-![Diagram showing request/response paths from viewers to origin via edge locations and regional edge caches.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/regional-edge-caches.png)
+![Diagram showing request/response paths from viewers to origin by using edge locations and regional edge caches.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/regional-edge-caches.png)

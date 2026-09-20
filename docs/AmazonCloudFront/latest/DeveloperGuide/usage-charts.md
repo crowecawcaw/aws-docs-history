@@ -172,16 +172,16 @@ This chart shows the total number of requests that CloudFront responds to from e
 This chart shows the total amount of data transferred from CloudFront edge locations in the selected region during each time interval for the specified CloudFront distribution, separated by protocol (HTTP or HTTPS), type (static, dynamic, or proxy), and destination (viewers or origin).
 
 **Data transferred over HTTP**  
-+ {{region}}**-Out-Bytes-HTTP-Static:** Bytes served via HTTP for objects with TTL ≥ 3600 seconds
-+ {{region}}**-Out-Bytes-HTTP-Dynamic:** Bytes served via HTTP for objects with TTL < 3600 seconds
-+ {{region}}**-Out-Bytes-HTTP-Proxy:** Bytes returned from CloudFront to viewers via HTTP in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
-+ {{region}}**-Out-OBytes-HTTP-Proxy:** Total bytes transferred via HTTP from CloudFront edge locations to your origin in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
++ {{region}}**-Out-Bytes-HTTP-Static:** Bytes served by using HTTP for objects with TTL ≥ 3600 seconds
++ {{region}}**-Out-Bytes-HTTP-Dynamic:** Bytes served by using HTTP for objects with TTL < 3600 seconds
++ {{region}}**-Out-Bytes-HTTP-Proxy:** Bytes returned from CloudFront to viewers by using HTTP in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
++ {{region}}**-Out-OBytes-HTTP-Proxy:** Total bytes transferred by using HTTP from CloudFront edge locations to your origin in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
 
 **Data transferred over HTTPS**  
-+ {{region}}**-Out-Bytes-HTTPS-Static:** Bytes served via HTTPS for objects with TTL ≥ 3600 seconds
-+ {{region}}**-Out-Bytes-HTTPS-Dynamic:** Bytes served via HTTPS for objects with TTL < 3600 seconds
-+ {{region}}**-Out-Bytes-HTTPS-Proxy:** Bytes returned from CloudFront to viewers via HTTPS in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
-+ {{region}}**-Out-OBytes-HTTPS-Proxy:** Total bytes transferred via HTTPS from CloudFront edge locations to your origin in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
++ {{region}}**-Out-Bytes-HTTPS-Static:** Bytes served by using HTTPS for objects with TTL ≥ 3600 seconds
++ {{region}}**-Out-Bytes-HTTPS-Dynamic:** Bytes served by using HTTPS for objects with TTL < 3600 seconds
++ {{region}}**-Out-Bytes-HTTPS-Proxy:** Bytes returned from CloudFront to viewers by using HTTPS in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
++ {{region}}**-Out-OBytes-HTTPS-Proxy:** Total bytes transferred by using HTTPS from CloudFront edge locations to your origin in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
 
 ### Data transferred by destination
 <a name="usage-charts-data-transferred-by-destination"></a>
@@ -189,13 +189,13 @@ This chart shows the total amount of data transferred from CloudFront edge locat
 This chart shows the total amount of data transferred from CloudFront edge locations in the selected region during each time interval for the specified CloudFront distribution, separated by destination (viewers or origin), protocol (HTTP or HTTPS), and type (static, dynamic, or proxy).
 
 **Data transferred from CloudFront to your viewers**  
-+ {{region}}**-Out-Bytes-HTTP-Static:** Bytes served via HTTP for objects with TTL ≥ 3600 seconds
-+ {{region}}**-Out-Bytes-HTTPS-Static:** Bytes served via HTTPS for objects with TTL ≥ 3600 seconds
-+ {{region}}**-Out-Bytes-HTTP-Dynamic:** Bytes served via HTTP for objects with TTL < 3600 seconds
-+ {{region}}**-Out-Bytes-HTTPS-Dynamic:** Bytes served via HTTPS for objects with TTL < 3600 seconds
-+ {{region}}**-Out-Bytes-HTTP-Proxy:** Bytes returned from CloudFront to viewers via HTTP in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
-+ {{region}}**-Out-Bytes-HTTPS-Proxy:** Bytes returned from CloudFront to viewers via HTTPS in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
++ {{region}}**-Out-Bytes-HTTP-Static:** Bytes served by using HTTP for objects with TTL ≥ 3600 seconds
++ {{region}}**-Out-Bytes-HTTPS-Static:** Bytes served by using HTTPS for objects with TTL ≥ 3600 seconds
++ {{region}}**-Out-Bytes-HTTP-Dynamic:** Bytes served by using HTTP for objects with TTL < 3600 seconds
++ {{region}}**-Out-Bytes-HTTPS-Dynamic:** Bytes served by using HTTPS for objects with TTL < 3600 seconds
++ {{region}}**-Out-Bytes-HTTP-Proxy:** Bytes returned from CloudFront to viewers by using HTTP in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
++ {{region}}**-Out-Bytes-HTTPS-Proxy:** Bytes returned from CloudFront to viewers by using HTTPS in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
 
 **Data transferred from CloudFront to your origin**  
-+ {{region}}**-Out-OBytes-HTTP-Proxy:** Total bytes transferred via HTTP from CloudFront edge locations to your origin in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
-+ {{region}}**-Out-OBytes-HTTPS-Proxy:** Total bytes transferred via HTTPS from CloudFront edge locations to your origin in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
++ {{region}}**-Out-OBytes-HTTP-Proxy:** Total bytes transferred by using HTTP from CloudFront edge locations to your origin in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests
++ {{region}}**-Out-OBytes-HTTPS-Proxy:** Total bytes transferred by using HTTPS from CloudFront edge locations to your origin in response to `DELETE`, `OPTIONS`, `PATCH`, `POST`, and `PUT` requests

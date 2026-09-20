@@ -23,7 +23,7 @@ Your compliance responsibility when using CloudFront is determined by the sensit
 
 This section provides best practices and recommendations for compliance when you use Amazon CloudFront to serve your content.
 
-If you run PCI-compliant or HIPAA-compliant workloads that are based on the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/), we recommend that you log your CloudFront usage data for the last 365 days for future auditing purposes. To log usage data, you can do the following:
+You might run PCI-compliant or HIPAA-compliant workloads that are based on the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/). In this case, we recommend that you log your CloudFront usage data for the last 365 days for future auditing purposes. To log usage data, you can do the following:
 + Enable CloudFront access logs. For more information, see [Access logs (standard logs)](AccessLogs.md).
 + Capture requests that are sent to the CloudFront API. For more information, see [Logging Amazon CloudFront API calls using AWS CloudTrail](logging_using_cloudtrail.md).
 
@@ -39,4 +39,4 @@ As a security best practice, we recommend that you don't cache credit card infor
 ### System and Organization Controls (SOC)
 <a name="compliance-soc"></a>
 
-CloudFront (excluding content delivery through CloudFront Embedded POPs) is compliant with System and Organization Controls (SOC) measures, including SOC 1, SOC 2, and SOC 3. SOC reports are independent, third-party examination reports that demonstrate how AWS achieves key compliance controls and objectives. These audits ensure that the appropriate safeguards and procedures are in place to protect against risks that might affect the security, confidentiality, and availability of customer and company data. The results of these third-party audits are available on the [AWS SOC Compliance website](https://aws.amazon.com/compliance/soc-faqs/), where you can view the published reports to get more information about the controls that support AWS operations and compliance.
+CloudFront (excluding content delivery through CloudFront Embedded POPs) is compliant with System and Organization Controls (SOC) measures, including SOC 1, SOC 2, and SOC 3. SOC reports are independent, third-party examination reports that demonstrate how AWS achieves key compliance controls and objectives. These audits make sure that the appropriate safeguards and procedures are in place to protect against risks that might affect the security, confidentiality, and availability of customer and company data. The results of these third-party audits are available on the [AWS SOC Compliance website](https://aws.amazon.com/compliance/soc-faqs/), where you can view the published reports to get more information about the controls that support AWS operations and compliance.

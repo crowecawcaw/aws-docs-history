@@ -40,7 +40,7 @@ In verify mode, CloudFront automatically adds the CloudFront-Viewer-Cert-\* head
 
 1. In the **Origin request policy** section, choose **Create policy** or select an existing policy
 
-1. Ensure the following headers are included in the origin request policy:
+1. Make sure the following headers are included in the origin request policy:
    + CloudFront-Viewer-Cert-Serial-Number
    + CloudFront-Viewer-Cert-Issuer
    + CloudFront-Viewer-Cert-Subject
@@ -89,9 +89,9 @@ aws cloudfront create-origin-request-policy \
 
 When working with certificate headers, consider these best practices:
 + **Header validation:** Verify certificate header values at your origin as an additional security measure
-+ **Header size limits:** The PEM certificate headers can be large, ensure your origin server can handle them
++ **Header size limits:** The PEM certificate headers can be large, make sure your origin server can handle them
 + **Cache considerations:** Using certificate headers in your cache key increases cache fragmentation
-+ **Cross-origin requests:** If your application uses CORS, then you may need to configure it to allow the certificate headers
++ **Cross-origin requests:** If your application uses CORS, then you might need to configure it to allow the certificate headers
 
 ## Next steps
 <a name="headers-next-steps"></a>

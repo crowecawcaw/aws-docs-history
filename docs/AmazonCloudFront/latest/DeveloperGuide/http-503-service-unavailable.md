@@ -33,7 +33,7 @@ When an origin server is unavailable or unable to serve incoming requests, it re
   + [How do I troubleshoot 503 errors returned while using Classic Load Balancer?](https://repost.aws/knowledge-center/503-error-classic)
   + [How do I troubleshoot 503 (service unavailable) errors from my Application Load Balancer?](https://repost.aws/knowledge-center/alb-troubleshoot-503-errors)
 + **If you use a custom origin**:
-  + Examine the application logs to ensure that your origin has sufficient resources, such as memory, CPU, and disk size.
+  + Examine the application logs to make sure that your origin has sufficient resources, such as memory, CPU, and disk size.
   + If you use Amazon EC2 as the backend, make sure that the instance type has the appropriate resources to fulfill the incoming requests. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
 + **If you use API Gateway**:
   + This error is related to the backend integration when the API Gateway API is unable to receive a response. The backend server might be:
@@ -51,7 +51,7 @@ If this happens in your production environment, contact [Support](https://consol
 ## CloudFront caused the error for an origin configured with mutual TLS
 <a name="http-503-service-unavailable-origin-mtls"></a>
 
-If your distribution uses mutual TLS (mTLS) to connect to a custom origin, CloudFront may return an HTTP 503 status code when it is unable to establish connections to the origin. This can happen when the origin repeatedly fails to complete TLS handshakes or is unreachable due to DNS or connectivity issues. This condition is temporary — CloudFront automatically resumes normal traffic once the origin is reachable again.
+If your distribution uses mutual TLS (mTLS) to connect to a custom origin, CloudFront might return an HTTP 503 status code when it is unable to establish connections to the origin. This can happen when the origin repeatedly fails to complete TLS handshakes or is unreachable due to DNS or connectivity issues. This condition is temporary — CloudFront automatically resumes normal traffic after the origin is reachable again.
 
 To resolve this issue:
 + Confirm that the correct client certificate is associated with your distribution and that it has not expired. If you recently updated the certificate, allow time for the change to propagate before it takes effect.
