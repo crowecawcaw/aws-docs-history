@@ -34,8 +34,22 @@ The AWS Network Manager console provides a group of dashboards for AWS Global Ne
    + Your transit gateway details.
    + The transit gateway attachments, along with information about each of those attachments.
 
-   Use the following legend to understand the icons on this page:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/network-manager/latest/tgwnm/nm-visualize-tgw.html)
+   Use the following legend to understand the icons on this page: 
+
+
+<table>
+<thead>
+  <tr><th>Icon</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/cloudwan-tgws-vpc.png" alt="AWS Cloud WAN VPCs" /> </td><td><b>VPC</b> <br />The total number of VPC attachments in your transit gateway network. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/cloudwan-tgws-vpn.png" alt="AWS Cloud WAN VPNs" /> </td><td><b>VPN </b>The total number of VPN attachments in your transit gateway. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/cloudwan-tgws-direct.png" alt="AWS Cloud WAN Direct Connect gateways" /> </td><td><b>Direct Connect Gateway</b>The total number of Direct Connect gateways attached to your transit gateway. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/cloudwan-tgws-connect.png" alt="AWS Cloud WAN Connect peers" /> </td><td><b>Connect</b>The total number of Connect peer attachments in your transit gateway. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/cloudwan-geography-tgw.png" alt="AWS Cloud WAN transit gateways" /> </td><td><b>Transit Gateway</b>The total number of Transit Gateways.</td></tr>
+</tbody>
+</table>
+
 
 1. The **Details** section shows information about your global network: the transit gateway **ID**, its **Name**, the **Region** where it's located, and the current **State** of the gateway. 
 **Note**  

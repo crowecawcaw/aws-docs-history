@@ -31,8 +31,20 @@ The Overview page displays details about your transit gateway network, the VPN s
 1. The **Overview** page opens by default, showing information about your transit gateways. 
 
 1. On the **Overview** page you contains the following information:
-   + Your transit gateway network **Inventory**:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/network-manager/latest/tgwnm/nm-monitoring-console.html)
+   + Your transit gateway network **Inventory**:
+
+
+<table>
+<thead>
+  <tr><th>Icon</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/cloudwan-geography-tgw.png" alt="AWS Cloud WAN transit gateways" /> </td><td><b>Transit gateways </b>The total number of registered transit gateways in your global network. Choose the link to open the <b>Transit gateways</b> page to view more information about your transit gateways.</td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/cloudwan-geography-sites.png" alt="AWS Cloud WAN sites" /> </td><td><b>Sites</b>The total number of sites associated with your transit gateways. Choose the link to open the <b>Sites</b> page to view more information about your transit gateway sites. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/tgwnm/images/cloudwan-geography-devices.png" alt="AWS Cloud WAN devices" /> </td><td><b>Devices</b>The total number of devices associated with your transit gateways. Choose the link to open the <b>Devices</b> page to view more information about your transit gateway devices.</td></tr>
+</tbody>
+</table>
+
    + The **Transit gateways VPN status**. The following is displayed:
      + **ID** – The ID of the transit gateway. Choose the link to open details about the transit gateway.
      + **Name** – Name of the transit gateway.
