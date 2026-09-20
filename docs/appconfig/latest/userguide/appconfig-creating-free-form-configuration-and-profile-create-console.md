@@ -29,8 +29,24 @@ Use the following procedure to create an AWS AppConfig freeform configuration pr
 
 1. On the **Specify configuration data** page, in the **Configuration definition** section, choose an option.
 
-1. Complete the fields for the option you selected, as described in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-free-form-configuration-and-profile-create-console.html)
+1. Complete the fields for the option you selected, as described in the following table.
+
+
+
+<table>
+<thead>
+  <tr><th>Option selected</th><th>Details</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>AWS AppConfig hosted configuration</b></td><td>Choose either <b>Text</b>, <b>JSON</b>, or <b>YAML</b>, and enter your configuration in the field. Go to Step 12 in this procedure.</td></tr>
+  <tr><td><b>Amazon S3 object</b></td><td>Enter the object URI in the <b>S3 object source</b> field and go to Step 11 in this procedure.</td></tr>
+  <tr><td><b>AWS CodePipeline</b></td><td>Choose <b>Next</b> and go to Step 12 in this procedure.</td></tr>
+  <tr><td><b>Secrets Manager secret</b></td><td>Choose the secret from the list go to Step 11 in this procedure.</td></tr>
+  <tr><td><b>AWS Systems Manager parameter</b></td><td>Choose the parameter from the list and go to Step 11 in this procedure.</td></tr>
+  <tr><td><b>AWS Systems Manager document</b></td><td> <ol><li> Choose a document from the list or choose <b>Create new document</b>.  </li><li> If you choose <b>Create new document</b>, for <b>Document name</b>, enter a name. Optionally, expand <b>Version name</b> and enter a name for the document version. </li><li> For <b>Application configuration schema</b>, either choose the JSON schema from the list or choose <b>Create schema</b>. If you choose <b>Create schema</b>, Systems Manager opens the <b>Create schema</b> page. Enter the schema details, and then choose <b>Create application configuration schema</b>. </li><li> In the <b>Content</b> section, choose either <b>YAML</b> or <b>JSON</b> and then enter the configuration data in the field. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. In the **Service role** section, choose **New service role** to have AWS AppConfig create the IAM role that provides access to the configuration data. AWS AppConfig automatically populates the **Role name** field based on the name you entered earlier. Or, choose **Existing service role**. Choose the role by using the **Role ARN** list.
 
