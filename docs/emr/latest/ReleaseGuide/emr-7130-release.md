@@ -94,8 +94,21 @@ The following applications are upgraded in this release:
 ### Known issues and limitations
 <a name="emr-7130-known-issues"></a>
 + Configuring `yarn.nodemanager.log-dirs` with a value of length longer than 512 characters will cause S3 log upload to fail.
-+ The following table lists the Amazon Linux release labels, kernel versions, available dates, and supported AWS Regions.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-7130-release.html)
++ The following table lists the Amazon Linux release labels, kernel versions, available dates, and supported AWS Regions.
+
+
+<table>
+<thead>
+  <tr><th>OsReleaseLabel (Amazon Linux version)</th><th>Amazon Linux kernel version</th><th>Available date</th><th>Supported Regions</th></tr>
+</thead>
+<tbody>
+  <tr><td>2023.12.20260803.3</td><td>6.1.177-224.371.amzn2023</td><td>August 28, 2026</td><td>US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Taipei), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Hyderabad), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Malaysia), Asia Pacific (Thailand), Canada (Central), Canada West (Calgary), Europe (Frankfurt), Europe (Zurich), Europe (Stockholm), Europe (Milan), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris), Israel (Tel Aviv), Mexico (Central), South America (São Paulo), China (Beijing), China (Ningxia), AWS GovCloud (US-East), AWS GovCloud (US-West)</td></tr>
+  <tr><td>2023.12.20260727.0</td><td>6.1.176-223.369.amzn2023</td><td>August 13, 2026</td><td>US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Taipei), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Hyderabad), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Malaysia), Asia Pacific (Thailand), Canada (Central), Canada West (Calgary), Europe (Frankfurt), Europe (Zurich), Europe (Stockholm), Europe (Milan), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris), Israel (Tel Aviv), Mexico (Central), South America (São Paulo), China (Beijing), China (Ningxia), AWS GovCloud (US-East), AWS GovCloud (US-West)</td></tr>
+  <tr><td>2023.12.20260629.0</td><td>6.1.175-219.359.amzn2023</td><td>July 22, 2026</td><td>US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Taipei), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Hyderabad), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Malaysia), Asia Pacific (Thailand), Canada (Central), Canada West (Calgary), Europe (Frankfurt), Europe (Zurich), Europe (Stockholm), Europe (Milan), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris), Israel (Tel Aviv), Mexico (Central), South America (São Paulo), China (Beijing), China (Ningxia), AWS GovCloud (US-East), AWS GovCloud (US-West)</td></tr>
+  <tr><td>2023.12.20260611.0</td><td>6.1.174-217.345.amzn2023</td><td>July 3, 2026</td><td>US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Taipei), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Hyderabad), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Malaysia), Asia Pacific (Thailand), Canada (Central), Canada West (Calgary), Europe (Frankfurt), Europe (Zurich), Europe (Stockholm), Europe (Milan), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris), Israel (Tel Aviv), Mexico (Central), South America (São Paulo), China (Beijing), China (Ningxia), AWS GovCloud (US-East), AWS GovCloud (US-West)</td></tr>
+</tbody>
+</table>
+
 
 ## 7.13.0 default Java versions
 <a name="emr-7130-jdk"></a>

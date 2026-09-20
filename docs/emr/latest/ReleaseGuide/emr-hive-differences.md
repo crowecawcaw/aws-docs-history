@@ -77,8 +77,22 @@ add jar ${LIB}/jsonserde.jar
 
 1. In the **Steps** section, for **Add Step**, choose **Hive Program** from the list and **Configure and add**.
 
-1.  In the **Add Step** dialog, specify the parameters using the following table as a guide, and then choose **Add**.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-differences.html)
+1.  In the **Add Step** dialog, specify the parameters using the following table as a guide, and then choose **Add**. 
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Script S3 location*</td><td>Specify the URI where your script resides in Amazon S3. The value must be in the form {{BucketName}}/{{path}}/{{ScriptName}}. For example: <code>s3://elasticmapreduce/samples/hive-ads/libs/response-time-stats.q</code>.</td></tr>
+  <tr><td>Input S3 location</td><td>Optionally, specify the URI where your input files reside in Amazon S3. The value must be in the form {{BucketName}}/{{path}}/. If specified, this will be passed to the Hive script as a parameter named <code>INPUT</code>. For example: <code>s3://elasticmapreduce/samples/hive-ads/tables/</code>.</td></tr>
+  <tr><td>Output S3 location</td><td>Optionally, specify the URI where you want the output stored in Amazon S3. The value must be in the form {{BucketName}}/{{path}}. If specified, this will be passed to the Hive script as a parameter named <code>OUTPUT</code>. For example: <code>s3://amzn-s3-demo-bucket/hive-ads/output/</code>.</td></tr>
+  <tr><td>Arguments</td><td>Optionally, enter a list of arguments (space-separated strings) to pass to Hive. If you defined a path variable in your Hive script named ${SAMPLE}, for example:<pre>CREATE EXTERNAL TABLE logs (requestBeginTime STRING, requestEndTime STRING, hostname STRING) PARTITIONED BY (dt STRING) \<br />ROW FORMAT serde 'com.amazon.elasticmapreduce.JsonSerde' <br />WITH SERDEPROPERTIES ( 'paths'='requestBeginTime, requestEndTime, hostname' ) LOCATION '${SAMPLE}/tables/impressions'; </pre>To pass a value for the variable, type the following in the <b>Arguments</b> window:<br /><code>-d SAMPLE=s3://elasticmapreduce/samples/hive-ads/</code>.</td></tr>
+  <tr><td>Action on Failure</td><td>This determines what the cluster does in response to any errors. The possible values for this setting are: <ul><li> <b>Terminate cluster</b>: If the step fails, terminate the cluster. If the cluster has termination protection enabled AND keep alive enabled, it will not terminate. </li><li> <b>Cancel and wait</b>: If the step fails, cancel the remaining steps. If the cluster has keep alive enabled, the cluster will not terminate. </li><li> <b>Continue</b>: If the step fails, continue to the next step. </li></ul></td></tr>
+</tbody>
+</table>
+
 
 1. Select values as necessary and choose **Create cluster**.
 

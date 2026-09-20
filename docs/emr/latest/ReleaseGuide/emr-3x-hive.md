@@ -166,11 +166,40 @@ To connect to Hive via JDBC requires you to download the JDBC driver and install
 
 1. Install SQL Workbench/J. For more information, see [Installing and starting SQL Workbench/J](http://www.sql-workbench.net/manual/install.html) in the SQL Workbench/J Manual User's Manual.
 
-1. Create an SSH tunnel to the cluster master node. The port for connection is different depending on the version of Hive. Example commands are provided in the tables below for Linux `ssh` users and PuTTY commands for Windows users  
-**Linux SSH commands**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-3x-hive.html)  
-**Windows PuTTY tunnel settings**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-3x-hive.html)
+1. Create an SSH tunnel to the cluster master node. The port for connection is different depending on the version of Hive. Example commands are provided in the tables below for Linux `ssh` users and PuTTY commands for Windows users
+
+
+**Linux SSH commands**  
+
+<table>
+<thead>
+  <tr><th>Hive version</th><th>Command</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.13.1</td><td><code>ssh -o ServerAliveInterval=10 -i path-to-key-file -N -L 10000:localhost:10000 hadoop@master-public-dns-name</code> </td></tr>
+  <tr><td>0.11.0</td><td><code>ssh -o ServerAliveInterval=10 -i path-to-key-file -N -L 10004:localhost:10004 hadoop@master-public-dns-name</code> </td></tr>
+  <tr><td>0.8.1</td><td><code>ssh -o ServerAliveInterval=10 -i path-to-key-file -N -L 10003:localhost:10003 hadoop@master-public-dns-name</code> </td></tr>
+  <tr><td>0.7.1</td><td><code>ssh -o ServerAliveInterval=10 -i path-to-key-file -N -L 10002:localhost:10002 hadoop@master-public-dns-name</code> </td></tr>
+  <tr><td>0.7</td><td><code>ssh -o ServerAliveInterval=10 -i path-to-key-file -N -L 10001:localhost:10001 hadoop@master-public-dns-name</code> </td></tr>
+  <tr><td>0.5</td><td><code>ssh -o ServerAliveInterval=10 -i path-to-key-file -N -L 10000:localhost:10000 hadoop@master-public-dns-name</code> </td></tr>
+</tbody>
+</table>
+
+
+
+**Windows PuTTY tunnel settings**  
+
+<table>
+<thead>
+  <tr><th>Hive version</th><th>Tunnel settings</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.13.1</td><td><b>Source port</b>: 10000 <b>Destination</b>: {{master-public-dns-name}}:10000</td></tr>
+  <tr><td>0.11.0</td><td><b>Source port</b>: 10004 <b>Destination</b>: {{master-public-dns-name}}:10004</td></tr>
+  <tr><td>0.8.1</td><td><b>Source port</b>: 10003 <b>Destination</b>: {{master-public-dns-name}}:10003</td></tr>
+</tbody>
+</table>
+
 
 1. Add the JDBC driver to SQL Workbench.
 
@@ -182,13 +211,56 @@ To connect to Hive via JDBC requires you to download the JDBC driver and install
 
    1. For **Library**, click the **Select the JAR file(s)** icon.
 
-   1. Select JAR files as shown in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-3x-hive.html)
+   1. Select JAR files as shown in the following table.
 
-   1. In the **Please select one driver** dialog box, select a driver according to the following table and click **OK**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-3x-hive.html)
 
-1. When you return to the **Select Connection Profile** dialog box, verify that the **Driver** field is set to **Hive JDBC** and provide the JDBC connection string in the **URL** field according to the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-3x-hive.html)
+
+<table>
+<thead>
+  <tr><th>Hive driver version</th><th>JAR files to add</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.13.1</td><td> <pre>hive_metastore.jar<br />hive_service.jar<br />HiveJDBC3.jar<br />libfb303-0.9.0.jar<br />libthrift-0.9.0.jar<br />log4j-1.2.14.jar<br />ql.jar<br />slf4j-api-1.5.8.jar<br />slf4j-log4j12-1.5.8.jar<br />TCLIServiceClient.jar</pre> </td></tr>
+  <tr><td>0.11.0</td><td> <pre>hadoop-core-1.0.3.jar<br />hive-exec-0.11.0.jar<br />hive-jdbc-0.11.0.jar<br />hive-metastore-0.11.0.jar<br />hive-service-0.11.0.jar<br />libfb303-0.9.0.jar<br />commons-logging-1.0.4.jar<br />slf4j-api-1.6.1.jar</pre> </td></tr>
+  <tr><td>0.8.1</td><td> <pre>hadoop-core-0.20.205.jar<br />hive-exec-0.8.1.jar<br />hive-jdbc-0.8.1.jar<br />hive-metastore-0.8.1.jar<br />hive-service-0.8.1.jar<br />libfb303-0.7.0.jar<br />libthrift-0.7.0.jar<br />log4j-1.2.15.jar    <br />slf4j-api-1.6.1.jar<br />slf4j-log4j12-1.6.1.jar         </pre> </td></tr>
+  <tr><td>0.7.1</td><td> <pre>hadoop-0.20-core.jar<br />hive-exec-0.7.1.jar<br />hive-jdbc-0.7.1.jar<br />hive-metastore-0.7.1.jar<br />hive-service-0.7.1.jar<br />libfb303.jar<br />commons-logging-1.0.4.jar    <br />slf4j-api-1.6.1.jar<br />slf4j-log4j12-1.6.1.jar         </pre> </td></tr>
+  <tr><td>0.7</td><td> <pre>hadoop-0.20-core.jar<br />hive-exec-0.7.0.jar<br />hive-jdbc-0.7.0.jar<br />hive-metastore-0.7.0.jar<br />hive-service-0.7.0.jar<br />libfb303.jar<br />commons-logging-1.0.4.jar    <br />slf4j-api-1.5.6.jar<br />slf4j-log4j12-1.5.6.jar         </pre> </td></tr>
+  <tr><td>0.5</td><td> <pre>hadoop-0.20-core.jar<br />hive-exec-0.5.0.jar<br />hive-jdbc-0.5.0.jar<br />hive-metastore-0.5.0.jar<br />hive-service-0.5.0.jar<br />libfb303.jar<br />log4j-1.2.15.jar<br />commons-logging-1.0.4.jar             </pre> </td></tr>
+</tbody>
+</table>
+
+
+   1. In the **Please select one driver** dialog box, select a driver according to the following table and click **OK**.
+
+
+<table>
+<thead>
+  <tr><th>Hive version</th><th>Driver classname</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.13.1</td><td> <pre>com.amazon.hive.jdbc3.HS2Driver</pre> </td></tr>
+  <tr><td>0.11.0</td><td> <pre>org.apache.hadoop.hive.jdbc.HiveDriver.jar</pre> </td></tr>
+  <tr><td>0.8.1</td><td> <pre>org.apache.hadoop.hive.jdbc.HiveDriver.jar        </pre> </td></tr>
+  <tr><td>0.7.1</td><td> <pre>org.apache.hadoop.hive.jdbc.HiveDriver.jar       </pre> </td></tr>
+  <tr><td>0.7</td><td> <pre>org.apache.hadoop.hive.jdbc.HiveDriver.jar        </pre> </td></tr>
+  <tr><td>0.5</td><td> <pre>org.apache.hadoop.hive.jdbc.HiveDriver.jar           </pre> </td></tr>
+</tbody>
+</table>
+
+
+1. When you return to the **Select Connection Profile** dialog box, verify that the **Driver** field is set to **Hive JDBC** and provide the JDBC connection string in the **URL** field according to the following table.
+
+
+<table>
+<thead>
+  <tr><th>Hive version</th><th>JDBC connection string</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.13.1</td><td> <code>jdbc:hive2://localhost:10000/default</code> </td></tr>
+  <tr><td>0.11.0</td><td> <code>jdbc:hive://localhost:10004/default</code> </td></tr>
+  <tr><td>0.8.1</td><td> <code>jdbc:hive://localhost:10003/default</code> </td></tr>
+</tbody>
+</table>
+
 
    If your cluster uses AMI version 3.3.1 or later, in the **Select Connection Profile** dialog box, type **hadoop** in the **Username** field.

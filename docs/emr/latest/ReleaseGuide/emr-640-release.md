@@ -135,8 +135,21 @@ Updated release date: March 21, 2022
   hoodie.metrics.on=true
   hoodie.metrics.reporter.type=CLOUDWATCH
   ```
-+ The following are optional Hudi configurations that you can change:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-640-release.html)
++ The following are optional Hudi configurations that you can change:
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Description</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>hoodie.metrics.cloudwatch.report.period.seconds</td><td>Frequency (in seconds) at which to report metrics to Amazon CloudWatch</td><td>Default value is 60s, which is fine for the default one minute resolution offered by Amazon CloudWatch</td></tr>
+  <tr><td>hoodie.metrics.cloudwatch.metric.prefix</td><td>Prefix to be added to each metric name</td><td>Default value is empty (no prefix)</td></tr>
+  <tr><td>hoodie.metrics.cloudwatch.namespace</td><td>Amazon CloudWatch namespace under which metrics are published</td><td>Default value is Hudi</td></tr>
+  <tr><td>hoodie.metrics.cloudwatch.maxDatumsPerRequest</td><td>Maximum number of datums to be included in one request to Amazon CloudWatch</td><td>Default value is 20, which is same as Amazon CloudWatch default</td></tr>
+</tbody>
+</table>
+
 
 **Amazon EMR Hudi configurations support and improvements**
 + Customers can now leverage EMR Configurations API and Reconfiguration feature to configure Hudi configurations at cluster level. A new file based configuration support has been introduced via /etc/hudi/conf/hudi-defaults.conf along the lines of other applications like Spark, Hive etc. EMR configures few defaults to improve user experience:

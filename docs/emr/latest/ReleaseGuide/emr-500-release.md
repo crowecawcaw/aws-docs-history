@@ -70,9 +70,24 @@ For a comprehensive history of application versions for each release of Amazon E
 + Amazon EMR supports the latest open-source versions of Hive (version 2.1) and Pig (version 0.16.0). If you have used Hive or Pig on Amazon EMR in the past, this may affect some use cases. For more information, see [Hive](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive.html) and [Pig](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-pig.html).
 + The default execution engine for Hive and Pig is now Tez. To change this, you would edit the appropriate values in the `hive-site` and `pig-properties` configuration classifications, respectively.
 + An enhanced step debugging feature was added, which allows you to see the root cause of step failures if the service can determine the cause. For more information, see [ Enhanced Step Debugging](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-enhanced-step-debugging.html) in the Amazon EMR Management Guide.
-+ Applications that previously ended with "-Sandbox" no longer have that suffix. This may break your automation, for example, if you are using scripts to launch clusters with these applications. The following table shows application names in Amazon EMR 4.7.2 versus Amazon EMR 5.0.0.   
-**Application name changes**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-500-release.html)
++ Applications that previously ended with "-Sandbox" no longer have that suffix. This may break your automation, for example, if you are using scripts to launch clusters with these applications. The following table shows application names in Amazon EMR 4.7.2 versus Amazon EMR 5.0.0. 
+
+
+**Application name changes**  
+
+<table>
+<thead>
+  <tr><th>Amazon EMR 4.7.2</th><th>Amazon EMR 5.0.0</th></tr>
+</thead>
+<tbody>
+  <tr><td>Oozie-Sandbox</td><td>Oozie</td></tr>
+  <tr><td>Presto-Sandbox</td><td>Presto</td></tr>
+  <tr><td>Sqoop-Sandbox</td><td>Sqoop</td></tr>
+  <tr><td>Zeppelin-Sandbox</td><td>Zeppelin</td></tr>
+  <tr><td>ZooKeeper-Sandbox</td><td>ZooKeeper</td></tr>
+</tbody>
+</table>
+
 + Spark is now compiled for Scala 2.11.
 + Java 8 is now the default JVM. All applications run using the Java 8 runtime. There are no changes to any applicationâ€™s byte code target. Most applications continue to target Java 7.
 + Zeppelin now includes authentication features. For more information, see [Zeppelin](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-zeppelin.html).

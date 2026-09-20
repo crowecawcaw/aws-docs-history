@@ -299,8 +299,20 @@ The cluster must use Amazon EMR release 6.12.0 or higher to support Java 11.
 
 1. In the **Instance group configurations** section, select the **Running** instance group that you want to update and then choose **Reconfigure** from the list actions menu.
 
-1. Reconfigure the instance group with the **Edit attributes** option as follows. Select **Add new configuration** after each one.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/flink-configure.html)
+1. Reconfigure the instance group with the **Edit attributes** option as follows. Select **Add new configuration** after each one.
+
+
+<table>
+<thead>
+  <tr><th>Classification</th><th>Property</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>flink-conf</code></td><td><code>containerized.taskmanager.env.JAVA_HOME</code></td><td><code>/usr/lib/jvm/jre-11</code></td></tr>
+  <tr><td><code>flink-conf</code></td><td><code>containerized.master.env.JAVA_HOME</code></td><td><code>/usr/lib/jvm/jre-11</code></td></tr>
+  <tr><td><code>flink-conf</code></td><td><code>env.java.home</code></td><td><code>/usr/lib/jvm/jre-11</code></td></tr>
+</tbody>
+</table>
+
 
 1. Select **Save changes** to add the configurations.
 

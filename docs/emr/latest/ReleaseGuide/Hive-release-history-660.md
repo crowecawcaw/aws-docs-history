@@ -392,8 +392,21 @@
 <a name="emr-Hive-660-configs"></a>
 + As part of OSS change [HIVE-20703](https://issues.apache.org/jira/browse/HIVE-20703), the property to sort dynamic partitions, `hive.optimize.sort.dynamic.partition`, has been replaced with `hive.optimize.sort.dynamic.partition.threshold`. 
 
-  The `hive.optimize.sort.dynamic.partition.threshold` configuration has the following potential values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/Hive-release-history-660.html)
+  The `hive.optimize.sort.dynamic.partition.threshold` configuration has the following potential values:
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>0</code><br /><i>(default)</i></td><td>Makes the optimization to sort dynamic partitions a cost-based decision when ORC files are used. The max number of writers allowed in INSERT queries is computed based on (executor/container memory) * (percentage of memory taken by orc) divided by max memory (stripe size) taken by a single writer.</td></tr>
+  <tr><td><code>-1</code> </td><td>Disables the optimization to sort dynamic partitions completely.</td></tr>
+  <tr><td><code>1</code> </td><td>Enables global sorting of dynamic partitions. This keeps only one record writer open for each partition value in the reducer, thereby reducing the memory pressure on reducers.</td></tr>
+  <tr><td><code>2</code><br /><i>(or greater integer)</i></td><td>Tells Hive to use the specified integer as threshold for the maximum number of writers.</td></tr>
+</tbody>
+</table>
+
 
 ## Amazon EMR 6.6.0 - Hive known issues
 <a name="emr-Hive-660-issues"></a>

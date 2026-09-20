@@ -25,8 +25,22 @@ Submit the Flink session with the `flink-yarn-session` command in an existing cl
 
 1. In the cluster details page, choose **Steps**, **Add Step**.
 
-1. Use the guidelines that follow to enter the parameters, and then choose **Add**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/flink-jobs.html)
+1. Use the guidelines that follow to enter the parameters, and then choose **Add**.
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Step type</b></td><td><b>Custom JAR</b></td></tr>
+  <tr><td><b>Name</b></td><td>A name to help you identify the step. For example, {{&lt;example-flink-step-name&gt;}}.</td></tr>
+  <tr><td><b>Jar location</b></td><td><b>command-runner.jar</b></td></tr>
+  <tr><td><b>Arguments</b></td><td>The <code>flink-yarn-session</code> command with arguments appropriate for your application. For example, {{flink-yarn-session -d}} starts a Flink session within your YARN cluster in a detached state (<code>-d</code>). See <a href="https://nightlies.apache.org/flink/flink-docs-stable/docs/deployment/resource-providers/yarn/">YARN setup</a> in the latest Flink documentation for argument details.</td></tr>
+</tbody>
+</table>
+
 
 **To submit a Flink job on an existing cluster with the AWS CLI**
 + Use the `add-steps` command to add a Flink job to a long-running cluster. The following example command specifies `Args="flink-yarn-session", "-d"` to start a Flink session within your YARN cluster in a detached state (`-d`). See [YARN setup](https://nightlies.apache.org/flink/flink-docs-stable/docs/deployment/resource-providers/yarn/) in the latest Flink documentation for argument details.
