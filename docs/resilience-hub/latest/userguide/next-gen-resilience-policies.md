@@ -12,3 +12,4 @@ Match your organizational resilience requirements with resilience policies. A re
 + [Applying policies at user journey and service levels](next-gen-applying-policies.md)
 + [Policy inheritance and multi-level evaluation](next-gen-policy-inheritance.md)
 + [Managing and updating policies](next-gen-managing-policies.md)
++ [Sharing a policy across your organization](next-gen-policy-sharing.md)

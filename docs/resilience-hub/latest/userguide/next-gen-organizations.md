@@ -18,6 +18,7 @@ Next generation Resilience Hub integrates with AWS Organizations to enable organ
 + [Setting up Organizations integration](next-gen-delegated-admin-setup.md)
 + [Service-Linked Roles](next-gen-org-slrs.md)
 + [Applying resilience policies across accounts](next-gen-org-policies.md)
++ [Tracking changes to a shared policy](next-gen-org-policy-timeline.md)
 + [Viewing organization-wide resilience posture](next-gen-org-posture.md)
 + [Managing member account onboarding](next-gen-member-onboarding.md)
 + [Required IAM permissions for delegated administrator setup](next-gen-org-permissions.md)

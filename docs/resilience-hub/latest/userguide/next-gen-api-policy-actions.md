@@ -11,3 +11,4 @@
 | GetPolicy | GET | Retrieve policy details. | 
 | ListPolicies | GET | List policies with associated service count. | 
 | DeletePolicy | POST | Delete a policy. | 
+| ListPolicyEvents | GET | List the events in a policy's timeline. | 

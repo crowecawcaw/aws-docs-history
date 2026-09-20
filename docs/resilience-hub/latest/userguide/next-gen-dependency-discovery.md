@@ -11,6 +11,7 @@ Dependency discovery in the next generation of Resilience Hub automatically iden
 + [Enabling dependency discovery for a service](next-gen-enabling-discovery.md)
 + [Monitoring discovery status](next-gen-discovery-status.md)
 + [Viewing discovered dependencies](next-gen-viewing-dependencies.md)
++ [Dependency insights](next-gen-dependency-insights.md)
 + [Classifying dependencies as hard or soft](next-gen-classifying-dependencies.md)
 + [Coverage and known limitations](next-gen-discovery-limitations.md)
 + [Troubleshooting dependency discovery](next-gen-troubleshooting-discovery.md)

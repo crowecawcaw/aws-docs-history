@@ -15,7 +15,7 @@
    + **AWS CloudFormation stack** – Select one or more AWS CloudFormation stacks. The selector will show stacks relevant to the Regions you have selected for this service.
    + **Terraform state file** – Enter the Amazon S3 URL of the state file.
    + **Resource tags** – Enter the tag key and values to match.
-   + **Amazon EKS cluster** – Enter the cluster ARN and select the namespaces to include.
+   + **Amazon EKS cluster** – Enter the cluster ARN and select the namespaces to include. Optionally, add a label selector to discover only the Kubernetes objects whose labels match. For information about the selector syntax, see [EksSource](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_EksSource.html) in the *Next generation Resilience Hub API Reference*.
 
 1. Choose **Add**.
 

@@ -46,4 +46,4 @@ The following table describes the available input source types that you can add 
 | AWS CloudFormation stacks | Your infrastructure is defined in AWS CloudFormation. | 
 | Terraform state files | Your infrastructure is managed by Terraform (state file in Amazon S3). | 
 | Resource tags | The service discovers resources by matching tags. A single tag-based input source with multiple tags discovers only resources that match all specified tags. Multiple tag-based input sources discover resources that match any of them. | 
-| Amazon Elastic Kubernetes Service clusters | Your service runs on Amazon EKS. | 
+| Amazon Elastic Kubernetes Service clusters | Your service runs on Amazon EKS. Discovery can be scoped by namespace and, optionally, by label selector. | 

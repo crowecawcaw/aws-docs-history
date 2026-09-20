@@ -7,6 +7,7 @@ Failure mode assessments in the next generation of Resilience Hub use GenAI-powe
 
 **Topics**
 + [How failure mode assessments work](next-gen-how-assessments-work.md)
++ [Failure mode guidance](next-gen-failure-mode-guidance.md)
 + [Running a failure mode assessment at the service level](next-gen-running-service-assessment.md)
 + [Viewing failure mode findings and recommendations](next-gen-viewing-findings.md)
 + [Assessment history and trends](next-gen-assessment-history.md)

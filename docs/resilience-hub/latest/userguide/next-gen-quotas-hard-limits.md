@@ -14,3 +14,4 @@ The following quotas cannot be increased.
 | 4 | User journeys per system (maximum) | 100 | 
 | 5 | Cross-account role ARNs per service | 5 | 
 | 6 | Failure mode assessments included per service per month | 2 | 
+| 7 | Assertions per service (maximum) | 20 | 

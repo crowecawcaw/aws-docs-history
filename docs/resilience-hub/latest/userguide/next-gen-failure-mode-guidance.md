@@ -3,18 +3,10 @@
 # Failure mode guidance
 <a name="next-gen-failure-mode-guidance"></a>
 
-Failure mode guidance allows you to steer the agents to dial in the failure mode analysis.
+A failure mode assessment can observe how your resources are configured and connected, but it cannot observe how your service is used, operated, or intended to behave. With failure mode guidance, you can supply that missing context. The assessment then produces failure mode findings that are relevant to your service. Next generation Resilience Hub supports two forms of failure mode guidance:
++ **Assertions** – Short statements of fact about your service that the assessment treats as true. For more information, see [Assertions](next-gen-assertions.md).
++ **Service design files** – Architecture documents stored in Amazon S3 that describe your intended design. For more information, see [Service design files](next-gen-service-design-files.md).
 
-**Assertions**
-
-Assertions are statements about your application that provide context for failure mode assessments. They help the generative AI agents understand aspects of your architecture that are not visible from resource configuration alone.
-
-Assertions can be:
-+ **User-created** – You add assertions before running an assessment. Examples include "Data loss is unacceptable," "Traffic spikes are predictable," or "Typical traffic is 1,000 TPS spiking to 10,000 TPS."
-+ **System-generated** – The assessment engine generates assertions during analysis that you can review, confirm, or adjust.
-
-Assertions are categorized and serve as leverage points. By confirming or adjusting assertions, you steer the assessment toward more relevant findings. For example, if the assessment assumes your application must handle 100 TPS, but it actually needs to handle spikes of 10,000 TPS, adjusting that assertion changes the findings you receive.
-
-**Service design files**
-
-You can upload design files that include details about the technical design that will be provided to the AI agents to perform the failure mode analysis.
+**Topics**
++ [Assertions](next-gen-assertions.md)
++ [Service design files](next-gen-service-design-files.md)
