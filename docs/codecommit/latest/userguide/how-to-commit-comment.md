@@ -355,8 +355,31 @@ You can only delete the content of a comment if you have the AWSCodeCommitFullAc
    + The system-generated ID of the comment to which you want to reply with an emoji.
    + The value of the reaction you want to add or update. Acceptable values include supported emojis, shortcodes, and Unicode values.<a name="emoji-reaction-table"></a>
 
-   The following values are supported for emojis in CodeCommit:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html)
+   The following values are supported for emojis in CodeCommit:
+
+
+
+<table>
+<thead>
+  <tr><th>Emoji</th><th>Shortcode</th><th>Unicode</th></tr>
+</thead>
+<tbody>
+  <tr><td>👍</td><td>:thumbsup:</td><td>U+1F44D</td></tr>
+  <tr><td>👎</td><td>:thumbsdown:</td><td>U+1F44E</td></tr>
+  <tr><td>😄</td><td>:smile:</td><td>U+1F604</td></tr>
+  <tr><td>❤</td><td>:heart:</td><td>U+2764</td></tr>
+  <tr><td>😠</td><td>:angry:</td><td>U+1F620</td></tr>
+  <tr><td>😕</td><td>:confused:</td><td>U+1F615</td></tr>
+  <tr><td>😱</td><td>:scream:</td><td>U+1F631</td></tr>
+  <tr><td>😭</td><td>:sob:</td><td>U+1F62D</td></tr>
+  <tr><td>👏</td><td>:clap:</td><td>U+1F44F</td></tr>
+  <tr><td>🎊</td><td>:confetti_ball:</td><td>U+1F38A</td></tr>
+  <tr><td>🚢</td><td>:ship:</td><td>U+1F6A2</td></tr>
+  <tr><td>👀</td><td>:eyes:</td><td>U+1F440</td></tr>
+  <tr><td></td><td>none</td><td>U+0000</td></tr>
+</tbody>
+</table>
+
 
     For example, to add the emoji {{:thumbsup:}} to the comment with the system-generated ID of {{abcd1234EXAMPLEb5678efgh}}: 
 
