@@ -28,7 +28,7 @@ The following are the service endpoints and service quotas for this service.
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
 | Active feeds per account | ap-south-1: 1 Count<br />eu-west-1: 1 Count<br />Each of the other supported Regions: 2 Count |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/elemental-inference/quotas/L-EB1E4A1B)  | The maximum number of feeds that can be actively running simultaneously in this account in the current AWS Region. | 
-| Enabled outputs per feed | Each supported Region: 3 Count | No | The maximum number of outputs that can be enabled per feed in this account in the current AWS Region. | 
+| Enabled outputs per feed | Each supported Region: 5 Count | No | The maximum number of outputs that can be enabled per feed in this account in the current AWS Region. | 
 | Request rate for AssociateFeed | Each supported Region: 5 Count/Second | No | The maximum number of AssociateFeed requests per second that you can send in this account in the current AWS Region. | 
 | Request rate for AssociateFeed, in a burst | Each supported Region: 30 Count | No | The maximum number of AssociateFeed requests that you can send in one burst in this account in the current AWS Region. | 
 | Request rate for CreateFeed | Each supported Region: 5 Count/Second | No | The maximum number of CreateFeed requests per second that you can send in this account in the current AWS Region. | 

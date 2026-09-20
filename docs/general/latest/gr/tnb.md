@@ -12,20 +12,6 @@ The following are the service endpoints and service quotas for this service.
 ## Service endpoints
 <a name="tnb_endpoints"></a>
 
-
-| Region Name | Region | Endpoint | Protocol | 
-| --- | --- | --- | --- | 
-| US East (N. Virginia) | us-east-1 |  tnb.us-east-1.amazonaws.com  | HTTPS | 
-| US West (Oregon) | us-west-2 |  tnb.us-west-2.amazonaws.com  | HTTPS | 
-| Asia Pacific (Seoul) | ap-northeast-2 |  tnb.ap-northeast-2.amazonaws.com  | HTTPS | 
-| Asia Pacific (Sydney) | ap-southeast-2 |  tnb.ap-southeast-2.amazonaws.com  | HTTPS | 
-| Canada (Central) | ca-central-1 |  tnb.ca-central-1.amazonaws.com  | HTTPS | 
-| Europe (Frankfurt) | eu-central-1 |  tnb.eu-central-1.amazonaws.com  | HTTPS | 
-| Europe (Paris) | eu-west-3 |  tnb.eu-west-3.amazonaws.com  | HTTPS | 
-| Europe (Spain) | eu-south-2 |  tnb.eu-south-2.amazonaws.com  | HTTPS | 
-| Europe (Stockholm) | eu-north-1 |  tnb.eu-north-1.amazonaws.com  | HTTPS | 
-| South America (São Paulo) | sa-east-1 |  tnb.sa-east-1.amazonaws.com  | HTTPS | 
-
 ## Service quotas
 <a name="limits_tnb"></a>
 
