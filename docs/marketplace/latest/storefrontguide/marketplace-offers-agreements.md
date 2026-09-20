@@ -127,8 +127,23 @@ The Agreements section shows all active and historical agreements associated wit
 
 1. Choose the **Agreements** tab in the account top-tab bar (alongside Offers, Offer Templates, Selling Authorizations, and Bundles).
 
-1. The agreement list displays the following columns:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/marketplace/latest/storefrontguide/marketplace-offers-agreements.html)
+1. The agreement list displays the following columns:
+
+
+<table>
+<thead>
+  <tr><th>Column</th></tr>
+</thead>
+<tbody>
+  <tr><td>Agreement ID</td></tr>
+  <tr><td>Offer ID</td></tr>
+  <tr><td>Status</td></tr>
+  <tr><td>Offer Accepted On</td></tr>
+  <tr><td>Agreement Start Date</td></tr>
+  <tr><td>Agreement End Date</td></tr>
+</tbody>
+</table>
+
 
 1. Use the status tabs (**All**, **Active**, **Expired**), the **Search** field, and the **Sync**, **Refresh**, and **Export** controls to find agreements.
 
@@ -173,8 +188,23 @@ The Metering section shows all active subscriptions with usage data for your met
 
 1. In your connected account, choose **Metering**.
 
-1. The subscription list displays the following columns:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/marketplace/latest/storefrontguide/marketplace-offers-agreements.html)
+1. The subscription list displays the following columns:
+
+
+<table>
+<thead>
+  <tr><th>Column</th></tr>
+</thead>
+<tbody>
+  <tr><td>Agreement ID</td></tr>
+  <tr><td>Offer ID</td></tr>
+  <tr><td>Proposer ID</td></tr>
+  <tr><td>Acceptor ID</td></tr>
+  <tr><td>Offer Name</td></tr>
+  <tr><td>Product Name</td></tr>
+</tbody>
+</table>
+
 
 1. Use the tabs (**Active Subscriptions**, **All**, **Failed**, **Verified**, **Scheduled**) and the **Search** field to find subscriptions. Choose **\+ Add New** to add a metering record.
 
@@ -214,8 +244,23 @@ You can schedule metering submissions for your usage-based products directly fro
 
 1. Choose the **Scheduled** tab.
 
-1. The list displays the following columns:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/marketplace/latest/storefrontguide/marketplace-offers-agreements.html)
+1. The list displays the following columns:
+
+
+<table>
+<thead>
+  <tr><th>Column</th></tr>
+</thead>
+<tbody>
+  <tr><td>Agreement Identifier</td></tr>
+  <tr><td>Customer AWS Account ID</td></tr>
+  <tr><td>Product Title</td></tr>
+  <tr><td>Schedule Start Time</td></tr>
+  <tr><td>Status</td></tr>
+  <tr><td>Records Submitted</td></tr>
+</tbody>
+</table>
+
 
 ### To create a scheduled metering rule
 <a name="managing-scheduled-metering-create"></a>
