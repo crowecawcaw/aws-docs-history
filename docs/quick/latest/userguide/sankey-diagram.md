@@ -69,8 +69,23 @@ To create a Sankey diagram in Quick using this data, first add Source and Destin
 
 1. Add a Step Number column to the table to number or rank each row.
 
-   There are multiple ways to compute the Step Number column. If your data source is compatible with SQL and your database supports `ROW_NUMBER` or `RANK` functions, you can use custom SQL in Quick to order the rows in the Step Number column. For more information about using custom SQL in Quick, see [Using SQL to customize data](adding-a-SQL-query.md).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/sankey-diagram.html)
+   There are multiple ways to compute the Step Number column. If your data source is compatible with SQL and your database supports `ROW_NUMBER` or `RANK` functions, you can use custom SQL in Quick to order the rows in the Step Number column. For more information about using custom SQL in Quick, see [Using SQL to customize data](adding-a-SQL-query.md).
+
+
+<table>
+<thead>
+  <tr><th>Customer ID</th><th>Time</th><th>Action</th><th>Step Number</th></tr>
+</thead>
+<tbody>
+  <tr><td>1</td><td>9:05 am</td><td>Step 1</td><td>1</td></tr>
+  <tr><td>1</td><td>9:06 am</td><td>Step 2</td><td>2</td></tr>
+  <tr><td>1</td><td>9:08 am</td><td>Step 3</td><td>3</td></tr>
+  <tr><td>2</td><td>11:44 am</td><td>Step 1</td><td>1</td></tr>
+  <tr><td>2</td><td>11:47 am</td><td>Step 2</td><td>2</td></tr>
+  <tr><td>2</td><td>11:48 am</td><td>Step 3</td><td>3</td></tr>
+</tbody>
+</table>
+
 
 1. Add a Next Row Number column to the table with values equal to Step Number plus one.
 
@@ -80,8 +95,23 @@ To create a Sankey diagram in Quick using this data, first add Source and Destin
 
    The value for Step Number in the second data row of the table is 2; therefore, the value for Next Step Number is 3.
 
-   2 \+ 1 = 3    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/sankey-diagram.html)
+   2 \+ 1 = 3
+
+
+<table>
+<thead>
+  <tr><th>Customer ID</th><th>Time</th><th>Action</th><th>Step Number</th><th>Next Step Number</th></tr>
+</thead>
+<tbody>
+  <tr><td>1</td><td>9:05 am</td><td>Step 1</td><td>1</td><td>2</td></tr>
+  <tr><td>1</td><td>9:06 am</td><td>Step 2</td><td>2</td><td>3</td></tr>
+  <tr><td>1</td><td>9:08 am</td><td>Step 3</td><td>3</td><td>4</td></tr>
+  <tr><td>2</td><td>11:44 am</td><td>Step 1</td><td>1</td><td>2</td></tr>
+  <tr><td>2</td><td>11:47 am</td><td>Step 2</td><td>2</td><td>3</td></tr>
+  <tr><td>2</td><td>11:48 am</td><td>Step 3</td><td>3</td><td>4</td></tr>
+</tbody>
+</table>
+
 
 1. Join the table with itself:
 

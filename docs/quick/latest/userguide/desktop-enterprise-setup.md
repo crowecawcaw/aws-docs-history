@@ -30,6 +30,22 @@ Amazon Quick validates the token and maps the user to an identity in your accoun
 **Note**  
 If you sign in for the first time, the browser checks for an active Amazon Quick web session. If no session exists, the browser opens the Amazon Quick sign-in page instead of redirecting to your IdP. Sign in to Amazon Quick in the browser to continue. The desktop application then completes sign-in through your configured identity provider.
 
+## Supported token signing algorithms
+<a name="desktop-enterprise-token-signing"></a>
+
+Amazon Quick verifies the signature on each ID token against the public keys published at your identity provider's JWKS URI. Your IdP must sign ID tokens with one of the following asymmetric algorithms.
+
+
+| Key type | Supported `alg` values | 
+| --- | --- | 
+| RSA | RS256, RS384, RS512, PS256, PS384, PS512 | 
+| ECDSA | ES256, ES384, ES512 | 
+
+**Symmetric signing is not supported**  
+Amazon Quick does not accept ID tokens signed with HMAC (`HS256`, `HS384`, or `HS512`). These algorithms sign the token with the client secret rather than with a key that can be published in a JWKS, so the signature cannot be verified against your IdP's JWKS URI. Unsecured tokens (an `alg` value of `none`) are also rejected. If your IdP is configured to use one of these, sign-in fails with a token validation error.
+
+You do not select the algorithm in Amazon Quick. Your IdP chooses it when it issues the token, and Amazon Quick accepts any of the algorithms in the preceding table. Most identity providers use `RS256` by default.
+
 ## Prerequisites
 <a name="desktop-enterprise-prerequisites"></a>
 
@@ -77,6 +93,7 @@ Amazon Quick reads policies from vendor-neutral OS-managed locations. Any mobile
 | Policy | macOS location | Windows location | Effect | 
 | --- | --- | --- | --- | 
 | DisableSocialLogin | Preference domain com.aws.QuickWork.mac | HKLM\\SOFTWARE\\Policies\\Amazon\\Quick (REG\_DWORD) | Hides social sign-in, blocks it server-side, and hides "Sign up for free." This policy enforces enterprise SSO as the only authentication path. | 
+| DisableAutoUpdates | Preference domain com.aws.QuickWork.mac | HKLM\\SOFTWARE\\Policies\\Amazon\\Quick (REG\_SZ) | Stops the application from updating itself, so that your organization controls when new versions reach the fleet. Accepts patch, minor, or major. The value is the smallest update size that the policy blocks. patch blocks all automatic updates. minor allows patch updates only. major allows patch and minor updates. | 
 
 Amazon Quick reads policy values at application startup.
 
@@ -90,15 +107,20 @@ Deploy a configuration profile with preference domain `com.aws.QuickWork.mac`. T
 <dict>
     <key>DisableSocialLogin</key>
     <true/>
+    <key>DisableAutoUpdates</key>
+    <string>major</string>
 </dict>
 </plist>
 ```
 
-Set the registry value at `HKLM\SOFTWARE\Policies\Amazon\Quick`. The Policies hive is not user-editable and survives application updates.
+Set the registry values at `HKLM\SOFTWARE\Policies\Amazon\Quick`. The Policies hive is not user-editable and survives application updates.
+
+The following example shows both policies configured in the registry:
 
 ```
 HKLM\SOFTWARE\Policies\Amazon\Quick
   DisableSocialLogin  (REG_DWORD)  =  1
+  DisableAutoUpdates  (REG_SZ)     =  major
 ```
 
 For MDM-specific deployment steps, see your provider's documentation:
@@ -137,10 +159,18 @@ For a single-user silent installation on Windows, the installer also supports si
 ### Application updates
 <a name="desktop-enterprise-updates"></a>
 
-Amazon Quick delivers updates automatically over HTTPS. Updates are code-signed and apply for each user on the next restart. On macOS, updates use Apple notarization. On Windows, updates use Authenticode signing.
+By default, Amazon Quick delivers updates automatically over HTTPS. Updates are code-signed and apply for each user on the next restart. On macOS, updates use Apple notarization. On Windows, updates use Authenticode signing.
+
+To take control of update delivery, set the `DisableAutoUpdates` policy described in [Managed policies](#desktop-enterprise-mdm-policies). When you block updates, you become responsible for delivering new versions to the fleet, using the same tools you use to deploy other managed applications.
+
+Even when you block updates, Amazon Quick can still notify your users of a required update and restrict functionality remotely if a critical issue is found.
+
+**Important**  
+We strongly recommend that you continue to allow patch updates. Patch updates deliver security fixes, performance improvements, and bug fixes. To control larger updates while your fleet still receives patches, set `DisableAutoUpdates` to `minor` or `major` instead of `patch`.
 
 **Topics**
 + [How enterprise sign-in works](#desktop-enterprise-how-it-works)
++ [Supported token signing algorithms](#desktop-enterprise-token-signing)
 + [Prerequisites](#desktop-enterprise-prerequisites)
 + [Setup process](#desktop-enterprise-process)
 + [Managed deployment configuration](#desktop-enterprise-managed-deployment)

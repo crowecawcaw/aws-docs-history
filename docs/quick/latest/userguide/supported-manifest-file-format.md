@@ -53,14 +53,47 @@ The manifest file elements are described following:
 
     Quick Sight can access Amazon S3 files that are in any AWS Region. However, you must use a URI format that identifies the AWS Region of the Amazon S3 bucket if it's different from that used by your Quick account.
 
-    URIs in the following formats are supported.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/supported-manifest-file-format.html)
+    URIs in the following formats are supported.
+
+
+
+<table>
+<thead>
+  <tr><th>URI format</th><th>Example</th><th>Comments</th></tr>
+</thead>
+<tbody>
+  <tr><td>https://s3.amazonaws.com/&lt;<i>bucket name</i>&gt;/&lt;<i>file name</i>&gt;</td><td>https://s3.amazonaws.com/amzn-s3-demo-bucket/data.csv</td><td> </td></tr>
+  <tr><td>s3://&lt;<i>bucket name</i>&gt;/&lt;<i>file name</i>&gt;</td><td>s3://amzn-s3-demo-bucket/data.csv</td><td> </td></tr>
+  <tr><td>https://&lt;<i>bucket name</i>&gt;.s3.amazonaws.com/&lt;<i>file name</i>&gt;</td><td>https://{{amzn-s3-demo-bucket}}.s3.amazonaws.com/{{data.csv}}</td><td> </td></tr>
+  <tr><td>https://s3-&lt;<i>region name</i>&gt;.amazonaws.com/&lt;<i>bucket name</i>&gt;/&lt;<i>file name</i>&gt;</td><td>https://{{s3-us-east-1.amazonaws.com}}/{{amzn-s3-demo-bucket}}/{{data.csv}}</td><td>This URI type identifies the AWS Region for the Amazon S3 bucket.</td></tr>
+  <tr><td>https://&lt;<i>bucket name</i>&gt;.s3-&lt;<i>region name</i>&gt;.amazonaws.com/&lt;<i>file name</i>&gt;</td><td>https://{{amzn-s3-demo-bucket}}.{{s3-us-east-1}}.{{amazonaws}}.{{com}}/{{data.csv}}</td><td> This URI type identifies the AWS Region for the Amazon S3 bucket.</td></tr>
+</tbody>
+</table>
+
   + **URIPrefixes** – Use this array to list URI prefixes for S3 buckets and folders. All files in a specified bucket or folder are imported. Quick Sight recursively retrieves files from child folders.
 
     Quick Sight can access Amazon S3 buckets or folders that are in any AWS Region. Make sure to use a URI prefix format that identifies the S3 bucket's AWS Region if it's different from that used by your Quick account.
 
-    URI prefixes in the following formats are supported.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/supported-manifest-file-format.html)
+    URI prefixes in the following formats are supported.
+
+
+
+<table>
+<thead>
+  <tr><th>URI prefix format</th><th>Example</th><th>Comments</th></tr>
+</thead>
+<tbody>
+  <tr><td>https://s3.amazonaws.com/&lt;<i>bucket name</i>&gt;/</td><td>https://s3.amazonaws.com/amzn-s3-demo-bucket/</td><td> </td></tr>
+  <tr><td>https://s3.amazonaws.com/&lt;<i>bucket name</i>&gt;/&lt;<i>folder name1</i>&gt;/(&lt;<i>folder name2&gt;/etc.)</i></td><td>https://s3.amazonaws.com/amzn-s3-demo-bucket/folder1/</td><td> </td></tr>
+  <tr><td>s3://&lt;<i>bucket name</i>&gt;</td><td>s3://amzn-s3-demo-bucket/</td><td> </td></tr>
+  <tr><td>s3://&lt;<i>bucket name</i>&gt;/&lt;<i>folder name1</i>&gt;/(&lt;<i>folder name2&gt;/etc.)</i></td><td>s3://amzn-s3-demo-bucket/folder1/</td><td> </td></tr>
+  <tr><td>https://&lt;<i>{{bucket name}}</i>&gt;.{{s3}}.{{amazonaws.com}}</td><td>https://{{amzn-s3-demo-bucket}}.{{s3}}.{{amazonaws.com}}</td><td> </td></tr>
+  <tr><td>https://s3-&lt;<i>region name</i>&gt;.amazonaws.com/&lt;<i>bucket name</i>&gt;/</td><td>https://s3-{{your-region-for-example-us-east-2}}.{{amazonaws.com}}/{{amzn-s3-demo-bucket}}/</td><td>This <code>URIPrefix</code> type identifies the AWS Region for the Amazon S3 bucket.</td></tr>
+  <tr><td>https://s3-&lt;<i>region name</i>&gt;.amazonaws.com/&lt;<i>bucket name</i>&gt;/&lt;<i>folder name1</i>&gt;/(&lt;<i>folder name2&gt;/etc.)</i></td><td>https://{{s3-us-east-1.amazonaws.com}}/{{amzn-s3-demo-bucket}}/{{folder1}}/</td><td>This <code>URIPrefix</code> type identifies the AWS Region for the Amazon S3 bucket.</td></tr>
+  <tr><td>https://&lt;<i>bucket name</i>&gt;.s3-&lt;<i>region name</i>&gt;.amazonaws.com</td><td>https://{{amzn-s3-demo-bucket}}.{{s3-us-east-1.amazonaws}}.{{com}}</td><td>This <code>URIPrefix</code> type identifies the AWS Region for the Amazon S3 bucket.</td></tr>
+</tbody>
+</table>
+
 + **globalUploadSettings** – (Optional) Use this element to specify import settings for the Amazon S3 files, such as field delimiters. If this element is not specified, Quick Sight uses the default values for the fields in this section.
 **Important**  
 For log (.clf) and extended log (.elf) files, only the **format** field in this section is applicable, so you can skip the other fields. If you choose to include them, their values are ignored. 

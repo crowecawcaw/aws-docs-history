@@ -102,8 +102,26 @@ During this step, Amazon Quick automatically creates and configures an AWS accou
 
    Amazon Quick presents a Getting Started wizard that helps personalize your experience. You can select one or more work focus topics, or skip this step entirely.
 
-   The available work focus topics are:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/standalone-signup.html)
+   The available work focus topics are:
+
+
+<table>
+<thead>
+  <tr><th>Topic</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Communicate with stakeholders</td><td>Tools and templates for stakeholder communication</td></tr>
+  <tr><td>Grow my sales pipeline</td><td>Sales pipeline management and analysis</td></tr>
+  <tr><td>Improve my business performance</td><td>Business performance analytics and insights</td></tr>
+  <tr><td>Organize my team's knowledge</td><td>Knowledge management and documentation</td></tr>
+  <tr><td>Plan and prioritize my work</td><td>Project planning and task prioritization</td></tr>
+  <tr><td>Build and ship my product</td><td>Product development and delivery workflows</td></tr>
+  <tr><td>Improve my marketing reach</td><td>Marketing analytics and content creation</td></tr>
+  <tr><td>Hire and develop my team</td><td>HR, recruiting, and team development</td></tr>
+  <tr><td>Manage risk and compliance</td><td>Risk assessment, compliance, and governance</td></tr>
+</tbody>
+</table>
+
 
    Select a topic that matches your primary use case, then choose **Let's go**. Alternatively, choose **Skip and start chatting** to go directly to the chat interface.
 

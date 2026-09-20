@@ -37,8 +37,19 @@ For more information, see [OAuth 2.0 for Mobile & Desktop Apps](https://develope
 
 1. In the Google Cloud Console, navigate to **APIs & Services → Credentials → Create Credentials → OAuth client ID**.
 
-1. Configure the following settings:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-google-workspace.html)
+1. Configure the following settings:
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Application type</td><td>Desktop app</td></tr>
+  <tr><td>Name</td><td><code>Amazon Quick Desktop</code></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create**.
 
@@ -75,7 +86,7 @@ Record the following OIDC endpoints. You enter these values, together with the *
 Append your client secret to the token endpoint as a `client_secret` query parameter so that token exchange succeeds—for example, `https://oauth2.googleapis.com/token?client_secret=<CLIENT_SECRET>`. Replace `<CLIENT_SECRET>` with the client secret generated for your OAuth client.
 
 ## Step 2: Add the extension access in the Amazon Quick administration console
-<a name="w2aac51c11c25c15"></a>
+<a name="w2aac51c11c27c15"></a>
 
 In the Amazon Quick administration console, add an extension access using the OIDC endpoint values and Client ID that you recorded in Step 1.
 
@@ -89,15 +100,31 @@ In the Amazon Quick administration console, add an extension access using the OI
 
 1. Under **Select Service**, select **Amazon Quick (Desktop application for Quick)**, and then choose **Next**.
 
-1. Enter the extension details using the values you recorded in Step 1:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-google-workspace.html)
+1. Enter the extension details using the values you recorded in Step 1:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name</td><td>A name for this extension access (for example, <code>QuickDesktop-access</code>). This is an internal reference only and is not configured in your IdP. Use alphanumeric characters and hyphens only, with no spaces.</td></tr>
+  <tr><td>Description</td><td>(Optional) A description of this extension access, for your reference only.</td></tr>
+  <tr><td>Issuer URL</td><td>The exact OIDC issuer URL from Step 1, including any required path suffix.</td></tr>
+  <tr><td>Authorization Endpoint</td><td>The OIDC authorization endpoint URL from Step 1</td></tr>
+  <tr><td>Token Endpoint</td><td>The OIDC token endpoint URL from Step 1</td></tr>
+  <tr><td>JWKS URI</td><td>The JSON Web Key Set URI from Step 1</td></tr>
+  <tr><td>Client ID</td><td>The OIDC client identifier (Client ID or Application (client) ID) that you recorded in Step 1. Required.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Add**.
 **Important**  
 Verify that all values are correct before you choose **Add**. The extension access configuration cannot be edited after creation. If any value is incorrect, you must delete the extension access and create a new one.
 
 ## Step 3: Create the extension in the Amazon Quick console
-<a name="w2aac51c11c25c17"></a>
+<a name="w2aac51c11c27c17"></a>
 
 After you add the extension access in the Amazon Quick administration console, create the extension on the **Extensions** page in the Amazon Quick console.
 
@@ -118,7 +145,7 @@ Both Step 2 and Step 3 are required. If you add the extension access but do not 
 Creating the extension is a one-time, account-level action. After an administrator creates the extension, enterprise sign-in is available for all users in the account. Individual users do not need to enable the extension themselves — they only need to download the desktop application and sign in.
 
 ## Step 4: Download, verify, and distribute the desktop application
-<a name="w2aac51c11c25c19"></a>
+<a name="w2aac51c11c27c19"></a>
 
 In this step, you download and install the desktop application, verify that enterprise sign-in works, and then distribute the application to your users.
 

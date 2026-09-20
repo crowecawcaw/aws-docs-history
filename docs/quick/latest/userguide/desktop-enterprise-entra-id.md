@@ -37,8 +37,21 @@ For more information, see [Register an application](https://learn.microsoft.com/
 
 1. In the Azure portal, navigate to **Microsoft Entra ID → App registrations → New registration**.
 
-1. Configure the following settings:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-entra-id.html)
+1. Configure the following settings:
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name</td><td><code>Amazon Quick Desktop</code></td></tr>
+  <tr><td>Supported account types</td><td>Accounts in this organizational directory only (Single tenant)</td></tr>
+  <tr><td>Redirect URI platform</td><td>Public client/native (mobile &amp; desktop)</td></tr>
+  <tr><td>Redirect URI</td><td><code>http://localhost:18080</code></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Register**.
 
@@ -102,7 +115,7 @@ If your application has custom signing keys because of the claims-mapping featur
 To confirm the correct value, open the OpenID Connect metadata document with the same `appid` parameter appended (`https://login.microsoftonline.com/<TENANT_ID>/.well-known/openid-configuration?appid=<CLIENT_ID>`) and use the `jwks_uri` it returns. For more information, see [Validate the signature](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens#validate-the-signature) in the Microsoft Entra documentation.
 
 ## Step 2: Add the extension access in the Amazon Quick administration console
-<a name="w2aac51c11c23c15"></a>
+<a name="w2aac51c11c25c15"></a>
 
 In the Amazon Quick administration console, add an extension access using the OIDC endpoint values and Client ID that you recorded in Step 1.
 
@@ -116,15 +129,31 @@ In the Amazon Quick administration console, add an extension access using the OI
 
 1. Under **Select Service**, select **Amazon Quick (Desktop application for Quick)**, and then choose **Next**.
 
-1. Enter the extension details using the values you recorded in Step 1:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-entra-id.html)
+1. Enter the extension details using the values you recorded in Step 1:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name</td><td>A name for this extension access (for example, <code>QuickDesktop-access</code>). This is an internal reference only and is not configured in your IdP. Use alphanumeric characters and hyphens only, with no spaces.</td></tr>
+  <tr><td>Description</td><td>(Optional) A description of this extension access, for your reference only.</td></tr>
+  <tr><td>Issuer URL</td><td>The exact OIDC issuer URL from Step 1, including any required path suffix.</td></tr>
+  <tr><td>Authorization Endpoint</td><td>The OIDC authorization endpoint URL from Step 1</td></tr>
+  <tr><td>Token Endpoint</td><td>The OIDC token endpoint URL from Step 1</td></tr>
+  <tr><td>JWKS URI</td><td>The JSON Web Key Set URI from Step 1</td></tr>
+  <tr><td>Client ID</td><td>The OIDC client identifier (Client ID or Application (client) ID) that you recorded in Step 1. Required.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Add**.
 **Important**  
 Verify that all values are correct before you choose **Add**. The extension access configuration cannot be edited after creation. If any value is incorrect, you must delete the extension access and create a new one.
 
 ## Step 3: Create the extension in the Amazon Quick console
-<a name="w2aac51c11c23c17"></a>
+<a name="w2aac51c11c25c17"></a>
 
 After you add the extension access in the Amazon Quick administration console, create the extension on the **Extensions** page in the Amazon Quick console.
 
@@ -145,7 +174,7 @@ Both Step 2 and Step 3 are required. If you add the extension access but do not 
 Creating the extension is a one-time, account-level action. After an administrator creates the extension, enterprise sign-in is available for all users in the account. Individual users do not need to enable the extension themselves — they only need to download the desktop application and sign in.
 
 ## Step 4: Download, verify, and distribute the desktop application
-<a name="w2aac51c11c23c19"></a>
+<a name="w2aac51c11c25c19"></a>
 
 In this step, you download and install the desktop application, verify that enterprise sign-in works, and then distribute the application to your users.
 

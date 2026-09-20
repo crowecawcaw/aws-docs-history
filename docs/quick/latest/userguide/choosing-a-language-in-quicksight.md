@@ -12,21 +12,21 @@ Quick supports the following languages:
 
 | Official name | Language code | Localized name | 
 | --- | --- | --- | 
-| Dansk | da  | Danish | 
-| Deutsch | de  | German | 
-| English | en  | English | 
-| Español | es  | Spanish | 
-| Français | fr  | French | 
-| Italiano | it  | Italian | 
-| Nederlands | nl  | Dutch | 
-| Norsk | nb  | Norwegian | 
-| Português | pt  | Portuguese | 
-| Suomi | fi  | Finnish | 
-| Svenska | sv  | Swedish | 
-| 日本語 | ja  | Japanese | 
-| 한국어 | ko  | Korean | 
-| 中文 (简体) | zh-CN | Simplified Chinese | 
-| 中文 (繁體) | zh-TW | Traditional Chinese | 
+| Dansk | da-DK | Danish | 
+| Deutsch (Deutschland) | de-DE | German | 
+| English (US) | en-US | English | 
+| Español (España) | es-ES | Spanish | 
+| Français (France) | fr-FR | French | 
+| Italiano (Italia) | it-IT | Italian | 
+| Nederlands (Nederland) | nl-NL | Dutch | 
+| Norsk bokmål | nb-NO | Norwegian | 
+| Português (Brasil) | pt-BR | Portuguese | 
+| Suomi | fi-FI | Finnish | 
+| Svenska (Sverige) | sv-SE | Swedish | 
+| 日本語 | ja-JP | Japanese | 
+| 한국어 | ko-KR | Korean | 
+| 中文 (中国) | zh-CN | Simplified Chinese | 
+| 中文 (台灣) | zh-TW | Traditional Chinese | 
 
 Choosing a language translates only user interface elements. It doesn't translate the following:
 + Amazon Quick reserved keywords
@@ -37,8 +37,8 @@ Choosing a language translates only user interface elements. It doesn't translat
 
 Use the following procedure to change the language in the Amazon Quick interface.
 
-1. Choose your user name at top right.
+1. Choose your account name at the top right.
 
-1. To open the language options menu, choose the > symbol near the current language. 
+1. Choose **Preferences**.
 
-1. Choose the language that you want to use.
+1. Choose the language that you want to use from the **Preferred Language** dropdown list.

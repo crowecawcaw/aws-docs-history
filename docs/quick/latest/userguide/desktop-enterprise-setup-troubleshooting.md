@@ -35,7 +35,11 @@ This error has two common causes:
 1. **No matching user exists in Amazon Quick.** The email in the token must exactly match the email of a provisioned user. For IAM Identity Center accounts, verify the user's email in Identity Center matches. Email matching is case-sensitive.
 
 Token validation failure  
-Verify that the issuer URL in the extension access configuration matches the issuer URL in your IdP's OIDC configuration exactly.
+This error has two common causes:  
+
+1. **The issuer URL does not match.** Verify that the issuer URL in the extension access configuration matches the issuer URL in your IdP's OIDC configuration exactly.
+
+1. **The ID token is signed with an unsupported algorithm.** Amazon Quick accepts asymmetric signatures only. If your IdP signs ID tokens with HMAC (`HS256`, `HS384`, or `HS512`), validation fails regardless of the JWKS URI you configured, because the signing key is never published in a JWKS. Reconfigure your IdP to use a supported algorithm. For the list, see [Supported token signing algorithms](desktop-enterprise-setup.md#desktop-enterprise-token-signing).
 
 Invalid issuer error (Microsoft Entra ID)  
 If sign-in fails with "Invalid issuer: https://login.microsoftonline.com/TENANT\_ID/v2.0", verify that the Issuer URL in your extension access configuration includes the `/v2.0` path suffix. The Entra ID v2.0 endpoint issues tokens with an `iss` claim that includes `/v2.0`. If the suffix is missing, delete the extension access and recreate it with the correct Issuer URL.

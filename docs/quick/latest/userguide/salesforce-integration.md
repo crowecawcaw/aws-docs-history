@@ -5,13 +5,14 @@
 
 With the Salesforce connector in Amazon Quick, you can perform actions within Salesforce organizations, including managing records, querying data, and interacting with Salesforce APIs. For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md).
 
-Amazon Quick supports two OAuth flows for Salesforce:
+Amazon Quick supports the following authentication options for Salesforce.
 
 
 **Salesforce authentication flows**  
 
 | Flow | Description | 
 | --- | --- | 
+| Managed OAuth (Default OAuth app) | Uses an AWS managed OAuth application with no additional credentials or External Client App configuration required. Requires the Amazon Quick Salesforce package and an activated Model Context Protocol (MCP) server in Salesforce. | 
 | User authentication (three-legged OAuth, 3LO) | Authorization code flow. Each user authenticates through a browser. Best for multi-user environments where actions run on behalf of the signed-in user. | 
 | Service authentication (two-legged OAuth, 2LO) | Client credentials flow. Machine-to-machine authentication with no user interaction. All actions run as a designated "Run As" user that you configure in Salesforce. | 
 
@@ -25,6 +26,39 @@ Before you set up the Salesforce integration, make sure you have the following:
 + A Salesforce organization with System Administrator access.
 + Amazon Quick Author role or higher.
 + Your Amazon Quick instance URL (for example, `https://us-east-1.quicksight.aws.amazon.com`).
++ For Managed OAuth: The [Amazon Quick Salesforce package](https://appexchange.salesforce.com/appxListingDetail?listingId=a0NKX000001VQgP2AW) installed from Salesforce AppExchange.
++ The `headless-360` MCP server activated in your Salesforce organization. This is required for all authentication flows. For activation steps, see [Activate the MCP server](#salesforce-activate-mcp).
+
+## Activate the MCP server
+<a name="salesforce-activate-mcp"></a>
+
+Before you configure any authentication flow, activate the `headless-360` MCP server in your Salesforce organization. This step is required for Managed OAuth, user authentication (3LO), and service authentication (2LO).
+
+1. Sign in to your Salesforce organization.
+
+1. From **Setup**, in the **Quick Find** box, enter `MCP Servers`, and then select **MCP Servers**.
+
+1. Find `headless-360` in the list of servers.
+
+1. Choose **Activate**.
+
+## Set up Managed OAuth
+<a name="salesforce-managed-oauth-setup"></a>
+
+If you are using user authentication (three-legged OAuth, 3LO) or service authentication (two-legged OAuth, 2LO), skip this section and proceed to [Step 1: Create an External Client App in Salesforce](#salesforce-eca-setup).
+
+Managed OAuth is the simplest setup option. It uses an AWS managed OAuth application, so you do not need to create an External Client App or configure OAuth credentials manually.
+
+### Install the Amazon Quick Salesforce package
+<a name="salesforce-managed-oauth-install-package"></a>
+
+1. Sign in to your Salesforce organization as a System Administrator.
+
+1. Go to the Amazon Quick Salesforce package listing on Salesforce AppExchange (linked in the prerequisites).
+
+1. Choose **Get It Now** and follow the installation prompts to install the package in your Salesforce organization.
+
+After you install the package, proceed to [Step 4: Configure Salesforce connector in Amazon Quick](#salesforce-integration-setup) to configure the connector in Amazon Quick. In Step 4, choose **Default OAuth app** as the **Auth Type** instead of **Custom OAuth app**.
 
 ## Step 1: Create an External Client App in Salesforce
 <a name="salesforce-eca-setup"></a>
@@ -192,6 +226,24 @@ If the response contains the error `no client credentials user enabled`, the Run
 
 1. If prompted that a connector already exists, choose **No, create new**.
 
+### Managed OAuth connection details
+<a name="salesforce-connection-details-managed"></a>
+
+If you are using Managed OAuth, enter the following connection details.
+
+**Name**  
+A descriptive name (for example, "Salesforce Managed").
+
+**Network**  
+Public network.
+
+**Auth Type**  
+Default OAuth app.
+
+No other fields are required. You do not need to enter a Client ID, Client Secret, Token URL, or Authorization URL.
+
+Choose **Next**. Complete the Salesforce sign-in flow and grant the requested permissions.
+
 ### User authentication (3LO) connection details
 <a name="salesforce-connection-details"></a>
 
@@ -255,13 +307,30 @@ After you publish the connector, you can use Salesforce actions in Amazon Quick 
 ## Available actions
 <a name="salesforce-integration-actions"></a>
 
-After you set up the connector, the following Salesforce actions are available:
-+ Create, read, update, and delete (CRUD) operations on standard and custom objects.
-+ Query Salesforce data using SOQL (Salesforce Object Query Language).
-+ Manage leads, accounts, contacts, and opportunities.
-+ Execute Apex methods and custom logic.
-+ Manage cases, tasks, and activities.
-+ Access reports and dashboards.
+After you set up the connector, the Salesforce Headless 360 MCP server provides four tools that Amazon Quick uses to interact with Salesforce.
+
+**Discover**  
+Finds available Salesforce operations by running a semantic search across the operation index. Returns a ranked set of candidate operations that match your request.
+
+**Describe**  
+Returns the technical contract for an operation, including APIs, parameters, dependencies, and ordered steps.
+
+**Dispatch**  
+Runs the chosen operation. Routes the request to the correct endpoint and enforces access controls before the operation runs.
+
+**Dispatch (Read-Only)**  
+Runs read-only operations. This tool never changes data or configuration. Use it when you only need to retrieve information.
+
+Through these tools, you can perform tasks such as the following.
++ Query, create, and update Salesforce records.
++ Manage users, including creating, deactivating, freezing, and assigning permission sets.
++ Read, write, and deploy Apex triggers.
++ Build event-driven integrations with platform events, Change Data Capture, and event relays.
++ Create named credentials, including authentication mechanisms and endpoints.
++ Manage Commerce Cloud orders.
+
+**Note**  
+The library of available operations grows with each Salesforce release. Your connector discovers the current set of operations at runtime through the Discover tool.
 
 **Note**  
 Salesforce integration supports action execution only. Data access and knowledge base creation are not available for Salesforce systems.

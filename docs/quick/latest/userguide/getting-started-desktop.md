@@ -19,7 +19,7 @@ Verify that your system meets the following requirements.
 | Operating system | macOS 12 (Monterey) or later | 
 | Processor | Apple Silicon (M1 or later) | 
 | Memory | 8 GB RAM | 
-| Disk space | 500 MB available for installation. 10 GB or more recommended for search indexing and knowledge graph features. | 
+| Disk space | 2 GB available for installation. 10 GB or more recommended for search indexing and knowledge graph features. | 
 | Internet | Required for sign-in, AI model access, and connected services | 
 
 ### Windows
@@ -31,7 +31,7 @@ Verify that your system meets the following requirements.
 | Operating system | Windows 10 (64-bit) or later | 
 | Processor | x86\_64 compatible | 
 | Memory | 8 GB RAM | 
-| Disk space | 500 MB available for installation. 10 GB or more recommended for search indexing and knowledge graph features. | 
+| Disk space | 2 GB available for installation. 10 GB or more recommended for search indexing and knowledge graph features. | 
 | Internet | Required for sign-in, AI model access, and connected services | 
 
 ## Downloading and installing
@@ -42,8 +42,19 @@ If your organization uses an Enterprise account, complete the steps in [Setting 
 
 You can download the Amazon Quick desktop application from the following locations:
 + **Amazon Quick web application** – Sign in to Amazon Quick on the web. In the left navigation, choose **Extensions**, find the desktop extension card, and choose the download for your platform.
-+ **Direct download** – Use the following links:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/getting-started-desktop.html)
++ **Direct download** – Use the following links:
+
+
+<table>
+<thead>
+  <tr><th>Platform</th><th>Download</th></tr>
+</thead>
+<tbody>
+  <tr><td>macOS (Apple Silicon)</td><td><a href="https://desktop.downloads.quick.aws.com/mac/arm64/Amazon-Quick.dmg">Amazon-Quick.dmg</a></td></tr>
+  <tr><td>Windows (x64)</td><td><a href="https://desktop.downloads.quick.aws.com/windows/x64/Amazon-Quick.exe">Amazon-Quick.exe</a></td></tr>
+</tbody>
+</table>
+
 
 **To install on macOS**
 

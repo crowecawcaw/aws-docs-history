@@ -21,7 +21,7 @@ The following table shows which Agent Registry records and configurations Amazon
 | --- | --- | 
 | MCP records that use the mcpServer descriptor. | Skill and custom record types. | 
 | Agent records accessed through the MCP protocol (records that use the mcpServer descriptor). | Agent-to-agent (A2A) descriptors. | 
-| Remote MCP servers that expose a remote server URL. | Local MCP endpoints, such as npx, docker, and local or standard input/output (stdio) servers. | 
+| Remote MCP servers whose record specifies a remote server URL at descriptors.mcpServer.data.remotes[].url. | Local MCP endpoints, such as npx, docker, and local or standard input/output (stdio) servers. | 
 
 For more information about the account, Region, authorization, and status requirements that a registry must meet, see [Prerequisites](#aws-agent-registry-prerequisites).
 
@@ -109,6 +109,14 @@ To edit, share, or delete a connector that you created from the Agent Registry, 
 <a name="aws-agent-registry-troubleshooting"></a>
 + **Registries do not appear on the AWS Agent Registry page** – Confirm that the administrator's IAM identity has the `agent-registry:ListRegistries` permission. Also confirm that the registry uses AWS IAM authorization (registries that use JWT authorization are not listed), is in the `READY` status, and is in the same AWS account and Region as your Quick account.
 + **The Connectors page cannot load registry records** – If your account uses a customer-managed service role, confirm that the role has the required `agent-registry` permissions for the connected registry. Quick displays the role ARN and the required permissions so that you know what to add. For the policy, see [IAM policy reference](#aws-agent-registry-policy-reference).
++ **A record is Approved but no connector card appears** – Quick reads the MCP server endpoint only from `descriptors.mcpServer.data.remotes[].url`. Verify that the field is populated:
+
+  ```
+  aws agent-registry-control get-registry-record \
+    --registry-id <registry-id> --record-id <record-id> --region <region>
+  ```
+
+  If the descriptor has no `data`, or `data` contains no `remotes[].url`, the record is not surfaced as a connector. A record can reach Approved status in this state. Populate `descriptors.mcpServer.data` with the MCP server definition, including `remotes[].url`. If you set data through the API rather than the console, you must also supply `dataSchemaVersion`, or the request fails with `ValidationException: Schema validation failed`.
 
 ## Limitations
 <a name="aws-agent-registry-limitations"></a>

@@ -111,8 +111,21 @@ The next two procedures provide instructions on how to finish creating a dataset
 
    Single-value parameters only work as specified if the combination of user entity and dynamic default is unique for that parameter's field. If there are multiple values a default field for a user entity, the single-value control for that field displays the static default instead. If no static default is defined, the control doesn't display a default value. Be careful if you use group names, because some user names can be members of multiple groups. If those groups have different default values, then this type of user name functions as a duplicate entry. 
 
-   The following example shows a table that appears to contain two single-value parameters. We make this assumption because no user name is paired with multiple default values. To make this table easier to understand, we add the word `'default'` in front of the field names from the analysis. Thus, you can read the table by making the following statement, changing the values for each row: When viewed by `anacarolinasilva`, the controls display a default region `NorthEast` and a default segment `SMB`.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/parameters-default-values.html)
+   The following example shows a table that appears to contain two single-value parameters. We make this assumption because no user name is paired with multiple default values. To make this table easier to understand, we add the word `'default'` in front of the field names from the analysis. Thus, you can read the table by making the following statement, changing the values for each row: When viewed by `anacarolinasilva`, the controls display a default region `NorthEast` and a default segment `SMB`.
+
+
+<table>
+<thead>
+  <tr><th>Viewed-by</th><th>Default-region</th><th>Default-segment</th></tr>
+</thead>
+<tbody>
+  <tr><td>anacarolinasilva</td><td>NorthEast</td><td>SMB</td></tr>
+  <tr><td>liujie</td><td>SouthEast</td><td>SMB</td></tr>
+  <tr><td>saanvisarkar</td><td>NorthCentral</td><td>SMB</td></tr>
+  <tr><td>zhangwei</td><td>SouthCentral</td><td>SMB</td></tr>
+</tbody>
+</table>
+
 
 1. Import this data into Quick, and save it as a new dataset. 
 
@@ -126,8 +139,23 @@ The next two procedures provide instructions on how to finish creating a dataset
 
    Unlike single-value parameters, multivalue parameters allow multiple values in the field that's associated with the parameter. 
 
-   The following example shows a table that appears to contain a single-value parameter and a multivalue parameter. We can make this assumption because each user name has a unique value in one column, and some user names have multiple values in the other column. To make this table easier to understand, we add the word `'default'` in front of the field names from the analysis. Thus, you can read the table by making the following statement, changing the values for each row: When `viewed-by` is `liujie`, the controls display a `default-region` value of `SouthEast`, and a `default-city` value of `Atlanta`. And if we read ahead one row, we see that `liujie` also has `Raleigh` in `default-city`.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/parameters-default-values.html)
+   The following example shows a table that appears to contain a single-value parameter and a multivalue parameter. We can make this assumption because each user name has a unique value in one column, and some user names have multiple values in the other column. To make this table easier to understand, we add the word `'default'` in front of the field names from the analysis. Thus, you can read the table by making the following statement, changing the values for each row: When `viewed-by` is `liujie`, the controls display a `default-region` value of `SouthEast`, and a `default-city` value of `Atlanta`. And if we read ahead one row, we see that `liujie` also has `Raleigh` in `default-city`. 
+
+
+<table>
+<thead>
+  <tr><th>Viewed-by</th><th>Default-region</th><th>Default-city</th></tr>
+</thead>
+<tbody>
+  <tr><td>anacarolinasilva</td><td>NorthEast</td><td>New York</td></tr>
+  <tr><td>liujie</td><td>SouthEast</td><td>Atlanta</td></tr>
+  <tr><td>liujie</td><td>SouthEast</td><td>Raleigh</td></tr>
+  <tr><td>saanvisarkar</td><td>NorthCentral</td><td>Chicago</td></tr>
+  <tr><td>zhangwei</td><td>SouthCentral</td><td>Dallas</td></tr>
+  <tr><td>zhangwei</td><td>SouthCentral</td><td>Kansas City</td></tr>
+</tbody>
+</table>
+
 
    In this example, the parameter that we apply `default-region` to works correctly whether it's a single-value or multivalue parameter. If it's a single-value parameter, two entries work for one user because both entries are the same value, `SouthEast`. If it's a multivalue parameter, it still works, except that only one value is selected by default. However, if we change the parameter that's using `default-city` as its default from a multivalue to a single-value parameter, we don't see these defaults selected. Instead, the parameter uses the static default, if there is one defined. For example, if the static default is set to `Atlanta`, `liujie` has `Atlanta` selected in that control, but not `Raleigh`. 
 

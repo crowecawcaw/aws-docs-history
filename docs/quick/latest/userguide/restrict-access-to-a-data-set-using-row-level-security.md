@@ -58,14 +58,57 @@ Use the following procedure to create a permissions file or query to use as data
 **Note**  
 If you are specifying groups, use only Amazon Quick groups or Microsoft AD groups. 
 
-   The following example shows a table with groups.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/restrict-access-to-a-data-set-using-row-level-security.html)
+   The following example shows a table with groups.
 
-   The following example shows a table with usernames.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/restrict-access-to-a-data-set-using-row-level-security.html)
 
-   The following example shows a table with user and group Amazon Resource Names (ARNs).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/restrict-access-to-a-data-set-using-row-level-security.html)
+<table>
+<thead>
+  <tr><th>GroupName</th><th>Sales region</th><th>Segment</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>EMEA-Sales</td><td>EMEA</td><td>Enterprise, SMB, Startup</td><td></td></tr>
+  <tr><td>US-Sales</td><td>US</td><td>Enterprise</td><td></td></tr>
+  <tr><td>US-Sales</td><td>US</td><td>SMB, Startup</td><td></td></tr>
+  <tr><td>US-Sales</td><td>US</td><td>Startup</td><td></td></tr>
+  <tr><td>APAC-Sales</td><td>APAC</td><td>Enterprise, SMB</td><td></td></tr>
+  <tr><td>Corporate-Reporting</td><td></td><td></td><td></td></tr>
+  <tr><td>APAC-Sales</td><td>APAC</td><td>Enterprise, Startup</td><td></td></tr>
+</tbody>
+</table>
+
+
+   The following example shows a table with usernames.
+
+
+<table>
+<thead>
+  <tr><th>UserName</th><th>Sales region</th><th>Segment</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>AlejandroRosalez</td><td>EMEA</td><td>Enterprise, SMB, Startup</td><td></td></tr>
+  <tr><td>MarthaRivera</td><td>US</td><td>Enterprise</td><td></td></tr>
+  <tr><td>NikhilJayashankar</td><td>US</td><td>SMB, Startup</td><td></td></tr>
+  <tr><td>PauloSantos</td><td>US</td><td>Startup</td><td></td></tr>
+  <tr><td>SaanviSarkar</td><td>APAC</td><td>Enterprise, SMB</td><td></td></tr>
+  <tr><td>sales-tps@example.com</td><td></td><td></td><td></td></tr>
+  <tr><td>ZhangWei</td><td>APAC</td><td>Enterprise, Startup</td><td></td></tr>
+</tbody>
+</table>
+
+
+   The following example shows a table with user and group Amazon Resource Names (ARNs).
+
+
+<table>
+<thead>
+  <tr><th>UserARN</th><th>GroupARN</th><th>Sales region</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>arn:aws:quicksight:us-east-1:123456789012:user/default/Bob</code></td><td><code>arn:aws:quicksight:us-east-1:123456789012:group/default/group-1</code></td><td>APAC</td></tr>
+  <tr><td><code>arn:aws:quicksight:us-east-1:123456789012:user/default/Sam</code></td><td><code>arn:aws:quicksight:us-east-1:123456789012:group/default/group-2</code></td><td>US</td></tr>
+</tbody>
+</table>
+
 
    Or if you use a .csv file, the structure should look similar to one of the following.
 
@@ -152,8 +195,22 @@ If your dataset has NULL values or empty strings ("") in the restricted fields, 
 Inside the permissions dataset, NULL values and empty strings are treated the same. For more information, see the following table.
 To prevent accidentally exposing sensitive information, Amazon Quick skips empty RLS rules that grant access to everyone. An *empty RLS rule* occurs when all columns of a row have no value. Quick RLS treats NULL, empty strings (""), or empty comma separated strings (for example ",,,") as no value.  
 After skipping empty rules, other nonempty RLS rules still apply.
-If a permission dataset has only empty rules and all of them were skipped, no one will have access to any data restricted by this permission dataset.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/restrict-access-to-a-data-set-using-row-level-security.html)
+If a permission dataset has only empty rules and all of them were skipped, no one will have access to any data restricted by this permission dataset.
+
+
+<table>
+<thead>
+  <tr><th>Rules for UserName, GroupName, SalesRegion, Segment</th><th>Granted access</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>AlejandroRosalez,EMEA-Sales,EMEA,"Enterprise,SMB,Startup"</td><td>Sees all EMEA Enterprise, SMB, and Startup</td><td></td></tr>
+  <tr><td>sales-tps@example.com,Corporate-Reporting,"",""</td><td>Sees all rows</td><td></td></tr>
+  <tr><td>User or group has no entry</td><td>Sees no rows</td><td></td></tr>
+  <tr><td>“”,“”,“”,“”</td><td>Skipped; sees no rows if all other rules are empty.</td><td></td></tr>
+  <tr><td>NULL,“”,“”,NULL</td><td>Skipped; sees no rows if all other rules are empty.</td><td></td></tr>
+</tbody>
+</table>
+
 
    Anyone whom you shared your dashboard with can see all the data in it, unless the dataset is restricted by dataset rules. 
 

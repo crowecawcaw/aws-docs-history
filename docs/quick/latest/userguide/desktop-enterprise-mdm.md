@@ -51,20 +51,28 @@ Each platform publishes a channel manifest that lists the current version and a 
 
 ```
 # macOS manifest
-curl -fsSL https://desktop.downloads.quick.aws.com/darwin/arm64/quick-latest-mac.yml
+curl -fsSL https://desktop.downloads.quick.aws.com/darwin/arm64/quick-external-cloud-mac.yml
 
 # Windows per-machine manifest
-curl -fsSL https://desktop.downloads.quick.aws.com/win32/x64/quick-prod-admin.yml
+curl -fsSL https://desktop.downloads.quick.aws.com/win32/x64/quick-external-cloud-admin.yml
 ```
+
+The manifest includes two keys that you use for MDM deployment.
+
+`version`  
+The version of the most recent build released externally. Use this value wherever a procedure in this topic asks you for {{version}}.
+
+`path`  
+The version-specific artifact, relative to the platform base URL. On Windows, you append `path` to `https://desktop.downloads.quick.aws.com/win32/x64/` to download the per-machine installer. On macOS, `path` refers to the archive that the application auto-updater consumes rather than a deployable installer, so you use `version` with the `.pkg` URL pattern that follows.
 
 Download the per-machine artifact for each platform. In the following URL patterns, replace {{version}} with the version from the manifest.
 
 ```
 # macOS .pkg (per-machine, installs to /Applications)
-https://desktop.downloads.quick.aws.com/darwin/arm64/quick-prod/Amazon Quick-{{version}}-arm64.pkg
+https://desktop.downloads.quick.aws.com/darwin/arm64/quick-external-cloud/Amazon Quick-{{version}}-arm64.pkg
 
 # Windows per-machine .exe (installs for all users into Program Files)
-https://desktop.downloads.quick.aws.com/win32/x64/quick-prod-admin/Amazon Quick-Admin Setup {{version}}.exe
+https://desktop.downloads.quick.aws.com/win32/x64/quick-external-cloud-admin/Amazon Quick-Admin Setup {{version}}.exe
 ```
 
 A pre-production beta channel also exists for internal testing. It updates itself automatically and does not publish a public first-time installer, so it is not used for MDM deployment. For the standard download page that individual users use, see [Downloading and installing](getting-started-desktop.md#desktop-download-install).
@@ -72,15 +80,13 @@ A pre-production beta channel also exists for internal testing. It updates itsel
 ### Static and version-specific download URLs
 <a name="desktop-mdm-download-urls"></a>
 
-The Windows per-machine `.exe` also has a static download link that always resolves to the current version, so you do not need to fetch the manifest first:
+The Windows per-machine `.exe` also has a static download link that resolves to the most recent build released externally, so you do not need to fetch the manifest first. A static link can trail the version in the manifest while a release finishes rolling out. If you need a specific version, or you want to verify your download against the SHA-512 checksum, fetch the manifest and use the version-specific URL instead.
 
 ```
 https://desktop.downloads.quick.aws.com/windows/x64/Amazon-Quick-Admin.exe
 ```
 
-To pin a specific version, fetch the manifest first to get the exact version string, and then use the version-specific channel URL.
-
-For macOS, download the `.pkg` in two steps, because the `.pkg` is published only under its version-specific channel path. Fetch the manifest to get the current version, and then substitute that version into the URL.
+The macOS `.pkg` has no static link, because it is published only under its version-specific channel path. Get the current version from the manifest, and then build the `.pkg` URL with that version.
 
 ## Deploying the macOS application with Microsoft Intune
 <a name="desktop-mdm-macos"></a>
@@ -97,8 +103,19 @@ Use the **macOS app (PKG)** type, not the line-of-business app type.
 
 1. In the **Included apps** detection list, keep only the main application bundle and remove the helper bundles.
 **Keep only the main application bundle**  
-The macOS installer includes the main application plus four nested helper components inside `Contents/Frameworks/`. When you upload the `.pkg`, Microsoft Intune automatically populates the **Included apps** list with all five bundles. Delete the four helper rows (the ones whose IDs end in `.e0` through `.e3`, such as **Amazon Quick Helper (GPU)**) so that exactly one entry remains, with the following values.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-mdm.html)
+The macOS installer includes the main application plus four nested helper components inside `Contents/Frameworks/`. When you upload the `.pkg`, Microsoft Intune automatically populates the **Included apps** list with all five bundles. Delete the four helper rows (the ones whose IDs end in `.e0` through `.e3`, such as **Amazon Quick Helper (GPU)**) so that exactly one entry remains, with the following values.  
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>App bundle ID</td><td><code>com.aws.QuickWork.mac</code></td></tr>
+  <tr><td>Build number</td><td>The numeric part of the manifest version (for example, <code>1.0.3377</code>). Use the value from the manifest rather than this example.</td></tr>
+</tbody>
+</table>
+
 If you leave the helper rows in place, macOS might report installation failure code `0x87D13BA2` even when the application files are present.  
 The app bundle ID (`com.aws.QuickWork.mac`) is the application's `CFBundleIdentifier`, which Microsoft Intune uses for detection. It is intentionally different from the installer's package receipt identifier (`com.amazon.QuickWork.mac`), which you use with `pkgutil --forget` when you clean a test device.
 
@@ -154,8 +171,22 @@ The following table lists the key facts for the per-machine Windows installer.
 
 1. On the **Requirements** tab, set the operating system architecture to **x64** and set the minimum operating system to a supported Windows client version.
 
-1. On the **Detection rules** tab, add a manually configured rule with the following settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-mdm.html)
+1. On the **Detection rules** tab, add a manually configured rule with the following settings.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Rule type</td><td>File</td></tr>
+  <tr><td>Path</td><td><code>C:\Program Files\Amazon Quick</code></td></tr>
+  <tr><td>File or folder</td><td><code>Amazon Quick.exe</code></td></tr>
+  <tr><td>Detection method</td><td>File or folder exists</td></tr>
+  <tr><td>Associated with a 32-bit app on 64-bit clients</td><td>No</td></tr>
+</tbody>
+</table>
+
 
 1. On the **Assignments** tab, add a device group with the **Required** intent.
 
