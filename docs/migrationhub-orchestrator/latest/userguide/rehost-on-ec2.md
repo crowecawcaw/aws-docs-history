@@ -21,8 +21,19 @@ You must meet the following requirements to create a migration workflow using th
 
   1. On the AWS Secrets Manager page, select **Store a new secret**.
 
-  1. For Secret type, select **Other type of secret** and enter the following keys.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/rehost-on-ec2.html)
+  1. For Secret type, select **Other type of secret** and enter the following keys.
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>access_key</code></td><td>{{<code>access_key</code> of the credential}}</td></tr>
+  <tr><td><code>secret_key</code></td><td>{{<code>secret_key</code> of the credential}}</td></tr>
+</tbody>
+</table>
+
 
   1. Select **Next** and enter a name for the key pair beginning with `migrationhub-orchestrator-{{secretname123}}`.
 **Important**  

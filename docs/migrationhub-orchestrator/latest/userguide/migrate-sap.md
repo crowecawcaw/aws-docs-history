@@ -41,8 +41,21 @@ You must meet the following requirements to create a migration workflow using th
 
   1. On the AWS Secrets Manager page, select **Store a new secret**.
 
-  1. For Secret type, select **Other type of secret** and create the following key value pairs.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/migrate-sap.html)
+  1. For Secret type, select **Other type of secret** and create the following key value pairs.
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>hana_systemdb_username</code></td><td>source SAP HANA system database username</td></tr>
+  <tr><td><code>hana_systemdb_password</code></td><td>source SAP HANA system database password</td></tr>
+  <tr><td><code>hana_saptenantdb_username</code></td><td>source SAP HANA tenant database username</td></tr>
+  <tr><td><code>hana_saptenantdb_user_password</code></td><td>source SAP HANA tenant database password </td></tr>
+</tbody>
+</table>
+
 **Note**  
  The `hana_systemdb_username` and `hana_saptenantdb_username` must have admin permissions to enable the SAP HANA System Replication and perform database backups.
 
