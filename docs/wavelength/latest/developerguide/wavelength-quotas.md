@@ -45,8 +45,26 @@ In addition, inbound routing from the carrier network is optimized for devices i
 Take the following information into consideration when you launch EC2 instances in Wavelength Zones:
 + You cannot use Dedicated Instances or Dedicated Hosts.
 + EC2 quotas are controlled by the quotas for the home Region.
-+ The following instance types are supported:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wavelength/latest/developerguide/wavelength-quotas.html)
++ The following instance types are supported:
+
+
+<table>
+<thead>
+  <tr><th>Instance type</th><th>N. America</th><th>Europe</th><th>Asia</th><th>Africa</th></tr>
+</thead>
+<tbody>
+  <tr><td>t3.medium</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td></tr>
+  <tr><td>t3.xlarge</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td></tr>
+  <tr><td>r5.large</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td></tr>
+  <tr><td>r5.2xlarge</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td></tr>
+  <tr><td>m5.2xlarge</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td></tr>
+  <tr><td>c5.xlarge</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td></tr>
+  <tr><td>c5.2xlarge</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td></tr>
+  <tr><td>c5.4xlarge</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/negative_icon.png" alt="" /> No </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td></tr>
+  <tr><td>g4dn.2xlarge</td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td><td> <img src="https://docs.aws.amazon.com/wavelength/latest/developerguide/images/success_icon.png" alt="" /> Yes </td></tr>
+</tbody>
+</table>
+
 
 ## Amazon EBS considerations
 <a name="ebs"></a>
