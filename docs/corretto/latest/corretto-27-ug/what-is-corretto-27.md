@@ -3,9 +3,7 @@
 # What is Amazon Corretto 27?
 <a name="what-is-corretto-27"></a>
 
- ** Corretto 27 is currently Beta ** 
-
- This is an intermediate build made available for testing purposes only. The code is untested and presumed incompatible with the Java SE Specification. You should not deploy or write to this code, but instead use a tested and certified Java SE compatible version of the code. Redistribution of this build must retain this notice. 
+ Amazon Corretto is a no-cost, multiplatform, production-ready distribution of the Open Java Development Kit (OpenJDK). Corretto comes with long-term support that includes performance enhancements and security fixes. Amazon runs Corretto internally on thousands of production services and Corretto is certified as compatible with the Java SE standard. With Corretto, you can develop and run Java applications on popular operating systems, including Linux, Windows, and macOS. 
 
  Amazon Corretto 27 is a Feature Release (FR) distribution of [OpenJDK 27](https://openjdk.org/projects/jdk/27/) 
 

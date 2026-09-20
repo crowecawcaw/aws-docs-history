@@ -3,8 +3,6 @@
 # Downloads for Amazon Corretto 27
 <a name="downloads-list"></a>
 
- This is an intermediate build made available for testing purposes only. The code is untested and presumed incompatible with the Java SE Specification. You should not deploy or write to this code, but instead use a tested and certified Java SE compatible version of the code. Redistribution of this build must retain this notice. 
-
 This topic lists all the downloads available for Amazon Corretto 27. You can choose Permanent URLs pointing to the latest version, or use Version Specific URLs which point to a specific version. 
 
 ## Amazon Corretto 27 Permanent URLs
@@ -100,7 +98,7 @@ https://corretto.aws/[latest/latest_checksum]/amazon-corretto-[corretto_version]
 ## Signature Verification
 <a name="signature"></a>
 
-The public key to verify the SIGNATURE file can be downloaded [here](https://corretto.aws/downloads/resources/27.0.0.34.1/A122542AB04F24E3.pub) 
+The public key to verify the SIGNATURE file can be downloaded [here](https://corretto.aws/downloads/resources/27.0.0.35.1/A122542AB04F24E3.pub) 
 
 ## Versioned Downloads
 <a name="versioned-downloads"></a>
