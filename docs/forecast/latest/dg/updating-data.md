@@ -52,7 +52,7 @@ aws forecast create-dataset-import-job \
 ```
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
 To update a dataset, use the `create_dataset_import_job` method. For the `import-mode`, specify `FULL`, to replace existing data or `INCREMENTAL` to add to it. For more information, see [Import modes](#idsi).
 

@@ -141,7 +141,7 @@ You can use the AWS CLI to do the following:
        "Role": {
            "Path": "/",
            "RoleName": "ForecastRole",
-           "RoleId": {{your-role-ID}},
+           "RoleId": "{{your-role-ID}}",
            "Arn": "arn:aws:iam::{{your-acct-ID}}:role/ForecastRole",
            "CreateDate": "{{creation-date}}",
            "AssumeRolePolicyDocument": {

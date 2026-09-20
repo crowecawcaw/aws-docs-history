@@ -62,9 +62,9 @@ aws forecast create-forecast \
 ```
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
-To create a forecast with the SDK for Python (Boto3), use the `create_forecast` method. Provide a name for the forecast and the Amazon Resource Name (ARN) of your predictor. For `ForecastTypes`, optionally specify the quantiles at which probabilistic forecasts are generated. The default values are the quantiles you specified when you created the predictor. Optionally add any tags for the forecast. For more information see [Tagging Amazon Forecast Resources](tagging-forecast-resources.md). 
+To create a forecast with the AWS SDK for Python (Boto3), use the `create_forecast` method. Provide a name for the forecast and the Amazon Resource Name (ARN) of your predictor. For `ForecastTypes`, optionally specify the quantiles at which probabilistic forecasts are generated. The default values are the quantiles you specified when you created the predictor. Optionally add any tags for the forecast. For more information see [Tagging Amazon Forecast Resources](tagging-forecast-resources.md). 
 
 For information on required and optional parameters see [CreateForecast](API_CreateForecast.md).
 
@@ -177,7 +177,7 @@ forecast create-forecast-export-job \
 ```
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
 To export a forecast with the SDK for Python (Boto3) you use the `export_forecast_job` method. Give the forecast export job a name, specify the ARN of the forecast to export, and optionally add any tags. For the `Destination`, specify the path to your output Amazon S3 bucket, the ARN of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console), and if you use a AWS KMS key for bucket encryption, the ARN for your key.
 

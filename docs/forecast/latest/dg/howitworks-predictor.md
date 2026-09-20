@@ -28,8 +28,23 @@ By default, Amazon Forecast creates an AutoPredictor, where Forecast applies the
 
 Amazon Forecast requires the following inputs to train a predictor:
 + **Dataset group** – A dataset group that must include a target time series dataset. The target time series dataset includes the target attribute (`item_id`) and timestamp attribute, as well as any dimensions. Related time series and Item metadata is optional. For more information, see [Importing Datasets](howitworks-datasets-groups.md).
-+ **Forecast frequency** – The granularity of your forecasts (hourly, daily, weekly, etc). Amazon Forecast lets you determine the exact granularity of your forecasts when you provide the frequency unit and value. Only integer values are allowed    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/forecast/latest/dg/howitworks-predictor.html)
++ **Forecast frequency** – The granularity of your forecasts (hourly, daily, weekly, etc). Amazon Forecast lets you determine the exact granularity of your forecasts when you provide the frequency unit and value. Only integer values are allowed
+
+
+<table>
+<thead>
+  <tr><th>Frequency unit</th><th>Allowed values</th></tr>
+</thead>
+<tbody>
+  <tr><td>Minutely</td><td>1-59</td></tr>
+  <tr><td>Hourly</td><td>1-23</td></tr>
+  <tr><td>Daily</td><td>1-6</td></tr>
+  <tr><td>Weekly</td><td>1-4</td></tr>
+  <tr><td>Monthly</td><td>1-11</td></tr>
+  <tr><td>Yearly</td><td>1</td></tr>
+</tbody>
+</table>
+
 
   For example, if you want every other week forecasts, your frequency unit is weekly and the value is 2. Or, if you want quarterly forecasts, your frequency unit is monthly and the value is 3.
 
@@ -88,9 +103,9 @@ aws forecast create-predictor \
 To learn more about customizing forecast types and optimization metrics, see [Evaluating Predictor Accuracy](metrics.md) The Weather Index and Holidays additional datasets are defined within the `DataConfig` datatype. For information on additional datasets, see [Weather Index](weather.md) and [Holidays Featurization](holidays.md).
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
-To create an auto predictor with the SDK for Python (Boto3), use the `create_auto_predictor` method. The following code creates an auto predictor that makes predictions for 14 days in the future. 
+To create an auto predictor with the AWS SDK for Python (Boto3), use the `create_auto_predictor` method. The following code creates an auto predictor that makes predictions for 14 days in the future. 
 
 Provide a name for the predictor and the Amazon Resource Name (ARN) of the dataset group that includes your training data. Optionally modify the forecast horizon and forecast frequency. Optionally add any tags for the predictor. For more information see [Tagging Amazon Forecast Resources](tagging-forecast-resources.md). 
 
@@ -165,7 +180,7 @@ aws forecast create-predictor \
 ```
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
 To upgrade a predictor with the SDK for Python (Boto3), use the `create_auto_predictor` method, but specify *only* the predictor name and the value of `ReferencePredictorArn` (the ARN of the predictor you want to upgrade). 
 

@@ -42,9 +42,9 @@ You can enable predictor monitoring for a new predictor with the console, AWS CL
 1. Choose **Start** to create an auto predictor with monitoring enabled. You’ll see monitoring results as you use the predictor to generate forecasts and then import more data.
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
-To enable predictor monitoring for a new predictor with the SDK for Python (Boto3), use the `create_auto_predictor` method and provide a monitor name in the `MonitoringConfig`. 
+To enable predictor monitoring for a new predictor with the AWS SDK for Python (Boto3), use the `create_auto_predictor` method and provide a monitor name in the `MonitoringConfig`. 
 
 The following code creates an auto predictor that makes predictions for 24 (`ForecastHorizon`) days (`ForecastFrequency`) in the future, and specifies `MyPredictorMonitor` as the `MonitorName`. After you generate a forecast and then import more data, you can view the results of predictor monitoring. For more information about retrieving results, see [Viewing Monitoring Results](predictor-monitoring-results.md). 
 
@@ -95,7 +95,7 @@ You can enable predictor monitoring for an existing predictor with the console, 
    When the **Monitoring status** is Active, predictor monitoring is enabled. After you generate a forecast and then import more data, you can view the results of predictor monitoring. For more information see [Viewing Monitoring Results](predictor-monitoring-results.md)
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
 To enable predictor monitoring for an existing predictor with the SDK for Python (Boto3), use the `create_monitor` method. Specify a name for the monitoring, and for `ResourceArn` specify the Amazon Resource Name (ARN) for the predictor to monitor. Use the `describe_monitor` method and provide the monitor ARN to get the status of the monitor. After you generate a forecast and then import more data, you can view the results of predictor monitoring. For more information see [Viewing Monitoring Results](predictor-monitoring-results.md). 
 

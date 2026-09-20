@@ -115,9 +115,9 @@ aws forecast create-predictor \
 ```
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
-To specify a time alignment boundary for a predictor with the SDK for Python (Boto3), use the `create_auto_predictor` method. For the `TimeAlignmentBoundary` parameter, provide a dictionary with the unit of time as the key and boundary value as the value. The following code creates an auto predictor that makes predictions for 5 weeks in the future, where each week starts on a Tuesday. 
+To specify a time alignment boundary for a predictor with the AWS SDK for Python (Boto3), use the `create_auto_predictor` method. For the `TimeAlignmentBoundary` parameter, provide a dictionary with the unit of time as the key and boundary value as the value. The following code creates an auto predictor that makes predictions for 5 weeks in the future, where each week starts on a Tuesday. 
 
 `DayOfWeek` and `DayOfMonth` values must be in all uppercase. For information on the different time boundary units and boundary values you can specify, see [TimeAlignmentBoundary](API_TimeAlignmentBoundary.md). For information on required and optional parameters, see [CreateAutoPredictor](API_CreateAutoPredictor.md).
 

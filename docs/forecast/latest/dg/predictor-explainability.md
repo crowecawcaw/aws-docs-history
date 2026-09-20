@@ -69,9 +69,9 @@ Enabling Predictor Explainability when creating a new predictor will create both
 1. Choose **Start**
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
-To enable explainability for a new predictor with the SDK for Python (Boto3), use the `create_auto_predictor` method and set ExplainPredictor to true. 
+To enable explainability for a new predictor with the AWS SDK for Python (Boto3), use the `create_auto_predictor` method and set ExplainPredictor to true. 
 
 The following code creates an auto predictor that makes predictions for 24 (`ForecastHorizon`) days (`ForecastFrequency`) in the future, and has `ExplainPredictor` set to true. For information on required and optional parameters see [CreateAutoPredictor](API_CreateAutoPredictor.md).
 
@@ -120,7 +120,7 @@ You can enable Predictor Explainability for a new predictor using the Software D
 1. Choose **Start**
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
 To enable Predictor Explainability for an existing predictor with the SDK for Python (Boto3), use the `create_explainability` method. Specify a name for the explainability, the ARN for the predictor, and for `ExplainabilityConfig`, set both `TimePointGranularity` and `TimeSeriesGranularity` to **ALL**. To create an Explainability visualization that is viewable within the console, set `EnableVisualization` to **True**. 
 
@@ -179,7 +179,7 @@ Forecast enables you to export a CSV or Parquet file of Impact scores to an S3 l
 1. Choose **Create export.**
 
 ------
-#### [ Python ]
+#### [ SDK for Python (Boto3) ]
 
 To export a Predictor Explainability with the SDK for Python (Boto3), use the `create_explainability_export` method. Give the job a name, specify the ARN of the explainability, and, in the `Destination` object, specify your Amazon S3 destination location, and IAM service role.
 
