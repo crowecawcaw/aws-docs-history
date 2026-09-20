@@ -72,8 +72,20 @@ Amazon Transcribe only supports one stream per HTTP/2 session. If you attempt to
    content-type: application/json
    ```
 
-1. Create an audio event that contains your audio data. Combine the headers—described in the following table—with a chunk of audio bytes in an event-encoded message. To create the payload for the event message, use a buffer in raw-byte format.    
-<a name="table-http2-frame-diagram-event-headers"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/transcribe/latest/dg/streaming-setting-up.html)
+1. Create an audio event that contains your audio data. Combine the headers—described in the following table—with a chunk of audio bytes in an event-encoded message. To create the payload for the event message, use a buffer in raw-byte format.
+
+<a name="table-http2-frame-diagram-event-headers"></a>
+<table>
+<thead>
+  <tr><th>Header name byte length</th><th>Header name (string)</th><th>Header value type</th><th>Value string byte length</th><th>Value string (UTF-8)</th></tr>
+</thead>
+<tbody>
+  <tr><td>13</td><td>:content-type</td><td>7</td><td>24</td><td>application/octet-stream</td></tr>
+  <tr><td>11</td><td>:event-type</td><td>7</td><td>10</td><td>AudioEvent</td></tr>
+  <tr><td>13</td><td>:message-type</td><td>7</td><td>5</td><td>event</td></tr>
+</tbody>
+</table>
+
 
    Binary data in this example request are base64-encoded. In an actual request, data are raw bytes.
 
@@ -86,8 +98,19 @@ Amazon Transcribe only supports one stream per HTTP/2 session. If you attempt to
 
 1. Create an audio message that contains your audio data.
 
-   1. Your audio message data frame contains event-encoding headers that include the current date and a signature for the audio chunk and the audio event.    
-<a name="table-http2-diagram-message-headers"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/transcribe/latest/dg/streaming-setting-up.html)
+   1. Your audio message data frame contains event-encoding headers that include the current date and a signature for the audio chunk and the audio event.
+
+<a name="table-http2-diagram-message-headers"></a>
+<table>
+<thead>
+  <tr><th>Header name byte length</th><th>Header name (string)</th><th>Header value type</th><th>Value string byte length</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>16</td><td>:chunk-signature</td><td>6</td><td>varies</td><td>generated signature</td></tr>
+  <tr><td>5</td><td>:date</td><td>8</td><td>8</td><td>timestamp</td></tr>
+</tbody>
+</table>
+
 
       Binary data in this request are base64-encoded. In an actual request, data are raw bytes.
 
@@ -140,8 +163,20 @@ Amazon Transcribe only supports one stream per HTTP/2 session. If you attempt to
 
 1. To indicate the audio stream is complete, send an end frame (an empty data frame) that contains only the date and signature. You construct this end frame the same way that you construct a data frame.
 
-   Amazon Transcribe responds with a stream of transcription events, sent to your application. This response is event stream encoded. It contains the standard prelude and the following headers.    
-<a name="table-http2-frame-response-headers"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/transcribe/latest/dg/streaming-setting-up.html)
+   Amazon Transcribe responds with a stream of transcription events, sent to your application. This response is event stream encoded. It contains the standard prelude and the following headers.
+
+<a name="table-http2-frame-response-headers"></a>
+<table>
+<thead>
+  <tr><th>Header name byte length</th><th>Header name (string)</th><th>Header value type</th><th>Value string byte length</th><th>Value string (UTF-8)</th></tr>
+</thead>
+<tbody>
+  <tr><td>13</td><td>:content-type</td><td>7</td><td>16</td><td>application/json</td></tr>
+  <tr><td>11</td><td>:event-type</td><td>7</td><td>15</td><td>TranscriptEvent</td></tr>
+  <tr><td>13</td><td>:message-type</td><td>7</td><td>5</td><td>event</td></tr>
+</tbody>
+</table>
+
 
    The events are sent in raw-byte format. In this example, the bytes are base64-encoded.
 
@@ -417,13 +452,37 @@ The maximum value for `X-Amz-Expires` is 300 (5 minutes).
 
    After the WebSocket connection is established, the client can start sending a sequence of audio frames, each encoded using [event stream encoding](#streaming-event-stream).
 
-   Each data frame contains three headers combined with a chunk of raw audio bytes; the following table describes these headers.    
-<a name="table-websocket-frame-diagram-event-headers"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/transcribe/latest/dg/streaming-setting-up.html)
+   Each data frame contains three headers combined with a chunk of raw audio bytes; the following table describes these headers.
+
+<a name="table-websocket-frame-diagram-event-headers"></a>
+<table>
+<thead>
+  <tr><th>Header name byte length</th><th>Header name (string)</th><th>Header value type</th><th>Value string byte length</th><th>Value string (UTF-8)</th></tr>
+</thead>
+<tbody>
+  <tr><td>13</td><td>:content-type</td><td>7</td><td>24</td><td>application/octet-stream</td></tr>
+  <tr><td>11</td><td>:event-type</td><td>7</td><td>10</td><td>AudioEvent</td></tr>
+  <tr><td>13</td><td>:message-type</td><td>7</td><td>5</td><td>event</td></tr>
+</tbody>
+</table>
+
 
 1. To end the data stream, send an empty audio chunk in an event stream encoded message.
 
-   The response contains event stream encoded raw bytes in the payload. It contains the standard prelude and the following headers.    
-<a name="table-websocket-frame-response-headers"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/transcribe/latest/dg/streaming-setting-up.html)
+   The response contains event stream encoded raw bytes in the payload. It contains the standard prelude and the following headers.
+
+<a name="table-websocket-frame-response-headers"></a>
+<table>
+<thead>
+  <tr><th>Header name byte length</th><th>Header name (string)</th><th>Header value type</th><th>Value string byte length</th><th>Value string (UTF-8)</th></tr>
+</thead>
+<tbody>
+  <tr><td>13</td><td>:content-type</td><td>7</td><td>16</td><td>application/json</td></tr>
+  <tr><td>11</td><td>:event-type</td><td>7</td><td>15</td><td>TranscriptEvent</td></tr>
+  <tr><td>13</td><td>:message-type</td><td>7</td><td>5</td><td>event</td></tr>
+</tbody>
+</table>
+
 
    When you decode the binary response, you end up with a JSON structure containing the transcription results.
 
