@@ -79,8 +79,20 @@ Following are some considerations for the properties used in the previous exampl
 + **Year range** – In `projection.year.range`, you can define the range of years based on your data. For example, you can adjust it to any period, such as *2025*, *2026*.
 **Note**  
 Including empty partitions, such as those for future dates (example: 2025-2040), can impact query performance. However, partition projection is designed to effectively handle future dates. To maintain optimal performance, ensure that partitions are managed thoughtfully and avoid excessive empty partitions when possible.
-+ **Storage location template** – You must ensure to update the `storage.location.template` correctly based on the following CloudFront partitioning structure and S3 path.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/create-cloudfront-table-partition-parquet.html)
++ **Storage location template** – You must ensure to update the `storage.location.template` correctly based on the following CloudFront partitioning structure and S3 path.
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Pattern</th></tr>
+</thead>
+<tbody>
+  <tr><td>CloudFront partitioning structure</td><td><code>AWSLogs/{AWS_ACCOUNT_ID}/CloudFront/{DistributionId}/folder2/{yyyy}/{MM}/{dd}/{HH}/folder3</code></td></tr>
+  <tr><td>S3 path</td><td><code>s3://amzn-s3-demo-bucket/AWSLogs/AWS_ACCOUNT_ID/CloudFront/E2Oxxxxxxxxxxx/folder2/2025/01/25/03/folder3/</code></td></tr>
+</tbody>
+</table>
+
 
   After you confirm that the CloudFront partitioning structure and S3 structure match the required patterns, update the `storage.location.template` as follows:
 

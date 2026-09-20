@@ -255,8 +255,20 @@ For Athena per-query cost information, see [Amazon Athena pricing](https://aws.a
    GROUP BY 1 ORDER BY 1 DESC
    ```
 
-1. Compare the results and calculate the performance and cost difference. The following sample results show that the test query on the new table was faster and cheaper than the query on the old table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/ctas-insert-into-etl.html)
+1. Compare the results and calculate the performance and cost difference. The following sample results show that the test query on the new table was faster and cheaper than the query on the old table.
+
+
+
+<table>
+<thead>
+  <tr><th>Table</th><th>Runtime</th><th>Data scanned</th></tr>
+</thead>
+<tbody>
+  <tr><td>Original</td><td>16.88 seconds</td><td>11.35 GB</td></tr>
+  <tr><td>New</td><td>3.79 seconds</td><td>428.05 MB</td></tr>
+</tbody>
+</table>
+
 
 1. Run the following sample query on the original table. The query calculates the average maximum temperature (Celsius), average minimum temperature (Celsius), and average rainfall (mm) for the Earth in 2018.
 
@@ -278,8 +290,20 @@ For Athena per-query cost information, see [Amazon Athena pricing](https://aws.a
    GROUP BY 1
    ```
 
-1. Compare the results and calculate the performance and cost difference. The following sample results show that the test query on the new table was faster and cheaper than the query on the old table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/ctas-insert-into-etl.html)
+1. Compare the results and calculate the performance and cost difference. The following sample results show that the test query on the new table was faster and cheaper than the query on the old table.
+
+
+
+<table>
+<thead>
+  <tr><th>Table</th><th>Runtime</th><th>Data scanned</th></tr>
+</thead>
+<tbody>
+  <tr><td>Original</td><td>18.65 seconds</td><td>11.35 GB</td></tr>
+  <tr><td>New</td><td>1.92 seconds</td><td>68 MB</td></tr>
+</tbody>
+</table>
+
 
 ## Summary
 <a name="ctas-insert-into-etl-summary"></a>

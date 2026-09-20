@@ -118,8 +118,24 @@ FROM
 This property does not apply to Iceberg tables. To use partition transforms for Iceberg tables, use the `partitioning` property described later in this section.
 Optional. An array list of columns by which the CTAS table will be partitioned. Verify that the names of partitioned columns are listed last in the list of columns in the `SELECT` statement.   
  `partitioning = ARRAY[partition_transform, ...]`   
-Optional. Specifies the partitioning of the Iceberg table to be created. Iceberg supports a wide variety of partition transforms and partition evolution. Partition transforms are summarized in the following table.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/create-table-as.html)
+Optional. Specifies the partitioning of the Iceberg table to be created. Iceberg supports a wide variety of partition transforms and partition evolution. Partition transforms are summarized in the following table.  
+
+
+
+<table>
+<thead>
+  <tr><th>Transform</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>year(ts)</code></td><td>Creates a partition for each year. The partition value is the integer difference in years between <code>ts</code> and January 1, 1970.</td></tr>
+  <tr><td><code>month(ts)</code></td><td>Creates a partition for each month of each year. The partition value is the integer difference in months between <code>ts</code> and January 1, 1970.</td></tr>
+  <tr><td><code>day(ts)</code></td><td>Creates a partition for each day of each year. The partition value is the integer difference in days between <code>ts</code> and January 1, 1970.</td></tr>
+  <tr><td><code>hour(ts)</code></td><td>Creates a partition for each hour of each day. The partition value is a timestamp with the minutes and seconds set to zero.</td></tr>
+  <tr><td><code>bucket(x, nbuckets)</code></td><td>Hashes the data into the specified number of buckets. The partition value is an integer hash of <code>x</code>, with a value between 0 and <code>nbuckets - 1</code>, inclusive.</td></tr>
+  <tr><td><code>truncate(s, nchars)</code></td><td>Makes the partition value the first <code>nchars</code> characters of <code>s</code>.</td></tr>
+</tbody>
+</table>
+
 Example:  
 
 ```

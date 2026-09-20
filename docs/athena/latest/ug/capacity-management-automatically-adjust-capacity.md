@@ -31,8 +31,27 @@ This automated CloudFormation template deploys the Athena Capacity Reservation a
 
 1. On the **Specify stack details** page, assign a name to your solution stack.
 
-1. Under **Parameters**, review the parameters for this solution template and modify them as necessary. This solution uses the following default values.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/capacity-management-automatically-adjust-capacity.html)
+1. Under **Parameters**, review the parameters for this solution template and modify them as necessary. This solution uses the following default values.
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>AthenaCapacityReservationName</td><td><i>&lt;requires input&gt;</i></td><td>Name of your existing capacity reservation to monitor and adjust.</td></tr>
+  <tr><td>MaxTargetDpus</td><td><i>&lt;requires input&gt;</i></td><td>Maximum number of DPUs the solution can scale up to.</td></tr>
+  <tr><td>MinTargetDpus</td><td>4</td><td>Minimum number of DPUs the solution can scale down to.</td></tr>
+  <tr><td>ScaleOutDpuAmount</td><td>16</td><td>Number of DPUs to add when scaling up.</td></tr>
+  <tr><td>ScaleInDpuAmount</td><td>8</td><td>Number of DPUs to remove when scaling down.</td></tr>
+  <tr><td>HighUtilizationThreshold</td><td>75</td><td>Utilization percentage that triggers scaling up.</td></tr>
+  <tr><td>LowUtilizationThreshold</td><td>25</td><td>Utilization percentage that triggers scaling down.</td></tr>
+  <tr><td>EvaluationLookbackWindow</td><td>300</td><td>Time window in seconds for measuring utilization.</td></tr>
+  <tr><td>EvaluationFrequency</td><td>rate (5 minutes)</td><td>How often to check utilization and adjust capacity.</td></tr>
+</tbody>
+</table>
+
 **Note**  
 All DPU values must be multiples of 4 to comply with Athena's capacity reservation requirements.
 

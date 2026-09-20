@@ -94,8 +94,21 @@ Use the parameters in this section to configure the Athena Kafka connector.
 + **kafka\_endpoint** – The endpoint details to provide to Kafka.
 + **schema\_registry\_url** – The URL address for the schema registry (for example, `http://schema-registry.example.org:8081`). Applies to the `AVRO` and `PROTOBUF` data formats. Athena only supports Confluent schema registry.
 + **secrets\_manager\_secret** – The name of the AWS secret in which the credentials are saved.
-+ **Spill parameters** – Lambda functions temporarily store ("spill") data that do not fit into memory to Amazon S3. All database instances accessed by the same Lambda function spill to the same location. Use the parameters in the following table to specify the spill location.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/connectors-kafka.html)
++ **Spill parameters** – Lambda functions temporarily store ("spill") data that do not fit into memory to Amazon S3. All database instances accessed by the same Lambda function spill to the same location. Use the parameters in the following table to specify the spill location.
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>spill_bucket</code></td><td>Required. The name of the Amazon S3 bucket where the Lambda function can spill data.</td></tr>
+  <tr><td><code>spill_prefix</code></td><td>Required. The prefix within the spill bucket where the Lambda function can spill data.</td></tr>
+  <tr><td><code>spill_put_request_headers</code></td><td>(Optional) A JSON encoded map of request headers and values for the Amazon S3 <code>putObject</code> request that is used for spilling (for example, <code>{"x-amz-server-side-encryption" : "AES256"}</code>). For other possible headers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a> in the <i>Amazon Simple Storage Service API Reference</i>.</td></tr>
+</tbody>
+</table>
+
 + **Subnet IDs** – One or more subnet IDs that correspond to the subnet that the Lambda function can use to access your data source.
   + **Public Kafka cluster or standard Confluent Cloud cluster** – Associate the connector with a private subnet that has a NAT Gateway.
   + **Confluent Cloud cluster with private connectivity** – Associate the connector with a private subnet that has a route to the Confluent Cloud cluster.

@@ -80,8 +80,21 @@ The `SASL_SSL_PLAIN` and `SASL_PLAINTEXT_PLAIN` authentication types are support
 + **disable\_spill\_encryption** – (Optional) When set to `True`, disables spill encryption. Defaults to `False` so that data that is spilled to S3 is encrypted using AES-GCM – either using a randomly generated key or KMS to generate keys. Disabling spill encryption can improve performance, especially if your spill location uses [server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html).
 + **kafka\_endpoint** – The endpoint details to provide to Kafka. For example, for an Amazon MSK cluster, you provide a [bootstrap URL](https://docs.aws.amazon.com/msk/latest/developerguide/msk-get-bootstrap-brokers.html) for the cluster.
 + **secrets\_manager\_secret** – The name of the AWS secret in which the credentials are saved. This parameter is not required for IAM authentication.
-+ **Spill parameters** – Lambda functions temporarily store ("spill") data that do not fit into memory to Amazon S3. All database instances accessed by the same Lambda function spill to the same location. Use the parameters in the following table to specify the spill location.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/connectors-msk.html)
++ **Spill parameters** – Lambda functions temporarily store ("spill") data that do not fit into memory to Amazon S3. All database instances accessed by the same Lambda function spill to the same location. Use the parameters in the following table to specify the spill location.
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>spill_bucket</code></td><td>Required. The name of the Amazon S3 bucket where the Lambda function can spill data.</td></tr>
+  <tr><td><code>spill_prefix</code></td><td>Required. The prefix within the spill bucket where the Lambda function can spill data.</td></tr>
+  <tr><td><code>spill_put_request_headers</code></td><td>(Optional) A JSON encoded map of request headers and values for the Amazon S3 <code>putObject</code> request that is used for spilling (for example, <code>{"x-amz-server-side-encryption" : "AES256"}</code>). For other possible headers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a> in the <i>Amazon Simple Storage Service API Reference</i>.</td></tr>
+</tbody>
+</table>
+
 
 ## Data type support
 <a name="connectors-msk-data-type-support"></a>

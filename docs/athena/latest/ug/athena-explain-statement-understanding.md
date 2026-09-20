@@ -12,9 +12,24 @@ This topic provides a brief guide to the operational terms used in Athena `EXPLA
 + **Logical plan** – Shows the logical plan that the SQL engine uses to execute a statement. The syntax for this option is `EXPLAIN` or `EXPLAIN (TYPE LOGICAL)`.
 + **Distributed plan** – Shows an execution plan in a distributed environment. The output shows fragments, which are processing stages. Each plan fragment is processed by one or more nodes. Data can be exchanged between the nodes that process the fragments. The syntax for this option is `EXPLAIN (TYPE DISTRIBUTED)`.
 
-  In the output for a distributed plan, fragments (processing stages) are indicated by `Fragment` {{number}} [{{fragment\_type}}], where {{number}} is a zero-based integer and {{fragment\_type}} specifies how the fragment is executed by the nodes. Fragment types, which provide insight into the layout of the data exchange, are described in the following table.  
-**Distributed plan fragment types**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/athena-explain-statement-understanding.html)
+  In the output for a distributed plan, fragments (processing stages) are indicated by `Fragment` {{number}} [{{fragment\_type}}], where {{number}} is a zero-based integer and {{fragment\_type}} specifies how the fragment is executed by the nodes. Fragment types, which provide insight into the layout of the data exchange, are described in the following table.
+
+
+**Distributed plan fragment types**  
+
+<table>
+<thead>
+  <tr><th>Fragment type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>SINGLE</code></td><td>The fragment is executed on a single node.</td></tr>
+  <tr><td><code>HASH</code></td><td>The fragment is executed on a fixed number of nodes. The input data is distributed using a hash function.</td></tr>
+  <tr><td><code>ROUND_ROBIN</code></td><td>The fragment is executed on a fixed number of nodes. The input data is distributed in a round-robin fashion.</td></tr>
+  <tr><td><code>BROADCAST</code></td><td>The fragment is executed on a fixed number of nodes. The input data is broadcast to all nodes.</td></tr>
+  <tr><td><code>SOURCE</code></td><td>The fragment is executed on nodes where input splits are accessed.</td></tr>
+</tbody>
+</table>
+
 
 ## Exchange
 <a name="athena-explain-statement-understanding-exchange-types"></a>

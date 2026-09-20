@@ -22,8 +22,31 @@ SELECT  [...] {{UDF_name}}({{expression}}) [, {{UDF_name2}}({{expression}})] [..
 <a name="udf-parameters"></a>
 
 **USING EXTERNAL FUNCTION {{UDF\_name}}({{variable1}} {{data\_type}}[, {{variable2}} {{data\_type}}][,...])**  
-{{UDF\_name}} specifies the name of the UDF, which must correspond to a Java method within the referenced Lambda function. Each {{variable data\_type}} specifies a named variable and its corresponding data type that the UDF accepts as input. The {{data\_type}} must be one of the supported Athena data types listed in the following table and map to the corresponding Java data type.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/udf-query-syntax.html)
+{{UDF\_name}} specifies the name of the UDF, which must correspond to a Java method within the referenced Lambda function. Each {{variable data\_type}} specifies a named variable and its corresponding data type that the UDF accepts as input. The {{data\_type}} must be one of the supported Athena data types listed in the following table and map to the corresponding Java data type.  
+
+
+<table>
+<thead>
+  <tr><th>Athena data type</th><th>Java data type</th></tr>
+</thead>
+<tbody>
+  <tr><td>TIMESTAMP</td><td>java.time.LocalDateTime (UTC)</td></tr>
+  <tr><td>DATE</td><td>java.time.LocalDate (UTC)</td></tr>
+  <tr><td>TINYINT</td><td>java.lang.Byte</td></tr>
+  <tr><td>SMALLINT</td><td>java.lang.Short</td></tr>
+  <tr><td>REAL</td><td>java.lang.Float</td></tr>
+  <tr><td>DOUBLE</td><td>java.lang.Double</td></tr>
+  <tr><td>DECIMAL (see <code>RETURNS</code> note)</td><td>java.math.BigDecimal</td></tr>
+  <tr><td>BIGINT</td><td>java.lang.Long</td></tr>
+  <tr><td>INTEGER</td><td>java.lang.Int</td></tr>
+  <tr><td>VARCHAR</td><td>java.lang.String</td></tr>
+  <tr><td>VARBINARY</td><td>byte[]</td></tr>
+  <tr><td>BOOLEAN</td><td>java.lang.Boolean</td></tr>
+  <tr><td>ARRAY</td><td>java.util.List</td></tr>
+  <tr><td>ROW</td><td>java.util.Map&lt;String, Object&gt;</td></tr>
+</tbody>
+</table>
+
 
 **RETURNS {{data\_type}}**  
 `data_type` specifies the SQL data type that the UDF returns as output. Athena data types listed in the table above are supported. For the `DECIMAL` data type, use the syntax `RETURNS DECIMAL({{precision}}, {{scale}})` where {{precision}} and {{scale}} are integers.

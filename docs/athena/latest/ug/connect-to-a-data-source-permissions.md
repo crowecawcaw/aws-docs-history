@@ -91,9 +91,24 @@ When you connect to a data source in a VPC, Athena creates an Elastic Network In
     }
     ```
 **Note**  
-The example policy uses `"Resource": "*"` for simplicity. For production environments, scope permissions to specific resources where possible. For example, scope Secrets Manager permissions to specific secret ARNs.  
-**Explanation of permissions**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/athena/latest/ug/connect-to-a-data-source-permissions.html)
+The example policy uses `"Resource": "*"` for simplicity. For production environments, scope permissions to specific resources where possible. For example, scope Secrets Manager permissions to specific secret ARNs.
+
+
+**Explanation of permissions**  
+
+<table>
+<thead>
+  <tr><th><b>Allowed actions</b></th><th><b>Explanation</b></th><th><b>Required</b></th></tr>
+</thead>
+<tbody>
+  <tr><td> <pre> "glue:ManagedConnector"</pre> </td><td>Allows Athena to invoke the connector.</td><td>Required</td></tr>
+  <tr><td> <pre> "s3:PutObject"</pre> </td><td>Allows the connector to write results to the spill bucket. Athena reads results from the spill bucket.</td><td>Required</td></tr>
+  <tr><td><pre>"secretsmanager:DescribeSecret",<br />"secretsmanager:GetSecretValue",<br />"secretsmanager:PutSecretValue" </pre> </td><td>Allows connectors to retrieve database credentials stored in AWS Secrets Manager. </td><td>Optional</td></tr>
+  <tr><td><pre>"ec2:DescribeSubnets",<br />"ec2:DescribeSecurityGroups",<br />"ec2:DescribeVpcs",<br />"ec2:CreateNetworkInterface",<br />"ec2:DescribeNetworkInterfaces",<br />"ec2:DeleteNetworkInterface" </pre> </td><td>Allows Athena to set up networking if the data source is within a VPC. </td><td>Optional</td></tr>
+  <tr><td><pre>"dynamodb:DescribeTable",<br />"dynamodb:ListTables",<br />"dynamodb:Scan",<br />"dynamodb:Query",<br />"dynamodb:GetItem",<br />"dynamodb:BatchGetItem" </pre> </td><td>Allows Athena to query a DynamoDB data source. </td><td>Optional</td></tr>
+</tbody>
+</table>
+
 
 ## AWS Glue Data Catalog federated connectors with Lambda permissions
 <a name="connect-to-a-data-source-permissions-lambda"></a>
