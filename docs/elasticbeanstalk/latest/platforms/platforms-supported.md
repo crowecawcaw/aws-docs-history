@@ -130,14 +130,14 @@ Elastic Beanstalk supports the following .NET on Windows Server platform version
 
 |  Platform Version  |  Solution Stack Name  |  Framework  |  Proxy Server  | 
 | --- | --- | --- | --- | 
-|  ** Windows Server 2025 with IIS 10.0 version 2.23.4**  |  * 64bit Windows Server 2025 v2.23.4 running IIS 10.0 *  | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br />.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 | 
-|  ** Windows Server Core 2025 with IIS 10.0 version 2.23.4**  |  * 64bit Windows Server Core 2025 v2.23.4 running IIS 10.0 *  | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br />.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 | 
-|  ** Windows Server 2022 with IIS 10.0 version 2.23.4**  |  * 64bit Windows Server 2022 v2.23.4 running IIS 10.0 *  | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br />.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 | 
-|  ** Windows Server Core 2022 with IIS 10.0 version 2.23.4**  |  * 64bit Windows Server Core 2022 v2.23.4 running IIS 10.0 *  | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br />.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 | 
-|  ** Windows Server 2019 with IIS 10.0 version 2.23.4**  |  * 64bit Windows Server 2019 v2.23.4 running IIS 10.0 *  | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br />.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | 
-|  ** Windows Server Core 2019 with IIS 10.0 version 2.23.4**  |  * 64bit Windows Server Core 2019 v2.23.4 running IIS 10.0 *  | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br />.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | 
-|  ** Windows Server 2016 with IIS 10.0 version 2.23.4**  |  * 64bit Windows Server 2016 v2.23.4 running IIS 10.0 *  | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br />.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | 
-|  ** Windows Server Core 2016 with IIS 10.0 version 2.23.4**  |  * 64bit Windows Server Core 2016 v2.23.4 running IIS 10.0 *  | .NET 10.0.11, supports 10.0.11, 9.0.19, 8.0.30<br />.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | 
+|  ** Windows Server 2025 with IIS 10.0 version 2.23.5**  |  * 64bit Windows Server 2025 v2.23.5 running IIS 10.0 *  | .NET 10.0.12, supports 10.0.12, 9.0.20, 8.0.31<br />.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 | 
+|  ** Windows Server Core 2025 with IIS 10.0 version 2.23.5**  |  * 64bit Windows Server Core 2025 v2.23.5 running IIS 10.0 *  | .NET 10.0.12, supports 10.0.12, 9.0.20, 8.0.31<br />.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 | 
+|  ** Windows Server 2022 with IIS 10.0 version 2.23.5**  |  * 64bit Windows Server 2022 v2.23.5 running IIS 10.0 *  | .NET 10.0.12, supports 10.0.12, 9.0.20, 8.0.31<br />.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 | 
+|  ** Windows Server Core 2022 with IIS 10.0 version 2.23.5**  |  * 64bit Windows Server Core 2022 v2.23.5 running IIS 10.0 *  | .NET 10.0.12, supports 10.0.12, 9.0.20, 8.0.31<br />.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 | 
+|  ** Windows Server 2019 with IIS 10.0 version 2.23.5**  |  * 64bit Windows Server 2019 v2.23.5 running IIS 10.0 *  | .NET 10.0.12, supports 10.0.12, 9.0.20, 8.0.31<br />.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | 
+|  ** Windows Server Core 2019 with IIS 10.0 version 2.23.5**  |  * 64bit Windows Server Core 2019 v2.23.5 running IIS 10.0 *  | .NET 10.0.12, supports 10.0.12, 9.0.20, 8.0.31<br />.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | 
+|  ** Windows Server 2016 with IIS 10.0 version 2.23.5**  |  * 64bit Windows Server 2016 v2.23.5 running IIS 10.0 *  | .NET 10.0.12, supports 10.0.12, 9.0.20, 8.0.31<br />.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | 
+|  ** Windows Server Core 2016 with IIS 10.0 version 2.23.5**  |  * 64bit Windows Server Core 2016 v2.23.5 running IIS 10.0 *  | .NET 10.0.12, supports 10.0.12, 9.0.20, 8.0.31<br />.NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | 
 
 ### More details
 <a name="platforms-supported.net.details"></a>
@@ -146,14 +146,14 @@ Elastic Beanstalk supports the following .NET on Windows Server platform version
 
 |  Platform Version  |  AMI version  |  AWS SDK for .NET  |  EC2Launch  |  SSM Agent  |  Web Deploy  |  AWS X-Ray  | 
 | --- | --- | --- | --- | --- | --- | --- | 
-|  ** Windows Server 2025 with IIS 10.0 version 2.23.4**  | 2026.08.12 |  | 2.5.2 | 3.3.4851.0 | 4.0 | 3.6.7 | 
-|  ** Windows Server Core 2025 with IIS 10.0 version 2.23.4**  | 2026.08.12 |  | 2.5.2 | 3.3.4851.0 | 4.0 | 3.6.7 | 
-|  ** Windows Server 2022 with IIS 10.0 version 2.23.4**  | 2026.08.12 | 3.7.1252.1 | 2.5.2 | 3.3.4851.0 | 4.0 | 3.6.7 | 
-|  ** Windows Server Core 2022 with IIS 10.0 version 2.23.4**  | 2026.08.12 | 3.7.1252.1 | 2.5.2 | 3.3.4851.0 | 4.0 | 3.6.7 | 
-|  ** Windows Server 2019 with IIS 10.0 version 2.23.4**  | 2026.08.12 | 3.7.1252.1 | 2.5.2 | 3.3.4851.0 | 4.0 | 3.6.7 | 
-|  ** Windows Server Core 2019 with IIS 10.0 version 2.23.4**  | 2026.08.12 | 3.7.1252.1 | 2.5.2 | 3.3.4851.0 | 4.0 | 3.6.7 | 
-|  ** Windows Server 2016 with IIS 10.0 version 2.23.4**  | 2026.08.12 | 3.7.1252.1 | 2.5.2 | 3.3.4851.0 | 4.0 | 3.6.7 | 
-|  ** Windows Server Core 2016 with IIS 10.0 version 2.23.4**  | 2026.08.12 | 3.7.1252.1 | 2.5.2 | 3.3.4851.0 | 4.0 | 3.6.7 | 
+|  ** Windows Server 2025 with IIS 10.0 version 2.23.5**  | 2026.09.09 |  | 2.5.2 | 3.3.5226.0 | 4.0 | 3.7.0 | 
+|  ** Windows Server Core 2025 with IIS 10.0 version 2.23.5**  | 2026.09.09 |  | 2.5.2 | 3.3.5226.0 | 4.0 | 3.7.0 | 
+|  ** Windows Server 2022 with IIS 10.0 version 2.23.5**  | 2026.09.09 | 3.7.1252.1 | 2.5.2 | 3.3.5226.0 | 4.0 | 3.7.0 | 
+|  ** Windows Server Core 2022 with IIS 10.0 version 2.23.5**  | 2026.09.09 | 3.7.1252.1 | 2.5.2 | 3.3.5226.0 | 4.0 | 3.7.0 | 
+|  ** Windows Server 2019 with IIS 10.0 version 2.23.5**  | 2026.09.09 | 3.7.1252.1 | 2.5.2 | 3.3.5226.0 | 4.0 | 3.7.0 | 
+|  ** Windows Server Core 2019 with IIS 10.0 version 2.23.5**  | 2026.09.09 | 3.7.1252.1 | 2.5.2 | 3.3.5226.0 | 4.0 | 3.7.0 | 
+|  ** Windows Server 2016 with IIS 10.0 version 2.23.5**  | 2026.09.09 | 3.7.1252.1 | 2.5.2 | 3.3.5226.0 | 4.0 | 3.7.0 | 
+|  ** Windows Server Core 2016 with IIS 10.0 version 2.23.5**  | 2026.09.09 | 3.7.1252.1 | 2.5.2 | 3.3.5226.0 | 4.0 | 3.7.0 | 
 
 ## Node.js
 <a name="platforms-supported.nodejs"></a>
