@@ -10,8 +10,23 @@ If you no longer need access to resources that are shared with you, you can leav
 + You can leave a resource share only if it was shared with you as an individual AWS account and not in the context of an organization. You can't leave a resource share if you were added to it by an AWS account inside your organization and sharing with AWS Organizations is enabled. Access to resource shares within an organization is automatic.
 + To leave a resource share, verify that the resource share is either empty or that it contains only resource types that support leaving a share. 
 
-  The following are the only resource types that support leaving a resource share.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ram/latest/userguide/working-with-shared-leave.html)
+  The following are the only resource types that support leaving a resource share.
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>Resource type</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon Aurora</td><td><code>rds:Cluster</code></td></tr>
+  <tr><td>Amazon EC2</td><td><code>ec2:CapacityReservation</code><br /><code>ec2:DedicatedHost</code></td></tr>
+  <tr><td>AWS License Manager</td><td><code>license-manager:LicenseConfiguration</code></td></tr>
+  <tr><td>AWS Outposts</td><td><code>ec2:LocalGatewayRouteTable</code><br /><code>outposts:Outpost</code><br /><code>outposts:Site</code></td></tr>
+  <tr><td>Amazon Route 53</td><td><code>route53resolver:ResolverRule</code></td></tr>
+  <tr><td>Amazon VPC</td><td><code>ec2:CoipPool</code><br /><code>ec2:PrefixList</code><br /><code>ec2:Subnet</code><br /><code>ec2:TrafficMirrorTarget</code><br /><code>ec2:TransitGateway</code><br /><code>ec2:TransitGatewayMulticastDomain</code></td></tr>
+</tbody>
+</table>
+
 
 ## How to leave a resource share
 <a name="working-with-shared-leave-how-to-leave"></a>
