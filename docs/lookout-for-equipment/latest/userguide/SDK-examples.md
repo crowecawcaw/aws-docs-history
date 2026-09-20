@@ -227,7 +227,7 @@ region_name = {{'Region'}} #Choose a valid AWS Region
 **Note**  
 You can also view and evaluate a model [in the console](view-model.md).
 
-Use the following example AWS SDK for Python (Boto3) code to list the models that you've trained, to query a model's metadata, and to delete a model that you no longer want to use. If you've used label data when you created a dataset, you can also use this code to see how well the model performed. To run this code successfully, you must use the SDK for Python code in [Training your model](create-model.md) before you run the code shown here.
+Use the following example AWS SDK for Python (Boto3) code to list the models that you've trained, to query a model's metadata, and to delete a model that you no longer want to use. If you've used label data when you created a dataset, you can also use this code to see how well the model performed. To run this code successfully, you must use the SDK for Python (Boto3) code in [Training your model](create-model.md) before you run the code shown here.
 
 ```
 import boto3
