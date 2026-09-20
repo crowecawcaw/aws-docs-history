@@ -157,8 +157,23 @@ If none of the IAM roles for EMRFS that you specify apply, EMRFS falls back to t
        }
      }
    }
-   ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-iam-roles.html)
+   ```
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>"AuthorizationConfiguration":</code></td><td>Required.</td></tr>
+  <tr><td> <code>"EmrFsConfiguration":</code></td><td>Required. Contains role mappings.</td></tr>
+  <tr><td>  <code>"RoleMappings":</code></td><td>Required. Contains one or more role mapping definitions. Role mappings are evaluated in the top-down order that they appear. If a role mapping evaluates as true for an EMRFS call for data in Amazon S3, no further role mappings are evaluated and EMRFS uses the specified IAM role for the request. Role mappings consist of the following required parameters:</td></tr>
+  <tr><td>   <code>"Role":</code></td><td>Specifies the ARN identifier of an IAM role in the format <code>arn:aws:iam::account-id:role/role-name</code>. This is the IAM role that Amazon EMR assumes if the EMRFS request to Amazon S3 matches any of the <code>Identifiers</code> specified.</td></tr>
+  <tr><td>   <code>"IdentifierType":</code></td><td>Can be one of the following:<ul><li><code>"User"</code> specifies that the identifiers are one or more Hadoop users, which can be Linux account users or Kerberos principals. When the EMRFS request originates with the user or users specified, the IAM role is assumed. </li><li><code>"Prefix"</code> specifies that the identifier is an Amazon S3 location. The IAM role is assumed for calls to the location or locations with the specified prefixes. For example, the prefix<code> s3://amzn-s3-demo-bucket/</code> matches<code> s3://amzn-s3-demo-bucket/mydir </code>and <code>s3://amzn-s3-demo-bucket/yetanotherdir</code>.</li><li><code>"Group"</code> specifies that the identifiers are one or more <a href="https://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-common/GroupsMapping.html">Hadoop groups</a>. The IAM role is assumed if the request originates from a user in the specified group or groups. </li></ul></td></tr>
+  <tr><td>   <code>"Identifiers":</code></td><td>Specifies one or more identifiers of the appropriate identifier type. Separate multiple identifiers by commas with no spaces.</td></tr>
+</tbody>
+</table>
+
 
 1. Use the `aws emr create-cluster` command to create a cluster and specify the security configuration you created in the previous step. 
 

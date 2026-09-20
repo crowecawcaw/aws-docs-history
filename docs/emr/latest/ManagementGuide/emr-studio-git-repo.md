@@ -52,8 +52,20 @@ It might take some time for the linking process to complete. You can see the sta
 
 1. For Git credentials, choose an option according to the following guidelines. EMR Studio accesses your Git credentials using secrets stored in Secrets Manager.
 **Note**  
-If you use a GitHub repository, we recommend that you use a personal access token (PAT) to authenticate. Beginning August 13, 2021, GitHub will require token-based authentication and will no longer accept passwords when authenticating Git operations. For more information, see the [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/) post in *The GitHub Blog*.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-git-repo.html)
+If you use a GitHub repository, we recommend that you use a personal access token (PAT) to authenticate. Beginning August 13, 2021, GitHub will require token-based authentication and will no longer accept passwords when authenticating Git operations. For more information, see the [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/) post in *The GitHub Blog*.
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Create a new secret</td><td>Choose this option to associate existing Git credentials with a new secret that will be created in AWS Secrets Manager for you. Do one of the following based on the Git credentials that you use for the repository. <br />If you use a Git user name and password to access the repository, select <b>Username and password</b>, enter the <b>Secret name</b> to use in Secrets Manager, and then enter the <b>Username</b> and <b>Password</b> to associate with the secret. <br />–OR–<br />If you use a personal access token to access the repository, select <b>Personal access token (PAT)</b>, enter the <b>Secret name</b> to use in Secrets Manager, and then enter your <b>personal access token</b>. For more information, see <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">Creating a personal access token for the command line for GitHub</a> and <a href="https://confluence.atlassian.com/bitbucketserver/personal-access-tokens-939515499.html">Personal access tokens for Bitbucket</a>. CodeCommit repositories do not support this option.</td></tr>
+  <tr><td>Use a public repository without credentials</td><td>Choose this option to access a public repository.</td></tr>
+  <tr><td>Use an existing AWS secret</td><td>Choose this option if you already saved your credentials as a secret in Secrets Manager, and then select the secret name from the list.<br />If you select a secret associated with a Git user name and password, the secret must be in the format <code>{"gitUsername": "MyUserName", "gitPassword": "MyPassword"}</code>.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Add repository** to create the new repository. After EMR Studio creates the new repository, you will see a success message. The new repository appears in the dropdown list under **Git repositories**.
 

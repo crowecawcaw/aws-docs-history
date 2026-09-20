@@ -20,8 +20,25 @@ You create an EMR notebook using the old Amazon EMR console. Creating notebooks 
 
    **—or—**
 
-   Choose **Create a cluster**, enter a **Cluster name** and choose options according to the following guidelines. The cluster is created in the default VPC for the account using On-Demand instances.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-create.html)
+   Choose **Create a cluster**, enter a **Cluster name** and choose options according to the following guidelines. The cluster is created in the default VPC for the account using On-Demand instances.
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Cluster name</b></td><td>The friendly name used to identify the cluster.</td></tr>
+  <tr><td><b>Release</b></td><td>Cannot be modified. Defaults to the latest Amazon EMR release version (5.36.2).</td></tr>
+  <tr><td><b>Applications</b></td><td>Cannot be modified. Lists the applications that are installed on the cluster.</td></tr>
+  <tr><td><b>Instance</b></td><td>Enter the number of instances and select the EC2 Instance type. One instance is used for the primary node. The rest are used for core nodes. The instance type determines the number of notebooks that can attach to the cluster simultaneously. For more information, see <a href="emr-managed-notebooks-considerations.md#emr-managed-notebooks-cluster-limits">Limits for concurrently attached EMR Notebooks</a>.</td></tr>
+  <tr><td><b>EMR role</b></td><td>Leave the default or choose the link to specify a custom service role for Amazon EMR. For more information, see <a href="emr-iam-role.md">Service role for Amazon EMR (EMR role)</a>.</td></tr>
+  <tr><td><b>EC2 instance profile</b></td><td>Leave the default or choose the link to specify a custom service role for EC2 instances. For more information, see <a href="emr-iam-role-for-ec2.md">Service role for cluster EC2 instances (EC2 instance profile)</a>.</td></tr>
+  <tr><td><b>EC2 key pair</b></td><td>Choose an EC2 key pair to be able to connect to cluster instances. For more information, see <a href="emr-connect-master-node-ssh.md">Connect to the Amazon EMR cluster primary node using SSH</a>.</td></tr>
+  <tr><td><b>Auto-termination</b></td><td>Auto-termination is supported for Amazon EMR versions 5.30.0 and 6.1.0 and later.Select the checkbox to enable auto-termination, then specify the amount of idle time after which the cluster should automatically shut down. For more information, see <a href="emr-auto-termination-policy.md">Using an auto-termination policy for Amazon EMR cluster cleanup</a>.</td></tr>
+</tbody>
+</table>
+
 
 1. For **Security groups**, choose **Use default security groups**. Alternatively, choose **Choose security groups** and select custom security groups that are available in the VPC of the cluster. You select one for the primary instance and another for the notebook client instance. For more information, see [Specifying EC2 security groups for EMR Notebooks](emr-managed-notebooks-security-groups.md).
 

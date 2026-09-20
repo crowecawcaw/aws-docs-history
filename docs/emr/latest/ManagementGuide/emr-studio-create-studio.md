@@ -61,15 +61,39 @@ If you want full control over your Studio's settings, you can choose **Custom**,
 
 1. Choose the Workspace to add to the Studio. You can add up to 3 Workspaces.
 
-1. Under **Authentication**, choose an authentication mode for the Studio and provide information according to the following table. To learn more about authentication for EMR Studio, see [Choose an authentication mode for Amazon EMR Studio](emr-studio-authentication.md).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-create-studio.html)
+1. Under **Authentication**, choose an authentication mode for the Studio and provide information according to the following table. To learn more about authentication for EMR Studio, see [Choose an authentication mode for Amazon EMR Studio](emr-studio-authentication.md).
+
+
+
+<table>
+<thead>
+  <tr><th>If you use...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>IAM authentication or federation</td><td>The default authentication method is <b>AWS Identity and Access Management (IAM)</b>. At the bottom of the screen, you can also add tags to give specific users access to the Studio as described in <a href="emr-studio-manage-users.md#emr-studio-assign-users-groups">Assign a user or group to an EMR Studio</a>.<br />If you want federated users to log in using the Studio URL and credentials for your identity provider (IdP), select your IdP from the dropdown list, and enter your <b>Identity provider (IdP) login URL</b> and <b>RelayState</b> parameter name.<br />For a list of IdP authentication URLs and RelayState names, see <a href="#emr-studio-idp-reference-table">Identity provider RelayState parameters and authentication URLs</a>.</td></tr>
+  <tr><td>IAM Identity Center authentication</td><td>Select your EMR Studio <b>Service Role</b> and <b>User Role</b>. For more information, see <a href="emr-studio-service-role.md">Create an EMR Studio service role</a> and <a href="emr-studio-user-permissions.md#emr-studio-create-user-role">Create an EMR Studio user role for IAM Identity Center authentication mode</a>.<br />When you use <b>IAM Identity Center (formerly AWS Single Sign On)</b> authentication for the Studio, you can choose to streamline the sign-on experience for users with the <b>Enable trusted identity propagation</b> option. With trusted identity propagation, users can log in with their Identity Center credentials and have their identities propagated to downstream AWS services when they use the Studio.<br />In the <b>Application access</b> section, you can also specify whether all users and groups in your Identity Center should have access to the Studio, or if only assigned users and groups that you choose can access the Studio.<br />For more information, see <a href="emr-idc.md">Integrate Amazon EMR with AWS IAM Identity Center</a>, and also <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html">Trusted Identity Propagation across applications</a> in the <i>AWS IAM Identity Center User Guide</i>.</td></tr>
+</tbody>
+</table>
+
 
 1. For VPC, choose an Amazon Virtual Private Cloud (**VPC**) for the Studio from the dropdown list.
 
 1. Under **Subnets**, select a maximum of five subnets in your VPC to associate with the Studio. You have the option to add more subnets after you create the Studio.
 
-1. For **Security groups**, choose either the default security groups or custom security groups. For more information, see [Define security groups to control EMR Studio network traffic](emr-studio-security-groups.md).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-create-studio.html)
+1. For **Security groups**, choose either the default security groups or custom security groups. For more information, see [Define security groups to control EMR Studio network traffic](emr-studio-security-groups.md).
+
+
+
+<table>
+<thead>
+  <tr><th>If you choose...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>The default EMR Studio security groups</td><td>To enable Git-based repository linking for the Studio, choose <b>Enable clusters/endpoints and Git repository</b>. Otherwise choose <b>Enable clusters/endpoints</b>.</td></tr>
+  <tr><td>Custom security groups for your Studio</td><td> <ul><li> Under <b>Cluster/endpoint security group</b>, select the engine security group that you configured from the dropdown list. Your Studio uses this security group to allow inbound access from attached Workspaces. </li><li> Under <b>Workspace security group</b>, select the Workspace security group that you configured from the dropdown list. Your Studio uses this security group with Workspaces to provide outbound access to attached Amazon EMR clusters and publicly hosted Git repositories. </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 1. Add tags to your Studio and other resources. For more information about tags, see [Tag clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
 

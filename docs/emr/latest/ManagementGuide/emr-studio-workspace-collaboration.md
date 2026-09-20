@@ -63,8 +63,21 @@ You won't see the **Collaboration** panel unless your Studio administator has gi
 
    The following table specifies the applicable collaborator values to enter based on the identity type of the owner.
 **Note**  
-An owner can only invite collaborators with the same identity type. For example, a user can only add other a users, and an IAM Identity Center user can only add other IAM Identity Center users.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-workspace-collaboration.html)
+An owner can only invite collaborators with the same identity type. For example, a user can only add other a users, and an IAM Identity Center user can only add other IAM Identity Center users.
+
+
+
+<table>
+<thead>
+  <tr><th>Authentication mode</th><th>Value to enter for <b>Collaborator name</b></th></tr>
+</thead>
+<tbody>
+  <tr><td>IAM authentication</td><td>a username. This is the name that a user sees when logged in to the AWS Management Console.</td></tr>
+  <tr><td>IAM federation</td><td>The name of an IAM role and an optional session name. <br />To add all of the federated users who assume the same IAM role, specify the name of an IAM role for federation.<br />To add a single user as a collaborator, specify a role and session name. For example, <code>MyRoleName:MySessionName</code>.</td></tr>
+  <tr><td>SSO</td><td>An IAM Identity Center user name like <code>user@example.com.</code></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Add**. The collaborator can now see the Workspace on their EMR Studio **Workspaces** page, and launch the Workspace to use it in real time with you.
 

@@ -67,7 +67,20 @@ You should only use your management account to enable IAM Identity Center and *p
 
 1. Follow the instructions in [Enable IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/step1.html) to enable IAM Identity Center in the AWS Region where you want to create the EMR Studio.
 
-1. Connect IAM Identity Center to your identity provider and provision the users and groups that you want to assign to the Studio.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-authentication.html)
+1. Connect IAM Identity Center to your identity provider and provision the users and groups that you want to assign to the Studio. 
+
+
+
+<table>
+<thead>
+  <tr><th>If you use...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>A Microsoft AD Directory</td><td> <ol><li> Follow the instructions in <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-ad.html">Connect to your Microsoft AD directory</a> to connect your self-managed Active Directory or AWS Managed Microsoft AD directory using Directory Service. </li><li> To provision users and groups for IAM Identity Center, you can sync identity data from your source AD to IAM Identity Center. You can sync identities from your source AD in many ways. One way is to assign AD users or groups to an AWS account in your organization. For instructions, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Single sign-on</a>.  <br />Synchronization can take up to two hours. After you complete this step, synced users and groups appear in your Identity Store.  Users and groups don't appear in your Identity Store until you synchronize user and group information or use just-in-time (JIT) user provisioning. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-ad.html#provision-users-from-ad">Provisioning when users come from Active Directory</a>.  </li><li> (Optional) After you sync AD users and groups, you can remove their access to your AWS account that you configured in the previous step. For instructions, see <a href="">Remove user access</a>.  </li></ol> </td></tr>
+  <tr><td>An external identity provider</td><td>Follow the instructions in <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-idp.html">Connect to your external identity provider</a>.</td></tr>
+  <tr><td>The IAM Identity Center directory</td><td>When you create users and groups in IAM Identity Center, provisioning is automatic. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html">Manage identities in IAM Identity Center</a>.</td></tr>
+</tbody>
+</table>
+
 
 You can now assign users and groups from your Identity Store to an EMR Studio. For instructions, see [Assign a user or group to an EMR Studio](emr-studio-manage-users.md#emr-studio-assign-users-groups).

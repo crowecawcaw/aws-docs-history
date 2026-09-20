@@ -37,15 +37,38 @@ You can turn block public access (BPA) settings on and off with the AWS Manageme
 
 1. Under **EMR on EC2** in the left navigation pane, choose **Block public access**.
 
-1. Under **Block public access settings**, complete the following steps.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html)
+1. Under **Block public access settings**, complete the following steps.
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Turn block public access on or off</td><td>Choose <b>Edit</b>, choose <b>Turn on</b> or <b>Turn off</b> as appropriate, and then choose <b>Save</b>.</td></tr>
+  <tr><td>Edit ports in the list of exceptions</td><td> <ol><li> Choose <b>Edit</b> and find the <b>Port range exceptions</b> section. </li><li> To add ports to the list of exceptions, choose <b>Add a port range</b> and enter a new port or port range. Repeat for each port or port range to add. </li><li> To remove a port or port range, choose <b>Remove</b> next to the entry in the list of port ranges. </li><li> Choose <b>Save</b>. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ AWS CLI ]
 
 **To configure block public access using the AWS CLI**
-+ Use the `aws emr put-block-public-access-configuration` command to configure block public access as shown in the following examples.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html)
++ Use the `aws emr put-block-public-access-configuration` command to configure block public access as shown in the following examples.
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Turn block public access on</td><td>Set <code>BlockPublicSecurityGroupRules</code> to <code>true</code> as shown in the following example. For the cluster to launch, no security group associated with a cluster can have an inbound rule that allows public access.<pre>aws emr put-block-public-access-configuration --block-public-access-configuration BlockPublicSecurityGroupRules=true</pre></td></tr>
+  <tr><td>Turn block public access off</td><td>Set <code>BlockPublicSecurityGroupRules</code> to <code>false</code> as shown in the following example. Security groups associated with a cluster can have inbound rules that allow public access on any port. We do not recommend this configuration.<pre>aws emr put-block-public-access-configuration --block-public-access-configuration BlockPublicSecurityGroupRules=false</pre></td></tr>
+  <tr><td>Turn block public access on and specify ports as exceptions</td><td>The following example turns on block public access, and specifies Port 22 and Ports 100-101 as exceptions. This allows clusters to be created if an associated security group has an inbound rule that allows public access on Port 22, Port 100, or Port 101.<pre>aws emr put-block-public-access-configuration --block-public-access-configuration  '{ "BlockPublicSecurityGroupRules": true, "PermittedPublicSecurityGroupRuleRanges": [ { "MinRange": 22, "MaxRange": 22 }, { "MinRange": 100, "MaxRange": 101 } ] }'</pre></td></tr>
+</tbody>
+</table>
+
 
 ------
 

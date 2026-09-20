@@ -38,8 +38,21 @@ If the Spark UI links do not work or do not appear after a few seconds, create a
 
 1. To launch the Spark UI, choose **Link** under **Spark UI**. If your Spark application is running, the Spark UI opens in a new tab. If the application has completed, the Spark History Server opens instead.
 
-   After you launch the Spark UI, you can modify the URL in the browser to open the YARN ResourceManager or the Yarn Timeline Server. Add one of the following paths after `amazonaws.com`.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-debug.html)
+   After you launch the Spark UI, you can modify the URL in the browser to open the YARN ResourceManager or the Yarn Timeline Server. Add one of the following paths after `amazonaws.com`.
+
+
+
+<table>
+<thead>
+  <tr><th>Web UI</th><th>Path </th><th>Example modified URL</th></tr>
+</thead>
+<tbody>
+  <tr><td>YARN ResourceManager</td><td>/rm</td><td>https://{{j-examplebby5ij}}.emrappui-prod.{{eu-west-1}}.amazonaws.com{{/rm}}</td></tr>
+  <tr><td>Yarn Timeline Server</td><td>/yts</td><td>https://{{j-examplebby5ij}}.emrappui-prod.{{eu-west-1}}.amazonaws.com{{/yts}}</td></tr>
+  <tr><td>Spark History Server</td><td>/shs</td><td>https://{{j-examplebby5ij}}.emrappui-prod.{{eu-west-1}}.amazonaws.com{{/shs }}</td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ Studio UI ]

@@ -36,11 +36,33 @@ Follow the instructions in [Creating a security group](https://docs.aws.amazon.c
 When you create security groups for EMR Studio, note the IDs for both. You specify each security group by ID when you create a Studio.
 
 **Engine security group**  
-EMR Studio uses port 18888 to communicate with an attached cluster.    
-**Inbound rules**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-security-groups.html)
+EMR Studio uses port 18888 to communicate with an attached cluster.  
+
+
+**Inbound rules**  
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port </th><th>Destination</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP</td><td>TCP</td><td>18888</td><td>Your EMR Studio Workspace security group.</td><td>Allow traffic from any resources in the Workspace security group for EMR Studio.</td></tr>
+</tbody>
+</table>
+
 
 **Workspace security group**  
-This security group is associated with the Workspaces in an EMR Studio.     
-**Outbound rules**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-security-groups.html)
+This security group is associated with the Workspaces in an EMR Studio.   
+
+
+**Outbound rules**  
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port </th><th>Destination</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP</td><td>TCP</td><td>18888</td><td>Your EMR Studio engine security group.</td><td>Allow traffic to any resources in the Engine security group for EMR Studio.</td></tr>
+  <tr><td>HTTPS</td><td>TCP</td><td>443</td><td>0.0.0.0/0</td><td>Allow traffic to the internet to link publicly hosted Git repositories to Workspaces.</td></tr>
+</tbody>
+</table>

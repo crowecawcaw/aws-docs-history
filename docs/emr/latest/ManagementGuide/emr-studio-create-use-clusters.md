@@ -155,8 +155,20 @@ If you enabled trusted identity propagation with IAM Identity Center for your St
 
 **To create an EMR cluster by providing a cluster configuration**
 
-1. Choose a starting point.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-create-use-clusters.html)
+1. Choose a starting point.
+
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Create the cluster when you create a Workspace with the <b>Create a Workspace</b> dialog box.</td><td>Expand the <b>Advanced configuration</b> section in the <b>Create a Workspace</b> dialog box, and select <b>Create an EMR cluster</b>.</td></tr>
+  <tr><td>Create the cluster from the <b> EMR cluster</b> panel in the Workspace UI after you have created a Workspace.</td><td>Choose the <b> EMR clusters</b> tab in the left sidebar of an open Workspace, expand the <b>Advanced configuration</b> section, and choose <b>Create cluster</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. Enter a **Cluster name**. Naming the cluster helps you find it later in the EMR Studio Clusters list.
 
@@ -172,8 +184,19 @@ If you enabled trusted identity propagation with IAM Identity Center for your St
 
 **To create a cluster using a cluster template**
 
-1. Choose a starting point.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-create-use-clusters.html)
+1. Choose a starting point.
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Create the cluster when you create a Workspace with the <b>Create a Workspace</b> dialog box.</td><td>Expand the <b>Advanced configuration</b> section in the <b>Create a Workspace</b> dialog box, and select <b>Use a cluster template</b>.</td></tr>
+  <tr><td>Create the cluster from the <b> EMR cluster</b> panel in the Workspace UI.</td><td>Choose the <b> EMR clusters</b> tab in the left sidebar of an open Workspace, expand the <b>Advanced configuration</b> section, then choose <b>Cluster template</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. Select a cluster template from the dropdown list. Each available cluster template includes a brief description to help you make a selection.
 

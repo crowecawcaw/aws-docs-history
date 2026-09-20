@@ -20,8 +20,21 @@ The following are the limitations of using Amazon EMR on AWS Outposts:
 + On-Demand Instances are the only supported option for Amazon EC2 instances. Spot Instances are not available for Amazon EMR on AWS Outposts.
 + If you need additional Amazon EBS storage volumes, only General Purpose SSD (GP2) is supported. 
 + When you use AWS Outposts with Amazon EMR releases 5.28 through 6.x, you can only use S3 buckets that store objects in an AWS Region that you specify. With Amazon EMR 7.0.0 and higher, Amazon EMR on AWS Outposts is also supported with the S3A filesystem client, prefix `s3a://`.
-+ Only the following instance types are supported by Amazon EMR on AWS Outposts:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-outposts.html)
++ Only the following instance types are supported by Amazon EMR on AWS Outposts:
+
+
+<table>
+<thead>
+  <tr><th>Instance class</th><th>Instance types</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>General purpose</b></td><td><code>m5.xlarge</code> | <code>m5.2xlarge</code> | <code>m5.4xlarge</code> | <code>m5.12xlarge</code> | <code>m5.24xlarge</code> | <code>m5d.xlarge</code> | <code>m5d.2xlarge</code> | <code>m5d.4xlarge</code> | <code>m5d.12xlarge</code> | <code>m5d.24xlarge</code></td></tr>
+  <tr><td><b>Compute-optimized</b></td><td><code>c5.xlarge</code> | <code>c5.2xlarge</code> | <code>c5.4xlarge</code> | <code>c5.18xlarge</code> | <code>c5d.xlarge</code> | <code>c5d.2xlarge</code> | <code>c5d.4xlarge</code> | <code>c5d.18xlarge</code></td></tr>
+  <tr><td><b>Memory-optimized</b></td><td><code>r5.xlarge</code> | <code>r5.2xlarge</code> | <code>r5.4xlarge</code> | <code>r5.12xlarge</code> | <code>r5d.xlarge</code> | <code>r5d.2xlarge</code> | <code>r5d.4xlarge</code> | <code>r5d.12xlarge</code> | <code>r5d.24xlarge</code></td></tr>
+  <tr><td><b>Storage-optimized</b></td><td><code>i3en.xlarge</code> | <code>i3en.2xlarge</code> | <code>i3en.3xlarge</code> | <code>i3en.6xlarge</code> | <code>i3en.12xlarge</code> | <code>i3en.24xlarge</code> </td></tr>
+</tbody>
+</table>
+
 
 ## Network connectivity considerations
 <a name="emr-outposts-considerations"></a>
