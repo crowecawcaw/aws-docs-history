@@ -26,8 +26,21 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
    The **Assets** page appears.  
 ![The "Assets" page with "Assets" panel labeled A, "Add asset to project field" labeled B, time dropdown labeled C, and "Demo Wind Farm Asset" labeled D.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-portal-admin-console.png)
 
-   See the following areas of the page.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/portal-admin-getting-started.html)
+   See the following areas of the page.
+
+
+<table>
+<thead>
+  <tr><th>Callout</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>A</td><td>Browse the asset hierarchy to find the assets to view or add to a project.</td></tr>
+  <tr><td>B</td><td>Add assets to a project so you and your project owners can create dashboards and visualizations that provide a common way of looking at your organizational data.</td></tr>
+  <tr><td>C</td><td>Select the time range for the data shown for the properties of the selected asset.</td></tr>
+  <tr><td>D</td><td>View the values for the properties of the selected asset. View, configure, and respond to the alarms for the selected asset.</td></tr>
+</tbody>
+</table>
+
 
 1. <a name="asset-library-choose-asset"></a>Choose an asset in the **Assets** hierarchy, and then choose **Add asset to project**.  
 ![The "Assets" page with the asset hierarchy and "Add assets to project" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-add-asset-to-project-console.png)

@@ -29,8 +29,20 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
   The **Assets** page appears.  
 ![The "Assets" page.](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/images/asset-library-project-owner-console.png)
 
-  See the following areas of the page.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-sitewise/latest/appguide/project-owner-getting-started.html)
+  See the following areas of the page.
+
+
+<table>
+<thead>
+  <tr><th>Callout</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>A</td><td>Browse the asset hierarchy to find assets to view.</td></tr>
+  <tr><td>B</td><td>Select the time range for the data shown for the properties of the selected asset.</td></tr>
+  <tr><td>C</td><td>View the values for the properties of the selected asset. View, configure, and respond to the alarms for the selected asset.</td></tr>
+</tbody>
+</table>
+
 
 ## Create dashboards to visualize data
 <a name="project-owner-creating-dashboards"></a>
