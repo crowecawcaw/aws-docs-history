@@ -20,8 +20,20 @@ This section describes the procedures and options for creating a signing profile
 
 1. On the **Create signing profile** page, provide a unique **Profile name** for your signing profile. Valid characters include uppercase A-Z, lowercase a-z, numbers 0-9, and underscore (\_).
 
-1. For **Signing platform**, choose one of the listed platforms.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/signer/latest/developerguide/signing-profiles.html)
+1. For **Signing platform**, choose one of the listed platforms.
+
+
+
+<table>
+<thead>
+  <tr><th>API name</th><th>Display name</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWSLambda-SHA384-ECDSA</code></td><td>AWS Lambda</td></tr>
+  <tr><td><code>Notation-OCI-SHA384-ECDSA</code></td><td>Notation for container registries</td></tr>
+</tbody>
+</table>
+
 
 1. Specify the **Signature validity period** in months, days, or years. The default value is 135 months (11 years and 6 months).
 
@@ -35,8 +47,23 @@ This section describes the procedures and options for creating a signing profile
 #### [ CLI ]
 
 This section describes the procedures and options for creating and managing signing profiles using the AWS CLI. A signing profile is a template that defines the following settings for associated signing jobs:
-+ The *signing platform* that designates the file type to be signed. The following platforms are available in the AWS CLI.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/signer/latest/developerguide/signing-profiles.html)
++ The *signing platform* that designates the file type to be signed. The following platforms are available in the AWS CLI.
+
+
+
+<table>
+<thead>
+  <tr><th>API name</th><th>Display name</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWSIoTDeviceManagement-SHA256-ECDSA</code></td><td>AWS IoT Device Management SHA256-ECDSA</td></tr>
+  <tr><td><code>AmazonFreeRTOS-Default</code></td><td>Amazon FreeRTOS SHA256-ECDSA</td></tr>
+  <tr><td><code>AmazonFreeRTOS-TI-CC3220SF</code></td><td>Amazon FreeRTOS SHA1-RSA CC3220SF-Format</td></tr>
+  <tr><td><code>AWSLambda-SHA384-ECDSA</code></td><td>AWS Lambda</td></tr>
+  <tr><td><code>Notation-OCI-SHA384-ECDSA</code></td><td>Notation for container registries</td></tr>
+</tbody>
+</table>
+
 
   For more information about the configurations and parameters that are contained in signing platforms, see [SigningPlatform](https://docs.aws.amazon.com/signer/latest/api/API_SigningPlatform.html) in the *AWS Signer API Reference*.
 + The signature format.

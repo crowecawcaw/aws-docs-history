@@ -34,9 +34,26 @@ Before you begin signing, you need to set up an environment that bridges AWS Sig
    + GovCloud trust store and [root certificate](https://d2hvyiie56hcat.cloudfront.net/aws-us-gov-signer-notation-root.cert), for use in the AWS GovCloud (US) Region.
    + A configurable trust policy. For information about configuring the trust policy, see [Locally verify an image after signing](image-verification.md).
 
-   The following table provides the installer and related files for each supported operating system and architecture. You can download our latest [CHANGELOG](https://d2hvyiie56hcat.cloudfront.net/CHANGELOG) to see the versions of the Notation CLI and plugin included in each installer release.  
-**Notation binary and AWS Signer Plugin installer files**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/signer/latest/developerguide/image-signing-prerequisites.html)
+   The following table provides the installer and related files for each supported operating system and architecture. You can download our latest [CHANGELOG](https://d2hvyiie56hcat.cloudfront.net/CHANGELOG) to see the versions of the Notation CLI and plugin included in each installer release.
+
+
+**Notation binary and AWS Signer Plugin installer files**  
+
+<table>
+<thead>
+  <tr><th><b>Platform</b></th><th><b>Architecture</b></th><th>Installer for Notation and AWS Signer plugin </th><th><b>AWS Signer</b> plugin binary only</th><th>Signature file</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="2">RPM-based Linux (e.g., Amazon Linux)</td><td>x86_64</td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/amd64/installer/rpm/latest/aws-signer-notation-cli_amd64.rpm">aws-signer-notation-cli_amd64.rpm</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/amd64/plugin/latest/notation-aws-signer-plugin.zip">notation-aws-signer-plugin.zip</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/amd64/installer/rpm/latest/aws-signer-notation-cli_amd64.rpm.sig">aws-signer-notation-cli_amd64.rpm.sig</a> (installer)<br /><a href="https://d2hvyiie56hcat.cloudfront.net/linux/amd64/plugin/latest/notation-com.amazonaws.signer.notation.plugin.sig">notation-aws-signer-plugin.sig</a> (plugin)</td></tr>
+  <tr><td>arm64</td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/arm64/installer/rpm/latest/aws-signer-notation-cli_arm64.rpm">aws-signer-notation-cli_arm64.rpm</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/arm64/plugin/latest/notation-aws-signer-plugin.zip">notation-aws-signer-plugin.zip</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/arm64/installer/rpm/latest/aws-signer-notation-cli_arm64.rpm.sig">aws-signer-notation-cli_arm64.rpm.sig</a> (installer)<br /><a href="https://d2hvyiie56hcat.cloudfront.net/linux/arm64/plugin/latest/notation-com.amazonaws.signer.notation.plugin.sig">notation-aws-signer-plugin.sig</a> (plugin)</td></tr>
+  <tr><td rowspan="2">Debian-based Linux</td><td>x86_64</td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/amd64/installer/deb/latest/aws-signer-notation-cli_amd64.deb">aws-signer-notation-cli_amd64.deb</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/amd64/plugin/latest/notation-aws-signer-plugin.zip">notation-aws-signer-plugin.zip</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/amd64/installer/deb/latest/aws-signer-notation-cli_amd64.deb.sig">aws-signer-notation-cli_amd64.deb.sig</a> (installer)<br /><a href="https://d2hvyiie56hcat.cloudfront.net/linux/amd64/plugin/latest/notation-com.amazonaws.signer.notation.plugin.sig">notation-aws-signer-plugin.sig</a> (plugin)</td></tr>
+  <tr><td>arm64</td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/arm64/installer/deb/latest/aws-signer-notation-cli_arm64.deb">aws-signer-notation-cli_arm64.deb</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/arm64/plugin/latest/notation-aws-signer-plugin.zip">notation-aws-signer-plugin.zip</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/linux/arm64/installer/deb/latest/aws-signer-notation-cli_arm64.deb.sig">aws-signer-notation-cli_arm64.deb.sig</a><br /><a href="https://d2hvyiie56hcat.cloudfront.net/linux/arm64/plugin/latest/notation-com.amazonaws.signer.notation.plugin.sig">notation-aws-signer-plugin.sig</a> (plugin)</td></tr>
+  <tr><td rowspan="2">macOS</td><td>x86_64</td><td><a href="https://d2hvyiie56hcat.cloudfront.net/darwin/amd64/installer/latest/aws-signer-notation-cli_amd64.pkg">aws-signer-notation-cli_amd64.pkg</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/darwin/amd64/plugin/latest/notation-aws-signer-plugin.zip">notation-aws-signer-plugin.zip</a></td><td>Included in the files.</td></tr>
+  <tr><td>arm64</td><td><a href="https://d2hvyiie56hcat.cloudfront.net/darwin/arm64/installer/latest/aws-signer-notation-cli_arm64.pkg">aws-signer-notation-cli_arm64.pkg</a> </td><td><a href="https://d2hvyiie56hcat.cloudfront.net/darwin/arm64/plugin/latest/notation-aws-signer-plugin.zip">notation-aws-signer-plugin.zip</a></td><td>Included in the files.</td></tr>
+  <tr><td>Microsoft Windows</td><td>x86_64</td><td><a href="https://d2hvyiie56hcat.cloudfront.net/windows/amd64/installer/latest/aws-signer-notation-cli.msi">aws-signer-notation-cli.msi</a></td><td><a href="https://d2hvyiie56hcat.cloudfront.net/windows/amd64/plugin/latest/notation-aws-signer-plugin.zip">notation-aws-signer-plugin.zip</a></td><td>Validate in Explorer</td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ Open source library ]
