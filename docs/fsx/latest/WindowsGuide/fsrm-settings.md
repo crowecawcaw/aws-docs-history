@@ -90,7 +90,7 @@ None
  **File screen audit settings:** 
 + `ReportFileScreenAuditEnable (boolean)` - Optional. Controls whether file screening audit events are included in FSRM reports.
 + `ReportFileScreenAuditDaysSince (number)` - Optional. The default number of days to look back for file screening violations when generating FileScreenAuditFiles reports.
-+ `ReportFileScreenAuditUser (array)` - Optional. An array of the default list of user accounts to include in FileScreenAuditFiles reports.
++ `ReportFileScreenAuditUser (array)` - Optional. An array of the default list of user accounts, each in `user@domain` format, to include in FileScreenAuditFiles reports.
 
  **Default report filter settings:** 
 + `ReportFileGroupIncluded (array)` - Optional. An array of file group names to include in reports by default.

@@ -48,8 +48,18 @@ These are the prerequisites for your self-managed Microsoft Active Directory, ei
 + The DNS server must be able to resolve names as follows:
   + In the domain that you are joining the file system
   + In the root domain of the forest
-+ The DNS server and Active Directory domain controller IP addresses must meet the following requirements, which vary depending on when your Amazon FSx file system was created:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html)
++ The DNS server and Active Directory domain controller IP addresses must meet the following requirements, which vary depending on when your Amazon FSx file system was created:
+
+
+<table>
+<thead>
+  <tr><th>For file systems created before December 17, 2020</th><th>For file systems created after December 17, 2020</th></tr>
+</thead>
+<tbody>
+  <tr><td>IP addresses must be in an <a href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a> private IP address range:<ul><li>10.0.0.0/8</li><li>172.16.0.0/12</li><li>192.168.0.0/16</li></ul></td><td>IP addresses can be in any range, except:<ul><li>IP addresses that conflict with Amazon Web Services owned IP addresses in the AWS Region that the file system is in. For a list of AWS owned IP addresses by region, see the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html">AWS IP address ranges</a>.</li><li>IP addresses in the CIDR block range of 198.19.0.0/16</li></ul></td></tr>
+</tbody>
+</table>
+
 
   If you need to access an FSx for Windows File Server file system that was created before December 17, 2020 using a non-private IP address range, you can create a new file system by restoring a backup of the file system. For more information, see [Restoring a backup to a new file system](how-to-restore-backups.md).
 + The domain name of your self-managed Active Directory must meet the following requirements:
@@ -77,8 +87,30 @@ This section describes the network configuration requirements for joining a file
 + The default VPC security group for your default Amazon VPC must be added to your file system using the Amazon FSx console. Ensure that the security group and the VPC Network ACLs for the subnets where you create your file system allow traffic on the ports and in the direction shown in the following diagram.  
 ![FSx for Windows File Server port configuration requirements for VPC security groups and network ACLs for the subnets where the file system is created.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/Windows-port-requirements.png)
 
-  The following table identifies the protocol, ports, and its role.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html)
+  The following table identifies the protocol, ports, and its role.
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Ports</th><th>Role</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP/UDP</td><td>53</td><td>Domain Name System (DNS)</td></tr>
+  <tr><td>TCP/UDP</td><td>88</td><td>Kerberos authentication</td></tr>
+  <tr><td>TCP/UDP</td><td>464</td><td>Change/set password</td></tr>
+  <tr><td>TCP/UDP</td><td>389</td><td>Lightweight Directory Access Protocol (LDAP)</td></tr>
+  <tr><td>UDP</td><td>123</td><td>Network Time Protocol (NTP)</td></tr>
+  <tr><td>TCP</td><td>135</td><td>Distributed Computing Environment/End Point Mapper (DCE/EPMAP)</td></tr>
+  <tr><td>TCP</td><td>445</td><td>Directory Services SMB file sharing</td></tr>
+  <tr><td>TCP</td><td>636</td><td>Lightweight Directory Access Protocol over TLS/SSL (LDAPS)</td></tr>
+  <tr><td>TCP</td><td>3268</td><td>Microsoft Global Catalog</td></tr>
+  <tr><td>TCP</td><td>3269</td><td>Microsoft Global Catalog over SSL</td></tr>
+  <tr><td>TCP</td><td>5985</td><td>WinRM 2.0 (Microsoft Windows Remote Management)</td></tr>
+  <tr><td>TCP</td><td>9389</td><td>Microsoft Active Directory DS Web Services, PowerShell Allowing outbound traffic on TCP port 9389 is required for Single-AZ 2 and Multi-AZ file system deployments. </td></tr>
+  <tr><td>TCP</td><td>49152 - 65535</td><td>Ephemeral ports for RPC</td></tr>
+</tbody>
+</table>
+
 
   These traffic rules need to also be mirrored on the firewalls that apply to each of the Active Directory domain controllers, DNS servers, FSx clients, and FSx administrators.
 

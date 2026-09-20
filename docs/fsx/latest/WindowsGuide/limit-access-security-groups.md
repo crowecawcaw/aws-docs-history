@@ -36,8 +36,30 @@ For more information on security group rules, see [Security Group Rules](https:/
    1. For **VPC security groups**, the default security group for your default Amazon VPC is already added to your file system in the console. Please ensure that the security group and the VPC Network ACLs for the subnet(s) where you're creating your FSx file system allow traffic on the ports and in the directions shown in the following diagram.  
 ![FSx for Windows File Server port configuration requirements for VPC security groups and network ACLs for the subnets where the file system is being created.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/Windows-port-requirements.png)
 
-      The following table identifies the role of each port.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html)
+      The following table identifies the role of each port.
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Ports</th><th>Role</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP/UDP</td><td>53</td><td>Domain Name System (DNS)</td></tr>
+  <tr><td>TCP/UDP</td><td>88</td><td>Kerberos authentication</td></tr>
+  <tr><td>TCP/UDP</td><td>464</td><td>Change/Set password</td></tr>
+  <tr><td>TCP/UDP</td><td>389</td><td>Lightweight Directory Access Protocol (LDAP)</td></tr>
+  <tr><td>UDP</td><td>123</td><td>Network Time Protocol (NTP)</td></tr>
+  <tr><td>TCP</td><td>135</td><td>Distributed Computing Environment / End Point Mapper (DCE / EPMAP)</td></tr>
+  <tr><td>TCP</td><td>445</td><td>Directory Services SMB file sharing</td></tr>
+  <tr><td>TCP</td><td>636</td><td>Lightweight Directory Access Protocol over TLS/SSL (LDAPS)</td></tr>
+  <tr><td>TCP</td><td>3268</td><td>Microsoft Global Catalog</td></tr>
+  <tr><td>TCP</td><td>3269</td><td>Microsoft Global Catalog over SSL</td></tr>
+  <tr><td>TCP</td><td>5985</td><td>WinRM 2.0 (Microsoft Windows Remote Management)</td></tr>
+  <tr><td>TCP</td><td>9389</td><td>Microsoft AD DS Web Services, PowerShell</td></tr>
+  <tr><td>TCP</td><td>49152 - 65535</td><td>Ephemeral ports for RPC</td></tr>
+</tbody>
+</table>
+
 **Important**  
 Allowing outbound traffic on TCP port 9389 is required for Single-AZ 2 and all Multi-AZ file system deployments.
 

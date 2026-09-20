@@ -227,7 +227,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
-    New-FSxFSRMStorageReport -Name "Find large files" -Namespace "share" -Interactive $true -ReportType "QuotaUsage" 
+    New-FSxFSRMStorageReport -Name "Find large files" -Namespace "share" -Interactive:$true -ReportType "QuotaUsage" 
 }
 ```
 
@@ -367,7 +367,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
-    Start-FSxFSRMStorageReport -Name "Quarterly Report" -Queue: $true -RunDuration 4 
+    Start-FSxFSRMStorageReport -Name "Quarterly Report" -Queue:$true -RunDuration 4 
 }
 ```
 

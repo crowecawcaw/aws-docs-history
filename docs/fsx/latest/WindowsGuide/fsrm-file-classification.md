@@ -618,7 +618,7 @@ Modifies the configuration settings for file classification.
 
 ```
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
-    Set-FSxFSRMClassification -Continuous $true
+    Set-FSxFSRMClassification -Continuous:$true
 }
 ```
 

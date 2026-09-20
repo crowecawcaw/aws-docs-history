@@ -246,8 +246,19 @@ If you are going to enable file access auditing, you must choose a throughput ca
 
 1. <a name="security_group_setup"></a>For **VPC Security Groups**, the default security group for your default Amazon VPC is already added to your file system in the console. If you're not using the default security group, make sure that the security group you choose is in the same AWS Region as your file system. To ensure that you can connect an EC2 instance with your file system, you will need to add the following rules to your chosen security group:
 
-   1. Add the following inbound and outbound rules to allow the following ports.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html)
+   1. Add the following inbound and outbound rules to allow the following ports.
+
+
+<table>
+<thead>
+  <tr><th>Rules</th><th>Ports</th></tr>
+</thead>
+<tbody>
+  <tr><td>UDP</td><td>53, 88, 123, 389, 464</td></tr>
+  <tr><td>TCP </td><td> 53, 88, 135, 389, 445, 464, 636, 3268, 3269, 5985, 9389, 49152-65535 </td></tr>
+</tbody>
+</table>
+
 
       Add from and to IP addresses or security group IDs associated with the client compute instances that you want to access your file system from.
 
