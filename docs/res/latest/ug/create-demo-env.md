@@ -30,7 +30,7 @@ This CloudFormation stack creates all the components required by Research and En
 
 You must have an AWS account with an administrative user: 
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup).
+1. Open [https://signin.aws.amazon.com/signup?request\_type=register](https://signin.aws.amazon.com/signup?request_type=register).
 
 1. Follow the online instructions.
 
@@ -64,8 +64,22 @@ Make sure you are in your administrator account.
 
 1. Launch [ the template](https://console.aws.amazon.com/cloudformation/home#/stacks/quickcreate?templateURL=https%3A%2F%2Fs3.amazonaws.com%2Faws-hpc-recipes%2Fmain%2Frecipes%2Fres%2Fres_demo_env%2Fassets%2Fres-demo-stack.yaml) in the console.
 
-1. Under **Parameters**, review the parameters for this product template and modify them as necessary.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/res/latest/ug/create-demo-env.html)
+1. Under **Parameters**, review the parameters for this product template and modify them as necessary.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>EnvironmentName</td><td>{{&lt;<i>res-demo</i>&gt;}}</td><td>A unique name given to your RES environment starting with res-, no longer than 11 characters, and no capital letters.</td></tr>
+  <tr><td>AdministratorEmail</td><td></td><td>The email address for the user completing setup of the product. This user additionally functions as a break-glass user if there is an Active Directory single sign on integration failure.</td></tr>
+  <tr><td>KeyPair</td><td></td><td>The key pair used to connect to infrastructure hosts.</td></tr>
+  <tr><td>ClientIPCidr</td><td>&lt;0.0.0.0/0&gt;</td><td>IP address filter which limits connection to the system. You can update the ClientIpCidr after deployment.</td></tr>
+  <tr><td>InboundPrefixList</td><td></td><td><i>(Optional)</i> Provide a managed prefix list for IPs allowed to directly access the web UI and SSH into the bastion host.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create stack**.
 
