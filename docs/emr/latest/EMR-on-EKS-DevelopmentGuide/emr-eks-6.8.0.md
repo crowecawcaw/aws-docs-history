@@ -13,8 +13,24 @@ The following Amazon EMR 6.8.0 releases are available for Amazon EMR on EKS. Sel
 **Release notes for Amazon EMR 6.8.0**
 + Supported applications ‐ AWS SDK for Java 1.12.170, Spark 3.3.0-amzn-0, Hudi 0.11.1-amzn-0, Iceberg 0.14.0-amzn-0.
 + Supported components ‐ `aws-sagemaker-spark-sdk`, `emr-ddb`, `emr-goodies`, `emr-s3-select`, `emrfs`, `hadoop-client`, `hudi`, `hudi-spark`, `iceberg`, `spark-kubernetes`.
-+ Supported configuration classifications:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks-6.8.0.html)
++ Supported configuration classifications:
+
+
+<table>
+<thead>
+  <tr><th>Classifications</th><th>Descriptions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>core-site</code></td><td>Change values in Hadoop’s core-site.xml file.</td></tr>
+  <tr><td><code>emrfs-site</code></td><td>Change EMRFS settings.</td></tr>
+  <tr><td><code>spark-metrics</code></td><td>Change values in Spark's metrics.properties file.</td></tr>
+  <tr><td><code>spark-defaults</code></td><td>Change values in Spark's spark-defaults.conf file.</td></tr>
+  <tr><td><code>spark-env</code></td><td>Change values in the Spark environment.</td></tr>
+  <tr><td><code>spark-hive-site</code></td><td>Change values in Spark's hive-site.xml file.</td></tr>
+  <tr><td><code>spark-log4j</code></td><td>Change values in Spark's log4j.properties file.</td></tr>
+</tbody>
+</table>
+
 
   Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as `spark-hive-site.xml`. For more information, see [Configure Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
 
@@ -22,8 +38,19 @@ The following Amazon EMR 6.8.0 releases are available for Amazon EMR on EKS. Sel
 + **Spark3.3.0** ‐ Amazon EMR on EKS 6.8 includes Spark 3.3.0, which supports using separate node selector labels for Spark driver executor pods. These new labels enable you to define the node types for the driver and executor pods separately in the StartJobRun API, without using pod templates.
   + Driver node selector property: spark.kubernetes.driver.node.selector.[labelKey]
   + Executor node selector property: spark.kubernetes.executor.node.selector.[labelKey]
-+ **Enhanced job failure message** ‐ This release introduces the configuration `spark.stage.extraDetailsOnFetchFailures.enabled` and `spark.stage.extraDetailsOnFetchFailures.maxFailuresToInclude` to track task failures due to user code. These details will be used to enhance the failure message displayed in the driver log when a stage is aborted due to shuffle fetch failure.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks-6.8.0.html)
++ **Enhanced job failure message** ‐ This release introduces the configuration `spark.stage.extraDetailsOnFetchFailures.enabled` and `spark.stage.extraDetailsOnFetchFailures.maxFailuresToInclude` to track task failures due to user code. These details will be used to enhance the failure message displayed in the driver log when a stage is aborted due to shuffle fetch failure.
+
+
+<table>
+<thead>
+  <tr><th>Property name</th><th>Default value</th><th>Meaning</th><th>Since version</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>spark.stage.extraDetailsOnFetchFailures.enabled</code></td><td>false</td><td>If set to <code>true</code>, this property is used to enhance the job failure message displayed in the driver log when a stage is aborted due to Shuffle Fetch Failures. By default the last 5 task failures caused by user code is tracked, and the failure error message is appended in the Driver Logs.<br /> To increase the number of task failures with user exceptions to track, see the config <code>spark.stage.extraDetailsOnFetchFailures.maxFailuresToInclude</code>.</td><td>emr-6.8</td></tr>
+  <tr><td><code>spark.stage.extraDetailsOnFetchFailures.maxFailuresToInclude</code></td><td>5</td><td>Number of task failures to track per stage and attempt. This property is used to enhance the job failure message with user exceptions displayed in the driver log when a stage is aborted due to Shuffle Fetch Failures.<br />This property works only if Config spark.stage.extraDetailsOnFetchFailures.enabled is set to true.</td><td>emr-6.8</td></tr>
+</tbody>
+</table>
+
 
 For more information see the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/running-on-kubernetes.html#configuration).
 

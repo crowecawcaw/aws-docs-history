@@ -15,7 +15,23 @@ The following Amazon EMR 6.3.0 releases are available for Amazon EMR on EKS. Sel
 + New features ‐ Beginning with Amazon EMR 6.3.0 in the 6.x release series, Amazon EMR on EKS supports Spark’s pod template feature. You can also turn on the Spark event log rotation feature for Amazon EMR on EKS. For more information, see [Using pod templates](pod-templates.md) and [Using Spark event log rotation](emr-eks-log-rotation.md).
 + Supported applications ‐ Spark 3.1.1-amzn-0, Jupyter Enterprise Gateway (endpoints, public preview).
 + Supported components ‐ `aws-hm-client` (Glue connector), `aws-sagemaker-spark-sdk`, `emr-s3-select`, `emrfs`, `emr-ddb`, `hudi-spark`.
-+ Supported configuration classifications:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks-6.3.0.html)
++ Supported configuration classifications:
+
+
+<table>
+<thead>
+  <tr><th>Classifications</th><th>Descriptions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>core-site</code></td><td>Change values in Hadoop’s core-site.xml file.</td></tr>
+  <tr><td><code>emrfs-site</code></td><td>Change EMRFS settings.</td></tr>
+  <tr><td><code>spark-metrics</code></td><td>Change values in Spark's metrics.properties file.</td></tr>
+  <tr><td><code>spark-defaults</code></td><td>Change values in Spark's spark-defaults.conf file.</td></tr>
+  <tr><td><code>spark-env</code></td><td>Change values in the Spark environment.</td></tr>
+  <tr><td><code>spark-hive-site</code></td><td>Change values in Spark's hive-site.xml file.</td></tr>
+  <tr><td><code>spark-log4j</code></td><td>Change values in Spark's log4j.properties file.</td></tr>
+</tbody>
+</table>
+
 
   Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as spark-hive-site.xml. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).

@@ -28,11 +28,38 @@ The following Amazon EMR 6.10.0 releases are available for Amazon EMR on EKS. Se
 + Supported components ‐ `aws-sagemaker-spark-sdk`, `emr-ddb`, `emr-goodies`, `emr-s3-select`, `emrfs`, `hadoop-client`, `hudi`, `hudi-spark`, `iceberg`, `spark-kubernetes`.
 + Supported configuration classifications:
 
-  For use with [StartJobRun](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_StartJobRun.html) and [ CreateManagedEndpoint](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.html) APIs:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks-6.10.0.html)
+  For use with [StartJobRun](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_StartJobRun.html) and [ CreateManagedEndpoint](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.html) APIs:
 
-  For use specifically with [ CreateManagedEndpoint](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.html) APIs:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks-6.10.0.html)
+
+<table>
+<thead>
+  <tr><th>Classifications</th><th>Descriptions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>core-site</code></td><td>Change values in Hadoop’s <code>core-site.xml</code> file.</td></tr>
+  <tr><td><code>emrfs-site</code></td><td>Change EMRFS settings.</td></tr>
+  <tr><td><code>spark-metrics</code></td><td>Change values in Spark's <code>metrics.properties</code> file.</td></tr>
+  <tr><td><code>spark-defaults</code></td><td>Change values in Spark's <code>spark-defaults.conf</code> file.</td></tr>
+  <tr><td><code>spark-env</code></td><td>Change values in the Spark environment.</td></tr>
+  <tr><td><code>spark-hive-site</code></td><td>Change values in Spark's <code>hive-site.xml</code> file.</td></tr>
+  <tr><td><code>spark-log4j</code></td><td>Change values in Spark's <code>log4j.properties</code> file.</td></tr>
+</tbody>
+</table>
+
+
+  For use specifically with [ CreateManagedEndpoint](https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.html) APIs:
+
+
+<table>
+<thead>
+  <tr><th>Classifications</th><th>Descriptions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>jeg-config</code></td><td>Change values in Jupyter Enterprise Gateway <code>jupyter_enterprise_gateway_config.py</code> file.</td></tr>
+  <tr><td><code>jupyter-kernel-overrides</code></td><td>Change value for the Kernel Image in Jupyter Kernel Spec file.</td></tr>
+</tbody>
+</table>
+
 
   Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as `spark-hive-site.xml`. For more information, see [Configure Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
 
