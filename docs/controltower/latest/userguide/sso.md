@@ -14,7 +14,7 @@ For a brief tutorial about how to set up your IAM Identity Center users and perm
 
 **About setting up AWS Control Tower with IAM Identity Center **
 
-When you initially set up AWS Control Tower, only the root user user and any IAM users with the correct permissions can add IAM Identity Center users. However, after end users have been added in the **AWSAccountFactory** group, they can create new IAM Identity Center users from the Account Factory wizard. For more information, see [Provision and manage accounts with Account Factory](account-factory.md).
+When you initially set up AWS Control Tower, only the root user and any IAM users with the correct permissions can add IAM Identity Center users. However, after end users have been added in the **AWSAccountFactory** group, they can create new IAM Identity Center users from the Account Factory wizard. For more information, see [Provision and manage accounts with Account Factory](account-factory.md).
 
 If you choose the recommended default, AWS Control Tower sets up your landing zone with a preconfigured directory that helps you manage user identities and single sign-on, so that your users have federated access across accounts. When you set up your landing zone, this default directory is created to contain *user groups* and *permission sets*.
 

@@ -31,7 +31,7 @@ If you update your landing zone to a version that supports a newer `AWSControlTo
 + After you update the baseline version, all accounts within that OU receive resources based on the new baseline version.
 
 **Note**  
-If you update your AWS Control Tower landing zone from any version 2.X to any version 3.X, you also must update the baseline version on your OUs, due to the change from account-level to organization-level AWS CloudTrail trails. In the console, your OU will show a status of **Update required**.
+After you update your AWS Control Tower landing zone version, if your OUs show a status of **Update required** in the console, you must update the baseline version on those OUs.
 
  **Considerations for baselines**
 + If your OU requires a baseline update, you cannot provision new accounts or enroll existing accounts into that OU.

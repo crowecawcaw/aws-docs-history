@@ -117,7 +117,7 @@ You can sign into the audit account and assume a role to review other accounts p
 
 The audit account gives you programmatic access to other accounts, by means of some roles that are granted to AWS Lambda functions only. For security purposes, these roles have *trust relationships* with other roles, which means that the conditions under which the roles can be utilized are strictly defined.
 
-The AWS Control Tower stack `StackSet-AWSControlTowerBP-BASELINE-ROLES` creates these programmatic-only, cross-account IAM roles in the audit account:
+The AWS Control Tower stack `StackSet-AWSControlTowerBP-BASELINE-ROLES` creates these programmatic-only, cross-account IAM roles in each managed account, including the Config aggregator account (formerly the audit account). The Config aggregator account assumes these execution roles to access other accounts programmatically:
 + **aws-controltower-AdministratorExecutionRole**
 + **aws-controltower-ReadOnlyExecutionRole**
 
@@ -255,7 +255,7 @@ The following artifact shows the trust relationship for `aws-controltower-ReadOn
 
 ------
 
-The following artifact shows the trust relationship for `aws-controltower-AuditAdministratorRole`:
+The following artifact shows the trust relationship for `aws-controltower-AuditReadOnlyRole`:
 
 ```
 {

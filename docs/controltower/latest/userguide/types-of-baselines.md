@@ -5,13 +5,13 @@
 
 A *baseline* in AWS Control Tower is a group of resources and specific configurations that you can apply to a target. The most common baseline target may be an organizational unit (OU). For example, you can enable a baseline with an OU selected as a target, to register that OU into AWS Control Tower.
 
-During landing zone setup, some baselines may be enabled on shared account automatically. Certain baselines may be enabled and updated based on your landing zone settings and configurations. AWS Control Tower creates and deploys the resources to the target in the way that the baseline specifies.
+During landing zone setup, AWS Control Tower automatically enables certain baselines on service integration accounts. It enables and updates these baselines based on your landing zone settings and configurations. AWS Control Tower creates and deploys the resources to the target in the way that the baseline specifies.
 
 When you enable a baseline on a target, the baseline is represented as an AWS resource, called an `EnabledBaseline` resource.
 
 AWS Control Tower includes two general types of baselines:
 + Baselines that can be enabled on an OU.
-+ Baselines that can be enabled on shared account, during landing zone set up.
++ Baselines that can be enabled on service integration accounts, during landing zone setup.
 
 ## Baseline types that apply at the OU level
 <a name="ou-baseline-types"></a>
@@ -56,10 +56,10 @@ If your OU has `AWSControlTowerBaseline` enabled, the `ConfigBaseline` status sh
   + The `BackupBaseline` is compatible with landing zone versions 3.1 and later.
   + The `BackupBaseline` is not applied to the management account.
 
-## Baseline types that may be applied on shared account during landing zone set up
+## Baseline types that apply to service integration accounts during landing zone setup
 <a name="lz-baseline-types"></a>
 
-AWS Control Tower enables certain baselines on shared account, as part of the landing zone setup and update process. Baselines for your landing zone may change as you change your landing zone settings. For example, if you opt in for IAM Identity Center, AWS Control Tower can enable the latest version of the `IdentityCenterBaseline` baseline on your landing zone.
+AWS Control Tower enables certain baselines on service integration accounts, as part of the landing zone setup and update process. Baselines for your landing zone may change as you change your landing zone settings. For example, if you opt in for IAM Identity Center, AWS Control Tower can enable the latest version of the `IdentityCenterBaseline` baseline on your landing zone.
 
  You can view the enabled baselines for your landing zone with the `ListEnabledBaselines` API call.
 

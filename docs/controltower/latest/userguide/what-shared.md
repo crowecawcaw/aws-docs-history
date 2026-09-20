@@ -20,11 +20,11 @@ For more information, see [Management account](special-accounts.md#mgmt-account)
 
 This account works as a repository for logs of API activities and resource configurations from all accounts in the landing zone.
 
-For more information, see [Log archive account](special-accounts.md#log-archive-account).
+For more information, see [CloudTrail administrator account](special-accounts.md#log-archive-account).
 
 ## What is the audit account?
 <a name="what-is-audit"></a>
 
 The audit account is a restricted account that's designed to give your security and compliance teams read and write access to all accounts in your landing zone. From the audit account, you have programmatic access to review accounts, by means of a role that is granted to Lambda functions only. The audit account does not allow you to log in to other accounts manually. For more information about Lambda functions and roles, see [Configure a Lambda function to assume a role from another AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-assume-iam-role). 
 
-For more information, see [Audit account](special-accounts.md#audit-account).
+For more information, see [Config aggregator account](special-accounts.md#audit-account).

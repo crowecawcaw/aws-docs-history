@@ -27,11 +27,11 @@ If you've created a new AWS account, it automatically meets the required prerequ
 
 1. Verify that you are working in your desired home Region.
 
-1. Choose **Set up landing zone**.
+1. Choose **Enable AWS Control Tower**.
 
-1. Follow the instructions in the console, accepting all the default values. You will need to type in the email address for your account, a log archive account, and an audit account.
+1. Follow the instructions in the console, accepting all the default values. Select existing accounts, or create new accounts, for your Aggregator account and CloudTrail administrator account.
 
-1. Confirm your choices and choose **Set up landing zone**.
+1. Review your choices. Choose **Enable AWS Control Tower**.
 
 1. AWS Control Tower takes about 30 minutes to set up all of the resources in your landing zone.
 

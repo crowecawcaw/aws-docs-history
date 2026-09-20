@@ -270,7 +270,7 @@ For more information about this API operation, see [ListBaselines](https://docs.
         },
         {
             "arn": "arn:aws:controltower:us-east-1::baseline/H6C5JFCJJ3CPU3J5",
-            "name": "BackupManagerBaseline",
+            "name": "BackupAdminBaseline",
             "description": "Sets up delegated admin and AWS Backup Audit Manager."
         },
         {

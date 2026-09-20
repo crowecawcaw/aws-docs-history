@@ -21,7 +21,7 @@ In conversation, moving to a newer version is often referred to as an *upgrade*,
 
 1. You will see a confirmation display showing the landing zone version that you've selected for deployment. To continue, choose **Next** at the lower right. Your update operation may take a few minutes or more.
 
-1. After the landing zone is updated, you may need to update your accounts. The easiest way to do the account updates is by a **Re-register OU** process for each of your registered OUs.
+1. After the landing zone is updated, you might need to update your registered OUs. To update an OU, you must re-register it by using the **Re-register OU** process. Re-registering an OU applies the updated baseline to all accounts in that OU.
 
 ## Account updates, landing zone versions, and baselines
 <a name="account-updates-and-baselines"></a>

@@ -11,7 +11,7 @@ Parameters:
     Type: String
     Description: The version number of Landing Zone
   GovernedRegions:
-    Type: Array
+    Type: CommaDelimitedList
     Description: List of governed regions
   SecurityOuName:
     Type: String

@@ -118,7 +118,7 @@ For this step, the following information is needed about your AWS Control Tower 
 +  `AUDIT_ACCOUNT` - the AWS Config service integration account (previously known as the Audit account) ID 
 +  `CONFIG_BUCKET` - the AWS S3 bucket to which AWS Config delivers configuration snapshots and configuration history files. Locate and confirm that the AWS S3 bucket exists before proceeding to the next steps. 
   + For landing zone version 3.3 or lower, the AWS S3 bucket is named `aws-controltower-logs-LOGGING_ACCOUNT-HOME_REGION`, located in the Logging account.
-  + For landing zone version 4.0 or higher, the AWS S3 bucket is named `aws-controltower-config-logs-AUDIT_ACCOUNT-<REGION_STRING>-<SUFFIX_STRING>`, located in the AWS Config service integration account (previously known as the Audit account).
+  + For landing zone version 4.0 or higher, the AWS S3 bucket is named `aws-controltower-config-logs-AUDIT_ACCOUNT-<SUFFIX_STRING>`, located in the AWS Config service integration account (previously known as the Audit account).
 + `IAM_ROLE_ARN` - the IAM role ARN created in Step 2
 + `ORGANIZATION_ID` - the organization ID for the management account
 + `MEMBER_ACCOUNT_NUMBER` - the member account that is being modified

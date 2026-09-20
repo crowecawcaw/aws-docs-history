@@ -3,7 +3,7 @@
 # Monitor resource changes with AWS Config
 <a name="monitoring-with-config"></a>
 
-AWS Control Tower enables AWS Config on all enrolled accounts, so that it can monitor compliance through detective controls, record resource changes, and deliver resource change logs to a centralized account.
+AWS Control Tower enables AWS Config on all enrolled accounts, so that it can monitor compliance through detective controls, record resource changes, and deliver resource change logs to a centralized account. AWS Control Tower centralizes this AWS Config data so that you can review resource configuration changes from all enrolled accounts in one place, which helps you audit your environment and demonstrate compliance.
 
 **If your landing zone version is earlier than 3.0**: For your enrolled accounts, AWS Config logs all changes to resources, for all Regions in which the account operates. Each change is modeled as a configuration item (CI), which contains information such as the resource identifier, the Region, the date that each change was recorded, and whether the change relates to a known resource or a newly discovered one.
 
@@ -12,7 +12,7 @@ AWS Control Tower enables AWS Config on all enrolled accounts, so that it can mo
 + For a list of resources that AWS Config can support, see [Supported resource types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html).
 + To learn about how to customize resource tracking in the AWS Control Tower environment, see the blog post entitled [Customize AWS Config resource tracking in AWS Control Tower](https://aws.amazon.com/blogs/mt/customize-aws-config-resource-tracking-in-aws-control-tower-environment).
 
-AWS Control Tower sets up an AWS Config delivery channel in all enrolled accounts. Through this delivery channel, it logs all recorded changes in a centralized account, where they are stored in an Amazon Simple Storage Service bucket. The name and location of the Amazon S3 bucket depend on your landing zone version:
+AWS Control Tower sets up an AWS Config delivery channel in each enrolled account. The delivery channel delivers recorded changes to a centralized account, where AWS Config stores them in an Amazon Simple Storage Service bucket. The name and location of the Amazon S3 bucket depend on your landing zone version:
 + For landing zone version 3.3 or earlier, the logs are stored in the `aws-controltower-logs-*` Amazon S3 bucket in the log archive account.
 + For landing zone version 4.0 or later, the logs are stored in the `aws-controltower-config-logs-*` Amazon S3 bucket in the AWS Config integration account (previously known as the Audit account). For more information, see [AWS Config Updates](config-updates-v4.md).
 

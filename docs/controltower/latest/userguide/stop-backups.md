@@ -12,13 +12,41 @@ Two main steps are required to turn off backups: first, turn off the AWS Backup 
 
 If AWS Backup is enabled, you must disable the AWS Backup baseline from all OUs before you can turn off AWS Backup for your landing zone.
 
-To disable the AWS Backup baseline on an OU, you can call the `DisableBaseline` API. The nested OUs inherit this status, so that the AWS Backup baseline baseline is disabled for them also.
+If you have nested OUs, disable the AWS Backup baseline on the child OUs before the parent OU. While the AWS Backup baseline is still enabled on a child OU, AWS Control Tower cannot disable it on the parent OU.
+
+You can disable the AWS Backup baseline on an OU by using the AWS Control Tower APIs or the AWS Control Tower console.
+
+**To disable the AWS Backup baseline (API)**
+
+First, find the ARN of the AWS Backup baseline. Call the `ListBaselines` API and query for the baseline whose `name` is `BackupBaseline` to get its ARN.
+
+```
+aws controltower list-baselines --query 'baselines[?name==`BackupBaseline`]'
+```
+
+Then, using that ARN, identify which OUs have the AWS Backup baseline enabled. Call the `ListEnabledBaselines` API, filtering on the `BackupBaseline` baseline identifier, to find each enabled baseline and its `enabledBaselineIdentifier` ARN to disable.
+
+```
+aws controltower list-enabled-baselines --filter baselineIdentifiers={{BackupBaseline-ARN}}
+```
+
+To disable the AWS Backup baseline on an OU, you can call the `DisableBaseline` API.
 
 *Example command:*
 
 ```
 aws controltower disable-baseline --enabled-baseline-identifier {{Enabled-baseline-ARN}}
 ```
+
+**To disable the AWS Backup baseline (console)**
+
+1. Sign in to the AWS Control Tower console and navigate to the **Organization** page.
+
+1. Choose the OU whose **AWS Backup baseline status** is **Enabled** to open the OU detail page.
+
+1. In the **Integrations on this OU - optional** section, under **AWS Backup**, choose **Edit**.
+
+1. In the dialog that appears, select **Disable**, and then choose **Confirm**.
 
 When you disable the the AWS Backup baseline, AWS Control Tower cleans up the following resources:
 + All stacksets related to AWS Backup

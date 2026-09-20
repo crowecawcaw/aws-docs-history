@@ -91,28 +91,16 @@ AWS Control Tower recommends that you set up the Sandbox OU, but it is optional.
 **Note**  
 AWS Control Tower does not set up the Workloads OU for you.
 
-For more information see [Production starter organization with AWS Control Tower](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/production-starter-organization.html#production-starter-organization-with-aws-control-tower).
+For more information see [How AWS Control Tower establishes your multi-account environment](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/how-does-aws-control-tower-establish-your-multi-account-environment.html).
 
-## Example of AWS Control Tower with a complete multi-account OU structure
+## Align your OU structure with the AWS multi-account strategy
 <a name="guidelines-for-full-multi-account"></a>
 
 AWS Control Tower supports a nested OU hierarchy, which means that you can create a hierarchical OU structure that meets your organization's requirements. You can build an AWS Control Tower environment to match the AWS multi-account strategy guidance.
 
-You also can build a simpler, flat OU structure that performs well and aligns with the AWS multi-account guidance. Just because you can build a hierarchical OU structure, it does not mean that you must do so.
-+ To view a diagram that shows an example set of OUs in an expanded, flat AWS Control Tower environment with AWS multi-account guidance, see [ Example: Workloads in a Flat OU Structure](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/appendix-e-establish-multi-account.html#example-workloads-flat-structure).
-+ For more information about how AWS Control Tower works with nested OU structures, see [Nested OUs in AWS Control Tower](nested-ous.md).
-+ For more information about how AWS Control Tower aligns with the AWS guidance, see the AWS white paper, [Organizing Your AWS Environment Using Multiple Accounts](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/appendix-e-establish-multi-account.html).
+For more information about how AWS Control Tower works with nested OU structures, see [Nested OUs in AWS Control Tower](nested-ous.md).
 
-The diagram on the linked page shows that more Foundational OUs and more Additional OUs have been created. These OUs serve the additional needs of a larger deployment.
-
-In the Foundational OUs column, two OUs have been added to the basic structure:
-+ **Security\_Prod OU** – Provides a read-only area for security policies, as well as a break-glass security audit area.
-+ **Infrastructure OU** – You may wish to separate the Infrastructure OU, recommended previously, into two OUs, Infrastructure\_Test (for pre-production infrastructure) and Infrastructure\_Prod (for production infrastructure).
-
-In the Additional OUs area, several more OUs have been added to the basic structure. These following are the next recommended OUs to create as your environment grows: 
-+ **Workloads OU** – The Workloads OU, recommended previously but optional, has been separated into two OUs, Workloads\_Test (for pre-production workloads) and Workloads\_Prod (for production workloads).
-+ **PolicyStaging OU** – Allows system administrators to test their changes to controls and policies before fully applying them.
-+ **Suspended OU** – Offers a location for accounts that may have been disabled temporarily.
+For recommended OUs and accounts beyond the ones AWS Control Tower sets up by default, see [Recommended OUs and accounts](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/recommended-ous-and-accounts.html) in the AWS white paper.
 
 ## About the Root
 <a name="about-the-root"></a>

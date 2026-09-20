@@ -33,7 +33,7 @@ New accounts in AWS Control Tower are created and then provisioned by an interac
 ## Considerations for bringing existing security or logging accounts
 <a name="considerations-for-existing-shared-accounts"></a>
 
-Before accepting an AWS account as a security (default name: **Audit**) or logging (default name: **Log archive**) account, AWS Control Tower checks the account for resources that conflict with AWS Control Tower requirements. For example, you may have a logging bucket with the same name that AWS Control Tower requires. Also, AWS Control Tower validates that the account can provision resources; for example, by ensuring that AWS Security Token Service (AWS STS) is enabled, that the account is not suspended, and that AWS Control Tower has permission to provision resources within the account.
+Before accepting an AWS account as a security (default name: **Config aggregator**) or logging (default name: **CloudTrail administrator**) account, AWS Control Tower checks the account for resources that conflict with AWS Control Tower requirements. For example, you may have a logging bucket with the same name that AWS Control Tower requires. Also, AWS Control Tower validates that the account can provision resources; for example, by ensuring that AWS Security Token Service (AWS STS) is enabled, that the account is not suspended, and that AWS Control Tower has permission to provision resources within the account.
 
 AWS Control Tower does not remove any existing resources in the logging and security accounts that you provide. However, if you choose to enable it, the AWS Control Tower Region deny control prevents access to resources in denied Regions.
 

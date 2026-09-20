@@ -10,7 +10,11 @@ This section describes at a high level how AWS Control Tower works. Your landing
 
 The structure of a landing zone in AWS Control Tower is as follows:
 + **Root** – The parent that contains all other OUs in your landing zone. 
-+ **Security OU** – This OU contains the Log Archive and Audit accounts. These accounts often are referred to as *shared accounts*. When you launch your landing zone, you can choose customized names for these shared accounts, and you have the option to bring existing AWS accounts into AWS Control Tower for security and logging. However, these cannot be renamed later, and existing accounts cannot be added for security and logging after initial launch.
++ **Security OU** – When you launch your landing zone, you can choose customized names for accounts in the Security OU, and you can bring existing AWS accounts into AWS Control Tower for service integrations.
+
+  In AWS Control Tower landing zone version 3.3 and earlier, this OU contains the Log Archive and Audit accounts. These accounts are called *shared accounts*. In landing zone version 3.3 and earlier, you cannot add existing accounts for security and logging after initial launch.
+
+  In AWS Control Tower landing zone version 4.0, AWS Control Tower no longer requires a Security OU, and you can define your own organizational structure.
 + **Sandbox OU** – The Sandbox OU is created when you launch your landing zone, if you enable it. This and other registered OUs contain the enrolled accounts that your users work with to perform their AWS workloads.
 + **IAM Identity Center directory** – By default, this directory houses your IAM Identity Center users. It defines the scope of permissions for each IAM Identity Center user. Optionally, you can choose to self-manage your identity and access control. For more information, see [Working with AWS IAM Identity Center and AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/sso.html).
 + **IAM Identity Center users** – These are the identities that your users can assume to perform their AWS workloads in your landing zone.
@@ -19,8 +23,12 @@ The structure of a landing zone in AWS Control Tower is as follows:
 <a name="how-it-works-setup"></a>
 
 When you set up a landing zone, AWS Control Tower performs the following actions in your management account on your behalf:
-+ Creates two AWS Organizations organizational units (OUs): Security, and Sandbox (optional), contained within the organizational root structure.
-+ Creates or adds two shared accounts in the Security OU: the Log Archive account and the Audit account.
++ When you create your landing zone through the console, AWS Control Tower creates two AWS Organizations organizational units (OUs). These are the Security OU and the optional Sandbox OU, contained within the organizational root structure. During setup, AWS Control Tower automatically selects the Security OU as the default OU for service integrations. This OU is known as the designated service integration OU. You can select a different OU during landing zone setup.
+
+  AWS Control Tower requires all accounts configured for AWS service integrations to be under the same OU, nested directly under root. This requirement does not apply to the management account.
+
+  When you create your landing zone through the API, you do not explicitly select an OU for service integrations. Service integration accounts must be under the same OU nested directly under root, and the OU that contains your service integration accounts is the designated service integration OU. For more information, see [Getting started with AWS Control Tower APIs](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-apis.html).
++ AWS Control Tower creates or enrolls accounts for any enabled service integrations (such as AWS Config, AWS CloudTrail, or AWS Backup) in the designated service integration OU.
 + Creates a cloud-native directory in IAM Identity Center, with preconfigured groups and single sign-on access, if you choose the default AWS Control Tower configuration, or it allows you to self-manage your identity provider.
 + Applies all mandatory, preventive controls to enforce policies.
 + Applies all mandatory, detective controls to detect configuration violations.

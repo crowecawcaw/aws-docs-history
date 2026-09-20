@@ -86,7 +86,7 @@ Below is the complete structure of the manifest file with all available configur
 To create your landing zone using the API:
 
 ```
-                    aws controltower create-landing-zone --landing-zone-version 4.0 --manifest file://manifest.json
+aws controltower create-landing-zone --landing-zone-version 4.0 --manifest file://manifest.json
 ```
 
 The API will return a landing zone operation ID that you can use to track the progress of your landing zone creation. Sample response:
@@ -101,7 +101,7 @@ The API will return a landing zone operation ID that you can use to track the pr
 You can monitor the operation status using `GetLandingZoneOperation` API which returns a **status** of `SUCCEEDED`, `FAILED`, or `IN_PROGRESS`:
 
 ```
-                    aws controltower get-landing-zone-operation --operation-identifier "55XXXXXX-eXXX-4XXX-aXXX-44XXXXXXXXXX"
+aws controltower get-landing-zone-operation --operation-identifier "55XXXXXX-eXXX-4XXX-aXXX-44XXXXXXXXXX"
 ```
 
 ## What's Changed in landing zone version 4.0

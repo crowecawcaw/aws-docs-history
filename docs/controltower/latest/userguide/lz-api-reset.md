@@ -9,7 +9,7 @@ To identify if your landing zone is in drift, you can call the `GetLandingZone` 
 
 To resolve drift within your landing zone you can use the `ResetLandingZone` API to reset the landing zone back to its original configuration. For example, AWS Control Tower enables IAM Identity Center by default to help you manage your AWS accounts-- but if you configure your original landing zone parameters with IAM Identity Center disabled, calling `ResetLandingZone` maintains that disabled IAM Identity Center configuration. 
 
-You can only use the `ResetLandingZone` API if you are using the latest available landing zone version. You can call the `GetLandingZone` API and compare your landing zone version with the **latest available version**. If necessary, you can [Update your landing zone](lz-api-update.md) so your landing zone uses the latest available version. In these examples, we are using version 3.3 as the latest version.
+You can use the `ResetLandingZone` API only if your landing zone is on version 3.1 or later. You can call the `GetLandingZone` API to check your current landing zone version. If your landing zone is on a version earlier than 3.1, the `ResetLandingZone` API is not available. In that case, [Update your landing zone](lz-api-update.md) to at least version 3.1. The update process resolves drift on its own, so you do not need to reset separately. Resetting your landing zone does not upgrade it to the latest available version.
 
 1. Call the `GetLandingZone` API. If the API returns a **drift status** of `DRIFTED`, your landing zone is in drift. 
 

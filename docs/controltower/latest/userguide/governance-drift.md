@@ -301,6 +301,10 @@ To view drift status programmatically, you can call the [`ListEnabledBaselines`]
 
  You can resolve this type of drift programmatically, by calling the [`ResetEnabledBaseline`](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetEnabledBaseline.html) API.
 
+**Prevent inheritance drift with auto-enrollment**
+
+To prevent this drift on future account moves, turn on auto-enrollment. When auto-enrollment is on, AWS Control Tower applies the destination OU's baselines and control configurations to a moved account when you update the account to move it to a different OU. For more information, see [Move and enroll accounts with auto-enrollment](account-auto-enrollment.md). Auto-enrollment doesn't resolve baseline drift that already exists from a previous move. To resolve existing drift, use one of the resolution methods described earlier in this section. You can re-register the OU, update the account, or call the `ResetEnabledBaseline` API.
+
 ## Inheritance drift on enabled controls
 <a name="drift-enabled-controls"></a>
 
@@ -309,17 +313,51 @@ This type of drift can occur to AWS Control Tower OUs and accounts.
 ### Resolution
 <a name="drift-enabled-controls-resolution"></a>
 
- AWS Control Tower notifies you when this type of drift occurs. For almost all cases of inheritance drift, you will receive a drift notification for *Moved member account* drift. That's because this type of drift typically occurs when an account has been moved, or an account fails enrollment.
+AWS Control Tower notifies you when this type of drift occurs. For almost all cases of inheritance drift, you receive a drift notification for *Moved member account* drift. This type of drift typically occurs when you move an account between OUs while auto-enrollment is turned off. In this case, AWS Control Tower applies the destination OU's controls to the account, but doesn't automatically remove the controls the account inherited from its previous OU. As a result, Detective controls and Proactive controls from the previous OU can remain on the account in a drifted state. Preventive controls are not subject to this type of inheritance drift.
 
-**View and resolve drift in the console**
+**Note**  
+You can't remediate this inheritance drift by updating the account, by re-registering the OU, or by calling the `ResetEnabledControl` API. Those actions resolve configuration drift only. They don't remove a control that a moved account still inherits from its previous OU. To remove the leftover control, you must disable it with the `DisableControl` API, as described in this section.
 
-In the AWS Control Tower console, you can view this inherited drift status in the **Organizations** page, the **Enabled controls** page, and the **Account details** page. The resolution from the console is to **Re-register** your OU or **Update** your account.
+**View drift in the console**
 
-**View and resolve drift programmatically**
+In the AWS Control Tower console, you can see which enabled control has a **Drifted** status. This information appears only on the **Account details** page for the affected account. The console doesn't display the `EnabledControlIdentifier` (the ARN of the enabled control) that you need to disable a drifted control. To get the `EnabledControlIdentifier`, use the AWS Control Tower API, as described in this section.
 
-To view inherited drift status for enabled controls programmatically, you can call the [`ListEnabledControls`](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledControls.html) API to view statuses for the enabled controls on your OUs. To view statuses for individual accounts programmatically with the `ListEnabledControls` API, use the `includeChildren` flag.
+**View and resolve drift by using the AWS CLI**
 
- You can resolve this type of inheritance drift programmatically, by calling the [`ResetEnabledControl`](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetEnabledControl.html) API.
+To find the drifted control on the affected account, list the enabled controls for that account. Set the target identifier to the account, and include the `--include-children` flag so that inherited controls are returned:
+
+```
+aws controltower list-enabled-controls --target-identifier {{<account ARN>}} --include-children
+```
+
+In the output, find the enabled control whose `inheritance` drift type shows a `DRIFTED` status. Note the `arn` value of that enabled control. This value is the `EnabledControlIdentifier` that you use to disable the control. For example:
+
+```
+{
+    "arn": "arn:aws:controltower:{{<Region>}}:{{<management account ID>}}:enabledcontrol/{{<enabled control ID>}}",
+    "controlIdentifier": "arn:aws:controlcatalog:::control/{{<control ID>}}",
+    "targetIdentifier": "arn:aws:organizations::{{<management account ID>}}:account/{{<organization ID>}}/{{<member account ID>}}",
+    "driftStatusSummary": {
+        "driftStatus": "DRIFTED",
+        "types": {
+            "inheritance": { "status": "DRIFTED" },
+            "resource": { "status": "IN_SYNC" }
+        }
+    }
+}
+```
+
+To remove the drifted control, disable it by passing the `EnabledControlIdentifier` to the `disable-control` command:
+
+```
+aws controltower disable-control --enabled-control-identifier {{<EnabledControlIdentifier>}}
+```
+
+For more information, see [ListEnabledControls](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledControls.html) and [DisableControl](https://docs.aws.amazon.com/controltower/latest/APIReference/API_DisableControl.html) in the *AWS Control Tower API Reference*.
+
+**Prevent inheritance drift with auto-enrollment**
+
+To prevent this drift on future account moves, turn on auto-enrollment. For more information, see [Move and enroll accounts with auto-enrollment](account-auto-enrollment.md). When auto-enrollment is on, AWS Control Tower applies the destination OU's baselines and control configurations to a moved account and removes the previous OU's controls. However, auto-enrollment doesn't remove controls that were already left over from a move that happened before you turned it on. To remove those controls, use the `DisableControl` API.
 
 ## EventBridge creation
 <a name="eventbridge-creation"></a>

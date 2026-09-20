@@ -32,8 +32,8 @@ aws organizations create-organization --feature-set ALL
 1. Call the AWS Organizations `CreateAccount` API to create the **Log archive** account and **Audit** account in the **Security OU**.
 
    ```
-                               aws organizations create-account --email mylog@example.com --account-name "Logging Account"
-                               aws organizations create-account --email mysecurity@example.com --account-name "Security Account"
+   aws organizations create-account --email mylog@example.com --account-name "Logging Account"
+   aws organizations create-account --email mysecurity@example.com --account-name "Security Account"
    ```
 
     (Optional) Check the status of the `CreateAccount` operation using the AWS Organizations `DescribeAccount` API. 
@@ -41,7 +41,10 @@ aws organizations create-organization --feature-set ALL
 1. Move the provisioned service integration accounts into the designated **Security OU**
 
    ```
-                               aws organizations move-account --account-id 0123456789012 --source-parent-id r-examplerootid111 --destination-parent-id ou-examplerootid111-security
+   aws organizations move-account \
+       --account-id 0123456789012 \
+       --source-parent-id r-examplerootid111 \
+       --destination-parent-id ou-examplerootid111-security
    ```
 
 ## Step 3. Create the required service roles
@@ -49,9 +52,9 @@ aws organizations create-organization --feature-set ALL
 
  Create the following IAM service roles in the `/service-role/` IAM path that enable AWS Control Tower to perform the API calls required to set up your landing zone: 
 +  [`AWSControlTowerAdmin`](https://docs.aws.amazon.com/controltower/latest/userguide/access-control-managing-permissions.html#AWSControlTowerAdmin) 
-+  [`AWSControlTowerCloudTrailRole`](https://docs.aws.amazon.com/controltower/latest/userguide/access-control-managing-permissions.html#AWSControlTowerCloudTrailRole) 
++  [`AWSControlTowerCloudTrailRole`](https://docs.aws.amazon.com/controltower/latest/userguide/access-control-managing-permissions.html#AWSControlTowerCloudTrailRolePolicy) 
 +  [`AWSControlTowerStackSetRole`](https://docs.aws.amazon.com/controltower/latest/userguide/access-control-managing-permissions.html#AWSControlTowerStackSetRole) 
-+  [`AWSControlTowerConfigAggregatorRoleForOrganizations`](https://docs.aws.amazon.com/controltower/latest/userguide/roles-how.html#config-role-for-organizations) 
++  [`AWSControlTowerConfigAggregatorRoleForOrganizations`](https://docs.aws.amazon.com/controltower/latest/userguide/roles-how.html#config-role-for-organizations) (not required for landing zone version 4.0 and later) 
 
  For more information about these roles and their policies, see [Using identity-based policies (IAM policies) for AWS Control Tower](access-control-managing-permissions.md). 
 
