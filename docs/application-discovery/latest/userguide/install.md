@@ -57,8 +57,19 @@ If you are using a non-current Linux version, see [Considerations with older Lin
    tar -xzf aws-discovery-agent.tar.gz
    ```
 
-1. To install the agent, choose one of the following installation methods.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/application-discovery/latest/userguide/install.html)
+1. To install the agent, choose one of the following installation methods.
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Install Discovery Agent</td><td>To install the agent, run the agent install command as shown in the following example. In the example, replace {{your-home-region}} with the name of your home region, {{aws-access-key-id}} with your access key id, and {{aws-secret-access-key}} with your secret access key.<pre>sudo bash install -r your-home-region -k aws-access-key-id -s aws-secret-access-key</pre><br />By default, agents automatically download and apply updates as they become available. <br />We recommend using this default configuration.<br />However, if you don't want agents to download and apply updates automatically, include the <code>-u false</code> parameter when running the agent install command.</td></tr>
+  <tr><td>(Optional) Install Discovery Agent and configure a non-transparent proxy</td><td>To configure a non-transparent proxy, add the following parameters to the agent install command: <ul><li> <b>-e</b> The proxy password.  </li><li> <b>-f</b> The proxy port number.  </li><li> <b>-g</b> The proxy scheme.  </li><li> <b>-i</b> The proxy username.  </li></ul><br />The following is an example of the agent install command using the non-transparent proxy parameters.<pre>sudo bash install -r your-home-region -k aws-access-key-id -s aws-secret-access-key -d myproxy.mycompany.com -e mypassword -f proxy-port-number -g https -i myusername</pre><br />If your proxy doesn't require authentication, then leave out the <code>-e</code> and <code>-i</code> parameters.<br />The example install command uses <code>https</code>, if your proxy uses HTTP, specify <code>http</code> for the <code>-g</code> parameter value.</td></tr>
+</tbody>
+</table>
+
 
 1. If outbound connections from your network are restricted, you'll need to update your firewall settings. Agents require access to `arsenal` over TCP port 443. They don't require any inbound ports to be open.
 
@@ -99,8 +110,19 @@ If the Windows agent installer doesn't detect any version of the Visual C\+\+ x8
 
 1. Open a command prompt as an administrator and navigate to the location where you saved the installation package.
 
-1. To install the agent, choose one of the following installation methods.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/application-discovery/latest/userguide/install.html)
+1. To install the agent, choose one of the following installation methods.
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Install Discovery Agent</td><td>To install the agent, run the agent install command as shown in the following example. In the example, replace {{<code>your-home-region</code>}} with the name of your home region, {{<code>aws-access-key-id</code>}} with your access key ID, and {{<code>aws-secret-access-key</code>}} with your secret access key.<br />Optionally, you can set the agent installation location by specifying the folder path <code>C:\install-location</code> for the INSTALLLOCATION parameter. For example, <code>INSTALLLOCATION="C:\install-location"</code>. The resulting folder hierarchy will be [INSTALLLOCATION path]\AWS Discovery. By default, the install location is the <code>Program Files</code> folder.<br />Optionally, you can use <code>LOGANDCONFIGLOCATION</code> to override the default directory (ProgramData) for the agent logs folder and configuration file. The resulting folder hierarchy is <code>[LOGANDCONFIGLOCATION path]\AWS Discovery</code>.<pre>.\AWSDiscoveryAgentInstaller.exe REGION="{{your-home-region}}" KEY_ID="{{aws-access-key-id}}" KEY_SECRET="{{aws-secret-access-key}}" /quiet</pre><br /><br />By default, agents automatically download and apply updates as they become available. <br />We recommend using this default configuration.<br />However, if you don't want agents to download and apply updates automatically, include the following parameter when running the agent install command: <code>AUTO_UPDATE=false</code> Disabling auto-upgrades will prevent the latest security patches from being installed. </td></tr>
+  <tr><td>(Optional) Install Discovery Agent and configure a non-transparent proxy</td><td>To configure a non-transparent proxy, add the following public properties to the agent install command:<ul><li> <b>PROXY_HOST</b> – The name of the proxy host </li><li> <b>PROXY_SCHEME</b> – The proxy scheme </li><li> <b>PROXY_PORT</b> – The proxy port number </li><li> <b>PROXY_USER</b> – The proxy user name </li><li> <b>PROXY_PASSWORD</b> – The proxy user password </li></ul><br />The following is an example of the agent install command using the non-transparent proxy properties.<pre>.\AWSDiscoveryAgentInstaller.exe REGION="{{your-home-region}}" KEY_ID="{{aws-access-key-id}}" KEY_SECRET="{{aws-secret-access-key}}" PROXY_HOST="{{myproxy.mycompany.com}}" PROXY_SCHEME="https" PROXY_PORT="{{proxy-port-number}}" PROXY_USER="{{myusername}}" PROXY_PASSWORD="{{mypassword}}" /quiet</pre><br />If your proxy doesn't require authentication, then omit the <code>PROXY_USER</code> and <code>PROXY_PASSWORD</code> properties. The example install command uses <code>https</code>. If your proxy uses HTTP, specify <code>http</code> for the <code>PROXY_SCHEME</code> value.</td></tr>
+</tbody>
+</table>
+
 
 1. If outbound connections from your network are restricted, you must update your firewall settings. Agents require access to `arsenal` over TCP port 443. They don't require any inbound ports to be open.
 
