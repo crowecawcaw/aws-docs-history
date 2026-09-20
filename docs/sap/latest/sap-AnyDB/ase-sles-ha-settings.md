@@ -140,8 +140,8 @@ The SLES STONITH resource agent (`external/ec2`) requires permission to start an
         "ec2:StopInstances"
       ],
       "Resource": [
-        "arn:aws:ec2:us-east-1:123456789012:instance/arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
-        "arn:aws:ec2:us-east-1:123456789012:instance/arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0"
+        "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+        "arn:aws:ec2:us-east-1:123456789012:instance/i-0abcdef1234567890"
       ]
     }
   ]
@@ -498,8 +498,16 @@ Add entries to the VPC route table or tables associated with the subnets of your
 
 1. To add a route, choose **Add route**.
 
-   1. Add your chosen overlay IP address CIDR and the instance ID of your primary instance for SAP ASE database. See the following table for an **example**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/ase-sles-ha-settings.html)
+   1. Add your chosen overlay IP address CIDR and the instance ID of your primary instance for SAP ASE database. See the following table for an **example**.
+
+
+<table>
+<tbody>
+  <tr><td>Destination</td><td>172.16.0.29/32</td></tr>
+  <tr><td>Target</td><td>i-xxxxinstidforhost1</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save changes**.
 
@@ -697,8 +705,8 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
         "ec2:StopInstances"
       ],
       "Resource": [
-        "arn:aws:ec2:us-east-1:123456789012:instance/arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
-        "arn:aws:ec2:us-east-1:123456789012:instance/arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0"
+        "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+        "arn:aws:ec2:us-east-1:123456789012:instance/i-0abcdef1234567890"
       ]
     },
     {
