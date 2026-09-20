@@ -34,8 +34,23 @@ For more information on security group rules, see [Security Group Rules](https:/
 
 1. Remove any outbound rules on the security group. FSx for OpenZFS file systems do not initiate outbound connections in your VPC.
 
-1. Add the following rules to the inbound ports of your security group.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/limit-access-security-groups.html)
+1. Add the following rules to the inbound ports of your security group.
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Ports</th><th>Role</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP</td><td>111</td><td>Remote procedure call for NFS</td></tr>
+  <tr><td>UDP</td><td>111</td><td>Remote procedure call for NFS</td></tr>
+  <tr><td>TCP</td><td>2049</td><td>NFS server daemon</td></tr>
+  <tr><td>UDP</td><td>2049</td><td>NFS server daemon</td></tr>
+  <tr><td>TCP</td><td>20001 - 20003</td><td>NFS mount, status monitor, and lock daemon</td></tr>
+  <tr><td>UDP</td><td>20001 - 20003</td><td>NFS mount, status monitor, and lock daemon</td></tr>
+</tbody>
+</table>
+
 
 #### Disallow access to a file system
 <a name="disallow-access"></a>

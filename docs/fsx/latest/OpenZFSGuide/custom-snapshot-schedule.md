@@ -56,8 +56,24 @@ Implementing this solution incurs billing for the associated AWS services. For m
 **Note**  
 By default, this template launches in the US East (N. Virginia) AWS Region. Amazon FSx for OpenZFS is currently only available in specific AWS Regions. You must launch this solution in an AWS Region where FSx for OpenZFS is available. For more information, see [Amazon FSx endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/fsxn.html) in the *AWS General Reference*.
 
-1. For **Parameters**, review the parameters for the template and modify them for the needs of your file system volumes. This solution uses the following default values.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/custom-snapshot-schedule.html)
+1. For **Parameters**, review the parameters for the template and modify them for the needs of your file system volumes. This solution uses the following default values.
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>FSx for OpenZFS resource ID</td><td>No default value</td><td>The file system ID or volume ID on which the snapshot schedule will apply. If you provide a file system ID, the schedule will take snapshots of all volumes within that file system.</td></tr>
+  <tr><td>CRON schedule pattern for snapshots</td><td>0 0/6 * * ? *<br /> [Every 6 hours]</td><td>The schedule to run the CloudWatch event, triggering a new snapshot and deleting old snapshots outside of the retention period.</td></tr>
+  <tr><td>Snapshot retention (days)</td><td>7</td><td>The number of days to keep user-initiated snapshots. The Lambda function deletes user-initiated snapshots older than this number of days.</td></tr>
+  <tr><td>Name for snapshots</td><td>User-scheduled_snapshot</td><td>The name for these snapshots, which appears in the <b>Snapshot Name</b> column of the Amazon FSx Management Console.</td></tr>
+  <tr><td>Snapshot Notification</td><td>Yes</td><td>Choose whether to be notified when snapshots are successfully initiated. A notification is always sent if there's an error.</td></tr>
+  <tr><td>Email address</td><td>No default value</td><td>The email address to use in subscribing to the SNS notifications.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 

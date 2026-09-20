@@ -23,7 +23,7 @@ You can use the **Monitoring & performance** panel on your file system's dashboa
 
 - **Storage**
   - **How do I...:** ...determine how much primary storage is available? / **Chart:** Available primary storage capacity (bytes) / **Relevant metrics:** `StorageCapacity` {`SSD`} - `UsedStorageCapacity` {`SSD`}
-  - **How do I...:** ...determine the percentage of used primary storage for my file system? / **Chart:** Primary storage capacity utilization (percent) / **Relevant metrics:** `StorageCapacity` {`SSD`} \* 100/`UsedStorageCapacity` {`SSD`}
+  - **How do I...:** ...determine the percentage of used primary storage for my file system? / **Chart:** Primary storage capacity utilization (percent) / **Relevant metrics:** `UsedStorageCapacity` {`SSD`} \* 100/`StorageCapacity` {`SSD`}
 
 - **File server performance**
   - **How do I...:** ...determine the network throughput for clients that access the file system as a percentage of the file system's provisioned throughput? / **Chart:** Network throughput utilization / **Relevant metrics:** NetworkThroughputUtilization
@@ -36,8 +36,9 @@ You can use the **Monitoring & performance** panel on your file system's dashboa
   - **How do I...:** ...determine my workload's usage of the file system's in-memory (ARC), NVMe (L2ARC), and Intelligent-Tiering SSD read caches? / **Chart:** Cache hit ratio  / **Relevant metrics:** FileServerCacheHitRatio
 
 - **Disk performance**
-  - **How do I...:** ....determine if the file system is approaching the file server’s current provisioned SSD IOPS capacity? Do I need to provision more IOPS for my file system? / **Chart:** Disk IOPS utilization (SSD) / **Relevant metrics:** DiskIopsUtilization
-  - **How do I...:** ...determine if the file system is approaching the file server’s current provisioned SSD IOPS capacity? Do I need to provision more IOPS for my file system? / **Chart:** Compression ratio / **Relevant metrics:** (UsedStorageCapacity/CompressionRatio) - UsedStorageCapacity
+  - **How do I...:** ....determine if the file system is approaching the file server’s current provisioned SSD IOPS capacity? Do I need to provision more IOPS for my file system?
+  - **Chart:** Disk IOPS utilization (SSD)
+  - **Relevant metrics:** DiskIopsUtilization
 
 
 

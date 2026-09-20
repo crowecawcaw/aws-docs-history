@@ -69,7 +69,7 @@ The `AWS/FSx` namespace includes the following storage capacity metrics.
 | --- | --- | 
 | StorageCapacity | The total storage capacity, equal to the sum of used and available storage capacity.<br />Unit: Bytes<br />Valid statistics: `Average`, `Minimum` | 
 | UsedStorageCapacity | The amount of storage that's used.<br />Unit: Bytes<br />Valid statistics: `Average`, `Minimum` | 
-| CompressionRatio | The ratio of compressed storage usage to uncompressed storage usage.<br />Valid statistics: `Average`, `Minimum` | 
+| CompressionRatio | The ratio of uncompressed storage usage to compressed storage usage, expressed as a multiplier.<br />Unit: None<br />Valid statistics: `Average`, `Minimum` | 
 
 ## FSx for OpenZFS dimensions
 <a name="fsx-dimensions"></a>

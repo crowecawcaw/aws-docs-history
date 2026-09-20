@@ -57,8 +57,26 @@ Implementing this solution incurs billing for the associated AWS services. For m
 
 1. Follow the instructions on the [Replicate FSx-OpenZFS volumes across file systems](https://serverlessland.com/patterns/eventbridge-lambda-fsx-openzfs-periodic-replication) page to download the serverless pattern.
 
-1. For **Parameters**, review the following parameters for the template and modify them for the needs of your periodic replication. This solution uses the following default values.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/ongoing-periodic-data-replication.html)
+1. For **Parameters**, review the following parameters for the template and modify them for the needs of your periodic replication. This solution uses the following default values.
+
+
+<table>
+<thead>
+  <tr><th><b>Parameter</b></th><th><b>Default</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td>Source volume ID</td><td>No default value</td><td>The ID of the source volume from which data will be periodically replicated.</td></tr>
+  <tr><td>Destination volume ID</td><td>No default value</td><td>The ID of the destination volume that will become a replica of the source volume.</td></tr>
+  <tr><td>CronSchedule</td><td>[0 0/6 **?*] (every six hours)</td><td>The schedule to replicate data from the source volume to the destination volume.</td></tr>
+  <tr><td>SnapshotName</td><td>fsx-scheduled-snapshot</td><td>The name for the scheduled snapshots that will be taken of the source volume. Appears in the <b>Snapshot Name</b> column of the Amazon FSx Console.</td></tr>
+  <tr><td>Snapshot retention (days)</td><td>7</td><td>The number of days to keep user-initiated snapshots. The Lambda function deletes user-initiatted snapshots that are kept after this number of days.</td></tr>
+  <tr><td>SuccessNotification</td><td>Yes</td><td>Choose whether to be notified when the replication is successfully initiated. A notification is always sent when a snapshot fails to create or the replication fails to start.</td></tr>
+  <tr><td>Email</td><td>No default value</td><td>The email address that you would like notifications to be sent to.</td></tr>
+  <tr><td>CopyStrategy</td><td>INCREMENTAL_COPY</td><td>The <b>CopyStrategy</b> parameter for the <code>CopySnapshotAndUpdateVolume</code> API operation. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html">CopySnapshotAndUpdateVolume</a> in the Amazon FSx API.</td></tr>
+  <tr><td>Options</td><td>None</td><td>The <b>Options</b> parameter for the <code>CopySnapshotAndUpdateVolume</code> API operation. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html">CopySnapshotAndUpdateVolume</a> in the Amazon FSx API.</td></tr>
+</tbody>
+</table>
+
 
 1. In the AWS SAM CLI, run the following command to deploy the resources specified in the SAM template.
 
