@@ -11,7 +11,7 @@ To view instance and session performance metrics on the WorkSpaces Applications 
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	   
     "Statement": [
         {
             "Effect": "Allow",

@@ -29,14 +29,25 @@ WorkSpaces agent access configurations have the following limitations:
 
 You enable agent access when you create a stack. When agent access is enabled, the stack is configured with agent-specific settings instead of the Amazon WorkSpaces Applications configuration for human users. You can enable agent access through the Amazon WorkSpaces Applications console, AWS CLI, or API.
 
+## Develop agents with the Agent Toolkit for AWS
+<a name="agent-access-toolkit"></a>
+
+If you build your agent with an AI coding assistant, you can use the [Agent Toolkit for AWS](https://aws.amazon.com/products/developer-tools/agent-toolkit-for-aws/). It helps you set up agent access and build your first agent.
+
+The toolkit uses the AWS MCP Server. This managed server gives agents safe access to AWS through the Model Context Protocol (MCP). Agents can run AWS CLI commands, search AWS docs, and follow ready-made skills. They connect through one secure endpoint. You also get CloudWatch metrics and IAM access controls.
+
+To get started, ask your agent "Help me use WorkSpaces agent access".
+
 ## Computer input and vision
 <a name="agent-access-input-vision"></a>
 
-Agent access provides two interaction capabilities that you configure at the stack level:
-+ **Computer input** — Allows agents to click buttons, enter text, and scroll on the desktop during a streaming session.
-+ **Computer vision** — Allows agents to see the desktop by taking screenshots during a streaming session.
+Agent access gives you two options for computer use. You set them up at the stack level. For other agent options, see [MCP tool forwarding](#agent-access-mcp-tool-forwarding) and [User control mode](#agent-access-user-control-mode).
++ **Computer input** — During a streaming session, agents click buttons, enter text, and scroll on the desktop.
++ **Computer vision** — During a streaming session, agents take screenshots to see the desktop.
 
-You must enable at least one of these capabilities.
+Use these rules to choose what to turn on:
++ For your agent to use computer input, computer vision must be turned on. The agent must see the desktop to use the keyboard and mouse.
++ You can leave computer input and vision off if you only use tool forwarding. For details, see [MCP tool forwarding](#agent-access-mcp-tool-forwarding).
 
 ## Screenshot storage
 <a name="agent-access-screenshots"></a>
@@ -63,7 +74,7 @@ You can optionally enable application settings persistence. When enabled, your a
 ## MCP tool forwarding
 <a name="agent-access-mcp-tool-forwarding"></a>
 
-You can enable MCP tool forwarding to allow agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. When enabled, MCP tools available on your WorkSpaces application session are forwarded to the agent. The forwarded tools appear when the agent lists its available tools.
+You can enable MCP tool forwarding to allow agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. When enabled, MCP tools available on your WorkSpaces application session are forwarded from your desktop to the agent. The forwarded tools appear when the agent lists its available tools.
 
 ## User control mode
 <a name="agent-access-user-control-mode"></a>

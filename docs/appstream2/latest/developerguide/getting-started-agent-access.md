@@ -19,6 +19,15 @@ In this tutorial, you complete the following tasks:
 + Step 4: Verify agent activity
 + Step 5: Clean up resources
 
+## Write agent code with the Agent Toolkit for AWS
+<a name="getting-started-agent-access-toolkit"></a>
+
+If you build your agent with an AI coding assistant, you can use the [Agent Toolkit for AWS](https://aws.amazon.com/products/developer-tools/agent-toolkit-for-aws/). It helps you set up agent access and build your first agent.
+
+The toolkit uses the AWS MCP Server. This managed server gives agents safe access to AWS through the Model Context Protocol (MCP). Agents can run AWS CLI commands, search AWS docs, and follow ready-made skills. They connect through one secure endpoint. You also get CloudWatch metrics and IAM access controls.
+
+To get started, ask your agent "Help me complete the getting started WorkSpaces agent access tutorial".
+
 ## Prerequisites
 <a name="getting-started-agent-access-prereqs"></a>
 

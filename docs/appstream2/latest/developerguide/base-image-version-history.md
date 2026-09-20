@@ -20,18 +20,13 @@ For information about the latest WorkSpaces Applications agent, see [WorkSpaces 
 
 The following table lists the latest released images.
 
-**Note**  
-Public base images for Graphics Pro instances are no longer available from AWS after 10/31/2025 due to End of Life of hardware supporting Graphics Pro instance types.   
-Public base images for Graphics Design instances are no longer available from AWS after 12/31/2025 due to End of Life of hardware supporting Graphics Design instance types.  
-Public base images for Amazon Linux 2 are no longer available from AWS after 04/15/2026 due End of Support for Amazon Linux 2 (AL2) for Amazon WorkSpaces Applications.
-
 
 | Image type | Image name | 
 | --- | --- | 
-| Base |  +  AppStream-WinServer2025-12-18-2025 <br />+  AppStream-WinServer2022-11-10-2025 <br />+  AppStream-WinServer2019-11-10-2025 <br />+  AppStream-WinServer2016-11-10-2025 <br />+  AppStream-RHEL8-08-31-2026 <br />+  AppStream-RockyLinux8-08-31-2026   | 
-| Graphics G4dn |  +  AppStream-Graphics-G4dn-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G4dn-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G4dn-WinServer2019-11-10-2025 <br />+  AppStream-Graphics-G4dn-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G4dn-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G4dn-RockyLinux8-08-31-2026   | 
-| Graphics G5 |  +  AppStream-Graphics-G5-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G5-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G5-WinServer2019-11-10-2025 <br />+  AppStream-Graphics-G5-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G5-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G5-RockyLinux8-08-31-2026   | 
-| Graphics G6  |  +  AppStream-Graphics-G6-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G6-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G6-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G6-RockyLinux8-08-31-2026   | 
+| Base |  +  AppStream-WinServer2025-08-31-2026 <br />+  AppStream-WinServer2022-08-31-2026 <br />+  AppStream-WinServer2019-08-31-2026 <br />+  AppStream-WinServer2016-11-10-2025 <br />+  AppStream-RHEL8-08-31-2026 <br />+  AppStream-RockyLinux8-08-31-2026   | 
+| Graphics G4dn |  +  AppStream-Graphics-G4dn-WinServer2025-08-31-2026 <br />+  AppStream-Graphics-G4dn-WinServer2022-08-31-2026 <br />+  AppStream-Graphics-G4dn-WinServer2019-08-31-2026 <br />+  AppStream-Graphics-G4dn-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G4dn-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G4dn-RockyLinux8-08-31-2026   | 
+| Graphics G5 |  +  AppStream-Graphics-G5-WinServer2025-08-31-2026 <br />+  AppStream-Graphics-G5-WinServer2022-08-31-2026 <br />+  AppStream-Graphics-G5-WinServer2019-08-31-2026 <br />+  AppStream-Graphics-G5-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G5-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G5-RockyLinux8-08-31-2026   | 
+| Graphics G6  |  +  AppStream-Graphics-G6-WinServer2025-08-31-2026 <br />+  AppStream-Graphics-G6-WinServer2022-08-31-2026 <br />+  AppStream-Graphics-G6-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G6-RockyLinux8-08-31-2026   | 
 | Graphics G7  |  +  AppStream-Graphics-G7-WinServer2025-08-31-2026 <br />+  AppStream-Graphics-G7-WinServer2022-08-31-2026 <br />+  AppStream-Graphics-G7-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G7-RockyLinux8-08-31-2026   | 
 | Sample apps | Amazon-AppStream2-Sample-Image-06-17-2024<br />For information about how to access this base image, see [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md). | 
 
@@ -43,26 +38,26 @@ The following table lists the software components for the latest released Window
 #### [ Windows ]
 
 
-| Software component | Latest base images (August 3, 2026) | Managed image updates (August 31, 2026) | 
+| Software component | Latest base images (August 31, 2026) | Managed image updates (August 31, 2026) | 
 | --- | --- | --- | 
 | Amazon AWS (AvsCamera) Driver | 1.0.27.0 | 1.0.23.0 | 
-| Amazon CloudWatch Agent | 1.4.37925 | 1.300069.0b1529 | 
-| SSM Agent | 3.3.4268.0 | 3.3.4851.0 | 
-| NICE DCV Virtual Display | 2024.0-19143 | 2026.0-22938 | 
+| Amazon CloudWatch Agent | 1.300072.0b1766 | 1.300069.0b1529 | 
+| SSM Agent | 3.3.4851.0 | 3.3.4851.0 | 
+| NICE DCV Virtual Display | 2026.0-22938 | 2026.0-22938 | 
 | AMD Driver for Graphics Design instances | 24.20.13028.7002  | 24.20.13028.7002 | 
-| AppStream 2.0 Agent | LATEST (06-29-2026) | -- | 
-| AWS Command Line Interface (AWS CLI) | 1.40.24 (Windows Server 2016/2019)<br />2.35.2.0 (Windows Server 2022/2025) | Not included | 
+| AppStream 2.0 Agent | LATEST | -- | 
+| AWS Command Line Interface (AWS CLI) | 2.36.35 (Windows Server 2022/2025)<br />1.46.1 (Windows Server 2019)<br />1.40.24 (Windows Server 2016) | Not included | 
 | Firefox | 144 (Windows Server 2016/2019) | Not included | 
 | Microsoft Message Queuing (MSMQ) | Installed with Windows Server | Installed with Windows Server | 
-| NVIDIA Graphics Driver for G4dn, G5 and G6 instances | 581.42 (Windows Server 2022/2025)<br />539.19 (Windows Server 2019)<br />512.78 (Windows Server 2016) | 596.36 (Windows Server 2022/2025)<br />539.19 (Windows Server 2019)<br />512.78 (Windows Server 2016) | 
+| NVIDIA Graphics Driver for G4dn, G5 and G6 instances | 596.86 (Windows Server 2022/2025)<br />539.19 (Windows Server 2019)<br />512.78 (Windows Server 2016) | 596.36 (Windows Server 2022/2025)<br />539.19 (Windows Server 2019)<br />512.78 (Windows Server 2016) | 
 | Process monitor | 4.01 | [Latest](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon) | 
 | Quality Windows Audio/Video Experience (qWAVE) | Installed with Windows Server | Installed with Windows Server | 
 | Visual C\+\+ redistributable packages | Microsoft Visual C\+\+ 2013 Redistributable (x64) - 12.0.40664.0Microsoft Visual C\+\+ 2015-2022 Redistributable (x64) - 14.44.35211 | Microsoft Visual C\+\+ 2013 Redistributable (x64) - 12.0.30501Microsoft Visual C\+\+ 2015-2022 Redistributable (x64) - 14.44.35211  | 
-| Windows Server updates | Base image updates as of May 2026 | [Latest](https://www.catalog.update.microsoft.com/home.aspx) | 
-| WinSCard Filter Driver | 1.0.19.0 | 1.0.19.0 | 
+| Windows Server updates | Latest as of August 12, 2026 (KB5120242) | [Latest](https://www.catalog.update.microsoft.com/home.aspx) | 
+| WinSCard Filter Driver | 1.50.1.0 | 1.0.19.0 | 
 | Paravirtual (PV) driver | 8.6.0 | 8.6.1 | 
-| ENA driver | 2.11.0 | 2.11.0 | 
-| AWS NVMe driver | 1.7.0 | 1.8.2 | 
+| ENA driver | 2.11.0.0 | 2.11.0 | 
+| AWS NVMe driver | 1.8.2 | 1.8.2 | 
 
 ------
 #### [ Rocky Linux ]
@@ -100,6 +95,7 @@ The following table lists the software components for the latest released Window
 The following public images are deprecated and therefore no longer available from AWS:  
 2016/2019/2022 Windows images released before May 30, 2025
 Images for the Graphics Desktop, Graphics Design, and Graphics Pro instance families
+Amazon Linux 2 (AL2) base images, which are no longer available from AWS after 04/15/2026 due to End of Support for AL2 on WorkSpaces Applications
  If you want to use an image for a multi-session fleet, the image must meet the following conditions:  
 The image must be created from a base image released on or after June 12, 2023. Or, the image must be updated by using managed WorkSpaces Applications image updates released on or after September 6, 2023. For more information, see [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md).
 The WorkSpaces Applications agent release version must be 09-06-2023 or later. For more information, see [Manage WorkSpaces Applications Agent Versions](base-images-agent.md).

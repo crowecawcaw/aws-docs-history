@@ -238,7 +238,7 @@ Parameters: `include_cursor` (optional — defaults to `false`).
 ## MCP tool forwarding
 <a name="agent-access-mcp-tool-forwarding-details"></a>
 
-MCP tool forwarding allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. When you enable tool forwarding, the MCP server forwards tools configured on the WorkSpaces application session to your agent.
+With MCP tool forwarding, agents can work directly with applications and the operating system. They make direct MCP calls instead of using computer use tools. When you turn on tool forwarding, the MCP server sends your agent the tools set up on the WorkSpaces application session.
 
 ### Setting up tool forwarding
 <a name="agent-access-tool-forwarding-setup"></a>
@@ -267,10 +267,23 @@ To set up MCP tool forwarding:
            }
        }
    }
-   ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/appstream2/latest/developerguide/agent-access-mcp-server.html)
+   ```
 
-1. **Verify tool availability** — If the configuration file is present, the service connects to the MCP servers configured in the file and forwards the tools. The forwarded tools appear when the agent lists its available tools.
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Required</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>command</code></td><td>Yes</td><td>String</td><td>Absolute path to the executable to launch.</td></tr>
+  <tr><td><code>args</code></td><td>No</td><td>Array of strings</td><td>Arguments passed to the executable.</td></tr>
+</tbody>
+</table>
+
+
+1. **Verify tool availability** — If the file is present, the service connects to the MCP servers listed in the file and forwards their tools. The forwarded tools appear when the agent lists its available tools.
+
+1. **Test the configuration** — To confirm that tool forwarding works, run the `mcpforwardingtester` script. You can find it in the [sample-code-for-workspaces-agent-access](https://github.com/aws-samples/sample-code-for-workspaces-agent-access/tree/main/utils/mcpforwardingtester) repository on GitHub. The script tests the MCP setup on your WorkSpace. It reports which tools are ready and flags any issues.
 
 **Note**  
 Both IAM access and the service setting must be enabled for tool forwarding to work. IAM permissions do not override the service setting.
@@ -298,7 +311,7 @@ The {{server-name}} is the key from your configuration file. For example, a `get
 ### IAM permissions for tool forwarding
 <a name="agent-access-tool-forwarding-iam"></a>
 
-The IAM action for calling forwarded tools is `CallForwardedTool`. You can scope access to specific stacks using the `StackArn` condition key:
+The IAM action for calling forwarded tools is `CallForwardedTool`. To limit access to specific stacks, use the `StackArn` condition key:
 
 ```
 {

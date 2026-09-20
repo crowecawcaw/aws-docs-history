@@ -10,6 +10,7 @@ For notification about these updates, you can subscribe to the Amazon WorkSpaces
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Agent Toolkit for AWS guidance](https://docs.aws.amazon.com/appstream2/latest/developerguide/agent-access-setup.html) | Added guidance on using the Agent Toolkit for AWS and the AWS MCP Server to configure agent access and build your first agent. | September 17, 2026 | 
 | [Graphics G7 instance family](https://docs.aws.amazon.com/appstream2/latest/developerguide/instance-types.html) | Added support for the Graphics G7 instance family (stream.graphics.g7.\* instance types), powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs. | August 31, 2026 | 
 | [Added FAQ page for supported protocols](#doc-history) | Added an FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/appstream2/latest/dg/cbor-faq.html). | July 23, 2026 | 
 | [New agent access guidance](https://docs.aws.amazon.com/appstream2/latest/developerguide/agent-access.html) | WorkSpaces Applications agent access public preview | May 1, 2026 | 
