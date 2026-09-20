@@ -24,8 +24,23 @@ You are responsible for creating, maintaining, using, and managing your Bitcoin 
 Private networks aren't supported.
 + **Supported Regions**
 
-  The following are the supported Regions for this service:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-blockchain/latest/ambbtc-dg/key-concepts.html)
+  The following are the supported Regions for this service:
+
+
+<table>
+<thead>
+  <tr><th>Region name</th><th>Code</th><th>Region</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (N. Virginia)</td><td>IAD</td><td><code>us-east-1</code></td></tr>
+  <tr><td>Asia Pacific (Tokyo)</td><td>NRT</td><td>ap-northeast-1</td></tr>
+  <tr><td>Asia Pacific (Seoul)</td><td>ICN</td><td>ap-northeast-2</td></tr>
+  <tr><td>Asia Pacific (Singapore)</td><td>SIN</td><td>ap-southeast-1</td></tr>
+  <tr><td>Europe (Ireland)</td><td>DUB</td><td>eu-west-1</td></tr>
+  <tr><td>Europe (London)</td><td>LHR</td><td>eu-west-2</td></tr>
+</tbody>
+</table>
+
 + **Service endpoints**
 
   The following are the service endpoints for AMB Access Bitcoin. To connect with the service, you must use an endpoint that includes one of the supported Regions.
