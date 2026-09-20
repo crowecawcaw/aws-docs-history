@@ -9,6 +9,7 @@ AWS User Notifications provides the following APIs for data retrieval.
 
 | Actions | Description | Access level | 
 | --- | --- | --- | 
+| <a name="notifications-AccessSensitiveEvents"></a>[AccessSensitiveEvents](https://docs.aws.amazon.com/notifications/latest/userguide/AccessSensitiveEvents-security-iam.html) | Access sensitive Notification events | Read | 
 | <a name="notifications-GetEventRule"></a>[GetEventRule](https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetEventRule.html) | Get an EventRule | Read | 
 | <a name="notifications-GetFeatureOptInStatus"></a>[GetFeatureOptInStatus](https://docs.aws.amazon.com/notifications/latest/userguide/managing-notification-features.html) | Read the opt-in status of an AWS User Notification Service feature | Read | 
 | <a name="notifications-GetManagedNotificationChildEvent"></a>[GetManagedNotificationChildEvent](https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetManagedNotificationChildEvent.html) | Get a Managed Notification Child Event | Read | 
@@ -23,9 +24,9 @@ AWS User Notifications provides the following APIs for data retrieval.
 | <a name="notifications-ListManagedNotificationChildEvents"></a>[ListManagedNotificationChildEvents](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListManagedNotificationChildEvents.html) | List Managed Notification Child Events | List | 
 | <a name="notifications-ListManagedNotificationConfigurations"></a>[ListManagedNotificationConfigurations](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListManagedNotificationConfigurations.html) | List Managed Notification Configurations | List | 
 | <a name="notifications-ListManagedNotificationEvents"></a>[ListManagedNotificationEvents](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListManagedNotificationEvents.html) | List Managed Notification Events | List | 
-| <a name="notifications-ListMemberAccounts"></a>[ListMemberAccounts](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListMemberAccounts.html) | List Member Accounts for a Notification Configuration | List | 
+| <a name="notifications-ListMemberAccounts"></a>[ListMemberAccounts](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListMemberAccounts.html) | List MemberAccounts by AdminNotificationConfiguration | List | 
 | <a name="notifications-ListNotificationConfigurations"></a>[ListNotificationConfigurations](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationConfigurations.html) | List NotificationConfigurations | List | 
 | <a name="notifications-ListNotificationEvents"></a>[ListNotificationEvents](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html) | List NotificationEvents | List | 
 | <a name="notifications-ListNotificationHubs"></a>[ListNotificationHubs](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationHubs.html) | List NotificationHubs | List | 
-| <a name="notifications-ListOrganizationalUnits"></a>[ListOrganizationalUnits](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListOrganizationalUnits.html) | List Organizational Units for a Notification Configuration | List | 
+| <a name="notifications-ListOrganizationalUnits"></a>[ListOrganizationalUnits](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListOrganizationalUnits.html) | List Organizational Units by NotificationConfiguration | List | 
 | <a name="notifications-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListTagsForResource.html) | Get tags for a resource | List | 

@@ -25,6 +25,7 @@ AWS Security Agent provides the following APIs for data retrieval.
 | <a name="securityagent-BatchGetThreatModelJobs"></a>[BatchGetThreatModelJobs](https://docs.aws.amazon.com/securityagent/API_BatchGetThreatModelJobs.html) | Retrieve details for one or more threat model jobs | Read | 
 | <a name="securityagent-BatchGetThreatModels"></a>[BatchGetThreatModels](https://docs.aws.amazon.com/securityagent/API_BatchGetThreatModels.html) | Retrieve multiple threat models in a single request | Read | 
 | <a name="securityagent-BatchGetThreats"></a>[BatchGetThreats](https://docs.aws.amazon.com/securityagent/API_BatchGetThreats.html) | Retrieve details for one or more threats | Read | 
+| <a name="securityagent-BatchGetValidationRuns"></a>[BatchGetValidationRuns](https://docs.aws.amazon.com/securityagent/API_BatchGetValidationRuns.html) | Retrieve multiple validation runs in a single request | Read | 
 | <a name="securityagent-DescribePrivateConnection"></a>[DescribePrivateConnection](https://docs.aws.amazon.com/securityagent/API_DescribePrivateConnection.html) | Describe a private connection | Read | 
 | <a name="securityagent-GetApplication"></a>[GetApplication](https://docs.aws.amazon.com/securityagent/API_GetApplication.html) | Get application details by application ID | Read | 
 | <a name="securityagent-GetArtifact"></a>[GetArtifact](https://docs.aws.amazon.com/securityagent/API_GetArtifact.html) | Retrieve an Artifact for the given Agent Space | Read | 
@@ -43,6 +44,7 @@ AWS Security Agent provides the following APIs for data retrieval.
 | <a name="securityagent-ListCodeReviews"></a>[ListCodeReviews](https://docs.aws.amazon.com/securityagent/API_ListCodeReviews.html) | List code reviews with optional filtering by status | List | 
 | <a name="securityagent-ListDesignReviewComments"></a>[ListDesignReviewComments](https://docs.aws.amazon.com/securityagent/API_ListDesignReviewComments.html) | List design review comments | List | 
 | <a name="securityagent-ListDesignReviews"></a>[ListDesignReviews](https://docs.aws.amazon.com/securityagent/API_ListDesignReviews.html) | List all design reviews for the given agent space | List | 
+| <a name="securityagent-ListDiscoveredDomains"></a>[ListDiscoveredDomains](https://docs.aws.amazon.com/securityagent/API_ListDiscoveredDomains.html) | List discovered domains associated with a pentest | List | 
 | <a name="securityagent-ListDiscoveredEndpoints"></a>[ListDiscoveredEndpoints](https://docs.aws.amazon.com/securityagent/API_ListDiscoveredEndpoints.html) | List discovered endpoints associated with a pentest job with optional URI prefix filtering | List | 
 | <a name="securityagent-ListFindings"></a>[ListFindings](https://docs.aws.amazon.com/securityagent/API_ListFindings.html) | List findings with filtering and pagination support | List | 
 | <a name="securityagent-ListIntegratedResources"></a>[ListIntegratedResources](https://docs.aws.amazon.com/securityagent/API_ListIntegratedResources.html) | List integrated resources for an agent space | List | 

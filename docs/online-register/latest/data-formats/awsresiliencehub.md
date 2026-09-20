@@ -63,7 +63,9 @@ AWS Resilience Hub provides the following APIs for data retrieval.
 | <a name="resiliencehub-ListSystems"></a>[ListSystems](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListSystems.html) | List systems | Read | 
 | <a name="resiliencehub-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTagsForResource.html) | List tags for a resource | Read | 
 | <a name="resiliencehub-ListTestRecommendations"></a>[ListTestRecommendations](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ListTestRecommendations.html) | List test recommendations | List | 
+| <a name="resiliencehub-ListTestRunDependencies"></a>[ListTestRunDependencies](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestRunDependencies.html) | List snapshotted dependencies for a test run | Read | 
 | <a name="resiliencehub-ListTestRunEvents"></a>[ListTestRunEvents](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestRunEvents.html) | List events for a test run | Read | 
+| <a name="resiliencehub-ListTestRunSourceEvents"></a>[ListTestRunSourceEvents](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestRunSourceEvents.html) | List source events for a test run | Read | 
 | <a name="resiliencehub-ListTestRunSources"></a>[ListTestRunSources](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestRunSources.html) | List test run source snapshots | Read | 
 | <a name="resiliencehub-ListTestRuns"></a>[ListTestRuns](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestRuns.html) | List test runs for a target | Read | 
 | <a name="resiliencehub-ListTestSources"></a>[ListTestSources](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestSources.html) | List test sources on a test | Read | 
