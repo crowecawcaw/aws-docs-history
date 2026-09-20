@@ -558,8 +558,20 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**.
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>flink.inputstream.initpos</b></td><td><b>LATEST</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>AggregationEnabled</b></td><td><b>false</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -1390,8 +1402,20 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 1. Under **Properties**, for **Group ID**, enter **ProducerConfigProperties**.
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>flink.inputstream.initpos</b></td><td><b>LATEST</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>AggregationEnabled</b></td><td><b>false</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -2217,8 +2241,20 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**.
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>flink.inputstream.initpos</b></td><td><b>LATEST</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>AggregationEnabled</b></td><td><b>false</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -3033,8 +3069,20 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**.
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>flink.inputstream.initpos</b></td><td><b>LATEST</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>AggregationEnabled</b></td><td><b>false</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -4813,13 +4861,44 @@ Role: `kinesisanalytics-{{MyApplication}}-{{us-west-2}}`
 **Note**  
 When you specify application resources using the console (such as CloudWatch Logs or an Amazon VPC), the console modifies your application execution role to grant permission to access those resources.
 
-1. Under **Properties**, choose **Add Group**. Enter the following properties:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Under **Properties**, choose **Add Group**. Enter the following properties:
+
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>KafkaSource</b></td><td>topic</td><td>AWSKafkaTutorialTopic</td></tr>
+  <tr><td><b>KafkaSource</b></td><td>bootstrap.servers</td><td>{{The bootstrap server list you saved previously}}</td></tr>
+  <tr><td><b>KafkaSource</b></td><td>security.protocol</td><td>SSL</td></tr>
+  <tr><td><b>KafkaSource</b></td><td>ssl.truststore.location</td><td>/usr/lib/jvm/java-11-amazon-corretto/lib/security/cacerts</td></tr>
+  <tr><td><b>KafkaSource</b></td><td>ssl.truststore.password</td><td>changeit</td></tr>
+</tbody>
+</table>
+
 **Note**  
 The **ssl.truststore.password** for the default certificate is "changeit"; you do not need to change this value if you are using the default certificate.
 
-   Choose **Add Group** again. Enter the following properties:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+   Choose **Add Group** again. Enter the following properties:
+
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>KafkaSink</b></td><td>topic</td><td>AWSKafkaTutorialTopicDestination</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>bootstrap.servers</td><td>{{The bootstrap server list you saved previously}}</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>security.protocol</td><td>SSL</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>ssl.truststore.location</td><td>/usr/lib/jvm/java-11-amazon-corretto/lib/security/cacerts</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>ssl.truststore.password</td><td>changeit</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>transaction.timeout.ms</td><td>1000</td></tr>
+</tbody>
+</table>
+
 
    The application code reads the above application properties to configure the source and sink used to interact with your VPC and Amazon MSK cluster. For more information about using properties, see [Use runtime properties](how-properties.md).
 
@@ -5143,13 +5222,39 @@ These permissions grant the application the ability to access the EFO consumer.
 
 1. Under **Properties**, choose **Create Group**. 
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>flink.stream.recordpublisher</b></td><td><b>EFO</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>flink.stream.efo.consumername</b></td><td><b>basic-efo-flink-app</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>INPUT_STREAM</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>flink.inputstream.initpos</b></td><td><b>LATEST</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>AWS_REGION</b></td><td><b>us-west-2</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Properties**, choose **Create Group**. 
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>OUTPUT_STREAM</b></td><td><b>ExampleOutputStream</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>AWS_REGION</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>AggregationEnabled</b></td><td><b>false</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -6430,13 +6535,44 @@ Role: `kinesisanalytics-{{MyApplication}}-{{us-west-2}}`
 **Note**  
 When you specify application resources using the console (such as logs or a VPC), the console modifies your application execution role to grant permission to access those resources.
 
-1. Under **Properties**, choose **Add Group**. Enter the following properties:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Under **Properties**, choose **Add Group**. Enter the following properties:
+
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>KafkaSource</b></td><td>topic</td><td>AWSKafkaTutorialTopic</td></tr>
+  <tr><td><b>KafkaSource</b></td><td>bootstrap.servers</td><td>{{The bootstrap server list you saved previously}}</td></tr>
+  <tr><td><b>KafkaSource</b></td><td>security.protocol</td><td>SSL</td></tr>
+  <tr><td><b>KafkaSource</b></td><td>ssl.truststore.location</td><td>/usr/lib/jvm/java-11-amazon-corretto/lib/security/cacerts</td></tr>
+  <tr><td><b>KafkaSource</b></td><td>ssl.truststore.password</td><td>changeit</td></tr>
+</tbody>
+</table>
+
 **Note**  
 The **ssl.truststore.password** for the default certificate is "changeit"—you don't need to change this value if you're using the default certificate.
 
-   Choose **Add Group** again. Enter the following properties:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+   Choose **Add Group** again. Enter the following properties:
+
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>KafkaSink</b></td><td>topic</td><td>AWSKafkaTutorialTopicDestination</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>bootstrap.servers</td><td>{{The bootstrap server list you saved previously}}</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>security.protocol</td><td>SSL</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>ssl.truststore.location</td><td>/usr/lib/jvm/java-11-amazon-corretto/lib/security/cacerts</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>ssl.truststore.password</td><td>changeit</td></tr>
+  <tr><td><b>KafkaSink</b></td><td>transaction.timeout.ms</td><td>1000</td></tr>
+</tbody>
+</table>
+
 
    The application code reads the above application properties to configure the source and sink used to interact with your VPC and Amazon MSK cluster. For more information about using properties, see [Use runtime properties](how-properties.md).
 
@@ -6683,20 +6819,55 @@ Role: `kinesisanalytics-{{MyApplication}}-{{us-west-2}}`
 
 1. Under **Properties**, choose **Add group**. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>consumer.config.0</b></td><td><b>input.stream.name</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>consumer.config.0</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>consumer.config.0</b></td><td><b>scan.stream.initpos</b></td><td><b>LATEST</b></td></tr>
+</tbody>
+</table>
+
 
    Choose **Save**.
 
 1. Under **Properties**, choose **Add group** again. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>producer.config.0</b></td><td><b>output.stream.name</b></td><td><b>ExampleOutputStream</b></td></tr>
+  <tr><td><b>producer.config.0</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>producer.config.0</b></td><td><b>shard.count</b></td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Properties**, choose **Add group** again. For **Group ID**, enter **kinesis.analytics.flink.run.options**. This special property group tells your application where to find its code resources. For more information, see [Specify your code files](how-python-creating.md#how-python-creating-code).
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>kinesis.analytics.flink.run.options</b></td><td><b>python</b></td><td><b>tumbling-windows.py</b></td></tr>
+  <tr><td><b>kinesis.analytics.flink.run.options</b></td><td><b>jarfile</b></td><td><b>flink-sql-connector-kinesis-1.15.2.jar</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -7066,20 +7237,55 @@ Role: `kinesisanalytics-{{MyApplication}}-{{us-west-2}}`
 
 1. Under **Properties**, choose **Add group**. 
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>consumer.config.0</b></td><td><b>input.stream.name</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>consumer.config.0</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>consumer.config.0</b></td><td><b>scan.stream.initpos</b></td><td><b>LATEST</b></td></tr>
+</tbody>
+</table>
+
 
    Choose **Save**.
 
 1. Under **Properties**, choose **Add group** again. 
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>producer.config.0</b></td><td><b>output.stream.name</b></td><td><b>ExampleOutputStream</b></td></tr>
+  <tr><td><b>producer.config.0</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>producer.config.0</b></td><td><b>shard.count</b></td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Properties**, choose **Add group** again. For **Group ID**, enter **kinesis.analytics.flink.run.options**. This special property group tells your application where to find its code resources. For more information, see [Specify your code files](how-python-creating.md#how-python-creating-code).
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>kinesis.analytics.flink.run.options</b></td><td><b>python</b></td><td><b>sliding-windows.py</b></td></tr>
+  <tr><td><b>kinesis.analytics.flink.run.options</b></td><td><b>jarfile</b></td><td><b>flink-sql-connector-kinesis_1.15.2.jar</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -7465,20 +7671,53 @@ Role: `kinesisanalytics-{{MyApplication}}-{{us-west-2}}`
 
 1. Under **Properties**, choose **Add group**.
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>consumer.config.0</b></td><td><b>input.stream.name</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>consumer.config.0</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>consumer.config.0</b></td><td><b>scan.stream.initpos</b></td><td><b>LATEST</b></td></tr>
+</tbody>
+</table>
+
 
    Choose **Save**.
 
 1. Under **Properties**, choose **Add group** again. For **Group ID**, enter **kinesis.analytics.flink.run.options**. This special property group tells your application where to find its code resources. For more information, see [Specify your code files](how-python-creating.md#how-python-creating-code).
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>kinesis.analytics.flink.run.options</b></td><td><b>python</b></td><td><b>streaming-file-sink.py</b></td></tr>
+  <tr><td><b>kinesis.analytics.flink.run.options</b></td><td><b>jarfile</b></td><td><b>S3Sink/lib/flink-sql-connector-kinesis-1.15.2.jar</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Properties**, choose **Add group** again. For **Group ID**, enter **sink.config.0**. This special property group tells your application where to find its code resources. For more information, see [Specify your code files](how-python-creating.md#how-python-creating-code).
 
-1. Enter the following application properties and values: (replace {{bucket-name}} with the actual name of your Amazon S3 bucket.)    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following application properties and values: (replace {{bucket-name}} with the actual name of your Amazon S3 bucket.)
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>sink.config.0</b></td><td><b>output.bucket.name</b></td><td><b>{{bucket-name}}</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -7839,15 +8078,38 @@ Use the following procedure to configure the application.
 
 1. Under **Properties**, choose **Add group**. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>input.stream.name</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>flink.stream.initpos</b></td><td><b>LATEST</b></td></tr>
+</tbody>
+</table>
+
 
    Choose **Save**.
 
 1. Under **Properties**, choose **Add group** again. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>output.stream.name</b></td><td><b>ExampleOutputStream</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -8489,15 +8751,38 @@ Use the following procedure to configure the application.
 
 1. Under **Properties**, choose **Add group**. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>input.stream.name</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>flink.stream.initpos</b></td><td><b>LATEST</b></td></tr>
+</tbody>
+</table>
+
 
    Choose **Save**.
 
 1. Under **Properties**, choose **Add group** again. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>output.stream.name</b></td><td><b>ExampleOutputStream</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
@@ -9122,15 +9407,37 @@ Use the following procedure to configure the application.
 
 1. Under **Properties**, choose **Add group**. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>input.stream.name</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>flink.stream.initpos</b></td><td><b>LATEST</b></td></tr>
+</tbody>
+</table>
+
 
    Choose **Save**.
 
 1. Under **Properties**, choose **Add group**. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/earlier.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>s3.sink.path</b></td><td><b>s3a://ka-app-code-{{&lt;user-name&gt;}}/data</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 

@@ -51,8 +51,14 @@ You can either manually create the database first or you can let Managed Service
 
 1. In the **Classification** page, choose **JSON**. Choose **Next**.
 
-1. In the **Define a Schema** page, choose Add Column to add a column. Add columns with the following properties:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/example-notebook-streams.html)
+1. In the **Define a Schema** page, choose Add Column to add a column. Add columns with the following properties:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    Choose **Next**.
 
@@ -174,8 +180,14 @@ To send test data to your Kinesis data stream, do the following:
 
 1. In the **Amazon Kinesis Data Generator** page, log in with the credentials you created in step 4.
 
-1. On the next page, provide the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/example-notebook-streams.html)
+1. On the next page, provide the following values:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    For **Record Template**, paste the following code:
 

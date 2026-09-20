@@ -264,8 +264,20 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 1. Under **Access to application resources**, for **Access permissions**, choose **Create / update IAM role `kinesis-analytics-MyApplication-us-west-2`**.
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/examples-beam.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>BeamApplicationProperties</b></td><td><b>InputStreamName</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>BeamApplicationProperties</b></td><td><b>OutputStreamName</b></td><td><b>ExampleOutputStream</b></td></tr>
+  <tr><td><b>BeamApplicationProperties</b></td><td><b>AwsRegion</b></td><td><b>us-west-2</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 

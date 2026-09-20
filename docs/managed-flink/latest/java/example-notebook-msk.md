@@ -37,8 +37,14 @@ To create a NAT gateway for your Amazon VPC, do the following:
 
 1. On the **NAT Gateways** page, choose **Create NAT Gateway**.
 
-1. On the **Create NAT Gateway** page, provide the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/example-notebook-msk.html)
+1. On the **Create NAT Gateway** page, provide the following values:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    Choose **Create NAT Gateway**.
 
@@ -108,8 +114,14 @@ You can either manually create the table as described in the following steps, or
 
 1. In the **Classification** page, choose **JSON**. Choose **Next**.
 
-1. In the **Define a Schema** page, choose Add Column to add a column. Add columns with the following properties:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/example-notebook-msk.html)
+1. In the **Define a Schema** page, choose Add Column to add a column. Add columns with the following properties:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    Choose **Next**.
 

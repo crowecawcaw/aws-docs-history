@@ -542,8 +542,19 @@ Edit the application to set the application code artifact.
 
 1. In the **Runtime properties** section, add the following properties. 
 
-1. Choose **Add new item** and add each of the following parameters:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/gs-table-create.html)
+1. Choose **Add new item** and add each of the following parameters:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>bucket</code></td><td><code>name</code></td><td><b>your-bucket-name</b></td></tr>
+  <tr><td><code>bucket</code></td><td><code>path</code></td><td><code>output</code></td></tr>
+</tbody>
+</table>
+
 
 1. Don't modify any other setting.
 

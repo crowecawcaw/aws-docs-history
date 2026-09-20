@@ -605,8 +605,24 @@ Edit the application configuration to set the application code artifact.
 
 1. Move to **Runtime properties** and keep the default values for all other settings.
 
-1. Choose **Add new item** and add each of the following parameters:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/gs-python-createapp.html)
+1. Choose **Add new item** and add each of the following parameters:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>InputStream0</b></td><td><b>stream.name</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>InputStream0</b></td><td><b>flink.stream.initpos</b></td><td><b>LATEST</b></td></tr>
+  <tr><td><b>InputStream0</b></td><td><b>aws.region</b></td><td><b>us-east-1</b></td></tr>
+  <tr><td><b>OutputStream0</b></td><td><b>stream.name</b></td><td><b>ExampleOutputStream</b></td></tr>
+  <tr><td><b>OutputStream0</b></td><td><b>aws.region</b></td><td><b>us-east-1</b></td></tr>
+  <tr><td><b>kinesis.analytics.flink.run.options</b></td><td><b>python</b></td><td><b>main.py</b></td></tr>
+  <tr><td><b>kinesis.analytics.flink.run.options</b></td><td><b>jarfile</b></td><td><b>lib/pyflink-dependencies.jar</b></td></tr>
+</tbody>
+</table>
+
 
 1. Do not modify any of the other sections and choose **Save changes**.
 

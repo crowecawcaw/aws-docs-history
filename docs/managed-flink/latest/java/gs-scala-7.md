@@ -44,15 +44,38 @@ Use the following procedure to configure the application.
 
 1. Under **Properties**, choose **Add group**. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/gs-scala-7.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>input.stream.name</b></td><td><b>ExampleInputStream</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>ConsumerConfigProperties</b></td><td><b>flink.stream.initpos</b></td><td><b>LATEST</b></td></tr>
+</tbody>
+</table>
+
 
    Choose **Save**.
 
 1. Under **Properties**, choose **Add group** again. 
 
-1. Enter the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-flink/latest/java/gs-scala-7.html)
+1. Enter the following:
+
+
+<table>
+<thead>
+  <tr><th>Group ID</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>output.stream.name</b></td><td><b>ExampleOutputStream</b></td></tr>
+  <tr><td><b>ProducerConfigProperties</b></td><td><b>aws.region</b></td><td><b>us-west-2</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 
