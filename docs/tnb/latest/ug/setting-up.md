@@ -27,20 +27,6 @@ To view the list of available Regions for AWS TNB, see the [AWS Regional Service
 
 To connect programmatically to an AWS service, you use an endpoint. In addition to the standard AWS endpoints, some AWS services offer FIPS endpoints in selected Regions. For more information, see [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html).
 
-
-| Region Name | Region | Endpoint | Protocol | 
-| --- | --- | --- | --- | 
-| US East (N. Virginia) | us-east-1 |  tnb.us-east-1.amazonaws.com  | HTTPS | 
-| US West (Oregon) | us-west-2 |  tnb.us-west-2.amazonaws.com  | HTTPS | 
-| Asia Pacific (Seoul) | ap-northeast-2 |  tnb.ap-northeast-2.amazonaws.com  | HTTPS | 
-| Asia Pacific (Sydney) | ap-southeast-2 |  tnb.ap-southeast-2.amazonaws.com  | HTTPS | 
-| Canada (Central) | ca-central-1 |  tnb.ca-central-1.amazonaws.com  | HTTPS | 
-| Europe (Frankfurt) | eu-central-1 |  tnb.eu-central-1.amazonaws.com  | HTTPS | 
-| Europe (Paris) | eu-west-3 |  tnb.eu-west-3.amazonaws.com  | HTTPS | 
-| Europe (Spain) | eu-south-2 |  tnb.eu-south-2.amazonaws.com  | HTTPS | 
-| Europe (Stockholm) | eu-north-1 |  tnb.eu-north-1.amazonaws.com  | HTTPS | 
-| South America (São Paulo) | sa-east-1 |  tnb.sa-east-1.amazonaws.com  | HTTPS | 
-
 ## (Optional) Install the AWS CLI
 <a name="install-aws-cli"></a>
 
