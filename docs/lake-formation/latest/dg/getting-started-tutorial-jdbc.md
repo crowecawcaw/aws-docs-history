@@ -206,13 +206,31 @@ The AWS Lake Formation workflow generates the AWS Glue jobs, crawlers, and trigg
 **Important**  
 This field is case-sensitive.
 
-1. Under **Import target**, specify these parameters:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-tutorial-jdbc.html)
+1. Under **Import target**, specify these parameters:
+
+
+<table>
+<tbody>
+  <tr><td><b>Target database</b></td><td><code>lakeformation_tutorial</code></td></tr>
+  <tr><td><b>Target storage location</b></td><td> <code>s3://&lt;yourName&gt;-datalake-tutorial</code></td></tr>
+  <tr><td><b>Data format</b></td><td>(Choose Parquet or CSV)</td></tr>
+</tbody>
+</table>
+
 
 1. For import frequency, choose **Run on demand**.
 
-1. Under **Import options**, specify these parameters:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-tutorial-jdbc.html)
+1. Under **Import options**, specify these parameters:
+
+
+<table>
+<tbody>
+  <tr><td><b>Workflow name</b></td><td><code>lakeformationjdbctest</code></td></tr>
+  <tr><td><b>IAM role</b></td><td><code>LakeFormationWorkflowRole</code></td></tr>
+  <tr><td><b>Table prefix</b></td><td><code>jdbctest</code> Must be lower case. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create**, and wait for the console to report that the workflow was successfully created.
 **Tip**  

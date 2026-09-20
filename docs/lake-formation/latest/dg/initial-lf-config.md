@@ -83,8 +83,21 @@ If you grant a user the `AWSLakeFormationDataAdmin` policy, that user will not b
 **Note**  
 We recommend that you do not select an IAM administrative user (user with the `AdministratorAccess` AWS managed policy) to be the data lake administrator.
 
-   Attach the following AWS managed policies to the user:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/lake-formation/latest/dg/initial-lf-config.html)
+   Attach the following AWS managed policies to the user:
+
+
+<table>
+<thead>
+  <tr><th>Policies</th><th>Mandatory?</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWSLakeFormationDataAdmin</code></td><td>Mandatory</td><td>Basic data lake administrator permissions. This AWS managed policy contains an explict deny for the Lake Formation API operation, <code>PutDataLakeSetting</code> that restricts users from creating new data lake administrators.</td></tr>
+  <tr><td><code>AWSGlueConsoleFullAccess</code>, <code>CloudWatchLogsReadOnlyAccess</code></td><td>Optional</td><td>Attach these policies if the data lake administrator will be troubleshooting workflows created from Lake Formation blueprints. These policies enable the data lake administrator to view troubleshooting information in the AWS Glue console and the Amazon CloudWatch Logs console. For information about workflows, see <a href="workflows.md">Importing data using workflows in Lake Formation</a>.</td></tr>
+  <tr><td><code>AWSLakeFormationCrossAccountManager</code></td><td>Optional</td><td>Attach this policy to enable the data lake administrator to grant and revoke cross-account permissions on Data Catalog resources. For more information, see <a href="cross-account-permissions.md">Cross-account data sharing in Lake Formation</a>.</td></tr>
+  <tr><td><code>AmazonAthenaFullAccess</code></td><td>Optional</td><td>Attach this policy if the data lake administrator will be running queries in Amazon Athena.</td></tr>
+</tbody>
+</table>
+
 
 1. Attach the following inline policy, which grants the data lake administrator permission to create the Lake Formation service-linked role. A suggested name for the policy is `LakeFormationSLR`.
 
