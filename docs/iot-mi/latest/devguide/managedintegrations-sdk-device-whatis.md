@@ -4,7 +4,7 @@
 <a name="managedintegrations-sdk-device-whatis"></a>
 
 **What is the End device SDK?**  
-The End device SDK is a collection of source code, libraries, and tools provided by AWS IoT. Built for resource-constrained environments, the SDK supports devices with as little as 512 KB RAM and 4 MB flash memory, such as cameras and air purifiers running on embedded Linux and real-time operating systems (RTOS). Download the latest version of the End device SDK from the [AWS IoT Management Console](https://console.aws.amazon.com/iot).
+The End device SDK is a collection of source code, libraries, and tools provided by AWS IoT. Built for resource-constrained environments, the SDK supports devices with as little as 512 KB RAM and 4 MB flash memory, such as cameras and air purifiers running on embedded Linux and real-time operating systems (RTOS). Download the [End device SDK version 1.2.0](https://d2no7dt1utuyzo.cloudfront.net/IotMI-EndDeviceSDK/1.2.0/IoT-managed-integrations-End-Device-SDK-v1.2.0.zip).
 
 **Core components**  
 The SDK combines an MQTT agent for cloud communication, a jobs handler for task management, and a Managed Integrations, Data Model Handler. These components work together to provide secure connectivity and automated data translation between your devices and Managed Integrations.

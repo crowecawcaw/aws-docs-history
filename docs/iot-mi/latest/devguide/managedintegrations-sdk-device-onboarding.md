@@ -47,9 +47,24 @@ Review each step of the following procedure carefully to ensure proper device in
 **Note**  
 Follow [Provisionee](managedintegrations-sdk-device-provisionee.md) to get the claim certificate and private key before proceeding further.
 
-    Modify the configuration file `example/project_name/device_config.sh` with the following provisioning parameters:  
-**Provisioning parameters**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-mi/latest/devguide/managedintegrations-sdk-device-onboarding.html)
+    Modify the configuration file `example/project_name/device_config.sh` with the following provisioning parameters:
+
+
+**Provisioning parameters**  
+
+<table>
+<thead>
+  <tr><th>Macro parameters</th><th>Description</th><th>How to obtain this information</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>IOTMI_ROOT_CA_PATH</code></td><td>The root CA certificate file.</td><td>You can download this file from the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-dc-prepare-device-test.html#iot-dc-prepare-device-test-step3">Download the Amazon Root CA certificate</a> section in the <i>AWS IoT Core developer guide</i>.</td></tr>
+  <tr><td><code>IOTMI_CLAIM_CERTIFICATE_PATH</code></td><td>The path to the claim certificate file.</td><td rowspan="2">To obtain the claim certificate and private key, create a provisioning profile using the <a href="https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_CreateProvisioningProfile.html">CreateProvisioningProfile</a> API. For instructions, see <a href="managedintegrations-sdk-device-provisionee.md#sdk-provisionee-template-create">Create a provisioning profile</a>.</td></tr>
+  <tr><td><code>IOTMI_CLAIM_PRIVATE_KEY_PATH</code></td><td>The path to the claim private key file.</td></tr>
+  <tr><td><code>IOTMI_MANAGEDINTEGRATIONS_ENDPOINT</code></td><td>Endpoint URL for Managed Integrations.</td><td>To obtain the Managed Integrations endpoint, use the <a href="https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_RegisterCustomEndpoint.html">RegisterCustomEndpoint</a> API. For instructions, see <a href="managedintegrations-sdk-device-provisionee.md#sdk-provisionee-endpoint-create">Register a custom endpoint</a>.</td></tr>
+  <tr><td>IOTMI_MANAGEDINTEGRATIONS_ENDPOINT_PORT</td><td>The port number for the Managed Integrations endpoint</td><td>By default, the port 8883 is used for MQTT publish and subscribe operations. Port 443 is set for Application Layer Protocol Negotiation (ALPN) TLS extension that devices use.</td></tr>
+</tbody>
+</table>
+
 
 1. <a name="managedintegrations-sdk-device-onboarding-builddemo"></a>
 
@@ -169,9 +184,29 @@ Follow [Provisionee](managedintegrations-sdk-device-provisionee.md) to get the c
       >./examples/iotmi_device_dm_air_purifier/iotmi_device_dm_air_purifier_demo
       ```
 
-      This demo implements low-level C-Functions for a simulated air purifier with 2 endpoints and the following supported clusters:  
-**Supported clusters for air purifier endpoint**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-mi/latest/devguide/managedintegrations-sdk-device-onboarding.html)
+      This demo implements low-level C-Functions for a simulated air purifier with 2 endpoints and the following supported clusters:
+
+
+**Supported clusters for air purifier endpoint**  
+
+<table>
+<thead>
+  <tr><th>Endpoint</th><th>Clusters</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="4">Endpoint #1: Air Purifier</td><td>OnOff</td></tr>
+  <tr><td>Fan Control</td></tr>
+  <tr><td>HEPA Filter Monitoring</td></tr>
+  <tr><td>Activated Carbon Filter Monitoring</td></tr>
+  <tr><td rowspan="6">Endpoint #2: Air Quality Sensor</td><td>Air Quality</td></tr>
+  <tr><td>Carbon Dioxide Concentration Measurement</td></tr>
+  <tr><td>Formaldehyde Concentration Measurement</td></tr>
+  <tr><td>Pm25 Concentration Measurement </td></tr>
+  <tr><td>Pm1 Concentration Measurement</td></tr>
+  <tr><td>Total Volatile Organic Compounds Concentration Measurement</td></tr>
+</tbody>
+</table>
+
 
       The output is similar to the camera demo application, with different supported clusters.
 
