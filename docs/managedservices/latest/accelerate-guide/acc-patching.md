@@ -44,7 +44,9 @@ Accelerate Patch Add-On is a feature that provides tag-based patching for AMS in
 <a name="patch-recos-responsibilities"></a>
 
 The patching process for persistent instances should involve the following teams and actions:
-+ **The application (DevOps) teams** define the patch groups for their servers based on application environment, OS type, or other criteria. They also define the maintenance windows specific to each patch group. This information should be stored on tags attached to the instances. Recommended tag names are 'Patch Group' and 'Maintenance Window'. During each patch cycle, the application teams prepare for patching, test the application after patching, and troubleshoot any issues with their applications and OS during patching.
++ **The application (DevOps) teams** define the patch groups for their servers based on application environment, OS type, or other criteria. They also define the maintenance windows specific to each patch group. This information should be stored on tags attached to the instances. Recommended tag names are `PatchGroup` and `MaintenanceWindow`. During each patch cycle, the application teams prepare for patching, test the application after patching, and troubleshoot any issues with their applications and OS during patching.
+**Note**  
+Don't use spaces or other whitespace in a tag key. If you enable Instance Metadata Service (IMDS) tags on an instance, a tag key that contains whitespace fails validation. The instance then drops the tag and misses its scheduled patch events.
 + **The security operations team** defines the patch baselines for various OS types that are used by the application teams, and make the patches available through Systems Manager Patch Manager.
 + **The automated patching solution** runs on a regular basis and deploys the patches defined in the patch baselines, based on the user-defined patch groups and maintenance windows.
 + **The governance and compliance teams** define patching guidelines and exception processes & mechanisms.
