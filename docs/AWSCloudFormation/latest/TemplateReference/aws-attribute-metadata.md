@@ -56,7 +56,7 @@ The following template contains an Amazon S3 bucket resource with a `Metadata` a
 
 The `Metadata Context` schema defines an optional structured convention for preserving design intent and operational context in a CloudFormation template. Add a `com.aws.cloudformation.Context` object to the template-level `Metadata` section to record architecture and cross-cutting constraints. At the resource level, add the object to a resource's `Metadata` attribute to record its rationale, invariants, change-safety guidance, provenance, and operational details. Tools and AI agents can retrieve this context with the template to make safer changes across sessions. Use the template's `Description` field for the stack's purpose.
 
-To have an AI agent retrieve and preserve context when it authors or updates a template, use the [CloudFormation authoring skill](https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/core-skills/aws-cloudformation/SKILL.md) in the Agent Toolkit for AWS.
+To have an AI agent retrieve and preserve context when it authors or updates a template, use the [CloudFormation authoring skill](https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/core-skills/aws-cloudformation/SKILL.md) on GitHub. The skill is part of the Agent Toolkit for AWS.
 
 ### Example template
 <a name="aws-attribute-metadata-context-example"></a>
