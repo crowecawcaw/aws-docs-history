@@ -44,8 +44,19 @@ Identify block devices, their sizes, and associated volume IDs in order to assig
 
 1.  **Record the Volume Associations** 
 
-   Document the volume requirements and assignments in a structured format. This table will help ensure the correct commands for setting up the volumes.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-hana/configure-storage-for-sap-hana.html)
+   Document the volume requirements and assignments in a structured format. This table will help ensure the correct commands for setting up the volumes.
+
+
+<table>
+<tbody>
+  <tr><td>Purpose</td><td>Volume Size</td><td>Volume Count</td><td>Striping Required</td><td>Devices(s)</td><td>Volume(s)</td></tr>
+  <tr><td>HANA Data</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>HANA Log</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>HANA Shared</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>Other</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
 
 1.  **Review or Assign Tags (optional)** 
 

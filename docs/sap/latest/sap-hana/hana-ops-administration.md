@@ -174,9 +174,9 @@ To ensure security that applies the principle of least privilege, permissions fo
       "Action":["s3:GetObject","s3:PutObject","s3:DeleteObject",
 "s3:ListBucket","s3:Get*","s3:List*"], "Effect":"Allow"},
 
-{"Resource":"*","Action":["s3:List*","ec2:Describe*","ec2:Attach NetworkInterface",
+{"Resource":"*","Action":["s3:List*","ec2:Describe*","ec2:AttachNetworkInterface",
 
-"ec2:AttachVolume","ec2:CreateTags","ec2:CreateVolume","ec2:RunI nstances",
+"ec2:AttachVolume","ec2:CreateTags","ec2:CreateVolume","ec2:RunInstances",
    "ec2:StartInstances"],"Effect":"Allow"}]}
 ```
 

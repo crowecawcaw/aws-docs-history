@@ -383,11 +383,39 @@ To use a different Amazon S3 bucket and folder for the data and log backups, fol
 
    The backup catalog is assigned a name in the following format: `log_backup_0_0_0_0.<BackupID>`. This type of backup is managed by a different SAP HANA parameter, has a source type `catalog`, and should remain in the data backup location. This file contains the backup catalog file that stores the history of all backups. Only the log backups with source type `volume` should be moved to the new Amazon S3 location. To change the Amazon S3 location for catalog backup, see [Configure SAP HANA to use a different Amazon S3 bucket and folder for catalog backup](#configure-sap-hana-to-use-different-amazon-s3-bucket-and-folder-for-catalog-backup).
 
-   The following table provides an example of a SYSTEM DB folder structure:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-hana/aws-backint-agent-s3-installing-configuring.html)
+   The following table provides an example of a SYSTEM DB folder structure:
 
-   The following table provides an example of a TENANT DB folder structure:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-hana/aws-backint-agent-s3-installing-configuring.html)
+
+<table>
+<thead>
+  <tr><th>Backup folder</th><th>Descriptions</th></tr>
+</thead>
+<tbody>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_0_1/</td><td>Nameserver data backup with the source type "topology"</td></tr>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_1_1/</td><td>Nameserver data backup with the source type "volume"</td></tr>
+  <tr><td>log_backup_0_0_0_0/</td><td>Log file with source type "catalog"</td></tr>
+  <tr><td>log_backup_1_0_&lt;backup ID&gt;_&lt;backup ID&gt;</td><td>Log file with source type "volume"</td></tr>
+</tbody>
+</table>
+
+
+   The following table provides an example of a TENANT DB folder structure:
+
+
+<table>
+<thead>
+  <tr><th>Backup folder</th><th>Descriptions</th></tr>
+</thead>
+<tbody>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_0_1/</td><td>Indexserver data backup with the source type "topology"</td></tr>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_2_1/</td><td>Indexserver data backup with the source type "volume"</td></tr>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_3_1/</td><td>Xsengine data backup with the source type "volume"</td></tr>
+  <tr><td>log_backup_0_0_0_0/</td><td>Log file with source type "catalog"</td></tr>
+  <tr><td>log_backup_2_0_&lt;backup ID&gt;_&lt;backup ID&gt;</td><td>Log file with source type "volume"</td></tr>
+  <tr><td>log_backup_3_0_&lt;backup ID&gt;_&lt;backup ID&gt;</td><td>Log file with source type "volume"</td></tr>
+</tbody>
+</table>
+
 **Note**  
 Before doing steps a and b, ensure that there is no backup process running.
 
@@ -512,11 +540,39 @@ To use a different Amazon S3 bucket and folder for catalog backup, follow these 
 
    The backup catalog is assigned a name in the following format: `log_backup_0_0_0_0.<BackupID>`. This type of backup has a source type `catalog`. This file contains the backup catalog file that stores the history of all backups. Only the catalog backups with source type `catalog` should be moved to the new Amazon S3 location. To change the Amazon S3 location for log backup, see [Configure SAP HANA to use a different Amazon S3 bucket and folder for data and log backup](#configure-sap-hana-to-use-different-amazon-s3-bucket-and-folder-for-data-and-log-backup).
 
-   The following table provides an example of a SYSTEM DB folder structure:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-hana/aws-backint-agent-s3-installing-configuring.html)
+   The following table provides an example of a SYSTEM DB folder structure:
 
-   The following table is an example of a TENANT DB folder structure:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-hana/aws-backint-agent-s3-installing-configuring.html)
+
+<table>
+<thead>
+  <tr><th>Backup folder</th><th>Descriptions</th></tr>
+</thead>
+<tbody>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_0_1/</td><td>Nameserver data backup with the source type "topology"</td></tr>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_1_1/</td><td>Nameserver data backup with the source type "volume"</td></tr>
+  <tr><td>log_backup_0_0_0_0/</td><td>Log file with source type "catalog"</td></tr>
+  <tr><td>log_backup_1_0_&lt;backup ID&gt;_&lt;backup ID&gt;</td><td>Log file with source type "volume"</td></tr>
+</tbody>
+</table>
+
+
+   The following table is an example of a TENANT DB folder structure:
+
+
+<table>
+<thead>
+  <tr><th>Backup folder</th><th>Descriptions</th></tr>
+</thead>
+<tbody>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_0_1/</td><td>Indexserver data backup with the source type "topology"</td></tr>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_2_1/</td><td>Indexserver data backup with the source type "volume"</td></tr>
+  <tr><td>COMPLETE_DATA_BACKUP_databackup_3_1/</td><td>Xsengine data backup with the source type "volume"</td></tr>
+  <tr><td>log_backup_0_0_0_0/</td><td>Log file with source type "catalog"</td></tr>
+  <tr><td>log_backup_2_0_&lt;backup ID&gt;_&lt;backup ID&gt;</td><td>Log file with source type "volume"</td></tr>
+  <tr><td>log_backup_3_0_&lt;backup ID&gt;_&lt;backup ID&gt;</td><td>Log file with source type "volume"</td></tr>
+</tbody>
+</table>
+
 **Note**  
 Before doing steps a and b, ensure that there is no backup process running.
 
