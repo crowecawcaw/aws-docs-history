@@ -11,8 +11,18 @@ This topic demonstrates how to use AWS RAM to share S3 on Outposts and related r
 <a name="outposts-ram-prereqs"></a>
 + The Outpost owner account has an organization configured in AWS Organizations. For more information, see [ Creating an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_create.html) in the *AWS Organizations User Guide*.
 + The organization includes the AWS account that you want to share your S3 on Outposts capacity with. For more information, see [ Sending invitations to AWS accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html#orgs_manage_accounts_invite-account) in the *AWS Organizations User Guide*.
-+ Select one of the following options that you want to share. The second resource (either **Subnets** or **Outposts**) must be selected so that endpoints are also accessible. Endpoints are a networking requirement in order to access data stored in S3 on Outposts.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/outposts-sharing-with-ram.html)
++ Select one of the following options that you want to share. The second resource (either **Subnets** or **Outposts**) must be selected so that endpoints are also accessible. Endpoints are a networking requirement in order to access data stored in S3 on Outposts.
+
+
+<table>
+<thead>
+  <tr><th><b>Option 1</b></th><th><b>Option 2</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>S3 on Outposts </b><br />Allows the user to create buckets on your Outposts and access points and to add objects to those buckets. <br /><b>Subnets</b><br />Allows the user to use your virtual private cloud (VPC) and the endpoints that are associated with your subnet. </td><td><b>S3 on Outposts </b><br />Allows the user to create buckets on your Outposts and access points and to add objects to those buckets. <br /><b>Outposts</b><br />Allows the user to see S3 capacity charts and the AWS Outposts console home page. Also allows users to create subnets on shared Outposts and create endpoints.</td></tr>
+</tbody>
+</table>
+
 
 ## Procedure
 <a name="outposts-ram-procedure"></a>
@@ -25,8 +35,18 @@ This topic demonstrates how to use AWS RAM to share S3 on Outposts and related r
 
    For more information about how to create a resource share, see [ Create a resource share](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-create) in the *AWS RAM User Guide*. 
 
-1. The AWS account that you shared your resources with should now be able to use S3 on Outposts. Depending on the option that you selected in the [prerequisites](#outposts-ram-prereqs), provide the following information to the account user:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/outposts-sharing-with-ram.html)
+1. The AWS account that you shared your resources with should now be able to use S3 on Outposts. Depending on the option that you selected in the [prerequisites](#outposts-ram-prereqs), provide the following information to the account user:
+
+
+<table>
+<thead>
+  <tr><th><b>Option 1</b></th><th><b>Option 2</b></th></tr>
+</thead>
+<tbody>
+  <tr><td>The Outpost ID<br />The VPC ID<br />The subnet ID<br />The security group ID</td><td>The Outpost ID </td></tr>
+</tbody>
+</table>
+
 
 **Note**  
 The user can confirm that the resources have been shared with them by using the AWS RAM console, the AWS Command Line Interface (AWS CLI), AWS SDKs, or REST API. The user can view their existing resource shares by using the [get-resource-shares](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ram/get-resource-shares.html) CLI command. 
