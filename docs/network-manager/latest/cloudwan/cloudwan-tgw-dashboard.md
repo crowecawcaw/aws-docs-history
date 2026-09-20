@@ -34,8 +34,22 @@ The **Overview** page displays details about your transit gateways, their VPN, t
 
 1. On the **Overview** page, you can view the following sections:
    + The **Transit Gateway** details section displays the transit gateway **ID**, **Name**, **Region**, and **State**. Choose a different transit gateway to view those details.
-   + The **Attachments** section shows the number of each resource attached to the transit gateway. The following legend describes the attachments:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-tgw-dashboard.html)
+   + The **Attachments** section shows the number of each resource attached to the transit gateway. The following legend describes the attachments: 
+
+
+<table>
+<thead>
+  <tr><th>Icon</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-tgws-vpc.png" alt="The icon for VPCs." /> </td><td><b>VPC</b>The total number of VPCs attached to your transit gateway. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-tgws-vpn.png" alt="The icon for VPN connections." /> </td><td><b>VPN</b>The total number of VPNs attached to your transit gateway. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-tgws-direct.png" alt="The icon for Direct Connect Gateways." /> </td><td><b>Direct Connect Gateways</b>The total number of Direct Connect Gateways attached to your transit gateway. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-tgws-connect.png" alt="The icon for Connect attachments." /> </td><td><b>Connect</b>The total number of Connect attachments on your transit gateway. </td></tr>
+  <tr><td> <img src="https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-tgw.png" alt="The icon for transit gateways." /> </td><td><b>Transit Gateway</b>The total number of transit gateways. </td></tr>
+</tbody>
+</table>
+
    + The **VPNs** section displays the VPN **ID**, **Device**, **Link**, **VPN status**, and **Tunnel status**.
    + The **Connect peers** section displays the Connect peer **ID**, **Device**, **Link**, **Status**, and **BGP status**.
    + The **Network events summary** displays events and the number of core network attachments per edge, shown as a stacked column chart. 

@@ -18,7 +18,7 @@ The following AWS Cloud WAN general quotas apply.
 | Global networks per AWS account | 5 | [Yes](https://us-east-1.console.aws.amazon.com/servicequotas/home/services/networkmanager/quotas/L-2418390E) | 
 | Core networks per global network | 1 | No | 
 | Edges per Region per core network | 1 | No | 
-| Segments per core network | 40 | No | 
+| Segments per core network | 40 | Contact your Solutions Architect (SA) or Technical Account Manager (TAM) for further assistance. | 
 | Retention duration (in seconds) for core network policies with out-of-date change sets | 7776000 | [Yes](https://us-east-1.console.aws.amazon.com/servicequotas/home/services/networkmanager/quotas/L-9C5C59A1) | 
 | Number of policy versions per core network | 10,000 | [Yes](https://us-east-1.console.aws.amazon.com/servicequotas/home/services/networkmanager/quotas/L-3DE56F60) | 
 | Size of a core network policy | 1 MB | No | 
