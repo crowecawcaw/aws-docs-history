@@ -3,7 +3,7 @@
 # Real-time analysis using the API
 <a name="using-api-sync"></a>
 
-The following examples demonstrate how to use Amazon Comprehend API for real-time analysis, using the AWS CLI, and the AWS SDKs for .NET, Java, and Python. Use the examples to learn about the Amazon Comprehend synchronous operations and as building blocks for your own applications.
+The following examples demonstrate how to use Amazon Comprehend API for real-time analysis, using the AWS CLI, and the AWS SDK for .NET, AWS SDK for Java, and AWS SDK for Python (Boto3). Use the examples to learn about the Amazon Comprehend synchronous operations and as building blocks for your own applications.
 
 The .NET examples in this section use the [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/welcome.html). You can use the [AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/welcome.html) to develop AWS applications using .NET. It includes helpful templates and the AWS Explorer for deploying applications and managing services. For a .NET developer perspective of AWS, see the [AWS guide for .NET developers](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/welcome.html). 
 

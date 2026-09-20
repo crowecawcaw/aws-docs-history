@@ -13,7 +13,7 @@ To achieve the highest level of accuracy in training a model, match the type of 
 
 **Topics**
 + [Using the AWS Command Line Interface](#get-started-api-customclass-cli)
-+ [Using the AWS SDK for Java or SDK for Python](#get-started-api-customclass-java)
++ [Using the AWS SDK for Java or AWS SDK for Python (Boto3)](#get-started-api-customclass-java)
 
 ## Using the AWS Command Line Interface
 <a name="get-started-api-customclass-cli"></a>
@@ -48,7 +48,7 @@ aws comprehend list-document-classification-jobs
      --region {{region}}
 ```
 
-## Using the AWS SDK for Java or SDK for Python
+## Using the AWS SDK for Java or AWS SDK for Python (Boto3)
 <a name="get-started-api-customclass-java"></a>
 
 For SDK examples of how to start a custom classifier job, see [Use `StartDocumentClassificationJob` with an AWS SDK or CLI](example_comprehend_StartDocumentClassificationJob_section.md).

@@ -41,7 +41,7 @@ For Amazon Comprehend examples that use Java, see [Amazon Comprehend Java exampl
 
 This example creates a custom entity recognizer, trains the model, and then runs it in an entity recognizer job using the AWS SDK for Python (Boto3).
 
-Instantiate the SDK for Python. 
+Instantiate the SDK for Python (Boto3). 
 
 ```
 import boto3

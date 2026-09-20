@@ -9,7 +9,7 @@ You can monitor the progress of the request using the [DescribeDocumentClassifie
 
 **Topics**
 + [Training custom classification using the AWS Command Line Interface](#get-started-api-customclass-cli)
-+ [Using the AWS SDK for Java or SDK for Python](#get-started-api-customclass-java)
++ [Using the AWS SDK for Java or AWS SDK for Python (Boto3)](#get-started-api-customclass-java)
 
 ## Training custom classification using the AWS Command Line Interface
 <a name="get-started-api-customclass-cli"></a>
@@ -75,7 +75,7 @@ aws comprehend list-document-classifiers
      --region {{region}}
 ```
 
-## Using the AWS SDK for Java or SDK for Python
+## Using the AWS SDK for Java or AWS SDK for Python (Boto3)
 <a name="get-started-api-customclass-java"></a>
 
 For SDK examples of how to create and train a custom classifier , see [Use `CreateDocumentClassifier` with an AWS SDK or CLI](example_comprehend_CreateDocumentClassifier_section.md).

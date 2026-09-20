@@ -208,8 +208,20 @@ You can use Amazon Comprehend in the AWS Management Console.
 
    1. For **Policy name**, enter a name that will help you recognize the policy after you create it.
 
-   1. Under **Authorize**, specify one or more of the following entities to authorize them to import your model:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/comprehend/latest/dg/custom-copy-sharing.html)
+   1. Under **Authorize**, specify one or more of the following entities to authorize them to import your model:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Definition and examples</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Service principals</b></td><td>Service principal identifiers for the services that can access this model version. For example: <br /><b>comprehend.amazonaws.com</b></td></tr>
+  <tr><td><b>AWS account IDs</b></td><td>AWS accounts that can access this model version. Authorizes all users who belong to the account. For example:<br /><b>111122223333</b>, <b>123456789012</b></td></tr>
+  <tr><td><b>IAM entities</b></td><td>ARNs for users or roles that can access this model version. For example: <br /><b>arn:aws:iam::111122223333:user/ExampleUser, arn:aws:iam::444455556666:role/ExampleRole</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Share**, you can copy the ARN of the model version to help you share it with the person who will import your model. When someone imports a custom model from a different AWS account, the model version ARN is required.
 
