@@ -40,8 +40,21 @@ The Blusam lock manager uses Amazon ElastiCache (Redis OSS) to provide shared lo
 
 1. Enter your password.
 
-1. Enter the command you want to run, as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/m2/latest/userguide/ba-blusam-timeout.html)
+1. Enter the command you want to run, as follows:
+
+
+<table>
+<thead>
+  <tr><th>Command</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>KEYS *</code></td><td>Get all existing keys.</td></tr>
+  <tr><td>KEYS *{{YOUR_DATASET_NAME}}</td><td>Get a dataset lock key.</td></tr>
+  <tr><td>DEL {{THE_RETURNED_KEY}}</td><td>Delete a dataset lock.</td></tr>
+  <tr><td>FLUSHDB</td><td>Clean the entire Redis. All data in the Redis cache will be lost. If the Redis is used for other purposes, such as handling http sessions, you might not want to use <code>FLUSHDB</code>. </td></tr>
+</tbody>
+</table>
+
 
 ## Configure the Blusam auto repairing mechanism
 <a name="ba-blusam-timeout-auto-repair"></a>
