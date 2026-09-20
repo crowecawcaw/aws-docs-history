@@ -22,8 +22,23 @@ Do this from each Elemental node.
 1. Boot up or reboot the system. The installer automatically starta.  
 ![](https://docs.aws.amazon.com/elemental-statmux/latest/upgradeguide/images/install-installer-shared-png.png)
 
-1. Use the arrow keys to select each option and do the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-statmux/latest/upgradeguide/clean-install-sm-upg-install.html)
+1. Use the arrow keys to select each option and do the following:
+
+
+
+<table>
+<thead>
+  <tr><th>Menu Option</th><th>Instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Set Hostname</code></td><td>Change the hostname to a useful name such as <b>statmux-01</b> or <b>statmux-chicago-01</b>.<br />Do not use localhost as the hostname!<br />Do not use periods or underscores in the hostname</td></tr>
+  <tr><td><code>Disk layout: Auto-detect</code></td><td>Leave this set at Auto-detect.</td></tr>
+  <tr><td><code>Set Key</code></td><td>Press the down arrow to skip this option.</td></tr>
+  <tr><td><code>Upgrade</code></td><td>Choose <b>No</b>. Choosing <b>No</b> deletes all data from the hardware unit. Never choose <b>Yes</b> when doing a new install.</td></tr>
+  <tr><td><code>Install and configure base operating system</code></td><td>Press <b>Enter</b> to begin the OS installation.</td></tr>
+</tbody>
+</table>
+
 
    The operating system is installed. From now on, the system runs this customized version of your Linux operating system.
 

@@ -10,8 +10,25 @@ This is version 2.20 of the AWS Elemental Statmux documentation. This is the lat
 
 During the kickstart part of a clean install, all the files on the node are permanently deleted. Therefore, you must first copy important files to another location. These files appear in the list in the table below.
 
-1. Locate the following files on the node, in the /home/elemental directory:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-statmux/latest/upgradeguide/clean-install-sm-upg-ready.html)
+1. Locate the following files on the node, in the /home/elemental directory:
+
+
+
+<table>
+<thead>
+  <tr><th>File</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>elemental_production_statmuxn.n.n.nnnnn.run</code><br />where n.n.n.nnnnn is the version you want to downgrade to, for example 2.51.12345</td><td>The installer for the version that you are downgrading to.</td></tr>
+  <tr><td><code>database_backups/elemental-db-backup_statmux_n.n.n.nnnnn_yyyy-mm-dd_hh-mm-ss.tar</code></td><td>The database backup that was automatically created when you upgraded from this version, in a compressed, aggregated format.</td></tr>
+  <tr><td><code>activation_xxxx-&lt;random characters&gt;.key </code></td><td>The activation key for your license, present only if you installed software yourself.</td></tr>
+  <tr><td><code>lic-download-&lt;hostname&gt;.tgz</code></td><td>Aggregated, compressed file with all your license files. You will either have this file, or a set of individual <code>.lic</code> files.</td></tr>
+  <tr><td><code>eme.lic</code></td><td>A license for AWS Elemental Statmux.</td></tr>
+  <tr><td><code>ui.lic</code></td><td>A license for AWS Elemental Statmux.</td></tr>
+  <tr><td><code>cable.lic</code></td><td>The license for the Cable Labs option, if installed.</td></tr>
+</tbody>
+</table>
+
 
 1. Copy these files to a directory on another system, using the protocol compatible with your equipment. For example:
    + Use Windows Share protocol: Connect to` \\<node IP>\elemental` on a PC.
