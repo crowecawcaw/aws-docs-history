@@ -13,7 +13,19 @@ When your File Gateway starts, it checks its virtual CPU cores, root volume size
 
 1. From the **AWS Appliance Activation - Configuration** main menu, enter the corresponding numeral to select **View System Resource Check**.
 
-   The gateway local console displays **[OK**], **[WARNING]**, or **[FAIL]** to indicate the status of the resource as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/filegateway/latest/filefsxw/EC2_system-resource-check-fgw.html)
+   The gateway local console displays **[OK**], **[WARNING]**, or **[FAIL]** to indicate the status of the resource as follows:
+
+
+<table>
+<thead>
+  <tr><th>Message</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>[OK]</b></td><td>The resource has passed the system resource check.</td></tr>
+  <tr><td><b>[WARNING]</b></td><td>The resource does not meet the recommended requirements, but your gateway can continue to function. The gateway local console displays a message that describes the results of the resource check.</td></tr>
+  <tr><td><b>[FAIL]</b></td><td>The resource does not meet the minimum requirements. Your gateway might not function properly. The gateway local console displays a message that describes the results of the resource check.</td></tr>
+</tbody>
+</table>
+
 
    The local console also displays the number of errors and warnings next to the resource check menu option.
