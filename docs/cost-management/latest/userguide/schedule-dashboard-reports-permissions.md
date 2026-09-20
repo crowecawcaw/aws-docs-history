@@ -37,10 +37,12 @@ When you create a scheduled report, you must provide an IAM execution role that 
         "ce:GetReservationCoverage",
         "ce:GetSavingsPlansUtilization",
         "ce:GetSavingsPlansUtilizationDetails",
+        "ce:GetAnomalies",
+        "ce:GetAnomalyMonitors",
         "budgets:ViewBudget",
         "budgets:DescribeBudgetActionsForAccount",
-        "cost-optimization-hub:ListEfficiencyMetrics",
-        "billing:ListBillingViews"
+        "billing:ListBillingViews",
+        "cost-optimization-hub:ListEfficiencyMetrics"
       ],
       "Resource": "*"
     }

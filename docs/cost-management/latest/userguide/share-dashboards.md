@@ -37,5 +37,5 @@ When you share a dashboard, new resource shares are automatically created in AWS
 **Note**  
 If sharing outside your organization, recipients must accept the share invitation in AWS RAM. Recipients should navigate to **Resource shares** under **Shared with me** in the AWS RAM console, ensuring they are in the same Region where the share was created. After selecting and accepting the invitation in **Resource shares**, the shared dashboard will appear in the recipient's Billing and Cost Management console under **Dashboards**. If the invitation is not immediately visible, recipients should verify they are using the correct AWS account and Region.
 To view or edit shared dashboards, users in recipient accounts must have appropriate IAM permissions (for example, `ListDashboards`, `GetDashboard`).
-To see data in shared dashboards, users must also have permissions to the underlying APIs that provide that data (for example, `GetCostAndUsage`).
+To see data in shared dashboards, users must also have permissions to the underlying APIs that provide that data (for example, `GetCostAndUsage` or `GetAnomalies`).
 You can revoke access to shared dashboards at any time.

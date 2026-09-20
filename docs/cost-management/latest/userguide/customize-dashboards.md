@@ -14,3 +14,6 @@ The Budget report widget displays data in table format only. Visualization type 
 
 **Note**  
 The Cost Efficiency widget supports only line chart and table visualization types. In line chart view, the widget shows your efficiency score percentage over time. In table view, it shows cost efficiency percentage grouped by your selected dimension (AWS account, region, or overall).
+
+**Note**  
+The Detected Anomalies widget displays data in table format only. Visualization type options (line chart, bar chart, stacked bar chart) do not apply to Detected Anomalies widgets.

@@ -3,7 +3,7 @@
 # Getting started with dashboards
 <a name="dashboards-getting-started"></a>
 
-AWS Billing and Cost Management Dashboards are collections of widgets that visualize your cost and usage data. Each dashboard can contain up to 20 widgets, which can show costs, usage, and savings plans and reserved instances coverage and utilization, budgets data, and cost efficiency metrics. One of the powerful features of dashboards is that they can be shared within or outside your organization, allowing for collaborative cost management.
+AWS Billing and Cost Management Dashboards are collections of widgets that visualize your cost and usage data. Each dashboard can contain up to 20 widgets, which can show costs, usage, and savings plans and reserved instances coverage and utilization, budgets data, cost efficiency metrics, and detected cost anomalies. One of the powerful features of dashboards is that they can be shared within or outside your organization, allowing for collaborative cost management.
 
 ## Prerequisites
 <a name="dashboards-prerequisites"></a>
@@ -91,7 +91,7 @@ When working with dashboards, users need permissions to access the dashboard res
 **Note**  
 To schedule email delivery of dashboard reports, you also need the following permissions:  
 `iam:PassRole` – Required for passing the IAM execution role to the API.
-`bcm-dashboards:GetDashboard`, `ce:GetDimensionValues`, `ce:GetCostAndUsageWithResources`, `ce:GetCostAndUsage`, `ce:GetCostForecast`, `ce:GetTags`, `ce:GetUsageForecast`, `ce:GetCostCategories`, `ce:GetSavingsPlansCoverage`, `ce:GetReservationUtilization`, `ce:GetReservationCoverage`, `ce:GetSavingsPlansUtilization`, `ce:GetSavingsPlansUtilizationDetails`, `budgets:ViewBudget`, `budgets:DescribeBudgetActionsForAccount`, `cost-optimization-hub:ListEfficiencyMetrics`, `billing:ListBillingViews` – Required for the execution role to retrieve dashboard and cost data. For more information, see [Execution role permissions for scheduled reports](https://docs.aws.amazon.com/cost-management/latest/userguide/schedule-dashboard-reports.html#schedule-dashboard-reports-permissions).
+`bcm-dashboards:GetDashboard`, `ce:GetDimensionValues`, `ce:GetCostAndUsageWithResources`, `ce:GetCostAndUsage`, `ce:GetCostForecast`, `ce:GetTags`, `ce:GetUsageForecast`, `ce:GetCostCategories`, `ce:GetSavingsPlansCoverage`, `ce:GetReservationUtilization`, `ce:GetReservationCoverage`, `ce:GetSavingsPlansUtilization`, `ce:GetSavingsPlansUtilizationDetails`, `ce:GetAnomalyMonitors`, `ce:GetAnomalies`, `budgets:ViewBudget`, `budgets:DescribeBudgetActionsForAccount`, `cost-optimization-hub:ListEfficiencyMetrics`, `billing:ListBillingViews` – Required for the execution role to retrieve dashboard and cost data. For more information, see [Execution role permissions for scheduled reports](https://docs.aws.amazon.com/cost-management/latest/userguide/schedule-dashboard-reports.html#schedule-dashboard-reports-permissions).
 
 **Note**  
 Viewing AWS Managed Dashboards requires `ListDashboards` and `GetDashboard` permissions. If you attempt write operations (`UpdateDashboard`, `DeleteDashboard`) on a Managed Dashboard, the API returns a `AccessDeniedException`.

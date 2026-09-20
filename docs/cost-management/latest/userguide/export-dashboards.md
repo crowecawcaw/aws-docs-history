@@ -52,6 +52,9 @@ Preview the PDF again to verify all important data is now included
 **Note**  
 When exporting a dashboard that contains AWS Budgets report widgets, the PDF includes the budget name, budgeted amount, actual spend, and forecasted amount columns.
 
+**Note**  
+When exporting a dashboard that contains a Detected Anomalies widget, the PDF includes the monitor name, top root cause, cost impact, and last detected columns, along with the summary of anomalies detected and their total cost impact.
+
 **To export widget data as CSV**
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).

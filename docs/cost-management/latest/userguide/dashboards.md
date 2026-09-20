@@ -3,12 +3,13 @@
 # Visualizing and analyzing cost and usage data using Dashboards
 <a name="dashboards"></a>
 
-AWS Billing and Cost Management Dashboards enable you to create and share customized views of your cost and usage data in a single page. You can create collections of charts and tables, called widgets, that combine data from Cost Explorer with Savings Plans and Reserved Instance coverage and utilization, Budgets, and Cost Efficiency, providing comprehensive insights into your AWS spending patterns.
+AWS Billing and Cost Management Dashboards enable you to create and share customized views of your cost and usage data in a single page. You can create collections of charts and tables, called widgets, that combine data from Cost Explorer, Savings Plans and Reserved Instance coverage and utilization, Budgets, Cost Efficiency, and Detected Anomalies. Together, these widgets provide comprehensive insights into your AWS spending patterns.
 
 Key features of Dashboards:
 + Create custom dashboards with multiple visualization types to display cost and usage data.
 + Monitor budgets alongside cost and usage data, including actual spend against budget limits and forecasted spend.
 + Track cost efficiency trends alongside cost and usage data to monitor optimization performance over time.
++ Review cost anomalies detected alongside cost and usage data, including cost impact, top root cause, and severity.
 + Customize dashboard layouts by resizing and arranging widgets to highlight key information.
 + Share dashboards securely with accounts within or outside your AWS Organization.
 + Pin frequently-used dashboards as favorites for quick access.
@@ -19,7 +20,8 @@ Key features of Dashboards:
 Common use cases for Dashboards include:
 + Analyzing spending trends across services, Regions, and teams to identify cost patterns.
 + Monitoring budget performance across multiple budgets in a single view, reducing the need to navigate between the AWS Budgets and Dashboards.
-+ Monitoring cost efficiency trends across accounts and regions to track optimization performance in a single view.
++ Monitoring cost efficiency trends across accounts and regions to track optimization performance in a single view, reducing the need to navigate between the AWS Cost Optimization Hub and Dashboards.
++ Monitoring cost anomalies across accounts and services in a single view, reducing the need to navigate between AWS Cost Anomaly Detection and Dashboards.
 + Monitoring Savings Plans and Reserved Instance utilization and coverage to optimize commitments.
 + Establishing standardized cost reporting practices to maintain consistency across your organization.
 + Creating targeted financial reports for specific teams, projects, or business units.
