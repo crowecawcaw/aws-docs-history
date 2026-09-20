@@ -3,7 +3,7 @@
 # Resource configurations for VPC resources
 <a name="resource-configuration"></a>
 
-A resource configuration represents a resource or a group of resources that you want to make accessible to clients in other VPCs and accounts. By defining a resource configuration, you can allow private, secure, unidirectional network connectivity to resources in your VPC from clients in other VPCs and accounts. A resource configuration is associated with a resource gateway through which it receives traffic. For a resource to be accessed from another VPC, it needs to have a resource configuration.
+A resource configuration represents an individual resource, a group of resources, or a list of CIDR ranges that you want to make accessible to clients in other VPCs and accounts. By defining a resource configuration, you can allow private, secure, unidirectional network connectivity to resources in your VPC from clients in other VPCs and accounts. A resource configuration is associated with a resource gateway through which it receives traffic. For a resource to be accessed from another VPC, it needs to have a resource configuration.
 
 **Topics**
 + [Types of resource configurations](#resource-configuration-types)
@@ -30,7 +30,8 @@ A resource configuration can be of several types. The different types help repre
 + **Single resource configuration**: Represents an IP address or a domain name. It can be shared independently.
 + **Group resource configuration**: It is collection of child resource configurations. It can be used to represent a group of DNS and IP address endpoints.
 + **Child resource configuration**: It is a member of a group resource configuration. It represents an IP address or a domain name. It can’t be shared independently; it can only be shared as part of a group. It can be added and removed from a group. When added, its automatically accessible to those who can access the group.
-+ **ARN resource configuration**: Represents a supported resource-type that is provisioned by an AWS service. Any group-child relationship is automatically taken care of.
++ **ARN resource configuration**: Represents a supported resource-type that is provisioned by an AWS service. Any group-child relationship is automatically taken care of. It can be shared independently.
++ **CIDR resource configuration**: A list of CIDR ranges. It can be shared independently.
 
 The following image shows a single, child, and group resource configuration:
 
@@ -41,6 +42,8 @@ The following image shows a single, child, and group resource configuration:
 <a name="resource-configuration-protocol"></a>
 
 When you create a resource configuration you can define the protocols that the resource will support. Currently, only the TCP protocol is supported.
+
+For CIDR resource configurations, the protocol has to be `TCP_UDP`: only TCP is supported for application traffic, UDP is supported only for DNS queries.
 
 ## Resource gateway
 <a name="resource-gateway"></a>
@@ -58,6 +61,7 @@ The following considerations apply to providers of resource configurations:
 + The custom domain name is visible to all resource configuration consumers.
 + You can verify your custom domain name using the domain name verification process in VPC Lattice. For more information For more information, see [Create and verify a domain](create-and-verify.md).
 + For resource configurations of type group and child, you must first specify a group domain on the group resource configuration. After, the child resource configurations can have custom domains that are subdomains of the group domain. If the group doesn’t have a group domain, you can use any custom domain name for the child, but VPC Lattice will not provision any hosted zones for the child domain names in the resource consumer’s VPC. 
++ Custom domain names are not supported for CIDR resource configurations.
 
 ## Custom domain names for resource consumers
 <a name="custom-domain-name-resource-consumers"></a>
@@ -112,6 +116,7 @@ In the resource configuration, identify the resource in one of the following way
 + By an **Amazon Resource Name (ARN)**: Supported resource-types that are provisioned by AWS services, can be identified by their ARN. Only Amazon RDS databases are supported. You can't create a resource configuration for a publicly accessible cluster.
 + By a **domain-name target**: You can use any domain name. If you use a private DNS server or your domain is in a Route53 private hosted zone, then the resource gateway must have DNS resolution set to IN\_VPC. If your domain name points to an IP that's outside of your VPC, you must have a NAT gateway in your VPC. Domain-name targets that resolve to public IPv6 addresses are not supported.
 + By an **IP-address**: For IPv4, specify a private IP from the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16. For IPv6, specify an IP from the VPC. Public IPs aren't supported.
++ By a **CIDR range**: For a resource configuration of type CIDR, specify the list of CIDRs you want to share (for example, 10.0.0.0/24). The CIDRs should be reachable from the resource gateway. To provide full network access, specify 0.0.0.0/0 if using IPv4 or ::/0 if using IPv6.
 
 ## Port ranges
 <a name="resource-configuration-port"></a>
@@ -124,10 +129,10 @@ When you create a resource configuration you can define the ports it will accept
 Consumers can access resource configurations directly from their VPC using a VPC endpoint or through a service network. As a consumer, you can enable access from your VPC to a resource configuration that is in your account or that has been shared with you from another account through AWS RAM.
 + * Accessing a resource configuration directly*
 
-  You can create a AWS PrivateLink VPC endpoint of type resource (resource endpoint) in your VPC to access a resource configuration privately from your VPC. For more information on how to create a resource endpoint, see [Accessing VPC resources](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-resources.html) in the *AWS PrivateLinkuser guide*.
+  You can access resource configurations directly through AWS PrivateLink-based resource endpoints and tunnel endpoints. You can create a resource endpoint in your VPC to access resource configurations of types ARN, Single, and Group, and you can create a tunnel endpoint to access resource configurations of type CIDR. For more information on how to create resource and tunnel endpoints, see [Accessing VPC resources](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-resources.html) and [Accessing network segments](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-cidr-ranges.html) in the *AWS PrivateLink user guide*.
 + *Accessing a resource configuration through a service network*
 
-  You can associate a resource configuration to a service network, and connect your VPC to the service network. You can connect your VPC to the service network either through an association or using a AWS PrivateLink service-network VPC endpoint.
+  You can associate a resource configuration with a service network and connect your VPC to the service network. You can connect your VPC to the service network either through an association or using a AWS PrivateLink-based service network endpoint. CIDR resource configurations cannot be associated with a service network.
 
   For more information on service network associations, see [Manage the associations for a VPC Lattice service network](https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html).
 
@@ -138,7 +143,7 @@ When private DNS is enabled for your VPC, you can’t create a resource endpoint
 ## Association with service network type
 <a name="resource-configuration-service-network-association"></a>
 
-When you share a resource configuration with a consumer account, for example, Account-B, through AWS RAM, Account-B can access the resource configuration either directly through a resource VPC endpoint, or through a service network.
+When you share a resource configuration with a consumer account, for example, Account-B, through AWS RAM, Account-B can access the resource configuration either directly through a resource endpoint or tunnel endpoint, or through a service network. CIDR resource configurations cannot be accessed through a service network. They can only be accessed directly through a tunnel endpoint.
 
 To access a resource configuration through a service network, Account-B would have to associate the resource configuration with a service network. Service networks are shareable between accounts. So, Account-B can share their service network (that the resource configuration is associated to) with Account-C, making your resource accessible from Account-C.
 
@@ -147,14 +152,15 @@ In order to prevent such transitive sharing, you can specify that your resource 
 ## Types of service networks
 <a name="service-network-types"></a>
 
-When you share a resource configuration with another account, for example Account-B, through AWS RAM, Account-B can access the resources specified in the resource configuration in one of three ways:
-+ Using a VPC endpoint of type *resource* (resource VPC endpoint).
-+ Using a VPC endpoint of type *service network* (service network VPC endpoint).
+When you share a resource configuration with another account, for example, Account-B, through AWS RAM, Account-B can access the resource in one of four ways:
++ Using a AWS PrivateLink-based resource endpoint (for Single, Group, and ARN resource configurations).
++ Using a AWS PrivateLink-based tunnel endpoint (for CIDR resource configurations).
++ Using a AWS PrivateLink-based service network endpoint.
 + Using a service network VPC association.
 
-  When you use a service-network association, each resource is assigned an IP per subnet from the 129.224.0.0/17 block, which is AWS owned and non-routable. This is in addition to the [managed prefix list](security-groups.md#managed-prefix-list) that VPC Lattice uses to route traffic to services over the VPC Lattice network. Both of these IPs are updated to your VPC route table.
+When you use a service-network association, each resource is assigned an IP per subnet from the 129.224.0.0/17 block, which is AWS owned and non-routable. This is in addition to the [managed prefix list](security-groups.md#managed-prefix-list) that VPC Lattice uses to route traffic to services over the VPC Lattice network. Both of these IPs are updated to your VPC route table.
 
-For service network VPC endpoint and service network VPC association, the resource configuration would have to be associated with a service network in Account-B. Service networks are shareable between accounts. So, Account-B can share their service network (that contains the resource configuration) with Account-C, making your resource accessible from Account-C. In order to prevent such transitive sharing, you can disallow your resource configuration from being added to service networks that are shareable between accounts. If you disallow this, then Account-B won’t be able to add your resource configuration to a service network that is shared or can be shared with another account.
+For a service network endpoint and a service network VPC association, the resource configuration would have to be associated with a service network in Account-B. Service networks are shareable between accounts. So, Account-B can share their service network (that contains the resource configuration) with Account-C, making your resource accessible from Account-C. To prevent such transitive sharing, you can disallow your resource configuration from being added to service networks that are shareable between accounts. If you disallow this, then Account-B won't be able to add your resource configuration to a service network that is shared or can be shared with another account.
 
 ## Sharing resource configurations through AWS RAM
 <a name="sharing-resource-configuration-ram"></a>

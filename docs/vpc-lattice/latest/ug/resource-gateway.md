@@ -73,6 +73,6 @@ You can specify how a resource gateway does DNS resolution for resource configur
 + ** PUBLIC (default)** - Domain names are resolved using public DNS resolvers. 
 + ** IN\_VPC ** - Domain names are resolved using the DNS server configured in the DHCP option set of the VPC which the resource gateway is in. You should use this if you are using a private DNS server or your domain-name targets are in a Route53 private hosted zone. 
 
- If DNS resolution is IN\_VPC, you cannot attach resource configurations defined by ARN to the resource gateway. You cannot set DNS Resolution to IN\_VPC if the resource gateway uses IPv6-only subnets. 
+ If DNS resolution is IN\_VPC, you cannot attach resource configurations defined by ARN to the resource gateway. You cannot set DNS Resolution to IN\_VPC if the resource gateway uses IPv6-only subnets. DNS Resolution must be IN\_VPC to attach CIDR resource configurations to the resource gateway. 
 
 A DNS server change in a Dynamic Host Configuration Protocol (DHCP) option set takes 24 hours to propagate to a resource gateway that uses IN\_VPC DNS resolution mode.

@@ -349,7 +349,7 @@ The following example policy grants access to services with the tag `Environment
       "Resource": "arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0124446789abcdef0/*",
       "Condition": {
         "StringEquals": {
-          "aws:ResourceTag/Environment": "Gamma",
+          "aws:ResourceTag/Environment": "Gamma"
         }
       }
     }
@@ -376,7 +376,7 @@ The following example policy grants access only to identities with the tag `Team
       "Resource": "arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0123456789abcdef0/*",
       "Condition": {
         "StringEquals": {
-          "aws:PrincipalTag/Team": "Payments",
+          "aws:PrincipalTag/Team": "Payments"
         }
       }
     }
