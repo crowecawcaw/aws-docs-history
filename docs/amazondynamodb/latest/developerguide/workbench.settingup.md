@@ -6,8 +6,22 @@
 Follow these instructions to download NoSQL Workbench and DynamoDB local for Amazon DynamoDB.
 
 **To download NoSQL Workbench and DynamoDB local**
-+ Download the appropriate version of NoSQL Workbench for your operating system.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.settingup.html)
++ Download the appropriate version of NoSQL Workbench for your operating system.
+
+
+
+<table>
+<thead>
+  <tr><th>Operating system</th><th>Download link</th></tr>
+</thead>
+<tbody>
+  <tr><td>macOS (Intel)</td><td> <a href="https://dy9cqqaswpltd.cloudfront.net/NoSQL_Workbench-x64.dmg">Download for macOS (Intel)</a> </td></tr>
+  <tr><td>macOS (Apple silicon)</td><td> <a href="https://dy9cqqaswpltd.cloudfront.net/NoSQL_Workbench-arm64.dmg">Download for macOS (Apple silicon)</a> </td></tr>
+  <tr><td>Windows</td><td> <a href="https://dy9cqqaswpltd.cloudfront.net/NoSQL_Workbench.exe">Download for Windows</a> </td></tr>
+  <tr><td>Linux</td><td> <a href="https://dy9cqqaswpltd.cloudfront.net/NoSQL_Workbench.AppImage">Download for Linux</a> </td></tr>
+</tbody>
+</table>
+
 
 **Note**  
 NoSQL Workbench includes DynamoDB local as part of the installation process.  

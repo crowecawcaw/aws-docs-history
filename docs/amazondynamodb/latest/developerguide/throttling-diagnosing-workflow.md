@@ -113,9 +113,35 @@ When your application encounters throttling, follow these steps to diagnose and 
 
 1. **Identify your metrics:** Each throttling reason in DynamoDB directly corresponds to specific CloudWatch metrics that you can monitor to track and analyze throttling events. You can systematically derive the appropriate CloudWatch metric names from the throttling reason. 
 
-1. Match your throttling reason to the corresponding CloudWatch metrics using this reference table:  
-**Complete throttling reasons and CloudWatch metrics reference**    
-<a name="throttling-reasons-metrics"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/throttling-diagnosing-workflow.html)
+1. Match your throttling reason to the corresponding CloudWatch metrics using this reference table:
+
+
+**Complete throttling reasons and CloudWatch metrics reference**  
+<a name="throttling-reasons-metrics"></a>
+<table>
+<thead>
+  <tr><th>Category</th><th>Throttling reason</th><th>Primary CloudWatch metrics</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="4">Provisioned capacity exceeded</td><td>TableReadProvisionedThroughputExceeded</td><td>ReadProvisionedThroughputThrottleEvents</td></tr>
+  <tr><td>TableWriteProvisionedThroughputExceeded</td><td>WriteProvisionedThroughputThrottleEvents</td></tr>
+  <tr><td>IndexReadProvisionedThroughputExceeded</td><td>ReadProvisionedThroughputThrottleEvents (GSI)</td></tr>
+  <tr><td>IndexWriteProvisionedThroughputExceeded</td><td>WriteProvisionedThroughputThrottleEvents (GSI)</td></tr>
+  <tr><td rowspan="4">Partition limits exceeded</td><td>TableReadKeyRangeThroughputExceeded</td><td>ReadKeyRangeThroughputThrottleEvents</td></tr>
+  <tr><td>TableWriteKeyRangeThroughputExceeded</td><td>WriteKeyRangeThroughputThrottleEvents</td></tr>
+  <tr><td>IndexReadKeyRangeThroughputExceeded</td><td>ReadKeyRangeThroughputThrottleEvents (GSI)</td></tr>
+  <tr><td>IndexWriteKeyRangeThroughputExceeded</td><td>WriteKeyRangeThroughputThrottleEvents (GSI)</td></tr>
+  <tr><td rowspan="4">On-demand maximum exceeded</td><td>TableReadMaxOnDemandThroughputExceeded</td><td>ReadMaxOnDemandThroughputThrottleEvents</td></tr>
+  <tr><td>TableWriteMaxOnDemandThroughputExceeded</td><td>WriteMaxOnDemandThroughputThrottleEvents</td></tr>
+  <tr><td>IndexReadMaxOnDemandThroughputExceeded</td><td>ReadMaxOnDemandThroughputThrottleEvents (GSI)</td></tr>
+  <tr><td>IndexWriteMaxOnDemandThroughputExceeded</td><td>WriteMaxOnDemandThroughputThrottleEvents (GSI)</td></tr>
+  <tr><td rowspan="4">Account limits exceeded</td><td>TableReadAccountLimitExceeded</td><td>ReadAccountLimitThrottleEvents</td></tr>
+  <tr><td>TableWriteAccountLimitExceeded</td><td>WriteAccountLimitThrottleEvents</td></tr>
+  <tr><td>IndexReadAccountLimitExceeded</td><td>ReadAccountLimitThrottleEvents (GSIs)</td></tr>
+  <tr><td>IndexWriteAccountLimitExceeded</td><td>WriteAccountLimitThrottleEvents (GSIs)</td></tr>
+</tbody>
+</table>
+
 
    For example, if you received `IndexWriteProvisionedThroughputExceeded`, at a minimum, you should monitor the `WriteProvisionedThroughputThrottleEvents` CloudWatch metric for the specific index identified in the `ResourceArn`.
 

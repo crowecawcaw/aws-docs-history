@@ -59,8 +59,21 @@ At runtime, if your app uses web identity federation, it must follow these steps
    + The `AccessKeyID`, `SecretAccessKey`, and `SessionToken` fields contain security credentials that are valid for this user and this app only. 
    + The `Expiration` field signifies the time limit for these credentials, after which they are no longer valid.
    + The `AssumedRoleId` field contains the name of a session-specific IAM role that has been assumed by the app. The app honors the access controls in the IAM policy document for the duration of this session.
-   + The `SubjectFromWebIdentityToken` field contains the unique ID that appears in an IAM policy variable for this particular identity provider. The following are the IAM policy variables for supported providers, and some example values for them:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WIF.RunningYourApp.html)
+   + The `SubjectFromWebIdentityToken` field contains the unique ID that appears in an IAM policy variable for this particular identity provider. The following are the IAM policy variables for supported providers, and some example values for them:
+
+
+
+<table>
+<thead>
+  <tr><th>Policy Variable</th><th>Example Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>${www.amazon.com:user_id}</code></td><td><code>amzn1.account.AGJZDKHJKAUUSW6C44CHPEXAMPLE</code></td></tr>
+  <tr><td><code>${graph.facebook.com:id}</code></td><td><code>123456789</code></td></tr>
+  <tr><td><code>${accounts.google.com:sub}</code></td><td><code>123456789012345678901</code></td></tr>
+</tbody>
+</table>
+
 
 For example IAM policies where these policy variables are used, see [Example policies: Using conditions for fine-grained access control](specifying-conditions.md#FGAC_DDB.Examples).
 

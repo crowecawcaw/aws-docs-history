@@ -111,8 +111,20 @@ The following list describes the differences in behavior between the Legacy and 
   + Invoking [UpdateItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html) for a 1KB item requires 2 rWRUs in the source Region and 1 rWRU per destination Region for 2017.11.29 (Legacy), but only 1 rWRU for both source and destination Regions for 2019.11.21 (Current).
   + Invoking [DeleteItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html) for a 1KB item requires 1 rWRU in the source Region and 2 rWRUs per destination Region for 2017.11.29 (Legacy), but only 1 rWRU for both source or destination Region for 2019.11.21 (Current).
 
-  The following table shows the rWRU consumption of 2017.11.29 (Legacy) and 2019.11.21 (Current) tables for a 1KB item in two Regions.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_versions.html)
+  The following table shows the rWRU consumption of 2017.11.29 (Legacy) and 2019.11.21 (Current) tables for a 1KB item in two Regions.
+
+
+<table>
+<thead>
+  <tr><th>Operation</th><th>2017.11.29 (Legacy)</th><th>2019.11.21 (Current)</th><th>Savings</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html">PutItem</a></td><td>4 rWRUs</td><td>2 rWRUs</td><td>50%</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html">UpdateItem</a></td><td>3 rWRUs</td><td>2 rWRUs</td><td>33%</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html">DeleteItem</a></td><td>3 rWRUs</td><td>2 rWRUs</td><td>33%</td></tr>
+</tbody>
+</table>
+
 + version 2017.11.29 (Legacy) is available in only 11 AWS Regions. However, version 2019.11.21 (Current) is available in all the AWS Regions.
 + You create version 2017.11.29 (Legacy) global tables by first creating a set of empty Regional tables, then invoking the [CreateGlobalTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateGlobalTable.html) API to form the global table. You create version 2019.11.21 (Current) global tables by invoking the [UpdateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html) API to add a replica to an existing Regional table.
 + version 2017.11.29 (Legacy) requires you to empty all replicas in the table before adding a replica in a new Region (including during creation). version 2019.11.21 (Current) supports you to add and remove replicas to Regions on a table that already contains data.

@@ -37,7 +37,7 @@ When a transaction completes in DynamoDB, its changes start propagating to globa
 
 To ensure an atomic snapshot of items modified in a transaction, use the TransactGetItems operation to read all relevant items together. This operation provides a consistent view of the data, ensuring you see either all changes from a completed transaction or none at all.
 
-Because propagation isn't immediate, if a table is restored from backup ([RestoreTableFromBackup](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_RestoreTableFromBackup.html)) or exported to a point in time ([ExportTableToPointInTime](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExportTableToPointInTime.html)) mid-propagation,, it can contain only some of the changes made during a recent transaction.
+Because propagation isn't immediate, if a table is restored from backup ([RestoreTableFromBackup](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_RestoreTableFromBackup.html)) or exported to a point in time ([ExportTableToPointInTime](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExportTableToPointInTime.html)) mid-propagation, it can contain only some of the changes made during a recent transaction.
 
 ### Idempotency
 <a name="transaction-apis-txwriteitems-idempotency"></a>

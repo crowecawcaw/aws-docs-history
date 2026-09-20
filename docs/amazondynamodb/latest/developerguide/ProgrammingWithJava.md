@@ -76,8 +76,25 @@ To create the project for this tutorial, you run a Maven command that prompts yo
       -DarchetypeVersion=2.22.0
    ```
 
-1. For each prompt, enter the value listed in the second column.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProgrammingWithJava.html)
+1. For each prompt, enter the value listed in the second column.
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Value to enter</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Define value for property 'service':</code></td><td><code>dynamodb</code></td></tr>
+  <tr><td><code>Define value for property 'httpClient'</code>:</td><td><code>apache-client</code></td></tr>
+  <tr><td><code>Define value for property 'nativeImage'</code>:</td><td><code>false</code></td></tr>
+  <tr><td><code>Define value for property 'credentialProvider'</code></td><td><code>identity-center</code></td></tr>
+  <tr><td><code>Define value for property 'groupId':</code></td><td><code>org.example</code></td></tr>
+  <tr><td><code>Define value for property 'artifactId':</code></td><td><code>getstarted</code></td></tr>
+  <tr><td><code>Define value for property 'version' 1.0-SNAPSHOT:</code></td><td><code>&lt;Enter&gt;</code></td></tr>
+  <tr><td><code>Define value for property 'package' org.example:</code></td><td><code>&lt;Enter&gt;</code></td></tr>
+</tbody>
+</table>
+
 
 1. After you enter the last value, Maven lists the choices that you made. To confirm, enter **Y**. Or, enter **N**, and then re-enter your choices.
 
