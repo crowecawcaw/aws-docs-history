@@ -48,7 +48,7 @@ The following is an example of an endpoint policy for real-time translation in A
                     "Principal":"*",
                     "Effect":"Allow",
                     "Action":[
-                        "{{translate}}:{{TranslateText}}",
+                        "{{translate}}:{{TranslateText}}"
                     ],
                     "Resource":"*"
                 }

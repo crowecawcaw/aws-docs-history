@@ -73,9 +73,9 @@ Amazon Translate has the following service guidelines and quotas.
 
 | Description | Limit | 
 | --- | --- | 
-| Maximum custom terminology file size | 10 MB | 
+| Maximum custom terminology file size | 20 MB | 
 | Maximum number of custom terminology files per AWS account per AWS Region | 100 | 
-| Maximum number of target languages per custom terminology file | 10 | 
+| Maximum number of target languages per custom terminology file | 30 | 
 | Maximum source and target text length per custom terminology term | 200 bytes | 
 | Maximum number of terminology files per TranslateText or StartTextTranslationJob request. | 1 | 
 | Transactions per second for the ImportTerminology API action | 5 | 

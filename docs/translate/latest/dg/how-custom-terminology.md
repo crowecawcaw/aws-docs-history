@@ -18,6 +18,7 @@ Amazon Translate doesn't guarantee that it will use the target term for every tr
 **Topics**
 + [Creating a custom terminology](creating-custom-terminology.md)
 + [Using custom terminologies](using-ct.md)
++ [Case-insensitive matching](ct-case-insensitive.md)
 + [Custom Terminology example using the AWS SDK for Python (Boto)](examples-ct.md)
 + [Encrypting your terminology](protect-terminology.md)
 + [Best practices](ct-best-practices.md)

@@ -7,8 +7,8 @@ You define custom terminology by creating a terminology file. Amazon Translate s
 
 After you create a terminology file, you upload the file to your Amazon Translate account.
 
-**Important**  
-The source text in a custom terminology is *case-sensitive*. During translation, Amazon Translate uses the custom terminology when it finds an exact match in the input document.
+**Note**  
+Custom terminology matching is case-insensitive. During translation, Amazon Translate applies a custom terminology entry when the source term matches text in the input document, ignoring differences in capitalization. For more information about matching and how output capitalization is handled, see [Case-insensitive matching](ct-case-insensitive.md).
 
 ## Terminology file formats
 <a name="creating-custom-terminology-examples"></a>
