@@ -23,7 +23,19 @@ To publish a new version of an application that you have previously published, f
 
 1. Choose **Publish new version**.
 
-1. In **Versions**, enter the following application information:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/serverlessrepo/latest/devguide/serverlessrepo-how-to-publish-new-version.html)
+1. In **Versions**, enter the following application information:
+
+
+<table>
+<thead>
+  <tr><th>Property</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Semantic version</b></td><td>TRUE</td><td>The semantic version of the application. For more information, see the <a href="https://semver.org/">Semantic Versioning website</a>.<br />You must provide a value for this property in order to make your application public.</td></tr>
+  <tr><td><b>Source code Url</b></td><td>FALSE</td><td>A link to a public repository for the source code of your application.</td></tr>
+  <tr><td><b>SAM template</b></td><td>TRUE</td><td>A valid AWS Serverless Application Model (AWS SAM) template that defines the AWS resources that are used.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Publish version**.

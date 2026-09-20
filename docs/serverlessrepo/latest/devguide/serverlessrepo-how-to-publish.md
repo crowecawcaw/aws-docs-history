@@ -79,8 +79,28 @@ Create a new application in the AWS Serverless Application Repository by using t
 
 1. Open the [AWS Serverless Application Repository console](https://console.aws.amazon.com/serverlessrepo/home) and choose **Publish applications**.
 
-1. On the **Publish an application** page, enter the following application information, and then choose **Publish application**:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/serverlessrepo/latest/devguide/serverlessrepo-how-to-publish.html)
+1. On the **Publish an application** page, enter the following application information, and then choose **Publish application**:
+
+
+<table>
+<thead>
+  <tr><th>Property</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Application name</b></td><td>TRUE</td><td>The name of the application.<br />Minimum length=1. Maximum length=140.<br />Pattern: "[a-zA-Z0-9\\-]+";</td></tr>
+  <tr><td><b>Author</b></td><td>TRUE</td><td>The name of the author publishing the application.<br />Minimum length=1. Maximum length=127.<br />Pattern: "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";</td></tr>
+  <tr><td><b>Home page</b></td><td>FALSE</td><td>A URL with more information about the application—for example, the location of your GitHub repository for the application. </td></tr>
+  <tr><td><b>Description</b></td><td>TRUE</td><td>The description of the application.<br />Minimum length=1. Maximum length=256.</td></tr>
+  <tr><td><b>Labels</b></td><td>FALSE</td><td>The labels that improve the discovery of applications in search results.<br />Minimum length=1. Maximum length=127. Maximum number of labels: 10.<br />Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";</td></tr>
+  <tr><td><b>Spdx license (drop-down list)</b></td><td>FALSE</td><td>Choose a valid license identifier from the drop-down that contains licenses that are available on the <a href="https://spdx.org/licenses/">SPDX website</a>. Choosing an item in the drop-down populates the <b>License</b> text box below it. Note: Choosing a license in the drop-down replaces the contents of the <b>License</b> text box, and discards any manual edits that you have made.</td></tr>
+  <tr><td><b>License</b></td><td>FALSE</td><td>Upload a .txt license file, or choose a license from the <b>Spdx license</b> drop-down described in the previous row. Choosing a license from the <b>Spdx license</b> drop-down automatically populates the <b>License</b> text box. You can manually edit the contents of this text box after uploading a license file or choosing one from the <b>Spdx license</b> drop-down. However, if another <b>Spdx license</b> is chosen from the drop-down, any manual edits that you have made are discarded.<br />This is an optional field, but you must provide a license in order to share the application publicly.</td></tr>
+  <tr><td><b>Readme</b></td><td>FALSE</td><td>Upload the contents of the Readme file, which can be in text or markdown format. These contents are displayed on the application's detail page in the AWS Serverless Application Repository. You can manually edit the contents of this text box after uploading a file.</td></tr>
+  <tr><td><b>Semantic version</b></td><td>FALSE</td><td>The semantic version of the application. For more information, see the <a href="https://semver.org/">Semantic Versioning website</a>.<br />You must provide a value for this property in order to make your application public.</td></tr>
+  <tr><td><b>Source code Url</b></td><td>FALSE</td><td>A link to a public repository for the source code of your application.</td></tr>
+  <tr><td><b>SAM template</b></td><td>TRUE</td><td>A valid AWS Serverless Application Model (AWS SAM) template that defines the AWS resources that are used.</td></tr>
+</tbody>
+</table>
+
 
 ## Sharing an Application
 <a name="share-application"></a>
