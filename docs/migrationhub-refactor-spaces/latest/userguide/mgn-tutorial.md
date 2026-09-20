@@ -119,8 +119,30 @@ Now you must enable post-launch actions. If you've already enabled post-launch a
 1. In the **Actions** section, choose the **Edit** button that appears in the following image.  
 ![Actions section with Edit button highlighted among other options.](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/edit-post-launch-actions.png)
 
-1. Specify the following values in the form:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/mgn-tutorial.html)
+1. Specify the following values in the form:
+
+
+
+<table>
+<thead>
+  <tr><th>Name of field or option</th><th>Value to use</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>EnvironmentName</b></td><td>Enter <b>RefactorSpacesSSMTutorialEnvironment</b>.</td></tr>
+  <tr><td><b>EnvironmentId</b></td><td>When you have an existing environment that you want to use, you enter its ID here and leave the <b>EnvironmentName</b> field blank. However, in this tutorial, to create a new environment, you enter a value for <b>EnvironmentName</b> and leave <b>EnvironmentId</b> blank.</td></tr>
+  <tr><td><b>ApplicationVpcId</b></td><td>Optional: Enter the ID of a VPC that you want to use for the Refactor Spaces application. If left blank, the application is created in the VPC of the launched Amazon EC2 instance. For information on how to create a VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html">Create a VPC</a> in the Amazon VPC User Guide.</td></tr>
+  <tr><td><b>NetworkFabricType</b></td><td>Choose <b>TRANSIT_GATEWAY</b>. To create an environment without a network bridge, enter <b>NONE</b>.</td></tr>
+  <tr><td><b>AccountIdsToShareEnvironment</b></td><td>You can leave this field blank or you can enter the IDs of any AWS accounts with which you want to share the Refactor Spaces environment.</td></tr>
+  <tr><td><b>ApplicationName</b></td><td>Enter <b>RefactorSpacesSSMTutorialApplication</b>.</td></tr>
+  <tr><td><b>ServiceName</b></td><td>Enter <b>RefactorSpacesSSMTutorialService</b>.</td></tr>
+  <tr><td><b>Protocol</b></td><td>Choose <b>http</b>.</td></tr>
+  <tr><td><b>Port</b></td><td>Enter <b>4000</b>.</td></tr>
+  <tr><td><b>UriPath</b></td><td>Enter <b>/refactor-spaces/mgn/test</b> </td></tr>
+  <tr><td><b>InstanceId</b></td><td>Choose <b>Use value: Launched EC2 InstanceId</b>. <b>Important</b>: For the script to work from AWS MGN, you must use the default value <b>Launched EC2 InstanceId</b>.</td></tr>
+  <tr><td><b>AutomationAssumeRole</b></td><td>Use the <b>RefactorSpacesSSMTutorialRole</b> role that you saved in <a href="#create-iam-role">Step 2: Create an IAM role</a>.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save action**.
 
