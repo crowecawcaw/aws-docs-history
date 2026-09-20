@@ -101,8 +101,19 @@ The Kiro User Activity module is part of the [Data Collection Stack](data-collec
 
 1.  [Deploy](data-collection-deployment.md) the Data Collection Stack (first-time setup) or [Update](data-collection-update.md) your existing Data Collection Stack.
 
-1. In the **Parameters** section, set the following values for the **Kiro User Activity Module Configuration**:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/kiro-user-activity-dashboard.html)
+1. In the **Parameters** section, set the following values for the **Kiro User Activity Module Configuration**:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th><th>Example</th></tr>
+</thead>
+<tbody>
+  <tr><td> <b>Include Kiro User Activity Data Collection Module</b> </td><td>Set to <code>yes</code> to enable the module</td><td> <code>yes</code> </td></tr>
+  <tr><td> <b>Kiro Source Bucket Names (comma-separated)</b> </td><td>Comma-separated list of S3 bucket names where Kiro writes user activity reports</td><td> <code>my-kiro-bucket-111111111111,my-kiro-bucket-222222222222</code> </td></tr>
+</tbody>
+</table>
+
 
 1. Complete the stack deployment or update. After the stack reaches `CREATE_COMPLETE` or `UPDATE_COMPLETE`, AWS CloudFormation creates the Kiro collection Lambda function, Amazon EventBridge Scheduler schedule, and AWS Glue table.
 
