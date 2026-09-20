@@ -394,8 +394,20 @@ Follow these steps to bring your own metrics with custom evaluation SDK.
 
 ------
 
-1. Review the Lambda payload schema. The following table lists the Lambda request and response schema. You can validate your schema using the Nova custom evaluation SDK.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/nova/latest/nova2-userguide/nova-model-evaluation.html)
+1. Review the Lambda payload schema. The following table lists the Lambda request and response schema. You can validate your schema using the Nova custom evaluation SDK.
+
+
+
+<table>
+<thead>
+  <tr><th></th><th>Lambda Request Payload</th><th>Lambda Response Payload</th></tr>
+</thead>
+<tbody>
+  <tr><td>Preprocessor</td><td> <pre>{    <br />    "process_type": "preprocess",    <br />    "data": {        <br />        "system": "You are a helpful assistant",<br />        "prompt": "What is 2+2?",        <br />        "gold": "4"    <br />    }<br />}                                             </pre> </td><td> <pre>{    <br />    "statusCode": 200,    <br />    "body": {        <br />        "system": "You are a helpful assistant that can substitute * for addition",<br />        "prompt": "What is 2*2?",        <br />        "gold": "4"    <br />    }<br />}</pre> </td></tr>
+  <tr><td>Postprocessor</td><td> <pre>{    <br />    "process_type": "postprocess",<br />    "data":  {            <br />    "prompt": "What is 2+2?",<br />    "inference_output": "2+2=4",<br />    "gold": "4"    <br />    }                                                   <br />}</pre> </td><td> <pre>{    <br />    "statusCode": 200,    <br />    "body": [              <br />        {"metric": "accuracy", "value": 1.0},          <br />        {"metric": "f1_score", "value": 1.0},          <br />        {"metric": "exact_match", "value": 1},          <br />        {"metric": "length_ratio", "value": 0.8}    <br />    ]<br />}</pre> </td></tr>
+</tbody>
+</table>
+
 
 1. Modify the recipe file. Here is an example. 
 
@@ -691,10 +703,10 @@ Before running the notebook, refer to the following reference tables to select i
 
 | Model | Job type | Instance type | Recommended instance count | Allowed instance count | 
 | --- | --- | --- | --- | --- | 
-| Amazon Nova Micro | Evaluation (SFT/DPO) | g5.12xlarge | 1 | 1 - 16 | 
-| Amazon Nova Lite | Evaluation (SFT/DPO) | g5.12xlarge | 1 | 1 - 16 | 
-| Amazon Nova Pro | Evaluation (SFT/DPO) | p5.48xlarge | 1 | 1 - 16 | 
-| Nova 2 Lite | Evaluation (SFT/DPO) | p5.48xlarge | 1 | 1 - 16 | 
+| Amazon Nova Micro | Evaluation (SFT) | g5.12xlarge | 1 | 1 - 16 | 
+| Amazon Nova Lite | Evaluation (SFT) | g5.12xlarge | 1 | 1 - 16 | 
+| Amazon Nova Pro | Evaluation (SFT) | p5.48xlarge | 1 | 1 - 16 | 
+| Nova 2 Lite | Evaluation (SFT) | p5.48xlarge | 1 | 1 - 16 | 
 
 ### Sample notebook
 <a name="nova-model-evaluation-sample-notebook"></a>

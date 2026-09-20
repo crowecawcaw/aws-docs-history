@@ -388,7 +388,7 @@ Can you create an executive summary of this video's content?
 ```
 
 ```
-Can you distill the essential information from this video into a concise summary?
+Can you summarize the essential information from this video concisely?
 ```
 
 ```

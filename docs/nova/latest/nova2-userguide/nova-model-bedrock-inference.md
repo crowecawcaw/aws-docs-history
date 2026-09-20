@@ -24,8 +24,8 @@ On-demand (OD) inference allows you to run inference on your custom Amazon Nova 
 The following compatibility requirements apply:
 + OD inference is supported for Amazon Nova Pro, Lite and Micro custom understanding models. OD inference is not supported for Nova custom content generation models.
 + OD inference is supported for Amazon Nova custom understanding models trained after July 16, 2025. Custom models trained before July 16, 2025 are not compatible with OD inference. 
-+ Amazon Bedrock customization: OD inference is supported for models customized with Amazon Bedrock customization and for student models that were distilled from a teacher model with Amazon Bedrock.
-+ SageMaker AI customization: For models customized in SageMaker AI, OD inference is supported only for Parameter-efficient fine-tuned (PEFT) models when the model is hosted on Amazon Bedrock. This includes Direct Preference Optimization plus PEFT. OD inference is not supported for Full-rank fine-tuned models.
++ Amazon Bedrock customization: You can use on-demand inference with models customized in Amazon Bedrock.
++ SageMaker AI customization: For models customized in SageMaker AI, OD inference is supported only for parameter-efficient fine-tuned (PEFT) models when the model is hosted on Amazon Bedrock. Full-rank fine-tuned models do not support OD inference.
 
 ### Model training and inference
 <a name="custom-fine-tune-odi-training"></a>

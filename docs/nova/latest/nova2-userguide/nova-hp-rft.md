@@ -28,7 +28,7 @@ Choose Multi-turn RFT when the task requires the model to act as an agent over s
 Rule of thumb: if your task can be scored from a single model output with no tool calls or evolving state, use Single-turn RFT; if success depends on a sequence of actions against tools or a stateful environment, use Multi-turn RFT.
 
 **When to use Nova 1.0 versus Nova 2.0**  
-RFT is only available on Nova 2.0 Lite. For Nova 1.0 models, use Direct Preference Optimization (DPO) or Proximal Policy Optimization (PPO) as alternative alignment techniques.
+RFT is available only on Nova 2.0 Lite and is not supported for Nova 1.0 models.
 
 **Reasoning mode**  
 Amazon Nova 2.0 supports reasoning mode during RFT training. The following modes are available:

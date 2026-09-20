@@ -88,7 +88,7 @@ training_config:
     save_steps: 5                               # Save a checkpoint every N steps.
     test_steps: 1                               # Run validation every N reference model updates.
     refit_freq: 4                               # Frequency of reference model updates.
-    clip_ratio_high: 0.2                        # PPO clip ratio for policy updates.
+    clip_ratio_high: 0.2                        # Upper clipping ratio for policy updates.
     loss_scale: 1.0                             # Scaling factor for the policy loss.
 
     # RL parameters

@@ -12,7 +12,7 @@ For hands-on walkthroughs, see the [SageMaker Inspect AI sample notebooks](https
 <a name="nova-eval-sagemaker-overview"></a>
 
 You can evaluate your customized Amazon Nova models deployed on SageMaker endpoints using standardized benchmarks from the AI research community. This approach enables you to:
-+ Evaluate customized Amazon Nova models (fine-tuned, distilled, or otherwise adapted) at scale
++ Evaluate customized Amazon Nova models at scale
 + Run evaluations with parallel inference across multiple endpoint instances
 + Compare model performance using benchmarks like MMLU, TruthfulQA, and HumanEval
 + Integrate with your existing SageMaker infrastructure
