@@ -1,173 +1,93 @@
+
+
 # DSOPS03-BP01 Plan and prepare for audits
+<a name="dsops03-bp01"></a>
 
-For customers in highly regulated industries, proactive audit
-planning assists organizations as they strive to meet their audit
-obligations with greater certainty and regularity.
+ Organizations face audits from multiple regulatory authorities with different evidence requirements, timelines, and scoping criteria, whether within a single jurisdiction or across several. Proactive audit planning and consistent tooling reduce disruption and provide confidence that evidence is complete, accessible, and stored within approved jurisdictions. 
 
-**Desired outcome:** A streamlined,
-well-planned, and evidence-based audit process that demonstrates
-comprehensive adherence to applicable regulations while minimizing
-business disruptions.
+ **Desired outcome:** 
++  Audit processes are streamlined and repeatable across jurisdictions. 
++  Evidence is collected continuously, stored in compliance with data residency requirements, and accessible to auditors on demand. 
++  Teams can respond to audit requests from multiple regulatory authorities without diverting significant engineering effort. 
 
-**Common anti-patterns:**
+ **Common anti-patterns:** 
++  Scrambling to gather documentation days before an audit, leading to incomplete or inaccurate evidence. 
++  Treating audits as solely an IT or security team responsibility rather than a cross-functional effort. 
++  Storing audit evidence in a Region without considering data localization or data residency requirements. 
++  No process exists to coordinate audits across multiple regulatory authorities in different jurisdictions. 
 
-- Manual evidence collection when automated solutions are
-  available.
-- Scrambling to gather documentation days before an audit, leading
-  to incomplete or inaccurate evidence.
-- Treating audits as solely an IT or security team responsibility
-  rather than a cross-functional effort.
-- Not auditing vendors and SaaS tools integrated with the
-  workload.
+ **Benefits of establishing this best practice:** 
++  Scope of audit exercises is known in advance, leading to better planning and resource utilization. 
++  Well-documented audit practices demonstrate due diligence to regulators and can reduce scrutiny. 
++  Audits are conducted in a structured, automated, and repeatable manner across jurisdictions. 
 
-**Benefits of establishing this best
-practice:**
-
-- Scope of audit exercises is known in advance leading to better
-  planning and resource utilization.
-- Well-documented audit practices demonstrate due diligence to
-  regulators and can reduce scrutiny.
-- Audits are conducted in a structured, automated, and repeatable
-  manner.
-
-**Level of risk exposed if this best practice
-is not established:** Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Effective audit preparation in AWS environments requires clear
-scoping, establishing automated evidence collection, and
-activating operational processes to manage audits end-to-end.
+ Organizations operating across jurisdictions face audits from multiple regulatory authorities, each with different evidence requirements, timelines, and scoping criteria. A single workload spanning two jurisdictions may face simultaneous audits from different authorities, each requiring evidence scoped to their jurisdiction. Without proactive planning, audit responses become reactive and engineering-intensive. 
 
-Key steps include:
+ Continuous evidence collection captures compliance findings, configuration states, and access logs as they occur, so that evidence is already available when an audit is initiated. This reduces audit-time disruption compared to point-in-time collection, which retrospectively assembles documentation after an audit is announced. 
 
-- Establishing a compliance discovery and analysis methodology
-  that assists with narrowing down the scope of an audit
-  exercise.
-- Creating clear documentation that maps specific regulatory
-  requirements to the technical controls and operational
-  practices. Many organizations develop and maintain a
-  compliance matrix document which serves as a good preliminary
-  evidence for auditors.
-- Setting up continuous evidence collection mechanisms.
-- Provisioning self-serve tools for auditors.
-- Developing pre-built reporting templates (mapped to specific
-  compliance standards), that can be populated on-demand by
-  pulling near real-time data.
-- Conducting regular internal assessments, and building a
-  feedback loop geared towards addressing gaps found.
+ Audit evidence itself is subject to data residency requirements. Logs, compliance reports, and configuration snapshots relating to a jurisdiction may need to remain within that jurisdiction. Centralizing evidence into a single Region for convenience may violate the same data residency controls the evidence is meant to demonstrate. Scope evidence storage by jurisdiction, and verify that cross-Region aggregation doesn't move protected data outside approved boundaries. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. **Conduct readiness
-   assessments**:
-   - Perform regular internal audits using the same criteria
-     as external auditors.
-   - If required, schedule third-party pre-assessments before
-     formal audits to gain confidence.
-   - Run tabletop exercises simulating audit scenarios.
-   - Practice evidence retrieval and presentation.
+1.  **Conduct readiness assessments:** 
+   +  Perform regular internal audits using the same criteria as external auditors. Include jurisdiction-specific criteria where audit requirements differ. 
+   +  Run tabletop exercises simulating audit scenarios, including situations where multiple regulatory authorities audit simultaneously. 
+   +  Practice evidence retrieval and presentation. 
 
-2. **Establish audit governance
-   processes**:
-   - Create an audit coordination team with representatives
-     from key departments.
-   - Designate an audit owner to oversee audits. Audit owners
-     are typically governance, risk, and compliance (GRC)
-     professionals, such as a compliance officer or a General
-     Data Protection Regulation (GDPR) data protection
-     officer.
-   - Develop a communication plan for internal and external
-     auditors.
-   - Establish a process for managing audit findings and
-     remediation.
+1.  **Establish audit governance processes:** 
+   +  Create an audit coordination group with representatives from key areas. Include jurisdiction-specific compliance expertise to address local audit requirements. 
+   + Prepare regional teams to independently support audit exercises. 
+   +  Designate an audit owner to oversee audits. Audit owners are typically governance, risk, and compliance (GRC) professionals, such as a compliance officer or a data protection officer. 
+   +  Develop a communication plan for internal and external auditors. Include escalation paths to resolve conflicting requirements. 
 
-3. **Prepare audit artifacts**:
-   Start building a searchable and readily accessible
-   repository of frequently requested audit artifacts. The
-   following is a list of some of the items you may need to
-   collect:
-   - Inventory of software and hardware assets.
-   - Security policies, data protection policies and privacy
-     policies.
-   - Data protection impact assessment (DPIA) reports.
-   - Risk registers.
-   - Incident management plans.
-   - Business continuity plans (bcps). Disaster recovery (dr)
-     plans.
-   - Documentation related to software development lifecycle
-     (SDLC) processes (for example, data handling procedures
-     and change management processes).
-   - Design documentation (for example, data flow diagrams,
-     up-to-date network diagrams, and records of architecture
-     decisions).
-   - Documents related to previous security incidents. This
-     includes root cause analysis (RCA) reports.
-   - Contractual agreements entered with your technology
-     providers. Agreements entered between AWS and AWS
-     Customers can be found in
-     [AWS Artifact](../../../artifact/latest/ug/managing-agreements.md "../../../artifact/latest/ug/managing-agreements.md").
-   - Attestations and certifications currently held.
-   - Audit trails and security-related logs. For example,
-     Amazon CloudTrail
-     [Data
-     and Management Event Logs](../../../awscloudtrail/latest/userguide/cloudtrail-events.md "../../../awscloudtrail/latest/userguide/cloudtrail-events.md"),
-     [VPC
-     Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md"),
-     [AWS WAF Logs](../../../waf/latest/developerguide/logging.md "../../../waf/latest/developerguide/logging.md"),
-     [Amazon EKS Audit Logs](../../../eks/latest/best-practices/auditing-and-logging.md "../../../eks/latest/best-practices/auditing-and-logging.md"), and
-     [Route 53 resolver query logs](../../../Route53/latest/DeveloperGuide/resolver-query-logs.md "../../../Route53/latest/DeveloperGuide/resolver-query-logs.md").
-   - Records of training conducted on specific
-     compliance-related topics.
+1.  **Prepare audit artifacts:** Start building a searchable and readily accessible repository of frequently requested audit artifacts. Store artifacts in Regions that meet data residency requirements for audit evidence. You may need to consider the following items: 
 
-4. **Pre-provision audit tools and
-   services**:
-   - Consider using
-     [AWS Audit Manager](../../../audit-manager/latest/userguide/what-is.md "../../../audit-manager/latest/userguide/what-is.md"). Audit Manager provides prebuilt
-     frameworks (for example, PCI DSS V3.2.1) that structure
-     and automate assessments for a given compliance standard
-     or regulation. This potentially shortens your audit
-     timelines, reduces inaccuracies, and lowers expenses.
-   - Provision read-only auditor roles. The AWS
-     [ReadOnlyAccess
-     managed policy](../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md") is an example of one such role. It
-     allows auditors access to compliance related services
-     such as AWS Audit Manager,
-     [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"), and
-     [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md").
+    **Note:** The following list isn't exhaustive and doesn't include all the documentation that may be needed for audits. Consult your legal, compliance, and audit teams to determine the specific evidence requirements for your organization and jurisdictions. 
+   +  Inventory of software and hardware assets. 
+   +  Compliance catalogs and workbooks, security policies, data protection policies, and privacy policies. 
+   +  Data protection impact assessment (DPIA) reports. 
+   +  Risk registers. 
+   +  Incident management plans. 
+   +  Business continuity plans (BCPs) and disaster recovery (DR) plans. 
+   +  Documentation related to software development lifecycle (SDLC) processes (for example, data handling procedures and change management processes). 
+   +  Design documentation (for example, data flow diagrams, up-to-date network diagrams, and records of architecture decisions). 
+   +  Documents related to previous security incidents, including root cause analysis (RCA) reports. 
+   +  Contractual agreements with your technology providers. Agreements between AWS and AWS customers can be found in [AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/managing-agreements.html). 
+   +  Attestations and certifications currently held by your organization and your service providers. AWS certifications and attestations can be evidenced through [AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/managing-agreements.html). 
+   +  Audit trails and security-related logs. For example, AWS CloudTrail [Data and Management Event Logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-events.html), [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html), [AWS WAF Logs](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html), [Amazon EKS Audit Logs](https://docs.aws.amazon.com/eks/latest/best-practices/auditing-and-logging.html), and [Route 53 resolver query logs](https://docs.aws.amazon.com/Route 53/latest/DeveloperGuide/resolver-query-logs.html). 
+   +  Records of training conducted on compliance-related topics. 
+   +  Jurisdiction-specific artifacts. For example, evidence of data localization and data residency, operator access logs by Region, and jurisdiction-specific breach notification records. 
+
+1.  **Provision jurisdiction-scoped auditor access:** Provision read-only auditor roles such as the AWS [ReadOnlyAccess managed policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ReadOnlyAccess.html), which allows auditors access to compliance-related services including [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) and [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html). Scope auditor roles by jurisdiction where access restrictions apply, for example by [adding condition elements](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/) to the IAM role's trust policy. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [DSOPS01-BP01 Organize compliance for multi-jurisdictional operations](dsops01-bp01.html) 
++  [DSOPS03-BP02 Automate evidence collection and reporting](dsops03-bp02.html) 
++  [OPS02-BP02 Processes and procedures have identified owners](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_proc_owners.html) 
++  [OPS02-BP03 Operations activities have identified owners responsible for their performance](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_activity_owners.html) 
 
-- [OPS02-BP02
-  Processes and procedures have identified owners](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_proc_owners.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_proc_owners.md")
-- [OPS02-BP03
-  Operations activities have identified owners responsible for
-  their performance](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_activity_owners.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_activity_owners.md")
-- [OPS02-BP04
-  Mechanisms exist to manage responsibilities and
-  ownership](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_responsibilities_ownership.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_responsibilities_ownership.md")
-- [OPS02-BP05
-  Mechanisms exist to request additions, changes, and
-  exceptions](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_req_add_chg_exception.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_req_add_chg_exception.md")
-- [OPS02-BP06
-  Responsibilities between teams are predefined or
-  negotiated](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_neg_team_agreements.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_ops_model_def_neg_team_agreements.md")
+ **Related documents:** 
++  [Visualizing AWS Config data using Amazon Athena and Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/) 
++  [Prepare for an Audit in AWS Part 2 – General Best Practices](https://aws.amazon.com/blogs/mt/prepare-for-an-audit-in-aws-part-2-general-best-practices/) 
++  [How to use trust policies with IAM roles](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/) 
 
-**Related documentation:**
+ **Related videos:** 
++  [AWS re:Inforce 2025 - Best practices for managing governance, risk, and compliance globally (GRC301)](https://www.youtube.com/watch?v=pCNIpnb9tvE) 
 
-- [How
-  AWS Audit Manager Simplifies Audit Preparation](https://aws.amazon.com/blogs/aws/aws-audit-manager-simplifies-audit-preparation/ "https://aws.amazon.com/blogs/aws/aws-audit-manager-simplifies-audit-preparation/")
-- [Prepare
-  for an Audit in AWS Part 1 – AWS Audit Manager, AWS Config,
-  and AWS Artifact](https://aws.amazon.com/blogs/mt/prepare-for-an-audit-in-aws-part-1-aws-audit-manager-aws-config-and-aws-artifact/ "https://aws.amazon.com/blogs/mt/prepare-for-an-audit-in-aws-part-1-aws-audit-manager-aws-config-and-aws-artifact/")
-- [Prepare
-  for an Audit in AWS Part 2 – General Best Practices](https://aws.amazon.com/blogs/mt/prepare-for-an-audit-in-aws-part-2-general-best-practices/ "https://aws.amazon.com/blogs/mt/prepare-for-an-audit-in-aws-part-2-general-best-practices/")
+ **Related examples:** 
++  [Workshop: AWS Cloud – An Auditors Lens](https://catalog.us-east-1.prod.workshops.aws/workshops/be5ac274-af86-47ef-b3ae-efae7fad136c/en-US) 
++  [Workshop: AWS Config Resource Compliance Dashboard](https://catalog.workshops.aws/awscid/en-US/dashboards/additional/config-resource-compliance-dashboard/) 
 
-**Related services:**
-
-- [AWS Audit Manager](../../../audit-manager/latest/userguide/what-is.md "../../../audit-manager/latest/userguide/what-is.md")
-- [AWS Artifact](../../../artifact/latest/ug/what-is-aws-artifact.md "../../../artifact/latest/ug/what-is-aws-artifact.md")
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
-- [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md")
+ **Related services:** 
++  [AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.html) 
++  [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) 
++  [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) 

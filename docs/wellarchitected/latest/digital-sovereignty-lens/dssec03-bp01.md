@@ -1,224 +1,88 @@
-# DSSEC03-BP01 Validate policy effectiveness through automated
 
-analysis
 
-Manual policy validation is error-prone and does not scale well with
-the complexity of modern cloud environments. Automated reasoning
-tools mathematically analyze access policies to identify potential
-security gaps, overprivileged access, and unintended permissions
-before they are exploited.
+# DSSEC03-BP01 Validate policy effectiveness through automated analysis
+<a name="dssec03-bp01"></a>
 
-**Desired outcome:** Access policies
-grant only intended permissions, with no overprivileged access or
-unintended information exposure.
+ Manual policy validation is error-prone and doesn't scale well with the complexity of modern cloud environments. Automated reasoning tools analyze access policies to identify potential security gaps, over-permissive access, and unintended permissions before deployment. 
 
-**Common anti-patterns:**
+ **Desired outcome:** 
++  Access policies are checked with automated reasoning before they are deployed, so overly permissive or unintended access, such as a policy that would allow sharing data outside your zone of trust, is identified rather than left to manual review alone. 
 
-- Relying solely on manual code reviews to validate complex IAM
-  policies and resource-based policies.
-- Using generic policy templates without validating them against
-  specific organizational requirements.
-- Defaulting to providing over-permissive actions in policy
-  documents.
-- Not validating policies against regulatory compliance
-  requirements before implementation.
+ **Common anti-patterns:** 
++  Relying solely on manual code reviews to validate complex IAM policies and resource-based policies. 
++  Using generic policy templates without validating them against specific organizational and jurisdictional requirements. 
++  Defaulting to providing over-permissive actions in policy documents. 
++  Not validating policies against regulatory compliance requirements before implementation. 
 
-**Benefits of establishing this best
-practice:**
+ **Benefits of establishing this best practice:** 
++  Can accelerate development cycles by catching policy issues early in the development process. 
++  Supports more confident policy changes through impact analysis. 
++  Automated reasoning gives auditors verifiable evidence that a policy doesn't grant specific unintended access. 
 
-- Can accelerate development cycles by catching policy issues
-  early in the development process.
-- Supports more confident policy changes through comprehensive
-  impact analysis.
-- Provides audit-ready documentation demonstrating due diligence
-  in access control validation. You can track policy changes over
-  time.
-
-**Level of risk exposed if this best practice
-is not established:** Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Implement automated policy reasoning using
-[AWS IAM Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md") and run automated policy checks with
-[AWS CloudFormation Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md") to validate access policies before
-deployment.
+ Access policies accumulate faster than anyone can review by hand. In a multi-account, multi-jurisdiction estate, a single overly broad statement can permit access across a boundary, and manual review will not reliably catch it. [AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) applies automated reasoning to policies. It analyzes the policy itself, translating it into logical statements and using solvers to characterize the access the policy allows. For sovereign workloads, you can then check that a policy doesn't permit specific actions, such as sharing a resource outside your zone of trust, rather than depending on manual reviews. 
 
-Common approaches include pre-deployment policy validation in
-CI/CD pipelines, automated policy drift detection, and integration
-with infrastructure as code (IaC) workflows.
+ Integrate Access Analyzer in two phases, in order. 
+
+ **Identify and Refine:** Using IAM Access Analyzer from the AWS Management Console, first establish your zone of trust (your organization or an account). Run verifications to **identify** the permissions granted across your resources, and then **refine** your access policies to match your organization's security standards. This step helps you establish a baseline that you can use in the next step. 
+
+ **Validate:** Next, run [custom policy checks](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-custom-policy-checks.html) to compare policy changes against baselines. The sequence matters. A validation gate is only meaningful after you have a clean baseline to compare against, because each new policy can grant back the access you worked to remove. 
+
+ The Identify and Refine phase is a coverage and cost decision, because the three analyzers are priced differently. Analyzing resources shared outside your zone of trust ([external access analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html#what-is-access-analyzer-resource-identification)) carries no additional charge, so you can enable it in every Region you use. Analyzing [unused access](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html#what-is-access-analyzer-unused-access-analysis) is a paid feature billed per IAM role or IAM user per month, and it uses a tracking period you set (1 to 365 days). Analyzing [internal access](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html#what-is-access-analyzer-internal-access-analysis) is a paid feature billed per resource, per Region, so reserve it for the business-critical resources holding your most sensitive sovereign data. 
+
+ Two behaviors of the analyzers are worth anticipating. The external access analyzer generates a finding for any resource shared outside your zone of trust, whether you intended the sharing, so expect to review and archive the access you have deliberately approved. Unused access findings depend on the tracking period, so permissions exercised rarely, such as delete or create actions, can appear unused in a short window. Set the tracking period with that in mind before you remove permissions. Where you run policy checks also matters. Custom policy checks can be run through the AWS CLI or the IAM Access Analyzer API, so you can enforce them in a deployment pipeline, where a failing check stops a noncompliant policy before it is attached to an entity. 
+
+ You can integrate IAM Access Analyzer with [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/), to send findings. Security Hub CSPM can then include those findings in its analysis of your overall sovereignty posture. You can also send an event to [Amazon EventBridge](https://aws.amazon.com/eventbridge/) when a finding is generated, and alert teams to review and remove excessive permissions. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. **Enable AWS IAM Access Analyzer**: IAM Access Analyzer provides
-   comprehensive policy validation through mathematical
-   reasoning, enabling you to: identify resources shared with
-   external entities outside their zone of trust, identify
-   internal access patterns, identify
-   [unused
-   access](../../../IAM/latest/UserGuide/access_policies_last-accessed.md "../../../IAM/latest/UserGuide/access_policies_last-accessed.md"), validate policies against
-   [policy
-   grammar](../../../IAM/latest/UserGuide/reference_policies_grammar.md "../../../IAM/latest/UserGuide/reference_policies_grammar.md") and
-   [AWS best practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md"), and validate policies using
-   [custom
-   policy checks](../../../IAM/latest/UserGuide/access-analyzer-custom-policy-checks.md "../../../IAM/latest/UserGuide/access-analyzer-custom-policy-checks.md"). The following steps outline how you
-   can get started:
-   - **Create an analyzer for your
-     organization or account:** Enable IAM Access Analyzer in AWS console. If you are using AWS Organizations you can create a delegated administrator
-     role in a member account. The delegated admin can then
-     create and manage analyzers across other member
-     accounts.
-   - **Select supported resource
-     types:** Select AWS resources to monitor.
-     Resource types for external
-     [access
-     detection are listed here](../../../IAM/latest/UserGuide/what-is-access-analyzer.md#what-is-access-analyzer-resource-identification "../../../IAM/latest/UserGuide/what-is-access-analyzer.md#what-is-access-analyzer-resource-identification"). Resource types for
-     [internal
-     access detection are listed here](../../../IAM/latest/UserGuide/what-is-access-analyzer.md#what-is-access-analyzer-internal-access-analysis "../../../IAM/latest/UserGuide/what-is-access-analyzer.md#what-is-access-analyzer-internal-access-analysis").
-   - **Review initial
-     findings:** Examine the
-     [findings
-     dashboard](../../../IAM/latest/UserGuide/access-analyzer-dashboard.md "../../../IAM/latest/UserGuide/access-analyzer-dashboard.md") to identify existing external access
-     and internal patterns and prioritize remediation based
-     on risk level and business requirements.
-   - **Integrate with CI/CD
-     pipelines:**
-     - Use Access Analyzer APIs to validate policies during
-       development and deployment processes.
-       - **AWS CLI:**
-         [AWS
-         accessanalyzer validate-policy](../../../cli/latest/reference/accessanalyzer/validate-policy.md "../../../cli/latest/reference/accessanalyzer/validate-policy.md")
-       - **AWS API:**
-         [ValidatePolicy](../../../access-analyzer/latest/APIReference/API_ValidatePolicy.md "../../../access-analyzer/latest/APIReference/API_ValidatePolicy.md")
+1.  **Enable external access analyzer**: The external access analyzer is a free service (but the unused and internal ones are not free). For external access, IAM Access Analyzer analyzes the resource-based policies that are applied to AWS resources in the Region where you enabled the service. For example, for IAM roles, IAM Access Analyzer analyzes [trust policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#term_trust-policy). Each time a resource-based policy is modified, IAM Access Analyzer analyzes the policy, but it may take up to 30 minutes for the analysis to trigger. For this check, IAM Access Analyzer doesn't examine access logs to determine whether an external entity has actually accessed a resource within your zone of trust. Instead, it generates a finding when a resource-based policy allows access to a resource, regardless of whether the resource was accessed by the external entity. The external access analyzer will generate findings even for those resources that you may have chosen to intentionally share outside your zone of trust. You [can archive](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-findings-archive.html) such findings. 
 
-     - You can also use Access Analyzer APIs to:
-       - Check whether the specified access isn't allowed
-         by a policy
-         ([CheckAccessNotGranted](../../../access-analyzer/latest/APIReference/API_CheckAccessNotGranted.md "../../../access-analyzer/latest/APIReference/API_CheckAccessNotGranted.md"))
-       - Check whether a resource policy can grant public
-         access to the specified resource type
-         ([CheckNoPublicAccess](../../../access-analyzer/latest/APIReference/API_CheckNoPublicAccess.md "../../../access-analyzer/latest/APIReference/API_CheckNoPublicAccess.md"))
-       - Preview Access Analyzer findings before
-         deployment
-         ([Create](../../../access-analyzer/latest/APIReference/API_CreateAccessPreview.md "../../../access-analyzer/latest/APIReference/API_CreateAccessPreview.md"),
-         [Get](../../../access-analyzer/latest/APIReference/API_GetAccessPreview.md "../../../access-analyzer/latest/APIReference/API_GetAccessPreview.md")
-         and
-         [List](../../../access-analyzer/latest/APIReference/API_ListAccessPreviewFindings.md "../../../access-analyzer/latest/APIReference/API_ListAccessPreviewFindings.md")
-         preview findings).
+1.  **Enable unused access analyzer**: Unused access findings are generated for IAM entities (such as roles and users) within the selected account or organization, based on the number of days (known as tracking days) specified when creating the analyzer. For example, if you set the tracking period to 90 days and scope it to your account, the unused access analyzer will flag unused roles, permissions, access keys, and passwords within that account. In addition to reporting findings, the analyzer provides **policy recommendations** when it detects unused permissions, allowing you to refine access and remediate potentially over-permissive policies. Set the tracking days parameter to match your internal or audit cycles. Otherwise, start with a period of six months or a year and adjust over time. You can also exclude certain tagged resources (roles and users) from being evaluated, for example exclude read-only auditor roles that you know will only be used once a year. When removing permissions, be aware that certain permissions (such as Delete or Create) might only be triggered sparingly, and removing them too soon might break your workloads. 
 
-   - **Implement custom policy
-     checks:** Create organization-specific
-     validation rules to make sure new policies comply with
-     your security standards and regulatory requirements. You
-     can find examples of reference policies and learn how to
-     set up and run policy checks for new access in the
-     [IAM Access Analyzer custom policy checks samples](https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples "https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples")
-     repository on GitHub.
+1.  **Enable internal access analyzer (optional)**: Enabling this analyzer has cost implications (billed per resource, per Region, per month, as described in [IAM Access Analyzer pricing](https://aws.amazon.com/iam/access-analyzer/pricing/)). Therefore, only enable it for resources holding sovereign data you consider highly sensitive. You can enable this analyzer on a per-resource (or set of resources) basis, and it will begin reporting access findings. 
 
-2. **Integrate AWS CloudFormation Guard
-   into CI/CD pipelines**: AWS CloudFormation Guard rules
-   are another method of checking policy adherence. For
-   example, you can write guard rules to:
-   - Check if a policy grants wildcard access to specific
-     services
-   - Check if delete actions require multi-factor
-     authentication (MFA) to be enabled.
-   - Check if a resource-based policy (for example, an S3
-     bucket policy) grants public access.
-   - Check if a service control policy allows APIs calls
-     beyond the allowed Regions.
-
-3. **Validate policies locally
-   (optional):** For development and testing purposes,
-   you can validate and unit test CloudFormation guard rules
-   locally before integrating them into your automated CI/CD
-   pipeline.
-   - Install CloudFormation Guard
-     [on
-     your desktop](../../../cfn-guard/latest/ug/setting-up.md "../../../cfn-guard/latest/ug/setting-up.md").
-   - Use the cfn-guard validate command to validate your
-     CloudFormation templates.
+1.  **Validate policies with custom policy checks**: Create organization-specific validation rules to verify that new policies comply with your security standards and regulatory requirements. You can find examples of reference policies and learn how to set up and run policy checks for new access through the [IAM Access Analyzer custom policy checks samples](https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples) repository on GitHub. To run this policy check, use the AWS CLI and invoke the [check-no-new-access](https://docs.aws.amazon.com/cli/latest/reference/accessanalyzer/check-no-new-access.html) command. Define a reference policy that sets guardrails around what you consider acceptable, develop a candidate policy that you want to validate, and then specify the policy-type to perform the analysis. 
 
    ```
-
-   cfn-guard validate --rules rules.guard --data template.json
-
+   AWS accessanalyzer check-no-new-access --existing-policy-document file://reference-policy.json --new-policy-document file://candidate-policy.json --policy-type IDENTITY_POLICY
    ```
 
-   - Develop and run unit test cases on your CloudFormation
-     Guard rules. While you can validate actual
-     CloudFormation templates using the
-     cfn-guard validate command, unit
-     tests go further. They assist in testing edge-case
-     scenarios. Unit tests verify if the Guard rule is
-     checking for the right set of property configurations.
-     For example the below test case checks if the resource
-     AWS::ApiGateway::RestApi has an
-     endpoint configuration property of type
-     PRIVATE.
+    For example, [this reference policy](https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples/blob/main/identity-policies/check-access-to-sensitive-resource/dynamodb-table.md) checks if a candidate policy grants access to any of the listed dynamodb actions on a specific sensitive table. These checks are powered by [Zelkova](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-checks-validating-policies.html), AWS's automated reasoning engine, which translates IAM policies into logical statements, so they evaluate what a policy allows with a high degree of assurance rather than relying on pattern matching. 
 
-   ```
-
-   - name: MyTest4
-     input:
-       Resources:
-         apiGw:
-           Type: AWS::ApiGateway::RestApi
-           Properties:
-             EndpointConfiguration:
-               Types: "PRIVATE"
-     expectations:
-       rules:
-         check_rest_api_is_private: PASS
-
-   ```
-
-To summarize, this proactive approach reduces data breaches by
-identifying overprivileged access patterns, and validates policy
-effectiveness against AWS best practices. IAM Access Analyzer
-findings can also be forwarded to AWS Security Hub assisting you
-to build audit-ready evidence.
+1.  **Validate resource configurations**: Beyond policy validation, verify that resources themselves are configured to meet sovereignty requirements, for example, that KMS keys are single-Region, S3 buckets don't have cross-Region replication, and resources carry sovereignty tags. For detailed guidance on writing and deploying sovereignty-specific configuration rules using CloudFormation Guard, AWS Config custom rules, and CloudFormation Hooks, see [DSSEC03-BP03 Validate resource configurations for sovereignty compliance](dssec03-bp03.html). 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [SEC01-BP06 Automate testing and validation of security controls in pipelines](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_securely_operate_automate_security_controls.html) 
++  [SEC03-BP02 Grant least privilege access](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_permissions_least_privileges.html) 
++  [DSSEC03-BP03 Validate resource configurations for sovereignty compliance](dssec03-bp03.html) 
 
-- [SEC01-BP06
-  Automate testing and validation of security controls in
-  pipelines](../security-pillar/sec_securely_operate_automate_security_controls.md "../security-pillar/sec_securely_operate_automate_security_controls.md")
+ **Related documents:** 
++  [Using AWS Identity and Access Management Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) 
++  [AWS IAM Access Analyzer pricing](https://aws.amazon.com/iam/access-analyzer/pricing/) 
++  [How to prioritize IAM Access Analyzer findings](https://aws.amazon.com/blogs/security/how-to-prioritize-iam-access-analyzer-findings/) 
 
-**Related documents:**
+ **Related examples:** 
++  The [AWS IAM Access Analyzer samples repository](https://github.com/aws-samples/aws-iam-access-analyzer-samples) on GitHub provides examples showing how you can use AWS CLI and APIs to programmatically validate and preview policy documents. 
++  The [AWS Guard Rules Registry](https://github.com/aws-cloudformation/aws-guard-rules-registry) is an open source repository of CloudFormation Guard rule files and managed rule sets and provides several guard rules you can use straight away. 
 
-- [Using
-  AWS Identity and Access Management Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md")
-- [AWS IAM Access Analyzer pricing](https://aws.amazon.com/iam/access-analyzer/pricing/ "https://aws.amazon.com/iam/access-analyzer/pricing/")
-- [How
-  to prioritize IAM Access Analyzer findings](https://aws.amazon.com/blogs/security/how-to-prioritize-iam-access-analyzer-findings/ "https://aws.amazon.com/blogs/security/how-to-prioritize-iam-access-analyzer-findings/")
+ **Related videos:** 
++  [AWS re:Invent 2025 - IAM Access Analyzer Deep Dive: From Configuration to Remediation (SEC340)](https://www.youtube.com/watch?v=IJVe5GxEo44) 
++  [AWS re:Invent 2025 - From Reactive to Proactive: Infrastructure governance by design (COP352)](https://www.youtube.com/watch?v=iXor74El2D8) 
++  [AWS re:Inforce 2024 - Refine unused access confidently with IAM Access Analyzer (IAM202-NEW)](https://www.youtube.com/watch?v=nnr0ulOv_X8) 
++  [AWS re:Invent 2023 - Use new IAM Access Analyzer features on your journey to least privilege (SEC238)](https://www.youtube.com/watch?v=JpemUkU8INA) 
++  [AWS re:Invent 2018: The Theory and Math Behind Data Privacy and Security Assurance (SEC301)](https://www.youtube.com/watch?v=F3JmBhTQmyY) 
 
-**Related examples:**
-
-- The
-  [AWS IAM Access Analyzer samples repository](https://github.com/aws-samples/aws-iam-access-analyzer-samples "https://github.com/aws-samples/aws-iam-access-analyzer-samples") on GitHub
-  provides examples showing how you can use AWS CLI and APIs to
-  programmatically validate and preview policy documents.
-- The
-  [AWS Guard Rules Registry](https://github.com/aws-cloudformation/aws-guard-rules-registry "https://github.com/aws-cloudformation/aws-guard-rules-registry") is an open-source repository of
-  AWS CloudFormation Guard rule files and managed rule sets and
-  provides several guard rules you can use straight away.
-
-**Related videos:**
-
-- [AWS re:Inforce 2024 - Refine unused access confidently with IAM Access Analyzer (IAM202-NEW)](https://www.youtube.com/watch?v=nnr0ulOv_X8 "https://www.youtube.com/watch?v=nnr0ulOv_X8")
-- [AWS re:Invent 2023 - Use new IAM Access Analyzer features on your
-  journey to least privilege (SEC238)](https://www.youtube.com/watch?v=JpemUkU8INA "https://www.youtube.com/watch?v=JpemUkU8INA")
-- [AWS re:Invent 2018: The Theory and Math Behind Data Privacy and
-  Security Assurance (SEC301)](https://www.youtube.com/watch?v=F3JmBhTQmyY "https://www.youtube.com/watch?v=F3JmBhTQmyY")
-- [AWS re:Invent 2025 - From Reactive to Proactive: Infrastructure
-  governance by design (COP352)](https://www.youtube.com/watch?v=iXor74El2D8 "https://www.youtube.com/watch?v=iXor74El2D8")
-
-**Related services:**
-
-- [AWS IAM Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md")
-- [AWS CloudFormation Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md")
-- [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md")
-- [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
+ **Related services:** 
++  [AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) 
++  [AWS CloudFormation Guard](https://docs.aws.amazon.com/cfn-guard/latest/ug/what-is-guard.html) 
++  [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) 
++  [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) 

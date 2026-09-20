@@ -1,307 +1,124 @@
-# DSSEC02-BP01 Establish comprehensive logging and monitoring of
 
-user actions
 
-Comprehensive logging enables organizations to track user
-activities, detect unauthorized access, and provide evidence during
-security incidents or audits. This is a key capability required by
-sovereign workloads. The logging principles outlined here apply
-universally, assisting organizations to safeguard their operations
-and maintain data integrity across their digital infrastructure.
+# DSSEC02-BP01 Protect data through layered access controls within sovereign boundaries
+<a name="dssec02-bp01"></a>
 
-**Desired outcome:** Complete
-visibility into system activities and data access with tamper-proof
-logs stored in compliant regions, enabling rapid incident response
-and regulatory audits.
+ Access control is one of the lens's five sovereignty design concerns: who can reach your data, from where, and under what authority. A single control layer leaves gaps, because network controls alone can't enforce identity rules and identity controls alone can't account for network paths. Layering network-centric and identity-centric controls, in proportion to data sensitivity and jurisdiction, keeps data within its sovereign boundary and blocks unauthorized access before it happens. 
 
-**Common anti-patterns:**
+ **Desired outcome:** 
++  Data remains accessible only to authorized users and services within its designated sovereign boundary, and unauthorized access is blocked before it occurs. 
++  Network-centric and identity-centric controls work together as layered preventive boundaries rather than relying on detection after access occurs. 
++  Operator access is constrained, and every access path is auditable, so you can demonstrate sovereign control to regulators. 
 
-- Failing to enable comprehensive logging across AWS services,
-  Regions, and accounts.
-- Implementing inconsistent logging formats and standards across
-  services.
-- Not protecting log data from unauthorized access or
-  modification.
-- Not defining and enforcing consistent retention periods.
-- Storing logs in regions that violate data residency
-  requirements.
-- Failing to regularly validate logging mechanisms for
-  completeness, accuracy and integrity.
+ **Common anti-patterns:** 
++  Zone of trust isn't known or not clearly established. 
++  Relying on a single layer of defense. For example, using only detective controls to detect violations, rather than applying preventive controls to stop violations in the first place. 
++  Not considering cross-service and intra-service data flows across AWS Regions. 
 
-**Benefits of establishing this best
-practice:**
+ **Benefits of establishing this best practice:** 
++  Maintain adherence to regional data sovereignty requirements. 
++  Developers can modify and extend application functionality without inadvertently exposing data. 
++  Improve transparency and visibility of data access controls leading to better auditability. 
 
-- Provides evidence for regulatory audits, demonstrates adherence
-  to digital sovereignty requirements (such as GDPR in Europe,
-  data localization laws in specific countries), and satisfies
-  industry-specific compliance standards.
-- Enables faster detection, thorough investigation, and more
-  effective remediation of security incidents while maintaining
-  sovereign control over security operations.
-- Tracks data access patterns, supports data protection
-  initiatives, and enables verification of compliance with data
-  residency requirements.
-
-**Level of risk exposed if this best practice
-is not established:** High
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Implementing effective logging for digital sovereignty requires a
-strategic approach addressing data residency constraints,
-retention requirements, and security controls. Your logging
-solution should be designed to be comprehensive, tamper-resistant,
-and aligned with local regulations. Verify logs are only
-accessible to authorized personnel and within authorized
-jurisdictions.
+ Access control measures designed to improve the sovereignty posture of your workload are driven by data localization mandates, data residency requirements, data sovereignty requirements, industry regulations (such as PCI DSS), and your organization-specific policies conforming to data privacy legislation. 
 
-Key implementation considerations include defining logging scope
-based on regulatory requirements, implementing centralized log
-aggregation with data residency controls, establishing retention
-periods with immutability where required, and developing automated
-monitoring and alerting capabilities. These considerations are
-detailed in the implementation steps below.
+ The terms data localization, residency, and sovereignty might sound similar but have different implications. The following guidance doesn't provide formal definitions of the terms listed. They are based on what we have identified as the main themes by listening to our customers, partners, and regulators. Consult your legal and compliance teams to verify how each of these sets of requirements apply to the jurisdictions you operate in. It isn't uncommon to find different interpretations of these terms. 
+
+ **Data Localization:** Implies you meet legal requirements stating data must be stored and processed within a specific geographic boundary. **Scenario**: A central bank mandates that all payment systems data must be stored on servers physically located within the country's jurisdiction. 
+
+ **Data Residency:** Implies that you have knowledge of where your data is, and control where that data is stored and transferred to at all times. Unlike data localization, data residency is about knowing and controlling where your data lives, and understanding the legal basis for international data transfers, including adequacy decisions and standard contractual clauses (SCCs). **Scenario:** A European healthcare provider assesses their data residency requirements and chooses to store patient records in Frankfurt data centers for faster access, lower latency, while aligning with articles under [Chapter V](https://eur-lex.europa.eu/eli/reg/2016/679#cpt_V) of the EU GDPR. 
+
+ **Data Sovereignty:** This is the [broadest concept](https://aws.amazon.com/what-is/data-sovereignty/). Implies data remains under the legal jurisdiction of the country where it is located, and the organization maintains control over that data, including who can access it and under what circumstances. It encompasses data residency and localization but adds requirements around operator access restrictions. It might also include requirements related to data portability so that data isn't locked in to a specific service provider. **Scenario:** A German financial institution needs to make sure that their customer data stored in Germany remains under German jurisdiction. Therefore, this goes beyond storing data in Germany (residency). It means maintaining sovereign control over that data. 
+
+ For simplicity, you can think of data localization as a subset of data residency. Data residency as a subset of data sovereignty. You can meet data residency requirements without achieving data sovereignty (that is, your data is in the right place, but you don't have operator access restrictions in place). You can meet data localization requirements without achieving data sovereignty (your data never leaves the country, but you are locked-in to a specific service provider as it uses a closed data format). 
+
+ Access control (who can access, what, and under what circumstances) spans all three aspects. 
+
+ **What AWS provides to control operator access:** 
++  Many core AWS services, including [AWS KMS](https://aws.amazon.com/kms/), [Amazon EC2](https://aws.amazon.com/ec2/) (through the [AWS Nitro System](https://aws.amazon.com/ec2/nitro/)), [AWS Lambda](https://aws.amazon.com/lambda/), and [Amazon EKS](https://aws.amazon.com/eks/), are designed with [zero operator access](https://aws.amazon.com/trust-center/operator-access/). The [Nitro System](https://aws.amazon.com/blogs/security/aws-nitro-system-security-design-receives-high-marks-from-ncc-group/) and [Amazon EKS](https://aws.amazon.com/blogs/security/amazon-elastic-kubernetes-service-gets-independent-affirmation-of-its-zero-operator-access-design/) have each been independently validated by NCC Group, affirming that there is no mechanism for AWS operators to access customer content. 
++  AWS operator actions use secure interfaces with temporary short-lived credentials, FIPS-validated hardware security tokens. These secure operator interfaces permit only limited operations that don't disclose customer data, and enforce multi-person approval for sensitive operations with full traceability to the individual operator. For more information see [AWS Trust Center - Operator Access](https://aws.amazon.com/trust-center/operator-access/). 
++  The [AWS European Sovereign Cloud](https://aws.eu/) is operated by [EU residents (transitioning to EU citizens)](https://www.aboutamazon.eu/news/aws/aws-european-sovereign-cloud-to-be-operated-by-eu-citizens) located in the EU. AWS European Sovereign Cloud Staff are obligated under their terms of employment to follow EU and Member State law. The AWS European Sovereign Cloud [Addendum](https://aws.eu/esca/) that supplements the AWS [Customer Agreement](https://aws.amazon.com/agreement) provides more details. 
++  [AWS Regions](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/), [AWS Dedicated Local Zones](https://aws.amazon.com/dedicatedlocalzones/), [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/), [AWS AI Factories](https://aws.amazon.com/ai/ai-factories/), and [AWS Outposts](https://aws.amazon.com/outposts/) each bring a range of deployment, and governance options, enabling customers to match their infrastructure deployment to their specific regulatory, latency, and data residency requirements. 
+
+ These controls are part of the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/). AWS secures the infrastructure, and you configure controls over your own operators and users. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. **Define logging requirements and
-   retention periods:**
-   - Document specific logging requirements based on your
-     industry and jurisdictional regulations.
-   - Identify mandatory retention periods for different types
-     of logs.
-   - Determine data residency constraints for log storage.
-   - Define the scope of actions and access events that must
-     be logged. For example, consider
-     _who_ accessed
-     _what_ and from
-     _where_, as some of the minimum
-     information required in log files. The granularity of
-     logging needs to be carefully calibrated - while some
-     systems may require detailed transaction logs, others
-     might only need summary-level information.
-   - Identify critical systems and data that require enhanced
-     logging.
+ Before attempting the following implementation steps, make sure you have read through and applied best practices listed under the AWS Well-Architected Security pillar under [Identity management](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/identity-management.html) and [Permissions management](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/permissions-management.html). 
 
-2. **Configure AWS CloudTrail across
-   accounts and Regions:**
-   - Enable organization-wide
-     [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") trails that capture read and write
-     management events across AWS accounts.
-   - Enable data events for sensitive S3 buckets, Lambda
-     functions, DynamoDB tables, and other data services
-     identified in the previous step.
-   - Configure log file validation to detect unauthorized
-     modifications. See this guide,
-     [Validating
-     CloudTrail log file integrity](../../../awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.md "../../../awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.md").
+1.  **Know where your data is**: Knowing where your data resides is a key requirement under data residency. Run discovery and data classification jobs to tag resources with sovereignty-specific data classification tags (such as data-classification:sovereign, data-classification:confidential) and create automated processes that verify tag compliance. See [DSSEC06-BP01 Classify data with sovereignty attributes](dssec06-bp01.html). 
 
-3. **Based on the defined requirements,
-   enable service-specific logging:**
-   - Enable
-     [VPC
-     Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md") for network traffic monitoring.
-   - Configure
-     [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md") to record resource configuration changes.
-   - Set up
-     [Amazon S3 server access logging](../../../AmazonS3/latest/userguide/ServerLogs.md "../../../AmazonS3/latest/userguide/ServerLogs.md") for data access
-     patterns.
-   - Configure
-     [Amazon RDS](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.md") and
-     [Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.md") database audit logging.
-   - Activate
-     [Amazon GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md") and
-     [Amazon Inspector](../../../inspector/latest/user/what-is-inspector.md "../../../inspector/latest/user/what-is-inspector.md") as sources of additional security
-     findings.
+1.  **Baseline your data sovereignty requirements**: After you understand where your data is, the next step is to baseline your data sovereignty requirements. They include (but are not limited to): 
 
-4. **Establish centralized log storage
-   with sovereignty controls:** The implementation of
-   a centralized logging system must prioritize data residency
-   compliance while maintaining operational efficiency. This
-   involves selecting and deploying log aggregation solutions
-   that can enforce geographic data boundaries while providing
-   comprehensive coverage.
-   - Create dedicated log archive accounts within regions
-     that meet your data residency requirements (for example,
-     AWS Regions in specific countries or geographic areas
-     that comply with local data sovereignty laws).
-   - Implement IAM policies to restrict access, modification,
-     or deletion of log files.
-   - Implement log retention policies in line with
-     jurisdictional data retention requirements.
-   - Configure MFA for sensitive data access or tasks (for
-     example, deletion of data)
-   - Control replication of log files to other AWS Regions to
-     maintain data sovereignty:
-     - Using
-       [service
-       control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md"): Apply deny actions for
-       PutReplicationConfiguration and
-       DeleteReplicationConfiguration to
-       specific S3 buckets containing sensitive log files,
-       and add
-       [Region
-       deny controls](../../../controltower/latest/controlreference/ou-region-deny.md "../../../controltower/latest/controlreference/ou-region-deny.md").
-     - Using
-       [IAM
-       policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md"): Blocks users from setting up
-       replication using IAM Permission Boundaries.
-     - Using
-       [S3
-       bucket policies](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md"):
-       [Temporarily
-       block](https://aws.amazon.com/blogs/storage/temporarily-block-data-transfers-between-aws-regions-in-amazon-s3/#:~:text=You%20can%20block%20ingress%20and,tandem%20with%20the%20ip%2Dranges. "https://aws.amazon.com/blogs/storage/temporarily-block-data-transfers-between-aws-regions-in-amazon-s3/#:~:text=You%20can%20block%20ingress%20and,tandem%20with%20the%20ip%2Dranges.") data transfers between AWS Regions in
-       Amazon S3 to block replication of log files.
+   1.  Where can data be stored? - Think of jurisdictional boundaries, data stores, retention policies, and cross-border data transfers. 
 
-   - Apply encryption using
-     [AWS KMS](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") with appropriate key controls. Understand
-     [security
-     considerations](../../../kms/latest/developerguide/mrk-when-to-use.md "../../../kms/latest/developerguide/mrk-when-to-use.md") before creating multi-Region keys.
-   - Configure immutable S3 buckets using object locks with a
-     [write-once-read-many
-     (WORM) configuration](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/latest/userguide/object-lock.md"). Consider
-     [AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md"), which provides immutable,
-     queryable storage of CloudTrail events for up to 7
-     years, simplifying compliance audits and forensic
-     investigations without managing S3 buckets directly.
+   1.  Who can access it and under what circumstances? - Think of operator location, access routes, clearances required, physical security of the facility, and the certifications and attestations you will need. 
 
-5. **Implement log analysis and
-   monitoring:** An effective logging system must
-   include robust analysis, monitoring and alerting
-   capabilities that provide real-time visibility into system
-   activities. This involves implementing continuous log
-   analysis for critical events and developing anomaly
-   detection algorithms that can identify unusual patterns or
-   potential security incidents.
-   - Configure
-     [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to monitor your trail logs.
-     Detect and send notifications for unauthorized access or
-     suspicious activities against security and compliance
-     data, including:
-     - Attempts to modify or delete security and compliance
-       data
-     - Attempts to modify security configurations
-       protecting the data (such as unauthorized access to
-       encryption keys)
+   1.  Which nation (or bloc of nations) has jurisdiction over your data? Think of data subject access requests (DSARs), data disclosure requests from law enforcement agencies, and breach reporting procedures in the jurisdictions you operate in. 
 
-   - Create dedicated
-     [IAM
-     roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") for log analysis and audit functions
-   - Configure
-     [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md") rules for automated responses to
-     critical events (such as IAM policy changes, encryption
-     key deletion, or root account usage)
-   - Consider additional AWS services such as
-     [Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/what-is.md "../../../opensearch-service/latest/developerguide/what-is.md"),
-     [Quick Suite](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md"), or third-party solutions for enhanced
-     analytics, reporting, and visualization
+   1.  And are there any interoperability and portability requirements that need to be fulfilled? Think of alignment to standards-based protocols, storage formats, data formats, and open specifications that can assist in mitigating potential risks around business continuity. 
 
-6. **Verify logging completeness and
-   compliance:**
-   - Regularly audit logging configurations against
-     requirements:
-     - Perform periodic testing to verify logs capture
-       critical activities (such as IAM policy changes, S3
-       bucket deletions, or security group modifications)
-     - Conduct simulated security incidents to test the
-       effectiveness of your logging configurations.
-       Consider using
-       [AWS Well-Architected Labs - Security](https://wellarchitectedlabs.com/security/ "https://wellarchitectedlabs.com/security/") for hands-on
-       practice.
+    After you understand your data residency and data sovereignty requirements, the next steps are to establish network-centric and identity-centric controls. 
 
-   - Validate log retention periods. Log retention policies
-     must define clear retention periods based on both legal
-     requirements and operational needs, implementing
-     automated log rotation and archival strategies to manage
-     data lifecycle. Use automated test cases (such as
-     [AWS Config Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") or custom Lambda functions) to
-     continuously check configurations.
+1.  **Establish network-centric controls**: Set up centralized routing and inspection points to inspect, route, and filter [East-West](https://en.wikipedia.org/wiki/East-west_traffic) (VPC-to-VPC) and [North-South](https://en.wikipedia.org/wiki/North-south_traffic) (Internet egress) traffic. For sovereign workloads, centralized egress inspection is particularly important because it gives you a single point to detect and block unintended data flows before they leave your network. The whitepaper [Building a Scalable and Secure Multi-VPC AWS Network Infrastructure](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/welcome.html) lists several patterns that you can use. 
 
-7. **Validate third-party
-   controls:** Organizations often use third-party
-   services that generate, process, or consume security and
-   compliance data (such as application performance management
-   (APM) SaaS providers, security information and event
-   management (SIEM) systems, or compliance management
-   solutions). To verify these services meet your sovereignty
-   and compliance requirements:
-   - Review the vendor's compliance:
-     - Request relevant accreditations or certifications
-       specific to the services they provide (such as SOC
-       2, ISO 27001, or Region-specific certifications)
-     - Verify the data residency of the service and confirm
-       it aligns with your sovereignty requirements. Where
-       necessary, validate the security clearance and
-       location of personnel who have access to your
-       security and compliance data.
+    This presentation [The Routing Loop - Centralized network traffic inspection: Key insights and lessons learned](https://www.youtube.com/watch?v=3tXQUZ-_ASs) compares several network topologies from the perspective of security, operational flexibility, and costs. For instance, while using a centralized "Inspection VPC" might be the right approach for VPC-to-VPC and Internet Egress traffic, the distributed model (AWS WAF, AWS Shield, and ALBs located in workload VPCs) offers greater operational flexibility for Internet Ingress traffic. 
 
-   - Assess technical integration points: Verify API security
-     controls (such as authentication, encryption in transit,
-     and rate limiting), review IAM federation configurations
-     to maintain least privilege access, confirm data
-     transfer mechanisms comply with your data residency
-     requirements, and test integration points to verify logs
-     are transmitted securely and completely.
+    Along with ingress, egress, and VPC-to-VPC traffic routing and filtering, apply network segmentation with subnets and security groups. Security groups provide dynamic, software-defined network micro-perimeters for both north-south and east-west traffic. 
 
-8. **Implement continuous
-   improvement:**
-   - Regularly review and update your logging strategy based
-     on regulatory changes and emerging threats
-   - Assess new AWS services for logging requirements as you
-     adopt them
-   - Optimize log storage and analysis for cost and
-     performance:
-     - Use
-       [S3
-       Intelligent-Tiering](../../../AmazonS3/latest/userguide/intelligent-tiering.md "../../../AmazonS3/latest/userguide/intelligent-tiering.md") to automatically move
-       logs to cost-effective storage tiers
-     - Implement lifecycle policies to transition older
-       logs to
-       [Amazon Glacier](../../../amazonglacier/latest/dev/introduction.md "../../../amazonglacier/latest/dev/introduction.md") for long-term retention
-     - Review
-       [AWS Cost Optimization best practices](../cost-optimization-pillar/welcome.md "../cost-optimization-pillar/welcome.md") for
-       additional guidance
+1.  **Add identity-centric controls**: Apply principles of least privilege on AWS [principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) and [resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html) using AWS Identity and Access Management [access policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html). Consider building [data perimeters](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_data-perimeters.html) that serve as always-on boundaries to help protect your data across a broad set of AWS accounts and resources. Establish your zone of trust and define it as narrowly as possible. Review trust boundaries regularly and remove unnecessary trust relationships. 
 
-   - Incorporate feedback from security teams, auditors, and
-     incident response exercises
-   - Conduct regular training on log analysis techniques
-     using resources like
-     [AWS Skill
-     Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/") and
-     [AWS Security workshops](https://workshops.aws/categories/Security "https://workshops.aws/categories/Security")
+    A data perimeter is a set of preventive controls that verifies that only *trusted identities* are accessing *trusted resources* from *expected networks*. This is a foundational step designed to block untrusted entities from accessing sensitive data held within your accounts. The following three principles are central to this: 
+
+   1.  **Only trusted identities**: Only *trusted identities* can access *my resources* and only *trusted identities* are allowed from *my networks*. 
+
+   1.  **Only trusted resources**: *My principals* can only access *trusted resources* and that access from *my networks* only targets *trusted resources* (regardless of the principal involved). 
+
+   1.  **Only expected networks**: Only *expected networks* can be the source of requests from *my principals* or to *my resources*. 
+
+    Data perimeters are set up using [service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html), [resource control policies (RCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html) and [VPC endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html) to complement the network-centric controls you set up in Step 3 and add more defense in depth. For example, VPC endpoint policies allow you to enforce identity-centric rules at a logical network boundary. The blog post [Zero Trust architectures: An AWS perspective](https://aws.amazon.com/blogs/security/zero-trust-architectures-an-aws-perspective/) makes the case that the best security doesn't come from making a binary choice between identity-centric and network-centric tools, but rather by using both effectively in combination with each other. 
+
+    For more detail on building data perimeters, see [Blog Post Series: Establishing a Data Perimeter on AWS](https://aws.amazon.com/identity/data-perimeters-blog-post-series/). 
+
+1.  **Strengthen your digital sovereignty posture:** See [DSSEC07-BP01 Enhance your digital sovereignty governance posture](dssec07-bp01.html) for a list of additional measures including, specific AWS Control Tower preventive and detective controls dedicated to data residency and digital sovereignty. 
+
+1.  **Implement logging and monitoring**: Prioritize preventive and proactive controls over detective controls, because it is more secure to block noncompliant access attempts before they occur rather than to detect such attempts after they occur. Apply detective controls to add in monitoring of compliance. 
+   +  Implement [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) and [Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch/) for logging and monitoring. 
+   +  Implement [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) rules to detect noncompliant resources. Use [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) compliance standards to continuously assess your posture and generate compliance scores aligned with regulatory frameworks. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [SEC03-BP01 Define access requirements](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_permissions_define.html) 
++  [SEC03-BP02 Grant least privilege access](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_permissions_least_privileges.html) 
++  [SEC03-BP05 Define permission guardrails for your organization](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_permissions_define_guardrails.html) 
++  [SEC08-BP04 Enforce access control](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_protect_data_rest_access_control.html) 
++  [SEC01-BP06 Automate testing and validation of security controls in pipelines](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_securely_operate_automate_security_controls.html) 
++  [SEC05-BP01 Create network layers](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_network_protection_create_layers.html) 
++  [SEC05-BP02 Control traffic flow within your network layers](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_network_protection_layered.html) 
 
-- [SEC04-BP01
-  Configure service and application logging](../security-pillar/sec_detect_investigate_events_app_service_logging.md "../security-pillar/sec_detect_investigate_events_app_service_logging.md")
-- [SEC04-BP02
-  Capture logs, findings, and metrics in standardized
-  locations](../security-pillar/sec_detect_investigate_events_logs.md "../security-pillar/sec_detect_investigate_events_logs.md")
-- [SEC04-BP03
-  Correlate and enrich security alerts](../security-pillar/sec_detect_investigate_events_security_alerts.md "../security-pillar/sec_detect_investigate_events_security_alerts.md")
-- [SEC10-BP03
-  Prepare forensic capabilities](../security-pillar/sec_incident_response_prepare_forensic.md "../security-pillar/sec_incident_response_prepare_forensic.md")
-- [SEC08-BP02
-  Enforce encryption at rest](../security-pillar/sec_protect_data_rest_encrypt.md "../security-pillar/sec_protect_data_rest_encrypt.md")
+ **Related documents:** 
++  [Identity and Access Management](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-security-perspective/identity-and-access-management.html) 
++  [Data Residency: AWS Policy Perspectives](https://d1.awsstatic.com/whitepapers/compliance/Data_Residency_Whitepaper.pdf) 
++  [Data Residency with Hybrid Cloud Services Lens - AWS Well-Architected](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/data-residency-with-hybrid-cloud-services-lens.html) 
++  [Data Classification](https://docs.aws.amazon.com/whitepapers/latest/data-classification/data-classification.html) 
++  [Data security and risk management](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/data-security-and-risk-management.html) 
++  [Exploring the zero operator access design of Mantle - Next-generation inference engine for Amazon Bedrock](https://aws.amazon.com/blogs/machine-learning/exploring-the-zero-operator-access-design-of-mantle/) 
 
-**Related services:**
+ **Related videos:** 
++  [AWS re:Invent 2024 - Amazon S3 security and access control best practices](https://www.youtube.com/watch?v=vRmUI0VdsQw) 
++  [AWS re:Invent 2019 - Provable access control: Know who can access your AWS resources](https://www.youtube.com/watch?v=6DX7p-OirGU) 
++  [AWS re:Inforce 2022 - AWS Identity and Access Management (IAM) deep dive](https://www.youtube.com/watch?v=YMj33ToS8cI) 
++  [AWS re:Invent 2018: The Theory and Math Behind Data Privacy and Security Assurance](https://www.youtube.com/watch?v=F3JmBhTQmyY) 
 
-- [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/")
-- [Amazon CloudWatch Logs](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/")
-- [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/")
-- [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/")
-- [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/")
-- [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
-
-**Related documents:**
-
-- [AWS Security Incident Response Technical Guide](../../../security-ir/latest/userguide/security-incident-response-guide.md "../../../security-ir/latest/userguide/security-incident-response-guide.md")
-- [Centralized
-  logging and monitoring](../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/logging-monitoring.md "../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/logging-monitoring.md")
-- [Build
-  your own centralized log analytics platform with Amazon OpenSearch Service](../../../solutions/latest/centralized-logging-with-opensearch/solution-overview.md "../../../solutions/latest/centralized-logging-with-opensearch/solution-overview.md")
-- [The
-  AWS Security Reference Architecture - Log Archive
-  account](../../../prescriptive-guidance/latest/security-reference-architecture/log-archive.md "../../../prescriptive-guidance/latest/security-reference-architecture/log-archive.md")
+ **Related services:** 
++  [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) 
++  [AWS Key Management Service (KMS)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) 
++  [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) 

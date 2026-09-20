@@ -1,159 +1,97 @@
-# DSREL01-BP02 Develop mitigation plans for critical
 
-risks
 
-Proactive risk management is essential for maintaining business
-continuity, regulatory adherence, and stakeholder trust. You need a
-structured approach to manage critical risks. This assists in
-reducing potential financial penalties, operational disruptions, and
-reputational damage.
+# DSREL01-BP02 Select and operationalize sovereignty-compliant recovery sites
+<a name="dsrel01-bp02"></a>
 
-Your strategy should include robust mitigation plans. These plans
-should demonstrate due diligence, protect sensitive data, and enable
-effective incident response in cloud environments. With this
-systematic approach to risk management, you can better safeguard
-operations, adhere to regulatory requirements, and improve trust
-with customers and stakeholders.
+ Select and configure recovery sites that maintain data residency and regulatory compliance throughout the recovery process. Recovery procedures must not move data outside approved jurisdictions, even temporarily. Automate recovery using infrastructure as code, test regularly, and train teams to operate under time pressure while maintaining compliance. 
 
-**Desired outcome:** Organizations
-maintain prioritized, tested mitigation plans that enable rapid
-response to critical risks while maintaining regulatory adherence.
-Potential disruptions are reduced to acceptable levels through
-actionable mitigation strategies. Business continuity and regulatory
-adherence are sustained even during adverse events.
+ **Desired outcome:** 
++  Recovery sites preserve data residency and regulatory adherence during both normal operations and failover scenarios. 
++  Recovery procedures are automated, tested, and documented. 
++  Teams can restore critical workloads within defined recovery time objectives (RTOs) and recovery point objectives (RPOs). 
 
-**Common anti-patterns:**
+ **Common anti-patterns:** 
++  Replicating data to recovery sites without first classifying data by sensitivity and residency requirements, or verifying that the target Region is within an approved jurisdiction. 
++  Relying on manual, untested recovery procedures instead of automated, validated processes that maintain compliance throughout the recovery path. 
++  Training only specific individuals on recovery procedures, creating single points of failure and knowledge bottlenecks during incidents. 
++  Assuming automated recovery mechanisms work in every scenario without maintaining contingency procedures for critical operations. 
 
-- Adopting a reactive approach that addresses risks only after
-  incidents occur, missing opportunities for prevention.
-- Operating in silos without cross-functional input, leading to
-  fragmented risk ownership and uncoordinated mitigation efforts.
-- Maintaining static, generic documentation that fails to reflect
-  current AWS services or specific organizational risks.
-- Conducting incomplete risk assessments that overlook critical
-  areas such as compliance, operational risks, and third-party
-  dependencies.
-- Neglecting to validate mitigation strategies through regular
-  testing, simulations, or tabletop exercises.
-- Relying on manual processes and unclear communication protocols,
-  hindering effective incident response and stakeholder
-  notification.
+ **Benefits of establishing this best practice:** 
++  Data and workloads remain within approved jurisdictions throughout recovery, maintaining regulatory adherence even during disruptions. 
++  Automated, tested recovery procedures reduce downtime and human error while achieving defined RTOs and RPOs consistently. 
++  Regular testing and cross-training build team confidence and identify weaknesses before actual incidents occur. 
++  Clear documentation and compliance checks at each recovery stage support audit readiness and demonstrate due diligence. 
 
-**Benefits of establishing this best
-practice:**
-
-- Supports faster incident response and system recovery through
-  pre-planned, documented mitigation strategies.
-- Shows proactive risk management to auditors, regulators, and
-  stakeholders. Supports adherence to frameworks like GDPR, HIPAA,
-  and PCI-DSS.
-- Enhances operational resilience and business continuity through
-  improved system reliability and proactive risk management.
-- Preserves institutional knowledge and ensures consistent
-  response procedures regardless of personnel changes.
-- Creates a culture of operational excellence through regular
-  testing, updates, and continuous improvement.
-
-**Level of risk exposed if this best practice
-is not established:** High
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Consider building mitigation plans by prioritizing high-risk items
-in your risk register. Create a cross-functional team that
-includes security, compliance, operations, and business
-stakeholders. Use AWS tools and industry frameworks to identify,
-prioritize, and design mitigations that align with AWS best
-practices and regulatory requirements.
+ Sovereignty-compliant recovery site selection begins with understanding which data privacy legislations and cybersecurity standards apply to your workloads, where data can legally reside, and where operational recovery teams are located. Cross-functional alignment between IT, legal, compliance, and business stakeholders establishes clear policies for cross-border data movement during recovery scenarios and defines minimum service levels for each workload. Without this classification and alignment, recovery architectures risk violating residency constraints at the exact moment compliance is most scrutinized. 
 
-**Digital Sovereignty
-considerations**: Include aspects related to data
-residency, data privacy, and operator access restrictions when
-designing your mitigation plans. Your recovery path must not
-result in compliance violations.
+ Recovery procedures must document full recovery timelines and communication plans for every stage until full restoration is achieved. A recovery path that introduces compliance issues, even temporarily, undermines the purpose of sovereignty controls. 
+
+ AWS infrastructure provides several architectural properties and managed services that support sovereignty-compliant recovery: 
++  AWS Regions consist of multiple [Availability Zones](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html) with independent power, cooling, and networking. Your workloads inherit this isolation. 
++  AWS services are designed for [static stability](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/static-stability.html). Data plane operations (serving requests, reading data, and running compute) continue even when control plane operations (creating resources and modifying configurations) are impaired. For sovereign workloads, this means your recovery paths must depend on data plane operations rather than control plane calls during a disruption. For example, pre-provisioned capacity in a recovery Region continues serving traffic even if the control plane in the primary Region is unavailable. See [AWS Fault Isolation Boundaries](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/abstract-and-introduction.html) for a detailed explanation of how AWS isolates failures across AZs, Regions, control planes, and data planes. 
++  [AWS Backup](https://aws.amazon.com/backup/) provides cross-Region and cross-account backup with encryption using customer-managed keys in the destination vault. [AWS Elastic Disaster Recovery](https://aws.amazon.com/disaster-recovery/) replicates servers to a recovery Region with sub-second RPOs. Both services handle the replication mechanics. Your responsibility is selecting recovery Regions that comply with data residency requirements and configuring encryption keys within approved jurisdictions. 
++  For jurisdictions where no second AWS Region exists, [AWS Outposts](https://aws.amazon.com/outposts/), [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/), and [AWS Dedicated Local Zones](https://aws.amazon.com/dedicatedlocalzones/) provide in-country recovery options using the same APIs and tools as standard Regions. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-Building a technical mitigation plan involves: understanding
-your application components, their runtime characteristics, the
-underlying fault isolation boundaries and their
-inter-dependencies. Several AWS services support this process:
+ Before attempting these steps, make sure you understand [disaster recovery options in the cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html), specifically the difference between Backup and Restore, Pilot Light, Warm standby, and Multi-site active-active. 
 
-1. Use
-   [AWS Audit Manager](https://aws.amazon.com/audit-manager/ "https://aws.amazon.com/audit-manager/") (Audit Manager) to discover potential
-   reliability risks and mitigations. Audit Manager
-   [common
-   controls](https://aws.amazon.com/blogs/aws/simplify-risk-and-compliance-assessments-with-the-new-common-control-library-in-aws-audit-manager/ "https://aws.amazon.com/blogs/aws/simplify-risk-and-compliance-assessments-with-the-new-common-control-library-in-aws-audit-manager/") lists clear mitigation steps for commonly
-   encountered high availability (HA) scenarios. A common
-   control is a guideline that's not specific to one framework
-   or AWS resource. Instead, it maps to domains such as HA and
-   data protection.
-2. Use
-   [AWS Systems Manager Application Manager](../../../systems-manager/latest/userguide/application-manager.md "../../../systems-manager/latest/userguide/application-manager.md") and
-   [resource
-   groups](../../../ARG/latest/userguide/resource-groups.md "../../../ARG/latest/userguide/resource-groups.md") to build a unified view of your applications
-   and their underlying AWS resources.
-3. Use
-   [AWS Resilience Hub](../../../resilience-hub/latest/userguide/what-is.md "../../../resilience-hub/latest/userguide/what-is.md") to define your resilience goals,
-   assess your resilience posture against those goals, and
-   implement recommendations for improvement based on the AWS
-   Well-Architected Framework.
-4. Map service dependencies using
-   [AWS X-Ray](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md") and trace requests through distributed
-   applications. Use X-Ray to discover how microservices and
-   components interact at runtime, especially for serverless
-   and containerized workloads.
-5. Implement compliance and preventive controls. Use
-   [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/") to set preventive, proactive and
-   detective guardrails. When you enable a control in Control
-   Tower, it also shows you the compliance framework that the
-   control maps to.
-6. Automate your recovery using
-   [Systems
-   Manager Automation runbooks](../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md"),
-   [Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md") for monitoring and troubleshooting AWS
-   resources in communication applications, and
-   [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/") to run one-off recovery tasks.
-7. Implement continuous improvement and effective reporting
-   with
-   [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/").
+1.  **Assess data residency and regulatory requirements:** Identify the data protection, data privacy, and cybersecurity regulations that apply to your workloads in each operating jurisdiction. Determine your data residency requirements, including approvals and legal bases required for cross-border data transfers when backing up to a Region outside your jurisdiction. 
+
+1.  **Select and validate recovery Regions:** Review [AWS Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) to verify service availability in your chosen Regions, and use [AWS Artifact](https://aws.amazon.com/artifact/) to check compliance certifications and attestations for each Region. Test network latency between primary and recovery sites, and verify that each recovery Region meets data residency requirements for every data classification level. 
+
+1.  **Select alternate recovery sites:** If no second AWS Region exists within the approved jurisdiction, evaluate alternative in-country options: 
+   +  [AWS Outposts racks](https://aws.amazon.com/outposts/rack/) within your own data center or a colocation facility in the approved jurisdiction. 
+   +  [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) or [AWS Dedicated Local Zones](https://aws.amazon.com/dedicatedlocalzones/) for in-country recovery capacity closer to your users. 
+   +  Another service provider for temporary recovery within an approved jurisdiction. 
+   +  Temporary waivers from regulators to deploy to another AWS Region in a different jurisdiction, with clearly stated duration, extension criteria, and obligations around resuming operations from the primary Region. 
+
+    Document trade-offs for each option. For example, if your recovery strategy uses another service provider, interoperability and portability should be design goals with regular automated compatibility checks. 
+
+1.  **Automate recovery infrastructure:** Use managed services for encryption and cross-Region backup replication. See [Creating backup copies across AWS Regions with AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/cross-region-backup.html) and [Encryption for copies of a backup to a different account or AWS Region](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html#copy-encryption). When AWS Backup performs a cross-Region copy, data transfers over the AWS global backbone network through long-haul terrestrial fiber and sub-sea cables. Use [AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html), [AWS Step Functions](https://aws.amazon.com/step-functions/), [Amazon EventBridge](https://aws.amazon.com/eventbridge/), and [AWS Lambda](https://aws.amazon.com/lambda/) to orchestrate recovery flows. 
+
+1.  **Document recovery procedures:** Define RTOs and RPOs for each critical workload using [AWS Resilience Hub](https://docs.aws.amazon.com/resilience-hub/latest/userguide/what-is.html), and map system dependencies along the recovery path. Document step-by-step runbooks in [AWS Systems Manager Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html), including compliance validation checks at each stage. Define roles, responsibilities, escalation paths, and communication plans. Include manual fallback procedures for critical operations where automated recovery might not cover every scenario. 
+
+1.  **Test and validate on a defined cadence:** Run recovery drills on a schedule aligned with your recovery objectives and audit cycle, and after any significant architecture or regulatory change, using [AWS Fault Injection Service](https://aws.amazon.com/fis/) and tabletop exercises, validating that procedures meet RTOs, RPOs, and data residency requirements. Train multiple team members on recovery procedures to avoid single points of failure, using [AWS Skill Builder](https://skillbuilder.aws/) and [AWS GameDay](https://aws.amazon.com/gameday/) for hands-on practice. Document test results, update procedures based on findings, and feed lessons learned back into the risk register. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [REL13-BP01 Define recovery objectives for downtime and data loss](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_planning_for_recovery_objective_defined_recovery.html) 
++  [REL13-BP02 Use defined recovery strategies to meet the recovery objectives](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_planning_for_recovery_disaster_recovery.html) 
++  [REL13-BP03 Test disaster recovery implementation to validate the implementation](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_planning_for_recovery_dr_tested.html) 
++  [REL13-BP05 Automate recovery](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_planning_for_recovery_auto_recovery.html) 
++  [SEC08-BP01 Implement secure key management](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_protect_data_rest_key_mgmt.html) 
 
-- [OPS01-BP04
-  Evaluate compliance requirements](../operational-excellence-pillar/ops_priorities_compliance_reqs.md "../operational-excellence-pillar/ops_priorities_compliance_reqs.md")
-- [SEC01-BP07
-  Identify threats and prioritize mitigations using a threat
-  model](../security-pillar/sec_securely_operate_threat_model.md "../security-pillar/sec_securely_operate_threat_model.md")
-- [SEC10-BP02
-  Develop incident management plans](../security-pillar/sec_incident_response_develop_management_plans.md "../security-pillar/sec_incident_response_develop_management_plans.md")
-- [OPS07-BP05
-  Make informed decisions to deploy systems and changes](../operational-excellence-pillar/ops_ready_to_support_informed_deploy_decisions.md "../operational-excellence-pillar/ops_ready_to_support_informed_deploy_decisions.md")
+ **Related documents:** 
++  [AWS Disaster Recovery Documentation](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html) 
++  [AWS Resilience Hub User Guide](https://docs.aws.amazon.com/resilience-hub/latest/userguide/what-is.html) 
++  [Encryption best practices for AWS Key Management Service](https://docs.aws.amazon.com/prescriptive-guidance/latest/encryption-best-practices/kms.html) 
++  [AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html) 
 
-**Related documents:**
+ **Related videos:** 
++  [AWS re:Inforce 2025 - Navigating sovereignty requirements: Architectures and solutions on AWS (DAP202)](https://www.youtube.com/watch?v=Eq0K0pxRjRk) 
++  [AWS re:Invent 2023: Backup and Disaster Recovery Strategies for Increased Resilience (ARC208)](https://aws.amazon.com/awstv/watch/173a403d06b/) 
 
-- [Compliance
-  validation for AWS Cloud Map](../../../cloud-map/latest/dg/cloud-map-compliance.md "../../../cloud-map/latest/dg/cloud-map-compliance.md")
-- [Use
-  AWS Chatbot in Slack to remediate security findings from AWS Security Hub](https://aws.amazon.com/blogs/security/use-aws-chatbot-in-slack-to-remediate-security-findings-from-aws-security-hub/ "https://aws.amazon.com/blogs/security/use-aws-chatbot-in-slack-to-remediate-security-findings-from-aws-security-hub/")
-
-**Related videos:**
-
-- [AWS re:Inforce 2025 - Best practices for managing governance, risk
-  and compliance globally (GRC301)](https://www.youtube.com/watch?v=pCNIpnb9tvE "https://www.youtube.com/watch?v=pCNIpnb9tvE")
-
-**Related services:**
-
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
-- [AWS Audit Manager](https://aws.amazon.com/audit-manager/ "https://aws.amazon.com/audit-manager/")
-- [AWS Chatbot](https://aws.amazon.com/chatbot/ "https://aws.amazon.com/chatbot/")
-- [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/")
-- [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
-- [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/")
-- [AWS IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")
-- [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/")
-- [AWS Resource Groups](https://aws.amazon.com/resource-groups/ "https://aws.amazon.com/resource-groups/")
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
-- [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/")
+ **Related services:** 
++  [AWS Resilience Hub](https://aws.amazon.com/resilience-hub/) 
++  [AWS Elastic Disaster Recovery](https://aws.amazon.com/disaster-recovery/) 
++  [AWS Backup](https://aws.amazon.com/backup/) 
++  [AWS KMS](https://aws.amazon.com/kms/) 
++  [AWS CloudHSM](https://aws.amazon.com/cloudhsm/) 
++  [AWS CloudFormation](https://aws.amazon.com/cloudformation/) 
++  [AWS Fault Injection Service](https://aws.amazon.com/fis/) 
++  [Amazon VPC](https://aws.amazon.com/vpc/) 
++  [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/) 
++  [AWS Direct Connect](https://aws.amazon.com/directconnect/) 
++  [AWS Outposts](https://aws.amazon.com/outposts/) 
++  [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) 
++  [AWS Dedicated Local Zones](https://aws.amazon.com/dedicatedlocalzones/) 
++  [AWS Systems Manager](https://aws.amazon.com/systems-manager/) 

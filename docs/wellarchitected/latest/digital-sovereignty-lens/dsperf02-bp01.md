@@ -1,139 +1,64 @@
-# DSPERF02-BP01 Implement confidential computing technologies for
 
-data protection during processing
 
-Confidential computing technology extends traditional security
-models for highly regulated industries. It protects sensitive data
-not just at rest and in transit, but also during processing by using
-hardware-enforced isolated runtime environments. This enhanced
-protection addresses critical security gaps by blocking unauthorized
-access, including from privileged users and cloud providers.
+# DSPERF02-BP01 Validate third-party software components for sovereignty compliance
+<a name="dsperf02-bp01"></a>
 
-**Desired outcome:** Protect
-sensitive data during processing through hardware-enforced
-isolation. Maintain cryptographic isolation of sensitive data while
-enabling secure computation.
+ Third-party software components (open source libraries, commercial SDKs, and proprietary middleware) can introduce sovereignty risks that standard security scanning doesn't detect. Licensing restrictions, supply chain provenance, runtime behavior, and jurisdiction-specific certification requirements each affect whether a component is suitable for use in a regulated environment. 
 
-**Common anti-patterns:**
+ **Desired outcome:** 
++  You have sovereignty-specific validation criteria defined for third-party software components, covering licensing compatibility, supply chain provenance, data handling behavior, and jurisdiction-specific certifications. 
++  Your validation process is layered on top of existing security scanning, not a replacement for it. 
++  You have documented compensating controls for components that can't meet certification requirements. 
++  Your critical third-party dependencies have contingency plans for abandonment, licensing changes, or vendor disruption. 
 
-- Running highly-confidential workloads on regular EC2 instances
-  without considering hardware-enforced isolation and encryption,
-  and secure enclaves.
-- Underestimating CPU and memory requirements and granting
-  excessive IAM permissions to applications handling sensitive
-  data.
-- Failing to properly validate enclave attestation documents and
-  overlooking proper key management practices.
-- Not properly segregating confidential data flows and allowing
-  unrestricted network access without proper controls.
+ **Common anti-patterns:** 
++  Validating third-party components only for security vulnerabilities without assessing licensing obligations or supply chain provenance. 
++  Depending on software maintained or sold by a single vendor in a single jurisdiction without assessing continuity risk. 
++  Overlooking licensing terms that might be incompatible with sovereignty mandates, such as copyleft disclosure requirements or restrictive commercial EULAs. 
 
-**Benefits of establishing this best
-practice:**
+ **Benefits of establishing this best practice:** 
++  Reduced risk of operational disruption from licensing changes, vendor acquisitions, or trade restrictions affecting critical software dependencies. 
++  Demonstrated due diligence through documented sovereignty-specific validation of all third-party software, not only open source. 
++  Greater confidence in the continuity of critical dependencies through provenance assessment and contingency planning. 
 
-- Block unauthorized access to sensitive data, including from
-  privileged users and cloud operators, through cryptographic
-  isolation.
-- Meet stringent data protection requirements with verifiable
-  evidence of data isolation and protection.
-- Process data collaboratively across organizational boundaries
-  while maintaining complete confidentiality.
-- Minimize potential breach points through hardware-enforced
-  isolation and limited system access.
-
-**Level of risk exposed if this best practice
-is not established:** Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Identify sensitive workloads requiring confidential computing
-protection. Implement AWS Nitro Enclaves with proper isolation,
-and design architectures that separate confidential processing
-from general application logic and maintain comprehensive security
-controls.
+ Standard vulnerability scanning and dependency auditing (for example, with [Amazon Inspector](https://aws.amazon.com/inspector/)) assess whether a component contains known exploitable flaws. Sovereignty validation assesses whether a component can be used in a regulated environment given the jurisdiction's licensing restrictions, certification mandates, and data handling rules. 
 
-Key steps include:
+ Match the depth of sovereignty assessment to the component's exposure and criticality. A permissive-licensed logging library with broad maintainer diversity carries minimal continuity risk. A proprietary cryptographic SDK from a vendor subject to foreign export controls, or an open source library maintained by a small group in a single jurisdiction, each carry substantially greater continuity risks. Components that handle regulated data, make network calls, or sit in the critical path of a sovereign workload warrant full assessment. Lower-exposure components might need only a lightweight licensing and provenance check. 
 
-- Assess workloads for confidential computing suitability and
-  regulatory compliance requirements
-- Design and implement enclave architecture with proper resource
-  allocation, network isolation, and attestation verification
-- Configure end-to-end encryption using AWS KMS or CloudHSM with
-  secure communication protocols
-- Establish comprehensive monitoring, logging, and incident
-  response procedures while maintaining confidentiality
-- Implement strict IAM policies and access controls for enclave
-  interactions using least privilege principles
+### Implementation steps
+<a name="implementation-steps"></a>
 
-## Implementation steps
+1.  **Validate licensing compatibility with sovereignty mandates:** Review the license terms of each third-party component for potential incompatibilities with sovereignty requirements. For open source, assess copyleft provisions (for example, AGPL) that could create unintended disclosure obligations. For proprietary software, assess EULA clauses that restrict usage in specific jurisdictions or impose export controls. Document the license of each component and assess compatibility with your regulatory obligations. For commercial components, use [AWS License Manager](https://aws.amazon.com/license-manager/) to track entitlements and enforce license usage rules. 
 
-1. Catalog sensitive data workflows and identify workloads
-   requiring data-in-use protection, then select appropriate
-   [Amazon EC2](../../../ec2/latest/devguide/ec2-api-intro.md "../../../ec2/latest/devguide/ec2-api-intro.md") instance types supporting
-   [AWS Nitro Enclaves](../../../enclaves/latest/user/enclaves-user.md "../../../enclaves/latest/user/enclaves-user.md") with
-   [Amazon VPC](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") network segmentation to properly isolate
-   confidential processing from general application logic and
-   adhere to regulatory requirements.
-2. Configure
-   [AWS KMS](../../../kms.md "../../../kms.md") keys with enclave-specific policies and
-   [AWS CloudHSM](../../../cloudhsm.md "../../../cloudhsm.md") for additional key protection, combined with
-   [AWS Certificate Manager](../../../acm.md "../../../acm.md") for encryption and secure
-   communication channels to establish end-to-end encryption that
-   protects data while it's being processed within the enclave
-   environment.
-3. Build
-   [AWS Nitro Enclaves](../../../enclaves/latest/user/enclaves-user.md "../../../enclaves/latest/user/enclaves-user.md") images using the
-   **Nitro Enclaves SDK** with
-   proper attestation mechanisms, then deploy comprehensive
-   monitoring through
-   [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md"),
-   [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), and
-   [AWS Systems Manager](../../../systems-manager.md "../../../systems-manager.md") to track and maintain enclave
-   operations while preserving confidentiality of the processed
-   data.
-4. Implement strict
-   [AWS IAM](../../../iam.md "../../../iam.md") roles and policies with
-   [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") for role-based access control using least
-   privilege principles, then validate security posture using
-   [AWS Security Hub](../../../securityhub.md "../../../securityhub.md"),
-   [AWS Audit Manager](../../../audit-manager.md "../../../audit-manager.md")
-   [AWS Inspector](../../../inspector.md "../../../inspector.md") to control enclave interactions and meet
-   regulatory requirements.
+1.  **Assess supply chain provenance and concentration risk:** For each critical dependency, document where the software is developed and maintained, who the primary contributors or vendor entities are, and whether there is concentration risk in a single jurisdiction. For open source, prefer components backed by foundations with established governance structures (for example, Apache Software Foundation, Cloud Native Computing Foundation). 
+
+1.  **Verify jurisdiction-specific certification requirements:** Some jurisdictions require software components used in critical infrastructure to hold specific certifications. Verify whether each component (open source or proprietary) can meet these requirements. 
+
+1.  **Validate data handling and telemetry behavior:** Review whether third-party components send telemetry, connect to external services, or make outbound network calls. For open source, inspect the source code and test in an isolated environment. For proprietary components where source is unavailable, review vendor documentation, contractual data processing addendums, and use network monitoring to observe actual behavior. Consider using [AWS Network Firewall](https://aws.amazon.com/network-firewall/) to monitor outbound traffic from workloads that include third-party components. 
+
+1.  **Plan for continuity of critical dependencies:** For third-party components critical to sovereign workloads, develop contingency plans for project abandonment (open source), vendor acquisition, licensing disputes, or trade restrictions. Evaluate whether alternative components exist that could be substituted. Document the estimated effort and timeline to switch. Integrate this assessment with the vendor concentration risk evaluation in [DSREL04-BP01 Plan for disruptions beyond technical failures](dsrel04-bp01.html). 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [SEC06-BP01 Perform vulnerability management](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_protect_compute_vulnerability_management.html) 
++  [DSREL03-BP01 Design workloads for greater interoperability and portability](dsrel03-bp01.html) 
++  [DSREL04-BP01 Plan for disruptions beyond technical failures](dsrel04-bp01.html) 
 
-- [SEC08-BP01
-  Implement secure key management](../security-pillar/sec_protect_data_rest_key_mgmt.md "../security-pillar/sec_protect_data_rest_key_mgmt.md")
-- [SEC08-BP02
-  Enforce encryption at rest](../security-pillar/sec_protect_data_rest_encrypt.md "../security-pillar/sec_protect_data_rest_encrypt.md")
-- [SEC05-BP02
-  Control traffic at all layers](../security-pillar/sec_network_protection_layered.md "../security-pillar/sec_network_protection_layered.md")
-- [PERF02-BP01
-  Select the best compute options for your workload](../performance-efficiency-pillar/perf_compute_hardware_select_best_compute_options.md "../performance-efficiency-pillar/perf_compute_hardware_select_best_compute_options.md")
+ **Related documents:** 
++  [[QA.ST.6] Validate third-party components using software composition analysis](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/qa.st.6-validate-third-party-components-using-software-composition-analysis.html) 
++  [US Bureau of Industry and Security - Export Administration Regulations](https://www.bis.gov/regulations/ear) 
 
-**Related documents:**
+ **Related videos:** 
++  [AWS re:Inforce 2023 - Security in the Open: OSS and AWS (SEC201-L)](https://www.youtube.com/watch?v=kMY8gGmWfAI) 
 
-- [AWS Nitro Enclaves Documentation](../../../enclaves/latest/user/nitro-enclave.md "../../../enclaves/latest/user/nitro-enclave.md")
-- [AWS Confidential Computing](https://aws.amazon.com/confidential-computing/ "https://aws.amazon.com/confidential-computing/")
-- [AWS Security Reference Architecture](../../../prescriptive-guidance/latest/security-reference-architecture/welcome.md "../../../prescriptive-guidance/latest/security-reference-architecture/welcome.md")
-- [AWS Security Blog - Confidential Computing](https://aws.amazon.com/blogs/security/tag/confidential-computing/ "https://aws.amazon.com/blogs/security/tag/confidential-computing/")
-- [AWS Nitro Enclaves – Isolated EC2 Environments to Process
-  Confidential Data](https://aws.amazon.com/blogs/aws/aws-nitro-enclaves-isolated-ec2-environments-to-process-confidential-data/ "https://aws.amazon.com/blogs/aws/aws-nitro-enclaves-isolated-ec2-environments-to-process-confidential-data/")
-
-**Related videos:**
-
-- [AWS Nitro Enclaves Overview](https://www.youtube.com/watch?v=tRL7Y0mJqU4 "https://www.youtube.com/watch?v=tRL7Y0mJqU4")
-- [Protecting
-  Sensitive Data with AWS Confidential Computing: Nitro System
-  and Enclaves](https://aws.amazon.com/awstv/watch/e80ad59b24d/ "https://aws.amazon.com/awstv/watch/e80ad59b24d/")
-- [AWS re:Invent 2024 - Dive deep into the AWS Nitro System
-  (CMP301)](https://www.youtube.com/watch?v=YKZbNcOU77c "https://www.youtube.com/watch?v=YKZbNcOU77c")
-- [AWS Nitro Enclaves - Getting Started Video](https://www.youtube.com/watch?v=t-XmYt2z5S8 "https://www.youtube.com/watch?v=t-XmYt2z5S8")
-
-**Related services:**
-
-- [AWS Nitro Enclaves](../../../enclaves/latest/user/nitro-enclave.md "../../../enclaves/latest/user/nitro-enclave.md")
-- [AWS KMS](../../../kms.md "../../../kms.md")
-- [AWS CloudHSM](../../../cloudhsm.md "../../../cloudhsm.md")
-- [Amazon EC2](../../../ec2.md "../../../ec2.md")
+ **Related services:** 
++  [AWS License Manager](https://aws.amazon.com/license-manager/) 
++  [Amazon Inspector](https://aws.amazon.com/inspector/) 
++  [AWS Network Firewall](https://aws.amazon.com/network-firewall/) 

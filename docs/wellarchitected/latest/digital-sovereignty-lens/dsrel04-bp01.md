@@ -1,145 +1,73 @@
-# DSREL04-BP01 Design systems with clear boundaries between the
 
-core solution and its regional implementations
 
-Establish clear architectural boundaries between core solution and regional implementations
-to effectively manage regulatory requirements across multiple jurisdictions while maintaining
-operational efficiency. This separation enables organizations to adapt to legal requirements and
-local regulatory requirements, particularly data sovereignty laws and privacy regulations. This
-approach reduces the risk of compromising foundational system integrity or risking cross-region
-data leakage.
+# DSREL04-BP01 Plan for disruptions beyond technical failures
+<a name="dsrel04-bp01"></a>
 
-This structured approach also enables faster regional expansion and reduced operational
-complexity. It maintains centralized governance and security standards while supporting
-compliance with diverse regulatory frameworks.
+ Organizations operating across multiple jurisdictions should consider a broader set of resilience factors beyond technical failures. Changes in international trade policies, regulatory requirements, licensing terms, regional service availability, or natural disasters can affect access to infrastructure, services, or specialist skills. In some cases, these events might affect multiple jurisdictions simultaneously, limiting the availability of nearby recovery sites. Standard disaster recovery planning might not fully address these scenarios, as the disruption isn't a system failure, but a change in the conditions under which the system is permitted or able to operate. 
 
-**Desired outcome:** Regional data remains within designated
-geographic boundaries to satisfy data sovereignty requirements, while core services apply
-consistent security policies across regions. Regional teams independently deploy features and
-scale workloads without impacting other regions, and regional failures remain isolated. New
-regions are onboarded using standardized templates, and compliance audits can be scoped to
-individual region.
+ **Desired outcome:** 
++  Organizations maintain predefined response plans to address disruptions beyond technical failures. 
++  Each plan identifies trigger conditions, decision criteria, and operational steps to maintain business continuity while maintaining compliance with jurisdictional requirements. 
++  Plans are tested, updated as conditions evolve, and integrated with the sovereignty-aware risk register. 
 
-**Common anti-patterns:**
+ **Common anti-patterns:** 
++  Treating non-technical disruption risks as unlikely edge cases that don't warrant dedicated planning, leaving organizations reactive when conditions change. 
++  Depending on a vendor-specific stack without evaluating the impact of export controls, trade restrictions, or licensing changes on continued operations. 
++  Developing response plans in isolation within IT teams, without input from legal, compliance, procurement, and regional business stakeholders who understand jurisdictional implications. 
 
-- Deploying monolithic applications across regions without separating core services from
-  region-specific components, leading to unnecessary complexity and compliance risks.
-- Embedding region-specific configurations, business rules, and compliance requirements
-  directly into core application code rather than maintaining modular separation.
-- Creating direct dependencies between regions through shared databases, overlapping
-  IAM roles, or tight coupling of resources that prevent independent operation.
-- Implementing inconsistent API contracts and interfaces across regions, breaking
-  interoperability and complicating maintenance.
-- Relying on manual deployment processes without automated pipelines, resulting in
-  configuration drift and inconsistent implementations.
-- Failing to properly segment networks and isolate regional workloads using appropriate
-  AWS account structures, VPCs, and subnets.
-- Centralizing sensitive data without appropriate filtering or controls, such as
-  aggregating regional logs into a single global bucket.
+ **Benefits of establishing this best practice:** 
++  Predefined response plans reduce decision-making time during non-technical disruptions, when delays can result in compliance gaps or operational disruptions. 
++  Systematic evaluation of vendor and technology dependencies identifies concentration risks before they become urgent, supporting informed procurement and architecture decisions. 
++  Documented scenario planning demonstrates due diligence to regulators and auditors, supporting adherence to frameworks such as the [EU Digital Operational Resilience Act](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en) (EU DORA) that require information and communication technology (ICT) third-party risk management. 
 
-**Benefits of establishing this best practice:**
-
-- Supports adherence to region-specific regulations while maintaining consistent security
-  controls across the core solution and regions.
-- Reduces time to onboard new regions by reusing core service components, standardizing
-  deployment processes, and allowing region-specific feature deployment without impacting the
-  solution.
-- Isolates regional failures to prevent cascading effects on other regions or core
-  services, limiting the blast radius during outages.
-- Enables independent solution updates, right-sizing of resources per region based on
-  local demand, and transparent allocation of expenses to regional cost centers.
-- Maintains uniform functionality across regions while accommodating local requirements,
-  preferences, and customizations.
-
-**Level of risk exposed if this best practice is not established:**
-Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Architecting applications for multi-regional deployment in regulated industries requires
-a thoughtful hub-and-spoke approach that balances global consistency with local compliance
-requirements. Organizations should establish a central hub for core services (authentication,
-business logic, and configuration management) while implementing spoke regions that handle
-local data processing and compliance-specific workflows. This separation is best achieved
-through AWS organizational units (OUs) through AWS service organizations, dedicated
-accounts, and proper networking constructs that enforce both logical and physical boundaries.
-By using well-defined APIs and event-driven patterns, organizations can establish loose
-coupling between components while maintaining consistent deployment pipelines that adapt core
-services to regional requirements without modifying the underlying code base.
+ This best practice is the decision layer above technical disaster recovery. It determines when to invoke capabilities covered elsewhere in this lens, recovery-site selection ([DSREL01-BP02](dsrel01-bp02.html)), workload portability ([DSREL03-BP01](dsrel03-bp01.html)), and risk identification ([DSREL01-BP01](dsrel01-bp01.html)), in response to a change in the conditions under which your workload is permitted or able to operate. 
 
-Key implementation elements:
+ Non-technical disruptions usually give you lead time that technical failures don't. A regulatory, trade, or licensing change is often visible before it takes effect, so the response is to monitor regulatory and commercial signals and pre-assign who acts on them, rather than to detect and alarm. Because the response is frequently a legal, contractual, or procurement action, assign decision authority to those functions, not only to operations. 
 
-- Use separate AWS accounts for core and regional workloads.
-- Implement infrastructure as code (IaC) with region-specific parameters.
-- Enforce network traffic controls (for example, VPC peering or AWS Transit Gateway).
-- Establish a central hub region for core services.
-- Design standardized APIs for communication between core and regional components.
-- Implement region-specific configuration management. Use event-driven architecture to
-  achieve loose coupling.
+ Account for correlated impact. A regional geopolitical or regulatory event can affect nearby Regions that technical disaster recovery treats as independent, so confirm your recovery options remain valid for each scenario. Prioritize scenarios by likelihood, impact, and jurisdictions affected, reuse your existing recovery and portability capabilities as the response, and keep the plans in your sovereignty-aware risk register. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. Establish an [AWS Organization
-   Structure](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") with [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md"), creating
-   OUs for core and regional workloads. Implement SCPs for compliance, and configure tag
-   policies for resource management, while also implementing [AWS Control Tower](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md")
-   for governance.
-2. Separate accounts by creating separate AWS accounts for core services, regional
-   workloads, and shared services. Implement [AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") for centralized
-   access management.
-3. Develop infrastructure as code (IaC) using [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") or [AWS CDK](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md"). Create core and
-   regional infrastructure templates with parameterized configurations for region-specific
-   settings.
-4. Design network architecture using [Amazon VPC](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") with a hub VPC for
-   core services and spoke VPCs for regional workloads. Use [AWS Transit Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md") for traffic
-   control and network segmentation. Alternatively, set up [VPC Peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") where
-   appropriate.
-5. Deploy core services in the central hub region. Use [AWS Resource Access Manager (RAM)](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md") to
-   share resources within an AWS Region. Consider [Transit Gateway inter-Region peering](../../../solutions/latest/network-orchestration-aws-transit-gateway/transit-gateway-inter-region-peering.md "../../../solutions/latest/network-orchestration-aws-transit-gateway/transit-gateway-inter-region-peering.md") to share access if required.
-6. Implement an API layer using [Amazon API Gateway](../../../apigateway/latest/developerguide/welcome.md "../../../apigateway/latest/developerguide/welcome.md"), designing
-   standardized APIs for core-regional communication. Implement API versioning, configure
-   regional endpoints, and use [AWS PrivateLink](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") to secure
-   API access.
+1.  **Identify and categorize disruption scenarios:** For each sovereignty-specific risk identified in [DSREL01-BP01](dsrel01-bp01.html), determine whether it requires a dedicated response plan. Common scenario categories that warrant response plans include: 
+   +  International trade restrictions affecting access to cloud services, software licenses, or technical support. 
+   +  Regulatory change requiring architectural or operational changes (data residency mandates, mandatory use of domestic technology, or new certification requirements). 
+   +  Pricing changes and licensing disputes affecting continued operation of vendor-specific components. 
+   +  Regional disruptions and natural disasters that affect multiple jurisdictions simultaneously, limiting the availability of nearby recovery options. 
+
+    Document each scenario in your sovereignty-aware risk register with likelihood, impact, and the jurisdictions affected. 
+
+1.  **Develop response plans for priority scenarios:** For each high-priority scenario, create a response plan that includes: 
+   +  **Trigger conditions:** Observable signals that indicate the scenario is materializing (for example, draft legislation reaching committee stage, vendor communications about licensing changes). 
+   +  **Decision authority and criteria:** Who is authorized to activate the plan, what information they need, and what thresholds apply. Include escalation paths to executive leadership. 
+   +  **Operational steps:** Sequenced actions to maintain business continuity. These might include activating a recovery site in an alternative jurisdiction (see [DSREL01-BP02](dsrel01-bp02.html)), migrating workloads using pre-tested portability procedures (see [DSREL03-BP01](dsrel03-bp01.html)), or switching to alternative services and components. 
+   +  **Communication plan:** How to notify internal stakeholders, regulators, customers, and vendors. Include regulatory notification timelines where applicable. 
+   +  **Rollback criteria:** Conditions under which the response can be reversed and normal operations resumed. 
+
+1.  **Test and update response plans:** Conduct tabletop exercises for priority scenarios at least annually. Include participants with the authority and context to assess cross-functional effects. Document findings, update plans based on lessons learned, and feed results back into the risk register. When conditions change materially, review affected plans outside the regular cycle. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [DSREL01-BP01 Establish a sovereignty-aware risk management framework](dsrel01-bp01.html) 
++  [DSREL01-BP02 Select and operationalize sovereignty-compliant recovery sites](dsrel01-bp02.html) 
++  [DSREL03-BP01 Design workloads for greater interoperability and portability](dsrel03-bp01.html) 
++  [OPS01-BP05 Evaluate threat landscape](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_priorities_eval_threat_landscape.html) 
++  [REL13-BP02 Use defined recovery strategies to meet the recovery objectives](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_planning_for_recovery_disaster_recovery.html) 
 
-- [REL08-BP04 Deploy using immutable infrastructure](../reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md "../reliability-pillar/rel_tracking_change_management_immutable_infrastructure.md")
-- [DRHCOPS07-BP01 Use AWS services and tools for automation and infrastructure as code
-  (IaC) across hybrid and edge environments](../data-residency-hybrid-cloud-services-lens/drhcops07-bp01.md "../data-residency-hybrid-cloud-services-lens/drhcops07-bp01.md")
+ **Related documents:** 
++  [Controls that enhance data residency protection](https://docs.aws.amazon.com/controltower/latest/controlreference/data-residency-controls.html) 
++  [Disaster Recovery of Workloads on AWS: Recovery in the Cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html) 
++  [EU Digital Operational Resilience Act (DORA)](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en) 
++  [AWS designated as a critical third-party provider under EU's DORA regulation](https://aws.amazon.com/blogs/security/aws-designated-as-a-critical-third-party-provider-under-eus-dora-regulation/) 
 
-**Related documents:**
-
-- [Organizing Your AWS Environment Using Multiple Accounts](../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md "../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md")
-- [Reliability Pillar - AWS
-  Well-Architected Framework](../reliability-pillar/welcome.md "../reliability-pillar/welcome.md")
--
-- [AWS Control Tower User
-  Guide](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md")
-
-**Related videos:**
-
-- [AWS re:Invent 2024 - Anatomy of
-  an AWS Region (ARC204)](https://www.youtube.com/watch?v=PAr1DY82ymE "https://www.youtube.com/watch?v=PAr1DY82ymE")
-- [AWS re:Invent 2024 - Best
-  practices for creating multi-Region architectures on AWS (ARC323)](https://www.youtube.com/watch?v=CbkqQznZS9Y "https://www.youtube.com/watch?v=CbkqQznZS9Y")
-
-**Related tools:**
-
-- [Amazon API Gateway](https://aws.amazon.com/api-gateway/ "https://aws.amazon.com/api-gateway/")
-- [Amazon Cognito](https://aws.amazon.com/cognito/ "https://aws.amazon.com/cognito/")
-- [Amazon VPC](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/")
-- [VPC
-  Peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md")
-- [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
-- [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/")
-- [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/ "https://aws.amazon.com/iam/identity-center/")
-- [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/")
-- [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/")
-- [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/")
-- [AWS Systems Manager
-  Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md")
-- [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/ "https://aws.amazon.com/transit-gateway/")
-- [AWS Organization Structure](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md")
-- [AWS CDK](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
+ **Related videos:** 
++  [AWS re:Inforce 2025 - Best practices for managing governance, risk, and compliance globally (GRC301)](https://www.youtube.com/watch?v=pCNIpnb9tvE) 
++  [AWS re:Inforce 2024 - Automation in action: Strategies for risk mitigation (GRC301)](https://www.youtube.com/watch?v=gbo-Z01NTc8) 
++  [AWS re:Invent 2025 - Digital sovereignty and data residency with AWS Hybrid and Edge services (HMC310)](https://www.youtube.com/watch?v=CxkRvW42Hgc) 

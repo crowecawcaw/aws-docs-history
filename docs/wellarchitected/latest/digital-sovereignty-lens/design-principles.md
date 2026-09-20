@@ -1,26 +1,15 @@
+
+
 # Design principles
+<a name="design-principles"></a>
 
-The Digital Sovereignty Lens outlines five general design principles targeted to address a
-set of key challenges organizations encounter when navigating sovereignty concerns. The key
-challenges explain why organizations take certain actions, answering the question: Why are we
-doing what we are doing? This is followed by key practices that organizations should consider in
-order to meet those challenges.
+ The Digital Sovereignty Lens adds seven design principles that address sovereignty as a cross-cutting concern. They extend, rather than repeat, the design principles in the AWS Well-Architected Framework for [operational excellence](https://docs.aws.amazon.com/wellarchitected/latest/framework/oe-design-principles.html), [security](https://docs.aws.amazon.com/wellarchitected/latest/framework/sec-design.html), [reliability](https://docs.aws.amazon.com/wellarchitected/latest/framework/rel-dp.html), and [performance efficiency](https://docs.aws.amazon.com/wellarchitected/latest/framework/perf-dp.html). Each principle maps to one or more of the five design concerns, and where it builds on an existing Well-Architected principle, it links to that principle instead of restating it. 
++  **Apply standardized, enforceable controls** *(locality, access control, transparency and auditability)*. Turn regulatory obligations into automated controls, and keep each control traceable to the requirement it satisfies. Automated controls stay consistent across teams and jurisdictions and produce evidence on demand. This means you can demonstrate compliance instead of asserting it. This builds on the security principle [automate security best practices](https://docs.aws.amazon.com/wellarchitected/latest/framework/sec-design.html) and the operational excellence principle [safely automate where possible](https://docs.aws.amazon.com/wellarchitected/latest/framework/oe-design-principles.html). 
++  **Apply controls in proportion to data sensitivity and jurisdiction** *(locality, access control)*. Classify data first, then match the strength of each control to the sensitivity of the data and to the jurisdictions that govern it. Proportionate controls protect sensitive data while preserving business agility. Extend your security baseline with sovereignty controls for privacy, residency, and operator access, which go beyond foundational security measures such as encryption and least privilege. This builds on the security principles [protect data in transit and at rest](https://docs.aws.amazon.com/wellarchitected/latest/framework/sec-design.html) and [keep people away from data](https://docs.aws.amazon.com/wellarchitected/latest/framework/sec-design.html). 
++  **Design for continuous compliance** *(transparency and auditability)*. Verify compliance continuously and remediate automatically, so a workload continues to meet its obligations as configurations, dependencies, and regulations change. Continuous verification keeps your workloads audit-ready and surfaces drift early, when it is least expensive to fix. Evidence you gather continuously is more credible than evidence you reconstruct during an audit. This builds on the Well-Architected principles [implement observability](https://docs.aws.amazon.com/wellarchitected/latest/framework/oe-design-principles.html) and [maintain traceability](https://docs.aws.amazon.com/wellarchitected/latest/framework/sec-design.html). 
++  **Design for interoperability and portability** *(portability and interoperability)*. The more portable and interoperable a workload is, the lower the continuity risk if it needs to operate across or exit to another environment. Improve portability and interoperability by abstracting Region- and environment-specific dependencies, aligning with open standards, and adopting open data formats. Test the same suite across each target environment to confirm the workload runs consistently. 
++  **Design for survivability** *(continuity)*. Design recovery within your sovereignty boundaries, so a successful failover preserves compliance and function. After a failover, confirm that data stays in approved jurisdictions, operator access restrictions hold, and audit trails continue. Plan for regulatory, trade, and supply-chain disruptions in addition to technical failure, so you can relocate a workload when conditions require it. This builds on the reliability principles [test recovery procedures and automatically recover from failure](https://docs.aws.amazon.com/wellarchitected/latest/framework/rel-dp.html) and the operational excellence principle [anticipate failure](https://docs.aws.amazon.com/wellarchitected/latest/framework/oe-design-principles.html). 
++  **Evaluate sovereign architecture decisions based on evidence, not assumptions** *(all design concerns)*. Baseline your sovereignty requirements across the five design concerns. Understand what your provider delivers and document what you must build on top. Then select deployment models, services, and dependencies that meet those requirements, not on opinions or perceived risk. Sovereignty decisions made without data tend to result in over-engineered (restricting unnecessarily) or under-engineered (discovering gaps in production) workloads. This builds on the general design principle [drive architectures using data](https://docs.aws.amazon.com/wellarchitected/latest/framework/general-design-principles.html). 
++  **Validate software dependencies for sovereignty beyond security** *(portability and interoperability, continuity)*. Standard vulnerability scanning uncovers security risks only. Based on your sovereignty risk model, assess software components for export control exposure, licensing compatibility, supply chain provenance, and jurisdiction-specific certification requirements. 
 
-Detailed best practices mapped to the design principles can be found under the individual
-pillars.
-
-Note that sovereign-by-design principles build on top of the existing design principles
-defined under the [operational
-excellence](../framework/oe-design-principles.md "../framework/oe-design-principles.md"), [security](../framework/sec-design.md "../framework/sec-design.md"), [reliability](../framework/rel-dp.md "../framework/rel-dp.md")
-and [performance
-efficiency](../framework/perf-dp.md "../framework/perf-dp.md") pillars of the [AWS Well-Architected Framework](../framework/welcome.md "../framework/welcome.md").
-
-###### Design principles
-
-- [Apply standardized enforceable
-  controls](apply-standardized-enforceable-controls.md "apply-standardized-enforceable-controls.md")
-- [Establish adequate security posture in line with data sensitivity levels](establish-adequate-security-posture-in-line-with-data-sensitivity-levels.md "establish-adequate-security-posture-in-line-with-data-sensitivity-levels.md")
-- [Design for continuous compliance](design-for-continuous-compliance.md "design-for-continuous-compliance.md")
-- [Design for interoperability and
-  portability](design-for-interoperability-and-portability.md "design-for-interoperability-and-portability.md")
-- [Design for survivability](design-for-survivability.md "design-for-survivability.md")
+ As with the design concerns, which principles apply and to what degree depends on your jurisdiction and organizational goals. Not all seven are relevant in every context. 

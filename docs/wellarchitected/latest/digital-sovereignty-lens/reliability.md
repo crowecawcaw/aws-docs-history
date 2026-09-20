@@ -1,17 +1,12 @@
+
+
 # Reliability
+<a name="reliability"></a>
 
-The reliability pillar focuses on verifying that workloads perform their intended functions
-correctly and consistently within sovereign boundaries. In highly regulated industries,
-reliability extends beyond traditional availability and recovery to include maintaining
-regulatory adherence during failures, respecting jurisdictional constraints during disaster
-recovery, and keeping audit trails intact throughout each operational state.
+ Standard reliability focuses on recovering from technical failures. For sovereign workloads, reliability also covers disruptions from regulatory change, trade restrictions, and cross-border recovery constraints that can invalidate a recovery strategy entirely. Sovereignty controls shape where a workload can fail over, who can activate recovery, and what evidence must survive the transition. This pillar addresses how you plan for these disruptions, select compliant recovery sites, manage third-party sovereignty risks, and design workloads for portability across jurisdictions. 
 
-###### Topics
-
-- [Definitions](definitions-rel.md "definitions-rel.md")
-- [Design principles](design-principles-rel.md "design-principles-rel.md")
-- [Foundations](foundations.md "foundations.md")
-- [Workload architecture](workload-architecture.md "workload-architecture.md")
-- [Change Management](change-management.md "change-management.md")
-- [Failure management](failure-management.md "failure-management.md")
-- [Business continuity planning](business-continuity-planning.md "business-continuity-planning.md")
+**Topics**
++ [Sovereignty-aware risk management and recovery](dsrel01.md)
++ [Third-party sovereignty risk management](dsrel02.md)
++ [Workload interoperability and portability](dsrel03.md)
++ [Business continuity planning](dsrel04.md)

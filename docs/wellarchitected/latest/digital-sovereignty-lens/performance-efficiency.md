@@ -1,17 +1,10 @@
+
+
 # Performance efficiency
+<a name="performance-efficiency"></a>
 
-The performance efficiency pillar for digital sovereignty focuses on
-achieving optimal system performance while maintaining compliance
-with jurisdictional requirements for data residency, local control,
-and regulatory standards. Organizations must balance traditional
-performance optimization techniques with sovereignty constraints
-that limit global distribution, require local processing, and
-mandate specific security controls.
+ Standard performance efficiency focuses on selecting the right resources to meet workload requirements at the best cost. For sovereign workloads, selection criteria expand beyond performance and cost to include regulatory alignment, deployment model fit, and supply chain sovereignty. This pillar addresses how you evaluate sovereign architecture decisions using evidence rather than assumptions, and how you validate that software dependencies meet sovereignty-specific criteria beyond standard security scanning. 
 
-###### Topics
-
-- [Definitions](definitions-perf.md "definitions-perf.md")
-- [Design principles](design-principles-perf.md "design-principles-perf.md")
-- [Architecture selection](architecture-selection.md "architecture-selection.md")
-- [Compute and hardware](compute-and-hardware.md "compute-and-hardware.md")
-- [Network and content delivery](network-and-content-delivery.md "network-and-content-delivery.md")
+**Topics**
++ [Sovereign solution selection](dsperf01.md)
++ [Software dependency validation](dsperf02.md)

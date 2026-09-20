@@ -1,249 +1,89 @@
-# DSSEC05-BP01 Control unauthorized remote access to
 
-infrastructure
 
-Implement access controls to make sure only authorized support staff from verified
-locations can access infrastructure resources. This includes identity verification, location
-validation, and continuous monitoring of access activities.
+# DSSEC05-BP01 Control operator access to infrastructure from approved locations
+<a name="dssec05-bp01"></a>
 
-Securing access to infrastructure resources is critical for maintaining a robust digital
-sovereignty posture. Organizations must implement controls that verify user identity, validate
-location, and enforce appropriate access levels. This approach combines identity management,
-network controls, and automated monitoring to limit access to authorized personnel from trusted
-locations.
+ For sovereign workloads, what matters isn't just who operates the infrastructure, but also where they connect from and how long their access lasts. Persistent privileges and manual operations each widen the window in which an operator can act beyond their authority. Controlling the location, duration, and necessity of operator access keeps infrastructure administration within sovereign boundaries and leaves an audit trail for each session. 
 
-**Desired outcome:** Organizations maintain visibility and control
-over infrastructure access with detailed audit trails of support activities. Security risks are
-reduced through granular access controls with real-time detection and response to potential
-security threats. Support operations remain efficient while maintaining strict sovereignty
-boundaries.
+ **Desired outcome:** 
++  Operators access infrastructure resources only from verified locations within approved jurisdictions, using temporary elevated privileges that are automatically revoked. 
++  Routine operations are automated, reducing the need for interactive access. 
 
-**Common anti-patterns**:
+ **Common anti-patterns:** 
++  Granting persistent elevated privileges instead of just-in-time access for support roles. 
++  Allowing direct SSH/RDP access from the internet without session management or audit trails. 
++  Relying solely on IP-based restrictions without identity verification or location validation. 
++  Performing routine operations manually when they could be automated through runbooks. 
 
-- Granting overly broad permissions for support roles and using shared accounts instead
-  of individual identities, violating least privilege principles.
-- Relying solely on IP-based access without multi-factor authentication or [just-in-time access](../../../singlesignon/latest/userguide/temporary-elevated-access.md "../../../singlesignon/latest/userguide/temporary-elevated-access.md") for elevated privileges.
-- Failing to regularly review and rotate access credentials while storing sensitive keys
-  in plain text or version control systems.
-- Using the same access controls across each environment without differentiating
-  requirements and allowing direct SSH/RDP (Secure Socket Shell / Remote Desktop Protocol)
-  access without proper monitoring.
+ **Benefits of establishing this best practice:** 
++  Reduce risk of unauthorized access by verifying operator location and enforcing temporary privileges. 
++  Improve auditability with session-level logging of operator activities. 
++  Reduce human error and security exposure by automating routine operations. 
 
-**Benefits of establishing this best practice**:
-
-- Reduced risk of unauthorized access and security breaches with faster incident
-  detection and response capabilities.
-- Automated controls and standardized processes improve operational efficiency.
-- Enhanced audit trails demonstrate regulatory adherence with better visibility into
-  infrastructure access patterns.
-- Improved processes while maintaining strict security boundaries.
-
-**Level of risk exposed if this best practice is not established:**
-High
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Organizations should assess their current infrastructure, support requirements, and
-compliance obligations before implementing access controls. Identify critical systems, map
-existing access patterns, and document regulatory requirements that influence your approach.
-The following practices establish secure access controls while maintaining operational
-efficiency.
+ Focus on controlling *how and from where* operators interact with infrastructure. For data access controls (data perimeters, IAM condition keys, network controls, encryption), see [DSSEC02-BP01 Protect data through layered access controls within sovereign boundaries](dssec02-bp01.html). 
 
-**Digital sovereignty considerations:**
-
-- When remote access is required, verify that access originates from within approved
-  jurisdictions using secure connectivity mechanisms such as [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), VPN
-  connections, or [AWS Verified Access](../../../verified-access/latest/ug/what-is-verified-access.md "../../../verified-access/latest/ug/what-is-verified-access.md") that
-  terminate within sovereign boundaries. This verifies that even remote infrastructure
-  management maintains jurisdictional adherence.
-- Make sure support staff operate from approved jurisdictions and use network access
-  controls to enforce geographic restrictions.
-- Combine location-based and identity-based access controls using [Zero Trust Architecture](https://aws.amazon.com/security/zero-trust/ "https://aws.amazon.com/security/zero-trust/") principles
-  aligned to data residency requirements.
-- Maintain audit trails that demonstrate adherence to local regulations.
-- Use encryption keys managed within sovereign boundaries.
+ **Digital sovereignty considerations:** 
++  Verify that access originates from within approved jurisdictions using secure connectivity such as [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) that terminates within sovereign boundaries. 
++  Combine location-based and identity-based controls using [Zero Trust Architecture](https://aws.amazon.com/security/zero-trust/) principles aligned to data residency requirements. 
++  Maintain audit trails that demonstrate adherence to local regulations. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-**Identity and access management**:
+1.  **Enforce just-in-time elevated access**: Grant temporary elevated privileges only when needed, and revoke them automatically after a defined period. Use [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) with [temporary elevated access](https://docs.aws.amazon.com/singlesignon/latest/userguide/temporary-elevated-access.html) to implement approval workflows. Require [multi-factor authentication (MFA)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) for elevated privilege requests. 
 
-1. **Implement strong identity and access management:**
-   - Use [AWS Identity and Access Management (IAM)](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") to create individual user accounts for support staff.
-   - Assign the least privilege necessary for each role, following the principle of
-     least privilege.
-   - Regularly review and audit IAM permissions to verify they remain appropriate.
+1.  **Use session-managed access instead of direct connectivity**: Use [AWS Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) for browser-based access to instances without opening inbound ports. Session Manager provides full audit trails with session logging. 
 
-2. **Enforce multi-factor authentication (MFA):**
-   - Require [MFA](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IAM/latest/UserGuide/id_credentials_mfa.md") for support staff
-     accounts, especially those with elevated privileges.
-   - Use hardware tokens or virtual MFA devices for added security.
+1.  **Automate routine operations to reduce interactive access**: Use [AWS Systems Manager Automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation.html) runbooks for routine tasks such as patching, backups, and credential rotation. Implement automated approval workflows using [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for operations that require human approval. Use [AWS Systems Manager Patch Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager.html) for automated fleet patching. 
 
-3. **Implement just-in-time access:**
-   - Use [AWS
-     IAM Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md") to grant temporary, elevated permissions only when needed.
-   - Implement automated processes to revoke access after a specified time or when
-     no longer required.
+1.  **Implement security gates in deployment pipelines**: Scan infrastructure as code (IaC) templates with [CloudFormation Guard](https://docs.aws.amazon.com/cfn-guard/latest/ug/what-is-guard.html) before deployment. Include [manual approval stages](https://docs.aws.amazon.com/codepipeline/latest/userguide/approvals.html) in [AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) for production deployments. 
 
-**Network and access controls**:
+1.  **Remove technical means of accessing data:** Operators should not ordinarily have access to data. Refer to [Isolate data from your own operators](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/isolate-data-operators.html). 
 
-1. **Implement network access controls:**
-   - Use [AWS Virtual Private Cloud
-     (VPC)](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") to create isolated network environments.
-   - Implement [Network Access Control Lists
-     (NACLs)](../../../vpc/latest/userguide/vpc-network-acls.md "../../../vpc/latest/userguide/vpc-network-acls.md") and [Security Groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") to
-     restrict inbound and outbound traffic.
-   - Use VPN or [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") for secure
-     access from authorized locations.
+1.  **Evaluate serverless offerings:** One of the most effective ways to minimize operator access to your workloads is to eliminate the infrastructure that operators need to access in the first place. Serverless compute services like AWS Lambda and AWS Fargate run code and containers without exposing any host operating system. There are no EC2 instances to SSH into, no operating systems to patch, and no interactive sessions to manage. Similarly, serverless databases like Amazon DynamoDB and Amazon Aurora Serverless remove the need to provision, manage, or access database servers. 
 
-2. **Use AWS Systems Manager for secure access:**
-   - Use [Session
-     Manager](../../../systems-manager/latest/userguide/session-manager.md "../../../systems-manager/latest/userguide/session-manager.md") for browser-based access to EC2 instances without the need for
-     open inbound ports.
-   - Implement fine-grained permissions for Session Manager access.
+1.  **Control operator access points**: No single control can prove an operator's physical location. IAM condition keys such as aws:SourceIp restrict by IP address range, not by geography: an operator could use a VPN endpoint within an approved IP range while physically located in a foreign jurisdiction. Similarly, aws:SourceVpc proves the network path originates from a specific VPC, but not that the operator is physically within the approved jurisdiction. To strengthen location verification, consider layering multiple controls. Examples include: 
+   +  **Network path:** Consider using [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) to provide connectivity from authorized physical locations, verifying that associated infrastructure is in the appropriate geographic region. AWS Direct Connect terminates at a known physical location, providing a known network termination point within a specific geography. However, corporate WANs can still allow traffic from other locations (backhauling), so Direct Connect alone doesn't prove operator location. 
+   +  **Identity context:** Configure your identity provider (IdP) to enforce location-based authentication policies, such as device posture checks and network location validation, before issuing tokens to IAM Identity Center. Several leading IdP providers offer IP-based and GPS-based location awareness. However, accuracy varies by the geographic context (for example country compared to city awareness). 
+   +  **Network origin:** Apply aws:SourceVpc or aws:SourceVpce condition keys in IAM policies as an additional layer to restrict the network origin of API requests. 
+   +  **Time-bound sessions:** Require MFA and enforce short session durations to limit the window of exposure. 
+   +  **Independent third-party certifications and attestations:** Require independent third-party certifications and attestations. For example, for demonstrating physical security guardrails and monitoring at colocation facilities. 
+   +  **Contractual obligations:** Supplement technical controls with contractual obligations. These obligations may apply to your own employees and to operators provided by a third-party service provider (for example, Security Operations Center (SOC) as Service providers). 
 
-3. **Implement IP-based restrictions:**
-   - Use [IAM
-     policy conditions](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") to restrict access based on source IP addresses or
-     ranges.
-   - Regularly review and update allowed IP ranges to verify they remain current.
-
-**Governance and compliance**:
-
-1. **Use AWS Organizations:**
-   - Implement a [multi-account
-     strategy](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") to segregate environments and limit the blast radius of potential
-     security incidents.
-   - Use [service
-     control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") to enforce guardrails across your organization.
-
-2. **Use AWS Config:**
-   - Set up [AWS Config rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") to
-     continuously monitor and assess the compliance of your AWS resources.
-   - Create custom rules to enforce organization-specific security policies.
-
-3. **Use AWS Control Tower:**
-   - Implement [AWS Control Tower](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md") to set up and govern a secure, multi-account AWS
-     environment.
-   - Consider using [_Customizations
-     for AWS Control Tower_ (CfCT)](../../../controltower/latest/userguide/cfct-overview.md "../../../controltower/latest/userguide/cfct-overview.md") to further customize your landing
-     zone account structure and access controls.
-
-**Monitoring and logging**:
-
-1. **Enable and monitor AWS CloudTrail:**
-   - Use [CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to
-     log API calls and management events across your AWS accounts.
-   - Set up alerts for suspicious activities or unauthorized access attempts.
-
-2. **Regular security assessments:**
-   - Conduct periodic vulnerability assessments and penetration testing.
-   - Use [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") to
-     get a centralized view of your security posture.
-
-**Data protection and key management**:
-
-1. **Implement secure key management:**
-   - Use [AWS Key Management Service (KMS)](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") for centralized management of encryption keys.
-   - Implement [key rotation policies](../../../kms/latest/developerguide/rotate-keys.md "../../../kms/latest/developerguide/rotate-keys.md") and
-     access controls for sensitive data.
-
-2. **Implement data protection measures:**
-   - Use [AWS Macie](../../../macie/latest/user/what-is-macie.md "../../../macie/latest/user/what-is-macie.md") to discover, classify, and protect sensitive data stored in
-     S3 buckets.
-   - Implement [encryption at rest](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md")
-     and [in transit](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md") for sensitive data.
-
-**Automation and DevOps security**:
-
-1. **Centralized package and dependency management:**
-   - Use [AWS
-     CodeArtifact](../../../codeartifact/latest/ug/welcome.md "../../../codeartifact/latest/ug/welcome.md") to implement centralized artifact repositories for secure
-     package management.
-   - Use [Amazon Inspector](../../../inspector/latest/user/what-is-inspector.md "../../../inspector/latest/user/what-is-inspector.md") for automated
-     dependency scanning and vulnerability detection.
-   - Maintain versioned and validated packages with approval workflows.
-
-2. **Automated software deployment:**
-   - Use infrastructure as code (IaC) with [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"), [AWS CDK](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md"), or [Terraform](https://www.terraform.io/ "https://www.terraform.io/") for each deployment.
-   - Implement [AWS CodePipeline](../../../codepipeline/latest/userguide/welcome.md "../../../codepipeline/latest/userguide/welcome.md") and [AWS CodeBuild](../../../codebuild/latest/userguide/welcome.md "../../../codebuild/latest/userguide/welcome.md") for automated testing and security validation.
-   - Create standardized deployment pipelines with [AWS CodeDeploy](../../../codedeploy/latest/userguide/welcome.md "../../../codedeploy/latest/userguide/welcome.md") for consistent
-     releases.
-
-3. **Reduced interactive access:**
-   - Use [AWS Systems Manager
-     Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md") to automate routine administrative tasks.
-   - Implement [AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") with [temporary
-     elevated access](../../../singlesignon/latest/userguide/temporary-elevated-access.md "../../../singlesignon/latest/userguide/temporary-elevated-access.md") for just-in-time access controls.
-   - Create automated approval workflows using [AWS Step Functions](../../../step-functions/latest/dg/welcome.md "../../../step-functions/latest/dg/welcome.md") and [Amazon SNS](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md").
-
-4. **Automated compute protection:**
-   - Deploy [Amazon GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md") for automated
-     threat detection and continuous monitoring.
-   - Implement [AWS Systems Manager Patch
-     Manager](../../../systems-manager/latest/userguide/patch-manager.md "../../../systems-manager/latest/userguide/patch-manager.md") for automated patch management across your fleet.
-   - Enable [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
-     for centralized security findings and automated remediation.
-
-**Training and continual improvement**:
-
-1. Provide regular security awareness training to support staff.
-2. Keep the team updated on the latest AWS security features and best practices.
+    Layering these controls provides stronger location assurance but relies on physical and organizational controls (facility access, network topology, employment contracts) in addition to technical controls. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices**:
+ **Related best practices:** 
++  [SEC02-BP02 Use temporary credentials](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_identities_unique.html) 
++  [SEC03-BP02 Grant least privilege access](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_permissions_least_privileges.html) 
++  [SEC03-BP03 Establish emergency access process](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_permissions_emergency_process.html) 
++  [SEC05-BP01 Create network layers](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_network_protection_create_layers.html) 
++  [SEC06-BP01 Perform vulnerability management](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_protect_compute_vulnerability_management.html) 
++  [SEC06-BP03 Reduce manual management and interactive access](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_protect_compute_reduce_manual_management.html) 
++  [DSSEC04-BP03 Establish comprehensive logging and monitoring of operator actions](dssec04-bp03.html) 
 
-- [SEC02-BP02 Use
-  temporary credentials](../security-pillar/sec_identities_unique.md "../security-pillar/sec_identities_unique.md")
-- [SEC02-BP03
-  Store and use secrets securely](../security-pillar/sec_identities_secrets.md "../security-pillar/sec_identities_secrets.md")
-- [SEC02-BP04 Rely on a centralized identity provider](../security-pillar/sec_identities_identity_provider.md "../security-pillar/sec_identities_identity_provider.md")
-- [SEC03-BP01
-  Define access requirements](../security-pillar/sec_permissions_define.md "../security-pillar/sec_permissions_define.md")
-- [SEC03-BP02 Grant least privilege access](../security-pillar/sec_permissions_least_privileges.md "../security-pillar/sec_permissions_least_privileges.md")
-- [SEC03-BP07 Analyze public and cross-account access](../security-pillar/sec_permissions_analyze_cross_account.md "../security-pillar/sec_permissions_analyze_cross_account.md")
-- [SEC05-BP01 Create network layers](../security-pillar/sec_network_protection_create_layers.md "../security-pillar/sec_network_protection_create_layers.md")
-- [SEC05-BP02 Control traffic flow within your network layers](../security-pillar/sec_network_protection_layered.md "../security-pillar/sec_network_protection_layered.md")
-- [SEC06-BP01 Perform vulnerability management](../security-pillar/sec_protect_compute_vulnerability_management.md "../security-pillar/sec_protect_compute_vulnerability_management.md")
-- [SEC06-BP02 Provision compute from hardened images](../security-pillar/sec_protect_compute_hardened_images.md "../security-pillar/sec_protect_compute_hardened_images.md")
-- [SEC04-BP01 Configure service and application logging](../security-pillar/sec_detect_investigate_events_app_service_logging.md "../security-pillar/sec_detect_investigate_events_app_service_logging.md")
-- [SEC04-BP02 Capture logs, findings, and metrics in standardized
-  locations](../security-pillar/sec_detect_investigate_events_logs.md "../security-pillar/sec_detect_investigate_events_logs.md")
-- [SEC04-BP04 Initiate remediation for non-compliant resources](../security-pillar/sec_detect_investigate_events_noncompliant_resources.md "../security-pillar/sec_detect_investigate_events_noncompliant_resources.md")
+ **Related documents:** 
++  [AWS Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) 
++  [Zero Trust on AWS](https://aws.amazon.com/security/zero-trust/) 
 
-**Related documents**:
+ **Related videos:** 
++  [AWS re:Inforce 2025 - Integrate Zero Trust into your cloud network (NIS304)](https://www.youtube.com/watch?v=AMSkou99Fus) 
++  [AWS re:Invent 2025 - Innovations in Infrastructure Protection to strengthen your network (SEC310)](https://www.youtube.com/watch?v=qt9kaqiOYbQ) 
 
-- [AWS Security
-  Best Practices](https://aws.amazon.com/architecture/security-identity-compliance/ "https://aws.amazon.com/architecture/security-identity-compliance/")
-- [AWS Identity and Access Management
-  Best Practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md")
-- [AWS Systems Manager Session Manager](../../../systems-manager/latest/userguide/session-manager.md "../../../systems-manager/latest/userguide/session-manager.md")
+ **Related examples:** 
++  [AWS Well-Architected Labs - Security](https://wellarchitectedlabs.com/security/) 
++  [AWS VPC Connectivity Options](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/introduction.html) 
 
-**Related videos**:
-
-- [AWS re:Inforce 2025 - Integrate
-  Zero Trust into your cloud network (NIS304)](https://www.youtube.com/watch?v=AMSkou99Fus "https://www.youtube.com/watch?v=AMSkou99Fus")
-- [AWS re:Invent 2025 -
-  Innovations in Infrastructure Protection to strengthen your network (SEC310)](https://www.youtube.com/watch?v=qt9kaqiOYbQ "https://www.youtube.com/watch?v=qt9kaqiOYbQ")
-- [AWS re:Invent 2025 - Advanced
-  VPC design and new capabilities (NET340)](https://www.youtube.com/watch?v=40QfxdvDGsw "https://www.youtube.com/watch?v=40QfxdvDGsw")
-- [AWS re:Inforce 2022 - Security
-  best practices with AWS IAM (IAM201)](https://www.youtube.com/watch?v=SMjvtxXOXdU "https://www.youtube.com/watch?v=SMjvtxXOXdU")
-- [Intro to Network Security - best
-  practices for securing your network](https://www.youtube.com/watch?v=pwkyzElfJZc "https://www.youtube.com/watch?v=pwkyzElfJZc")
-
-**Related services**:
-
-- [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")
-- [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/ "https://aws.amazon.com/iam/identity-center/")
-- [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/")
-- [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/")
-- [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
-- [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/")
-- [AWS Security Hub](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/")
-- [Amazon VPC](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/")
-- [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/")
-- [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/")
-- [Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/")
-- [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/")
-- [AWS WAF](https://aws.amazon.com/waf/ "https://aws.amazon.com/waf/")
+ **Related services:** 
++  [AWS IAM Identity Center](https://aws.amazon.com/iam/identity-center/) 
++  [AWS Systems Manager](https://aws.amazon.com/systems-manager/) 
++  [AWS Direct Connect](https://aws.amazon.com/directconnect/) 
++  [AWS CodePipeline](https://aws.amazon.com/codepipeline/) 
++  [AWS Step Functions](https://aws.amazon.com/step-functions/) 

@@ -1,266 +1,92 @@
+
+
 # DSOPS02-BP02 Establish an automated path to compliance
+<a name="dsops02-bp02"></a>
 
-Establish an automated path to effectively meet cybersecurity
-standards, data privacy legislation, and industry-specific
-regulations like HIPAA and PCI-DSS. Automation reduces the risk of
-human error, speeds up the compliance process, and allows for
-continuous monitoring and adaptation to changing regulations.
+ Automation reduces the risk of human error, speeds up the compliance process, and enables continuous monitoring across jurisdictions. When compliance requirements are codified and integrated into your development pipelines, every change is validated before deployment rather than discovered during audits. 
 
-**Desired outcome:** Compliance is
-built into every change through automated validation, detection, and
-remediation, enabling faster deployments and audit-ready
-documentation.
+ **Desired outcome:** 
++  Compliance is built into every change through automated validation, detection, and remediation, enabling faster deployments and audit-ready documentation across jurisdictions. 
 
-**Common anti-patterns:**
+ **Common anti-patterns:** 
++  Relying on periodic manual audits and spreadsheet-based tracking instead of continuous automated monitoring. 
++  Performing compliance validation only during audit periods rather than continuously. 
++  Failing to use a centralized tool for compliance reporting, resulting in blind spots across jurisdictions. 
++  Generating compliance alerts without automated remediation or clear escalation procedures. 
 
-- Relying on periodic manual audits and spreadsheet-based tracking
-  instead of continuous automated monitoring.
-- Performing compliance validation only during audit periods
-  rather than continuously.
-- Failing to use a centralized tool for compliance reporting
-  resulting in blind spots.
-- Generating compliance alerts without automated remediation or
-  clear escalation procedures.
+ **Benefits of establishing this best practice:** 
++  Reduced human error in compliance monitoring, detection, analysis, and remediation. 
++  Real-time regulatory posture with automated evidence collection and reporting, enabling audit-ready responses across jurisdictions. 
++  Consistent enforcement across accounts and jurisdictions, because shared controls are automated once and applied everywhere rather than re-implemented by each team. 
 
-**Benefits of establishing this best
-practice:**
-
-- Reduce human error in compliance monitoring, detection,
-  analysis, and remediation.
-- Maintain real-time regulatory posture with automated evidence
-  collection and reporting, enabling audit-ready responses and
-  regulatory confidence.
-
-**Level of risk exposed if this best practice
-is not established:** Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-To establish an automated path to compliance, codify your
-compliance requirements into compliance as code (CaC) policies.
-Integrate compliance validation into your CI/CD pipelines, and
-build compliance in to every change.
+ Validating compliance early checks every change against compliance policies before deployment, catching violations at provisioning time rather than during an audit. This approach transforms compliance from a periodic assessment activity into a continuous and automated set of checks applied consistently across workloads. 
 
-The most important components of this strategy are:
+ Policy as code (PaC) is the foundation for validating compliance early. When compliance requirements are expressed as machine-readable rules rather than natural-language documents, they become testable, version-controlled, and executable. Rules can be unit tested locally, integrated into Continuous Integration/Continuous Delivery (CI/CD) pipelines, and applied consistently across accounts and jurisdictions without manual interpretation. This codification also creates an auditable history of policy changes, making it possible to demonstrate exactly which rules were in effect at any point in time. 
 
-1. Defining compliance policies as code
-2. Unit testing and validating compliance policies
-3. Integrating compliance policies with CI/CD pipelines
-4. Creating automated remediation workflows to address common
-   compliance violations
-5. Regularly testing compliance as code policies through
-   controlled violations and performing automated remediation
-   actions in sandbox, development or test environments
+ The compliance catalog developed in the preceding best practice defines *what* must be enforced. This best practice defines *how* enforcement is automated. Organizational controls from the catalog translate into preventive guardrails applied centrally (for example, Region deny policies through [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/controlreference/ou-region-deny.html)), while jurisdiction-specific and workload-specific controls translate into pipeline validation rules and detective controls scoped to the appropriate accounts. This layered automation mirrors the tiered structure of the catalog itself, ensuring that automation coverage matches policy coverage without requiring each team to re-implement shared controls. 
+
+ Consider using a structured approach such as the [three lines of defense model](https://internalauditor.theiia.org/en/video/2020/august/the-iias-new-three-lines-model-part-1-the-basics/) developed by the Institute of Internal Auditors (IIA) to drive your compliance automation consistently across jurisdictions. In this model, first-line controls in CI/CD pipelines validate policies before provisioning (including jurisdiction-specific rules such as encryption key configurations or Region restrictions), second-line detects resources falling out of compliance with established baselines, and third-line collects evidence to build reports scoped by workload or jurisdiction so that auditors can assess each scope independently. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-AWS provides several capabilities required to establish a mature
-compliance posture. Consider using the three lines of defense
-model developed by
-[Institute
-of Internal Auditors (IIA)](https://na.theiia.org/Pages/IIAHome.aspx "https://na.theiia.org/Pages/IIAHome.aspx") to select and provision AWS
-services that best fit your needs.
+ **Note:** The following steps are organized along the three lines of defense model. This is a customizable reference. Adapt the sequencing and prioritization to fit your organization's requirements, risk appetite, and operational maturity. 
 
-In the three lines model, the first-line function manages risk,
-the second-line function oversees risk, and the third-line
-function provides objective and independent assurance of risk
-management. Aligning with this model, consider the following:
+1.  **First line: embed compliance validation into CI/CD pipelines:** 
+   +  Codify your compliance requirements as policy as code. Use [AWS CloudFormation Guard](https://docs.aws.amazon.com/cfn-guard/latest/ug/writing-rules.html) to write rules that validate infrastructure templates against compliance policies before deployment. Use cfn-guard validate and cfn-guard test to unit test your rules locally and in your CI/CD pipeline. 
+   +  Enable [proactive controls](https://docs.aws.amazon.com/controltower/latest/controlreference/proactive-controls.html) in AWS Control Tower. Proactive controls are implemented as CloudFormation hooks and check resources for compliance before they are provisioned. 
+   +  Provide pre-approved, compliance-aligned infrastructure templates so that developers can provision standardized resources. Consider using [Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) to manage standardized CloudFormation or Terraform Cloud products. Include jurisdiction-specific template variants where requirements differ (for example, templates that enforce specific encryption key configurations or Region restrictions). 
+   +  Regularly test compliance as code policies through controlled deviations in sandbox or development environments. Verify that deviations are detected and that automated remediation actions work as expected. 
 
-1. **First line: risk
-   management:** Manage risks by applying
-   [secure
-   by design (SBD)](https://aws.amazon.com/blogs/security/new-whitepaper-available-building-security-from-the-ground-up-with-secure-by-design/ "https://aws.amazon.com/blogs/security/new-whitepaper-available-building-security-from-the-ground-up-with-secure-by-design/") principles, provisioning automated
-   guardrails, and implementing automated remediations.
-   - Start by defining compliance metrics (including
-     deviations, thresholds, and risk tolerance levels)
-     working together with your security consultants, data
-     protection office, and workload owners. Metrics guide
-     decisions on automation priorities and tool selection.
-   - Apply a set of
-     [controls](../../../prescriptive-guidance/latest/aws-security-controls/security-control-types.md "../../../prescriptive-guidance/latest/aws-security-controls/security-control-types.md")
-     expressed as compliance as code and aligned to best
-     practices and compliance frameworks. Examples include
-     [AWS Foundational Security Best Practices](../../../securityhub/latest/userguide/fsbp-standard.md "../../../securityhub/latest/userguide/fsbp-standard.md") and
-     [NIST
-     SP 800-53 Rev. 5](../../../securityhub/latest/userguide/nist-standard.md "../../../securityhub/latest/userguide/nist-standard.md"). AWS Control Tower provides
-     [700
-     plus](../../../controltower/latest/controlreference/controls-reference.md "../../../controltower/latest/controlreference/controls-reference.md") preventative, proactive, and detective
-     controls mapped to several
-     [frameworks](../../../controltower/latest/controlreference/frameworks-supported.md "../../../controltower/latest/controlreference/frameworks-supported.md").
-     When you enable Control Tower controls, it automatically
-     starts enforcing compliance as code policies and also
-     detects compliance drifts.
-   - Adopt a multi-account strategy similar to the guidance
-     provided in the
-     [AWS Security Reference Architecture](../../../prescriptive-guidance/latest/security-reference-architecture/security-tooling.md "../../../prescriptive-guidance/latest/security-reference-architecture/security-tooling.md"). With
-     account-level isolation, you can better control the
-     impact of potential compliance issues.
-   - Provide pre-approved, compliance-aligned infrastructure
-     templates (for example, VPCs or EC2 instances) to enable
-     developers to provision standardized resources. Consider
-     using
-     [Service Catalog](../../../servicecatalog/latest/adminguide/introduction.md "../../../servicecatalog/latest/adminguide/introduction.md") to enable provisioning,
-     administration, and management of standardized AWS CloudFormation or Terraform Cloud products.
-   - Reduce potential information exposure risks by applying
-     principle of
-     [least
-     privilege](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") and
-     [just-in-time
-     access](../../../singlesignon/latest/userguide/temporary-elevated-access.md "../../../singlesignon/latest/userguide/temporary-elevated-access.md").
-   - Provide
-     [automated
-     runbooks](../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md") to remediate compliance violations. The
-     [AWS Systems Manager Automation Runbook Reference](../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md")
-     provides a catalog of runbooks. You can also create your
-     [own
-     runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../../../systems-manager/latest/userguide/automation-documents.md").
+1.  **Second line: detect compliance drift continuously:** 
+   +  Enable [detective controls](https://docs.aws.amazon.com/controltower/latest/controlreference/detective-controls.html) in AWS Control Tower to detect noncompliant resources after deployment. AWS Control Tower integrates with AWS Security Hub CSPM and AWS Config to help you monitor your AWS environment. You can enable controls by organizational units (OUs) and AWS accounts spread across jurisdictions. 
+   +  When you enable [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) as part of your AWS Control Tower deployment (achieved through integration with AWS Organizations), you get a unified view from which to continuously identify compliance drifts and prioritize remediations based on severity scores. Enable [consolidated controls view](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-changes-consolidation.html) to reduce findings noise. 
+   +  Log API activity with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) across accounts and store logs in a central S3 bucket. Enable encryption and log integrity validation. Consider enforcing [write once read many (WORM)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) storage to protect the chain of evidence. 
 
-2. **Second line: risk
-   oversight:** Aim to identify compliance drifts on a
-   continuous basis and prioritize remediations based on
-   calculated risk scores. Use
-   [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") or an equivalent Cloud Security
-   Posture Management (CSPM) solution to gain continuous risk
-   oversight.
-   - Enable Security Hub CSPM to
-     [accept
-     findings](../../../securityhub/latest/userguide/securityhub-integration-enable.md "../../../securityhub/latest/userguide/securityhub-integration-enable.md") from AWS services and third-party
-     providers.
-   - Enable
-     [consolidated
-     controls view and consolidated controls findings](../../../securityhub/latest/userguide/asff-changes-consolidation.md "../../../securityhub/latest/userguide/asff-changes-consolidation.md")
-     in Security Hub CSPM. This reduces findings noise by
-     producing a single finding for a control, even if the
-     control applies to multiple enabled standards.
-   - Log API activity with
-     [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") across accounts and store logs in a
-     central S3 bucket. Log network flows, especially logs
-     generated at the edge of the network. Require
-     applications to log user actions. For example, user X
-     changed document Y at time Z. When you log user actions
-     (commands) and correlate them with system generated logs
-     (for example firewall logs), you gain a holistic
-     understanding of activity in your workload.
-   - Enable encryption and log integrity validation. If you
-     are using Amazon Security Lake as a long-term storage
-     for your security and compliance logs, apply
-     [these
-     measures](../../../security-lake/latest/userguide/data-protection.md "../../../security-lake/latest/userguide/data-protection.md") to protect data. Consider enforcing the
-     [write
-     once read many (WORM)](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/latest/userguide/object-lock.md") model when storing logs in
-     S3 to protect chain of evidence.
-
-3. **Third line: risk assessment and
-   compliance reporting:** Aim to support continuous
-   risk assessment of your entire environment by automatically
-   collecting, aggregating, and analyzing logs.
-   - Source logs audit logs, network flow logs, firewall logs
-     and application. Example sources include:
-     - Amazon CloudTrail
-       [Data
-       and Management Event Logs](../../../awscloudtrail/latest/userguide/cloudtrail-events.md "../../../awscloudtrail/latest/userguide/cloudtrail-events.md") for API activity
-       tracking
-     - [VPC
-       Flow Logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md") for network traffic analysis
-     - [AWS WAF Logs](../../../waf/latest/developerguide/logging.md "../../../waf/latest/developerguide/logging.md") for web application firewall
-       monitoring
-     - [Amazon EKS Audit Logs](../../../eks/latest/best-practices/auditing-and-logging.md "../../../eks/latest/best-practices/auditing-and-logging.md") for Kubernetes cluster
-       activity
-     - [Route 53 resolver query logs](../../../Route53/latest/DeveloperGuide/resolver-query-logs.md "../../../Route53/latest/DeveloperGuide/resolver-query-logs.md") for DNS query
-       monitoring
-     - Application-specific logs collected through
-       [Amazon CloudWatch](../../../cloudwatch.md "../../../cloudwatch.md") or another application performance
-       monitoring (APM) tool
-
-   - Consolidate logs using Amazon Security Lake, or an
-     equivalent security-focused data lake to enable
-     efficient querying and analysis across terabytes of log
-     data. Security Lake normalizes log files to a single
-     open format known as the
-     [Open
-     Cybersecurity Schema Framework (OCSF)](https://github.com/ocsf "https://github.com/ocsf"). This
-     standardization allows you to connect Security Lake with
-     your existing security information and event management
-     (SIEM) tooling as well as
-     [Amazon OpenSearch Service](https://aws.amazon.com/blogs/aws/introducing-amazon-opensearch-service-zero-etl-integration-for-amazon-security-lake/ "https://aws.amazon.com/blogs/aws/introducing-amazon-opensearch-service-zero-etl-integration-for-amazon-security-lake/").
-   - Generate audit-ready reports on-demand with
-     [AWS Audit Manager](../../../audit-manager/latest/userguide/what-is.md "../../../audit-manager/latest/userguide/what-is.md"). Audit Manager streamlines
-     compliance reporting by collecting evidence aligned with
-     [several
-     frameworks](../../../audit-manager/latest/userguide/framework-overviews.md "../../../audit-manager/latest/userguide/framework-overviews.md") such as NIST 800-53 Rev 5 and PCI DSS
-     4.0. It ingests results from AWS Config managed rule
-     evaluations, CloudTrail management event logs, findings
-     from Security Hub and can also make AWS API calls to
-     generate snapshots of your environment. Audit Manager
-     can generate
-     [assessment
-     reports](../../../audit-manager/latest/userguide/generate-assessment-report.md "../../../audit-manager/latest/userguide/generate-assessment-report.md") based on assessments you create.
-   - Log in into your AWS Management Console and use the
-     [AWS Artifact](https://aws.amazon.com/artifact/ "https://aws.amazon.com/artifact/") service to access AWS security and
-     compliance reports plus select online agreements. You
-     can download AWS compliance reports like SOC, ISO, and
-     PCI directly to demonstrate AWS infrastructure
-     compliance to auditors.
+1.  **Third line: automate evidence collection and compliance reporting:** 
+   +  AWS Control Tower enables AWS Config on all enrolled accounts, so that it can monitor compliance through detective controls and record resource changes. Use [AWS Config Advanced Query](https://docs.aws.amazon.com/config/latest/developerguide/querying-AWS-resources.html) to export resource configuration snapshots and compliance evaluation results for targeted resources or time periods. 
+   +  Use [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) compliance standard scores as evidence of your security posture against frameworks such as NIST SP 800-53 Rev 5 and PCI DSS v4.0. For long-term evidence retention, enable [Amazon Security Lake](https://docs.aws.amazon.com/security-lake/latest/userguide/what-is-security-lake.html), which ingests Security Hub CSPM findings into Amazon S3 in Open Cybersecurity Schema Framework (OCSF) format for querying and audit purposes. 
+   +  For compliance frameworks requiring controls beyond what Config rules can evaluate (such as organizational policies and operational procedures), consider complementing AWS services with [governance, risk, and compliance (GRC) solutions](https://aws.amazon.com/marketplace/solutions/security/governance-risk-compliance/) available in AWS Marketplace. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related best practices:**
+ **Related best practices:** 
++  [DSOPS01-BP01 Organize compliance for multi-jurisdictional operations](dsops01-bp01.html) 
++  [DSOPS03-BP02 Automate evidence collection and reporting](dsops03-bp02.html) 
++  [DSOPS04-BP01 Maintain continuous visibility of your compliance status](dsops04-bp01.html) 
++  [DSOPS05-BP02 Automate compliance remediation](dsops05-bp02.html) 
++  [OPS05-BP10 Fully automate integration and deployment](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_auto_integ_deploy.html) 
++  [OPS05-BP02 Test and validate changes](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_test_val_chg.html) 
 
-- [OPS05-BP01
-  Use version control](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_version_control.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_version_control.md")
-- [OPS05-BP02
-  Test and validate changes](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_test_val_chg.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_test_val_chg.md")
-- [OPS05-BP03
-  Use configuration management systems](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_conf_mgmt_sys.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_conf_mgmt_sys.md")
-- [OPS05-BP04
-  Use build and deployment management systems](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_build_mgmt_sys.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_build_mgmt_sys.md")
-- [OPS05-BP05
-  Perform patch management](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_patch_mgmt.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_patch_mgmt.md")
-- [OPS05-BP06
-  Share design standards](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_share_design_stds.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_share_design_stds.md")
-- [OPS05-BP07
-  Implement practices to improve code quality](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_code_quality.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_code_quality.md")
-- [OPS05-BP08
-  Use multiple environments](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_multi_env.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_multi_env.md")
-- [OPS05-BP09
-  Make frequent, small, reversible changes](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_freq_sm_rev_chg.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_freq_sm_rev_chg.md")
-- [OPS05-BP10
-  Fully automate integration and deployment](../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_auto_integ_deploy.md "../../../en_us/wellarchitected/latest/operational-excellence-pillar/ops_dev_integ_auto_integ_deploy.md")
+ **Related documents:** 
++  [Introduction to the Three Lines Model](https://internalauditor.theiia.org/en/video/2020/august/the-iias-new-three-lines-model-part-1-the-basics/) 
++  [AWS Config Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html) 
++  [Querying the Current Configuration State of AWS Resources (Config Advanced Query)](https://docs.aws.amazon.com/config/latest/developerguide/querying-AWS-resources.html) 
++  [Visualizing AWS Config data using Amazon Athena and Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/) 
++  [Implementing a compliance and reporting strategy for NIST SP 800-53 Rev. 5](https://aws.amazon.com/blogs/security/implementing-a-compliance-and-reporting-strategy-for-nist-sp-800-53-rev-5/) 
++  [Consolidating controls in Security Hub CSPM: The new controls view and consolidated findings](https://aws.amazon.com/blogs/security/consolidating-controls-in-security-hub-the-new-controls-view-and-consolidated-findings/) 
 
-**Related documents:**
+ **Related videos:** 
++  [How to implement compliance at scale with the Three Lines of Defense model: AWS AMER Summit Aug 2021](https://www.youtube.com/watch?v=G5oQwykobNw) 
++  [AWS re:Invent 2025 - From Reactive to Proactive: Infrastructure governance by design (COP352)](https://www.youtube.com/watch?v=iXor74El2D8) 
++  [AWS re:Invent 2025 - From Code to Policies: Accelerate Development w/ IAM Policy Autopilot (SEC351)](https://www.youtube.com/watch?v=vgA_sq99Kas) 
 
-- [Introduction
-  to the Three Lines Model](https://internalauditor.theiia.org/en/video/2020/august/the-iias-new-three-lines-model-part-1-the-basics/ "https://internalauditor.theiia.org/en/video/2020/august/the-iias-new-three-lines-model-part-1-the-basics/")
-- [Integrate
-  across the Three Lines Model (Part 1)](https://aws.amazon.com/blogs/mt/integrate-across-the-three-lines-model-part-1-build-a-custom-automation-of-aws-audit-manager-with-aws-security-hub/ "https://aws.amazon.com/blogs/mt/integrate-across-the-three-lines-model-part-1-build-a-custom-automation-of-aws-audit-manager-with-aws-security-hub/")
-- [Integrate
-  across the Three Lines Model (Part 2)](https://aws.amazon.com/blogs/mt/integrate-across-the-three-lines-model-part-2-transform-aws-config-conformance-packs-into-aws-audit-manager-assessments/ "https://aws.amazon.com/blogs/mt/integrate-across-the-three-lines-model-part-2-transform-aws-config-conformance-packs-into-aws-audit-manager-assessments/")
-- [Implementing
-  a compliance and reporting strategy for NIST SP 800-53
-  Rev. 5](https://aws.amazon.com/blogs/security/implementing-a-compliance-and-reporting-strategy-for-nist-sp-800-53-rev-5/ "https://aws.amazon.com/blogs/security/implementing-a-compliance-and-reporting-strategy-for-nist-sp-800-53-rev-5/")
-- [Consolidating
-  controls in Security Hub: The new controls view and
-  consolidated findings](https://aws.amazon.com/blogs/security/consolidating-controls-in-security-hub-the-new-controls-view-and-consolidated-findings/ "https://aws.amazon.com/blogs/security/consolidating-controls-in-security-hub-the-new-controls-view-and-consolidated-findings/")
+ **Related examples:** 
++  [AWS Security Hub CSPM Automated Response and Remediation](https://github.com/aws-solutions/automated-security-response-on-aws) 
++  [AWS Config Conformance Pack Samples](https://docs.aws.amazon.com/config/latest/developerguide/conformancepack-sample-templates.html) 
++  [AWS CloudFormation Guard Rules Registry](https://github.com/aws-cloudformation/aws-guard-rules-registry) 
 
-**Related videos:**
-
-- [How
-  to implement compliance at scale with the Three Lines of
-  Defense model: AWS AMER Summit Aug 2021](https://www.youtube.com/watch?v=G5oQwykobNw "https://www.youtube.com/watch?v=G5oQwykobNw")
-- [AWS re:Invent 2025 - From Reactive to Proactive: Infrastructure
-  governance by design (COP352)](https://www.youtube.com/watch?v=iXor74El2D8 "https://www.youtube.com/watch?v=iXor74El2D8")
-- [AWS re:Invent 2025 - From Code to Policies: Accelerate Development
-  w/ IAM Policy Autopilot (SEC351)](https://www.youtube.com/watch?v=vgA_sq99Kas "https://www.youtube.com/watch?v=vgA_sq99Kas")
-
-**Related services:**
-
-- [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
-- [AWS Config](../../../config/latest/developerguide/WhatIsConfig.md "../../../config/latest/developerguide/WhatIsConfig.md")
-- [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md")
-- [Amazon GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md")
-- [Amazon Inspector](../../../inspector/latest/user/what-is-inspector.md "../../../inspector/latest/user/what-is-inspector.md")
-- [Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/")
-- [AWS Firewall Manager](https://aws.amazon.com/firewall-manager/ "https://aws.amazon.com/firewall-manager/")
-- [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/")
-- [Amazon
-  Security Lake](../../../security-lake/latest/userguide/what-is-security-lake.md "../../../security-lake/latest/userguide/what-is-security-lake.md")
+ **Related services:** 
++  [AWS CloudFormation Guard](https://docs.aws.amazon.com/cfn-guard/latest/ug/what-is-guard.html) 
++  [AWS Control Tower](https://aws.amazon.com/controltower/) 
++  [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/) 
++  [AWS Config](https://aws.amazon.com/config/) 
++  [Service Catalog](https://aws.amazon.com/servicecatalog/) 
++  [AWS Systems Manager](https://aws.amazon.com/systems-manager/) 
++  [AWS CloudTrail](https://aws.amazon.com/cloudtrail/) 
