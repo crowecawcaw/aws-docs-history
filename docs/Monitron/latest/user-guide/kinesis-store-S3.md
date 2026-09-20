@@ -55,8 +55,20 @@ Amazon Monitron provides a predefined AWS CloudFormation template to help quickl
    + Choose **Enabled** for **Dynamic partitioning**.
    + Choose **Enabled** for **New line delimiter**.
    + Choose **Enabled** for **Inline parsing for JSON**.
-   + Under **Dynamic partitioning keys**, add:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/kinesis-store-S3.html)
+   + Under **Dynamic partitioning keys**, add:
+
+
+<table>
+<thead>
+  <tr><th>Key name</th><th>JQ expression</th></tr>
+</thead>
+<tbody>
+  <tr><td>project</td><td>.projectDisplayName| "project=\(.)"</td></tr>
+  <tr><td>site</td><td>.siteDisplayName| "site=\(.)"</td></tr>
+  <tr><td>time</td><td>.timestamp| sub("[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$"; "00:00:00")| "time=\(.)"</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Apply dynamic partitioning keys** and confirm the generated Amazon S3 bucket prefix is `!{partitionKeyFromQuery:project}/!{partitionKeyFromQuery:site}/!{partitionKeyFromQuery:time}/`.
 
@@ -68,7 +80,22 @@ Amazon Monitron provides a predefined AWS CloudFormation template to help quickl
 
    If you chose a dynamic partition, use the preceeding Amazon S3 key format if you plan to use AWS Glue and Athena to query the data. You can also choose a finer key format, but the Amazon Athena query will not be efficient. Here is an example of setting up a finer Amazon S3 key path.
 
-   Under **Dynamic partitioning keys**, add:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/kinesis-store-S3.html)
+   Under **Dynamic partitioning keys**, add:
+
+
+<table>
+<thead>
+  <tr><th>Key name</th><th>JQ expression</th></tr>
+</thead>
+<tbody>
+  <tr><td>project</td><td>.projectDisplayName| "project=\(.)"</td></tr>
+  <tr><td>site</td><td>.siteDisplayName| "site=\(.)"</td></tr>
+  <tr><td>asset</td><td>.assetDisplayName| "asset=\(.)"</td></tr>
+  <tr><td>position</td><td>.sensorPositionDisplayName| "position=\(.)"</td></tr>
+  <tr><td>sensor</td><td>.sensor.physicalId | "sensor=\(.)"</td></tr>
+  <tr><td>date</td><td>.timestamp| sub(" [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$"; "")| "date=\(.)"</td></tr>
+</tbody>
+</table>
+
 
    In Amazon S3, objects will use the following key format: ` /project={projectName}/site={siteName}/asset={assetName}/position={positionName}/sensor={sensorId}/date={yyyy-mm-dd}/time={HH:MM:SS}/{filename}`

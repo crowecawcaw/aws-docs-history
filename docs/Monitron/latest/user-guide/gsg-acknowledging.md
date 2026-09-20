@@ -21,8 +21,15 @@ When you receive a notification, you must view and acknowledge it. This doesn't 
 1. On the **Assets** list, choose the asset with the alarm.   
 ![Assets list showing Sorter 1 with error icon, Sorter 2 with warning icon, and multiple items with success icons.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/asset_list2.png)
 
-1. Choose the position with the alarm to view the issue.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/gsg-acknowledging.html)
+1. Choose the position with the alarm to view the issue.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/sorter-2-warning.png" alt="Sorter 2 asset details showing two positions with Warning and Healthy status indicators." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/sorter-1-alarm.png" alt="Sorter 1 interface showing four positions with alarm, warning, and healthy status indicators." /> </td></tr>
+</tbody>
+</table>
+
 
 1. To confirm that you are aware of the issue, choose **Acknowledge**. 
 

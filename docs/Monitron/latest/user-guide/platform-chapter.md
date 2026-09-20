@@ -30,11 +30,25 @@ For access to the latest Amazon Monitron features, regularly check your mobile d
 
 To manually install the latest updates:
 
-1. Sign in to the Amazon Monitron app and choose **Update**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/platform-chapter.html)
+1. Sign in to the Amazon Monitron app and choose **Update**.
 
-1.  When you select **update**, you'll be directed to Google Play or the App Store. Select **Update** or **Install** to start the update.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/platform-chapter.html)
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/app-signin.png" alt="Amazon Monitron sign-in screen showing the app logo and loading message." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/app-update-screen.png" alt="Update dialog box overlaying asset list with version 1.0.0 update notification and action buttons." /> </td></tr>
+</tbody>
+</table>
+
+
+1.  When you select **update**, you'll be directed to Google Play or the App Store. Select **Update** or **Install** to start the update. 
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/appstore-update-screen.png" alt="App Store page for Amazon Monitron mobile app showing update button and preview screenshots." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/google-play-update-screen.png" alt="Google Play Store listing for Amazon Monitron app showing install button and app screenshots." /> </td></tr>
+</tbody>
+</table>
+
 
 1. If you start the update process within the Amazon Monitron app, you'll see a success message in the app once the update has been installed.  
 ![Modal dialog confirming successful application update to version 1.0.0 with Done button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/app-update-success-screen.png)

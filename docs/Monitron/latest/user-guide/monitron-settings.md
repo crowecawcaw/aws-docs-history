@@ -34,13 +34,33 @@ You can change your Amazon Monitron language settings for both the web and mobil
 
 1. Update and save your language, measurement, and temperature settings in the **Settings** menu of the app.
 **Important**  
-Any changes you make to the language or units setting will be saved locally in the browser and will be applied to any project you open in the same browser. These changes are not shared across devices.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/monitron-settings.html)
+Any changes you make to the language or units setting will be saved locally in the browser and will be applied to any project you open in the same browser. These changes are not shared across devices.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/settings-menu-web.png" alt="General settings panel with Language dropdown showing English, Español, Français, and Português options." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/settings-menu-mobile.png" alt="Settings screen showing language selector expanded with options including English, Español, Français, and Português." /> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save**.
 
-1. You will see the following alert banner if you change two or more settings:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/monitron-settings.html)
+1. You will see the following alert banner if you change two or more settings:
 
-1. You will see the following alert if you leave the settings menu without saving:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/monitron-settings.html)
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/settings-menu-web-alert.png" alt="Settings page showing General section with language set to English (US) and Measurements section with vibration and temperature units." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/settings-menu-mobile-alert.png" alt="Settings page showing language, vibration units, and temperature unit options with a success message." /> </td></tr>
+</tbody>
+</table>
+
+
+1. You will see the following alert if you leave the settings menu without saving:
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/settings-menu-web-alert-unsaved.png" alt="Modal dialog warning about unsaved changes with Exit and Save buttons." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/settings-menu-mobile-alert-unsaved.png" alt="Dialog box warning about unsaved changes with Exit and Save buttons." /> </td></tr>
+</tbody>
+</table>

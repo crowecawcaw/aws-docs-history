@@ -25,8 +25,15 @@ When you open the Amazon Monitron mobile app, it displays the list of assets ass
 
 1. Choose **Assets**.
 
-   The assets list is displayed.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/anom-monitor-assets.html)
+   The assets list is displayed.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobile-understand-sensor-measurement.png" alt="Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded on Dec 15." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-understand-sensor-measurement.png" alt="Vibration monitoring dashboard showing total and single axis vibration graphs with ISO alarm threshold exceeded." /> </td></tr>
+</tbody>
+</table>
+
 
 ## Asset and position status
 <a name="anom-asset-icons"></a>

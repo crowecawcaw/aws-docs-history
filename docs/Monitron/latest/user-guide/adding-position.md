@@ -25,8 +25,15 @@ You can create and update asset positions from both the Amazon Monitron web app 
 1. Select the **Add position** button.  
 ![Asset management interface showing list of assets and positions with status indicators.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-app-add-position-1.png)
 
-1. In the dialog box that opens, enter your **Position name**, **Position type** and **Machine class**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/adding-position.html)
+1. In the dialog box that opens, enter your **Position name**, **Position type** and **Machine class**.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-app-add-position-2.png" alt="Form to add a position with fields for name, type, and machine class." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/web-app-add-position-3.png" alt="Form to add a position with fields for name, type, and machine class." /> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save**.
 

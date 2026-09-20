@@ -33,8 +33,20 @@ If you want to store your exported data in Amazon S3, use the following procedur
    + Choose **Enabled** for **Dynamic partitioning**.
    + Choose **Enabled** for **New line delimiter**.
    + Choose **Enabled** for **Inline parsing for JSON**.
-   + Under **Dynamic partitioning keys**, add:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/kinesis-store-S3-v2.html)
+   + Under **Dynamic partitioning keys**, add:
+
+
+<table>
+<thead>
+  <tr><th>Key name</th><th>JQ expression</th></tr>
+</thead>
+<tbody>
+  <tr><td>project</td><td>.projectName| "project=\(.)"</td></tr>
+  <tr><td>site</td><td>.eventPayload.siteName| "site=\(.)"</td></tr>
+  <tr><td>time</td><td>.timestamp| sub("[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$"; "00:00:00")| "time=\(.)"</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Apply dynamic partitioning keys** and confirm the generated Amazon S3 bucket prefix is `!{partitionKeyFromQuery:project}/!{partitionKeyFromQuery:site}/!{partitionKeyFromQuery:time}/`.
 

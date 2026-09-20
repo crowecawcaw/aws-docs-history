@@ -44,14 +44,41 @@ When you add a project, it gets saved only on the platform you are adding it on.
 
 **To switch between projects in the mobile app**
 
-1. Open the Amazon Monitron mobile app and login using your username and password.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/monitron-switch-projects.html)
+1. Open the Amazon Monitron mobile app and login using your username and password.
 
-1. From the **Assets** list page, select your account details dropdown menu, and then choose **View projects**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/monitron-switch-projects.html)
 
-1. If you want to add a project, choose **Add project** and enter your project link url.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/monitron-switch-projects.html)
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/switch-project-login-mobile.png" alt="AWS sign-in page with username field showing Email@amazon.com and password field." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/switch-project-login-mobile-2.png" alt="Amazon Monitron sign-in screen showing AWS logo and loading message." /> </td></tr>
+</tbody>
+</table>
 
-1. If you want to switch between projects, choose the project you want to view from the projects list. You will see this message before you switch.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/monitron-switch-projects.html)
+
+1. From the **Assets** list page, select your account details dropdown menu, and then choose **View projects**.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/switch-project-list-mobile-1.png" alt="Asset management interface showing a list of 12 assets with status icons and an &quot;Add asset&quot; button." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/switch-project-list-mobile-2.png" alt="User interface showing project details, menu options, and status indicators for various settings." /> </td></tr>
+</tbody>
+</table>
+
+
+1. If you want to add a project, choose **Add project** and enter your project link url.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/switch-project-mobile-add-1.png" alt="Amazon Monitron projects list showing Project A with last accessed date and user email." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/switch-project-mobile-add-2.png" alt="Add Projects screen with Project link URL field containing an Amazon Monitron project URL." /> </td></tr>
+</tbody>
+</table>
+
+
+1. If you want to switch between projects, choose the project you want to view from the projects list. You will see this message before you switch.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/switch-project-mobile-1.png" alt="Amazon Monitron projects page showing two projects and a success message for adding Project B." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/switch-project-mobile-message-1.png" alt="Project switching dialog with message about single project sign-in and Cancel and Confirm buttons." /> </td></tr>
+</tbody>
+</table>

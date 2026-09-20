@@ -39,8 +39,15 @@ You can view sensor details on both the mobile and web app. The following sectio
 
 1. Choose the **Sensor Actions** button. 
 
-1. Choose **View sensor details**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/as-view-sensor-details.html)
+1. Choose **View sensor details**.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/view-sensor-details.png" alt="Menu with View sensor details option selected and Delete sensor option below." /></td><td><img src="https://docs.aws.amazon.com/Monitron/latest/user-guide/images/view-sensor-details-mobile.png" alt="Sensor details tab showing sensor ID, connected status, battery level, and position details." /></td></tr>
+</tbody>
+</table>
+
 
    The **Sensor details** page is displayed.
 
