@@ -81,5 +81,17 @@ Some devices don't send all their details to the server. You may not see all ava
 
 1. In the list of devices, select the ID of the device for which you want to view details. 
 
-   The following table lists the device status codes.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workmail/latest/adminguide/manage-devices.html)
+   The following table lists the device status codes.
+
+
+<table>
+<thead>
+  <tr><th><b>Status</b></th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>PROVISIONING_REQUIRED</code></td><td>A user or administrator has requested that the device be provisioned for use with Amazon WorkMail. Devices are also set to this status if the current policy for that device is modified in the Amazon WorkMail console. </td></tr>
+  <tr><td><code>PROVISIONING_SUCCEEDED</code></td><td>The device has been successfully provisioned. The device has enforced the given policy.</td></tr>
+  <tr><td><code>WIPE_REQUIRED</code></td><td>An administrator requested a wipe in the Amazon WorkMail console.</td></tr>
+  <tr><td><code>WIPE_SUCCEEDED</code></td><td>The device has been successfully wiped.</td></tr>
+</tbody>
+</table>
