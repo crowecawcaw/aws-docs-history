@@ -124,8 +124,21 @@ This procedure must be performed on a machine that is joined to your directory a
 
 1. In the list in the left-hand pane, right-click **Users**, select **New**, and then select **Group**. 
 
-1. In the **New Object - Group** dialog box, enter the following and click **OK**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_getting_started.html)
+1. In the **New Object - Group** dialog box, enter the following and click **OK**.
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value/Selection</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Group name</b></td><td><code>Connectors</code></td></tr>
+  <tr><td><b>Group scope</b></td><td><b>Global</b></td></tr>
+  <tr><td><b>Group type</b></td><td><b>Security</b></td></tr>
+</tbody>
+</table>
+
 
 1. In the **Active Directory User and Computers** navigation tree, select identify the Organizational Unit (OU) where the computer accounts will be created. In the menu, select **Action**, and then **Delegate Control**. You may select a parent OU up to the domain as permissions propagate to the child OUs. If your AD Connector is connected to AWS Managed Microsoft AD, you will not have access to delegate control at the domain root level. In this case, to delegate control, select the OU under your directory OU where your computer objects will be created.
 

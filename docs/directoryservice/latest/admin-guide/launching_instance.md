@@ -41,8 +41,22 @@ To seamlessly domain join an EC2 instance, you will need to complete the followi
       + `"ssm:CreateBatchAssociation"`
 
 When your AWS Managed Microsoft AD is created, a security group is created with inbound and outbound rules. To learn more about these rules and ports, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md). To seamlessly domain join an EC2 Windows instance, your VPC where you're launching your instance should allow the same ports allowed in your AWS Managed Microsoft AD security group's inbound and outbound rules.
-+ Depending on your network security and firewall settings, you could be required to allow additional outbound traffic. This traffic would be for HTTPS (port 443) to the following endpoints:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/launching_instance.html)
++ Depending on your network security and firewall settings, you could be required to allow additional outbound traffic. This traffic would be for HTTPS (port 443) to the following endpoints:
+
+
+
+<table>
+<thead>
+  <tr><th>Endpoint</th><th>Role</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>ec2messages.region.amazonaws.com</code></td><td>Creates and deletes session channels with Session Manager service. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html">AWS Systems Manager endpoints and quotas</a>.</td></tr>
+  <tr><td><code>ssm.region.amazonaws.com</code></td><td>Endpoint for AWS Systems Manager Session Manager. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html">AWS Systems Manager endpoints and quotas</a>.</td></tr>
+  <tr><td><code>ssmmessages.region.amazonaws.com</code></td><td>Creates and deletes session channels with Session Manager service. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html">AWS Systems Manager endpoints and quotas</a>.</td></tr>
+  <tr><td><code>ds.region.amazonaws.com</code></td><td>Endpoint for Directory Service. For more information, see <a href="regions.md">Region availability for Directory Service</a>.</td></tr>
+</tbody>
+</table>
+
 + We recommend to use a DNS server that will resolve your AWS Managed Microsoft AD domain name. To do so, you can create a DHCP option set. See [Creating or changing a DHCP options set for AWS Managed Microsoft AD](dhcp_options_set.md) for more information.
   + If you choose not to create a DHCP option set, then your DNS servers will be static and configured to by your AWS Managed Microsoft AD.
 
