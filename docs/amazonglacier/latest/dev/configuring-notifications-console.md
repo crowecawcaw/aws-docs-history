@@ -23,8 +23,19 @@ This section describes how to configure vault notifications by using the Amazon 
 
 1. On the **Event notifications** page, choose **Turn on notifications**.
 
-1. In the **Notifications** section, choose one of the following Amazon Simple Notification Service (Amazon SNS) options, and then follow the corresponding steps:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications-console.html)
+1. In the **Notifications** section, choose one of the following Amazon Simple Notification Service (Amazon SNS) options, and then follow the corresponding steps:
+
+
+<table>
+<thead>
+  <tr><th>Amazon SNS options</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create new SNS topic</b></td><td> <ol><li> Choose <b>Create new SNS topic</b>. </li><li> For <b>Topic name</b>, enter the name of the new topic. <br />Topic names can be up to 256 characters. Alphanumeric characters, hyphens (-), and underscores (_) are allowed. Topic names must be unique within the account and AWS Region. </li><li> (Optional) If you want to subscribe to the topic by using SMS messages, enter a name for <b>Display name</b>. <br />A display name can have up to 100 characters. </li></ol> </td></tr>
+  <tr><td><b>Choose an existing SNS topic</b></td><td> <ol><li> Choose <b>Choose an existing SNS topic</b>. </li><li> Under <b>Specify SNS topic</b>, choose one of the following options: <ul><li> <b>Choose from your SNS topics</b> <br />An <b>SNS topic</b> dropdown list appears. <br /> Choose an existing topic from the dropdown list. </li><li> <b>Enter SNS topic ARN</b> <br />An <b>Amazon SNS topic ARN</b> text box appears.  <br />Enter the Amazon Resource Name (ARN) for your SNS topic. An SNS topic ARN has the following format: <br /> <code>arn:aws:sns:region:account-id:topic-name</code> <br />You can find the SNS topic ARN in the Amazon SNS console.  </li></ul> </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Under **Events**, select one or both events that you want to send notifications:
    + To send a notification only when archive retrieval jobs are complete, select **Archive Retrieval Job Complete**. 
