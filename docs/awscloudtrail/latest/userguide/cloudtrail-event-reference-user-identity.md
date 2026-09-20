@@ -149,8 +149,28 @@ The type of the identity. The following values are possible:
 1. Because you own the IAM role, you receive a log that shows the AWS service assumed the role. The `type` is `AWSService`.
 
 **`userName`**  
-The friendly name of the identity that made the call. The value that appears in `userName` is based on the value in `type`. The following table shows the relationship between `type` and `userName`:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)
+The friendly name of the identity that made the call. The value that appears in `userName` is based on the value in `type`. The following table shows the relationship between `type` and `userName`:  
+
+
+<table>
+<thead>
+  <tr><th><code>type</code></th><th><code>userName</code></th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Root</code> (no alias set)</td><td>Not present</td><td>If you haven't set up an alias for your AWS account, the <code>userName</code> field doesn't appear. For more information about account aliases, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">Your AWS account ID and its alias</a>. Note that the <code>userName</code> field can't contain <code>Root</code>, because <code>Root</code> is an identity type and not a user name.</td></tr>
+  <tr><td><code>Root</code> (alias set)</td><td>The account alias</td><td>For more information about AWS account aliases, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">Your AWS account ID and its alias</a>.</td></tr>
+  <tr><td><code>IAMUser</code></td><td>The user name of the IAM user</td><td></td></tr>
+  <tr><td><code>AssumedRole</code></td><td>Not present</td><td>For the <code>AssumedRole</code> type, you can find the <code>userName</code> field in <code>sessionContext</code> as part of the <a href="#sessionissuer">sessionIssuer</a> element. For an example entry, see <a href="#cloudtrail-event-reference-user-identity-examples">Examples</a>.</td></tr>
+  <tr><td><code>Role</code></td><td>User-defined</td><td>The <code>sessionContext</code> and <code>sessionIssuer</code> section contains information about the identity that issued the session for the role.</td></tr>
+  <tr><td><code>FederatedUser</code></td><td>Not present</td><td>The <code>sessionContext</code> and <code>sessionIssuer</code> section contains information about the identity that issued the session for the federated user.</td></tr>
+  <tr><td><code>Directory</code></td><td>Can be present</td><td>For example, the value can be the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">account alias</a> or email address of the associated <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">AWS account ID</a>.</td></tr>
+  <tr><td><code>AWSService</code></td><td>Not present</td><td></td></tr>
+  <tr><td><code>AWSAccount</code></td><td>Not present</td><td></td></tr>
+  <tr><td><code>IdentityCenterUser</code></td><td>Not present*</td><td>The <code>onBehalfOf</code> section contains information about the IAM Identity Center user ID and identity store ARN for which the call was made. To learn more about how you can use these two fields, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/sso-cloudtrail-use-cases.html#user-session-iam-identity-center">Identifying the user and session in IAM Identity Center user-initiated CloudTrail events</a>  in the IAM Identity Center User Guide.<br />* IAM Identity Center emits the <code>userName</code> field under the <code>additionalEventData</code> element in two sign-in CloudTrail events. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/username-sign-in-cloudtrail-events.html">Username in sign-in CloudTrail events </a> in the IAM Identity Center User Guide.</td></tr>
+  <tr><td><code>Unknown</code></td><td>Can be present</td><td>For example, the value can be the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">account alias</a> or email address of the associated <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">AWS account ID</a>.</td></tr>
+</tbody>
+</table>
+
 The `userName` field contains the string `HIDDEN_DUE_TO_SECURITY_REASONS` when the recorded event is a console sign-in failure caused by incorrect user name input. CloudTrail does not record the contents in this case because the text could contain sensitive information, as in the following examples:  
 + A user accidentally types a password in the user name field.
 + A user clicks the link for one AWS account's sign-in page, but then types the account number for a different one.
@@ -178,8 +198,21 @@ The access key ID that was used to sign the request. If the request was made wit
 If the request was made with temporary security credentials, `sessionContext` provides information about the session created for those credentials. You create a session when you call any API that returns temporary credentials. Users also create sessions when they work in the console and make requests with APIs that include [multi-factor authentication](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html). The following attributes can appear in `sessionContext`:  
 + <a name="sessionissuer"></a>`sessionIssuer` – If a user make a request with temporary security credentials, `sessionIssuer` provides information about how the user obtained credentials. For example, if the they obtained temporary security credentials by assuming a role, this element provides information about the assumed role. If they obtained credentials with root or IAM user credentials to call AWS STS `GetFederationToken`, the element provides information about the root account or IAM user. This element has the following attributes:
   + `type` – The source of the temporary security credentials, such as `Root`, `IAMUser`, or `Role`. 
-  + `userName` – The friendly name of the user or role that issued the session. The value that appears depends on the `sessionIssuer` identity `type`. The following table shows the relationship between `sessionIssuer type` and `userName`:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)
+  + `userName` – The friendly name of the user or role that issued the session. The value that appears depends on the `sessionIssuer` identity `type`. The following table shows the relationship between `sessionIssuer type` and `userName`:
+
+
+<table>
+<thead>
+  <tr><th><code>sessionIssuer</code> type</th><th><code>userName</code></th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Root</code> (no alias set)</td><td>Not present</td><td>If you have not set up an alias for your account, the <code>userName</code> field does not appear. For more information about AWS account aliases, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">Your AWS account ID and its alias</a>. Note that the <code>userName</code> field can't contain <code>Root</code>, because <code>Root</code> is an identity type, not a user name.</td></tr>
+  <tr><td><code>Root</code> (alias set)</td><td>The account alias</td><td>For more information about AWS account aliases, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">Your AWS account ID and its alias</a>.</td></tr>
+  <tr><td><code>IAMUser</code></td><td>The user name of the IAM user</td><td>This also applies when a federated user is using a session issued by <code>IAMUser</code>.</td></tr>
+  <tr><td><code>Role</code></td><td>The role name</td><td>A role assumed by an IAM user, AWS service, or web identity federated user in a role session.</td></tr>
+</tbody>
+</table>
+
   + `principalId` – The internal ID of the entity used to get credentials.
   + `arn` – The ARN of the source (account, IAM user, or role) that was used to get temporary security credentials.
   + `accountId` – The account that owns the entity that was used to get credentials.
