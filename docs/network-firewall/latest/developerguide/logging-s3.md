@@ -62,116 +62,139 @@ s3://amzn-s3-demo-bucket/flow-logs/AWSLogs/11111111111/network-firewall/flow/us-
 
 You must have the following permissions settings to configure your firewall to send logs to Amazon S3. 
 
-------
-#### [ JSON ]
-
-****  
+**Example – Permissions policy for sending firewall logs to Amazon S3**  
 
 ```
 {
-    "Version":"2012-10-17",		 	 	 
-    "Statement": [
-        {
-            "Action": [
-                "logs:CreateLogDelivery",
-                "logs:GetLogDelivery",
-                "logs:UpdateLogDelivery",
-                "logs:DeleteLogDelivery",
-                "logs:ListLogDeliveries"
-            ],
-            "Resource": [
-                "*"
-            ],
-            "Effect": "Allow",
-            "Sid": "FirewallLogging"
-        },
-        {
-            "Sid": "FirewallLoggingS3",
-            "Action": [
-                "s3:PutBucketPolicy",
-                "s3:GetBucketPolicy"
-            ],
-            "Resource": [
-                "arn:aws:s3:::{{bucket-name}}"
-            ],
-            "Effect": "Allow"
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AWSLogDeliveryWrite",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "delivery.logs.amazonaws.com"
+      },
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/{{optional-folder}}/AWSLogs/111122223333/*",
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-acl": "bucket-owner-full-control",
+          "aws:SourceAccount": "111122223333"
         }
-    ]
+      }
+    },
+    {
+      "Sid": "AWSLogDeliveryAclCheck",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "delivery.logs.amazonaws.com"
+      },
+      "Action": "s3:GetBucketAcl",
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333"
+        }
+      }
+    }
+  ]
 }
 ```
-
-------
 
 By default, Amazon S3 buckets and the objects that they contain are private. Only the bucket owner can access the bucket and the objects stored in it. The bucket owner, however, can grant access to other resources and users by writing an access policy.
 
 If the user creating the log owns the bucket, the service automatically attaches the following policy to the bucket to give the log permission to publish logs to it:
 
-------
-#### [ JSON ]
-
-****  
+**Example – Bucket policy for a single account log delivery**  
 
 ```
 {
-    "Version":"2012-10-17",		 	 	 
-    "Statement": [
-        {
-            "Sid": "AWSLogDeliveryWrite",
-            "Effect": "Allow",
-            "Principal": {"Service": "delivery.logs.amazonaws.com"},
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::{{bucket-name/optional-folder}}/AWSLogs/{{123456789012}}/*",
-            "Condition": {"StringEquals": {"s3:x-amz-acl": "bucket-owner-full-control"}}
-        },
-        {
-            "Sid": "AWSLogDeliveryAclCheck",
-            "Effect": "Allow",
-            "Principal": {"Service": "delivery.logs.amazonaws.com"},
-            "Action": "s3:GetBucketAcl",
-            "Resource": "arn:aws:s3:::{{bucket-name}}"
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AWSLogDeliveryWrite",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "delivery.logs.amazonaws.com"
+      },
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/AWSLogs/111122223333/*",
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-acl": "bucket-owner-full-control",
+          "aws:SourceAccount": "111122223333"
         }
-    ]
+      }
+    },
+    {
+      "Sid": "AWSLogDeliveryAclCheck",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "delivery.logs.amazonaws.com"
+      },
+      "Action": "s3:GetBucketAcl",
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333"
+        }
+      }
+    }
+  ]
 }
 ```
-
-------
 
 If the user creating the log doesn't own the bucket, or doesn't have the `GetBucketPolicy` and `PutBucketPolicy` permissions for the bucket, the log creation fails. In this case, the bucket owner must manually add the preceding policy to the bucket and specify the log creator's AWS account ID. For more information, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/add-bucket-policy.html) in the *Amazon Simple Storage Service User Guide*. If the bucket receives logs from multiple accounts, add a `Resource` element entry to the `AWSLogDeliveryWrite` policy statement for each account. 
 
 For example, the following bucket policy allows AWS accounts `111122223333` and `444455556666` to publish logs to a folder named `flow-logs` in a bucket named `amzn-s3-demo-bucket`:
 
-------
-#### [ JSON ]
-
-****  
+**Example – Bucket policy for multiple account log delivery**  
 
 ```
 {
-    "Version":"2012-10-17",		 	 	 
-    "Statement": [
-        {
-            "Sid": "AWSLogDeliveryWrite",
-            "Effect": "Allow",
-            "Principal": {"Service": "delivery.logs.amazonaws.com"},
-            "Action": "s3:PutObject",
-            "Resource": [
-            	"arn:aws:s3:::amzn-s3-demo-bucket:/flow-logs/AWSLogs/111122223333/",
-            	"arn:aws:s3:::amzn-s3-demo-bucket:/flow-logs/AWSLogs/444455556666/"
-            	],
-            "Condition": {"StringEquals": {"s3:x-amz-acl": "bucket-owner-full-control"}}
-        },
-        {
-            "Sid": "AWSLogDeliveryAclCheck",
-            "Effect": "Allow",
-            "Principal": {"Service": "delivery.logs.amazonaws.com"},
-            "Action": "s3:GetBucketAcl",
-            "Resource": "arn:aws:s3:::amzn-s3-demo-bucket"
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AWSLogDeliveryWrite",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "delivery.logs.amazonaws.com"
+      },
+      "Action": "s3:PutObject",
+      "Resource": [
+        "arn:aws:s3:::amzn-s3-demo-bucket/flow-logs/AWSLogs/111122223333/*",
+        "arn:aws:s3:::amzn-s3-demo-bucket/flow-logs/AWSLogs/444455556666/*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-acl": "bucket-owner-full-control",
+          "aws:SourceAccount": [
+            "111122223333",
+            "444455556666"
+          ]
         }
-    ]
+      }
+    },
+    {
+      "Sid": "AWSLogDeliveryAclCheck",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "delivery.logs.amazonaws.com"
+      },
+      "Action": "s3:GetBucketAcl",
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": [
+            "111122223333",
+            "444455556666"
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
-
-------
 
 ## (Optional) Permissions to access Amazon S3 log metrics in Network Firewall using Amazon Athena
 <a name="logging-s3-athena"></a>

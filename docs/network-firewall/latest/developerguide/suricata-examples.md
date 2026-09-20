@@ -519,6 +519,9 @@ The following JSON shows an example rule definition for a Network Firewall domai
 
 The following Suricata rules listing shows the rules that Network Firewall creates for the above allow list specification.
 
+**Note**  
+Network Firewall generates the final drop rule in this listing only when the firewall policy evaluates rules in default action order. This drop rule has the message `not matching any HTTP allowlisted FQDNs`. If the policy uses strict order, Network Firewall doesn't generate this drop rule. For more information about rule evaluation order, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md).
+
 ```
 pass http $HOME_NET any -> $EXTERNAL_NET any (http.host; dotprefix; content:".amazon.com"; endswith; msg:"matching HTTP allowlisted FQDNs"; priority:1; flow:to_server, established; sid:1; rev:1;)
 pass http $HOME_NET any -> $EXTERNAL_NET any (http.host; content:"example.com"; startswith; endswith; msg:"matching HTTP allowlisted FQDNs"; priority:1; flow:to_server, established; sid:2; rev:1;)
@@ -546,6 +549,9 @@ The following JSON shows an example rule definition for a Network Firewall domai
 ```
 
 The following Suricata rules listing shows the rules that Network Firewall creates for the above allow list specification.
+
+**Note**  
+Network Firewall generates the final drop rule in this listing only when the firewall policy evaluates rules in default action order. This drop rule has the message `not matching any TLS allowlisted FQDNs`. If the policy uses strict order, Network Firewall doesn't generate this drop rule. For more information about rule evaluation order, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md).
 
 ```
 pass tls $HOME_NET any -> $EXTERNAL_NET any (ssl_state:client_hello; tls.sni; dotprefix; content:".amazon.com"; nocase; endswith; msg:"matching TLS allowlisted FQDNs"; priority:1; flow:to_server, established; sid:1; rev:1;)

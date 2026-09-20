@@ -11,7 +11,7 @@ For information about managing route tables for your VPC, see [Route tables](htt
 **Unsupported architectures**  
 The following lists architectures and traffic types that Network Firewall doesn't support:
 + VPC peering.
-+ Inspection of AWS Global Accelerator traffic.
++ Inspection of AWS Global Accelerator traffic when you enable client IP address preservation.
 + Inspection of AmazonProvidedDNS traffic for Amazon EC2.
 
 **Topics**

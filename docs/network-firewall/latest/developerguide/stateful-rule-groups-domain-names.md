@@ -15,7 +15,7 @@ All rule groups have the common settings that are defined at [Common rule group 
 
 A domain list rule group has the following general settings.
 + **Action** – Defines how Network Firewall handles traffic that matches the rule match settings. Valid values for domain rules are `Allow` `Deny`, `Reject`, and `Alert`:
-  + For `Allow`, traffic of the specified protocol type that does not match the domain specifications is denied.
+  + For `Allow`, the firewall denies traffic of the specified protocol type that does not match the domain specifications. This denial applies only when the firewall policy uses default action order. Under strict order, this denial does not apply.
   + For `Deny`, traffic matching the domain specifications is blocked. Non-matching traffic is allowed to pass.
   + For `Reject`, traffic matching the domain specifications is blocked and a TCP reset packet is sent back to the source. This option is only available for TCP traffic.
   + For `Alert`, traffic matching the domain specifications generates an alert in the firewall's logs (when logging is enabled). Then, traffic either passes, is rejected, or drops based based on other rules in the firewall policy.
