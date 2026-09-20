@@ -7,8 +7,23 @@ You can import AWS Payment Cryptography keys from other solutions and export the
 
 **Minimum key strengths and the effect on import and export functions**  
 PCI requires specific minimum key strengths for cryptographic operations, key storage, and key transmission. These requirements can change when PCI standards are revised. The rules specify that wrapping keys used for storage or transport must be at least as strong as the key being protected. We enforce this requirement automatically during export and prevent keys from being protected by weaker keys, as shown in the following table.  
-The following table shows the supported combinations of wrapping keys, keys to protect, and protection methods.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-importexport.html)
+The following table shows the supported combinations of wrapping keys, keys to protect, and protection methods.  
+
+
+<table>
+<thead>
+  <tr><th></th><th colspan="11"><b>Wrapping Key</b></th><th></th></tr>
+  <tr><th><b>Key To Protect</b></th><th>TDES_2KEY</th><th>TDES_3KEY</th><th>AES_128</th><th>AES_192</th><th>AES_256</th><th>RSA_2048</th><th>RSA_3072</th><th>RSA_4096</th><th>ECC_p256</th><th>ECC_p384</th><th>ECC_p521</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>TDES_2KEY</b></td><td>TR-31</td><td>TR-31</td><td>TR-31</td><td>TR-31</td><td>TR-31</td><td>TR-34, RSA</td><td>TR-34, RSA</td><td>TR-34, RSA</td><td>ECDH</td><td>ECDH</td><td>ECDH</td><td></td></tr>
+  <tr><td><b>TDES_3KEY</b></td><td>✗ Not supported</td><td>TR-31</td><td>TR-31</td><td>TR-31</td><td>TR-31</td><td>TR-34, RSA</td><td>TR-34, RSA</td><td>TR-34, RSA</td><td>ECDH</td><td>ECDH</td><td>ECDH</td><td></td></tr>
+  <tr><td><b>AES_128</b></td><td>✗ Not supported</td><td>✗ Not supported</td><td>TR-31</td><td>TR-31</td><td>TR-31</td><td>✗ Not supported</td><td>TR-34, RSA</td><td>TR-34, RSA</td><td>ECDH</td><td>ECDH</td><td>ECDH</td><td></td></tr>
+  <tr><td><b>AES_192</b></td><td>✗ Not supported</td><td>✗ Not supported</td><td>✗ Not supported</td><td>TR-31</td><td>TR-31</td><td>✗ Not supported</td><td>✗ Not supported</td><td>✗ Not supported</td><td>✗ Not supported</td><td>ECDH</td><td>ECDH</td><td></td></tr>
+  <tr><td><b>AES_256</b></td><td>✗ Not supported</td><td>✗ Not supported</td><td>✗ Not supported</td><td>✗ Not supported</td><td>TR-31</td><td>✗ Not supported</td><td>✗ Not supported</td><td>✗ Not supported</td><td>✗ Not supported</td><td>✗ Not supported</td><td>ECDH</td><td></td></tr>
+</tbody>
+</table>
+
 For more information, see [Appendix D - Minimum and Equivalent Key Sizes and Strengths for Approved Algorithms](https://docs-prv.pcisecuritystandards.org/PTS/Derived%20Test%20Requirements/PCI_HSM_DTRs_v4.pdf) in the PCI HSM standards. 
 
 **Key Encryption Key (KEK) Exchange**  
