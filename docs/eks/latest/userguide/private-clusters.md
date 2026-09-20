@@ -85,8 +85,28 @@ If you’re using custom service CIDR, then you need to specify it using the `-S
   To set up IRSA, you also need to reach the cluster’s OIDC discovery/JWKS endpoint from inside the VPC. For example, you reach it when you create the cluster’s IAM OIDC identity provider or run your own token validators. If there is no outbound internet access, create and use a VPC endpoint for the cluster OIDC endpoint: `com.amazonaws.{{region-code}}.oidc-eks`. This is separate from the AWS STS VPC endpoint. STS fetches the cluster’s JWKS from within AWS, so the OIDC endpoint privatizes your VPC-originated OIDC traffic, while the STS endpoint privatizes the `AssumeRoleWithWebIdentity` call. For more information, see [Access the cluster OIDC endpoint using AWS PrivateLink](vpc-interface-endpoints.md#oidc-vpc-interface-endpoints).
 + Your cluster’s VPC subnets must have a VPC interface endpoint for any AWS services that your Pods need access to. For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html). Some commonly-used services and endpoints are listed in the following table. For a complete list of endpoints, see [AWS services that integrate with AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/aws-services-privatelink-support.html) in the [AWS PrivateLink Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).
 
-  We recommend that you [enable private DNS names](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html#enable-private-dns-names) for your VPC endpoints, that way workloads can continue using public AWS service endpoints without issues.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eks/latest/userguide/private-clusters.html)
+  We recommend that you [enable private DNS names](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html#enable-private-dns-names) for your VPC endpoints, that way workloads can continue using public AWS service endpoints without issues.
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>Endpoint</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon EC2</td><td>com.amazonaws.{{region-code}}.ec2</td></tr>
+  <tr><td>Amazon Elastic Container Registry (for pulling container images)</td><td>com.amazonaws.{{region-code}}.ecr.api, com.amazonaws.{{region-code}}.ecr.dkr, and com.amazonaws.{{region-code}}.s3</td></tr>
+  <tr><td>Amazon Application Load Balancers and Network Load Balancers</td><td>com.amazonaws.{{region-code}}.elasticloadbalancing</td></tr>
+  <tr><td>(Optional) AWS X-Ray (required for tracing sent to AWS X-Ray)</td><td>com.amazonaws.{{region-code}}.xray</td></tr>
+  <tr><td>(Optional) Amazon SSM (required for the SSM Agent for node management tasks. Alternative to SSH)</td><td>com.amazonaws.{{region-code}}.ssm</td></tr>
+  <tr><td>Amazon CloudWatch Logs (required for node and pod logs sent to Amazon CloudWatch Logs)</td><td>com.amazonaws.{{region-code}}.logs</td></tr>
+  <tr><td> AWS Security Token Service (required when using IAM roles for service accounts)</td><td>com.amazonaws.{{region-code}}.sts</td></tr>
+  <tr><td>Amazon EKS cluster OIDC endpoint (required to set up IAM roles for service accounts from inside the VPC)</td><td>com.amazonaws.{{region-code}}.oidc-eks</td></tr>
+  <tr><td>Amazon EKS Auth (required when using Pod Identity associations)</td><td>com.amazonaws.{{region-code}}.eks-auth</td></tr>
+  <tr><td>Amazon EKS</td><td>com.amazonaws.{{region-code}}.eks</td></tr>
+  <tr><td>Amazon Route 53</td><td>com.amazonaws.route53</td></tr>
+</tbody>
+</table>
+
 + Any self-managed nodes must be deployed to subnets that have the VPC interface endpoints that you require. If you create a managed node group, the VPC interface endpoint security group must allow the CIDR for the subnets, or you must add the created node security group to the VPC interface endpoint security group.
 +  **EFS storage** - If your Pods use Amazon EFS volumes, then before deploying the [Store an elastic file system with Amazon EFS](efs-csi.md), the driver’s [kustomization.yaml](https://github.com/kubernetes-sigs/aws-efs-csi-driver/blob/master/deploy/kubernetes/overlays/stable/kustomization.yaml) file must be changed to set the container images to use the same AWS Region as the Amazon EKS cluster.
 + If you use the EKS Optimized AMI, you should enable the `ec2` endpoint in the table above. Alternatively, you can manually set the Node DNS name. The optimized AMI uses EC2 APIs to set the node DNS name automatically.

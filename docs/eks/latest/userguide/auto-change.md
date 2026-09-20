@@ -15,6 +15,11 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## September 14, 2026
+<a name="_september_14_2026"></a>
+
+ **Deprecation**: The [`volume-modifier-for-k8s`](https://github.com/awslabs/volume-modifier-for-k8s) project has been deprecated in favor of the native Kubernetes [`VolumeAttributesClass`](https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/) API. This project was used to set annotations on a PersistentVolumeClaim to modify an EBS volume. After October 31, 2026, Amazon EKS Auto Mode no longer supports these annotations. To modify EBS volumes after that date, use the Kubernetes `VolumeAttributesClass` API instead. For more information, see [Create a storage class](create-storage-class.md).
+
 ## August 17, 2026
 <a name="_august_17_2026"></a>
 

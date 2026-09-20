@@ -97,6 +97,7 @@ Amazon EKS Auto Mode does not fully manage Amazon Elastic Block Store (Amazon EB
 
 The following section describes security best practices for Amazon EKS Auto Mode.
 + Regularly review AWS IAM policies and EKS access entries.
++ When you use tag selectors for subnets and security groups in a `NodeClass`, EKS Auto Mode automatically selects *any* subnet or security group that has a matching tag, including resources that are tagged later. If you need to control exactly which subnets and security groups Auto Mode can use, don’t rely on tag selection alone. Instead, scope the [Amazon EKS Auto Mode cluster IAM role](auto-cluster-iam-role.md) so that `ec2:CreateNetworkInterface` is limited to specific subnets and security groups. Rather than attaching the ` AmazonEKSNetworkingPolicy ` managed policy as-is, use a customer managed policy that restricts `ec2:CreateNetworkInterface` to the intended subnet and security group resources, or attach an additional policy that denies the action on all other resources. For more information, see [IAM JSON policy elements: NotResource](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notresource.html) in the IAM User Guide.
 + Implement least privilege access patterns for workloads.
 + Monitor cluster activity through AWS CloudTrail and Amazon CloudWatch. For more information, see [Log API calls as AWS CloudTrail events](logging-using-cloudtrail.md) and [Monitor cluster data with Amazon CloudWatch](cloudwatch.md).
 + Use AWS Security Hub for security posture assessment.

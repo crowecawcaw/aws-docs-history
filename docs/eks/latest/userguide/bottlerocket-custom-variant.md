@@ -16,7 +16,7 @@ When you run GPU workloads on Amazon Elastic Kubernetes Service (Amazon EKS), yo
 Because [Bottlerocket](https://github.com/bottlerocket-os/bottlerocket) on the GitHub website is fully open-source, you can create a custom variant that meets these needs. This topic shows how to clone an existing variant and swap the NVIDIA driver from the R580 branch to R595 (version 595.71.05). You then build the image and register it as a private AMI.
 
 **Important**  
-The G7 EC2 instance type requires NVIDIA driver version 595 or later. The EKS Bottlerocket NVIDIA AMIs currently include NVIDIA driver version 580, which does not support G7 instances.  
+The `g7` instance type requires NVIDIA driver version 595 or later. The EKS Bottlerocket NVIDIA AMIs currently include NVIDIA driver version 580, which does not support `g7` instances.  
 See the [Bottlerocket repository](https://github.com/bottlerocket-os/bottlerocket) on the GitHub website for instructions on building a variant with NVIDIA driver version 595. This topic walks through the complete process starting at [Step 1](#bottlerocket-custom-variant-step1).
 
 ## How the build system works

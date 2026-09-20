@@ -166,6 +166,100 @@ The block storage capability of EKS Auto Mode is different from the EBS CSI Driv
 + EBS Detailed Performance Metrics
   + You cannot access Prometheus metrics for EBS detailed performance
 
+**Annotation-based EBS volume modification is deprecated**  
+The [`volume-modifier-for-k8s`](https://github.com/awslabs/volume-modifier-for-k8s) project has been deprecated in favor of the native Kubernetes [`VolumeAttributesClass`](https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/) API. This project was used to set annotations on a PersistentVolumeClaim to modify an EBS volume. After October 31, 2026, Amazon EKS Auto Mode no longer supports these annotations. To modify EBS volumes (for example, `type`, `iops`, or `throughput`) after that date, use the Kubernetes `VolumeAttributesClass` API instead. For more information, see [Volume Attributes Classes](https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/) in the Kubernetes documentation.
+
+## Migrate from volume-modifier-for-k8s to VolumeAttributesClass
+<a name="_migrate_from_volume_modifier_for_k8s_to_volumeattributesclass"></a>
+
+For EKS Auto Mode clusters running Kubernetes 1.34 or later, use a `VolumeAttributesClass` (VAC) to change an EBS volume’s type, IOPS, or throughput.
+
+Existing PVCs can be migrated in place by creating a VAC and setting `spec.volumeAttributesClassName` on the existing PVC. The PVC and PV are not recreated and there are no interruptions to your workloads during this process.
+
+1. Define the volume settings in a VAC
+
+   VMK annotations map to VAC parameters as follows:
+
+
+<table>
+<thead>
+  <tr><th>Existing VMK annotation</th><th>VAC parameter</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>ebs.csi.eks.amazonaws.com/volumeType</code> </td><td>type</td></tr>
+  <tr><td> <code>ebs.csi.eks.amazonaws.com/iops</code> </td><td>iops</td></tr>
+  <tr><td> <code>ebs.csi.eks.amazonaws.com/throughput</code> </td><td>throughput</td></tr>
+</tbody>
+</table>
+
+
+   Use `type`, not `volumeType`, in the VAC. Values must be strings, and a VAC only needs the parameters relevant to the desired EBS configuration. Example:
+
+   ```
+   apiVersion: storage.k8s.io/v1
+   kind: VolumeAttributesClass
+   metadata:
+     name: ebs-auto-gp3-6000-250
+   driverName: ebs.csi.eks.amazonaws.com
+   parameters:
+     type: gp3
+     iops: "6000"
+     throughput: "250"
+   ```
+
+   VACs are cluster-scoped, so the manifest has no namespace. Apply it normally:
+
+   ```
+   kubectl apply -f vac.yaml
+   ```
+
+1. Assign the VAC to the PVC
+
+   ```
+   VAC_NAME=ebs-auto-gp3-6000-250
+   
+   kubectl patch pvc <pvc-name> -n <namespace> --type=merge \
+     -p "{\"spec\":{\"volumeAttributesClassName\":\"${VAC_NAME}\"}}"
+   ```
+
+1. Confirm that the change completed
+
+   ```
+   kubectl get pvc <pvc-name> -n <namespace> \
+     -o custom-columns='NAME:.metadata.name,REQUESTED:.spec.volumeAttributesClassName,CURRENT:.status.currentVolumeAttributesClassName,STATUS:.status.modifyVolumeStatus.status'
+   ```
+
+   The migration is complete when `REQUESTED` and `CURRENT` contain the same VAC name and `STATUS` is empty.
+
+   If it does not complete, inspect the PVC events:
+
+   ```
+   kubectl describe pvc <pvc-name> -n <namespace>
+   ```
+
+    `Pending` usually means the referenced VAC is unavailable. `Infeasible` means the driver rejected the requested EBS parameters; create a valid VAC and assign that instead.
+
+### Optional: Remove the VMK annotations
+<a name="_optional_remove_the_vmk_annotations"></a>
+
+Removing the old annotations is not required for VAC to work. Once a PVC or PV references a VAC, VMK refuses annotation-based modifications and VAC is the authoritative path.
+
+The annotations may be removed later as configuration cleanup. If they are removed, also update any Helm, GitOps, or other automation that would add them back. VMK status annotations left on the PV are harmless and do not need to be removed.
+
+### Changing or Reverting the Settings
+<a name="_changing_or_reverting_the_settings"></a>
+
+VAC parameters are immutable. To change the EBS configuration, create another VAC and assign its name to the PVC.
+
+To cancel a change that has not completed, restore the previously assigned VAC. If the PVC did not previously use one, clear the field:
+
+```
+kubectl patch pvc <pvc-name> -n <namespace> --type=merge \
+  -p '{"spec":{"volumeAttributesClassName":null}}'
+```
+
+Clearing the field does not undo an EBS modification that already completed. To restore previous volume settings, create a VAC containing those settings and assign it to the PVC. Normal EBS parameter constraints and modification cooldowns apply.
+
 ## Install CSI Snapshot Controller add-on
 <a name="_install_csi_snapshot_controller_add_on"></a>
 

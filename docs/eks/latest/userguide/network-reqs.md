@@ -57,8 +57,20 @@ The [subnets](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets
 + The subnets must be in at least two different Availability Zones.
 + The subnets can’t reside in AWS Outposts or AWS Wavelength. However, if you have them in your VPC, you can deploy self-managed nodes and Kubernetes resources to these types of subnets. For more information about self-managed nodes, see [Maintain nodes yourself with self-managed nodes](worker.md).
 + The subnets can be public or private. However, we recommend that you specify private subnets, if possible. A public subnet is a subnet with a route table that includes a route to an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html), whereas a private subnet is a subnet with a route table that doesn’t include a route to an internet gateway.
-+ The subnets can’t reside in the following Availability Zones:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eks/latest/userguide/network-reqs.html)
++ The subnets can’t reside in the following Availability Zones:
+
+
+<table>
+<thead>
+  <tr><th> AWS Region</th><th>Region name</th><th>Disallowed Availability Zone IDs</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>us-east-1</code> </td><td>US East (N. Virginia)</td><td> <code>use1-az3</code> </td></tr>
+  <tr><td> <code>us-west-1</code> </td><td>US West (N. California)</td><td> <code>usw1-az2</code> </td></tr>
+  <tr><td> <code>ca-central-1</code> </td><td>Canada (Central)</td><td> <code>cac1-az3</code> </td></tr>
+</tbody>
+</table>
+
 
 ### IP address family usage by component
 <a name="network-requirements-ip-table"></a>
@@ -109,10 +121,30 @@ You can deploy nodes and Kubernetes resources to the same subnets that you speci
 + If you plan to deploy nodes to a public subnet, the subnet must auto-assign `IPv4` public addresses or `IPv6` addresses. If you deploy nodes to a private subnet that has an associated `IPv6` CIDR block, the private subnet must also auto-assign `IPv6` addresses. If you used the AWS CloudFormation template provided by Amazon EKS to deploy your VPC after March 26, 2020, this setting is enabled. If you used the templates to deploy your VPC before this date or you use your own VPC, you must enable this setting manually. For the template, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md). For more information, see [Modify the public IPv4 addressing attribute for your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-subnets.html#subnet-public-ip) and [Modify the IPv6 addressing attribute for your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-subnets.html#subnet-ipv6) in the [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/).
 + If the subnet that you deploy a node to is a private subnet and its route table doesn’t include a route to a network address translation [(NAT) device](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat.html) (`IPv4`) or an [egress-only gateway](https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html) (`IPv6`), add VPC endpoints using AWS PrivateLink to your VPC. Your nodes and Pods need VPC endpoints for all the AWS services they communicate with. Examples include Amazon ECR, Elastic Load Balancing, Amazon CloudWatch, AWS Security Token Service, and Amazon Simple Storage Service (Amazon S3). If you use IAM roles for service accounts (IRSA), you can also reach the cluster OIDC discovery/JWKS endpoint privately with the `com.amazonaws.region-code.oidc-eks` endpoint. For more information, see [Access the cluster OIDC endpoint using AWS PrivateLink](vpc-interface-endpoints.md#oidc-vpc-interface-endpoints). Not all AWS services support VPC endpoints. For more information, see [What is AWS PrivateLink?](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html) and [AWS services that integrate with AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/aws-services-privatelink-support.html). For a list of more Amazon EKS requirements, see [Deploy private clusters with limited internet access](private-clusters.md).
 + If you want to deploy load balancers to a subnet, the subnet must have the following tag:
-  + Private subnets    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eks/latest/userguide/network-reqs.html)
-  + Public subnets    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eks/latest/userguide/network-reqs.html)
+  + Private subnets
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>kubernetes.io/role/internal-elb</code> </td><td> <code>1</code> </td></tr>
+</tbody>
+</table>
+
+  + Public subnets
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>kubernetes.io/role/elb</code> </td><td> <code>1</code> </td></tr>
+</tbody>
+</table>
+
 
 When a Kubernetes cluster that’s version `1.18` and earlier was created, Amazon EKS added the following tag to all of the subnets that were specified.
 

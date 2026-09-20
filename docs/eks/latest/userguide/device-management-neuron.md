@@ -21,7 +21,7 @@ We recommend using DRA drivers for new deployments with Kubernetes versions 1.34
 | EKS Compute | Karpenter (static capacity only), managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
 | EKS-optimized AMI support | AL2023 (Neuron), Bottlerocket | AL2023 (Neuron), Bottlerocket | 
 | Device advertisement | Rich attributes via `ResourceSlice` objects including device ID, instance type, topology, driver version, and EFA locality | Integer count of `aws.amazon.com/neuron` and `aws.amazon.com/neuroncore` extended resources | 
-| Connected device subsets | Allocate subsets of 1, 4, 8, or 16 connected Neuron devices using topology constraints | Requires the [Neuron scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html) for contiguous device allocation | 
+| Connected device subsets | Allocate subsets of 1, 4, 8, or 16 connected Neuron devices using topology constraints | Requires the [Neuron scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/infrastructure/scheduler.html) for contiguous device allocation | 
 | LNC configuration | Per-workload Logical NeuronCore configuration (LNC=1 or LNC=2) through `ResourceClaimTemplate` parameters | Requires pre-configuration in EC2 launch templates | 
 | Attribute-based selection | Filter devices by instance type, driver version, and other attributes using CEL expressions | Not supported | 
 | Topology-aware EFA allocation | DRA-native topology-awareness | Automatic topology-awareness (EKS-optimized AL2023 AMIs only) | 
@@ -31,7 +31,7 @@ We recommend using DRA drivers for new deployments with Kubernetes versions 1.34
 
 The Neuron DRA driver advertises Neuron devices as `ResourceSlice` objects with the `DeviceClass` name `neuron.aws.com`. The driver runs as a DaemonSet and automatically discovers Neuron devices and their topology attributes.
 
-Detailed information about the Neuron DRA driver is available in the [Neuron DRA documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/neuron-dra.html#neuron-dra-driver-attributes-reference).
+Detailed information about the Neuron DRA driver is available in the [Neuron DRA documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/eks/dra.html#neuron-dra-driver-attributes-reference).
 
 ### Prerequisites
 <a name="_prerequisites"></a>
@@ -87,7 +87,7 @@ Do not install the Neuron DRA driver on nodes where the Neuron device plugin is 
    kubectl get resourceslice
    ```
 
-See the [Neuron DRA documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/neuron-dra.html#neuron-dra-driver-attributes-reference) for information on the available `ResourceSlice` object attributes.
+See the [Neuron DRA documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/eks/dra.html#neuron-dra-driver-attributes-reference) for information on the available `ResourceSlice` object attributes.
 
 ### Request Neuron devices in a Pod
 <a name="_request_neuron_devices_in_a_pod"></a>
@@ -132,7 +132,7 @@ spec:
 ### Allocate connected device subsets
 <a name="_allocate_connected_device_subsets"></a>
 
-The Neuron DRA driver can allocate subsets of connected Neuron devices without requiring the [Neuron scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html). Supported subset sizes are 1, 4, 8, or 16 devices. Use the `matchAttribute` constraint with a topology group ID to ensure devices are connected.
+The Neuron DRA driver can allocate subsets of connected Neuron devices without requiring the [Neuron scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/infrastructure/scheduler.html). Supported subset sizes are 1, 4, 8, or 16 devices. Use the `matchAttribute` constraint with a topology group ID to ensure devices are connected.
 
 The following example requests 4 connected Neuron devices:
 
@@ -158,7 +158,7 @@ spec:
         matchAttribute: "resource.aws.com/devicegroup4_id"
 ```
 
-The supported `matchAttribute` values for connected subsets are `resource.aws.com/devicegroup1_id`, `resource.aws.com/devicegroup4_id`, `resource.aws.com/devicegroup8_id`, and `resource.aws.com/devicegroup16_id`. The number in the `devicegroup` attribute name corresponds to the number of Neuron devices in the connected topology group. For example, `resource.aws.com/devicegroup1_id` identifies a single Neuron device, `resource.aws.com/devicegroup4_id` identifies a group of 4 connected devices, and `resource.aws.com/devicegroup8_id` and `resource.aws.com/devicegroup16_id` identify groups of 8 and 16 connected devices respectively. Choose the `matchAttribute` that matches the device `count` in your request so that the allocated devices belong to the same connected topology group. For more information on these attributes, see the [Neuron DRA driver documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/neuron-dra.html).
+The supported `matchAttribute` values for connected subsets are `resource.aws.com/devicegroup1_id`, `resource.aws.com/devicegroup4_id`, `resource.aws.com/devicegroup8_id`, and `resource.aws.com/devicegroup16_id`. The number in the `devicegroup` attribute name corresponds to the number of Neuron devices in the connected topology group. For example, `resource.aws.com/devicegroup1_id` identifies a single Neuron device, `resource.aws.com/devicegroup4_id` identifies a group of 4 connected devices, and `resource.aws.com/devicegroup8_id` and `resource.aws.com/devicegroup16_id` identify groups of 8 and 16 connected devices respectively. Choose the `matchAttribute` that matches the device `count` in your request so that the allocated devices belong to the same connected topology group. For more information on these attributes, see the [Neuron DRA driver documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/eks/dra.html).
 
 ### Configure Logical NeuronCores (LNC)
 <a name="_configure_logical_neuroncores_lnc"></a>
@@ -247,7 +247,7 @@ The Neuron Kubernetes device plugin advertises Neuron devices as `aws.amazon.com
 
 You can verify that Neuron devices are accessible by running the `neuron-ls` tool in a test Pod.
 
-1. Create a file named `neuron-ls.yaml` with the following contents. This manifest launches an [Neuron Monitor](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-monitor-user-guide.html) container that has the `neuron-ls` tool installed.
+1. Create a file named `neuron-ls.yaml` with the following contents. This manifest launches an [Neuron Monitor](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/infrastructure/monitoring.html) container that has the `neuron-ls` tool installed.
 
    ```
    apiVersion: v1
@@ -298,6 +298,6 @@ You can verify that Neuron devices are accessible by running the `neuron-ls` too
    ```
 
 **Note**  
-When using the Neuron device plugin, contiguous device allocation on instances with multiple Neuron devices (such as `trn2.48xlarge`) requires the [Neuron Kubernetes scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/tutorials/k8s-neuron-scheduler.html). The Neuron DRA driver handles this automatically through topology constraints.
+When using the Neuron device plugin, contiguous device allocation on instances with multiple Neuron devices (such as `trn2.48xlarge`) requires the [Neuron Kubernetes scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/infrastructure/scheduler.html). The Neuron DRA driver handles this automatically through topology constraints.
 
-For more information about using Neuron devices with Amazon EKS, see the [Neuron documentation for running on EKS](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/kubernetes-getting-started.html).
+For more information about using Neuron devices with Amazon EKS, see the [Neuron documentation for running on EKS](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/eks/index.html).

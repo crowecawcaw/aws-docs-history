@@ -68,7 +68,7 @@ On AWS, the following instance types provide MIG-capable GPUs.
 MIG is not available on the `g5`, `g6`, or `g6e` families. For `p6e-gb200` UltraServers, which use the MIG-capable NVIDIA GB200 GPU, see [Use P6e-GB200 UltraServers with Amazon EKS](ml-eks-nvidia-ultraserver.md).
 
 **Note**  
-The `g7` instance type requires NVIDIA driver version 595 or later. The EKS-optimized accelerated AMIs currently include NVIDIA driver version 580, so to use MIG on `g7` you must build a custom AMI with driver version 595. For more information, see [Build a custom EKS-optimized Amazon Linux AMI](eks-ami-build-scripts.md).
+The `g7` instance type requires NVIDIA driver version 595 or later. The EKS-optimized AL2023 NVIDIA AMI includes a driver version that supports `g7`, which each node selects automatically at boot. For more information, see [EKS-optimized NVIDIA AMIs](ml-eks-optimized-ami.md#eks-amis-nvidia).
 
 MIG instances are described by profiles that use the naming pattern `<slices>g.<memory>gb`, where `<slices>` is the number of compute slices and `<memory>` is the memory of the instance in gigabytes. For example, the `3g.40gb` profile provides three of the seven compute slices and 40 GB of memory. The profiles that each GPU supports are fixed by the hardware. For the complete list, see the [NVIDIA Multi-Instance GPU User Guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/) on the NVIDIA website.
 

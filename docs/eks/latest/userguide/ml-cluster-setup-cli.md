@@ -525,13 +525,13 @@ Both paths now have an `alb` `IngressClass`. The Grafana and inference sections 
 ## Step 2: Create dynamic GPU NodePool
 <a name="cluster-setup-cli-create-gpu-nodepool"></a>
 
-Define a NodePool that dynamically provisions G-family GPU instances with a generation greater than 4 and less than 7, using Spot capacity with On-Demand as a fallback. The EKS Auto Mode and Karpenter paths both use the same NodePool API with the only difference being the NodeClass it points to. In EKS Auto Mode, the bundled `default` NodeClass already selects the right AMI and configures SOCI parallel pull, so the NodePool is the only object you create. In self-managed Karpenter, you also need a custom `EC2NodeClass` that pins the AMI and tunes SOCI.
-
-**Important**  
-The G7 EC2 instance type requires NVIDIA driver version 595 or later. The EKS-optimized accelerated AMIs currently include NVIDIA driver version 580, which does not support G7 instances. The NodePool in this step constrains the instance generation to less than 7 so that Karpenter does not select a G7 instance. To use G7 instances with Amazon EKS, you must build a custom AMI with NVIDIA driver version 595. For more information, see [Use EKS-optimized accelerated AMIs for GPU instances](ml-eks-optimized-ami.md).
+Define a NodePool that dynamically provisions G-family GPU instances with a generation greater than 4, using Spot capacity with On-Demand as a fallback. The EKS Auto Mode and Karpenter paths both use the same NodePool API with the only difference being the NodeClass it points to. In EKS Auto Mode, the bundled `default` NodeClass already selects the right AMI and configures SOCI parallel pull, so the NodePool is the only object you create. In self-managed Karpenter, you also need a custom `EC2NodeClass` that pins the AMI and tunes SOCI. Because the two paths use different AMIs, the instance constraints differ between them, as noted in each path.
 
 ------
 #### [ EKS Auto Mode ]
+
+**Important**  
+This path uses the EKS-optimized Bottlerocket NVIDIA AMI, which does not include a driver version that supports the `g7` instance family (`g7` requires NVIDIA driver version 595 or later). Therefore, the NodePool in this path excludes the `g7` family. Other generation-7 instances, such as `g7e`, run on NVIDIA driver 580 and are supported. If you need `g7` support, use the self-managed Karpenter path with the EKS-optimized AL2023 NVIDIA AMI. For more information, see [EKS-optimized NVIDIA AMIs](ml-eks-optimized-ami.md#eks-amis-nvidia).
 
 In EKS Auto Mode, the bundled `default` NodeClass automatically selects the Bottlerocket AMI for GPU instances, which includes pre-installed NVIDIA drivers, the NVIDIA device plugin, and SOCI parallel pull. You just need to apply a NodePool that references the `default` NodeClass:
 
@@ -564,9 +564,9 @@ spec:
         - key: eks.amazonaws.com/instance-generation
           operator: Gt
           values: ["4"]
-        - key: eks.amazonaws.com/instance-generation
-          operator: Lt
-          values: ["7"]
+        - key: eks.amazonaws.com/instance-family
+          operator: NotIn
+          values: ["g7"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]
@@ -576,7 +576,7 @@ spec:
 EOF
 ```
 
-This NodePool provisions G-family GPU instances with a generation greater than 4 and less than 7 ([G5](https://aws.amazon.com/ec2/instance-types/g5/), [G6e](https://aws.amazon.com/ec2/instance-types/g6e/), etc.). EKS Auto Mode chooses an instance type within these constraints.
+This NodePool provisions G-family GPU instances with a generation greater than 4, excluding the `g7` family (for example, [G5](https://aws.amazon.com/ec2/instance-types/g5/), [G6e](https://aws.amazon.com/ec2/instance-types/g6e/), and G7e). EKS Auto Mode chooses an instance type within these constraints.
 
 ------
 #### [ Self-managed Karpenter ]
@@ -665,9 +665,6 @@ spec:
         - key: karpenter.k8s.aws/instance-generation
           operator: Gt
           values: ["4"]
-        - key: karpenter.k8s.aws/instance-generation
-          operator: Lt
-          values: ["7"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]
@@ -680,6 +677,8 @@ EOF
 The `amiFamily: al2023` label on the node template is what the NVIDIA device plugin DaemonSet uses to select these nodes. Karpenter chooses an instance type within these constraints. The `nvidia.com/gpu:NoSchedule` taint ensures only GPU-eligible Pods are scheduled on these nodes.
 
 ------
+
+Unlike the EKS Auto Mode path, this NodePool does not cap the instance generation, because the EKS-optimized AL2023 NVIDIA AMI includes a driver version that supports `g7` instances. The EKS AL2023 AMI currently uses NVIDIA driver 580 on all EC2 instances except `g7`, which uses NVIDIA driver 595. For more information, see [EKS-optimized NVIDIA AMIs](ml-eks-optimized-ami.md#eks-amis-nvidia).
 
 Validate the NodePool was created:
 
@@ -799,7 +798,7 @@ NAME            TYPE         CAPACITY   ZONE         NODE                  READY
 gpu-inf-vxcnj   g6.4xlarge   spot       us-east-2c   i-0fb17a09bc4203164   True    51s
 ```
 
-The instance type and AZ will vary. Any G-family instance with a generation greater than 4 and less than 7 is eligible.
+The instance type and Availability Zone vary. Any G-family instance that satisfies your NodePool’s generation constraint is eligible: greater than 4 for both paths, with the `g7` family excluded on the EKS Auto Mode path.
 
 The `FailedCreatePodSandBox` warning in `kubectl describe pod nvidia-smi` is transient and expected. The VPC CNI initializes asynchronously after the node joins, and the kubelet retries automatically. If the Pod stays in `ContainerCreating`, check node events with `kubectl describe node <node-name>`.
 
@@ -918,9 +917,9 @@ spec:
         - key: eks.amazonaws.com/instance-generation
           operator: Gt
           values: ["4"]
-        - key: eks.amazonaws.com/instance-generation
-          operator: Lt
-          values: ["7"]
+        - key: eks.amazonaws.com/instance-family
+          operator: NotIn
+          values: ["g7"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]
@@ -1005,9 +1004,6 @@ spec:
         - key: karpenter.k8s.aws/instance-generation
           operator: Gt
           values: ["4"]
-        - key: karpenter.k8s.aws/instance-generation
-          operator: Lt
-          values: ["7"]
         - key: kubernetes.io/arch
           operator: In
           values: ["amd64"]

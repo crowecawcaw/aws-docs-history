@@ -75,8 +75,20 @@ With the NVIDIA DRA driver, time-slicing is configured through ResourceClaimTemp
 +  **Bottlerocket** – The AMI includes a pre-installed NVIDIA device plugin. You configure time-slicing through Bottlerocket settings, with no separate device plugin installation, Helm chart, or `ConfigMap`.
 +  **AL2023** – You install the NVIDIA device plugin as described in [Install the NVIDIA Kubernetes device plugin](device-management-nvidia-dra-device-plugin.md#eks-nvidia-device-plugin), and supply the time-slicing configuration through a `ConfigMap`.
 
-  The following options control how the NVIDIA device plugin advertises and manages time-sliced GPUs. The field names differ between the Bottlerocket settings and the AL2023 `ConfigMap`, as shown in the procedures that follow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eks/latest/userguide/device-management-nvidia-time-slicing.html)
+  The following options control how the NVIDIA device plugin advertises and manages time-sliced GPUs. The field names differ between the Bottlerocket settings and the AL2023 `ConfigMap`, as shown in the procedures that follow.
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Replicas</td><td>2–8</td><td>The number of schedulable slots to advertise per physical GPU. Higher values allow more sharing but increase contention between Pods.</td></tr>
+  <tr><td>Rename by default</td><td> <code>false</code> </td><td>When <code>false</code>, Pods request <code>nvidia.com/gpu</code>, which keeps compatibility with existing manifests. When <code>true</code>, the device plugin advertises the resource as <code>nvidia.com/gpu.shared</code>, and Pods must request that name. Set this to <code>true</code> when you run both shared and dedicated GPU node pools and want workloads to select the shared resource explicitly.</td></tr>
+  <tr><td>Fail requests greater than one</td><td> <code>true</code> </td><td>Rejects Pods that request more than one time-sliced slot. A Pod that requests more than one slot does not receive proportional compute. Enable this setting to prevent a common misconfiguration.</td></tr>
+</tbody>
+</table>
+
 
   For the complete list of GPU sharing options and their default values, see the [NVIDIA Kubernetes device plugin documentation](https://github.com/NVIDIA/k8s-device-plugin/blob/main/README.md#shared-access-to-gpus) on GitHub.
 

@@ -30,8 +30,18 @@ There are a few common reasons that prevent nodes from joining the cluster:
 
   If the nodes are self-managed, and you haven’t created [access entries](access-entries.md) for the ARN of the node’s IAM role, then run the same commands listed for managed nodes. If you have created an access entry for the ARN for your node IAM role, then it might not be configured properly in the access entry. Make sure that the node IAM role ARN (not the instance profile ARN) is specified as the principal ARN in your `aws-auth` `ConfigMap` entry or access entry. For more information about access entries, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md).
 + The **ClusterName** in your node AWS CloudFormation template doesn’t exactly match the name of the cluster you want your nodes to join. Passing an incorrect value to this field results in an incorrect configuration of the node’s `/var/lib/kubelet/kubeconfig` file, and the nodes will not join the cluster.
-+ The node is not tagged as being *owned* by the cluster. Your nodes must have the following tag applied to them, where {{my-cluster}} is replaced with the name of your cluster.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html)
++ The node is not tagged as being *owned* by the cluster. Your nodes must have the following tag applied to them, where {{my-cluster}} is replaced with the name of your cluster.
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>kubernetes.io/cluster/my-cluster </code> </td><td> <code>owned</code> </td></tr>
+</tbody>
+</table>
+
 + The nodes may not be able to access the cluster using a public IP address. Ensure that nodes deployed in public subnets are assigned a public IP address. If not, you can associate an Elastic IP address to a node after it’s launched. For more information, see [Associating an Elastic IP address with a running instance or network interface](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating). If the public subnet is not set to automatically assign public IP addresses to instances deployed to it, then we recommend enabling that setting. For more information, see [Modifying the public IPv4 addressing attribute for your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip). If the node is deployed to a private subnet, then the subnet must have a route to a NAT gateway that has a public IP address assigned to it.
 + The AWS STS endpoint for the AWS Region that you’re deploying the nodes to is not enabled for your account. To enable the region, see [Activating and deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate).
 + The node doesn’t have a private DNS entry, resulting in the `kubelet` log containing a `node "" not found` error. Ensure that the VPC where the node is created has values set for `domain-name` and `domain-name-servers` as `Options` in a `DHCP options set`. The default values are `domain-name:<region>.compute.internal` and `domain-name-servers:AmazonProvidedDNS`. For more information, see [DHCP options sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#AmazonDNS) in the *Amazon VPC User Guide*.

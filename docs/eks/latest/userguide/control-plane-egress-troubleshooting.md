@@ -91,8 +91,20 @@ Network ACLs on the control plane ENI subnets block outbound traffic to webhook 
        --filters "Name=association.subnet-id,Values=subnet-ExampleID1"
    ```
 
-1. Ensure the following rules exist:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eks/latest/userguide/control-plane-egress-troubleshooting.html)
+1. Ensure the following rules exist:
+
+
+<table>
+<thead>
+  <tr><th>Direction</th><th>Protocol</th><th>Port range</th><th>Destination/Source</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Outbound</td><td>TCP</td><td>443</td><td>0.0.0.0/0 (or webhook CIDR)</td><td>Allow</td></tr>
+  <tr><td>Outbound</td><td>TCP</td><td>10250</td><td>VPC CIDR</td><td>Allow</td></tr>
+  <tr><td>Inbound</td><td>TCP</td><td>1024–65535</td><td>0.0.0.0/0</td><td>Allow (ephemeral return traffic)</td></tr>
+</tbody>
+</table>
+
 **Note**  
 NACLs are stateless. You must explicitly allow return traffic on ephemeral ports (1024–65535) in the inbound rules.  
 These rules cover two different paths. The port 443 rule is for outbound traffic to webhook and OIDC endpoints, which leaves the VPC through your egress device. The port 10250 rule is for the kubelet API, which stays within your VPC between the control plane and your nodes. A missing egress device does not affect port 10250, but a restrictive network ACL can block it.
@@ -118,8 +130,19 @@ The security group attached to the control plane ENIs (the *cluster security gro
        --query "cluster.resourcesVpcConfig.clusterSecurityGroupId"
    ```
 
-1. Verify outbound rules allow:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eks/latest/userguide/control-plane-egress-troubleshooting.html)
+1. Verify outbound rules allow:
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Port</th><th>Destination</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP</td><td>443</td><td>0.0.0.0/0 (webhook endpoints, OIDC providers)</td></tr>
+  <tr><td>TCP</td><td>10250</td><td>Node security group or VPC CIDR (kubelet API)</td></tr>
+</tbody>
+</table>
+
 
 1. If outbound rules are restrictive, add rules for the required traffic:
 
