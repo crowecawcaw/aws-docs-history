@@ -15,10 +15,34 @@ The `NCryptSetProperty` function sets property values for a key storage object.
 
  `pszProperty ` [in]   
 A pointer to a null-terminated Unicode string containing the property name to retrieve.   
-When using `NCRYPT_PROV_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the following KSP identifiers:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-set-property.html)
-When using `NCRYPT_KEY_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the following KSP identifiers:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-set-property.html)
+When using `NCRYPT_PROV_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the following KSP identifiers:  
+
+
+
+<table>
+<thead>
+  <tr><th>Identifier/Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>NCRYPT_USE_CONTEXT_PROPERTY<br />L"Use Context"</td><td>A pointer to a null-terminated Unicode string describing the operation context.</td></tr>
+</tbody>
+</table>
+
+When using `NCRYPT_KEY_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the following KSP identifiers:  
+
+
+
+<table>
+<thead>
+  <tr><th>Identifier/Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>NCRYPT_KEY_USAGE_PROPERTY<br />L"Key Usage"</td><td>A DWORD containing a set of flags that define key usage details. This property only applies to keys. This can contain zero or a combination of one or more of the following values.<br />NCRYPT_ALLOW_DECRYPT_FLAG (0x00000001)<br />NCRYPT_ALLOW_SIGNING_FLAG (0x00000002)</td></tr>
+  <tr><td>NCRYPT_LENGTH_PROPERTY<br />L"Length"</td><td>A DWORD containing the key length in bits.</td></tr>
+  <tr><td>NCRYPT_EXPORT_POLICY_PROPERTY<br />L"Export Policy"</td><td>A DWORD containing flags that specify the persisted key's export policy. This can contain zero or a combination of one or more of the following values.<br />NCRYPT_ALLOW_EXPORT_FLAG (0x00000001)</td></tr>
+</tbody>
+</table>
+
 Values are wide-character string literal, as indicated by L before the literal.
 
  `pbInput` [in]   

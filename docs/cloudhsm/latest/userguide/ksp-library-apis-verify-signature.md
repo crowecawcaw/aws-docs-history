@@ -27,8 +27,21 @@ The address of a buffer containing the signed hash of the data. Use [`NCryptSign
 The size of the `pbSignature` buffer in bytes. Use [`NCryptSignHash`](ksp-library-apis-sign-hash.md) to create the signature.
 
 `dwFlags` [in]  
-Flags to modify the function's behavior. The allowed flags depend on your key type. Use one of these values:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-verify-signature.html)
+Flags to modify the function's behavior. The allowed flags depend on your key type. Use one of these values:  
+
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>NCRYPT_PAD_PKCS1_FLAG</td><td> Indicates the signature used PKCS1 padding. Set <code>pPaddingInfo</code> to point to a <code>BCRYPT_PKCS1_PADDING_INFO</code> structure.</td></tr>
+  <tr><td>NCRYPT_PAD_PSS_FLAG</td><td>Indicates the signature used Probabilistic Signature Scheme (PSS) padding. Set <code> pPaddingInfo</code> to point to a <code>BCRYPT_PSS_PADDING_INFO</code> structure.</td></tr>
+  <tr><td>NCRYPT_SILENT_FLAG</td><td>This flag has no effect.</td></tr>
+</tbody>
+</table>
+
 
 ## Return Value
 <a name="ksp-library-apis-verify-signature-return-value"></a>

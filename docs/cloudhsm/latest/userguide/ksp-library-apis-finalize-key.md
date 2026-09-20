@@ -12,8 +12,20 @@ The `NCryptFinalizeKey` function completes a KSP key. You must call this functio
  The handle of the key to complete. Get this handle by calling the [NCryptCreatePersistedKey](ksp-library-apis-create-persisted-key.md) function.
 
 `dwFlags` [in]  
-Flags to modify the function's behavior. You can use zero or these values:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-finalize-key.html)
+Flags to modify the function's behavior. You can use zero or these values:  
+
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>NCRYPT_SILENT_FLAG</td><td>This flag has no effect.</td></tr>
+  <tr><td>NCRYPT_NO_KEY_VALIDATION</td><td>This flag has no effect.</td></tr>
+</tbody>
+</table>
+
 
 ## Return Value
 <a name="ksp-library-apis-finalize-key-return-value"></a>

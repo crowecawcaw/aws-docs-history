@@ -99,11 +99,38 @@ Your EC private key remains within the HSM at all times, but the key derivation 
 
   The following tables show the correct function call sequences for PKCS \#11 operations.
 
-  **Correct sequences for single-part operations:**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ki-pkcs11-sdk.html)
+  **Correct sequences for single-part operations:**
 
-  **Correct sequences for multi-part operations:**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ki-pkcs11-sdk.html)
+
+<table>
+<thead>
+  <tr><th>Operation</th><th>Correct Sequence</th></tr>
+</thead>
+<tbody>
+  <tr><td>Encrypt</td><td><code>C_EncryptInit</code> → <code>C_Encrypt</code></td></tr>
+  <tr><td>Decrypt</td><td><code>C_DecryptInit</code> → <code>C_Decrypt</code></td></tr>
+  <tr><td>Sign</td><td><code>C_SignInit</code> → <code>C_Sign</code></td></tr>
+  <tr><td>Verify</td><td><code>C_VerifyInit</code> → <code>C_Verify</code></td></tr>
+  <tr><td>Find Objects</td><td><code>C_FindObjectsInit</code> → <code>C_FindObjects</code> → <code>C_FindObjectsFinal</code></td></tr>
+</tbody>
+</table>
+
+
+  **Correct sequences for multi-part operations:**
+
+
+<table>
+<thead>
+  <tr><th>Operation</th><th>Correct Sequence</th></tr>
+</thead>
+<tbody>
+  <tr><td>Encrypt</td><td><code>C_EncryptInit</code> → <code>C_EncryptUpdate</code> (one or more) → <code>C_EncryptFinal</code></td></tr>
+  <tr><td>Decrypt</td><td><code>C_DecryptInit</code> → <code>C_DecryptUpdate</code> (one or more) → <code>C_DecryptFinal</code></td></tr>
+  <tr><td>Sign</td><td><code>C_SignInit</code> → <code>C_SignUpdate</code> (one or more) → <code>C_SignFinal</code></td></tr>
+  <tr><td>Verify</td><td><code>C_VerifyInit</code> → <code>C_VerifyUpdate</code> (one or more) → <code>C_VerifyFinal</code></td></tr>
+</tbody>
+</table>
+
 +  **Workaround**: Your application should, in compliance with the PKCS \#11 specification, use the correct sequence of function calls for both single-part and multi-part operations as shown in the tables above. Your application should not rely on the CloudHSM PKCS \#11 library to return an error under this circumstance. 
 
 ## Issue: Read Only Session is not supported in SDK 5

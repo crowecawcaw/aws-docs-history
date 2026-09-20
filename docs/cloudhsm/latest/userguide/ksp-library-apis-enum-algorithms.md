@@ -12,8 +12,20 @@ The `NCryptEnumAlgorithms` function retrieves the names of algorithms that the K
  The handle of the key storage provider for which to enumerate the algorithms. Use the [`NCryptOpenStorageProvider`](ksp-library-apis-open-provider.md) function to get this handle. 
 
  `dwAlgOperations` [in]   
-A set of values that specify which algorithm classes to enumerate. You can use zero to enumerate all algorithms, or combine one or more of these values:       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-enum-algorithms.html)
+A set of values that specify which algorithm classes to enumerate. You can use zero to enumerate all algorithms, or combine one or more of these values:   
+
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION<br />0x00000004</td><td>List the asymmetric encryption algorithms.</td></tr>
+  <tr><td>NCRYPT_SIGNATURE_OPERATION<br />0x00000010</td><td>List the digital signature algorithms.</td></tr>
+</tbody>
+</table>
+
 
 `pdwAlgCount` [out]  
 The address of a DWORD that stores the number of elements in the `ppAlgList` array.
@@ -22,8 +34,19 @@ The address of a DWORD that stores the number of elements in the `ppAlgList` arr
 The address of an `NCryptAlgorithmName` structure pointer that stores an array of registered algorithm names. The `pdwAlgCount` parameter indicates the number of elements in this array.
 
 `dwFlags` [in]  
-Flags to modify the function's behavior. Use zero or the following value:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-enum-algorithms.html)
+Flags to modify the function's behavior. Use zero or the following value:  
+
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>NCRYPT_SILENT_FLAG</td><td>This flag has no effect.</td></tr>
+</tbody>
+</table>
+
 
 ## Return Value
 <a name="ksp-library-apis-open-key-return-value"></a>

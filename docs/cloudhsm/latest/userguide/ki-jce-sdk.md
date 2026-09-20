@@ -85,8 +85,26 @@ happening at the same time: Reached max number of sessions in session pool: 1000
 + Restart your JCE application if you’re experiencing impact.
 + When performing an operation, you may need to complete the JCE operation before losing reference to the operation.
 **Note**  
-Depending on the operation, a completion method may be needed.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ki-jce-sdk.html)
+Depending on the operation, a completion method may be needed.
+
+
+<table>
+<thead>
+  <tr><th>Operation</th><th>Completion method(s)</th></tr>
+</thead>
+<tbody>
+  <tr><td>Cipher</td><td><code>doFinal()</code> in encrypt or decrypt mode<br /><code>wrap()</code> in wrap mode<br /><code>unwrap()</code> in unwrap mode</td></tr>
+  <tr><td>KeyAgreement</td><td><code>generateSecret()</code> or <code>generateSecret(String)</code></td></tr>
+  <tr><td>KeyPairGenerator</td><td><code>generateKeyPair()</code>, <code>genKeyPair()</code>, or <code>reset()</code></td></tr>
+  <tr><td>KeyStore</td><td>No method needed</td></tr>
+  <tr><td>MAC</td><td><code>doFinal()</code> or <code>reset()</code></td></tr>
+  <tr><td>MessageDigest</td><td><code>digest()</code> or <code>reset()</code></td></tr>
+  <tr><td>SecretKeyFactory</td><td>No method needed</td></tr>
+  <tr><td>SecureRandom</td><td>No method needed</td></tr>
+  <tr><td>Signature</td><td><code>sign()</code> in sign mode<br /><code>verify()</code> in verify mode</td></tr>
+</tbody>
+</table>
+
 
 **Resolution status: **We have resolved this issue in Client SDK 5.9.0 and later. To fix this issue, upgrade your Client SDK to one of these versions.
 

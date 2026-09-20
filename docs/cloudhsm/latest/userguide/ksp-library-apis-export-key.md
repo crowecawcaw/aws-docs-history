@@ -15,8 +15,20 @@ The handle of the key to export.
  AWS CloudHSM Key Storage Provider (KSP) doesn't use this parameter. 
 
 `pszBlobType` [in]  
-A null-terminated Unicode string that specifies the BLOB type to export. AWS CloudHSM Key Storage Provider (KSP) supports the following values:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-export-key.html)
+A null-terminated Unicode string that specifies the BLOB type to export. AWS CloudHSM Key Storage Provider (KSP) supports the following values:  
+
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>BCRYPT_RSAPUBLIC_BLOB</td><td>Exports an RSA public key. The <code>pbOutput</code> buffer contains a <code>BCRYPT_RSAKEY_BLOB</code> structure followed by the key data.</td></tr>
+  <tr><td>BCRYPT_ECCPUBLIC_BLOB</td><td>Exports an ECC public key. The <code>pbOutput</code> buffer contains a <code>BCRYPT_ECCKEY_BLOB</code> structure followed by the key data.</td></tr>
+</tbody>
+</table>
+
 
 `pParameterList` [in, unused]  
 AWS CloudHSM Key Storage Provider (KSP) doesn't use this parameter.
@@ -31,8 +43,19 @@ The size of the `pbOutput` buffer in bytes.
 A DWORD variable address that stores the number of bytes copied to the `pbOutput` buffer. If `pbOutput` is NULL, the function stores the required buffer size in bytes.
 
 `dwFlags` [in]  
-Flags that modify how the function works. You can use zero or the following:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-export-key.html)
+Flags that modify how the function works. You can use zero or the following:  
+
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>NCRYPT_SILENT_FLAG</td><td>This flag has no effect.</td></tr>
+</tbody>
+</table>
+
 
 ## Return Value
 <a name="ksp-library-apis-export-key-return-value"></a>

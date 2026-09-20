@@ -65,8 +65,32 @@ The handle of the public key that is thought to be used to sign the file.
 Required: Yes
 
 **`-m`**  
-An integer that represents the proposed signing mechanism that is used to sign the file. The possible mechanisms correspond to the follow integers:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/key_mgmt_util-verify.html)
+An integer that represents the proposed signing mechanism that is used to sign the file. The possible mechanisms correspond to the follow integers:  
+
+
+<table>
+<thead>
+  <tr><th>Signing Mechanism</th><th>Corresponding Integer</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>SHA1_RSA_PKCS</code></td><td>0</td></tr>
+  <tr><td><code>SHA256_RSA_PKCS</code></td><td>1</td></tr>
+  <tr><td><code>SHA384_RSA_PKCS</code></td><td>2</td></tr>
+  <tr><td><code>SHA512_RSA_PKCS</code></td><td>3</td></tr>
+  <tr><td><code>SHA224_RSA_PKCS</code></td><td>4</td></tr>
+  <tr><td><code>SHA1_RSA_PKCS_PSS</code></td><td>5</td></tr>
+  <tr><td><code>SHA256_RSA_PKCS_PSS</code></td><td>6</td></tr>
+  <tr><td><code>SHA384_RSA_PKCS_PSS</code></td><td>7</td></tr>
+  <tr><td><code>SHA512_RSA_PKCS_PSS</code></td><td>8</td></tr>
+  <tr><td><code>SHA224_RSA_PKCS_PSS</code></td><td>9</td></tr>
+  <tr><td><code>ECDSA_SHA1</code></td><td>15</td></tr>
+  <tr><td><code>ECDSA_SHA224</code></td><td>16</td></tr>
+  <tr><td><code>ECDSA_SHA256</code></td><td>17</td></tr>
+  <tr><td><code>ECDSA_SHA384</code></td><td>18</td></tr>
+  <tr><td><code>ECDSA_SHA512</code></td><td>19</td></tr>
+</tbody>
+</table>
+
 Required: Yes
 
 ## Related topics

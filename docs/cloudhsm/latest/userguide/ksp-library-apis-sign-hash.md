@@ -32,8 +32,21 @@ A pointer to a DWORD variable that stores the number of bytes copied to the `pbS
 If `pbSignature` is NULL, this stores the required buffer size, in bytes. 
 
 `dwFlags` [in]  
-Flags to modify the function's behavior. The allowed flags depend on your key type. Use one of these values:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-sign-hash.html)
+Flags to modify the function's behavior. The allowed flags depend on your key type. Use one of these values:  
+
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>BCRYPT_PAD_PKCS1</td><td>Uses the PKCS1 padding scheme. Set <code>pPaddingInfo</code> to point to a <code>BCRYPT_PKCS1_PADDING_INFO</code> structure.</td></tr>
+  <tr><td>BCRYPT_PAD_PSS</td><td> Uses the Probabilistic Signature Scheme (PSS) padding scheme. Set <code>pPaddingInfo</code> parameter to point to a <code>BCRYPT_PSS_PADDING_INFO</code> structure. </td></tr>
+  <tr><td>NCRYPT_SILENT_FLAG</td><td>This flag has no effect.</td></tr>
+</tbody>
+</table>
+
 
 ## Return Value
 <a name="ksp-library-apis-sign-hash-return-value"></a>

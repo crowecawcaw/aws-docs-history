@@ -27,8 +27,9 @@ The following table shows approximate performance for common cryptographic algor
 
 | Operation | Two-HSM cluster[1](#performance1) | Three-HSM cluster[2](#performance2) | Six-HSM cluster[3](#performance3) | 
 | --- | --- | --- | --- | 
-| RSA 2048-bit sign | 2000 ops/sec | 3000 ops/sec | 5000 ops/sec | 
-| EC P256 sign | 3000 ops/sec | 4500 ops/sec | 7000 ops/sec | 
+| RSA 2048-bit sign | 2,000 ops/sec | 3,000 ops/sec | 5,000 ops/sec | 
+| EC P256 sign | 3,000 ops/sec | 4,500 ops/sec | 7,000 ops/sec | 
+| ML-DSA-44 sign | 80 ops/sec | 140 ops/sec | 190 ops/sec | 
 + [1] A two-HSM cluster with the Java multi-threaded application running on one [c4.large EC2 instance](https://aws.amazon.com/ec2/instance-types/) with one HSM in the same AZ as the EC2 instance.
 + [2] A three-HSM cluster with the Java multi-threaded application running on one [c4.large EC2 instance](https://aws.amazon.com/ec2/instance-types/) with one HSM in the same AZ as the EC2 instance.
 + [3] A six-HSM cluster with the Java multi-threaded application running on one [c4.large EC2 instance](https://aws.amazon.com/ec2/instance-types/) with two HSMs in the same AZ as the EC2 instance.

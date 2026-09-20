@@ -121,14 +121,45 @@ Default: The key is extractable.
 Required: No
 
 **-m**  
-The value representing the wrapping mechanism. CloudHSM supports the following mechanisms:       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/key_mgmt_util-unwrapKey.html)
+The value representing the wrapping mechanism. CloudHSM supports the following mechanisms:   
+
+
+<table>
+<thead>
+  <tr><th><b>Mechanism</b></th><th><b>Value</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AES_KEY_WRAP_PAD_PKCS5</code></td><td>4</td></tr>
+  <tr><td><code>NIST_AES_WRAP_NO_PAD</code></td><td>5</td></tr>
+  <tr><td><code>NIST_AES_WRAP_PAD</code></td><td>6</td></tr>
+  <tr><td><code>RSA_AES</code></td><td>7</td></tr>
+  <tr><td><code>RSA_OAEP</code> (for maximum data size, see the note later in this section)</td><td>8</td></tr>
+  <tr><td><code>AES_GCM</code></td><td>10</td></tr>
+  <tr><td><code>CLOUDHSM_AES_GCM</code></td><td>11</td></tr>
+  <tr><td><code>RSA_PKCS</code> (for maximum data size, see the note later in this section). See note <a href="#unwrapKey-params-note-1">1</a> below for an upcoming change.</td><td>12</td></tr>
+</tbody>
+</table>
+
 Required: Yes  
 When using the `RSA_OAEP` wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key and the length of the specified hash as follows: Maximum key size = modulusLengthInBytes-(2\*hashLengthInBytes)-2.  
 When using the RSA\_PKCS wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key as follows: Maximum key size = (modulusLengthInBytes -11).
 
-**-t**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/key_mgmt_util-unwrapKey.html)
+**-t**  
+
+
+<table>
+<thead>
+  <tr><th><b>Hash algorithm</b></th><th><b>Value</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>SHA1</code></td><td>2</td></tr>
+  <tr><td><code>SHA256</code></td><td>3</td></tr>
+  <tr><td><code>SHA384</code></td><td>4</td></tr>
+  <tr><td><code>SHA512</code></td><td>5</td></tr>
+  <tr><td><code>SHA224</code> (valid for <code>RSA_AES</code> and <code>RSA_OAEP</code> mechanisms)</td><td>6</td></tr>
+</tbody>
+</table>
+
 Required: No
 
 **-noheader**  
