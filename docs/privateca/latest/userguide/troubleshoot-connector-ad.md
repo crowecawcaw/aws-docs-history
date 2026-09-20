@@ -8,5 +8,6 @@ Use the information here to help you diagnose and fix AWS Private Certificate Au
 **Topics**
 + [Troubleshoot Connector for AD error codes](c4adTroubleshootingError.md)
 + [Troubleshoot Connector for AD connector creation failures](c4adTroubleshootingConnectorCreationFailure.md)
++ [Troubleshoot Connector for AD directory registration failures](c4adTroubleshootingDirectoryRegistrationFailure.md)
 + [Troubleshoot Connector for AD SPN creation failure](c4adTroubleshootingSpnFailure.md)
 + [Troubleshoot Connector for AD template update issues](c4adTroubleshootingUpdatedTemplate.md)

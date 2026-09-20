@@ -25,8 +25,38 @@ Signing algorithm support for CA certificates depends on the signing algorithm o
   + SHA384 ECDSA
   + SHA512 ECDSA
 
-  Legacy AWS Regions include:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/privateca/latest/userguide/PCACertInstall.html)
+  Legacy AWS Regions include:
+
+
+
+<table>
+<thead>
+  <tr><th>Region name</th><th>Geographical location</th></tr>
+</thead>
+<tbody>
+  <tr><td>eu-north-1</td><td>Europe (Stockholm)</td></tr>
+  <tr><td>me-south-1</td><td>Middle East (Bahrain)</td></tr>
+  <tr><td>ap-south-1</td><td>Asia Pacific (Mumbai)</td></tr>
+  <tr><td>eu-west-3</td><td>Europe (Paris)</td></tr>
+  <tr><td>us-east-2</td><td>US East (Ohio)</td></tr>
+  <tr><td>af-south-1</td><td>Africa (Cape Town)</td></tr>
+  <tr><td>eu-west-1</td><td>Europe (Ireland)</td></tr>
+  <tr><td>eu-central-1</td><td>Europe (Frankfurt)</td></tr>
+  <tr><td>sa-east-1</td><td>South America (São Paulo)</td></tr>
+  <tr><td>ap-east-1</td><td>Asia Pacific (Hong Kong)</td></tr>
+  <tr><td>us-east-1</td><td>US East (N. Virginia)</td></tr>
+  <tr><td>ap-northeast-2</td><td>Asia Pacific (Seoul)</td></tr>
+  <tr><td>eu-west-2</td><td>Europe (London)</td></tr>
+  <tr><td>ap-northeast-1</td><td>Asia Pacific (Tokyo)</td></tr>
+  <tr><td>us-gov-east-1</td><td>AWS GovCloud (US-East)</td></tr>
+  <tr><td>us-gov-west-1</td><td>AWS GovCloud (US-West)</td></tr>
+  <tr><td>us-west-2</td><td>US West (Oregon)</td></tr>
+  <tr><td>us-west-1</td><td>US West (N. California)</td></tr>
+  <tr><td>ap-southeast-1</td><td>Asia Pacific (Singapore)</td></tr>
+  <tr><td>ap-southeast-2</td><td>Asia Pacific (Sydney)</td></tr>
+</tbody>
+</table>
+
 + In a non-legacy AWS Region, the following rules apply for EDCSA: 
   + A parent CA with the EC\_prime256v1 signing algorithm can issue certificates with ECDSA P256.
   + A parent CA with the EC\_secp384r1 signing algorithm can issue certificates with ECDSA P384.

@@ -5,6 +5,9 @@
 
 The steps in this section are prerequisites to using Connector for AD. It assumes that you've already created an AWS account. After you complete the steps on this page, you can get started with creating a connector for AD.
 
+**Multi-Region directory support**  
+For multi-Region AWS Managed Microsoft AD directories, you can only create Connector for AD connectors and directory registrations in the directory's primary Region. For information about multi-Region replication, see [Multi-Region replication](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_configure_multi_region_replication.html) in the *AWS Directory Service Administration Guide*.
+
 ## Step 1: Create a private CA using AWS Private CA
 <a name="prereq-pca"></a>
 
