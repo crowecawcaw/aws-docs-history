@@ -9,8 +9,25 @@ You can create one or more webhook filter groups to specify which webhook events
 
 **An event**  
 For GitLab, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_MERGED`, `PULL_REQUEST_REOPENED`, `PULL_REQUEST_CLOSED`, `RELEASED`, and `WORKFLOW_JOB_QUEUED`.  
-The webhook's event type is in its header in the `X-GitLab-Event` field. The following table shows how `X-GitLab-Event` header values map to the event types. For the `Merge Request Hook` webhook event, the payload's `object_atttributes.action` will contain additional information on merge request type.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codebuild/latest/userguide/gitlab-webhook.html)
+The webhook's event type is in its header in the `X-GitLab-Event` field. The following table shows how `X-GitLab-Event` header values map to the event types. For the `Merge Request Hook` webhook event, the payload's `object_atttributes.action` will contain additional information on merge request type.  
+
+
+<table>
+<thead>
+  <tr><th><code>X-GitLab-Event</code> Header value</th><th><code>object_atttributes.action</code></th><th>Event type</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Push Hook</code></td><td>N/A</td><td><code>PUSH</code></td></tr>
+  <tr><td><code>Merge Request Hook</code></td><td>open</td><td><code>PULL_REQUEST_CREATED</code></td></tr>
+  <tr><td><code>Merge Request Hook</code></td><td>update</td><td><code>PULL_REQUEST_UPDATED</code></td></tr>
+  <tr><td><code>Merge Request Hook</code></td><td>merge</td><td><code>PULL_REQUEST_MERGED</code></td></tr>
+  <tr><td><code>Merge Request Hook</code></td><td>reopen</td><td><code>PULL_REQUEST_REOPENED</code></td></tr>
+  <tr><td><code>Merge Request Hook</code></td><td>close</td><td><code>PULL_REQUEST_CLOSED</code></td></tr>
+  <tr><td><code>Release Hook</code></td><td>create, update</td><td><code>RELEASED</code></td></tr>
+  <tr><td><code>Job Hook</code></td><td>N/A</td><td><code>WORKFLOW_JOB_QUEUED</code></td></tr>
+</tbody>
+</table>
+
 For `PULL_REQUEST_MERGED`, if a pull request is merged with the squash strategy and the pull request branch is closed, the original pull request commit no longer exists. In this case, the `CODEBUILD_WEBHOOK_MERGE_COMMIT` environment variable contains the identifier of the squashed merge commit.
 
 **One or more optional filters**  

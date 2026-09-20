@@ -44,8 +44,22 @@ By default, the 100 most recent build projects are displayed. To view more build
 
 1. Specify the parameters for the frequency of your trigger. You can enter the first few characters of your selections in the text box to filter drop-down menu items.
 **Note**  
- Start hours and minutes are zero-based. The start minute is a number between zero and 59. The start hour is a number between zero and 23. For example, a daily trigger that starts every day at 12:15 P.M. has a start hour of 12 and a start minute of 15. A daily trigger that starts every day at midnight has a start hour of zero and a start minute of zero. A daily trigger that starts every day at 11:59 P.M. has a start hour of 23 and a start minute of 59.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codebuild/latest/userguide/build-triggers.html)
+ Start hours and minutes are zero-based. The start minute is a number between zero and 59. The start hour is a number between zero and 23. For example, a daily trigger that starts every day at 12:15 P.M. has a start hour of 12 and a start minute of 15. A daily trigger that starts every day at midnight has a start hour of zero and a start minute of zero. A daily trigger that starts every day at 11:59 P.M. has a start hour of 23 and a start minute of 59. 
+
+
+
+<table>
+<thead>
+  <tr><th>Frequency</th><th>Required Parameters</th><th>Details</th></tr>
+</thead>
+<tbody>
+  <tr><td>Hourly</td><td>Start minute</td><td>Use the <b>Start minute</b> drop-down menu.</td></tr>
+  <tr><td>Daily</td><td>Start minute<br />Start hour</td><td>Use the <b>Start minute</b> drop-down menu.<br />Use the <b>Start hour</b> drop-down menu.</td></tr>
+  <tr><td>Weekly</td><td>Start minute<br />Start hour<br />Start day</td><td>Use the <b>Start minute</b> drop-down menu.<br />Use the <b>Start hour</b> drop-down menu.<br />Use the <b>Start day</b> drop-down menu.</td></tr>
+  <tr><td>Custom</td><td>Cron expression</td><td> Enter a cron expression in <b>Cron expression</b>. A cron expression has six required fields that are separated by white space. The fields specify a start value for minute, hour, day of month, month, day of week, and year. You can use wildcards to specify a range, additional values, and more. For example, the cron expression <b>0 9 ? * MON-FRI *</b> schedules a build every weekday at 9:00 A.M. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>. </td></tr>
+</tbody>
+</table>
+
 
 1.  Select **Enable this trigger**. 
 

@@ -15,8 +15,22 @@ For Bitbucket, you can choose one or more of the following events:
 + `PULL_REQUEST_MERGED`
 + `PULL_REQUEST_CLOSED`
 The webhook's event type is in its header in the `X-Event-Key` field. The following table shows how `X-Event-Key` header values map to the event types.  
-You must enable the `merged` event in your Bitbucket webhook setting if you create a webhook filter group that uses the `PULL_REQUEST_MERGED` event type. You must also enable the `declined` event in your Bitbucket webhook setting if you create a webhook filter group that uses the `PULL_REQUEST_CLOSED` event type.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codebuild/latest/userguide/bitbucket-webhook.html)
+You must enable the `merged` event in your Bitbucket webhook setting if you create a webhook filter group that uses the `PULL_REQUEST_MERGED` event type. You must also enable the `declined` event in your Bitbucket webhook setting if you create a webhook filter group that uses the `PULL_REQUEST_CLOSED` event type.
+
+
+<table>
+<thead>
+  <tr><th><code>X-Event-Key</code> Header value</th><th>Event type</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>repo:push</code></td><td><code>PUSH</code></td></tr>
+  <tr><td><code>pullrequest:created</code></td><td><code>PULL_REQUEST_CREATED</code></td></tr>
+  <tr><td><code>pullrequest:updated</code></td><td><code>PULL_REQUEST_UPDATED</code></td></tr>
+  <tr><td><code>pullrequest:fulfilled</code></td><td><code>PULL_REQUEST_MERGED</code></td></tr>
+  <tr><td><code>pullrequest:rejected</code></td><td><code>PULL_REQUEST_CLOSED</code></td></tr>
+</tbody>
+</table>
+
 For `PULL_REQUEST_MERGED`, if a pull request is merged with the squash strategy and the pull request branch is closed, the original pull request commit no longer exists. In this case, the `CODEBUILD_WEBHOOK_MERGE_COMMIT` environment variable contains the identifier of the squashed merge commit.
 
 **One or more optional filters**  

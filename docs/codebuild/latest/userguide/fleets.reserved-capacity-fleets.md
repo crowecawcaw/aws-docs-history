@@ -42,8 +42,27 @@ If you choose to set your overflow behavior to on-demand, note that overflow bui
 Build runs are placed in a queue until a machine is available. This limits additional costs because no additional machines are allocated.
 
 **Amazon Machine Images (AMI)**  
-The Amazon Machine Image (AMI) properties for your fleet. The following properties are supported by CodeBuild:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codebuild/latest/userguide/fleets.reserved-capacity-fleets.html)
+The Amazon Machine Image (AMI) properties for your fleet. The following properties are supported by CodeBuild:  
+
+
+<table>
+<thead>
+  <tr><th>AWS Regions</th><th>Organization ARN</th><th>Organization ID</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>us-east-1</code></td><td><code>arn:aws:organizations::851725618577:organization/o-c6wcu152r1</code></td><td><code>o-c6wcu152r1</code></td></tr>
+  <tr><td><code>us-east-2</code></td><td><code>arn:aws:organizations::992382780434:organization/o-seufr2suvq</code></td><td><code>o-seufr2suvq</code></td></tr>
+  <tr><td><code>us-west-2</code></td><td><code>arn:aws:organizations::381491982620:organization/o-0412o99a4r</code></td><td><code>o-0412o99a4r</code></td></tr>
+  <tr><td><code>ap-northeast-1</code></td><td><code>arn:aws:organizations::891376993293:organization/o-b6k3sjqavm</code></td><td><code>o-b6k3sjqavm</code></td></tr>
+  <tr><td><code>ap-south-1</code></td><td><code>arn:aws:organizations::891376924779:organization/o-krtah1lkeg</code></td><td><code>o-krtah1lkeg</code></td></tr>
+  <tr><td><code>ap-southeast-1</code></td><td><code>arn:aws:organizations::654654522137:organization/o-mcn8uvc3tp</code></td><td><code>o-mcn8uvc3tp</code></td></tr>
+  <tr><td><code>ap-southeast-2</code></td><td><code>arn:aws:organizations::767398067170:organization/o-6crt0f6bu4</code></td><td><code>o-6crt0f6bu4</code></td></tr>
+  <tr><td><code>eu-central-1</code></td><td><code>arn:aws:organizations::590183817084:organization/o-lb2lne3te6</code></td><td><code>o-lb2lne3te6</code></td></tr>
+  <tr><td><code>eu-west-1</code></td><td><code>arn:aws:organizations::891376938588:organization/o-ullrrg5qf0</code></td><td><code>o-ullrrg5qf0</code></td></tr>
+  <tr><td><code>sa-east-1</code></td><td><code>arn:aws:organizations::533267309133:organization/o-db63c45ozw</code></td><td><code>o-db63c45ozw</code></td></tr>
+</tbody>
+</table>
+
 
 **Additional configuration**    
 **VPC - optional**  

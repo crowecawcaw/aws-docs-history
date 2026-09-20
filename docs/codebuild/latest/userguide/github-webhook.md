@@ -8,8 +8,26 @@ You can use webhook filter groups to specify which GitHub webhook events trigger
 You can create one or more webhook filter groups to specify which webhook events trigger a build. A build is triggered if any filter group evaluates to true, which occurs when all the filters in the group evaluate to true. When you create a filter group, you specify: 
 
 **An event**  
-For GitHub, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`, `PULL_REQUEST_MERGED`, `PULL_REQUEST_CLOSED`, `RELEASED`, `PRERELEASED`, and `WORKFLOW_JOB_QUEUED`. The webhook event type is in the `X-GitHub-Event` header in the webhook payload. In the `X-GitHub-Event` header, you might see `pull_request` or `push`. For a pull request event, the type is in the `action` field of the webhook event payload. The following table shows how `X-GitHub-Event` header values and webhook pull request payload `action` field values map to the available event types.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codebuild/latest/userguide/github-webhook.html)
+For GitHub, you can choose one or more of the following events: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`, `PULL_REQUEST_MERGED`, `PULL_REQUEST_CLOSED`, `RELEASED`, `PRERELEASED`, and `WORKFLOW_JOB_QUEUED`. The webhook event type is in the `X-GitHub-Event` header in the webhook payload. In the `X-GitHub-Event` header, you might see `pull_request` or `push`. For a pull request event, the type is in the `action` field of the webhook event payload. The following table shows how `X-GitHub-Event` header values and webhook pull request payload `action` field values map to the available event types.  
+
+
+<table>
+<thead>
+  <tr><th><code>X-GitHub-Event</code> Header value</th><th>Webhook event payload <code>action</code> value</th><th>Event type</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>pull_request</code></td><td><code>opened</code></td><td><code>PULL_REQUEST_CREATED</code></td></tr>
+  <tr><td><code>pull_request</code></td><td><code>reopened</code></td><td><code>PULL_REQUEST_REOPENED</code></td></tr>
+  <tr><td><code>pull_request</code></td><td><code>synchronize</code></td><td><code>PULL_REQUEST_UPDATED</code></td></tr>
+  <tr><td><code>pull_request</code></td><td><code>closed</code>, and the <code>merged</code> field is <code>true</code></td><td><code>PULL_REQUEST_MERGED</code></td></tr>
+  <tr><td><code>pull_request</code></td><td><code>closed</code>, and the <code>merged</code> field is <code>false</code></td><td><code>PULL_REQUEST_CLOSED</code></td></tr>
+  <tr><td><code>push</code></td><td>n/a</td><td><code>PUSH</code></td></tr>
+  <tr><td><code>release</code></td><td>released</td><td><code>RELEASED</code></td></tr>
+  <tr><td><code>release</code></td><td>prereleased</td><td><code>PRERELEASED</code></td></tr>
+  <tr><td><code>workflow_job</code></td><td>queued</td><td><code>WORKFLOW_JOB_QUEUED</code></td></tr>
+</tbody>
+</table>
+
  The `PULL_REQUEST_REOPENED` event type can be used with GitHub and GitHub Enterprise Server only. The `RELEASED` and `PRERELEASED` event type can be used with GitHub only. For more information on `WORKFLOW_JOB_QUEUED`, see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md). 
 
 **One or more optional filters**  

@@ -67,10 +67,34 @@ If you choose to store your access token using Secrets Manager, you can use eith
               "Token": string,
               "Username": string // Optional and is only used for Bitbucket app password or API token
           }
-  ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codebuild/latest/userguide/asm-create-secret.html)
+  ```
 
-  Additionally, CodeBuild uses the following resource tags on the secret to ensure the secrets are easily selectable when creating or editing projects.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codebuild/latest/userguide/asm-create-secret.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Valid values</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>ServerType</td><td>GITHUB<br />GITHUB_ENTERPRISE<br />BITBUCKET</td><td>The third party source provider for your Secrets Manager secret.</td></tr>
+  <tr><td>AuthType</td><td>PERSONAL_ACCESS_TOKEN<br />BASIC_AUTH</td><td>The type of access token used by the credentials. For GitHub, only PERSONAL_ACCESS_TOKEN is valid. BASIC_AUTH is only valid for Bitbucket app password or API token.</td></tr>
+  <tr><td>Token</td><td>{{string}}</td><td>For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket, this is the access token, the Bitbucket app password, or the Bitbucket API token.</td></tr>
+  <tr><td>Username</td><td>{{string}}</td><td>The Bitbucket username when the AuthType is BASIC_AUTH. If you use a Bitbucket API token, this is the email address associated with your Atlassian account. This parameter is not valid for other types of source providers.</td></tr>
+</tbody>
+</table>
+
+
+  Additionally, CodeBuild uses the following resource tags on the secret to ensure the secrets are easily selectable when creating or editing projects.
+
+
+<table>
+<thead>
+  <tr><th>Tag key</th><th>Tag value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>codebuild:source:provider</td><td>github<br />github_enterprise<br />bitbucket</td><td>Tells CodeBuild which provider this secret is intended for.</td></tr>
+  <tr><td>codebuild:source:type</td><td>personal_access_token<br />basic_auth</td><td>Tells CodeBuild the type of access token in this secret.</td></tr>
+</tbody>
+</table>
+
 
 ------

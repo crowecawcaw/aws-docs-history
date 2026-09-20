@@ -7,8 +7,22 @@ Before you use AWS CodeBuild, you must answer these questions:
 
 1. **Where is the source code stored?** CodeBuild currently supports building from the following source code repository providers. The source code must contain a build specification (buildspec) file. A *buildspec* is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build. You can declare a buildspec in a build project definition. 
 
-       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codebuild/latest/userguide/planning.html)
+   
+
+
+
+<table>
+<thead>
+  <tr><th>Repository provider</th><th>Required</th><th>Documentation</th></tr>
+</thead>
+<tbody>
+  <tr><td>CodeCommit</td><td>Repository name.<br />(Optional) Commit ID associated with the source code.</td><td>See these topics in the <i>AWS CodeCommit User Guide</i>:<br /><a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-repository.html">Create a CodeCommit repository</a><br /><a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-create-commit.html">Create a commit in CodeCommit</a></td></tr>
+  <tr><td>Amazon S3 </td><td>Input bucket name.<br />Object name corresponding to the build input ZIP file that contains the source code.<br />(Optional) Version ID associated with the build input ZIP file. </td><td>See these topics in the <i>Amazon S3 Getting Started Guide</i>:<br /><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingABucket.html">Create a bucket</a><br /><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/PuttingAnObjectInABucket.html">Add an object to a bucket</a></td></tr>
+  <tr><td>GitHub</td><td>Repository name.<br />(Optional) Commit ID associated with the source code.</td><td>See this topic on the GitHub Help website:<br /><a href="https://help.github.com/articles/create-a-repo/">Create a repo</a></td></tr>
+  <tr><td>Bitbucket</td><td>Repository name. <br />(Optional) Commit ID associated with the source code.</td><td>See this topic on the Bitbucket Cloud documentation website:<br /><a href="https://confluence.atlassian.com/bitbucket/create-and-clone-a-repository-800695642.html">Create a repository</a></td></tr>
+</tbody>
+</table>
+
 
 1. **Which build commands do you need to run and in what order?** By default, CodeBuild downloads the build input from the provider you specify and uploads the build output to the bucket you specify. You use the buildspec to instruct how to turn the downloaded build input into the expected build output. For more information, see the [Buildspec reference](build-spec-ref.md).
 
