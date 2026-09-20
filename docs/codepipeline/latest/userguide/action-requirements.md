@@ -141,9 +141,21 @@ The action structure has the following requirements:
 + A source action is required for each pipeline.
 + Source actions that do not use a connection can be configured for change detection or to turn off change detection. See [Change Detection Methods](change-detection-methods.md).
 + This is true for all actions, whether they are in the same stage or in following stages, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifact bundles, which are, in turn, consumed by different following actions.
-+ When you use an Amazon S3 bucket as a deployment location, you also specify an object key. An object key can be a file name (object) or a combination of a prefix (folder path) and file name. You can use variables to specify the location name you want the pipeline to use. Amazon S3 deployment actions support the use of the following variables in Amazon S3 object keys.  
-**Using variables in Amazon S3**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codepipeline/latest/userguide/action-requirements.html)
++ When you use an Amazon S3 bucket as a deployment location, you also specify an object key. An object key can be a file name (object) or a combination of a prefix (folder path) and file name. You can use variables to specify the location name you want the pipeline to use. Amazon S3 deployment actions support the use of the following variables in Amazon S3 object keys.
+
+
+**Using variables in Amazon S3**  
+
+<table>
+<thead>
+  <tr><th>Variable</th><th>Example of console input</th><th>Output</th></tr>
+</thead>
+<tbody>
+  <tr><td>datetime</td><td>js-application/{datetime}.zip</td><td>UTC timestamp in this format: &lt;<i>YYYY</i>&gt;-&lt;<i>MM</i>&gt;-<i>DD</i>&gt;_&lt;<i>HH</i>&gt;-&lt;<i>MM</i>&gt;-&lt;<i>SS</i>&gt;Example:<br />js-application/2019-01-10_07-39-57.zip</td></tr>
+  <tr><td>uuid</td><td>js-application/{uuid}.zip</td><td>The UUID is a globally unique identifier that is guaranteed to be different from any other identifier. The UUID is in this format (all digits in hexadecimal format): &lt;<i>8-digits</i>&gt;-&lt;<i>4-digits</i>&gt;-<i>4-digits</i>&gt;-&lt;<i>4-digits</i>&gt;-&lt;<i>12-digits</i>&gt;Example:<br />js-application/54a60075-b96a-4bf3-9013-db3a9EXAMPLE.zip</td></tr>
+</tbody>
+</table>
+
 
 ## `name`
 <a name="action.name"></a>

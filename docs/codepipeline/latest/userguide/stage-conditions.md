@@ -48,8 +48,23 @@ Considerations for stage conditions are as follows:
 + You cannot perform a manual rollback to a stage in **Skipped** status.
 + You cannot override a condition if the condition is configured with a **Skip** result.
 + With the exception of **Skip** results, you can override a stage condition when starting a pipeline execution. For a stage condition where an override is engaged, the execution will perform as detailed in the following table.
-+     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html)
++ 
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Configured result on condition failure</th><th>Stage status</th><th>Override behavior</th></tr>
+</thead>
+<tbody>
+  <tr><td>Entry</td><td>Fail</td><td>In-progress</td><td>The stage proceeds.</td></tr>
+  <tr><td>Entry</td><td>Skip</td><td>Skipped</td><td>Not applicable.</td></tr>
+  <tr><td>OnFailure</td><td>Rollback</td><td>Failed</td><td>The stage is failed.</td></tr>
+  <tr><td>OnSuccess</td><td>Rollback</td><td>Succeeded</td><td>The stage proceeds.</td></tr>
+  <tr><td>OnSuccess</td><td>Fail</td><td>Failed</td><td>The stage proceeds.</td></tr>
+</tbody>
+</table>
+
 
 ## Considerations for rules configured for stage conditions
 <a name="stage-conditions-considerations-rules"></a>

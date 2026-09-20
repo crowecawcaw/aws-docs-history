@@ -69,11 +69,35 @@ Use the console or the CLI to create the recommended pipeline structure as follo
 
 1. Create a pipeline with a source action (required) and the `CloudFormationStackSet` action as the deploy action. Run your pipeline.
 
-1. When your pipeline first runs, the `CloudFormationStackSet` action *creates* your stack set and at least one initial instance. Verify the stack set creation and review the deployment to your initial instance. For example, for initial stack set creation for account Account-A where `us-east-1` is the specified Region, the stack instance is created with the stack set:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-StackSets.html)
+1. When your pipeline first runs, the `CloudFormationStackSet` action *creates* your stack set and at least one initial instance. Verify the stack set creation and review the deployment to your initial instance. For example, for initial stack set creation for account Account-A where `us-east-1` is the specified Region, the stack instance is created with the stack set:
 
-1. Edit your pipeline to add `CloudFormationStackInstances` as the second deployment action to create/update stack instances for the targets you designate. For example, for stack instance creation for account `Account-A` where the `us-east-2` and `eu-central-1` Regions are specified, the remaining stack instances are created and the initial instance remains updated as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-StackSets.html)
+
+
+<table>
+<thead>
+  <tr><th>Stack instance</th><th>Region</th><th>Status</th></tr>
+</thead>
+<tbody>
+  <tr><td>StackInstanceID-1</td><td>us-east-1</td><td>CURRENT</td></tr>
+</tbody>
+</table>
+
+
+1. Edit your pipeline to add `CloudFormationStackInstances` as the second deployment action to create/update stack instances for the targets you designate. For example, for stack instance creation for account `Account-A` where the `us-east-2` and `eu-central-1` Regions are specified, the remaining stack instances are created and the initial instance remains updated as follows:
+
+
+
+<table>
+<thead>
+  <tr><th>Stack instance</th><th>Region</th><th>Status</th></tr>
+</thead>
+<tbody>
+  <tr><td>StackInstanceID-1</td><td>us-east-1</td><td>CURRENT</td></tr>
+  <tr><td>StackInstanceID-2</td><td>us-east-2</td><td>CURRENT</td></tr>
+  <tr><td>StackInstanceID-3</td><td>eu-central-1</td><td>CURRENT</td></tr>
+</tbody>
+</table>
+
 
 1. Run your pipeline as needed to update your stack set and update or create stack instances.
 

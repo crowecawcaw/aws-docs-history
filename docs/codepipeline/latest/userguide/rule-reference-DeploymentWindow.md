@@ -23,8 +23,25 @@ When you create a condition, you can add the `DeploymentWindow` rule. This secti
 
 **Cron**  
 Required: Yes  
-The expression that defines the days and times when the deployment will be allowed. Cron expressions are comprised of 6 required fields and one optional field separated by white space. The cron expression fields allow you to specify a schedule pattern with a cron expression as follows.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference-DeploymentWindow.html)
+The expression that defines the days and times when the deployment will be allowed. Cron expressions are comprised of 6 required fields and one optional field separated by white space. The cron expression fields allow you to specify a schedule pattern with a cron expression as follows.  
+
+
+
+<table>
+<thead>
+  <tr><th>Field name</th><th>Allowed values</th><th>Allowed special characters</th></tr>
+</thead>
+<tbody>
+  <tr><td>Seconds</td><td>N/A</td><td>*</td></tr>
+  <tr><td>Minutes</td><td>0-59</td><td>, - * /</td></tr>
+  <tr><td>Hours</td><td>0-23</td><td>, - * /</td></tr>
+  <tr><td>Day-of-month</td><td>1-31</td><td>, - * ? / L W</td></tr>
+  <tr><td>Month</td><td>1-12 or JAN-DEC</td><td>, - * /</td></tr>
+  <tr><td>Day-of-Week</td><td>1-7 or SUN-SAT</td><td>, - * ? / L #</td></tr>
+  <tr><td>Year (Optional)</td><td>empty, 1970-2199</td><td>, - * /</td></tr>
+</tbody>
+</table>
+
 + The '\*' character is used to specify all values. For example, "\*" in the minute field means "every minute".
 + The '?' character is allowed for the day-of-month and day-of-week fields. It is used to specify 'no specific value'. This is useful when you need to specify something in one of the two fields, but not the other.
 + The '-' character is used to specify ranges. For example, "10-12" in the hour field means "the hours 10, 11 and 12".
