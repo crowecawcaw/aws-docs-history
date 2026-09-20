@@ -7,8 +7,13 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## September 2026
 <a name="release-notes-sep-2026"></a>
-+ Added support for local snapshots in the Istanbul, Türkiye Local Zone (eu-central-1-ist-1a), with the Europe (Frankfurt) Region as its parent Region. For more information, see [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots).
-+ You can now configure the **Volume initialization rate** and **Delete on termination** Amazon EBS volume settings in the default EC2 launch template. For more information, see [Default EC2 launch template settings](launch-template.md#default-ec2-launch-template).
++ Added support for local snapshots in the following Local Zones:
+  + Hanoi, Vietnam (ap-southeast-1-han-1a)
+  + Athens, Greece (eu-central-1-ath-1a)
+  + Istanbul, Türkiye (eu-central-1-ist-1a)
+
+  For more information, see [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots).
++ You can now configure the following Amazon EBS volume settings: **Volume initialization rate** and **Delete on termination** through the AWS Transform MGN account launch template. You can set the configuration in the template under the **Default EC2 launch template** section. These parameters can now be configured at the account level for new servers, or at the individual server level via their EC2 launch template. For more information, see this section in the [Launch template](launch-template.md#default-ec2-launch-template).
 
 ## August 2026
 <a name="release-notes-aug-2026"></a>
@@ -48,7 +53,7 @@ Added support for the following operating systems:
 <a name="release-notes-may-2026"></a>
 + Updated network requirements to include the Amazon Linux 2023 (AL2023) package repository bucket for staging area subnet connectivity. This applies to both firewall-restricted environments (allowlist the dual-stack Amazon S3 URL) and isolated subnets without internet access (Amazon S3 VPC gateway endpoint policy). For more information, see [Communication between the staging area subnet and S3](preparing-environments.md#Communication-Staging-S3).
 + Added support for CentOS Stream 9 operating system.
-+ Added support for additional EC2 launch template storage parameters: **Delete on termination**, **Volume initialization rate**, **KMS key**, and **EBS card index**. For more information, see [Full launch template setting review](detailed-considerations.md).
++ Added support for additional Amazon EBS storage parameters in the EC2 launch template. You can now configure these parameters for each source server through its EC2 launch template: **Delete on termination**, **Volume initialization rate**, **KMS key**, and **EBS card index**. For more information, see [Full launch template setting review](detailed-considerations.md).
 
 ## April 2026
 <a name="release-notes-apr-2026"></a>

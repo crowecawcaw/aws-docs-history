@@ -9,7 +9,7 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 
 By default, users created via the IAM service don't have permissions for AWS Transform MGN resources and operations. To allow these users to manage AWS Transform MGN resources, you must create an IAM policy that explicitly grants them permissions, and attach the policy to the users or groups that require those permissions. 
 
-When you attach a policy to a user or group of users, it allows or denies the users permission to perform the specified tasks on the specified resources. For more information, see [Policies and Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide* guide. 
+When you attach a policy to a user or group of users, it allows or denies the users permission to perform the specified tasks on the specified resources. For more information, see [Policies and Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*. 
 
 ## Federated identity
 <a name="security_iam_authentication-federated"></a>

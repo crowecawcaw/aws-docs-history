@@ -22,7 +22,7 @@ The columns include:
 + **Source server name** – This column shows the unique server name for each source server.
 + **Alerts** – This column shows whether any alerts exist for the server.
   + **No indication** – a healthy server for which a test or cutover instance has not been launched. 
-  + **Launched** – a healthy server for which a test of cutover instance has been launched.
+  + **Launched** – a healthy server for which a test or cutover instance has been launched.
   + **A clock icon with a warning message** – a server that is experiencing a temporary issue such as lag or backlog
   + **A red x and message** – a server that is experiencing significant issues, such as a stall.
 + **Replication type** – This column identifies whether the server is being replicated through the default **Agent based** replication or through **Snapshot shipping**. [Learn more about agentless based snapshot shipping replication for vCenter.](agentless-mgn.md)

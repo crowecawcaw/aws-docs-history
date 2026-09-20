@@ -71,7 +71,7 @@ As a management account, you can perform the following actions on a single or mu
 ## Waves
 <a name="global-view-source-servers-wave"></a>
 
-As a management account, you can perform the following actions on a single managed applications:
+As a management account, you can perform the following actions on a single managed wave:
 + Add wave
 + Edit wave
 + Delete wave

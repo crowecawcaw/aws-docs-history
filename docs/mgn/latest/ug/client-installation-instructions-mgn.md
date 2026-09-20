@@ -42,17 +42,17 @@ The certificate must be located in a file that's readable to the vCenter client 
 To use a certificate in your vCenter environment, you must setup a connection using a hostname. Using an IP does not work with a certificate.
 It's a security best practice to use certificates. Customers that do not use certificated authentication are responsible for any security issues that may arise. 
    + Path to VDDK tarball - Provide the path to the VDDK tarball that you previously downloaded onto the VM. (example: `path/to/VMware-vix-disklib-7.0.3-21933544.x86_64.tar.gz`). You can download VDDK tarball from your Broadcom account.
-   + Resource tags for the AWS vCenter client (optional) - Use this format for tagging: 
+   + Resource tags for the MGN vCenter Client (optional) - Use this format for tagging: 
 
-     KEY=VALUE [KEY=VALUE ...] add resource tags to the AWS vCenter client; use a space to separate each tag (e.g., --vcenter-client-tags tag1=val1 tag2=val2 tag3=val3)
-   + Resource tags for source servers to be discovered by the AWS vCenter client (optional) - Use this format for tagging: 
+     KEY=VALUE [KEY=VALUE ...] add resource tags to the MGN vCenter Client; use a space to separate each tag (e.g., --vcenter-client-tags tag1=val1 tag2=val2 tag3=val3)
+   + Resource tags for source servers to be discovered by the MGN vCenter Client (optional) - Use this format for tagging: 
 
      KEY=VALUE [KEY=VALUE ...] add resource tags to the source servers added by discovery; use a space to separate each tag (e.g., --vcenter-client-tags tag1=val1 tag2=val2 tag3=val3)
 
-1. The installer downloads and installs the AWS vCenter client and registers it with AWS Transform MGN.  
-![Terminal output showing successful download and installation of AWS vCenter client.](https://docs.aws.amazon.com/mgn/latest/ug/images/agentless6.png)
+1. The installer downloads and installs the MGN vCenter Client and registers it with AWS Transform MGN.  
+![Terminal output showing successful download and installation of the MGN vCenter Client.](https://docs.aws.amazon.com/mgn/latest/ug/images/agentless6.png)
 
-1. Once the AWS vCenter client has been installed, all of the VMs in your vCenter are added to AWS Transform MGN. The VMs are added in the DISCOVERED state.
+1. Once the MGN vCenter Client has been installed, all of the VMs in your vCenter are added to AWS Transform MGN. The VMs are added in the DISCOVERED state.
 **Note**  
 If you have a significant number of VMs in your vCenter environment, it may take some time for all of the VMs to become visible in the MGN console. 
 The MGN vCenter Appliance is excluded from the discovered servers list.

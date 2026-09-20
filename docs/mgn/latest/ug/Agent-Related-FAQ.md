@@ -146,7 +146,7 @@ Throttling can be activated via the AWS Transform MGN console by either selectin
 ## How many disks can the AWS Replication Agent replicate?
 <a name="How-Many-Disks-Agent-Replicate"></a>
 
-The agent can replicate up to 50 disks from a single server. Ensure that the replication server instance type supports at least the number of disks being replicated.
+The agent can replicate up to 63 disks from a single server. Ensure that the replication server instance type supports at least the number of disks being replicated.
 
 ## Is it possible to add a disk to replication without a complete resync of any disks that have already been replicated?
 <a name="What-mgn-Agent-Services"></a>

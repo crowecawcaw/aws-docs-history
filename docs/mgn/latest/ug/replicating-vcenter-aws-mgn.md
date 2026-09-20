@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Replicating servers from vCenter to AWS
 <a name="replicating-vcenter-aws-mgn"></a>
 
-Once you have successfully installed the AWS vCenter client, all of your vCenter VMs are added to MGN in the DISCOVERED state. The DISCOVERED state means that the VM has not been replicated to AWS. 
+Once you have successfully installed the MGN vCenter Client, all of your vCenter VMs are added to MGN in the DISCOVERED state. The DISCOVERED state means that the VM has not been replicated to AWS. 
 
 
 

@@ -61,11 +61,32 @@ If you use different VPCs for replication and launch, create two security groups
    + Description: `Security group for instances launched by MGN to allow communication with FSx for ONTAP`
    + VPC: Choose the target VPC where MGN will launch instances.
 
-1. **Inbound Rules:** The only required inbound rule is port 1500 for MGN data replication from source servers. You can optionally add rules for administrative access to your instances (for example, SSH on port 22 or RDP on port 3389 from your corporate network).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/mgn/latest/ug/fsx-ontap.html)
+1. **Inbound Rules:** The only required inbound rule is port 1500 for MGN data replication from source servers. You can optionally add rules for administrative access to your instances (for example, SSH on port 22 or RDP on port 3389 from your corporate network).
 
-1. **Outbound Rules:** The default outbound rule (All traffic → 0.0.0.0/0) is sufficient. If you restrict outbound rules, add at minimum the following rules. Reference the FSx for ONTAP security group (created in the next step) as the destination:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/mgn/latest/ug/fsx-ontap.html)
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port Range</th><th>Source</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Custom TCP</td><td>TCP</td><td>1500</td><td>{{Source server CIDR}}</td><td>Data replication from source servers</td></tr>
+</tbody>
+</table>
+
+
+1. **Outbound Rules:** The default outbound rule (All traffic → 0.0.0.0/0) is sufficient. If you restrict outbound rules, add at minimum the following rules. Reference the FSx for ONTAP security group (created in the next step) as the destination:
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port Range</th><th>Destination</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>iSCSI</td><td>TCP</td><td>3260</td><td><code>FSx-ONTAP-SG</code></td><td>iSCSI access to FSx for ONTAP</td></tr>
+  <tr><td>HTTPS</td><td>TCP</td><td>443</td><td><code>FSx-ONTAP-SG</code></td><td>ONTAP REST API / Management</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create security group**.
 
@@ -86,8 +107,25 @@ You associate this security group with the FSx for ONTAP file system. Use this s
 1. **Inbound Rules:** Add the following rules. The table is organized into two groups:
    + **Migration traffic (iSCSI)**. Required for MGN data replication and launch. Reference `MGN-Instances-SG` as the source.
    + **Management access (SSH, HTTPS)**. Optional rules for ONTAP CLI and REST API access from MGN-launched instances (for example, for troubleshooting or manual configuration). Reference `MGN-Instances-SG` as the source.
-   + **MGN service traffic (HTTPS)**. Required for MGN to access the FSx for ONTAP REST API during replication and launch. Use the CIDR blocks of the preferred and standby subnets where the file system is deployed. You can find these CIDRs in the **FSx for ONTAP Console** under your file system's **Network & security** tab, or in the **VPC Console → Subnets** by looking up the subnet IDs. You can narrow this scope after the initial setup is complete.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/mgn/latest/ug/fsx-ontap.html)
+   + **MGN service traffic (HTTPS)**. Required for MGN to access the FSx for ONTAP REST API during replication and launch. Use the CIDR blocks of the preferred and standby subnets where the file system is deployed. You can find these CIDRs in the **FSx for ONTAP Console** under your file system's **Network & security** tab, or in the **VPC Console → Subnets** by looking up the subnet IDs. You can narrow this scope after the initial setup is complete.
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port Range</th><th>Source</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="5"><b>Migration traffic</b></td></tr>
+  <tr><td>iSCSI</td><td>TCP</td><td>3260</td><td><code>MGN-Instances-SG</code></td><td>Allow iSCSI from MGN instances</td></tr>
+  <tr><td colspan="5"><b>Management access (optional)</b></td></tr>
+  <tr><td>SSH</td><td>TCP</td><td>22</td><td><code>MGN-Instances-SG</code></td><td>ONTAP CLI management from MGN instances</td></tr>
+  <tr><td>HTTPS</td><td>TCP</td><td>443</td><td><code>MGN-Instances-SG</code></td><td>ONTAP REST API management from MGN instances</td></tr>
+  <tr><td colspan="5"><b>MGN service traffic</b></td></tr>
+  <tr><td>HTTPS</td><td>TCP</td><td>443</td><td>{{FSx preferred subnet CIDR}}</td><td>MGN access to ONTAP REST API</td></tr>
+  <tr><td>HTTPS</td><td>TCP</td><td>443</td><td>{{FSx standby subnet CIDR}}</td><td>MGN access to ONTAP REST API</td></tr>
+</tbody>
+</table>
+
 
 1. **Outbound Rules:** The default outbound rule (All traffic → 0.0.0.0/0) is sufficient.
 
@@ -132,7 +170,7 @@ For detailed instructions on creating and configuring FSx for ONTAP file systems
 ## Step 3: Configure certificate-based authentication
 <a name="fsx-ontap-step3-certificate-auth"></a>
 
-**Certificate-based authentication is required for MGN to access the ONTAP REST API and iSCSI targets.** MGN handles TLS validation internally using AWS Certificate Authorities.
+**Certificate-based authentication is required for MGN to access the ONTAP REST API.** MGN handles TLS validation internally using AWS Certificate Authorities.
 
 **Note**  
 MGN does not use CHAP for iSCSI. iSCSI access is controlled via security groups, and MGN authenticates to the ONTAP management API using client certificates as described in this section.
@@ -156,7 +194,8 @@ The private key must be in PKCS\#8 format (`-----BEGIN PRIVATE KEY-----`). If yo
 
 ```
 [~]$ openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt \
-  -in fsx-mgn-client.key -out fsx-mgn-client.key
+  -in fsx-mgn-client.key -out fsx-mgn-client.key.pk8
+[~]$ mv fsx-mgn-client.key.pk8 fsx-mgn-client.key
 ```
 
 ### Install client certificate on FSx for ONTAP

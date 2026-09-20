@@ -182,7 +182,7 @@ To change the Amazon EBS volume disk type, select the circle to the left of each
 
 On the **Change staging disk type** dialog, select the type of Amazon EBS volume to use for the disk or group of disks.
 
-Select the **AUTO** option if you want AWS Transform MGN to automatically select the most cost-effective Amazon EBS volume disk type for each disk based on the disk size and type based on the option you defined in the **Replication settings** (either the default **Lower cost, Throughput Optimized HDD (st1)** option or the **Faster, General Purpose SSD (gp3)** option).
+Select the **AUTO** option if you want AWS Transform MGN to automatically select the most cost-effective Amazon EBS volume disk type for each disk based on the disk size and type based on the option you defined in the [**Replication settings**](#ebs-volume-type) (either the default **Lower cost, Throughput Optimized HDD (st1)** option or the **Faster, General Purpose SSD (gp3)** option).
 
 AWS Transform MGN uses a single replication server per 15 source disks. Selecting the **AUTO** option ensures that the fewest number of replication servers are used, resulting in increased cost savings.
 

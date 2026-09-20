@@ -12,7 +12,7 @@ Use the information in this section to help you with other troubleshooting.
 + [Windows license activation – AWS](#Windows-License-Activation)
 + [Migration leaving behind replication volumes after cutover](#Migration-Leaving-Replication-Volumes)
 + [Replication lag issues](#Replication-Lag-Issues)
-+ [Windows Driver changes](#Windows-Drive-Changes)
++ [Windows drive letter changes](#Windows-Drive-Changes)
 + [Windows Dynamic Disk troubleshooting](#Windows-Dynamic-Disk)
 + [Deleting MGN resources](#Deleting-Resources)
 + [Set UEFI boot mode](#set-uefi-boot-mode)
@@ -62,7 +62,7 @@ Potential solutions:
 
 To learn more about replication lag troubleshooting, refer to this [AWS Support Knowledge Center article](https://repost.aws/knowledge-center/mgn-windows-fix-replication-lag).
 
-## Windows Driver changes
+## Windows drive letter changes
 <a name="Windows-Drive-Changes"></a>
 
 Users may see changes in Windows drive letter assignments (for example, Drive D changed to E) on target machines launched by AWS Transform MGN.

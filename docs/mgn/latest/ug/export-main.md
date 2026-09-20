@@ -25,7 +25,7 @@ In order to use the export feature, you will need to create a role with the foll
   "Sid":  "AllowS3Access",
    "Effect":  "Allow",
    "Action": [
-     "s3:GetObject"
+     "s3:PutObject"
   ],
    "Resource":  "arn:aws:s3:::amzn-s3-demo-bucket/*"
 },

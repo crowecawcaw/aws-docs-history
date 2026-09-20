@@ -45,7 +45,7 @@ To initialize MGN with the API, create the following IAM roles through the [IAM 
   <tr><td><b>AWSApplicationMigrationLaunchInstanceWithSsmRole</b></td><td>"ec2.amazonaws.com"</td><td>"sts:AssumeRole" </td><td>-</td></tr>
   <tr><td><b>AWSApplicationMigrationFsxProxyRole</b></td><td>"mgn.amazonaws.com"</td><td>"sts:AssumeRole"</td><td>-</td></tr>
   <tr><td><b>AWSApplicationMigrationFsxProxyLinkRole</b></td><td>"mgn.amazonaws.com"</td><td>"sts:AssumeRole"</td><td>-</td></tr>
-  <tr><td><b>AWSApplicationMigrationAgentRole</b></td><td>"mgn.amazonaws.com"</td><td>["sts:AssumeRole", "sts:SetSourceIdentity"]</td><td>{"StringLike": {"sts:SourceIdentity": "s-*", "aws:SourceAccount": "&lt;SOURCE-ACCOUNT-ID&gt;"}</td></tr>
+  <tr><td><b>AWSApplicationMigrationAgentRole</b></td><td>"mgn.amazonaws.com"</td><td>["sts:AssumeRole", "sts:SetSourceIdentity"]</td><td>{"StringLike": {"sts:SourceIdentity": "s-*", "aws:SourceAccount": "&lt;SOURCE-ACCOUNT-ID&gt;"}}</td></tr>
 </tbody>
 </table>
 

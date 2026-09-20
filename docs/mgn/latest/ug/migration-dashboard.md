@@ -113,7 +113,7 @@ Within the **Lifecycle** box, you can review the **Launch status** and **Last te
 + On the main **Source servers** page, the **Migration lifecycle** column shows **Test in progress** and the **Next step** column shows **Complete testing and mark as "Ready for cutover"**. 
 + The server stays in the **Test in progress** Lifecycle state until you finalize your testing and mark the server as **Ready for cutover**. 
 
-You can use these indicators to verify that your test instance was successfully launched::
+You can use these indicators to verify that your test instance was successfully launched:
 + On the **Server Details > Lifecycle** pane, the Launch status states **Launched**. 
 + On the main **Source servers** page, the **Alerts** column shows the **Launched** status. 
 
@@ -241,8 +241,8 @@ If you want to install the AWS Replication Agent on a legacy Windows OS (Windows
 
   1. If you are adding a Windows source server to AWS MGN, download the installer onto the source server. The installer is downloaded from the AWS Region of your account. If you're adding a Linux source server, skip this step.
 
-  1. Copy the generated custom installation command and either input it into the command line on your source server. Proceed with [AWS Replication Agent installation as instructed in the documentation](agent-installation.md).
-+ **View server details** – Choosing this option to open the server details view for the selected server. This option is only available when a single server is selected.
+  1. Copy the generated custom installation command and input it into the command line on your source server. Proceed with [AWS Replication Agent installation as instructed in the documentation](agent-installation.md).
++ **View server details** – Choose this option to open the server details view for the selected server. This option is only available when a single server is selected.
 + **Disconnect from service** – Choose this option to disconnect the selected server from MGN and AWS. This option disconnects the source server and should be used when data replication is complete.
 
   On the **Disconnect X server/s from service** dialog, choose **Disconnect**.

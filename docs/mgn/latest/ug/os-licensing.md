@@ -7,7 +7,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 Choose whether you want to Bring Your Own Licenses (BYOL) from the source server into the test or cutover instance. 
 
-Choose the **BYOL** option if you are migrating a Linux server. All Linux licenses are BYOL by default. Any RHEL, SUSE or Debian licenses are transferred in their current form to the migrated instance. Make sure to ensure that the terms of your licenses allow this license transfer.
+Choose the **BYOL** option if you are migrating a Linux server. All Linux licenses are BYOL by default. Any RHEL, SUSE or Debian licenses are transferred in their current form to the migrated instance. Make sure that the terms of your licenses allow this license transfer.
 
 Choose the **BYOL** option if you want to BYOL your Windows licenses. This sets up a dedicated host. All the licenses from the source Windows server are automatically transferred to the Test or Cutover instance. [Learn more about dedicated hosts.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html)
 

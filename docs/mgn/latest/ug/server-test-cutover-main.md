@@ -34,7 +34,7 @@ The **Test and cutover** menu allows you to manage your test and cutover instanc
 
   The **Finalize cutover for X servers** dialog appears. Choose **Finalize**.
 
-  The AWS Transform MGN console indicates **X servers cutover. Data replication has been stopped for servers** once the cutover has been completed successfully. The AWS Transform MGN console automatically stops data replication for the cutover source servers to save resource costs. The selected source servers' **Migration lifecycle** column shows the **Cutover** status, the **Data replication** column shows **Disconnected** and the **Next step** column states **Mark as archived**. The source servers have now been successfully migrated into AWS and can be archived.
+  The AWS Transform MGN console indicates **X servers cutover. Data replication has been stopped for servers** once the cutover has been completed successfully. The AWS Transform MGN console automatically stops data replication for the cutover source servers to save resource costs. The selected source servers' **Migration lifecycle** column shows the **Cutover complete** status, the **Data replication** column shows **Disconnected** and the **Next step** column states **Mark as archived**. The source servers have now been successfully migrated into AWS and can be archived.
 
   
 **Note**  

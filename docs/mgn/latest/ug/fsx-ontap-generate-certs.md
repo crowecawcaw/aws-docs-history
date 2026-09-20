@@ -64,7 +64,8 @@ openssl x509 -req -in fsx-mgn-client.csr \
 
 # Convert key to PKCS#8 format
 openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt \
-  -in fsx-mgn-client.key -out fsx-mgn-client.key
+  -in fsx-mgn-client.key -out fsx-mgn-client.key.pk8
+mv fsx-mgn-client.key.pk8 fsx-mgn-client.key
 
 # Verify
 openssl verify -CAfile ca.crt fsx-mgn-client.crt
@@ -146,7 +147,8 @@ If you prefer to run each step individually:
 
    ```
    [~]$ openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt \
-     -in fsx-mgn-client.key -out fsx-mgn-client.key
+     -in fsx-mgn-client.key -out fsx-mgn-client.key.pk8
+   [~]$ mv fsx-mgn-client.key.pk8 fsx-mgn-client.key
    ```
 
 1. Verify the certificate:

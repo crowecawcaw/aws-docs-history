@@ -17,7 +17,7 @@ The **AWSApplicationMigrationConnectorManagementRole** role is the role that is 
 
 To create the role:
 
-1. After replacing **ACCOUNT-ID** with your account number, and **AWS\_REGION** with the connector region, create a policy from the following JSON:
+1. In the following JSON, replace the example account ID {{111122223333}} with your account number, and the example Region {{us-east-1}} with the connector Region. Then, create a policy from the JSON:
 
    ```
    {
@@ -25,12 +25,12 @@ To create the role:
        "Statement": [
            {
                "Action": "mgn:CreateConnector",
-               "Resource": "arn:aws:mgn:AWS_REGION:ACCOUNT-ID:*",
+               "Resource": "arn:aws:mgn:{{us-east-1}}:{{111122223333}}:*",
                "Effect": "Allow"
            },
            {
                "Action": "mgn:TagResource",
-               "Resource": "arn:aws:mgn:AWS_REGION:ACCOUNT-ID:connector/*",
+               "Resource": "arn:aws:mgn:{{us-east-1}}:{{111122223333}}:connector/*",
                "Effect": "Allow",
                "Condition": {
                    "StringEquals": {
@@ -40,7 +40,7 @@ To create the role:
            },
            {
                "Action": "sts:AssumeRole",
-               "Resource": "arn:aws:iam::*:role/AWSApplicationMigrationConnectorSharingRole_ACCOUNT-ID",
+               "Resource": "arn:aws:iam::*:role/AWSApplicationMigrationConnectorSharingRole_{{111122223333}}",
                "Effect": "Allow"
            },
            {
@@ -50,14 +50,14 @@ To create the role:
                    }
                },
                "Action": "secretsmanager:GetSecretValue",
-               "Resource": "arn:aws:secretsmanager:AWS_REGION:ACCOUNT-ID:secret:*",
+               "Resource": "arn:aws:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:*",
                "Effect": "Allow"
            },
            {
                "Action": "s3:GetObject",
                "Resource": [
-                   "arn:aws:s3:::aws-application-migration-service-AWS_REGION/latest/source-automation-client/linux/ssaf-client/ssaf_client",
-                   "arn:aws:s3:::amazon-ssm-AWS_REGION/*"
+                   "arn:aws:s3:::aws-application-migration-service-{{us-east-1}}/latest/source-automation-client/linux/ssaf-client/ssaf_client",
+                   "arn:aws:s3:::amazon-ssm-{{us-east-1}}/*"
                ],
                "Effect": "Allow"
            }
@@ -156,17 +156,17 @@ To create the role:
                "Action": "sts:AssumeRole",
                "Condition": {
                    "StringEquals": {
-                       "aws:SourceAccount": "management-account-id"
+                       "aws:SourceAccount": "{{111122223333}}"
                    },
-                   "StringLike": {
-                       "aws:SourceArn": "arn:aws:mgn:*:management-account-id:*"
+                   "ArnLike": {
+                       "aws:SourceArn": "arn:aws:mgn:*:{{111122223333}}:*"
                    }
                }
            },
            {
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::management-account-id:role/AWSApplicationMigrationConnectorManagementRole"
+                   "AWS": "arn:aws:iam::{{111122223333}}:role/AWSApplicationMigrationConnectorManagementRole"
                },
                "Action": "sts:AssumeRole"
            }

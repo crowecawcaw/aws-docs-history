@@ -9,5 +9,4 @@ By default, users and roles don't have permission to create or modify AWS Transf
 
 **Topics**
 + [Customer-managed policies in MGN](customer_managed_policies_mgn.md)
-+ [Restrict permission to act on a source server associated with given AWS vCenter client](restrict-to-vcenter-client.md)
 + [Network Migration API permissions](network-migration-api-permissions.md)

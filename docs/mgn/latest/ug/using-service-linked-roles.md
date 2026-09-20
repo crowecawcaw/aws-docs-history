@@ -46,6 +46,9 @@ If you no longer need to use a feature or service that requires a service-linked
 **Note**  
 If AWS Transform MGN is using the role when you try to delete the resources, the deletion might fail. If that happens, wait for a few minutes and try the operation again. 
 
+**Warning**  
+Resources cannot be cleaned up without stopping the services provided by AWS Transform MGN. Cleaning up these resources will cause AWS Transform MGN to stop working. Before you run the following commands, confirm that migrations and replication are no longer needed. For more information, see [Cleaning up a Service-Linked Role ](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*. 
+
  **To clean up AWS Transform MGN resources used by AWSServiceRoleForApplicationMigrationService**
 
 1. Identify and delete any waves and applications in all AWS Regions
@@ -127,10 +130,6 @@ If AWS Transform MGN is using the role when you try to delete the resources, the
       ```
       aws mgn delete-replication-configuration-template --replication-configuration-template-id {rct-TemplateID}
       ```
-
- 
-
-Resources cannot be cleaned up without stopping the services provided by AWS Transform MGN. Cleaning up AWS Transform MGN resources will cause AWS Transform MGN to stop working. Before you run the following commands, confirm that migrations and replication are no longer needed. For more information, see [Cleaning up a Service-Linked Role ](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*. 
 
  **To manually delete the service-linked role using IAM ** 
 

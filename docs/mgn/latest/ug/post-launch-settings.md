@@ -103,12 +103,12 @@ The page includes these parameters:
 + **Action name** – The name of the action in MGN, which should be intuitive and meaningful to your migration users.
 + **Activate this action** – Use this checkbox to activate or deactivate the custom action.
 + **This action must be completed successfully before finalizing cutover** – This checkbox dictates whether or not the script prevents the cutover.
-+ **System Manager document name** – Select any SSM document that is available for the specific account.
++ **Systems Manager document name** – Select any SSM document that is available for the specific account.
 + **View in Systems Manager** – Choose to open **SSM** and view additional information about the document.
 + **Description** – Add a description or keep the default. 
 + **Document version** – Select which SSM document version to run. MGN can run a default version, the latest version, or a specific version, according to your preferences. 
 + Category – Select from various available categories including disaster recovery, security, validation, and more.
-+ **Order** – Specify the order in which the actions is executed. The lower the number, the earlier the action is executed. 1–1,000 are reserved for predefined actions and 1,001–10,000 for custom actions. The numbers must be unique but don’t need to be consecutive.
++ **Order** – Specify the order in which the actions are executed. The lower the number, the earlier the action is executed. 1–1,000 are reserved for predefined actions and 1,001–10,000 for custom actions. The numbers must be unique but don’t need to be consecutive.
 + **Operating system** – Select the source server's operating systems for which the custom action can be configured for. Note that if you associate a script with the wrong operating system, it is skipped.
 + **Creator** – Who created the action. For custom actions, the default is always **Me**.
 

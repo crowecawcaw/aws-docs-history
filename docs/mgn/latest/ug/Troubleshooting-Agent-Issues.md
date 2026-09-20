@@ -16,6 +16,18 @@ Use the information in this section to troubleshoot issues with installing the r
 
 This type of error means that the agent was not installed on the source server, and therefore the server will not appear on the AWS Transform MGN console. After you fix the issue that caused the installation to fail, you need to rerun the Agent Installer file to install the agent. 
 
+### Error: too many volumes selected for replication
+<a name="Installation-Failed-Disk-Limit"></a>
+
+Installation fails with an error similar to the following when you select more disks than the AWS Replication Agent supports:
+
+```
+The devices you entered span over more than 63 volumes. Up to 63 volumes are supported per machine.
+Installation failed.
+```
+
+The AWS Replication Agent can replicate up to 63 disks from a single source server. To resolve this error, select 63 or fewer disks for replication and rerun the Agent Installer file.
+
 ### This app can't run on your PC error - Windows
 <a name="this-app-error"></a>
 
@@ -33,7 +45,7 @@ This error is indicative that your particular version of Windows 10 is likely th
 
 If it says 32-bit operating system, x86-based processor, then your computer doesn't support Windows 10 (64-bit). 
 
-If your OS is indeed 64-bit, then there may be other elements blocking the installation of your agent. The block is actually coming from the Windows Operating System itself. You would need to identify what the cause is. One of the way is running [sfc scan](https://support.microsoft.com/en-au/topic/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system-files-79aa86cb-ca52-166a-92a3-966e85d4094e). 
+If your OS is indeed 64-bit, then there may be other elements blocking the installation of your agent. The block is actually coming from the Windows Operating System itself. You would need to identify what the cause is. One of the ways is running [sfc scan](https://support.microsoft.com/en-au/topic/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system-files-79aa86cb-ca52-166a-92a3-966e85d4094e). 
 
 ### Is having a mounted '/tmp' directory a requirement for the agent?
 <a name="Agent-TMP"></a>
@@ -250,7 +262,7 @@ If the AWS Replication Agent installation fails on Windows with the following er
 botocore.exceptions.ClientError: An error occurred (InvalidSignatureException) when calling the GetAgentInstallationAssetsForMgn operation: {"message":"The request signature we calculated does not match the signature you provided. Check your AWS Secret Access Key and signing method. Consult the service documentation  for details.
 ```
 
-Attempt to rerun the installer with PowerShell instead of CMD. At times, when the installer is ran in CMD, the AWS Secret Key does not get pasted properly into the installer and causes installation to fail.
+Attempt to rerun the installer with PowerShell instead of CMD. At times, when the installer is run in CMD, the AWS Secret Key does not get pasted properly into the installer and causes installation to fail.
 
 ### Error – certificate verify failed
 <a name="error-certificate-verify-failed"></a>

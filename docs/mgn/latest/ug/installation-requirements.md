@@ -160,8 +160,8 @@ On SUSE:
      If no matching package was found on the repositories configured on your server, you can download it manually from the Internet and then install it. 
 
      To download the matching *kernel-devel/linux-headers* package, navigate to these sites:
-     + [RHELand Centos](https://access.redhat.com/)
-     + [Oracle](https://access.redhat.com/)
+     + [RHEL and Centos](https://access.redhat.com/)
+     + [Oracle](https://yum.oracle.com/)
      +  [SUSE](https://scc.suse.com/packages?name=SUSE)
      + [Debian](https://www.debian.org/distrib/packages/)
      + [Ubuntu](https://packages.ubuntu.com/)

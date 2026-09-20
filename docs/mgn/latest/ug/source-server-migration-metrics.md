@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Source server migration metrics
 <a name="source-server-migration-metrics"></a>
 
-The source server migration metrics present an aggregated overview of your source servers, focused on three topics: **Alerts**, **Data replication status**, and **Migration status**.
+The source server migration metrics present an aggregated overview of your source servers, focused on three topics: **Alerts**, **Data replication status**, and **Migration lifecycle**.
 
 ## Understand source server alerts
 <a name="source-server-migration-metrics-alerts"></a>

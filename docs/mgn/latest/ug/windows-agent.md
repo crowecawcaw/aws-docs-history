@@ -21,7 +21,7 @@ This is an example of the installer link for us-east-1:
 You need to run the agent installer file as an Administrator on each Windows server.
 If you need to validate the installer hash, the correct hash can be found here: `https://aws-application-migration-service-hashes-<region>.s3.<region>.amazonaws.com/latest/windows/AwsReplicationWindowsInstaller.exe.sha512` (replace <region> with the AWS Region into which you are replicating, for example, us-east-1:  
 https://aws-application-migration-service-hashes-us-east-1.s3.us-east-1.amazonaws.com/latest/windows/AwsReplicationWindowsInstaller.exe.sha512 
-We recommend using Windows PowerShell, which support ctrl\+v pasting, and not Windows Command Prompt (cmd), which does not. 
+We recommend using Windows PowerShell, which supports ctrl\+v pasting, and not Windows Command Prompt (cmd), which does not. 
 Replicating Amazon EC2 instances that were launched with marketplace product codes, is not supported. 
 
 **Note**  
@@ -347,13 +347,29 @@ This flag may only be used when adding new source servers to MGN. You cannot use
 
 1. The installer prompts you to enter your **AWS Region Name**, the **AWS Access Key ID**, the **AWS Secret Access Key** (and the **AWS Session Token** if appropriate) that you previously generated. Enter the complete AWS Region name (for example: eu-central-1), and the full AWS Access Key ID and AWS Secret Access Key.   
 ![AWS Replication Agent installation window prompting for AWS Region Name and access keys.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows2.png)
+
+   If you want to install the Agent without answering the interactive prompts, you can pass your credentials to the installer through environment variables instead. We recommend that you use temporary credentials from AWS Security Token Service (AWS STS). Open an elevated (Administrator) PowerShell session, set the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` environment variables, and then run the installer with the `--no-prompt` option. The following PowerShell example sets these variables and runs the installer:
+
+   ```
+   PS C:\> $env:AWS_ACCESS_KEY_ID="AKIAIOSFODNN7EXAMPLE"
+   PS C:\> $env:AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+   PS C:\> $env:AWS_SESSION_TOKEN="AQoDYXdzEJr//////////wEa8AMDSomethingEXAMPLE"
+   PS C:\> .\AwsReplicationWindowsInstaller.exe --region us-east-1 --no-prompt
+   ```
 **Note**  
-You can also enter these values as part of the installation script command parameters. If you do not enter these parameters as part of the installation script, you are prompted to enter them one by one as described above. (for example: ` AwsReplicationWindowsInstaller.exe --region regionname --aws-access-key-id AKIAIOSFODNN7EXAMPLE --aws-secret-access-key wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY)`
+You can also pass the AWS Access Key ID and AWS Secret Access Key as command-line parameters. In the following example, replace `regionname` with the AWS Region into which you are replicating:  
+
+     ```
+     C:\> AwsReplicationWindowsInstaller.exe --region regionname --aws-access-key-id AKIAIOSFODNN7EXAMPLE --aws-secret-access-key wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+     ```
+Credentials that you pass as command-line parameters are visible to other users on the source server. They can view these credentials through the process list (for example, through the `Get-CimInstance Win32_Process` PowerShell command). To avoid exposing your credentials, use the environment variable method described in the previous step. If you do pass credentials as command-line parameters, use temporary credentials from AWS STS and rotate them after you install the Agent.
+If you do not enter these parameters as part of the installation script, you are prompted to enter them one by one as described in the previous step.
+The AWS Access Key ID and AWS Secret Access Key values are hidden when entered into the installer.
 
 1. Once you have entered your credentials, the installer verifies that the source server has enough free disk space for Agent installation and identifies volumes for replication. The installer displays the identified disks and prompts you to choose the disks you want to replicate.   
 ![AWS Replication Agent installation window showing region, access key, and disk space verification.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows3.png)
 
-   To replicate some of the disks, type the path of the disks, separated by a comma, as illustrated in the installer (for example: C: or D:). To replicate all of the disks, press **Enter**. The installer identifies the selected disks and print their size.  
+   To replicate some of the disks, type the path of the disks, separated by a comma, as illustrated in the installer (for example: C: or D:). To replicate all of the disks, press **Enter**. The installer identifies the selected disks and prints their size.  
 ![AWS Replication Agent installer showing region, access key, and disk selection options.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows4.png)
 
    The installer confirms that all of the disks were successfully identified.   
@@ -365,7 +381,7 @@ AWS Transform MGN replicates whole disks. Therefore, if you choose to replicate 
 Incorrect disks may be chosen by accident. Ensure that the correct disks have been chosen.
 **Important**  
 If disks are disconnected from a server, AWS Transform MGN can no longer replicate them, so they are removed from the list of replicated disks. When they are reconnected, the AWS Replication Agent cannot know that these were the same disks that were disconnected and therefore does not add them automatically. To add the disks after they are reconnected, rerun the AWS Replication Agent installer on the server.  
-Note that the returned disks need be replicated from the beginning. Any disk size changes are automatically identified, but also cause a resync. Perform a test after installing the Agent to ensure that the correct disks have been added.
+Note that the returned disks need to be replicated from the beginning. Any disk size changes are automatically identified, but also cause a resync. Perform a test after installing the Agent to ensure that the correct disks have been added.
 
 1. After all of the disks to be replicated have been successfully identified, the installer downloads and installs the AWS Replication Agent on the source server.  
 ![AWS Replication Agent installation progress showing region, disk selection, and completion status.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows6.png)

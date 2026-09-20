@@ -159,7 +159,7 @@ Use the **Windows upgrade** feature to upgrade your migrated server to a more re
 
 You need the AWSApplicationMigrationSSMAccess policy, or a user-defined policy that allows the SSM document to run, to run this post-launch action. This is in addition to the [full access policy](security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md):
 
-To allow the SSM document to run these APIs, you must have the required permissions (including [CreateImages](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html), [DescribeInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html), and more) or have access to a role with those permissions and then provide the role’s ARN as an input parameter to the SSM automation document.
+To allow the SSM document to run these APIs, you must have the required permissions (including [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html), [DescribeInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html), and more) or have access to a role with those permissions and then provide the role’s ARN as an input parameter to the SSM automation document.
 
 Learn more about the permissions required to perform the upgrade in [AWSEC2-CloneInstanceAndUpgradeWindows.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.html) 
 
@@ -182,7 +182,7 @@ Use the **Create AMI from Instance** feature to create a new Amazon Machine Imag
 You need the AWSApplicationMigrationSSMAccess policy, or a user-defined policy that allows the SSM document to run, to run this post-launch action. This is in addition to the [full access policy](security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md):
 
 The action uses these APIs:
-+ [CreateImages](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)
++ [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)
 + [DescribeImages](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html)
 
 To allow the SSM document to run these APIs, you need the required permissions or have access to a role with those permissions and then provide the role’s ARN as an input parameter to the SSM automation document.

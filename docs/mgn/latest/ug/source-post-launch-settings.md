@@ -17,7 +17,7 @@ You must activate the post-launch actions using one of these options:
 + **Activating the post-launch actions for all servers**:
   + Navigate to the **Settings** page and choose **Post-launch settings template**. You only need to do this once and the change applies to all newly added servers. 
 
-    After the post-launched actions have been activated from the template, you can deactivate and activate them for individual servers. [Learn more about activating post-launch settings.](post-launch-settings.md#post-launch-settings-activation)
+    After the post-launch actions have been activated from the template, you can deactivate and activate them for individual servers. [Learn more about activating post-launch settings.](post-launch-settings.md#post-launch-settings-activation)
 
 The settings configured in the template are applied to every newly added server. You can change the settings for existing and newly added servers individually within the server details view. 
 

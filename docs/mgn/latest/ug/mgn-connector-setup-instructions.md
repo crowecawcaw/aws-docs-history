@@ -41,7 +41,7 @@ To add an MGN connector, click **Add MGN connector**, to open the Add MGN connec
 
    The deployment process for each server:
 
-   1. MGN connector sends deployment commands to the connector via SSM.
+   1. MGN sends deployment commands to the connector via SSM.
 
    1. The connector retrieves credentials from AWS Secrets Manager.
 

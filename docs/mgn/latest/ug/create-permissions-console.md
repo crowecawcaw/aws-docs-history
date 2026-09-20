@@ -59,7 +59,7 @@ The following policies are attached to the role:
 
 1. **MgnConnectorPolicy** (inline policy)
 
-The **MgnConnectorPolicy** inline policy contains the following permissions, where *ACCOUNT-ID* is the account in which the role is created and *AWS\_REGION* is the Region in which you added the connector:
+The **MgnConnectorPolicy** inline policy contains the following permissions. In the example, replace {{111122223333}} with the ID of the account in which the role is created, and {{us-east-1}} with the Region in which you added the connector:
 
 ```
 {
@@ -68,12 +68,12 @@ The **MgnConnectorPolicy** inline policy contains the following permissions, whe
         {
             "Effect": "Allow",
             "Action": "mgn:CreateConnector",
-            "Resource": "arn:aws:mgn:AWS_REGION:ACCOUNT-ID:*"
+            "Resource": "arn:aws:mgn:{{us-east-1}}:{{111122223333}}:*"
         },
         {
             "Effect": "Allow",
             "Action": "mgn:TagResource",
-            "Resource": "arn:aws:mgn:AWS_REGION:ACCOUNT-ID:connector/*",
+            "Resource": "arn:aws:mgn:{{us-east-1}}:{{111122223333}}:connector/*",
             "Condition": {
                 "StringEquals": {
                     "mgn:CreateAction": "CreateConnector"
@@ -83,12 +83,12 @@ The **MgnConnectorPolicy** inline policy contains the following permissions, whe
         {
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": "arn:aws:iam::*:role/AWSApplicationMigrationConnectorSharingRole_ACCOUNT-ID"
+            "Resource": "arn:aws:iam::*:role/AWSApplicationMigrationConnectorSharingRole_{{111122223333}}"
         },
         {
             "Effect": "Allow",
             "Action": "secretsmanager:GetSecretValue",
-            "Resource": "arn:aws:secretsmanager:AWS_REGION:ACCOUNT-ID:secret:*",
+            "Resource": "arn:aws:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:*",
             "Condition": {
                 "Null": {
                     "aws:ResourceTag/AWSApplicationMigrationServiceManaged": "false"
@@ -99,8 +99,8 @@ The **MgnConnectorPolicy** inline policy contains the following permissions, whe
             "Effect": "Allow",
             "Action": "s3:GetObject",
             "Resource": [
-                "arn:aws:s3:::aws-application-migration-service-AWS_REGION/latest/source-automation-client/linux/ssaf-client/ssaf_client",
-                "arn:aws:s3:::amazon-ssm-AWS_REGION/*"
+                "arn:aws:s3:::aws-application-migration-service-{{us-east-1}}/latest/source-automation-client/linux/ssaf-client/ssaf_client",
+                "arn:aws:s3:::amazon-ssm-{{us-east-1}}/*"
             ]
         },
         {
@@ -113,8 +113,8 @@ The **MgnConnectorPolicy** inline policy contains the following permissions, whe
                 "logs:PutLogEvents"
             ],
             "Resource": [
-                "arn:aws:logs:AWS_REGION:ACCOUNT-ID:log-group:/aws/ssm/*",
-                "arn:aws:logs:AWS_REGION:ACCOUNT-ID:log-stream:*"
+                "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:/aws/ssm/*",
+                "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-stream:*"
             ]
         }
     ]
@@ -152,17 +152,17 @@ The role is created with the following trust relationship, where *management-acc
             "Action": "sts:AssumeRole",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "management-account-id"
+                    "aws:SourceAccount": "{{111122223333}}"
                 },
-                "StringLike": {
-                    "aws:SourceArn": "arn:aws:mgn:*:management-account-id:*"
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:mgn:*:{{111122223333}}:*"
                 }
             }
         },
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::management-account-id:role/AWSApplicationMigrationConnectorManagementRole"
+                "AWS": "arn:aws:iam::{{111122223333}}:role/AWSApplicationMigrationConnectorManagementRole"
             },
             "Action": "sts:AssumeRole"
         }
