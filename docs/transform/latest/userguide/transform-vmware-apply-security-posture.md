@@ -23,6 +23,8 @@ The AWS Transform agent guides you through the following steps, handling the ana
 
 1. Deploy the security groups.
 
+1. Remove source rules after cutover.
+
 **Note**  
 Because this flow applies security posture to VPCs that already exist, it does not include the network diagram step that is part of mapping a source network to new VPCs.
 
@@ -80,6 +82,8 @@ When you provide CIDR mappings, keep the following guidance in mind:
 + **Mappings also apply to your security group rules.** Only rule CIDRs that fall within a mapped CIDR range are carried over. Rule CIDRs outside your mapped ranges are not migrated, so broader mappings also help ensure your rules are fully covered.
 + **Use the same prefix length on both sides.** A mapping must map to an equal-size range, such as /16 to /16 or /24 to /24. Mapping between different prefix lengths (for example, /24 to /20) is not supported.
 
+When you provide a CIDR mapping, AWS Transform duplicates each affected security group rule: one (with the `[ONPREM]` prefix in its description) points to the source on-premises address space, the other to the target AWS address space. Having both rules lets a workload reach its peers whether they have migrated or still run on-premises.
+
 ## Step 4: Specify your VPC topology
 <a name="transform-vmware-apply-security-posture-topology"></a>
 
@@ -127,3 +131,10 @@ After you review the generated security groups, choose how to deploy them. As wi
 + **Self-deployment:** AWS Transform generates the security groups as Infrastructure as Code (IaC) that you deploy yourself. The same output formats are available: CloudFormation, AWS CDK, HashiCorp Terraform, and Landing Zone Accelerator (LZA).
 
 This flow deploys security groups only. Unlike mapping a source network to new VPCs, AWS Transform does not run Reachability Analyzer, because no new network infrastructure is created, and there is no automatic rollback of deployed resources.
+
+For details about the generated artifacts, including the output directory structure for each format, see [Understanding the generated network artifacts](transform-migrations-generated-artifacts.md).
+
+## Step 8: Remove source rules after cutover
+<a name="transform-vmware-apply-security-posture-cleanup"></a>
+
+Once a workload has fully moved to AWS and no longer needs connectivity to its source network, remove the security group rules with the `[ONPREM]` prefix in their description. Keep the rules for any workloads that still run in the source environment.

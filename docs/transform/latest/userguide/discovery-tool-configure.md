@@ -444,78 +444,13 @@ When you configure Oracle credentials, the discovery tool first tries a direct S
 
 The discovery tool does not have an automatic updates feature however you will receive a reminder notification after 30 days of installation to update. It is recommended to keep the application up-to-date to receive the latest features and security patches.
 
-There are two ways to update:
-+ **Update in place** – Updates the application inside your existing VM with the Linux installer. Your collected inventory, credentials, and configuration are preserved. This method needs operating system access to the discovery tool VM. We recommend this method.
-+ **Redeploy from a new image** – Deploys a new VM from the latest OVA for VMware or VHD for Hyper-V. A new deployment starts with an empty database. Your existing data and configuration are not carried over unless you migrate them yourself.
+**To manually update the tool**
 
-### Updating in place with the Linux installer
-<a name="discovery-tool-updating-in-place"></a>
+1. Download the latest discovery tool image file (OVA for VMware or VHD for Hyper-V) from the provided link.
 
-This method runs on the existing VM. It keeps your database, which holds your collected data, discovery sources, and credentials, and it keeps the database encryption key. Use this method when you want to keep your existing configuration and collected data.
+1. (Optional) We recommend that you delete the previous discovery tool image file before you deploy the latest one.
 
-**Note**  
-This method updates only the discovery tool application. It does not update anything on the VM host, such as the operating system version, the preconfigured shell aliases, or the networking and firewall rules. To get host updates, redeploy from a new image instead. For more information, see [Redeploying from a new image](#discovery-tool-updating-redeploy).
-
-**Important**  
-Complete the backup step before you update, so that you can restore your data if the update does not finish.
-
-**To update the discovery tool in place**
-
-1. Access the discovery tool VM through your hypervisor console, or through SSH after you run `enablessh`. For more information, see [Accessing the discovery tool VM](#discovery-tool-vm-access).
-
-1. Back up the data directory so that you can restore it if you need to.
-
-   ```
-   sudo tar czf /home/ec2-user/discovery-tool-backup-$(date +%F).tar.gz \
-     -C /home/ec2-user/.local/share DiscoveryTool
-   ```
-
-   The installer keeps the database encryption key. It does not change the key during an update.
-
-1. Download the latest installer script to the VM and make it executable.
-
-   ```
-   curl -O https://s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/AWS-Transform-discovery-tool.sh
-   chmod +x AWS-Transform-discovery-tool.sh
-   ```
-
-1. Stop the discovery tool service.
-
-   ```
-   sudo ./AWS-Transform-discovery-tool.sh stop
-   ```
-
-1. Run the installer. It detects the existing installation and updates it in place, keeping your data directory, encryption key, and service user. It also installs any required system packages.
-
-   ```
-   sudo ./AWS-Transform-discovery-tool.sh install
-   ```
-
-1. Start the discovery tool service.
-
-   ```
-   sudo ./AWS-Transform-discovery-tool.sh start
-   ```
-
-1. Verify the update. Open `https://{{ip_address}}:5000` in a web browser, sign in, and confirm that the version is updated and that your discovery sources, credentials, and inventory are present.
-
-### Redeploying from a new image
-<a name="discovery-tool-updating-redeploy"></a>
-
-Use this method if you do not have operating system access to the VM, or if you prefer to deploy a new appliance. A redeployed VM starts with an empty database.
-
-**To redeploy the discovery tool from a new image**
-
-1. Download the latest image file: the OVA for VMware or the VHD for Hyper-V.
-
-1. (Optional) Delete the previous discovery tool image file before you deploy the latest one.
-
-1. Deploy the new version. For VMware, see [Deploy on VMware](discovery-tool-deploy-vmware.md). For Hyper-V, see [Deploy on Hyper-V](discovery-tool-deploy-hyperv.md).
-
-1. Configure your discovery sources, credentials, and server imports again on the new VM.
-
-**Note**  
-If you want to deploy a new discovery tool and keep the data and configuration that you already collected, contact AWS Support before you begin.
+1. Follow the steps in the Deploy the discovery tool section to deploy the updated version.
 
 ## Revoking access
 <a name="discovery-tool-revoking"></a>

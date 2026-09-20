@@ -374,9 +374,7 @@ You must get explicit approval before your network deployment request runs. See 
 **Note**  
 When you deploy through the Landing Zone Accelerator (LZA) pipeline, your AWS Transform account and LZA installation must be in the same AWS Organization. Deployment fails if the Organization IDs don't match.
 
-For self-deployment, use the link provided to download a zip file containing the generated templates. The zip folder includes a README.md file that explains how to use the generated templates.
-
-To verify the downloaded file hasn't been corrupted or tampered with, generate and download a checksum, then compare it to a locally generated hash using `openssl dgst -sha256 -binary <file.zip> | base64` command.
+For details about the generated artifacts, including the output directory structure for each format, see [Understanding the generated network artifacts](transform-migrations-generated-artifacts.md).
 
 ### Deployment approvals process
 <a name="deployment-approvals-process"></a>

@@ -650,7 +650,9 @@ The reference files contain before-and-after code examples. For instance, `aws-s
 ### Tags and Organization
 <a name="custom-tags-organization"></a>
 
-You can organize transformations with tags for access control and categorization.
+You can organize customer-owned transformation definitions with tags for access control, categorization, and cost allocation.
+
+You can add, update, or remove tags only on customer-owned transformation definitions. You cannot manage tags on AWS-managed transformations.
 
 **Note**  
 Some of these commands require specifying the Amazon Resource Name (ARN) for a Transformation Definition. The ARN structure is: `arn:aws:transform-custom:<region>:<account-id>:package/<td-name>`
@@ -674,6 +676,39 @@ atx custom def untag --arn <transformation-arn> --tag-keys "env,team"
 ```
 
 Tags can be used for grouped access control in IAM policies. You can create policies that grant permissions to all transformations with specific tags (e.g., all transformations tagged with `team:frontend` or `environment:production`).
+
+#### Use tags for cost allocation
+<a name="custom-cost-allocation"></a>
+
+You can use tags on customer-owned transformation definitions to organize your AWS bill. AWS Transform custom records the transformation definition as the billing resource for the [Agent Minutes](https://aws.amazon.com/transform/pricing/) an execution consumes. Each execution inherits the tags of the transformation definition it runs. If several teams or projects share one AWS account, tag each customer-owned definition with its cost owner. You can then separate the transformation costs for each team or project.
+
+After you tag your customer-owned transformation definitions, activate those tag keys in the AWS Billing and Cost Management console. Tag values do not appear in your cost data until the tag key is activated. Activation applies to usage going forward. To attribute usage from earlier months, request a cost allocation tag backfill. For more information, see [Cost allocation and tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation.html) in the *AWS Billing and Cost Management User Guide*.
+
+After a tag key is active, you can group AWS Transform charges by that key in Cost Explorer. You can also include resource IDs in AWS Cost and Usage Reports to see the transformation definition ARN and its tag values on each line item. For the columns that carry those values, see [Resource tags columns](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2-resource-tags.html) in the *AWS Data Exports User Guide*. The following example returns AWS Transform cost and Agent Minutes for one day, grouped by a `CostCenter` tag.
+
+```
+aws ce get-cost-and-usage \
+    --time-period Start=2026-09-01,End=2026-09-02 \
+    --granularity DAILY \
+    --metrics UnblendedCost UsageQuantity \
+    --filter '{"Dimensions":{"Key":"SERVICE","Values":["AWS Transform"]}}' \
+    --group-by Type=TAG,Key=CostCenter
+```
+
+Cost Explorer returns charges with no value for the key as a single group with an empty value. This shows you how much spend remains unattributed.
+
+##### What you cannot attribute by tag
+<a name="custom-cost-allocation-limitations"></a>
+
+Tag-based attribution operates on the transformation definition. Confirm the following against your cost model before you rely on tags for chargeback.
+
+
+| Usage | Why it is not attributed, and what to do instead | 
+| --- | --- | 
+| AWS-managed transformations | You cannot add, update, or remove tags on AWS-managed transformation definitions. Their Agent Minutes charges do not inherit customer-defined cost allocation tags. | 
+| Sessions that run no transformation definition | Agent Minutes consumed in an atx session that does not run a transformation definition are recorded without a resource ID, so there is no resource to inherit tags. Run the work through a tagged transformation definition when the spend must be attributed. | 
+| Individual executions of one definition | Tags are a property of the transformation definition, not of an execution, and atx custom def exec does not accept tags. All executions of a definition share its tag values. To separate two cost owners, give each its own transformation definition. | 
+| Individual users or IAM principals | Charges are attributed to the transformation definition and the executing account, not to the identity that started the execution. Per-user attribution is not available through cost allocation tags. | 
 
 ### Logs
 <a name="custom-logs-config"></a>

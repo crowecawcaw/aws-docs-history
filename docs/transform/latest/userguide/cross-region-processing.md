@@ -22,6 +22,10 @@ Cross region inference doesn’t affect where your data is stored. For informati
 
 Certain requests you make to AWS Transform might require cross-region calls. The following table describes what Regions your requests may be routed to depending on the geography where the request originated. 
 
+**Important**  
+Beginning October 7, 2026, AWS Transform Chat is updating how it processes inference requests that originate in the Asia Pacific (Mumbai) (ap-south-1) and Asia Pacific (Seoul) (ap-northeast-2) Regions. Inference requests originating in these Regions will be securely routed to available compute resources across all commercial AWS Regions, rather than being processed only within the Asia Pacific geography.  
+Your data continues to be stored only in the Region where the request originated. Only input prompts and output results may be processed in another Region. All data is transmitted encrypted across Amazon's secure network.
+
 
 | Source Region | Destination Regions | 
 | --- | --- | 
@@ -32,8 +36,8 @@ Certain requests you make to AWS Transform might require cross-region calls. The
 | Asia Pacific (Seoul) (ap-northeast-2) | Asia Pacific (Tokyo) (ap-northeast-1)<br />Asia Pacific (Seoul) (ap-northeast-2)<br />Asia Pacific (Osaka) (ap-northeast-3)<br />Asia Pacific (Mumbai) (ap-south-1)<br />Asia Pacific (Hyderabad) (ap-south-2)<br />Asia Pacific (Singapore) (ap-southeast-1)<br />Asia Pacific (Sydney) (ap-southeast-2)<br />Asia Pacific (Melbourne) (ap-southeast-4) | 
 | Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)<br />Asia Pacific (Melbourne) (ap-southeast-4) | 
 | Europe (London) (eu-west-2) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (London) (eu-west-2)<br />Europe (Paris) (eu-west-3) | 
-| Canada (Central) (ca-central-1) | Commercial AWS Regions \+ Canada (Central) (ca-central-1) | 
-| South America (São Paulo) (sa-east-1) | Commercial AWS Regions \+ South America (São Paulo) (sa-east-1) | 
+| Canada (Central) (ca-central-1) | All commercial regions | 
+| South America (São Paulo) (sa-east-1) | All commercial regions | 
 
 For a complete list of Regions where you can use AWS Transform, see [Supported Regions for AWS Transform](regions.md).
 
