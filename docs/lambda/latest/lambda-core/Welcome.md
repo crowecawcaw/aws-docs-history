@@ -19,4 +19,4 @@ For a list of Region-specific endpoints that Lambda supports, see [Lambda endpoi
 
 When making the API calls, you will need to authenticate your request by providing a signature. Lambda supports signature version 4. For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the * AWS General Reference.* 
 
-This document was last published on September 11, 2026. 
+This document was last published on September 18, 2026. 
