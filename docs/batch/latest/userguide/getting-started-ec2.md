@@ -30,8 +30,18 @@ It should take about 10–15 minutes to complete this tutorial.
 There are no country or regional restrictions associated with using this solution.
 
 **Resource Usage Costs**  
-There's no charge for creating an AWS account. However, by implementing this solution, you might incur some or all of the costs that are listed in the following table.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/batch/latest/userguide/getting-started-ec2.html)
+There's no charge for creating an AWS account. However, by implementing this solution, you might incur some or all of the costs that are listed in the following table.  
+
+
+<table>
+<thead>
+  <tr><th>Description</th><th>Cost (US dollars)</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon EC2 instance</td><td>You pay for each Amazon EC2 instance that is created. For more information about pricing, see <a href="https://aws.amazon.com/ec2/pricing/">Amazon EC2 Pricing</a>.</td></tr>
+</tbody>
+</table>
+
 
 ## Prerequisites
 <a name="getting-started-ec2-prerequisite"></a>

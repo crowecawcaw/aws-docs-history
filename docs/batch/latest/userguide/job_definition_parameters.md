@@ -429,14 +429,55 @@ The number of physical GPUs to reserve for the container. The number of GPUs res
 type="MEMORY"  
 The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to `Memory` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--memory` option to [docker run](https://docs.docker.com/engine/reference/run/). You must specify at least 4 MiB of memory for a job. This is required but can be specified in several places for multi-node parallel (MNP) jobs. It must be specified for each node at least once. This parameter maps to `Memory` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--memory` option to [docker run](https://docs.docker.com/engine/reference/run/).  
 If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see [Compute resource memory management](memory-management.md).
-For jobs that run on Fargate resources, then `value` must match one of the supported values. Moreover, the `VCPU` values must be one of the values that's supported for that memory value.      
-<a name="Fargate-memory-vcpu"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html)  
+For jobs that run on Fargate resources, then `value` must match one of the supported values. Moreover, the `VCPU` values must be one of the values that's supported for that memory value.  
+
+<a name="Fargate-memory-vcpu"></a>
+<table>
+<thead>
+  <tr><th><code>VCPU</code></th><th><code>MEMORY</code></th></tr>
+</thead>
+<tbody>
+  <tr><td>0.25 vCPU</td><td>512, 1024, and 2048 MiB</td></tr>
+  <tr><td>0.5 vCPU</td><td>1024-4096 MiB in 1024 MiB increments</td></tr>
+  <tr><td>1 vCPU</td><td>2048-8192 MiB in 1024 MiB increments</td></tr>
+  <tr><td>2 vCPU</td><td>4096-16384 MiB in 1024 MiB increments</td></tr>
+  <tr><td>4 vCPU</td><td>8192-30720 MiB in 1024 MiB increments</td></tr>
+  <tr><td>8 vCPU</td><td>16384-61440 MiB in 4096 MiB increments</td></tr>
+  <tr><td>16 vCPU</td><td>32768-122880 MiB in 8192 MiB increments</td></tr>
+  <tr><td>32 vCPU</td><td>61440, 122880, and 249856 MiB</td></tr>
+</tbody>
+</table>
+  
 type="VCPU"  
 The number of vCPUs reserved for the job. This parameter maps to `CpuShares` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `--cpu-shares` option to [docker run](https://docs.docker.com/engine/reference/run/). Each vCPU is equivalent to 1,024 CPU shares. For jobs that run on EC2 resources, you must specify at least one vCPU. This is required but can be specified in several places. It must be specified for each node at least once.  
 For jobs that run on Fargate resources, `value` must match one of the supported values and the `MEMORY` values must be one of the values that's supported for that VCPU value. The supported values are 0.25, 0.5, 1, 2, 4, 8, 16, and 32.  
 The default for the Fargate On-Demand vCPU resource count quota is 6 vCPUs. For more information about Fargate quotas, see [AWS Fargate quotas ](https://docs.aws.amazon.com/general/latest/gr/ecs-service.html#service-quotas-fargate)in the *Amazon Web Services General Reference*.
 Type: String  
 Required: Yes, when `resourceRequirements` is used.
+
+`runtimePlatform`  
+An object that represents the compute environment architecture for AWS Batch jobs. This parameter applies to jobs that run on AWS Fargate and Amazon ECS Managed Instances resources.  
+
+```
+"runtimePlatform": {
+    "cpuArchitecture": "string",
+    "operatingSystemFamily": "string"
+}
+```
+Type: [RuntimePlatform](https://docs.aws.amazon.com/batch/latest/APIReference/API_RuntimePlatform.html) object  
+Required: No    
+`cpuArchitecture`  
+The vCPU architecture. The default value is `X86_64`.  
+This parameter must be set to `X86_64` for Windows containers.
+Type: String  
+Valid values: `X86_64` \| `ARM64`  
+Required: No  
+`operatingSystemFamily`  
+The operating system for the compute environment.  
+The following parameters can't be set for Windows containers: `linuxParameters`, `privileged`, `user`, `ulimits`, `readonlyRootFilesystem`, and `efsVolumeConfiguration`.
+Type: String  
+Valid values: `LINUX` \| `WINDOWS_SERVER_2019_CORE` \| `WINDOWS_SERVER_2019_FULL` \| `WINDOWS_SERVER_2022_CORE` \| `WINDOWS_SERVER_2022_FULL`  
+Required: No
 
 `secrets`  
 The secrets for the job that are exposed as environment variables. For more information, see [Specify sensitive data](specifying-sensitive-data.md).  

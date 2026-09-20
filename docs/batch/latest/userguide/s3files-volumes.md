@@ -11,9 +11,7 @@ To use S3 Files volumes, you need an S3 file system and mount target configured 
 <a name="s3files-volume-considerations"></a>
 
 Consider the following when using S3 Files volumes:
-+ 
-**Important**  
-S3 Files are not supported on the Amazon EC2 launch type at this time. If you configure an S3 file system in a job definition and attempt to run it on the Amazon EC2 launch type, the job will fail at launch. Amazon EC2 launch type support is planned for a future release.
++ You can use S3 Files volumes with Fargate, Amazon EC2, and Amazon ECS Managed Instances compute environments. On Amazon EC2 compute environments, S3 Files support requires the Amazon ECS container agent version included in recent Amazon ECS-optimized AMIs. Any Amazon EC2 compute environment created after June 19 2026 includes this support by default. To add S3 Files support to an existing Amazon EC2 compute environment, update the compute environment to the latest Amazon ECS-optimized AMI version. For more information, see [Managing AMI versions in compute environments](managing-ami-versions.md).
 + Transit encryption is always enabled for S3 Files volumes. You can optionally specify the port using the `transitEncryptionPort` parameter. The default port is `2049`.
 + The job role (equivalent to the Amazon ECS task role) must have `s3files:ClientMount` and `s3files:ClientWrite` permissions on the file system. For direct reads from Amazon S3, the role also needs `s3:GetObject`, `s3:GetObjectVersion`, and `s3:ListBucket` permissions on the bucket.
 + The S3 file system mount target must be in the same VPC and reachable from the subnets of your AWS Batch compute environment. The mount target security group must allow inbound NFS traffic (TCP port 2049) from the compute environment security group.

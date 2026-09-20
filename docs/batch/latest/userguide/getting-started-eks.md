@@ -50,8 +50,18 @@ It should take about 30–40 minutes to complete this tutorial.
 There are no country or regional restrictions associated with using this solution.
 
 **Resource Usage Costs**  
-There's no charge for creating an AWS account. However, by implementing this solution, you might incur some or all of the costs that are listed in the following table.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/batch/latest/userguide/getting-started-eks.html)
+There's no charge for creating an AWS account. However, by implementing this solution, you might incur some or all of the costs that are listed in the following table.  
+
+
+<table>
+<thead>
+  <tr><th>Description</th><th>Cost (US dollars)</th></tr>
+</thead>
+<tbody>
+  <tr><td>You are charged by the cluster hour</td><td>Varies depending on Instance, see <a href="https://aws.amazon.com/eks/pricing/">Amazon EKS pricing</a> </td></tr>
+</tbody>
+</table>
+
 
 ## Prerequisites
 <a name="getting-started-eks-prerequisites"></a>
