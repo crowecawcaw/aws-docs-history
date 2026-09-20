@@ -107,8 +107,26 @@ The following procedure configures and deploys the Harvest/Grafana solution. It 
 **Note**  
 By default, this template launches in the US East (N. Virginia) AWS Region. You must launch this solution in an AWS Region where Amazon FSx is available. For more information, see [Amazon FSx endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/fsxn.html) in the *AWS General Reference. *
 
-1. For **Parameters**, review the parameters for the template and modify them for the needs of your file system. This solution uses the following default values.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/monitoring-harvest-grafana.html)
+1. For **Parameters**, review the parameters for the template and modify them for the needs of your file system. This solution uses the following default values.
+
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>InstanceType</td><td><code>t3.micro</code></td><td>The Amazon EC2 instance type. Following are the <code>t3</code> instance types.<ul><li><code>t3.micro</code></li><li><code>t3.small</code></li><li><code>t3.medium</code></li><li><code>t3.large</code></li><li><code>t3.xlarge</code></li><li><code>t3.2xlarge</code></li></ul><br />For the complete list of allowed Amazon EC2 instance type values for this parameter, see the fsx-ontap-harvest-grafana.template.</td></tr>
+  <tr><td>KeyPair</td><td>No default value</td><td>The key pair that is used to access the Amazon EC2 instance.</td></tr>
+  <tr><td>SecurityGroup</td><td>No default value</td><td>The Security group ID for the Harvest/Grafana Instance. Ensure Inbound ports 3000 and 9090, in addition to ports 53 and 443, are open from the clients you wish to use to access your Grafana dashboard.</td></tr>
+  <tr><td>Subnet Type</td><td>No default value</td><td>Specify the subnet type, either <code>public</code> or <code>private</code>. Use a <code>public</code> subnet for resources that must be connected to the internet, and a private subnet for resources that won't be connected to the internet. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html#subnet-types">Subnet types</a> in the <i> Amazon VPC User Guide</i>.</td></tr>
+  <tr><td>Subnet</td><td>No default value</td><td>Specify the same subnet as your Amazon FSx for NetApp ONTAP file system's preferred subnet. You can find the file system's <b>Preferred subnet</b> ID in the Amazon FSx console, in the <b>Network &amp; security</b> tab of the FSx for ONTAP file system details page</td></tr>
+  <tr><td>LatestLinuxAmiId</td><td><code>/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2</code></td><td>The latest version of the Amazon Linux 2 AMI in a given AWS Region.</td></tr>
+  <tr><td>FSxEndPoint</td><td>No default value</td><td>The file system's Management endpoint IP address. You can find the file system's management endpoint <b>IP address</b> in the Amazon FSx console, in the <b>Administration</b> tab of the FSx for ONTAP file system details page.</td></tr>
+  <tr><td>SecretName</td><td>No default value</td><td>AWS Secrets Manager secret name containing the password for the file system's <code>fsxadmin</code> user. This is the password you provided when you created the file system. </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 

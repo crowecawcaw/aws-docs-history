@@ -191,8 +191,20 @@ You configure NTFS audit policies by adding entries to NTFS SACLs that are assoc
 
 1. Choose the **Auditing** tab.
 
-1. Perform the desired actions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/file-access-auditing.html)
+1. Perform the desired actions:
+
+
+<table>
+<thead>
+  <tr><th>If you want to...</th><th>Do the following</th></tr>
+</thead>
+<tbody>
+  <tr><td>Set up auditing for a new user or group</td><td><ol><li>Choose <b>Add</b>.</li><li>In the <b>Enter the object name to select</b> box, type the name of the user or group that you want to add.</li><li>Choose <b>OK</b>.</li></ol></td></tr>
+  <tr><td>Remove auditing from a user or group</td><td><ol><li>In the <b>Enter the object name to select</b> box, select the user or group that you want to remove.</li><li>Choose <b>Remove</b>.</li><li>Choose <b>OK</b>.</li><li>Skip the rest of this procedure.</li></ol></td></tr>
+  <tr><td>Change auditing for a user or group</td><td><ol><li>In the <b>Enter the object name to select</b> box, choose the user or group that you want to change.</li><li>Choose <b>Edit</b>.</li><li>Choose <b>OK</b>.</li></ol></td></tr>
+</tbody>
+</table>
+
 
    If you are setting up auditing on a user or group or changing auditing on an existing user or group, the **Auditing Entry for {{object}}** box opens.
 

@@ -33,8 +33,23 @@ For an SVM to join Active Directory, you need to ensure that the ports documente
 + The security group and the VPC Network ACLs for the subnets on which you're creating the file system must allow traffic on the ports and in the directions shown in the following diagram.  
 ![Diagram showing FSx for ONTAP port configuration requirements for VPC security groups and network ACLs for the subnets that you're creating an FSx for ONTAP file system in.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/ontap-port-requirements.png)
 
-  The role of each port is described in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-manage-prereqs.html)
+  The role of each port is described in the following table.
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Ports</th><th>Role</th></tr>
+</thead>
+<tbody>
+  <tr><td>TCP/UDP</td><td>53</td><td>Domain Name System (DNS)</td></tr>
+  <tr><td>TCP/UDP</td><td>88</td><td>Kerberos authentication</td></tr>
+  <tr><td>TCP/UDP</td><td>389</td><td>Lightweight Directory Access Protocol (LDAP)</td></tr>
+  <tr><td>TCP</td><td>445</td><td>Directory Services SMB file sharing</td></tr>
+  <tr><td>TCP/UDP</td><td>464</td><td>Change/Set password</td></tr>
+  <tr><td>TCP</td><td>636</td><td>Lightweight Directory Access Protocol over TLS/SSL (LDAPS)</td></tr>
+</tbody>
+</table>
+
 + These traffic rules should also be mirrored on the firewalls that apply to each of the Active Directory domain controllers, DNS servers, FSx clients, and FSx administrators.
 **Important**  
 While Amazon VPC security groups require ports to be opened only in the direction that network traffic is initiated, most Windows firewalls and VPC network ACLs require ports to be open in both directions.

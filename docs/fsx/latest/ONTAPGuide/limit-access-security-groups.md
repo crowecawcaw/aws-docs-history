@@ -37,8 +37,44 @@ For more information on security group rules, see [Security Group Rules](https:/
 1. Add the following rules to the inbound ports of your security group. For the **source** field, you should choose **Custom** and enter the security groups or IP address ranges associated with the instances that need to access your FSx for ONTAP file system, including:
    + Linux, Windows, and/or macOS clients that access data in your file system over NFS, SMB, or iSCSI.
    + Any ONTAP file systems/clusters that you will peer to your file system (for example, to use SnapMirror, SnapVault, or FlexCache).
-   + Any clients that you will use to access the ONTAP REST API, CLI, or ZAPIs (for example, a Harvest/Grafana instance, NetApp Connector, or NetApp Console).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/limit-access-security-groups.html)
+   + Any clients that you will use to access the ONTAP REST API, CLI, or ZAPIs (for example, a Harvest/Grafana instance, NetApp Connector, or NetApp Console).
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Ports</th><th>Role</th></tr>
+</thead>
+<tbody>
+  <tr><td>All ICMP</td><td>All</td><td>Pinging the instance</td></tr>
+  <tr><td>SSH</td><td>22</td><td>SSH access to the IP address of the cluster management LIF or a node management LIF</td></tr>
+  <tr><td>TCP</td><td>111</td><td>Remote procedure call for NFS</td></tr>
+  <tr><td>TCP</td><td>135</td><td>Remote procedure call for CIFS</td></tr>
+  <tr><td>TCP</td><td>139</td><td>NetBIOS service session for CIFS</td></tr>
+  <tr><td>TCP</td><td>161-162</td><td>Simple network management protocol (SNMP)</td></tr>
+  <tr><td>TCP</td><td>443</td><td>ONTAP REST API access to the IP address of the cluster management LIF or an SVM management LIF</td></tr>
+  <tr><td>TCP</td><td>445</td><td>Microsoft SMB/CIFS over TCP with NetBIOS framing</td></tr>
+  <tr><td>TCP</td><td>635</td><td>NFS mount</td></tr>
+  <tr><td>TCP</td><td>749</td><td>Kerberos</td></tr>
+  <tr><td>TCP</td><td>2049</td><td>NFS server daemon</td></tr>
+  <tr><td>TCP</td><td>3260</td><td>iSCSI access through the iSCSI data LIF</td></tr>
+  <tr><td>TCP</td><td>4045</td><td>NFS lock daemon</td></tr>
+  <tr><td>TCP</td><td>4046</td><td>Network status monitor for NFS</td></tr>
+  <tr><td>TCP</td><td>10000</td><td>Network data management protocol (NDMP) and NetApp SnapMirror intercluster communication</td></tr>
+  <tr><td>TCP</td><td>11104</td><td>Management of NetApp SnapMirror intercluster communication</td></tr>
+  <tr><td>TCP</td><td>11105</td><td>SnapMirror data transfer using intercluster LIFs</td></tr>
+  <tr><td>UDP</td><td>111</td><td>Remote procedure call for NFS</td></tr>
+  <tr><td>UDP</td><td>135</td><td>Remote procedure call for CIFS</td></tr>
+  <tr><td>UDP</td><td>137</td><td>NetBIOS name resolution for CIFS</td></tr>
+  <tr><td>UDP</td><td>139</td><td>NetBIOS service session for CIFS</td></tr>
+  <tr><td>UDP</td><td>161-162</td><td>Simple network management protocol (SNMP)</td></tr>
+  <tr><td>UDP</td><td>635</td><td>NFS mount</td></tr>
+  <tr><td>UDP</td><td>2049</td><td>NFS server daemon</td></tr>
+  <tr><td>UDP</td><td>4045</td><td>NFS lock daemon</td></tr>
+  <tr><td>UDP</td><td>4046</td><td>Network status monitor for NFS</td></tr>
+  <tr><td>UDP</td><td>4049</td><td>NFS quota protocol</td></tr>
+</tbody>
+</table>
+
 
 1. Add the security group to the file system's elastic network interface.
 
