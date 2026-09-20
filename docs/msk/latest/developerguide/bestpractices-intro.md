@@ -7,6 +7,7 @@ This section describes best practices to follow for Standard brokers and Express
 
 **Topics**
 + [Best practices for Standard brokers](bestpractices.md)
++ [Recommended CloudWatch alarms for Amazon MSK Provisioned clusters](bestpractices-cw-alarms.md)
 + [Best practices for Express brokers](bestpractices-express.md)
 + [Best practices for Apache Kafka clients](bestpractices-kafka-client.md)
 + [Analyze best practices with the `managing-amazon-msk` skill](bestpractices-msk-skill.md)

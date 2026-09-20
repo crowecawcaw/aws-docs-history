@@ -71,6 +71,25 @@ Some Amazon MSK actions, such as those for creating resources, cannot be perform
 "Resource": "*"
 ```
 
+**Important**  
+When you create a cluster with a custom configuration (the `ConfigurationInfo` parameter), Amazon MSK evaluates `kafka:CreateCluster` and `kafka:CreateClusterV2` against both the cluster resource and the configuration resource. A policy that grants these actions on a cluster ARN alone returns an `AccessDeniedException` that names the configuration ARN.
+
+To avoid this, grant the cluster creation actions in a separate statement that uses the wildcard (\*):
+
+```
+{
+    "Sid": "AllowClusterCreation",
+    "Effect": "Allow",
+    "Action": [
+        "kafka:CreateCluster",
+        "kafka:CreateClusterV2"
+    ],
+    "Resource": "*"
+}
+```
+
+Alternatively, grant `kafka:CreateCluster` and `kafka:CreateClusterV2` on the configuration resource in addition to the cluster resource. Other Amazon MSK actions, such as `kafka:DescribeCluster` and `kafka:DeleteCluster`, can still be scoped to specific cluster ARNs.
+
 To specify multiple resources in a single statement, separate the ARNs with commas. 
 
 ```

@@ -27,11 +27,38 @@ Make sure you have the following items.
 
 1. Configure your route tables. You must have two route tables in total to complete this setup. You should already have a main route table that was automatically created at the same time as your VPC. In this step you create an additional route table for your public subnet.
 
-   1. Use the following settings to modify your VPC's main route table so that your private subnets route traffic to your NAT gateway. For instructions, see [Work with route tables](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html) in the *Amazon Virtual Private Cloud* *User Guide*.  
-**Private MSKC route table**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/msk/latest/developerguide/msk-connect-internet-access-private-subnets-example.html)
+   1. Use the following settings to modify your VPC's main route table so that your private subnets route traffic to your NAT gateway. For instructions, see [Work with route tables](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html) in the *Amazon Virtual Private Cloud* *User Guide*.
+
+
+**Private MSKC route table**  
+
+<table>
+<thead>
+  <tr><th>Property</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name tag</td><td>We recommend that you give this route table a descriptive name tag to help you identify it. For example, <b>Private MSKC</b>.</td></tr>
+  <tr><td>Associated subnets</td><td> Your private subnets</td></tr>
+  <tr><td>A route to enable internet access for MSK Connect</td><td> <ul><li> <b>Destination</b>: 0.0.0.0/0 </li><li> <b>Target</b>: Your NAT gateway ID. For example, <i>nat-12a345bc6789efg1h</i>. </li></ul> </td></tr>
+  <tr><td>A local route for internal traffic</td><td> <ul><li> <b>Destination</b>: 10.0.0.0/16. This value may differ depending on your VPC's CIDR block. </li><li> <b>Target</b>: Local </li></ul> </td></tr>
+</tbody>
+</table>
+
 
    1. Follow the instructions in [Create a custom route table](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#Add_IGW_Routing) to create a route table for your public subnet. When you create the table, enter a descriptive name in the **Name tag** field to help you identify which subnet the table is associated with. For example, **Public MSKC**.
 
-   1. Configure your **Public MSKC** route table using the following settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/msk/latest/developerguide/msk-connect-internet-access-private-subnets-example.html)
+   1. Configure your **Public MSKC** route table using the following settings.
+
+
+
+<table>
+<thead>
+  <tr><th>Property</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name tag</td><td><b>Public MSKC </b>or a different descriptive name that you choose</td></tr>
+  <tr><td>Associated subnets</td><td>Your public subnet with NAT gateway</td></tr>
+  <tr><td>A route to enable internet access for MSK Connect</td><td> <ul><li> <b>Destination</b>: 0.0.0.0/0 </li><li> <b>Target</b>: Your internet gateway ID. For example, <i>igw-1a234bc5</i>. </li></ul> </td></tr>
+  <tr><td>A local route for internal traffic</td><td> <ul><li> <b>Destination</b>: 10.0.0.0/16. This value may differ depending on your VPC's CIDR block. </li><li> <b>Target</b>: Local </li></ul> </td></tr>
+</tbody>
+</table>

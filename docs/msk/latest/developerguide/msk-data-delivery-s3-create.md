@@ -35,7 +35,7 @@
 
 1. Under **Service Access**, select or create an IAM role with the required permissions.
 
-1. Under **Dead-letter queue**, select **Current account** or **Cross account** and specify the S3 bucket URI for unprocessable records. Optionally enter an error output prefix. If **Cross account** was selected, you may need to enter an additional **Account ID**.
+1. Under **Dead-letter queue**, specify the S3 bucket URI for unprocessable records. Optionally enter an error output prefix.
 
 1. (Optional) Under **Log Delivery**, select an Amazon CloudWatch log group, Amazon S3 bucket, or Amazon Data Firehose stream to send logs for monitoring and troubleshooting.
 

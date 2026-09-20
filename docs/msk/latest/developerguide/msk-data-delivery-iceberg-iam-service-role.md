@@ -145,13 +145,6 @@ The following explains when each statement in the preceding policy is required.
 + **`GlueSchemaRegistryAccess` (required)** — grants `glue:GetSchemaVersion` so the Channel can resolve the schema for the topic data from the Glue Schema Registry. Required for both the `JSON` and `JSON_SCHEMA_GSR` input formats.
 + **`KMSAccess` (optional)** — required only when you provide your own customer-managed KMS key.
 
-## Cross-account S3 Table bucket access
-<a name="msk-data-delivery-iceberg-iam-cross-account"></a>
-
-If your S3 Table bucket is in a different AWS account from your Amazon MSK cluster and the Channel service role, the bucket owner must grant access to the service role by attaching a table bucket policy (a resource-based policy) on the S3 Table bucket. Scope the policy to the Channel service-role principal and the S3 Tables actions the role needs (see the preceding Iceberg permission policy).
-
-For details and policy examples, see [Managing table bucket policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html) and [Resource-based policies for S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-resource-based-policies.html) in the *Amazon S3 User Guide*.
-
 ## Additional permissions
 <a name="msk-data-delivery-iceberg-iam-additional"></a>
 + **Amazon CloudWatch Logs (optional):** add `logs:CreateLogStream` and `logs:PutLogEvents` on the log group (see [Logging](msk-data-delivery-iceberg-logging.md)).

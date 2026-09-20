@@ -23,8 +23,7 @@
 1. Under **Destination type**, select **streaming tables for Apache Iceberg**.
    + Select a **Record conversion format** (JSON or JSON (Glue Schema Registry)). Also choose the Glue Schema Registry schema for plain JSON.
    + Under **Warehouse location**:
-     + Select **Current account** or **Cross account**.
-     + Select an S3 Table bucket, or enter an S3 Table bucket ARN if **Cross account** was selected.
+     + Select an S3 Table bucket.
    + Under **Destination table**:
      + Select or enter the **Namespace**.
      + Enter the **Table name** and the **Column name**, and choose the **Compression type** (ZSTD or Snappy).
@@ -37,7 +36,7 @@
 
 1. Under **Service Access**, select or create an IAM role with the required permissions.
 
-1. Under **Dead-letter queue**, select **Current account** or **Cross account** and specify the S3 bucket URI for unprocessable records. Optionally enter an error output prefix. If **Cross account** was selected, you may need to enter an additional **Account ID**.
+1. Under **Dead-letter queue**, specify the S3 bucket URI for unprocessable records. Optionally enter an error output prefix.
 
 1. (Optional) Under **Log Delivery**, select an Amazon CloudWatch log group, Amazon S3 bucket, or Amazon Data Firehose stream to send logs for monitoring and troubleshooting.
 

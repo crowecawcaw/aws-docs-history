@@ -11,4 +11,5 @@ After you associate a secret with an MSK cluster, MSK syncs the credential data 
 + [How sign-in credentials authentication works](msk-password-howitworks.md)
 + [Set up SASL/SCRAM authentication for an Amazon MSK cluster](msk-password-tutorial.md)
 + [Working with users](msk-password-users.md)
++ [Rotating sign-in credentials](msk-password-rotation.md)
 + [Limitations when using SCRAM secrets](msk-password-limitations.md)

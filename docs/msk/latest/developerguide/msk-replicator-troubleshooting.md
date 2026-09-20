@@ -62,9 +62,24 @@ MSK Replicator optimizes consumer group offset syncing for consumers reading fro
 ## Replication latency is high or keeps increasing
 <a name="msk-replicator-ts-high-latency"></a>
 
-1. Verify that you have the right number of partitions. The following table shows the recommended minimum number of partitions for your desired throughput.  
-**Throughput and recommended minimum number of partitions**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-troubleshooting.html)
+1. Verify that you have the right number of partitions. The following table shows the recommended minimum number of partitions for your desired throughput.
+
+
+**Throughput and recommended minimum number of partitions**  
+
+<table>
+<thead>
+  <tr><th>Throughput (MB/s)</th><th>Minimum partitions required</th></tr>
+</thead>
+<tbody>
+  <tr><td>50</td><td>167</td></tr>
+  <tr><td>100</td><td>334</td></tr>
+  <tr><td>250</td><td>833</td></tr>
+  <tr><td>500</td><td>1666</td></tr>
+  <tr><td>1000</td><td>3333</td></tr>
+</tbody>
+</table>
+
 
 1. Verify that you have enough read and write capacity in your clusters. MSK Replicator acts as a consumer for your source cluster (egress) and as a producer for your target cluster (ingress). Provision cluster capacity to support replication traffic in addition to other traffic.
 
