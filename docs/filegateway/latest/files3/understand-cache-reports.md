@@ -9,8 +9,19 @@ Cache reports list files that are currently in the local cache for a specific fi
 + **FilePath** — The file path for the file entry in the gateway cache. This is where you can find the file when mounting and browsing the file share.
 + **RenamedTo** — The new path of a renamed file. When you rename a file on your file share, the gateway needs to track both the old and new locations of the file. This field shows where the file was moved to, helping you track file rename operations - even if a file has been renamed multiple times. This information is particularly useful when you need to understand how files in your file share correspond to objects in your Amazon S3 bucket.
 
-  The following example shows the cache report entries for a complex scenario involving a file being overwritten directly in Amazon S3, while also being renamed through File Gateway. In this scenario, the gateway uploads file `A.txt` to S3, and then evicts the file contents to make space in the local cache. The associated S3 object is then overwritten directly in S3—not through an action taken by the gateway—which results in an `InvalidObjectState` due to the mismatch between the S3 object and what the gateway expects. At the same time, file `A.txt` was renamed to `B.txt` through the gateway.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/filegateway/latest/files3/understand-cache-reports.html)
+  The following example shows the cache report entries for a complex scenario involving a file being overwritten directly in Amazon S3, while also being renamed through File Gateway. In this scenario, the gateway uploads file `A.txt` to S3, and then evicts the file contents to make space in the local cache. The associated S3 object is then overwritten directly in S3—not through an action taken by the gateway—which results in an `InvalidObjectState` due to the mismatch between the S3 object and what the gateway expects. At the same time, file `A.txt` was renamed to `B.txt` through the gateway.
+
+
+<table>
+<thead>
+  <tr><th>Bucket</th><th>S3ObjectKey</th><th>FilePath</th><th>RenamedTo</th><th>Type</th><th>IsDirty</th><th>IsDataDirty</th><th>IsDeleted</th><th>IsFailingToUpload</th><th>UploadError</th><th>SizeInBytes</th><th>IsWholeFileInCache</th></tr>
+</thead>
+<tbody>
+  <tr><td>samplebucket-iad</td><td>A.txt</td><td>/B.txt</td><td> </td><td>FILE</td><td>TRUE</td><td>FALSE</td><td>FALSE</td><td>TRUE</td><td>InvalidObjectState</td><td>4</td><td>FALSE</td></tr>
+  <tr><td>samplebucket-iad</td><td>A.txt</td><td>/A.txt</td><td>/B.txt</td><td>FILE</td><td>TRUE</td><td>FALSE</td><td>TRUE</td><td>FALSE</td><td> </td><td>4</td><td>FALSE</td></tr>
+</tbody>
+</table>
+
 + **Type** — Denotes whether the entry is for a `FILE` or `DIRECTORY`.
 + **IsDirty** — Reports `TRUE` if there is any type of change to the file which have not been uploaded to Amazon S3. This includes changes to metadata such as file name and read/write permissions, even if the file's data has not changed.
 + **IsDataDirty** — Reports `TRUE` if there are changes to the file's data which have not been uploaded to Amazon S3.

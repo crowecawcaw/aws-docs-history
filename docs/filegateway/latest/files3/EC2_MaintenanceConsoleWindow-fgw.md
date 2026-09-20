@@ -9,8 +9,22 @@ You log in to the gateway local console on an Amazon EC2 instance by using a Sec
 
 1. Connect to the Amazon EC2 instance using SSH and log in as the *admin* user.
 
-1. After you log in, you see the **AWS Appliance Activation - Configuration** main menu, from which you can perform various tasks.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/filegateway/latest/files3/EC2_MaintenanceConsoleWindow-fgw.html)
+1. After you log in, you see the **AWS Appliance Activation - Configuration** main menu, from which you can perform various tasks.
+
+
+<table>
+<thead>
+  <tr><th>To Learn About This Task</th><th>See This Topic</th></tr>
+</thead>
+<tbody>
+  <tr><td>Configure an HTTP proxy for your gateway</td><td><a href="EC2_MaintenanceRoutingProxy-fgw.md">Routing your gateway deployed on Amazon EC2 through an HTTP proxy</a> </td></tr>
+  <tr><td>Configure network settings for your gateway</td><td> <a href="EC2-MaintenanceConfiguringStaticIP-fgw.md">Configuring your Amazon EC2 gateway network settings</a> </td></tr>
+  <tr><td>Test network connectivity</td><td> <a href="EC2_MaintenanceTestGatewayConnectivity-fgw.md">Testing your gateway's network connectivity</a> </td></tr>
+  <tr><td>View a system resource check</td><td> <a href="EC2_system-resource-check-fgw.md">Viewing your gateway system resource status</a>.</td></tr>
+  <tr><td>Run Storage Gateway console commands</td><td> <a href="EC2_MaintenanceGatewayConsole-fgw.md">Running Storage Gateway commands on the local console for an Amazon EC2 gateway</a> </td></tr>
+</tbody>
+</table>
+
 
 To shut down the gateway, enter **0**.
 

@@ -14,5 +14,16 @@ You can view and edit Network Time Protocol (NTP) server configurations and sync
 
 1. From the **AWS Appliance Activation - Configuration** main menu, enter the corresponding numeral to select **System Time Management**.
 
-1. From the **System Time Management** menu, enter the corresponding numeral to perform one of the following tasks.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/filegateway/latest/files3/MaintenanceTimeSync-fgw.html)
+1. From the **System Time Management** menu, enter the corresponding numeral to perform one of the following tasks.
+
+
+<table>
+<thead>
+  <tr><th>To Perform This Task</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td>View and synchronize your VM time with NTP server time.</td><td>Enter the corresponding numeral to select <b>View and Synchronize System Time</b>.<br />The current time of your VM is displayed. Your File Gateway determines the time difference from your gateway VM, and your NTP server time prompts you to synchronize the VM time with NTP time.<br />After your gateway is deployed and running, in some scenarios the gateway VM's time can drift. For example, suppose that there is a prolonged network outage and your hypervisor host and gateway don't get time updates. In this case, the gateway VM's time is different from the true time. When there is a time drift, a discrepancy occurs between the stated times when operations such as snapshots occur and the actual times that the operations occur.<br />For a gateway deployed on VMware ESXi, setting the hypervisor host time and synchronizing the VM time to the host is sufficient to avoid time drift. For more information, see <a href="GettingStartedSyncVMTime-common.md">Synchronize VM time with VMware host time</a>. <br />For a gateway deployed on Microsoft Hyper-V, you should periodically check your VM's time. For more information, see <a href="MaintenanceTimeSync-hyperv.md">Synchronize VM time with Hyper-V or Linux KVM host time</a>.<br />For a gateway deployed on KVM, you can check and synchronize the VM time using <code>virsh</code> command line interface for KVM.</td></tr>
+  <tr><td>Edit your NTP server configuration</td><td>Enter the corresponding numeral to select <b>Edit NTP Configuration</b>.<br />You are prompted to provide a preferred and a secondary NTP server.</td></tr>
+  <tr><td>View your NTP server configuration</td><td>Enter the corresponding numeral to select <b>View NTP Configuration</b>.<br />Your NTP server configuration is displayed.</td></tr>
+</tbody>
+</table>
