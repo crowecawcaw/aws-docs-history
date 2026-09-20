@@ -9,6 +9,7 @@ The following table describes the documentation releases for Wickr.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [VPC endpoint policies for Wickr Admin and Messaging are now available](#doc-history) | You can now attach VPC endpoint policies to Wickr Admin and Wickr Messaging VPC endpoints to control which actions, resources, and networks are accessible through a VPC endpoint. For more information, see [VPC endpoint policies for AWS Wickr](https://docs.aws.amazon.com/wickr/latest/adminguide/vpce-policy.html). | September 18, 2026 | 
 | [File preview is now available](#doc-history) | Wickr administrators now have the ability to enable or disable file downloads. For more information, see [File preview for AWS Wickr](https://docs.aws.amazon.com/wickr/latest/adminguide/file-preview.html). | May 29, 2025 | 
 | [Newly redesigned Wickr administrator console is now available](#doc-history) | Wickr has enhanced the Wickr administrator console for better navigation and improved accessibility for administrators. | March 13, 2025 | 
 | [Wickr is now available in the Asia Pacific (Malaysia) AWS Region](#doc-history) | Wickr is now available in the Asia Pacific (Malaysia) AWS Region. For more information, see [Regional availability](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html#regional-availability). | November 20, 2024 | 

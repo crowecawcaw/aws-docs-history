@@ -26,13 +26,15 @@ All Wickr VPC endpoints currently require Private DNS Names to be enabled. For m
 
 Wickr VPC Endpoints supports FIPS in regions where the public Wickr endpoints support FIPS. For more information, see [Federal Information Processing Standard ](https://aws.amazon.com/compliance/fips/).
 
-**Not Currently Supported**
-+ VPC endpoint policies for Messaging and Calling endpoints
+**VPC endpoint policy support**
++ VPC endpoint policies are supported for Wickr Messaging and Wickr Admin endpoints. For more information, see [VPC endpoint policies for AWS Wickr](vpce-policy.md).
++ VPC endpoint policies are not currently supported for Wickr Calling endpoints.
 
 **Topics**
 + [Prerequisites](#privatelink-prerequisites)
 + [Create VPC endpoints](vpc-endpoints.md)
 + [Limitations](privatelink-limitations.md)
++ [VPC endpoint policies for AWS Wickr](vpce-policy.md)
 
 ## Prerequisites
 <a name="privatelink-prerequisites"></a>
