@@ -51,8 +51,14 @@ The AWS AppSync console allows you to create an AWS AppSync GraphQL API from you
 
 1. Choose **Import**.
 
-   AWS AppSync will start introspecting your database, discovering tables, columns, primary keys, and indexes. It checks that the discovered tables can be supported in a GraphQL API. Note that to support creating new rows, tables need a primary key, which can use multiple columns. AWS AppSync maps table columns to type fields as follows:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/appsync/latest/devguide/rds-introspection.html)
+   AWS AppSync will start introspecting your database, discovering tables, columns, primary keys, and indexes. It checks that the discovered tables can be supported in a GraphQL API. Note that to support creating new rows, tables need a primary key, which can use multiple columns. AWS AppSync maps table columns to type fields as follows: 
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
 1. Once table discovery is complete, the **Database** section will be populated with your information. In the new **Database tables** section, the data from the table may already be populated and converted to a type for your schema. If you don't see some of the required data, you can check for it by choosing **Add tables**, clicking on the checkboxes for those types in the modal that appears, then choosing **Add**. 
 
