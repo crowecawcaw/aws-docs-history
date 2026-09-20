@@ -6,7 +6,7 @@
 **Did you know?**  
  Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable automatic snapshots for your instance. For more information, see [ Configure automatic snapshots for Lightsail instances and disks ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots.html) . 
 
-Create Lightsail instances that run the Windows Server operating system (OS). We have four OS blueprints available: Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016. In addition, we have blueprints that come preconfigured with SQL Server 2022, 2019, and 2016 Express.
+Create Lightsail instances that run the Windows Server operating system (OS). We have several OS blueprints available: Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016. In addition, we have blueprints that come preconfigured with SQL Server 2022, 2019, and 2016 Express.
 
 This topic provides information about choosing your software, creating your Windows Server-based instance, and connecting to it.
 
@@ -15,7 +15,7 @@ Learn more about [Windows Server on AWS](https://aws.amazon.com/windows/)
 ## Choose a Windows Server-based instance
 <a name="choose-windows-based-instance-lightsail"></a>
 
-There are four options for creating a Windows Server-based instance in Lightsail.
+There are several options for creating a Windows Server-based instance in Lightsail.
 
 **Windows Server 2025**  
 Lightsail running Windows Server is a fast and dependable environment for deploying applications using the Microsoft Web Platform. With Lightsail, you can run any compatible Windows-based solution on the high-performance, reliable, cost-effective AWS Cloud computing platform. Common Windows use cases include enterprise Windows-based application hosting, website and web service hosting, data processing, distributed testing, ASP.NET application hosting, and any other application requiring Windows software.  
@@ -65,9 +65,7 @@ You can create a Windows Server-based instance using the Lightsail console or by
 
 1. Select the **Microsoft Windows** platform.
 
-1. To choose the Windows Server 2025, Windows Server 2022, Windows Server 2019, or Windows Server 2016 blueprint, choose **OS Only**.
-
-   To choose the SQL Server Express blueprint, choose **Apps \+ OS**.
+1. Choose your instance blueprint.
 
 1. Choose your instance plan.
 

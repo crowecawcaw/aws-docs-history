@@ -79,7 +79,7 @@ Complete the following steps to sign in to the administration dashboard of your 
 
 1. On the **Access your WordPress Admin Dashboard** panel, under **Use public IP address**, choose the link with this format:
 
-   http://{{public-ipv4-address}}./wp-admin
+   http://{{public-ipv4-address}}/wp-admin
 
 1. For **Username or Email Address**, enter **user**.
 

@@ -4,6 +4,7 @@
 <a name="ipv6-only-blueprints"></a>
 
 The following Lightsail blueprints are compatible with an IPv6-only instance plan
++ [Windows Server 2025](compare-options-choose-lightsail-instance-image.md#WS2025)
 + [Windows Server 2022](compare-options-choose-lightsail-instance-image.md#WS2022)
 + [Windows Server 2019](compare-options-choose-lightsail-instance-image.md#WS2019)
 + [Windows Server 2016](compare-options-choose-lightsail-instance-image.md#WS2016)
@@ -11,9 +12,9 @@ The following Lightsail blueprints are compatible with an IPv6-only instance pla
 + [Amazon Linux 2](compare-options-choose-lightsail-instance-image.md#AL2)
 + [AlmaLinux OS 9](compare-options-choose-lightsail-instance-image.md#ALMA)
 + [CentOS Stream 9](compare-options-choose-lightsail-instance-image.md#Centos9)
-+ [Debian 11, 12, and 13](compare-options-choose-lightsail-instance-image.md#Debian)
-+ [FreeBSD 14 and 15](compare-options-choose-lightsail-instance-image.md#FreeBSD)
-+ [Ubuntu 20, 22, and 24](compare-options-choose-lightsail-instance-image.md#Ubuntu)
++ [Debian 13, 12, and 11](compare-options-choose-lightsail-instance-image.md#Debian)
++ [FreeBSD 15 and 14](compare-options-choose-lightsail-instance-image.md#FreeBSD)
++ [Ubuntu 24, 22, and 20](compare-options-choose-lightsail-instance-image.md#Ubuntu)
 + [SQL Server 2022 Express](compare-options-choose-lightsail-instance-image.md#SQL2022)
 + [SQL Server 2019 Express](compare-options-choose-lightsail-instance-image.md#SQL2019)
 + [SQL Server 2016 Express](compare-options-choose-lightsail-instance-image.md#SQL2016)

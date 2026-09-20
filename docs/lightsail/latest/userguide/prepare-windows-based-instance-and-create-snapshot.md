@@ -58,7 +58,7 @@ Stopping an instance makes any website or service on it unavailable until you st
 
 Now that you have a backup snapshot, it’s time to run Sysprep on your Windows Server instance. This causes the instance to shut down so that you can take a snapshot. For more information about Sysprep, see [Sysprep Overview](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) in the Microsoft documentation.
 
-In this step, connect to your instance and run Sysprep through a preinstalled application. The application is called **EC2LaunchSettings** on Windows Server 2019 and Windows Server 2016 instances, and **Ec2ConfigService Settings** on Windows Server 2012 instances.
+In this step, connect to your instance and run Sysprep through a preinstalled application. The application is called **EC2LaunchSettings** on Windows Server 2025, 2022, 2019, and 2016 instances, and **Ec2ConfigService Settings** on Windows Server 2012 instances.
 
 **To connect to your instance and run Sysprep**
 
@@ -69,8 +69,9 @@ In this step, connect to your instance and run Sysprep through a preinstalled ap
 
 1. On the taskbar, choose the Windows icon, or choose **Win** to open the Start menu.
 
-1. Choose one of these options:
-   + On Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016 instances, choose **Start**, then choose **Ec2LaunchSettings**.
+1. Choose **Start**, then choose **Ec2LaunchSettings**.
+
+   On Windows Server 2012 instances, the application is called **Ec2ConfigService Settings**.
 
 1. In the Administrator Password section, choose **Random (Retrieve from console)**, then choose **Shutdown with Sysprep**.  
 ![The Ec2 Launch Settings application on Windows Server 2016 instances.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-ec2launchsettings.png)

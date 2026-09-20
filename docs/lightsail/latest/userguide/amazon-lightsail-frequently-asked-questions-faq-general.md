@@ -21,7 +21,7 @@ Yes. Everything you do in the Lightsail console is backed by a publicly availabl
 ## How do I sign up for Lightsail?
 <a name="how-do-i-sign-up"></a>
 
-To start using Lightsail, choose [Get Started](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?client=lightsail) and log in. You use your Amazon Web Services account to access Lightsail; if you don't already have one, you will be prompted to create one.
+To start using Lightsail, choose [Get Started](https://signup.aws.amazon.com/gp/aws/developer/registration/index.html?client=lightsail) and log in. You use your Amazon Web Services account to access Lightsail; if you don't already have one, you will be prompted to create one.
 
 ## In which AWS Regions is Lightsail available?
 <a name="in-which-aws-regions-is-lightsail-available"></a>

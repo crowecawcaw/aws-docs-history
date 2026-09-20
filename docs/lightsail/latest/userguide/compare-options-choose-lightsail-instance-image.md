@@ -52,18 +52,18 @@ CentOS Stream 9 is the next major release of the CentOS Stream distribution. Cen
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 Learn more at the [*CentOS Stream*](https://www.centos.org/centos-stream/) website.
 
-** **Debian 11, 12, and 13** **  
+** **Debian 13, 12, and 11** **  
 Debian 11 will reach End of Long Term Support on August 31, 2026. You will not be able to create new Lightsail instances with this blueprint on or after August 31, 2026. For more information, see the [Debian website](https://wiki.debian.org/LTS).
 Debian is a free operating system, developed by thousands of volunteers from all over the world who collaborate over the internet. The Debian project's key strengths are its volunteer base, its dedication to the Debian Social Contract and Free Software, and its commitment to provide the best operating system possible. This new release is another important step in that direction. For end of support information, see the [Debian website](https://wiki.debian.org/DebianReleases).  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 Learn more at the [*Debian*](https://www.debian.org/doc/) website.
 
-** **FreeBSD 14 and 15** **  
+** **FreeBSD 15 and 14** **  
 FreeBSD is an operating system used to power servers, desktops, and embedded systems. Derived from BSD, the version of UNIX developed at the University of California, Berkeley, FreeBSD has been continually developed by a large community for more than 30 years. FreeBSD's networking, security, storage, and monitoring features, including the pf firewall, the Capsicum and CloudABI capability frameworks, the ZFS file system, and the DTrace dynamic tracing framework, make FreeBSD the platform of choice for many of the busiest websites and most pervasive embedded networking and storage systems. For end of support information, see the [*FreeBSD*](https://www.freebsd.org/security/#sup) website.  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 Learn more at the [*FreeBSD*](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/) website.
 
-** **openSUSE 15 and 16** **  
+** **openSUSE 16 and 15** **  
 openSUSE Leap 15 will reach End of Life on July 30, 2026. You will not be able to create new Lightsail instances with the openSUSE 15 blueprint on or after July 30, 2026. For more information, see the [*openSUSE*](https://en.opensuse.org/) website.
 The openSUSE distribution is a stable, easy to use and complete multipurpose Linux distribution. It is aimed towards users and developers working on the desktop or server. It is great for beginners, experienced users and ultra geeks alike, in short, it is perfect for everybody\! For end of support information, see the [*openSUSE*](https://en.opensuse.org/) website.  
 Password authentication is disabled by default for this operating system. This means that even if you create an instance from a snapshot of an instance with password authentication enabled, the new instance will have password authentication disabled. For more information about password authentication in SUSE Linux, see [document 3404214](https://www.suse.com/support/kb/doc/?id=000016192) in the SUSE documentation.  
@@ -71,7 +71,7 @@ To log in to your instance with password authentication disabled, you can use th
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 Learn more at the [*openSUSE*](https://www.opensuse.org/) website.
 
-** **Ubuntu 22 and 24** **  
+** **Ubuntu 24 and 22** **  
 Ubuntu Server is a Debian-based Linux operating system used for virtual servers. A default installation of Ubuntu contains a wide range of software that includes LibreOffice, Firefox, Thunderbird, and Transmission. You can install many additional software packages, such as Evolution, GIMP, Pidgin, and Synaptic by using the APT-based package management tool (`apt-get`). For end of support information, see the [*Ubuntu*](https://wiki.ubuntu.com/Releases) website.  
 Lightsail instances created with the Ubuntu 24 blueprint will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
@@ -165,31 +165,31 @@ Lightsail instances launched from OpenClaw will have Instance Metadata Service V
 [Get started with OpenClaw on Lightsail](amazon-lightsail-quick-start-guide-openclaw.md)  
 Learn more about [OpenClaw](https://openclaw.ai) at the *OpenClaw* website.
 
+** **LAMP stack** **  
+ The LAMP blueprint provides a complete production environment with PHP, Apache, and MariaDB on Linux. This blueprint also includes phpMyAdmin, PHP core modules, and Composer.   
+Lightsail instances launched from LAMP will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
+[Launch and configure a LAMP instance](amazon-lightsail-launch-and-configure-lamp.md)
+
 ** **LAMP stack (PHP 8) packaged by Bitnami** **  
 The Bitnami LAMP stack simplifies the development and deployment of PHP applications. It includes ready-to-run versions of Apache, MySQL, PHP, and phpMyAdmin, and also the other software required to run each of those components. Bitnami LAMP stack is completely integrated and configured, so you will be ready to start developing your application as soon as you create your instance in Lightsail. Bitnami LAMP stack is regularly updated to ensure that you always have access to the latest stable releases for each bundled component.  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 [Launch and configure a LAMP packaged by Bitnami instance](amazon-lightsail-quick-start-guide-lamp-bitnami.md)  
 Learn more about the [Bitnami LAMP stack](https://bitnami.com/stack/lamp) at the *Bitnami* website.
 
-** **LAMP stack** **  
- The LAMP blueprint provides a complete production environment with PHP, Apache, and MariaDB on Linux. This blueprint also includes phpMyAdmin, PHP core modules, and Composer.   
-Lightsail instances launched from LAMP will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
-[Launch and configure a LAMP instance](amazon-lightsail-launch-and-configure-lamp.md)
-
 ** **Django packaged by Bitnami** **  
 Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Python is a dynamic object-oriented programming language that can be used for many kinds of software development. The Bitnami Django Stack greatly simplifies the deployment of Django and its runtime dependencies and includes ready-to-run versions of Python, Django, MySQL, and Apache.  
 Learn more about the [Bitnami Django stack](https://bitnami.com/stack/django) at the *Bitnami* website.
-
-** **Node.js packaged by Bitnami** **  
-Bitnami Node.js is a preconfigured, ready-to-use image for running Node.js on Lightsail. Node.js is a platform built on Chrome's JavaScript runtime for easily creating fast, scalable network applications. It uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js is well suited for data-intensive, real-time applications.  
-[Deploy and manage a Node.js stack on Lightsail](amazon-lightsail-quick-start-guide-nodejs.md)  
-Learn more about the [Node.js stack](https://bitnami.com/stack/nodejs) at the *Bitnami* website.
 
 ** **Node.js** **  
  The Node.js blueprint provides a complete production environment with MariaDB and Node.js. Lightsail packages blueprints to be secure and up-to-date using industry best practices.   
 Lightsail instances launched from Node.js will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
 [Deploy and manage a Node.js stack on Lightsail](amazon-lightsail-quick-start-guide-nodejs.md)  
 Learn more about the [Node.js stack](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs) at the *Node.js* website.
+
+** **Node.js packaged by Bitnami** **  
+Bitnami Node.js is a preconfigured, ready-to-use image for running Node.js on Lightsail. Node.js is a platform built on Chrome's JavaScript runtime for easily creating fast, scalable network applications. It uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js is well suited for data-intensive, real-time applications.  
+[Deploy and manage a Node.js stack on Lightsail](amazon-lightsail-quick-start-guide-nodejs.md)  
+Learn more about the [Node.js stack](https://bitnami.com/stack/nodejs) at the *Bitnami* website.
 
 ** **MEAN stack packaged by Bitnami** **  
 Bitnami MEAN stack provides a complete development environment for MongoDB and Node.js that you can deploy in one click. It includes the latest stable release of MongoDB, Express, Angular, Node.js, Git, PHP, and RockMongo.  
@@ -202,18 +202,18 @@ Bitnami GitLab Community Edition (CE) is a preconfigured, ready-to-use image for
 [Set up and configure a GitLab CE instance on Lightsail](amazon-lightsail-quick-start-guide-gitlab.md)  
 Learn more about the [GitLab stack](https://bitnami.com/stack/gitlab) at the *Bitnami* website.
 
-** **Nginx (LEMP stack) packaged by Bitnami** **  
-Bitnami NGINX Stack provides a complete PHP, MySQL, and NGINX development environment that you can launch in one click. It also bundles phpMyAdmin, SQLite, ImageMagick, FastCGI, Memcache, GD, CURL, PEAR, PECL, and other components.  
- NGINX is an asynchronous server and its main advantage is scalability. The NGINX stack is also known as LEMP (Linux, NGINX, MySQL, and PHP).   
-[Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md)  
-Learn more about the [NGINX stack](https://bitnami.com/stack/nginx) at the *Bitnami* website.
-
 ** **Nginx (LEMP stack)** **  
  The Nginx blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and NGINX. Lightsail packages blueprints to be secure and up-to-date using industry best practices.   
 Lightsail instances launched from Nginx will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 [Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md)  
 Learn more about the [NGINX stack](https://nginx.org/en/) at the *NGINX* website.
+
+** **Nginx (LEMP stack) packaged by Bitnami** **  
+Bitnami NGINX Stack provides a complete PHP, MySQL, and NGINX development environment that you can launch in one click. It also bundles phpMyAdmin, SQLite, ImageMagick, FastCGI, Memcache, GD, CURL, PEAR, PECL, and other components.  
+ NGINX is an asynchronous server and its main advantage is scalability. The NGINX stack is also known as LEMP (Linux, NGINX, MySQL, and PHP).   
+[Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md)  
+Learn more about the [NGINX stack](https://bitnami.com/stack/nginx) at the *Bitnami* website.
 
 ** **Plesk Hosting Stack on Ubuntu**, **Plesk Hosting Stack on Ubuntu (BYOL)****  
 On August 1, 2024, Plesk transitioned to a paid license model. The following licensing behaviors apply to Lightsail instances running Plesk:  

@@ -62,8 +62,25 @@ If you want to use an image from your local machine, choose **Choose stored imag
 
    1. **Launch command** – Skip this step. The Uptime Kuma image does not require an additional launch command for this tutorial.
 
-   1. **Environment variables** – Choose **Add environment variables**, and then specify the variables that the container reads at runtime. Uptime Kuma requires the following environment variables to connect to a MySQL database. To find the database values, choose **Databases** in the left navigation pane of the Lightsail console, and then choose the database name (for example `ls-database`) to open the database management page.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-connecting-container-service-to-database.html)
+   1. **Environment variables** – Choose **Add environment variables**, and then specify the variables that the container reads at runtime. Uptime Kuma requires the following environment variables to connect to a MySQL database. To find the database values, choose **Databases** in the left navigation pane of the Lightsail console, and then choose the database name (for example `ls-database`) to open the database management page.
+
+
+<table>
+<thead>
+  <tr><th>Variable</th><th>Value</th><th>Location in the Lightsail console</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>PORT</code></td><td><code>3001</code></td><td>Not applicable</td></tr>
+  <tr><td><code>UPTIME_KUMA_HOST</code></td><td><code>0.0.0.0</code></td><td>Not applicable</td></tr>
+  <tr><td><code>DB_TYPE</code></td><td><code>mysql</code></td><td>Not applicable</td></tr>
+  <tr><td><code>DB_PORT</code></td><td>Your database port</td><td>The <b>Port</b> value in the <b>Connection details</b> section</td></tr>
+  <tr><td><code>DB_USER</code></td><td>Your database user name</td><td>The <b>User name</b> value in the <b>Database details</b> section</td></tr>
+  <tr><td><code>DB_NAME</code></td><td>Your database name</td><td>The database name in the <b>Database details</b> section</td></tr>
+  <tr><td><code>DB_HOST</code></td><td>Your database endpoint</td><td>The <b>Endpoint</b> value in the <b>Connection details</b> section</td></tr>
+  <tr><td><code>DB_PASSWORD</code></td><td>Your database password</td><td>Choose <b>Show</b> next to the master password to reveal it</td></tr>
+</tbody>
+</table>
+
 
       The following screenshot shows the location of these values on the database management page.  
 ![Database management page showing where to find the DB_NAME, DB_HOST, DB_USER, DB_PASSWORD, and DB_PORT values.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/container-db-database-variable-values.png)
