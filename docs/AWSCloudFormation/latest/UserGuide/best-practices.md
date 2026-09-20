@@ -48,7 +48,7 @@ Best practices are recommendations that can help you use CloudFormation more eff
 + [Use IAM to control access](#use-iam-permissions-to-control-access)
 + [Apply the principle of least privilege](#least-privilege)
 + [Secure sensitive parameters](#secure-parameters)
-+ [Implement policy as code with AWS CloudFormation Guard](#cfn-guard)
++ [Implement policy as code with Guard](#cfn-guard)
 
 ## Shorten the feedback loop to improve development velocity
 <a name="shortenfeedbackloop"></a>
@@ -177,6 +177,8 @@ Before you use a template to create or update a stack, you can use CloudFormatio
 
 During validation, CloudFormation first checks if the template is valid JSON. If it isn't, CloudFormation checks if the template is valid YAML. If both checks fail, CloudFormation returns a template validation error.
 
+To find more problems before deployment, you can also check templates on your computer. For more information about installing and using `cfn-lint`, `cloudformation-validate`, and the CloudFormation Language Server, see [Validating templates](template-guide.md#template-validation). To understand the limitations of local validation, see [Understand validation scope](template-guide.md#template-validation-scope).
+
 ### Validate templates for organization policy compliance
 <a name="validate-compliance"></a>
 
@@ -186,7 +188,7 @@ You can use `cfn-guard` either locally, while editing templates, or automaticall
 
 Additionally, `cfn-guard` includes a feature, `rulegen`, that enables you to extract rules from existing compliant CloudFormation templates.
 
-For more information, see the [cfn-guard](https://github.com/aws-cloudformation/cloudformation-guard) repository on GitHub.
+For installation and usage examples, see [Validate templates with Guard](cloudformation-guard.md).
 
 ## Using YAML or JSON for template authoring
 <a name="use-yaml-json"></a>
@@ -365,11 +367,11 @@ For more information on using the `NoEcho` property, see [CloudFormation templat
 
 For more information on using AWS Secrets Manager with CloudFormation see [Create AWS Secrets Manager secrets in AWS CloudFormation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cloudformation.html).
 
-## Implement policy as code with AWS CloudFormation Guard
+## Implement policy as code with Guard
 <a name="cfn-guard"></a>
 
 AWS CloudFormation Guard (`cfn-guard`) is an open-source policy-as-code tool that allows you to define and enforce rules for your CloudFormation templates. Use `cfn-guard` to ensure that your templates comply with organizational policies, security best practices, and governance requirements.
 
 Integrate `cfn-guard` into your CI/CD pipelines to automatically validate templates against your policy rules before deployment. This helps prevent non-compliant resources from being deployed to your environment and provides early feedback to developers about policy violations.
 
-For more information on Guard see [What is AWS CloudFormation Guard?](https://docs.aws.amazon.com/cfn-guard/latest/ug/what-is-guard.html)
+For setup and usage examples, see [Validate templates with Guard](cloudformation-guard.md).

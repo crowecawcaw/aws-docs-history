@@ -15,7 +15,7 @@ While Lambda-backed custom resources were previously recommended for retrieving 
 + [Prerequisites](#walkthrough-lambda-backed-custom-resources-prerequisites)
 + [Launching the stack](#walkthrough-lambda-backed-custom-resources-createfunction-createstack)
 + [Cleaning up resources](#walkthrough-lambda-backed-custom-resources-createfunction-cleanup)
-+ [Related information](#w2aac11c45b9c24b9c23)
++ [Related information](#w2aac11c51b9c24b9c23)
 
 ## Overview
 <a name="walkthrough-lambda-backed-custom-resources-overview"></a>
@@ -464,6 +464,6 @@ All the resources that you created are deleted.
 Now that you understand how to create and use Lambda-backed custom resource, you can use the sample template and code from this walkthrough to build and experiment with other stacks and functions.
 
 ## Related information
-<a name="w2aac11c45b9c24b9c23"></a>
+<a name="w2aac11c51b9c24b9c23"></a>
 + [CloudFormation Custom Resource Reference](crpg-ref.md)
 + [AWS::CloudFormation::CustomResource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html)

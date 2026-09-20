@@ -103,7 +103,8 @@ A **Value** consists of any alphanumeric characters or spaces. Tag values can be
 After stack creation, adding, updating, or removing stack-level tags will initiate a stack update. All resources that support stack-level tag propagation will be updated accordingly.
 
 **Permissions**  <a name="configure-stack-options-permissions"></a>
-An existing IAM service role that CloudFormation can assume. Instead of using your account credentials, CloudFormation uses the role's credentials to create your stack. For more information, see [CloudFormation service role](using-iam-servicerole.md).
+An existing IAM service role that CloudFormation can assume. Instead of using your account credentials, CloudFormation uses the role's credentials to create your stack. For more information, see [CloudFormation service role](using-iam-servicerole.md).  
+If role manager is enabled in your account, CloudFormation attaches a service role for you, and the service role selection described here is replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
 **Stack failure options**  <a name="configure-stack-options-rollback"></a>
 Specifies the provision failure options for all stack deployments and change set operations. For more information, see [Choose how to handle failures when provisioning resources](stack-failure-options.md).  

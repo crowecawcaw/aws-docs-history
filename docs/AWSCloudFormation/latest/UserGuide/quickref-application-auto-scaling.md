@@ -10,16 +10,16 @@ When an Application Auto Scaling snippet is included in the template, you might 
 For more information, see [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-attribute-dependson.html).
 
 **Topics**
-+ [Create a scaling policy for an AppStream fleet](#w2aac11c41c15c19b9)
-+ [Create a scaling policy for an Aurora DB cluster](#w2aac11c41c15c19c11)
-+ [Create a scaling policy for a DynamoDB table](#w2aac11c41c15c19c13)
-+ [Create a scaling policy for an Amazon ECS service (metrics: average CPU and memory)](#w2aac11c41c15c19c15)
-+ [Create a scaling policy for an Amazon ECS service (metric: average request count per target)](#w2aac11c41c15c19c17)
-+ [Create a scheduled action with a cron expression for a Lambda function](#w2aac11c41c15c19c19)
-+ [Create a scheduled action with an `at` expression for a Spot Fleet](#w2aac11c41c15c19c21)
++ [Create a scaling policy for an AppStream fleet](#w2aac11c47c15c19b9)
++ [Create a scaling policy for an Aurora DB cluster](#w2aac11c47c15c19c11)
++ [Create a scaling policy for a DynamoDB table](#w2aac11c47c15c19c13)
++ [Create a scaling policy for an Amazon ECS service (metrics: average CPU and memory)](#w2aac11c47c15c19c15)
++ [Create a scaling policy for an Amazon ECS service (metric: average request count per target)](#w2aac11c47c15c19c17)
++ [Create a scheduled action with a cron expression for a Lambda function](#w2aac11c47c15c19c19)
++ [Create a scheduled action with an `at` expression for a Spot Fleet](#w2aac11c47c15c19c21)
 
 ## Create a scaling policy for an AppStream fleet
-<a name="w2aac11c41c15c19b9"></a>
+<a name="w2aac11c47c15c19b9"></a>
 
 This snippet shows how to create a policy and apply it to an [`AWS::AppStream::Fleet`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-appstream-fleet.html) resource using the [`AWS::ApplicationAutoScaling::ScalingPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalingpolicy.html) resource. The [`AWS::ApplicationAutoScaling::ScalableTarget`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalabletarget.html) resource declares a scalable target to which this policy is applied. Application Auto Scaling can scale the number of fleet instances at a minimum of 1 instance and a maximum of 20. The policy keeps the average capacity utilization of the fleet at 75 percent, with scale-out and scale-in cooldown periods of 300 seconds (5 minutes).
 
@@ -123,7 +123,7 @@ Resources:
 ```
 
 ## Create a scaling policy for an Aurora DB cluster
-<a name="w2aac11c41c15c19c11"></a>
+<a name="w2aac11c47c15c19c11"></a>
 
 In this snippet, you register an [`AWS::RDS::DBCluster`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbcluster.html) resource. The [`AWS::ApplicationAutoScaling::ScalableTarget`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalabletarget.html) resource indicates that the DB cluster should be dynamically scaled to have from one to eight Aurora Replicas. You also apply a target tracking scaling policy to the cluster using the [`AWS::ApplicationAutoScaling::ScalingPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalingpolicy.html) resource.
 
@@ -203,7 +203,7 @@ Resources:
 ```
 
 ## Create a scaling policy for a DynamoDB table
-<a name="w2aac11c41c15c19c13"></a>
+<a name="w2aac11c47c15c19c13"></a>
 
 This snippet shows how to create a policy with the `TargetTrackingScaling` policy type and apply it to an [`AWS::DynamoDB::Table`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dynamodb-table.html) resource using the [`AWS::ApplicationAutoScaling::ScalingPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalingpolicy.html) resource. The [`AWS::ApplicationAutoScaling::ScalableTarget`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalabletarget.html) resource declares a scalable target to which this policy is applied, with a minimum of five write capacity units and a maximum of 15. The scaling policy scales the table's write capacity throughput to maintain the target utilization at 50 percent based on the `DynamoDBWriteCapacityUtilization` predefined metric.
 
@@ -293,7 +293,7 @@ Resources:
 ```
 
 ## Create a scaling policy for an Amazon ECS service (metrics: average CPU and memory)
-<a name="w2aac11c41c15c19c15"></a>
+<a name="w2aac11c47c15c19c15"></a>
 
 This snippet shows how to create a policy and apply it to an [`AWS::ECS::Service`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ecs-service.html) resource using the [`AWS::ApplicationAutoScaling::ScalingPolicy`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalingpolicy.html) resource. The [`AWS::ApplicationAutoScaling::ScalableTarget`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalabletarget.html) resource declares a scalable target to which this policy is applied. Application Auto Scaling can scale the number of tasks at a minimum of 1 task and a maximum of 6.
 
@@ -415,7 +415,7 @@ Resources:
 ```
 
 ## Create a scaling policy for an Amazon ECS service (metric: average request count per target)
-<a name="w2aac11c41c15c19c17"></a>
+<a name="w2aac11c47c15c19c17"></a>
 
 The following example applies a target tracking scaling policy with the `ALBRequestCountPerTarget` predefined metric to an ECS service. The policy is used to add capacity to the ECS service when the request count per target (per minute) exceeds the target value. Because the value of `DisableScaleIn` is set to `true`, the target tracking policy won't remove capacity from the scalable target.
 
@@ -536,7 +536,7 @@ Resources:
 ```
 
 ## Create a scheduled action with a cron expression for a Lambda function
-<a name="w2aac11c41c15c19c19"></a>
+<a name="w2aac11c47c15c19c19"></a>
 
 This snippet registers the provisioned concurrency for a function alias ([`AWS::Lambda::Alias`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-alias.html)) named `BLUE` using the [`AWS::ApplicationAutoScaling::ScalableTarget`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalabletarget.html) resource. It also creates a scheduled action with a recurring schedule using a cron expression. The time zone for the recurring schedule is UTC.
 
@@ -612,7 +612,7 @@ ScalableTarget:
 ```
 
 ## Create a scheduled action with an `at` expression for a Spot Fleet
-<a name="w2aac11c41c15c19c21"></a>
+<a name="w2aac11c47c15c19c21"></a>
 
 This snippet shows how to create two scheduled actions that occur only once for an [`AWS::EC2::SpotFleet`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-spotfleet.html) resource using the [`AWS::ApplicationAutoScaling::ScalableTarget`](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-applicationautoscaling-scalabletarget.html) resource. The time zone for each one-time scheduled action is UTC.
 

@@ -250,11 +250,11 @@ You can use the following template snippets to specify the block device mappings
 For more information about block device mappings, see [Block device mappings for volumes on Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide*.
 
 **Topics**
-+ [Specify the block device mappings for two EBS volumes](#w2aac11c41c43c13b9c11)
-+ [Specify the block device mapping for an instance store volume](#w2aac11c41c43c13b9c13)
++ [Specify the block device mappings for two EBS volumes](#w2aac11c47c43c13b9c11)
++ [Specify the block device mapping for an instance store volume](#w2aac11c47c43c13b9c13)
 
 ### Specify the block device mappings for two EBS volumes
-<a name="w2aac11c41c43c13b9c11"></a>
+<a name="w2aac11c47c43c13b9c11"></a>
 
 #### JSON
 <a name="quickref-ec2-example-1.json"></a>
@@ -306,7 +306,7 @@ EC2Instance:
 ```
 
 ### Specify the block device mapping for an instance store volume
-<a name="w2aac11c41c43c13b9c13"></a>
+<a name="w2aac11c47c43c13b9c13"></a>
 
 #### JSON
 <a name="quickref-ec2-example-2.json"></a>

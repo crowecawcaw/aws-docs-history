@@ -19,8 +19,11 @@ This section provides a comprehensive guide on how to use the different sections
 + [Sample templates](#sample-templates)
 + [Template format](template-formats.md)
 + [Template sections](template-anatomy.md)
++ [CloudFormation Language Server](ide-extension.md)
++ [CloudFormation Linter](cfn-lint.md)
++ [CloudFormation Validate](cloudformation-validate.md)
++ [CloudFormation Guard](cloudformation-guard.md)
 + [Infrastructure Composer](infrastructure-composer-for-cloudformation.md)
-+ [AWS CloudFormation Language Server](ide-extension.md)
 + [IaC generator](generate-IaC.md)
 + [Get values stored in other services](dynamic-references.md)
 + [Get AWS values](pseudo-parameter-reference.md)
@@ -46,15 +49,23 @@ With [Git sync](git-sync.md), you can store templates in a Git repository. When 
 ## Validating templates
 <a name="template-validation"></a>
 
-**Syntax validation**  
-You can verify the JSON or YAML syntax of your template by using the [validate-template](service_code_examples.md#validate-template-sdk) CLI command or by specifying your template on the console. The console performs validation automatically. For more information, see [Create a stack from the CloudFormation console](cfn-console-create-stack.md). 
+Validate your templates before deployment so that you can find and fix problems earlier. The CloudFormation service and the tools in this section check different parts of a template. You can use them together.
 
-However, these methods only verify the syntax of your template and don't validate the property values that you specified for a resource.
+You can check whether a template uses valid JSON or YAML with the [validate-template](service_code_examples.md#validate-template-sdk) CLI command or by specifying your template in the AWS Management Console. The console performs this check automatically. These service-side checks don't run the additional property, security, or best-practice checks provided by the following tools:
++ [CloudFormation Language Server](ide-extension.md) – Get suggestions, documentation, and validation feedback while you write templates in an editor.
++ [CloudFormation Linter](cfn-lint.md) – Check resource properties, allowed values, and common problems from the command line, an editor, or an automated build.
++ [CloudFormation Validate](cloudformation-validate.md) – Run local, offline checks from the command line or a library, and add custom [Rego](https://www.openpolicyagent.org/docs/policy-language) or Guard rules. AWS CDK uses this validator automatically after it synthesizes your templates.
++ [CloudFormation Guard](cloudformation-guard.md) – Write policy rules and check templates against your organization's security, compliance, and governance requirements.
 
-**Additional validation tools**  
-For more complex validations and best practice checks, you can use additional tools like:
-+ [CloudFormation Linter (cfn-lint)](https://github.com/aws-cloudformation/cfn-lint) – Validate templates against the [CloudFormation resource provider schemas](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/resource-type-schemas.html). Includes checking valid values for resource properties and best practices.
-+ [CloudFormation Rain (rain fmt)](https://github.com/aws-cloudformation/rain) – Format your CloudFormation templates to a consistent standard or reformat a template from JSON to YAML (or YAML to JSON). It preserves comments when using YAML and switches the use of intrinsic functions to the short syntax where possible.
+### Use with AI coding agents
+<a name="template-validation-agent-toolkit"></a>
+
+AI coding agents can help you author, validate, and troubleshoot CloudFormation templates using the `aws-cloudformation` skill from the [Agent Toolkit for AWS](https://github.com/aws/agent-toolkit-for-aws) on GitHub. For installation instructions, see [Agent setup guide](agent-setup-guide.md).
+
+### Understand validation scope
+<a name="template-validation-scope"></a>
+
+Local tools check the template and the rules that you give them. They can't guarantee that deployment will succeed with the current resources, permissions, and quotas in an AWS account and AWS Region. Before deployment, review a change set and fix any problems reported by the CloudFormation service.
 
 ## Getting started with templates
 <a name="getting-started"></a>
@@ -89,7 +100,7 @@ Often, your stack templates will require intrinsic functions to assign property 
 ## Sample templates
 <a name="sample-templates"></a>
 
-CloudFormation provides open-source stack templates that you can use to get started. For more information, see [CloudFormation Sample Templates](https://github.com/aws-cloudformation/aws-cloudformation-templates) on the GitHub website.
+CloudFormation provides open-source stack templates that you can use to get started. For more information, see [CloudFormation Sample Templates](https://github.com/aws-cloudformation/aws-cloudformation-templates) on GitHub.
 
 Keep in mind that these templates are not meant to be production-ready. You should take the time to learn how they work, adapt them to your needs, and make sure that they meet your company's compliance standards.
 

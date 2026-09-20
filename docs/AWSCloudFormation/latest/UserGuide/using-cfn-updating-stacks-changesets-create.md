@@ -20,8 +20,20 @@ You can either modify a template before creating the change set or during change
 
 1. In the stack details pane, choose **Stack actions**, and then choose **Create a change set**.
 
-1. On the **Create change set for {{stack-name}}** page, do one of the following to modify input parameter values, specify the location of an updated template, or modify the template:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets-create.html)
+1. On the **Create change set for {{stack-name}}** page, do one of the following to modify input parameter values, specify the location of an updated template, or modify the template:
+
+
+<table>
+<thead>
+  <tr><th>Task</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>To modify input parameter values</td><td>Choose <b>Use existing template</b>, and then choose <b>Next</b> to proceed to enter or modify input parameter values.</td></tr>
+  <tr><td>To specify the location of an updated template</td><td>If you've modified the template, choose <b>Replace existing template</b>, and then do one of the following:<ul><li> For a template stored in an Amazon S3 bucket, choose <b>Amazon S3 URL</b>. Enter or paste the URL for the template, and then choose <b>Next</b>. <br />If you have a template in a versioning-enabled bucket, you can specify a specific version of the template by appending <code>?versionId=version-id</code> to the URL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-objects-versioned-bucket.html">Working with objects in a versioning-enabled bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>. </li><li> For a template stored locally on your computer, choose <b>Upload a template file</b>. Choose <b>Choose File</b> to navigate to the file and select it, and then choose <b>Next</b>. </li></ul></td></tr>
+  <tr><td>To modify the template</td><td>If you haven't modified the template, choose <b>Edit template in Infrastructure Composer</b>, and then choose <b>Edit in Infrastructure Composer</b>. You're redirected to the AWS Infrastructure Composer. Once you've modified the template, choose <b>Create change set</b> and then <b>Confirm and continue to CloudFormation</b> to return to the <b>Create change set for {{stack-name}}</b> page, and then choose <b>Next</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. On the **Specify stack details** page, specify a name for the change set and optionally specify a description of the change set to identify its purpose in the **Overview** section. If your template contains parameters, on the **Specify stack details** page, enter or modify applicable input parameter values, and then choose **Next**.
 
@@ -62,8 +74,20 @@ Change sets for nested stacks are **Enabled** by default, which will create chan
 
 1. In the stack details pane, choose **Stack actions**, and then choose **Create a change set**.
 
-1. On the **Create change set for {{stack-name}}** page, do one of the following to modify input parameter values, specify the location of an updated template, or modify the template:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets-create.html)
+1. On the **Create change set for {{stack-name}}** page, do one of the following to modify input parameter values, specify the location of an updated template, or modify the template:
+
+
+<table>
+<thead>
+  <tr><th>Task</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>To modify input parameter values</td><td>Choose <b>Use existing template</b>, and then choose <b>Next</b> to proceed to enter or modify input parameter values.</td></tr>
+  <tr><td>To specify the location of an updated template</td><td>If you've modified the template, choose <b>Replace existing template</b>, and then do one of the following:<ul><li> For a template stored in an Amazon S3 bucket, choose <b>Amazon S3 URL</b>. Enter or paste the URL for the template, and then choose <b>Next</b>. <br />If you have a template in a versioning-enabled bucket, you can specify a specific version of the template by appending <code>?versionId=version-id</code> to the URL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-objects-versioned-bucket.html">Working with objects in a versioning-enabled bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>. </li><li> For a template stored locally on your computer, choose <b>Upload a template file</b>. Choose <b>Choose File</b> to navigate to the file and select it, and then choose <b>Next</b>. </li></ul></td></tr>
+  <tr><td>To modify the template</td><td>If you haven't modified the template, choose <b>Edit template in Infrastructure Composer</b>, and then choose <b>Edit in Infrastructure Composer</b>. You're redirected to the AWS Infrastructure Composer. Once you've modified the template, choose <b>Create change set</b> and then <b>Confirm and continue to CloudFormation</b> to return to the <b>Create change set for {{stack-name}}</b> page, and then choose <b>Next</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. On the **Specify stack details** page, specify a name for the change set and optionally specify a description of the change set to identify its purpose in the **Overview** section. If your template contains parameters, on the **Specify stack details** page, enter or modify applicable input parameter values, and then choose **Next**.
 

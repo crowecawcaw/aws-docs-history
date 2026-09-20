@@ -10,7 +10,7 @@ Use these sample template snippets with your Amazon CloudFront distribution reso
 + [Amazon CloudFront distribution resource with custom origin](#scenario-cloudfront-customorigin)
 + [Amazon CloudFront distribution with multi-origin support](#scenario-cloudfront-multiorigin)
 + [Amazon CloudFront distribution with a Lambda function as origin](#scenario-cloudfront-lambda-origin)
-+ [See also](#w2aac11c41c27c15)
++ [See also](#w2aac11c47c27c15)
 
 ## Amazon CloudFront distribution resource with an Amazon S3 origin
 <a name="scenario-cloudfront-s3origin"></a>
@@ -530,6 +530,6 @@ Outputs:
 ```
 
 ## See also
-<a name="w2aac11c41c27c15"></a>
+<a name="w2aac11c47c27c15"></a>
 
 For an example of adding a custom alias to a Route 53 record to make a friendly name for a CloudFront distribution, see [Alias resource record set for a CloudFront distribution](quickref-route53.md#scenario-user-friendly-url-for-cloudfront-distribution).

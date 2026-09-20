@@ -99,8 +99,22 @@ In certain edge cases, CloudFormation may not be able to always return accurate 
 + In certain cases, objects contained in property arrays will be reported as drift, when in actuality they're default values supplied to the property from the underlying service responsible for the resource.
 + Certain resources have attachment relationships with related resources, such that a resource may actually attach or remove property values for another resource, defined in the same or another template. For example, the `AWS::EC2::SecurityGroupIngress` and `AWS::EC2::SecurityGroupEgress` resources may be used to attach and remove values from `AWS::EC2::SecurityGroup` resources. In these cases, CloudFormation analyses the stack template for attachments before performing the drift comparison. However, CloudFormation can't perform this analysis across stacks, and so may not return accurate drift results where resources that are attached reside in different stacks.
 
-  Resources that support drift detection and allow or require attachments from other resources include:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html)
+  Resources that support drift detection and allow or require attachments from other resources include:
+
+
+<table>
+<thead>
+  <tr><th>Resource type</th><th>Attachment resource type</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AWS::SNS::Topic</code></td><td><code>AWS::SNS::Subscription</code></td></tr>
+  <tr><td><code>AWS::IAM::User</code></td><td><code>AWS::IAM::UserToGroupAddition</code></td></tr>
+  <tr><td><code>AWS::IAM::Group</code><br /><code>AWS::IAM::Role</code><br /><code>AWS::IAM::User</code></td><td><code>AWS::IAM::ManagedPolicy</code><br /><code>AWS::IAM::Policy</code><br /><code>AWS::IAM::RolePolicy</code></td></tr>
+  <tr><td><code>AWS::ElasticLoadBalancingV2::Listener</code></td><td><code>AWS::ElasticLoadBalancingV2::ListenerCertificate</code></td></tr>
+  <tr><td><code>AWS::EC2::SecurityGroup</code></td><td><code>AWS::EC2::SecurityGroupEgress</code><br /><code>AWS::EC2::SecurityGroupIngress</code></td></tr>
+</tbody>
+</table>
+
 + CloudFormation does not perform drift detection on the `KMSKeyId` property of any resources. Because AWS KMS keys can be referenced by multiple aliases, CloudFormation can't guarantee consistently accurate drift results for this property.
 + There are certain resource properties that you can specify in your stack template that, by their very nature, CloudFormation will not be able to compare to the properties in the resulting stack resources. These properties therefore cannot be included in drift detection results. Such properties fall into two broad categories:
   + Property values that CloudFormation cannot map back to their initial resource property value in the stack template.

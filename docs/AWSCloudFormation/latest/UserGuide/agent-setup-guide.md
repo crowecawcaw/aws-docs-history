@@ -3,7 +3,7 @@
 # Agent setup guide
 <a name="agent-setup-guide"></a>
 
-AI coding agents can accelerate infrastructure development by providing intelligent assistance for CloudFormation template authoring, pre-deployment validation, deployment troubleshooting, and CDK code generation. By configuring your agent with the CloudFormation skill and the AWS IaC MCP Server, you equip it with the expertise required to build and manage infrastructure as code on AWS.
+The [Agent Toolkit for AWS](https://github.com/aws/agent-toolkit-for-aws) on GitHub provides the `aws-core` plugin and its bundled `aws-cloudformation` skill. The skill helps AI coding agents author and validate CloudFormation templates, troubleshoot deployments, and generate AWS CDK code. The plugin also configures the AWS MCP Server for documentation search and AWS API access.
 
 ## Work with your coding agent
 <a name="agent-setup-work-with-agent"></a>
@@ -11,7 +11,7 @@ AI coding agents can accelerate infrastructure development by providing intellig
 For a quick-start reference, you can drop this link directly into your agent's context:
 
 ```
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/samples/aws-cloudformation-agent-setup.md
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/agent-setup-guide.md
 ```
 
 Choose the installation method that matches your development environment.
@@ -30,23 +30,22 @@ Ensure the following prerequisites are in place:
 
 | Component | What it provides | 
 | --- | --- | 
-| CloudFormation skill | Template authoring with secure defaults, 3-layer validation pipeline (cfn-lint, cfn-guard, change sets), and root-cause diagnosis of failed stacks using CloudFormation events and CloudTrail correlation. | 
+| aws-cloudformation skill | Template authoring with secure defaults, 3-layer validation pipeline (cfn-lint, cfn-guard, change sets), and root-cause diagnosis of failed stacks using CloudFormation events and CloudTrail correlation. | 
 | AWS IaC MCP Server | Documentation search (CloudFormation and CDK), template validation, compliance checks, deployment troubleshooting, and CDK best practices -- all running locally on your machine. | 
 
 ## Claude Code
 <a name="agent-setup-claude-code"></a>
 
-### Install aws-core plugin from Agent Toolkit for AWS
+### Install the `aws-core` plugin
 <a name="agent-setup-claude-code-plugin"></a>
 
-Run the following command to install the plugin:
+Run the following command to install the plugin from the official Claude Code marketplace:
 
 ```
-/plugin marketplace add aws/agent-toolkit-for-aws
-/plugin install aws-core@agent-toolkit-for-aws
+/plugin install aws-core@claude-plugins-official
 ```
 
-This installs agent skills including the AWS CloudFormation skill, agent hooks, and the AWS MCP Server configuration in one step.
+This installs the `aws-cloudformation` skill, other core AWS skills, agent hooks, and the AWS MCP Server configuration in one step.
 
 ### Install AWS IaC MCP Server
 <a name="agent-setup-claude-code-mcp"></a>
@@ -69,7 +68,7 @@ claude mcp add awslabs-aws-iac-mcp \
 <a name="agent-setup-codex-skill"></a>
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-cloudformation --yes --global
+npx skills add aws/agent-toolkit-for-aws/skills --skill aws-cloudformation --yes --global
 ```
 
 ### Install AWS IaC MCP Server
@@ -92,7 +91,7 @@ codex mcp add awslabs-aws-iac-mcp \
 <a name="agent-setup-cursor-skill"></a>
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-cloudformation --yes --global
+npx skills add aws/agent-toolkit-for-aws/skills --skill aws-cloudformation --yes --global
 ```
 
 ### Install AWS IaC MCP Server
@@ -119,7 +118,7 @@ Add the following to `.cursor/mcp.json` under `"mcpServers"`. Replace `AWS_PROFI
 <a name="agent-setup-kiro-skill"></a>
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-cloudformation --yes --global
+npx skills add aws/agent-toolkit-for-aws/skills --skill aws-cloudformation --yes --global
 ```
 
 ### Install AWS IaC MCP Server
@@ -153,7 +152,7 @@ Install the following Kiro power that provides specialized CloudFormation contex
 <a name="agent-setup-github-copilot-skill"></a>
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-cloudformation --yes --global
+npx skills add aws/agent-toolkit-for-aws/skills --skill aws-cloudformation --yes --global
 ```
 
 ### Install AWS IaC MCP Server
@@ -180,7 +179,7 @@ Add the following to `.vscode/mcp.json` under `"mcpServers"`. Replace `AWS_PROFI
 <a name="agent-setup-windsurf-skill"></a>
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-cloudformation --yes --global
+npx skills add aws/agent-toolkit-for-aws/skills --skill aws-cloudformation --yes --global
 ```
 
 ### Install AWS IaC MCP Server
@@ -207,7 +206,7 @@ Add the following to `/.codeium/windsurf/mcp_config.json` under `"mcpServers"`. 
 <a name="agent-setup-opencode-skill"></a>
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-cloudformation --yes --global
+npx skills add aws/agent-toolkit-for-aws/skills --skill aws-cloudformation --yes --global
 ```
 
 ### Install AWS IaC MCP Server
@@ -236,7 +235,7 @@ For any other agent that supports the open-source agent skills format and MCP Se
 <a name="agent-setup-other-agents-skill"></a>
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-cloudformation --yes --global
+npx skills add aws/agent-toolkit-for-aws/skills --skill aws-cloudformation --yes --global
 ```
 
 ### Install AWS IaC MCP Server
@@ -301,7 +300,7 @@ The MCP server requires the following AWS permissions for full functionality:
 ## Related resources
 <a name="agent-setup-related-resources"></a>
 + [AWS IaC MCP Server on GitHub](https://github.com/awslabs/mcp/tree/main/src/aws-iac-mcp-server)
-+ [Agent Toolkit for AWS](https://github.com/aws/agent-toolkit-for-aws)
++ [Agent Toolkit for AWS](https://github.com/aws/agent-toolkit-for-aws) on GitHub
 + [CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/)
 + [AWS CDK Developer Guide](https://docs.aws.amazon.com/cdk/v2/guide/)
 + [Introducing the AWS IaC MCP Server (blog)](https://aws.amazon.com/blogs/devops/introducing-the-aws-infrastructure-as-code-mcp-server-ai-powered-cdk-and-cloudformation-assistance/)
