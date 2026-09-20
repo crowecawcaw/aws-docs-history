@@ -8,9 +8,11 @@ Provide credentials to enable AWS Security Agent to test authenticated areas of 
 ## Configure authentication credentials
 <a name="_configure_authentication_credentials"></a>
 
-1. In the penetration test creation workflow, locate the **Authentication credentials - Optional** section.
+1. In the penetration test creation workflow, go to the **Credentials** step.
 
-1. In the **Credential \#1** section, choose your credential input method:
+1. Choose **Add credential**, then enter a **Credential name** that is unique within this penetration test.
+
+1. Choose your credential input method:
    +  **Input credentials** - Enter credentials directly. Best for development and testing environments.
    +  **Advanced setting** - Use AWS-native credential management. Recommended for production environments and sensitive credentials.
 
@@ -37,10 +39,12 @@ If you select **Advanced setting**, you can choose from three credential strateg
 
      When a TOTP secret is provided, the agent automatically generates fresh one-time codes and enters them when a 2FA prompt is detected during login.
 
-1. (Optional) Expand **Agent Space login prompt** to provide specific login instructions if your application has a complex authentication flow.
+1. Under **Agent Space login prompt**, enter instructions that describe how to sign in with these credentials. A login prompt is required for each credential. To start from a worked example, choose **Website login**, **API request**, **Amazon Cognito**, or **IAM Identity Center** below the field, then edit the inserted text.
+
+1. Choose **Save**, or choose **Save and test** to save the credential and test the sign-in right away. For more information about testing, see [Create a penetration test](perform-penetration-test.md).
 
 **Important**  
-Use test accounts with representative access rather than personal or administrative accounts.
+Use test accounts with representative access rather than personal or administrative accounts. Test against a non-production environment, and do not use an account that has access to production systems. For more information, see [Use non-production environments for penetration testing](https://docs.aws.amazon.com/securityagent/latest/userguide/security-best-practices.html#_use_non_production_environments_for_penetration_testing).
 
 ## Use advanced setting
 <a name="_use_advanced_setting"></a>
@@ -124,7 +128,7 @@ Email MFA is available for both the input credentials and advanced setting crede
 ### Enable email MFA in the console
 <a name="_enable_email_mfa_in_the_console"></a>
 
-1. In the credential section, select your credential input method and enter your credentials as described earlier in this topic.
+1. In the **Add credential** dialog box, select your credential input method and enter your credentials as described earlier in this topic.
 
 1. Expand **2FA - optional**, then choose **Email MFA**.
 
@@ -192,11 +196,11 @@ AWS Security Agent stores the messages that it receives at the forwarding addres
 
 To test different user roles or authentication systems:
 
-1. Choose **Add another credential**.
+1. On the **Credentials** step, choose **Add credential**.
 
 1. Configure the additional credential using either input method.
 
-1. To remove a credential, choose **Remove** in the credential section.
+1. To remove a credential, choose the remove icon in its row.
 
 ## Login Optimization
 <a name="_login_optimization"></a>
@@ -220,11 +224,14 @@ Login Optimization learns during the first login session within a run. Subsequen
 
 Login Optimization is enabled by default. To disable or re-enable it:
 
-1. In the penetration test configuration, navigate to the **Authentication credentials - optional** section.
+1. In the penetration test configuration, go to the **Additional configuration** step.
 
-1. Locate the **Login Optimization** toggle.
+1. Locate the **Login optimization** section.
 
 1. To enable Login Optimization, turn on the toggle. To disable, turn it off.
+
+**Note**  
+The **Login optimization** section appears only when the penetration test has at least one credential. Add a credential first, then return to the **Additional configuration** step.
 
 When disabled, the agent re-discovers the login flow from scratch on every run. Previously learned navigation skills are preserved and will be applied again if the feature is re-enabled.
 

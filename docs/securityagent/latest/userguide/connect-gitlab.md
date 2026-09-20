@@ -18,6 +18,9 @@ Connecting GitLab to AWS Security Agent requires providing a GitLab access token
 
  **Merge request analysis** happens within GitLab. After you provide your access token, connect projects, and enable code review comments in the AWS Management Console, AWS Security Agent automatically scans the changes in each new merge request (a differential scan of just the changed code) and posts findings as merge request comments.
 
+**Note**  
+The webhooks that trigger merge request analysis are created best-effort when you register the connection. With a personal access token, AWS Security Agent creates a webhook on each project the token can access. With a group access token, it creates a single webhook on the group.
+
 You create and run **full code reviews** — which scan a project’s entire codebase — in the AWS Security Agent web application, not in GitLab.
 
  **Penetration testing** and **threat modeling** are initiated within the AWS Security Agent web application. Users specify target domains and select connected repositories to provide application context. If you enable automated remediation, users can request AWS Security Agent to fix findings by opening merge requests to connected repositories.
@@ -31,8 +34,8 @@ Automated remediation is not available for public GitLab repositories to avoid d
 Before you begin, ensure you have:
 + A GitLab.com account with Maintainer or Owner access to the projects you want to connect
 + A GitLab access token with the scopes required for your connection type:
-  +  **Personal** - A personal access token with all read permissions and the `api` permission.
-  +  **Group** - A group access token with the `read_api` and `read_repository` scopes.
+  +  **Personal** – A personal access token with all read permissions and the `api` permission.
+  +  **Group** – A group access token with at least the Owner role, all read permissions, and the `api` permission.
 + Permissions to configure integrations in the AWS Security Agent Management Console
 
 **Important**  
@@ -135,7 +138,7 @@ On GitLab.com, group access tokens are available only with a Premium or Ultimate
 #### Resolution
 <a name="_resolution_3"></a>
 + On a free GitLab.com namespace, select the **Personal** account type and use a personal access token, which is available on all tiers.
-+ To use the **Group** account type, upgrade the group’s namespace to Premium or Ultimate, then create a group access token with the `read_api` and `read_repository` scopes.
++ To use the **Group** account type, upgrade the group’s namespace to Premium or Ultimate. Then create a group access token with at least the Owner role, all read permissions, and the `api` permission.
 + On GitLab self-managed, group access token availability depends on your instance’s license tier.
 
 ### Rate limiting

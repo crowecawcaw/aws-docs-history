@@ -116,6 +116,11 @@ AWS Security Agent detects vulnerabilities in the OWASP Top 10 for web applicati
 
 Yes. During a penetration test, AWS Security Agent scans each target host for open network ports. When a host has open TCP ports beyond the standard web ports your application uses, it adds a single informational Exposed Network Ports finding. The finding lists each open port with its detected service and version. AWS Security Agent identifies these ports for your awareness. It does not attempt to exploit the services on them.
 
+#### Can AWS Security Agent test endpoints on non-standard ports?
+<a name="_can_aws_security_agent_test_endpoints_on_non_standard_ports"></a>
+
+Yes. AWS Security Agent tests HTTP and HTTPS endpoints on any port. Include the port in the target URL, for example `https://example.com:8443`. Domain verification applies to the host. You don’t need to verify the domain again to test a different port.
+
 #### What authentication methods does AWS Security Agent support?
 <a name="_what_authentication_methods_does_aws_security_agent_support"></a>
 

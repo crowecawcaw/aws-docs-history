@@ -84,11 +84,13 @@ To run a penetration test with a VPC, your Agent Space service role must include
 
 1. Select the penetration test that you need to add VPC configuration for, and then choose **Modify pentest details** 
 
-1. Select **Next** to reach the **VPC Resources** section
+1. Choose **Save & Next** to reach the **VPC Resources** step
 
 1. Select the **VPC**, **Subnet**, and **Security groups** 
 
-1. Select **Next** to reach the last section and **Save** the penetration test
+1. Choose **Save & Next** on each remaining step
+
+1. On the last step, choose **Save** to save the penetration test
 
 **Note**  
 Cross-account penetration testing is currently supported for VPC resources (subnets and security groups) shared using AWS Resource Access Manager. Secrets Manager secrets and Lambda functions used for authentication credentials must be configured in the same AWS account as your AWS Security Agent setup.

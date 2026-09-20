@@ -117,11 +117,12 @@ Select individual findings to view comprehensive information about each vulnerab
    +  **Agent confidence** – The confidence level AWS Security Agent has in this finding
    +  **Severity** – The risk level with a color-coded badge
    +  **Risk Type** – The category of security risk
-   +  **Validation status** – When simulated validation is enabled, indicates whether the finding was confirmed exploitable in a running environment:
-     +  **Confirmed** – The vulnerability was successfully exploited in the simulated environment
-     +  **Not reproduced** – The vulnerability could not be exploited in the target runtime
-     +  **Validation failed** – The validation attempt was inconclusive due to an error
-     +  **Not validated** – Simulated validation was not performed for this finding. This occurs when validation is not enabled or the validation step timed out before reaching this finding.
+   +  **Validation status** – When simulated validation is enabled, indicates the current state or outcome of attempting to reproduce a finding in an isolated runtime environment.
+     +  **Validating** – Simulated validation is currently in progress.
+     +  **Confirmed** – The vulnerability was successfully exploited in the simulated environment.
+     +  **Not reproduced** – The vulnerability could not be exploited in the simulated environment.
+     +  **Validation failed** – Simulated validation was inconclusive because of an error or timeout. See the finding description for details.
+     +  **Not validated** – Simulated validation was not performed for this finding. This occurs when validation is not enabled or the validation step did not reach this finding.
    +  **Resolved** – Whether the finding has been resolved (Yes/No)
    +  **Last updated** – Timestamp of the most recent update
 

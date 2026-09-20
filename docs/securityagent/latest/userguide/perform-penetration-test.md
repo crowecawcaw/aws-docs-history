@@ -32,6 +32,22 @@ Navigate to the penetration test creation page in the web application.
 **Tip**  
 Only verified domains can be included in penetration tests. Ask your admin to verify the domain in AWS management console. See [Enable an application domain for penetration testing](enable-test-domain.md).
 
+When you complete the **Credentials** and **Network configuration** steps, AWS Security Agent tests more of your application and stays away from anything you do not want reached. The wizard has five steps:
+
+1.  **Penetration test details** – Name the test, set the target URLs, and choose the service role and log group.
+
+1. (Optional) **VPC Resources** – Configure network access for a target that is not publicly reachable.
+
+1. (Optional) **Credentials** – Add the credentials the agent uses to sign in, and test that each one works.
+
+1.  **Network configuration** – Review every domain the test may reach, including the domains discovered while your credentials were signed in.
+
+1. (Optional) **Additional configuration** – Add application context and set run options.
+
+Choose **Save & Next** to move to the next step. Each **Save & Next** saves your progress, so you can leave the wizard and come back later.
+
+A test you started but did not finish appears in the **Penetration tests** list with a **Draft** badge. Choose **Continue setup** on that test to return to the wizard. You cannot start a draft until you finish the wizard and create the test.
+
 ## Name your penetration test
 <a name="_name_your_penetration_test"></a>
 
@@ -45,20 +61,26 @@ Provide a descriptive name that helps identify the purpose and scope of this pen
 ## Configure penetration test scope
 <a name="_configure_penetration_test_scope"></a>
 
-Define which domains and URL paths will be tested, and configure optional exclusions to control test boundaries.
+Define which domains the penetration test is allowed to attack.
+
+The **Penetration testing scope** section holds the target URLs. Its **Advanced network access** subsection holds custom HTTP headers.
+
+You classify the other domains the test may reach on the **Network configuration** step, after the agent has tested your credentials. For more information, see [Review network scope](#pentest-network-scope).
 
 ### Add target domains
 <a name="_add_target_domains"></a>
 
 Specify the verified domains that will be actively tested for security vulnerabilities.
 
-1. In the **Penetration test scope** section, locate **Target URLs**.
+1. In the **Penetration testing scope** section, locate **Target URLs**.
 
 1. Expand the **Verified domains** section to view available domains.
 
 1. In the **Target URL** field, enter a target domain URL.
 **Important**  
 Only verified domains can be tested. The URL must be under a domain you’ve previously verified in AWS Security Agent. Sub-domains of a verified domain do not require separate verification.
+**Non-standard ports**  
+If your application serves traffic on a non-standard port, include the port in the URL. For example, `https://example.com:8443`. Domain verification applies to the host. You don’t need to verify the domain again to test a different port.
 
 1. To add multiple target domains:
 
@@ -71,63 +93,12 @@ Only verified domains can be tested. The URL must be under a domain you’ve pre
 **Tip**  
 For best results, include all domains that are part of your application’s user flow, including subdomains for APIs, authentication services, and content delivery. Sub-domains of a verified parent domain do not require separate verification.
 
-### Exclude risk types (optional)
-<a name="_exclude_risk_types_optional"></a>
-
-Choose specific risk categories to exclude from testing if they’re not applicable to your application.
-
-1. Locate the **Exclude risk types** field.
-
-1. Choose the dropdown to view available risk types.
-
-1. Select one or more risk types to exclude from the penetration test.
-**Note**  
-Excluding risk types limits the scope of testing. Only exclude risk types that are not relevant to your application or that you want to test separately.
-
-### Add out-of-scope URL paths (optional)
-<a name="_add_out_of_scope_url_paths_optional"></a>
-
-Specify URL paths that should not be tested during the penetration test. AWS Security Agent excludes the specified path and all paths nested beneath it. For example, if you add `https://example.com/admin` as an out-of-scope URL, `https://example.com/admin/tools` is also out-of-scope.
-
-1. Locate the **Out-of-scope URLs** section.
-
-1. In the **Out-of-scope URLs** input field, enter a URL path to exclude (for example, `/admin/delete` or `/api/reset`).
-**Warning**  
-Out-of-scope paths are not tested for vulnerabilities. Make sure you exclude only paths that should not be accessed during testing, such as destructive operations or sensitive administrative functions.
-
-1. To add multiple out-of-scope paths:
-
-   1. Choose **Add URL**.
-
-   1. Enter each additional path.
-
-1. To remove a path, choose **Remove** next to the path.
-
-### Add accessible domains (optional)
-<a name="_add_accessible_domains_optional"></a>
-
-Specify domains that are required for the test but are not targets for vulnerability testing.
-
-1. Locate the **Accessible URLs** section.
-
-1. In the **Accessible URLs** input field, enter a domain that should be accessible during testing.
-**Note**  
-Add accessible domains for third-party services (such as Okta, Auth0, Stripe) that are outside your target domain. This is required so AWS Security Agent can access these URLs for login and navigation during testing. AWS Security Agent does NOT penetration test these domains—they are used solely for access purposes. Accessible domains do not require ownership verification, even if they belong to a different domain than your target. Only target domains require verified ownership.
-
-1. To add multiple accessible domains:
-
-   1. Choose **Add URL**.
-
-   1. Enter each additional domain.
-
-1. To remove a domain, choose **Remove** next to the domain.
-
 ### Add custom HTTP headers (optional)
 <a name="_add_custom_http_headers_optional"></a>
 
 Specify custom HTTP headers that will be added to any requests made by AWS Security Agent during penetration testing.
 
-1. Locate the **Custom HTTP headers** section.
+1. Expand **Advanced network access**, then locate the **Custom HTTP headers** section.
 
 1. In the **Custom HTTP headers** input field, enter a header name and value that will be associated with outbound requests.
 **Note**  
@@ -203,61 +174,108 @@ If your target domains require authentication, provide credentials to allow AWS 
 **Note**  
 Skip this step if your target domains do not require authentication or if all areas you want tested are publicly accessible. Configure credentials only when you need AWS Security Agent to test authenticated sections of your application.
 
+Credentials appear in a table on the **Credentials** step. The table lists each credential’s name, test status, and authentication type.
+
+**Important**  
+When AWS Security Agent signs in with your credentials, it tests everything your application exposes to that signed-in user. Authenticated paths can reach shared services and third-party domains that you are not authorized to test. Only provide credentials for applications you are authorized to test.  
+Test against a non-production environment, and do not provide credentials that have access to production systems. For more information, see [Use non-production environments for penetration testing](https://docs.aws.amazon.com/securityagent/latest/userguide/security-best-practices.html#_use_non_production_environments_for_penetration_testing).
+
 ### Add credentials
 <a name="_add_credentials"></a>
 
 Provide authentication credentials that AWS Security Agent will use to access your application.
 
-1. In the **Credential \#1** section, select a credential input method:
+1. On the **Credentials** step, choose **Add credential**.
+
+1. In the **Credential name** field, enter a name that is unique within this penetration test. AWS Security Agent uses this name to report the credential’s test results and findings.
+
+1. Select a credential input method:
    +  **Input credentials** - Enter your credentials directly into AWS Security Agent.
    +  **Advanced setting** - For sensitive credential information, use advanced options such as AWS Secrets Manager or AWS Lambda functions. See [Provide authentication credentials for penetration testing](provide-testing-credentials.md) for details.
 **Tip**  
 For production environments or sensitive credentials, we recommend using the advanced setting option to securely reference credentials stored in AWS Secrets Manager or Systems Manager Parameter Store.
 
-### Enter credential details
-<a name="_enter_credential_details"></a>
+1. For **Input credentials**, enter the **Username** and **Password** for the authenticated account. Use an account whose access matches a typical user rather than an administrator.
 
-Provide the username and password for the authenticated account.
+1. In the **Access URL** dropdown, select the URL where these credentials will be used. You can select only a URL that is already in **Target URLs**. To use a different URL, add it as a target URL first.
 
-1. In the **User name** field, enter the username for authentication.
+1. Under **Agent Space login prompt**, enter instructions that describe how to sign in with these credentials. A login prompt is required for each credential, because it tells AWS Security Agent how to reach your login, complete it, and confirm that it worked. To start from a worked example, choose one of the buttons below the field, such as **Website login** or **API request**, then edit the inserted text. Choosing an example replaces whatever is in the field.
 
-1. In the **Password** field, enter the password for authentication.
-**Important**  
-Ensure the credentials you provide have appropriate access levels for the areas you want tested. The credentials should represent a typical user’s access level rather than administrative privileges.
+1. Choose **Save**, or choose **Save and test** to save the credential and immediately test it.
 
-### Select access domain
-<a name="_select_access_domain"></a>
+To change a credential later, choose the edit icon in its row. To delete one, choose the remove icon.
 
-Specify which target domain will use these credentials for authentication.
+### Test credentials
+<a name="_test_credentials"></a>
 
-1. In the **Access domain** dropdown, select the domain where these credentials will be used.
-**Note**  
-If you have multiple target domains that require different credentials, you can add additional credential sets by clicking **Add another credential** after completing this credential configuration.
+Test a credential to confirm that AWS Security Agent can sign in with it before the penetration test runs. Testing also discovers the domains your application reaches while signed in. AWS Security Agent then suggests those domains on the **Network configuration** step.
 
-### Configure agent login prompt (optional)
-<a name="_configure_agent_login_prompt_optional"></a>
+1. In the credential’s row, choose **Test**. To test every credential at once, choose **Test all credentials**.
 
-Provide instructions to guide AWS Security Agent through your application’s authentication process.
+1. Watch the **Status** column. A credential moves through **Starting** and **In progress** to one of these results:
+   +  **Success** – AWS Security Agent signed in with the credential.
+   +  **Failed** – Sign-in did not succeed. Choose the status to see the reason.
+   +  **Timed out** – AWS Security Agent could not complete the sign-in in time. A test that cannot sign in stops after 15 minutes.
+   +  **Unverified** – The credential has not been tested, or you changed it after its last test.
 
-1. Expand the **Agent login prompt** section if your authentication flow requires specific instructions.
+1. To see what the agent did during a test, choose **View logs** in the credential’s row.
 
-1. Enter instructions describing how to use the provided credentials in your application’s login flow.
-**Note**  
-The agent login prompt tells the agent how to apply your credentials to your application. This is useful for complex authentication flows, multi-step login processes, or applications with non-standard login procedures. Include step-by-step instructions such as "Navigate to /login, enter username in the 'Email' field, enter password, and choose 'Sign In'."
+Most sign-in tests finish in 2 to 3 minutes. A test keeps running if you leave the **Credentials** step, so you can continue through the wizard while it finishes.
+
+If a credential fails, check that the username and password are correct and that the login prompt describes the steps to reach and complete your login. Then edit the credential and test it again.
+
+A timeout here does not stop you from starting the penetration test. During the penetration test, the agent gets an hour to sign in, four times what it gets for a credential test. A sign-in that was only slow often succeeds with that extra time.
+
+When you leave the **Credentials** step with credentials that have not been tested, AWS Security Agent asks whether to test them. Choose **Test credentials** to test the remaining ones, or **Skip testing** to continue without testing. An untested credential discovers nothing, so any domain reachable only behind it is missing from the suggestions on the **Network configuration** step and you must add it yourself.
 
 ### Add multiple credentials (optional)
 <a name="_add_multiple_credentials_optional"></a>
 
 If your application requires multiple sets of credentials or different domains need separate authentication, add additional credential sets.
 
-1. After completing the first credential configuration, choose **Add another credential**.
+1. Choose **Add credential** again for each additional credential.
 
-1. Repeat the credential configuration steps for each additional credential set.
+1. Repeat the credential configuration steps for each one.
 
-1. To remove a credential set, choose **Remove** next to the credential header.
+1. To remove a credential, choose the remove icon in its row.
 
 **Tip**  
 Configure multiple credentials when testing different user roles, accessing multiple authenticated domains, or verifying role-based access controls in your application.
+
+## Review network scope
+<a name="pentest-network-scope"></a>
+
+On the **Network configuration** step, classify every domain the penetration test may reach. If you tested credentials on the previous step, the domains your application reached while signed in are already listed for you and marked **Suggested**. Review each one, then add anything the tests did not reach.
+
+Every domain has one of three classifications:
++  **Target** – A URL the penetration test is allowed to attack. Target URLs come from the **Penetration test details** step and are marked with a **Target** badge. To change one, go back to that step.
++  **Accessible** – A URL the penetration test can access but must not attack. Use this for a hosted login page, a content delivery network (CDN), or another supporting service your application depends on.
++  **Out of scope** – A URL the penetration test must not access at all.
+
+<a name="add-out-of-scope-url-paths-optional"></a>By default, only your target URLs are reachable. Add an accessible entry for anything else your application needs. An entry can be a whole domain, such as `auth.example.com`, or a specific path, such as `https://example.com/callback`. An out-of-scope entry always takes precedence over an accessible one.
+
+<a name="add-accessible-domains-optional"></a>Accessible domains do not require ownership verification, even if they belong to a different domain than your target. Only target domains require verified ownership. AWS Security Agent does not penetration test accessible domains; it uses them only for login and navigation.
+
+**Non-standard ports for accessible domains**  
+To make a non-standard port accessible, enter a full URL that includes the scheme and the port. For example, `https://auth.example.com:8443`. If you enter a domain without a scheme, such as `auth.example.com:8443`, AWS Security Agent allows the domain only on standard ports.
+
+### Classify a domain
+<a name="_classify_a_domain"></a>
+
+1. On the **Network configuration** step, review the **Network scope** table.
+
+1. For each domain, select **Accessible** or **Out of scope**.
+
+1. To add a domain the tests did not discover, choose **Add domain**, then enter the URL and select its classification.
+
+1. To remove a domain you added, choose the remove icon in its row. You cannot remove a target URL here.
+
+**Warning**  
+Mark as out of scope any path that should not be accessed during testing, such as a destructive operation or a sensitive administrative function. AWS Security Agent excludes the specified path and all paths nested beneath it. For example, if you mark `https://example.com/admin` as out of scope, `https://example.com/admin/tools` is also out of scope.
+
+To review the same domains grouped by classification instead of in a table, choose **Grouped** in **Domain view**. In grouped view, choose **Edit** to make changes, then choose **Save**.
+
+The **Derived examples** list at the bottom of the section shows endpoints that cannot receive traffic from the penetration test, based on how you classified each domain. Use it to confirm your classifications before you continue.
 
 ## Attach additional resources (optional)
 <a name="_attach_additional_resources_optional"></a>
@@ -367,6 +385,19 @@ For larger applications, or to get the most complete results, set a higher limit
 
 **Note**  
 When a test reaches its maximum task hours, AWS Security Agent stops working on the test and keeps the findings already discovered. The run finishes with a status of **Completed**. You can review these findings or create and run a new test.
+
+## Exclude risk types (optional)
+<a name="_exclude_risk_types_optional"></a>
+
+Choose specific risk categories to exclude from testing if they’re not applicable to your application.
+
+1. On the **Additional configuration** step, locate the **Exclude risk types** field.
+
+1. Choose the dropdown to view available risk types.
+
+1. Select one or more risk types to exclude from the penetration test.
+**Note**  
+Excluding risk types limits the scope of testing. Only exclude risk types that are not relevant to your application or that you want to test separately.
 
 ## Create the penetration test
 <a name="_create_the_penetration_test"></a>

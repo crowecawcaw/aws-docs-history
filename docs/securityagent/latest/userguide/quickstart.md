@@ -83,15 +83,13 @@ You create and run penetration tests in the AWS Security Agent web application. 
 
    1. Under **Target URLs**, select or enter a verified domain to test (for example, `https://example.com`). Only verified domains can be tested, and sub-domains are covered automatically.
 
-   1. (Optional) Under **Accessible URLs**, add domains the agent must reach for login and navigation but should not attack, such as identity providers, CDNs, or APIs outside your target domain. AWS Security Agent can reach these domains but does not test them; only your target domains are attacked.
-
-   1. Review the **Networking config rules** to confirm which endpoints can and cannot receive traffic during the test.
-
-   1. Under **Permissions**, select a **Service role** and, optionally, a **CloudWatch log group**. Choose **Next**.
+   1. Under **Permissions**, select a **Service role** and, optionally, a **CloudWatch log group**. Choose **Save & Next**.
 
 1. (Optional) **VPC Resources** - Configure a VPC if your target is on a private network that isn’t publicly reachable. See [Enable penetration test](enable-penetration-test.md).
 
-1. (Optional) **Authentication Resources** - Provide credentials so the agent can reach authenticated, non-public paths. We recommend adding these to broaden coverage and surface vulnerabilities behind a login.
+1. (Optional) **Credentials** - Add credentials so the agent can reach authenticated, non-public paths. We recommend adding these to broaden coverage and surface vulnerabilities behind a login. Choose **Test** on each credential to confirm the agent can sign in, and to discover the domains your application reaches while signed in.
+
+1.  **Network configuration** - Classify every domain the test may reach. Domains discovered while your credentials were signed in are listed as **Suggested**. Mark each one **Accessible** if the agent may reach it but must not attack it, or **Out of scope** if it must not be reached at all. Add anything the tests did not discover.
 
 1. (Optional) **Additional configuration** - Add application context such as files, GitHub repositories, or S3 sources to improve finding quality. You can also enable automatic code remediation and set other run options here.
 

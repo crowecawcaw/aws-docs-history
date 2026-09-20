@@ -18,8 +18,8 @@ Before you begin, ensure you have:
   + Publicly accessible over the internet, OR
   + Accessible via a private connection (see [Connect to privately hosted source control](connect-private-connection.md))
 + A GitLab access token with the scopes required for your connection type:
-  +  **Personal** - A personal access token with all read permissions and the `api` permission.
-  +  **Group** - A group access token with the `read_api` and `read_repository` scopes.
+  +  **Personal** – A personal access token with all read permissions and the `api` permission.
+  +  **Group** – A group access token with at least the Owner role, all read permissions, and the `api` permission.
 + Maintainer or Owner access to the projects you want to connect
 + Your GitLab instance must serve HTTPS traffic with a minimum TLS version of 1.2
 
