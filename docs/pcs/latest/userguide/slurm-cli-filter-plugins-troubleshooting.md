@@ -13,7 +13,7 @@ Use this troubleshooting information to resolve common CLI Filter Plugin issues.
 + Script deployed to wrong directory path
 + Script has incorrect file permissions
 **Resolution:**  
-+ Verify script exists at `/etc/aws/pcs/scheduler/slurm-<version>/cli_filter.lua` on all login and compute nodes
++ Verify script exists at `/etc/aws/pcs/scheduler/slurm-{{version}}/cli_filter.lua` on all login and compute nodes
 + Check script filename is exactly `cli_filter.lua`
 + Ensure script has readable permissions (644 or similar)
 + Test script deployment on a single login node before deploying to full cluster

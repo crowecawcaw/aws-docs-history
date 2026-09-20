@@ -31,7 +31,7 @@ The AWS-provided software installs the following:
   +  Slurm is built with the option `--enable-pam` and `--without-munge` 
   +  Slurm is built with the option `--sharedstatedir=/run/slurm/` 
   +  Slurm is built with PMIX and JWT support 
-  +  Slurm is installed at `/opt/aws/pcs/schedulers/slurm-{{version}}`, for example `/opt/aws/pcs/schedulers/slurm-26.05` 
+  +  Slurm is installed at `/opt/aws/pcs/scheduler/slurm-{{version}}`, for example `/opt/aws/pcs/scheduler/slurm-26.05` 
 +  [OpenPMIX](https://openpmix.github.io/) (version 4.2.6) – [License](https://github.com/openpmix/openpmix?tab=License-1-ov-file) 
   +  OpenPMIX is installed as a subdirectory of `/opt/aws/pcs/scheduler/` 
 +  [libjwt](https://benmcollins.github.io/libjwt/) (version 1.17.0) – [License MPL-2.0](https://github.com/benmcollins/libjwt?tab=MPL-2.0-1-ov-file#readme) 

@@ -12,7 +12,6 @@ AWS PCS introduced support for Capacity Blocks since Slurm version 24.05.
 
 ## Limitations
 <a name="capacity-blocks-limitations"></a>
-+ AWS PCS only supports Capacity Blocks with P6-B300, P6-B200, P5en, P5e, P5, and P4d instance families.
 + You can only associate a compute node group with 1 Capacity Block at a time.
 + You can't associate a compute node group with a capacity reservation group that combines multiple Capacity Blocks.
 + Capacity Blocks must be in a `scheduled` or `active` state to use with AWS PCS. You can't use Capacity Blocks in other states, such as `payment-failed`. For more information, see [View Capacity Blocks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-blocks-view.html) in the *Amazon Elastic Compute Cloud User Guide*.

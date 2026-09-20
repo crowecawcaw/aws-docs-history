@@ -12,10 +12,10 @@ If you have an AMI with a previous version of the Slurm software installed on it
 
 1.  Connect to the same temporary instance where you installed the AWS PCS software. 
 
-1.  Download the Slurm installer software. The Slurm installer is packaged into a compressed tarball (`.tar.gz`) file. To download the latest *stable* version, use the following command. Substitute {{region}} with the AWS Region of your temporary instance, such as `us-east-1`. 
+1.  Download the Slurm installer software. The Slurm installer is packaged into a compressed tarball (`.tar.gz`) file. To download the latest *stable* version, use the following command. Substitute {{us-east-1}} with the AWS Region of your temporary instance. 
 
    ```
-   curl https://aws-pcs-repo-{{region}}.s3.{{region}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz \
+   curl https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz \
         -o aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz
    ```
 
@@ -25,10 +25,10 @@ This might change in future releases of the Slurm installer software.
 
 1. (Optional) Verify the authenticity and integrity of the Slurm installer tarball. We recommend that you do this to verify the identity of the software publisher and to check that the file has not been altered or corrupted since it was published.
 
-   1. Download the public GPG key for AWS PCS and import it into your keyring. Substitute {{region}} with the AWS Region where you launched your temporary instance. The command should return a key value. Record the key value; you use it in the next step.
+   1. Download the public GPG key for AWS PCS and import it into your keyring. Substitute {{us-east-1}} with the AWS Region where you launched your temporary instance. The command should return a key value. Record the key value; you use it in the next step.
 
       ```
-      wget https://aws-pcs-repo-public-keys-{{region}}.s3.{{region}}.amazonaws.com/aws-pcs-public-key.pub && \
+      wget https://aws-pcs-repo-public-keys-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-public-key.pub && \
           gpg --import aws-pcs-public-key.pub
       ```
 
@@ -46,10 +46,10 @@ This might change in future releases of the Slurm installer software.
 **Important**  
 Don't run the Slurm installation script if the fingerprint doesn't match. Contact [AWS Support](https://console.aws.amazon.com/support).
 
-   1. Download the signature file and verify the signature of the Slurm installer tarball file. Replace {{region}} with the AWS Region where you launched your temporary instance, such as `us-east-1`.
+   1. Download the signature file and verify the signature of the Slurm installer tarball file. Replace {{us-east-1}} with the AWS Region where you launched your temporary instance.
 
       ```
-      wget https://aws-pcs-repo-{{region}}.s3.{{region}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz.sig && \
+      wget https://aws-pcs-repo-{{us-east-1}}.s3.{{us-east-1}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz.sig && \
            gpg --verify ./aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz.sig
       ```
 
