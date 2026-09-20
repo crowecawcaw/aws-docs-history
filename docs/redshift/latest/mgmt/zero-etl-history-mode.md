@@ -25,8 +25,20 @@ For information about what to consider when using history mode, see [Considerati
 
 1. You can **Turn off** or **Turn on ** history mode for a target table that is replicated from a source type that has a single source table, such as, Amazon DynamoDB. When the zero-ETL integration has multiple target tables possible, you can **Turn off for all existing and future tables**, **Turn on for all existing and future tables**, or **Manage history mode for individual tables**. The default is history mode `off` when the zero-ETL integration is created.
 
-   When history mode is turned `on`, the following columns are added to your target table to keep track of changes in the source. History mode `on` increases monthly usage and cost because Amazon Redshift doesn't delete any records in the target tables. Any source record that is deleted or changed creates a new record in the target, resulting in more total rows in the target with multiple record versions. Records are not deleted from the target table when deleted or modified in the source. You can manage target tables by deleting inactive records.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-history-mode.html)
+   When history mode is turned `on`, the following columns are added to your target table to keep track of changes in the source. History mode `on` increases monthly usage and cost because Amazon Redshift doesn't delete any records in the target tables. Any source record that is deleted or changed creates a new record in the target, resulting in more total rows in the target with multiple record versions. Records are not deleted from the target table when deleted or modified in the source. You can manage target tables by deleting inactive records.
+
+
+<table>
+<thead>
+  <tr><th>Column name</th><th>Data type</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>_record_is_active</td><td>Boolean</td><td>Indicates if a record in the target is currently active in the source. True indicates the record is active.</td></tr>
+  <tr><td>_record_create_time</td><td>Timestamp</td><td>Starting time (UTC) when the source record is active.</td></tr>
+  <tr><td>_record_delete_time</td><td>Timestamp</td><td>Ending time (UTC) when the source record is updated or deleted.</td></tr>
+</tbody>
+</table>
+
 
    You can delete inactive records from a history mode table by filtering on records where the column `_record_is_active` is false. The following SQL DELETE command deletes inactive records from a table where the id column is less than or equal to 100. After you delete records, when automatic vacuum delete runs, storage for the deleted records is reclaimed.
 

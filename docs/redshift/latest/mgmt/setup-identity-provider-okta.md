@@ -32,8 +32,21 @@ The following procedure describes how to set up a trust relationship.
 
 1. In the **Advanced Settings** section, for **SAML Issuer ID**, enter **{{your-Identity-Provider-Issuer-ID}}**, which you can find in the **View Setup Instructions** section.
 
-1. In the **Attribute Statements** section, create the claims as shown in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/mgmt/setup-identity-provider-okta.html)
+1. In the **Attribute Statements** section, create the claims as shown in the following table.
+
+
+<table>
+<thead>
+  <tr><th>Claim name</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>https://aws.amazon.com/SAML/Attributes/Role</b></td><td>arn:aws:iam::{{123456789012}}:role/{{Okta}},arn:aws:iam::{{123456789012}}:saml-provider/{{Okta}}</td></tr>
+  <tr><td><b>https://aws.amazon.com/SAML/Attributes/RoleSessionName</b></td><td>user.email</td></tr>
+  <tr><td><b>https://redshift.amazon.com/SAML/Attributes/AutoCreate</b></td><td>"true"</td></tr>
+  <tr><td><b>https://redshift.amazon.com/SAML/Attributes/DbUser</b></td><td>user.email</td></tr>
+</tbody>
+</table>
+
 
 1. In the **App Embed Link** section, find the URL that you can use as the login URL for the Browser SAML plugin.
 

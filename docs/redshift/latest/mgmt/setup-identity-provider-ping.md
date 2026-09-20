@@ -34,8 +34,22 @@ The following procedure describes how to set up a trust relationship using the P
 
    1. For **Signing**, choose **Sign Assertion**.
 
-   1. In the **SSO Attribute Mapping** section, create the claims as shown in the following table.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/mgmt/setup-identity-provider-ping.html)
+   1. In the **SSO Attribute Mapping** section, create the claims as shown in the following table. 
+
+
+<table>
+<thead>
+  <tr><th>Application attribute</th><th>Identity bridge attribute of literal value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>https://aws.amazon.com/SAML/Attributes/Role</b></td><td>arn:aws:iam::{{123456789012}}:role/{{Ping}},arn:aws:iam::{{123456789012}}:saml-provider/{{PingProvider}}</td></tr>
+  <tr><td><b>https://aws.amazon.com/SAML/Attributes/RoleSessionName</b></td><td>email</td></tr>
+  <tr><td><b>https://redshift.amazon.com/SAML/Attributes/AutoCreate</b></td><td>"true"</td></tr>
+  <tr><td>https://redshift.amazon.com/SAML/Attributes/DbUser</td><td>email</td></tr>
+  <tr><td>https://redshift.amazon.com/SAML/Attributes/DbGroups</td><td>The groups in the “DbGroups” attributes contain the @directory prefix. To remove this, in <b>Identity bridge</b>, enter <b>memberOf</b>. In <b>Function</b>, choose <b>ExtractByRegularExpression</b>. In <b>Expression</b>, enter <b>(.*)[\@](?:.*)</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. For **Group Access**, set up the following group access, if needed:
    + **https://aws.amazon.com/SAML/Attributes/Role**

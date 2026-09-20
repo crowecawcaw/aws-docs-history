@@ -65,8 +65,24 @@ The following procedure describes how to set up a trust relationship.
 
    For **Source attribute**, choose **"true"**. Then, choose **Save**.
 
-   Here, `{{123456789012}}` is your AWS account, {{`AzureSSO`}} is an IAM role you created, and {{`AzureADProvider`}} is the IAM provider.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/mgmt/setup-identity-provider-azure.html)
+   Here, `{{123456789012}}` is your AWS account, {{`AzureSSO`}} is an IAM role you created, and {{`AzureADProvider`}} is the IAM provider. 
+
+
+<table>
+<thead>
+  <tr><th>Claim name</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Unique user identifier (name ID)</td><td>user.userprincipalname </td></tr>
+  <tr><td><b>https://aws.amazon.com/SAML/Attributes/SessionDuration</b></td><td>"900"</td></tr>
+  <tr><td><b>https://aws.amazon.com/SAML/Attributes/Role</b></td><td>arn:aws:iam::{{123456789012}}:role/{{AzureSSO}},arn:aws:iam::{{123456789012}}:saml-provider/{{AzureADProvider}}</td></tr>
+  <tr><td><b>https://aws.amazon.com/SAML/Attributes/RoleSessionName</b></td><td>user.userprincipalname</td></tr>
+  <tr><td><b>https://redshift.amazon.com/SAML/Attributes/AutoCreate</b></td><td>"true"</td></tr>
+  <tr><td><b>https://redshift.amazon.com/SAML/Attributes/DbGroups</b></td><td>user.assignedroles</td></tr>
+  <tr><td><b>https://redshift.amazon.com/SAML/Attributes/DbUser</b></td><td>user.userprincipalname</td></tr>
+</tbody>
+</table>
+
 
 1. Under **App Registration > **{{your-application-name}}** > Authentication**, add **Mobile And Desktop Application**. Specify the URL as http://localhost/redshift/.
 

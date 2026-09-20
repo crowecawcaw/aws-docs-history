@@ -17,6 +17,7 @@ SELECT version();
 Critical updates that affect Amazon Redshift behavior are introduced as Amazon Redshift evolves. To keep up with these changes, take actions, and avoid potential disruptions to your workloads, see [Behavior changes in Amazon Redshift](behavior-changes.md).
 
 **Topics**
++ [Amazon Redshift patch 205](#cluster-version-205)
 + [Amazon Redshift patch 204](#cluster-version-204)
 + [Amazon Redshift patch 203](#cluster-version-203)
 + [Amazon Redshift patch 202](#cluster-version-202)
@@ -55,6 +56,46 @@ Critical updates that affect Amazon Redshift behavior are introduced as Amazon R
 + [Amazon Redshift patch 169](#cluster-version-169)
 + [Amazon Redshift patch 168](#cluster-version-168)
 
+## Amazon Redshift patch 205
+<a name="cluster-version-205"></a>
+
+Cluster versions in this patch:
++ 1.0.434008 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released September 16, 2026
+
+### New features and improvements in this patch
+<a name="cluster-version-2026-09-16-features"></a>
++ Iceberg MV – Materialized views stored in Iceberg offering incremental refresh and full recompute.
++ System tables now include an `external_user_id` column that records the durable IAM or IAM Identity Center identity associated with each query, enabling per-user filtering across cluster lifecycle events.
++ Amazon Redshift Spectrum queries on external tables now support reading gzip and bzip2 compressed Text/CSV files.
++ Added support for the IAM\_ROLE 'SESSION' keyword for COPY and UNLOAD, allowing customers to use session-bound FAS credentials for Amazon S3 access instead of specifying an explicit IAM role ARN.
++ Added `ALTER DATABASE ... INTEGRATION REFRESH REMEDIABLE TABLES`, which resynchronizes zero-ETL tables flagged with a duplicate-date warning on demand, optionally scoped to a schema.
++ Added the `IntegrationLatestSourceCommit` Amazon CloudWatch metric for zero-ETL integrations, reporting the latest source commit time observed so you can distinguish an idle source from a stalled pipeline.
++ Amazon Redshift now lets an administrator raise the minimum length required for database user passwords using `ALTER SYSTEM SET passwd_min_length = N` (8–32).
++ Fixed an issue where `ALTER IDENTITY PROVIDER ... ENABLE` failed with an incorrect-parameters error on Azure identity providers configured to automatically create roles.
++ Amazon Redshift now supports post-quantum hybrid key exchange (`X25519MLKEM768`) for TLS connections.
++ Amazon Redshift now supports a `DEBUG` permission on federated permissions catalog databases, letting a global identity, an IAM Identity Center (IdC) group, or a consumer account's administrators view unredacted secure logging records for fine-grained access control (FGAC)-protected data.
++ Amazon Redshift now supports scoped permissions with Metadata Security.
++ Iceberg tables can now be created with a NOT NULL column constraint.
++ Amazon CloudTrail audit events for Amazon Redshift-initiated API calls now include a `queryUuid` field for correlation with system tables.
++ Renamed the `user_query_uuid` column to `query_uuid` in system tables and views for consistency.
++ Improved query performance and availability on clusters with zero-ETL integrations under high query concurrency.
++ Permission checks on tables with a large number of columns and few column-level permissions are now faster, which speeds up metadata queries and client tools that list table privileges.
++ Enhanced stability for queries that use Lambda UDFs in Aggregates.
++ Automatic bloat removal now lets the superblock shrink to fit its live header set, removing the need to reclaim bloat through Superblock Vacuum (SBV).
++ Improved automatic table sort to reduce storage growth on tables with a large number of columns.
++ Fixed an issue that could stop automatic vacuum from running on a cluster until the cluster was restarted.
++ Fixed an issue that could cause a cluster restart during a vacuum operation on clusters using automatic workload management with concurrency scaling.
++ Fixed a bug that could lead to errors with type inference for recursive CTEs containing string literals.
++ Fixed an issue where federated PostgreSQL queries could hang on an unresponsive remote database and ignore cancellation requests.
++ Fixed a rare cluster restart caused by a double-free in COPY load state management under memory pressure.
++ Fixed an issue where `SHOW` discovery commands could not find results when given a long pattern in the `LIKE` clause.
++ Fixed an issue where creating or publishing a datashare could fail on a cluster that had reached its maximum number of database roles.
++ Canceling a `DROP DATABASE` command now ends the command with an error instead of causing an unexpected cluster restart.
++ Improved reliability of stored procedures that query Iceberg tables multiple times followed by a query on a local table when concurrency scaling is in use.
++ Improved reliability of sessions that mix Iceberg cursors with non-Iceberg queries when concurrency scaling is enabled.
++ Added the capability to make the fdisk fetch-block IPC wait cancellable so a lost ACK becomes a killable query instead of an unkillable hang.
++ Improved the reliability of the internal process used during Online Elastic Resize to make the process more deterministic/robust.
+
 ## Amazon Redshift patch 204
 <a name="cluster-version-204"></a>
 
@@ -89,7 +130,6 @@ Cluster versions in this patch:
 + Amazon Redshift now caches IAM role credentials on the leader node. This reduces retrieval overhead for COPY, UNLOAD, Amazon Redshift Spectrum, and Lambda UDF queries. Frequently used credentials are reused across queries, improving query start-up time.
 + AWS IAM Identity Center authentication now works on clusters and workgroups with enhanced VPC routing enabled.
 + Improved disk-health detection for RG node types to prevent unnecessary automatic hardware remediations on clusters operating under normal disk I/O.
-+ Queries that reference user temporary tables can now utilize concurrency scaling.
 + Enhanced Data Sharing performance by skipping an extra copy in the backend process.
 + Expanded consumer size support for multi-warehouse write queries.
 + Enhanced stability for Lambda User-Defined Functions with no arguments in joins.

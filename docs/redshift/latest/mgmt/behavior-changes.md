@@ -13,7 +13,7 @@ As Amazon Redshift continues to evolve and improve, certain changes in behavior 
 The following describes upcoming behavior changes.
 
 **Topics**
-+ [SUPER data type supports larger individual strings starting with Patch 205](#super-large-strings-patch205)
++ [SUPER data type supports larger individual strings starting with Patch 206](#super-large-strings-patch206)
 + [AWS KMS key permission enforcement for Amazon Redshift Serverless APIs after August 17, 2026](#kms-permission-serverless-aug2026)
 + [Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 204](#user-lockout-patch204)
 + [Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026](#snapshot-billing-model-jun2026)
@@ -26,10 +26,10 @@ The following describes upcoming behavior changes.
 + [Minimum Transport Layer Security (TLS) version changes effective starting September 30, 2026](#tls-changes-sep2026)
 + [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025)
 
-### SUPER data type supports larger individual strings starting with Patch 205
-<a name="super-large-strings-patch205"></a>
+### SUPER data type supports larger individual strings starting with Patch 206
+<a name="super-large-strings-patch206"></a>
 
-Starting with Patch 205, Amazon Redshift supports individual strings up to 16,000,000 bytes within the SUPER data type (used to store semistructured data). This limit also applies to in-memory string operations. To use this capability, create a database parameter group and set the `enable_large_strings_opt_in` parameter to `Yes`. Then, attach the parameter group to your data warehouse. For provisioned clusters, you must reboot the cluster to apply the parameter change.
+Starting with Patch 206, Amazon Redshift supports individual strings up to 16,000,000 bytes within the SUPER data type (used to store semistructured data). This limit also applies to in-memory string operations. To use this capability, create a database parameter group and set the `enable_large_strings_opt_in` parameter to `Yes`. Then, attach the parameter group to your data warehouse. For provisioned clusters, you must reboot the cluster to apply the parameter change.
 
 This change might affect you if you use SUPER data types to store large JSON documents. It might also affect you if your workloads rely on `VARCHAR(MAX)` in views, user-defined functions (UDFs), or stored procedures that process strings longer than 65,535 bytes.
 

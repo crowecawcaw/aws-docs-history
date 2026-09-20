@@ -86,8 +86,27 @@ The growth and reduction limits are based on the original node type and the numb
 
   All rg and ra3 node types support a decrease in the number of nodes to a quarter of the existing count. For example, you can decrease the size of a cluster with ra3.4xlarge nodes from 12 nodes to 3, or to a number above the minimum.
 
-  The following table lists growth and reduction limits for each node type that supports elastic resize.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/mgmt/resizing-cluster.html)
+  The following table lists growth and reduction limits for each node type that supports elastic resize.
+
+
+<table>
+<thead>
+  <tr><th>Original node type</th><th>Growth limit</th><th>Reduction limit</th></tr>
+</thead>
+<tbody>
+  <tr><td>rg.12xlarge</td><td>4x</td><td>To one quarter of the number</td></tr>
+  <tr><td>rg.4xlarge</td><td>4x</td><td>To one quarter of the number</td></tr>
+  <tr><td>rg.xlarge</td><td>2x</td><td>To one half of the number</td></tr>
+  <tr><td>rg.large</td><td>2x</td><td>To one half of the number</td></tr>
+  <tr><td>ra3.16xlarge</td><td>4x (from 4 to 16 nodes, for example)</td><td>To one quarter of the number (from 16 to 4 nodes, for example)</td></tr>
+  <tr><td>ra3.4xlarge</td><td>4x</td><td>To one quarter of the number</td></tr>
+  <tr><td>ra3.xlplus</td><td>2x (from 4 to 8 nodes, for example)</td><td>To one quarter of the number</td></tr>
+  <tr><td>ra3.large</td><td>2x</td><td>To one half of the number</td></tr>
+  <tr><td>dc2.8xlarge</td><td>2x</td><td>To one half of the number (from 16 to 8 nodes, for example)</td></tr>
+  <tr><td>dc2.large</td><td>2x</td><td>To one half of the number</td></tr>
+</tbody>
+</table>
+
 **Note**  
  **Choosing legacy node types when you resize an RG or RA3 cluster** – If you attempt to resize from a cluster with RG or RA3 nodes to another node type, such as DC2 , a validation warning message appears in the console, and the resize operation won't complete. This occurs because resize to legacy node types isn't supported. This is to prevent a customer from resizing to a node type that's deprecated or soon to be deprecated. This applies for both elastic resize and classic resize. 
 

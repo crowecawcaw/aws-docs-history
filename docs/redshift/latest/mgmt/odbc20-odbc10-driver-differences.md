@@ -43,9 +43,9 @@ The following table shows ODBC 1.x driver options that have either been renamed 
 | SSLCertPath | TrustStore or CaFile | Path to a CA certificate used to verify the server. On Windows, set this in the Trust Store field of the DSN setup dialog; the dialog has no CaFile field. If both are set, TrustStore takes priority. | 
 
 The following 1.x options are not supported in the current 2.x driver. The 2.x driver ignores them, so they do not affect your connection. Removing them from your DSN is optional but recommended to avoid confusion.
-+ `SingleRowMode` – to limit client memory, use `StreamingCursorRows` instead.
++ `SingleRowMode` – to limit client memory, use `StreamingCursorRows` or `UseDeclareFetch` instead.
 + `UseSystemTrustStore` – not supported. On Windows, the 1.x driver could validate the server certificate against the Windows system certificate store. The 2.x driver validates against a CA certificate file: it uses the bundled Amazon Redshift root certificate by default, or the file you specify in `TrustStore` or `CaFile`.
-+ `TextAsLongVarchar`, `CheckCertRevocation`, `EnableAwsSdkLogs`, `UseLogPrefix`, `Locale`, `UseDeclareFetch`, `UseMultipleStatements`, `EnforceSingleStatement` – no equivalent in the current release. The Amazon Redshift team is evaluating equivalents or alternatives for these options in future releases.
++ `TextAsLongVarchar`, `CheckCertRevocation`, `EnableAwsSdkLogs`, `UseLogPrefix`, `Locale`, `UseMultipleStatements`, `EnforceSingleStatement` – no equivalent in the current release. The Amazon Redshift team is evaluating equivalents or alternatives for these options in future releases.
 
 For the full list of supported 2.x options, see [ODBC driver options](odbc20-configuration-options.md).
 

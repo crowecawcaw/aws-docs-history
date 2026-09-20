@@ -34,6 +34,7 @@ Following are descriptions for the options that you can specify for the Amazon R
 + [DSN](#odbc20-dsn-option)
 + [EnableTableTypes](#odbc20-enabletabletypes-option)
 + [EndpointUrl](#odbc20-endpointurl-option)
++ [Fetch](#odbc20-fetch-option)
 + [ForceLowercase](#odbc20-forcelowercase-option)
 + [group\_federation](#odbc20-group-federation-option)
 + [https\_proxy\_host](#odbc20-https-proxy-host-option)
@@ -89,6 +90,7 @@ Following are descriptions for the options that you can specify for the Amazon R
 + [token](#jdbc20-token-option)
 + [token\_type](#jdbc20-token-type-option)
 + [UID \| User \| LogonID](#odbc20-uid-option)
++ [UseDeclareFetch](#odbc20-usedeclarefetch-option)
 + [UseUnicode](#odbc20-useunicode-option)
 + [web\_identity\_token](#odbc20-web-identity-token-option)
 
@@ -297,6 +299,15 @@ This parameter is optional. It is available in driver versions 2.2.1 and later.
 + **Data Type** – String
 
 The overriding endpoint used to communicate with the Amazon Redshift Coral Service for IAM authentication.
+
+This parameter is optional.
+
+## Fetch
+<a name="odbc20-fetch-option"></a>
++ **Default Value** – 100
++ **Data Type** – Integer
+
+When Declare/Fetch mode is enabled, this option controls how many rows the driver retrieves per round-trip, letting you tune the balance between memory use and network overhead for your workload. A larger value fetches more rows at once, reducing the number of round-trips to the server at the cost of higher memory per fetch. A smaller value lowers memory use but increases how often the driver goes back to the server. It sets the number of rows the driver returns at a time when `UseDeclareFetch` is enabled. For more information, see [UseDeclareFetch](#odbc20-usedeclarefetch-option).
 
 This parameter is optional.
 
@@ -837,16 +848,18 @@ This parameter is optional.
 + **Default Value** – 0
 + **Data Type** – Integer
 
-The number of rows the driver fetches per batch when using streaming cursor mode. When set to a positive integer and the cursor type is forward-only, the driver reads rows from the server in batches of the specified size instead of loading the entire result set into memory.
+Limits how many rows the driver holds in memory at one time for a forward-only cursor, so that large result sets don't have to load into memory all at once.
 
 Set the property to one of the following values:
-+ 0: Disabled. The driver loads the entire result set into memory (default).
-+ Positive integer: The number of rows per streaming batch.
++ 0: The driver loads the entire result set into memory before returning rows to the application (default). Very large result sets can consume a large amount of memory.
++ Positive integer: For a forward-only cursor, the driver keeps only that many rows in memory at a time. It returns those rows to the application, releases them, and then fetches the next batch once the application has consumed the current one.
+
+This option has no effect on scrollable cursors, which always use the in-memory behavior. Note that on Windows, the Amazon Redshift ODBC Driver DSN Setup dialog pre-populates this field with a value of 100.
 
 Streaming cursor mode requires a forward-only cursor. If the Client Side Cursor (CSC) option is enabled, it takes priority and streaming cursor mode is disabled.
 
 **Note**  
-This option replaces the `UseDeclareFetch` and `Fetch` (Cache Size) options from ODBC driver version 1.x. Unlike the previous server-side cursor approach, streaming cursor mode does not require transaction wrapping or multiple server round-trips.
+`StreamingCursorRows` and `UseDeclareFetch` both batch results instead of loading the entire result set into memory. `UseDeclareFetch` uses a server-side cursor and generally delivers significantly higher throughput, so prefer it when fetch performance is your primary concern. `StreamingCursorRows` does not require transaction wrapping or a server-side cursor; choose it when those properties matter more than peak speed – a forward-only stream with a bounded memory footprint. If `UseDeclareFetch` is enabled, it takes priority and forces `StreamingCursorRows` to 0. For more information, see [UseDeclareFetch](#odbc20-usedeclarefetch-option).
 
 This parameter is optional.
 
@@ -902,6 +915,20 @@ This parameter works with `IdpTokenAuthPlugin`.
 The user name that you use to access the Amazon Redshift server.
 
 This parameter is required if you use database authentication.
+
+## UseDeclareFetch
+<a name="odbc20-usedeclarefetch-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
+
+When a query returns a result set too large to hold in memory, enabling this option lets the driver process it in fixed-size batches instead of buffering the entire result at once, keeping the client's memory footprint bounded and predictable regardless of how many rows the query returns. It is a boolean specifying whether the driver uses Declare/Fetch mode, returning a set number of rows at a time. To set the number of rows returned per batch, use the `Fetch` option. For more information, see [Fetch](#odbc20-fetch-option).
++ 1 \| TRUE: The driver uses Declare/Fetch mode and returns the number of rows specified by the `Fetch` option at a time.
++ 0 \| FALSE: The driver returns the entire query result at once.
+
+This parameter is optional.
+
+**Note**  
+If `UseDeclareFetch` is enabled, the driver disables streaming cursor mode and overrides `StreamingCursorRows` to 0, regardless of the value set in your DSN or connection string. For more information, see [StreamingCursorRows](#odbc20-streamingcursorrows-option).
 
 ## UseUnicode
 <a name="odbc20-useunicode-option"></a>
