@@ -5,9 +5,6 @@
 
 After you have installed the Amazon DCV server software, you need to download and install the license to use Amazon DCV. The Amazon DCV licensing requirements differ depending on where you are installing and using the Amazon DCV server.
 
-**Important**  
-The following licensing requirements only apply to Amazon DCV version 2017.0 and later.
-
 ## Amazon DCV licensing requirements
 <a name="dcv-lic-req"></a>
 

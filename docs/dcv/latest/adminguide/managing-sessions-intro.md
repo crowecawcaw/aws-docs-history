@@ -8,8 +8,8 @@ Amazon DCV offers two types of sessions—console sessions and virtual sessions.
 
 | Session type | Support | Multiple sessions | Required permissions | Direct screen capture | GPU-accelerated OpenGL support | 
 | --- | --- | --- | --- | --- | --- | 
-| Console | Linux, macOS, and Windows Amazon DCV servers | No, only one console session allowed on each server | Only the admin user can start and close sessions | Yes | Yes, without additional software | 
-| Virtual | Linux Amazon DCV servers only | Yes, multiple virtual sessions are allowed on a single server | Any user can start and close sessions | No, a dedicated X server (Xdcv), runs for each virtual session. The screen is captured from the X server. | Yes, but requires the DCV-GL package | 
+| Console | Windows, Linux, and macOS servers | No, only one console session allowed on each server | Only the admin user can start and close sessions | Yes | Yes, without additional software | 
+| Virtual | Linux servers only | Yes, multiple virtual sessions are allowed on a single server | Any user can start and close sessions | No, a dedicated X server (Xdcv), runs for each virtual session. The screen is captured from the X server. | Yes, but requires the DCV-GL package | 
 
 **Note**  
 You can't run console and virtual sessions on the same Amazon DCV server at the same time.

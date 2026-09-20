@@ -77,7 +77,7 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
      $ sudo yum install nice-dcv-server-2025.0.20103-1.el7.aarch64.rpm
      ```
 
-1. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
+1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + 64-bit x86
 
      ```
@@ -216,7 +216,7 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
      $ sudo dnf install nice-dcv-server-2025.0.20103-1.amzn2023.aarch64.rpm
      ```
 
-1. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
+1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + 64-bit x86
 
      ```
@@ -339,43 +339,43 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-dcv-server-2025.0.20103-1.el8.x86_64.rpm
+     $ sudo dnf install nice-dcv-server-2025.0.20103-1.el8.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-server-2025.0.20103-1.el8.aarch64.rpm
+     $ sudo dnf install nice-dcv-server-2025.0.20103-1.el8.aarch64.rpm
      ```
 
-1. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
+1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el8.x86_64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2025.0.20103-1.el8.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el8.aarch64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2025.0.20103-1.el8.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-xdcv-2025.0.688-1.el8.x86_64.rpm
+     $ sudo dnf install nice-xdcv-2025.0.688-1.el8.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo yum install nice-xdcv-2025.0.688-1.el8.aarch64.rpm
+     $ sudo dnf install nice-xdcv-2025.0.688-1.el8.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl` package. 
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-dcv-gl-2025.0.1112-1.el8.x86_64.rpm
+     $ sudo dnf install nice-dcv-gl-2025.0.1112-1.el8.x86_64.rpm
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package. This package includes a simple OpenGL application that can be used to determine if your virtual sessions are properly configured to use hardware-based OpenGL.
@@ -384,12 +384,12 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2025.0.282-1.el8.x86_64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2025.0.282-1.el8.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2025.0.282-1.el8.aarch64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2025.0.282-1.el8.aarch64.rpm
      ```
 
 1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
@@ -399,13 +399,13 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    DKMS can be installed from the Extra Packages for Enterprise Linux (EPEL) repository. Run the following command to enable the EPEL repository:
 
    ```
-   $ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+   $ sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    ```
 
    After you enabled the EPEL repository, run the following command to install DKMS:
 
    ```
-   $ sudo yum install dkms
+   $ sudo dnf install dkms
    ```
 
    After you installed DKMS, run the following command to install the DCV USB drivers:
@@ -417,7 +417,7 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
 1. (Optional) If you plan to support the microphone redirection, verify that the `pulseaudio-utils` package is installed on your system. Use the following command to install it.
 
    ```
-   $ sudo yum install pulseaudio-utils
+   $ sudo dnf install pulseaudio-utils
    ```
 
 ------
@@ -478,43 +478,43 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-dcv-server-2025.0.20103-1.el9.x86_64.rpm
+     $ sudo dnf install nice-dcv-server-2025.0.20103-1.el9.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-server-2025.0.20103-1.el9.aarch64.rpm
+     $ sudo dnf install nice-dcv-server-2025.0.20103-1.el9.aarch64.rpm
      ```
 
-1. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
+1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el9.x86_64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2025.0.20103-1.el9.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el9.aarch64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2025.0.20103-1.el9.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-xdcv-2025.0.688-1.el9.x86_64.rpm
+     $ sudo dnf install nice-xdcv-2025.0.688-1.el9.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo yum install nice-xdcv-2025.0.688-1.el9.aarch64.rpm
+     $ sudo dnf install nice-xdcv-2025.0.688-1.el9.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl` package. 
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-dcv-gl-2025.0.1112-1.el9.x86_64.rpm
+     $ sudo dnf install nice-dcv-gl-2025.0.1112-1.el9.x86_64.rpm
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package. This package includes a simple OpenGL application that can be used to determine if your virtual sessions are properly configured to use hardware-based OpenGL.
@@ -523,12 +523,12 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    + 64-bit x86
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2025.0.282-1.el9.x86_64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2025.0.282-1.el9.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2025.0.282-1.el9.aarch64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2025.0.282-1.el9.aarch64.rpm
      ```
 
 1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
@@ -538,13 +538,13 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    DKMS can be installed from the Extra Packages for Enterprise Linux (EPEL) repository. Run the following command to enable the EPEL repository:
 
    ```
-   $ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+   $ sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
    ```
 
    After you enabled the EPEL repository, run the following command to install DKMS:
 
    ```
-   $ sudo yum install dkms
+   $ sudo dnf install dkms
    ```
 
    After you installed DKMS, run the following command to install the DCV USB drivers:
@@ -556,7 +556,7 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
 1. (Optional) If you plan to support the microphone redirection, verify that the `pulseaudio-utils` package is installed on your system. Use the following command to install it.
 
    ```
-   $ sudo yum install pulseaudio-utils
+   $ sudo dnf install pulseaudio-utils
    ```
 
 ------
@@ -622,7 +622,7 @@ SLES 15
      $ sudo zypper install nice-dcv-server-2025.0.20103-1.sles15.x86_64.rpm
      ```
 
-1. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
+1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + SLES 12
 
      ```
@@ -854,7 +854,7 @@ Ubuntu 24.04 (64-bit ARM)
      $ sudo apt install ./nice-dcv-server_2025.0.20103-1_arm64.ubuntu2404.deb
      ```
 
-1. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
+1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + Ubuntu 20.04 (64-bit x86)
 
      ```

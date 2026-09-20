@@ -44,21 +44,28 @@ You must be signed in as the root user to uninstall the Amazon DCV server.
 1. Uninstall the Amazon DCV server packages. Depending on how you performed the installation, some of the packages might not be installed on your system and can be omitted from the command. For a list of optional packages, see [Installing the Amazon DCV Server on Linux](setting-up-installing-linux.md).
 
 ------
-#### [ Amazon Linux 2 and RHEL, CentOS ]
+#### [ Amazon Linux ]
 
    ```
    $ sudo yum remove nice-dcv-server nice-xdcv nice-dcv-gl nice-dcv-gltest nice-dcv-simple-external-authenticator
    ```
 
 ------
-#### [ SLES 12.x/15.x ]
+#### [ RHEL, CentOS, and Rocky Linux ]
+
+   ```
+   $ sudo dnf remove nice-dcv-server nice-xdcv nice-dcv-gl nice-dcv-gltest nice-dcv-simple-external-authenticator
+   ```
+
+------
+#### [ SUSE Linux Enterprise ]
 
    ```
    $ sudo zypper remove nice-dcv-server nice-xdcv nice-dcv-gl nice-dcv-gltest nice-dcv-simple-external-authenticator
    ```
 
 ------
-#### [ Ubuntu 22.04 ]
+#### [ Ubuntu ]
 
    ```
    $ sudo apt remove nice-dcv-server nice-xdcv nice-dcv-gl nice-dcv-gltest nice-dcv-simple-external-authenticator

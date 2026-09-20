@@ -33,7 +33,7 @@ For more information about RLM, see the [Reprise Software](https://reprisesoftwa
 
 1. Download the RLM License Administration Bundle from the [Reprise Software website](https://reprisesoftware.com/support/admin/license-administration-bundle/).
 **Note**  
-Starting with Amazon DCV version 2022.1 the RLM server >= 14 is required. Previous versions require RLM >= 12.  
+The RLM server version 14 or later is required.  
 The installation of the latest stable version of the RLM license Administration Bundle is recommended.
 
 1. Install the RLM License Administration Bundle to `C:\RLM`.
@@ -45,7 +45,7 @@ The installation of the latest stable version of the RLM license Administration 
 
 1. Download the RLM License Administration Bundle from the [Reprise Software website](https://reprisesoftware.com/support/admin/license-administration-bundle/).
 **Note**  
-Starting with Amazon DCV version 2022.1 the RLM server >= 14 is required. Previous versions require RLM >= 12.  
+The RLM server version 14 or later is required.  
 The installation of the latest stable version of the RLM license Administration Bundle is recommended.
 
 1. Create a user group and an `rlm` user. This can be any valid user or service account. We strongly recommend that you don't use the root account for this value.

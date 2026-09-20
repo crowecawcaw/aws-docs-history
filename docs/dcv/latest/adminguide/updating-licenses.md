@@ -13,7 +13,7 @@ The Amazon DCV server checks licenses on the RLM server every few minutes. In ca
 
  After the license has been updated on the RLM server, the Amazon DCV server should check the use of the new licenses in a few minutes (usually 5 minutes or less). 
 
- Starting from Amazon DCV version 2021.0, you can use the following command **as administrator** in order to force the license update immediately: 
+ You can use the following command **as administrator** to force the license update immediately: 
 
 ```
 $ dcv reload-licenses

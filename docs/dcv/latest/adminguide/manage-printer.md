@@ -12,20 +12,25 @@ If you're using a Windows Amazon DCV server, no additional configuration is requ
 **To enable printer redirection on your Linux Amazon DCV server**
 
 1. Install `CUPS` service on your server.
-   + Amazon Linux 2, RHEL, and CentOS
+   + Amazon Linux
 
      ```
      $ sudo yum install cups
      ```
-   + Ubuntu
+   + RHEL, CentOS, and Rocky Linux
 
      ```
-     $ sudo apt-get install cups
+     $ sudo dnf install cups
      ```
    + SUSE Linux Enterprise
 
      ```
      $ sudo zypper install cups
+     ```
+   + Ubuntu
+
+     ```
+     $ sudo apt-get install cups
      ```
 
 1. Add the `dcv` user to the printer administrator group. The name of the printer administrator group can vary by operating system. For example, if your printer administrator group is named `lpadmin`, run the following command:

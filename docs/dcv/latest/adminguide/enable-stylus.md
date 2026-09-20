@@ -5,9 +5,7 @@
 
 **Note**  
  USB redirection for touchscreen and stylus devices is not needed. Also, no vendor drivers need to be installed on the Amazon DCV server.  
-Amazon DCV supports touchscreen and stylus by using the native operating system APIs.  
-Windows uses Windows Ink.  
-Linux uses X11 input injection.
+Amazon DCV supports touchscreen and stylus by using the native operating system APIs: Windows Ink on Windows and X11 input injection on Linux.
 + **Windows servers support**
 
   Touchscreens are supported on all of the supported Windows operating systems. Styluses are supported on all the supported Windows operating systems starting from Windows 10 and Windows 2019, they are not supported on Windows 2016, Windows 8.1 and older versions. By default, the features are enabled on Windows Amazon DCV servers. No additional configuration is required. 
@@ -63,15 +61,14 @@ Linux uses X11 input injection.
 1. Save the changes and close the file.
 
 1. Restart the X server.
-   + RHEL, Rocky, CentOS, Amazon Linux 2, Ubuntu, and SUSE Linux Enterprise 12.x
 
-     ```
-     $ sudo systemctl isolate multi-user.target
-     ```
+   ```
+   $ sudo systemctl isolate multi-user.target
+   ```
 
-     ```
-     $ sudo systemctl isolate graphical.target
-     ```
+   ```
+   $ sudo systemctl isolate graphical.target
+   ```
 
 1. To ensure that the input devices are properly configured, run the following command.
 

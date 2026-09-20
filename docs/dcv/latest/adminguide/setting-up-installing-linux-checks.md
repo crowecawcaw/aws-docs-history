@@ -38,15 +38,14 @@ $ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v Xdcv | grep -
 If the command returns `SI:localuser:dcv`, the dcv user can access the X server.
 
 If the command does not return `SI:localuser:dcv`, the dcv user doesn't have access to the X server. Run the following commands to restart the X server:
-+ RHEL, Rocky, CentOS, Amazon Linux 2, Ubuntu, and SUSE Linux Enterprise
 
-  ```
-  $ sudo systemctl isolate multi-user.target
-  ```
+```
+$ sudo systemctl isolate multi-user.target
+```
 
-  ```
-  $ sudo systemctl isolate graphical.target
-  ```
+```
+$ sudo systemctl isolate graphical.target
+```
 
 ### Virtual sessions
 <a name="checks-xserver-virtual"></a>
@@ -63,23 +62,22 @@ $ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v Xdcv | grep -
 If the command returns `LOCAL:`, local users can access the X server.
 
 If the command doesn't return `LOCAL:`, local users don't have access to the X server. Run the following commands to restart the X server, and to disable and re-enable DCV GL:
-+ RHEL, Rocky, CentOS, Amazon Linux 2, Ubuntu, and SUSE Linux Enterprise
 
-  ```
-  $ sudo systemctl isolate multi-user.target
-  ```
+```
+$ sudo systemctl isolate multi-user.target
+```
 
-  ```
-  $ sudo dcvgladmin disable
-  ```
+```
+$ sudo dcvgladmin disable
+```
 
-  ```
-  $ sudo dcvgladmin enable
-  ```
+```
+$ sudo dcvgladmin enable
+```
 
-  ```
-  $ sudo systemctl isolate graphical.target
-  ```
+```
+$ sudo systemctl isolate graphical.target
+```
 
 ## Verify that DCV GL is properly installed
 <a name="checks-gl"></a>
