@@ -73,8 +73,15 @@ Viewing assets is more than simply understanding the icons that show the asset a
 
 1. Under the **Vibration and Temperature** tabs, choose the chart of recent sensor data and the level of detail that you want to see.
 
-   You can choose separate versions for different time periods (1 day, 1 week, 2 weeks, 1 month, and so on).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/step-3.html)
+   You can choose separate versions for different time periods (1 day, 1 week, 2 weeks, 1 month, and so on).
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mobile-gettingstarted-1.png" alt="Two vibration monitoring charts showing total and single axis measurements from Dec 7-20, 2022, with ISO alarm and warning thresholds." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/mobile-understand-sensor-measurement.png" alt="Vibration monitoring dashboard showing alarm status and total vibration chart for pump main." /> </td></tr>
+</tbody>
+</table>
+
 
 ## Step 3: Viewing and acknowledging a machine abnormality
 <a name="gsg-acknowledging"></a>
@@ -95,8 +102,15 @@ When you receive a notification, you must view and acknowledge it. This doesn't 
 1. On the **Assets** list, choose the asset with the alarm.   
 ![Assets list showing Sorter 1 with error icon, Sorter 2 with warning icon, and multiple items with success icons.](https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/asset_list2.png)
 
-1. Choose the position with the alarm to view the issue.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/getting-started-guide/step-3.html)
+1. Choose the position with the alarm to view the issue.
+
+
+<table>
+<tbody>
+  <tr><td> <img src="https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/sorter-2-warning.png" alt="Sorter 2 asset details showing two positions with Warning and Healthy status indicators." /> </td><td> <img src="https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/images/sorter-1-alarm.png" alt="Sorter 1 interface showing four positions with alarm, warning, and healthy status indicators." /> </td></tr>
+</tbody>
+</table>
+
 
 1. To confirm that you are aware of the issue, choose **Acknowledge**. 
 
