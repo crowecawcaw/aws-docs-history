@@ -66,8 +66,17 @@ Use the following steps to register your SAP HANA database credentials in AWS Se
 
 1. On the AWS Secrets Manager page, select **Store a new secret**.
 
-1. For Secret type, select **Other type of secret** and create the following key value pairs.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ssm-sap/latest/userguide/get-started.html)
+1. For Secret type, select **Other type of secret** and create the following key value pairs.
+
+
+<table>
+<tbody>
+  <tr><td>Key</td><td>Value</td></tr>
+  <tr><td>username</td><td> <code>&lt;example_SAP_HANA_db_username&gt;</code> </td></tr>
+  <tr><td>password</td><td> <code>&lt;example_SAP_HANA_db_password&gt;</code> </td></tr>
+</tbody>
+</table>
+
 
 1. Select **Next** and enter a Secret name. Note this Secret name for use while following the steps in [Register your SAP HANA databases with Systems Manager for SAP](register-database.md).
 
