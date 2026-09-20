@@ -27,8 +27,19 @@ If you do not configure all of the endpoints, your traffic will go over the publ
   + `com.amazonaws.ca-west-1.ecs`
 + When you use a template to create AWS resources in the new Region and the template was copied from a Region introduced before December 23, 2023, depending on the copy-from Region, perform one of the following operations.
 
-  For example, the copy-from Region is US East (N. Virginia) (us-east-1). The copy-to Region is Canada West (Calgary) (ca-west-1).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/vpc-endpoints.html)
+  For example, the copy-from Region is US East (N. Virginia) (us-east-1). The copy-to Region is Canada West (Calgary) (ca-west-1).
+
+
+<table>
+<thead>
+  <tr><th>Configuration</th><th>Action</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>The copied-from Region does not have any VPC endpoints.</td><td>Create all three VPC endpoints for the new Region (for example, <code>com.amazonaws.ca-west-1.ecs-agent</code>).</td><td></td></tr>
+  <tr><td>The copied-from Region contains Region-specific VPC endpoints.</td><td> <ol><li> Create all three VPC endpoints for the new Region (for example, <code>com.amazonaws.ca-west-1.ecs-agent</code>). </li><li> Delete all three VPC endpoints for the copy-from Region (for example, <code>com.amazonaws.us-east-1.ecs-agent</code>). </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 ### Considerations for Amazon ECS VPC endpoints for Fargate
 <a name="fargate-ecs-vpc-endpoint-considerations"></a>

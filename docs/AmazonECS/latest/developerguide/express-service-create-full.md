@@ -36,6 +36,7 @@ IAM Roles are also required, but is covered in the [Console](express-service-fir
 
   You need this role when your application accesses other AWS services, such as Amazon S3.
 + Compute resources - CPU and memory allocation
++ CPU architecture - x86 or ARM64 (AWS Graviton) compute
 + Network configuration - subnets and service security group
 + Application Auto Scaling policies - metrics, target values, and task limits
 + CloudWatch Logs configuration

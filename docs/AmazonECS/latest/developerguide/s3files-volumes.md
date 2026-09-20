@@ -11,9 +11,7 @@ S3 Files is a shared file system that connects any AWS compute resource directly
 S3 Files support in Amazon ECS is available for the following launch types at General Availability:
 + **Fargate** — Fully supported.
 + **Amazon ECS Managed Instances** — Fully supported.
-
-**Important**  
-S3 Files are not supported on the Amazon EC2 launch type at this time. If you configure an S3 file system in a task definition and attempt to run it on the Amazon EC2 launch type, the task will fail at launch. Amazon EC2 launch type support is planned for a future release.
++ **Amazon EC2** — Fully supported.
 
 ## Considerations
 <a name="s3files-volume-considerations"></a>

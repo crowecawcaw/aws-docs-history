@@ -29,8 +29,19 @@ The following permissions are required for the console IAM user to start and sto
 
 1. Open the console at [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2).
 
-1. Determine the resource you want to view    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/monitoring-cloudwatchlogs-view.html)
+1. Determine the resource you want to view
+
+
+<table>
+<thead>
+  <tr><th>Resource</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Tasks</td><td> <ol><li> On the <b>Clusters</b> page, choose the cluster. <br />The cluster details page displays. </li><li> Choose the <b>Tasks</b> tab. <br />The task details page displays. </li><li> Choose the <b>Logs</b> tab. </li></ol> </td><td></td></tr>
+  <tr><td>Services</td><td> <ol><li> On the <b>Clusters</b> page, choose the cluster. <br />The cluster details page displays. </li><li> Choose the service. <br />The service details page displays. </li><li> Choose the <b>Logs</b> tab. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **CloudWatch Logs Live Tail**, and then choose **Start**.
 

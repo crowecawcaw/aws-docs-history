@@ -225,11 +225,32 @@ The task runs in the subnet that you defined for the cluster.
 
 1. On the **Clusters** page, select the cluster to run the standalone task in.
 
-   Determine the resource from where you launch the service.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-efs-volumes.html)
+   Determine the resource from where you launch the service.
 
-1. (Optional) Choose how your scheduled task is distributed across your cluster infrastructure. Expand **Compute configuration**, and then do the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-efs-volumes.html)
+
+<table>
+<thead>
+  <tr><th>To start a service from</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Clusters</td><td> <ol><li> On the <b>Clusters</b> page, select the cluster to create the service in. </li><li> From the <b>Tasks</b> tab, choose <b>Run new task</b>. </li></ol> </td><td></td></tr>
+  <tr><td>Launch type</td><td> <ol><li> On the <b>Task</b> page, choose the task definition. </li><li> If there is more than one revision, select the revision. </li><li> Choose <b>Create</b>, <b>Run task</b>. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
+
+1. (Optional) Choose how your scheduled task is distributed across your cluster infrastructure. Expand **Compute configuration**, and then do the following:
+
+
+<table>
+<thead>
+  <tr><th>Distribution method</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Launch type</td><td> <ol><li> In the <b>Compute options</b> section, select <b>Launch type</b>. </li><li> For <b>Launch type</b>, choose <b>EC2</b>. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. For **Application type**, choose **Task**.
 

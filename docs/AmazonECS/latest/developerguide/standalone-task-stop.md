@@ -19,5 +19,15 @@ If you want to stop a service, see [Deleting an Amazon ECS service using the con
 
 1. On the cluster detail page, choose the **Tasks** tab. 
 
-1. You can filter tasks by launch type using the **Filter launch type** list.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/standalone-task-stop.html)
+1. You can filter tasks by launch type using the **Filter launch type** list.
+
+
+<table>
+<thead>
+  <tr><th>Tasks to stop</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>One or more</td><td> <ol><li> Select the tasks, and then choose <b>Stop</b>, <b>Stop selected</b>. </li><li> On the <b>Stop task confirmation page</b>, choose <b>Stop</b> </li></ol> </td><td></td></tr>
+  <tr><td>All</td><td>  If you choose to stop all tasks using the console, Amazon ECS stops all standalone tasks and tasks that are part of a service. Therefore, we recommend caution when using this option.  <ol><li> Choose <b>Stop</b>, <b>Stop all</b>. </li><li> On the <b>Stop task confirmation page</b>, enter <b>Stop all tasks</b>, and then choose <b>Stop</b>. </li></ol> </td><td></td></tr>
+</tbody>
+</table>

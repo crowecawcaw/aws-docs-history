@@ -115,6 +115,7 @@ aws ecs create-express-gateway-service \
     --service-name "my-web-app" \
     --cpu 2 \
     --memory 4 \
+    --cpu-architecture ARM64 \
     --health-check-path "/health" \
     --scaling-target '{"minTaskCount":3,"maxTaskCount":100}' \
     --monitor-resources
@@ -123,6 +124,7 @@ aws ecs create-express-gateway-service \
 This creates an application with:
 + A custom name "my-web-app"
 + 2 vCPU and 4 GB memory
++ The ARM64 CPU architecture, which runs on AWS Graviton-powered compute
 + Port 8080 for application traffic
 + Custom health check endpoint
 + Environment variables

@@ -25,8 +25,20 @@ Before you begin, configure the required permissions for viewing service deploym
 
 1. On the service details page, choose **Deployments**.
 
-1. Choose the service deployment to view.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/view-service-deployment.html)
+1. Choose the service deployment to view.
+
+
+<table>
+<thead>
+  <tr><th>To view service deployments for this deployment type</th><th>Do this</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Ongoing deployment</td><td>Under <b>Ongoing deployments</b>, choose the <b>Deployment ID</b>.</td><td></td></tr>
+  <tr><td>Last deployment</td><td>Under <b>Last deployment</b>, choose the <b>Deployment ID</b>.</td><td></td></tr>
+  <tr><td>Completed deployments</td><td>Under <b>Service deployments</b>, choose the <b>Deployment ID</b>.</td><td></td></tr>
+</tbody>
+</table>
+
 
    The service deployment details page appears.
 

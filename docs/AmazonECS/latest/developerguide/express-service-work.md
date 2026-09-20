@@ -42,11 +42,11 @@ The following defaults are configurable from within Express Mode for the task de
 + memory: 2048 - 2 GB of memory allocated to the task
 
   You can customize this option by using the **Additional configurations** option in the console, or by running `create-express-gateway-service --memory`.
++ cpuArchitecture: "X86\_64" - The default x86\_64 processor architecture. To use the 64-bit ARM architecture, choose ARM64, which runs on AWS Graviton-powered compute.
 
 The following defaults are set by Express Mode but can be updated in the Task Definition directly.
 + networkMode: "awsvpc" - Uses `awsvpc` networking mode
 + operatingSystemFamily: "LINUX" - Runs on Linux operating system
-+ cpuArchitecture: "X86\_64" - Uses x86\_64 processor architecture
 + requiresCompatibilities: ["FARGATE"] - Compatible with Fargate launch type
 + platformVersion: "LATEST" - Uses the latest Fargate platform version
 

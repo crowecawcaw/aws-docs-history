@@ -368,6 +368,10 @@ The `c5n`, `d3`, `d3en`, `g3`, `g3s`, `g4dn`, `i3`, `i3en`, `inf1`, `m5dn`, `m5n
 | mac-m4.metal | 7 | 12 | 
 | mac-m4pro.metal | 7 | 12 | 
 | mac-m4max.metal | 7 | 12 | 
+| t8i.nano | 1 | 2 | 
+| t8i.micro | 1 | 2 | 
+| t8i.small | 2 | 4 | 
+| t8i.medium | 2 | 4 | 
 
 ## Compute optimized
 <a name="eni-branch-co"></a>

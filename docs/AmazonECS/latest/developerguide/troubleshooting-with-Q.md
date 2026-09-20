@@ -18,8 +18,21 @@ You can use [Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdev
 
 1. Open the console at [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2).
 
-1. Determine the resource that you want to troubleshoot.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/troubleshooting-with-Q.html)
+1. Determine the resource that you want to troubleshoot.
+
+
+<table>
+<thead>
+  <tr><th>Resource</th><th>Steps</th></tr>
+</thead>
+<tbody>
+  <tr><td>Tasks</td><td> <ol><li> On the <b>Clusters</b> page, choose the cluster. </li><li> Choose the <b>Tasks</b> tab. </li><li> Choose the task that you want to investigate. </li></ol> </td></tr>
+  <tr><td>Containers</td><td> <ol><li> On the <b>Clusters</b> page, choose the cluster. </li><li> Choose the <b>Tasks</b> tab, and then choose the task. </li><li> In the <b>Containers</b> section, choose the container you want to investigate. </li></ol> </td></tr>
+  <tr><td>Services and deployments</td><td> <ol><li> On the <b>Clusters</b> page, choose the cluster. </li><li> Choose the <b>Services</b> tab. </li><li> Choose the service, and then review the <b>Deployments</b> section. </li></ol> </td></tr>
+  <tr><td>Task definitions</td><td> <ol><li> In the navigation pane, choose <b>Task definitions</b>. </li><li> Choose the task definition family, and then choose the revision that you want to investigate. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. On the resource details page, locate the status or health reason that describes the issue.
 

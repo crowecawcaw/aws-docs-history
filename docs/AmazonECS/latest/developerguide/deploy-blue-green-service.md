@@ -39,8 +39,19 @@ You can use the console or the AWS CLI to create an Amazon ECS blue/green servic
 
 1. Open the console at [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2).
 
-1. Determine the resource from where you launch the service.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deploy-blue-green-service.html)
+1. Determine the resource from where you launch the service.
+
+
+<table>
+<thead>
+  <tr><th>To start a service from</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Clusters</td><td> <ol><li> On the <b>Clusters</b> page, select the cluster to create the service in. <br />The cluster details page displays. </li><li> On the <b>Services</b> tab, choose <b>Create</b>. </li></ol> </td><td></td></tr>
+  <tr><td>Task definition</td><td> <ol><li> On the <b>Task definitions</b> page, select the task definition. </li><li> From the <b>Deploy</b> menu, choose <b>Create service</b>. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
    The **Create service** page displays.
 
@@ -52,8 +63,19 @@ You can use the console or the AWS CLI to create an Amazon ECS blue/green servic
 
 1. To run the service in an existing cluster, for **Existing cluster**, choose the cluster. To run the service in a new cluster, choose **Create cluster** 
 
-1. Choose how your tasks are distributed across your cluster infrastructure. Under **Compute configuration**, choose your option.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deploy-blue-green-service.html)
+1. Choose how your tasks are distributed across your cluster infrastructure. Under **Compute configuration**, choose your option.
+
+
+<table>
+<thead>
+  <tr><th>Compute option</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Capacity provider strategy</td><td> <ol><li> Under <b>Compute options</b>, choose <b>Capacity provider strategy</b>. </li><li> Choose a strategy: <ul><li> To use the cluster's default capacity provider strategy, choose <b>Use cluster default</b>. </li><li> If your cluster doesn't have a default capacity provider strategy, or to use a custom strategy, choose <b>Use custom</b>, <b>Add capacity provider strategy</b>, and then define your custom capacity provider strategy by specifying a <b>Base</b>, <b>Capacity provider</b>, and <b>Weight</b>. </li></ul> </li></ol>  To use a capacity provider in a strategy, the capacity provider must be associated with the cluster.   </td><td></td></tr>
+  <tr><td>Launch type</td><td> <ol><li> In the <b>Compute options</b> section, select <b>Launch type</b>. </li><li> For <b>Launch type</b>, choose a launch type. </li><li> (Optional) When the Fargate is specified, for <b>Platform version</b>, specify the platform version to use. If a platform version isn't specified, the <code>LATEST</code> platform version is used. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Deployment configuration**, do the following:
 
@@ -129,8 +151,19 @@ Test traffic header rules enable you to validate new functionality with controll
       + **Amazon OpenSearch Service** – Configure the task to send container logs to an OpenSearch Service domain. The log driver options must be provided. 
       + **Amazon S3** – Configure the task to send container logs to an Amazon S3 bucket. The default log driver options are set by default, but you must specify a valid Amazon S3 bucket name.
 
-1. (Optional) Configure **Load balancing** for blue/green deployment.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/deploy-blue-green-service.html)
+1. (Optional) Configure **Load balancing** for blue/green deployment.
+
+
+<table>
+<thead>
+  <tr><th>Elastic Load Balancing type</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Application Load Balancer</td><td> <ol><li> For <b>Load balancer type</b>, choose <b>Application Load Balancer</b>. </li><li> Choose <b>Create a new load balancer</b> to create a new Application Load Balancer or <b>Use an existing load balancer</b> to select an existing Application Load Balancer. </li><li> For <b>Container</b>, choose the container that hosts the service. </li><li> For <b>Load balancer name</b>, enter a unique name. </li><li> For <b>Listener</b>, enter a port and protocol for the Application Load Balancer to listen for connection requests on. By default, the load balancer will be configured to use port 80 and HTTP. <ul><li> For <b>Production rule</b>, enter the <b>Evaluation order</b> and <b>Path pattern</b> for the rule. <br />This rule is for your production service revision traffic. </li><li> For <b>Test rule</b>, enter the <b>Evaluation order</b> and <b>Path pattern</b> for the rule. <br />This rule is for your test service revision traffic. </li></ul> </li><li> For <b>Target group</b>, configure the following: <ul><li> For <b>Target group name</b>, enter a name and a protocol for the target group that the Application Load Balancer routes requests to. </li><li> For <b>Protocol</b>, choose the protocol for the target group that the Application Load Balancer routes requests to. By default, the target group routes requests to the first container defined in your task definition. </li><li> For <b>Deregistration delay</b>, enter the number of seconds for the load balancer to change the target state to <code>UNUSED</code>. The default is 300 seconds. </li><li> For <b>Health check path</b>, enter an existing path within your container where the Application Load Balancer periodically sends requests to verify the connection health between the Application Load Balancer and the container. The default is the root directory (<code>/</code>). </li><li> For <b>Alternate group name</b>, enter the group name for the target group for your test (green) service revision. </li></ul> </li></ol> </td><td></td></tr>
+  <tr><td>Network Load Balancer</td><td> <ol><li> For <b>Load balancer type</b>, select <b>Network Load Balancer</b>. </li><li> For <b>Load Balancer</b>, choose an existing Network Load Balancer. </li><li> For <b>Choose container to load balance</b>, choose the container that hosts the service. </li><li> For <b>Production listener</b>, choose the <b>Production listener port</b>, and the <b>Production listener protocol</b>. <br />This is the listener for your production service revision traffic. </li><li> For <b>Test listener</b>, choose the <b>Test listener port</b>, and the <b>Test listener protocol</b>. <br />This is the listener for your test service revision traffic. </li><li> For <b>Target group</b>, configure the following: <ul><li> For <b>Target group name</b>, enter a name and a protocol for the target group that the Network Load Balancer routes requests to. </li><li> For <b>Protocol</b>, choose the protocol for the target group that the Network Load Balancer routes requests to. By default, the target group routes requests to the first container defined in your task definition. </li><li> For <b>Deregistration delay</b>, enter the number of seconds for the load balancer to change the target state to <code>UNUSED</code>. The default is 300 seconds. </li><li> For <b>Health check path</b>, enter an existing path within your container where the Application Load Balancer periodically sends requests to verify the connection health between the Application Load Balancer and the container. The default is the root directory (<code>/</code>). </li><li> For <b>Alternate group name</b>, enter the group name for the target group for your test (green) service revision. </li></ul> </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. (Optional) To help identify your service and tasks, expand the **Tags** section, and then configure your tags.
 

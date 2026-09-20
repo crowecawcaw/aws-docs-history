@@ -89,16 +89,49 @@ Type: String
 Required: Yes  
 Task-level CPU and memory parameters are required and used to determine the instance type and size that tasks run on. For Windows tasks, these values aren’t enforced at runtime, because Windows doesn't have a native mechanism that can easily enforce collective resource limits on a group of containers. If you want to enforce resource limits, we recommend using the container-level resources for Windows containers.
 The hard limit of CPU units to present for the task. You can specify CPU values in the JSON file as a string in CPU units or virtual CPUs (vCPUs). For example, you can specify a CPU value either as `1024` in CPU units or `1 vCPU` in vCPUs. When the task definition is registered, a vCPU value is converted to an integer indicating the CPU units.  
-This field is required and you must use one of the following values, which determines your range of supported values for the `memory` parameter. The following table shows the valid combinations of task-level CPU and memory.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+This field is required and you must use one of the following values, which determines your range of supported values for the `memory` parameter. The following table shows the valid combinations of task-level CPU and memory.  
+
+
+<table>
+<thead>
+  <tr><th> CPU value </th><th> Memory value </th><th> Operating systems supported for AWS Fargate </th></tr>
+</thead>
+<tbody>
+  <tr><td> 256 (.25 vCPU) </td><td> 512 MiB, 1 GB, 2 GB </td><td> Linux </td></tr>
+  <tr><td> 512 (.5 vCPU) </td><td> 1 GB, 2 GB, 3 GB, 4 GB </td><td> Linux </td></tr>
+  <tr><td> 1024 (1 vCPU) </td><td> 2 GB, 3 GB, 4 GB, 5 GB, 6 GB, 7 GB, 8 GB </td><td> Linux, Windows </td></tr>
+  <tr><td> 2048 (2 vCPU) </td><td> Between 4 GB and 16 GB in 1 GB increments </td><td> Linux, Windows </td></tr>
+  <tr><td> 4096 (4 vCPU) </td><td> Between 8 GB and 30 GB in 1 GB increments </td><td> Linux, Windows </td></tr>
+  <tr><td> 8192 (8 vCPU)  This option requires Linux platform <code>1.4.0</code> or later.  </td><td> Between 16 GB and 60 GB in 4 GB increments </td><td> Linux </td></tr>
+  <tr><td> 16384 (16 vCPU)  This option requires Linux platform <code>1.4.0</code> or later.  </td><td> Between 32 GB and 120 GB in 8 GB increments </td><td> Linux </td></tr>
+  <tr><td> 32768 (32 vCPU)  This option requires Linux platform <code>1.4.0</code> or later.  </td><td> 60 GB, 120 GB, 244 GB </td><td> Linux </td></tr>
+</tbody>
+</table>
+
 
 `memory`  
 Type: String  
 Required: Yes  
 Task-level CPU and memory parameters are required and used to determine the instance type and size that tasks run on. For Windows tasks, these values aren’t enforced at runtime, because Windows doesn't have a native mechanism that can easily enforce collective resource limits on a group of containers. If you want to enforce resource limits, we recommend using the container-level resources for Windows containers.
 The hard limit of memory to present to the task. You can specify memory values in the task definition as a string in mebibytes (MiB) or gigabytes (GB). For example, you can specify a memory value either as `3072` in MiB or `3 GB`in GB. When the task definition is registered, a GB value is converted to an integer indicating the MiB.  
-This field is required and you must use one of the following values, which determines your range of supported values for the `cpu` parameter:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html)
+This field is required and you must use one of the following values, which determines your range of supported values for the `cpu` parameter:  
+
+
+<table>
+<thead>
+  <tr><th> Memory value (in MiB, with approximate equivalent value in GB) </th><th> CPU value </th><th> Operating systems supported for Fargate </th></tr>
+</thead>
+<tbody>
+  <tr><td> 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) </td><td> 256 (.25 vCPU) </td><td> Linux </td></tr>
+  <tr><td> 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) </td><td> 512 (.5 vCPU) </td><td> Linux </td></tr>
+  <tr><td> 2048 (2 GB), 3072 (3 GB), 4096 (4GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) </td><td> 1024 (1 vCPU) </td><td> Linux, Windows </td></tr>
+  <tr><td> Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) </td><td> 2048 (2 vCPU) </td><td> Linux, Windows </td></tr>
+  <tr><td> Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) </td><td> 4096 (4 vCPU) </td><td> Linux, Windows </td></tr>
+  <tr><td> Between 16 GB and 60 GB in 4 GB increments  This option requires Linux platform <code>1.4.0</code> or later.  </td><td> 8192 (8 vCPU) </td><td>Linux</td></tr>
+  <tr><td> Between 32 GB and 120 GB in 8 GB increments  This option requires Linux platform <code>1.4.0</code> or later.  </td><td> 16384 (16vCPU) </td><td> Linux </td></tr>
+</tbody>
+</table>
+
 
 ## Container definitions
 <a name="container_definitions"></a>

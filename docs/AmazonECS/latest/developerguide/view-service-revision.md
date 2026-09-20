@@ -20,8 +20,20 @@ You can view information about the following service revision types that were cr
 
 1. On the service details page, choose **Deployments**.
 
-1. Choose the service revision to view.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/view-service-revision.html)
+1. Choose the service revision to view.
+
+
+<table>
+<thead>
+  <tr><th>To view service revisions for this deployment type</th><th>Do this</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Ongoing deployments</td><td>Under <b>Ongoing deployments</b>, do the following:<ul><li> To view the source service revision, under <b>Service revisions</b>, choose the service revision ID for the Source <b>Revision type</b>.  </li><li> To view the target service revision, under <b>Service revisions</b>, choose the service revision ID for the Target <b>Revision type</b>.  </li></ul></td><td></td></tr>
+  <tr><td>Last deployment</td><td>Under <b>Last deployment</b>, choose the <b>Target service revision</b>. </td><td></td></tr>
+  <tr><td>Completed deployments</td><td>Under <b>Service deployments</b>, do the following:<ul><li> Under <b>Target service revision</b>, choose the ID.  </li></ul></td><td></td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ AWS CLI ]

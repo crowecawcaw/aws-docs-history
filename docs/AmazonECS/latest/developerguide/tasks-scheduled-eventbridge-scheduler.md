@@ -40,8 +40,19 @@ Complete the following steps before you schedule a task:
 
       You use schedule groups to add tags to groups of schedules. 
 
-1. Choose your schedule options.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/tasks-scheduled-eventbridge-scheduler.html)
+1. Choose your schedule options.
+
+
+<table>
+<thead>
+  <tr><th>Occurrence</th><th>Do this...</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>One-time schedule</b><br />A one-time schedule invokes a target only once at the date and time that you specify. </td><td>For <b>Date and time</b>, do the following:<ul><li> Enter a valid date in <code>YYYY/MM/DD</code> format. </li><li> Enter a timestamp in 24-hour <code>hh:mm</code> format. </li><li> For <b>Timezone</b>, choose the timezone. </li></ul></td><td></td></tr>
+  <tr><td><b>Recurring schedule</b><br />A recurring schedule invokes a target at a rate that you specify using a <b>cron</b> expression or rate expression. </td><td> <ol><li> For <b>Schedule type</b>, do one of the following: <ul><li> To use a cron expression to define the schedule, choose <b>Cron-based schedule</b> and enter the cron expression. </li><li> To use a rate expression to define the schedule, choose <b>Rate-based schedule</b> and enter the rate expression. <br />For more information about cron and rate expressions, see <a href="https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html#cron-based">Schedule types on EventBridge Scheduler</a> in the <i>Amazon EventBridge Scheduler User Guide</i>.  </li></ul> </li><li> For <b>Flexible time window</b>, choose <b>Off</b> to turn off the option, or choose one of the pre-defined time windows. For example, if you choose <b>15 minutes</b> and you set a recurring schedule to invoke its target once every hour, the schedule runs within 15 minutes after the start of every hour.  </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. (Optional) If you chose **Recurring schedule** in the previous step, in the **Timeframe** section, do the following: 
 
@@ -65,8 +76,19 @@ Complete the following steps before you schedule a task:
 
    1. For **ECS task**, choose the task definition to use for the task.
 
-   1. Choose how your tasks are distributed across your cluster infrastructure. Expand **Compute options**, and then choose one of the following options    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/tasks-scheduled-eventbridge-scheduler.html)
+   1. Choose how your tasks are distributed across your cluster infrastructure. Expand **Compute options**, and then choose one of the following options
+
+
+<table>
+<thead>
+  <tr><th>Compute option</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Capacity provider strategy</td><td> <ol><li> Choose <b>Capacity provider strategy</b>. </li><li> Choose a strategy: <ul><li> To use the default capacity provider strategy, choose <b>Use cluster default</b>. </li><li> To use a custom strategy, choose <b>Use custom</b>. Then, enter the <b>Base</b>, <b>Capacity provider</b>, and <b>Weight</b>. <br />For EC2, the Capacity provider is the Auto Scaling group. </li></ul> </li></ol> </td><td></td></tr>
+  <tr><td>Launch type</td><td> <ol><li> Choose <b>Launch type</b>. </li><li> For <b>Launch type</b>, choose a launch type. </li><li> When the Fargate is specified, for <b>Platform version</b>, specify the platform version to use. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
    1. For **Subnets**, enter the subnet IDs to run the task in.
 
@@ -96,8 +118,20 @@ Complete the following steps before you schedule a task:
 
       With retry policies, if a schedule fails to invoke its target, EventBridge Scheduler re-runs the schedule. If configured, you must set the maximum retention time and retries for the schedule.
 
-   1. Choose where EventBridge Scheduler stores undelivered events.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/tasks-scheduled-eventbridge-scheduler.html)
+   1. Choose where EventBridge Scheduler stores undelivered events. 
+
+
+<table>
+<thead>
+  <tr><th><b>Dead-letter queue (DLQ)</b> option</th><th>Do this...</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Don't store</td><td>Choose <b>None</b>.</td><td></td></tr>
+  <tr><td>Store the event in the same AWS account where you're creating the schedule</td><td> <ol><li> Choose <b>Select an Amazon SQS queue in my AWS account as a DLQ</b>. </li><li> Choose the Amazon Resource Name (ARN) of the Amazon SQS queue.  </li></ol> </td><td></td></tr>
+  <tr><td>Store the event in a different AWS account from where you're creating the schedule</td><td> <ol><li> Choose <b>Specify an Amazon SQS queue in other AWS accounts as a DLQ</b>. </li><li> Enter the Amazon Resource Name (ARN) of the Amazon SQS queue.  </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
    1. To use a customer managed key to encrypt your target input, under **Encryption**, choose **Customize encryption settings (advanced)**. 
 

@@ -31,8 +31,19 @@ After you deregister the instance, clean up the remaining AWS resources on the i
 **Note**  
 You can deregister the external instance as an Systems Manager managed instance in the Systems Manager console. For instructions, see [Deregistering managed nodes in a hybrid and multicloud environment](https://docs.aws.amazon.com/systems-manager/latest/userguide/fleet-manager-deregister-hybrid-nodes.html) in the *AWS Systems Manager User Guide*.
 
-1. After you deregister the instance, clean up AWS resources on your on-premises server or VM.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-anywhere-deregistration.html)
+1. After you deregister the instance, clean up AWS resources on your on-premises server or VM.
+
+
+<table>
+<thead>
+  <tr><th>Operating system</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Linux</td><td> <ol><li> Stop the Amazon ECS container agent and the SSM Agent services on the instance. <pre>sudo systemctl stop ecs amazon-ssm-agent</pre> </li><li> Remove the Amazon ECS and Systems Manager packages. <br /><b>For CentOS 7, CentOS 8, and RHEL 7</b> <pre>sudo yum remove -y amazon-ecs-init amazon-ssm-agent</pre> <br /><b>For SUSE Enterprise Server 15</b> <pre>sudo zypper remove -y amazon-ecs-init amazon-ssm-agent</pre> <br /><b>For Debian and Ubuntu</b> <pre>sudo apt remove -y amazon-ecs-init amazon-ssm-agent</pre> </li><li> Remove the leftover directories. <pre> sudo rm -rf /var/lib/ecs /etc/ecs /var/lib/amazon/ssm /var/log/ecs /var/log/amazon/ssm</pre> </li></ol> </td><td></td></tr>
+  <tr><td>Windows</td><td> <ol><li> Stop the Amazon ECS container agent and the SSM Agent services on the instance. <pre>Stop-Service AmazonECS</pre> <pre>Stop-Service AmazonSSMAgent</pre> </li><li> Remove the Amazon ECS package. <pre>.\ecs-anywhere-install.ps1 -Uninstall</pre> </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ AWS CLI ]
@@ -74,7 +85,18 @@ You can deregister the external instance as an Systems Manager managed instance 
    aws ssm deregister-managed-instance --region "{{ {{region}} }}" --instance-id "{{ {{instanceId}} }}"
    ```
 
-1. After you deregister the instance, clean up AWS resources on your on-premises server or VM.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-anywhere-deregistration.html)
+1. After you deregister the instance, clean up AWS resources on your on-premises server or VM.
+
+
+<table>
+<thead>
+  <tr><th>Operating system</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Linux</td><td> <ol><li> Stop the Amazon ECS container agent and the SSM Agent services on the instance. <pre>sudo systemctl stop ecs amazon-ssm-agent</pre> </li><li> Remove the Amazon ECS and Systems Manager packages. <pre>sudo (yum/apt/zypper) remove amazon-ecs-init amazon-ssm-agent</pre> </li><li> Remove the leftover directories. <pre> sudo rm -rf /var/lib/ecs /etc/ecs /var/lib/amazon/ssm /var/log/ecs /var/log/amazon/ssm</pre> </li></ol> </td><td></td></tr>
+  <tr><td>Windows</td><td> <ol><li> Stop the Amazon ECS container agent and the SSM Agent services on the instance. <pre>Stop-Service AmazonECS</pre> <pre>Stop-Service AmazonSSMAgent</pre> </li><li> Remove the Amazon ECS package. <pre>.\ecs-anywhere-install.ps1 -Uninstall</pre> </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 ------

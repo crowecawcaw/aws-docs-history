@@ -40,8 +40,21 @@ You can use dual-stack service endpoints to interact with Amazon ECS from the AW
 
   Then, choose the data storage for the CredSpec and optionally, for the Active Directory user credentials for domainless gMSA.
 
-  Amazon ECS uses an Active Directory credential specification file (CredSpec). This file contains the gMSA metadata that's used to propagate the gMSA account context to the container. You generate the CredSpec file and then store it in one of the CredSpec storage options in the following table, specific to the Operating System of the container instances. To use the domainless method, an optional section in the CredSpec file can specify credentials in one of the *domainless user credentials* storage options in the following table, specific to the Operating System of the container instances.    
-<a name="gmsa-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/tutorial-gmsa-windows.html)
+  Amazon ECS uses an Active Directory credential specification file (CredSpec). This file contains the gMSA metadata that's used to propagate the gMSA account context to the container. You generate the CredSpec file and then store it in one of the CredSpec storage options in the following table, specific to the Operating System of the container instances. To use the domainless method, an optional section in the CredSpec file can specify credentials in one of the *domainless user credentials* storage options in the following table, specific to the Operating System of the container instances.
+
+<a name="gmsa-table"></a>
+<table>
+<thead>
+  <tr><th>Storage location</th><th>Linux</th><th>Windows</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon Simple Storage Service</td><td>CredSpec</td><td>CredSpec</td></tr>
+  <tr><td>AWS Secrets Manager</td><td>domainless user credentials</td><td>domainless user credentials</td></tr>
+  <tr><td>Amazon EC2 Systems Manager Parameter Store</td><td>CredSpec</td><td>CredSpec, domainless user credentials</td></tr>
+  <tr><td>Local file</td><td>N/A</td><td>CredSpec</td></tr>
+</tbody>
+</table>
+
 + (Optional) AWS CloudShell is a tool that gives customers a command line without needing to create their own EC2 instance. For more information, see [What is AWS CloudShell?](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html) in the *AWS CloudShell User Guide*.
 
 ## Step 1: Create and configure the gMSA account on Active Directory Domain Services (AD DS)

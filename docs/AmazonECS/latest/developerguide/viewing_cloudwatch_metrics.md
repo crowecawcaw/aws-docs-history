@@ -14,8 +14,19 @@ Amazon ECS service CPU and memory utilization metrics are available on the Amazo
 
 1. Select the cluster that you want to view metrics for.
 
-1. Determine the metrics to view.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/viewing_cloudwatch_metrics.html)
+1. Determine the metrics to view.
+
+
+<table>
+<thead>
+  <tr><th>To view metrics from</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Clusters</td><td>On the cluster details page, choose the <b>Metrics</b> tab. There is also a link provided to the CloudWatch console to view your CloudWatch Container Insights metrics if you have those turned on.</td><td></td></tr>
+  <tr><td>Services</td><td>On the cluster details page, on the <b>Services</b> tab, select the service. The metrics are then available on the <b>Health and metrics</b> tab.</td><td></td></tr>
+</tbody>
+</table>
+
 
 ## CloudWatch console
 <a name="viewing_metrics_console"></a>

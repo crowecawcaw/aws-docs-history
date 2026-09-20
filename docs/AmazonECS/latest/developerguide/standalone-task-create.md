@@ -9,8 +9,19 @@ You can create a task for a one-time process using the AWS Management Console.
 
 1. Open the console at [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2).
 
-1. The Amazon ECS console allows you to create a standalone task from either your cluster detail page or from the task definition revision list. Use the following steps to create your standalone task depending on the resource page you choose.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/standalone-task-create.html)
+1. The Amazon ECS console allows you to create a standalone task from either your cluster detail page or from the task definition revision list. Use the following steps to create your standalone task depending on the resource page you choose.
+
+
+<table>
+<thead>
+  <tr><th>To start a service from</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>The cluster detail page</td><td> <ol><li> On the <b>Clusters</b> page, select the cluster to create the service in. </li><li> From the <b>Tasks</b> tab, choose <b>Run task</b>. </li></ol> </td><td></td></tr>
+  <tr><td>The task definition revision page</td><td> <ol><li> On the <b>Task definitions</b> page, choose the task definition family to display the revisions for that family. </li><li> Select the revision you want to use. </li><li> From the <b>Deploy</b> menu, choose <b>Run task</b>. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. For **Existing cluster**, choose the cluster.
 
@@ -20,8 +31,19 @@ You can create a task for a one-time process using the AWS Management Console.
 
    If you haven't configured your cluster to use a capacity provider, use a launch type instead.
 
-   If you want to run your workloads on Amazon ECS Managed Instances, you must use the Capacity provider strategy option.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/standalone-task-create.html)
+   If you want to run your workloads on Amazon ECS Managed Instances, you must use the Capacity provider strategy option.
+
+
+<table>
+<thead>
+  <tr><th>Distribution method</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Capacity provider strategy</td><td> <ol><li> In the <b>Compute options</b> section, select <b>Capacity provider strategy</b>. </li><li> Choose a strategy: <ul><li> To use the cluster's default capacity provider strategy, choose <b>Use cluster default</b>. </li><li> If your cluster doesn't have a default capacity provider strategy, or to use a custom strategy, choose <b>Use custom</b>, <b>Add capacity provider strategy</b> and define your custom capacity provider strategy by specifying a <b>Base</b>, <b>Capacity provider</b>, and <b>Weight</b>. </li></ul> </li></ol>  To use a capacity provider in a strategy, the capacity provider must be associated with the cluster.  </td><td></td></tr>
+  <tr><td>Launch type</td><td> <ol><li> In the <b>Compute options</b> section, select <b>Launch type</b>. </li><li> For <b>Launch type</b>, choose a launch type. </li><li> (Optional) When you use Fargate, for <b>Platform version</b>, specify the platform version to use. If a platform version isn't specified, the <code>LATEST</code> platform version is used. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Deployment configuration**, do the following:
 
@@ -47,8 +69,18 @@ The console validates the selection to ensure that the selected task definition 
 
 1. If your task uses a data volume that's compatible with configuration at deployment, you can configure the volume by expanding **Volume**.
 
-   The volume name and volume type are configured when creating a task definition revision and can't be changed when you run a standalone task. To update the volume name and type, you must create a new task definition revision and run a task by using the new revision.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/standalone-task-create.html)
+   The volume name and volume type are configured when creating a task definition revision and can't be changed when you run a standalone task. To update the volume name and type, you must create a new task definition revision and run a task by using the new revision.
+
+
+<table>
+<thead>
+  <tr><th>To configure this volume type</th><th>Do this</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon EBS</td><td> <ol><li> For <b>EBS volume type</b>, choose the type of EBS volume that you want to attach to your task. </li><li> For <b>Size (GiB)</b>, enter a valid value for the volume size in gibibytes (GiB). You can specify a minimum of 1 GiB and a maximum of 16,384 GiB volume size. This value is required unless you provide a snapshot ID.  </li><li> For <b>IOPS</b>, enter the maximum number of input/output operations (IOPS) that the volume should provide. This value is configurable only for <code>io1</code>,<code>io2</code>, and <code>gp3</code> volume types. </li><li> For <b>Throughput (MiB/s)</b>, enter the throughput that the volume should provide, in mebibytes per second (MiBps, or MiB/s). This value is configurable only for the <code>gp3</code> volume type. </li><li> For <b>Snapshot ID</b>, choose an existing Amazon EBS volume snapshot or enter the ARN of a snapshot if you want to create a volume from a snapshot. You can also create a new, empty volume by not choosing or entering a snapshot ID. </li><li> If you specify a <b>Snapshot ID</b>, you can specify a <b>Volume initialization rate (MiB/s)</b>. Enter a value between 100 and 300, in MiB/s, that will determine how fast data is loaded from the snapshot specified using <b>Snapshot ID</b> for volume creation. </li><li> For <b>Termination policy</b>, deselect the checkbox if you want the volume configured for attachment to the task to be preserved after the task is terminated. By default, EBS volumes that are attached to tasks are deleted when the task is terminated. </li><li> For <b>File system type</b>, choose the type of file system that will be used for data storage and retrieval on the volume. You can choose either the operating system default or a specific file system type. The default for Linux is <code>XFS</code>. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start. </li><li> For <b>Infrastructure role</b>, choose an IAM role with the necessary permissions that allow Amazon ECS to manage Amazon EBS volumes for tasks. You can attach the <code>AmazonECSInfrastructureRolePolicyForVolumes</code> managed policy to the role, or you can use the policy as a guide to create and attach an your own policy with permissions that meet your specific needs. For more information about the necessary permissions, see see <a href="infrastructure_IAM_role.md">Amazon ECS infrastructure IAM role</a>. </li><li> For <b>Encryption</b>, choose <b>Default</b> if you want to use the Amazon EBS encryption by default settings. If your account has <a href="https://docs.aws.amazon.com/ebs/latest/userguide/encryption-by-default.html">Encryption by default</a> configured, the volume will be encrypted with the AWS Key Management Service (AWS KMS) key that's specified in the setting. If you choose <b>Default</b> and Amazon EBS default encryption isn't turned on, the volume will be unencrypted.  <br />If you choose <b>Custom</b>, you can specify an AWS KMS key of your choice for volume encryption.  <br />If you choose <b>None</b>, the volume will be unencrypted unless you have encryption by default configured, or if you create a volume from an encrypted snapshot.  </li><li> If you've chosen <b>Custom</b> for <b>Encryption</b>, you must specify the AWS KMS key that you want to use. For <b>KMS key</b>, choose an AWS KMS key or enter a key ARN. If you choose to encrypt your volume by using a symmetric customer managed key, make sure that you have the right permissions defined in your AWS KMS key policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html?icmpid=docs_ecs_hp-deploy#ebs-kms-encryption">Data encryption for Amazon EBS volumes</a>.  </li><li> (Optional) Under <b>Tags</b>, you can add tags to your Amazon EBS volume by either propagating tags from the task definition or by providing your own tags. <br /> If you want to propagate tags from the task definition, choose <b>Task definition</b> for <b>Propagate tags from</b>. If you choose <b>Do not propagate</b>, or if you don't choose a value, the tags aren't propagated. <br />If you want to provide your own tags, choose <b>Add tag</b> and then provide the key and value for each tag you add. <br />For more information about tagging Amazon EBS volumes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specify-ebs-config.html#ebs-volume-tagging">Tagging Amazon EBS volumes</a>. </li></ol></td><td></td></tr>
+</tbody>
+</table>
+
 
 1. (Optional) To use a task placement strategy other than the default, expand **Task Placement**, and then choose from the following options.
 

@@ -111,8 +111,19 @@ Use the following steps to find the missing CloudWatch.
 
    The issue is either that the group specified in the task definition is incorrect, or the log group does not exist.
 
-1. Fix the issue.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/resource-initialization-error.html)
+1. Fix the issue.
+
+
+<table>
+<thead>
+  <tr><th>The issue is...</th><th>Do this...</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>The incorrect log group is specified in the task definition. </td><td>Update the task definition to include the log group configuration in the container definition.For information about updating the task definition, see <a href="update-task-definition-console-v2.md">Updating an Amazon ECS task definition using the console</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html">RegisterTaskDefinition</a> in the <i>Amazon Elastic Container Service API Reference</i>.</td><td></td></tr>
+  <tr><td>The log group does not exist in CloudWatch</td><td>Create the log group. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Create a log group in CloudWatch Logs</a> in the<i> Amazon CloudWatch Logs User Guide</i>.</td><td></td></tr>
+</tbody>
+</table>
+
 
 ## failed to invoke EFS utils commands to set up EFS volumes
 <a name="efs-utils-failed"></a>

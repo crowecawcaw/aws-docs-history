@@ -79,6 +79,8 @@ For more information, see [Amazon ECS canary deployments](https://docs.aws.amazo
 
       1. For **Memory**, update the memory allocation for your tasks (for example, 2 GB).
 
+      1. For **CPU architecture**, choose **X86\_64** or **ARM64**. Choose **ARM64** to run your tasks on AWS Graviton-powered compute. When you change the CPU architecture, a new deployment starts and replaces the running tasks.
+
    1. Under **Auto Scaling**:
 
       1. For **ECS service metric**, choose the metric to scale on (for example, **ECS Service Average Memory Utilization** or **Request count per target**).

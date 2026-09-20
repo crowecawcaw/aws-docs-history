@@ -70,6 +70,8 @@ Optionally, you can also customize the configuration of your Express Mode servic
 
    1. For **Memory**, choose the Memory allocation for your tasks (the default is 2 GB).
 
+   1. For **CPU architecture**, choose **X86\_64** or **ARM64** (the default is **X86\_64**). Choose **ARM64** to run your tasks on AWS Graviton-powered compute.
+
    1. For **ECS service metric**, choose the metric to scale on (the default is **Average CPU Utilization**).
 
    1. For **Target value**, choose the target percentage for scaling (the default is **60**.)
