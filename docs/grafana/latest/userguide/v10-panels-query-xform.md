@@ -126,10 +126,38 @@ Panel data source query options include:
   For more information, see [Global variables](v10-dash-variable-add.md#v10-dash-variable-add-global).
 + **Relative time** – Overrides the relative time range for individual panels, which causes them to be different than what is selected in the dashboard time picker in the top-right corner of the dashboard. You can use this to show metrics from different time periods or days on the same dashboard.
 **Note**  
-Panel time overrides have no effect when the dashboard’s time range is absolute.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/grafana/latest/userguide/v10-panels-query-xform.html)
+Panel time overrides have no effect when the dashboard’s time range is absolute.
+
+
+<table>
+<thead>
+  <tr><th>Example</th><th>Relative time field</th></tr>
+</thead>
+<tbody>
+  <tr><td>Last 5 minutes</td><td><code>now-5m</code></td></tr>
+  <tr><td>The day so far</td><td><code>now/d</code></td></tr>
+  <tr><td>Last 5 days</td><td><code>now-5d/d</code></td></tr>
+  <tr><td>This week so far</td><td><code>now/w</code></td></tr>
+  <tr><td>Last 2 years</td><td><code>now-2y/y</code></td></tr>
+</tbody>
+</table>
+
 + **Time shift** – Overrides the time range for individual panels by shifting its start and end relative to the time picker. For example, you can shift the time range for the panel to be two hours earlier than the dashboard time picker.
 **Note**  
-Panel time overrides have no effect when the dashboard's time range is absolute.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/grafana/latest/userguide/v10-panels-query-xform.html)
+Panel time overrides have no effect when the dashboard's time range is absolute.
+
+
+<table>
+<thead>
+  <tr><th>Example</th><th>Time shift field</th></tr>
+</thead>
+<tbody>
+  <tr><td>Last entire week</td><td><code>1w/w</code></td></tr>
+  <tr><td>Two entire weeks ago</td><td><code>2w/w</code></td></tr>
+  <tr><td>Last entire month</td><td><code>1M/M</code></td></tr>
+  <tr><td>This entire year</td><td><code>1d/y</code></td></tr>
+  <tr><td>Last entire year</td><td><code>1y/y</code></td></tr>
+</tbody>
+</table>
+
 + **Cache timeout** – *(Visible only if available in the data source)* Overrides the default cache timeout if your time series store has a query cache. Specify this value as a numeric value in seconds.

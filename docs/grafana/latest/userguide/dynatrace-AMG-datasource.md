@@ -102,8 +102,23 @@ Use the query editor to query Dynatrace metrics and problems. The query type can
 <a name="using-template-variables"></a>
 
  To add a new Dynatrace query variable, see [add a new template variable](variables-types.md#add-a-query-variable). Use your Dynatrace data source as your data source for the following available queries: 
-+ `Query type`— Select a query type. The query type associates some data with some key or descriptor.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/grafana/latest/userguide/dynatrace-AMG-datasource.html)
++ `Query type`— Select a query type. The query type associates some data with some key or descriptor.
+
+
+<table>
+<thead>
+  <tr><th> Query type </th><th> Description </th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>Metric names</code> </td><td> Returns a list of all metric names </td></tr>
+  <tr><td> <code>Filter keys</code> </td><td> Returns a list of all the possible dimensions (e.g. Hostname) that can be used to filter </td></tr>
+  <tr><td> <code>Filter values for key</code> </td><td>Returns a list of all filtered values by a key name or a key name template variable</td></tr>
+  <tr><td> <code>Problem status options</code> </td><td>Returns a list of all problem statuses</td></tr>
+  <tr><td> <code>Problem impact options</code> </td><td>Returns a list of all problem impacted areas</td></tr>
+  <tr><td> <code>Problem severity options</code> </td><td>Returns a list of all problem severity types</td></tr>
+</tbody>
+</table>
+
 + `Regex`— (Optional) Filter out any of the returned values from your query with a regular expression.
 
 **Note**  
