@@ -18,5 +18,18 @@ AWS Elemental Server generates traps for the events described in the following t
 
 1. On the AWS Elemental Server web interface, go to the **Settings** page and choose **SNMP**.
 
-1. On the **SNMP** page, complete the fields, using the instructions in the following table as a guide. Choose **Save**:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-server/latest/configguide/notification-trap.html)
+1. On the **SNMP** page, complete the fields, using the instructions in the following table as a guide. Choose **Save**:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Allow external SNMP access</b></td><td>Choose <b>Yes</b> to open the SNMP port on the firewall. The port must be open if you will send an <b>snmpwalk</b> command.</td></tr>
+  <tr><td><b>Generate SNMP Traps for Alerts</b></td><td>Choose <b>Yes</b> to generate traps.</td></tr>
+  <tr><td><b>SNMP Management Host</b></td><td>Enter the IP address of the trap destination.</td></tr>
+  <tr><td><b>SNMP Management Trap Port</b></td><td>Enter <b>162</b>.</td></tr>
+  <tr><td><b>SNMP Management Community</b></td><td>Enter <b>Public</b>.</td></tr>
+</tbody>
+</table>

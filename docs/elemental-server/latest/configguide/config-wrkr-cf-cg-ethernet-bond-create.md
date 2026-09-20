@@ -26,8 +26,25 @@ First, create the bond for the network devices. In the next step, you will add t
    + **Static Routes**: Select if you're using static routing.
    + **Network**, **Netmask**, **Gateway**: Available when static routes are used only. Complete with your networking information.
 
-1. In **Mode**, select the bonding mode that you're using. The following table describes the modes that AWS Elemental Server supports:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-server/latest/configguide/config-wrkr-cf-cg-ethernet-bond-create.html)
+1. In **Mode**, select the bonding mode that you're using. The following table describes the modes that AWS Elemental Server supports:
+
+
+
+<table>
+<thead>
+  <tr><th>Bonding mode</th><th>Description</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Round robin</td><td>Transmissions are received and sent sequentially on each bonded interface beginning with the first one available.</td><td></td></tr>
+  <tr><td>Active backup</td><td>Transmissions are received and sent out via the first available bonded interface. The other interface is only used if the active interface fails.</td><td></td></tr>
+  <tr><td>Balanced XOR</td><td>Using the exclusive-or (XOR) method, the interface matches up the incoming request's MAC address with the MAC address for one of the bonded interface NICs. Once this link is established, transmissions are sent out sequentially beginning with the first available interface.</td><td></td></tr>
+  <tr><td>Broadcast</td><td>All transmissions are sent on all interfaces in the bond.</td><td></td></tr>
+  <tr><td>IEEE 802.3ad dynamic link aggregation</td><td>Creates aggregation groups that share the same speed and duplex settings. Transmits and receives on all interfaces in the active aggregator. Requires a switch that is 802.3ad compliant.</td><td></td></tr>
+  <tr><td>Adaptive transmit load balancing</td><td>Outgoing traffic is distributed according to current load on each interface in the bond. Incoming traffic is received by the currently active interface. If the receiving interface fails, another interface takes over the MAC address of the failed interface.</td><td></td></tr>
+  <tr><td>Adaptive load balancing</td><td>Includes transmit and receive load balancing for IPV4 traffic. Receive load balancing is achieved through ARP negotiation.</td><td></td></tr>
+</tbody>
+</table>
+
 
 1. In **Link Mode**, select the linking mode that you're using for this bond and complete the relevant fields, as described here:
    + For media-independent interface (MII) mode, complete these fields:

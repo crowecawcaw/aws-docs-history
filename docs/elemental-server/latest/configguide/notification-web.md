@@ -38,8 +38,21 @@ To receive web callback notifications, you must have a web server that supports 
 
    1. On the AWS Elemental Server web interface, go to the **Settings** page and ensure that you're on the **General** tab.
 
-   1. Complete the **Global Alert Notification** fields as described in the following table and choose **Update**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-server/latest/configguide/notification-web.html)  
+   1. Complete the **Global Alert Notification** fields as described in the following table and choose **Update**.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Notification: Email</b></td><td>If you want to receive email notifications too, enter the email address of the alert recipient. If your network doesn't allow open relay messages, see <a href="notification-email-sendmail.md">Configure Sendmail Relay Server</a> to configure a sendmail server to relay messages.</td></tr>
+  <tr><td><b>Notification: Web Callback URL</b></td><td>Enter the URL of the appropriate <code>.php</code> file on your web server.Required if you don't provide an address in the <b>Email</b> field.</td></tr>
+  <tr><td><b>Notify</b></td><td>Select when you want to be notified, either when the alert is raised, or when it's cleared. You can choose both options.</td></tr>
+  <tr><td><b>Notes</b></td><td>Add optional notes as needed.</td></tr>
+</tbody>
+</table>
+  
 **Subscribe to individual alerts**  
 
    1. On the AWS Elemental Server web interface, hover over **Stats** page and choose **Alerts**.
@@ -48,8 +61,21 @@ To receive web callback notifications, you must have a web server that supports 
 
    1. In the list of alerts, locate the alert that you want to be notified on and choose it to expand it.
 
-   1. Complete the fields as described in the following table and choose **Update**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-server/latest/configguide/notification-web.html)
+   1. Complete the fields as described in the following table and choose **Update**.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Notification: Email</b></td><td>If you want to receive email notifications too, enter the email address of the alert recipient. If your network doesn't allow open relay messages, see <a href="notification-email-sendmail.md">Configure Sendmail Relay Server</a> to configure a sendmail server to relay messages.</td></tr>
+  <tr><td><b>Notification: Web Callback URL</b></td><td>Enter the URL of the appropriate <code>.php</code> file on your web server.Required if you don't provide an address in the <b>Email</b> field.</td></tr>
+  <tr><td><b>Notify</b></td><td>Select when you want to be notified, either when the alert is raised or when it's cleared. You can choose both options.</td></tr>
+  <tr><td><b>Notes</b></td><td>Add optional notes as needed.</td></tr>
+</tbody>
+</table>
+
 
    1. Locate, expand, and complete the fields for each alert that you want to be notified on.
 
