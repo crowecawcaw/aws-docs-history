@@ -59,5 +59,30 @@
 
    The OAuth 2.0 client ID must have one or more authorized redirect URLs. Redirect URLs have the following format:
 **Note**  
- Appflow redirect URLs are subject to change post redirect URLs for AWS Glue platform are available. Client ID and Client Secret are from the settings for your OAuth 2.0 client ID.     
-<a name="slack-redirect-url-detail"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/slack-new-account-creation.html)
+ Appflow redirect URLs are subject to change post redirect URLs for AWS Glue platform are available. Client ID and Client Secret are from the settings for your OAuth 2.0 client ID. 
+
+<a name="slack-redirect-url-detail"></a>
+<table>
+<thead>
+  <tr><th>Redirect URL can be one of the following</th><th></th></tr>
+  <tr><th>Redirect URL for Gamma environment</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>https://us-west-2.console.aws.amazon.com/appflow/oauth</td><td>https://us-east-1.awsc-integ.aws.amazon.com/appflow/oauth</td></tr>
+  <tr><td>https://us-east-2.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://us-west-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://ap-south-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://ap-southeast-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://ap-southeast-2.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://ap-northeast-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://ap-northeast-2.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://ca-central-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://eu-central-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://eu.west-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://eu-west-2.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://eu-west-3.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://sa-east-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://us-west-2.awsc-integ.aws.amazon.com/appflow/oauth</td><td></td></tr>
+  <tr><td>https://af-south-1.console.aws.amazon.com/appflow/oauth</td><td></td></tr>
+</tbody>
+</table>

@@ -66,19 +66,53 @@ The AWS Glue job needs a role to access the Amazon S3 bucket. You do not need IA
 
 1. Add a self-referencing rule to allow AWS Glue components to communicate. Specifically, add or confirm that there is a rule of **Type** `All TCP`, **Protocol** is `TCP`, **Port Range** includes all ports, and whose **Source** is the same security group name as the **Group ID**. 
 
-   The inbound rule looks similar to the following:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect-redshift-home.html)
+   The inbound rule looks similar to the following: 
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>0–65535</td><td><i>database-security-group</i></td></tr>
+</tbody>
+</table>
+
 
    For example:  
 ![An example of a self-referencing inbound rule.](https://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroup-Start.png)
 
-1. Add a rule for outbound traffic also. Either open outbound traffic to all ports, for example:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect-redshift-home.html)
+1. Add a rule for outbound traffic also. Either open outbound traffic to all ports, for example:
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Destination</th></tr>
+</thead>
+<tbody>
+  <tr><td>All Traffic</td><td>ALL</td><td>ALL</td><td>0.0.0.0/0</td></tr>
+</tbody>
+</table>
+
 
    Or create a self-referencing rule where **Type** `All TCP`, **Protocol** is `TCP`, **Port Range** includes all ports, and whose **Destination** is the same security group name as the **Group ID**. If using an Amazon S3 VPC endpoint, also add an HTTPS rule for Amazon S3 access. The {{s3-prefix-list-id}} is required in the security group rule to allow traffic from the VPC to the Amazon S3 VPC endpoint.
 
-   For example:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect-redshift-home.html)
+   For example:
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Destination</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>0–65535</td><td>{{security-group}}</td></tr>
+  <tr><td>HTTPS</td><td>TCP</td><td>443</td><td>{{s3-prefix-list-id}}</td></tr>
+</tbody>
+</table>
+
 
 ### Set up AWS Glue
 <a name="aws-glue-programming-etl-redshift-config-glue"></a>
@@ -128,7 +162,7 @@ You can retrieve your connection information from the Amazon Redshift console wh
 
 **Configuration:** In your function options you will identify your connection parameters with `url`, `dbtable`, `user` and `password`. You will identify your Amazon S3 temporary directory with `redshift_tmp_dir`. You can specify your IAM role using `aws_iam_role` when you use `from_options`. The syntax is similar to connecting through the Data Catalog, but you put the parameters in the `connection_options` map.
 
-It is bad practice to hardcode passwords into AWS Glue scripts. Consider storing your passwords in AWS Secrets Manager and retrieving them in your script with SDK for Python (Boto3).
+It is bad practice to hardcode passwords into AWS Glue scripts. Consider storing your passwords in AWS Secrets Manager and retrieving them in your script with AWS SDK for Python (Boto3).
 
 ```
 my_conn_options = {  

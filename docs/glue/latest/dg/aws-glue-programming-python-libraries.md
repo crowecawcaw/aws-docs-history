@@ -5,7 +5,10 @@
 
  You can install additional Python modules and libraries for use with AWS Glue ETL. For AWS Glue 2.0 and above, AWS Glue uses the Python Package Installer (pip3) to install additional modules used by AWS Glue ETL. AWS Glue provides multiple options to bring the additional Python modules to your AWS Glue job environment. You can use the `--additional-python-modules` parameter to bring in new modules using zip files containing bundled Python wheels (also known as "zip of wheels", available for AWS Glue 5.0 and above), individual Python wheel files, requirements files (requirements.txt, available for AWS Glue 5.0 and above), or a list of comma-separated Python modules. It could also be used to change the version of the python modules provided in the AWS Glue environment (see [Python modules already provided in AWS Glue](#glue-modules-provided) for more details). 
 
+ For AWS Glue 5.0 and above, the recommended way to install Python modules is to run your job in a Python virtual environment (venv). For more information, see [(Recommended) Using a Python virtual environment in AWS Glue 5.0 or above](#glue-python-library-virtual-environments). 
+
 **Topics**
++ [(Recommended) Using a Python virtual environment in AWS Glue 5.0 or above](#glue-python-library-virtual-environments)
 + [Installing additional Python modules with pip in AWS Glue 2.0 or later](#addl-python-modules-support)
 + [Including Python files with PySpark native features](#extra-py-files-support)
 + [Programming scripts that use visual transforms](#aws-glue-programming-with-cvt)
@@ -18,6 +21,22 @@
 + [Appendix A: Creating a Zip of Wheels Artifact](#glue-python-library-zip-of-wheels-appendix)
 + [Appendix B: AWS Glue environment details](#glue-python-libraries-environment-details)
 
+## (Recommended) Using a Python virtual environment in AWS Glue 5.0 or above
+<a name="glue-python-library-virtual-environments"></a>
+
+For AWS Glue 5.0 and above, running your job inside a Python virtual environment (venv) is the recommended way to install Python modules. Use a virtual environment for new jobs, and consider moving existing jobs to one.
+
+With `--additional-python-modules` alone, pip resolves your dependencies from PyPI on every job run, so a new upstream release can change what your job installs. A virtual environment resolves them once and reuses the result, so later runs install the same versions. AWS Glue supports two ways to use one, and they differ in when that resolution happens and in which parameters you set:
++ **Service-generated virtual environment** – Available in AWS Glue 6.0 and later. You add the `--python-virtual-env-storage-prefix` parameter and keep your existing `--additional-python-modules` value. AWS Glue resolves your modules on the first job run, caches the virtual environment in Amazon S3, and reuses it on later runs, so no local build is required. Because AWS Glue creates it with `--system-site-packages`, the virtual environment inherits the modules already present in the base environment.
++ **Manually built virtual environment** – Available in AWS Glue 5.0 and later. You build the virtual environment on your local machine or in a CI/CD pipeline, upload it to Amazon S3, and reference it with the `--python-virtual-env` parameter. Your dependencies are resolved at build time, before any job runs. This gives you the most control, and it is the approach to use for complex dependency trees or when your build runs in a pipeline.
+
+**Important**  
+The two approaches differ in whether your job still has access to the modules listed in [Python modules already provided in AWS Glue](#glue-modules-provided):  
+A **manually built** virtual environment replaces the Python environment entirely and inherits none of those modules. You must include every package your job needs, including packages that were previously available from the base environment such as boto3, numpy, and pandas.
+A **service-generated** virtual environment inherits those modules, so this requirement does not apply.
+
+For a comparison of the two approaches, migration steps for jobs that currently use `--additional-python-modules`, and troubleshooting guidance, see [Using Python virtual environments with AWS Glue](aws-glue-programming-python-virtual-environments.md).
+
 ## Installing additional Python modules with pip in AWS Glue 2.0 or later
 <a name="addl-python-modules-support"></a>
 
@@ -28,7 +47,9 @@ AWS Glue uses the Python Package Installer (pip3) to install additional modules 
 ### Best Practices for Python Dependency Management
 <a name="glue-python-library-best-practices"></a>
 
-For production workloads, AWS Glue recommend packaging all your Python dependencies as wheel files in a single zip artifact. This approach provides:
+For AWS Glue 5.0 and above, AWS Glue recommends running your job in a Python virtual environment (venv). Instead of resolving your dependencies from PyPI on every job run, a virtual environment resolves them once and reuses the result, so later runs install the same versions. For more information, see [(Recommended) Using a Python virtual environment in AWS Glue 5.0 or above](#glue-python-library-virtual-environments).
+
+If you do use `--additional-python-modules` for a production workload, package all your Python dependencies as wheel files in a single zip artifact. Compared to the other `--additional-python-modules` forms, this provides:
 + **Deterministic execution**: Exact control over which package versions are installed
 + **Reliability**: No dependency on external package repositories during job execution
 + **Performance**: Single download operation instead of multiple network calls
@@ -44,7 +65,9 @@ Under the [AWS shared responsibility model](https://aws.amazon.com/compliance/sh
 
 If you have minimal dependencies, you may consider using individual wheel files instead.
 
-### (Recommended) Installing additional Python libraries in AWS Glue 5.0 or above using Zip of Wheels
+The following sections describe the ways to specify modules with `--additional-python-modules`. For AWS Glue 5.0 and above, consider [(Recommended) Using a Python virtual environment in AWS Glue 5.0 or above](#glue-python-library-virtual-environments) instead.
+
+### Installing additional Python libraries in AWS Glue 5.0 or above using Zip of Wheels
 <a name="glue-python-library-installing-zip-of-wheels"></a>
 
 AWS Glue 5.0 and above supports packaging multiple wheel files into a single zip artifact containing bundled Python wheels for more reliable and deterministic dependency management. To use this approach, create a zip file containing all your wheel dependencies and their transitive dependencies with the `.gluewheels.zip` suffix, upload it to Amazon S3, and reference it using the `--additional-python-modules` parameter. Be sure to add `--no-index` to the `--python-modules-installer-option` job parameter. With this configuration, the zip of wheels file essentially acts as a local index for pip to resolve dependencies from at runtime. This eliminates dependencies on external package repositories like PyPI during job execution, providing greater stability and consistency for production workloads. For example: 
@@ -97,7 +120,7 @@ SQLAlchemy==2.0.36
 ```
 
 **Important**  
-Use this option with caution, especially in production workloads. Pulling dependencies from PyPI at runtime is highly risky because you cannot be sure what artifact pip resolves to. Using unpinned library versions is especially risky since it pulls latest version of the python modules, which can introduce breaking changes or bring in incompatible python module. This could result in job failure due to python installation failure in AWS Glue job environment. While pinning library version increases stability, pip resolution is still not fully deterministic, so similar issues can arise. As a best practice, AWS Glue recommends using frozen artifacts such as zip of wheels or individual wheel files (see [(Recommended) Installing additional Python libraries in AWS Glue 5.0 or above using Zip of Wheels](#glue-python-library-installing-zip-of-wheels) for more details). 
+Use this option with caution, especially in production workloads. Pulling dependencies from PyPI at runtime is highly risky because you cannot be sure what artifact pip resolves to. Using unpinned library versions is especially risky since it pulls latest version of the python modules, which can introduce breaking changes or bring in incompatible python module. This could result in job failure due to python installation failure in AWS Glue job environment. While pinning library version increases stability, pip resolution is still not fully deterministic, so similar issues can arise. As a best practice, AWS Glue recommends using frozen artifacts such as zip of wheels or individual wheel files (see [Installing additional Python libraries in AWS Glue 5.0 or above using Zip of Wheels](#glue-python-library-installing-zip-of-wheels) for more details). 
 
 **Important**  
 If you do not pin the versions of your transitive dependencies, a primary dependency may pull incompatible transitive dependency versions. As a best practice, all library versions should be pinned for increased consistency in AWS Glue jobs. Even better, AWS Glue recommends packaging your dependencies into a zip of wheels file to ensure maximum consistency and reliability for your production workloads. 
@@ -118,7 +141,7 @@ To update or to add a new Python module AWS Glue allows passing `--additional-py
   `"--additional-python-modules", "scikit-learn,ephem"`
 
 **Important**  
-Use this option with caution, especially in production workloads. Pulling dependencies from PyPI at runtime is highly risky because you cannot be sure what artifact pip resolves to. Using unpinned library versions is especially risky since it pulls latest version of the python modules, which can introduce breaking changes or bring in incompatible python module. This could result in job failure due to python installation failure in AWS Glue job environment. While pinning library version increases stability, pip resolution is still not fully deterministic, so similar issues can arise. As a best practice, AWS Glue recommends using frozen artifacts such as zip of wheels or individual wheel files (see [(Recommended) Installing additional Python libraries in AWS Glue 5.0 or above using Zip of Wheels](#glue-python-library-installing-zip-of-wheels) for more details).
+Use this option with caution, especially in production workloads. Pulling dependencies from PyPI at runtime is highly risky because you cannot be sure what artifact pip resolves to. Using unpinned library versions is especially risky since it pulls latest version of the python modules, which can introduce breaking changes or bring in incompatible python module. This could result in job failure due to python installation failure in AWS Glue job environment. While pinning library version increases stability, pip resolution is still not fully deterministic, so similar issues can arise. As a best practice, AWS Glue recommends using frozen artifacts such as zip of wheels or individual wheel files (see [Installing additional Python libraries in AWS Glue 5.0 or above using Zip of Wheels](#glue-python-library-installing-zip-of-wheels) for more details).
 
 **Important**  
 If you do not pin the versions of your transitive dependencies, a primary dependency may pull incompatible transitive dependency versions. As a best practice, all library versions should be pinned for increased consistency in AWS Glue jobs. Even better, AWS Glue recommends packaging your dependencies into a zip of wheels file to ensure maximum consistency and reliability for your production workloads. 
@@ -217,7 +240,7 @@ runId = glue.start_job_run(JobName='{{sampleJob}}',
  This analysis helps ensure your dependencies follow the recommended practice of pinning all library versions for consistent production deployments. For more details, please see the tool's [ README ](https://github.com/aws-samples/aws-glue-samples/tree/master/utilities/glue_python_dependency_analyzer). 
 
 ### Using the AWS Glue Dependency Analyzer
-<a name="w2aac67c11c14c18c37c11b1"></a>
+<a name="w2aac67c11c14c18c43c11b1"></a>
 
  The AWS Glue Python Dependency Analyzer helps identify unpinned dependencies and version conflicts by simulating pip installation with platform-specific constraints that match your target AWS Glue environment. 
 

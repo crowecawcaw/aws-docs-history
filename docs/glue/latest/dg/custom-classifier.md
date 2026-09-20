@@ -263,8 +263,22 @@ When you define a JSON classifier, you supply the following values to AWS Glue t
 Name of the classifier.
 
 **JSON path**  
-A JSON path that points to an object that is used to define a table schema. The JSON path can be written in dot notation or bracket notation. The following operators are supported:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html)
+A JSON path that points to an object that is used to define a table schema. The JSON path can be written in dot notation or bracket notation. The following operators are supported:  
+
+
+<table>
+<thead>
+  <tr><th>Operator</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>$</code></td><td>Root element of a JSON object. This starts all path expressions</td></tr>
+  <tr><td><code>*</code></td><td>Wildcard character. Available anywhere a name or numeric are required in the JSON path.</td></tr>
+  <tr><td><code>.&lt;name&gt;</code></td><td>Dot-notated child. Specifies a child field in a JSON object.</td></tr>
+  <tr><td><code>['&lt;name&gt;']</code></td><td>Bracket-notated child. Specifies child field in a JSON object. Only a single child field can be specified.</td></tr>
+  <tr><td><code>[&lt;number&gt;]</code></td><td>Array index. Specifies the value of an array by index.</td></tr>
+</tbody>
+</table>
+
 
 AWS Glue keeps track of the creation time, last update time, and version of your classifier.
 

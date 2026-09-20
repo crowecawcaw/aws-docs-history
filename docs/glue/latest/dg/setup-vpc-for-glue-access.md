@@ -31,15 +31,37 @@
 
    In the security group detail page, select **Edit inbound rules**.
 
-   The inbound rule looks similar to this:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/setup-vpc-for-glue-access.html)
+   The inbound rule looks similar to this:
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>0–65535</td><td>{{database-sg-id}}</td></tr>
+</tbody>
+</table>
+
 
 1. Add rules for outbound traffic.
 
    In the security group detail page, select **Edit outbound rules**.
 
-   If you security group allows all outbound traffic, you do not need separate rules. For example:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/setup-vpc-for-glue-access.html)
+   If you security group allows all outbound traffic, you do not need separate rules. For example:
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Destination</th></tr>
+</thead>
+<tbody>
+  <tr><td>All Traffic</td><td>ALL</td><td>ALL</td><td>0.0.0.0/0</td></tr>
+</tbody>
+</table>
+
 
    If your network architecture is designed for you to restrict outbound traffic, create the following outbound rules:
 
@@ -47,5 +69,16 @@
 
     If using an Amazon S3 VPC endpoint, add an HTTPS rule to allow traffic from the VPC to Amazon S3. Create a rule where **Type** is `HTTPS`, **Protocol** is `TCP`, **Port Range** is `443` and **Destination** is the ID of the managed prefix list for the Amazon S3 gateway endpoint, {{s3-prefix-list-id}}. For more information about prefix lists and Amazon S3 gateway endpoints, see [Gateway endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html) in the Amazon VPC documentation.
 
-   For example:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/setup-vpc-for-glue-access.html)
+   For example:
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Destination</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>0–65535</td><td>{{database-sg-id}}</td></tr>
+  <tr><td>HTTPS</td><td>TCP</td><td>443</td><td>{{s3-prefix-list-id}}</td></tr>
+</tbody>
+</table>

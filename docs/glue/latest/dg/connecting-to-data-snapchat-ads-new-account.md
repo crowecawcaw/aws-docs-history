@@ -32,8 +32,25 @@
    +  Select whether or not your ad account will run housing, credit, or employment ads. If you select ‘Yes’, your ad may be rejected if it uses targeting parameters that could include age, gender, or postal code level targeting. Minimum age targeting may be applied to up to 21 years of age. 
    +  Select whether you will use the ad account for political ads. If you're running a political ad, input the sponsoring political organization or advocacy group who is paying for the ad. If you do not accurately input the political organization your ads may be rejected. You will also need to fill out the mandatory linked 'Political Ad Review Form' before submitting ads. 
 
-1.  Choose **Account Details** and fill out your ad account info:     
-<a name="snapchat-ads-account-details"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-snapchat-ads-new-account.html)
+1.  Choose **Account Details** and fill out your ad account info: 
+
+<a name="snapchat-ads-account-details"></a>
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name</td><td>Your ad account name.</td></tr>
+  <tr><td>Account Type</td><td>Select your Account Type, if not auto-populated.</td></tr>
+  <tr><td>Billing Type</td><td> If you'd like to continually have access to your funding source, choose 'Revolving.' This allows you to replenish your line of credit and it is often chosen to run ads in Ads Manager. If you'd prefer to run a onetime campaign with a spend cap, you can choose <b>Insertion Order</b>. <br /> If you create an account with an Insertion order, but want to set a spend cap later, you can leave the spend cap at $0. This way the account will have a spend limit of $0, but you can <a href="https://businesshelp.snapchat.com/s/article/edit-spend-cap?language=en_US"> apply one later </a>. </td></tr>
+  <tr><td>Advertising Organization</td><td>The organization buying ads.</td></tr>
+  <tr><td>Billing Center</td><td> Choose the billing center that you would like to receive invoices. You can use the one automatically created when you first claimed your business or add another Billing Center by following the steps in the <a href="https://businesshelp.snapchat.com/s/article/billing-management?language=en_US#BillingCenter"> Business Help Center </a>. </td></tr>
+  <tr><td>Currency</td><td>Choose your currency.</td></tr>
+  <tr><td>Spend Cap</td><td>If you chose ‘Insertion Order’ as your billing type, input an ad account budget.</td></tr>
+  <tr><td>Time Zone</td><td>Select your time zone.</td></tr>
+</tbody>
+</table>
+
 
 1.  Choose **Create Account**. Your ad account will be created, and you can find it in the Ad Accounts portion of Ads Manager. To begin launching ads, you’ll want to input a payment method. You can also add members to your ad account. 
 

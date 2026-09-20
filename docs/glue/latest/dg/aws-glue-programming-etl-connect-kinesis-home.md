@@ -55,22 +55,42 @@ data_frame_datasource0 = glueContext.create_data_frame.from_options(connection_t
 ## Example: Writing to Kinesis streams
 <a name="aws-glue-programming-etl-connect-kinesis-write"></a>
 
-### Example: Reading from Kinesis streams
-<a name="section-etl-connect-kinesis-read"></a>
+### Example: Writing to Kinesis streams
+<a name="section-etl-connect-kinesis-write"></a>
 
-Used in conjunction with [forEachBatch](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-forEachBatch).
+Used in conjunction with [forEachBatch](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-forEachBatch). Your DynamicFrame will be written to the stream in a JSON format. If the job cannot write after several retries, it will fail. By default, each DynamicFrame record will be sent to the Kinesis stream individually. You can configure this behavior using `aggregationEnabled` and associated parameters. 
 
-Example for Amazon Kinesis streaming source:
+Example writing to Amazon Kinesis from a streaming job:
+
+------
+#### [ Python ]
 
 ```
-kinesis_options =
-   { "streamARN": "arn:aws:kinesis:us-east-2:777788889999:stream/fromOptionsStream",
-     "startingPosition": "TRIM_HORIZON", 
-     "inferSchema": "true", 
-     "classification": "json" 
-   }
-data_frame_datasource0 = glueContext.create_data_frame.from_options(connection_type="kinesis", connection_options=kinesis_options)
+glueContext.write_dynamic_frame.from_options(
+    frame={{frameToWrite}}
+    connection_type="kinesis",
+    connection_options={
+        "partitionKey": "part1",
+        "streamARN": "arn:aws:kinesis:us-east-1:111122223333:stream/{{streamName}}",
+    }
+)
 ```
+
+------
+#### [ Scala ]
+
+```
+glueContext.getSinkWithFormat(
+                connectionType="kinesis",
+                options=JsonOptions("""{
+                    "streamARN": "arn:aws:kinesis:us-east-1:111122223333:stream/{{streamName}}",
+                    "partitionKey": "part1"
+                }"""), 
+           )
+           .writeDynamicFrame({{frameToWrite}})
+```
+
+------
 
 ## Kinesis connection option reference
 <a name="aws-glue-programming-etl-connect-kinesis"></a>

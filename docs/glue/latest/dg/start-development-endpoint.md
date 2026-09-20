@@ -37,16 +37,39 @@ To enable AWS Glue to access required resources, add a row in your subnet route 
 
 1. Add a self-referencing rule to allow AWS Glue components to communicate. Specifically, add or confirm that there is a rule of **Type** `All TCP`, **Protocol** is `TCP`, **Port Range** includes all ports, and whose **Source** is the same security group name as the **Group ID**. 
 
-   The inbound rule looks similar to this:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/start-development-endpoint.html)
+   The inbound rule looks similar to this:
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>0–65535</td><td>{{security-group}}</td></tr>
+</tbody>
+</table>
+
 
    The following shows an example of a self-referencing inbound rule:  
 ![Image showing an example of a self-referencing inbound rule.](https://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroup-Start.png)
 
 1. Add a rule to for outbound traffic also. Either open outbound traffic to all ports, or create a self-referencing rule of **Type** `All TCP`, **Protocol** is `TCP`, **Port Range** includes all ports, and whose **Source** is the same security group name as the **Group ID**. 
 
-   The outbound rule looks similar to one of these rules:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/start-development-endpoint.html)
+   The outbound rule looks similar to one of these rules:
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Destination</th></tr>
+</thead>
+<tbody>
+  <tr><td>All TCP</td><td>TCP</td><td>0–65535</td><td>{{security-group}}</td></tr>
+  <tr><td>All Traffic</td><td>ALL</td><td>ALL</td><td>0.0.0.0/0</td></tr>
+</tbody>
+</table>
+
 
 ## Setting up Amazon EC2 for a notebook server
 <a name="setup-vpc-for-notebook-server"></a>
@@ -63,8 +86,20 @@ To enable AWS Glue to access required resources, add a row in your subnet route 
 
 1. In the security group pane, navigate to the **Inbound** tab.
 
-1. Add inbound rules similar to this:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/start-development-endpoint.html)
+1. Add inbound rules similar to this:
+
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>SSH</td><td>TCP</td><td>22</td><td>0.0.0.0/0</td></tr>
+  <tr><td>HTTPS</td><td>TCP</td><td>443</td><td>0.0.0.0/0</td></tr>
+</tbody>
+</table>
+
 
    The following shows an example of the inbound rules for the security group:  
 ![Image showing an example of the inbound rules for the security group.](https://docs.aws.amazon.com/glue/latest/dg/images/SetupSecurityGroupNotebook-Start.png)

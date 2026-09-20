@@ -27,8 +27,21 @@ For detailed instructions that you can use to customize IAM permissions for AWS 
 
    1. Next, select whether your identities should have **Read only (recommended)** or **Read and write** access to the locations that you previously selected. AWS Glue adds permissions policies to your identities based on the combination of locations and read or write permissions you select.
 
-      The following table displays the permissions that AWS Glue attaches for Amazon S3 access.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/set-up-iam.html)
+      The following table displays the permissions that AWS Glue attaches for Amazon S3 access.
+
+
+
+<table>
+<thead>
+  <tr><th>If you choose ...</th><th>AWS Glue attaches ...</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>No change</b></td><td>No permissions. AWS Glue won't make any changes to your identity's permissions.</td></tr>
+  <tr><td><b>Grant access to specific Amazon S3 locations (read only)</b></td><td> The customer-managed policy, <code>AWSGlueConsole-S3-read-only-policy</code>, grants access to specific Amazon S3 locations with read-only permissions.   JSON  <b></b><br /> <pre>{<br />  "Version":"2012-10-17",		 	 	 <br />  "Statement": [<br />    {<br />      "Effect": "Allow",<br />      "Action": [<br />        "s3:GetObject"<br />      ],<br />      "Resource": [<br />        "arn:aws:s3:::amzn-s3-demo-bucket1/*",<br />        "arn:aws:s3:::amzn-s3-demo-bucket2/*",<br />        "arn:aws:s3:::amzn-s3-demo-bucket3",<br />        "arn:aws:s3:::amzn-s3-demo-bucket"<br />      ],<br />      "Condition": {<br />        "StringEquals": {<br />          "aws:ResourceAccount": "0000000000"<br />        }<br />      }<br />    }<br />  ]<br />}<br /></pre>    </td></tr>
+  <tr><td> <b>Grant access to specific Amazon S3 locations (read and write)</b> </td><td> The <code>AWSGlueConsole-S3-read-and-write-policy</code> grants access to specific Amazon S3 locations with read and write permissions.   JSON  <b></b><br /> <pre>{<br />  "Version":"2012-10-17",		 	 	 <br />  "Statement": [<br />    {<br />      "Effect": "Allow",<br />      "Action": [<br />        "s3:GetObject",<br />        "s3:PutObject"<br />      ],<br />      "Resource": [<br />        "arn:aws:s3:::aes-siem-00000000000-log/*",<br />        "arn:aws:s3:::aes-siem-00000000000-snapshot/*",<br />        "arn:aws:s3:::aes-siem-00000000000-log",<br />        "arn:aws:s3:::aes-siem-00000000000-snapshot"<br />      ],<br />      "Condition": {<br />        "StringEquals": {<br />          "aws:ResourceAccount": "00000000000"<br />        }<br />      }<br />    }<br />  ]<br />}<br /></pre>    </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 

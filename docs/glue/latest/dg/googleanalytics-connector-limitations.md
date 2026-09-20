@@ -21,8 +21,22 @@ The following are limitations for the Google Analytics 4 connector:
     +  If user pass SELECT\_ALL or selected fields more than 15, then default fields will be pass in the request. 
     +  The following fields are considered as default fields for RealTime Report - "country", "deviceCategory", "city", "cityId", "activeUsers", "conversions", "eventCount", "screenPageViews". 
 +  In Core-Report entity, if partition on date field and filter on startDate is present simultaneously. In that case dateRange value gets overridden with the startDate filter value, But, since partition must always be the priority, hence discarding startDate filter if partition on date field is already present. 
-+  As now cohortSpecs is also a part of core-report request body we enhanced the current core-report entity to include support for the cohortSpec attribute. In cohortSpecs request body, nearly all fields require user input. To address this, we have set default values for those attributes/fields and provided provision for user to override these values if needed.     
-<a name="google-analytics-connector-limitations-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/googleanalytics-connector-limitations.html)
++  As now cohortSpecs is also a part of core-report request body we enhanced the current core-report entity to include support for the cohortSpec attribute. In cohortSpecs request body, nearly all fields require user input. To address this, we have set default values for those attributes/fields and provided provision for user to override these values if needed. 
+
+<a name="google-analytics-connector-limitations-table"></a>
+<table>
+<thead>
+  <tr><th>FieldName</th><th>Default values</th><th>Sample query to pass in filterPredicate options to override default values</th></tr>
+</thead>
+<tbody>
+  <tr><td>startDate</td><td>30 days ago from the current date</td><td>"startDate between "2023-05-09" and "2023-05-10"</td></tr>
+  <tr><td>endDate</td><td>1 day ago from current date</td><td>"startDate between "2023-05-09" and "2023-05-10"</td></tr>
+  <tr><td>startOffset</td><td>0</td><td>startOffset=2</td></tr>
+  <tr><td>endOffset</td><td>1</td><td>endOffset=10</td></tr>
+  <tr><td>granularity</td><td>DAILY</td><td>granularity="WEEKLY"</td></tr>
+</tbody>
+</table>
+
 +  You can also pass all these filters together at once or with other filters. 
   +  Example 1 - filterPredicate: startDate between "2023-05-09" and "2023-05-10" AND startOffset=1 AND endOffset=2 AND granularity="WEEKLY" 
   +  Example 2 - filterPredicate: city=“xyz” AND startOffset=1 AND endOffset=2 AND granularity="WEEKLY" 

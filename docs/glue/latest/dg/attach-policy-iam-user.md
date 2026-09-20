@@ -196,8 +196,35 @@ In this step, you create a policy that is similar to `AWSGlueConsoleFullAccess`.
 
 ------
 
-   The following table describes the permissions granted by this policy.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html)
+   The following table describes the permissions granted by this policy.
+
+
+<table>
+<thead>
+  <tr><th><b>Action</b></th><th><b>Resource</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>"glue:*"</code></td><td><code>"*"</code></td><td>Grants permission to run all AWS Glue API operations. <br />If you had previously created your policy without the <code>"glue:*"</code> action, you must add the following individual permissions to your policy:<ul><li> "glue:ListCrawlers" </li><li> "glue:BatchGetCrawlers" </li><li> "glue:ListTriggers" </li><li> "glue:BatchGetTriggers" </li><li> "glue:ListDevEndpoints" </li><li> "glue:BatchGetDevEndpoints" </li><li> "glue:ListJobs" </li><li> "glue:BatchGetJobs" </li></ul></td></tr>
+  <tr><td><code>"redshift:DescribeClusters", "redshift:DescribeClusterSubnetGroups"</code></td><td><code>"*"</code></td><td>Allows creation of connections to Amazon Redshift.</td></tr>
+  <tr><td><code>"iam:ListRoles", "iam:ListRolePolicies", "iam:GetRole", "iam:GetRolePolicy", "iam:ListAttachedRolePolicies"</code></td><td><code>"*"</code></td><td>Allows listing IAM roles when working with crawlers, jobs, development endpoints, and notebook servers.</td></tr>
+  <tr><td><code>"ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeVpcEndpoints", "ec2:DescribeRouteTables", "ec2:DescribeVpcAttribute", "ec2:DescribeKeyPairs", "ec2:DescribeInstances"</code></td><td><code>"*"</code></td><td>Allows setup of Amazon EC2 network items, such as VPCs, when running jobs, crawlers, and development endpoints.</td></tr>
+  <tr><td><code>"rds:DescribeDBInstances"</code></td><td><code>"*"</code></td><td>Allows creation of connections to Amazon RDS.</td></tr>
+  <tr><td><code>"s3:ListAllMyBuckets", "s3:ListBucket", "s3:GetBucketAcl", "s3:GetBucketLocation"</code></td><td><code>"*"</code></td><td>Allows listing of Amazon S3 buckets when working with crawlers, jobs, development endpoints, and notebook servers.</td></tr>
+  <tr><td><code>"dynamodb:ListTables"</code></td><td><code>"*"</code></td><td>Allows listing of DynamoDB tables.</td></tr>
+  <tr><td><code>"kms:ListAliases", "kms:DescribeKey"</code></td><td><code>"*"</code></td><td>Allows working with KMS keys.</td></tr>
+  <tr><td><code>"cloudwatch:GetMetricData", "cloudwatch:ListDashboards"</code></td><td><code>"*"</code></td><td>Allows working with CloudWatch metrics.</td></tr>
+  <tr><td><code>"s3:GetObject", "s3:PutObject"</code></td><td><code>"arn:aws:s3::: aws-glue-*/*", "arn:aws:s3::: */*aws-glue-*/*", "arn:aws:s3::: aws-glue-*"</code></td><td>Allows get and put of Amazon S3 objects into your account when storing objects such as ETL scripts and notebook server locations. <br />Naming convention: Grants permission to Amazon S3 buckets or folders whose names are prefixed with <b>aws-glue-</b>. </td></tr>
+  <tr><td><code>"tag:GetResources"</code></td><td><code>"*"</code></td><td>Allows retrieval of AWS tags.</td></tr>
+  <tr><td><code>"s3:CreateBucket", "s3:PutBucketPublicAccessBlock"</code></td><td><code>"arn:aws:s3::: aws-glue-*"</code></td><td>Allows creation of an Amazon S3 bucket into your account when storing objects such as ETL scripts and notebook server locations. <br />Naming convention: Grants permission to Amazon S3 buckets whose names are prefixed with <b>aws-glue-</b>.<br />Enables AWS Glue to create buckets that block public access.</td></tr>
+  <tr><td><code>"logs:GetLogEvents"</code></td><td><code>"arn:aws:logs:*:*: /aws-glue/*"</code></td><td>Allows retrieval of CloudWatch Logs. <br />Naming convention: AWS Glue writes logs to log groups whose names begin with <b>aws-glue-</b>.</td></tr>
+  <tr><td><code>"cloudformation:CreateStack", "cloudformation:DeleteStack"</code></td><td><code>"arn:aws:cloudformation:*:*:stack/ aws-glue*/*"</code></td><td>Allows managing CloudFormation stacks when working with notebook servers. <br />Naming convention: AWS Glue creates stacks whose names begin with <b>aws-glue</b>.</td></tr>
+  <tr><td><code>"ec2:RunInstances"</code></td><td><code>"arn:aws:ec2:*:*:instance/*", "arn:aws:ec2:*:*:key-pair/*", "arn:aws:ec2:*:*:image/*", "arn:aws:ec2:*:*:security-group/*", "arn:aws:ec2:*:*:network-interface/*", "arn:aws:ec2:*:*:subnet/*", "arn:aws:ec2:*:*:volume/*"</code></td><td>Allows running of development endpoints and notebook servers.</td></tr>
+  <tr><td><code>"iam:PassRole"</code></td><td><code>"arn:aws:iam::*:role/ AWSGlueServiceRole*"</code></td><td>Allows AWS Glue to assume <code>PassRole</code> permission for roles that begin with <code>AWSGlueServiceRole</code>.</td></tr>
+  <tr><td><code>"iam:PassRole"</code></td><td><code>"arn:aws:iam::*:role/ AWSGlueServiceNotebookRole*"</code></td><td>Allows Amazon EC2 to assume <code>PassRole</code> permission for roles that begin with <code>AWSGlueServiceNotebookRole</code>.</td></tr>
+  <tr><td><code>"iam:PassRole"</code></td><td><code>"arn:aws:iam::*:role/service-role/ AWSGlueServiceRole*"</code></td><td>Allows AWS Glue to assume <code>PassRole</code> permission for roles that begin with <code>service-role/AWSGlueServiceRole</code>.</td></tr>
+</tbody>
+</table>
+
 
 1. On the **Review policy** screen, enter a name for the policy, for example **GlueConsoleAccessPolicy**. When you're satisfied with the policy, choose **Create policy**. Ensure that no errors appear in a red box at the top of the screen. Correct any that are reported.
 **Note**  

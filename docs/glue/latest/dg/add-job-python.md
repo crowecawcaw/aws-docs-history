@@ -55,7 +55,7 @@ Specify the AWS Identity and Access Management (IAM) role that is used for autho
 Choose **Python shell** to run a Python script with the job command named `pythonshell`.
 
 **Python version**  
-Choose the Python version. The default is Python 3.9. Valid versions are Python 3.6 and Python 3.9.
+Choose the Python version. The default is Python 3.9. If you specify 3, the job is created using Python 3.9.
 
 **Load common analytics libraries (Recommended)**  
 Choose this option to include common libraries for Python 3.9 in the Python shell.  
@@ -86,9 +86,10 @@ You can set the value to 0.0625 or 1. The default is 0.0625. In either case, the
 **Note**  
  You don't need to specify the version of AWS Glue since the parameter `--glue-version` doesn't apply for AWS Glue shell jobs. Any version specified will be ignored. 
 
- Jobs that you create with the AWS CLI default to Python 3. Valid Python versions are 3 (corresponding to 3.6), and 3.9. To specify Python 3.6, add this tuple to the `--command` parameter: `"PythonVersion":"3"` 
+ To specify the Python version, add the `PythonVersion` tuple to the `--command` parameter, for example `"PythonVersion":"3.9"`. 
 
- To specify Python 3.9, add this tuple to the `--command` parameter: `"PythonVersion":"3.9"` 
+**Note**  
+ Python shell 3.6 reached end of life on June 1, 2026. When you create a job that specifies `"PythonVersion":"3"`, the job is created using Python 3.9. Update your existing jobs to specify `"PythonVersion":"3.9"`. 
 
  To set the maximum capacity used by a Python shell job, provide the `--max-capacity` parameter. For Python shell jobs, the `--allocated-capacity` parameter can't be used. 
 

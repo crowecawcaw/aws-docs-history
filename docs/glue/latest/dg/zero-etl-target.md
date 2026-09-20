@@ -241,6 +241,32 @@ If this is not configured, then default values will be used when syncing the tab
 **Note**  
 If this property is updated after the integration is created, then it could trigger a full table resync when the updated configuration conflicts with the existing configuration. For example, updating the table "un-nesting" from 'No-Unnest' to 'Full-Unnest', or changing the partition column.
 
+#### Target table property conflicts
+<a name="zero-etl-config-target-table-property-conflicts"></a>
+
+Two things identify a set of target table properties: the target resource ARN and the source table name. The target resource is the AWS Glue database for a general purpose Amazon S3 target. For an Amazon S3 Tables target, it is the Amazon S3 Tables catalog. Each combination of target resource and source table can be associated with only one integration at a time. As a result, two integrations cannot write the same source table to the same target resource. If you create a second integration for the same combination, AWS Glue identifies the conflict and prevents it. This prevents one integration from overwriting another integration's data.
+
+AWS Glue enforces this rule whether you use the console, the CLI, or the API. In the console, the **Output settings** step detects conflicts before you continue, so you can resolve them before you create the integration. This applies to single-table sources such as Amazon DynamoDB and to multi-table sources such as SaaS applications. A source table's target properties can be owned by only one integration, so a source table that's already claimed by another integration isn't replicated by yours until you resolve the conflict.
+
+How the console shows a conflict depends on the number of source tables:
++ For multi-table sources, the console shows the status of each source table in two columns: **Action required** and **Notes**. These columns show which tables need attention.
++ For single-table sources, the console shows the same information in an inline alert. There is only one source table.
+
+The following screenshot shows the multi-table (SaaS) **Output settings** table with the **Action required** and **Notes** columns.
+
+![Output settings table (SaaS example) with Action required and Notes columns; one row is flagged for a target conflict.](https://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-output-settings-conflict-saas.png)
+
+
+The console shows the message in the **Notes** column for multi-table sources, or in the inline alert for single-table sources. It flags a source table when any of the following conditions apply:
++ Another integration is already writing the source table to the selected target resource. Choose a different target resource, or remove the source table from the other integration.
++ The output table name is already registered on the selected target resource for a different source table. Enter a different output table name.
++ Two or more source tables map to the same output table name. This applies to multi-table SaaS sources. Give each source table its own output table name.
++ The output table name is invalid. Enter a valid name that contains only lowercase letters, numbers, and underscores, and is 255 characters or fewer. For Amazon S3 Tables catalog targets, the name can't start with an underscore.
++ AWS Glue detects a concurrent change to the output settings.
+
+**Concurrent changes aren't blocking**  
+A concurrent change means that another user updated the same output settings while you were working. Unlike the other conditions in this list, a concurrent change does not block you. Refresh to get the latest settings, or continue with the current ones.
+
 Using CLI or API:
 
 ```
@@ -438,7 +464,7 @@ aws glue create-integration-resource-property \
 ### (Optional) Configure target table properties
 <a name="zero-etl-config-target-s3-tables-table-properties"></a>
 
-Optionally, target table properties can be configured for the target tables that are going to be synced to the target. The same rules apply as described in the general purpose S3 target section.
+Optionally, target table properties can be configured for the target tables that are going to be synced to the target. The same rules apply as described in the general purpose S3 target section. For the full list of conflict conditions, see [Target table property conflicts](#zero-etl-config-target-table-property-conflicts).
 
 Using CLI or API:
 

@@ -70,8 +70,26 @@ Defines the maximum depth of the Amazon S3 path that the crawler can traverse to
 These enable you to exclude certain files or tables from the crawl. The exclude path is relative to the include path. For example, to exclude a table in your JDBC data store, type the table name in the exclude path.   
 A crawler connects to a JDBC data store using an AWS Glue connection that contains a JDBC URI connection string. The crawler only has access to objects in the database engine using the JDBC user name and password in the AWS Glue connection. *The crawler can only create tables that it can access through the JDBC connection.* After the crawler accesses the database engine with the JDBC URI, the include path is used to determine which tables in the database engine are created in the Data Catalog. For example, with MySQL, if you specify an include path of `MyDatabase/%`, then all tables within `MyDatabase` are created in the Data Catalog. When accessing Amazon Redshift, if you specify an include path of `MyDatabase/%`, then all tables within all schemas for database `MyDatabase` are created in the Data Catalog. If you specify an include path of `MyDatabase/MySchema/%`, then all tables in database `MyDatabase` and schema `MySchema` are created.   
 After you specify an include path, you can then exclude objects from the crawl that your include path would otherwise include by specifying one or more Unix-style `glob` exclude patterns. These patterns are applied to your include path to determine which objects are excluded. These patterns are also stored as a property of tables created by the crawler. AWS Glue PySpark extensions, such as `create_dynamic_frame.from_catalog`, read the table properties and exclude objects defined by the exclude pattern.   
-AWS Glue supports the following `glob` patterns in the exclude pattern.       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/define-crawler-choose-data-sources.html)
+AWS Glue supports the following `glob` patterns in the exclude pattern.   
+
+
+<table>
+<thead>
+  <tr><th>Exclude pattern</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>*.csv</code></td><td>Matches an Amazon S3 path that represents an object name in the current folder ending in <code>.csv</code></td></tr>
+  <tr><td><code>*.*</code></td><td>Matches all object names that contain a dot</td></tr>
+  <tr><td><code>*.{csv,avro}</code></td><td>Matches object names ending with <code>.csv</code> or <code>.avro</code></td></tr>
+  <tr><td><code>foo.?</code></td><td>Matches object names starting with <code>foo.</code> that are followed by a single character extension</td></tr>
+  <tr><td><code>myfolder/*</code></td><td>Matches objects in one level of subfolder from <code>myfolder</code>, such as <code>/myfolder/mysource</code></td></tr>
+  <tr><td><code>myfolder/*/*</code></td><td>Matches objects in two levels of subfolders from <code>myfolder</code>, such as <code>/myfolder/mysource/data</code></td></tr>
+  <tr><td><code>myfolder/**</code></td><td>Matches objects in all subfolders of <code>myfolder</code>, such as <code>/myfolder/mysource/mydata</code> and <code>/myfolder/mysource/data</code></td></tr>
+  <tr><td><code>myfolder**</code></td><td>Matches subfolder <code>myfolder</code> as well as files below <code>myfolder</code>, such as <code>/myfolder</code> and <code>/myfolder/mydata.txt</code></td></tr>
+  <tr><td><code>Market*</code></td><td>Matches tables in a JDBC database with names that begin with <code>Market</code>, such as <code>Market_us</code> and <code>Market_fr</code></td></tr>
+</tbody>
+</table>
+
 AWS Glue interprets `glob` exclude patterns as follows:  
 + The slash (`/`) character is the delimiter to separate Amazon S3 keys into a folder hierarchy.
 + The asterisk (`*`) character matches zero or more characters of a name component without crossing folder boundaries.
@@ -100,8 +118,21 @@ Each exclude pattern is evaluated against the include path. For example, suppose
       jane.csv
       juan.txt
 ```
-Given the include path `s3://mybucket/myfolder/`, the following are some sample results for exclude patterns:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/define-crawler-choose-data-sources.html)
+Given the include path `s3://mybucket/myfolder/`, the following are some sample results for exclude patterns:
+
+
+<table>
+<thead>
+  <tr><th>Exclude pattern</th><th>Results</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>departments/**</code></td><td>Excludes all files and folders below <code>departments</code> and includes the <code>employees</code> folder and its files</td></tr>
+  <tr><td><code>departments/market*</code></td><td>Excludes <code>market-us.json</code>, <code>market-emea.json</code>, and <code>market-ap.json</code></td></tr>
+  <tr><td><code>**.csv</code></td><td>Excludes all objects below <code>myfolder</code> that have a name ending with <code>.csv</code></td></tr>
+  <tr><td><code>employees/*.csv</code></td><td>Excludes all <code>.csv</code> files in the <code>employees</code> folder</td></tr>
+</tbody>
+</table>
+
 
 **Example Excluding a subset of Amazon S3 partitions**  
 Suppose that your data is partitioned by day, so that each day in a year is in a separate Amazon S3 partition. For January 2015, there are 31 partitions. Now, to crawl data for only the first week of January, you must exclude all partitions except days 1 through 7:  
@@ -126,8 +157,20 @@ MyDatabase/MySchema/
    Market_EMEA_Table
    Market_AP_Table
 ```
-Given the include path `MyDatabase/MySchema/%`, the following are some sample results for exclude patterns:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/define-crawler-choose-data-sources.html)
+Given the include path `MyDatabase/MySchema/%`, the following are some sample results for exclude patterns:
+
+
+<table>
+<thead>
+  <tr><th>Exclude pattern</th><th>Results</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>HR*</code></td><td>Excludes the tables with names that begin with <code>HR</code></td></tr>
+  <tr><td><code>Market_*</code></td><td>Excludes the tables with names that begin with <code>Market_</code></td></tr>
+  <tr><td><code>**_Table</code></td><td>Excludes all tables with names that end with <code>_Table</code></td></tr>
+</tbody>
+</table>
+
 
 **Additional crawler source parameters**  
 Each source type requires a different set of additional parameters.

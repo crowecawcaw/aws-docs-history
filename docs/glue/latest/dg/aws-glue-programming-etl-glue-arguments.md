@@ -156,8 +156,21 @@ The Amazon S3 paths to additional files that AWS Glue copies to the driver and e
 The Amazon S3 paths to additional Python modules that AWS Glue adds to the Python path on the driver node before running your script. Multiple values must be complete paths separated by a comma (`,`). Only individual files are supported, not a directory path.
 
 **`--job-bookmark-option`**  
-Controls the behavior of a job bookmark. The following option values can be set.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
+Controls the behavior of a job bookmark. The following option values can be set.  
+
+
+
+<table>
+<thead>
+  <tr><th>‑‑job‑bookmark‑option value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>job-bookmark-enable</code></td><td>Keep track of previously processed data. When a job runs, process new data since the last checkpoint.</td></tr>
+  <tr><td><code>job-bookmark-disable</code></td><td>Always process the entire dataset. You are responsible for managing the output from previous job runs.</td></tr>
+  <tr><td><code>job-bookmark-pause</code></td><td>Process incremental data since the last successful run or the data in the range identified by the following suboptions, without updating the state of the last bookmark. You are responsible for managing the output from previous job runs. The two suboptions are as follows:<ul><li> <b><code>job-bookmark-from</code></b> <code>&lt;from-value&gt;</code> is the run ID that represents all the input that was processed until the last successful run before and including the specified run ID. The corresponding input is ignored. </li><li> <b><code>job-bookmark-to</code></b><code> &lt;to-value&gt;</code> is the run ID that represents all the input that was processed until the last successful run before and including the specified run ID. The corresponding input excluding the input identified by the <code>&lt;from-value&gt;</code> is processed by the job. Any input later than this input is also excluded for processing. </li></ul>The job bookmark state is not updated when this option set is specified.<br />The suboptions are optional. However, when used, both suboptions must be provided.</td></tr>
+</tbody>
+</table>
+
 For example, to enable a job bookmark, pass the following argument.  
 
 ```

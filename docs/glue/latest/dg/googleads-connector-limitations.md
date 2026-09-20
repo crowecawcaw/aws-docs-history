@@ -4,8 +4,19 @@
 <a name="googleads-connector-limitations"></a>
 
 The following are limitations for the Google Ads connector:
-+ `MANAGER_ID` is an optional input when creating a connection. But when you want to access the customers underlying any particular manager, then `MANAGER_ID` is a mandatory input. The table below explains the access limitations based on whether `MANAGER_ID` is included or not in a connection.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/googleads-connector-limitations.html)
++ `MANAGER_ID` is an optional input when creating a connection. But when you want to access the customers underlying any particular manager, then `MANAGER_ID` is a mandatory input. The table below explains the access limitations based on whether `MANAGER_ID` is included or not in a connection.
+
+
+<table>
+<thead>
+  <tr><th>MANAGER_ID provided when creating connection?</th><th>Accessible customers</th></tr>
+</thead>
+<tbody>
+  <tr><td>Yes</td><td>The customers listed under the provided MANAGER_ID along with the MANAGER_ID.</td></tr>
+  <tr><td>No</td><td>All customers will be listed, but customers underlying any manager will not be accessible.</td></tr>
+</tbody>
+</table>
+
 + When a manager account is chosen as the object, only `Account` will appear as a sub-object. In the Google Ads connector, entities such as campaigns, ads, etc., are retrieved based on individual client accounts, not the manager account.
 + You cannot retrieve metrics for the manager account. You can retrieve metrics for individual client accounts instead.
 +  Each account can have up to 10,000 campaigns, including both active and paused campaigns. For more information, see [Campaign per account](https://support.google.com/google-ads/answer/6372658). 

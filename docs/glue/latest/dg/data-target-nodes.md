@@ -71,8 +71,25 @@ For all data sources except Amazon S3 and connectors, a table must exist in the 
      + **Tableau Hyper**: Tableau’s in-memory data engine technology.
 
      To learn more about these format options, see [Format Options for ETL Inputs and Outputs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-format.html) in the *AWS Glue Developer Guide*.
-   + **Compression Type**: You can choose to optionally compress the data using the file types `CSV`, `JSON`, or `Parquet`. The default is no compression, or **None**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/data-target-nodes.html)
+   + **Compression Type**: You can choose to optionally compress the data using the file types `CSV`, `JSON`, or `Parquet`. The default is no compression, or **None**.
+
+
+<table>
+<thead>
+  <tr><th>File Type</th><th>Compressions</th></tr>
+</thead>
+<tbody>
+  <tr><td>JSON/CSV/XML</td><td>GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy</td></tr>
+  <tr><td>Parquet</td><td>Snappy, LZ4, LZO, BROTLI, GZIP</td></tr>
+  <tr><td>ORC</td><td>Snappy, ZLIB, Uncompressed, LZO</td></tr>
+  <tr><td>Avro</td><td>GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy</td></tr>
+  <tr><td>Delta Lake</td><td>GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy</td></tr>
+  <tr><td>Apache Hudi</td><td>GZIP, LZO, Snappy</td></tr>
+  <tr><td>Apache Iceberg</td><td>GZIP, LZO, Snappy</td></tr>
+  <tr><td>Tableau Hyper</td><td>None</td></tr>
+</tbody>
+</table>
+
    + **S3 Target Location**: The Amazon S3 bucket and location for the data output. You can choose the **Browse S3** button to see the Amazon S3 buckets that you have access to and choose one as the target destination. 
    + **Data catalog update options**
      + **Do not update the Data Catalog**: (Default) Choose this option if you don't want the job to update the Data Catalog, even if the schema changes or new partitions are added.

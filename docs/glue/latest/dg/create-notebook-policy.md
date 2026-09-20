@@ -129,7 +129,21 @@ In this step, you create a policy that is similar to `AWSGlueServiceNotebookRole
 
 ------
 
-   The following table describes the permissions granted by this policy.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/create-notebook-policy.html)
+   The following table describes the permissions granted by this policy.
+
+
+<table>
+<thead>
+  <tr><th><b>Action</b></th><th><b>Resource</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>"glue:*"</code></td><td><code>"*"</code></td><td>Grants permission to run all AWS Glue API operations.</td></tr>
+  <tr><td><code>"s3:GetBucketLocation", "s3:ListBucket", "s3:ListAllMyBuckets", "s3:GetBucketAcl"</code></td><td><code>"*"</code></td><td>Allows listing of Amazon S3 buckets from notebook servers.</td></tr>
+  <tr><td><code>"s3:GetObject"</code></td><td><code>"arn:aws:s3:::crawler-public*", "arn:aws:s3:::aws-glue-*"</code></td><td>Allows get of Amazon S3 objects used by examples and tutorials from notebooks. <br />Naming convention: Amazon S3 bucket names begin with <b>crawler-public</b> and <b>aws-glue-</b>.</td></tr>
+  <tr><td><code>"s3:PutObject", "s3:DeleteObject"</code></td><td><code>"arn:aws:s3:::aws-glue*"</code></td><td>Allows put and delete of Amazon S3 objects into your account from notebooks. <br />Naming convention: Uses Amazon S3 folders named <b>aws-glue</b>.</td></tr>
+  <tr><td><code>"ec2:CreateTags", "ec2:DeleteTags"</code></td><td><code>"arn:aws:ec2:*:*:network-interface/*", "arn:aws:ec2:*:*:security-group/*", "arn:aws:ec2:*:*:instance/*"</code></td><td>Allows tagging of Amazon EC2 resources created for notebook servers. <br />Naming convention: AWS Glue tags Amazon EC2 instances with <b>aws-glue-service-resource</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. On the **Review Policy** screen, enter your **Policy Name**, for example **GlueServiceNotebookPolicyDefault**. Enter an optional description, and when you're satisfied with the policy, choose **Create policy**.

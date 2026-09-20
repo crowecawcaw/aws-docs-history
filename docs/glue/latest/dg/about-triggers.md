@@ -20,8 +20,18 @@ You can create a trigger for a set of jobs or crawlers based on a schedule. You 
 A trigger that fires when a previous job or crawler or multiple jobs or crawlers satisfy a list of conditions.  
  When you create a conditional trigger, you specify a list of jobs and a list of crawlers to watch. For each watched job or crawler, you specify a status to watch for, such as succeeded, failed, timed out, and so on. The trigger fires if the watched jobs or crawlers end with the specified statuses. You can configure the trigger to fire when any or all of the watched events occur.  
 For example, you could configure a trigger T1 to start job J3 when both job J1 and job J2 successfully complete, and another trigger T2 to start job J4 if either job J1 or job J2 fails.  
-The following table lists the job and crawler completion states (events) that triggers watch for.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/about-triggers.html)
+The following table lists the job and crawler completion states (events) that triggers watch for.  
+
+
+<table>
+<thead>
+  <tr><th>Job completion states</th><th>Crawler completion states</th></tr>
+</thead>
+<tbody>
+  <tr><td> <ul><li> <code>SUCCEEDED</code> </li><li> <code>STOPPED</code> </li><li> <code>FAILED</code> </li><li> <code>TIMEOUT</code> </li></ul> </td><td> <ul><li> <code>SUCCEEDED</code> </li><li> <code>FAILED</code> </li><li> <code>CANCELLED</code> </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 **On-demand**  
 A trigger that fires when you activate it. On-demand triggers never enter the `ACTIVATED` or `DEACTIVATED` state. They always remain in the `CREATED` state.

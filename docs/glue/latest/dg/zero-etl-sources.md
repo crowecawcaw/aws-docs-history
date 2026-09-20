@@ -90,6 +90,12 @@ Once you've created the connection, you can specify the source data to replicate
 
 Using your zero-ETL integration you can perform DDL operations for supported entities. For a list of entities which are not supported, see [Unsupported entities and fields for Salesforce](#zero-etl-config-source-salesforce-unsupported).
 
+With zero-ETL integrations with a Salesforce source, you can replicate archived records. When Salesforce archives a record (setting `IsArchived = true`), your zero-ETL integration detects and replicates the change to your target database during the next change data capture (CDC).
+
+For new zero-ETL integrations, archived records are pulled during the initial snapshot and are then kept up to date through CDC. For existing zero-ETL integrations, archived records are backfilled through CDC back to the time that the integration was created. In both cases, records that were archived before the integration was created are not replicated to your target database.
+
+Archived record replication applies to Salesforce entities that support the `IsArchived` field (for example, Task, Event, Product2, and PricebookEntry).
+
 #### Additional Salesforce Configuration
 <a name="zero-etl-config-source-salesforce-additional"></a>
 

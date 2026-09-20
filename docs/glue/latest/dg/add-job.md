@@ -28,8 +28,22 @@ The type of ETL job. This is set automatically based on the type of data sources
 + **Python shell** run a Python script with the job command `pythonshell`. For more information, see [Configuring job properties for Python shell jobs in AWS Glue](add-job-python.md).
 
 **AWS Glue version**  
-AWS Glue version determines the versions of Apache Spark and Python that are available to the job, as specified in the following table.      
-<a name="table-glue-versions"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/add-job.html)
+AWS Glue version determines the versions of Apache Spark and Python that are available to the job, as specified in the following table.  
+
+<a name="table-glue-versions"></a>
+<table>
+<thead>
+  <tr><th>AWS Glue version</th><th>Supported Spark and Python versions</th></tr>
+</thead>
+<tbody>
+  <tr><td>6.0</td><td> <ul><li> Spark 4.1.1 </li><li> Python 3.13 </li></ul> </td></tr>
+  <tr><td>5.1</td><td> <ul><li> Spark 3.5.6 </li><li> Python 3.11 </li></ul> </td></tr>
+  <tr><td>5.0</td><td> <ul><li> Spark 3.5.4 </li><li> Python 3.11 </li></ul> </td></tr>
+  <tr><td>4.0</td><td> <ul><li> Spark 3.3.0 </li><li> Python 3.10 </li></ul> </td></tr>
+  <tr><td>3.0</td><td> <ul><li> Spark 3.1.1 </li><li> Python 3.7 </li></ul> </td></tr>
+</tbody>
+</table>
+
 Jobs that are created without specifying a AWS Glue version default to AWS Glue 5.1.
 
 **Language**  
@@ -50,9 +64,26 @@ The resources available on AWS Glue workers are measured in DPUs. A DPU is a rel
 + **R.4X** – When you choose this type, you also provide a value for **Number of workers**. Each worker maps to 4 DPU with memory-optimized configuration. We recommend this worker type for large memory-intensive workloads that frequently encounter out-of-memory errors or require high memory-to-CPU ratios. 
 + **R.8X** – When you choose this type, you also provide a value for **Number of workers**. Each worker maps to 8 DPU with memory-optimized configuration. We recommend this worker type for very large memory-intensive workloads that frequently encounter out-of-memory errors or require high memory-to-CPU ratios. 
 **Worker Type Specifications**  
-The following table provides detailed specifications for all available G worker types:    
-**G Worker Type Specifications**    
-<a name="table-worker-specifications"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/add-job.html)
+The following table provides detailed specifications for all available G worker types:  
+
+
+**G Worker Type Specifications**  
+<a name="table-worker-specifications"></a>
+<table>
+<thead>
+  <tr><th>Worker Type</th><th>DPU per Node</th><th>vCPU</th><th>Memory (GB)</th><th>Disk (GB)</th><th>Free Disk Space (GB)</th><th>Spark Executors per Node</th></tr>
+</thead>
+<tbody>
+  <tr><td>G.025X</td><td>0.25</td><td>2</td><td>4</td><td>84</td><td>34</td><td>1</td></tr>
+  <tr><td>G.1X</td><td>1</td><td>4</td><td>16</td><td>94</td><td>44</td><td>1</td></tr>
+  <tr><td>G.2X</td><td>2</td><td>8</td><td>32</td><td>138</td><td>78</td><td>1</td></tr>
+  <tr><td>G.4X</td><td>4</td><td>16</td><td>64</td><td>256</td><td>230</td><td>1</td></tr>
+  <tr><td>G.8X</td><td>8</td><td>32</td><td>128</td><td>512</td><td>485</td><td>1</td></tr>
+  <tr><td><b>G.12X</b></td><td><b>12</b></td><td><b>48</b></td><td><b>192</b></td><td><b>768</b></td><td><b>741</b></td><td><b>1</b></td></tr>
+  <tr><td><b>G.16X</b></td><td><b>16</b></td><td><b>64</b></td><td><b>256</b></td><td><b>1024</b></td><td><b>996</b></td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 **Important:** G.12X and G.16X worker types, as well as all R worker types (R.1X through R.8X), have higher startup latency.  
 You are charged an hourly rate based on the number of DPUs used to run your ETL jobs. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/).  
 For AWS Glue version 1.0 or earlier jobs, when you configure a job using the console and specify a **Worker type** of **Standard**, the **Maximum capacity** is set and the **Number of workers** becomes the value of **Maximum capacity** - 1. If you use the AWS Command Line Interface (AWS CLI) or AWS SDK, you can specify the **Max capacity** parameter, or you can specify both **Worker type** and the **Number of workers**.  

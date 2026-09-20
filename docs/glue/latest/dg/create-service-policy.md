@@ -127,7 +127,26 @@ Add any permissions needed for Amazon S3 resources. You might want to scope the 
 
 ------
 
-   The following table describes the permissions granted by this policy.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/create-service-policy.html)
+   The following table describes the permissions granted by this policy.
+
+
+<table>
+<thead>
+  <tr><th><b>Action</b></th><th><b>Resource</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>"glue:*"</code></td><td><code>"*"</code></td><td>Grants permission to run all AWS Glue API operations.</td></tr>
+  <tr><td><code>"s3:GetBucketLocation", "s3:ListBucket", "s3:ListAllMyBuckets", "s3:GetBucketAcl",</code></td><td><code>"*"</code></td><td>Allows listing of Amazon S3 buckets from crawlers, jobs, development endpoints, and notebook servers.</td></tr>
+  <tr><td><code>"ec2:DescribeVpcEndpoints", "ec2:DescribeRouteTables", "ec2:CreateNetworkInterface", "ec2:DeleteNetworkInterface", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcAttribute",</code></td><td><code>"*"</code></td><td>Allows the setup of Amazon EC2 network items, such as virtual private clouds (VPCs) when running jobs, crawlers, and development endpoints.</td></tr>
+  <tr><td><code>"iam:ListRolePolicies", "iam:GetRole", "iam:GetRolePolicy"</code></td><td><code>"*"</code></td><td>Allows listing IAM roles from crawlers, jobs, development endpoints, and notebook servers.</td></tr>
+  <tr><td><code>"cloudwatch:PutMetricData"</code></td><td><code>"*"</code></td><td>Allows writing CloudWatch metrics for jobs.</td></tr>
+  <tr><td><code>"s3:CreateBucket", "s3:PutBucketPublicAccessBlock"</code></td><td><code>"arn:aws:s3:::aws-glue-*"</code></td><td>Allows the creation of Amazon S3 buckets in your account from jobs and notebook servers. <br />Naming convention: Uses Amazon S3 folders named <b>aws-glue-</b>.<br />Enables AWS Glue to create buckets that block public access.</td></tr>
+  <tr><td><code>"s3:GetObject", "s3:PutObject", "s3:DeleteObject"</code></td><td><code>"arn:aws:s3:::aws-glue-*/*", "arn:aws:s3:::*/*aws-glue-*/*"</code></td><td>Allows get, put, and delete of Amazon S3 objects into your account when storing objects such as ETL scripts and notebook server locations. <br />Naming convention: Grants permission to Amazon S3 buckets or folders whose names are prefixed with <b>aws-glue-</b>.</td></tr>
+  <tr><td><code>"s3:GetObject"</code></td><td><code>"arn:aws:s3:::crawler-public*", "arn:aws:s3:::aws-glue-*"</code></td><td>Allows get of Amazon S3 objects used by examples and tutorials from crawlers and jobs. <br />Naming convention: Amazon S3 bucket names begin with <b>crawler-public</b> and <b>aws-glue-</b>.</td></tr>
+  <tr><td><code>"logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"</code></td><td><code>"arn:aws:logs:*:*:log-group:/aws-glue/*"</code></td><td>Allows writing logs to CloudWatch Logs. <br />Naming convention: AWS Glue writes logs to log groups whose names begin with <b>aws-glue</b>.</td></tr>
+  <tr><td><code>"ec2:CreateTags", "ec2:DeleteTags"</code></td><td><code>"arn:aws:ec2:*:*:network-interface/*", "arn:aws:ec2:*:*:security-group/*", "arn:aws:ec2:*:*:instance/*"</code></td><td>Allows tagging of Amazon EC2 resources created for development endpoints. <br />Naming convention: AWS Glue tags Amazon EC2 network interfaces, security groups, and instances with <b>aws-glue-service-resource</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. On the **Review Policy** screen, enter your **Policy Name**, for example **GlueServiceRolePolicy**. Enter an optional description, and when you're satisfied with the policy, choose **Create policy**.

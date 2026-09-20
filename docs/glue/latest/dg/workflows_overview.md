@@ -16,8 +16,20 @@ You can create a workflow from an AWS Glue blueprint, or you can manually build 
 
   When the workflow starts, the batch conditions are reset and the event trigger begins watching for the next batch condition to be met to start the workflow again.
 
-  The following table shows how batch size and batch window operate together to trigger a workflow.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/workflows_overview.html)
+  The following table shows how batch size and batch window operate together to trigger a workflow.
+
+
+<table>
+<thead>
+  <tr><th>Batch size</th><th>Batch window</th><th>Resulting triggering condition </th></tr>
+</thead>
+<tbody>
+  <tr><td>10</td><td></td><td>The workflow is triggered upon the arrival of 10 EventBridge events, or 15 minutes after the arrival of the first event, whichever occurs first. (If windows size isn't specified, it defaults to 15 minutes.)</td></tr>
+  <tr><td>10</td><td>2 mins</td><td>The workflow is triggered upon the arrival of 10 EventBridge events, or 2 minutes after the arrival of the first event, whichever occurs first.</td></tr>
+  <tr><td>1</td><td></td><td>The workflow is triggered upon the arrival of the first event. Window size is irrelevant. The batch size defaults to 1 if you don't specify batch conditions when you create the EventBridge event trigger.</td></tr>
+</tbody>
+</table>
+
 
   The `GetWorkflowRun` API operation returns the batch condition that triggered the workflow.
 

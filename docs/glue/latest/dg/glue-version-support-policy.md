@@ -35,7 +35,7 @@ The following AWS Glue versions have reached end of support and will no longer b
 | Spark | Glue version 1.0 (Spark 2.4, Scala 2, Python 3) | 9/30/2022 | 4/1/2026 | 
 | Spark | Glue version 2.0 (Spark 2.4, Python 3) | 1/31/2024 | 4/1/2026 | 
 | Python shell | Python 2 (AWS Glue Version 1.0) | 6/1/2022 | 4/1/2026 | 
-| Python shell | PythonShell 3.6 (Glue version 1.0) | 3/31/2026 | NA | 
+| Python shell | PythonShell 3.6 (Glue version 1.0) | 3/31/2026 | 6/1/2026 | 
 | Development endpoint | Zeppelin notebook | 9/30/2022 | NA | 
 
 **Note**  

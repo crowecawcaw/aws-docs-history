@@ -83,7 +83,21 @@ If you plan to use SageMaker AI notebooks with development endpoints, you must s
 
    Then choose **Review policy**. 
 
-   The following table describes the permissions granted by this policy.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/create-sagemaker-notebook-policy.html)
+   The following table describes the permissions granted by this policy.
+
+
+<table>
+<thead>
+  <tr><th><b>Action</b></th><th><b>Resource</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>"s3:ListBucket*"</code></td><td><code>"arn:aws:s3:::bucket-name"</code></td><td>Grants permission to list Amazon S3 buckets.</td></tr>
+  <tr><td><code>"s3:GetObject"</code></td><td><code>"arn:aws:s3:::bucket-name*"</code></td><td>Grants permission to get Amazon S3 objects that are used by SageMaker AI notebooks.</td></tr>
+  <tr><td><code>"logs:CreateLogStream", "logs:DescribeLogStreams", "logs:PutLogEvents", "logs:CreateLogGroup"</code></td><td><code>"arn:aws:logs:region-code:account-id:log-group:/aws/sagemaker/*", "arn:aws:logs:region-code:account-id:log-group:/aws/sagemaker/*:log-stream:aws-glue-*"</code></td><td>Grants permission to write logs to Amazon CloudWatch Logs from notebooks. <br />Naming convention: Writes to log groups whose names begin with <b>aws-glue</b>.</td></tr>
+  <tr><td><code> "glue:UpdateDevEndpoint", "glue:GetDevEndpoint", "glue:GetDevEndpoints"</code></td><td><code>"arn:aws:glue:region-code:account-id:devEndpoint/*"</code></td><td>Grants permission to use a development endpoint from SageMaker AI notebooks. </td></tr>
+  <tr><td><code> "sagemaker:ListTags"</code></td><td><code>"arn:aws:sagemaker:region-code:account-id:notebook-instance/*"</code></td><td>Grants permission to return tags for an SageMaker AI resource. The <code>aws-glue-dev-endpoint</code> tag is required on the SageMaker AI notebook for connecting the notebook to a development endpoint.</td></tr>
+</tbody>
+</table>
+
 
 1. On the **Review Policy** screen, enter your **Policy Name**, for example `AWSGlueSageMakerNotebook`. Enter an optional description, and when you're satisfied with the policy, choose **Create policy**.
