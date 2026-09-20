@@ -338,8 +338,20 @@ Amazon Simple Notification Service can notify you when new versions of AWS Data 
 
 1. In the left navigation pane, select **Subscriptions** > **Create subscription**.
 
-1. Add a **Topic ARN** based on the AWS Region in which you are using AWS Data Provider Agent.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/general/data-provider-installation.html)
+1. Add a **Topic ARN** based on the AWS Region in which you are using AWS Data Provider Agent.
+
+
+<table>
+<thead>
+  <tr><th>Region</th><th>ARN</th></tr>
+</thead>
+<tbody>
+  <tr><td>Default</td><td> <code>arn:aws:sns:us-east-1:804845276281:AWS-DataProvider-SAP-Update</code> </td></tr>
+  <tr><td> AWS GovCloud (US-West) and AWS GovCloud (US-East)</td><td> <code>arn:aws-us-gov:sns:us-gov-west-1:140982767562:AWS-DataProvider-SAP-Update</code> </td></tr>
+  <tr><td>China (Beijing) Region and China (Ningxia) Region</td><td> <code>arn:aws-cn:sns:cn-north-1:001645243879:AWS-DataProvider-SAP-Update</code> </td></tr>
+</tbody>
+</table>
+
 
 1.  **Protocol** – choose Email or SMS.
    +  **Email** – enter an email address where you would like to receive the notification in the **Endpoint** field.
