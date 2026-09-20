@@ -7,6 +7,35 @@ This guide provides documentation for Wickr IO Integrations. If you're using AWS
 
 AWS Wickr bots and integrations are regularly updated with new features, improvements, and bug fixes. This chapter provides information about the changes in each release.
 
+## Version 6.74.02 - Release Date: 09/15/2026
+<a name="release-notes-6-74-02"></a>
+
+The 6.74.02 release includes an underlying client SDK update, runtime modernization, new APIs for message status and password management, security updates, and bug fixes. For more information about Wickr bots, see [What is Wickr Bots?](https://docs.aws.amazon.com/wickr/latest/wickrio/what-is-wickrio.html).
+
+### Critical Changes
+<a name="release-notes-6-74-02-changes"></a>
+
+This release includes the following critical changes.
+
+**Platform Updates** This release updates the following platform components:
++ Underlying client SDK update (v6.66 to v6.74)
++ Runtime modernization (Qt 6.8.3 to Qt 6.11.1, Ubuntu 24.04 base image)
++ Amazon Linux 2 support removed (AL2 end of life)
+
+**New APIs** This release adds the following APIs:
++ Server message ID now exposed in message status responses, enabling bots to delete or recall their own sent messages
++ New `/MessageStatus/:status_id` endpoint for tracking sent message delivery status
+
+**New Features** This release adds the following features:
++ Password change support via the console user interface
+
+**Bug Fixes** This release includes the following fixes:
++ Inactivity watchdog for stalled file downloads (reclaims downloads with no progress after 5 minutes)
++ Fixed file download handling for cancelled status
+
+**Security Remediation** This release includes the following security fix:
++ Security updates and vulnerability fixes
+
 ## Version 6.66.02.01 - Release Date: 06/18/2026
 <a name="release-notes-6-66-02-01"></a>
 
