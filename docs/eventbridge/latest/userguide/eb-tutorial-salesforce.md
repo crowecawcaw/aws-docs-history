@@ -53,8 +53,18 @@ To send events to Salesforce, you'll first have to establish a connection to the
 
 1. For **Client secret**, enter the client secret from your Salesforce connected app.
 
-1. For **OAuth Http Parameters**, enter the following key/value pair:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eventbridge/latest/userguide/eb-tutorial-salesforce.html)
+1. For **OAuth Http Parameters**, enter the following key/value pair:
+
+
+<table>
+<thead>
+  <tr><th><b>Key</b></th><th><b>Value</b></th></tr>
+</thead>
+<tbody>
+  <tr><td>grant_type</td><td>client_credentials</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create**.
 

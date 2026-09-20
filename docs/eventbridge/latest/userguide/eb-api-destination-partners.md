@@ -19,8 +19,19 @@ OAuth tokens are refreshed when a 401 or 407 response is returned
 Cisco AppDynamics Client ID and Client Secret  
 OAuth endpoint:  
 `https://{{tenantName}}.observe.appdynamics.com/auth/{{tenantId}}/default/oauth2/token`  
-The following OAuth key/value pair parameters:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destination-partners.html)
+The following OAuth key/value pair parameters:  
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Body Field</td><td><code>grant_type</code></td><td><code>client_credentials</code></td></tr>
+  <tr><td>Header</td><td><code>Content-Type</code></td><td><code>application/x-www-form-urlencoded; charset=utf-8</code></td></tr>
+</tbody>
+</table>
+
 
 **Cisco AppDynamics documentation:**  
 [AWS events ingestion](https://docs.appdynamics.com/display/CLOUD/AWS+Events+Ingestion)
@@ -149,8 +160,18 @@ Endpoint URLs differ depending on the location of your Datadog organization. For
 **Supported authorization types:**   
 API Key
 
-**Additional authorization parameters required:**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destination-partners.html)
+**Additional authorization parameters required:**  
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Header</td><td><code>Authorization</code></td><td>Api-Token {{DYNATRACE_API_KEY}}</td></tr>
+</tbody>
+</table>
+
 
 **Dynatrace documentation:**  
 + [Log ingestion](https://docs.dynatrace.com/docs/observe-and-explore/logs/lma-log-ingestion)
@@ -223,8 +244,18 @@ https://api.cache.{{region}}.prod.a.momentohq.com/topics/{{cacheName}}/{{topicNa
 **Supported authorization types:**   
 API Key
 
-**Additional authorization parameters required:**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destination-partners.html)
+**Additional authorization parameters required:**  
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Header</td><td><code>Authorization</code></td><td>{{MOMENTO_API_KEY}}</td></tr>
+</tbody>
+</table>
+
 
 **Momento documentation:**  
 [Momento \+ Amazon EventBridge](https://docs.momentohq.com/cache/integrations/amazon-eventbridge)  
@@ -321,8 +352,18 @@ One of the following authorization endpoints:
 + **Production–** https://{{MyDomainName}}.my.salesforce.com./services/oauth2/token
 + **Sandbox without enhanced domains–** https://{{MyDomainName}}--{{ SandboxName}}.my. salesforce.com/services /oauth2/token
 + **Sandbox with enhanced domains–** https://{{MyDomainName}}--{{ SandboxName}}.sandbox.my.salesforce.com/services/oauth2/token
-The following key/value pair:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destination-partners.html)
+The following key/value pair:  
+
+
+<table>
+<thead>
+  <tr><th><b>Key</b></th><th><b>Value</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>grant_type</code></td><td><code>client_credentials</code></td></tr>
+</tbody>
+</table>
+
 
 **Salesforce documentation**  
 [REST API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm)
