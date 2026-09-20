@@ -43,8 +43,19 @@ For required Python libraries, see the `requirements.txt` file at `https://drsfa
 + Each server being failed back must have the hardware clock set to UTC (not Local Time).
 + Each vCenter source server must have two CD-ROM devices with IDE controllers attached — one for the DRS Failback Client and one for `drs_failback_automation_seed.iso`. If no attached CD-ROM devices are found, the DRSFA client attempts to add them.
 + Upload the DRS Failback Client ISO to your vCenter Datastore. We recommend using the latest version. [Download the latest DRS Failback Client](failback-performing.md#failback-performing-performing) and upload it to your datastore.
-+ The vCenter credentials must include the following permissions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/drs/latest/userguide/failback-failover-drsfa-prereques.html)
++ The vCenter credentials must include the following permissions:
+
+
+<table>
+<thead>
+  <tr><th>Category</th><th>Required permissions</th></tr>
+</thead>
+<tbody>
+  <tr><td>Virtual machine</td><td>Change Settings, Guest operation queries, Guest operation program execution, Connect devices, Power off, Power on, Add or remove device, Configure CD media</td></tr>
+  <tr><td>Datastore</td><td>Browse datastore</td></tr>
+</tbody>
+</table>
+
 + Constrain vCenter credentials to only the VMs you plan to fail back.
 
 ## Recommendations
