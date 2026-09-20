@@ -241,8 +241,20 @@ This command is blocking. The connection process can require a long time during 
 The module has successfully connected to AWS IoT Core.
 
 **4.7.2.2**   `ERR14 {#hint} UNABLE TO CONNECT [detail]`   
-The module is unable to connect. Additional clues can be provided by the mandatory *{\#hint}* numerical code and the optional *[detail]* field. The hint numerical codes indicate the state of advancement of the connection process when the failure occurred so that meaningful debugging tips can be provided in the module documentation (including datasheets and FAQs). They are numbered according to the following sequence of steps:      
-<a name="connection-code"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-expresslink/latest/programmersguide/elpg-commands.html)
+The module is unable to connect. Additional clues can be provided by the mandatory *{\#hint}* numerical code and the optional *[detail]* field. The hint numerical codes indicate the state of advancement of the connection process when the failure occurred so that meaningful debugging tips can be provided in the module documentation (including datasheets and FAQs). They are numbered according to the following sequence of steps:  
+
+<a name="connection-code"></a>
+<table>
+<tbody>
+  <tr><td>1.</td><td><b>Backoff algorithm imposed delay</b> (see 4.7.2.4)</td></tr>
+  <tr><td>2.</td><td><b>Failed to access network</b> – reported by a Wi-Fi module when it fails to connect to a local access point/router or by a cellular module if it fails to connect to the nearest cell tower.Check SSID/passphrase or local router state.<br />After this step the device is assumed to be able to communicate over the network (it has obtained an IP address).</td></tr>
+  <tr><td>3.</td><td><b>Failed to reach AWS endpoint</b> – reported when the device fails to connect to an AWS endpoint.Check the endpoint configuration parameter (URL) <br />After this step, the device is assumed to have reached an AWS server.</td></tr>
+  <tr><td>4.</td><td><b>Failed to securely authenticate with AWS</b> – reported when the device fails to upgrade the socket to a secure socket (TLS).Check if the AWS root certificate might have expired. <br />After this step, a secure socket is established with AWS.</td></tr>
+  <tr><td>5.</td><td><b>Failed to login AWS (MQTT) broker</b> – reported when the MQTT login is unsuccessfulCheck if the device certificate is present in the customer account registry. <br />After this step, the device should be able to issue MQTT commands.</td></tr>
+  <tr><td>6.</td><td><b>Failed to register for Jobs</b> – reported when the device fails to publish or subscribe to standard AWS topics used for JOBS/OTA (connection dropped by AWS server)Check policies attached to device certificate.<br />After this step, the device is connected and fully functional.</td></tr>
+</tbody>
+</table>
+
 Different modules will interpret the hint codes according to the specific wireless/networking stack that is applicable for the given technology and will provide meaningful tips in the module documentation. Some of the steps might not be applicable to all technologies (for example, the hint code for step 2 might not apply for a LoRA or Bluetooth module that transitions directly from step 1 to 3). Similarly, additional intermediate hint codes can be provided using dot notation, as applicable, to provide finer granularity (for example, a hint code 5.1 can be added between step 5 and step 6).
 
 **4.7.2.3**   `OK 1 CONNECTED`   
