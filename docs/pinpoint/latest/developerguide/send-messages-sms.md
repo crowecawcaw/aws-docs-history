@@ -370,7 +370,7 @@ pinpoint.sendMessages(params, function (err, data) {
 ------
 #### [ Python ]
 
-Use this example to send an SMS message by using the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/). This example assumes that you've already installed and configured the SDK for Python. For more information, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) in * AWS SDK for Python (Boto3) Getting Started*.
+Use this example to send an SMS message by using the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/). This example assumes that you've already installed and configured the SDK for Python (Boto3). For more information, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) in * AWS SDK for Python (Boto3) Getting Started*.
 
 ```
 import logging

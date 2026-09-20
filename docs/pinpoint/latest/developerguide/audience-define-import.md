@@ -105,9 +105,23 @@ Where:
 + *bucket-name/prefix/key* is the location in Amazon S3 that contains one or more objects to import. The location can end with the key for an individual object, or it can end with a prefix that qualifies multiple objects.
 + *iam-import-role-arn* is the Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint read access to the bucket.
 + *format* can be either `JSON` or `CSV`, depending on which format you used to define your endpoints. If the Amazon S3 location includes multiple objects of mixed formats, Amazon Pinpoint imports only the objects that match the specified format.
-+ *RegisterEndpoints* can be either `true` or `false`. When set to true the import job registers the endpoints with Amazon Pinpoint, when the endpoint definitions are imported.  
-**RegisterEndpoints and DefineSegments combinations**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/pinpoint/latest/developerguide/audience-define-import.html)
++ *RegisterEndpoints* can be either `true` or `false`. When set to true the import job registers the endpoints with Amazon Pinpoint, when the endpoint definitions are imported.
+
+
+**RegisterEndpoints and DefineSegments combinations**  
+
+<table>
+<thead>
+  <tr><th>RegisterEndpoints</th><th>DefineSegments</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>true</td><td>true</td><td>Amazon Pinpoint will import the endpoints and create a segment that contain the endpoints.</td></tr>
+  <tr><td>true</td><td>false</td><td>Amazon Pinpoint will import the endpoints and not create a segment.</td></tr>
+  <tr><td>false</td><td>true</td><td>Amazon Pinpoint will import the endpoints and create a segment that contain the endpoints. The endpoints will not be saved and will not overwrite existing endpoints. </td></tr>
+  <tr><td>false</td><td>false</td><td>Amazon Pinpoint will reject this request.</td></tr>
+</tbody>
+</table>
+
 The response includes details about the import job:  
 
 ```
