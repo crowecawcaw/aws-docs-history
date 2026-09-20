@@ -18,6 +18,9 @@ Copies retain their source configuration, including creation dates and retention
 The configuration of the source backup being copied overrides its copy’s expiration setting if the copy retention period is set to **Always** in the AWS Backup console (or [`DeleteAfterDays`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CopyAction.html#Backup-Type-CopyAction-Lifecycle) value is set to `-1` in the API request); that is, a copy with a retention setting set to never expire will retain its source recovery point's expiration date.  
 If you want your backup copies to never expire, either set your source backups to never expire or specify your copy to expire 100 years after its creation.
 
+**Important**  
+For resources that support incremental cross-Region copy and cold storage, a copy configuration with only 1-day warm retention can intermittently fall back to a full copy instead of an incremental one, because the previous destination recovery point may transition to cold storage before the next copy runs. To avoid these full copies, we recommend the copy action should be configured with a warm retention period of at least 3 days or more.
+
 ## Copy job retry
 <a name="backup-copy-retry"></a>
 

@@ -19,7 +19,7 @@ AWS Backup will provide a limited set of options for creating a new EKS cluster 
 | --- | --- | --- | 
 | Existing cluster restore | Restore to the source EKS cluster or existing EKS cluster | Restores all Kubernetes resources and persistent volumes to existing EKS clusters. All restores are non-destructives and existing objects are not overwritten. For objects that are skipped, you can subscribe to [SNS Notifications](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-notifications.html) | 
 | New cluster restore | Creates a new Amazon EKS cluster as part of your EKS restore | Restore creates new EKS cluster and restores all Kubernetes resources and persistent volumes to newly created cluster | 
-| Namespace restore | Existing Amazon EKS cluster | Restores only specified namespaces, their Kubernetes resources and corresponding persistent storage restores are non-destructives and existing objects are not overwritten. For objects that are skipped, you can subscribe to SNS Notifications | 
+| Namespace restore | Existing Amazon EKS cluster | Restores only specified namespaces, their Kubernetes resources and corresponding persistent storage restores are non-destructive and existing objects are not overwritten. All cluster-scoped resources will also be restored. For objects that are skipped, you can subscribe to SNS Notifications | 
 | Peristent Storage Restore | Persistent Storage Dependent | Restore individual persistent storage as standalone restores. See Restore Behavior of [Amazon EBS](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-ebs.html), [Amazon S3](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-s3.html), [Amazon EFS](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-efs.html). | 
 
 **Permissions**
@@ -56,9 +56,9 @@ Before you begin an EKS restore job, review the following. If you are restoring 
 
 **EKS Configurations**
 
-When you restore the composite Amazon AWS Backup, you choose the restore type and target destination. You can choose to restore to the source EKS cluster, an existing EKS cluster or create a new EKS cluster as the restore target. For new EKS clusters, you can choose to use the same existing infrastructure settings (e.g. VPC, subnets) as the backed up cluster or configure new ones. AWS Backup is designed to perform a non-destructive restore that doesn't overwrite existing resources.
+When you restore the composite Amazon AWS Backup, you choose the restore type and target destination. You can choose to restore to the source EKS cluster, an existing EKS cluster or create a new EKS cluster as the restore target. For new EKS clusters, you can choose to use the same existing infrastructure settings (for example, VPC, subnets) as the backed up cluster or configure new ones. AWS Backup is designed to perform a non-destructive restore that doesn't overwrite existing resources.
 
-For namespace restores, you can specify up to 5 namespaces to restore selectively. Only namespace-scoped resources are restored, while cluster-scoped resources are excluded except for related persistent volumes.
+For namespace restores, you can specify up to 5 namespaces to restore selectively. We will also restore all cluster-scoped resources as well.
 
 As an advanced setting you can opt to change the restore order of the Kubernetes Objects. By Default, AWS Backup will restore all Kubernetes objects in the following order: 
 
@@ -150,6 +150,7 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
 + `newCluster` - (true/false) If we should create a new EKS cluster during restore. If newCluster is "true", the following metadata fields apply:
   + `eksClusterVersion` - Desired K8s version of cluster if wanting to increase cluster version during restore
   + `clusterRole` - The IAM Role ARN to attach to the created EKS cluster
+  + `controlPlaneScalingTier` - The control plane scaling tier for the new cluster. If you omit this field, the restore uses the tier captured in the backup, or the Standard control plane if no tier was captured. To restore a provisioned control plane as Standard, specify `standard`. For available tier values, see [Amazon EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane.html).
   + `encryptionConfigProviderKeyArn` - Specify the KMS key ARN to encrypt the destination cluster. This can be either the KMS key from the source cluster, or a different KMS key. A different KMS key must be provided when performing cross-region or cross-account restore. Omit this metadata entirely if the source cluster is not encrypted.
   + `clusterVpcConfig` - VPC/Networking configuration for the created EKS cluster. This field has the following nested fields:
     + `vpcId` - The VPC associated with your cluster
@@ -217,7 +218,7 @@ aws backup start-restore-job \
 aws backup start-restore-job \
     --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
     --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole" \
-    --metadata '{"clusterName":"new-cluster","newCluster":"true","clusterRole":"arn:aws:iam::123456789012:role/EKSClusterRole","eksClusterVersion":"1.33","encryptionConfigProviderKeyArn":"arn:aws:kms:us-west-2:123456789012:key/ecb2b326-784d-4ec0-8d07-20ab826b5a13","clusterVpcConfig":"{\"vpcId\":\"vpc-1234\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"securityGroupIds\":[\"sg-123\"]}","nodeGroups":"[{\"nodeGroupId\":\"nodegroup-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"nodeRole\":\"arn:aws:iam::123456789012:role/EKSNodeGroupRole\",\"instanceTypes\":[\"t3.small\"],\"launchTemplateId\":\"lt-0b13949aae3f2b867\",\"launchTemplateVersion\":\"1\"}]","fargateProfiles":"[{\"name\":\"fargate-profile-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"podExecutionRoleArn\":\"arn:aws:iam::123456789012:role/EKSFargateProfileRole\"}]"}' \
+    --metadata '{"clusterName":"new-cluster","newCluster":"true","clusterRole":"arn:aws:iam::123456789012:role/EKSClusterRole","eksClusterVersion":"1.33","controlPlaneScalingTier":"tier-2xl","encryptionConfigProviderKeyArn":"arn:aws:kms:us-west-2:123456789012:key/ecb2b326-784d-4ec0-8d07-20ab826b5a13","clusterVpcConfig":"{\"vpcId\":\"vpc-1234\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"securityGroupIds\":[\"sg-123\"]}","nodeGroups":"[{\"nodeGroupId\":\"nodegroup-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"nodeRole\":\"arn:aws:iam::123456789012:role/EKSNodeGroupRole\",\"instanceTypes\":[\"t3.small\"],\"launchTemplateId\":\"lt-0b13949aae3f2b867\",\"launchTemplateVersion\":\"1\"}]","fargateProfiles":"[{\"name\":\"fargate-profile-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"podExecutionRoleArn\":\"arn:aws:iam::123456789012:role/EKSFargateProfileRole\"}]"}' \
     --resource-type "EKS"
 ```
 
