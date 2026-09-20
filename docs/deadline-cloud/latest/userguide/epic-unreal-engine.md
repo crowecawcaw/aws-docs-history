@@ -855,8 +855,31 @@ Set up an OpenJD render job that orchestrates the entire rendering workflow.
 
 1. Select the `p4_render_job.yml` template from `Content/Python/openjd_templates/p4/`.
 
-1. **Review parameter definitions**: The template includes these parameters with their default behaviors:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/epic-unreal-engine.html)
+1. **Review parameter definitions**: The template includes these parameters with their default behaviors:
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th><th>Auto-filled</th><th>Action required</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>ProjectRelativePath</code></td><td>Project path relative to Perforce workspace root</td><td>Yes</td><td>Leave empty - auto-populated</td></tr>
+  <tr><td><code>ProjectName</code></td><td>Project name for Perforce workspace creation</td><td>Yes</td><td>Leave empty - auto-populated</td></tr>
+  <tr><td><code>PerforceChangelistNumber</code></td><td>Perforce changelist to sync workspace to</td><td>Yes</td><td>Leave empty - auto-populated</td></tr>
+  <tr><td><code>PerforceWorkspaceSpecificationTemplate</code></td><td>Perforce client spec with <code>{workspace_name}</code> token</td><td>Yes</td><td>Leave empty - auto-populated</td></tr>
+  <tr><td><code>MrqJobDependenciesDescriptor</code></td><td>JSON file with MRQ dependencies for sync</td><td>Yes</td><td>Leave empty - auto-populated</td></tr>
+  <tr><td><code>ExtraCmdArgsFile</code></td><td>File for extra args (avoids 1024 char limit)</td><td>No</td><td>Optional - use default for standard setups</td></tr>
+  <tr><td><code>FramesPerTask</code></td><td>Number of frames to render per task</td><td>No</td><td>Optional - use default (0) to divide tasks by shots</td></tr>
+  <tr><td><code>ExtraCmdArgs</code></td><td>Additional Unreal launch arguments</td><td>No</td><td>Optional - use default for standard setups</td></tr>
+  <tr><td><code>Executable</code></td><td>Unreal executable name for render node</td><td>No</td><td>Configure - use default for standard setups</td></tr>
+  <tr><td><code>CondaPackages</code></td><td>Conda packages needed to render the job</td><td>No</td><td>Configure - use default for standard setups</td></tr>
+  <tr><td><code>CondaChannels</code></td><td>Conda channels where packages are stored</td><td>No</td><td>Configure - use default for standard setups</td></tr>
+  <tr><td><code>ShotsPerTask</code></td><td>Number of shots grouped in a single render session</td><td>No</td><td>Configure - default: 1 (tune for performance)</td></tr>
+  <tr><td><code>SubmitMode</code></td><td>Push render outputs into Perforce (<code>''</code>, <code>submit</code>, or <code>shelve</code>)</td><td>No</td><td>Optional - default <code>''</code> deactivates Perforce output submission</td></tr>
+  <tr><td><code>MarketplacePluginsDir</code></td><td>Path to engine Marketplace plugins</td><td>Yes</td><td>Leave empty - auto-populated</td></tr>
+</tbody>
+</table>
+
 
    **Parameter configuration guidelines**:
    + **Auto-populated parameters**: Leave these empty - they're filled automatically during job submission.
@@ -864,8 +887,20 @@ Set up an OpenJD render job that orchestrates the entire rendering workflow.
    + **ShotsPerTask**: Start with 1, increase for better performance with simple shots.  
 ![Parameter Definition properties for the Perforce render job data asset, listing ProjectRelativePath, ProjectName, PerforceChangelistNumber, PerforceWorkspaceSpecificationTemplate, MrqJobDependenciesDescriptor, ExtraCmdArgs, ExtraCmdArgsFile, Executable, CondaPackages, CondaChannels, and ChunkSize fields.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/unreal-engine-p4-job-parameter-definition.png)
 
-1. **Configure environments** (in this exact order):    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/epic-unreal-engine.html)
+1. **Configure environments** (in this exact order):
+
+
+<table>
+<thead>
+  <tr><th>Order</th><th>Environment</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td>1st</td><td>"ApplyP4SecretEnv"</td><td>Apply Perforce credentials from Secrets Manager</td></tr>
+  <tr><td>2nd</td><td>"P4SyncSMFEnv" or "P4SyncCMFEnv"</td><td>Sync Perforce workspace and files</td></tr>
+  <tr><td>3rd</td><td>"P4LaunchUEEnv"</td><td>Launch Unreal Engine with Perforce paths</td></tr>
+</tbody>
+</table>
+
 **Important**  
 Environment order is essential for proper dependency resolution and credential flow.
 

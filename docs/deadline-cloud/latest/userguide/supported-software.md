@@ -8,6 +8,8 @@ Deadline Cloud supports many digital content creation (DCC) applications for 3D 
 + **Service-managed fleet conda packages** – Prebuilt packages in the `deadline-cloud` conda channel that install the application on workers automatically, with no image to build or maintain. For more information, see [Creating a queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html).
 + **Usage-based licensing (UBL)** – Pay-as-you-go licensing on service-managed fleets, so you don't need to bring your own license server. Applications that don't require a license to render are marked as *Not needed*. For more information, see [Software licensing for service-managed fleets](smf-licensing.md).
 
+You can use custom plugins and add-ons with supported applications. To compare delivery methods and find setup instructions, see [Use custom plugins with Deadline Cloud](custom-plugins.md).
+
 You aren't limited to the applications in the table. You can run almost any application or plugin on Deadline Cloud by packaging it yourself. For more information, see [Software that isn't listed](#software-not-listed).
 
 ## Software support summary

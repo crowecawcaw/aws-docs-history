@@ -41,7 +41,7 @@ To open the Deadline Cloud usage explorer, use the following procedure.
 
 From the usage explorer page, you can select specific parameters in which the data can be displayed. By default, you see total usage in time (hours and minutes) within the last 7 days. You can change these parameters, and the information displayed changes dynamically in accordance to the parameter settings.
 
-You can group the results based on the queue, fleet, job, user, compute usage, instance type, or license product. If you choose license product, costs are calculated for specific licenses. For all other groups the time is calculated by adding up the time taken for each task to run.
+You can group the results based on the queue, fleet, job, user, usage type, instance type, or license product. If you choose license product, costs are calculated for specific licenses. If you filter by fleet and group by usage type, you can see persistent volume cost associated with your fleets. For all other groups the time is calculated by adding up the time taken for each task to run.
 
 You can filter results by queues or by fleets, but you cannot filter by both at the same time.
 

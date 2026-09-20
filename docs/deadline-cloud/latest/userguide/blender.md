@@ -188,10 +188,12 @@ If you require an unsupported version of Blender, you have the following options
 + When submitting the job from Blender, you can override the CondaPackages queue parameter to specify a supported version to use on the worker (for example, `blender=4.5, blender-openjd=*`). This override might or might not work, depending on the features used by your scene and how Blender works with scenes from your workstation version.
 + You may build a custom conda recipe and channel for your desired version to be installed on the worker. Use the conda recipe for a supported version linked below as a starting point, and package your desired version in a custom conda channel. For more information about creating custom conda channels, see [Creating custom conda channels](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/configure-jobs-s3-channel.html).
 
-## Blender add-ons
+## Use custom Blender add-ons
 <a name="blender-addons"></a>
 
-You can make Blender add-ons available on service-managed fleet workers by building a conda package from a conda recipe and adding it to a custom conda channel. When the conda environment activates on a worker, the add-on is installed through Blender's API; when it deactivates, the add-on is removed. For more information about custom conda channels, see [Creating custom conda channels](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/configure-jobs-s3-channel.html).
+You can make custom Blender add-ons available with Deadline Cloud plugin sync or a conda package. Plugin sync copies an add-on from your queue's job attachments bucket when the worker session starts. For setup options, see [Use custom plugins with Deadline Cloud](custom-plugins.md).
+
+For add-ons that require installation steps or dependency resolution, build a conda package from a conda recipe and add it to a custom conda channel. When the conda environment activates on a worker, the package installs the add-on through Blender's API. When the environment deactivates, it removes the add-on. For more information, see [Create a conda channel using S3](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/configure-jobs-s3-channel.html) in the *Deadline Cloud Developer Guide*.
 
 The following conda recipes are available on the GitHub website as starting points:
 + [FLIP Fluids add-on conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-flipfluids) packages the demo version of the FLIP Fluids liquid simulation add-on.

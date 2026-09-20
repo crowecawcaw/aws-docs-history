@@ -11,7 +11,7 @@ To view the quotas for Deadline Cloud, open the [Service Quotas console](https:/
 
 To request a quota increase, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*. If the quota is not yet available in Service Quotas, use the [service quota increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase).
 
-Your AWS account has the following quotas related to Deadline Cloud.
+Your AWS account has the following quotas related to Deadline Cloud. If you're scaling up an existing farm, see [Plan quota increases as you scale your farm](quota-planning.md) for the quotas to review together before you request increases.
 
 The *associated members* quotas count the memberships that you assign to a farm, fleet, queue, or job. Each user grant and each group grant counts as one membership, so a group counts as one member no matter how many users it contains. Deadline Cloud doesn't limit the number of users in a group or the number of groups that a user belongs to; the quotas for AWS IAM Identity Center apply instead. To grant access to more users within the membership quota, assign groups instead of individual users. For more information, see [How permissions work in Deadline Cloud](permissions-overview.md).
 
