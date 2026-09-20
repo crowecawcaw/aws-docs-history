@@ -224,8 +224,34 @@ In this step, you configure the application you want to stream with Amazon GameL
 
    1. **Stream class options**
 
-      The type of compute resources to run and stream applications with. This choice impacts the quality of the streaming experience and the cost. You can specify only one stream class per stream group. Choose the class that best fits your application.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/gameliftstreams/latest/developerguide/streaming-process.html)
+      The type of compute resources to run and stream applications with. This choice impacts the quality of the streaming experience and the cost. You can specify only one stream class per stream group. Choose the class that best fits your application. 
+
+
+<table>
+<thead>
+  <tr><th>Stream class</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>gen6n_pro_win2022</code> </td><td>(NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br />Tenancy: Supports up to one concurrent stream session.</td></tr>
+  <tr><td> <code>gen6n_pro</code> </td><td>(NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br />Tenancy: Supports up to one concurrent stream session.</td></tr>
+  <tr><td> <code>gen6n_ultra_win2022</code> </td><td>(NVIDIA, ultra) Supports applications with high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br />Tenancy: Supports up to one concurrent stream session.</td></tr>
+  <tr><td> <code>gen6n_ultra</code> </td><td>(NVIDIA, ultra) Supports applications with high 3D scene complexity. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br />Tenancy: Supports up to one concurrent stream session.</td></tr>
+  <tr><td> <code>gen6n_high</code> </td><td>(NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br />Tenancy: Supports up to two concurrent stream sessions.</td></tr>
+  <tr><td> <code>gen6n_medium</code> </td><td>(NVIDIA, medium) Supports applications with moderate 3D scene complexity. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 6 GB.<br />Tenancy: Supports up to four concurrent stream sessions.</td></tr>
+  <tr><td> <code>gen6n_small</code> </td><td>(NVIDIA, small) Supports applications with lightweight 3D scene complexity and low CPU usage. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 1. RAM: 4 GB. VRAM: 2 GB.<br />Tenancy: Supports up to twelve concurrent stream sessions.</td></tr>
+  <tr><td> <code>gen6n_medium_win2022</code> </td><td>(NVIDIA, medium) Supports applications with low 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 6 GB.<br />Tenancy: Supports up to one concurrent stream session.</td></tr>
+  <tr><td> <code>gen6n_small_win2022</code> </td><td>(NVIDIA, small) Supports applications with low 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 3 GB.<br />Tenancy: Supports up to one concurrent stream session.</td></tr>
+  <tr><td> <code>gen6e_pro_win2022</code> </td><td>(NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA L40S Tensor Core GPU.<br />Resources per application: vCPUs: 16. RAM: 128 GB. VRAM: 48 GB.<br />Tenancy: Supports up to one concurrent stream session.</td></tr>
+  <tr><td> <code>gen6e_pro</code> </td><td>(NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources. Uses NVIDIA L40S Tensor Core GPU.<br />Resources per application: vCPUs: 16. RAM: 128 GB. VRAM: 48 GB.<br />Tenancy: Supports up to one concurrent stream session.</td></tr>
+  <tr><td><code>gen5n_win2022</code></td><td> (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11. Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor Core GPU. <br /> Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB. <br /> Tenancy: Supports one concurrent stream session. </td></tr>
+  <tr><td> <code>gen5n_high</code> </td><td>(NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity. Uses NVIDIA A10G Tensor Core GPU.<br />Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br />Tenancy: Supports up to two concurrent stream sessions.</td></tr>
+  <tr><td> <code>gen5n_ultra</code> </td><td>(NVIDIA, ultra) Supports applications with extremely high 3D scene complexity. Uses NVIDIA A10G Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br />Tenancy: Supports one concurrent stream session.</td></tr>
+  <tr><td><code>gen4n_win2022</code></td><td> (NVIDIA, ultra) Supports applications with high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11. Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor Core GPU. <br /> Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB. <br /> Tenancy: Supports one concurrent stream session. </td></tr>
+  <tr><td> <code>gen4n_high</code> </td><td>(NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity. Uses NVIDIA T4 Tensor Core GPU.<br />Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 8 GB.<br />Tenancy: Supports up to two concurrent stream sessions.</td></tr>
+  <tr><td> <code>gen4n_ultra</code> </td><td>(NVIDIA, ultra) Supports applications with high 3D scene complexity. Uses NVIDIA T4 Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br />Tenancy: Supports one concurrent stream session.</td></tr>
+</tbody>
+</table>
+
 
    To continue, choose **Next**.
 
