@@ -55,8 +55,34 @@ In Amazon SageMaker Unified Studio, AWS account owners create roles, policies, a
 
 **Blueprint**  
 A blueprint with which the project profile is created defines what AWS tools and services members of the project to which the project profile belongs can use as they work with data in the Amazon SageMaker catalog. For more information, see [Blueprints in Amazon SageMaker Unified Studio](blueprints.md).   
-In the current release of Amazon SageMaker Unified Studio the following default blueprints are supported:      
-<a name="blueprints-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/concepts.html)
+In the current release of Amazon SageMaker Unified Studio the following default blueprints are supported:  
+
+<a name="blueprints-table"></a>
+<table>
+<thead>
+  <tr><th>Blueprint name</th><th>Description</th><th>Resources created</th></tr>
+</thead>
+<tbody>
+  <tr><td>AmazonBedrockGenerativeAI</td><td>This is the combined Amazon Bedrock blueprint which contains seven sub-Amazon Bedrock blueprints. It enables users to build generative AI applications using tools such as Agents, Knowledge Bases, Guardrails, Flows, Functions, and Model Evaluation. </td><td></td></tr>
+  <tr><td>AmazonBedrockChatAgent</td><td>Provides a reusable AWS CloudFormation template to create an Amazon Bedrock Agent and supporting resources, including an execution role and a consumption role.</td><td>Bedrock Agent, Bedrock Agent Execution role, Bedrock Agent Consumption role</td></tr>
+  <tr><td>AmazonBedrockEvaluation</td><td>Creates one IAM role as the service role for an Amazon Bedrock evaluation job.</td><td>Bedrock Evaluation job execution role</td></tr>
+  <tr><td>AmazonBedrockFlow</td><td>Provides a reusable AWS CloudFormation template to create an Amazon Bedrock Prompt Flow and supporting resources such as an execution role.</td><td>Amazon Bedrock Flow, Amazon Bedrock Flow Execution role </td></tr>
+  <tr><td>AmazonBedrockFunction</td><td>Provides a reusable AWS CloudFormation template to create an AWS Lamda function and supporting resources, such as an execution role, and a secret manager.</td><td>Secrets Manager secret, AWS Lambda function, AWS Lambda function execution role, Log group</td></tr>
+  <tr><td>AmazonBedrockGuardrail</td><td>Provides an AWS CloudFormation template to create an Amazon Bedrock Guardrail and supporting resources such as an execution role.</td><td>Amazon Bedrock Guardrail</td></tr>
+  <tr><td>AmazonBedrockKnowledgeBase</td><td>Provides an AWS CloudFormation template to create a reusable Amazon Bedrock Knowledge Base and supporting resources such as an execution role.</td><td>Amazon Bedrock Knowledge Base, OpenSearch Serverless collection, Amazon Bedrock Knowledge Base Execution role, AWS Lambdas, including OpenSearch Index Lambda and KB Ingestion Trigger Lambda, AWS Lambda Execution role, Amazon Bedrock Knowledge Base data source</td></tr>
+  <tr><td>AmazonBedrockPrompt</td><td>Provides a reusable AWS CloudFormation template to create an Amazon Bedrock Prompt and supporting resources, such as an execution role, and a consumption role.</td><td>Amazon Bedrock Prompt, Amazon Bedrock Prompt Consumption role</td></tr>
+  <tr><td>LakeHouseDatabase</td><td>Provides a reusable AWS CloudFormation template to create a data lake environment with a AWS Glue database for data management and an Amazon Athena workgroup for querying data.</td><td>AWS Glue databases, lake formation permissions, Amazon Athena workgroups</td></tr>
+  <tr><td>EMRonEC2</td><td>Provides a reusable AWS CloudFormation template to create an Amazon EMR on EC2 cluster to run and scale Apache Spark, Hive, and other big data workloads. For more information about enabling this blueprint see, <a href="enable-emr-on-ec2-blueprint.md">Specify PEM certificate for EmrOnEc2 blueprint</a> </td><td>EMR on EC2 clusters</td></tr>
+  <tr><td>EMRServerless</td><td>Provides a reusable AWS CloudFormation template to create an Amazon EMR Serverless application that is ready to serve Apache Spark batch jobs and interactive sessions.</td><td>EMR on Serverless applications</td></tr>
+  <tr><td>LakehouseCatalog</td><td>Provisions a new catalog in the Amazon SageMaker Lakehouse that is backed by Amazon Redshift Managed Storage </td><td></td></tr>
+  <tr><td>MLExperiments</td><td>Provides OnDemand blueprint to enable MLflow tracking server for the experimentation inside a project.</td><td>MLflow tracking server (on demand)</td></tr>
+  <tr><td>PartnerApps</td><td>Creates an IAM role and a Connection that enables access to Partner AI Apps. Through Partner AI Apps you can leverage integrated and fully-managed thrid-party solutions for AI/Ml development.</td><td>Amazon SageMaker Partner AI Apps IAM role, Amazon SageMaker Partner AI Apps Connection</td></tr>
+  <tr><td>RedshiftServerless</td><td>Provides a reusable AWS CloudFormation template to create an Amazon Redshift Serverless environment to get insights from data without managing infrastructure.</td><td>Amazon Redshift Serverless warehouses</td></tr>
+  <tr><td>Tooling</td><td>Creates resources for the project, including IAM user roles, security groups, and Amazon SageMaker unified domains.</td><td>IAM user roles, Amazon SageMaker unified domains, security groups</td></tr>
+  <tr><td>Workflows</td><td>Provides an AWS CloudFormation template to create the MWAA environment for Airflow based Workflows</td><td>Enables project workflows on MWAA</td></tr>
+</tbody>
+</table>
+
 
 **Business data catalog**  
 This is a catalog of all the published assets from various projects. The scope of the business data catalog is the domain therefore published assets are discoverable by all projects in that domain. Business data catalog enables discovery that crosses the account and region boundary. Assets can be published to the business data catalog and subsequently be subscribed to as well. Every asset that lives in the business data catalog has an owner project (also known as the producer project) which controls policies around how subscriptions can be fulfilled. A subscriber (also known as a consumer project) is able to make a request to the owner project to gain access to the asset. Once the request is approved, the owner project provides the necessary permissions to subscriber project so that it may gain access to that asset.
