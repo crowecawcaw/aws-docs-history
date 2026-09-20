@@ -48,7 +48,7 @@ Rapid response procedures include preparing specialized runbooks for event-speci
 <a name="resources"></a>
 
 **Related documents**
-+ [AWS Incident Detection and Response](https://aws.amazon.com/premiumsupport/business-support-idr/?trk=44307514-e1f3-460c-9905-c9d33f83ba5c&sc_channel=ps&ef_id=CjwKCAjw7MLDBhAuEiwAIeXGIaQNl8quOj2q4XPF38BGJlPr2NTV-0aouIwuz9Ty84rseJIV-YKoeBoCrjwQAvD_BwE:G:s&s_kwcid=AL!4422!3!719222313777!e!!g!!aws%20incident%20detection%20and%20response!21852254325!176452269304&gad_campaignid=21852254325&gbraid=0AAAAA-aZeIWLs7zd7dKURwXBBYQjjsAek&gclid=CjwKCAjw7MLDBhAuEiwAIeXGIaQNl8quOj2q4XPF38BGJlPr2NTV-0aouIwuz9Ty84rseJIV-YKoeBoCrjwQAvD_BwE)
++ [AWS Incident Detection and Response](https://aws.amazon.com/premiumsupport/business-support-idr)
 + [AWS Systems Manager Incident Manager](https://aws.amazon.com/systems-manager/features/incident-manager/)
 
 **Related services**
