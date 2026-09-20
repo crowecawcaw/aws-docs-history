@@ -630,8 +630,14 @@ You have now created deployment artifacts for your application\! You can find th
 **Applications using Windows authentication**  
 For applications using Windows authentication, you can use the `gMSAParameters` inside of the `deployment.json` file to set the gMSA-related artifacts automatically during generation of your CloudFormation template.   
 Perform the actions in the list below once per Active Directory domain before you update the gMSA parameters.  
-Set up a secret in SecretsManager that stores the Domain credentials with the following key value pairs:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/app2container/latest/UserGuide/start-intro.html)
+Set up a secret in SecretsManager that stores the Domain credentials with the following key value pairs:  
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 For the VPC with the Domain Controller, verify that the DHCP options are set to reach the Domain Controller. The options for `DomainName` and `DomainNameServers` must be set correctly. See [DHCP options sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) for more information about how to set DHCP options.
 
 ------
