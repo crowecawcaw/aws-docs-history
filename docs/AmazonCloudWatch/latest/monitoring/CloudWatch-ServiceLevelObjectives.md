@@ -109,7 +109,7 @@ Because these metrics are generated from periodically evaluated metric data, the
 ## Calculate burn rates and optionally set burn rate alarms
 <a name="CloudWatch-ServiceLevelObjectives-burn"></a>
 
-You can use Application Signals to calculate the *burn rates* for your service level objectives. A burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO. It's expressed as a mutliple factor of the baseline error rate. 
+You can use Application Signals to calculate the *burn rates* for your service level objectives. A burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO. It's expressed as a multiple factor of the baseline error rate. 
 
 The burn rate is calculated according to the *baseline error rate*, which depends on the attainment goal. The attainment goal is the percentage of either healthy time periods or successful requests that must be achieved to meet the SLO goal. The baseline error rate is (100% - attainment goal percentage), and this number would use up the exact complete error budget at the end of the SLO's time interval. So an SLO with an attainment goal of 99% would have a baseline error rate of 1%.
 
@@ -176,7 +176,7 @@ As an example, let's take an SLO with a 28-day rolling interval. Setting a burn 
 
 1. Crete a CloudWatch alarm that monitors the burn rate.
 
-To get started, determine how much of the total error budget the service is willing to burn through within a specific time frame. In other words, statie your objective by using this sentence: "I want to get alerted when X% of my total error budget is consumed within M minutes."
+To get started, determine how much of the total error budget the service is willing to burn through within a specific time frame. In other words, state your objective by using this sentence: "I want to get alerted when X% of my total error budget is consumed within M minutes."
 
 For example, you might want to set the objective to be alerted when 2% of the total error budget is consumed within 60 minutes.
 

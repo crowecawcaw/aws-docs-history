@@ -307,8 +307,21 @@ CloudWatch Observability Add-on also provides additional fine-grained control to
    });
    ```
 
-1. Add one of the following into the `PodTemplate` section of your workload manifest file.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-EKS.html)
+1. Add one of the following into the `PodTemplate` section of your workload manifest file.
+
+
+<table>
+<thead>
+  <tr><th>Language</th><th>File</th></tr>
+</thead>
+<tbody>
+  <tr><td>Java</td><td>instrumentation.opentelemetry.io/inject-java: "true"</td></tr>
+  <tr><td>Python</td><td>instrumentation.opentelemetry.io/inject-python: "true"</td></tr>
+  <tr><td>.Net</td><td>instrumentation.opentelemetry.io/inject-dotnet: "true"</td></tr>
+  <tr><td>Node.js</td><td>instrumentation.opentelemetry.io/inject-nodejs: "true"</td></tr>
+</tbody>
+</table>
+
 
    ```
    const deployment = {

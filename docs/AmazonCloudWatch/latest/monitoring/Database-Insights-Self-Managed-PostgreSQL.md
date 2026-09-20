@@ -157,8 +157,23 @@ After the agent is installed, add a `database_insights` section to the agent con
    }
    ```
 
-   The following table describes the key parameters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Database-Insights-Self-Managed-PostgreSQL.html)
+   The following table describes the key parameters.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>region</code></td><td>The AWS Region to publish telemetry to.</td></tr>
+  <tr><td><code>endpoint</code></td><td>The host and port the agent connects to. Use <code>localhost</code> and the local PostgreSQL port.</td></tr>
+  <tr><td><code>instance_name</code></td><td>The display name for this instance in the Database Insights fleet view.</td></tr>
+  <tr><td><code>username</code></td><td>The monitoring user that you created.</td></tr>
+  <tr><td><code>password_file</code></td><td>The path to the libpq pgpass file that holds the monitoring user's password. The agent matches the <code>endpoint</code> host and port and the <code>username</code> against the entries in this file.</td></tr>
+  <tr><td><code>logs.file_path</code></td><td>A glob pattern for the PostgreSQL server log files to collect. Set this to match the <code>log_directory</code> configured on the database. The base directory is distribution-dependent: on RHEL and Amazon Linux the data directory is typically <code>/var/lib/pgsql/data/log/</code>, while on Debian and Ubuntu it is typically <code>/var/lib/postgresql/version/main/log/</code>. The example above uses the RHEL and Amazon Linux path; adjust it for your distribution.</td></tr>
+</tbody>
+</table>
+
 
 1. Start the agent with the configuration. On an Amazon EC2 instance, use `-m ec2`.
 

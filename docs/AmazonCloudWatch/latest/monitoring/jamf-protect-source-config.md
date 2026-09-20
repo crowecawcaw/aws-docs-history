@@ -96,7 +96,7 @@ Apply the following bucket policy to your Amazon S3 bucket to allow the Jamf IAM
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "s3-access",
+      "Sid": "S3Access",
       "Effect": "Allow",
       "Principal": {
         "AWS": "arn:aws:iam::<<YOUR-ACCOUNT>>:user/<<JAMF-IAM-USER>>"
@@ -108,7 +108,7 @@ Apply the following bucket policy to your Amazon S3 bucket to allow the Jamf IAM
       "Resource": "arn:aws:s3:::<<YOUR-BUCKET>>/jamf-protect-logs/*"
     },
     {
-      "Sid": "s3-list-bucket",
+      "Sid": "S3ListBucket",
       "Effect": "Allow",
       "Principal": {
         "AWS": "arn:aws:iam::<<YOUR-ACCOUNT>>:user/<<JAMF-IAM-USER>>"

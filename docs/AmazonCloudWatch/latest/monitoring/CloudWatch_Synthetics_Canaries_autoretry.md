@@ -29,4 +29,4 @@ When you create or update a canary, you can configure your canaries to automatic
 
 Here are the limitations to configure auto retry.
 + Supported only on runtime versions `syn-nodejs-puppeteer-10.0 `or newer, ` syn-nodejs-playwright-2.0` or newer, or `syn-python-selenium-5.1` or newer, or `syn-nodejs-3.0` or newer.
-+ Long running canaries which timeout after ten minutes are limited to one retry. All other canaries can support upto two retries
++ Long running canaries which timeout after ten minutes are limited to one retry. All other canaries can support up to two retries

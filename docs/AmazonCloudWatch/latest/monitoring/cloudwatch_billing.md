@@ -681,7 +681,7 @@ Metrics in Container Insights are treated as "embedded metrics". Costs associate
 
 Detailed visibility comes with Container Insights with enhanced observability, which delivers granular telemetry up to the pod and container levels in your applications. Similar to standard Container Insights, enhanced observability also comes with a standard set of critical metrics where you can get started by using the CloudWatch Observability add-on running on the CloudWatch agent. Container Insights offers enhanced observability with a new observation-based pricing in order to ensure cost effective bills justifying the benefit. See [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/?nc1=h_ls) for more information.
 
-Here are the following UsageType and Operation associated with this Container Inisghts with enhanced observability:
+Here are the following UsageType and Operation associated with this Container Insights with enhanced observability:
 
 
 | *CloudWatch sub-feature* | `UsageType` | `Operation` | 

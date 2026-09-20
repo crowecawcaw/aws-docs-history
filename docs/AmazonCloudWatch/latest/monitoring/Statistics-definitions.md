@@ -7,7 +7,7 @@ Statistics are metric data aggregations over specified periods of time. When you
 
 CloudWatch supports the following statistics for metrics.
 + **SampleCount** is the number of data points during the period.
-+ **Sum** is the sum of the values of the all data points collected during the period.
++ **Sum** is the sum of the values of all the data points collected during the period.
 + **Average** is the value of `Sum/SampleCount` during the specified period.
 + **Minimum** is the lowest value observed during the specified period.
 + **Maximum** is the highest value observed during the specified period.

@@ -120,8 +120,21 @@ If no date field is found in the results, the values for each numeric field are 
   Timestamp, Metric-1, Metric-2, ...
   ```
 
-  The following is an example:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_MultiDataSources-Connect.html)
+  The following is an example:
+
+
+<table>
+<thead>
+  <tr><th>timestamp</th><th>CPU (%)</th><th>Memory (%)</th><th>Storage (%)</th></tr>
+</thead>
+<tbody>
+  <tr><td>2023-11-23T17:09:41+00:00</td><td>1</td><td><code>2</code></td><td><code>3</code></td></tr>
+  <tr><td>2023-11-23T17:04:41+00:00</td><td>4</td><td><code>5</code></td><td><code>6</code></td></tr>
+  <tr><td>2023-11-23T16:59:41+00:00</td><td>7</td><td><code>8</code></td><td><code>9</code></td></tr>
+  <tr><td>2023-11-23T16:54:41+00:00</td><td>10</td><td><code>11</code></td><td><code>12</code></td></tr>
+</tbody>
+</table>
+
 
 **Note**  
 If no timestamp is provided, the values for each metric are summed to single values and plotted across the provided time range. If the timestamps don't align with the selected period in CloudWatch, the data is automatically aggregated using `SUM` and aligned with the period in CloudWatch.

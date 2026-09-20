@@ -12,8 +12,23 @@ Choose a circle on the map to display more details about the health event for th
 Note that Internet Monitor creates health events in a monitor when it determines that an event has significant impact on your application. The map is blank if there aren't any health events that exceed the threshold for impact on traffic for your client locations in the time period that you've selected. For more information, see [When Internet Monitor creates and resolves health events](CloudWatch-IM-inside-internet-monitor.md#IMHealthEventStartStop).
 
 **Health events**  
-The **Health events** table lists client locations that have been affected by health events, along with information about the events. The following columns are included in the table.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-Health-events.html)
+The **Health events** table lists client locations that have been affected by health events, along with information about the events. The following columns are included in the table.  
+
+
+<table>
+<thead>
+  <tr><th>Column</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Event type</td><td>Specifies whether current events are <i>overall</i> health events or <i>local</i> health events, or if the health event is in the <i>past</i>.</td></tr>
+  <tr><td>Client location</td><td>The location of the end users who were impacted by the event, who experienced increased latency or reduced availability.<br />To learn more about client location accuracy in Internet Monitor, see <a href="CloudWatch-IM-inside-internet-monitor.md#IMGeolocationSourceAccuracy"> Geolocation information and accuracy in Internet Monitor</a>.</td></tr>
+  <tr><td>ISP name (ASN)</td><td>The network that the traffic traveled over. Typically, this is the internet service provider (ISP) or Autonomous System Number (ASN) for the network traffic.</td></tr>
+  <tr><td>Service location</td><td>The AWS location for the network traffic, which can be an AWS Region or an internet edge location.</td></tr>
+  <tr><td>Traffic impact</td><td>How much impact was caused by the event, in increased latency or reduced availability. For latency, this is the percentage of how much latency increased during the event compared to typical performance for traffic, from this client location to this AWS location using this client network.</td></tr>
+  <tr><td>Impact type</td><td>The type of impact for the health event. Health events are typically caused by latency increases (performance issues) or reachability (availability issues).<br />You might also be able to click on the impact type to see the cause of the impairment. When possible, Internet Monitor analyzes the origin of a health event, to determine whether it was caused by AWS or an ASN (internet service provider).<br />Note that this analysis continues after the event is resolved. Internet Monitor can update events with new information for up to an hour.</td></tr>
+</tbody>
+</table>
+
 If you choose one of the client locations in the **Health events** table, you can see more details about the health event at that location. For example, you can see when the event started, when it ended, and the local traffic impact.
 
 **Network path visualization**  

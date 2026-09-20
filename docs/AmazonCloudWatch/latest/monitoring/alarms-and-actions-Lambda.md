@@ -206,7 +206,8 @@ The following is an example of an event object from a log alarm.
       "value": "ALARM",
       "reason": "Threshold Crossed: 3 out of the last 5 query results [142.0 (10/06/26 12:15:00), 135.0 (10/06/26 12:10:00), 120.0 (10/06/26 12:05:00)] were greater than the threshold (100.0) (minimum 3 datapoints for OK -> ALARM transition).",
       "reasonData": "{\"version\":\"1.0\",\"queryDate\":\"2026-06-10T12:15:30.000+0000\",\"threshold\":100.0,\"queryResultsToEvaluate\":5,\"queryResultsToAlarm\":3,\"results\":[...]}",
-      "timestamp": "2026-06-10T12:15:30.000+0000"
+      "timestamp": "2026-06-10T12:15:30.000+0000",
+      "queryExecutionId": "d70a0095-9bb5-4b9b-97f5-beced4586864"
     },
     "previousState": {
       "value": "OK",

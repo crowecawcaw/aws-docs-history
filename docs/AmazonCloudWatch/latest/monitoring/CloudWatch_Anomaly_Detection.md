@@ -73,6 +73,7 @@ For information about how to create, edit, and delete alarms and models for anom
 + [Create a CloudWatch alarm based on anomaly detection](Create_Anomaly_Detection_Alarm.md)
 + [Editing an anomaly detection model](Create_Anomaly_Detection_Alarm.md#Modify_Anomaly_Detection_Model)
 + [Deleting an anomaly detection model](Create_Anomaly_Detection_Alarm.md#Delete_Anomaly_Detection_Model)
++ [Improving anomaly detection alarm accuracy with feedback](Create_Anomaly_Detection_Alarm.md#Improve_Anomaly_Detection_Alarm)
 + [Creating a CloudWatch alarm based on a metric math expression](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create-alarm-on-metric-math-expression.html)
 
 You also can create, delete, and discover anomaly detection models based on metric math expressions using the CloudWatch API with `PutAnomalyDetector`, `DeleteAnomalyDetector`, and `DescribeAnomalyDetectors`. For information about these API actions, see the following sections in the *Amazon CloudWatch API Reference*.

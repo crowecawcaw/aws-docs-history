@@ -14,7 +14,17 @@
 
 If you create or edit the agent configuration file manually, you can give it any name. For simplicity in troubleshooting, we recommend that you name it `/opt/aws/amazon-cloudwatch-agent/etc/cloudwatch-agent.json` on a Linux server and `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.json` on servers running Windows Server. After you have created the file, you can copy it to other servers where you want to install the agent.
 
+**Note**  
+Giving the file a name does not apply it to the agent. After you create or edit a source configuration file, apply it by running `amazon-cloudwatch-agent-ctl -a fetch-config -c file:{{configuration-file-path}}`. When you apply a source file, the agent copies it into the `amazon-cloudwatch-agent.d` directory and generates the `amazon-cloudwatch-agent.toml` file that the systemd or upstart service uses to run the agent. Keep your source configuration file in a location that you choose, and do not use the `amazon-cloudwatch-agent.d` directory to store source files.
+
 When the agent is started, it creates a copy of each configuration file in `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d` directory, with the filename prefixed with either `file_` (for local file sources) or `ssm_` (for Systems Manager parameter store sources) to indicate the configuration origin.
+
+The `amazon-cloudwatch-agent.d` directory holds the active configuration that the agent manages. Treat this directory as agent-managed, and do not use it as a permanent location for your source configuration files. Use the following commands to change the active configuration:
++ `fetch-config` applies the initial configuration or replaces the active configuration set. In its default mode, `fetch-config` can replace existing active configuration fragments in the `amazon-cloudwatch-agent.d` directory.
++ `append-config` adds a configuration and preserves the existing fragments, unless the filename matches an existing configuration.
+
+**Note**  
+The systemd and upstart services use the generated `amazon-cloudwatch-agent.toml` file to run the agent. If this generated file is absent, starting the agent can apply the default configuration, which can replace the active configuration fragments in the `amazon-cloudwatch-agent.d` directory. This behavior is most likely during bootstrap workflows. Apply your configuration with `fetch-config` or `append-config` before you start the agent.
 
 **Note**  
 Metrics, logs, and traces collected by the CloudWatch agent incur charges. For more information about pricing, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing).
@@ -185,7 +195,7 @@ The `disk` metrics have a dimension for `Partition`, which means that the number
 
     Within the entry for each individual metric, you might optionally specify one or both of the following:
     + `rename` – Specifies a different name for this metric.
-    + `unit` – Specifies the unit to use for this metric, overriding the default unit of `None` of `None` for the metric. The unit that you specify must be a valid CloudWatch metric unit, as listed in the `Unit` description in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html).
+    + `unit` – Specifies the unit to use for this metric, overriding the default unit of `None` for the metric. The unit that you specify must be a valid CloudWatch metric unit, as listed in the `Unit` description in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html).
   + `ignore_file_system_types` – Specifies file system types to exclude when collecting disk metrics. Valid values include `sysfs`, `devtmpfs`, and so on.
   + `drop_device` – Setting this to `true` causes `Device` to not be included as a dimension for disk metrics.
 
@@ -208,7 +218,7 @@ The `disk` metrics have a dimension for `Partition`, which means that the number
 
     Within the entry for each individual metric, you might optionally specify one or both of the following:
     + `rename` – Specifies a different name for this metric.
-    + `unit` – Specifies the unit to use for this metric, overriding the default unit of `None` of `None` for the metric. The unit that you specify must be a valid CloudWatch metric unit, as listed in the `Unit` description in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html).
+    + `unit` – Specifies the unit to use for this metric, overriding the default unit of `None` for the metric. The unit that you specify must be a valid CloudWatch metric unit, as listed in the `Unit` description in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html).
 
     For information on default units and description of the metrics, see [Collect Amazon EBS NVMe driver metrics](Container-Insights-metrics-EBS-Collect.md).
   + `metrics_collection_interval` – Optional. Specifies how often to collect the diskio metrics, overriding the global `metrics_collection_interval` specified in the `agent` section of the configuration file.
@@ -225,7 +235,7 @@ The `disk` metrics have a dimension for `Partition`, which means that the number
 
     Within the entry for each individual metric, you might optionally specify one or both of the following:
     + `rename` – Specifies a different name for this metric.
-    + `unit` – Specifies the unit to use for this metric, overriding the default unit of `None` of `None` for the metric. The unit that you specify must be a valid CloudWatch metric unit, as listed in the `Unit` description in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html).
+    + `unit` – Specifies the unit to use for this metric, overriding the default unit of `None` for the metric. The unit that you specify must be a valid CloudWatch metric unit, as listed in the `Unit` description in [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html).
   + `metrics_collection_interval` – Optional. Specifies how often to collect the swap metrics, overriding the global `metrics_collection_interval` specified in the `agent` section of the configuration file.
 
     This value is specified in seconds. 
@@ -749,8 +759,25 @@ If you set `retention_in_days` for a log group that already exists, all logs in 
       + `units` – Optional. Specifies an array of systemd unit names to filter journal entries. If you include this field, the agent collects only journal entries from the specified systemd units. If you omit this field, the agent collects journal entries from all units. The agent accepts wildcards for pattern matching. For example, `["sshd*"]` matches `sshd.service`, `sshd@1.service`, and any other unit starting with `sshd`. You can specify multiple units such as `["sshd", "nginx", "cloudwatch-agent"]` to collect logs from several services.
       + `priority` – Optional. Specifies the minimum journal priority level to collect. If you include this field, the agent collects journal entries at the specified priority level and all levels more severe. If you omit this field, the default is `info`, collecting `info` and above and excluding `debug`. Set `"priority": "debug"` to collect all levels. Valid values are `emerg`, `alert`, `crit`, `err`, `warning`, `notice`, `info`, and `debug`. For example, setting `"priority": "err"` collects entries at `emerg` (0), `alert` (1), `crit` (2), and `err` (3) levels, excluding `warning`, `notice`, `info`, and `debug`.
 
-        The following table shows the journal priority levels and their numeric values.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.html)
+        The following table shows the journal priority levels and their numeric values.
+
+
+<table>
+<thead>
+  <tr><th>Priority</th><th>Numeric Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>emerg</code></td><td>0</td><td>System is unusable</td></tr>
+  <tr><td><code>alert</code></td><td>1</td><td>Action must be taken immediately</td></tr>
+  <tr><td><code>crit</code></td><td>2</td><td>Critical conditions</td></tr>
+  <tr><td><code>err</code></td><td>3</td><td>Error conditions</td></tr>
+  <tr><td><code>warning</code></td><td>4</td><td>Warning conditions</td></tr>
+  <tr><td><code>notice</code></td><td>5</td><td>Normal but significant conditions</td></tr>
+  <tr><td><code>info</code></td><td>6</td><td>Informational messages</td></tr>
+  <tr><td><code>debug</code></td><td>7</td><td>Debug-level messages</td></tr>
+</tbody>
+</table>
+
       + `matches` – Optional. Specifies an array of journal field match objects to filter journal entries by metadata fields. Each object in the array represents a set of conditions. Fields within a single object are AND'd together, while separate objects in the array are OR'd against each other. If you include this field, the agent collects journal entries that match any one of the specified objects. If you omit this field, the agent applies no field-level filtering.
 
         For example, specifying `[{"_UID": "0"}]` collects only journal entries from the root user. Specifying `[{"_SYSTEMD_UNIT": "sshd.service"}, {"_SYSTEMD_UNIT": "kubelet.service", "_UID": "1000"}]` collects entries from the SSH daemon OR entries from kubelet that are also from UID 1000. You can combine `matches` with `units` and `priority` for compound filtering.

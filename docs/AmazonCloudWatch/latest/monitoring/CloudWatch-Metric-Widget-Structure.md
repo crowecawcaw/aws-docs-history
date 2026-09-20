@@ -102,7 +102,7 @@ Required: No
 The width of the widget in pixels. The default is 600.  
 Valid Values: 1–2000  
 Type: Integer  
-Required: No, but you should set this if you also set a value for `width`.
+Required: No, but you should set this if you also set a value for `height`.
 
 **yAxis**  
 Limits for the minimums and maximums of the y-axis. This applies to every metric being graphed, unless specific metrics override it. For more information about the format, see [yAxis Properties Format](#CloudWatch-Metric-Widget-YAxis-Properties-Format).  

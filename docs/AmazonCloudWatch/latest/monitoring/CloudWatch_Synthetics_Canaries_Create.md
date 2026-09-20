@@ -75,6 +75,8 @@ When you create a canary, one of the layers created is a Synthetics layer prepen
    If you use the CloudWatch console to create a role for a canary when you create the canary, you can't re-use the role for other canaries, because these roles are specific to just one canary. If you have manually created a role that works for multiple canaries, you can use that existing role.
 
    To use an existing role, you must have the `iam:PassRole` permission to pass that role to Synthetics and Lambda. You must also have the `iam:GetRole` permission.
+**Note**  
+If role manager is enabled in your account, CloudWatch attaches the role for you, and the role options described here (for example the **Create new role** button) are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information about IAM role creation, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
 1. (Optional) Under **Alarms**, choose whether you want default CloudWatch alarms to be created for this canary. If you choose to create alarms, they are created with the following name convention:`Synthetics-Alarm-{{canaryName}} -{{index}} `
 

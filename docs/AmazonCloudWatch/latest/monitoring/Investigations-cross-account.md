@@ -183,7 +183,7 @@
 
 1. This must be done in each of the source accounts.
 
-1. If you set up the monitoring account role through the console, the role name of the source account defaults to `AIOps-CrossAccountInvestionRole`.
+1. If you set up the monitoring account role through the console, the role name of the source account defaults to `AIOps-CrossAccountInvestigationRole`.
 
 1. Confirm access by logging into the monitoring account, navigating to **Investigation Group**, then **Configuration**, and then choosing **Cross-account setup**.
 

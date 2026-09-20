@@ -201,7 +201,7 @@ In this example, the CloudWatch agent will collect the following values. All the
 + `mem_total`: 3916173312 bytes
 + `mem_available`: 2209103872 bytes (MemFree \+ Cached)
 + `mem_free`: 473808896 bytes
-+ `mem_cached`: 1893990400 bytes (`cached` \+ `SReclaimable`
++ `mem_cached`: 1893990400 bytes (`cached` \+ `SReclaimable`)
 + `mem_used`: 1419075584 bytes (`MemTotal` – (`MemFree` \+ `Buffers` \+ (`Cached` \+ `SReclaimable`)))
 + `mem_buffered`: 129667072 bytes
 + `mem_available_percent`: 56.41%

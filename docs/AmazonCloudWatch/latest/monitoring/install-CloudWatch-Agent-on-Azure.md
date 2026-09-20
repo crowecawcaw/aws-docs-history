@@ -35,6 +35,9 @@ The CloudWatch agent provides onboarding scripts that automate the setup. The sc
 
 Run the Azure step first, then the AWS trust step. Provide the role ARN that the AWS trust step creates or updates (by default, `arn:aws:iam::{{account-id}}:role/CloudWatchAgentServerRole`).
 
+**Reusing an existing IAM role**  
+Both scripts are safe to run even if the IAM role already exists. The AWS trust step merges the Azure trust into the role's existing trust policy instead of replacing it, so other trust statements remain. It attaches `CloudWatchAgentServerPolicy` only if the role doesn't already have it, and leaves the role's other policies unchanged.
+
 **To set up the agent on an Azure virtual machine using the onboarding scripts**
 
 1. On a machine with the Azure CLI signed in (for example, Azure Cloud Shell), run the Azure step with the role ARN and the AWS Region. The script assigns the virtual machine's managed identity, installs and starts the agent, and prints the Azure tenant ID.
@@ -48,12 +51,13 @@ Run the Azure step first, then the AWS trust step. Provide the role ARN that the
      sh
    ```
 
-1. On a machine with AWS credentials that have IAM write access to the target account (for example, AWS CloudShell), run the AWS trust step with the tenant ID from the previous step. The script creates the role, attaches CloudWatchAgentServerPolicy, and adds the Azure web-identity trust.
+1. On a machine with AWS credentials that have IAM write access to the target account (for example, AWS CloudShell), run the AWS trust step with the tenant ID from the previous step. The script creates the role, attaches `CloudWatchAgentServerPolicy`, and adds the Azure web-identity trust.
 
    ```
    curl -fsSL https://raw.githubusercontent.com/aws/amazon-cloudwatch-agent/main/scripts/aws/setup.sh | \
      CWAGENT_PLATFORM=azure_vm \
      CWAGENT_AZURE_TENANT_ID={{tenant-id}} \
+     CWAGENT_AWS_ROLE_ARN={{role-arn}} \
      CWAGENT_AWS_REGION={{region}} \
      sh
    ```
@@ -136,6 +140,9 @@ The onboarding scripts automate the setup. The scripts configure the cluster's w
 
 Run the Azure step first, then the AWS trust step. The AWS trust step needs the cluster's OIDC issuer URL, which is available only after the Azure step enables the issuer. Provide the role ARN that the AWS trust step creates or updates (by default, `arn:aws:iam::{{account-id}}:role/CloudWatchAgentServerRole`).
 
+**Reusing an existing IAM role**  
+Both scripts are safe to run even if the IAM role already exists. The AWS trust step merges the Azure trust into the role's existing trust policy instead of replacing it, so other trust statements remain. It attaches `CloudWatchAgentServerPolicy` only if the role doesn't already have it, and leaves the role's other policies unchanged.
+
 **To set up the agent on AKS using the onboarding scripts**
 
 1. On a machine with the Azure CLI signed in (for example, Azure Cloud Shell), run the Azure step with the role ARN and the AWS Region. The script enables the OIDC issuer and workload identity on the cluster, installs the agent, and prints the cluster's OIDC issuer URL.
@@ -149,12 +156,13 @@ Run the Azure step first, then the AWS trust step. The AWS trust step needs the 
      sh
    ```
 
-1. On a machine with AWS credentials that have IAM write access to the target account (for example, AWS CloudShell), run the AWS trust step with the OIDC issuer URL from the previous step. The script creates the role, attaches CloudWatchAgentServerPolicy, and federates the cluster issuer.
+1. On a machine with AWS credentials that have IAM write access to the target account (for example, AWS CloudShell), run the AWS trust step with the OIDC issuer URL from the previous step. The script creates the role, attaches `CloudWatchAgentServerPolicy`, and federates the cluster issuer.
 
    ```
    curl -fsSL https://raw.githubusercontent.com/aws/amazon-cloudwatch-agent/main/scripts/aws/setup.sh | \
      CWAGENT_PLATFORM=azure_aks \
      CWAGENT_AZURE_OIDC_ISSUER={{issuer-url}} \
+     CWAGENT_AWS_ROLE_ARN={{role-arn}} \
      CWAGENT_AWS_REGION={{region}} \
      sh
    ```

@@ -43,7 +43,7 @@ To enable CloudWatch investigations to send notifications, you must add an the f
 
 ```
 {
-    "Sid": "AIOPS-CHAT-PUBLISH",
+    "Sid": "AIOPSChatPublish",
     "Effect": "Allow",
     "Principal": {
         "Service": "aiops.amazonaws.com"

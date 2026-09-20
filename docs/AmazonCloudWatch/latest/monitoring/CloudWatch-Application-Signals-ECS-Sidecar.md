@@ -126,8 +126,27 @@ The next step is to instrument your application for CloudWatch Application Signa
    ]
    ```
 
-1. Add the following environment variables to your application container. You must be using version 1.32.2 or later of the AWS Distro for OpenTelemetry [auto-instrumentation agent for Java](https://opentelemetry.io/docs/zero-code/java/agent/).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-ECS-Sidecar.html)
+1. Add the following environment variables to your application container. You must be using version 1.32.2 or later of the AWS Distro for OpenTelemetry [auto-instrumentation agent for Java](https://opentelemetry.io/docs/zero-code/java/agent/).
+
+
+<table>
+<thead>
+  <tr><th>Environment variable</th><th>Setting to enable Application Signals</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>OTEL_RESOURCE_ATTRIBUTES</code></td><td>Specify the following information as key-value pairs:<ul><li><code>service.name</code> sets the name of the service. This will be diplayed as the service name for your application in Application Signals dashboards. If you don't provide a value for this key, the default of <code>UnknownService</code> is used</li><li><code>deployment.environment</code> parameter defines your application's runtime environment and controls the <code>Environment</code> dimension for Amazon ECS Application metrics in CloudWatch. When not specified, CloudWatch Agent automatically uses the Amazon ECS Cluster name</li></ul><br /> This attribute key is used only by Application Signals, and is converted into X-Ray trace annotations and CloudWatch metric dimensions.<br />(Optional) To enable log correlation for Application Signals, set an additional environment variable <code>aws.log.group.names</code> to be the log group name for your application log. By doing so, the traces and metrics from your application can be correlated with the relevant log entries from the log group. For this variable, replace {{$YOUR_APPLICATION_LOG_GROUP}} with the log group names for your application. If you have multiple log groups, you can use an ampersand (<code>&amp;</code>) to separate them as in this example: <code>aws.log.group.names=log-group-1&amp;log-group-2</code>. To enable metric to log correlation, setting this current environmental variable is enough. For more information, see <a href="Application-Signals-MetricLogCorrelation.md">Enable metric to log correlation</a>. To enable trace to log correlation, you'll also need to change the logging configuration in your application. For more information, see <a href="Application-Signals-TraceLogCorrelation.md">Enable trace to log correlation</a>. </td></tr>
+  <tr><td><code>OTEL_AWS_APPLICATION_SIGNALS_ENABLED</code></td><td>Set to <code>true</code> to have your container start sending X-Ray traces and CloudWatch metrics to Application Signals.</td></tr>
+  <tr><td><code>OTEL_METRICS_EXPORTER</code></td><td>Set to <code>none</code> to disable other metrics exporters.</td></tr>
+  <tr><td><code>OTEL_LOGS_EXPORTER</code></td><td>Set to <code>none</code> to disable other logs exporters.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_PROTOCOL</code></td><td>Set to <code>http/protobuf</code> to send metrics and traces to Application Signals using HTTP.</td></tr>
+  <tr><td><code>OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT</code></td><td>Set to <code>http://localhost:4316/v1/metrics</code> to send metrics to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_TRACES_ENDPOINT</code></td><td>Set to <code>http://localhost:4316/v1/traces</code> to send traces to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_TRACES_SAMPLER</code></td><td>Set this to <code>xray</code> to set X-Ray as the traces sampler.</td></tr>
+  <tr><td><code>OTEL_PROPAGATORS</code></td><td>Set <code>xray</code> as one of the propagators.</td></tr>
+  <tr><td><code>JAVA_TOOL_OPTIONS</code></td><td>Set to <code>" -javaagent:$AWS_ADOT_JAVA_INSTRUMENTATION_PATH"</code> Replace {{AWS_ADOT_JAVA_INSTRUMENTATION_PATH}} with the path where the AWS Distro for OpenTelemetry Java auto-instrumentation agent is stored. For example, <code>/otel-auto-instrumentation/javaagent.jar</code></td></tr>
+</tbody>
+</table>
+
 
 1. Mount the volume `opentelemetry-auto-instrumentation` that you defined in step 1 of this procedure. If you don't need to enable log correlation with metrics and traces, use the following example for a Java application. If you want to enable log correlation, see the next step instead.
 
@@ -276,8 +295,29 @@ Before you enable Application Signals for your Python applications, be aware of 
    ]
    ```
 
-1. Add the following environment variables to your application container.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-ECS-Sidecar.html)
+1. Add the following environment variables to your application container.
+
+
+<table>
+<thead>
+  <tr><th>Environment variable</th><th>Setting to enable Application Signals</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>OTEL_RESOURCE_ATTRIBUTES</code></td><td>Specify the following information as key-value pairs:<ul><li><code>service.name</code> sets the name of the service. This will be diplayed as the service name for your application in Application Signals dashboards. If you don't provide a value for this key, the default of <code>UnknownService</code> is used.</li><li><code>deployment.environment</code> parameter defines your application's runtime environment and controls the <code>Environment</code> dimension for Amazon ECS Application metrics in CloudWatch. When not specified, CloudWatch Agent automatically uses the Amazon ECS Cluster name</li></ul><br /> This attribute key is used only by Application Signals, and is converted into X-Ray trace annotations and CloudWatch metric dimensions.<br />(Optional) To enable log correlation for Application Signals, set an additional environment variable <code>aws.log.group.names</code> to be the log group name for your application log. By doing so, the traces and metrics from your application can be correlated with the relevant log entries from the log group. For this variable, replace {{$YOUR_APPLICATION_LOG_GROUP}} with the log group names for your application. If you have multiple log groups, you can use an ampersand (<code>&amp;</code>) to separate them as in this example: <code>aws.log.group.names=log-group-1&amp;log-group-2</code>. To enable metric to log correlation, setting this current environmental variable is enough. For more information, see <a href="Application-Signals-MetricLogCorrelation.md">Enable metric to log correlation</a>. To enable trace to log correlation, you'll also need to change the logging configuration in your application. For more information, see <a href="Application-Signals-TraceLogCorrelation.md">Enable trace to log correlation</a>. </td></tr>
+  <tr><td><code>OTEL_AWS_APPLICATION_SIGNALS_ENABLED</code></td><td>Set to <code>true</code> to have your container start sending X-Ray traces and CloudWatch metrics to Application Signals.</td></tr>
+  <tr><td><code>OTEL_METRICS_EXPORTER</code></td><td>Set to <code>none</code> to disable other metrics exporters.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_PROTOCOL</code></td><td>Set to <code>http/protobuf</code> to send metrics and traces to CloudWatch using HTTP.</td></tr>
+  <tr><td><code>OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT</code></td><td>Set to <code>http://127.0.0.1:4316/v1/metrics</code> to send metrics to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_TRACES_ENDPOINT</code></td><td>Set to <code>http://127.0.0.1:4316/v1/traces</code> to send traces to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_TRACES_SAMPLER</code></td><td>Set this to <code>xray</code> to set X-Ray as the traces sampler.</td></tr>
+  <tr><td><code>OTEL_PROPAGATORS</code></td><td>Add <code>xray</code> as one of the propagators.</td></tr>
+  <tr><td><code>OTEL_PYTHON_DISTRO</code></td><td>Set to <code>aws_distro</code> to use the ADOT Python instrumentation.</td></tr>
+  <tr><td><code>OTEL_PYTHON_CONFIGURATOR</code></td><td>Set to <code>aws_configurator</code> to use the ADOT Python configuration.</td></tr>
+  <tr><td><code>PYTHONPATH</code></td><td>Replace <code>$APP_PATH</code> with the location of the application's working directory within the container. This is required for the Python interpreter to find your application modules.</td></tr>
+  <tr><td><code>DJANGO_SETTINGS_MODULE</code></td><td>Required only for Django applications. Set it to the location of your Django application's <code>settings.py</code> file. Replace <code>$PATH_TO_SETTINGS</code>.</td></tr>
+</tbody>
+</table>
+
 
 1. Mount the volume `opentelemetry-auto-instrumentation-python` that you defined in step 1 of this procedure. If you don't need to enable log correlation with metrics and traces, use the following example for a Python application. If you want to enable log correlation, see the next step instead. 
 
@@ -530,8 +570,33 @@ Before you enable Application Signals for your Python applications, be aware of 
    ]
    ```
 
-1. Add the following environment variables to your application container. You must be using version 1.1.0 or later of the AWS Distro for OpenTelemetry[ auto-instrumentation agent for .NET](https://opentelemetry.io/docs/zero-code/net/).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-ECS-Sidecar.html)
+1. Add the following environment variables to your application container. You must be using version 1.1.0 or later of the AWS Distro for OpenTelemetry[ auto-instrumentation agent for .NET](https://opentelemetry.io/docs/zero-code/net/).
+
+
+<table>
+<thead>
+  <tr><th>Environment variable</th><th>Setting to enable Application Signals</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>OTEL_RESOURCE_ATTRIBUTES</code></td><td>Specify the following information as key-value pairs:<ul><li><code>service.name</code> sets the name of the service. This will be diplayed as the service name for your application in Application Signals dashboards. If you don't provide a value for this key, the default of <code>UnknownService</code> is used.</li><li><code>deployment.environment</code> parameter defines your application's runtime environment and controls the <code>Environment</code> dimension for Amazon ECS Application metrics in CloudWatch. When not specified, CloudWatch Agent automatically uses the Amazon ECS Cluster name</li></ul><br /> This attribute key is used only by Application Signals, and is converted into X-Ray trace annotations and CloudWatch metric dimensions.</td></tr>
+  <tr><td><code>OTEL_AWS_APPLICATION_SIGNALS_ENABLED</code></td><td>Set to <code>true</code> to have your container start sending X-Ray traces and CloudWatch metrics to Application Signals.</td></tr>
+  <tr><td><code>OTEL_METRICS_EXPORTER</code></td><td>Set to <code>none</code> to disable other metrics exporters.</td></tr>
+  <tr><td><code>OTEL_LOGS_EXPORTER</code></td><td>Set to <code>none</code> to disable other logs exporters.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_PROTOCOL</code></td><td>Set to <code>http/protobuf</code> to send metrics and traces to Application Signals using HTTP.</td></tr>
+  <tr><td><code>OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT</code></td><td>Set to <code>http://localhost:4316/v1/metrics</code> to send metrics to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_ENDPOINT</code></td><td>Set to <code>http://localhost:4316/</code> to send traces to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_TRACES_ENDPOINT</code></td><td>Set to <code>http://localhost:4316/v1/traces</code> to send traces to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_DOTNET_AUTO_HOME</code></td><td>Set to the installation location of ADOT .NET automatic instrumentation.</td></tr>
+  <tr><td><code>OTEL_DOTNET_AUTO_PLUGINS</code></td><td>Set to <code>AWS.Distro.OpenTelemetry.AutoInstrumentation.Plugin, AWS.Distro.OpenTelemetry.AutoInstrumentation</code> to enable the Application Signals plugin.</td></tr>
+  <tr><td><code>CORECLR_ENABLE_PROFILING</code></td><td>Set to <code>1</code> to enable the profiler.</td></tr>
+  <tr><td><code>CORECLR_PROFILER</code></td><td>Set to <code>{918728DD-259F-4A6A-AC2B-B85E1B658318}</code> as the CLSID of the profiler.</td></tr>
+  <tr><td><code>CORECLR_PROFILER_PATH</code></td><td>Set this to the path of the profiler.<br />On Linux, set it to <code>${OTEL_DOTNET_AUTO_HOME}/linux-x64/OpenTelemetry.AutoInstrumentation.Native.so</code><br />On Windows Server, set it to <code>${OTEL_DOTNET_AUTO_HOME}/win-x64/OpenTelemetry.AutoInstrumentation.Native.dll</code></td></tr>
+  <tr><td><code>DOTNET_ADDITIONAL_DEPS</code></td><td>Set this to the folder path of <code>${OTEL_DOTNET_AUTO_HOME}/AdditionalDeps</code>.</td></tr>
+  <tr><td><code>DOTNET_SHARED_STORE</code></td><td>Set this to the folder path of <code>${OTEL_DOTNET_AUTO_HOME}/store</code>.</td></tr>
+  <tr><td><code>DOTNET_STARTUP_HOOKS</code></td><td>Set this to path of the managed assembly <code>${OTEL_DOTNET_AUTO_HOME}/net/OpenTelemetry.AutoInstrumentation.StartupHook.dll</code> to run before the main application's entry point.</td></tr>
+</tbody>
+</table>
+
 
 1. Mount the volume `opentelemetry-auto-instrumentation` that you defined in step 1 of this procedure. For Linux, use the following.
 
@@ -820,8 +885,27 @@ If you are enabling Application Signals for a Node.js application with ESM, see 
    ]
    ```
 
-1. Add the following environment variables to your application container.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-ECS-Sidecar.html)
+1. Add the following environment variables to your application container.
+
+
+<table>
+<thead>
+  <tr><th>Environment variable</th><th>Setting to enable Application Signals</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>OTEL_RESOURCE_ATTRIBUTES</code></td><td>Specify the following information as key-value pairs:<ul><li><code>service.name</code> sets the name of the service. This will be diplayed as the service name for your application in Application Signals dashboards. If you don't provide a value for this key, the default of <code>UnknownService</code> is used.</li><li><code>deployment.environment</code> parameter defines your application's runtime environment and controls the <code>Environment</code> dimension for Amazon ECS Application metrics in CloudWatch. When not specified, CloudWatch Agent automatically uses the Amazon ECS Cluster name</li></ul><br /> This attribute key is used only by Application Signals, and is converted into X-Ray trace annotations and CloudWatch metric dimensions.<br />(Optional) To enable log correlation for Application Signals, set an additional environment variable <code>aws.log.group.names</code> to be the log group name for your application log. By doing so, the traces and metrics from your application can be correlated with the relevant log entries from the log group. For this variable, replace {{$YOUR_APPLICATION_LOG_GROUP}} with the log group names for your application. If you have multiple log groups, you can use an ampersand (<code>&amp;</code>) to separate them as in this example: <code>aws.log.group.names=log-group-1&amp;log-group-2</code>. To enable metric to log correlation, setting this current environmental variable is enough. For more information, see <a href="Application-Signals-MetricLogCorrelation.md">Enable metric to log correlation</a>. To enable trace to log correlation, you'll also need to change the logging configuration in your application. For more information, see <a href="Application-Signals-TraceLogCorrelation.md">Enable trace to log correlation</a>. </td></tr>
+  <tr><td><code>OTEL_AWS_APPLICATION_SIGNALS_ENABLED</code></td><td>Set to <code>true</code> to have your container start sending X-Ray traces and CloudWatch metrics to Application Signals.</td></tr>
+  <tr><td><code>OTEL_METRICS_EXPORTER</code></td><td>Set to <code>none</code> to disable other metrics exporters.</td></tr>
+  <tr><td><code>OTEL_LOGS_EXPORTER</code></td><td>Set to <code>none</code> to disable other logs exporters.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_PROTOCOL</code></td><td>Set to <code>http/protobuf</code> to send metrics and traces to Application Signals using OTLP/HTTP and protobuf.</td></tr>
+  <tr><td><code>OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT</code></td><td>Set to <code>http://localhost:4316/v1/metrics</code> to send metrics to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_EXPORTER_OTLP_TRACES_ENDPOINT</code></td><td>Set to <code>http://localhost:4316/v1/traces</code> to send traces to the CloudWatch sidecar.</td></tr>
+  <tr><td><code>OTEL_TRACES_SAMPLER</code></td><td>Set this to <code>xray</code> to set X-Ray as the traces sampler.</td></tr>
+  <tr><td><code>OTEL_PROPAGATORS</code></td><td>Set <code>xray</code> as one of the propagators.</td></tr>
+  <tr><td><code>NODE_OPTIONS</code></td><td>Set to <code>--require AWS_ADOT_NODE_INSTRUMENTATION_PATH</code>. Replace {{AWS_ADOT_NODE_INSTRUMENTATION_PATH}} with the path where the AWS Distro for OpenTelemetry Node.js auto-instrumentation is stored. For example, <code>/otel-auto-instrumentation-node/autoinstrumentation.js</code></td></tr>
+</tbody>
+</table>
+
 
 1. Mount the volume `opentelemetry-auto-instrumentation` that you defined in step 1 of this procedure. If you don't need to enable log correlation with metrics and traces, use the following example for a Node.js application. If you want to enable log correlation, see the next step instead.
 

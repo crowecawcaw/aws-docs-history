@@ -50,7 +50,7 @@ Steps:
    1. Select the **CloudWatchAgentServerPolicy** policy and choose **Add permissions**.
 
 ------
-#### [ Setup IAM permissions for on-premise hosts ]
+#### [ Setup IAM permissions for on-premises hosts ]
 
 **You can create an IAM user that can be used to provide permissions to your on-premise hosts.**
 

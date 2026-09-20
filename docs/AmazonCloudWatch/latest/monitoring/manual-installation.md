@@ -32,8 +32,19 @@ On all supported Linux operating systems, you can download and install the Cloud
 
    ```
    wget download-link
-   ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/manual-installation.html)
+   ```
+
+
+<table>
+<thead>
+  <tr><th>Architecture</th><th>Platform</th><th>Download link</th></tr>
+</thead>
+<tbody>
+  <tr><td>x86-64</td><td>Amazon Linux 2023 and Amazon Linux 2</td><td>https://amazoncloudwatch-agent.s3.amazonaws.com/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm</td></tr>
+  <tr><td>ARM64</td><td>Amazon Linux 2023 and Amazon Linux 2</td><td>https://amazoncloudwatch-agent.s3.amazonaws.com/amazon_linux/arm64/latest/amazon-cloudwatch-agent.rpm</td></tr>
+</tbody>
+</table>
+
 
 1. After you have downloaded the package, you can optionally verify the package signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md).
 

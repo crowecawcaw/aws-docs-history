@@ -193,6 +193,7 @@ processor:
         - source: "hostname"
           target: "src_hostname"
           overwrite_if_exists: true
+          default_value: "UNKNOWN"
 ```Parameters
 
 `lookup_table` (required)  
@@ -218,6 +219,9 @@ The field name to add to the log event. If not specified, the `source` column na
 
 `entries[].overwrite_if_exists` (optional)  
 Boolean flag that determines behavior when the target field already exists in the log event. Defaults to false.
+
+`entries[].default_value` (optional)  
+The value to use when the lookup table has no matching row. If not specified, no field is added to the log event on a miss. Minimum length is 1, maximum length is 512 characters.
 
 `when` (optional)  
 Conditional expression that determines whether this processor executes. Maximum length is 256 characters. See [Expression syntax for conditional processing](conditional-processing.md).
@@ -256,6 +260,7 @@ processor:
         - source: "hostname"
           target: "src_hostname"
         - source: "owner"
+          default_value: "unassigned"
         - source: "location"
           target: "src_region"
           overwrite_if_exists: false

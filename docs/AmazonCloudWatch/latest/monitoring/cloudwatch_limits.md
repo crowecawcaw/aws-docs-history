@@ -29,8 +29,7 @@ This section details the service quotas specifically for core CloudWatch functio
 
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
-| Canary limit | us-east-1: 300<br />ap-east-2: 200<br />ap-northeast-1: 300<br />Each of the other supported Regions: 500 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-C1FE0F5C)  | The maximum number of canaries per account per region. | 
-| Minimum frequency | Each supported Region: 60,000 Milliseconds | No | The minimum time, in milliseconds, between runs of the same canary. | 
+| Canary limit | Each supported Region: 500 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-C1FE0F5C)  | The maximum number of canaries per account per region. | 
 | Number of Alarm Mute Rules | Each supported Region: 2,000 | No | The maximum number of Alarm Mute Rules that you can have in this account in the current region. | 
 | Number of Contributor Insights rules | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-DBD11BCC)  | The maximum number of Contributor Insights rules you can have in this account. | 
 | Number of Metrics Insights alarms | Each supported Region: 200 | No | The maximum number of Metrics Insights alarms that you can have in this account in the current region. | 

@@ -61,6 +61,8 @@ CloudWatch pipelines is available in the following AWS Regions:
 + US East (Ohio)
 + US West (N. California)
 + US West (Oregon)
++ AWS GovCloud (US-East)
++ AWS GovCloud (US-West)
 + Africa (Cape Town)
 + Asia Pacific (Hong Kong)
 + Asia Pacific (Hyderabad)

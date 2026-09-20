@@ -12,7 +12,7 @@ The following metrics can be collected. All of these metrics are collected with 
 
 | Metric | Metric name in CloudWatch | Description | 
 | --- | --- | --- | 
-| `utilization_gpu` | `nvidia_smi_utilization_gpu` | The percentage of time over the past sample period during which one or more kernals on the GPU was running. | 
+| `utilization_gpu` | `nvidia_smi_utilization_gpu` | The percentage of time over the past sample period during which one or more kernels on the GPU was running. | 
 | `temperature_gpu` | `nvidia_smi_temperature_gpu` | The core GPU temperature in degrees Celsius. | 
 | `power_draw` | `nvidia_smi_power_draw` | The last measured power draw for the entire board, in watts. | 
 | `utilization_memory` | `nvidia_smi_utilization_memory` | The percentage of time over the past sample period during which global (device) memory was being read or written. | 

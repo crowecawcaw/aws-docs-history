@@ -8,7 +8,7 @@
 ## Use AWS Distro for OpenTelemetry with the CloudWatch Agent
 <a name="w2aac25c17c31b5"></a>
 
- The most integrated application performance monitoring(APM) experience in CloudWatch is delivered through the AWS Distro for OpenTelemetry (ADOT) SDKs and are used with the CloudWatch Agent to collect application metrics and traces. This option works best if you want to get started with APM in CloudWatch quickly and also use out-of-the box integrations with features, such as Container Insights and CloudWatch Logs. For more information, see [Enable Application Signals on Amazon EKS Clusters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-EKS.html) and [Enable Application Signals on Amazon EC2, Amazon ECS, or Kubernates](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-Other.html). 
+ The most integrated application performance monitoring(APM) experience in CloudWatch is delivered through the AWS Distro for OpenTelemetry (ADOT) SDKs and are used with the CloudWatch Agent to collect application metrics and traces. This option works best if you want to get started with APM in CloudWatch quickly and also use out-of-the box integrations with features, such as Container Insights and CloudWatch Logs. For more information, see [Enable Application Signals on Amazon EKS Clusters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-EKS.html) and [Enable Application Signals on Amazon EC2, Amazon ECS, or Kubernetes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-Other.html). 
 
 ## Use the OpenTelemetry SDK and Collector
 <a name="w2aac25c17c31b7"></a>

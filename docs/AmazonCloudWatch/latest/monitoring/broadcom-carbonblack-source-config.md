@@ -90,6 +90,9 @@ The Principal ID ARN to use in the policy is based on the AWS region the Amazon 
             "Condition": {
                 "ArnLike": {
                     "aws:SourceArn": "arn:aws:s3:::<bucket-name>"
+                },
+                "StringEquals": {
+                    "aws:SourceAccount": "<aws-account-number>"
                 }
             }
         }

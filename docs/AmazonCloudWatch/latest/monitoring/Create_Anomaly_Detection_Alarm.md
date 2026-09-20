@@ -143,3 +143,50 @@ Using anomaly detection for an alarm accrues charges. As a best practice, if you
 1. In the **Graphed metrics** tab, in the **Details** column, choose the **ANOMALY\_DETECTION\_BAND** keyword, and then choose **Delete anomaly detection model** in the popup.  
 ![The Graphed Metrics tab with the ANOMALY_DETECTION_BAND popup menu displayed.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Edit.PNG)
    +  (Optional) If you're using the original interface, choose **Edit model**. You're directed to a new screen. On the new screen, choose **Delete model**, and then choose **Delete**. 
+
+## Improving anomaly detection alarm accuracy with feedback
+<a name="Improve_Anomaly_Detection_Alarm"></a>
+
+After you create an anomaly detection alarm, you can provide feedback to help CloudWatch improve the accuracy of the anomaly detection model. CloudWatch uses your feedback to adjust how the model learns from your metric's behavior, which can result in more accurate anomaly detection bands over time.
+
+You can provide feedback when you notice that:
++ The alarm triggered correctly, and you want to confirm that the detection was accurate.
++ The alarm triggered, but the metric behavior was actually normal (a false alarm).
++ The alarm did not trigger, but the metric behavior was anomalous (a missed detection).
+
+**To submit feedback on an anomaly detection alarm**
+
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
+
+1. In the navigation pane, choose **Alarms**.
+
+1. Choose the name of the anomaly detection alarm that you want to provide feedback for.
+
+1. Choose the **Improve this alarm** button.
+
+1. In the feedback dialog box, specify a **Start time** and **End time** for the time range that your feedback applies to. This should cover the period where you observed the alarm behavior you want to report.
+
+1. For **Feedback type**, choose one of the following:
+   + **Correct** – The alarm correctly detected an anomaly (or correctly did not trigger). This confirms that the model is performing well for this time range. No model adjustments are made.
+   + **False alarm** – The alarm triggered, but the metric behavior was actually normal. CloudWatch adjusts the anomaly detection model to reduce false positives.
+   + **Missed** – The alarm did not trigger, but the metric behavior was anomalous and should have been detected. CloudWatch adjusts the anomaly detection model to improve sensitivity.
+
+1. For **Reason**, choose the reason that best describes why the alarm behavior was incorrect:
+   + **Bands learning too fast** – The anomaly detection bands are adapting too quickly to recent changes in metric behavior, treating new patterns as normal too soon.
+   + **Bands learning too slow** – The anomaly detection bands are not adapting quickly enough to legitimate changes in metric behavior.
+   + **Bands too wide** – The expected range of normal values is too broad, causing the alarm to miss anomalies.
+   + **Bands too narrow** – The expected range of normal values is too tight, causing the alarm to trigger on normal metric variations.
+   + **Band level off** – The anomaly detection bands are not aligned with the expected baseline level of the metric.
+   + **Planned deployment** – The alarm fired due to a planned deployment or change.
+   + **Scaling event** – The alarm fired due to an expected scaling event (such as auto-scaling).
+   + **Other** – The alarm behavior was incorrect for a reason not listed above.
+
+1. Choose **Submit**.
+
+CloudWatch processes your feedback and adjusts the anomaly detection model accordingly. For false alarm and missed feedback, CloudWatch automatically tunes the model's learning rate or band width based on the reason that you provide.
+
+**Note**  
+You can submit feedback multiple times for different time ranges. Each piece of feedback is processed independently and contributes to improving the model's accuracy over time.
+
+**Note**  
+When you submit feedback, the CloudWatch console calls the `SubmitAlarmFeedback` API on your behalf. This API is used by the CloudWatch console only and is not intended to be called directly.
