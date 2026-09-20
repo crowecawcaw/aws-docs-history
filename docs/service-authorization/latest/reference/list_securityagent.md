@@ -711,6 +711,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [BatchGetValidationRuns](https://docs.aws.amazon.com/securityagent/API_BatchGetValidationRuns.html)  **
+  - **Description:** Grants permission to retrieve multiple validation runs in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [BatchUpdateSecurityRequirements](https://docs.aws.amazon.com/securityagent/API_BatchUpdateSecurityRequirements.html)  **
   - **Description:** Grants permission to batch update security requirements within a customer managed pack
   - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
@@ -987,6 +993,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListDiscoveredDomains](https://docs.aws.amazon.com/securityagent/API_ListDiscoveredDomains.html)  **
+  - **Description:** Grants permission to list discovered domains associated with a pentest
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
 - **   [ListDiscoveredEndpoints](https://docs.aws.amazon.com/securityagent/API_ListDiscoveredEndpoints.html)  **
   - **Description:** Grants permission to list discovered endpoints associated with a pentest job with optional URI prefix filtering
   - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
@@ -1129,6 +1141,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StartValidationRun](https://docs.aws.amazon.com/securityagent/API_StartValidationRun.html)  **
+  - **Description:** Grants permission to initiate the execution of a validation run
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [StopCodeReviewJob](https://docs.aws.amazon.com/securityagent/API_StopCodeReviewJob.html)  **
   - **Description:** Grants permission to stop the execution of a running code review
   - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
@@ -1187,6 +1205,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateCodeReview](https://docs.aws.amazon.com/securityagent/API_UpdateCodeReview.html)  **
   - **Description:** Grants permission to update an existing code review with new configuration or settings
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDiscoveredDomains](https://docs.aws.amazon.com/securityagent/API_UpdateDiscoveredDomains.html)  **
+  - **Description:** Grants permission to update classification of multiple discovered domain in a single request
   - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Write

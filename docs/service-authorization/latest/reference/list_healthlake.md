@@ -245,6 +245,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_healthlake-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [DescribeFHIRBulkPatchJob](https://docs.aws.amazon.com/healthlake/latest/devguide/reference-fhir-operations-bulk-patch.html)  **
+  - **Description:** Grants permission to describe a FHIR Bulk Patch Job
+  - **Resource types (\*required):** [datastore\*](#list_healthlake-resource-datastore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_healthlake-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DescribeFHIRDatastore](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_DescribeFHIRDatastore.html)  **
   - **Description:** Grants permission to get the properties associated with the FHIR datastore, including the datastore ID, datastore ARN, datastore name, datastore status, created at, datastore type version, and datastore endpoint
   - **Resource types (\*required):** [datastore\*](#list_healthlake-resource-datastore)
@@ -469,6 +475,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [StartFHIRBulkMemberMatchJob](https://docs.aws.amazon.com/healthlake/latest/devguide/reference-fhir-operations-bulk-member-match.html)  **
   - **Description:** Grants permission to begin a FHIR Bulk Member Match Job
+  - **Resource types (\*required):** [datastore\*](#list_healthlake-resource-datastore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_healthlake-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartFHIRBulkPatchJob](https://docs.aws.amazon.com/healthlake/latest/devguide/reference-fhir-operations-bulk-patch.html)  **
+  - **Description:** Grants permission to begin a FHIR Bulk Patch Job
   - **Resource types (\*required):** [datastore\*](#list_healthlake-resource-datastore)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_healthlake-aws_ResourceTag___TagKey_)
   - **Access level:** Write

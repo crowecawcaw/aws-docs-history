@@ -71,6 +71,11 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [backup-search:StartSearchJob](#list_backupsearch-action-StartSearchJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [backup-search:TagResource](#list_backupsearch-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   StartSearchResultExportJob  **
+  - **IAM action:**  [backup-search:StartSearchResultExportJob](#list_backupsearch-action-StartSearchResultExportJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [backup-search:TagResource](#list_backupsearch-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** backup-search.amazonaws.com / **Access level:** Write
+
 - **   StopSearchJob  **
   - **IAM action:**  [backup-search:StopSearchJob](#list_backupsearch-action-StopSearchJob) 
   - **Condition key:** 

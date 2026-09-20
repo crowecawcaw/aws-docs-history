@@ -401,6 +401,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListAvailablePhoneNumbers  **
+  - **IAM action:**  [sms-voice:ListAvailablePhoneNumbers](#list_pinpoint-sms-voice-v2-action-ListAvailablePhoneNumbers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListNotifyCountries  **
   - **IAM action:**  [sms-voice:ListNotifyCountries](#list_pinpoint-sms-voice-v2-action-ListNotifyCountries) 
   - **Condition key:** 
@@ -1060,6 +1066,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [PhoneNumber](#list_pinpoint-sms-voice-v2-resource-PhoneNumber) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pinpoint-sms-voice-v2-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [Pool](#list_pinpoint-sms-voice-v2-resource-Pool) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pinpoint-sms-voice-v2-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [SenderId](#list_pinpoint-sms-voice-v2-resource-SenderId) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pinpoint-sms-voice-v2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAvailablePhoneNumbers](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_ListAvailablePhoneNumbers.html)  **
+  - **Description:** Grants permission to list available phone numbers for purchase
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Read
 
 - **   [ListNotifyCountries](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_ListNotifyCountries.html)  **

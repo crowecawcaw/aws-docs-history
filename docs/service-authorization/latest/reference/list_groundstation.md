@@ -205,10 +205,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Read
 
 - **   RegisterAgent  **
-  - **IAM action:**  [groundstation:RegisterAgent](#list_groundstation-action-RegisterAgent) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [groundstation:RegisterAgent](#list_groundstation-action-RegisterAgent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [groundstation:TagResource](#list_groundstation-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   ReserveContact  **
   - **IAM action:**  [groundstation:ReserveContact](#list_groundstation-action-ReserveContact)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

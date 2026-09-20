@@ -62,8 +62,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** List
 
 - **   ListPurchaseOptions  **
-  - **IAM action:**  [aws-marketplace:ListPrivateListings](#list_marketplace-discovery-action-ListPrivateListings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
-  - **IAM action:**  [aws-marketplace:ListPurchaseOptions](#list_marketplace-discovery-action-ListPurchaseOptions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [aws-marketplace:ListPurchaseOptions](#list_marketplace-discovery-action-ListPurchaseOptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   SearchFacets  **
   - **IAM action:**  [aws-marketplace:SearchFacets](#list_marketplace-discovery-action-SearchFacets) 

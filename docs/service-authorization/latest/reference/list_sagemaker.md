@@ -281,7 +281,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [sagemaker:CreateJob](#list_sagemaker-action-CreateJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sagemaker:ImportHubContent](#list_sagemaker-action-ImportHubContent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sagemaker:UpdateHubContent](#list_sagemaker-action-UpdateHubContent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** job.sagemaker.amazonaws.com, sagemaker.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** job.sagemaker.amazonaws.com / **Access level:** Write
 
 - **   CreateLabelingJob  **
   - **SDK client:** sagemaker
@@ -2648,6 +2648,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** List
 
 - **   PutRecord  **
+  - **SDK client:** sagemaker-featurestore-runtime
+  - **IAM action:**  [sagemaker:PutRecord](#list_sagemaker-action-PutRecord) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRecord  **
   - **SDK client:** sagemaker-featurestore-runtime
   - **IAM action:**  [sagemaker:PutRecord](#list_sagemaker-action-PutRecord) 
   - **Condition key:** 

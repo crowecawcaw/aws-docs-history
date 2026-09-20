@@ -59,6 +59,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   AssociateConnectionsToResiliencyGroup  **
+  - **IAM action:**  [directconnect:AssociateConnectionsToResiliencyGroup](#list_directconnect-action-AssociateConnectionsToResiliencyGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   AssociateHostedConnection  **
   - **IAM action:**  [directconnect:AssociateHostedConnection](#list_directconnect-action-AssociateHostedConnection) 
   - **Condition key:** 
@@ -149,6 +155,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [directconnect:CreatePublicVirtualInterface](#list_directconnect-action-CreatePublicVirtualInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   CreateResiliencyGroup  **
+  - **IAM action:**  [directconnect:CreateResiliencyGroup](#list_directconnect-action-CreateResiliencyGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
 - **   CreateTransitVirtualInterface  **
   - **IAM action:**  [directconnect:CreateTransitVirtualInterface](#list_directconnect-action-CreateTransitVirtualInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -191,6 +201,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteLag  **
   - **IAM action:**  [directconnect:DeleteLag](#list_directconnect-action-DeleteLag) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteResiliencyGroup  **
+  - **IAM action:**  [directconnect:DeleteResiliencyGroup](#list_directconnect-action-DeleteResiliencyGroup) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -315,11 +331,35 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DisassociateConnectionsFromResiliencyGroup  **
+  - **IAM action:**  [directconnect:DisassociateConnectionsFromResiliencyGroup](#list_directconnect-action-DisassociateConnectionsFromResiliencyGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DisassociateMacSecKey  **
   - **IAM action:**  [directconnect:DisassociateMacSecKey](#list_directconnect-action-DisassociateMacSecKey) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   GetResiliencyGroup  **
+  - **IAM action:**  [directconnect:GetResiliencyGroup](#list_directconnect-action-GetResiliencyGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListResiliencyGroupAssociations  **
+  - **IAM action:**  [directconnect:ListResiliencyGroupAssociations](#list_directconnect-action-ListResiliencyGroupAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListResiliencyGroups  **
+  - **IAM action:**  [directconnect:ListResiliencyGroups](#list_directconnect-action-ListResiliencyGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   ListVirtualInterfaceRoutes  **
   - **IAM action:**  [directconnect:ListVirtualInterfaceRoutes](#list_directconnect-action-ListVirtualInterfaceRoutes) 
@@ -363,6 +403,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateConnectionsBillingMode  **
+  - **IAM action:**  [directconnect:UpdateConnectionsBillingMode](#list_directconnect-action-UpdateConnectionsBillingMode) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateDirectConnectGateway  **
   - **IAM action:**  [directconnect:UpdateDirectConnectGateway](#list_directconnect-action-UpdateDirectConnectGateway) 
   - **Condition key:** 
@@ -377,6 +423,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateLag  **
   - **IAM action:**  [directconnect:UpdateLag](#list_directconnect-action-UpdateLag) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateResiliencyGroup  **
+  - **IAM action:**  [directconnect:UpdateResiliencyGroup](#list_directconnect-action-UpdateResiliencyGroup) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -437,6 +489,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to associate a connection with a LAG
   - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [dxlag\*](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateConnectionsToResiliencyGroup](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateConnectionsToResiliencyGroup.html)  **
+  - **Description:** Grants permission to associate one or more connections with a resiliency group
+  - **Resource types (\*required):** [dx-resiliency-group\*](#list_directconnect-resource-dx-resiliency-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [AssociateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateHostedConnection.html)  **
@@ -543,6 +601,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateResiliencyGroup](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateResiliencyGroup.html)  **
+  - **Description:** Grants permission to create a resiliency group
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateTransitVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateTransitVirtualInterface.html)  **
   - **Description:** Grants permission to create a new transit virtual interface
   - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
@@ -588,6 +652,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteLag](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteLag.html)  **
   - **Description:** Grants permission to delete the specified link aggregation group (LAG)
   - **Resource types (\*required):** [dxlag\*](#list_directconnect-resource-dxlag)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteResiliencyGroup](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteResiliencyGroup.html)  **
+  - **Description:** Grants permission to delete a resiliency group
+  - **Resource types (\*required):** [dx-resiliency-group\*](#list_directconnect-resource-dx-resiliency-group)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -690,6 +760,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DescribeTags](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeTags.html)  **
   - **Description:** Grants permission to describe the tags associated with the specified AWS Direct Connect resources
   - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dx-resiliency-group](#list_directconnect-resource-dx-resiliency-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [dxvif](#list_directconnect-resource-dxvif) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
@@ -714,11 +785,35 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [dxlag\*](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DisassociateConnectionsFromResiliencyGroup](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DisassociateConnectionsFromResiliencyGroup.html)  **
+  - **Description:** Grants permission to disassociate one or more connections from a resiliency group
+  - **Resource types (\*required):** [dx-resiliency-group\*](#list_directconnect-resource-dx-resiliency-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DisassociateMacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DisassociateMacSecKey.html)  **
   - **Description:** Grants permission to remove the association between a MAC Security (MACsec) security key and an AWS Direct Connect dedicated connection
   - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
+
+- **   [GetResiliencyGroup](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_GetResiliencyGroup.html)  **
+  - **Description:** Grants permission to describe a resiliency group
+  - **Resource types (\*required):** [dx-resiliency-group\*](#list_directconnect-resource-dx-resiliency-group)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListResiliencyGroupAssociations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListResiliencyGroupAssociations.html)  **
+  - **Description:** Grants permission to list the connection associations of a resiliency group
+  - **Resource types (\*required):** [dx-resiliency-group\*](#list_directconnect-resource-dx-resiliency-group)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListResiliencyGroups](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListResiliencyGroups.html)  **
+  - **Description:** Grants permission to list all resiliency groups owned by the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
 
 - **   [ListVirtualInterfaceRoutes](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceRoutes.html)  **
   - **Description:** Grants permission to list the routes accepted and advertised over a virtual interface
@@ -747,6 +842,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [TagResource](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_TagResource.html)  **
   - **Description:** Grants permission to add the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags
   - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dx-resiliency-group](#list_directconnect-resource-dx-resiliency-group) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
   - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
   - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
   - **Resource types (\*required):** [dxvif](#list_directconnect-resource-dxvif) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
@@ -755,6 +851,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UntagResource](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UntagResource.html)  **
   - **Description:** Grants permission to remove one or more tags from the specified AWS Direct Connect resource
   - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dx-resiliency-group](#list_directconnect-resource-dx-resiliency-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
   - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
   - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
   - **Resource types (\*required):** [dxvif](#list_directconnect-resource-dxvif) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
@@ -762,6 +859,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateConnection.html)  **
   - **Description:** Grants permission to update the AWS Direct Connect dedicated connection configuration. You can update the following parameters for a connection: The connection name or The connection's MAC Security (MACsec) encryption mode
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateConnectionsBillingMode](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateConnectionsBillingMode.html)  **
+  - **Description:** Grants permission to update the billing mode for up to 200 AWS Direct Connect connections in a single request
   - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -784,6 +887,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateResiliencyGroup](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateResiliencyGroup.html)  **
+  - **Description:** Grants permission to update the attributes of a resiliency group
+  - **Resource types (\*required):** [dx-resiliency-group\*](#list_directconnect-resource-dx-resiliency-group)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateVirtualInterfaceAttributes](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateVirtualInterfaceAttributes.html)  **
   - **Description:** Grants permission to update the specified attributes of the specified virtual private interface
   - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
@@ -802,6 +911,7 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [dx-gateway](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DirectConnectGateway.html)  | arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 
+|  [dx-resiliency-group](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ResiliencyGroup.html)  | arn:${Partition}:directconnect::${Account}:dx-resiliency-group/${ResiliencyGroupId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 
 |  [dxcon](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_Connection.html)  | arn:${Partition}:directconnect:${Region}:${Account}:dxcon/${ConnectionId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 
 |  [dxlag](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_Lag.html)  | arn:${Partition}:directconnect:${Region}:${Account}:dxlag/${LagId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 
 |  [dxvif](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_VirtualInterface.html)  | arn:${Partition}:directconnect:${Region}:${Account}:dxvif/${VirtualInterfaceId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 

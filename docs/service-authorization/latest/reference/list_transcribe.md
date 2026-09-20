@@ -253,6 +253,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateLanguageModel  **
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) 
+  - **Condition key:** iam:PassedToService
+  - **Possible value(s):** transcribe.amazonaws.com
+  - **Access level:** Write
+
 - **   UpdateMedicalVocabulary  **
   - **IAM action:**  [transcribe:UpdateMedicalVocabulary](#list_transcribe-action-UpdateMedicalVocabulary) 
   - **Condition key:** 

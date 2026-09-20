@@ -770,9 +770,23 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListTestRunDependencies  **
+  - **SDK client:** resiliencehubv2
+  - **IAM action:**  [resiliencehub:ListTestRunDependencies](#list_resilience-hub-action-ListTestRunDependencies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListTestRunEvents  **
   - **SDK client:** resiliencehubv2
   - **IAM action:**  [resiliencehub:ListTestRunEvents](#list_resilience-hub-action-ListTestRunEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTestRunSourceEvents  **
+  - **SDK client:** resiliencehubv2
+  - **IAM action:**  [resiliencehub:ListTestRunSourceEvents](#list_resilience-hub-action-ListTestRunSourceEvents) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -1488,8 +1502,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListTestRunDependencies](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestRunDependencies.html)  **
+  - **Description:** Grants permission to list snapshotted dependencies for a test run
+  - **Resource types (\*required):** [service\*](#list_resilience-hub-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [ListTestRunEvents](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestRunEvents.html)  **
   - **Description:** Grants permission to list events for a test run
+  - **Resource types (\*required):** [service\*](#list_resilience-hub-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTestRunSourceEvents](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListTestRunSourceEvents.html)  **
+  - **Description:** Grants permission to list source events for a test run
   - **Resource types (\*required):** [service\*](#list_resilience-hub-resource-service)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)
   - **Access level:** Read

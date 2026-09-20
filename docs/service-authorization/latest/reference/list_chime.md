@@ -75,6 +75,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   BatchUpdateUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:BatchUpdateUser](#list_chime-action-BatchUpdateUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateAccount  **
   - **SDK client:** chime
   - **IAM action:**  [chime:CreateAccount](#list_chime-action-CreateAccount) 

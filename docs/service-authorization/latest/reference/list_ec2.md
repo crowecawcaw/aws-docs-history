@@ -1722,6 +1722,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   DescribeElasticGpus  **
+  - **IAM action:**  [ec2:DescribeElasticGpus](#list_ec2-action-DescribeElasticGpus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   DescribeExportImageTasks  **
   - **IAM action:**  [ec2:DescribeExportImageTasks](#list_ec2-action-DescribeExportImageTasks) 
   - **Condition key:** 

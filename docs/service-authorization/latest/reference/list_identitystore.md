@@ -123,7 +123,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [AddRegion](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **
   - **Description:** Grants permission to add a region to an IdentityStore
-  - **Resource types (\*required):** 
+  - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
   - **Condition keys:**  
   - **Access level:** Write
 
@@ -168,7 +168,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DeleteIdentityStore](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **
   - **Description:** Grants permission to delete an IdentityStore
-  - **Resource types (\*required):** 
+  - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
   - **Condition keys:**  
   - **Access level:** Write
 
@@ -194,18 +194,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DescribeRegion](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **
   - **Description:** Grants permission to retrieve configuration details for a specific IdentityStore region
-  - **Resource types (\*required):** 
+  - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
   - **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Access level:** Read
 
 - **   [DescribeUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeUser.html)  **
-  - **Description:** Grants permission to retrieve information about user in the specified IdentityStore
+  - **Description:** Grants permission to retrieve information about a user in the specified IdentityStore
   - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)<br />[identitystore:UserExternalIdIssuers](#list_identitystore-identitystore_UserExternalIdIssuers)
   - **Resource types (\*required):** [User\*](#list_identitystore-resource-User) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)<br />[identitystore:UserExternalIdIssuers](#list_identitystore-identitystore_UserExternalIdIssuers)
   - **Access level:** Read
 
 - **   [GetGroupId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_GetGroupId.html)  **
-  - **Description:** Grants permission to retrieve ID information about group in the specified IdentityStore
+  - **Description:** Grants permission to retrieve ID information about a group in the specified IdentityStore
   - **Resource types (\*required):** [Group\*](#list_identitystore-resource-Group) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Access level:** Read
@@ -219,7 +219,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [GetUserId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_GetUserId.html)  **
-  - **Description:** Grants permission to retrieves ID information about user in the specified IdentityStore
+  - **Description:** Grants permission to retrieve ID information about a user in the specified IdentityStore
   - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Resource types (\*required):** [User\*](#list_identitystore-resource-User) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Access level:** Read
@@ -247,26 +247,26 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** List
 
 - **   [ListGroups](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroups.html)  **
-  - **Description:** Grants permission to search for groups within the specified IdentityStore
+  - **Description:** Grants permission to retrieve information about all groups in the specified IdentityStore
   - **Resource types (\*required):** [AllGroups\*](#list_identitystore-resource-AllGroups) / **Condition keys:** [identitystore:GroupExternalIdIssuers](#list_identitystore-identitystore_GroupExternalIdIssuers)<br />[identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore) / **Condition keys:** [identitystore:GroupExternalIdIssuers](#list_identitystore-identitystore_GroupExternalIdIssuers)<br />[identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Access level:** List
 
 - **   [ListRegions](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **
   - **Description:** Grants permission to list all regions configured for an IdentityStore
-  - **Resource types (\*required):** 
+  - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
   - **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Access level:** List
 
 - **   [ListUsers](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.html)  **
-  - **Description:** Grants permission to search for users in the specified IdentityStore
+  - **Description:** Grants permission to retrieve information about all users in the specified IdentityStore
   - **Resource types (\*required):** [AllUsers\*](#list_identitystore-resource-AllUsers) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)<br />[identitystore:UserExternalIdIssuers](#list_identitystore-identitystore_UserExternalIdIssuers)
   - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)<br />[identitystore:UserExternalIdIssuers](#list_identitystore-identitystore_UserExternalIdIssuers)
   - **Access level:** List
 
 - **   [RemoveRegion](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **
   - **Description:** Grants permission to remove a region from an IdentityStore
-  - **Resource types (\*required):** 
+  - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
   - **Condition keys:**  
   - **Access level:** Write
 
@@ -284,7 +284,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateIdentityStore](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **
   - **Description:** Grants permission to update the configuration of an IdentityStore
-  - **Resource types (\*required):** 
+  - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
   - **Condition keys:**  
   - **Access level:** Write
 

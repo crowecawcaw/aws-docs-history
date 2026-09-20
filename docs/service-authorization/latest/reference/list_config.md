@@ -521,10 +521,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   PutOrganizationConfigRule  **
-  - **IAM action:**  [config:PutOrganizationConfigRule](#list_config-action-PutOrganizationConfigRule) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [config:PutOrganizationConfigRule](#list_config-action-PutOrganizationConfigRule)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   PutOrganizationConformancePack  **
   - **IAM action:**  [config:PutOrganizationConformancePack](#list_config-action-PutOrganizationConformancePack)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

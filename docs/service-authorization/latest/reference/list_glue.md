@@ -54,6 +54,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   BatchGetDataQualityRulesetEvaluationRun  **
+  - **IAM action:**  [glue:GetDataQualityRulesetEvaluationRun](#list_glue-action-GetDataQualityRulesetEvaluationRun) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   BatchGetDevEndpoints  **
   - **IAM action:**  [glue:BatchGetDevEndpoints](#list_glue-action-BatchGetDevEndpoints)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [glue:GetDevEndpoint](#list_glue-action-GetDevEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
@@ -1322,6 +1328,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** glue.amazonaws.com / **Access level:** Write
 
 - **   UpdateConnection  **
+  - **IAM action:**  [glue:DescribeConnectionType](#list_glue-action-DescribeConnectionType)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
   - **IAM action:**  [glue:UpdateConnection](#list_glue-action-UpdateConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** glue.amazonaws.com / **Access level:** Write
 

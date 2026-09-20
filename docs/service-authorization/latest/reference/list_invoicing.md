@@ -27,50 +27,62 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 - **   BatchGetInvoiceProfile  **
-  - **IAM action:**  [invoicing:BatchGetInvoiceProfile](#list_invoicing-action-BatchGetInvoiceProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [invoicing:BatchGetInvoiceProfile](#list_invoicing-action-BatchGetInvoiceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   CreateInvoiceUnit  **
   - **IAM action:**  [invoicing:CreateInvoiceUnit](#list_invoicing-action-CreateInvoiceUnit)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [invoicing:TagResource](#list_invoicing-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   CreateProcurementPortalPreference  **
   - **IAM action:**  [invoicing:CreateProcurementPortalPreference](#list_invoicing-action-CreateProcurementPortalPreference)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [invoicing:TagResource](#list_invoicing-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [aws-portal:ModifyBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   DeleteInvoiceUnit  **
-  - **IAM action:**  [invoicing:DeleteInvoiceUnit](#list_invoicing-action-DeleteInvoiceUnit)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [invoicing:DeleteInvoiceUnit](#list_invoicing-action-DeleteInvoiceUnit) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   DeleteProcurementPortalPreference  **
-  - **IAM action:**  [invoicing:DeleteProcurementPortalPreference](#list_invoicing-action-DeleteProcurementPortalPreference)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [aws-portal:ModifyBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [invoicing:DeleteProcurementPortalPreference](#list_invoicing-action-DeleteProcurementPortalPreference) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   GetInvoicePDF  **
   - **IAM action:**  [invoicing:GetInvoicePDF](#list_invoicing-action-GetInvoicePDF)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   GetInvoiceUnit  **
-  - **IAM action:**  [invoicing:GetInvoiceUnit](#list_invoicing-action-GetInvoiceUnit)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [invoicing:GetInvoiceUnit](#list_invoicing-action-GetInvoiceUnit) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   GetProcurementPortalPreference  **
-  - **IAM action:**  [invoicing:GetProcurementPortalPreference](#list_invoicing-action-GetProcurementPortalPreference)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [invoicing:GetProcurementPortalPreference](#list_invoicing-action-GetProcurementPortalPreference) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   ListInvoiceSummaries  **
   - **IAM action:**  [invoicing:ListInvoiceSummaries](#list_invoicing-action-ListInvoiceSummaries)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   ListInvoiceUnits  **
-  - **IAM action:**  [invoicing:ListInvoiceUnits](#list_invoicing-action-ListInvoiceUnits)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [invoicing:ListInvoiceUnits](#list_invoicing-action-ListInvoiceUnits) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   ListProcurementPortalPreferences  **
-  - **IAM action:**  [invoicing:ListProcurementPortalPreferences](#list_invoicing-action-ListProcurementPortalPreferences)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [invoicing:ListProcurementPortalPreferences](#list_invoicing-action-ListProcurementPortalPreferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   ListProcurementPortalSuppliers  **
   - **IAM action:**  [invoicing:ListProcurementPortalSuppliers](#list_invoicing-action-ListProcurementPortalSuppliers) 
@@ -85,12 +97,16 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** List
 
 - **   ListTagsForResource  **
-  - **IAM action:**  [invoicing:ListTagsForResource](#list_invoicing-action-ListTagsForResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [invoicing:ListTagsForResource](#list_invoicing-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   PutProcurementPortalPreference  **
-  - **IAM action:**  [invoicing:PutProcurementPortalPreference](#list_invoicing-action-PutProcurementPortalPreference)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [aws-portal:ModifyBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [invoicing:PutProcurementPortalPreference](#list_invoicing-action-PutProcurementPortalPreference) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   SendProcurementPortalValidation  **
   - **IAM action:**  [invoicing:SendProcurementPortalValidation](#list_invoicing-action-SendProcurementPortalValidation) 
@@ -99,20 +115,28 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   TagResource  **
-  - **IAM action:**  [invoicing:TagResource](#list_invoicing-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [aws-portal:ModifyBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [invoicing:TagResource](#list_invoicing-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
 
 - **   UntagResource  **
-  - **IAM action:**  [invoicing:UntagResource](#list_invoicing-action-UntagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [aws-portal:ModifyBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [invoicing:UntagResource](#list_invoicing-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
 
 - **   UpdateInvoiceUnit  **
-  - **IAM action:**  [invoicing:UpdateInvoiceUnit](#list_invoicing-action-UpdateInvoiceUnit)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [invoicing:UpdateInvoiceUnit](#list_invoicing-action-UpdateInvoiceUnit) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateProcurementPortalPreferenceStatus  **
-  - **IAM action:**  [invoicing:UpdateProcurementPortalPreferenceStatus](#list_invoicing-action-UpdateProcurementPortalPreferenceStatus)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [aws-portal:ModifyBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [invoicing:UpdateProcurementPortalPreferenceStatus](#list_invoicing-action-UpdateProcurementPortalPreferenceStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   VerifyProcurementPortalValidation  **
   - **IAM action:**  [invoicing:VerifyProcurementPortalValidation](#list_invoicing-action-VerifyProcurementPortalValidation) 

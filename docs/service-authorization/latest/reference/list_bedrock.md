@@ -244,10 +244,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeregisterMarketplaceModelEndpoint  **
   - **SDK client:** bedrock
-  - **IAM action:**  [bedrock:DeregisterMarketplaceModelEndpoint](#list_bedrock-action-DeregisterMarketplaceModelEndpoint) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [bedrock:CallWithBearerToken](#list_bedrock-action-CallWithBearerToken)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [bedrock:DeregisterMarketplaceModelEndpoint](#list_bedrock-action-DeregisterMarketplaceModelEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   ExportAutomatedReasoningPolicyVersion  **
   - **SDK client:** bedrock

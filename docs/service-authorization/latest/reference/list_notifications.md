@@ -33,16 +33,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   AssociateManagedNotificationAccountContact  **
-  - **IAM action:**  [notifications:AssociateManagedNotificationAccountContact](#list_notifications-action-AssociateManagedNotificationAccountContact) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [notifications:AssociateManagedNotificationAccountContact](#list_notifications-action-AssociateManagedNotificationAccountContact)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [notifications:SubscribeSensitiveEvents](#list_notifications-action-SubscribeSensitiveEvents)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   AssociateManagedNotificationAdditionalChannel  **
-  - **IAM action:**  [notifications:AssociateManagedNotificationAdditionalChannel](#list_notifications-action-AssociateManagedNotificationAdditionalChannel) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [notifications:AssociateManagedNotificationAdditionalChannel](#list_notifications-action-AssociateManagedNotificationAdditionalChannel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [notifications:SubscribeSensitiveEvents](#list_notifications-action-SubscribeSensitiveEvents)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   AssociateOrganizationalUnit  **
   - **IAM action:**  [notifications:AssociateOrganizationalUnit](#list_notifications-action-AssociateOrganizationalUnit) 
@@ -133,10 +129,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Read
 
 - **   GetManagedNotificationEvent  **
-  - **IAM action:**  [notifications:GetManagedNotificationEvent](#list_notifications-action-GetManagedNotificationEvent) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
+  - **IAM action:**  [notifications:AccessSensitiveEvents](#list_notifications-action-AccessSensitiveEvents)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [notifications:GetManagedNotificationEvent](#list_notifications-action-GetManagedNotificationEvent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   GetNotificationConfiguration  **
   - **IAM action:**  [notifications:GetNotificationConfiguration](#list_notifications-action-GetNotificationConfiguration) 
@@ -187,10 +181,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** List
 
 - **   ListManagedNotificationEvents  **
-  - **IAM action:**  [notifications:ListManagedNotificationEvents](#list_notifications-action-ListManagedNotificationEvents) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** List
+  - **IAM action:**  [notifications:AccessSensitiveEvents](#list_notifications-action-AccessSensitiveEvents)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [notifications:ListManagedNotificationEvents](#list_notifications-action-ListManagedNotificationEvents)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
 
 - **   ListMemberAccounts  **
   - **IAM action:**  [notifications:ListMemberAccounts](#list_notifications-action-ListMemberAccounts) 
@@ -347,7 +339,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [DisassociateOrganizationalUnit](https://docs.aws.amazon.com/notifications/latest/APIReference/API_DisassociateOrganizationalUnit.html)  **
-  - **Description:** Grants permission to disassociate an Organizational Unit to a particular Notification Configuration
+  - **Description:** Grants permission to remove an Organizational Unit from a NotificationConfiguration
   - **Resource types (\*required):** [NotificationConfiguration\*](#list_notifications-resource-NotificationConfiguration)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_notifications-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -437,7 +429,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** List
 
 - **   [ListMemberAccounts](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListMemberAccounts.html)  **
-  - **Description:** Grants permission to list Member Accounts for a Notification Configuration
+  - **Description:** Grants permission to list MemberAccounts by AdminNotificationConfiguration
   - **Resource types (\*required):** [NotificationConfiguration\*](#list_notifications-resource-NotificationConfiguration)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_notifications-aws_ResourceTag___TagKey_)
   - **Access level:** List
@@ -461,7 +453,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** List
 
 - **   [ListOrganizationalUnits](https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListOrganizationalUnits.html)  **
-  - **Description:** Grants permission to list Organizational Units for a Notification Configuration
+  - **Description:** Grants permission to list Organizational Units by NotificationConfiguration
   - **Resource types (\*required):** [NotificationConfiguration\*](#list_notifications-resource-NotificationConfiguration)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_notifications-aws_ResourceTag___TagKey_)
   - **Access level:** List
@@ -496,6 +488,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [UpdateManagedNotificationChannelAssociation](https://docs.aws.amazon.com/notifications/latest/APIReference/API_UpdateManagedNotificationChannelAssociation.html)  **
+  - **Description:** Grants permission to toggle the sensitive-events subscription on an existing Managed Notification channel association
+  - **Resource types (\*required):** [ManagedNotificationConfiguration\*](#list_notifications-resource-ManagedNotificationConfiguration)
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [UpdateNotificationConfiguration](https://docs.aws.amazon.com/notifications/latest/APIReference/API_UpdateNotificationConfiguration.html)  **
   - **Description:** Grants permission to update a NotificationConfiguration
   - **Resource types (\*required):** [NotificationConfiguration\*](#list_notifications-resource-NotificationConfiguration)
@@ -511,10 +509,32 @@ The following actions are defined by AWS User Notifications but are not directly
 
 
 
-| Actions | Description | Resource types (\*required) | Condition keys | Access level | 
-| --- | --- | --- | --- | --- | 
-|   [GetFeatureOptInStatus](https://docs.aws.amazon.com/notifications/latest/userguide/managing-notification-features.html)  | Grants permission to read the opt-in status of an AWS User Notification Service feature |  |   | Read | 
-|   [PutFeatureOptInStatus](https://docs.aws.amazon.com/notifications/latest/userguide/managing-notification-features.html)  | Grants permission to update the opt-in status of an AWS User Notification Service feature |  |   | Write | 
+
+- **   [AccessSensitiveEvents](https://docs.aws.amazon.com/notifications/latest/userguide/AccessSensitiveEvents-security-iam.html)  **
+  - **Description:** Grants permission to access sensitive Notification events
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetFeatureOptInStatus](https://docs.aws.amazon.com/notifications/latest/userguide/managing-notification-features.html)  **
+  - **Description:** Grants permission to read the opt-in status of an AWS User Notification Service feature
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [PutFeatureOptInStatus](https://docs.aws.amazon.com/notifications/latest/userguide/managing-notification-features.html)  **
+  - **Description:** Grants permission to update the opt-in status of an AWS User Notification Service feature
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SubscribeSensitiveEvents](https://docs.aws.amazon.com/notifications/latest/userguide/SubscribeSensitiveEvents-security-iam.html)  **
+  - **Description:** Grants permission to subscribe to sensitive events on an existing Managed Notification channel association
+  - **Resource types (\*required):** [ManagedNotificationConfiguration\*](#list_notifications-resource-ManagedNotificationConfiguration)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS User Notifications
 <a name="list_notifications-resources-for-iam-policies"></a>
