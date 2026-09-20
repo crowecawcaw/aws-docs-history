@@ -14,7 +14,6 @@ The following release notes include information for clients release 6.74. For in
 | --- | --- | 
 | Android | 6.74.7 | 
 | iOS | 6.74.9 | 
-| Desktop (Mac, Windows, Linux) | 6.74.11 | 
 
 **All platforms**
 
