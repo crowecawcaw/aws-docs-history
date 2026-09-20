@@ -21,8 +21,29 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
    + {{<product>}} is the file name of the file that you downloaded. For example, `elemental_production_conductor_file_2.18.0.123456.run`.
    + -l is a letter, not a number. 
 
-1. You are prompted as described in the table below.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/install-kvm-cf-ig-install-sw.html)
+1. You are prompted as described in the table below.
+
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Enter this server’s Hostname</code></td><td>Accept the suggestion, which is the value that you entered when you installed the OVA.</td></tr>
+  <tr><td><code>Is eth0 a management interface?</code></td><td>Type <b>Yes</b>.</td></tr>
+  <tr><td><code>Does eth0 use DHCP to get its IP address?</code></td><td>Accept the suggestion.</td></tr>
+  <tr><td><code>Enter eth0's IP address: </code></td><td>If the prompt appears, accept the suggestion.</td></tr>
+  <tr><td><code>Enter eth0's NETMASK:</code></td><td>If the prompt appears, accept the suggestion.</td></tr>
+  <tr><td><code>Enter eth0's Gateway (or type none):</code></td><td>If the prompt appears, accept the suggestion.</td></tr>
+  <tr><td><code>Keep this configured nameserver: 10.6.16.10?</code></td><td>Skip; you set up a nameserver in the next phase of configuration.</td></tr>
+  <tr><td><code>Would you like to configure eth1?</code></td><td>Type <b>No</b>; you can configure eth1 in the next phase of the configuration.</td></tr>
+  <tr><td><code>The firewall for this system is currently disabled. Would you like to enable it?</code></td><td>Skip; you set up the firewall in the next phase of configuration.</td></tr>
+  <tr><td><code>Select time zone ('n' for more)</code></td><td>Enter the time zone you want to show on the web interface of the nodes. This setting does not affect activity via SSH or via the REST API.</td></tr>
+  <tr><td><code>Would you like to start the Elemental service now?</code></td><td>Type <b>Yes</b>.</td></tr>
+</tbody>
+</table>
+
 
    The software is installed. This message confirms that installation and configuration are complete.
 

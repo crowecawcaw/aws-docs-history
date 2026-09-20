@@ -13,14 +13,51 @@ Perform these steps from your workstation.
 
 1. In the **New VM** dialog, choose **Import existing disk image** and select **Forward**.
 
-1. Complete the fields as described in the following table and then select **Forward**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/install-kvm-cf-ig-install-vm.html)
+1. Complete the fields as described in the following table and then select **Forward**.
 
-1. Complete the memory and CPU fields as described in the following table and then select **Forward**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/install-kvm-cf-ig-install-vm.html)
 
-1. Complete the installation fields as described in the following table and choose **Finish**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/install-kvm-cf-ig-install-vm.html)
+
+<table>
+<thead>
+  <tr><th>Screen and Field</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Provide the existing storage path</b></td><td>Select the location where the OVA image file is located.</td></tr>
+  <tr><td><b>OS type</b></td><td>Select <b>Linux</b>.</td></tr>
+  <tr><td><b>Version</b></td><td>Select <b>CentOS 6.5</b>.</td></tr>
+</tbody>
+</table>
+
+
+1. Complete the memory and CPU fields as described in the following table and then select **Forward**.
+
+
+
+<table>
+<thead>
+  <tr><th>Screen and Field</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Memory (RAM)</b></td><td>Choose a minimum of 15259 MiB (16GB). If your physical system has additional RAM available, choose more for improved performance. If you oversubscribe your memory for your virtual machine and there isn't enough for the host, then you might see performance degradation in the AWS Elemental Conductor File software. </td></tr>
+  <tr><td><b>CPUs</b></td><td>Choose <b>24</b>. Ensure that the number of cores you select matches your AWS Elemental licensing. To check the cores available with your license, see the <b>Activations</b> information at <a href="https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations">AWS Elemental Support Center Activations</a>. </td></tr>
+</tbody>
+</table>
+
+
+1. Complete the installation fields as described in the following table and choose **Finish**.
+
+
+
+<table>
+<thead>
+  <tr><th>Screen and Field</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Name</b></td><td>Type a descriptive name for the VM. This will be the hostname that you use to access AWS Elemental Conductor File.</td></tr>
+  <tr><td><b>Network selection</b></td><td>Use this section to configure your system according to your network setup.</td></tr>
+</tbody>
+</table>
+
 
    The OVA is installed and the VM is created.
 
