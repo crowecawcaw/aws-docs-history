@@ -16,9 +16,23 @@ After you create a device profile, when you retrieve information about the profi
 
 1. Add your wireless device to AWS IoT Core for Amazon Sidewalk. Specify a destination name and choose the device profile that you created in the previous step. 
    + (Console) When adding your Sidewalk device, enter a destination name, and choose the profile that you created.
-   + (API) Use the `CreateWirelessDevice` API operation. Specify a destination name and the ID of the device profile obtained previously.  
-**Wireless device parameters**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot-wireless/latest/developerguide/iot-sidewalk-create-device.html)
+   + (API) Use the `CreateWirelessDevice` API operation. Specify a destination name and the ID of the device profile obtained previously.
+
+
+**Wireless device parameters**  
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td>Destination name (uplink)</td><td>The name of the uplink destination that describes the AWS IoT rules for processing the device's data that other AWS services will use.</td><td>If you haven't already created a destination, you can provide any string value. AWS IoT Core for Amazon Sidewalk will create an empty destination when creating the device, which you can then update when adding your destination.</td></tr>
+  <tr><td>Device profile</td><td>The device profile that you previously created.</td><td> – </td></tr>
+  <tr><td>Positioning</td><td>The Sidewalk positioning option. You can enable or disable this. </td><td>You must enable positioning to use the location destination feature. If you enable device location for the Sidewalk-enabled device, your raw uplink payload won't be propagated to the destination. </td></tr>
+  <tr><td>Destination name (device location)</td><td>(Optional) The name of the destination for the device location.</td><td>You must enable positioning to use the location destination feature. If you enable device location for the Sidewalk-enabled device, your raw uplink payload won't be propagated to the destination.</td></tr>
+</tbody>
+</table>
+
 
 1. Obtain the JSON file that contains the required information for provisioning your end device.
    + (Console) Download this file from the details page of the Sidewalk device that you created.
