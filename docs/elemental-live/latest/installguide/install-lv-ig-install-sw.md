@@ -122,8 +122,32 @@ If you don't want to set up this feature, run the installer with these options:
    [elemental@hostname ~]$ sudo sh ./elemental_production_live_cpu_2.25.4.12345.run {{options}}
    ```
 
-1.  Follow the prompts. This table specifies the prompts that appear when you don't include any options for the installer.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/installguide/install-lv-ig-install-sw.html)
+1.  Follow the prompts. This table specifies the prompts that appear when you don't include any options for the installer.
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Do you agree to these terms</code></td><td>This prompt appears after you have paged through the EULA (End User License Agreement).<br />Enter <b>Yes</b> or <b>No</b>. (You must enter Yes to continue.)</td></tr>
+  <tr><td><code>Enter this server's Hostname</code></td><td>Type the hostname of this hardware unit. For example, <b>live-01</b></td></tr>
+  <tr><td><code>Would you like to configure eth1</code></td><td>If you type <b>No</b>, you can configure eth1 in the next phase of the configuration</td></tr>
+  <tr><td><code>The firewall for this system is currently disabled. Would you like to enable it?</code></td><td>If you type <b>No</b> you can set up the firewall in the next phase of the configuration</td></tr>
+  <tr><td><code>Is this machine a part of or intended to be a part of a Conductor Live 3 cluster?</code></td><td>Type <b>Yes</b> or <b>No</b></td></tr>
+  <tr><td><code>Will this machine require use of SNMP alerts?</code></td><td>Type <b>Yes</b> or <b>No</b></td></tr>
+  <tr><td><code>Will this machine be ingesting RTMP?</code></td><td>Type <b>Yes</b> or <b>No</b></td></tr>
+  <tr><td><code>Will this machine ingest MPEG-TS over UDP (ports 5000-5100)</code></td><td>Type <b>Yes</b> or <b>No</b></td></tr>
+  <tr><td><code>Will this machine serve files using Windows file-sharing (Samba/CIFS)?</code></td><td>Type <b>Yes</b> or <b>No</b></td></tr>
+  <tr><td><code>Will this machine be an NTP server?</code></td><td>Type <b>Yes</b> or <b>No</b></td></tr>
+  <tr><td><code>Enable conversion of eligible captions using OCR technology?</code></td><td>Type <b>Yes</b> or <b>No</b>. For information about requirements for this feature, see <a href="#install-live-sw-ocr-2231">Setting up OCR Conversion in Versions 2.23.1 and later</a>.</td></tr>
+  <tr><td><code>Select time zone ('n' for more)</code></td><td>Enter the time zone you want to show on the web interface of the nodes. This setting does not affect activity via SSH or via the REST API.</td></tr>
+  <tr><td><code>Do you wish to enable authentication?</code></td><td>Type <b>Yes</b> or <b>No</b> if you want to set up so that users must log in to use Elemental Live</td></tr>
+  <tr><td><code>For security purposes, we require that you change the default password.</code></td><td>This prompt is shown if you are still using the default password.<br />We recommend that you create a strong password:<ul><li> Minimum 8 characters </li><li> At least one uppercase letter, at least one lowercase letter, at least one number, and at least one symbol. </li></ul></td></tr>
+  <tr><td><code>Would you like to start the Elemental service now?</code></td><td>Type <b>Yes</b></td></tr>
+</tbody>
+</table>
+
 
    When the software install is complete, this message appears:
 
