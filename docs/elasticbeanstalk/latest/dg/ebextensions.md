@@ -16,6 +16,9 @@ option_settings:
 
 We recommend using YAML for your configuration files, because it's more readable than JSON. YAML supports comments, multi-line commands, several alternatives for using quotes, and more. However, you can make any configuration change in Elastic Beanstalk configuration files identically using either YAML or JSON.
 
+**Note**  
+Configuration files apply only to Beanstalk Standard environments. They customize the Amazon EC2 instances that run your application, which a Beanstalk Cluster environment doesn't have. With Beanstalk Cluster, install your application's dependencies in the container image, either in your Dockerfile or in the source that Elastic Beanstalk builds, and set configuration options with `--option-settings` or in the console. See [Building container images for Beanstalk Cluster environments](beanstalk-cluster-app-versions.md) and [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md).
+
 **Tip**  
 When you are developing or testing new configuration files, launch a clean environment running the default application and deploy to that. Poorly formatted configuration files will cause a new environment launch to fail unrecoverably.
 

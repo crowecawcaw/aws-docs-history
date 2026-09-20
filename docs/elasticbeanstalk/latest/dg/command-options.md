@@ -3,7 +3,7 @@
 # Configuration options
 <a name="command-options"></a>
 
-Elastic Beanstalk defines a large number of configuration options that you can use to configure your environment's behavior and the resources that it contains. Configuration options are organized into namespaces like `aws:autoscaling:asg`, which defines options for an environment's Auto Scaling group.
+Elastic Beanstalk defines a large number of configuration options that you can use to configure your environment's behavior and the resources that it contains. Configuration options are organized into namespaces like `aws:autoscaling:asg`, which defines options for an environment's Auto Scaling group. The available namespaces depend on your environment's mode: Beanstalk Standard environments use namespaces such as `aws:autoscaling:asg`, while Beanstalk Cluster environments use namespaces in the `aws:elasticbeanstalk:eks` family.
 
 The Elastic Beanstalk console and EB CLI set configuration options when you create an environment, including options that you set explicitly, and [recommended values](#configuration-options-recommendedvalues) defined by the client. You can also set configuration options in saved configurations and configuration files. If the same option is set in multiple locations, the value used is determined by the [order of precedence](#configuration-options-precedence).
 
@@ -12,12 +12,12 @@ Configuration option settings can be composed in text format and saved prior to 
 + [Setting configuration options during environment creation](environment-configuration-methods-during.md)
 + [Setting configuration options after environment creation](environment-configuration-methods-after.md)
 
-For a complete list of namespaces and options, including default and supported values for each, see [General options for all environments](command-options-general.md) and [Platform specific options](command-options-specific.md).
+For a complete list of namespaces and options, including default and supported values for each, see [Configuration options for Beanstalk Standard environments](command-options-general.md) and [Platform specific options](command-options-specific.md). For a Beanstalk Cluster environment, see [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md) instead.
 
 ## Precedence
 <a name="configuration-options-precedence"></a>
 
-During environment creation, configuration options are applied from multiple sources with the following precedence, from highest to lowest:
+In a Beanstalk Standard environment, configuration options are applied from multiple sources during environment creation, with the following precedence, from highest to lowest:
 + **Settings applied directly to the environment** – Settings specified during a create environment or update environment operation on the Elastic Beanstalk API by any client, including the Elastic Beanstalk console, EB CLI, AWS CLI, and SDKs. The Elastic Beanstalk console and EB CLI also apply [recommended values](#configuration-options-recommendedvalues) for some options that apply at this level unless overridden.
 + **Saved Configurations** – Settings for any options that are not applied directly to the environment are loaded from a saved configuration, if specified.
 + **Configuration Files (.ebextensions)** – Settings for any options that are not applied directly to the environment, and also not specified in a saved configuration, are loaded from configuration files in the `.ebextensions` folder at the root of the application source bundle.
@@ -36,7 +36,7 @@ When you create the environment, Elastic Beanstalk sets the `MinSize` option in 
 ## Recommended values
 <a name="configuration-options-recommendedvalues"></a>
 
-The Elastic Beanstalk Command Line Interface (EB CLI) and Elastic Beanstalk console provide recommended values for some configuration options. These values can be different from the default values and are set at the API level when your environment is created. Recommended values allow Elastic Beanstalk to improve the default environment configuration without making backwards incompatible changes to the API.
+For Beanstalk Standard environments, the Elastic Beanstalk Command Line Interface (EB CLI) and Elastic Beanstalk console provide recommended values for some configuration options. These values can be different from the default values and are set at the API level when your environment is created. Recommended values allow Elastic Beanstalk to improve the default environment configuration without making backwards incompatible changes to the API.
 
 For example, both the EB CLI and Elastic Beanstalk console set the configuration option for EC2 instance type (`InstanceType` in the `aws:autoscaling:launchconfiguration` namespace). Each client provides a different way of overriding the default setting. In the console you can choose a different instance type from a drop down menu on the **Configuration Details** page of the **Create New Environment** wizard. With the EB CLI, you can use the `--instance_type` parameter for [**eb create**](eb3-create.md).
 

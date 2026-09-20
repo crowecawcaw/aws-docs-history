@@ -5,13 +5,22 @@
 
 Becoming familiar with the concepts and terms will help you gain an understanding needed for deploying your applications with Elastic Beanstalk.
 
+Elastic Beanstalk offers two modes: Standard and Cluster. Beanstalk Standard runs applications directly on Amazon EC2. Beanstalk Cluster runs applications as containers on Amazon EKS. For a side-by-side comparison of the two modes, see [Differences from Beanstalk Standard](beanstalk-cluster-concepts.md#beanstalk-cluster-differences).
+
+The following diagram depicts two Beanstalk Standard environments: one web server environment and one worker environment.
+
 ![Illustrative diagram showing the relationship between an Elastic Beanstalk application and web/worker environments.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview.png)
+
+
+The following diagram depicts two Beanstalk Cluster environments sharing an EKS cluster.
+
+![Two Beanstalk Cluster environments for one Elastic Beanstalk application share a service-operated Amazon EKS cluster because they are in the same AWS account and use the same VPC subnet set. Each environment has an optional Application Load Balancer and isolated application replicas. Amazon EKS Auto Mode supplies shared node capacity.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview-cluster.png)
 
 
 ## Application
 <a name="concepts-application"></a>
 
-An Elastic Beanstalk *application* is a container for Elastic Beanstalk components, including *environments*, *versions*, and *environment configurations*. Within an Elastic Beanstalk application, you manage all the resources relevant to running your code.
+An Elastic Beanstalk *application* is a logical grouping of Elastic Beanstalk components, including *environments*, *versions*, and *environment configurations*. Within an Elastic Beanstalk application, you manage all the resources relevant to running your code.
 
 ## Application version
 <a name="concepts-version"></a>
@@ -28,7 +37,7 @@ An *environment* is a collection of AWS resources running an application version
 ## Environment tier
 <a name="concepts-tier"></a>
 
-When you launch an Elastic Beanstalk environment, you first choose an environment tier. The environment tier designates the type of application that the environment runs and determines what resources Elastic Beanstalk provisions to support it. An application that serves HTTP requests runs in a [web server environment tier](concepts-webserver.md). A backend environment that pulls tasks from an Amazon Simple Queue Service (Amazon SQS) queue runs in a [worker environment tier](concepts-worker.md).
+When you launch an Elastic Beanstalk environment, you first choose an environment tier. The environment tier determines what resources Elastic Beanstalk provisions to support it. An application that runs directly on Amazon EC2 and serves HTTP requests runs in a [web server environment tier](concepts-webserver.md). A backend environment that runs directly on Amazon EC2 and pulls tasks from an Amazon Simple Queue Service (Amazon SQS) queue runs in a [worker environment tier](concepts-worker.md). An application that runs as containers on Amazon Elastic Kubernetes Service (Amazon EKS) runs in a cluster environment tier.
 
 ## Environment configuration
 <a name="concepts-environmentconfig"></a>
@@ -43,6 +52,6 @@ A *saved configuration* is a template that you can use as a starting point for c
 ## Platform
 <a name="concepts-platform"></a>
 
-A *platform* is a combination of an operating system, programming language runtime, web server, application server, and Elastic Beanstalk components. You design and target your web application to a platform. Elastic Beanstalk provides a variety of platforms on which you can build your applications.
+A *platform* is a combination of an operating system, programming language runtime, web server, application server, and Elastic Beanstalk components. With Beanstalk Standard, you design and target your web application to a platform. Elastic Beanstalk provides a variety of platforms on which you can build your applications.
 
 For details, see [Elastic Beanstalk platforms](concepts-all-platforms.md).

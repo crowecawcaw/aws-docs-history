@@ -38,7 +38,6 @@ The first time you create an environment Elastic Beanstalk prompts you to create
 + [Using enhanced health reporting with the Elastic Beanstalk API](health-enhanced-api.md)
 + [Enhanced health log format](health-enhanced-serverlogs.md)
 + [Notifications and troubleshooting](environments-health-enhanced-notifications.md)
-+ [AI-powered environment analysis](health-ai-analysis.md)
 
 ## The Elastic Beanstalk health agent
 <a name="health-enhanced-agent"></a>

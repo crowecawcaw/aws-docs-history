@@ -10,10 +10,6 @@ The following topics show how to configure your environment in the console. They
 **Topics**
 + [Provisioned resources](#customize-containers-resources)
 + [Environment configuration using the Elastic Beanstalk console](environments-cfg-console.md)
-+ [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.ec2.md)
-+ [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.as.md)
-+ [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md)
-+ [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md)
 + [Your AWS Elastic Beanstalk environment security](using-features.managing.security.md)
 + [Tagging resources in your Elastic Beanstalk environments](using-features.tagging.md)
 + [Environment variables and other software settings](environments-cfg-softwaresettings.md)
@@ -24,16 +20,23 @@ The following topics show how to configure your environment in the console. They
 ## Provisioned resources
 <a name="customize-containers-resources"></a>
 
-When you create a web server environment, Elastic Beanstalk creates multiple resources to support the operation of your application. This chapter describes how to customize these resources for your Elastic Beanstalk environment.
-+ **EC2 instance** – An Amazon Elastic Compute Cloud (Amazon EC2) virtual machine configured to run web apps on the platform that you choose.
+When you create an environment, Elastic Beanstalk creates resources to support the operation of your application. Some resources are common to both modes; others depend on whether you use Beanstalk Standard or Beanstalk Cluster. This chapter describes how to customize these resources for your Elastic Beanstalk environment.
++ **Beanstalk Standard** – For an environment that runs on Amazon Elastic Compute Cloud (Amazon EC2), Elastic Beanstalk provisions the following resources:
+  + **EC2 instance** – An Amazon EC2 virtual machine configured to run web apps on the platform that you choose.
 
-  Each platform runs a specific set of software, configuration files, and scripts to support a specific language version, framework, web container, or combination of these. Most platforms use either Apache or NGINX as a reverse proxy that sits in front of your web app, forwards requests to it, serves static assets, and generates access and error logs.
-+ **Instance security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This resource lets HTTP traffic from the load balancer reach the EC2 instance running your web app. By default, traffic isn't allowed on other ports.
-+ **Load balancer** – An Elastic Load Balancing load balancer configured to distribute requests to the instances running your application. A load balancer also eliminates the need to expose your instances directly to the internet.
-+ **Load balancer security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This resource lets HTTP traffic from the internet reach the load balancer. By default, traffic isn't allowed on other ports.
-+ **Auto Scaling group** – An Auto Scaling group configured to replace an instance if it is terminated or becomes unavailable.
+    Each platform runs a specific set of software, configuration files, and scripts to support a specific language version, framework, web container, or combination of these. Most platforms use either Apache or NGINX as a reverse proxy that sits in front of your web app, forwards requests to it, serves static assets, and generates access and error logs.
+  + **Instance security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This resource lets HTTP traffic from the load balancer reach the EC2 instance running your web app. By default, traffic isn't allowed on other ports.
+  + **Load balancer security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This resource lets HTTP traffic from the internet reach the load balancer. By default, traffic isn't allowed on other ports.
+  + **Auto Scaling group** – An Auto Scaling group configured to replace an instance if it is terminated or becomes unavailable.
+  + **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor the load on the instances in your environment and that are triggered if the load is too high or too low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
++ **Beanstalk Cluster** – For an environment that runs on Amazon EKS, Elastic Beanstalk provisions the following resources:
+  + **Amazon EKS cluster** – An Amazon EKS cluster that Elastic Beanstalk creates and operates. Environments in the same account that use the same subnets share a cluster.
+  + **Compute** – Node capacity provided by Amazon EKS Auto Mode, which adds and removes nodes to fit the application replicas scheduled on the cluster.
+  + **IAM roles** – The cluster and node roles that you provide for Amazon EKS, and the observability role that Elastic Beanstalk uses to publish the environment's metrics, logs, and traces.
+
+  For more information about this infrastructure, see [Beanstalk Cluster architecture](beanstalk-cluster-concepts.md).
++ **Load balancer** – A load balancer that distributes incoming requests across your application. A load balancer also eliminates the need to expose your application directly to the internet.
 + **Amazon S3 bucket** – A storage location for your source code, logs, and other artifacts that are created when you use Elastic Beanstalk.
-+ **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor the load on the instances in your environment and that are triggered if the load is too high or too low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
 + **CloudFormation stack** – Elastic Beanstalk uses CloudFormation to launch the resources in your environment and propagate configuration changes. The resources are defined in a template that you can view in the [CloudFormation console](https://console.aws.amazon.com/cloudformation).
 + **Domain name** – A domain name that routes to your web app in the form *{{subdomain}}.{{region}}.elasticbeanstalk.com*.
 **Domain security**  

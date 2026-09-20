@@ -9,7 +9,7 @@ Some Elastic Beanstalk platforms define option namespaces that are specific to t
 Previously, in platform versions based on Amazon Linux AMI (preceding Amazon Linux 2), the following two features and their respective namespaces were considered to be platform-specific features, and were listed here per platform:  
 **Proxy configuration for static files** – `aws:elasticbeanstalk:environment:proxy:staticfiles`
 **AWS X-Ray support** – `aws:elasticbeanstalk:xray`
-In Amazon Linux 2 platform versions, Elastic Beanstalk implements these features in a consistent way across all supporting platforms. The related namespace are now listed in the [General options for all environments](command-options-general.md) page. We only kept mention of them on this page for platforms who had differently-named namespaces.
+In Amazon Linux 2 platform versions, Elastic Beanstalk implements these features in a consistent way across all supporting platforms. The related namespace are now listed in the [Configuration options for Beanstalk Standard environments](command-options-general.md) page. We only kept mention of them on this page for platforms who had differently-named namespaces.
 
 **Topics**
 + [Docker platform options](#command-options-docker)

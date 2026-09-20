@@ -10,6 +10,9 @@ Elastic Beanstalk uses Amazon SNS for notifications. For information about Amazo
 
 When you configure notifications for your environment, Elastic Beanstalk creates an Amazon SNS topic for your environment on your behalf. To send messages to an Amazon SNS topic, Elastic Beanstalk must have the required permission. For more information, see [Configuring permissions to send notifications](#configuration-notifications-permissions).
 
+**Note**  
+Environment notifications are currently available only for Beanstalk Standard environments.
+
 When a notable [event](using-features.events.md) occurs, Elastic Beanstalk sends a message to the topic. Then, Amazon SNS relays the messages that it receives to the topic's subscribers. Notable events include environment creation errors and all changes in [environment and instance health](health-enhanced.md). Events for Amazon EC2 Auto Scaling operations (like adding and removing instances from the environment) and other informational events don't trigger notifications.
 
 ![Amazon SNS notification email](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/sns-notification-email.png)

@@ -3,6 +3,9 @@
 # Deployment policies and settings
 <a name="using-features.rolling-version-deploy"></a>
 
+**Note**  
+With Beanstalk Cluster, rolling behavior is configured through the `max-surge` and `max-unavailable` options in the `aws:elasticbeanstalk:eks:environment:deployment:strategy:rolling` namespace, rather than through the Amazon EC2 and Auto Scaling mechanics and the `aws:elasticbeanstalk:command` and `aws:elasticbeanstalk:trafficsplitting` namespaces described on this page. For those options, see [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md). For what Beanstalk Cluster supports, see the notes on each policy in [Choosing a deployment policy](using-features.deploy-existing-version.md#deployments-scenarios).
+
 AWS Elastic Beanstalk provides several options for how [deployments](using-features.deploy-existing-version.md) are processed, including deployment policies (*All at once*, *Rolling*, *Rolling with additional batch*, *Immutable*, and *Traffic splitting*) and options that let you configure batch size and health check behavior during deployments. By default, your environment uses all-at-once deployments. If you created the environment with the EB CLI and it's a scalable environment (you didn't specify the `--single` option), it uses rolling deployments.
 
 With *rolling deployments*, Elastic Beanstalk splits the environment's Amazon EC2 instances into batches and deploys the new version of the application to one batch at a time. It leaves the rest of the instances in the environment running the old version of the application. During a rolling deployment, some instances serve requests with the old version of the application, while instances in completed batches serve other requests with the new version. For details, see [How rolling deployments work](#environments-cfg-rollingdeployments-method).

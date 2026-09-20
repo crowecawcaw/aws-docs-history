@@ -28,7 +28,7 @@ When you configure an SSL certificate for your environment, data is encrypted be
 ## Persistent storage
 <a name="concepts.concepts.design.storage"></a>
 
-Elastic Beanstalk applications run on Amazon EC2 instances that have no persistent local storage. When the Amazon EC2 instances terminate, the local file system isn't saved. New Amazon EC2 instances start with a default file system. We recommend that you configure your application to store data in a persistent data source. AWS offers a number of persistent storage services that you can use for your application. The following table lists them.
+Elastic Beanstalk applications run on Amazon EC2 instances that have no persistent local storage. This is true for Beanstalk Standard as well as Beanstalk Cluster, in which Amazon EC2 instances are running underneath an Amazon EKS cluster. When the Amazon EC2 instances terminate, the local file system isn't saved. New Amazon EC2 instances start with a default file system. We recommend that you configure your application to store data in a persistent data source. AWS offers a number of persistent storage services that you can use for your application. The following table lists them.
 
 
 | Storage service | Service documentation | Elastic Beanstalk integration | 
@@ -40,13 +40,13 @@ Elastic Beanstalk applications run on Amazon EC2 instances that have no persiste
 | [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/) | [Amazon Relational Database Service Documentation](https://aws.amazon.com/documentation/rds/) | [Using Elastic Beanstalk with Amazon RDS](AWSHowTo.RDS.md) | 
 
 **Note**  
-Elastic Beanstalk creates a *webapp* user for you to set up as the owner of application directories on EC2 instances. For Amazon Linux 2 platform versions that are released on or after [Feburary 3, 2022](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2022-02-03-linux.html#release-2022-02-03-linux.changes), Elastic Beanstalk assigns the *webapp* user a uid (user id) and gid (group id) value of 900 for new environments. It does the same for existing environments following a platform version update. This approach keeps consistent access permission for the *webapp* user to permanent file system storage.  
+Elastic Beanstalk Standard creates a *webapp* user for you to set up as the owner of application directories on EC2 instances. For Amazon Linux 2 platform versions that are released on or after [Feburary 3, 2022](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2022-02-03-linux.html#release-2022-02-03-linux.changes), Elastic Beanstalk assigns the *webapp* user a uid (user id) and gid (group id) value of 900 for new environments. It does the same for existing environments following a platform version update. This approach keeps consistent access permission for the *webapp* user to permanent file system storage.  
 In the unlikely situation that another user or process is already using 900, the operating system defaults the *webapp* user uid and gid to another value. Run the Linux command **id webapp** on your EC2 instances to verify the uid and gid values that are assigned to the *webapp* user.
 
 ## Fault tolerance
 <a name="concepts.concepts.design.faulttolerance"></a>
 
-As a rule of thumb, you should be a pessimist when designing architecture for the cloud. Leverage the elasticity that it offers. Always design, implement, and deploy for automated recovery from failure. Use multiple Availability Zones for your Amazon EC2 instances and for Amazon RDS. Availability Zones are conceptually like logical data centers. Use Amazon CloudWatch to get more visibility into the health of your Elastic Beanstalk application and take appropriate actions in case of hardware failure or performance degradation. Configure your Auto Scaling settings to maintain your fleet of Amazon EC2 instances at a fixed size so that unhealthy Amazon EC2 instances are replaced by new ones. If you're using Amazon RDS, then set the retention period for backups, so that Amazon RDS can perform automated backups.
+As a rule of thumb, you should be a pessimist when designing architecture for the cloud. Leverage the elasticity that it offers. Always design, implement, and deploy for automated recovery from failure. Use multiple Availability Zones for your compute and storage resources. Availability Zones are conceptually like logical data centers. Use Amazon CloudWatch to get more visibility into the health of your Elastic Beanstalk application and take appropriate actions in case of hardware failure or performance degradation. With Beanstalk Standard, configure your Auto Scaling settings to maintain your fleet of Amazon EC2 instances so that unhealthy instances are replaced by new ones. With Beanstalk Cluster, Amazon EKS reschedules your workloads away from unhealthy nodes and replaces them automatically. If you're using Amazon RDS, then set the retention period for backups, so that Amazon RDS can perform automated backups.
 
 ## Content delivery
 <a name="concepts.concepts.design.cloudfront"></a>
@@ -56,13 +56,15 @@ When users connect to your website, their requests may be routed through a numbe
 ## Software updates and patching
 <a name="concepts.concepts.design.updates"></a>
 
-AWS Elastic Beanstalk regularly releases [platform updates](using-features.platform.upgrade.md) to provide fixes, software updates, and new features. Elastic Beanstalk offers several options to handle platform updates. With [managed platform updates](environment-platform-update-managed.md) your environment automatically upgrades to the latest version of a platform during a scheduled maintenance window while your application remains in service. For environments created on November 25, 2019 or later using the Elastic Beanstalk console, managed updates are enabled by default whenever possible. You can also manually initiate updates using the Elastic Beanstalk console or EB CLI. 
+Elastic Beanstalk Standard regularly releases [platform updates](using-features.platform.upgrade.md) to provide fixes, software updates, and new features. Elastic Beanstalk offers several options to handle platform updates. With [managed platform updates](environment-platform-update-managed.md) your environment automatically upgrades to the latest version of a platform during a scheduled maintenance window while your application remains in service. For environments created on November 25, 2019 or later using the Elastic Beanstalk console, managed updates are enabled by default whenever possible. You can also manually initiate updates using the Elastic Beanstalk console or EB CLI. 
+
+Elastic Beanstalk Cluster automatically updates Amazon EKS clusters and Kubernetes add-ons running in those clusters to provide fixes, software updates, and new features.
 
 ## Connectivity
 <a name="concepts.concepts.design.connectivity"></a>
 
 Elastic Beanstalk needs to be able to connect to the instances in your environment to complete deployments. When you deploy an Elastic Beanstalk application inside an Amazon VPC, the configuration required to enable connectivity depends on the type of Amazon VPC environment you create:
-+ For single-instance environments, no additional configuration is required. This is because, with these environments, Elastic Beanstalk assigns each Amazon EC2 instance a public Elastic IP address that enables the instance to communicate directly with the internet.
++ For Standard single-instance environments, no additional configuration is required. This is because, with these environments, Elastic Beanstalk assigns each Amazon EC2 instance a public Elastic IP address that enables the instance to communicate directly with the internet.
 + For load-balanced, scalable environments in an Amazon VPC with both public and private subnets, you must do the following: 
   + Create a load balancer in the public subnet to route inbound traffic from the internet to the Amazon EC2 instances.
   + Create a network address translation (NAT) device to route outbound traffic from the Amazon EC2 instances in private subnets to the internet.

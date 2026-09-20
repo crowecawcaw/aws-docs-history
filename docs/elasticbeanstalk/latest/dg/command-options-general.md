@@ -1,7 +1,12 @@
 
 
-# General options for all environments
+# Configuration options for Beanstalk Standard environments
 <a name="command-options-general"></a>
+
+The namespaces on this page configure Beanstalk Standard environments, which run your application on Amazon EC2 instances that you control.
+
+**Note**  
+These namespaces do not apply to Beanstalk Cluster environments. A Beanstalk Cluster environment accepts only the twelve `aws:elasticbeanstalk:eks` namespaces in [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md), and passing any of the namespaces on this page to one returns an `InvalidParameterValueException` rather than being ignored.
 
 **Topics**
 + [aws:autoscaling:asg](#command-options-general-autoscalingasg)

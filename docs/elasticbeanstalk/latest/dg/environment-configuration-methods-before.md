@@ -27,6 +27,9 @@ For a full list of available options, see [Configuration options](command-option
 
 Use `.ebextensions` to configure options that are required to make your application work, and provide default values for other options that can be overridden at a higher level of [precedence](command-options.md#configuration-options-precedence). Options specified in `.ebextensions` have the lowest level of precedence and are overridden by settings at any other level.
 
+**Note**  
+Configuration files apply only to Beanstalk Standard environments. To set options for a Beanstalk Cluster environment, use `--option-settings` or the Elastic Beanstalk console. See [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md).
+
 To use configuration files, create a folder named `.ebextensions` at the top level of your project's source code. Add a file with the extension `.config` and specify options in the following manner:
 
 ```

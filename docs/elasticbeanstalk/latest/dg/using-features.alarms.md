@@ -5,6 +5,9 @@
 
 This topic walks you through the steps to create alarms for metrics that you're monitoring. It also provides instructions to view your existing alarms and to check their state.
 
+**Note**  
+The Elastic Beanstalk console's **Alarms** page is currently available only for Beanstalk Standard environments. To alarm on a Beanstalk Cluster environment, create the alarm in whichever service receives that environment's metrics. With the default metrics backend, that is CloudWatch. If you send metrics to another backend, such as Amazon Managed Service for Prometheus or a third-party backend, create the alarm there instead. See [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md).
+
 You can create alarms for metrics that you are monitoring by using the Elastic Beanstalk console. Alarms help you monitor changes to your AWS Elastic Beanstalk environment so that you can easily identify and mitigate problems before they occur. For example, you can set an alarm that notifies you when CPU utilization in an environment exceeds a certain threshold, ensuring that you are notified before a potential problem occurs. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.cloudwatch.md).
 
 **Note**  

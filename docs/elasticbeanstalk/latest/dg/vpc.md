@@ -63,6 +63,9 @@ When stack creation completes, check the **Outputs** tab to find the VPC ID and 
 
 A basic *public-only* VPC layout includes one or more public subnets, an internet gateway, and a default security group that allows traffic between resources in the VPC. When you create an environment in the VPC, Elastic Beanstalk creates additional resources that vary depending on the environment type.
 
+![Public VPC topology: a single public subnet (10.0.0.0/24) in one Availability Zone containing the load balancer and EC2 instances with public IP addresses, routed to the internet through an internet gateway and the main route table.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-apip-topo.png)
+
+
 **VPC resources**
 + **Single instance** – Elastic Beanstalk creates a security group for the application instance that allows traffic on port 80 from the internet, and assigns the instance an Elastic IP to give it a public IP address. The environment's domain name resolves to the instance's public IP address.
 + **Load balanced** – Elastic Beanstalk creates a security group for the load balancer that allows traffic on port 80 from the internet, and a security group for the application instances that allows traffic from the load balancer's security group. The environment's domain name resolves to the load balancer's public domain name.

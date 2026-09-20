@@ -3,7 +3,7 @@
 # Deploying applications to Elastic Beanstalk environments
 <a name="using-features.deploy-existing-version"></a>
 
-You can use the AWS Elastic Beanstalk console to upload an updated [source bundle](applications-sourcebundle.md) and deploy it to your Elastic Beanstalk environment, or redeploy a previously uploaded version.
+You can use the AWS Elastic Beanstalk console to add an updated application version and deploy it to your Elastic Beanstalk environment, or redeploy an existing version. With Beanstalk Standard, an application version is an updated [source bundle](applications-sourcebundle.md) that you upload.
 
 Each deployment is identified by a deployment ID. Deployment IDs start at `1` and increment by one with each deployment and instance configuration change. If you enable [enhanced health reporting](health-enhanced.md), Elastic Beanstalk displays the deployment ID in both the [health console](health-enhanced-console.md) and the [EB CLI](health-enhanced-ebcli.md) when it reports instance health status. The deployment ID helps you determine the state of your environment when a rolling update fails.
 
@@ -28,6 +28,9 @@ Managed platform updates with instance replacement enabled
 Immutable updates
 Deployments with immutable updates or traffic splitting enabled
 
+**Note**  
+Beanstalk Cluster runs on Amazon EKS and isn't affected by Amazon EC2 burst balances.
+
 ## Choosing a deployment policy
 <a name="deployments-scenarios"></a>
 
@@ -35,10 +38,20 @@ Choosing the right deployment policy for your application is a tradeoff of a few
 
 The following list provides summary information about the different deployment policies and adds related considerations.
 + **All at once** – The quickest deployment method. Suitable if you can accept a short loss of service, and if quick deployments are important to you. With this method, Elastic Beanstalk deploys the new application version to each instance. Then, the web proxy or application server might need to restart. As a result, your application might be unavailable to users (or have low availability) for a short time.
+**Note**  
+With Beanstalk Cluster, this is the `Recreate` value of the `strategy` configuration option. See [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md).
 + **Rolling** – Avoids downtime and minimizes reduced availability, at a cost of a longer deployment time. Suitable if you can't accept any period of completely lost service. With this method, your application is deployed to your environment one batch of instances at a time. Most bandwidth is retained throughout the deployment.
+**Note**  
+Beanstalk Cluster supports rolling deployments, configured through the `max-surge` and `max-unavailable` configuration options rather than selected as a named policy. `max-surge` bounds how many replicas Elastic Beanstalk adds beyond the desired count, and `max-unavailable` bounds how many it takes down at a time. A `max-unavailable` of `0`, which is the default, keeps the environment from dropping below its desired replica count during a deployment. See [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md).
 + **Rolling with additional batch** – Avoids any reduced availability, at a cost of an even longer deployment time compared to the *Rolling* method. Suitable if you must maintain the same bandwidth throughout the deployment. With this method, Elastic Beanstalk launches an extra batch of instances, then performs a rolling deployment. Launching the extra batch takes time, and ensures that the same bandwidth is retained throughout the deployment.
+**Note**  
+Currently only Beanstalk Standard exposes *Rolling with additional batch* as a distinct deployment type. In Beanstalk Cluster, the same full-capacity rolling behavior is achieved through rolling-update settings instead: `max-unavailable` of `0` prevents the environment from dropping below the desired replica count, and `max-surge` controls how many extra replicas may be started during the rollout. This is the default Cluster behavior, with `max-unavailable` at `0` and `max-surge` at `1`.
 + **Immutable** – A slower deployment method, that ensures your new application version is always deployed to new instances, instead of updating existing instances. It also has the additional advantage of a quick and safe rollback in case the deployment fails. With this method, Elastic Beanstalk performs an [immutable update](environmentmgmt-updates-immutable.md) to deploy your application. In an immutable update, a second Auto Scaling group is launched in your environment and the new version serves traffic alongside the old version until the new instances pass health checks.
+**Note**  
+Currently only Beanstalk Standard supports immutable deployments.
 + **Traffic splitting** – A canary testing deployment method. Suitable if you want to test the health of your new application version using a portion of incoming traffic, while keeping the rest of the traffic served by the old application version. 
+**Note**  
+Currently only Beanstalk Standard supports traffic-splitting deployments.
 
 The following table compares deployment method properties.
 
@@ -78,7 +91,7 @@ You can perform deployments from your environment's dashboard.
 ## Redeploying a previous version
 <a name="deployments-existingversion"></a>
 
-You can also deploy a previously uploaded version of your application to any of its environments from the application versions page. 
+You can also deploy an existing version of your application from the application versions page to any environment in the application that the version is compatible with. A source bundle version deploys to a Beanstalk Standard environment, and a container image version deploys to a Beanstalk Cluster environment. 
 
 **To deploy an existing application version to an existing environment**
 

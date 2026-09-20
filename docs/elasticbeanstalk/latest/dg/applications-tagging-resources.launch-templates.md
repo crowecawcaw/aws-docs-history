@@ -3,6 +3,9 @@
 # Tag propagation to launch templates
 <a name="applications-tagging-resources.launch-templates"></a>
 
+**Note**  
+This applies only to Beanstalk Standard. Beanstalk Cluster doesn't use Amazon EC2 Auto Scaling launch templates.
+
 Elastic Beanstalk provides an option to enable the propagation of environment tags to launch templates. This option provides continued support for tag-based access control (TBAC) with launch templates.
 
 **Note**  

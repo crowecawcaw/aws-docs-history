@@ -22,6 +22,19 @@ Elastic Beanstalk supports several Amazon EC2 [instance purchasing options](http
 + [Amazon EC2 instance types](using-features.managing.ec2.instance-types.md)
 + [Configuring Amazon EC2 instances using the Elastic Beanstalk console](using-features.managing.ec2.console.md)
 + [Managing EC2 security groups](using-features.managing.ec2.instances.sg.md)
++ [EC2 key pair](#using-features.managing.security.keypair)
 + [Configuring Amazon EC2 security groups and instance types using the AWS CLI](using-features.managing.ec2.aws-cli.md)
 + [Configuring Amazon EC2 instances with namespace options](using-features.managing.ec2.namespace.md)
 + [Configuring the IMDS on your Elastic Beanstalk environment's instances](environments-cfg-ec2-imds.md)
+
+## EC2 key pair
+<a name="using-features.managing.security.keypair"></a>
+
+You can securely log in to the Amazon Elastic Compute Cloud (Amazon EC2) instances provisioned for your Elastic Beanstalk application with an Amazon EC2 key pair. For instructions on creating a key pair, see [Creating a Key Pair Using Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair) in the *Amazon EC2 User Guide*. 
+
+**Note**  
+When you create a key pair, Amazon EC2 stores a copy of your public key. If you no longer need to use it to connect to any environment instances, you can delete it from Amazon EC2. For details, see [Deleting Your Key Pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#delete-key-pair) in the *Amazon EC2 User Guide*.
+
+Choose an **EC2 key pair** from the drop-down menu to assign it to your environment's instances. When you assign a key pair, the public key is stored on the instance to authenticate the private key, which you store locally. The private key is never stored on AWS.
+
+For more information about connecting to Amazon EC2 instances, see [Connect to Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) and [Connecting to Linux/UNIX Instances from Windows using PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html) in the *Amazon EC2 User Guide*. 

@@ -174,15 +174,22 @@ Environment creation takes about five minutes and creates the following resource
 
 ### Elastic Beanstalk created resources
 <a name="php-hawordpress-tutorial-launch.EB-resources"></a>
-+ **EC2 instance** – An Amazon Elastic Compute Cloud (Amazon EC2) virtual machine configured to run web apps on the platform that you choose.
++ **Beanstalk Standard** – For an environment that runs on Amazon Elastic Compute Cloud (Amazon EC2), Elastic Beanstalk provisions the following resources:
+  + **EC2 instance** – An Amazon EC2 virtual machine configured to run web apps on the platform that you choose.
 
-  Each platform runs a specific set of software, configuration files, and scripts to support a specific language version, framework, web container, or combination of these. Most platforms use either Apache or NGINX as a reverse proxy that sits in front of your web app, forwards requests to it, serves static assets, and generates access and error logs.
-+ **Instance security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This resource lets HTTP traffic from the load balancer reach the EC2 instance running your web app. By default, traffic isn't allowed on other ports.
-+ **Load balancer** – An Elastic Load Balancing load balancer configured to distribute requests to the instances running your application. A load balancer also eliminates the need to expose your instances directly to the internet.
-+ **Load balancer security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This resource lets HTTP traffic from the internet reach the load balancer. By default, traffic isn't allowed on other ports.
-+ **Auto Scaling group** – An Auto Scaling group configured to replace an instance if it is terminated or becomes unavailable.
+    Each platform runs a specific set of software, configuration files, and scripts to support a specific language version, framework, web container, or combination of these. Most platforms use either Apache or NGINX as a reverse proxy that sits in front of your web app, forwards requests to it, serves static assets, and generates access and error logs.
+  + **Instance security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This resource lets HTTP traffic from the load balancer reach the EC2 instance running your web app. By default, traffic isn't allowed on other ports.
+  + **Load balancer security group** – An Amazon EC2 security group configured to allow inbound traffic on port 80. This resource lets HTTP traffic from the internet reach the load balancer. By default, traffic isn't allowed on other ports.
+  + **Auto Scaling group** – An Auto Scaling group configured to replace an instance if it is terminated or becomes unavailable.
+  + **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor the load on the instances in your environment and that are triggered if the load is too high or too low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
++ **Beanstalk Cluster** – For an environment that runs on Amazon EKS, Elastic Beanstalk provisions the following resources:
+  + **Amazon EKS cluster** – An Amazon EKS cluster that Elastic Beanstalk creates and operates. Environments in the same account that use the same subnets share a cluster.
+  + **Compute** – Node capacity provided by Amazon EKS Auto Mode, which adds and removes nodes to fit the application replicas scheduled on the cluster.
+  + **IAM roles** – The cluster and node roles that you provide for Amazon EKS, and the observability role that Elastic Beanstalk uses to publish the environment's metrics, logs, and traces.
+
+  For more information about this infrastructure, see [Beanstalk Cluster architecture](beanstalk-cluster-concepts.md).
++ **Load balancer** – A load balancer that distributes incoming requests across your application. A load balancer also eliminates the need to expose your application directly to the internet.
 + **Amazon S3 bucket** – A storage location for your source code, logs, and other artifacts that are created when you use Elastic Beanstalk.
-+ **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor the load on the instances in your environment and that are triggered if the load is too high or too low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
 + **CloudFormation stack** – Elastic Beanstalk uses CloudFormation to launch the resources in your environment and propagate configuration changes. The resources are defined in a template that you can view in the [CloudFormation console](https://console.aws.amazon.com/cloudformation).
 + **Domain name** – A domain name that routes to your web app in the form *{{subdomain}}.{{region}}.elasticbeanstalk.com*.
 **Domain security**  
@@ -234,8 +241,22 @@ The WordPress application uses a default set of properties that match the ones t
 
 1. In the **Updates, monitoring, and logging** configuration category, choose **Edit**.
 
-1. In the **Environment properties** section, define the variables that your application reads to construct a connection string. For compatibility with environments that have an integrated RDS DB instance, use the following names and values. You can find all values, except for your password, in the [RDS console](https://console.aws.amazon.com/rds/home).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/php-hawordpress-tutorial.html)  
+1. In the **Environment properties** section, define the variables that your application reads to construct a connection string. For compatibility with environments that have an integrated RDS DB instance, use the following names and values. You can find all values, except for your password, in the [RDS console](https://console.aws.amazon.com/rds/home).
+
+
+<table>
+<thead>
+  <tr><th>Property name</th><th>Description</th><th>Property value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>RDS_HOSTNAME</code></td><td>The hostname of the DB instance.</td><td>On the <b>Connectivity &amp; security</b> tab on the Amazon RDS console: <b>Endpoint</b>.</td></tr>
+  <tr><td><code>RDS_PORT</code></td><td>The port where the DB instance accepts connections. The default value varies among DB engines.</td><td>On the <b>Connectivity &amp; security</b> tab on the Amazon RDS console: <b>Port</b>.</td></tr>
+  <tr><td><code>RDS_DB_NAME</code></td><td>The database name, <b>ebdb</b>.</td><td>On the <b>Configuration</b> tab on the Amazon RDS console: <b>DB Name</b>.</td></tr>
+  <tr><td><code>RDS_USERNAME</code></td><td>The username that you configured for your database.</td><td>On the <b>Configuration</b> tab on the Amazon RDS console: <b>Master username</b>.</td></tr>
+  <tr><td><code>RDS_PASSWORD</code></td><td>The password that you configured for your database.</td><td>Not available for reference in the Amazon RDS console.</td></tr>
+</tbody>
+</table>
+  
 ![Environment properties configuration section with RDS properties added](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-envprops-rds.png)
 
 1. To save the changes choose **Apply** at the bottom of the page.

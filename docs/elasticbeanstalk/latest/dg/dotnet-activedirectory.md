@@ -82,7 +82,7 @@ To confirm that an instance joined the domain, do either of the following:
 + Verify that a computer object named `EC2-{{XXXXXXXX}}` (the instance's hostname) exists in your directory, under the OU you specified or the default container.
 + Review the instance's deployment log for the line `Active Directory: joined to {{directory-name}}`. For more information, see [Viewing deployment logs for an Elastic Beanstalk environment](environments-deployment-logs.md).
 
-When your environment scales out, Auto Scaling adds instances that also join the domain. To review the deployment log for one of these instances, retrieve it from Amazon S3. For more information, see [Deployment log files on instances](environments-deployment-logs.md#environments-deployment-logs.instance).
+When your environment scales out, Auto Scaling adds instances that also join the domain. To review the deployment log for one of these instances, retrieve it from Amazon S3. For more information, see [Where deployment logs are stored](environments-deployment-logs.md#environments-deployment-logs.instance).
 
 ## Failed domain joins
 <a name="dotnet-activedirectory-failures"></a>

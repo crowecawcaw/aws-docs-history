@@ -6,6 +6,9 @@
 You can use the AWS Elastic Beanstalk console or a configuration file to run the AWS X-Ray daemon on the instances in your environment. X-Ray is an AWS service that gathers data about the requests that your application serves, and uses it to construct a service map that you can use to identify issues with your application and opportunities for optimization.
 
 **Note**  
+Running the X-Ray daemon applies only to Beanstalk Standard environments. With Beanstalk Cluster, send your application's traces to AWS X-Ray by setting the `traces-backend` option in the `aws:elasticbeanstalk:eks:observability` namespace to `xray`, and Elastic Beanstalk operates the collection components for you. See [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md) and [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md).
+
+**Note**  
 Some regions don't offer X-Ray. If you create an environment in one of these regions, you can't run the X-Ray daemon on the instances in your environment.  
 For information about the AWS services offered in each Region, see [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 

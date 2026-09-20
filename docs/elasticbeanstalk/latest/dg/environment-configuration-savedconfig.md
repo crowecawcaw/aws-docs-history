@@ -5,6 +5,9 @@
 
 You can save your environment's configuration as an object in Amazon Simple Storage Service (Amazon S3) that can be applied to other environments during environment creation, or applied to a running environment. *Saved configurations* are YAML formatted templates that define an environment's [platform version](concepts.platforms.md), [tier](concepts.md#concepts-tier), [configuration option](command-options.md) settings, and tags.
 
+**Note**  
+Saved configurations are currently available only for Beanstalk Standard environments.
+
 You can apply tags to a saved configuration when you create it, and edit tags of existing saved configurations. The tags applied to a saved configuration aren't related to the tags specified in a saved configuration using the `Tags:` key. The latter are applied to an environment when you apply the saved configuration to the environment. For details, see [Tagging saved configurations](environment-configuration-savedconfig-tagging.md).
 
 **Note**  

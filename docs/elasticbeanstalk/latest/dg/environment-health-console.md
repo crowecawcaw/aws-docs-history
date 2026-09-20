@@ -5,6 +5,9 @@
 
 You can access operational information about your application from the Elastic Beanstalk console. The console displays your environment's status and application health at a glance. In the console's **Environments** page and in each application's page, the environments on the list are color-coded to indicate status.
 
+**Note**  
+With Beanstalk Cluster, you monitor environment health in the console the same way, but the available metrics and health details differ. See [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md).
+
 **To monitor an environment in the Elastic Beanstalk console**
 
 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk), and in the **Regions** list, select your AWS Region.
@@ -13,10 +16,12 @@ You can access operational information about your application from the Elastic B
 
 1. In the navigation pane, choose **Monitoring**.
 
-The Monitoring page shows you overall statistics about your environment, such as CPU utilization and average latency. In addition to the overall statistics, you can view monitoring graphs that show resource usage over time. You can click any of the graphs to view more detailed information.
+The Monitoring page shows you overall statistics about your environment. In addition to the overall statistics, you can view monitoring graphs that show resource usage over time. You can click any of the graphs to view more detailed information.
+
+The graphs differ by environment type. A Beanstalk Standard environment shows statistics such as CPU utilization and average latency. A Beanstalk Cluster environment shows **Environment health**, **Application replica count**, **CPU (cores)**, and **Memory (bytes)**. See [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md).
 
 **Note**  
-By default, only basic CloudWatch metrics are enabled, which return data in five-minute periods. You can enable more granular one-minute CloudWatch metrics by editing your environment's configuration settings. 
+For a Beanstalk Standard environment, only basic CloudWatch metrics are enabled by default, which return data in five-minute periods. You can enable more granular one-minute CloudWatch metrics by editing your environment's configuration settings. 
 
 ## Monitoring graphs
 <a name="environment-health-console-graphs"></a>
@@ -40,6 +45,8 @@ To create and view custom metrics you must use Amazon CloudWatch. With CloudWatc
 ![Environment health monitoring section on the environment monitoring page of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-monitoring-graphs.png)
 
 
-[Elastic Load Balancing](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/elb-metricscollected.html) and [Amazon EC2](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/ec2-metricscollected.html) metrics are enabled for all environments.
+For a Beanstalk Standard environment, [Elastic Load Balancing](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/elb-metricscollected.html) and [Amazon EC2](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/ec2-metricscollected.html) metrics are enabled automatically.
 
 With [enhanced health](health-enhanced.md), the EnvironmentHealth metric is enabled, and a graph is added to the monitoring console automatically. Enhanced health also adds the [Health page](health-enhanced-console.md#health-enhanced-console-healthpage) to the management console. For a list of available enhanced health metrics, see [Publishing Amazon CloudWatch custom metrics for an environment](health-enhanced-cloudwatch.md).
+
+Enhanced health is currently available only for Beanstalk Standard environments. A Beanstalk Cluster environment reports environment-level health through the same health colors and statuses, and publishes its own metrics through the observability backends that you select. See [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md).

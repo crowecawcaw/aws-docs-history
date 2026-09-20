@@ -13,9 +13,4 @@ When deploying your applications, you may want to customize and configure the so
 
 **Topics**
 + [Configuration options](command-options.md)
-+ [Advanced environment customization with configuration files (`.ebextensions`)](ebextensions.md)
 + [Using Elastic Beanstalk saved configurations](environment-configuration-savedconfig.md)
-+ [Environment manifest (`env.yaml`)](environment-cfg-manifest.md)
-+ [Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.customenv.md)
-+ [Serving static files](environment-cfg-staticfiles.md)
-+ [Configuring HTTPS for your Elastic Beanstalk environment](configuring-https.md)

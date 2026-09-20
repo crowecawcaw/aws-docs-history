@@ -117,7 +117,7 @@ Next, you need two roles. A *service role* allows Elastic Beanstalk to monitor y
 
 **To finish configuring and creating your application**
 
-1. (Optional) If you previously created an EC2 key pair, you can select it from the **EC2 key pair** field dropdown. You would use it to securely log in to the Amazon EC2 instance that Elastic Beanstalk provisions for your application. If you skip this step, you can always create and assign an EC2 key pair after the environment is created. For more information, see [EC2 key pair](using-features.managing.security.md#using-features.managing.security.keypair).
+1. (Optional) If you previously created an EC2 key pair, you can select it from the **EC2 key pair** field dropdown. You would use it to securely log in to the Amazon EC2 instance that Elastic Beanstalk provisions for your application. If you skip this step, you can always create and assign an EC2 key pair after the environment is created. For more information, see [EC2 key pair](using-features.managing.ec2.md#using-features.managing.security.keypair).
 
 1. Choose **Skip to Review** on the **Configure service access** page.
 

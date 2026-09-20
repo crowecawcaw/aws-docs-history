@@ -18,21 +18,12 @@ As you develop your application, you will deploy it often, possibly to several d
 Modify the resources in your environment only by using Elastic Beanstalk. If you modify resources using another service's console, CLI commands, or SDKs, Elastic Beanstalk won't be able to accurately monitor the state of those resources, and you won't be able to save the configuration or reliably recreate the environment. Out-of band-changes can also cause issues when updating or terminating an environment. 
 
 **Platform updates**  
-When you launch an environment, you choose a platform version. We update platforms periodically with new platform versions to provide performance improvements and new features. You can [update your environment to the latest platform version](using-features.platform.upgrade.md) at any time. See the *AWS Elastic Beanstalk Platforms* guide for a list of [supported platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html) and a [platform version history](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platform-history.html) that includes the date ranges they were current.
+When you launch a Beanstalk Standard environment, you choose a platform version. We update platforms periodically with new platform versions to provide performance improvements and new features. You can [update your environment to the latest platform version](using-features.platform.upgrade.md) at any time. See the *AWS Elastic Beanstalk Platforms* guide for a list of [supported platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html) and a [platform version history](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platform-history.html) that includes the date ranges they were current.
 
 **Architecture options**  
-As your application grows in complexity, you can split it into multiple components, each running in a separate environment. For long-running workloads, you can launch [worker environments](using-features-managing-env-tiers.md) that process jobs from an Amazon Simple Queue Service (Amazon SQS) queue.
+As your application grows in complexity, you can split it into multiple components, each running in a separate environment. For long-running workloads, you can launch [worker environments](using-features-managing-env-tiers.md) that process jobs from an Amazon Simple Queue Service (Amazon SQS) queue. With Beanstalk Standard, each environment application replica runs on a single Amazon EC2 instance. With Beanstalk Cluster you can run multiple application replicas, even across separate environments, on each Amazon EC2 instance. This enables faster deployments and autoscaling, and improved cost efficiency when running multiple environments or application replicas.
 
 **Topics**
 + [Using the Elastic Beanstalk environment management console](environments-console.md)
 + [Creating an Elastic Beanstalk environment](using-features.environments.md)
-+ [Managing multiple Elastic Beanstalk environments as a group with the EB CLI](ebcli-compose.md)
 + [Deploying applications to Elastic Beanstalk environments](using-features.deploy-existing-version.md)
-+ [Configuration changes](environments-updating.md)
-+ [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md)
-+ [Canceling environment configuration updates and application deployments](using-features.rollingupdates.cancel.md)
-+ [Rebuilding Elastic Beanstalk environments](environment-management-rebuild.md)
-+ [Environment types](using-features-managing-env-types.md)
-+ [Elastic Beanstalk worker environments](using-features-managing-env-tiers.md)
-+ [Creating links between Elastic Beanstalk environments](environment-cfg-links.md)
-+ [Recovering your Elastic Beanstalk environment from an invalid state](environment-management-invalid-stack.md)

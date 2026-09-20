@@ -9,6 +9,9 @@ AWS Elastic Beanstalk uses information from multiple sources to determine if you
 
  The basic health reporting system provides information about the health of instances in an Elastic Beanstalk environment based on health checks performed by Elastic Load Balancing for load-balanced environments, or Amazon Elastic Compute Cloud for single-instance environments.
 
+**Note**  
+Beanstalk Cluster reports the same health colors and statuses, but determines them differently. See [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md).
+
 In addition to checking the health of your EC2 instances, Elastic Beanstalk also monitors the other resources in your environment and reports missing or incorrectly configured resources that can cause your environment to become unavailable to users.
 
 Metrics gathered by the resources in your environment is published to Amazon CloudWatch in five minute intervals. This includes operating system metrics from EC2, request metrics from Elastic Load Balancing. You can view graphs based on these CloudWatch metrics on the [Monitoring page](environment-health-console.md) of the environment console. For basic health, these metrics are not used to determine an environment's health.
@@ -113,7 +116,7 @@ These lists are not comprehensive. For a full list of metrics that can be report
 | AWS::RDS::DBInstance | [Amazon RDS Dimensions and Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/rds-metricscollected.html) | 
 
 ### Worker environment health metric
-<a name="w2aac43c11c23c18"></a>
+<a name="w2aac21b9c25c18"></a>
 
 For worker environments only, the SQS daemon publishes a custom metric for environment health to CloudWatch, where a value of 1 is Green. You can review the CloudWatch health metric data in your account using the `ElasticBeanstalk/SQSD` namespace. The metric dimension is `EnvironmentName`, and the metric name is `Health`. All instances publish their metrics to the same namespace.
 

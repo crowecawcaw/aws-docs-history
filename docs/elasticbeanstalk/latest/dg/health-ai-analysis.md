@@ -6,18 +6,20 @@
 AWS Elastic Beanstalk's AI-powered analysis identifies root causes and recommends solutions for environment health issues. When your environment experiences problems, you can request an AI analysis using the `RequestEnvironmentInfo` and `RetrieveEnvironmentInfo` API operations with the `analyze` info type to get AI-generated insights and recommended solutions.
 
 **Note**  
-AI analysis is available on supported Amazon Linux 2 and AL2023 platform versions released on or after February 26, 2026. For Windows Server platforms, AI analysis is available on platform versions released on or after April 22, 2026.
+For Beanstalk Standard environments, AI analysis is available on supported Amazon Linux 2 and AL2023 platform versions released on or after February 26, 2026, and on Windows Server platform versions released on or after April 22, 2026. For Beanstalk Cluster environments, AI analysis is available without a platform version requirement.
 
 ## How it works
 <a name="health-ai-analysis-how-it-works"></a>
 
-When you request an AI analysis, Elastic Beanstalk runs a script on an instance in your environment that collects recent events, instance health, and logs (up to 170,000 [tokens](https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html) of data). It then sends this data to Amazon Bedrock in your account and returns insights and recommended next steps.
+When you request an AI analysis, Elastic Beanstalk collects your environment's recent events, health information, and logs, sends the data to Amazon Bedrock, and returns insights and recommended next steps. For a Beanstalk Standard environment, Elastic Beanstalk runs a script on an instance in your environment to collect the data (up to 170,000 [tokens](https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html)) and sends it to Amazon Bedrock in your account. For a Beanstalk Cluster environment, Elastic Beanstalk performs the analysis in the Elastic Beanstalk service account and sends the data to Amazon Bedrock there.
 
 ## Prerequisites
 <a name="health-ai-analysis-prereqs"></a>
 
-Before you use AI analysis, verify that your environment meets the following requirements:
-+ Environment running a [supported platform version](#health-ai-analysis-supported-platforms)
+**For a Beanstalk Cluster environment, no additional setup is required.** Elastic Beanstalk performs AI analysis in the Elastic Beanstalk service account using its service-linked role, so you don't configure Amazon Bedrock access or an instance profile. The rest of this section applies to Beanstalk Standard environments.
+
+For a Beanstalk Standard environment, verify that the environment meets the following requirements:
++ Running a [supported platform version](#health-ai-analysis-supported-platforms)
 + [Instance profile](iam-instanceprofile.md) with required permissions (see [Required permissions](#health-ai-analysis-permissions) below)
 + **Anthropic use case details (commercial regions)** – In commercial regions, AI analysis uses Anthropic Claude models through Amazon Bedrock. Anthropic requires you to submit a one-time use case details form before you can invoke their models. To submit this form, select any Anthropic model from the model catalog in the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/), or call the [`PutUseCaseForModelAccess`](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html) API. You only need to do this once per AWS account. If you submit the form from the AWS Organizations management account, it automatically covers all member accounts in the organization. For more information, see [Access Amazon Bedrock foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html).
   + Even after submitting the use case details form, the first invocation of an Anthropic Claude model in your account requires AWS Marketplace permissions to complete an automatic model subscription. If your instance profile doesn't have these permissions, AI analysis fails with the following error:
@@ -30,7 +32,9 @@ Before you use AI analysis, verify that your environment meets the following req
 ## Required permissions
 <a name="health-ai-analysis-permissions"></a>
 
-To use AI analysis, the Amazon EC2 instance profile for your environment must have permissions to invoke Amazon Bedrock. Add the following permissions to your instance profile:
+The following permissions apply to Beanstalk Standard environments. A Beanstalk Cluster environment requires no permissions setup, because Elastic Beanstalk performs AI analysis in the service account using its service-linked role.
+
+For a Beanstalk Standard environment, the Amazon EC2 instance profile for your environment must have permissions to invoke Amazon Bedrock. Add the following permissions to your instance profile:
 + `bedrock:InvokeModel`
 + `bedrock:ListFoundationModels`
 + `elasticbeanstalk:DescribeEvents`
@@ -86,6 +90,9 @@ The response includes an AI-generated analysis of the current state of the envir
 
 If you use the EB CLI, you can request AI analysis with the `--analyze` (`-ai`) option of the **eb logs** command. The command requests the analysis, waits for it to complete, and displays the results.
 
+**Note**  
+The EB CLI supports Beanstalk Standard environments. For a Beanstalk Cluster environment, request the analysis with the Elastic Beanstalk console or the AWS CLI instead, as described earlier in this topic.
+
 **Example EB CLI - Request AI analysis**  
 
 ```
@@ -99,13 +106,13 @@ The `--analyze` option requires EB CLI version 3.27 or later.
 
 ## Important considerations
 <a name="health-ai-analysis-considerations"></a>
-+ **Pricing** – AI analysis uses Amazon Bedrock to process your environment data, and standard Amazon Bedrock pricing applies for model invocations. For pricing details, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/).
-+ **Platform requirement** – AI analysis is available on Amazon Linux 2 and AL2023 based platform versions released on or after February 26, 2026. For Windows Server platforms, AI analysis is available on platform versions released on or after April 22, 2026. To use this feature, update your environment to a supported platform version. For more information, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md).
-+ **Permissions** – Before using AI analysis, ensure that your instance profile has the required Amazon Bedrock permissions (`bedrock:InvokeModel` and `bedrock:ListFoundationModels`) and Elastic Beanstalk permissions (`elasticbeanstalk:DescribeEvents` and `elasticbeanstalk:DescribeEnvironmentHealth`).
-+ **Data privacy** – The analysis sends environment events and logs to Amazon Bedrock in your account for processing. For information about how Amazon Bedrock handles your data, see [Amazon Bedrock Security and Compliance](https://aws.amazon.com/bedrock/security-compliance/).
-+ **Service quotas** – AI analysis uses Amazon Bedrock foundation models, which have default quotas for requests per minute and tokens per minute. In commercial regions, Anthropic Claude models are used. In GovCloud regions, the NVIDIA Nemotron model is used. If you encounter throttling errors, you can request a quota increase. For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
++ **Pricing** – For Beanstalk Standard environments, AI analysis invokes Amazon Bedrock in your account, and standard Amazon Bedrock pricing applies for model invocations. For pricing details, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/). With Beanstalk Cluster, Elastic Beanstalk invokes Amazon Bedrock in the Elastic Beanstalk service account, so you aren't charged for model invocations.
++ **Platform requirement (Beanstalk Standard)** – For Beanstalk Standard environments, AI analysis is available on Amazon Linux 2 and AL2023 based platform versions released on or after February 26, 2026, and on Windows Server platform versions released on or after April 22, 2026. To use this feature, update your environment to a supported platform version. For more information, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md). Beanstalk Cluster environments have no platform version requirement.
++ **Permissions (Beanstalk Standard)** – For Beanstalk Standard environments, ensure that your instance profile has the required Amazon Bedrock permissions (`bedrock:InvokeModel` and `bedrock:ListFoundationModels`) and Elastic Beanstalk permissions (`elasticbeanstalk:DescribeEvents` and `elasticbeanstalk:DescribeEnvironmentHealth`). Beanstalk Cluster environments require no permissions setup.
++ **Data privacy** – The analysis sends environment events and logs to Amazon Bedrock for processing. For a Beanstalk Standard environment, this happens in your account; for a Beanstalk Cluster environment, it happens in the Elastic Beanstalk service account. For information about how Amazon Bedrock handles your data, see [Amazon Bedrock Security and Compliance](https://aws.amazon.com/bedrock/security-compliance/).
++ **Service quotas (Beanstalk Standard)** – AI analysis uses Amazon Bedrock foundation models, which have default quotas for requests per minute and tokens per minute. In commercial regions, Anthropic Claude models are used. In GovCloud regions, the NVIDIA Nemotron model is used. For Beanstalk Standard environments, these quotas apply to your account. If you encounter throttling errors, you can request a quota increase. For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html). With Beanstalk Cluster, Elastic Beanstalk invokes Amazon Bedrock in the Elastic Beanstalk service account and manages these quotas for you.
 
 ## Supported platform versions
 <a name="health-ai-analysis-supported-platforms"></a>
 
-AI analysis is supported on Amazon Linux 2 and AL2023 based platform versions released on or after [February 26, 2026](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-02-26-al2023.html). For Windows Server platforms, AI analysis is supported on platform versions released on or after [April 22, 2026](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-04-22-windows.html). To verify your platform version, see [Elastic Beanstalk release notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/welcome.html).
+This platform version requirement applies to Beanstalk Standard environments; Beanstalk Cluster environments have no platform version requirement. For Beanstalk Standard environments, AI analysis is supported on Amazon Linux 2 and AL2023 based platform versions released on or after [February 26, 2026](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-02-26-al2023.html). For Windows Server platforms, AI analysis is supported on platform versions released on or after [April 22, 2026](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-04-22-windows.html). To verify your platform version, see [Elastic Beanstalk release notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/welcome.html).

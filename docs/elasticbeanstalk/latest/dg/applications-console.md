@@ -24,7 +24,7 @@ This topic explains how you can use the AWS Elastic Beanstalk console to manage 
    1. When you select an application from the list, the left navigation pane lists the application.
       +  Choose **Application versions** following the application name in the navigation pane to view and manage the application versions for your application. 
 
-        An application version is an uploaded version of your application code. You can upload new versions, deploy an existing version to any of the application's environments, or delete old versions. For more information, see [Managing application versions](applications-versions.md). 
+        An application version is a deployable iteration of your application code: a source bundle that you upload for Beanstalk Standard, or, for Beanstalk Cluster, a container image that you provide or that Elastic Beanstalk builds from your source. You can add new versions, deploy a version to any environment in the application that the version is compatible with, or delete old versions. For more information, see [Managing application versions](applications-versions.md). 
       +  Choose **Saved configurations** following the application name in the navigation pane to view and manage configurations saved from running environments. 
 
         A saved configuration is a collection of settings that you can use to restore an environment's settings to a previous state, or to create an environment with the same settings. For more information see [Using Elastic Beanstalk saved configurations](environment-configuration-savedconfig.md). 

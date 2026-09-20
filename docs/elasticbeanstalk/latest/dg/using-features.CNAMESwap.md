@@ -3,6 +3,9 @@
 # Blue/Green deployments with Elastic Beanstalk
 <a name="using-features.CNAMESwap"></a>
 
+**Note**  
+Beanstalk Cluster environments also support blue/green deployments via CNAME swap.
+
 Because AWS Elastic Beanstalk performs an in-place update when you update your application versions, your application might become unavailable to users for a short period of time. To avoid this, perform a blue/green deployment. To do this, deploy the new version to a separate environment, and then swap the CNAMEs of the two environments to redirect traffic to the new version instantly.
 
 A blue/green deployment is also required if you want to update an environment to an incompatible platform version. For more information, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md).

@@ -144,7 +144,7 @@ During migration, additional processes may be created to represent different sit
 For more information about some of the terms described in this topic see the following resources:  
 Elastic Beanstalk API actions - [AWS Elastic Beanstalk API Reference](https://docs.aws.amazon.com/elasticbeanstalk/latest/api/)
 Elastic Beanstalk platforms, including supported platform versions - [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html) in the *AWS Elastic Beanstalk Platforms guide*
-Elastic Beanstalk configuration namespaces - [General options for all environments](command-options-general.md) in this guide
+Elastic Beanstalk configuration namespaces - [Configuration options for Beanstalk Standard environments](command-options-general.md) in this guide
 The EB CLI or specific EB CLI commands - [Setting up the EB command line interface (EB CLI) to manage Elastic Beanstalk](eb-cli3.md) in this guide
 
 ## Python terms

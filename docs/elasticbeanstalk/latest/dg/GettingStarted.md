@@ -3,17 +3,20 @@
 # Learn how to get started with Elastic Beanstalk
 <a name="GettingStarted"></a>
 
-With Elastic Beanstalk you can deploy, monitor, and scale web applications and services. Typically, you will develop your code locally then deploy it to Amazon EC2 server instances. Theses instances, also called *environments*, run on *platforms* that can be upgraded through the AWS console or the command line.
+With Elastic Beanstalk you can deploy, monitor, and scale web applications and services. Typically, you will develop your code locally then deploy it. When you deploy, Elastic Beanstalk provisions AWS resources to run your application. A running instance of your application is called an *environment*.
 
 To get started, we recommend deploying a pre-built sample application directly from the console. Then, you can learn how to develop locally and deploy from the command line in the [QuickStart: Deploy a PHP application to Elastic Beanstalk](php-quickstart.md).
 
 There is no cost for using Elastic Beanstalk, but standard fees do apply to AWS resources that you create during the course of this tutorial until you delete them at the end. The total charges are typically less than a dollar.  For information about how to minimize charges, see [AWS free tier](https://aws.amazon.com/free). 
 
-After completing this tutorial, you will understand the basics of creating, configuring, deploying, updating, and monitoring an Elastic Beanstalk application with environments running on Amazon EC2 instances. 
+After completing this tutorial, you will understand the basics of creating, configuring, deploying, updating, and monitoring applications running as Elastic Beanstalk environments. 
+
+**Note**  
+This tutorial uses Beanstalk Standard, but the concepts generally apply to Beanstalk Cluster as well. You will find notes below clarifying where there are noteworthy differences between the two. To create a Beanstalk Cluster environment instead, follow [Getting started with Beanstalk Cluster](beanstalk-cluster-getting-started.md), which covers the prerequisites and steps that differ, including the platform concept, which doesn't apply to Beanstalk Cluster.
 
 Estimated duration: **35-45 minutes**
 
-![Simplified architecture of Elastic Beanstalk application with a web server environment.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-simple.png)
+![Simplified architecture of Elastic Beanstalk application with a Standard web server environment.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-simple.png)
 
 
 ## What you will build
@@ -22,18 +25,18 @@ Estimated duration: **35-45 minutes**
 Your first Elastic Beanstalk application will consist of a single Amazon EC2 environment running the PHP sample on a PHP managed platform.
 
 **Elastic Beanstalk application**  
-An *Elastic Beanstalk application* is a container for Elastic Beanstalk components, including *environments* where your application code runs on *platforms* provided and managed by Elastic Beanstalk, or in custom containers that you provide. 
+An *Elastic Beanstalk application* is a logical grouping of Elastic Beanstalk components, including *environments* where your application code runs on *platforms* provided and managed by Elastic Beanstalk, or in custom containers that you provide. 
 
 **Environment**  
 An Elastic Beanstalk *environment* is a collection of AWS resources running together including an Amazon EC2 instance. When you create an environment, Elastic Beanstalk provisions the necessary resources into your AWS account.
 
 **Platform**  
-A *platform* is a combination of an operating system, programming language runtime, web server, application server, and additional Elastic Beanstalk components. Elastic Beanstalk provides manged platforms, or you can provide your own platform in a container.
+A *platform* is a combination of an operating system, programming language runtime, web server, application server, and additional Elastic Beanstalk components. Elastic Beanstalk provides managed platforms, or you can provide your own platform in a container.
 
-Elastic Beanstalk supports platforms for different programming languages, application servers, and Docker containers. When you create an environment, you must choose the platform. You can upgrade the platform, but you cannot **change** the platform for an environment.
+Elastic Beanstalk supports platforms for different programming languages, application servers, and Docker containers. When you create a Beanstalk Standard environment, you must choose the platform. When you create a Beanstalk Cluster environment, there is no platform to choose because you provide your own platform in a container.
 
 **Switching platforms**  
-If you need to change programming languages, you must create and switch to a new environment on a different platform.
+If you are using Beanstalk Standard with a programming language specific platform and need to change programming languages, you must create and switch to a new environment on a different platform.
 
 ## Step 1 - Create an application
 <a name="GettingStarted.CreateApp.Create"></a>
@@ -67,6 +70,9 @@ The console provides a six step process for creating an application and configur
 
 **To configure service access**  
 Next, you need two roles. A *service role* allows Elastic Beanstalk to monitor your EC2 instances and upgrade you environment’s platform. An *EC2 instance profile* role permits tasks such as writing logs and interacting with other services.
+
+**Note**  
+Beanstalk Cluster uses EKS-oriented IAM roles rather than the service role and Amazon EC2 instance profile shown here. For the roles a Beanstalk Cluster environment uses, see [Permissions for Beanstalk Cluster](beanstalk-cluster-permissions.md).
 
 **To create or select the Service role**
 
@@ -148,6 +154,9 @@ When you create the example application, Elastic Beanstalk creates the following
 + **CloudFormation stack** – Elastic Beanstalk uses CloudFormation to deploy the resources in your environment and make configuration changes. You can view the resource definition template in the [CloudFormation console](https://console.aws.amazon.com/cloudformation).
 +  **Domain name** – A domain name that routes to your web app in the form : `{{subdomain}}.{{region}}.elasticbeanstalk.com`. 
 
+**Note**  
+Beanstalk Cluster runs your application as containers on an Amazon EKS cluster, and provisions a different set of resources than those listed here. For more information, see [Beanstalk Cluster architecture](beanstalk-cluster-concepts.md).
+
 Elastic Beanstalk creates your application, launches an environment, makes an application version, then deploys your code into the environment. During the process, the console tracks progress and displays event status in the Events tab.
 
 ![Overview of the architecture of Elastic Beanstalk application with a web server environment.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview-web-only.png)
@@ -212,6 +221,9 @@ Links in the console navigation pane will display the corresponding tab.
 For troubleshooting unexpected behaviors or debugging deployments, you might want to check the logs in your environments.
 
 You can request 100 lines of all the log files under the **Logs** tab in the Elastic Beanstalk console. Alternatively, you can connect directly to the Amazon EC2 instance and tail the logs in realtime.
+
+**Note**  
+With Beanstalk Cluster, your application runs as containers on Amazon EKS, so you reach its logs through the observability backend that the environment sends them to rather than by connecting to an Amazon EC2 instance. For where logs go and how to choose a destination, see [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md).
 
 **To request the logs (Elastic Beanstalk console)**
 
@@ -306,6 +318,9 @@ If you want to edit the source yourself, unzip, edit, then re-zip the source bun
 You can configure your environment to better suit your application. For example, if you have a compute-intensive application, you can change the type of Amazon Elastic Compute Cloud (Amazon EC2) instance that is running your application. To apply configuration changes, Elastic Beanstalk performs an environment update.
 
 Some configuration changes are simple and happen quickly. Some changes require deleting and recreating AWS resources, which can take several minutes. When you change configuration settings, Elastic Beanstalk warns you about potential application downtime. 
+
+**Note**  
+With Beanstalk Cluster, you scale by changing the number of application replicas that the environment runs, and more than one replica can run on an underlying Amazon EC2 instance. You set the replica bounds and choose what makes the environment scale. For more information, see [Scaling Beanstalk Cluster environments](configuring-cluster-scaling.md).
 
 ![Illustrative image showing growth of your environments.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/growth_532477598.jpg)
 

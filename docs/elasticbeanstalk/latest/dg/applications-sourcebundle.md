@@ -5,6 +5,8 @@
 
 This topic explains how to upload your application source files to Elastic Beanstalk in a source bundle. It explains the requirements of a source bundle, the structure, and the approaches to create one.
 
+A source bundle is an archive (for example, a `ZIP` or `WAR` file) of your application source stored in Amazon Simple Storage Service (Amazon S3). It is supported by both Standard and Cluster modes (the same `SourceBundle` input to `CreateApplicationVersion`). What differs is how Elastic Beanstalk consumes it. In Beanstalk Standard it's deployed onto the managed platform, so the platform-specific packaging in this topic is Standard-only. In Beanstalk Cluster it's the input Elastic Beanstalk builds into a container image with a Dockerfile or Cloud Native Buildpacks (if not deploying from an image URI). For the Cluster build path, see [Building container images for Beanstalk Cluster environments](beanstalk-cluster-app-versions.md).
+
 When you use the AWS Elastic Beanstalk console to deploy a new application or an application version, you'll need to upload the files for the application in a *source bundle*. Your source bundle must meet the following requirements: 
 + Consist of a single `ZIP` file or `WAR` file (you can include multiple `WAR` files inside your `ZIP` file)
 + Not exceed 500 MB

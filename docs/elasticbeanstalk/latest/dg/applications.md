@@ -36,6 +36,5 @@ Deleting an application terminates all associated environments and deletes all a
 + [Elastic Beanstalk application management console](applications-console.md)
 + [Managing application versions](applications-versions.md)
 + [Create an Elastic Beanstalk application source bundle](applications-sourcebundle.md)
-+ [Using the EB CLI with AWS CodeBuild](eb-cli-codebuild.md)
 + [Tagging applications](applications-tagging.md)
 + [Tagging Elastic Beanstalk application resources](applications-tagging-resources.md)

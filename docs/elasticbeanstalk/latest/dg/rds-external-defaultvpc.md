@@ -91,8 +91,22 @@ Next, pass the connection information to your environment by using environment p
 
 1. In the **Updates, monitoring, and logging** configuration category, choose **Edit**.
 
-1. In the **Environment properties** section, define the variables that your application reads to construct a connection string. For compatibility with environments that have an integrated RDS DB instance, use the following names and values. You can find all values, except for your password, in the [RDS console](https://console.aws.amazon.com/rds/home).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/rds-external-defaultvpc.html)  
+1. In the **Environment properties** section, define the variables that your application reads to construct a connection string. For compatibility with environments that have an integrated RDS DB instance, use the following names and values. You can find all values, except for your password, in the [RDS console](https://console.aws.amazon.com/rds/home).
+
+
+<table>
+<thead>
+  <tr><th>Property name</th><th>Description</th><th>Property value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>RDS_HOSTNAME</code></td><td>The hostname of the DB instance.</td><td>On the <b>Connectivity &amp; security</b> tab on the Amazon RDS console: <b>Endpoint</b>.</td></tr>
+  <tr><td><code>RDS_PORT</code></td><td>The port where the DB instance accepts connections. The default value varies among DB engines.</td><td>On the <b>Connectivity &amp; security</b> tab on the Amazon RDS console: <b>Port</b>.</td></tr>
+  <tr><td><code>RDS_DB_NAME</code></td><td>The database name, <b>ebdb</b>.</td><td>On the <b>Configuration</b> tab on the Amazon RDS console: <b>DB Name</b>.</td></tr>
+  <tr><td><code>RDS_USERNAME</code></td><td>The username that you configured for your database.</td><td>On the <b>Configuration</b> tab on the Amazon RDS console: <b>Master username</b>.</td></tr>
+  <tr><td><code>RDS_PASSWORD</code></td><td>The password that you configured for your database.</td><td>Not available for reference in the Amazon RDS console.</td></tr>
+</tbody>
+</table>
+  
 ![Environment properties configuration section with RDS properties added](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-envprops-rds.png)
 
 1. To save the changes choose **Apply** at the bottom of the page.

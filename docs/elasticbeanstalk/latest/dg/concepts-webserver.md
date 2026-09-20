@@ -3,7 +3,7 @@
 # Elastic Beanstalk web server environments
 <a name="concepts-webserver"></a>
 
-The following diagram shows an example Elastic Beanstalk architecture for a web server environment tier, and shows how the components in that type of environment tier work together.
+The following diagram shows an example Elastic Beanstalk architecture for a Beanstalk Standard web server environment tier, and shows how the components in that type of environment tier work together.
 
 ![AWS Elastic Beanstalk web server tier architecture diagram.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-architecture2.png)
 

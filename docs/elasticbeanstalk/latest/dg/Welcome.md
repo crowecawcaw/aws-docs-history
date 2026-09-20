@@ -3,21 +3,28 @@
 # What is AWS Elastic Beanstalk?
 <a name="Welcome"></a>
 
-With Elastic Beanstalk you can deploy web applications into the AWS Cloud on a variety of supported platforms. You build and deploy your applications. Elastic Beanstalk provisions Amazon EC2 instances, configures load balancing, sets up health monitoring, and dynamically scales your environment.
+With Elastic Beanstalk you can deploy web applications into the AWS Cloud on a variety of supported platforms. You build and deploy your applications. Elastic Beanstalk provisions Amazon EC2 instances or EKS clusters, configures load balancing, sets up health monitoring, and dynamically scales your environment.
 
-In addition to *web server* environments, Elastic Beanstalk also provides *worker* environments which you can use to process messages from an Amazon SQS queue, useful for asynchronous or long-running tasks. For more information, see [Elastic Beanstalk worker environments](using-features-managing-env-tiers.md).
+Elastic Beanstalk offers two modes: Standard and Cluster. Beanstalk Standard runs applications directly on Amazon EC2, is highly cost effective when running smaller, or fewer, applications, and supports Windows applications. Beanstalk Cluster runs applications on Amazon EKS and enables faster deployments, faster autoscaling, improved resource utilization when running multiple environments, and managed OpenTelemetry integration.
+
+The following diagram depicts two Beanstalk Standard environments: one web server environment and one worker environment.
 
 ![Illustrative diagram showing the relationship between an Elastic Beanstalk application and web/worker environments.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview.png)
+
+
+The following diagram depicts two Beanstalk Cluster environments sharing an EKS cluster.
+
+![Two Beanstalk Cluster environments for one Elastic Beanstalk application share a service-operated Amazon EKS cluster because they are in the same AWS account and use the same VPC subnet set. Each environment has an optional Application Load Balancer and isolated application replicas. Amazon EKS Auto Mode supplies shared node capacity.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview-cluster.png)
 
 
 ## Supported platforms
 <a name="welcome-platform-support"></a>
 
-Elastic Beanstalk supports applications developed in Go, Java, .NET, Node.js, PHP, Python, and Ruby. Elastic Beanstalk also supports Docker containers, where you can choose your own programming language and application dependencies. When you deploy your application, Elastic Beanstalk builds the selected supported platform version and provisions one or more AWS resources, such as Amazon EC2 instances, in your AWS account to run your application.
+Elastic Beanstalk supports applications developed in Go, Java, .NET, Node.js, PHP, Python, and Ruby. Elastic Beanstalk also supports Docker containers, where you can choose your own programming language and application dependencies. When you deploy your application, Elastic Beanstalk builds the selected supported platform version and provisions one or more AWS resources in your AWS account to run your application. With Beanstalk Cluster mode there is no platform involved; you provide a container image, or source that Elastic Beanstalk builds into one.
 
-You can interact with Elastic Beanstalk through the Elastic Beanstalk console, the AWS Command Line Interface (AWS CLI), or the EB CLI, a high-level command line tool designed specifically for Elastic Beanstalk.
+You can interact with Elastic Beanstalk through the Elastic Beanstalk console, the AWS Command Line Interface (AWS CLI), the official GitHub Action, or the EB CLI, a high-level command line tool designed specifically for Elastic Beanstalk. You can also define your environments as infrastructure as code, with AWS CloudFormation (CloudFormation) or with Terraform through the AWS provider.
 
-You can perform most deployment tasks, such as changing the size of your fleet of Amazon EC2 instances or monitoring your application, directly from the Elastic Beanstalk web interface (console). 
+You can perform most deployment tasks, such as changing scaling configuration or monitoring your application, directly from the Elastic Beanstalk web interface (console). 
 
 To learn more about how to deploy a sample web application using Elastic Beanstalk, see [Learn how to get started with Elastic Beanstalk](GettingStarted.md).
 
