@@ -3,7 +3,7 @@
 # UpdateContactEventHooks
 <a name="contact-actions-updatecontacteventhooks"></a>
 
-Sets one or more contact event hooks, which are flows associated with contact events, such as customer whisper or agent hold. For more information, see [Contact records data model](https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html). The following event hooks are valid: 
+Sets one or more contact event hooks, which are flows associated with contact events, such as customer whisper or agent hold. For more information, see [Set event flow](https://docs.aws.amazon.com/connect/latest/adminguide/set-event-flow.html). The following event hooks are valid: 
 + AgentHold
 + AgentWhisper
 + CustomerHold
