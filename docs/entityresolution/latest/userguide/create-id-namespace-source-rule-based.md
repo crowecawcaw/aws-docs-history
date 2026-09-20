@@ -26,26 +26,83 @@ If the input data is the source, then it must have a schema mapping and an assoc
 
 1. For the **ID namespace method**, choose **Rule-based**.
 
-1. For **Data input**, choose the **Input type** that you want to use and then take the recommended actions.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-namespace-source-rule-based.html)
+1. For **Data input**, choose the **Input type** that you want to use and then take the recommended actions.
+
+
+<table>
+<thead>
+  <tr><th>Input type</th><th>Recommended actions</th></tr>
+</thead>
+<tbody>
+  <tr><td>An existing schema mapping </td><td> <ol><li> Choose <b>Schema mapping</b>. </li><li> Choose the <b>AWS Region</b>, <b>AWS Glue database</b>, the <b>AWS Glue table</b>, and the <b>Schema mapping</b> from the dropdown list. <br />You can add up to 19 data inputs. </li></ol>  If your data table has a DELETE column, the schema mapping's type must be <code>String</code> and you can't have a <code>matchKey</code> and <code>groupName</code>.  </td></tr>
+  <tr><td>An existing matching workflow </td><td> <ol><li> Choose the <b>Matching workflow</b>. </li><li>  Choose the account that’s associated with the ID namespace: either <b>Your AWS account</b> or <b>Another AWS account</b>. </li><li> Depending on the type of account, select the <b>Matching workflow name</b> or enter the<b> Matching workflow ARN</b>. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. For **Rule parameters**, do the following.
 
-   1. Specify the **Rule controls** by choosing one of the following options based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-namespace-source-rule-based.html)
+   1. Specify the **Rule controls** by choosing one of the following options based on your goal.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow rules from both the source and the target</td><td><b>No preference</b></td></tr>
+  <tr><td>Choose whether a source, target, or both can provide rules in an ID mapping workflow</td><td><b>Limited rules</b></td></tr>
+</tbody>
+</table>
+
 
       **Rule controls** must be compatible between the source and the target to be used in an ID mapping workflow. For example, if a source ID namespace limits rules to the target but the target ID namespace limits rules to the source, this results in an error.
 
-   1. Specify the **Matching rules** by choosing one of the following options based on your data input type.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-namespace-source-rule-based.html)
+   1. Specify the **Matching rules** by choosing one of the following options based on your data input type.
+
+
+<table>
+<thead>
+  <tr><th>Data input type</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Schema mapping</b></td><td>Choose <b>Add another rule</b> to add a matching rule. You can apply up to 25 <b>Matching rules</b> to define your match criteria. </td></tr>
+  <tr><td><b>Matching workflow</b></td><td>Choose either <b>Use rules from matching workflow</b> or <b>Provide new rules</b> to define your <b>Matching rules</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. For **Comparison and matching parameters**, do the following.
 
-   1. Specify the **Comparison type** by choosing one of the following options based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-namespace-source-rule-based.html)
+   1. Specify the **Comparison type** by choosing one of the following options based on your goal.
 
-   1. Specify the **Record matching type** by choosing one of the following options based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-namespace-source-rule-based.html)
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow any comparison type to be used when you create the ID mapping workflow.</td><td><b>No preference</b></td></tr>
+  <tr><td>Find any combination of matches across data stored in multiple input fields, regardless of whether the data is in the same or different input field.</td><td><b>Multiple input fields</b></td></tr>
+  <tr><td>Limit comparison within a single input field, when similar data stored across multiple input fields shouldn't be matched.</td><td><b>Single input field</b></td></tr>
+</tbody>
+</table>
+
+
+   1. Specify the **Record matching type** by choosing one of the following options based on your goal.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow any comparison type to be used when you create the ID mapping workflow.</td><td><b>No preference</b></td></tr>
+  <tr><td>Limit the record matching type to store only one matching record in the source for each matched record in the target when you create the ID mapping workflow. </td><td><b>Limited record matching </b><br />and<br /><b>One source to one target</b></td></tr>
+  <tr><td>Limit the record matching type to store all matching records in the source for each matched record in the target when you create the ID mapping workflow. </td><td><b>Limited record matching </b><br />and<br /><b>Many sources to one target</b></td></tr>
+</tbody>
+</table>
+
 **Note**  
 You must specify compatible limitations for the source and target ID namespaces. For example, if a source ID namespace limits rules to the target but the target ID namespace limits rules to the source, this results in an error.
 

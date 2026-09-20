@@ -45,8 +45,19 @@ Ensure that your data input file format aligns with the provider service's guide
 
       ![The Source fields on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-id-namespace.PNG)
 
-   1. For ID namespace, identify where the ID namespace is located, and then take the recommended action.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-mapping-workflow-provider-services.html)
+   1. For ID namespace, identify where the ID namespace is located, and then take the recommended action.
+
+
+<table>
+<thead>
+  <tr><th>Location of ID namespace</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Your own AWS account</td><td> <ol><li> Choose <b>Your AWS account</b>. </li><li> Select the ID namespace from the <b>Your ID namespaces</b> dropdown list. </li></ol> </td></tr>
+  <tr><td>Someone else's AWS account</td><td> <ol><li> Choose <b>Another AWS account</b>. </li><li> Enter the <b>ID namespace ARN</b>. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
    1. For **Target**, choose **ID namespace**.
 
@@ -54,8 +65,19 @@ Ensure that your data input file format aligns with the provider service's guide
 
    1. To specify the **Service access** permissions, choose an option and take the recommended action.
 
-      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-mapping-workflow-provider-services.html)
+      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Entity Resolution creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>entityresolution-id-mapping-workflow-&lt;timestamp&gt;</code>. </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, choose the <b>This data is encrypted by a KMS key</b> option. Then, enter an <b>AWS KMS key</b> that is used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 

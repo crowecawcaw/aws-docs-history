@@ -31,8 +31,19 @@ This topic describes the process of creating an ID namespace target using the **
 
 1. For **Rule parameters**, do the following.
 
-   1. Specify the **Rule controls** by choosing one of the following options based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-namespace-target-rule-based.html)
+   1. Specify the **Rule controls** by choosing one of the following options based on your goal.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow rules from both the source and the target</td><td><b>No preference</b></td></tr>
+  <tr><td>Choose whether a source, target, or both can provide rules in an ID mapping workflow</td><td><b>Limited rules</b></td></tr>
+</tbody>
+</table>
+
 
       **Rule controls** must be compatible between the source and the target to be used in an ID mapping workflow. For example, if a source ID namespace limits rules to the target but the target ID namespace limits rules to the source, this results in an error.
 
@@ -40,11 +51,35 @@ This topic describes the process of creating an ID namespace target using the **
 
 1. For **Comparison and matching parameters**, do the following.
 
-   1. Specify the **Comparison type** by choosing one of the following options based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-namespace-target-rule-based.html)
+   1. Specify the **Comparison type** by choosing one of the following options based on your goal.
 
-   1. Specify the **Record matching type** by choosing one of the following options based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-namespace-target-rule-based.html)
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow any comparison type to be used when you create the ID mapping workflow.</td><td><b>No preference</b></td></tr>
+  <tr><td>Find any combination of matches across data stored in multiple input fields, regardless of whether the data is in the same or different input field.</td><td><b>Multiple input fields</b></td></tr>
+  <tr><td>Limit comparison within a single input field, when similar data stored across multiple input fields shouldn't be matched.</td><td><b>Single input field</b></td></tr>
+</tbody>
+</table>
+
+
+   1. Specify the **Record matching type** by choosing one of the following options based on your goal.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow any comparison type to be used when you create the ID mapping workflow.</td><td><b>No preference</b></td></tr>
+  <tr><td>Limit the record matching type to store only one matching record in the source for each matched record in the target when you create the ID mapping workflow. </td><td><b>Limited record matching </b><br />and<br /><b>One source to one target</b></td></tr>
+  <tr><td>Limit the record matching type to store all matching records in the source for each matched record in the target when you create the ID mapping workflow. </td><td><b>Limited record matching </b><br />and<br /><b>Many sources to one target</b></td></tr>
+</tbody>
+</table>
+
 **Note**  
 You must specify compatible limitations for the source and target ID namespaces. For example, if a source ID namespace limits rules to the target but the target ID namespace limits rules to the source, this results in an error.
 

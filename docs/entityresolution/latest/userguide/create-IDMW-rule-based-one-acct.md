@@ -39,29 +39,73 @@ This topic describes the process of creating an ID mapping workflow for one AWS 
 
 1. For **Step 2: Specify source and target**, do the following.
 
-   1. For **Source**, choose the scenario that applies to you and then take the recommended action.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-rule-based-one-acct.html)
+   1. For **Source**, choose the scenario that applies to you and then take the recommended action. 
+
+
+<table>
+<thead>
+  <tr><th>Scenario</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Use your own AWS Glue database, AWS Glue table, and schema mapping in the ID mapping workflow.</td><td><ol><li>  Choose <b>Schema mapping</b>. </li><li> Select an <b>AWS Region</b>, <b>AWS Glue database</b>, the <b>AWS Glue table</b>, and then the corresponding <b>Schema mapping</b>. </li></ol>You can add up to 19 data inputs.</td></tr>
+  <tr><td>Use an existing matching workflow that points to the record data you want to use in the ID mapping workflow.</td><td> <ol><li>  Choose <b>Matching workflow</b>. </li><li> Select an existing <b>Matching workflow</b> from the dropdown list. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
    1. For **Target**, select an existing **Matching workflow** from the dropdown list.
 
    1. For **Rule parameters**, do the following.
 
-      1. Specify the **Rule controls** by choosing one of the following options based on your source type.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-rule-based-one-acct.html)
+      1. Specify the **Rule controls** by choosing one of the following options based on your source type.
+
+
+<table>
+<thead>
+  <tr><th>Source type</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Matching workflow</b></td><td>Specify the <b>Rule controls</b> by choosing whether a <b>Source</b>, <b>Target</b>, or both can provide rules in an ID mapping workflow.<br /><b>Rule controls</b> must be compatible between the source and the target to be used in an ID mapping workflow. <br />For example, if a source ID namespace limits rules to the target but the target ID namespace limits rules to the source, this results in an error.</td></tr>
+  <tr><td><b>Schema mapping</b> </td><td>Skip this step.</td></tr>
+</tbody>
+</table>
+
 
       1. For **Comparison and matching parameters**, the **Comparison type** is automatically set to **Multiple input fields**. 
 
          This is because both participants had selected this option previously. 
 
-   1. Specify the **Record matching type** by choosing one of the following options based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-rule-based-one-acct.html)
+   1. Specify the **Record matching type** by choosing one of the following options based on your goal.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Limit the record matching type to store only one matching record in the source for each matched record in the target when you create the ID mapping workflow. </td><td><b>One source to one target</b></td></tr>
+  <tr><td>Limit the record matching type to store all matching records in the source for each matched record in the target when you create the ID mapping workflow. </td><td><b>Many sources to one target</b></td></tr>
+</tbody>
+</table>
+
 **Note**  
 You must specify compatible limitations for the source and target ID namespaces.
 
    1. To specify the **Service access** permissions, choose an option and take the recommended action.
 
-      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-rule-based-one-acct.html)
+      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Entity Resolution creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>entityresolution-id-mapping-workflow-&lt;timestamp&gt;</code>. </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, choose the <b>This data is encrypted by a KMS key</b> option. Then, enter an <b>AWS KMS key</b> that is used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 

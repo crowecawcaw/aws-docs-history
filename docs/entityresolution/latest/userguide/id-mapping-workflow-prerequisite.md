@@ -60,5 +60,10 @@ Before you create an ID mapping workflow for one AWS account using either the **
 
 ------
 
-  In the preceding permissions policy, replace each {{<user input placeholder>}} with your own information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/id-mapping-workflow-prerequisite.html)
+  In the preceding permissions policy, replace each {{<user input placeholder>}} with your own information.
+
+
+<table>
+<tbody>
+</tbody>
+</table>

@@ -51,18 +51,51 @@ After you've completed the [prerequisites](create-idmw-two-accounts-prerequisite
 
    1. For **Comparison and matching parameters**, do the following.
 
-      1. Specify the **Comparison type** by choosing an option based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-mapping-workflow-procedure.html)
+      1. Specify the **Comparison type** by choosing an option based on your goal.
 
-      1. Specify the **Record matching type** by choosing an option based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-mapping-workflow-procedure.html)
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Find any combination of matches across data stored in multiple input fields, regardless of whether the data is in the same or different input field.</td><td><b>Multiple input fields</b></td></tr>
+  <tr><td>Limit comparison within a single input field, when similar data stored across multiple input fields shouldn't be matched.</td><td><b>Single input field</b></td></tr>
+</tbody>
+</table>
+
+
+      1. Specify the **Record matching type** by choosing an option based on your goal.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Limit the record matching type to store only one matching record in the source for each matched record in the target when you create the ID mapping workflow. </td><td><b>One source to one target</b></td></tr>
+  <tr><td>Limit the record matching type to store all matching records in the source for each matched record in the target when you create the ID mapping workflow. </td><td><b>Many sources to one target</b></td></tr>
+</tbody>
+</table>
+
 **Note**  
 You must specify compatible limitations for the source and target ID namespaces.
 
    1. To specify the **Service access** permissions, choose an option and take the recommended action.
 
-      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-mapping-workflow-procedure.html)
+      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Entity Resolution creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>entityresolution-id-mapping-workflow-&lt;timestamp&gt;</code>. </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, choose the <b>This data is encrypted by a KMS key</b> option. Then, enter an <b>AWS KMS key</b> that is used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 

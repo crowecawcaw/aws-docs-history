@@ -309,8 +309,19 @@ After you create the schema mapping, you're ready to [create a matching workflow
 
 1. For **Step 2: Specify mapping**:
 
-   1. Start building the schema in the JSON editor or choose one of the following options based on your goal:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-schema-mapping.html)
+   1. Start building the schema in the JSON editor or choose one of the following options based on your goal:
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Start building your schema mapping</td><td><b>Insert sample JSON</b> and then edit the information as necessary.</td></tr>
+  <tr><td>Use an existing JSON file</td><td><b>Import from file</b></td></tr>
+</tbody>
+</table>
+
 **Note**  
 Normalization is only supported for the following **types**: `NAME`, `ADDRESS`, `PHONE`, and `EMAIL_ADRESS`.  
 If you want to normalize the `NAME` subtypes, then assign the following subtypes to the `NAME` **groupName**: `NAME_FIRST`, `NAME_MIDDLE`, and `NAME_LAST`  

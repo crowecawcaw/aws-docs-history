@@ -39,8 +39,19 @@ If the following **Name** sub-types are grouped: **First name**, **Middle name**
 If the following **Address** sub-types are grouped: **Street address 1**, **Street address 2**, **Street address 3**, **City**, **State**, **Country**, **Postal code**.
 If the following **Phone** sub-types are grouped: **Phone number**, **Phone country code**.
 
-   1. To specify the **Service access** permissions, choose an option and take the recommended action.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/rule-based-mw-simple.html)
+   1. To specify the **Service access** permissions, choose an option and take the recommended action.
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Entity Resolution creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>entityresolution-matching-workflow-&lt;timestamp&gt;</code>. </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, you can choose the <b>This data is encrypted with a KMS key</b> option and then enter an <b>AWS KMS key</b> that will be used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
    1. (Optional) To enable **Tags** for the resource, choose **Add new tag**, and then enter the **Key** and **Value** pair.
 
@@ -68,8 +79,19 @@ If you choose **Automatic**, ensure that you have Amazon EventBridge notificatio
       You can create up to 15 rules and you can apply up to 15 different match keys across your rules to define match criteria.  
 ![Matching rules interface with fields to enter rule name and select match keys.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/matching-rules.PNG)
 
-   1. For **Comparison type**, choose one of the following options based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/rule-based-mw-simple.html)  
+   1. For **Comparison type**, choose one of the following options based on your goal.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Find any combination of matches across data stored in multiple input fields</td><td><b>Multiple input fields </b></td></tr>
+  <tr><td>Limit comparison to a single input field</td><td><b>Single input field </b></td></tr>
+</tbody>
+</table>
+  
 ![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/comparison-type.PNG)
 
    1. Choose **Next**.
@@ -82,8 +104,21 @@ If you choose **Automatic**, ensure that you have Amazon EventBridge notificatio
 
    1. View the **System generated output**.
 
-   1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/rule-based-mw-simple.html)
+   1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals. 
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Include fields</td><td>Keep the output state as <b>Included</b>.</td></tr>
+  <tr><td>Hide fields (exclude from output)</td><td>Choose the <b>Output field</b>, and then choose <b>Hide</b>.</td></tr>
+  <tr><td>Mask fields</td><td>Choose the <b>Output field</b>, and then choose <b>Hash output</b>.</td></tr>
+  <tr><td>Reset the previous settings</td><td>Choose <b>Reset</b>.</td></tr>
+</tbody>
+</table>
+
 
    1. Choose **Next**.
 

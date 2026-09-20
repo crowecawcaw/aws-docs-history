@@ -40,5 +40,10 @@ Before you create an ID mapping workflow across two AWS accounts, you must first
 
 ------
 
-  In the preceding permissions policy, replace each {{<user input placeholder>}} with your own information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-idmw-two-accounts-prerequisite.html)
+  In the preceding permissions policy, replace each {{<user input placeholder>}} with your own information.
+
+
+<table>
+<tbody>
+</tbody>
+</table>

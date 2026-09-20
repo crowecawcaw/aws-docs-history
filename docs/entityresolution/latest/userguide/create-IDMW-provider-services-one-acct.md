@@ -39,11 +39,33 @@ Ensure that your data input file format aligns with the provider service's guide
 
 1. For **Step 2: Specify source and target**, do the following.
 
-   1. For **Source**, choose the scenario that applies to you and then take the recommended action.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-provider-services-one-acct.html)
+   1. For **Source**, choose the scenario that applies to you and then take the recommended action.
 
-   1. For **Target**, take one of the following actions based on your chosen ID mapping method.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-provider-services-one-acct.html)
+
+<table>
+<thead>
+  <tr><th>Scenario</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Use your own AWS Glue database, AWS Glue table, and schema mapping in the ID mapping workflow.</td><td><ol><li>  Choose <b>Schema mapping</b>. </li><li> Select an <b>AWS Region</b>, <b>AWS Glue database</b>, the <b>AWS Glue table</b>, and then the corresponding <b>Schema mapping</b>. </li></ol>You can add up to 19 data inputs.</td></tr>
+  <tr><td>Use an existing matching workflow that points to the record data you want to use in the ID mapping workflow.</td><td> <ol><li>  Choose <b>Matching workflow</b>. </li><li> Select an existing <b>Matching workflow</b> from the dropdown list. </li></ol> </td></tr>
+</tbody>
+</table>
+
+
+   1. For **Target**, take one of the following actions based on your chosen ID mapping method.
+
+
+<table>
+<thead>
+  <tr><th>ID mapping method</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Rule-based</b> </td><td>Select an existing <b>Matching workflow</b> from the dropdown list.</td></tr>
+  <tr><td><b>Provider services</b> </td><td>Enter the LiveRamp client domain identifier targeted for transcoding that LiveRamp provides in the <b>Target domain</b>.<br /><img src="https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-data-input-target.PNG" alt="The Target field on the Specify source and target page" /></td></tr>
+</tbody>
+</table>
+
 
    1. For **Data staging**, choose the **Amazon S3 location** where you want to temporarily write the ID mapping workflow output.
 
@@ -51,8 +73,19 @@ Ensure that your data input file format aligns with the provider service's guide
 
    1. To specify the **Service access** permissions, choose an option and take the recommended action.
 
-      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-IDMW-provider-services-one-acct.html)
+      ![The Service access options on the Specify source and target page](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Entity Resolution creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>entityresolution-id-mapping-workflow-&lt;timestamp&gt;</code>. </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, choose the <b>This data is encrypted by a KMS key</b> option. Then, enter an <b>AWS KMS key</b> that is used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Next**.
 

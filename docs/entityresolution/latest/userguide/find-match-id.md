@@ -22,8 +22,19 @@ After completing a rule-based matching workflow, you can retrieve the Match ID a
 **Note**  
 The **Look up match ID** option is only available for matching workflows that use the **Automatic** processing cadence. If you have selected the **Manual** processing cadence, this option will appear inactive. To use this option, edit your workflow to use the **Automatic** processing cadence. For more information about editing workflows, see [Editing a matching workflow](edit-matching-workflow.md).
 
-1. Do one of the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/find-match-id.html)
+1. Do one of the following:
+
+
+<table>
+<thead>
+  <tr><th>If ...</th><th>Then ...</th></tr>
+</thead>
+<tbody>
+  <tr><td>There is only one schema mapping associated with this workflow.</td><td>View the <b>Schema mapping</b> that's selected by default.</td></tr>
+  <tr><td>There is more than one schema mapping associated with this workflow.</td><td>Choose the <b>Schema mapping</b> from the dropdown list.</td></tr>
+</tbody>
+</table>
+
 
 1. For **Record attributes**, enter the **Value** for an existing **Match key** to look up for each existing record.
 **Tip**  

@@ -125,8 +125,14 @@ You don't need to grant AWS KMS permissions if your data sources aren't encrypte
 
 ------
 
-      Replace each {{{{user input placeholder}}}} with your own information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-workflow-job-role.html)
+      Replace each {{{{user input placeholder}}}} with your own information.
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    1. (Optional) If the input Amazon S3 bucket is encrypted using the customer’s KMS key, add the following:
 
@@ -142,8 +148,14 @@ You don't need to grant AWS KMS permissions if your data sources aren't encrypte
               }
       ```
 
-      Replace each {{{{user input placeholder}}}} with your own information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-workflow-job-role.html)
+      Replace each {{{{user input placeholder}}}} with your own information.
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    1. (Optional) If the data being written into the output Amazon S3 bucket needs to be encrypted, add the following:
 
@@ -160,8 +172,14 @@ You don't need to grant AWS KMS permissions if your data sources aren't encrypte
               }
       ```
 
-      Replace each {{{{user input placeholder}}}} with your own information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-workflow-job-role.html)
+      Replace each {{{{user input placeholder}}}} with your own information.
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    1. (Optional) If you have a subscription with a provider service through AWS Data Exchange, and want to use an existing role for a provider service-based workflow, add the following:
 
@@ -176,8 +194,14 @@ You don't need to grant AWS KMS permissions if your data sources aren't encrypte
               }
       ```
 
-      Replace each {{{{user input placeholder}}}} with your own information.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-workflow-job-role.html)
+      Replace each {{{{user input placeholder}}}} with your own information.
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
 1. Go back to your original tab and under **Add permissions**, enter the name of the policy that you just created. (You might need to reload the page.)
 

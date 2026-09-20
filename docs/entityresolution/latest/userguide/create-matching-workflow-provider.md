@@ -122,8 +122,19 @@ If the following **Phone** sub-types are grouped: **Phone number**, **Phone coun
 
       If you are using the email-only resolution process, deselect the **Normalize data** option, because only hashed emails are used for input data.
 
-   1. To specify the **Service access** permissions, choose an option and take the recommended action.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html)
+   1. To specify the **Service access** permissions, choose an option and take the recommended action.
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Entity Resolution creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>entityresolution-matching-workflow-&lt;timestamp&gt;</code>. </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, choose the <b>This data is encrypted by a KMS key</b> option. Then, enter an <b>AWS KMS key</b> that is used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
    1. (Optional) To enable **Tags** for the resource, choose **Add new tag**, and then enter the **Key** and **Value** pair.
 
@@ -164,8 +175,21 @@ If you choose **Assignment PII,** then you must provide at least one non-identif
 
    1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals. 
 **Note**  
-If you have chosen **LiveRamp**, due to LiveRamp privacy filters that remove Personally Identifiable Information (PII), some fields will display an **Output** state of **Unavailable**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html)  
+If you have chosen **LiveRamp**, due to LiveRamp privacy filters that remove Personally Identifiable Information (PII), some fields will display an **Output** state of **Unavailable**.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Include fields</td><td>Keep the output state as <b>Included</b>.</td></tr>
+  <tr><td>Hide fields (exclude from output)</td><td>Choose the <b>Output field</b>, and then choose <b>Hide</b>.</td></tr>
+  <tr><td>Mask fields</td><td>Choose the <b>Output field</b>, and then choose <b>Hash output</b>.</td></tr>
+  <tr><td>Reset the previous settings</td><td>Choose <b>Reset</b>.</td></tr>
+</tbody>
+</table>
+  
 ![AWS Entity Resolution ID mapping workflow creation interface with options to specify data output location.](https://docs.aws.amazon.com/entityresolution/latest/userguide/images/specify-data-output.PNG)
 
    1. Choose **Next**.
@@ -289,8 +313,19 @@ If the following **Name** sub-types are grouped: **First name**, **Middle name**
 If the following **Address** sub-types are grouped: **Street address 1**, **Street address 2**: **Street address 3 name**, **City name**, **State**, **Country**, **Postal code**.
 If the following **Phone** sub-types are grouped: **Phone number**, **Phone country code**.
 
-   1. To specify the **Service access** permissions, choose an option and take the recommended action.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html)
+   1. To specify the **Service access** permissions, choose an option and take the recommended action.
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Entity Resolution creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>entityresolution-matching-workflow-&lt;timestamp&gt;</code>. </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, choose the <b>This data is encrypted by a KMS key</b> option. Then, enter an <b>AWS KMS key</b> that is used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
    1. (Optional) To enable **Tags** for the resource, choose **Add new tag**, and then enter the **Key** and **Value** pair.
 
@@ -321,8 +356,21 @@ Ensure that your data input file format and normalization is aligned with the pr
 
       This is the additional information generated by TransUnion.
 
-   1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html)
+   1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals. 
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Include fields</td><td>Keep the output state as <b>Included</b>.</td></tr>
+  <tr><td>Hide fields (exclude from output)</td><td>Choose the <b>Output field</b>, and then choose <b>Hide</b>.</td></tr>
+  <tr><td>Mask fields</td><td>Choose the <b>Output field</b>, and then choose <b>Hash output</b>.</td></tr>
+  <tr><td>Reset the previous settings</td><td>Choose <b>Reset</b>.</td></tr>
+</tbody>
+</table>
+
 
    1. For **System generated output**, view all of the fields that are included. 
 
@@ -391,8 +439,19 @@ Before you create a matching workflow with UID 2.0, you must:
 
       For more information about **Phone number** normalization, see [Phone Number Normalization](https://unifiedid.com/docs/getting-started/gs-normalization-encoding#phone-number-normalization) in the UID 2.0 documentation.
 
-   1. To specify the **Service access** permissions, choose an option and take the recommended action.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html)
+   1. To specify the **Service access** permissions, choose an option and take the recommended action.
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Entity Resolution creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>entityresolution-matching-workflow-&lt;timestamp&gt;</code>. </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, choose the <b>This data is encrypted by a KMS key</b> option. Then, enter an <b>AWS KMS key</b> that is used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
    1. (Optional) To enable **Tags** for the resource, choose **Add new tag**, and then enter the **Key** and **Value** pair.
 
@@ -417,8 +476,21 @@ Before you create a matching workflow with UID 2.0, you must:
 
       This is a list of all of the additional information generated by UID 2.0
 
-   1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/entityresolution/latest/userguide/create-matching-workflow-provider.html)
+   1. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals. 
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Include fields</td><td>Keep the output state as <b>Included</b>.</td></tr>
+  <tr><td>Hide fields (exclude from output)</td><td>Choose the <b>Output field</b>, and then choose <b>Hide</b>.</td></tr>
+  <tr><td>Mask fields</td><td>Choose the <b>Output field</b>, and then choose <b>Hash output</b>.</td></tr>
+  <tr><td>Reset the previous settings</td><td>Choose <b>Reset</b>.</td></tr>
+</tbody>
+</table>
+
 
    1. For **System generated output**, view all of the fields that are included. 
 
