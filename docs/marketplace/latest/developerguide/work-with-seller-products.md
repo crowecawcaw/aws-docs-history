@@ -396,8 +396,21 @@ Provide the following fields for the `AddDimensions` change type.
       + `ExternallyMetered` – Indicates that AWS Marketplace Metering Service (MMS) dimensions should be created during publishing to allow sellers to meter through the AWS SDK.
       + `Entitled` – Indicates that entitlements can be granted for the dimension during the product or offer publishing.
 
-        The following table lists the supported combinations of pricing dimensions and products.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/marketplace/latest/developerguide/work-with-seller-products.html)
+        The following table lists the supported combinations of pricing dimensions and products.
+
+
+<table>
+<thead>
+  <tr><th>Pricing dimension type</th><th>Product types</th></tr>
+</thead>
+<tbody>
+  <tr><td>[<code>Metered</code>] </td><td>AMI</td></tr>
+  <tr><td>[<code>Metered, ExternallyMetered</code>] </td><td>SaaS, AMI/Flexible Consumption Pricing (FCP)When <code>ExternallyMetered</code> appears, <code>Metered</code> is masked/inferred.</td></tr>
+  <tr><td>[<code>Entitled</code>] </td><td>SaaS Contracts, ProServ Products The <code>Entitled</code> tag grants rights to use a software/service start and end dates for the usage. Also, to grant rights to have usage discount for AMI annual products. Each entitlement is identified by a <code>Dimension Key</code> in AWS Marketplace Entitlement Service for creating or updating the entitlements.</td></tr>
+  <tr><td>[<code>Metered, ExternallyMetered, Entitled</code>] </td><td>Contracts with consumption pricing, where dimensions can be prepaid or metered, are a combination of both [<code>ExternallyMetered</code>] and [<code>Entitled</code>].</td></tr>
+</tbody>
+</table>
+
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
   + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0` or `SaaSProduct@1.0`. 
@@ -509,9 +522,23 @@ Use the following fields with the `UpdateDimensions` change type:
   + `Types` (array of strings) (required) (also known as **Tags**) – These indicate whether the dimension covers metering, entitlement, or support for external metering. This is not changeable after the dimension is created.
     + `Metered` – Indicates that Commerce Platform usage types should be created to allow metering to occur for this dimension.
     + `ExternallyMetered` – Indicates that AWS Marketplace Metering Service (MMS) dimensions should be created during publishing to allow sellers to meter through the AWS SDK.
-    + `Entitled` – Indicates that entitlements can be granted for the dimension during product/offer publishing.  
-**Valid Pricing Dimension Types Combinations**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/marketplace/latest/developerguide/work-with-seller-products.html)
+    + `Entitled` – Indicates that entitlements can be granted for the dimension during product/offer publishing.
+
+
+**Valid Pricing Dimension Types Combinations**  
+
+<table>
+<thead>
+  <tr><th>Pricing Dimension Type</th><th>Product</th></tr>
+</thead>
+<tbody>
+  <tr><td>[<code>Metered</code>] </td><td>AMI</td></tr>
+  <tr><td>[<code>ExternallyMetered</code>] </td><td>SaaS, AMI/Flexible Consumption Pricing (FCP)When <code>ExternallyMetered</code> appears, <b>Metered</b> is masked/inferred.</td></tr>
+  <tr><td>[<code>Entitled</code>] </td><td>SaaS Contracts, ProServe Products The <code>Entitled</code> tag grants rights to use a software/service set start and end dates for the usage. Also, to grant rights to have usage discount for AMI annual products. Each entitlement is identified by a <b>Dimension Key</b> in AWS Marketplace Entitlement Service for creating or updating the entitlements.</td></tr>
+  <tr><td>[<code>ExternallyMetered, Entitled</code>] </td><td>Contracts with Consumption Pricing, where dimensions can be prepaid or metered are a combination of both [<code>ExternallyMetered</code>] and [<code>Entitled</code>].</td></tr>
+</tbody>
+</table>
+
   + `Description` (string) (optional – Full description of the dimension that will be the long description on the buyer's viewing page.
   + `Name` (string) optional – DIsplay name for the dimension on the website and customer's bill.
 + `Entity` (object) (required) – The named type of entity being created.
