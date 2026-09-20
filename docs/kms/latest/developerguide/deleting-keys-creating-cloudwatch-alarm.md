@@ -16,12 +16,37 @@ In this procedure, you create a CloudWatch log group metric filter that finds in
 
 1. Create a CloudWatch metric filter that parses CloudTrail logs.
 
-   Follow the instructions in [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) using the following required values. For other fields, accept the default values and provide names as requested.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys-creating-cloudwatch-alarm.html)
+   Follow the instructions in [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) using the following required values. For other fields, accept the default values and provide names as requested.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Filter pattern</td><td><code>{ $.eventSource = kms* &amp;&amp; $.errorMessage = "* is pending deletion."}</code></td></tr>
+  <tr><td>Metric value</td><td>1</td></tr>
+</tbody>
+</table>
+
 
 1. Create a CloudWatch alarm based on the metric filter that you created in Step 1.
 
-   Follow the instructions in [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) using the following required values. For other fields, accept the default values and provide names as requested.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys-creating-cloudwatch-alarm.html)
+   Follow the instructions in [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) using the following required values. For other fields, accept the default values and provide names as requested.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Metric filter</td><td>The name of the metric filter that you created in Step 1.</td></tr>
+  <tr><td>Threshold type</td><td>Static</td></tr>
+  <tr><td>Conditions</td><td><b>Whenever</b> {{metric-name}} is <b>Greater/Equal</b> than <code>1</code></td></tr>
+  <tr><td>Data points to alarm</td><td><code>1</code> out of <code>1</code></td></tr>
+  <tr><td>Missing data treatment</td><td><b>Treat missing data as good (not breaching threshold)</b></td></tr>
+</tbody>
+</table>
+
 
 After you complete this procedure, you will receive a notification each time your new CloudWatch alarm enters the `ALARM` state. If you receive a notification for this alarm, it might mean that a KMS key that is scheduled for deletion is still needed to encrypt or decrypt data. In that case, [cancel deletion of the KMS key](deleting-keys-scheduling-key-deletion.md) and reconsider your decision to delete it.
