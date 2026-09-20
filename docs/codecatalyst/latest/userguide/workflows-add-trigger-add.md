@@ -81,8 +81,22 @@ For more information about triggers, see [Starting a workflow run automatically 
 
    {{minutes}} {{hours}} {{days-of-month}} {{month}} {{days-of-week}} {{year}}
 
-   **Examples of cron expressions**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-add-trigger-add.html)
+   **Examples of cron expressions**
+
+
+<table>
+<thead>
+  <tr><th>Minutes</th><th>Hours</th><th>Days of month</th><th>Month</th><th>Days of week</th><th>Year</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>0</td><td>?</td><td>*</td><td>MON-FRI</td><td>*</td><td>Runs a workflow at midnight (UTC+0) every Monday through Friday.</td></tr>
+  <tr><td>0</td><td>2</td><td>*</td><td>*</td><td>?</td><td>*</td><td>Runs a workflow at 2:00 am (UTC+0) every day.</td></tr>
+  <tr><td>15</td><td>22</td><td>*</td><td>*</td><td>?</td><td>*</td><td>Runs a workflow at 10:15 pm (UTC+0) every day.</td></tr>
+  <tr><td>0/30</td><td>22-2</td><td>?</td><td>*</td><td>SAT-SUN</td><td>*</td><td>Runs a workflow every 30 minutes Saturday through Sunday between 10:00 pm on the starting day and 2:00 am on the following day (UTC+0).</td></tr>
+  <tr><td>45</td><td>13</td><td>L</td><td>*</td><td>?</td><td>2023-2027</td><td>Runs a workflow at 1:45 pm (UTC+0) on the last day of the month between the years 2023 and 2027 inclusive.</td></tr>
+</tbody>
+</table>
+
 
    When specifying cron expressions in CodeCatalyst, make sure you follow these guidelines:
    + Specify a single cron expression per `SCHEDULE` trigger.

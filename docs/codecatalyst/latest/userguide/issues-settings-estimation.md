@@ -13,5 +13,19 @@ Follow these steps to configure the setting for effort estimations for issues in
 
 1. Choose **Active issues** to open the **issues view switcher** dropdown menu and choose **Settings**.
 
-1. In **Estimation** in the **Basic settings** section, choose how the estimation values will be displayed. The types of estimates available are **T-shirt sizing**, **Fibonacci sequencing**, or **Hide estimates**. When the estimation type is updated, no data will be lost and the estimation value of all issues will be converted automatically. The conversion mapping is shown in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecatalyst/latest/userguide/issues-settings-estimation.html)
+1. In **Estimation** in the **Basic settings** section, choose how the estimation values will be displayed. The types of estimates available are **T-shirt sizing**, **Fibonacci sequencing**, or **Hide estimates**. When the estimation type is updated, no data will be lost and the estimation value of all issues will be converted automatically. The conversion mapping is shown in the following table.
+
+
+<table>
+<thead>
+  <tr><th>T-shirt size</th><th>Fibonacci sequence</th></tr>
+</thead>
+<tbody>
+  <tr><td>XS</td><td>1</td></tr>
+  <tr><td>XS</td><td>2</td></tr>
+  <tr><td>S</td><td>3</td></tr>
+  <tr><td>M</td><td>5</td></tr>
+  <tr><td>L</td><td>8</td></tr>
+  <tr><td>XL</td><td>13</td></tr>
+</tbody>
+</table>

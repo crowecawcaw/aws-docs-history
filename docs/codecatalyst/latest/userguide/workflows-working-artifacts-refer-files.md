@@ -48,8 +48,19 @@ See also [Referencing source repository files](workflows-sources-reference-files
 
    In the previous code, replace:
    + {{artifact-name}} with the name of the artifact.
-   + {{artifact-path}} with a value from the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-working-artifacts-refer-files.html)
+   + {{artifact-path}} with a value from the following table.
+
+
+<table>
+<thead>
+  <tr><th>If you're adding the reference to...</th><th>Replace {{artifact-path}} with...</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="build-action-ref.md">A build action</a> or <a href="build-action-ref.md">test action</a></td><td><code>$CATALYST_SOURCE_DIR_artifact-name/</code></td></tr>
+  <tr><td>All other actions</td><td><code>$CATALYST_SOURCE_DIR_artifact-name/</code><br />or<br /><code>/artifacts/current-action-name/artifact-name/</code> <br />or<br />If the current action is within an <a href="workflows-group-actions.md">action group</a>:<br /><code>/artifacts/current-action-group@current-action-name/artifact-name/</code></td></tr>
+</tbody>
+</table>
+
 
    For examples, see [Examples of artifacts](workflows-working-artifacts-ex.md).
 **Note**  

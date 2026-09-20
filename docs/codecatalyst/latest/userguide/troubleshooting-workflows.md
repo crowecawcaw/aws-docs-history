@@ -268,8 +268,18 @@ Where:
 
    1. In the navigation pane, choose **CI/CD**, and then choose **Secrets**.
 
-   1. Create two secrets with the following properties:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecatalyst/latest/userguide/troubleshooting-workflows.html)
+   1. Create two secrets with the following properties:
+
+
+<table>
+<thead>
+  <tr><th>First secret</th><th>Second secret</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Name</b>: <code>npmUsername</code><br /><b>Value</b>: {{npm-username}}, where {{npm-username}} is the username used to authenticate to your private npm registry.<br />(Optional) <b>Description</b>: <code>The username used to authenticate to the private npm registry.</code></td><td><b>Name</b>: <code>npmAuthToken</code><br /><b>Value</b>: {{npm-auth-token}}, where {{npm-auth-token}} is the access token used to authenticate to your private npm registry. For more information about npm access tokens, see <a href="https://docs.npmjs.com/about-access-tokens">About access tokens</a> in the npm documentation.<br />(Optional) <b>Description</b>: <code>The access token used to authenticate to the private npm registry.</code></td></tr>
+</tbody>
+</table>
+
 
       For more information about secrets, see [Masking data using secrets](workflows-secrets.md).
 
@@ -287,8 +297,18 @@ Where:
 
    1. Choose the **Inputs** tab.
 
-   1. Add two variables with the following properties:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecatalyst/latest/userguide/troubleshooting-workflows.html)
+   1. Add two variables with the following properties:
+
+
+<table>
+<thead>
+  <tr><th>First variable</th><th>Second variable</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Name</b>: <code>NPMUSER</code><br /><b>Value</b>: <code>${Secrets.npmUsername}</code></td><td><b>Name</b>: <code>NPMTOKEN</code><br /><b>Value</b>: <code>${Secrets.npmAuthToken}</code></td></tr>
+</tbody>
+</table>
+
 
       You now have two variables containing references to secrets.
 

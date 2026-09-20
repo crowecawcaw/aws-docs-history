@@ -26,7 +26,22 @@ Follow these steps to configure the setting for effort estimations for issues in
 
 1. In **Estimation** in the **Basic settings** section, choose how the estimation values will be displayed. The types of estimates available are **T-shirt sizing**, **Fibonacci sequencing**, or **Hide estimates**. If the project's estimation setting is set to **Hide estimates**, there will not be an **Estimation** field in the issues for the project. 
 
-   When the estimation type is updated, no data will be lost and the estimation value of all issues will be converted automatically. The conversion mapping is shown in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecatalyst/latest/userguide/issues-tracking-work.html)
+   When the estimation type is updated, no data will be lost and the estimation value of all issues will be converted automatically. The conversion mapping is shown in the following table.
+
+
+<table>
+<thead>
+  <tr><th>T-shirt size</th><th>Fibonacci sequence</th></tr>
+</thead>
+<tbody>
+  <tr><td>XS</td><td>1</td></tr>
+  <tr><td>XS</td><td>2</td></tr>
+  <tr><td>S</td><td>3</td></tr>
+  <tr><td>M</td><td>5</td></tr>
+  <tr><td>L</td><td>8</td></tr>
+  <tr><td>XL</td><td>13</td></tr>
+</tbody>
+</table>
+
 
 To add or change an estimate for an issue, you can [edit the issue](issues-edit-issue.md).

@@ -133,8 +133,22 @@ The processor architecture. The following architectures are available:
 + Arm64
 
 **Machine type**  
-The machine type for each instance. The following machine types are available:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-working-compute.html)
+The machine type for each instance. The following machine types are available:  
+
+
+<table>
+<thead>
+  <tr><th>vCPUs</th><th>Memory (GiB)</th><th>Disk space</th><th>Operating system</th></tr>
+</thead>
+<tbody>
+  <tr><td>2</td><td>4</td><td>64 GB</td><td>Amazon Linux 2</td></tr>
+  <tr><td rowspan="2">4</td><td rowspan="2">8</td><td rowspan="2">128 GB</td><td>Amazon Linux 2</td></tr>
+  <tr><td>Windows Server 2022</td></tr>
+  <tr><td rowspan="2">8</td><td rowspan="2">16</td><td rowspan="2">128 GB</td><td>Amazon Linux 2</td></tr>
+  <tr><td>Windows Server 2022</td></tr>
+</tbody>
+</table>
+
 
 **Capacity**  
 The initial number of machines allocated to the fleet, which defines the number of actions that can run in parallel.
