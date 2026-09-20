@@ -67,8 +67,28 @@ For more information about Customer Managed Policies, see [Customer Managed Poli
 
 **Schema Location (Optional) **  
 Use this parameter to specify the Amazon S3 path to your schema for the Amazon Redshift data that Amazon ML will export.  
-If you don't provide a schema for your datasource, the Amazon ML console automatically creates an Amazon ML schema based on the data schema of the Amazon Redshift SQL query. Amazon ML schemas have fewer data types than Amazon Redshift schemas, so it is not a one-to-one conversion. The Amazon ML console converts Amazon Redshift data types to Amazon ML data types using the following conversion scheme.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/machine-learning/latest/dg/redshift-parameters.html)
+If you don't provide a schema for your datasource, the Amazon ML console automatically creates an Amazon ML schema based on the data schema of the Amazon Redshift SQL query. Amazon ML schemas have fewer data types than Amazon Redshift schemas, so it is not a one-to-one conversion. The Amazon ML console converts Amazon Redshift data types to Amazon ML data types using the following conversion scheme.  
+
+
+<table>
+<thead>
+  <tr><th>Amazon Redshift Data Types</th><th>Amazon Redshift Aliases</th><th>Amazon ML Data Type</th></tr>
+</thead>
+<tbody>
+  <tr><td>SMALLINT </td><td>INT2 </td><td>NUMERIC</td></tr>
+  <tr><td>INTEGER </td><td>INT, INT4 </td><td>NUMERIC</td></tr>
+  <tr><td>BIGINT </td><td>INT8 </td><td>NUMERIC</td></tr>
+  <tr><td>DECIMAL </td><td>NUMERIC </td><td>NUMERIC</td></tr>
+  <tr><td>REAL </td><td>FLOAT4 </td><td>NUMERIC</td></tr>
+  <tr><td>DOUBLE PRECISION </td><td>FLOAT8, FLOAT</td><td>NUMERIC</td></tr>
+  <tr><td>BOOLEAN </td><td>BOOL </td><td>BINARY</td></tr>
+  <tr><td>CHAR </td><td>CHARACTER, NCHAR, BPCHAR</td><td>CATEGORICAL</td></tr>
+  <tr><td>VARCHAR </td><td>CHARACTER VARYING, NVARCHAR, TEXT </td><td>TEXT</td></tr>
+  <tr><td>DATE </td><td> </td><td>TEXT</td></tr>
+  <tr><td>TIMESTAMP </td><td> TIMESTAMP WITHOUT TIME ZONE</td><td>TEXT</td></tr>
+</tbody>
+</table>
+
 To be converted to Amazon ML `Binary` data types, the values of the Amazon Redshift Booleans in your data must be supported Amazon ML Binary values. If your Boolean data type has unsupported values, Amazon ML converts them to the most specific data type it can. For example, if an Amazon Redshift Boolean has the values `0`, `1`, and `2`, Amazon ML converts the Boolean to a `Numeric` data type. For more information about supported binary values, see [Using the AttributeType Field](creating-a-data-schema-for-amazon-ml.md#assigning-data-types).  
 If Amazon ML can't figure out a data type, it defaults to `Text`.   
 After Amazon ML converts the schema, you can review and correct the assigned Amazon ML data types in the Create Datasource wizard, and revise the schema before Amazon ML creates the datasource. 
