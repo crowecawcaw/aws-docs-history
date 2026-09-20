@@ -15,8 +15,16 @@ After activating this feature, you can automate the replication of Amazon Lex V2
 When Global Resiliency is enabled for a bot, all existing aliases and their associated versions get replicated in the replica region. Versions which are not associated to an alias before enabling replication are replicated when they get associated to an alias. Every version and alias created after enabling replication, is automatically replicated. Users can use `ListBotVersionReplicas` and `ListBotAliasReplicas` to review the status of replication of each individual version and alias. Bot mutations are uni-directional from bot to its replica. Users cannot modify the replica bot because it is always kept in sync with the bot. 
 
 Additional information about using Global Resiliency:
-+ Global Resiliency currently only works with pre-determined pairs of regions.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/lexv2/latest/dg/global-resiliency.html)
++ Global Resiliency currently only works with pre-determined pairs of regions.
+
+
+<table>
+<tbody>
+  <tr><td>us-east-1</td><td>us-west-2</td></tr>
+  <tr><td>eu-west-2</td><td>eu-central-1</td></tr>
+</tbody>
+</table>
+
 + When Global Resiliency is enabled for a bot, all existing aliases and their associated versions get replicated in the replica region. Versions which are not associated to an alias before enabling replication, are replicated when they are associated to an alias. Every version and alias created after enabling replication, gets automatically replicated. Users can use `ListBotVersionReplicas` and `ListBotAliasReplicas` to know the status of replication for each individual version and alias. Bot mutations are uni-directional from bot to its replica. Users cannot modify the replica bot, because it is always kept in sync with the bot.
 + Any Alias can be associated with any version. If the version is not replicated already, it will be replicated during the association with the Alias.
 
