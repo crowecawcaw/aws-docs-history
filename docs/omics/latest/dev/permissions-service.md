@@ -35,6 +35,7 @@ The trust policy allows the HealthOmics service to assume the role.
 
 **Topics**
 + [Example IAM service policies](#permissions-service-samplepolicies)
++ [Use session policies to scope down permissions](#permissions-service-sessionpolicy)
 + [Example CloudFormation template](#permissions-service-sampletemplates)
 
 ## Example IAM service policies
@@ -157,6 +158,50 @@ The following example shows the policy for a service role that publishes run met
   ]
 }
 ```
+
+## Use session policies to scope down permissions
+<a name="permissions-service-sessionpolicy"></a>
+
+You can use session policies to further restrict the permissions granted by a service role for individual workflow runs. Session policies are inline IAM policies that you provide when starting a run. The effective permissions for the run are the intersection of the service role's permissions and the session policy.
+
+Session policies are useful when you want to:
++ Grant temporary access to specific Amazon S3 buckets or objects for a single run
++ Restrict access to sensitive resources on a per-run basis
++ Apply additional security controls without modifying the service role
+
+**Important**  
+Session policies can only restrict permissions; they cannot grant permissions beyond what the service role already allows. The session policy must include permissions for Amazon CloudWatch Logs (`logs:CreateLogStream` and `logs:PutLogEvents`) because HealthOmics uses the run's credentials to create and write to log groups.
+
+Session policies have a maximum length of 2,048 characters and must be valid JSON documents. For more information about session policies, see [Session policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session) in the *IAM User Guide*.
+
+**Example Session policy for a workflow run**  
+The following example shows a session policy that restricts a run to access only a specific Amazon S3 prefix for output and requires CloudWatch Logs permissions:  
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::my-bucket/workflow-outputs/run-123/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:log-group:/aws/omics/WorkflowLog:*"
+    }
+  ]
+}
+```
+
+You can specify a session policy when starting a run using the HealthOmics API. The `StartRun` API includes a `sessionPolicy` parameter where you provide the inline policy as a JSON string. For batch runs, you can specify a session policy in the `DefaultRunSetting` that applies to all runs in the batch.
 
 ## Example CloudFormation template
 <a name="permissions-service-sampletemplates"></a>

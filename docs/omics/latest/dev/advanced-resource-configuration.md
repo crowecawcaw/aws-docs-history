@@ -134,15 +134,21 @@ HealthOmics validates the following at workflow creation time and re-checks at t
 
 1. **Supported accelerator types only.** **acceleratorType** must be a supported accelerator type or omitted (CPU profile). Empty string `""` is not accepted.
 
+1. **Accelerator type unavailable in the Region (warning only).** If an accelerator type isn't supported in the workflow's AWS Region, HealthOmics skips that profile at task scheduling time. You get a warning in the runtime logs when an accelerator is skipped because it's not supported (or not offered) in that Region.
+
 1. **Minimum wait timeout.** **omicsResourceWaitTimeoutInMin** recommended value is ≥ 20 minutes (≥ 30 for multi-GPU bundles).
 
 1. **Duplicate profiles (warning only).** Duplicate profiles are allowed but produce a warning. Consider increasing **omicsResourceWaitTimeoutInMin** on the earlier profile instead.
 
 1. **Unrecognized fields rejected.** Only the five per-profile fields listed above are allowed.
 
-1. **Correct types.** For example, **cpu** must be a number, not a string.
+1. **Correct types.** For example, **acceleratorCount** must be a number, not a string.
+
+1. **Maximum resource values.** **cpu**, **memory**, and **acceleratorCount** each have a maximum — 192, 1536 GiB, and 4 respectively, matching the largest instance HealthOmics supports. Values above these are rejected at workflow creation time and at task run time. For supported instance maximum values, see [Compute and memory](memory-and-compute-tasks.md).
 
 1. **At most one CPU profile.** Only one profile that omits **acceleratorType** is allowed.
+
+1. **CPU profile must be last.** A CPU profile, if present, must be the last profile in the list. You should provide all accelerator options you would like before specifying a CPU profile in the priority order.
 
 1. **Maximum 10 profiles per task.**
 

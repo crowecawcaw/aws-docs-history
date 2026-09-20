@@ -30,7 +30,7 @@ With batch runs, you can:
 ## Batch run concepts
 <a name="batch-concepts"></a>
 + **Batch** — A collection of workflow runs that share common configuration, managed as a single resource with its own Amazon Resource Name (ARN) and lifecycle status.
-+ **Default run setting** (`defaultRunSetting`) — Workflow parameters shared across all runs in the batch, such as workflow ID, IAM role, output URI, and common parameters.
++ **Default run setting** (`defaultRunSetting`) — Workflow parameters shared across all runs in the batch, such as workflow ID, IAM role, output URI, session policy, and common parameters.
 + **Run-specific setting** (`inlineSettings` or `s3UriSettings`) — Per-run configurations that override or merge with the default run setting. Each entry must include a unique `runSettingId`.
 + **Run setting ID** (`runSettingId`) — A required, customer-provided unique identifier for each run configuration within a batch. After submission, use **ListRunsInBatch** to map each `runSettingId` to the HealthOmics-generated `runId`, allowing you to trace which run was created from which input configuration.
 + **Batch status** — The overall state of the batch operation. Possible values:

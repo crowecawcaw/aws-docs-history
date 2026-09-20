@@ -38,6 +38,9 @@ To publish these metrics, the AWS Identity and Access Management (IAM) role you 
 
 For more information about permissions, see [Service roles for AWS HealthOmics](permissions-service.md). For more information about starting a run, see [Start a run in HealthOmics](starting-a-run.md).
 
+**CloudWatch `PutMetricData` quota**  
+CloudWatch has a default `PutMetricData` quota of 500 requests per second (transactions per second). This default quota is sufficient to view metrics for up to 15,000 concurrent HealthOmics tasks. To view metrics for more than 15,000 concurrent HealthOmics tasks, request a limit increase for the CloudWatch `PutMetricData` quota. For more information, see [CloudWatch service quotas](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_limits.html).
+
 ## Available metrics
 <a name="monitoring-run-metrics-available"></a>
 
@@ -226,3 +229,5 @@ By default, HealthOmics publishes run metrics whenever the service role for a ru
   ]
 }
 ```
+
+Another way to opt out is to turn off logging for a run by setting `LogLevel = OFF` in the **StartRun** request. When you set `LogLevel` to `OFF`, HealthOmics does not publish run metrics.

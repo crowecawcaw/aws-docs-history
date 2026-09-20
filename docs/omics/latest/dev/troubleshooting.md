@@ -40,7 +40,7 @@ HealthOmics publishes engine logs to CloudWatch in near real-time for all runs (
 ### How can I reduce the input parameter size for a workflow?
 <a name="troubleshooting-input-file-size"></a>
 
-You can specify up to 50 KB of input parameters for a workflow. You can use directory imports or sample sheets to remain within this size constraint. For more information, see [Managing run parameters size](workflows-run-inputs.md#run-input-file-options).
+You can specify up to 256 KB of input parameters for a workflow. You can use directory imports or sample sheets to remain within this size constraint. For more information, see [Managing run parameters size](workflows-run-inputs.md#run-input-file-options).
 
 ### Why is my run not completing?
 <a name="troubleshooting-unresponsive-runs"></a>

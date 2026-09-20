@@ -57,7 +57,7 @@ The following table shows the maximum supported values for workflow quotas. Thes
 | Workflows - CPU instance container size | The maximum container image size for a CPU instance. | 45 GiB | No | 
 | Workflows - GPU instance container size | The maximum container image size for a GPU instance. | 95 GiB | No | 
 | GPU instance /dev/shm shared memory | The maximum amount of shared memory per GPU instance. | 8 GB per GPU | No | 
-| Workflows - Run parameter file | The maximum size of a run parameter file. | 50,000 bytes | No | 
+| Workflows - Run parameter file | The maximum size of a run parameter file. | 256,000 bytes | No | 
 | Workflows - Workflow parameters template file | The maximum number of entries and maximum file size for a workflow parameters template file. This quota applies to workflows that you create using the console or API. | 1,000 entries, 400 KB  | No | 
 | Workflows - Workflow definition file size - API (definitionZip direct upload) | The maximum size of the workflow definition file when you create the workflow using the API operation or an AWS SDK with definitionZip (direct upload). | 4.4 MB | No | 
 | Workflows - Workflow definition file size - API (definitionUri S3 upload) | The maximum size of the workflow definition file when you create the workflow using the API operation or an AWS SDK with definitionUri (S3 upload). | 100 MB | No | 

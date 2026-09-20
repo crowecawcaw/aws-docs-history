@@ -12,6 +12,9 @@ HealthOmics automatically allows a shared workflow to access the Amazon ECR repo
 
 When you share a workflow, the subscriber can use any of the workflow versions. If you need version-level access control for a shared workflow, we recommend that you create separate workflows rather than using workflow versions.
 
+**Trust the workflow owner**  
+Make sure that you trust the workflow owner before you accept a share. When you run a shared workflow, the workflow definition and container images that the owner provided run in your AWS account. They run with the permissions of the IAM service role that you specify for the run. The contents of the workflow and its container images aren't visible to you. Running a shared workflow is equivalent to running third-party code in your account. Provide a least-privilege service role, and use a session policy to further restrict permissions for the run. For more information, see [Use session policies to scope down permissions](permissions-service.md#permissions-service-sessionpolicy).
+
 **Topics**
 + [Subscribing to a shared workflow](#shared-workflow-subscribe)
 + [Monitoring status of a workflow share](#shared-workflow-monitor)

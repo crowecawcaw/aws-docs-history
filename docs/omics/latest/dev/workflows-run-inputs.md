@@ -15,7 +15,7 @@ Many genomics applications assume that index files are co-located with the seque
 ## Managing run parameters size
 <a name="run-input-file-options"></a>
 
-When you start a run, you specify run inputs in the run parameters JSON object or file. You can specify up to 50 KB of run parameters for the workflow. You can use the following techniques to remain within this size constraint:
+When you start a run, you specify run inputs in the run parameters JSON object or file. You can specify up to 256 KB of run parameters for the workflow. You can use the following techniques to remain within this size constraint:
 + **Use directory imports**
 
   To specify a large number of input files, specify one parameter as the Amazon S3 location that contains all the files, rather than specifying a parameter for each file location. For more information, see the next topic (Amazon S3 input parameter formats).
@@ -30,7 +30,7 @@ When you start a run, you specify run inputs in the run parameters JSON object o
 
 For an input parameter that accepts an Amazon S3 location, the parameter can specify the location of one file or a whole directory of files. Using a directory has the following advantages: 
 + Convenience – You specify the directory name as the parameter. You don't list each file name.
-+ Compactness – The input parameter maximum file size is 50 KB. If you provide a long list of input file names, you can exceed this maximum.
++ Compactness – The input parameter maximum file size is 256 KB. If you provide a long list of input file names, you can exceed this maximum.
 
 Amazon S3 is a flat object-storage system, so it doesn't support directories. You group files into a "directory" by giving each file the same object key prefix. For more information about Amazon S3 object key prefixes, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
 
