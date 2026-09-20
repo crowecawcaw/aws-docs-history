@@ -26,6 +26,12 @@ AWS ParallelCluster 3.8.0 supports Rocky Linux 8, but pre-built Rocky Linux 8 AM
 
 To build your custom AMI from a base Rocky Linux 8 AMI, you can consider subscribing to the [ Rocky Linux 8 AMIs](https://aws.amazon.com/marketplace/seller-profile?id=01538adc-2664-49d5-b926-3381dffce12d) available on the AWS [ Marketplace](https://aws.amazon.com/marketplace). Make sure to review the pricing and subscription costs for Rocky Linux 8 AMIs on the AWS Marketplace. Alternatively you can also use the [ official Rocky Linux 8 AMIs](https://rockylinux.org/cloud-images/)as your base AMI.
 
+**RHEL 9**
+
+AWS ParallelCluster 3.9.0 supports Red Hat Enterprise Linux 9 (RHEL 9). To build a custom RHEL 9 AMI, use a base AMI that meets the following requirements:
++ The FSx for Lustre client supports the kernel of the base AMI. For the supported kernels, see [Lustre file system and client kernel compatibility](https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-client-matrix.html) in the *FSx for Lustre User Guide*.
++ The base AMI runs a minor release that is not in Extended Update Support (EUS). EUS minor releases receive their kernels from the EUS repositories, which are disabled by default. As a result, the packages that match the kernel can't be installed during the build.
+
 **Rocky9**
 
 AWS ParallelCluster 3.9.0 supports Rocky Linux 9, but pre-built Rocky Linux 9 AMIs (for x86 and ARM architectures) are not available. AWS ParallelCluster 3.9.0 supports creating clusters with Rocky Linux 9 using custom AMIs using the [CustomAmi](Image-v3.md#yaml-Image-CustomAmi) property. For more information about building custom AMIs, refer to [AWS ParallelCluster AMI customization](custom-ami-v3.md). To build your custom AMI from a base Rocky Linux 9 AMI, you can also use the[ official Rocky Linux 9 AMIs](https://rockylinux.org/cloud-images/) as your base AMI. Custom Rocky Linux 9 AMI build may fail if the base AMI does not have the latest kernel. To upgrade the kernel before building the AMI:

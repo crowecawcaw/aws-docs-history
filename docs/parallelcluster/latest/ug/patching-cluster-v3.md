@@ -123,7 +123,12 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 kernel_cap=6.8.0-1021-aws
 
 # Cap the kernel at that version and version-lock it.
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "linux-image-${kernel_cap}" "linux-headers-${kernel_cap}" "linux-modules-${kernel_cap}" "linux-modules-extra-${kernel_cap}"
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "linux-image-${kernel_cap}" "linux-headers-${kernel_cap}" "linux-modules-${kernel_cap}"
+# linux-modules-extra carries the InfiniBand/RDMA modules and ships separately only up to
+# the 6.17 series; from the 7.0.0 series those modules are folded into linux-modules (installed above)
+# and linux-modules-extra is no longer published.
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "linux-modules-extra-${kernel_cap}" \
+    || echo "WARNING: linux-modules-extra-${kernel_cap} is not available; continuing without it"
 sudo apt-mark hold linux-aws linux-image-aws linux-headers-aws
 
 # Apply all available updates. The dpkg options keep locally-modified config files

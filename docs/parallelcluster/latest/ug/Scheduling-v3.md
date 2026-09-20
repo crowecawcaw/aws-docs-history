@@ -455,8 +455,20 @@ For more information, see [Service-linked role for Spot Instance requests](https
 
 **`AllocationStrategy` (**Optional**, `String`)**  
 Specify the allocation strategy for all the compute resources defined in [`Instances`](#yaml-Scheduling-SlurmQueues-ComputeResources-Instances).  
-Valid values: `lowest-price` \| `capacity-optimized` \| `price-capacity-optimized` \| `prioritized` \| `capacity-optimized-prioritized`       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/parallelcluster/latest/ug/Scheduling-v3.html)
+Valid values: `lowest-price` \| `capacity-optimized` \| `price-capacity-optimized` \| `prioritized` \| `capacity-optimized-prioritized`   
+
+
+<table>
+<thead>
+  <tr><th>CapacityType</th><th>Allowed strategies</th></tr>
+</thead>
+<tbody>
+  <tr><td>ONDEMAND</td><td>lowest-price, prioritized</td></tr>
+  <tr><td>SPOT</td><td>lowest-price, capacity-optimized, price-capacity-optimized, capacity-optimized-prioritized</td></tr>
+  <tr><td>CAPACITY_BLOCK</td><td>Not supported — AllocationStrategy cannot be configured</td></tr>
+</tbody>
+</table>
+
 Default: `lowest-price`    
 **`lowest-price`**  
 + If you use `CapacityType = ONDEMAND`, Amazon EC2 Fleet uses price to determine the order and launches the lowest price instances first.

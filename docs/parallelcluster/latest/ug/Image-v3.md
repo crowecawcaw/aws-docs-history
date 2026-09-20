@@ -23,8 +23,22 @@ If you configure your cluster to use `rhel`, the on-demand cost for any instance
 Red Hat Enterprise Linux 8.7 (`rhel8`) is added starting in AWS ParallelCluster version 3.6.0.   
 Red Hat Enterprise Linux 9 (`rhel9`) is added starting in AWS ParallelCluster version 3.9.0.   
 AWS ParallelCluster 3.15 is the last version to include `alinux2` support. Amazon Linux 2 reaches End of Life (EOL) on 2026-06-30 (see [Amazon Linux 2 FAQs ](https://aws.amazon.com/amazon-linux-2/faqs/)) and will no longer receive security patches or bug fixes after EOL. 
-All AWS commercial Regions support all of the following operating systems.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/parallelcluster/latest/ug/Image-v3.html)
+All AWS commercial Regions support all of the following operating systems.  
+
+
+<table>
+<thead>
+  <tr><th>Partition (AWS Regions)</th><th><code>ubuntu2204</code></th><th><code>ubuntu2404</code></th><th><code>rhel8</code></th><th><code>rhel9</code></th><th><code>alinux2023</code></th></tr>
+</thead>
+<tbody>
+  <tr><td>Commercial (All AWS Regions not specifically mentioned)</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td></tr>
+  <tr><td>AWS GovCloud (US-East) (<code>us-gov-east-1</code>)</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td></tr>
+  <tr><td>AWS GovCloud (US-West) (<code>us-gov-west-1</code>)</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td></tr>
+  <tr><td>China (Beijing) (<code>cn-north-1</code>)</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td></tr>
+  <tr><td>China (Ningxia) (<code>cn-northwest-1</code>)</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td></tr>
+</tbody>
+</table>
+
 [Update policy: If this setting is changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3)  
  AWS ParallelCluster 3.8.0 supports Rocky Linux 8, but pre-built Rocky Linux 8 AMIs (for x86 and ARM architectures) are not available. AWS ParallelCluster 3.8.0 supports creating clusters with Rocky Linux 8 using custom AMIs. For more information refer to [Operating system considerations](operating-systems-v3.md#OS-Consideration-v3). AWS ParallelCluster 3.9.0 supports Rocky Linux 9, but pre-built Rocky Linux 9 AMIs (for x86 and ARM architectures) are not available. AWS ParallelCluster 3.9.0 supports creating clusters with Rocky Linux 9 using custom AMIs. For more information refer to [Operating System Considerations](operating-systems-v3.md#OS-Consideration-v3).   
  
