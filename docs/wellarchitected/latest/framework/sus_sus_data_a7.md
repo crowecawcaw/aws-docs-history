@@ -23,8 +23,21 @@ Adopt shared file systems or storage to avoid data duplication and allow for mor
 
 ### Implementation steps
 <a name="implementation-steps"></a>
-+  **Use shared storage:** Migrate data to shared storage when the data has multiple consumers. Here are some examples of shared storage technology on AWS:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/sus_sus_data_a7.html)
++  **Use shared storage:** Migrate data to shared storage when the data has multiple consumers. Here are some examples of shared storage technology on AWS: 
+
+
+<table>
+<thead>
+  <tr><th>Storage option</th><th>When to use</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">Amazon EBS Multi-Attach</a></td><td>Amazon EBS Multi-Attach allows you to attach a single Provisioned IOPS SSD (io1 or io2) volume to multiple instances that are in the same Availability Zone.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/efs/">Amazon EFS</a></td><td>See <a href="https://aws.amazon.com/efs/when-to-choose-efs/">When to Choose Amazon EFS</a>.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/fsx/">Amazon FSx</a></td><td>See <a href="https://aws.amazon.com/fsx/when-to-choose-fsx/">Choosing an Amazon FSx File System</a>.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/s3/">Amazon S3</a></td><td>Applications that do not require a file system structure and are designed to work with object storage can use Amazon S3 as a massively scalable, durable, low-cost object storage solution.</td></tr>
+</tbody>
+</table>
+
 +  **Fetch data as needed:** Copy data to or fetch data from shared file systems only as needed. As an example, you can create an [Amazon FSx for Lustre file system backed by Amazon S3](https://aws.amazon.com/blogs/storage/new-enhancements-for-moving-data-between-amazon-fsx-for-lustre-and-amazon-s3/) and only load the subset of data required for processing jobs to Amazon FSx.
 +  **Delete unneeded data:** Delete data as appropriate for your usage patterns as outlined in [SUS04-BP03 Use policies to manage the lifecycle of your datasets](sus_sus_data_a4.md).
 +  **Detach inactive clients:** Detach volumes from clients that are not actively using them. 

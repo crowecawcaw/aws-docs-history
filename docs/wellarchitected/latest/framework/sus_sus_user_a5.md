@@ -31,10 +31,34 @@ Select cloud location and services for your workload that reduce the distance ne
   +  **Where your data is located:** For data-heavy applications (such as big data and machine learning), application code should run as close to the data as possible. 
   +  **Where your users are located:** For user-facing applications, choose a Region (or Regions) close to your workload’s users.
   + **Other constraints:** Consider constraints such as cost and compliance as explained in [What to Consider when Selecting a Region for your Workloads](https://aws.amazon.com/blogs/architecture/what-to-consider-when-selecting-a-region-for-your-workloads/).
-+  Use local caching or [AWS Caching Solutions](https://aws.amazon.com/caching/aws-caching/) for frequently used assets to improve performance, reduce data movement, and lower environmental impact.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/sus_sus_user_a5.html)
-+  Use services that can help you run code closer to users of your workload:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/sus_sus_user_a5.html)
++  Use local caching or [AWS Caching Solutions](https://aws.amazon.com/caching/aws-caching/) for frequently used assets to improve performance, reduce data movement, and lower environmental impact. 
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>When to use</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://aws.amazon.com/cloudfront/">Amazon CloudFront</a></td><td>Use to cache static content such as images, scripts, and videos, as well as dynamic content such as API responses or web applications.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/elasticache/">Amazon ElastiCache</a></td><td>Use to cache content for web applications.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/dynamodb/dax/">DynamoDB Accelerator</a></td><td>Use to add in-memory acceleration to your DynamoDB tables.</td></tr>
+</tbody>
+</table>
+
++  Use services that can help you run code closer to users of your workload:
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>When to use</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://aws.amazon.com/lambda/edge/">Lambda@Edge</a></td><td>Use for compute-heavy operations that are initiated when objects are not in the cache. </td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html">Amazon CloudFront Functions</a></td><td>Use for simple use cases like HTTP(s) request or response manipulations that can be initiated by short-lived functions.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/greengrass/">AWS IoT Greengrass</a></td><td>Use to run local compute, messaging, and data caching for connected devices. </td></tr>
+</tbody>
+</table>
+
 +  Use connection pooling to allow for connection reuse and reduce required resources. 
 +  Use distributed data stores that don’t rely on persistent connections and synchronous updates for consistency to serve regional populations. 
 +  Replace pre-provisioned static network capacity with shared dynamic capacity, and share the sustainability impact of network capacity with other subscribers. 

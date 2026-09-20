@@ -27,8 +27,23 @@
 <a name="implementation-steps"></a>
 +  Define and document networking performance requirements, including metrics such as network latency, bandwidth, protocols, locations, traffic patterns (spikes and frequency), throughput, encryption, inspection, and routing rules. 
 +  Learn about key AWS networking services like [VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html), [AWS Direct Connect](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect.html), [Elastic Load Balancing (ELB)](https://aws.amazon.com/elasticloadbalancing/), and [Amazon Route 53](https://aws.amazon.com/route53/). 
-+  Capture the following key networking characteristics:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/perf_networking_understand_how_networking_impacts_performance.html)
++  Capture the following key networking characteristics: 
+
+
+<table>
+<thead>
+  <tr><th> Characteristics </th><th> Tools and metrics </th></tr>
+</thead>
+<tbody>
+  <tr><td> Foundational networking characteristics </td><td> <ul><li>  <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs </a>  </li><li>  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html">AWS Transit Gateway Flow Logs</a>  </li><li>  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-cloudwatch-metrics.html">AWS Transit Gateway metrics</a>  </li><li>  <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-cloudwatch-metrics.html">AWS PrivateLink metrics</a>  </li></ul> </td></tr>
+  <tr><td> Application networking characteristics </td><td> <ul><li>  <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-network-performance-ena.html">Elastic Fabric Adapter</a>  </li><li>  <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy-metrics.html">AWS App Mesh metrics</a>  </li><li>  <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html">Amazon API Gateway metrics</a>  </li></ul> </td></tr>
+  <tr><td> Edge networking characteristics </td><td> <ul><li>  <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html">Amazon CloudFront metrics</a>  </li><li>  <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-cloudwatch.html">Amazon Route 53 metrics</a>  </li><li>  <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html">AWS Global Accelerator metrics</a>  </li></ul> </td></tr>
+  <tr><td> Hybrid networking characteristics </td><td> <ul><li>  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/monitoring-cloudwatch.html">Direct Connect metrics</a>  </li><li>  <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/monitoring-cloudwatch-vpn.html">AWS Site-to-Site VPN metrics</a>  </li><li>  <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/monitoring-cloudwatch.html">AWS Client VPN metrics</a>  </li><li>  <a href="https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-cloudwatch-metrics.html">AWS Cloud WAN metrics</a>  </li></ul> </td></tr>
+  <tr><td> Security networking characteristics </td><td> <ul><li>  <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html">AWS Shield, AWS WAF, and AWS Network Firewall metrics</a>  </li></ul> </td></tr>
+  <tr><td> Tracing characteristics </td><td> <ul><li>  <a href="https://aws.amazon.com/xray/">AWS X-Ray</a>  </li><li>  <a href="https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html">VPC Reachability Analyzer</a>  </li><li>  <a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/what-is-network-access-analyzer.html">Network Access Analyzer</a>  </li><li>  <a href="https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html">Amazon Inspector</a>  </li><li>  <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html">Amazon CloudWatch RUM</a>  </li></ul> </td></tr>
+</tbody>
+</table>
+
 +  Benchmark and test network performance: 
   +  [Benchmark](https://aws.amazon.com/premiumsupport/knowledge-center/network-throughput-benchmark-linux-ec2/) network throughput, as some factors can affect Amazon EC2 network performance when instances are in the same VPC. Measure the network bandwidth between Amazon EC2 Linux instances in the same VPC. 
   +  Perform [load tests](https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/) to experiment with networking solutions and options. 

@@ -26,10 +26,34 @@ Use efficient software and architecture patterns such as queue-driven to maintai
 ### Implementation steps
 <a name="implementation-steps"></a>
 +  Analyze the demand for your workload to determine how to respond to those. 
-+  For requests or jobs that don’t require synchronous responses, use queue-driven architectures and auto scaling workers to maximize utilization. Here are some examples of when you might consider queue-driven architecture:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/sus_sus_software_a2.html)
-+  For requests or jobs that can be processed anytime, use scheduling mechanisms to process jobs in batch for more efficiency. Here are some examples of scheduling mechanisms on AWS:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/sus_sus_software_a2.html)
++  For requests or jobs that don’t require synchronous responses, use queue-driven architectures and auto scaling workers to maximize utilization. Here are some examples of when you might consider queue-driven architecture: 
+
+
+<table>
+<thead>
+  <tr><th>Queuing mechanism</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/batch/latest/userguide/job_queues.html">AWS Batch job queues</a></td><td>AWS Batch jobs are submitted to a job queue where they reside until they can be scheduled to run in a compute environment.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/blogs/compute/running-cost-effective-queue-workers-with-amazon-sqs-and-amazon-ec2-spot-instances/">Amazon Simple Queue Service and Amazon EC2 Spot Instances</a></td><td>Pairing Amazon SQS and Spot Instances to build fault tolerant and efficient architecture.</td></tr>
+</tbody>
+</table>
+
++  For requests or jobs that can be processed anytime, use scheduling mechanisms to process jobs in batch for more efficiency. Here are some examples of scheduling mechanisms on AWS: 
+
+
+<table>
+<thead>
+  <tr><th>Scheduling mechanism</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://aws.amazon.com/blogs/compute/introducing-amazon-eventbridge-scheduler/">Amazon EventBridge Scheduler</a></td><td>A capability from <a href="https://aws.amazon.com/eventbridge/">Amazon EventBridge</a> that allows you to create, run, and manage scheduled tasks at scale.</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">AWS Glue time-based schedule</a></td><td>Define a time-based schedule for your crawlers and jobs in AWS Glue.</td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduled_tasks.html">Amazon Elastic Container Service (Amazon ECS) scheduled tasks</a></td><td>Amazon ECS supports creating scheduled tasks. Scheduled tasks use Amazon EventBridge rules to run tasks either on a schedule or in a response to an EventBridge event.</td></tr>
+  <tr><td><a href="https://aws.amazon.com/solutions/implementations/instance-scheduler-on-aws/">Instance Scheduler</a></td><td>Configure start and stop schedules for your Amazon EC2 and Amazon Relational Database Service instances.</td></tr>
+</tbody>
+</table>
+
 +  If you use polling and webhooks mechanisms in your architecture, replace those with events. Use [event-driven architectures](https://docs.aws.amazon.com/lambda/latest/operatorguide/event-driven-architectures.html) to build highly efficient workloads. 
 +  Leverage [serverless on AWS](https://aws.amazon.com/serverless/) to eliminate over-provisioned infrastructure. 
 +  Right size individual components of your architecture to prevent idling resources waiting for input. 

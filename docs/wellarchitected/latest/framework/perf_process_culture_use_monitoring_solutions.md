@@ -23,8 +23,22 @@
 
 ### Implementation steps
 <a name="implementation-steps"></a>
-+  Set up end-to-end monitoring to capture all workload components and metrics. Here are examples of monitoring solutions on AWS.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/perf_process_culture_use_monitoring_solutions.html)
++  Set up end-to-end monitoring to capture all workload components and metrics. Here are examples of monitoring solutions on AWS. 
+
+
+<table>
+<thead>
+  <tr><th> Service </th><th> Where to use </th></tr>
+</thead>
+<tbody>
+  <tr><td> <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html">Amazon CloudWatch Real-User Monitoring (RUM)</a> </td><td> To capture application performance metrics from real user client-side and frontend sessions. </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/xray/">AWS X-Ray</a>  </td><td> To trace traffic through the application layers and identify latency between components and dependencies. Use X-Ray service maps to see relationships and latency between workload components. </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/rds/performance-insights/">Amazon Relational Database Service Performance Insights</a>  </td><td> To view database performance metrics and identify performance improvements. </td></tr>
+  <tr><td> <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html">Amazon RDS Enhanced Monitoring</a>  </td><td> To view database OS performance metrics. </td></tr>
+  <tr><td> <a href="https://aws.amazon.com/devops-guru/">Amazon DevOps Guru</a> </td><td> To detect abnormal operating patterns so you can identify operational issues before they impact your customers. </td></tr>
+</tbody>
+</table>
+
 +  Perform tests to generate metrics, identify traffic patterns, bottlenecks, and critical performance areas. Here are some examples of how to perform testing: 
   +  Set up [CloudWatch Synthetic Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html) to mimic browser-based user activities programmatically using Linux cron jobs or rate expressions to generate consistent metrics over time. 
   +  Use the [AWS Distributed Load Testing](https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/) solution to generate peak traffic or test the workload at the expected growth rate. 
