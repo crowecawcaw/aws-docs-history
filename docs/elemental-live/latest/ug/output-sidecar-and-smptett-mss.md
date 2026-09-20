@@ -23,8 +23,25 @@ When you follow this procedure, you set up each captions asset in its own output
 
 1. When you are ready, save the event.
 
-   If the “Caption Stream Incompatible” message appears, see ["Caption Stream Incompatible" message](output-embedded-and-more.md#embedded-caption-incompatible-message).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/output-sidecar-and-smptett-mss.html)
+   If the “Caption Stream Incompatible” message appears, see ["Caption Stream Incompatible" message](output-embedded-and-more.md#embedded-caption-incompatible-message).
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Applicability</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Caption Source</td><td>All</td><td>Select the Caption Selector you created <a href="create-caption-selectors.md">earlier</a>.</td></tr>
+  <tr><td>Destination Type</td><td>All</td><td>Select the caption type. This type must be valid for your output type as per the relevant Supported Captions table. See <a href="supported-captions.md">Reference: Supported captions</a>.</td></tr>
+  <tr><td>Optical Character Recognition Language</td><td>The Destination Type is WebVTT</td><td>Complete this field only if the source captions in the chosen Caption Selector are DVB-Sub or SCTE-27. <br />Specify the language of the captions in the source. This captions conversion uses OCR (optical character recognition) technology. You must identify the language of the captions to ensure that Elemental Live chooses the correct OCR library for the conversion. The library speeds up conversion because it allows checking character strings against a dictionary, instead of recognizing words letter by letter. If you choose a language that doesn’t match the language of the captions, conversion accuracy will be poor. <br />Elemental Live ignores this field if you aren't converting DVB-Sub or SCTE-27 captions to WebVTT.<br />For a list of languages supported with OCR conversion, see <a href="captions-ocr-languages.md">Reference: Languages supported with OCR captions</a>.</td></tr>
+  <tr><td>Framerate</td><td>The Destination Type is SCC.</td><td>Complete this field to ensure that the captions and the video are synchronized in the output.<br />Specify a framerate that matches the framerate of the associated video.<ul><li> If the video framerate is 23.97 or 24, choose the corresponding option. </li><li> If the video framerate is 29.97, choose 29.97 dropframe only if the video has the Video Insertion and Drop Frame Timecode both. </li></ul></td></tr>
+  <tr><td>Pass-style</td><td>The Destination Type is TTML</td><td>Complete this field only if:<ul><li> The source caption type is TTML, or SMPTE-TT, or CCF-TT. </li><li> And the output is an Archive output. </li></ul><br />Complete as follows:<ul><li> Check this box if you want the style (font, position and so on) of the input captions to be copied. </li><li> Leave unchecked if you want a simplified caption style. Some client players work best with a simplified caption style. </li></ul><br />(For other combinations of source caption types and output caption type, the output is always simplified.)</td></tr>
+  <tr><td>Font style fields</td><td>The Destination Type is Burn-in</td><td>See the table in <a href="font-styles-for-burn-in-or-dvbsub.md">Font styles for Burn-in or DVB-Sub Captions</a>.</td></tr>
+  <tr><td>Language</td><td>All</td><td>Complete if desired. This information may be useful to or required by a downstream system.</td></tr>
+  <tr><td>Description</td><td>All</td><td>Complete if desired. This information may be useful to or required by a downstream system.</td></tr>
+</tbody>
+</table>
+
 
 ## "Caption Stream Incompatible" message
 <a name="sidecar-caption-incompatible-message"></a>

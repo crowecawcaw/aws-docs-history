@@ -44,7 +44,22 @@ Set the Audio Track Type field. The options for this field for each audio stream
 | Alternate Audio, not Auto Select | The client player should never select this stream. Any number of streams in the rendition group can be set this way. | EXT-X-MEDIA with DEFAULT=NO, AUTOSELECT=NO | 
 | Audio-Only Variant Stream | The client can play back this audio-only stream instead of video in low-bandwidth scenarios. | EXT-X-STREAM-INF | 
 
-1. Set the **Alternate Audio Track Selection** as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/hls-rendition-groups-getting-ready-to-create.html)
+1. Set the **Alternate Audio Track Selection** as follows:
+
+
+<table>
+<thead>
+  <tr><th>Desired result</th><th>How to set</th></tr>
+</thead>
+<tbody>
+  <tr><td>There is a default. The player can auto-select any of the other audios.</td><td> <ul><li> Set only one audio stream to “Alternate Audio, Auto-Select, Not Default, Default.” </li><li> Set every other audio stream to “Alternate Audio, Auto-Select, Not Default.” </li></ul> </td></tr>
+  <tr><td>There is a default. The player cannot auto-select any of the other audios.</td><td> <ul><li> Set only one audio stream to “Alternate Audio, Auto-Select, Not Default, Default.” </li><li> Set every other audio stream to “Alternate Audio, not Auto-Select.” </li></ul> </td></tr>
+  <tr><td>There is a default. There are specific audios that the player can auto-select.</td><td> <ul><li> Set only one audio stream to “Alternate Audio, Auto-Select, Not Default, Default.” </li><li> Set some of the other audio streams to “Alternate Audio, Auto-Select, Not Default.” </li><li> Set some of the other audio streams to “Alternate Audio, not Auto Select.” </li></ul> </td></tr>
+  <tr><td>There is no default. The player can auto-select any audio it chooses.</td><td> <ul><li> Set every audio stream to “Alternate Audio, Auto-Select, Not Default.” </li></ul> </td></tr>
+  <tr><td>There is no default. The player cannot auto-select any audio.</td><td> <ul><li> Set every audio stream to “Alternate Audio, not Auto-Select.” </li></ul> </td></tr>
+  <tr><td>There is no default. There are specific audios that the player can auto-select.</td><td> <ul><li> Set some audio streams to “Alternate Audio, Auto-Select, Not Default.” </li><li> Set some audio streams to “Alternate Audio, not Auto-Select.” </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 1. In addition, if you have an audio that is intended as the audio to play when the bandwidth is so low that the video cannot be delivered, then set that audio to “**Audio-Only Variant Stream**.”

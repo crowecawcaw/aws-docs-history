@@ -37,16 +37,41 @@ To implement standard output locking, the events you are locking together must b
 
 1. In the **Global Processors** section of the event set the **Output Locking** field to **On**.
 
-1. Set the fields as shown in the following table.    
-<a name="table-output-locking-event-setup-global-processors-fields-for-multicast"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/output-locking-setup-global.html)
+1. Set the fields as shown in the following table.
+
+<a name="table-output-locking-event-setup-global-processors-fields-for-multicast"></a>
+<table>
+<thead>
+  <tr><th>Field name</th><th>Instruction</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Epoch locking</b></td><td>Deselect this field.</td><td></td></tr>
+  <tr><td><b>Multicast</b></td><td>Select this field. </td><td></td></tr>
+  <tr><td><b>Address</b><br /><b>Port</b> (optional)<br /><b>Interface</b> (optional)</td><td>These fields appear only if you have selected <b>Multicast</b>.Enter the multicast address of any server. Enter the identical address, port, and interface across all events that you want to lock together. For more information, see the tooltips on the Elemental Live web interface.</td><td>The events communicate with each other through this address.</td></tr>
+</tbody>
+</table>
+
 
 **To set up to use unicast for standard output locking**
 
 To implement standard output locking, the events that you're locking together must be able to communicate with each other over multicast or unicast. Unicast is a point-to-point protocol, so you can use unicast only if you're locking together two events.
 + In the **Global Processors** section of the event set the **Output Locking** field to **On**.
 
-  Set the fields as shown in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/output-locking-setup-global.html)
+  Set the fields as shown in the following table.
+
+
+<table>
+<thead>
+  <tr><th>Field name</th><th>Instruction</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Epoch locking</b></td><td>Deselect this field.</td><td></td></tr>
+  <tr><td><b>Multicast</b></td><td>Deselect this field.</td><td> </td></tr>
+  <tr><td><b>Address</b><br /><b>Port</b> (optional)<br /><b>Interface</b> (optional)</td><td>These fields appear only if you have deselected <b>Multicast</b>.Enter the address where the other event is listening. See the tooltips on the Elemental Live web interface for more information. <br />If you have more than one locked event on the same appliance, make sure that you assign a unique port to each event. Two different events can't listen on the same port. For an example of two locked events on an appliance, see <b>Appliance 3</b>in the diagram in <a href="opl-example.md">Example of a workflow</a>.</td><td>This event in the event pair uses this address to send a message to the other event.</td></tr>
+  <tr><td><b>Receive Port</b> (required)<br /><b>Receive Interface</b> (optional)</td><td>These fields appear only if you have deselected <b>Multicast</b>.Enter the address where this event is listening. See the tooltips on the Elemental Live web interface for more information. If you have more than one locked event on the same appliance, make sure that you assign a unique port to each event. Two different events can't listen on the same port.</td><td>The other event uses this address to send messages to this event.</td></tr>
+</tbody>
+</table>
+
 
 **To set up for epoch locking**
 

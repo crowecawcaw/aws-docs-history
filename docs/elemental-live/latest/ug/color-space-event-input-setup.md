@@ -11,8 +11,22 @@ This section assumes that you are familiar with creating or editing an event.
 
 1. In the **Video selector** section, set the appropriate values for **Color Space** and **Force Color**.
 
-   In the following table, each row shows a valid combination of the two fields and the result of that combination.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/color-space-event-input-setup.html)
+   In the following table, each row shows a valid combination of the two fields and the result of that combination. 
+
+
+<table>
+<thead>
+  <tr><th>Color Space field</th><th>Force Color field</th><th>HDR Master Display Information field</th><th>Result</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>FOLLOW</b> </td><td>This field is ignored.</td><td></td><td>Passthrough. Elemental Live doesn't change the color space metadata. </td></tr>
+  <tr><td><b>REC_601</b> or <b>REC_709</b> or<br /><b>HLG</b></td><td><b>Force</b> </td><td></td><td>Cleanup. Elemental Live marks all the content as using the specified color space. </td></tr>
+  <tr><td><b>HDR10</b></td><td><b>Force</b></td><td>See /<a href="#color-space-input-display-data">Tips for HDR master display information</a></td><td>Cleanup. Elemental Live marks all the content as using HDR10, and sets the metadata to the specified values.</td></tr>
+  <tr><td><b>REC_601</b> or <b>REC_709</b> or<br /><b>HLG</b></td><td><b>Fallback</b> </td><td></td><td>Cleanup. Elemental Live marks the content as using the specified color space only for portions that are marked as follows:<ul><li> Unmarked </li><li> Marked as unknown </li><li> Marked with an unsupported color space </li></ul></td></tr>
+  <tr><td><b>HDR10</b></td><td><b>Fallback</b></td><td>See /<a href="#color-space-input-display-data">Tips for HDR master display information</a></td><td>Cleanup. Elemental Live marks the content as using the specified color space only for portions that are marked as follows:<ul><li> Unmarked </li><li> Marked as unknown </li><li> Marked with an unsupported color space </li></ul>Elemental Live marks the relevant portions as using HDR10, and sets the metadata to the specified values.</td></tr>
+</tbody>
+</table>
+
 
 ## Tips for HDR master display information
 <a name="color-space-input-display-data"></a>

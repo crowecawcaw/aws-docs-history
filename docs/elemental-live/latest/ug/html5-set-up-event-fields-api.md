@@ -23,8 +23,20 @@ This description assumes that you are familiar with using the REST API and with 
 
      If access to your local or mounted directory requires authentication, enter the user name and password.
 
-1. Set the following tags to match the control you are using.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/html5-set-up-event-fields-api.html)
+1. Set the following tags to match the control you are using.
+
+
+<table>
+<thead>
+  <tr><th>Option for control</th><th>Value for &lt;active&gt;</th><th>Value for &lt;enable_rest&gt;</th><th>Value for &lt;enable_scte35&gt;</th></tr>
+</thead>
+<tbody>
+  <tr><td>Authoring system control</td><td>false</td><td>false</td><td>false</td></tr>
+  <tr><td>REST API control</td><td>true or false, depending on whether you want the motion overlay to show when the event starts</td><td>true</td><td>false</td></tr>
+  <tr><td>SCTE 35 control</td><td>false</td><td>false</td><td>true</td></tr>
+</tbody>
+</table>
+
 
    For detailed information about the tags, see [Fields for an HTML5 asset](html5-set-up-event-fields.md).
 

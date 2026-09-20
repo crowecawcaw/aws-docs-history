@@ -75,8 +75,26 @@ Follow this procedure if the source audio is Dolby Digital Plus, to convert the 
 
 1. Create the output where you want to add the audio encode. 
 
-1. In the **Streams** settings section for the output, choose the **Audio **section**.** Complete the fields as follows.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/dolby-atmos-output.html)
+1. In the **Streams** settings section for the output, choose the **Audio **section**.** Complete the fields as follows.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Audio Source</b></td><td>Choose the audio selector that you set up in the input.</td></tr>
+  <tr><td><b>Audio Codec</b></td><td>Choose Dolby Digital Plus with Atmos.</td></tr>
+  <tr><td><b>Coding mode</b></td><td>Choose the coding mode you want. For more information, see <a href="#dolby-atmos-output-supported-outputs">Supported outputs</a>.</td></tr>
+  <tr><td><b>Bitrate</b></td><td>Choose a value that is applicable to the coding mode. For information, choose the <b>?</b> icon above the field.</td></tr>
+  <tr><td><b>Dialnorm</b></td><td rowspan="5">Complete these fields to specify values for the metadata. For information about a field, click the question mark icon above the field in Elemental Live.</td></tr>
+  <tr><td><b>DRC Line Mode Profile</b></td></tr>
+  <tr><td><b>DRC RF Mode Profile</b></td></tr>
+  <tr><td><b>Surround Trim</b></td></tr>
+  <tr><td><b>Height Trim</b></td></tr>
+</tbody>
+</table>
+
 
 1. Complete the fields in the **Advanced** section as desired. Ignore **ARIB Dynamic Audio**, it doesn’t apply.
 

@@ -13,8 +13,30 @@ Create or modify the event as follows:
    For all locations, the following fields appear. (Note that the following image is from the Global Processors section, but the fields are the same in all sections.)   
 ![images/screenshot_StaticImgInst.png](https://docs.aws.amazon.com/elemental-live/latest/ug/images/screenshot_StaticImgInst.png)
 
-1.  Complete the fields as follows:    
-<a name="step-b-initial-setup-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/step-b-initial-setup.html)
+1.  Complete the fields as follows:
+
+<a name="step-b-initial-setup-table"></a>
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Image Location</td><td>The location and filename of the PNG or BMP image file.<br />For file requirement details, information about where to store this file, and how to specify its location, see <a href="step-a-prepare-the-overlay-asset.md">Step A: Prepare the overlay asset</a>.<br />For S3, use <code>sse=true</code> to enable S3 Server Side Encryption (SSE) and <code>rrs=true</code> to enable Reduced Redundancy Storage (RRS). Default values for RRS and SSE are <code>false</code>.</td></tr>
+  <tr><td>Username Password</td><td>If access to your local or mounted directory requires a username and password, click the lock icon next to the Image Location field to show the Username and Password fields.<br />For S3, Enter the Access Key ID in the username field. Enter the Secret Access Key in the password field.</td></tr>
+  <tr><td>Layer</td><td>A number from 0 to 7 for the Z order of the static overlay. “Z order” means that static overlays with higher values of layer will be inserted on top of static overlays with lower values of layer.<br />Default is 0.</td></tr>
+  <tr><td>Left</td><td>Placement of the left edge of the motion overlay relative to the left edge of the video frame, in pixels. 0 is the left edge of the frame.<br />Take note of the width of the motion overlay and make sure that the position of the left edge of the motion overlay does not cause the right edge to be cropped.</td></tr>
+  <tr><td>Top</td><td>Placement of the top edge of the motion overlay relative to the top edge of the video frame, in pixels.0 is the top edge of the frame. Default is 0.<br />Take note of the height of the motion overlay and make sure that the position of the top edge of the motion overlay does not cause the bottom edge to be cropped.</td></tr>
+  <tr><td>Opacity</td><td>The opacity of the static overlay, as a number from 0 to 100. 0 is transparent. 100 is fully opaque. Default is 50.</td></tr>
+  <tr><td>Width</td><td>The width of the static overlay when inserted in the video, in pixels. Leave blank to use the native width of the static overlay. The original static overlay will be scaled up or down, to the specified width.</td></tr>
+  <tr><td>Height</td><td>The height of the static overlay when inserted in the video, in pixels. Leave blank to use the native height of the static overlay. The original static overlay will be scaled up or down, to the specified height. </td></tr>
+  <tr><td>Start Time</td><td>The start time for the overlay. Specify the start time in one of the formats listed at <a href="#start-time-formats">Start time formats</a>.</td></tr>
+  <tr><td>Duration</td><td>The amount of time, in milliseconds, for the overlay to remain on the video.<br />If this field is left blank, the static overlay will remain on the video as follows:<ul><li>  In the Input section: Until this input ends.  </li><li>  In the Global Processor section: Until the event ends. </li><li>  In the Output section: Until the event ends.  </li></ul><br />The total running time of the static overlay is Fade in + Duration + Fade out.</td></tr>
+  <tr><td>Fade In</td><td>The duration, in milliseconds, for the static overlay fade-in. This time is inserted before the start time of the static overlay.</td></tr>
+  <tr><td>Fade Out</td><td>This field is valid only if the Duration field is completed.<br />The duration, in milliseconds, for the static overlay fade-out. This time is added to the static overlay duration.</td></tr>
+  <tr><td>Enable Rest Control</td><td>Check this field only if you plan to manage motion overlays via the REST API, after this initial setup via the web interface. Typically, you will want this tag to be true. </td></tr>
+</tbody>
+</table>
+
 
 1. If desired, click Add Image and enter the information for another static overlay, up to a maximum of 8 static overlays. 
    + Assign a unique Layer number to each static overlay. The layers do not have to appear in any particular order on the screen, but each number must be used once only.

@@ -29,8 +29,21 @@ This section describes individual encoding parameters that provide let you tune 
 
   Recommendation: 
 
-  Set to **Auto** so that the encoder uses a value appropriate to the image height (resolution). The following table specifies which value the encoder will assign when you choose **Auto**, based on the image height.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/vq-miscellaneous-tuning.html)
+  Set to **Auto** so that the encoder uses a value appropriate to the image height (resolution). The following table specifies which value the encoder will assign when you choose **Auto**, based on the image height. 
+
+
+<table>
+<thead>
+  <tr><th>Height (pixels)</th><th>Recommendation for H.264</th><th>Recommendation for H.265</th></tr>
+</thead>
+<tbody>
+  <tr><td>Less than 720 </td><td>1</td><td>1</td></tr>
+  <tr><td>Greater than or equal to 720 </td><td>2</td><td>4</td></tr>
+  <tr><td>Greater than or equal to 1080 </td><td>4</td><td>4</td></tr>
+  <tr><td>Greater than or equal to 2160 </td><td>8</td><td>8</td></tr>
+</tbody>
+</table>
+
 
 ## Location of parameters
 <a name="vq-rc-tuning-api"></a>
