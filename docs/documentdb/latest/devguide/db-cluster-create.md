@@ -16,7 +16,7 @@ If you do not have an AWS account, complete the following steps to create one.
 
 **To sign up for an AWS account**
 
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup).
+1. Open [https://signin.aws.amazon.com/signup?request\_type=register](https://signin.aws.amazon.com/signup?request_type=register).
 
 1. Follow the online instructions.
 
@@ -251,17 +251,35 @@ If you want to accept the default settings for your cluster, you can skip the fo
 The following procedures describe how to use the AWS CLI to launch an Amazon DocumentDB cluster and create an Amazon DocumentDB replica.
 
 **Parameters**
-+ **--db-cluster-identifier**—Required. A lowercase string that identifies this cluster.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-create.html)
++ **--db-cluster-identifier**—Required. A lowercase string that identifies this cluster.
+
+
+<table>
+  <tr><th>Cluster Naming Constraints:</th></tr>
+  <tr><td><ul><li> Length is [1–63] letters, numbers, or hyphens. </li><li> First character must be a letter. </li><li> Cannot end with a hyphen or contain two consecutive hyphens. </li><li> Must be unique for all clusters (across Amazon RDS, Amazon Neptune, and Amazon DocumentDB) per AWS account, per Region. </li></ul></td></tr>
+</table>
+
 + **--engine**—Required. Must be **docdb**.
 + **--deletion-protection \| --no-deletion-protection**—Optional. When deletion protection is enabled, it prevents a cluster from being deleted. When you use the AWS CLI, the default setting is to have deletion protection disabled.
 
   For more information about deletion protection, see [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md).
 + **--storage-type standard \| iopt1**—Optional. Default: **standard**. The cluster's storage configuration. Valid values are `standard` (Standard) or `iopt1` (I/O-optimized).
-+ **--master-username**—Required. The user name used to authenticate the user.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-create.html)
-+ **--master-user-password**—Optional. The user's password used to authenticate the user.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-create.html)
++ **--master-username**—Required. The user name used to authenticate the user.
+
+
+<table>
+  <tr><th>Master User Naming Constraints:</th></tr>
+  <tr><td><ul><li> Length is [1-63] alphanumeric characters. </li><li> First character must be a letter. </li><li> Cannot be a word reserved by the database engine. </li></ul></td></tr>
+</table>
+
++ **--master-user-password**—Optional. The user's password used to authenticate the user.
+
+
+<table>
+  <tr><th>Master Password Constraints:</th></tr>
+  <tr><td><ul><li> Length is [8-100] printable ASCII characters. </li><li> Can use any printable ASCII characters except for the following: <ul><li> <b>/</b> (forward slash) </li><li> <b>"</b> (double quotation mark) </li><li> <b>@</b> (at symbol) </li></ul> </li></ul></td></tr>
+</table>
+
 + **--manage-master-user-password**—Optional. Amazon DocumentDB generates the master user password and manages it throughout its lifecycle in Secrets Manager.
 
 For additional parameters, see [CreateDBCluster](https://docs.aws.amazon.com/documentdb/latest/APIReference/API_CreateDBCluster.html).

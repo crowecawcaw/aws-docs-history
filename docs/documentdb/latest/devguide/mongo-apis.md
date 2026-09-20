@@ -842,7 +842,7 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 
 | Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster | 
 | --- | --- | --- | --- | --- | --- | 
-| $getField | - | - | No | No | No | 
+| $getField | - | - | Yes | Yes | No | 
 | [$rand](rand.md) | - | - | Yes (5.0.1\+) | Yes | No | 
 | [$sampleRate](sampleRate.md) | - | - | No | Yes (8.0.1\+) | No | 
 | [$sigmoid](sigmoid.md) | - | - | - | Yes (8.0.1\+) | No | 

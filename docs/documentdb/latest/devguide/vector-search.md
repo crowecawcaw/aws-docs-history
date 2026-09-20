@@ -302,8 +302,26 @@ db.collection.aggregate([
 + Amazon DocumentDB can index vectors of up to 2,000 dimensions. However, up to 16,000 dimensions can be stored without an index.
 
 **Indexes**
-+ For IVFFlat index creation, the recommended setting for lists parameter is the number of documents/1000 for up to 1M documents and `sqrt(# of documents)` for over 1M documents. Due to a working memory limit, Amazon DocumentDB supports a certain maximum value of the lists parameter depending on the number of dimensions. For your reference, the following table provides the maximum values of lists parameter for vectors of 500, 1000, and 2,000 dimensions:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/documentdb/latest/devguide/vector-search.html)
++ For IVFFlat index creation, the recommended setting for lists parameter is the number of documents/1000 for up to 1M documents and `sqrt(# of documents)` for over 1M documents. Due to a working memory limit, Amazon DocumentDB supports a certain maximum value of the lists parameter depending on the number of dimensions. For your reference, the following table provides the maximum values of lists parameter for vectors of 500, 1000, and 2,000 dimensions:
+
+
+<table>
+<thead>
+  <tr><th>Instance type</th><th>Lists with 500 dimensions</th><th>Lists with 1000 dimensions</th><th>Lists with 2000 dimensions</th></tr>
+</thead>
+<tbody>
+  <tr><td>t3.med</td><td>372</td><td>257</td><td>150</td></tr>
+  <tr><td>r5.l</td><td>915</td><td>741</td><td>511</td></tr>
+  <tr><td>r5.xl</td><td>1,393</td><td>1,196</td><td>901</td></tr>
+  <tr><td>r5.2xl</td><td>5,460</td><td>5,230</td><td>4,788</td></tr>
+  <tr><td>r5.4xl</td><td>7,842</td><td>7,599</td><td>7,138</td></tr>
+  <tr><td>r5.8xl</td><td>11,220</td><td>10,974</td><td>10,498</td></tr>
+  <tr><td>r5.12xl</td><td>13,774</td><td>13,526</td><td>13,044</td></tr>
+  <tr><td>r5.16xl</td><td>15,943</td><td>15,694</td><td>15,208</td></tr>
+  <tr><td>r5.24xl</td><td>19,585</td><td>19,335</td><td>18,845</td></tr>
+</tbody>
+</table>
+
 + No other index options such as `compound`, `sparse` or `partial` are supported with vector indexes.
 + Parallel index build is not supported for HNSW index in Amazon DocumentDB 5.0.
 

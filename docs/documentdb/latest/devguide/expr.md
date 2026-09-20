@@ -9,6 +9,13 @@ Not supported by Elastic cluster.
 
 The `$expr` operator in Amazon DocumentDB allows you to use aggregation expressions within the query language. It enables you to perform complex comparisons and computations on fields within a document, similar to the way you would use aggregation pipeline stages.
 
+The `$eq`, `$lt`, `$lte`, `$gt`, and `$gte` comparison operators placed in an `$expr` operator can use an index, including an index on the `from` collection referenced in a `$lookup` stage.
+
+**Limitations**
++ Indexes can only be used for comparisons between fields and constants, so the operand must resolve to a constant. For example, a comparison between `$a` and a constant value can use an index, but a comparison between `$a` and `$b` cannot.
++ Multikey, partial, or sparse indexes are not used. In those cases the query falls back to a collection scan.
++ When the `let` operand resolves to an empty or missing value, the comparison cannot use a targeted index seek. In this case, Amazon DocumentDB performs a full index scan.
+
 **Parameters**
 + `expression`: An expression that returns a boolean value, allowing you to perform comparisons and computations on document fields.
 

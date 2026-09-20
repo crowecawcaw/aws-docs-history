@@ -3,7 +3,7 @@
 # Connecting to Amazon DocumentDB as a replica set
 <a name="connect-to-replica-set"></a>
 
-When you're developing against Amazon DocumentDB, connect to your cluster as a replica set and distribute reads to replica instances using the built-in read preference capabilities of your driver. This section goes deeper into what that means and describes how you can connect to your Amazon DocumentDB cluster as a replica set using the SDK for Python as an example.
+When you're developing against Amazon DocumentDB, connect to your cluster as a replica set and distribute reads to replica instances using the built-in read preference capabilities of your driver. This section goes deeper into what that means and describes how you can connect to your Amazon DocumentDB cluster as a replica set using Python as an example.
 
 Amazon DocumentDB has three endpoints that you can use to connect to your cluster:
 + Cluster endpoint

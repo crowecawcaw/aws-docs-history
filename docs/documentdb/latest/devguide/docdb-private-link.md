@@ -18,7 +18,7 @@ For more information about VPC endpoints, see [Access an AWS service using an in
 + [Considerations for VPC endpoints](#endpoint-considerations)
 + [Region availability](#region-availability)
 + [Creating an interface VPC endpoint for Amazon DocumentDB API](#create-interface-endpoint)
-+ [Creating a VPC endpoint policy for Amazon DocumentDB API](#create-endpoint-policy)
++ [Creating a VPC endpoint policy for the Amazon DocumentDB API](#create-endpoint-policy)
 
 ## Considerations for VPC endpoints
 <a name="endpoint-considerations"></a>
@@ -70,7 +70,7 @@ Excluding AWS Regions in China, if you enable private DNS for the endpoint, you 
 
 For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *Amazon Virtual Private Cloud (AWS PrivateLink) User Guide*.
 
-## Creating a VPC endpoint policy for Amazon DocumentDB API
+## Creating a VPC endpoint policy for the Amazon DocumentDB API
 <a name="create-endpoint-policy"></a>
 
 You can attach an endpoint policy to your VPC endpoint that controls access to the Amazon DocumentDB API. The policy specifies the following information:
@@ -82,31 +82,33 @@ For more information, see [Control access to VPC endpoints using endpoint polici
 
 **Example: VPC endpoint policy for Amazon DocumentDB API actions**
 
-The following is an example of an endpoint policy for Amazon DocumentDB API. When attached to an endpoint, this policy grants access to the listed Amazon DocumentDB API actions for all principals on all resources.
+The following is an example of an endpoint policy for the Amazon DocumentDB API. When attached to an endpoint, this policy grants access to the listed Amazon DocumentDB API actions for all principals on all resources.
 
 ```
 {
-"Statement":[
-      {
-         "Principal":"*",
-         "Effect":"Allow",
-         "Action":[
-            "docdb:CreateDBInstance",
-            "docdb:ModifyDBInstance",
-            "docdb:CreateDBSnapshot"
-         ],
-         "Resource":"*"
-      }
-   ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Principal": "*",
+      "Effect": "Allow",
+      "Action": [
+        "rds:CreateDBInstance",
+        "rds:ModifyDBInstance",
+        "rds:CreateDBSnapshot"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 ```
 
 **Example: VPC endpoint policy that denies all access from a specified AWS account**
 
-The following VPC endpoint policy denies AWS account 123456789012 all access to resources using the endpoint. The policy allows all actions from other accounts.
+The following VPC endpoint policy denies AWS account 123456789012 all access to resources using the endpoint. The policy allows all actions from other AWS accounts.
 
 ```
 {
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Action": "*",
@@ -119,7 +121,7 @@ The following VPC endpoint policy denies AWS account 123456789012 all access to 
       "Effect": "Deny",
       "Resource": "*",
       "Principal": { "AWS": [ "123456789012" ] }
-     }
-   ]
+    }
+  ]
 }
 ```

@@ -52,8 +52,19 @@ In-place MVU is not supported for global clusters or elastic clusters. To upgrad
 + **OS patches** — Apply any pending OS maintenance actions on all instances before upgrading. See [Amazon DocumentDB operating system updates](db-instance-maintain.md#os-system-updates).
 **Note**  
 Pending cluster-level engine patches may hide instance OS patches. Apply engine patches first if needed. See [Performing a patch update to a cluster's engine version](db-cluster-version-upgrade.md).
-+ **Index limits on burstable instances (t-family instances)** — If you have more than 3,000 indexes on burstable instances, scale up the primary to at least db.r5.large before upgrading. You can scale back down after the upgrade completes.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/documentdb/latest/devguide/docdb-mvu.html)
++ **Index limits on burstable instances (t-family instances)** — If you have more than 3,000 indexes on burstable instances, scale up the primary to at least db.r5.large before upgrading. You can scale back down after the upgrade completes.
+
+
+<table>
+<thead>
+  <tr><th>Instance</th><th>Maximum indexes for MVU</th></tr>
+</thead>
+<tbody>
+  <tr><td>db.t4g.medium</td><td>3K</td></tr>
+  <tr><td>db.t3.medium</td><td>10K</td></tr>
+</tbody>
+</table>
+
 + **Parameter group** — Have a custom cluster parameter group for the target version ready before upgrading. If one is not specified, the default parameter group for the target version will be used (for example, `default.docdb5.0` or `default.docdb8.0`).
 + **Manual snapshot** — Create a manual snapshot before upgrading. The upgrade process creates an automatic snapshot named `preupgrade-<name>-<version>-<timestamp>`, but always create your own backup. See [Creating a manual cluster snapshot](backup_restore-create_manual_cluster_snapshot.md).
 **Note**  
