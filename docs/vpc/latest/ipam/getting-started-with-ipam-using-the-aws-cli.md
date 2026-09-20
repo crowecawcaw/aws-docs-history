@@ -228,7 +228,7 @@ This command shows all allocations from the specified IPAM pool, including the V
 
 Here are some common issues you might encounter when working with IPAM:
 + **Permission errors**: Ensure that your IAM user or role has the necessary permissions to create and manage IPAM resources. You may need the `ec2:CreateIpam`, `ec2:CreateIpamPool`, and other related permissions.
-+ **Resource limit exceeded**: By default, you can create only one IPAM per account. If you already have an IPAM, you'll need to delete it before creating a new one or use the existing one.
++ **Resource limit exceeded**: You can create only one IPAM per AWS Region. If you already have an IPAM, you'll need to delete it before creating a new one or use the existing one.
 + **CIDR allocation failures**: When provisioning CIDRs to pools, ensure that the CIDR you're trying to provision doesn't overlap with existing allocations in other pools.
 + **API request timeouts**: If you encounter "RequestExpired" errors, it might be due to network latency or time synchronization issues. Try the command again.
 + **Incorrect state errors**: If you receive "IncorrectState" errors, it might be because you're trying to perform an operation on a resource that's not in the correct state. Wait for the resource to be fully created or provisioned before proceeding.

@@ -18,7 +18,7 @@ The following example hierarchy shows how the AWS Regions that you assign when y
         + Development pool
           + Allocation for a VPC in **AWS Region 2**
 
-You can only create one IPAM. For more information about increasing quotas related to IPAM, see [Quotas for your IPAM](quotas-ipam.md).
+You can only create one IPAM per AWS Region. For more information about increasing quotas related to IPAM, see [Quotas for your IPAM](quotas-ipam.md).
 
 ------
 #### [ AWS Management Console ]

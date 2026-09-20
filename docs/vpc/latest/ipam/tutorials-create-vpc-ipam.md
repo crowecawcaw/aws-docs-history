@@ -14,7 +14,7 @@ The following is an example hierarchy of the pool structure that you will create
           + Allocation for a VPC
 
 **Note**  
-In this section, you'll create an IPAM. By default, you can only create one IPAM. For more information, see [Quotas for your IPAM](quotas-ipam.md). If you have already delegated an IPAM account and created an IPAM, you can skip steps 1 and 2.
+In this section, you'll create an IPAM. You can only create one IPAM per AWS Region. For more information, see [Quotas for your IPAM](quotas-ipam.md). If you have already delegated an IPAM account and created an IPAM, you can skip steps 1 and 2.
 
 **Topics**
 + [Step 1: Enable IPAM in your organization](#cli-tut-enable-org-ipam)
