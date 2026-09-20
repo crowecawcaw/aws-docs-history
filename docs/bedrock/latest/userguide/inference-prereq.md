@@ -49,7 +49,7 @@ To further restrict permissions, you can omit actions, or you can specify resour
 The following list summarizes whether you need an action, depending on your use case:
 + `bedrock:InvokeModel` – Required to carry out model invocation. Allows the role to call the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API operations.
 + `bedrock:InvokeModelWithResponseStream` – Required to carry out model invocation and return streaming responses. Allows the role to call the [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) and [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html)Stream API operations.
-+ The following actions allow a role to work with responses that the [Responses API](bedrock-mantle.md#bedrock-mantle-responses) stored on the `bedrock-runtime` endpoint. Each one authorizes the project that the response belongs to, not a model:
++ The following actions allow a role to work with responses that the [Responses API](inference-responses-api.md#bedrock-mantle-responses) stored on the `bedrock-runtime` endpoint. Each one authorizes the project that the response belongs to, not a model:
   + `bedrock:GetInvoke` – Required to retrieve a stored response.
   + `bedrock:CancelInvoke` – Required to cancel a response that is still in progress.
   + `bedrock:DeleteInvoke` – Required to delete a stored response.

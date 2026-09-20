@@ -43,12 +43,47 @@ The following parameters are required:
   This format indicates to the model that it should respond on a new line after the user has provided a prompt.
 
 The `textGenerationConfig` is optional. You can use it to configure the following [inference parameters](inference-parameters.md):
-+ **temperature** – Use a lower value to decrease randomness in responses.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html)
-+ **topP** – Use a lower value to ignore less probable options and decrease the diversity of responses. The minimum value is exclusive of 0 — use a very small value such as 0.0001 instead.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html)
-+ **maxTokenCount** – Specify the maximum number of tokens to generate in the response. Maximum token limits are strictly enforced.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html)
++ **temperature** – Use a lower value to decrease randomness in responses.
+
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.7</td><td>0.0</td><td>1.0</td></tr>
+</tbody>
+</table>
+
++ **topP** – Use a lower value to ignore less probable options and decrease the diversity of responses. The minimum value is exclusive of 0 — use a very small value such as 0.0001 instead.
+
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.9</td><td>&gt; 0 (for example, 0.0001)</td><td>1.0</td></tr>
+</tbody>
+</table>
+
++ **maxTokenCount** – Specify the maximum number of tokens to generate in the response. Maximum token limits are strictly enforced.
+
+
+
+<table>
+<thead>
+  <tr><th>Model</th><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>Titan Text Lite</td><td>512</td><td>0</td><td>4,096</td></tr>
+  <tr><td>Titan Text Express</td><td>512</td><td>0</td><td>8,192</td></tr>
+  <tr><td>Titan Text Premier</td><td>512</td><td>0</td><td>3,072</td></tr>
+</tbody>
+</table>
+
 + **stopSequences** – Specify a character sequence to indicate where the model should stop.
 
 ------

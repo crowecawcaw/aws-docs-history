@@ -4,7 +4,7 @@
 <a name="confluence-data-source-connector"></a>
 
 **Important**  
-For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
+Starting September 30, 2026, the creation of new connectors for Confluence, Microsoft SharePoint, Salesforce, and Web Crawler will no longer be supported on customer-managed knowledge bases. Existing connectors of these types will continue to function, including data ingestion and retrieval. For applications that require these connectors, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
 
 Atlassian Confluence is a collaborative work-management tool designed for sharing, storing, and working on project planning, software development, and product management. You can connect to your Confluence instance for your Amazon Bedrock knowledge base by using either the [AWS Management Console for Amazon Bedrock](https://console.aws.amazon.com/bedrock/home) or the [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) API (see Amazon Bedrock [supported SDKs and AWS CLI](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)).
 

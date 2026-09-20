@@ -88,7 +88,7 @@ If the document is a JSON object, then specify the value of the `type` field in 
 The response to your `Rerank` request returns a list of [RerankResult](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RerankResult.html) objects in the `results` field. Each object contains the following fields:
 + `document` – Includes information about the document that you submitted.
 + `relevanceScore` – A relevance score for the document, assigned by the reranking model.
-+ `index` – Indicates the document's ranking relative to the other documents in the list. The lower the score, the higher the ranking.
++ `index` – The zero-based index of the document in the `sources` array in the request.
 
 If there are too many results to display, then the response returns a value in the `nextToken` field. In this case, to see the next batch of results, include that token in a subsequent request.
 

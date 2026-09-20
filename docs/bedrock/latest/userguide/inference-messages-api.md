@@ -14,7 +14,7 @@ The Anthropic Messages API provides native access to Claude models using the Ant
 ## Supported Regions
 <a name="inference-messages-api-supported"></a>
 
-The Messages API is available on the `bedrock-runtime` endpoint in all Regions where Claude models are available. See [Regional availability by models](models-region-compatibility.md) for details. On the `bedrock-mantle` endpoint, it is available in all Regions that support `bedrock-mantle` (see [Supported Regions and Endpoints](bedrock-mantle.md#bedrock-mantle-supported)).
+The Messages API is available on the `bedrock-runtime` endpoint in all Regions where Claude models are available. See [Regional availability by models](models-region-compatibility.md) for details. On the `bedrock-mantle` endpoint, it is available in all Regions that support `bedrock-mantle` (see [Supported Regions and Endpoints](inference-responses-api.md#bedrock-mantle-supported)).
 
 ## Prerequisites
 <a name="inference-messages-api-prereq"></a>

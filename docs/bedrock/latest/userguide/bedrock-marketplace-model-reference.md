@@ -94,7 +94,9 @@ The following table shows the available models and whether they can use the `Con
 | IBM Granite 8B Code Instruct - 128K | Yes | Yes | 
 | KARAKURI LM 8x7b instruct | No | Yes | 
 | Liquid | Yes | Yes | 
+| Llama 3.1 Nemotron Nano 8B V1 | Yes | Yes | 
 | Llama 3.1 SuperNova Lite | Yes | Yes | 
+| Llama 3.3 Nemotron Super 49B V1 | Yes | Yes | 
 | Llama Spark | Yes | Yes | 
 | Llama-3-Varco-Offsetbias-8B | No | Yes | 
 | Llama3 8B SEA-Lion v2.1 Instruct | Yes | Yes | 

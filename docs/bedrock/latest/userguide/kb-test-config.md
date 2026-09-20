@@ -521,8 +521,23 @@ A validation exception is thrown if there is the same parameter in both `additio
 When you query a knowledge base and request response generation, Amazon Bedrock uses a prompt template that combines instructions and context with the user query to construct the generation prompt that's sent to the model for response generation. You can also customize the orchestration prompt, which turns the user's prompt into a search query. You can engineer the prompt templates with the following tools:
 + **Prompt placeholders** – Pre-defined variables in Amazon Bedrock Knowledge Bases that are dynamically filled in at runtime during knowledge base query. In the system prompt, you'll see these placeholders surrounded by the `$` symbol. The following list describes the placeholders you can use:
 **Note**  
-The `$output_format_instructions$` placeholder is a required field for citations to be displayed in the response.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html)
+The `$output_format_instructions$` placeholder is a required field for citations to be displayed in the response.
+
+
+
+<table>
+<thead>
+  <tr><th>Variable</th><th>Prompt template</th><th>Replaced by</th><th>Model</th><th>Required?</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="2">$query$</td><td rowspan="2">Orchestration, generation</td><td rowspan="2">The user query sent to the knowledge base.</td><td>Anthropic Claude Instant, Anthropic Claude v2.x</td><td>Yes</td></tr>
+  <tr><td>Anthropic Claude 3 Sonnet</td><td>No (automatically included in model input)</td></tr>
+  <tr><td>$search_results$</td><td>Generation</td><td>The retrieved results for the user query.</td><td>All</td><td>Yes</td></tr>
+  <tr><td>$output_format_instructions$</td><td>Orchestration</td><td>Underlying instructions for formatting the response generation and citations. Differs by model. If you define your own formatting instructions, we suggest that you remove this placeholder. Without this placeholder, the response won't contain citations.</td><td>All</td><td>Yes</td></tr>
+  <tr><td>$current_time$</td><td>Orchestration, generation</td><td>The current time.</td><td>All</td><td>No</td></tr>
+</tbody>
+</table>
+
 + **XML tags** – Anthropic models support the use of XML tags to structure and delineate your prompts. Use descriptive tag names for optimal results. For example, in the default system prompt, you'll see the `<database>` tag used to delineate a database of previously asked questions). For more information, see [Use XML tags](https://docs.anthropic.com/claude/docs/use-xml-tags) in the [Anthropic user guide](https://docs.anthropic.com/en/docs/welcome).
 
 For general prompt engineering guidelines, see [Prompt engineering concepts](prompt-engineering-guidelines.md).

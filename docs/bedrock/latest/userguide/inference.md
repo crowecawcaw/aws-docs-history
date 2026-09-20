@@ -65,7 +65,7 @@ If your role has the `AmazonBedrockMantleInferenceAccess` AWS managed policy att
 ```
 
 **Important**  
-If you scope your policy to specific resources instead of using `"Resource": "*"`, the [Responses API](bedrock-mantle.md#bedrock-mantle-responses) on the `bedrock-runtime` endpoint needs two resources rather than one. In addition to the inference target, creating a response requires `bedrock:InvokeModel` on your account's default project, and retrieving, canceling, or deleting a stored response requires `bedrock:GetInvoke`, `bedrock:CancelInvoke`, or `bedrock:DeleteInvoke` on that same project. The following policy grants the minimum:  
+If you scope your policy to specific resources instead of using `"Resource": "*"`, the [Responses API](inference-responses-api.md#bedrock-mantle-responses) on the `bedrock-runtime` endpoint needs two resources rather than one. In addition to the inference target, creating a response requires `bedrock:InvokeModel` on your account's default project, and retrieving, canceling, or deleting a stored response requires `bedrock:GetInvoke`, `bedrock:CancelInvoke`, or `bedrock:DeleteInvoke` on that same project. The following policy grants the minimum:  
 
 ```
 {
@@ -104,8 +104,8 @@ For a detailed breakdown of each permission, see [Prerequisites for running mode
 **Topics**
 + [Inference using Invoke API](inference-api.md)
 + [Inference using Converse API](conversation-inference.md)
-+ [Responses API](bedrock-mantle.md)
-+ [Chat Completions API](inference-chat-completions-mantle.md)
++ [Responses API](inference-responses-api.md)
++ [Chat Completions API](inference-chat-completions.md)
 + [Inference using Anthropic Messages API](inference-messages-api.md)
 + [Influence response generation with inference parameters](inference-parameters.md)
 + [Get validated JSON results from models](structured-output.md)

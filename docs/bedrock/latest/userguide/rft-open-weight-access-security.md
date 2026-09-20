@@ -24,7 +24,7 @@ If you are using Amazon Bedrock short-term/long-term API keys, then make sure th
    + `OPENAI_API_KEY` – Set to your Amazon Bedrock API key
    + `OPENAI_BASE_URL` – Set to the Amazon Bedrock endpoint for your region (for example, `https://bedrock-mantle.us-west-2.api.aws/v1`)
 
-   For more information, see [Responses API](bedrock-mantle.md#bedrock-mantle-responses).
+   For more information, see [Responses API](inference-responses-api.md#bedrock-mantle-responses).
 
 1. **Training data** formatted as JSONL files with the purpose `fine-tune`. For more information, see [Prepare data for open-weight models](rft-prepare-data-open-weight.md).
 

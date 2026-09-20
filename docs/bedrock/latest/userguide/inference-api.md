@@ -12,8 +12,23 @@ The Invoke API is available on the `bedrock-runtime` endpoint only. Amazon Bedro
 Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md) for details.
 
 For model inference, you need to determine the following parameters:
-+ Model ID – The ID or Amazon Resource Name (ARN) of the model or inference profile to use in the `modelId` field for inference. The following table describes how to find IDs for different types of resources:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/inference-api.html)
++ Model ID – The ID or Amazon Resource Name (ARN) of the model or inference profile to use in the `modelId` field for inference. The following table describes how to find IDs for different types of resources:
+
+
+
+<table>
+<thead>
+  <tr><th>Model type</th><th>Description</th><th>Find ID in console</th><th>Find ID in API</th><th>Relevant documentation</th></tr>
+</thead>
+<tbody>
+  <tr><td>Base model</td><td>A foundation model from a provider.</td><td>Choose <b>Base models</b> from the left navigation pane, search for a model, and look for the <b>Model ID</b>.</td><td>Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html">GetFoundationModel</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html">ListFoundationModels</a> request and find the <code>modelId</code> in the response.</td><td>See a list of IDs at <a href="models-supported.md">Supported foundation models in Amazon Bedrock</a>.</td></tr>
+  <tr><td>Inference profile</td><td>Increases throughput by allowing invocation of a model in multiple regions. </td><td>Choose <b>Cross-Region inference</b> from the left navigation pane and look for an <b>Inference profile ID</b>.</td><td>Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html">GetInferenceProfile</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListInferenceProfiles.html">ListInferenceProfiles</a> request and find the <code>inferenceProfileId</code> in the response.</td><td>See a list of IDs at <a href="inference-profiles-support.md">Supported Regions and models for inference profiles</a>.</td></tr>
+  <tr><td>Prompt</td><td>A prompt that was constructed using Prompt management.</td><td>Choose <b>Prompt management</b> from the left navigation pane, select a prompt in the <b>Prompts</b> section, and look for the <b>Prompt ARN</b>.</td><td>Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetPrompt.html">GetPrompt</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html">ListPrompts</a> request and find the <code>promptArn</code> in the response.</td><td>Learn about creating a prompt in Prompt management at <a href="prompt-management.md">Construct and store reusable prompts with Prompt management in Amazon Bedrock</a>.</td></tr>
+  <tr><td>Provisioned Throughput</td><td>Provides a higher level of throughput for a model at a fixed cost.</td><td>Choose <b>Provisioned Throughput</b> from the left navigation pane, select a Provisioned Throughput, and look for the ARN.</td><td>Send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetProvisionedModelThroughput.html">GetProvisionedModelThroughput</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListProvisionedModelThroughputs.html">ListProvisionedModelThroughputs</a> request and find the <code>provisionedModelArn</code> in the response.</td><td>Learn how to purchase a Provisioned Throughput for a model at <a href="prov-throughput.md">Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock</a>.</td></tr>
+  <tr><td>Custom model</td><td>A model whose parameters are shifted from a foundation model based on training data.</td><td>After purchasing Provisioned Throughput for a custom model, follow the steps to find the ID for the Provisioned Throughput.</td><td>After purchasing Provisioned Throughput for a custom model, follow the steps to find the ID for the Provisioned Throughput.</td><td>Learn how to customize a model at <a href="custom-models.md">Customize your model to improve its performance for your use case</a>. After customization, you must purchase Provisioned Throughput for it and use the ID of the Provisioned Throughput.</td></tr>
+</tbody>
+</table>
+
 + Request body – Contains the inference parameters for a model and other configurations. Each base model has its own inference parameters. The inference parameters for a custom or provisioned model depends on the base model from which it was created. For more information, see [Inference request parameters and response fields for foundation models](model-parameters.md).
 
 ## Submit a single prompt with InvokeModel

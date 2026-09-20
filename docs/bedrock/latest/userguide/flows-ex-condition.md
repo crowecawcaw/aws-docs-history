@@ -22,8 +22,21 @@ The following image shows a flow with one condition node returns one of three po
 
    1. Select the **Configure** tab in the **Flow builder** pane.
 
-   1. Expand the **Inputs** section. Configure the inputs as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/flows-ex-condition.html)
+   1. Expand the **Inputs** section. Configure the inputs as follows:
+
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Type</th><th>Expression</th><th></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>retailPrice</td><td>Number</td><td>$.data.retailPrice</td><td></td><td></td></tr>
+  <tr><td>marketPrice</td><td>Number</td><td>$.data.marketPrice</td><td></td><td></td></tr>
+  <tr><td>type</td><td>String</td><td>$.data.type</td><td></td><td></td></tr>
+</tbody>
+</table>
+
 
       This configuration means that the condition node expects a JSON object that contains the fields `retailPrice`, `marketPrice`, and `type`.
 

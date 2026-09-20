@@ -48,8 +48,21 @@ You can configure word policies for your guardrail by using the AWS Management C
 
    1. Select **Filter profanity** to block profanity in prompts and responses. The list of profanity is based on conventional definitions and is continually updated.
 
-   1. For **Add custom words and phrases**, select how to add words and phrases for your guardrail to block. If you upload a file of words, each line in the file should contain one word or a phrase of up to three words. Don't include a header. You have the following options:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-word-filters.html)
+   1. For **Add custom words and phrases**, select how to add words and phrases for your guardrail to block. If you upload a file of words, each line in the file should contain one word or a phrase of up to three words. Don't include a header. You have the following options:
+
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Add words and phrases manually</b></td><td>Directly add words and phrases in the <b>View and edit words and phrases</b> section.</td></tr>
+  <tr><td><b>Upload from a local file</b></td><td>Upload a .txt or .csv file containing the words and phrases by selecting <b>Choose file</b> after selecting this option. </td></tr>
+  <tr><td><b>Upload from Amazon S3 object</b></td><td>Upload an object from an S3 bucket.</td></tr>
+</tbody>
+</table>
+
 
    1. Edit the words and phrases for the guardrail to block in the **View and edit words and phrases** section. You have the following options:
       + If you uploaded a word list from a local file or Amazon S3 object, this section will populate with your word list. To filter for items with errors, select **Show errors**.

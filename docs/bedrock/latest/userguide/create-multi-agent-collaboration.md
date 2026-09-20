@@ -90,19 +90,64 @@ Complete the following steps to create a multi-agent collaboration team,
 
   To assign a supervisor role to an existing agent, send an [UpdateAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgent.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt). Because all fields will be overwritten, include both fields that you want to update as well as fields that you want to keep the same.
 
-  You must minimally include the following fields:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/create-multi-agent-collaboration.html)
+  You must minimally include the following fields:
 
-  The following fields are optional:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/create-multi-agent-collaboration.html)
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Use case</th></tr>
+</thead>
+<tbody>
+  <tr><td>agentResourceRoleArn</td><td>To specify an ARN of the service role with permissions to call API operations on the agent</td></tr>
+  <tr><td>foundationModel</td><td>To specify a foundation model (FM) for the agent to orchestrate with</td></tr>
+  <tr><td>instruction</td><td>To provide instructions to tell the agent what to do. Used in the $instructions$ placeholder of the orchestration prompt template.</td></tr>
+  <tr><td>agentCollaboration</td><td>To assign supervisor role to the agent.<br />Specify <code>SUPERVISOR</code> if you want the supervisor agent to coordinate responses from collaborator agents and output the response.<br />Specify <code>SUPERVISOR_ROUTER</code> if you want supervisor agent to route information to the appropriate collaborator agent to send the final response.<br />By default, this field is set to <code>DISABLED</code>.</td></tr>
+</tbody>
+</table>
+
+
+  The following fields are optional:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Use case</th></tr>
+</thead>
+<tbody>
+  <tr><td>description</td><td>Describes what the agent does</td></tr>
+  <tr><td>idleSessionTTLInSeconds</td><td>Duration after which the agent ends the session and deletes any stored information.</td></tr>
+  <tr><td>customerEncryptionKeyArn</td><td>ARN of a KMS key to encrypt agent resources</td></tr>
+  <tr><td>tags</td><td>To associate <a href="tagging.md">tags</a> with your agent.</td></tr>
+  <tr><td>promptOverrideConfiguration</td><td>To <a href="advanced-prompts.md">customize the prompts</a> sent to the FM at each step of orchestration.</td></tr>
+  <tr><td>guardrailConfiguration</td><td>To add a <a href="guardrails.md">guardrail</a> to the agent. Specify the ID or ARN of the guardrail and the version to use.</td></tr>
+  <tr><td>clientToken</td><td>To ensure the API request completes only once. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</td></tr>
+</tbody>
+</table>
+
 
   The response returns an [CreateAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_Agent.html) object that contains details about your newly created supervisor agent. If your agent fails to be created, the [CreateAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_Agent.html) object in the response returns a list of `failureReasons` and a list of `recommendedActions` for you to troubleshoot.
 
 **Step 3: Add collaborator agents**
 + To associate collaborator agents with the supervisor agent, send a `AssociateAgentCollaborator` request (see link for request and response formats and field details) with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt).
 
-  You must minimally include the following fields:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/create-multi-agent-collaboration.html)
+  You must minimally include the following fields:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Use case</th></tr>
+</thead>
+<tbody>
+  <tr><td>collaboratorName</td><td>To specify an alternate name for the collaborator agent. This name will appear only in collaboration instructions and does not replace the original agent name.</td></tr>
+  <tr><td>agentDescriptor</td><td>To specify the agent's alias Arn.</td></tr>
+  <tr><td>collaborationInstruction</td><td>To provide instructions to tell the collaborator agent what to do.</td></tr>
+  <tr><td>relayConversationHistory</td><td>Set to <code>TO_COLLABORATOR</code> to specify that the supervisor agent will share context from previous conversations with this collaborator agent.<br />Valid values: <code>TO_COLLABORATOR</code> | <code>DISABLED</code>.</td></tr>
+</tbody>
+</table>
+
 
 **Step 4: Prepare and test your multi-agent collaborator team**
 + Follow instructions to [prepare and test](agents-test.md) your multi-agent collaboration team. 

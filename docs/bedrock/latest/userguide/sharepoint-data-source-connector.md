@@ -4,7 +4,7 @@
 <a name="sharepoint-data-source-connector"></a>
 
 **Important**  
-For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
+Starting September 30, 2026, the creation of new connectors for Confluence, Microsoft SharePoint, Salesforce, and Web Crawler will no longer be supported on customer-managed knowledge bases. Existing connectors of these types will continue to function, including data ingestion and retrieval. For applications that require these connectors, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
 
 Microsoft SharePoint is a collaborative web-based service for working on documents, web pages, web sites, lists, and more. You can connect to your SharePoint instance for your Amazon Bedrock knowledge base by using either the [AWS Management Console for Amazon Bedrock](https://console.aws.amazon.com/bedrock/home) or the [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) API (see Amazon Bedrock [supported SDKs and AWS CLI](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)).
 
@@ -174,7 +174,7 @@ aws bedrock-agent create-data-source \
             "siteUrls": [
                 "https://yourdomain.sharepoint.com/sites/mysite"
             ],
-            "authType": "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS",
+            "authType": "OAUTH2_CLIENT_CREDENTIALS",
             "credentialsSecretArn": "arn:aws::secretsmanager:your-region:secret:AmazonBedrock-SharePoint"
         },
         "crawlerConfiguration": {

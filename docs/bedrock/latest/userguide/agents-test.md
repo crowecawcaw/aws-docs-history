@@ -117,10 +117,38 @@ To test your agent, send an [InvokeAgent](https://docs.aws.amazon.com/bedrock/la
 The AWS CLI doesn't support [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html).
 
 The following fields exist in the request:
-+ Minimally, provide the following required fields:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html)
-+ The following fields are optional:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html)
++ Minimally, provide the following required fields:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Short description</th></tr>
+</thead>
+<tbody>
+  <tr><td>agentId</td><td>ID of the agent</td></tr>
+  <tr><td>agentAliasId</td><td>ID of the alias. Use <code>TSTALIASID</code> to invoke the <code>DRAFT</code> version</td></tr>
+  <tr><td>sessionId</td><td>Alphanumeric ID for the session (2–100 characters)</td></tr>
+  <tr><td>inputText</td><td>The user prompt to send to the agent</td></tr>
+</tbody>
+</table>
+
++ The following fields are optional:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Short description</th></tr>
+</thead>
+<tbody>
+  <tr><td>enableTrace</td><td>Specify <code>TRUE</code> to view the <a href="trace-events.md">trace</a>.</td></tr>
+  <tr><td>endSession</td><td>Specify <code>TRUE</code> to end the session with the agent after this request.</td></tr>
+  <tr><td>sessionState</td><td>Includes context that influences the agent's behavior or the behavior of knowledge bases attached to the agent. For more information, see <a href="agents-session-state.md">Control agent session context</a>.</td></tr>
+  <tr><td>streamingConfigurations</td><td>Includes configurations for streaming response. To enable streaming, set <code>streamFinalResponse</code> to <code>TRUE</code>.</td></tr>
+</tbody>
+</table>
+
 
 The response is returned in an event stream. Each event contains a `chunk`, which contains part of the response in the `bytes` field, which must be decoded. The following objects may also be returned:
 + If the agent queried a knowledge base, the `chunk` also includes `citations`.

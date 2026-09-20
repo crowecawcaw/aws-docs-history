@@ -11,7 +11,7 @@ When you make inference calls with Writer AI models, you include a prompt for th
 
 **Writer Palmyra X4**
 
-Top-ranked on Stanford HELM, Writer Palmyra X4 achieves superior performance on complex tasks and agentic workflows. It combines a 128k token context window with a suite of enterprise-grade capabilities, including advanced reasoning, tool-calling, LLM delegation, built-in RAG, code generation, structured outputs, multi-modality, and multi-lingual support. Using enterprise-specific tools that extend the model's ability to take action, Palmyra X4 enables developers to build apps and agents that updating system, performing transaction, sending email, triggering workflow, and more.
+Top-ranked on Stanford HELM, Writer Palmyra X4 achieves superior performance on complex tasks and agentic workflows. It combines a 128k token context window with a suite of enterprise-grade capabilities, including advanced reasoning, tool-calling, LLM delegation, built-in RAG, code generation, structured outputs, multi-modality, and multi-lingual support. Using enterprise-specific tools that extend the model's ability to take action, Palmyra X4 enables developers to build apps and agents that update systems, perform transactions, send emails, trigger workflows, and more.
 
 **Writer Palmyra X5**
 

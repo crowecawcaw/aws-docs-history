@@ -4,7 +4,7 @@
 <a name="webcrawl-data-source-connector"></a>
 
 **Important**  
-For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
+Starting September 30, 2026, the creation of new connectors for Confluence, Microsoft SharePoint, Salesforce, and Web Crawler will no longer be supported on customer-managed knowledge bases. Existing connectors of these types will continue to function, including data ingestion and retrieval. For applications that require these connectors, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
 
 The Amazon Bedrock provided Web Crawler connects to and crawls URLs you have selected for use in your Amazon Bedrock knowledge base. You can crawl website pages in accordance with your set scope or limits for your selected URLs. You can crawl website pages using either the [AWS Management Console for Amazon Bedrock](https://console.aws.amazon.com/bedrock/home) or the [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) API (see Amazon Bedrock [supported SDKs and AWS CLI](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)). Currently, only Amazon OpenSearch Serverless vector store is available to use with this data source.
 

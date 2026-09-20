@@ -36,11 +36,37 @@ The following procedure shows you how to create an alias and a version for your 
 
   To create an alias for an agent, send a [CreateAgentAlias](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentAlias.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt).
 
-  The following fields are required:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent-proc.html)
+  The following fields are required:
 
-  The following fields are optional:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent-proc.html)
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Use case</th></tr>
+</thead>
+<tbody>
+  <tr><td>agentId</td><td>To specify the ID of the agent for which to create an alias.</td></tr>
+  <tr><td>agentName</td><td>To specify a name for the alias.</td></tr>
+</tbody>
+</table>
+
+
+  The following fields are optional:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Use case</th></tr>
+</thead>
+<tbody>
+  <tr><td>description</td><td>To provide a description of the alias.</td></tr>
+  <tr><td>routingConfiguration</td><td>To specify a version to associate the alias with (leave blank to create a new version) and a <a href="prov-throughput.md">Provisioned Throughput</a> to associate with the alias.</td></tr>
+  <tr><td>clientToken</td><td>To ensure the API request completes only once. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</td></tr>
+  <tr><td>tags</td><td>To associate <a href="tagging.md">tags</a> with the alias.</td></tr>
+</tbody>
+</table>
+
 
   ```
       def create_agent_alias(self, name, agent_id):

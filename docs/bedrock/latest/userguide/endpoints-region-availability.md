@@ -25,6 +25,14 @@ The following tables show which AWS Regions support each Amazon Bedrock inferenc
 | ca-central-1 (Canada) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | ca-west-1 (Calgary) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
+## Mexico
+<a name="endpoints-region-mexico"></a>
+
+
+| **Region** | **`bedrock-runtime`** | **`bedrock-mantle`** | 
+| --- | --- | --- | 
+| mx-central-1 (Mexico) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+
 ## Europe
 <a name="endpoints-region-europe"></a>
 
@@ -94,5 +102,5 @@ AWS GovCloud (US) Regions have separate access requirements. For details on enab
 
 | **Region** | **`bedrock-runtime`** | **`bedrock-mantle`** | 
 | --- | --- | --- | 
-| us-gov-east-1 (GovCloud US-East) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| us-gov-east-1 (GovCloud US-East) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | us-gov-west-1 (GovCloud US-West) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 

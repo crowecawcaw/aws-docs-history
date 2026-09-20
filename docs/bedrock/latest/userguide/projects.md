@@ -3,13 +3,13 @@
 # Projects (OpenAI-compatible)
 <a name="projects"></a>
 
-Amazon Bedrock Projects API provides application-level isolation for your generative AI workloads using [OpenAI-compatible APIs](bedrock-mantle.md). Projects enable you to organize and manage your AI applications with improved access control, cost tracking, and observability across your organization.
+Amazon Bedrock Projects API provides application-level isolation for your generative AI workloads using [OpenAI-compatible APIs](inference-responses-api.md). Projects enable you to organize and manage your AI applications with improved access control, cost tracking, and observability across your organization.
 
 **Tip**  
 For new applications, we recommend the `bedrock-runtime` endpoint. If you don't need the Projects API, use [Inference Profiles](inference-profiles-create.md) for isolation, tagging, and cost tracking on `bedrock-runtime`.
 
 **Note**  
-Projects can only be used with models that use the OpenAI-compatible APIs against the [bedrock-mantle endpoint](bedrock-mantle.md). If you are using the bedrock-runtime endpoint, please use Inference Profiles instead of tagging and observability.
+Projects can only be used with models that use the OpenAI-compatible APIs against the [bedrock-mantle endpoint](inference-responses-api.md). If you are using the bedrock-runtime endpoint, please use Inference Profiles instead of tagging and observability.
 
 ## What is a Project?
 <a name="projects-what-is"></a>

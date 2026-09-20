@@ -47,7 +47,10 @@ The following tables show which endpoints and APIs are supported for gpt-oss-20b
 
 | **Messages** | **Responses** | **Chat Completions** | **Converse** | **Invoke** | 
 | --- | --- | --- | --- | --- | 
-| ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+
+**Note**  
+On `bedrock-runtime`, this model supports Chat Completions with model ID `openai.gpt-oss-20b-1:0`, but it doesn't support the Responses API. To use the Responses API with this model, use `bedrock-mantle` and model ID `openai.gpt-oss-20b`.
 
 **APIs supported on `bedrock-mantle` endpoint**
 
@@ -189,19 +192,19 @@ Configure your environment to use the API key for authentication.
 Choose the tab for your SDK and endpoint.
 
 ------
-#### [ bedrock-mantle ]
-
-```
-OPENAI_API_KEY="<provide your Bedrock API key>"
-OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
-```
-
-------
 #### [ bedrock-runtime ]
 
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
 OPENAI_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/openai/v1"
+```
+
+------
+#### [ bedrock-mantle ]
+
+```
+OPENAI_API_KEY="<provide your Bedrock API key>"
+OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
 ```
 
 ------
@@ -217,6 +220,23 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 <a name="model-card-openai-gpt-oss-20b-sample-code-request"></a>
 
 Save the file as `bedrock-first-request.py`
+
+#### bedrock-runtime: OpenAI SDK
+<a name="model-card-openai-gpt-oss-20b-sample-code-runtime-openai"></a>
+
+Use the settings from [Step 4 - Set environment variables](#model-card-openai-gpt-oss-20b-sample-code-environment). Choose the `bedrock-runtime` tab. This model supports the Chat Completions API, but not the Responses API, on this endpoint.
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+    model="openai.gpt-oss-20b-1:0",
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+)
+print(response)
+```
 
 #### bedrock-mantle
 <a name="model-card-openai-gpt-oss-20b-sample-code-mantle"></a>
@@ -250,43 +270,6 @@ response = client.chat.completions.create(
     model="openai.gpt-oss-20b",
     messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
 )
-print(response)
-```
-
-------
-
-#### bedrock-runtime: OpenAI SDK
-<a name="model-card-openai-gpt-oss-20b-sample-code-runtime-openai"></a>
-
-Use the settings from [Step 4 - Set environment variables](#model-card-openai-gpt-oss-20b-sample-code-environment). Choose the `bedrock-runtime` tab. The Chat tab uses the Chat Completions API.
-
-------
-#### [ Responses API ]
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.responses.create(
-    model="openai.gpt-oss-20b",
-    input="Can you explain the features of Amazon Bedrock?"
-    )
-print(response)
-```
-
-------
-#### [ Chat ]
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.chat.completions.create(
-    model="openai.gpt-oss-20b",
-    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
-    )
 print(response)
 ```
 

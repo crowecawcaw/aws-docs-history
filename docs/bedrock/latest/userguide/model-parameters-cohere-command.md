@@ -39,12 +39,32 @@ The following are required parameters.
   The following are text per call and character limits.
 
 **Texts per call**  
-    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html)
+
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>0 texts</td><td>96 texts</td><td></td></tr>
+</tbody>
+</table>
+
 
 **Characters**  
-    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html)
+
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>0 characters</td><td>2048 characters</td><td></td></tr>
+</tbody>
+</table>
+
 
 The following are optional parameters.
 + **return\_likelihoods** – Specify how and if the token likelihoods are returned with the response. You can specify the following options. 
@@ -52,24 +72,84 @@ The following are optional parameters.
   + `ALL` – Return likelihoods for all tokens.
   + `NONE` – (Default) Don't return any likelihoods.
 + **stream** – ( Required to support streaming) Specify `true` to return the response piece-by-piece in real-time and `false` to return the complete response after the process finishes.
-+ **logit\_bias** – Prevents the model from generating unwanted tokens or incentivizes the model to include desired tokens. The format is `{token_id: bias}` where bias is a float between -10 and 10. Tokens can be obtained from text using any tokenization service, such as Cohere’s Tokenize endpoint. For more information, see [Cohere documentation](https://docs.cohere.com/docs).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html)
-+  **num\_generations** – The maximum number of generations that the model should return.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html)
++ **logit\_bias** – Prevents the model from generating unwanted tokens or incentivizes the model to include desired tokens. The format is `{token_id: bias}` where bias is a float between -10 and 10. Tokens can be obtained from text using any tokenization service, such as Cohere’s Tokenize endpoint. For more information, see [Cohere documentation](https://docs.cohere.com/docs).
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>N/A</td><td>-10 (for a token bias)</td><td>10 (for a token bias)</td></tr>
+</tbody>
+</table>
+
++  **num\_generations** – The maximum number of generations that the model should return. 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>1</td><td>1</td><td>5</td></tr>
+</tbody>
+</table>
+
 +  **truncate** – Specifies how the API handles inputs longer than the maximum token length. Use one of the following:
   + `NONE` – Returns an error when the input exceeds the maximum input token length. 
   + `START` – Discard the start of the input. 
   + `END` – (Default) Discards the end of the input.
 
   If you specify `START` or `END`, the model discards the input until the remaining input is exactly the maximum input token length for the model.
-+ **temperature** – Use a lower value to decrease randomness in the response.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html)
-+ **p** – Top P. Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both `p` and `k` are enabled, `p` acts after `k`.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html)
-+ **k** – Top K. Specify the number of token choices the model uses to generate the next token. If both `p` and `k` are enabled, `p` acts after `k`.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html)
-+ **max\_tokens** – Specify the maximum number of tokens to use in the generated response.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command.html)
++ **temperature** – Use a lower value to decrease randomness in the response.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.9</td><td>0</td><td>5</td></tr>
+</tbody>
+</table>
+
++ **p** – Top P. Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both `p` and `k` are enabled, `p` acts after `k`.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.75</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
++ **k** – Top K. Specify the number of token choices the model uses to generate the next token. If both `p` and `k` are enabled, `p` acts after `k`.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>0</td><td>500</td></tr>
+</tbody>
+</table>
+
++ **max\_tokens** – Specify the maximum number of tokens to use in the generated response.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>20</td><td>1</td><td>4096</td></tr>
+</tbody>
+</table>
+
 + **stop\_sequences** – Configure up to four sequences that the model recognizes. After a stop sequence, the model stops generating further tokens. The returned text doesn't contain the stop sequence.
 
 ------

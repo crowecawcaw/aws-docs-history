@@ -4,7 +4,7 @@
 <a name="data-source-connectors"></a>
 
 **Important**  
-For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
+Starting September 30, 2026, the creation of new connectors for Confluence, Microsoft SharePoint, Salesforce, and Web Crawler will no longer be supported on customer-managed knowledge bases. Existing connectors of these types will continue to function, including data ingestion and retrieval. For applications that require these connectors, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
 
 After finishing the configurations for your knowledge base, you connect a supported data source to the knowledge base.
 

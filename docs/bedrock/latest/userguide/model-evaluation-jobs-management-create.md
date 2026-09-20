@@ -12,7 +12,7 @@ All automatic model evaluation jobs require that you create an IAM service role.
 The following examples show you how to create an automatic model evaluation job. In the API, you can also include an [inference profile](cross-region-inference.md) in the job by specifying its ARN in the `modelIdentifier` field.
 
 **OpenAI Responses API console support not available**  
-To evaluate models through the OpenAI Responses API, specify the model identifier in the `modelIdentifier` field using the `bedrock-mantle` endpoint. The AWS CLI and the Amazon Bedrock API support these models. The Amazon Bedrock console doesn't support selecting them. For a list of supported models, see [Responses API](bedrock-mantle.md).
+To evaluate models through the OpenAI Responses API, specify the model identifier in the `modelIdentifier` field using the `bedrock-mantle` endpoint. The AWS CLI and the Amazon Bedrock API support these models. The Amazon Bedrock console doesn't support selecting them. For a list of supported models, see [Responses API](inference-responses-api.md).
 
 ------
 #### [ Amazon Bedrock console ]

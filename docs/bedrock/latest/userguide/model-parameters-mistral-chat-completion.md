@@ -136,12 +136,42 @@ The following are optional parameters.
   ]
   ```
 +  **tool\_choice** – Specifies how functions are called. If set to `none` the model won't call a function and will generate a message instead. If set to `auto` the model can choose to either generate a message or call a function. If set to `any` the model is forced to call a function.
-+ **max\_tokens** – Specify the maximum number of tokens to use in the generated response. The model truncates the response after the generated text exceeds `max_tokens`.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-chat-completion.html)
-+ **temperature** – Controls the randomness of predictions made by the model. For more information, see [Influence response generation with inference parameters](inference-parameters.md).     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-chat-completion.html)
-+ **top\_p** – Controls the diversity of text that the model generates by setting the percentage of most-likely candidates that the model considers for the next token. For more information, see [Influence response generation with inference parameters](inference-parameters.md).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-chat-completion.html)
++ **max\_tokens** – Specify the maximum number of tokens to use in the generated response. The model truncates the response after the generated text exceeds `max_tokens`. 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>Mistral Large – 8,192</td><td>1</td><td>Mistral Large – 8,192</td></tr>
+</tbody>
+</table>
+
++ **temperature** – Controls the randomness of predictions made by the model. For more information, see [Influence response generation with inference parameters](inference-parameters.md). 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>Mistral Large – 0.7</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
++ **top\_p** – Controls the diversity of text that the model generates by setting the percentage of most-likely candidates that the model considers for the next token. For more information, see [Influence response generation with inference parameters](inference-parameters.md).
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>Mistral Large – 1</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ Response ]

@@ -380,7 +380,7 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/chat/completions \
 ## Run inference with fine-tuned model
 <a name="fine-tuning-openai-inference"></a>
 
-Once your fine-tuning job is complete, you can use the fine-tuned model for inference through the Responses API or Chat Completions API. For complete API details, see [Responses API](bedrock-mantle.md).
+Once your fine-tuning job is complete, you can use the fine-tuned model for inference through the [Responses API](inference-responses-api.md) or [Chat Completions API](inference-chat-completions.md).
 
 ### Responses API
 <a name="fine-tuning-openai-responses-api"></a>

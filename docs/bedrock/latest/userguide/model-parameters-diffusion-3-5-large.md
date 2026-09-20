@@ -10,8 +10,18 @@ The request body is passed in the `body` field of a request to [InvokeModel](htt
 **Model invocation request body field**
 
 When you make an InvokeModel call using a Stable Diffusion 3.5 Large model, fill the body field with a JSON object that looks like the following.
-+ **prompt** – (string) Text description of the desired output image. Maximum 10,000 characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html)
++ **prompt** – (string) Text description of the desired output image. Maximum 10,000 characters.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10,000</td></tr>
+</tbody>
+</table>
+
 
 **Model invocation responses body field**
 
@@ -40,18 +50,48 @@ A response with a finish reason that is not `null`, will look like the following
 #### [ Text to image ]
 
 The Stability.ai Stable Diffusion 3.5 Large model has the following inference parameters for a text-to-image inference call.
-+ **prompt** (string) – Text description of the desired output image. Maximum 10,000 characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html)
++ **prompt** (string) – Text description of the desired output image. Maximum 10,000 characters.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10,000</td></tr>
+</tbody>
+</table>
+
 
 **Optional parameters**
 + **aspect\_ratio** (string) – Controls the aspect ratio of the generated image. Valid for text-to-image requests only. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21. Default 1:1.
 + **mode** (string) (GenerationMode) - Default: text-to-image. Enum: image-to-image or text-to-image. Controls whether this is a text-to-image or image-to-image generation, which affects which parameters are required:
   + text-to-image requires only the prompt parameter.
   + image-to-image requires the prompt, image, and strength parameters.
-+ **seed** (number) – Value to control randomness in generation. Range 0 to 4294967294. Default 0 (random seed).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html)
-+ **negative\_prompt** (string) – Text describing elements to exclude from the output image. Maximum 10,000 characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html)
++ **seed** (number) – Value to control randomness in generation. Range 0 to 4294967294. Default 0 (random seed).
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th>Default</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>4294967294</td><td>0</td></tr>
+</tbody>
+</table>
+
++ **negative\_prompt** (string) – Text describing elements to exclude from the output image. Maximum 10,000 characters.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10,000</td></tr>
+</tbody>
+</table>
+
 + **output\_format** (string) – Output image format. Enum: jpeg, png, webp. Default png.
 
 ```
@@ -71,18 +111,58 @@ response = bedrock.invoke_model(
 #### [ Image to image ]
 
 The Stability.ai Stable Diffusion 3.5 Large model has the following inference parameters for an image-to-image inference call.
-+ **prompt** (string) – Text description of the desired output image. Maximum 10,000 characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html)
++ **prompt** (string) – Text description of the desired output image. Maximum 10,000 characters.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10,000</td></tr>
+</tbody>
+</table>
+
 + **image** (string) – Base64-encoded input image. Minimum 64 pixels per side. Supported formats: jpeg, png, webp.
 + **mode** (string) (GenerationMode) - Default: text-to-image. Enum: image-to-image or text-to-image. Controls whether this is a text-to-image or image-to-image generation, which affects which parameters are required:
   + text-to-image requires only the prompt parameter.
   + image-to-image requires the prompt, image, and strength parameters.
-+ **strength** (number) – Controls influence of the input image on the output. Range 0 to 1. Value of 0 preserves the input image, value of 1 ignores the input image.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html)
-+ **seed** (number) – Value to control randomness in generation. Range 0 to 4294967294. Default 0 (random seed).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html)
-+ **negative\_prompt** (string) – Text describing elements to exclude from the output image. Maximum 10,000 characters.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-3-5-large.html)
++ **strength** (number) – Controls influence of the input image on the output. Range 0 to 1. Value of 0 preserves the input image, value of 1 ignores the input image.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
++ **seed** (number) – Value to control randomness in generation. Range 0 to 4294967294. Default 0 (random seed).
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th>Default</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>4294967294</td><td>0</td></tr>
+</tbody>
+</table>
+
++ **negative\_prompt** (string) – Text describing elements to exclude from the output image. Maximum 10,000 characters.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10,000</td></tr>
+</tbody>
+</table>
+
 + **output\_format** (string) – Output image format. Enum: jpeg, png, webp. Default png.
 
 ```

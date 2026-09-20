@@ -7,7 +7,7 @@ Amazon Titan Foundation Models are pre-trained on large datasets, making them po
 
 There are three types of Titan models: embeddings, text generation, and image generation.
 
-There are two Titan Multimodal Embeddings G1 models. The Titan Multimodal Embeddings G1 model translates text inputs (words, phrases or possibly large units of text) into numerical representations (known as embeddings) that contain the semantic meaning of the text. While this model will not generate text, it is useful for applications like personalization and search. By comparing embeddings, the model will produce more relevant and contextual responses than word matching. The Multimodal Embeddings G1 model is used for use cases like searching images by text, by image for similarity, or by a combination of text and image. It translates the input image or text into an embedding that contain the semantic meaning of both the image and text in the same semantic space.
+The Amazon Titan Multimodal Embeddings G1 model translates text, images, or a combination of text and images into numerical representations (known as embeddings) in a shared semantic space. You can use these embeddings for multimodal search and recommendation use cases, such as searching for images by text or by image similarity.
 
 Titan Text models are generative LLMs for tasks such as summarization, text generation, classification, open-ended QnA, and information extraction. They are also trained on many different programming languages, as well as rich text format like tables, JSON, and .csv files, among other formats.
 

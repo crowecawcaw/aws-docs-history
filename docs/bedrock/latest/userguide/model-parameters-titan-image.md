@@ -310,18 +310,86 @@ The response body is a streaming object that contains one of the following field
 
 The shared and optional `imageGenerationConfig` contains the following fields. If you don't include this object, the default configurations are used.
 + **quality** – The quality of the image. The default value is `standard`. For pricing details, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/).
-+ **numberOfImages** (Optional) – The number of images to generate.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-image.html)
-+ **cfgScale** (Optional) – Specifies how strongly the generated image should adhere to the prompt. Use a lower value to introduce more randomness in the generation.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-image.html)
++ **numberOfImages** (Optional) – The number of images to generate.
+
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th>Default</th></tr>
+</thead>
+<tbody>
+  <tr><td>1</td><td>5</td><td>1</td></tr>
+</tbody>
+</table>
+
++ **cfgScale** (Optional) – Specifies how strongly the generated image should adhere to the prompt. Use a lower value to introduce more randomness in the generation.
+
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th>Default</th></tr>
+</thead>
+<tbody>
+  <tr><td>1.1</td><td>10.0</td><td>8.0</td></tr>
+</tbody>
+</table>
+
 + The following parameters define the size that you want the output image to be. For more details about pricing by image size, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/).
   + **height** (Optional) – The height of the image in pixels. The default value is 1408.
   + **width** (Optional) – The width of the image in pixels. The default value is 1408.
 
-  The following sizes are permissible.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-image.html)
-+ **seed** (Optional) – Use to control and reproduce results. Determines the initial noise setting. Use the same seed and the same settings as a previous run to allow inference to create a similar image.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-image.html)
+  The following sizes are permissible.
+
+
+
+<table>
+<thead>
+  <tr><th>Width</th><th>Height</th><th>Aspect ratio</th><th>Price equivalent to</th></tr>
+</thead>
+<tbody>
+  <tr><td>1024</td><td>1024</td><td>1:1</td><td>1024 x 1024</td></tr>
+  <tr><td>768</td><td>768</td><td>1:1</td><td>512 x 512</td></tr>
+  <tr><td>512</td><td>512</td><td>1:1</td><td>512 x 512</td></tr>
+  <tr><td>768</td><td>1152</td><td>2:3</td><td>1024 x 1024</td></tr>
+  <tr><td>384</td><td>576</td><td>2:3</td><td>512 x 512</td></tr>
+  <tr><td>1152</td><td>768</td><td>3:2</td><td>1024 x 1024</td></tr>
+  <tr><td>576</td><td>384</td><td>3:2</td><td>512 x 512</td></tr>
+  <tr><td>768</td><td>1280</td><td>3:5</td><td>1024 x 1024</td></tr>
+  <tr><td>384</td><td>640</td><td>3:5</td><td>512 x 512</td></tr>
+  <tr><td>1280</td><td>768</td><td>5:3</td><td>1024 x 1024</td></tr>
+  <tr><td>640</td><td>384</td><td>5:3</td><td>512 x 512</td></tr>
+  <tr><td>896</td><td>1152</td><td>7:9</td><td>1024 x 1024</td></tr>
+  <tr><td>448</td><td>576</td><td>7:9</td><td>512 x 512</td></tr>
+  <tr><td>1152</td><td>896</td><td>9:7</td><td>1024 x 1024</td></tr>
+  <tr><td>576</td><td>448</td><td>9:7</td><td>512 x 512</td></tr>
+  <tr><td>768</td><td>1408</td><td>6:11</td><td>1024 x 1024</td></tr>
+  <tr><td>384</td><td>704</td><td>6:11</td><td>512 x 512</td></tr>
+  <tr><td>1408</td><td>768</td><td>11:6</td><td>1024 x 1024</td></tr>
+  <tr><td>704</td><td>384</td><td>11:6</td><td>512 x 512</td></tr>
+  <tr><td>640</td><td>1408</td><td>5:11</td><td>1024 x 1024</td></tr>
+  <tr><td>320</td><td>704</td><td>5:11</td><td>512 x 512</td></tr>
+  <tr><td>1408</td><td>640</td><td>11:5</td><td>1024 x 1024</td></tr>
+  <tr><td>704</td><td>320</td><td>11:5</td><td>512 x 512</td></tr>
+  <tr><td>1152</td><td>640</td><td>9:5</td><td>1024 x 1024</td></tr>
+  <tr><td>1173</td><td>640</td><td>16:9</td><td>1024 x 1024</td></tr>
+</tbody>
+</table>
+
++ **seed** (Optional) – Use to control and reproduce results. Determines the initial noise setting. Use the same seed and the same settings as a previous run to allow inference to create a similar image.
+
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th>Default</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>2,147,483,646</td><td>42</td></tr>
+</tbody>
+</table>
+
 
 ## Examples
 <a name="model-parameters-titan-image-code-examples"></a>

@@ -11,9 +11,21 @@ The following are some of the use cases where using inline agents can help by pr
 + Run simple queries or use code interpreter for simple tasks by creating and invoking the agent at runtime.
 + Create multiple agents in a [ multi-agent collaboration](agents-multi-agent-collaboration.md) setup to work together on a task or a conversation.
 
-  To use multi-agent collaboration, you can create your agents in the following combinations using inline agents APIs.  
-**Agent types**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-create-inline.html)
+  To use multi-agent collaboration, you can create your agents in the following combinations using inline agents APIs.
+
+
+**Agent types**  
+
+<table>
+<thead>
+  <tr><th>Supervisor</th><th>Collaborator</th></tr>
+</thead>
+<tbody>
+  <tr><td>Inline</td><td>Inline</td></tr>
+  <tr><td>Inline</td><td>Traditional</td></tr>
+</tbody>
+</table>
+
 
 **Supported models and Regions**
 

@@ -112,10 +112,13 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 
 | --- | --- | --- | --- | --- | 
-| bedrock-runtime | anthropic.claude-haiku-4-5-20251001-v1:0 | N/A | `us.anthropic.claude-haiku-4-5-20251001-v1:0`<br />`eu.anthropic.claude-haiku-4-5-20251001-v1:0`<br />`au.anthropic.claude-haiku-4-5-20251001-v1:0`<br />`jp.anthropic.claude-haiku-4-5-20251001-v1:0` | global.anthropic.claude-haiku-4-5-20251001-v1:0 | 
+| bedrock-runtime | N/A | N/A | `us.anthropic.claude-haiku-4-5-20251001-v1:0`<br />`eu.anthropic.claude-haiku-4-5-20251001-v1:0`<br />`au.anthropic.claude-haiku-4-5-20251001-v1:0`<br />`jp.anthropic.claude-haiku-4-5-20251001-v1:0` | global.anthropic.claude-haiku-4-5-20251001-v1:0 | 
 | bedrock-mantle | anthropic.claude-haiku-4-5 | https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages | N/A | N/A | 
 
-*For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages".*
+**Important**  
+For this model, the `bedrock-runtime` endpoint requires a geo or global inference profile ID. The bare model ID isn't supported for on-demand throughput. Geo and global inference profiles can route requests outside the source Region and don't provide single-Region data residency. For single-Region inference, use the `bedrock-mantle` endpoint with the bare model ID.
+
+*For example, to use Global cross-Region inference from us-east-1 (N. Virginia), use the endpoint URL "https://bedrock-runtime.us-east-1.amazonaws.com" with the inference profile ID "global.anthropic.claude-haiku-4-5-20251001-v1:0".*
 
 ## Service Tiers
 <a name="model-card-anthropic-claude-haiku-4-5-tiers"></a>
@@ -265,7 +268,7 @@ Your AWS account has default quotas to maintain the performance of the service a
 #### [ Messages API ]
 
 ```
-pip install -U anthropic aws-bedrock-token-generator
+pip install -U "anthropic[bedrock]" aws-bedrock-token-generator
 ```
 
 ------
@@ -329,7 +332,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
-    modelId='anthropic.claude-haiku-4-5-20251001-v1:0',
+    modelId='us.anthropic.claude-haiku-4-5-20251001-v1:0',
     body=json.dumps({
             'anthropic_version': 'bedrock-2023-05-31',
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
@@ -347,7 +350,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.converse(
-    modelId='anthropic.claude-haiku-4-5-20251001-v1:0',
+    modelId='us.anthropic.claude-haiku-4-5-20251001-v1:0',
     messages=[
         {
             'role': 'user',

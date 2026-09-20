@@ -109,17 +109,67 @@ The following are optional parameters.
 + **search\_queries\_only** – Defaults to `false`. When `true`, the response will only contain a list of generated search queries, but no search will take place, and no reply from the model to the user's `message` will be generated. 
 + **preamble** – Overrides the default preamble for search query generation. Has no effect on tool use generations. 
 + **max\_tokens** – The maximum number of tokens the model should generate as part of the response. Note that setting a low value may result in incomplete generations. Setting `max_tokens` may result in incomplete or no generations when used with the `tools` or `documents` fields.
-+ **temperature** – Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command-r-plus.html)
-+ **p** – Top P. Use a lower value to ignore less probable options.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command-r-plus.html)
-+ **k** – Top K. Specify the number of token choices the model uses to generate the next token.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command-r-plus.html)
++ **temperature** – Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.3</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
++ **p** – Top P. Use a lower value to ignore less probable options. 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.75</td><td>0.01</td><td>0.99</td></tr>
+</tbody>
+</table>
+
++ **k** – Top K. Specify the number of token choices the model uses to generate the next token. 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>0</td><td>500</td></tr>
+</tbody>
+</table>
+
 +  **prompt\_truncation** – Defaults to `OFF`. Dictates how the prompt is constructed. With `prompt_truncation` set to `AUTO_PRESERVE_ORDER`, some elements from `chat_history` and `documents` will be dropped to construct a prompt that fits within the model's context length limit. During this process the order of the documents and chat history will be preserved. With `prompt_truncation`` set to `OFF`, no elements will be dropped. 
-+  **frequency\_penalty** – Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command-r-plus.html)
-+  **presence\_penalty** – Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-cohere-command-r-plus.html)
++  **frequency\_penalty** – Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
++  **presence\_penalty** – Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
 + **seed** – If specified, the backend will make a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism cannot be totally guaranteed.
 + **return\_prompt** – Specify `true` to return the full prompt that was sent to the model. The default value is `false`. In the response, the prompt in the `prompt` field.
 + **tools** – A list of available tools (functions) that the model may suggest invoking before producing a text response. When `tools` is passed (without `tool_results`), the `text` field in the response will be `""` and the `tool_calls` field in the response will be populated with a list of tool calls that need to be made. If no calls need to be made, the `tool_calls` array will be empty. 

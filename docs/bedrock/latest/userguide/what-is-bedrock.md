@@ -41,7 +41,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.responses.create(
-    model="openai.gpt-5.6-sol",
+    model="global.openai.gpt-5.6-sol",
     input="Can you explain the features of Amazon Bedrock?"
     )
 print(response)
@@ -56,7 +56,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.chat.completions.create(
-    model="openai.gpt-oss-120b",
+    model="global.openai.gpt-5.6-sol",
     messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
     )
 print(response)

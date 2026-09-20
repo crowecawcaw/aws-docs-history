@@ -47,8 +47,22 @@ To allow the Amazon Bedrock service principal to access the Lambda function, [at
 
      1. To request confirmation from the user before the function is invoked, select **Enabled**. Requesting confirmation before invoking the function may safeguard your application from taking actions due to malicious prompt injections.
 
-     1. In the **Parameters** subsection, choose **Add parameter**. Define the following fields:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html)
+     1. In the **Parameters** subsection, choose **Add parameter**. Define the following fields:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name</td><td>Give a name to the parameter.</td></tr>
+  <tr><td>Description (optional)</td><td>Describe the parameter.</td></tr>
+  <tr><td>Type</td><td>Specify the data type of the parameter.</td></tr>
+  <tr><td>Required</td><td>Specify whether the agent requires the parameter from the user.</td></tr>
+</tbody>
+</table>
+
 
      1. To add another parameter, choose **Add parameter**.
 
@@ -96,10 +110,35 @@ To allow the Amazon Bedrock service principal to access the Lambda function, [at
 To create an action group, send a [CreateAgentActionGroup](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt). You must provide either a [ function schema](agents-action-function.md) or an [OpenAPI schema](agents-api-schema.md).
 
 The following list describes the fields in the request:
-+ The following fields are required:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html)
-+ To define the parameters for the action group, you must specify one of the following fields (you can't specify both).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html)
++ The following fields are required:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Short description</th></tr>
+</thead>
+<tbody>
+  <tr><td>agentId</td><td>The ID of the agent that the action group belongs to.</td></tr>
+  <tr><td>agentVersion</td><td>The version of the agent that the action group belongs to.</td></tr>
+  <tr><td>actionGroupName</td><td>The name of the action group.</td></tr>
+</tbody>
+</table>
+
++ To define the parameters for the action group, you must specify one of the following fields (you can't specify both).
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Short description</th></tr>
+</thead>
+<tbody>
+  <tr><td>functionSchema</td><td>Defines the parameters for the action group that the agent elicits from the user. For more information, see <a href="agents-action-function.md">Define function details for your agent's action groups in Amazon Bedrock</a>.</td></tr>
+  <tr><td>apiSchema</td><td>Specifies the OpenAPI schema defining the parameters for the action group or links to an S3 object containing it. For more information, see <a href="agents-api-schema.md">Define OpenAPI schemas for your agent's action groups in Amazon Bedrock</a>.</td></tr>
+</tbody>
+</table>
+
 
   The following shows the general format of the `functionSchema` and `apiSchema`:
   + Each item in the `functionSchema` array is a [FunctionSchema](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FunctionSchema.html) object. For each function, specify the following: 
@@ -147,10 +186,36 @@ The following list describes the fields in the request:
            }
        }
        ```
-+ To configure how the action group handles the invocation of the action group after eliciting parameters from the user, you must specify one of the following fields within the `actionGroupExecutor` field.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html)
-+ The following fields are optional:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html)
++ To configure how the action group handles the invocation of the action group after eliciting parameters from the user, you must specify one of the following fields within the `actionGroupExecutor` field.
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Short description</th></tr>
+</thead>
+<tbody>
+  <tr><td>lambda</td><td>To send the parameters to a Lambda function to handle the action group invocation results, specify the Amazon Resource Name (ARN) of the Lambda. For more information, see <a href="agents-lambda.md">Configure Lambda functions to send information that an Amazon Bedrock agent elicits from the user</a>.</td></tr>
+  <tr><td>customControl</td><td>To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the <code>InvokeAgent</code> response, specify <code>RETURN_CONTROL</code>. For more information, see <a href="agents-returncontrol.md">Return control to the agent developer by sending elicited information in an InvokeAgent response</a>.</td></tr>
+</tbody>
+</table>
+
++ The following fields are optional:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Short description</th></tr>
+</thead>
+<tbody>
+  <tr><td>parentActionGroupSignature</td><td>Specify <code>AMAZON.UserInput</code> to allow the agent to reprompt the user for more information if it doesn't have enough information to complete another action group. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank if you specify this field.</td></tr>
+  <tr><td>description</td><td>A description of the action group.</td></tr>
+  <tr><td>actionGroupState</td><td>Whether to allow the agent to invoke the action group or not.</td></tr>
+  <tr><td>clientToken</td><td>An identifier to <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">prevent requests from being duplicated</a>.</td></tr>
+</tbody>
+</table>
+
 
   ```
       def create_agent_action_group(

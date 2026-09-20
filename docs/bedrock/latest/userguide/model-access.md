@@ -398,6 +398,9 @@ Model access can be enabled in an AWS commercial account using 2 ways:
 
 1. Programmatically enable access to the model using SDK/CLI for AWS commercial account in `us-east-1` or `us-west-2` region. This can be done by following the steps described in the previous sections.
 
+**Note**  
+After you enable access in the linked AWS commercial account, it can take a few minutes for the model entitlement to propagate to the associated AWS GovCloud (US) account.
+
 ### Enabling model access for AWS GovCloud account
 <a name="model-access-govcloud-account"></a>
 

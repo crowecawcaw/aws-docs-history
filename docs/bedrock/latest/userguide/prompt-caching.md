@@ -30,7 +30,7 @@ Implicit Prompt Caching is best effort. Repeating an identical prompt doesn't gu
 
 Explicit Prompt Caching lets you identify reusable prompt prefixes using model-specific cache controls or *cache checkpoints*. Cache checkpoints are markers that define the contiguous subsection of your prompt that you want to cache. Prompt prefixes should remain static between requests. Changes to a prompt prefix in subsequent requests result in cache misses.
 
-Cache checkpoints have a minimum and maximum number of tokens, depending on the model. You can only create a cache checkpoint if your total prompt prefix meets the minimum number of tokens. For example, Claude Opus 5 requires at least 512 tokens per cache checkpoint, Claude Sonnet 5 requires at least 1,024 tokens per cache checkpoint, and Claude Haiku 4.5 requires at least 4,096 tokens per cache checkpoint. For a model with a 1,024-token minimum, your first cache checkpoint can be defined after 1,024 tokens and your second cache checkpoint can be defined after 2,048 tokens. If you add a cache checkpoint before meeting the minimum number of tokens, your inference still succeeds, but your prefix isn't cached.
+Cache checkpoints have a minimum and maximum number of tokens, depending on the model. You can only create a cache checkpoint if your total prompt prefix meets the minimum number of tokens. For example, Claude Opus 5 requires at least 512 tokens per cache checkpoint, Claude Sonnet 5 requires at least 1,024 tokens per cache checkpoint, and Claude Haiku 4.5 requires at least 4,096 tokens per cache checkpoint. The minimum applies cumulatively to the entire prompt prefix before each checkpoint, including, where applicable, content in the `tools`, `system`, and `messages` fields. There is no minimum number of tokens required between cache checkpoints. For a model with a 1,024-token minimum, you can define additional checkpoints fewer than 1,024 tokens apart as long as the total prompt prefix before each checkpoint contains at least 1,024 tokens. If you add a cache checkpoint before the total prompt prefix meets the minimum number of tokens, your inference still succeeds, but your prefix isn't cached.
 
 The cache has a Time To Live (TTL), which resets with each successful cache hit. During this period, the context in the cache is preserved. If no cache hits occur within the TTL window, your cache expires. Many models support a 5-minute TTL. Check the model card for your model to see the exact TTL conditions.
 
@@ -79,7 +79,6 @@ To see which prompt caching types a model supports, refer to [Models at a glance
 | Claude Mythos 5.1 | anthropic.claude-mythos-5-1 | Gated | 512 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | Claude Fable 5 | anthropic.claude-fable-5 | Generally Available | 512 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | Claude Mythos 5 | anthropic.claude-mythos-5 | Gated | 512 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
-| Claude Mythos Preview | anthropic.claude-mythos-preview | Gated | 4,096 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | Claude Opus 5 | anthropic.claude-opus-5 | Generally Available | 512 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | Claude Opus 4.8 | anthropic.claude-opus-4-8 | Generally Available | 1,024 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | Claude Opus 4.7 | anthropic.claude-opus-4-7 | Generally Available | 4,096 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
@@ -393,11 +392,11 @@ For OpenAI models, you use the Responses API — available on both the `bedrock-
 
 **GPT-5.6 example with explicit cache breakpoints**
 
-The following example shows a Responses API request to `openai.gpt-5.6-sol` using explicit cache breakpoints. The system instruction is cached and reused across subsequent requests.
+The following example targets `bedrock-runtime` and sends a Responses API request to the `global.openai.gpt-5.6-sol` system inference profile using explicit cache breakpoints. The system instruction is cached and reused across subsequent requests.
 
 ```
 {
-    "model": "openai.gpt-5.6-sol",
+    "model": "global.openai.gpt-5.6-sol",
     "prompt_cache_key": "my-app:system-prompt-v1",
     "prompt_cache_options": {
         "mode": "explicit"
@@ -432,7 +431,7 @@ The following example shows a Responses API request to `openai.gpt-5.6-sol` usin
 
 **GPT-5.5 example with automatic caching**
 
-For GPT-5.5 and earlier models, prompt caching is automatic. No breakpoints or cache keys are needed — just ensure your prompt prefix exceeds 1,024 tokens.
+The following GPT-5.5 example targets `bedrock-mantle`. For GPT-5.5 and earlier models, prompt caching is automatic. No breakpoints or cache keys are needed — just ensure your prompt prefix exceeds 1,024 tokens.
 
 ```
 {
@@ -497,7 +496,7 @@ Follow the instructions in [Generate responses in the console using playgrounds]
 
 1. Run your prompts.
 
-After your combined input and model responses reach the minimum required number of tokens for a checkpoint (which varies by model), Amazon Bedrock automatically creates the first cache checkpoint for you. As you continue chatting, each subsequent reach of the minimum number of tokens creates a new checkpoint, up to the maximum number of checkpoints allowed for the model. You can view your cache checkpoints at any time by choosing **View cache checkpoints** next to the **Prompt caching** toggle, as shown in the following screenshot.
+After your combined input and model responses reach the minimum required number of tokens for a checkpoint (which varies by model), Amazon Bedrock automatically creates the first cache checkpoint for you. As you continue chatting, Amazon Bedrock can create additional checkpoints, up to the maximum number of checkpoints allowed for the model. The minimum is evaluated against the cumulative number of tokens before each checkpoint, not the number of tokens added since the previous checkpoint. You can view your cache checkpoints at any time by choosing **View cache checkpoints** next to the **Prompt caching** toggle, as shown in the following screenshot.
 
 ![UI toggle for prompt caching in an Amazon Bedrock text playground.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/prompt-caching/bedrock-prompt-caching-ui-toggle.png)
 

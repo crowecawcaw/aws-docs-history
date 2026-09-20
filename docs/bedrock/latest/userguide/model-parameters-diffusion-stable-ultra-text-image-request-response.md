@@ -8,8 +8,18 @@ The request body is passed in the `body` field of a request to [InvokeModel](htt
 **Model invocation request body field**
 
 When you make an InvokeModel call using a Stable Image Ultra model, fill the body field with a JSON object that looks like the following. 
-+ **prompt** – (string) What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-stable-ultra-text-image-request-response.html)
++ **prompt** – (string) What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10,000</td></tr>
+</tbody>
+</table>
+
 
 **Model invocation responses body field**
 
@@ -40,8 +50,18 @@ For more information, see [https://platform.us.stability.ai/docs/api-reference\#
 #### [ Text to image ]
 
 The Stability.ai Stable Image Ultra model has the following inference parameters for a text-to-image inference call. 
-+ **prompt** – (string) What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-stable-ultra-text-image-request-response.html)
++ **prompt** – (string) What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10,000</td></tr>
+</tbody>
+</table>
+
 
 **Optional fields**
 + **aspect\_ratio** – (string) Controls the aspect ratio of the generated image. This parameter is only valid for text-to-image requests. Default 1:1. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21.
@@ -75,8 +95,18 @@ import boto3
 #### [ Image to image ]
 
 The Stability.ai Stable Image Ultra model has the following inference parameters for an image-to-image inference call.
-+ **prompt** – (string) What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-diffusion-stable-ultra-text-image-request-response.html)
++ **prompt** – (string) What you wish to see in the output image. A strong, descriptive prompt that clearly defines elements, colors, and subjects will lead to better results.
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>10,000</td></tr>
+</tbody>
+</table>
+
 
 **Optional fields**
 + **image** – (string) The Base64 image to use as the starting point for the generation. Supported formats: JPEG, PNG, WebP.

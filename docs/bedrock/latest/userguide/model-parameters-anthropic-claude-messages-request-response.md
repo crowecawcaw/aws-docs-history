@@ -76,8 +76,18 @@ The following are required parameters.
 
   Note that Anthropic Claude models might stop generating tokens before reaching the value of `max_tokens`. Different Anthropic Claude models have different maximum values for this parameter. For more information, see [Model comparison](https://docs.anthropic.com/claude/docs/models-overview#model-comparison).
 + **messages** – (Required) The input messages.
-  + **role** – The role of the conversation turn. Valid values are `user` and `assistant`.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html)
+  + **role** – The role of the conversation turn. Valid values are `user` and `assistant`. 
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>2000</td></tr>
+</tbody>
+</table>
+
   + **content** – (required) The content of the conversation turn, as an array of objects. Each object contains a **type** field, in which you can specify one of the following values:
     + `text` – If you specify this type, you must include a **text** field and specify the text prompt as its value. If another object in the array is an image, this text prompt applies to the images.
     + `image` – If you specify this type, you must include a **source** field that maps to an object with the following fields:
@@ -99,21 +109,70 @@ You can use system prompts with Anthropic Claude version 2.1 or higher.
 **Note**  
 The 1 million token context length variant of Claude Sonnet 4 is available to you in select AWS Regions as a "Beta Service" as defined in the AWS Service Terms. It is subject to your Agreement with AWS and the AWS Service Terms, and the applicable model EULA. Please see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/) page for more information about the pricing for longer context requests. For requests exceeding 200K input tokens, the long context rate applies to the entire request, not just the tokens above the threshold. Separate service quotas apply (for more information, see **Service Quotas** in the AWS Management Console).
 
-  Available beta headers include the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html)
+  Available beta headers include the following:
+
+
+<table>
+<thead>
+  <tr><th>Beta feature</th><th>Beta header</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td>Computer use</td><td><code>computer-use-2025-01-24</code></td><td>Compatible with Claude 3.7 Sonnet.</td></tr>
+  <tr><td>Tool use</td><td><code>token-efficient-tools-2025-02-19</code></td><td>Compatible with Claude 3.7 Sonnet and Claude 4+.</td></tr>
+  <tr><td>Interleaved thinking</td><td><code>Interleaved-thinking-2025-05-14</code></td><td>Compatible with Claude 4+ models.</td></tr>
+  <tr><td>Enables output tokens up to 128K</td><td><code>output-128k-2025-02-19</code></td><td>Compatible with Claude 3.7 Sonnet.</td></tr>
+  <tr><td>Developer mode for raw thinking on Claude 4+ models</td><td><code>dev-full-thinking-2025-05-14</code></td><td>Compatible with Claude 4+ models only. Contact your account team to access this beta.</td></tr>
+  <tr><td>1 million tokens</td><td><code>context-1m-2025-08-07</code></td><td>Compatible with Claude Sonnet 4, Claude Sonnet 4.6, and Claude Opus 4.6.</td></tr>
+  <tr><td>Context management</td><td><code>context-management-2025-06-27</code></td><td>Compatible with Claude Sonnet 4.5 and Claude Haiku 4.5</td></tr>
+  <tr><td>Effort</td><td><code>effort-2025-11-24</code></td><td>Compatible with Claude Opus 4.5</td></tr>
+  <tr><td>Tool search tool</td><td><code>tool-search-tool-2025-10-19</code></td><td>Compatible with Claude Opus 4.5</td></tr>
+  <tr><td>Tool use examples</td><td><code>tool-examples-2025-10-29</code></td><td>Compatible with Claude Opus 4.5</td></tr>
+</tbody>
+</table>
+
 +  **stop\_sequences** – (Optional) Custom text sequences that cause the model to stop generating. Anthropic Claude models normally stop when they have naturally completed their turn, in this case the value of the `stop_reason` response field is `end_turn`. If you want the model to stop generating when it encounters custom strings of text, you can use the `stop_sequences` parameter. If the model encounters one of the custom text strings, the value of the `stop_reason` response field is `stop_sequence` and the value of `stop_sequence` contains the matched stop sequence.
 
   The maximum number of entries is 8191. 
-+  **temperature** – (Optional) The amount of randomness injected into the response.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html)
++  **temperature** – (Optional) The amount of randomness injected into the response.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>1</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
 +  **top\_p** – (Optional) Use nucleus sampling.
 
-  In nucleus sampling, Anthropic Claude computes the cumulative distribution over all the options for each subsequent token in decreasing probability order. It cuts off the distribution after it reaches the probability specified by `top_p`. When adjusting sampling parameters, modify either `temperature` or `top_p`. Do not modify both at the same time.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html)
+  In nucleus sampling, Anthropic Claude computes the cumulative distribution over all the options for each subsequent token in decreasing probability order. It cuts off the distribution after it reaches the probability specified by `top_p`. When adjusting sampling parameters, modify either `temperature` or `top_p`. Do not modify both at the same time.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.999</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
 +  **top\_k** – (Optional) Only sample from the top K options for each subsequent token.
 
-  Use `top_k` to remove long tail low probability responses.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html)
+  Use `top_k` to remove long tail low probability responses.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>Disabled by default</td><td>0</td><td>500</td></tr>
+</tbody>
+</table>
+
 +  **tools** – (Optional) Definitions of tools that the model may use.
 **Note**  
 Requires an Anthropic Claude 3 model.
@@ -133,12 +192,42 @@ Definition for a custom tool.
 Definition for the computer tool that you use with the computer use API.
   +  **type** – The value must be `computer_20241022`.
   + **name** – The value must be `computer`.
-  + (Required) **display\_height\_px** – The height of the display being controlled by the model, in pixels..    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html)
-  + (Required) **display\_width\_px** – The width of the display being controlled by the model, in pixels.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html)
-  + (Optional) **display\_number** – The display number to control (only relevant for X11 environments). If specified, the tool will be provided a display number in the tool definition.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-anthropic-claude-messages-request-response.html)
+  + (Required) **display\_height\_px** – The height of the display being controlled by the model, in pixels..
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>None</td><td>1</td><td>No maximum</td></tr>
+</tbody>
+</table>
+
+  + (Required) **display\_width\_px** – The width of the display being controlled by the model, in pixels.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>None</td><td>1</td><td>No maximum</td></tr>
+</tbody>
+</table>
+
+  + (Optional) **display\_number** – The display number to control (only relevant for X11 environments). If specified, the tool will be provided a display number in the tool definition.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>None</td><td>0</td><td>N</td></tr>
+</tbody>
+</table>
+
 
 **bash**  
 Definition for the bash tool that you use with the computer use API.

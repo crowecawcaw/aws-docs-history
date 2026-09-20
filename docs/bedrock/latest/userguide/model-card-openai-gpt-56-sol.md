@@ -120,8 +120,8 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 
 | --- | --- | --- | --- | --- | 
-| bedrock-mantle | openai.gpt-5.6-sol | https://bedrock-mantle.{region}.api.aws/openai/v1 | Not supported | Not supported | 
 | bedrock-runtime | openai.gpt-5.6-sol | Not supported | us.openai.gpt-5.6-sol | global.openai.gpt-5.6-sol | 
+| bedrock-mantle | openai.gpt-5.6-sol | https://bedrock-mantle.{region}.api.aws/openai/v1 | Not supported | Not supported | 
 
 *For example, if region is us-east-1 (N. Virginia), then the bedrock-mantle endpoint URL will be "https://bedrock-mantle.us-east-1.api.aws/openai/v1". On `bedrock-runtime`, the base URL is "https://bedrock-runtime.{region}.amazonaws.com/openai/v1" and requests must name the geographic cross-Region inference ID `us.openai.gpt-5.6-sol` as the model.*
 
@@ -223,19 +223,19 @@ pip install openai
 Configure your environment to use the API key for authentication.
 
 ------
-#### [ bedrock-mantle ]
-
-```
-OPENAI_API_KEY="<provide your Bedrock API key>"
-OPENAI_BASE_URL="https://bedrock-mantle.us-east-1.api.aws/openai/v1"
-```
-
-------
 #### [ bedrock-runtime ]
 
 ```
 OPENAI_API_KEY="<provide your Bedrock API key>"
 OPENAI_BASE_URL="https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1"
+```
+
+------
+#### [ bedrock-mantle ]
+
+```
+OPENAI_API_KEY="<provide your Bedrock API key>"
+OPENAI_BASE_URL="https://bedrock-mantle.us-east-1.api.aws/openai/v1"
 ```
 
 ------
@@ -247,6 +247,43 @@ On `bedrock-runtime`, name a cross-Region inference profile as the model — `us
 <a name="model-card-openai-gpt-56-sol-sample-code-request"></a>
 
 Save the file as `bedrock-first-request.py`
+
+#### bedrock-runtime: OpenAI SDK
+<a name="model-card-openai-gpt-56-sol-sample-code-runtime-openai"></a>
+
+Use the settings from [Step 4 - Set environment variables](#model-card-openai-gpt-56-sol-sample-code-environment). Choose the `bedrock-runtime` tab. Both examples use the global system inference profile.
+
+------
+#### [ Responses API ]
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.responses.create(
+    model="global.openai.gpt-5.6-sol",
+    input="Can you explain the features of Amazon Bedrock?"
+)
+print(response)
+```
+
+------
+#### [ Chat ]
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+    model="global.openai.gpt-5.6-sol",
+    messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
+)
+print(response)
+```
+
+------
 
 #### bedrock-mantle
 <a name="model-card-openai-gpt-56-sol-sample-code-mantle"></a>
@@ -279,28 +316,6 @@ client = OpenAI()
 response = client.chat.completions.create(
     model="openai.gpt-5.6-sol",
     messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}]
-)
-print(response)
-```
-
-------
-
-#### bedrock-runtime: OpenAI SDK
-<a name="model-card-openai-gpt-56-sol-sample-code-runtime-openai"></a>
-
-Use the settings from [Step 4 - Set environment variables](#model-card-openai-gpt-56-sol-sample-code-environment). Choose the `bedrock-runtime` tab. Send your request with the Responses API.
-
-------
-#### [ Responses API ]
-
-```
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.responses.create(
-    model="us.openai.gpt-5.6-sol",
-    input="Can you explain the features of Amazon Bedrock?"
 )
 print(response)
 ```

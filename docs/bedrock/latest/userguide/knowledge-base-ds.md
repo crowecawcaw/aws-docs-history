@@ -11,8 +11,25 @@ A data source contains files or content with information that can be retrieved w
 When you connect to a [supported data source](https://docs.aws.amazon.com/bedrock/latest/userguide/data-source-connectors.html), the content is ingested into your knowledge base.
 
 If you use Amazon S3 to store your files or your data source includes attached files, then you first must check that each source document file adheres to the following:
-+ The source files are of the following supported formats:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html)
++ The source files are of the following supported formats:
+
+
+
+<table>
+<thead>
+  <tr><th>Format</th><th>Extension</th></tr>
+</thead>
+<tbody>
+  <tr><td>Plain text (UTF-8 encoded)</td><td>.txt</td></tr>
+  <tr><td>Markdown (UTF-8 encoded)</td><td>.md</td></tr>
+  <tr><td>HyperText Markup Language (UTF-8 encoded)</td><td>.html</td></tr>
+  <tr><td>Microsoft Word document</td><td>.doc/.docx</td></tr>
+  <tr><td>Comma-separated values</td><td>.csv</td></tr>
+  <tr><td>Microsoft Excel spreadsheet</td><td>.xls/.xlsx</td></tr>
+  <tr><td>Portable Document Format</td><td>.pdf</td></tr>
+</tbody>
+</table>
+
 + Each file size doesn't exceed the quota of 50 MB.
 
 **Note**  

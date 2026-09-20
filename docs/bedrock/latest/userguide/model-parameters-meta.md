@@ -87,12 +87,42 @@ The following are required parameters:
   For more information, see [Meta Llama 3](https://llama.meta.com/docs/model-cards-and-prompt-formats/meta-llama-3).
 
 The following are optional parameters:
-+ **temperature** – Use a lower value to decrease randomness in the response.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)
-+ **top\_p** – Use a lower value to ignore less probable options. Set to 1.0 to disable.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)
-+ **max\_gen\_len** – Specify the maximum number of tokens to use in the generated response. The model truncates the response after the generated text exceeds `max_gen_len`.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)
++ **temperature** – Use a lower value to decrease randomness in the response.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.5</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
++ **top\_p** – Use a lower value to ignore less probable options. Set to 1.0 to disable.
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>0.9</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+
++ **max\_gen\_len** – Specify the maximum number of tokens to use in the generated response. The model truncates the response after the generated text exceeds `max_gen_len`. 
+
+
+<table>
+<thead>
+  <tr><th>Default</th><th>Minimum</th><th>Maximum</th></tr>
+</thead>
+<tbody>
+  <tr><td>512</td><td>1</td><td>2048</td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ Response ]

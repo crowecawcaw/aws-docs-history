@@ -183,8 +183,22 @@ If you specify a behavior, any existing behavior that you configured for PII typ
       + To configure the size of each page in the table or the column display in the table, select the settings icon (![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/settings.png)). Set your preferences and then select **Confirm**.
 
    1. In the **Regex patterns** section, use regular expressions to define patterns for the guardrail to filter. You have the following options:
-      + To add a pattern, select **Add regex pattern**. Configure the following fields:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-sensitive-filters.html)
+      + To add a pattern, select **Add regex pattern**. Configure the following fields:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Name</td><td>A name for the pattern</td></tr>
+  <tr><td>Regex pattern</td><td>A regular expression that defines the pattern</td></tr>
+  <tr><td>Input</td><td>Choose whether to <b>Block</b> content containing the pattern or <b>Mask</b> it with an identifier. To take no action, select <b>Detect (no action)</b>.</td></tr>
+  <tr><td>Output</td><td></td></tr>
+  <tr><td>Add description</td><td>(Optional) Write a description for the pattern</td></tr>
+</tbody>
+</table>
+
       + To edit a pattern, select the three dots icon in the same row as the topic in the **Actions** column. Then select **Edit**. After you are finished editing, select **Confirm**.
       + To delete a pattern or patterns, select the checkboxes for the patterns to delete. Select **Delete** and then select **Delete selected**.
       + To delete all the patterns, select **Delete** and then select **Delete all**.

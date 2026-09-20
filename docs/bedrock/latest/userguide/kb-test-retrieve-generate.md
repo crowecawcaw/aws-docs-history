@@ -80,10 +80,35 @@ The following fields are optional:
 | sessionConfiguration | To include a custom KMS key for encryption of the session. | 
 
 Include the `knowledgeBaseConfiguration` field in the [RetrieveAndGenerateConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerateConfiguration.html). This field maps to a [KnowledgeBaseRetrieveAndGenerateConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseRetrieveAndGenerateConfiguration.html) object, which contains the following fields:
-+ The following fields are required:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-retrieve-generate.html)
-+ The following fields are optional:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-retrieve-generate.html)
++ The following fields are required:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Basic description</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>knowledgeBaseId</td><td>The ID of the knowledge base to query.</td><td></td></tr>
+  <tr><td>modelArn</td><td>The ARN of the foundation model or <a href="inference-profiles.md">inference profile</a> to use for generation.</td><td></td></tr>
+</tbody>
+</table>
+
++ The following fields are optional:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Use case</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>retrievalConfiguration</td><td>To include <a href="kb-test-config.md">query configurations</a> for customizing the vector search. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseRetrievalConfiguration.html">KnowledgeBaseRetrievalConfiguration</a>.</td><td></td></tr>
+  <tr><td>orchestrationConfiguration</td><td>To specify configurations for how the model processes the prompt before retrieval and generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_OrchestrationConfiguration.html">OrchestrationConfiguration</a>.</td><td></td></tr>
+  <tr><td>generationConfiguration</td><td>To specify configurations for response generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GenerationConfiguration.html">GenerationConfiguration</a>.</td><td></td></tr>
+</tbody>
+</table>
+
 
 You can use a reranking model over the default Amazon Bedrock Knowledge Bases ranking model by including the `rerankingConfiguration` field in the [KnowledgeBaseVectorSearchConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.html) within the [KnowledgeBaseRetrievalConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseRetrievalConfiguration.html). The `rerankingConfiguration` field maps to a [VectorSearchRerankingConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_VectorSearchRerankingConfiguration.html) object, in which you can specify the reranking model to use, any additional request fields to include, metadata attributes to filter out documents during reranking, and the number of results to return after reranking. For more information, see [VectorSearchRerankingConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_VectorSearchRerankingConfiguration.html).
 

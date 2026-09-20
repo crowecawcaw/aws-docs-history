@@ -6,7 +6,7 @@
 The `bedrock-runtime.{{region}}.amazonaws.com` endpoint is the primary inference endpoint for Amazon Bedrock. Inference traffic to this endpoint is governed by per-model token-based quotas. You can view these quotas in the [Service Quotas console](https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html) by selecting **Amazon Bedrock** as the service, or in the [Amazon Bedrock service quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#limits_bedrock) table in the AWS General Reference.
 
 **Note**  
-A model's quotas on this endpoint are shared across every inference API you call it with, including [InvokeModel](inference-invoke.md), [Converse](conversation-inference.md), [Responses](bedrock-mantle.md#bedrock-mantle-responses), and Chat Completions. Although the quota names refer to `InvokeModel`, they aren't per-API. Traffic to the `bedrock-mantle` endpoint is counted separately — see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md).
+A model's quotas on this endpoint are shared across every inference API you call it with, including [InvokeModel](inference-invoke.md), [Converse](conversation-inference.md), [Responses](inference-responses-api.md#bedrock-mantle-responses), and Chat Completions. Although the quota names refer to `InvokeModel`, they aren't per-API. Traffic to the `bedrock-mantle` endpoint is counted separately — see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md).
 
 ## Quota types
 <a name="quotas-runtime-types"></a>

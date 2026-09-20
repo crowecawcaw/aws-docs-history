@@ -63,7 +63,7 @@ The `bedrock-mantle` endpoint enforces published TPM quotas only for the models 
 ## Supported Regions
 <a name="quotas-mantle-supported-regions"></a>
 
-`bedrock-mantle` quotas are visible in Service Quotas in the same AWS Regions where the `bedrock-mantle` endpoint is available. For the full list of Regions and endpoint URLs, see [Supported Regions and Endpoints](bedrock-mantle.md#bedrock-mantle-supported).
+`bedrock-mantle` quotas are visible in Service Quotas in the same AWS Regions where the `bedrock-mantle` endpoint is available. For the full list of Regions and endpoint URLs, see [Supported Regions and Endpoints](inference-responses-api.md#bedrock-mantle-supported).
 
 ## Requesting a quota increase
 <a name="quotas-mantle-increase"></a>

@@ -15,8 +15,21 @@ When you use reranking in a `Retrieve` workflow with an Amazon Bedrock Knowledge
 If you manually edit the AWS Identity and Access Management (IAM) policy that Amazon Bedrock created for your knowledge base service role, then you might encounter errors when trying to update the permissions in the AWS Management Console. To resolve this issue, in the IAM console, delete the policy version that you created manually. Then, refresh the reranker page in the Amazon Bedrock console and retry.
 If you use a custom role, then Amazon Bedrock can't update the knowledge base service role on your behalf. Verify that the permissions are properly configured for the service role.
 
-  For a summary of use cases and the permissions needed for them, refer to the following table:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/rerank-prereq.html)
+  For a summary of use cases and the permissions needed for them, refer to the following table:
+
+
+
+<table>
+<thead>
+  <tr><th>Use case</th><th>User permissions needed</th><th>Amazon Bedrock Knowledge Bases service role permissions needed</th></tr>
+</thead>
+<tbody>
+  <tr><td>Use reranking independently</td><td> <ul><li> bedrock:Rerank </li><li> bedrock:InvokeModel, optionally scoped to the reranking models </li></ul> </td><td>N/A</td></tr>
+  <tr><td>Use reranking in a <b>Retrieve</b> workflow</td><td> <ul><li> bedrock:Retrieve </li></ul> </td><td> <ul><li> bedrock:Rerank </li><li> bedrock:InvokeModel, optionally scoped to the reranking models </li></ul> </td></tr>
+  <tr><td>Use reranking in a <b>RetrieveAndGenerate</b> workflow</td><td> <ul><li> bedrock:RetrieveAndGenerate </li><li> bedrock:Rerank </li><li> bedrock:InvokeModel, optionally scoped to the reranking models and to the models to use for generating responses. </li></ul></td><td>N/A</td></tr>
+</tbody>
+</table>
+
 
 For example permissions policies that you can attach to an IAM role, expand the section that corresponds to your use case:
 

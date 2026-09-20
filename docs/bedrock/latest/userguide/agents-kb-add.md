@@ -35,10 +35,35 @@ To use Amazon Bedrock Knowledge Bases with your Amazon Bedrock Agent, you'll hav
 To associate a knowledge base with an agent, send an [AssociateAgentKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_AssociateAgentKnowledgeBase.html) request with a [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt).
 
 The following list describes the fields in the request:
-+ The following fields are required:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-kb-add.html)
-+ The following fields are optional:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/agents-kb-add.html)
++ The following fields are required:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Short description</th></tr>
+</thead>
+<tbody>
+  <tr><td>agentId</td><td>ID of the agent</td></tr>
+  <tr><td>agentVersion</td><td>Version of the agent</td></tr>
+  <tr><td>knowledgeBaseId</td><td>ID of the knowledge base</td></tr>
+</tbody>
+</table>
+
++ The following fields are optional:
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Short description</th></tr>
+</thead>
+<tbody>
+  <tr><td>description</td><td>Instructions that tell the agent when and how to query this knowledge base. The agent includes this text in its prompt to determine whether to retrieve information from the knowledge base for a given user request. Write it as a directive describing what the knowledge base contains and when to use it. For example: <code>Use this knowledge base to answer customer questions about product specifications, pricing, and availability. Do not query it for general conversation.</code></td></tr>
+  <tr><td>knowledgeBaseState</td><td>To prevent the agent from querying the knowledge base, specify <code>DISABLED</code></td></tr>
+</tbody>
+</table>
+
 
 ------
 

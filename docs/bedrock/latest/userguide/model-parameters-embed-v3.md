@@ -31,12 +31,32 @@ The following are required parameters.
   The following are text per call and character limits.
 
 **Texts per call**  
-    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html)
+
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>0 texts</td><td>96 texts</td><td></td></tr>
+</tbody>
+</table>
+
 
 **Characters**  
-    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html)
+
+
+
+<table>
+<thead>
+  <tr><th>Minimum</th><th>Maximum</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>0 characters</td><td>2048 characters</td><td></td></tr>
+</tbody>
+</table>
+
 + **input\_type** – Prepends special tokens to differentiate each type from one another. You should not mix different types together, except when mixing types for for search and retrieval. In this case, embed your corpus with the `search_document` type and embedded queries with type `search_query` type. 
   + `search_document` – In search use-cases, use `search_document` when you encode documents for embeddings that you store in a vector database.
   + `search_query` – Use `search_query` when querying your vector DB to find relevant documents.

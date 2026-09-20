@@ -1,9 +1,15 @@
 
 
 # Responses API
-<a name="bedrock-mantle"></a>
+<a name="inference-responses-api"></a>
 
-Amazon Bedrock provides the OpenAI Responses API on both the `bedrock-runtime` and `bedrock-mantle` endpoints. The API lets you use familiar OpenAI SDKs and tools with Amazon Bedrock models, so you can migrate existing applications with minimal code changes—simply update your base URL and API key. For new applications, we recommend the `bedrock-runtime` endpoint.
+Amazon Bedrock provides the OpenAI Responses API on both the `bedrock-runtime` and `bedrock-mantle` endpoints. Use `bedrock-runtime` for new applications. Use `bedrock-mantle` only when a model or capability that you require isn't available on `bedrock-runtime`.
+
+
+| **Endpoint** | **Base URL** | **When to use** | 
+| --- | --- | --- | 
+| bedrock-runtime (recommended) | https://bedrock-runtime.{region}.amazonaws.com/openai/v1 | New applications and migrations when the required model and Responses API features are supported. | 
+| bedrock-mantle (compatibility) | https://bedrock-mantle.{region}.api.aws/v1 | Existing applications and workloads that require Mantle-only support, such as Responses API access to GPT OSS models, background inference, or server-side tools. | 
 
 The two endpoints don't have identical feature support. Requests on `bedrock-runtime` are always synchronous, server-side tools aren't available, and only the default project is supported. For the full comparison, see [Endpoints supported by Amazon Bedrock](endpoints.md), and for the details of each difference, see [Using the Responses API on the bedrock-runtime endpoint](#bedrock-mantle-responses-runtime).
 
@@ -68,15 +74,21 @@ Before using OpenAI APIs, make sure you have the following:
   + `OPENAI_BASE_URL` – Set to the Amazon Bedrock endpoint for your region (for example, `https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1` or `https://bedrock-mantle.us-east-1.api.aws/v1`)
 + **Permissions** – The actions you need depend on the endpoint. On `bedrock-mantle`, inference authorizes `bedrock-mantle:CreateInference`. On `bedrock-runtime`, it authorizes `bedrock:InvokeModel` on both the inference target and your account's default project, and managing stored responses authorizes `bedrock:GetInvoke`, `bedrock:CancelInvoke`, and `bedrock:DeleteInvoke` on that project. For policy examples, see [Prerequisites for running model inference](inference-prereq.md).
 
-## Models API
+## Choose a model
 <a name="bedrock-mantle-models"></a>
 
-The Models API allows you to discover available models in Amazon Bedrock powered by Mantle. Use this API to retrieve a list of models you can use with the Responses API. For complete API details, see the [OpenAI Models documentation](https://developers.openai.com/api/reference/resources/models).
+Model and API support differs between endpoints. For `bedrock-runtime`, choose a model whose model card lists the Responses API as supported on that endpoint. Requests for the closed-weight OpenAI GPT models must name a system-defined inference profile, such as `us.openai.gpt-5.6-sol` or `global.openai.gpt-5.6-sol`, rather than the foundation model ID.
 
-### List available models
+**Important**  
+`bedrock-runtime` doesn't implement the OpenAI-compatible `GET /models` operation, so `client.models.list()` and `GET /openai/v1/models` don't work on that endpoint. Use the Amazon Bedrock control-plane [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) and [ListInferenceProfiles](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListInferenceProfiles.html) operations, and see the model cards in [Models at a glance](model-cards.md) for endpoint-specific API support and inference profile IDs. For examples, see [Get list of models](models-get-info.md).
+
+**Note**  
+GPT OSS models support Chat Completions, Converse, and Invoke on `bedrock-runtime`, but they don't support the Responses API there. To use both Responses and Chat Completions entirely on `bedrock-runtime`, choose a model that lists both APIs as supported on that endpoint. To use the Responses API with GPT OSS, use `bedrock-mantle`.
+
+### List models on bedrock-mantle
 <a name="bedrock-mantle-models-list"></a>
 
-To list available models, choose the tab for your preferred method, and then follow the steps:
+The OpenAI-compatible Models API is available on `bedrock-mantle`. For complete API details, see the [OpenAI Models documentation](https://developers.openai.com/api/reference/resources/models). To list models on that endpoint, choose the tab for your preferred method, and then follow the steps:
 
 ------
 #### [ OpenAI SDK (Python) ]
@@ -110,13 +122,28 @@ curl -X GET $OPENAI_BASE_URL/models \
 
 ------
 
+## Migrate from bedrock-mantle to bedrock-runtime
+<a name="inference-responses-migrate-runtime"></a>
+
+Before moving a Responses API workload, confirm that its model and required features are supported on `bedrock-runtime`. Then make the following changes:
+
+
+| **Setting** | **bedrock-mantle** | **bedrock-runtime** | 
+| --- | --- | --- | 
+| Base URL | https://bedrock-mantle.{region}.api.aws/v1 | https://bedrock-runtime.{region}.amazonaws.com/openai/v1 | 
+| Model value | Model ID, such as openai.gpt-5.6-sol | Runtime model or system inference profile ID, such as global.openai.gpt-5.6-sol | 
+| Model discovery | GET /models or client.models.list() | ListFoundationModels, ListInferenceProfiles, and model cards | 
+| Project | Default or customer-created project | Default project only | 
+
+Test requests that use background processing, server-side tools, application inference profiles, or model inheritance through `previous_response_id`, because those behaviors differ on `bedrock-runtime`. For the complete list, see [Using the Responses API on the bedrock-runtime endpoint](#bedrock-mantle-responses-runtime).
+
 ## Responses API
 <a name="bedrock-mantle-responses"></a>
 
-The Responses API provides stateful conversation management with support for streaming, background processing, and multi-turn interactions. For complete API details, see the [OpenAI Responses documentation](https://developers.openai.com/api/reference/resources/responses).
+The Responses API provides stateful conversation management with support for streaming and multi-turn interactions. The `bedrock-mantle` endpoint also supports background processing. For complete API details, see the [OpenAI Responses documentation](https://developers.openai.com/api/reference/resources/responses).
 
 **Note**  
-Not all models support the Responses API. To see which models support the Responses API, see [API compatibility](models-api-compatibility.md).
+Not all models support the Responses API on both endpoints. Check the endpoint-specific API table on the model card before choosing a model. The compatibility table in [API compatibility](models-api-compatibility.md) summarizes model capabilities across endpoints, but doesn't imply that an API is available on every endpoint.
 
 ### How the Responses API stores conversation state
 <a name="bedrock-mantle-responses-state"></a>
@@ -132,10 +159,40 @@ Stored data is encrypted at rest and scoped to the calling AWS account's Project
 ### Basic request
 <a name="bedrock-mantle-responses-create"></a>
 
-To create a response, choose the tab for your preferred method, and then follow the steps:
+To create a response, choose an example for your endpoint. The `bedrock-runtime` examples use a global system inference profile. Use a geographic profile instead if you have data residency requirements.
 
 ------
-#### [ OpenAI SDK (Python) ]
+#### [ bedrock-runtime: OpenAI SDK (Python) ]
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.responses.create(
+    model="global.openai.gpt-5.6-sol",
+    input="Can you explain the features of Amazon Bedrock?"
+)
+print(response)
+```
+
+------
+#### [ bedrock-runtime: HTTP request ]
+
+Make a POST request to `/openai/v1/responses`:
+
+```
+curl -X POST "$OPENAI_BASE_URL/responses" \
+   -H "Content-Type: application/json" \
+   -H "Authorization: Bearer $OPENAI_API_KEY" \
+   -d '{
+    "model": "global.openai.gpt-5.6-sol",
+    "input": "Can you explain the features of Amazon Bedrock?"
+}'
+```
+
+------
+#### [ bedrock-mantle: OpenAI SDK (Python) ]
 
 ```
 # Create a basic response using the OpenAI SDK
@@ -156,7 +213,7 @@ print(response)
 ```
 
 ------
-#### [ HTTP request ]
+#### [ bedrock-mantle: HTTP request ]
 
 Make a POST request to `/v1/responses`:
 
@@ -180,10 +237,44 @@ curl -X POST $OPENAI_BASE_URL/responses \
 ### Stream responses
 <a name="bedrock-mantle-responses-streaming"></a>
 
-To receive response events incrementally, choose the tab for your preferred method, and then follow the steps:
+To receive response events incrementally, choose an example for your endpoint.
 
 ------
-#### [ OpenAI SDK (Python) ]
+#### [ bedrock-runtime: OpenAI SDK (Python) ]
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+stream = client.responses.create(
+    model="global.openai.gpt-5.6-sol",
+    input="Tell me a story",
+    stream=True
+)
+
+for event in stream:
+    print(event)
+```
+
+------
+#### [ bedrock-runtime: HTTP request ]
+
+Make a POST request to `/openai/v1/responses` with `stream` set to `true`:
+
+```
+curl -X POST "$OPENAI_BASE_URL/responses" \
+   -H "Content-Type: application/json" \
+   -H "Authorization: Bearer $OPENAI_API_KEY" \
+   -d '{
+    "model": "global.openai.gpt-5.6-sol",
+    "input": "Tell me a story",
+    "stream": true
+}'
+```
+
+------
+#### [ bedrock-mantle: OpenAI SDK (Python) ]
 
 ```
 # Stream response events incrementally using the OpenAI SDK
@@ -204,7 +295,7 @@ for event in stream:
 ```
 
 ------
-#### [ HTTP request ]
+#### [ bedrock-mantle: HTTP request ]
 
 Make a POST request to `/v1/responses` with `stream` set to `true`:
 
