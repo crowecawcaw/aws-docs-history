@@ -7,6 +7,7 @@ The following table describes important changes to Amazon Neptune.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Engine version 1.4.7.1](engine-releases-1.4.7.1.md) | As of 2026-09-18, AWS is deploying engine version 1.4.7.1 to all Regions. It takes several days for a new release to become available in every Region. For more information about this engine version, see [Neptune Engine Release 1.4.7.1](https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.4.7.1.html). | September 18, 2026 | 
 | [Engine version 1.4.8.0](engine-releases-1.4.8.0.md) | As of 2026-07-27, AWS is deploying engine version 1.4.8.0 to all Regions. It takes several days for a new release to become available in every Region. For more information about this engine version, see [Neptune Engine Release 1.4.8.0](https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases-1.4.8.0.html). | July 27, 2026 | 
 | [Dual-stack (IPv6) support](#doc-history) | Amazon Neptune now supports dual-stack mode, which allows DB clusters to communicate over both IPv4 and IPv6 protocols. For more information, see [Working with a Neptune DB cluster in dual-stack mode](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dualstack-db-cluster.html).  | June 12, 2026 | 
 | [Neptune in Asia Pacific (Hyderabad) region](#doc-history) | Amazon Neptune is now available in the Asia Pacific (Hyderabad) (`ap-south-2`) region.  | March 10, 2026 | 

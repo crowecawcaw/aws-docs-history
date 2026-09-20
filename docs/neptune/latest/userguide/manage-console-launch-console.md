@@ -60,8 +60,29 @@ Neptune no longer supports `R4` instance types.
 
 1. Under **Tags**, you can associate up to 50 tags with your new DB cluster.
 
-1. Under **Additional configuration**, there are more settings that you can make for your new DB cluster (in many cases, you can skip them and accept default values for now):    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/neptune/latest/userguide/manage-console-launch-console.html)
+1. Under **Additional configuration**, there are more settings that you can make for your new DB cluster (in many cases, you can skip them and accept default values for now):
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>What you can do</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>DB instance identifier</b></td><td>You can provide a name for the writer instance of the cluster. If you don't, a default identifier based on the cluster name is used. If you do, specify a name that is unique for all DB instances owned by your AWS account in the current region. The DB instance identifier is case insensitive, but stored as all lower-case.</td></tr>
+  <tr><td><b>DB cluster parameter group</b></td><td>Select a DB cluster parameter group to define the default configuration for all DB instances in the cluster. Unless you choose otherwise, Neptune uses a default DB cluster parameter group. For more information about parameter groups, see <a href="parameter-groups.md">Amazon Neptune parameter groups</a>.</td></tr>
+  <tr><td><b>DB parameter group</b></td><td>Select a DB parameter group to define the configuration of the primary DB instance in the cluster. Unless you choose otherwise, Neptune uses a default parameter group. For more information about parameter groups, see <a href="parameter-groups.md">Parameter groups</a>.</td></tr>
+  <tr><td><b>IAM DB authentication</b></td><td>If you check <b>Enable IAM DB authentication</b>, all access to your database will be authenticated using AWS Identity and Access Management (IAM).This requires that you sign all requests with AWS Signature Version 4 signing. For more information, see <a href="iam-auth.md">Authenticating your Amazon Neptune database with AWS Identity and Access Management</a>.</td></tr>
+  <tr><td><b>Failover priority</b></td><td>Choose <code>No preference</code> or a priority tier for failover. If you choose a tier and there is contention within it, the replica that is the same size as the primary instance is selected.</td></tr>
+  <tr><td><b>Backup retention period</b></td><td>Choose the length of time, from 1 to 35 days, that Neptune should retain automatic backups of this DB instance. You can only perform a point-in-time restore (PITR) to a time within the backup retention period.</td></tr>
+  <tr><td><b>Copy tags to snapshots</b></td><td>(<i>Enabled by default</i>) This option causes all tags associated with your DB cluster to be copied to any snapshots of it.</td></tr>
+  <tr><td><b>Enable encryption</b></td><td>(<i>Enabled by default</i>) This option causes the data in your DB cluster to be encrypted at rest.<br />If you do, choose the master key used to protect the key that is used to encrypt this database volume. You can select the default <code>aws/rds</code> key, or choose from master keys in your account, or enter the ARN of a key from a different account. You can create a new master encryption key on the <b>Encryption Keys</b> tab of the IAM console. For more information, see <a href="encrypt.md">Encrypting Neptune resources at rest</a>.</td></tr>
+  <tr><td><b>Audit log</b></td><td>Check this if you want audit logs from your DB cluster published to CloudWatch Logs.</td></tr>
+  <tr><td><b>Enable auto minor version upgrade</b></td><td>(<i>Enabled by default</i>) This option causes your DB cluster to be automatically upgraded to new minor engine versions after they are released. The automatic upgrades occur during the maintenance window for the database. See <a href="engine-maintenance-management.md#using-amvu">Using AutoMinorVersionUpgrade</a>.</td></tr>
+  <tr><td><b>Maintenance window</b></td><td>You can select a specific period during which you want pending modifications to your DB cluster to happen, such as a change to a DB instance class or an automatic engine patch. Any such maintenance operations are started and completed within the selected period. If you do not select a period, Neptune assigns a maintenance period arbitrarily.</td></tr>
+  <tr><td><b>Enable deletion protection</b></td><td>(<i>Enabled by default</i>) Deletion protection blocks your DB cluster from being deleted. You must explicitly disable it in order to delete the DB cluster.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Create database** to launch your new Neptune DB cluster and its primary instance.
 

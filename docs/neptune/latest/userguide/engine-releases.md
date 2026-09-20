@@ -15,7 +15,8 @@ From engine release 1.3.0.0 going forward, engine versions will have the structu
 | Version | Product version | Major version | Minor version | Patch version | Status | Released | End of life | Upgrade to: | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | [1.4.8.0](engine-releases-1.4.8.0.md) | 1 | 4 | 8 | 0 | *active* | 2026-07-27 | 2027-10-27 | N/A | 
-| [1.4.7.0](engine-releases-1.4.7.0.md) | 1 | 4 | 7 | 0 | *active* | 2026-03-03 | 2027-06-03 | 1.4.8.0 | 
+| [1.4.7.1](engine-releases-1.4.7.1.md) | 1 | 4 | 7 | 1 | *active* | 2026-09-16 | 2027-06-03 | 1.4.8.0 | 
+| [1.4.7.0](engine-releases-1.4.7.0.md) | 1 | 4 | 7 | 0 | *active* | 2026-03-03 | 2027-06-03 | 1.4.7.1 | 
 | [1.4.6.3](engine-releases-1.4.6.3.md) | 1 | 4 | 6 | 3 | *active* | 2025-12-18 | 2027-06-03 | 1.4.7.0 | 
 | [1.4.6.2](engine-releases-1.4.6.2.md) | 1 | 4 | 6 | 2 | *active* | 2025-11-18 | 2027-06-03 | 1.4.7.0 | 
 | [1.4.6.1](engine-releases-1.4.6.1.md) | 1 | 4 | 6 | 1 | *active* | 2025-09-18 | 2027-03-06 | 1.4.6.2 | 

@@ -50,8 +50,17 @@ You can add a remote graph database as a repository and query it from the RDF4J 
    Please specify values for the following variables:
    ```
 
-   Specify the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql-rdf4j-console.html)
+   Specify the following values:
+
+
+<table>
+  <tr><th>Variable Name</th><th>Value</th></tr>
+  <tr><td>SPARQL query endpoint</td><td><code>https://your-neptune-endpoint:port/sparql</code></td></tr>
+  <tr><td>SPARQL update endpoint</td><td><code>https://your-neptune-endpoint:port/sparql</code></td></tr>
+  <tr><td>Local repository ID [endpoint@localhost]</td><td><code>neptune</code></td></tr>
+  <tr><td>Repository title [SPARQL endpoint repository @localhost]</td><td><code>Neptune DB instance</code></td></tr>
+</table>
+
 
    For information about finding the address of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md) section.
 

@@ -258,8 +258,16 @@ This example assumes that your AWS credentials are configured in your environmen
   *Default value*: `HIGH`
 
   The `parallelism` setting can sometimes result in a deadlock between threads when loading openCypher data. When this happens, Neptune returns the `LOAD_DATA_DEADLOCK` error. You can generally fix the issue by setting `parallelism` to a lower setting and retrying the load command.
-+ **`parserConfiguration`**   –   An optional object with additional parser configuration values. Each of the child parameters is also optional:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-load.html)
++ **`parserConfiguration`**   –   An optional object with additional parser configuration values. Each of the child parameters is also optional:
+
+
+<table>
+  <tr><th>Name</th><th>Example Value</th><th>Description</th></tr>
+  <tr><td><code>namedGraphUri</code></td><td>{{http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph}}</td><td>The default graph for all RDF formats when no graph is specified (for non-quads formats and NQUAD entries with no graph). The default is <code>http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph</code></td></tr>
+  <tr><td><code>baseUri</code></td><td>{{http://aws.amazon.com/neptune/default}}</td><td>The base URI for RDF/XML and Turtle formats. The default is <code>http://aws.amazon.com/neptune/default</code>.</td></tr>
+  <tr><td><code>allowEmptyStrings</code></td><td>{{true}}</td><td>Gremlin users need to be able to pass empty string values("") as node and edge properties when loading CSV data. If <code>allowEmptyStrings</code> is set to <code>false</code> (the default), such empty strings are treated as nulls and are not loaded.<br />If <code>allowEmptyStrings</code> is set to <code>true</code>, the loader treats empty strings as valid property values and loads them accordingly.</td></tr>
+</table>
+
 
   For more information, see [SPARQL Default Graph and Named Graphs](feature-sparql-compliance.md#sparql-default-graph).
 + **`updateSingleCardinalityProperties`**   –   This is an optional parameter that controls how the bulk loader treats a new value for single-cardinality vertex or edge properties.
