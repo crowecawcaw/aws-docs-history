@@ -34,9 +34,41 @@ This topic provides step-by-step instructions to migrate your consumer from KPL 
 
    KPL 1.x uses the AWS SDK for Java 2.x and uses an updated package name that starts with `software.amazon.kinesis`, compared to the package name in the previous KPL that starts with `com.amazonaws.services.kinesis`.
 
-   Replace the import for `com.amazonaws.services.kinesis` with `software.amazon.kinesis`. The following table lists the imports that you must replace.  
-**Import replacements**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/streams/latest/dev/kpl-migration-1x.html)
+   Replace the import for `com.amazonaws.services.kinesis` with `software.amazon.kinesis`. The following table lists the imports that you must replace.
+
+
+**Import replacements**  
+
+<table>
+<thead>
+  <tr><th>Replace:</th><th>With:</th></tr>
+</thead>
+<tbody>
+  <tr><td>import com.amazonaws.services.kinesis.producer.Attempt;</td><td>import software.amazon.kinesis.producer.Attempt;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.BinaryToHexConverter;</td><td>import software.amazon.kinesis.producer.BinaryToHexConverter;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.CertificateExtractor;</td><td>import software.amazon.kinesis.producer.CertificateExtractor;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.Daemon;</td><td>import software.amazon.kinesis.producer.Daemon;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.DaemonException;</td><td>import software.amazon.kinesis.producer.DaemonException;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.FileAgeManager;</td><td>import software.amazon.kinesis.producer.FileAgeManager;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.FutureTimedOutException;</td><td>import software.amazon.kinesis.producer.FutureTimedOutException;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.GlueSchemaRegistrySerializerInstance;</td><td>import software.amazon.kinesis.producer.GlueSchemaRegistrySerializerInstance;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.HashedFileCopier;</td><td>import software.amazon.kinesis.producer.HashedFileCopier;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.IKinesisProducer;</td><td>import software.amazon.kinesis.producer.IKinesisProducer;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.IrrecoverableError;</td><td>import software.amazon.kinesis.producer.IrrecoverableError;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.KinesisProducer;</td><td>import software.amazon.kinesis.producer.KinesisProducer;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.KinesisProducerConfiguration;</td><td>import software.amazon.kinesis.producer.KinesisProducerConfiguration;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.LogInputStreamReader;</td><td>import software.amazon.kinesis.producer.LogInputStreamReader;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.Metric;</td><td>import software.amazon.kinesis.producer.Metric;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.ProcessFailureBehavior;</td><td>import software.amazon.kinesis.producer.ProcessFailureBehavior;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.UnexpectedMessageException;</td><td>import software.amazon.kinesis.producer.UnexpectedMessageException;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.UserRecord;</td><td>import software.amazon.kinesis.producer.UserRecord;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.UserRecordFailedException;</td><td>import software.amazon.kinesis.producer.UserRecordFailedException;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.UserRecordResult;</td><td>import software.amazon.kinesis.producer.UserRecordResult;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.protobuf.Messages;</td><td>import software.amazon.kinesis.producer.protobuf.Messages;</td></tr>
+  <tr><td>import com.amazonaws.services.kinesis.producer.protobuf.Config;</td><td>import software.amazon.kinesis.producer.protobuf.Config;</td></tr>
+</tbody>
+</table>
+
 
 1. **Update import statements for AWS credentials provider classes**
 

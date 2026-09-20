@@ -395,8 +395,20 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 1. Under **Properties**, for **Group ID**, enter **ProducerConfigProperties**.
 
-1. Enter the following application properties and values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/streams/latest/dev/get-started-exercise.html)
+1. Enter the following application properties and values:
+
+
+<table>
+<thead>
+  <tr><th>Key</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>flink.inputstream.initpos</b></td><td><b>LATEST</b></td></tr>
+  <tr><td><b>aws:region</b></td><td><b>us-west-2</b></td></tr>
+  <tr><td><b>AggregationEnabled</b></td><td><b>false</b></td></tr>
+</tbody>
+</table>
+
 
 1. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**.
 

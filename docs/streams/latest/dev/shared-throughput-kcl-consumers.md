@@ -163,8 +163,19 @@ Starting with the latest supported versions of KCL 2.x (KCL 2.3) and later, the 
 
   For more information about `PeriodicShardSyncManager` in KCL 2.3, see [https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/src/main/java/software/amazon/kinesis/leases/LeaseManagementConfig.java\#L201-L213](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/src/main/java/software/amazon/kinesis/leases/LeaseManagementConfig.java#L201-L213).
 
-  In KCL 2.3, new configuration options are available to configure `PeriodicShardSyncManager` in `LeaseManagementConfig`:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)
+  In KCL 2.3, new configuration options are available to configure `PeriodicShardSyncManager` in `LeaseManagementConfig`:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>leasesRecoveryAuditorExecutionFrequencyMillis</td><td>120000 (2 minutes)</td><td>Frequency (in millis) of the auditor job to scan for partial leases in the lease table. If the auditor detects any hole in the leases for a stream, then it would trigger shard synchronization based on <code>leasesRecoveryAuditorInconsistencyConfidenceThreshold</code>.</td></tr>
+  <tr><td>leasesRecoveryAuditorInconsistencyConfidenceThreshold</td><td>3</td><td>Confidence threshold for the periodic auditor job to determine if leases for a data stream in the lease table are inconsistent. If the auditor finds same set of inconsistencies consecutively for a data stream for this many times, then it would trigger a shard synchronization.</td></tr>
+</tbody>
+</table>
+
 
   New CloudWatch metrics are also now emitted to monitor the health of the `PeriodicShardSyncManager`. For more information, see [PeriodicShardSyncManager](monitoring-with-kcl.md#periodic-task).
 + Including an optimization to `HierarchicalShardSyncer` to only create leases for one layer of shards.
@@ -189,14 +200,36 @@ Starting with the latest supported versions of KCL 1.x (KCL 1.14) and later, the
 
   For more information about `PeriodicShardSyncManager` in KCL 1.14, see [https://github.com/awslabs/amazon-kinesis-client/blob/v1.x/src/main/java/com/amazonaws/services/kinesis/clientlibrary/lib/worker/KinesisClientLibConfiguration.java\#L987-L999](https://github.com/awslabs/amazon-kinesis-client/blob/v1.x/src/main/java/com/amazonaws/services/kinesis/clientlibrary/lib/worker/KinesisClientLibConfiguration.java#L987-L999).
 
-  In KCL 1.14, new configuration option is available to configure `PeriodicShardSyncManager` in `LeaseManagementConfig`:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)
+  In KCL 1.14, new configuration option is available to configure `PeriodicShardSyncManager` in `LeaseManagementConfig`:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>leasesRecoveryAuditorInconsistencyConfidenceThreshold</td><td>3</td><td>Confidence threshold for the periodic auditor job to determine if leases for a data stream in the lease table are inconsistent. If the auditor finds same set of inconsistencies consecutively for a data stream for this many times, then it would trigger a shard synchronization.</td></tr>
+</tbody>
+</table>
+
 
   New CloudWatch metrics are also now emitted to monitor the health of the `PeriodicShardSyncManager`. For more information, see [PeriodicShardSyncManager](monitoring-with-kcl.md#periodic-task).
 + KCL 1.14 now also supports deferred lease cleanup. Leases are deleted asynchronously by `LeaseCleanupManager` upon reaching `SHARD_END`, when a shard has either expired past the data stream’s retention period or been closed as the result of a resharding operation.
 
-  New configuration options are available to configure `LeaseCleanupManager`.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)
+  New configuration options are available to configure `LeaseCleanupManager`.
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>leaseCleanupIntervalMillis</td><td>1 minute</td><td>Interval at which to run lease cleanup thread.</td></tr>
+  <tr><td>completedLeaseCleanupIntervalMillis</td><td>5 minutes</td><td>Interval at which to check if a lease is completed or not.</td></tr>
+  <tr><td>garbageLeaseCleanupIntervalMillis</td><td>30 minutes</td><td>Interval at which to check if a lease is garbage (i.e trimmed past the data stream's retention period) or not.</td></tr>
+</tbody>
+</table>
+
 + Including an optimization to `KinesisShardSyncer` to only create leases for one layer of shards.
 
 ## Process multiple data streams with the same KCL 2.x for Java consumer application

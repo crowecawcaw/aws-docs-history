@@ -61,8 +61,19 @@ The name of the stream from [Create a data stream](tutorial-stock-data-kplkcl-cr
 
 1. Enter the ARN that you created in Step 1.
 
-1. Use **Add Statement** for each of the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/streams/latest/dev/tutorial-stock-data-kplkcl-iam.html)
+1. Use **Add Statement** for each of the following:
+
+
+<table>
+<thead>
+  <tr><th>AWS Service</th><th>Actions</th><th>ARN</th></tr>
+</thead>
+<tbody>
+  <tr><td>Amazon DynamoDB</td><td><code>CreateTable</code>, <code>DeleteItem</code>, <code>DescribeTable</code>, <code>GetItem</code>, <code>PutItem</code>, <code>Scan</code>, <code>UpdateItem</code></td><td>The ARN you created in Step 2</td></tr>
+  <tr><td>Amazon CloudWatch</td><td><code>PutMetricData</code></td><td><code>*</code></td></tr>
+</tbody>
+</table>
+
 
    The asterisk (`*`) that is used when specifying an ARN is not required. In this case, it's because there is no specific resource in CloudWatch on which the `PutMetricData` action is invoked.
 
