@@ -25,9 +25,23 @@ Follow these steps to view the network interfaces that are available in your AWS
 
 1. Select a router network interface and choose **View resource**.
 
-1. On the details page, use the following tabs to find specific information:  
-**Router network interface details tabs**    
-<a name="router-network-interface-details-tabs-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/mediaconnect/latest/ug/viewing-router-network-interfaces.html)
+1. On the details page, use the following tabs to find specific information:
+
+
+**Router network interface details tabs**  
+<a name="router-network-interface-details-tabs-table"></a>
+<table>
+<thead>
+  <tr><th>Tab</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Inputs</td><td>View the router inputs that are using this network interface.</td></tr>
+  <tr><td>Outputs</td><td>View the router outputs that are using this network interface.</td></tr>
+  <tr><td>Configuration</td><td>View the basic configuration information and current state of the network interface.</td></tr>
+  <tr><td>Tags</td><td>View the tags that are applied to this network interface.</td></tr>
+</tbody>
+</table>
+
 
 ## Next steps
 <a name="viewing-router-network-interfaces-next-steps"></a>

@@ -26,7 +26,8 @@ To access the AWS Elemental MediaConnect console, you must have a policy that de
         {
             "Action": [
                 "mediaconnect:List*",
-                "mediaconnect:Describe*"
+                "mediaconnect:Describe*",
+                "mediaconnect:Get*"
             ],
             "Effect": "Allow",
             "Resource": "*"
