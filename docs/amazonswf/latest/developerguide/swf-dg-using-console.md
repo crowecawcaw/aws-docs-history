@@ -117,8 +117,21 @@ In the console, you can manage the workflow executions that are currently runnin
 
 1. Choose **Find Execution**.
 
-1. On the **Workflow executions** page, choose **Filter executions by property**, and then under **Properties** choose one of the following filters:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-using-console.html)
+1. On the **Workflow executions** page, choose **Filter executions by property**, and then under **Properties** choose one of the following filters:
+
+
+<table>
+<thead>
+  <tr><th>Choose</th><th>To apply this filter</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Workflow</b></td><td>Choose this filter to list executions of a specific workflow. For example, to view executions of the <code>fiction-books-order-workflow</code>, do the following:<ol><li> Choose <b>Workflow</b>. </li><li> Under <b>Operators</b>, choose <b>Equals</b>. </li><li> Under <b>Workflows</b>, choose <b>fiction-books-order-workflow</b>. </li><li> (Optional) Choose <b>Clear filters</b> to remove the filter and start a new search for executions. </li></ol></td></tr>
+  <tr><td><b>Status</b></td><td>Choose this filter to list executions with a specific status. For example, to view executions with the status <b>Failed</b>, do the following:<ol><li> Choose <b>Status</b>. </li><li> Under <b>Operators</b>, choose <b>Equals</b>. </li><li> Under <b>Statuses</b>, choose <b>Failed</b>. </li><li> (Optional) Choose <b>Clear filters</b> to remove the filter and start a new search for executions. </li></ol></td></tr>
+  <tr><td><b>Execution ID</b></td><td>Choose this filter to view a workflow execution based on its ID. For example, to view the execution with ID <code>fiction-books-order-category1</code>, do the following: <ol><li> Choose <b>Execution ID</b>. </li><li> Under <b>Operators</b>, choose <b>Equals</b>. </li><li> Under <b>Execution IDs</b>, choose <b>fiction-books-order-category1</b>. </li><li> (Optional) Choose <b>Clear filters</b> to remove the filter and start a new search for executions. </li></ol> </td></tr>
+  <tr><td><b>Tag</b></td><td>Choose this filter to list executions with a specific tag. For example, to view executions with the status <code>purchaseOrder</code>, do the following:<ol><li> Choose <b>Tag</b>. </li><li> Under <b>Operators</b>, choose <b>Equals</b>. </li><li> Under <b>Tag</b>, choose <b>purchaseOrder</b>. </li><li> (Optional) Choose <b>Clear filters</b> to remove the filter and start a new search for executions. </li></ol></td></tr>
+</tbody>
+</table>
+
 
 1. (Optional) After applying the required filter to list workflow executions, you can perform the following operations to an **Active** execution:
    + **Signal** – Use this option to send a running workflow execution additional data. To do this:
