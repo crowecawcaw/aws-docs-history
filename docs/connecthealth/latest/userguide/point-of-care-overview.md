@@ -32,6 +32,7 @@ At launch, point of care capabilities include patient insights and ambient docum
 Point of care agents are available in the following AWS Regions:
 + US East (N. Virginia) - `us-east-1` 
 + US West (Oregon) - `us-west-2` 
++ Europe (London) - `eu-west-2` (ambient documentation only, Preview)
 
 **Note**  
-Patient insights is available as a preview in both supported Regions. Ambient documentation is generally available in both supported Regions.
+Patient insights is available as a preview in the US Regions. Ambient documentation is generally available in the US Regions, and available as a Preview in Europe (London) as of September 14, 2026.
