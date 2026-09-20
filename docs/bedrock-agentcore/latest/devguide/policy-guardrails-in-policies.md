@@ -111,6 +111,9 @@ suppressOutput (principal, action == AgentCore::Action::"<TargetName>___POST:/in
 };
 ```
 
+**Note**  
+ `suppressOutput` is supported only for guardrail policies. Its condition must consist solely of guardrail checks, written in either a `when guardrails {…​}` block or a plain `when {…​}` block. `suppressOutput` does not support standard Cedar or `temporal {…​}` conditions.
+
 ### Passing context to your guardrail
 <a name="passing-context-to-your-guardrail"></a>
 
@@ -223,3 +226,4 @@ Note: Guardrails are non-deterministic. The same input can result in different o
 +  **No support for regex or pattern matching** — guardrails use ML scoring, not regular expressions
 +  **You cannot mix standard Cedar policies with guardrails** — `when guardrails {…​}` replaces `when {…​}` 
 +  **A guardrail is required in a `when guardrails {…​}` block** — guardrails blocks must have at least one guardrail defined within
++  ** `suppressOutput` is supported only for guardrail policies** — its condition must consist solely of guardrail checks and does not support standard Cedar or `temporal {…​}` conditions

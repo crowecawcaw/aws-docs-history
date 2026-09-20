@@ -7,6 +7,7 @@ The Amazon Bedrock AgentCore Runtime handles scaling, session management, securi
 
 **Topics**
 + [Key components](#runtime-key-components)
++ [Platform versions](#runtime-platform-versions)
 + [Authentication and security](#runtime-auth-security)
 + [Additional features](#runtime-additional-features)
 + [Implementation overview](#runtime-implementation-overview)
@@ -79,6 +80,147 @@ Important session characteristics:
 + Session state is ephemeral and should not be used for long-term durability (use AgentCore Memory for context durability)
 
 This complete isolation between sessions is crucial for enterprise security, particularly when dealing with non-deterministic AI processes.
+
+## Platform versions
+<a name="runtime-platform-versions"></a>
+
+A platform version controls how AgentCore Runtime starts your agent. You set it with the `platformVersion` field (`V1` or `V2`) on each agent runtime. V1 is the default. The platform version applies to the agent runtime itself; it is separate from the [runtime versions](#runtime-versions) that capture your configuration history.
+
+Amazon Bedrock AgentCore Runtime V2 starts your agent from a snapshot, which keeps cold starts fast and consistent regardless of concurrency or image size. AgentCore Runtime prepares your environment once and takes a snapshot of it, then restores that snapshot for each new instance instead of initializing your environment on each start.
+
+Consistent cold starts  
+V2 keeps cold-start latency consistent regardless of concurrency or image size, because each instance restores a prepared snapshot instead of initializing your environment. This matters most for large container images, which are otherwise slow to load on each cold start.
+
+Lower cost for always-on or bursty agents  
+V2 charges based on what your agent actively uses. AgentCore Runtime reclaims memory as your agent releases it, and reduces platform overhead.
+
+**Note**  
+Restoring from a snapshot changes how you structure your agent code. To learn how to optimize your agent and get the most out of platform version V2, see [Optimize your agent for AgentCore Runtime V2](runtime-v2-optimize.md).
+
+### Supported Regions
+<a name="runtime-platform-versions-regions"></a>
+
+V2 is available in the following AWS Regions:
++ US East (N. Virginia), `us-east-1` 
++ US East (Ohio), `us-east-2` 
++ US West (Oregon), `us-west-2` 
++ Europe (Ireland), `eu-west-1` 
++ Asia Pacific (Tokyo), `ap-northeast-1` 
+
+### Enable V2
+<a name="runtime-enable-v2"></a>
+
+You set the platform version for each agent runtime. Set it when you create a runtime, or update an existing runtime to move it between platform versions. If you omit `platformVersion` when you create a runtime, the runtime uses V1. If you omit it when you update a runtime, the runtime keeps its current platform version.
+
+**Example**  
+
+1. Open the Amazon Bedrock AgentCore console and choose **Runtime**.
+
+1. On the **Runtime** page, choose **Create runtime**.
+
+1. Enter a **Name** for the agent or tool.
+
+1. For **Compute type**, choose **microVMs**.
+
+1. Under **Agent/tool source**, choose your source type and provide the artifact, such as a container image URI or your code.
+
+1. For **Platform version**, choose **V2**.
+
+1. (Optional) Configure **Inbound auth**, **Advanced configurations**, and **Permissions**, such as the IAM execution role and KMS encryption key.
+
+1. Choose **Create runtime**. AgentCore creates agent runtime version 1 and a `DEFAULT` endpoint that points to it.
+
+1. Set `--platform-version V2` on the `create-agent-runtime` command.
+
+   ```
+   aws bedrock-agentcore-control create-agent-runtime \
+     --agent-runtime-name "my-agent" \
+     --role-arn "arn:aws:iam::111122223333:role/AgentExecutionRole" \
+     --agent-runtime-artifact '{
+       "containerConfiguration": {
+         "containerUri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/my-agent:latest"
+       }
+     }' \
+     --network-configuration '{"networkMode": "PUBLIC"}' \
+     --platform-version V2
+   ```
+
+1. To confirm the platform version, call `get-agent-runtime`.
+
+   ```
+   aws bedrock-agentcore-control get-agent-runtime \
+     --agent-runtime-id my-agent-ABCDE12345 \
+     --query platformVersion
+   ```
+
+1. The following example uses boto3 to create an agent runtime on V2.
+
+   ```
+   import boto3
+   
+   client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
+   
+   client.create_agent_runtime(
+       agentRuntimeName="my-agent",
+       roleArn="arn:aws:iam::111122223333:role/AgentExecutionRole",
+       agentRuntimeArtifact={
+           "containerConfiguration": {
+               "containerUri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/my-agent:latest"
+           }
+       },
+       networkConfiguration={"networkMode": "PUBLIC"},
+       platformVersion="V2",
+   )
+   ```
+
+1. The `create_agent_runtime` response does not return `platformVersion`. Call `get_agent_runtime` to confirm it.
+
+### What to expect
+<a name="runtime-v2-what-to-expect"></a>
+
+A V2 create or update operation prepares and snapshots your environment, so it behaves differently from V1.
+
+Create and update take minutes  
+On V1, a runtime reaches `READY` in seconds. On V2, preparing the snapshot adds a one-time cost, and create and update run for several minutes before the runtime reaches `READY`.
+
+Your container must report healthy within 120 seconds  
+AgentCore Runtime takes the snapshot on the first healthy `/ping` response. Report health from `/ping` only after initialization completes, so that the snapshot captures a fully initialized agent. If the runtime does not report healthy within 120 seconds of startup, creation fails with a health check error.
+
+Poll for a terminal status  
+The `create` and `update` operations return while the runtime is still `CREATING` or `UPDATING`. If you call `update` or `delete` before the runtime reaches a terminal state, the operation returns `ConflictException`. Poll `get_agent_runtime` until the status is `READY` or ends in `FAILED`, and allow several minutes for a V2 runtime to reach `READY`.  
+
+```
+import time
+
+def wait_until_ready(client, agent_runtime_id):
+    while True:
+        status = client.get_agent_runtime(agentRuntimeId=agent_runtime_id)["status"]
+        if status == "READY" or status.endswith("FAILED"):
+            return status
+        time.sleep(5)
+```
+
+**Note**  
+V2 currently limits the total size of your agent’s environment variables to 1.5 KB for direct code deployments and 2.5 KB for container agents, compared to 4 KB on V1. If your configuration exceeds this limit, the request fails with a `ValidationException`. AgentCore Runtime will raise this limit to match V1.
+
+### Snapshot lifecycle
+<a name="runtime-v2-snapshot-lifecycle"></a>
+
+On V2, AgentCore Runtime manages a snapshot for each runtime version that an endpoint points to. You do not create or delete snapshots directly. They follow your runtime and endpoint changes.
+
+Created  
+AgentCore Runtime prepares a snapshot when an endpoint points to a version. When you create a runtime, AgentCore Runtime hosts your version on the default endpoint and prepares its snapshot. A runtime can have more than one endpoint that points to different versions, so a runtime can have more than one snapshot at a time.
+
+Updated  
+When you update a runtime, AgentCore Runtime hosts the new version on the default endpoint and prepares a new snapshot. The previously hosted version is no longer referenced, so AgentCore Runtime marks its snapshot for deletion and removes it after existing sessions end.
+
+Deleted  
+AgentCore Runtime deletes a snapshot when no endpoint points to it. This occurs when you update a runtime, remove an endpoint’s reference to a version, or delete the runtime or a runtime endpoint. Deletion can take up to 8 hours, which is the maximum session lifetime, because sessions that are already running on the snapshot continue until they end.
+
+### Infrastructure as code
+<a name="runtime-v2-iac"></a>
+
+ AWS CloudFormation and the AWS CDK do not currently support setting `platformVersion`.
 
 ## Authentication and security
 <a name="runtime-auth-security"></a>

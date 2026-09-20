@@ -28,10 +28,32 @@ Each recommendation requires two inputs: the current agent configuration to opti
 <a name="recommendations-input-modes"></a>
 
 You provide the current configuration in one of two ways:
-+  **Inline text:** Provide the configuration directly as a string in the API request. For system prompt recommendations, pass the prompt text in the `systemPrompt.text` field. For tool description recommendations, pass each tool’s name and description in the `toolDescription.toolDescriptionText.tools` list. This mode is useful for quick experimentation, when you want to test a prompt you are actively iterating on, or when your configuration is not stored in a bundle.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization-recommendations.html)
-+  **Configuration bundle:** Reference an existing configuration bundle version. The service reads the current configuration from the bundle using the JSON path you specify, generates the optimized version, and writes the result back to a **new** bundle version. This keeps your optimization history versioned alongside your bundle. This mode is useful when you manage configurations centrally with configuration bundles and want the optimized output written back to the bundle automatically.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization-recommendations.html)
++  **Inline text:** Provide the configuration directly as a string in the API request. For system prompt recommendations, pass the prompt text in the `systemPrompt.text` field. For tool description recommendations, pass each tool’s name and description in the `toolDescription.toolDescriptionText.tools` list. This mode is useful for quick experimentation, when you want to test a prompt you are actively iterating on, or when your configuration is not stored in a bundle.
+
+
+<table>
+<thead>
+  <tr><th>Recommendation type</th><th>CLI flags</th><th>API field</th></tr>
+</thead>
+<tbody>
+  <tr><td>System prompt</td><td> <code>--inline "prompt text"</code> or <code>--prompt-file ./path.txt</code> </td><td> <code>systemPrompt.text</code> </td></tr>
+  <tr><td>Tool description</td><td> <code>--tools "name:description, name:description"</code> </td><td> <code>toolDescription.toolDescriptionText.tools</code>: list of objects with <code>toolName</code> and <code>toolDescription</code> </td></tr>
+</tbody>
+</table>
+
++  **Configuration bundle:** Reference an existing configuration bundle version. The service reads the current configuration from the bundle using the JSON path you specify, generates the optimized version, and writes the result back to a **new** bundle version. This keeps your optimization history versioned alongside your bundle. This mode is useful when you manage configurations centrally with configuration bundles and want the optimized output written back to the bundle automatically.
+
+
+<table>
+<thead>
+  <tr><th>Recommendation type</th><th>CLI flags</th><th>API field</th></tr>
+</thead>
+<tbody>
+  <tr><td>System prompt</td><td> <code>--bundle-name &lt;bundle-name&gt;</code> + <code>--bundle-version &lt;bundle-version&gt;</code> + <code>--system-prompt-json-path &lt;path&gt;</code> </td><td> <code>systemPrompt.configurationBundle</code> with <code>bundleArn</code>, <code>versionId</code>, <code>systemPromptJsonPath</code> </td></tr>
+  <tr><td>Tool description</td><td> <code>--bundle-name &lt;bundle-name&gt;</code> + <code>--bundle-version &lt;bundle-version&gt;</code> + <code>--tool-desc-json-path "name:jsonpath"</code> (repeat for each tool)</td><td> <code>toolDescription.configurationBundle</code> with <code>bundleArn</code>, <code>versionId</code>, and <code>tools</code> list containing <code>toolName</code> and <code>toolDescriptionJsonPath</code> </td></tr>
+</tbody>
+</table>
+
 
   When using a configuration bundle, the recommendation result includes a `configurationBundle` field with the `bundleArn` and a new `versionId` pointing to the bundle version that contains the optimized configuration.
 
@@ -41,8 +63,22 @@ You provide the current configuration in one of two ways:
 The `agentTraces` parameter accepts one of four sources:
 +  **CloudWatch Logs:** Use when your agent runtime writes telemetry to CloudWatch. The service reads traces directly from the specified log groups within a required time range. You must provide `logGroupArns`, `serviceNames`, `startTime`, and `endTime`. An optional `rule` field allows you to filter traces (for example, selecting only sessions where `goal_success_rate` is below a threshold).
 **Note**  
-The recommendations API uses log group **ARNs** (`logGroupArns`), not log group **names**. This differs from batch evaluations, which use `logGroupNames`.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization-recommendations.html)  
+The recommendations API uses log group **ARNs** (`logGroupArns`), not log group **names**. This differs from batch evaluations, which use `logGroupNames`.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>cloudwatchLogs.logGroupArns</code> </td><td>List of strings</td><td>Yes</td><td>CloudWatch Logs log group ARNs where agent telemetry is stored. Format: <code>arn:aws:logs:{region}:{account}:log-group:{log-group-name}</code>.</td></tr>
+  <tr><td> <code>cloudwatchLogs.serviceNames</code> </td><td>List of strings</td><td>Yes</td><td>Service names that identify your agent’s traces in CloudWatch. Convention: <code>{RuntimeName}.DEFAULT</code>.</td></tr>
+  <tr><td> <code>cloudwatchLogs.startTime</code> </td><td>ISO 8601 datetime</td><td>Yes</td><td>Start of the trace collection window. Only traces after this time are included.</td></tr>
+  <tr><td> <code>cloudwatchLogs.endTime</code> </td><td>ISO 8601 datetime</td><td>Yes</td><td>End of the trace collection window. Only traces before this time are included.</td></tr>
+  <tr><td> <code>cloudwatchLogs.rule</code> </td><td>Object</td><td>No</td><td>Optional filter rule to narrow trace selection. Contains a <code>filters</code> list where each filter specifies a <code>key</code>, <code>operator</code> (such as <code>LESS_THAN</code>), and <code>value</code> (such as <code>{"doubleValue": 0.5}</code>).</td></tr>
+</tbody>
+</table>
+  
 **Example**  
 
 ------
@@ -104,8 +140,18 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
   ```
 
 ------
-+  **Inline session spans:** Use when you have traces available locally (for example, from a local test run, a CI/CD pipeline, or a specific session you want to optimize against). You provide the spans directly in the API request body as a list of OpenTelemetry-compatible span objects.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization-recommendations.html)  
++  **Inline session spans:** Use when you have traces available locally (for example, from a local test run, a CI/CD pipeline, or a specific session you want to optimize against). You provide the spans directly in the API request body as a list of OpenTelemetry-compatible span objects.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>sessionSpans</code> </td><td>List of objects</td><td>Yes</td><td>Agent trace spans in OpenTelemetry-compatible format. Each span includes trace ID, span ID, name, timestamps, and attributes.</td></tr>
+</tbody>
+</table>
+  
 **Example**  
 
 ------
@@ -155,8 +201,18 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
 The batch evaluation and online evaluation trace sources are available for system prompt recommendations only.
 +  **Batch evaluation:** Use when you have a completed batch evaluation job whose sessions you want to reuse for optimization. Instead of re-collecting traces from CloudWatch or providing spans inline, you reference the batch evaluation directly by its ARN. This source is available for system prompt recommendations only.
   + If the evaluators used in the batch evaluation job match the evaluators specified in the recommendation request, the service reuses the existing scores.
-  + If the evaluators do not match, the service runs fresh evaluations for the requested evaluators against the batch evaluation sessions.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization-recommendations.html)  
+  + If the evaluators do not match, the service runs fresh evaluations for the requested evaluators against the batch evaluation sessions.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>batchEvaluation.batchEvaluationArn</code> </td><td>String</td><td>Yes</td><td>ARN of a completed batch evaluation job. The service reuses the sessions from this job as trace input. Format: <code>arn:aws:bedrock-agentcore:{region}:{account}:batch-evaluation/{id}</code>.</td></tr>
+</tbody>
+</table>
+  
 **Example**  
 
 ------
@@ -171,8 +227,20 @@ The batch evaluation and online evaluation trace sources are available for syste
     ```
 
 ------
-+  **Online evaluation:** Use when you have an online evaluation configuration that continuously evaluates live agent sessions. Because online evaluation is a continuous stream, you must specify a time window (`startTime` and `endTime`) to bound which evaluated sessions the recommendation draws from. The service reuses the evaluation scores from the online evaluation sessions within the specified window. This source is available for system prompt recommendations only.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/optimization-recommendations.html)  
++  **Online evaluation:** Use when you have an online evaluation configuration that continuously evaluates live agent sessions. Because online evaluation is a continuous stream, you must specify a time window (`startTime` and `endTime`) to bound which evaluated sessions the recommendation draws from. The service reuses the evaluation scores from the online evaluation sessions within the specified window. This source is available for system prompt recommendations only.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>onlineEvaluation.onlineEvaluationConfigArn</code> </td><td>String</td><td>Yes</td><td>ARN of an online evaluation configuration. The service uses the evaluated sessions from this configuration as trace input. Format: <code>arn:aws:bedrock-agentcore:{region}:{account}:online-evaluation-config/{id}</code>.</td></tr>
+  <tr><td> <code>onlineEvaluation.startTime</code> </td><td>ISO 8601 datetime</td><td>Yes</td><td>Start of the evaluation window. Only sessions evaluated after this time are included.</td></tr>
+  <tr><td> <code>onlineEvaluation.endTime</code> </td><td>ISO 8601 datetime</td><td>Yes</td><td>End of the evaluation window. Only sessions evaluated before this time are included.</td></tr>
+</tbody>
+</table>
+  
 **Example**  
 
 ------

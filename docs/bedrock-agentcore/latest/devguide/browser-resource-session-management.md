@@ -139,8 +139,22 @@ dp_client = boto3.client(
 The AgentCore Browser provides two types of resources:
 
 System ARNs  
-System ARNs are default resources pre-created for ease of use. These ARNs have default configuration with the most restrictive options and are available for all regions where Amazon Bedrock AgentCore is available.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-resource-session-management.html)
+System ARNs are default resources pre-created for ease of use. These ARNs have default configuration with the most restrictive options and are available for all regions where Amazon Bedrock AgentCore is available.  
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>ID</td><td>aws.browser.v1</td></tr>
+  <tr><td>ARN</td><td>arn:aws:bedrock-agentcore:us-east-1:aws:browser/aws.browser.v1</td></tr>
+  <tr><td>Name</td><td>Amazon Bedrock AgentCore Browser Tool</td></tr>
+  <tr><td>Description</td><td> AWS built-in browser for secure web browsing</td></tr>
+  <tr><td>Status</td><td>READY</td></tr>
+</tbody>
+</table>
+
 
 Custom ARNs  
 Custom ARNs allow you to configure a browser tool with your own settings. You can choose the public network setting, recording configuration, security settings, and permissions through an IAM runtime role that defines what AWS resources the browser tool can access.

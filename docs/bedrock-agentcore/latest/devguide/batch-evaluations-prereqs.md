@@ -57,6 +57,26 @@ The following IAM policy grants the minimum permissions needed to run batch eval
             ]
         },
         {
+            "Sid": "DescribeLogGroups",
+            "Effect": "Allow",
+            "Action": "logs:DescribeLogGroups",
+            "Resource": "*"
+        },
+        {
+            "Sid": "WriteEvaluationLogs",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:PutRetentionPolicy"
+            ],
+            "Resource": [
+                "arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/evaluations/*",
+                "arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/evaluations/*:*"
+            ]
+        },
+        {
             "Sid": "BedrockInvokeForCustomEvaluators",
             "Effect": "Allow",
             "Action": [
@@ -74,6 +94,9 @@ The following IAM policy grants the minimum permissions needed to run batch eval
 
 **Note**  
 The `BedrockInvokeForCustomEvaluators` statement is required only if you use a custom evaluator that invokes Amazon Bedrock models. You can omit it when using only built-in evaluators.
+
+**Note**  
+The `WriteEvaluationLogs` statement lets the service create the evaluation-results log group and log streams and write results under your credentials. You must grant `logs:DescribeLogGroups` on `Resource` `*` because this action doesn’t support resource-level permissions.
 
 ## SDK and CLI requirements
 <a name="batch-eval-sdk-cli"></a>

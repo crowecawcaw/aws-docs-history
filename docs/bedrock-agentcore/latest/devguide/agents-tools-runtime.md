@@ -44,11 +44,15 @@ AgentCore Runtime supports both HTTP API calls and persistent WebSocket connecti
 Unified set of agent-specific capabilities  
 AgentCore Runtime is delivered through a single, comprehensive SDK that provides streamlined access to the complete AgentCore capabilities including Memory, Tools, and Gateway. This integrated approach eliminates the integration work typically required when building equivalent agent infrastructure from disparate components.
 
+**Note**  
+A newer platform version, V2, is available. It starts your agent from a snapshot to keep cold starts fast and consistent regardless of concurrency or image size, and to lower cost for always-on or bursty agents. For more information, see [Platform versions](runtime-how-it-works.md#runtime-platform-versions).
+
 **Topics**
 + [How it works](runtime-compute-how-it-works.md)
 + [Understand the AgentCore Runtime service contract](runtime-service-contract.md)
 + [IAM Permissions for AgentCore Runtime](runtime-permissions.md)
 + [Get started with AgentCore Runtime](runtime-getting-started.md)
++ [Optimize your agent for Amazon Bedrock AgentCore Runtime V2](runtime-v2-optimize.md)
 + [Use any agent framework](using-any-agent-framework.md)
 + [Use any foundation model](using-any-model.md)
 + [Deploy MCP servers in AgentCore Runtime](runtime-mcp.md)

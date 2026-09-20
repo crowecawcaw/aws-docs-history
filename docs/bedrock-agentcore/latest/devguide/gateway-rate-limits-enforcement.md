@@ -128,6 +128,19 @@ Rate limit changes (create, update, delete) propagate to the data plane within 3
 + Updated rate limits continue enforcing the previous configuration until the update propagates.
 + Deleted rate limits continue enforcing until the deletion propagates.
 
+## Enforcement accuracy and eventual consistency
+<a name="gateway-rate-limits-enforcement-accuracy"></a>
+
+Rate limit enforcement is **eventually consistent** rather than exact. Enforcement accuracy is approximate in the moments after a limit begins receiving traffic, and it improves as traffic continues. The accuracy you observe therefore depends on your traffic pattern.
+
+The following behaviors are expected:
++  **Cold limits over-admit at first.** A cold limit is one that is newly created or that has had no recent traffic. For a short initial period, the gateway might over-admit (allow more requests than the configured rate) before enforcement converges. Once a limit is under continuous traffic, accuracy improves and the observed throttle rate settles close to the configured rate.
++  **Sustained traffic enforces accurately, but short bursts might not.** A brief burst against a cold limit can pass through without being throttled. The same rate sent as sustained traffic is enforced, because accuracy improves as a limit warms up. To observe or demonstrate enforcement, send sustained traffic to the limit for several minutes rather than a single short burst. For example, for a limit of 4 requests per second, the gateway might not throttle the 5th request in the first second. If you send 5 requests per second continuously, you will consistently see the extra request throttled after the limit warms up.
++  **Very low rates are less accurate.** Rates below roughly 1 request per second (for example, a small requests-per-minute limit) are harder to enforce precisely and will show more variability. Prefer higher rates where precise enforcement matters, and treat very low limits as approximate.
++  **Token limits converge more slowly.** Token-per-minute limits update (reconcile) the tracked usage total only after the model responds. A request that is in flight for several seconds or minutes holds only its estimated cost against the budget until it completes. This extends the window during which the gateway might over-admit requests, relative to request limits. See [Token rate limit FAQ](gateway-rate-limits-best-practices.md#gateway-rate-limits-best-practices-tpm-faq) for details.
+
+Design your limits around fair usage and backend protection. This means smoothing bursts and protecting targets from noisy neighbors over a sustained window, rather than blocking an exact request number the instant a threshold is crossed. Rate limits are not a precise, request-exact gate. Rate limits are also not a security boundary, as explained in the following section.
+
 ## Fail-open behavior
 <a name="gateway-rate-limits-enforcement-fail-open"></a>
 

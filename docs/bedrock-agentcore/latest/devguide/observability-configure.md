@@ -153,14 +153,14 @@ To add ADOT support and enable AgentCore observability, follow the steps in the 
 1. Add the ADOT SDK and boto3 to your agent’s dependencies. For Python, add the following to your `requirements.txt` file:
 
    ```
-   aws-opentelemetry-distro>=0.10.0
+   aws-opentelemetry-distro>=0.18.0
    boto3
    ```
 
    Alternatively, you can install the dependencies directly:
 
    ```
-   pip install aws-opentelemetry-distro>=0.10.0 boto3
+   pip install aws-opentelemetry-distro>=0.18.0 boto3
    ```
 
 1. Execute your agent code using the OpenTelemetry auto-instrumentation command:
@@ -211,6 +211,7 @@ OTEL environment variables
 
 ```
 AGENT_OBSERVABILITY_ENABLED=true
+AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT=true # Keeps model payloads and tool request/response data on spans. Requires ADOT >=0.18.0.
 OTEL_PYTHON_DISTRO=aws_distro
 OTEL_PYTHON_CONFIGURATOR=aws_configurator # required for ADOT Python only
 OTEL_RESOURCE_ATTRIBUTES=service.name=<agent-name>,aws.log.group.names=/aws/bedrock-agentcore/runtimes/<agent-id>,cloud.resource_id=<AgentEndpointArn:AgentEndpointName> # endpoint is optional
