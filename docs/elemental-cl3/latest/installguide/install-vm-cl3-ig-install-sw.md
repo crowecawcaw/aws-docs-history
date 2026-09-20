@@ -19,8 +19,28 @@
    + {{<product>}} is the file name of the file that you downloaded. For example, `elemental_production_conductor_live247_3.25.5.12345.run`.
    + -l is a letter, not a number. 
 
-1. You are prompted as described in the table below.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/installguide/install-vm-cl3-ig-install-sw.html)
+1. You are prompted as described in the table below.
+
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Enter this server’s Hostname</code></td><td>Accept the suggestion, which is the value that you entered when you installed the OVA.</td></tr>
+  <tr><td><code>Does eth0 use DHCP to get its IP address?</code></td><td>Accept the suggestion.</td></tr>
+  <tr><td><code>Enter eth0's IP address: </code></td><td>If the prompt appears, accept the suggestion.</td></tr>
+  <tr><td><code>Enter eth0's NETMASK:</code></td><td>If the prompt appears, accept the suggestion.</td></tr>
+  <tr><td><code>Enter eth0's Gateway (or type none):</code></td><td>If the prompt appears, accept the suggestion.</td></tr>
+  <tr><td><code>Keep this configured nameserver?</code></td><td>Skip; you set up a nameserver in the next phase of configuration.</td></tr>
+  <tr><td><code>Would you like to configure eth1?</code></td><td>Type <b>No</b>; you can configure eth1 in the next phase of the configuration.</td></tr>
+  <tr><td><code>The firewall for this system is currently disabled. Would you like to enable it?</code></td><td>Skip; you set up the firewall in the next phase of configuration.</td></tr>
+  <tr><td><code>For security purposes, we require that you change the default password.</code></td><td>This prompt is shown if you are still using the default password.</td></tr>
+  <tr><td><code>Would you like to start the Elemental service now?</code></td><td>Type <b>Yes</b>.</td></tr>
+</tbody>
+</table>
+
 
    The software is installed. This message confirms both installation and configuration are complete:
 
