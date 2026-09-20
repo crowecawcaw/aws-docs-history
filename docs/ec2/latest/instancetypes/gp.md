@@ -73,6 +73,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | T3 | t3.nano \| t3.micro \| t3.small \| t3.medium \| t3.large \| t3.xlarge \| t3.2xlarge | 
 | T3a | t3a.nano \| t3a.micro \| t3a.small \| t3a.medium \| t3a.large \| t3a.xlarge \| t3a.2xlarge | 
 | T4g | t4g.nano \| t4g.micro \| t4g.small \| t4g.medium \| t4g.large \| t4g.xlarge \| t4g.2xlarge | 
+| T8i | t8i.nano \| t8i.micro \| t8i.small \| t8i.medium | 
 
 ## Instance family summary
 <a name="gp_summary"></a>
@@ -128,6 +129,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | T3 | [Nitro v2](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✓ Yes | Windows \| Linux | 
 | T3a | [Nitro v2](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✓ Yes | Windows \| Linux | 
 | T4g | [Nitro v2](ec2-nitro-instances.md) | AWS Graviton (arm64) | ✗ No | ✗ No | ✓ Yes | ✓ Yes | Linux | 
+| T8i | [Nitro v6](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✓ Yes | Windows \| Linux | 
 
 ## Performance specifications
 <a name="gp_hardware"></a>
@@ -581,6 +583,11 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
   <tr><td>t4g.large 1</td><td>8.00</td><td>AWS Graviton2 Processor</td><td>2</td><td>2</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td>t4g.xlarge 1</td><td>16.00</td><td>AWS Graviton2 Processor</td><td>4</td><td>4</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td>t4g.2xlarge 1</td><td>32.00</td><td>AWS Graviton2 Processor</td><td>8</td><td>8</td><td>1</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td colspan="8"><b>T8i</b></td></tr>
+  <tr><td>t8i.nano</td><td>0.50</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t8i.micro</td><td>1.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t8i.small</td><td>2.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>t8i.medium</td><td>4.00</td><td>Intel Xeon Granite Rapids</td><td>2</td><td>1</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
 </tbody>
 </table>
 
@@ -1043,6 +1050,11 @@ M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurab
   <tr><td>t4g.large 1 2</td><td>0.512 / 5.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>2</td><td>1</td><td>3</td><td>12</td><td>✓ Yes</td></tr>
   <tr><td>t4g.xlarge 1 2</td><td>1.024 / 5.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>4</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
   <tr><td>t4g.2xlarge 1 2</td><td>2.048 / 5.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>T8i</b></td></tr>
+  <tr><td>t8i.nano 1 2</td><td>0.032 / 6.25</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>2</td><td>2</td><td>✓ Yes</td></tr>
+  <tr><td>t8i.micro 1 2</td><td>0.064 / 6.25</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>2</td><td>2</td><td>✓ Yes</td></tr>
+  <tr><td>t8i.small 1 2</td><td>0.128 / 6.25</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>3</td><td>4</td><td>✓ Yes</td></tr>
+  <tr><td>t8i.medium 1 2</td><td>0.256 / 6.25</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>1</td><td>1</td><td>3</td><td>6</td><td>✓ Yes</td></tr>
 </tbody>
 </table>
 
@@ -1508,6 +1520,11 @@ M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurab
   <tr><td>t4g.large 1</td><td>695.00 / 2780.00</td><td>86.88 / 347.50</td><td>4000.00 / 15700.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 27 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
   <tr><td>t4g.xlarge 1</td><td>695.00 / 2780.00</td><td>86.88 / 347.50</td><td>4000.00 / 15700.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 27 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
   <tr><td>t4g.2xlarge 1</td><td>695.00 / 2780.00</td><td>86.88 / 347.50</td><td>4000.00 / 15700.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 27 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>T8i</b></td></tr>
+  <tr><td>t8i.nano 1</td><td>43.00 / 5000.00</td><td>5.38 / 625.00</td><td>250.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>t8i.micro 1</td><td>87.00 / 5000.00</td><td>10.88 / 625.00</td><td>500.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>t8i.small 1</td><td>174.00 / 5000.00</td><td>21.75 / 625.00</td><td>1500.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>t8i.medium 1</td><td>347.00 / 5000.00</td><td>43.38 / 625.00</td><td>2000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
 </tbody>
 </table>
 
@@ -2128,5 +2145,10 @@ The following table shows the instance store volume configuration for supported 
   <tr><td>t4g.large</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
   <tr><td>t4g.xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
   <tr><td>t4g.2xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td colspan="7"><b>T8i</b></td></tr>
+  <tr><td>t8i.nano</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td>t8i.micro</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td>t8i.small</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td>t8i.medium</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
 </tbody>
 </table>

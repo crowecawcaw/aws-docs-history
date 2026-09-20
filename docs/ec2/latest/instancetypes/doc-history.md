@@ -7,6 +7,7 @@ The following table describes the instance type releases for Amazon EC2.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [T8i instances](#doc-history) | New general purpose T8i instances. | September 15, 2026 | 
 | [R9g and R9gd instances](#doc-history) | New memory optimized instance types powered by AWS Graviton5 processors. R9gd instances feature local NVMe SSD instance storage. | August 31, 2026 | 
 | [C9gd instances](#doc-history) | New compute optimized C9gd instances. | June 30, 2026 | 
 | [C9g instances](#doc-history) | New compute optimized C9g instances. | June 30, 2026 | 
