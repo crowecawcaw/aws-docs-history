@@ -40,8 +40,20 @@ This is the only opportunity for you to save the private key file. Download it a
    + **Allowed Remote Desktop Gateway external access CIDR:** You must specify a CIDR block for allowing external RDP access to the Remote Desktop Gateways on TCP port 3389.
 
 ------
-#### [ Microsoft Remote Desktop Gateway configuration ]    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-remote-desktop-gateway-deployment-steps-existing-vpc-standalone.html)
+#### [ Microsoft Remote Desktop Gateway configuration ]
+
+
+<table>
+<thead>
+  <tr><th>Parameter label (name)</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Number of RDGW hosts</td><td>1</td><td>Enter the number of Remote Desktop Gateway hosts to create.</td></tr>
+  <tr><td>Admin user name</td><td>StackAdmin</td><td>User name for the new local administrator account.</td></tr>
+  <tr><td>Admin password</td><td><b><i>Requires input</i></b></td><td>Password for the administrative account. Must be at least 8 characters containing letters, numbers, and symbols.</td></tr>
+</tbody>
+</table>
+
 
 ------
 

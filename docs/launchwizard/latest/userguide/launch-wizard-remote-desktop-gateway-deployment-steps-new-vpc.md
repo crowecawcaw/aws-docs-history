@@ -24,14 +24,42 @@ The following steps guide you through a Remote Desktop Gateway deployment with A
 **Important**  
 This is the only opportunity for you to save the private key file. Download it and save it in a safe place. You must provide the name of your key pair when you launch an instance and provide the corresponding private key each time that you connect to the instance. Return to the Launch Wizard console and choose the refresh button next to the **Key Pairs** dropdown list. The newly created key pair appears in the dropdown list. For more information about key pairs, see [Amazon EC2 Key Pairs and Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
    + **Availability Zone (AZ) configuration:** You must choose at least two Availability Zones. Deployment will create a highly available architecture that spans these Availability Zones.
-   + **VPC Settings: **Launch Wizard creates your VPC in this case. The following shows Input fields that define VPC configuration.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-remote-desktop-gateway-deployment-steps-new-vpc.html)
+   + **VPC Settings: **Launch Wizard creates your VPC in this case. The following shows Input fields that define VPC configuration.
+
+
+<table>
+<thead>
+  <tr><th>Parameter label (name)</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>VPC tenancy</td><td>default</td><td>The allowed tenancy of instances launched into the VPC.</td></tr>
+  <tr><td>VPC CIDR</td><td>10.0.0.0/16</td><td>CIDR block for the VPC. </td></tr>
+  <tr><td>Private subnet 1 CIDR</td><td>10.0.0.0/19 </td><td>CIDR block for private subnet 1 located in Availability Zone 1. </td></tr>
+  <tr><td>Private subnet 2 CIDR</td><td>10.0.32.0/19 </td><td>CIDR block for private subnet 2 located in Availability Zone 2. </td></tr>
+  <tr><td>Public subnet 1 CIDR</td><td>10.0.128.0/20 </td><td>CIDR Block for the public DMZ subnet 1 located in Availability Zone 1. </td></tr>
+  <tr><td>Public subnet 2 CIDR</td><td>10.0.144.0/20 </td><td>CIDR Block for the public DMZ subnet 2 located in Availability Zone 2. </td></tr>
+  <tr><td>Allowed Remote Desktop Gateway external access CIDR</td><td><b><i>Requires input</i></b></td><td>Allowed CIDR block for external access to the Remote Desktop Gateways.</td></tr>
+</tbody>
+</table>
+
 
 ------
 #### [ Microsoft Remote Desktop Gateway configuration ]
 
-       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-remote-desktop-gateway-deployment-steps-new-vpc.html)
+   
+
+
+<table>
+<thead>
+  <tr><th>Parameter label (name)</th><th>Default value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Number of RDGW hosts</td><td>1</td><td>Enter the number of Remote Desktop Gateway hosts to create.</td></tr>
+  <tr><td>Admin user name</td><td>StackAdmin</td><td>User name for the new local administrator account.</td></tr>
+  <tr><td>Admin password</td><td><b><i>Requires input</i></b></td><td>Password for the administrative account. Must be at least 8 characters containing letters, numbers, and symbols.</td></tr>
+</tbody>
+</table>
+
 
 ------
 
