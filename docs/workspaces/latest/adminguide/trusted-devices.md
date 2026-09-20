@@ -63,26 +63,18 @@ After you have deployed the client certificates on the trusted devices, you can 
 
 1. In the navigation pane, choose **Directories**.
 
-1. Select the directory and then choose **Actions**, **Update Details**.
+1. Choose the directory link for the directory that you want to configure.
 
-1. Expand **Access Control Options**.
+1. In the **Access control options** section, choose **Edit**.
 
-1. Under **For each device type, specify which devices can access WorkSpaces**, choose **Trusted Devices**.
+1. Under **Trusted devices**, for each device type that you want to restrict, open the dropdown and choose **Trusted Devices**. For each device type, you can also choose **Allow all** to allow access without restrictions, or **Deny all** to block access from that device type.
 
 1. Import up to two root certificates. For each root certificate, do the following:
 
-   1. Choose **Import**.
+   1. Choose **Import certificate**.
 
    1. Copy the body of the certificate to the form.
 
    1. Choose **Import**.
 
-1. Specify whether other types of devices have access to WorkSpaces.
-
-   1. Scroll down to the **Other Platforms** section. By default, WorkSpaces Linux clients are disabled, and users can access their WorkSpaces from their iOS devices, Android devices, Web Access, Chromebooks, and PCoIP zero client devices.
-
-   1. Select the device types to enable and clear the device types to disable.
-
-   1. To block access from all selected device types, choose **Block**.
-
-1. Choose **Update and Exit**.
+1. Choose **Save**.

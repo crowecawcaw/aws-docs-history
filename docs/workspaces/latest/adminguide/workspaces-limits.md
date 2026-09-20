@@ -29,6 +29,10 @@ In some Regions, where Service Quotas is not available, you must submit a suppor
 | Graphics.g6f.4xlarge WorkSpaces | 0 | The maximum number of Graphics.g6f.4xlarge in this account in the current Region. | Yes | Yes | 
 | Graphics.gr6f.4xlarge WorkSpaces | 0 | The maximum number of Graphics.gr6f.4xlarge in this account in the current Region. | Yes | Yes | 
 | Graphics.g4dn WorkSpaces | 0 | The maximum number of Graphics.g4dn WorkSpaces in this account in the current Region. | Yes | Yes | 
+| Graphics.g7.2xlarge WorkSpaces | 0 | The maximum number of Graphics.g7.2xlarge in this account in the current Region. | Yes | Yes | 
+| Graphics.g7.4xlarge WorkSpaces | 0 | The maximum number of Graphics.g7.4xlarge in this account in the current Region. | Yes | Yes | 
+| Graphics.g7.8xlarge WorkSpaces | 0 | The maximum number of Graphics.g7.8xlarge in this account in the current Region. | Yes | Yes | 
+| Graphics.g7.12xlarge WorkSpaces | 0 | The maximum number of Graphics.g7.12xlarge in this account in the current Region. | Yes | Yes | 
 | GraphicsPro.g4dn WorkSpaces | 0 | The maximum number of GraphicsPro.g4dn WorkSpaces in this account in the current Region. | Yes | Yes | 
 | GraphicsPro WorkSpaces | 0 | The maximum number of GraphicsPro WorkSpaces in this account in the current Region. (GraphicsPro bundle reaches end-of-life on October 31, 2025. Consider using other supported bundles as a replacement.) | Yes | Yes | 
 | Standby WorkSpaces | 5 | The maximum number of WorkSpaces in this account in the current Region. | Yes | Yes | 

@@ -31,7 +31,7 @@ Following are additional resources for IAM:
 + [Create the workspaces\_DefaultRole Role](#create-default-role)
 + [Create the AmazonWorkSpacesPCAAccess service role](#create-pca-access-role)
 + [AWS managed policies for WorkSpaces](managed-policies.md)
-+ [Access to WorkSpaces and scripts on streaming instances](using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md)
++ [Access to WorkSpaces and scripts on WorkSpaces Pool instances](using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md)
 + [Amazon WorkSpaces Console operations permissions reference](wsp-console-permissions-ref.md)
 
 ## Example policies
@@ -228,6 +228,9 @@ The following example policy shows how to allow an IAM user to use Amazon WorkSp
 
 The following policy statement grants an IAM user permission to perform all WorkSpaces Pools tasks.
 
+**Note**  
+This example uses the `aws` partition in the `iam:CreateServiceLinkedRole` resource ARN. In the AWS GovCloud (US) Regions, use the `aws-us-gov` partition instead (for example, `arn:aws-us-gov:iam::*:role/aws-service-role/...`). For more information, see [Amazon Resource Names (ARNs) in AWS GovCloud (US) Regions](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-arns.html).
+
 ------
 #### [ JSON ]
 
@@ -373,6 +376,9 @@ The following policy statement grants an IAM user permission to perform all Work
 <a name="wsp_iam_resource"></a>
 
 To specify an WorkSpaces resource in the `Resource` element of the policy statement, use the Amazon Resource Name (ARN) of the resource. You control access to your WorkSpaces resources by either allowing or denying permissions to use the API actions that are specified in the `Action` element of your IAM policy statement. WorkSpaces defines ARNs for WorkSpaces, bundles, IP groups, and directories.
+
+**Note**  
+The ARN examples in this section use the `aws` partition, which applies to standard AWS Regions. If you're working in the AWS GovCloud (US) Regions, use the `aws-us-gov` partition instead (for example, `arn:aws-us-gov:workspaces:us-gov-west-1:{{account_id}}:workspace/{{workspace_identifier}}`), and specify `us-gov-west-1` or `us-gov-east-1` for the Region. For more information, see [Amazon Resource Names (ARNs) in AWS GovCloud (US) Regions](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-arns.html) in the *AWS GovCloud (US) User Guide*.
 
 ### WorkSpace ARN
 <a name="wsp_arn_syntax"></a>
@@ -721,5 +727,7 @@ Before users can login using certificate-based authentication, you must verify t
    ```
 
    ```
-   aws iam attach-role-policy —role-name AmazonWorkSpacesPCAAccess —policy-arn arn:aws:iam::aws:policy/AmazonWorkspacesPCAAccess
+   aws iam attach-role-policy --role-name AmazonWorkSpacesPCAAccess --policy-arn arn:aws:iam::aws:policy/AmazonWorkspacesPCAAccess
    ```
+**Note**  
+In the AWS GovCloud (US) Regions, use the `aws-us-gov` partition in the managed policy ARN: `arn:aws-us-gov:iam::aws:policy/AmazonWorkspacesPCAAccess`. For more information, see [Amazon Resource Names (ARNs) in AWS GovCloud (US) Regions](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-arns.html).

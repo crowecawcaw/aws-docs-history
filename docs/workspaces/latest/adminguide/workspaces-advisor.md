@@ -3,14 +3,16 @@
 # What is Amazon WorkSpaces Advisor?
 <a name="workspaces-advisor"></a>
 
-Amazon WorkSpaces Advisor is an AI-powered feature that helps you identify and resolve issues impacting your WorkSpaces Personal resources. WorkSpaces Advisor reviews telemetry, knowledge bases, and best practices to surface issues with recommended remediation actions — directly in the Amazon WorkSpaces console.
+Amazon WorkSpaces Advisor is an AI-powered feature that helps you identify and resolve issues impacting your WorkSpaces Personal resources. You start an investigation by describing the problem you're experiencing in your own words. WorkSpaces Advisor then reviews telemetry, knowledge bases, and best practices, anchored to your description. It surfaces the most relevant issues, along with recommended remediation actions, directly in the Amazon WorkSpaces console.
 
 With WorkSpaces Advisor, you can:
-+ Investigate a WorkSpace and receive a list of identified issues
++ Describe the issue you're experiencing so Advisor can focus its investigation
++ Investigate a WorkSpace and receive the issues most relevant to what you described
 + Review supporting telemetry data, including Amazon CloudWatch metrics, for each issue
 + Take recommended remediation actions
 + Chat with WorkSpaces Advisor for follow-up questions through Amazon Q Developer
 + Create a support case pre-populated with investigation context
++ Get guided help creating a personal WorkSpace with recommended defaults (see [Create a WorkSpace using guided setup](create-workspaces-guided.md))
 
 WorkSpaces Advisor is available in all AWS Regions that support Amazon WorkSpaces Personal at no additional cost.
 
@@ -24,24 +26,17 @@ WorkSpaces Advisor is available in all AWS Regions that support Amazon WorkSpace
 ## How investigations work
 <a name="workspaces-advisor-how-it-works"></a>
 
-When you initiate an investigation, WorkSpaces Advisor deploys AI agents to analyze data from the selected WorkSpace over the past 3 days. The analysis typically completes in under 60 seconds.
+To start an investigation, select a WorkSpace and choose **Investigate**. On the **Investigate with Advisor** screen, describe the problem you're experiencing, for example, the symptoms or any error messages observed, so WorkSpaces Advisor can focus its investigation. Do not include personally identifiable or confidential information. When you choose **Investigate**, WorkSpaces Advisor deploys AI agents to analyze data from the selected WorkSpace. The analysis typically completes in under 60 seconds.
 
-WorkSpaces Advisor returns a list of identified issues ordered by severity. For each issue, WorkSpaces Advisor provides at least one recommended action along with alternatives. Each action includes a severity level (Critical, High, Medium, or Low) and describes the risk and impact to your resources.
+WorkSpaces Advisor returns the issues most relevant to what you reported. For each issue, WorkSpaces Advisor provides at least one recommended action, describes the risk and impact to your resources, and might offer alternative actions.
 
-If WorkSpaces Advisor does not identify your issue, you can provide feedback through the console or create a support case with AWS Support.
+Describing the issue is optional. If you leave the description blank, WorkSpaces Advisor runs a broad scan of the WorkSpace instead.
+
+If WorkSpaces Advisor cannot identify your issue, it tells you the issue needs a specialist and offers to create an AWS Support case pre-populated with the investigation context. You can also provide feedback through the console.
 
 ### Investigation limits
 <a name="workspaces-advisor-limits"></a>
 + You can investigate one WorkSpace at a time.
-
-### Issue severity levels
-<a name="workspaces-advisor-severity"></a>
-
-WorkSpaces Advisor categorizes issues by the following severity levels (for example):
-+ **Critical** — The user cannot connect to the WorkSpace or the WorkSpace is unresponsive.
-+ **High** — The user experience is significantly degraded (for example, high latency or frequent disconnections).
-+ **Medium** — The WorkSpace is functional but performance is below optimal levels (for example, elevated CPU or memory usage).
-+ **Low** — A potential issue or configuration gap that may not currently affect the user.
 
 ### Data accessed by WorkSpaces Advisor
 <a name="workspaces-advisor-data"></a>
@@ -64,7 +59,11 @@ WorkSpaces Advisor accesses the following data to perform investigations:
 
 1. Choose **Investigate**.
 
-1. Review the list of identified issues. Choose an issue to view details, including supporting telemetry and recommended actions.
+1. On the **Investigate with Advisor** screen, describe the issue you're experiencing. Include any symptoms or error messages observed so WorkSpaces Advisor can focus its investigation. Do not include personally identifiable or confidential information. (This step is optional; leave it blank to run a broad scan.)
+
+1. Choose **Investigate** to start the investigation.
+
+1. Review the identified issues, which are focused on what you described. Choose an issue to view details, including supporting telemetry and the recommended action.
 
 1. Review the risk and impact information for the recommended action, then choose the action to initiate it.
 

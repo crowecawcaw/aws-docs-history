@@ -11,7 +11,7 @@ As a WorkSpace administrator, you must understand how to manage WorkSpaces netwo
 Amazon WorkSpaces supports two protocols: PCoIP and DCV. The protocol that you choose depends on several factors, such as the type of devices your users will be accessing their WorkSpaces from, which operating system is on your WorkSpaces, what network conditions your users will be facing, and whether your users require bidirectional video support.
 
 ### Requirements
-<a name="w2aac11c27b5b5"></a>
+<a name="w2aac11c29b5b5"></a>
 
 DCV WorkSpaces are only supported with the following minimum requirements.
 
@@ -32,7 +32,7 @@ Client requirements:
 For more information about how to check your WorkSpace client version and host agent version, see the [FAQ](https://aws.amazon.com/workspaces/faqs/#:~:text=Q%3A%20How%20do%20I%20find%20my%20WSP%20host%20agent%20version%3F).
 
 ### When to use DCV
-<a name="w2aac11c27b5b7"></a>
+<a name="w2aac11c29b5b7"></a>
 + If you need higher loss/latency tolerance to support your end user network conditions. For example, you have users who are accessing their WorkSpaces across global distances or using unreliable networks.
 + If you need your users to authenticate with smart cards or to use smart cards in-session.
 + If you need webcam support capabilities in-session.
@@ -40,12 +40,12 @@ For more information about how to check your WorkSpace client version and host a
 + If you need to use Ubuntu WorkSpaces.
 + If you need to use Windows 11 BYOL WorkSpaces.
 + If you need to use GPU-enabled WorkSpaces bundles with Windows.
-+ If you need to use Windows GPU-based bundles (Graphics.g6, Graphics.g4dn and GraphicsPro.g4dn) or Ubuntu GPU-based bundles (Graphics.g4dn and GraphicsPro.g4dn).
++ If you need to use Windows GPU-based bundles (Graphics G7, Graphics.g6, Graphics.g4dn, and GraphicsPro.g4dn) or Ubuntu GPU-based bundles (Graphics.g4dn and GraphicsPro.g4dn).
 + If you need your users to authenticate in-session with WebAuthn authenticators such as YubiKey or Windows Hello.
 + If you need nested virtualization to run hypervisors such as Hyper-V or KVM inside your WorkSpace (for example, for Docker Desktop or WSL2).
 
 ### When to use PCoIP
-<a name="w2aac11c27b5b9"></a>
+<a name="w2aac11c29b5b9"></a>
 + If you want to use the iPad or Android Linux clients.
 + If you use Teradici zero client devices.
 + If you need to use a Linux bundle for non-smart card use cases.

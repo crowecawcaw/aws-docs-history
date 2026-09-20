@@ -48,7 +48,7 @@ Data replication is an add-on feature of standby WorkSpaces that replicates data
   + Europe (Frankfurt) Region
   + Europe (Ireland) Region
 + WorkSpaces Multi-Region Resilience is only supported on version 3.0.9 or later of the Linux, macOS, and Windows WorkSpaces client applications. You can also use Multi-Region Resilience with Web Access.
-+ WorkSpaces Multi-Region Resilience supports Windows and Bring Your Own License (BYOL) WorkSpaces. It doesn't support Amazon Linux 2, Ubuntu, Red Hat Enterprise Linux, GeneralPurpose.4xlarge, GeneralPurpose.8xlarge, or GPU-enabled WorkSpaces (e.g., Graphics G6, Graphics.g4dn, or GraphicsPro.g4dn).
++ WorkSpaces Multi-Region Resilience supports Windows and Bring Your Own License (BYOL) WorkSpaces. It doesn't support Amazon Linux 2, Ubuntu, Red Hat Enterprise Linux, GeneralPurpose.4xlarge, GeneralPurpose.8xlarge, or GPU-enabled WorkSpaces (e.g., Graphics G7, Graphics G6, Graphics.g4dn, or GraphicsPro.g4dn).
 + After failover or failback completes, wait 15 to 30 minutes before connecting to your WorkSpace.
 + Nested virtualization is not supported on Standby WorkSpaces. For more information, see [Nested virtualization for WorkSpaces Personal](https://docs.aws.amazon.com/workspaces/latest/adminguide/nested-virtualization.html).
 

@@ -299,7 +299,7 @@ For more information about configuring the proxy settings in the WorkSpaces macO
 For more information about configuring the proxy settings in the WorkSpaces Web Access client application, see [ Proxy Server](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-web-access.html#web-access-proxy) in the *Amazon WorkSpaces User Guide*.
 
 ### Proxying desktop traffic
-<a name="w2aac11c33c15c39c15"></a>
+<a name="w2aac11c35c15c39c15"></a>
 
 For PCoIP WorkSpaces, the desktop client applications do not support the use of a proxy server nor TLS decryption and inspection for port 4172 traffic in UDP (for desktop traffic). They require a direct connection to ports 4172. 
 
@@ -311,7 +311,7 @@ DCV does not support the use of proxy for desktop traffic over UDP. Only WorkSpa
 If you choose to use a proxy server, the API calls that the client application makes to the WorkSpaces services are also proxied. Both API calls and desktop traffic should pass through the same proxy server. 
 
 ### Recommendation on the use of proxy servers
-<a name="w2aac11c33c15c39c17"></a>
+<a name="w2aac11c35c15c39c17"></a>
 
 We do not recommend the use of a proxy server with your WorkSpaces desktop traffic.
 

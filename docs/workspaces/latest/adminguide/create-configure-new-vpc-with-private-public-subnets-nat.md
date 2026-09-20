@@ -127,8 +127,19 @@ After you've created and configured your VPC, complete the following steps to sp
 
    1. Select the route table. Under **Name**, choose the edit icon (the pencil), and type a name (for example, `workspaces-public-routetable`), and then select the check mark to save the name.
 
-   1. With the public route table still selected, on the **Routes** tab, verify that there is one route for local traffic and another route that sends all other traffic to the internet gateway for the VPC. The following table describes these two routes:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/adminguide/create-configure-new-vpc-with-private-public-subnets-nat.html)
+   1. With the public route table still selected, on the **Routes** tab, verify that there is one route for local traffic and another route that sends all other traffic to the internet gateway for the VPC. The following table describes these two routes:
+
+
+<table>
+<thead>
+  <tr><th>Destination</th><th>Target</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Public subnet IPv4 CIDR Block (for example, 10.0.0/20)</td><td>Local</td><td>All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC.</td></tr>
+  <tr><td>Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0</td><td>Outbound (<code>igw-</code>{{ID}})</td><td>Traffic destined for all other IPv4 addresses is routed to the internet gateway (identified by <code>igw-</code>{{ID}}) that was created by the VPC Wizard.</td></tr>
+</tbody>
+</table>
+
 
 1. In the navigation pane, choose **Subnets**, and select the first private subnet that you created (for example, `WorkSpaces Private Subnet1`).
 
@@ -136,8 +147,20 @@ After you've created and configured your VPC, complete the following steps to sp
 
    1. Select the route table. Under **Name**, choose the edit icon (the pencil), and enter a name (for example, `workspaces-private-routetable`), and then choose the check mark to save the name.
 
-   1. On the **Routes** tab, verify that the route table includes the following routes:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/adminguide/create-configure-new-vpc-with-private-public-subnets-nat.html)
+   1. On the **Routes** tab, verify that the route table includes the following routes:
+
+
+<table>
+<thead>
+  <tr><th>Destination</th><th>Target</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Public subnet IPv4 CIDR Block (for example, 10.0.0/20)</td><td>Local</td><td>All traffic from the resources destined for IPv4 addresses within the public subnet IPv4 CIDR block is routed locally within the VPC.</td></tr>
+  <tr><td>Traffic destined to all other IPv4 addresses (for example, 0.0.0.0/0</td><td>Outbound (<code>nat-</code>{{ID}})</td><td>Traffic destined for all other IPv4 addresses is routed to the NAT gateway (identified by <code>nat-</code>{{ID}}).</td></tr>
+  <tr><td>Traffic destined for S3 buckets (applicable if you specified an S3 endpoint)<br /> [<code>pl-</code>{{ID}} (<code>com.amazonaws.</code>{{region}}<code>.s3</code>)]</td><td>Storage (<code>vpce-</code>{{ID}})</td><td>Traffic destined for S3 buckets is routed to the S3 endpoint (identified by <code>vpce-</code>{{ID}}).</td></tr>
+</tbody>
+</table>
+
 
 1. In the navigation pane, choose **Subnets**, and select the second private subnet that you created (for example, `WorkSpaces Private Subnet2`). 
 

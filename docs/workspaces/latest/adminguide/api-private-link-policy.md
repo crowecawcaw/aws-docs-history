@@ -21,7 +21,7 @@ The following example VPC endpoint policy specifies that all users who have acce
          {
              "Action": "workspaces:*",
              "Effect": "Allow",
-             "Resource": "arn:aws:workspaces:us-west-2:1234567891011:workspace/ws-f9abcdefg",
+             "Resource": "arn:aws:workspaces:us-west-2:{{111122223333}}:workspace/ws-f9abcdefg",
              "Principal": "*"
          }
      ]

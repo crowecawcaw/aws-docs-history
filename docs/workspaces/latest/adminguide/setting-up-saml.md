@@ -82,43 +82,40 @@ To create an IAM role for SAML IdP
 
 1.  For **Role type**, choose **SAML 2.0 federation**. 
 
-1.  For **SAML Provider** select the SAML IdP that you created. 
-**Important**  
-Don't choose either of the two SAML 2.0 access methods, **Allow programmatic access only** or **Allow programmatic and Amazon Web Services Management Console access**.
+1.  For **SAML Provider**, select the SAML IdP that you created. 
 
-1. For **Attribute**, choose **SAML:sub\_type**.
+1. For **Condition**, choose **Add condition**, and then do the following:
 
-1. For **Value** enter `persistent`. This value restricts role access to SAML user streaming requests that include a SAML subject type assertion with a value of persistent. If the SAML:sub\_type is persistent, your IdP sends the same unique value for the NameID element in all SAML requests from a particular user. For more information about the SAML:sub\_type assertion, see the **Uniquely identifying users in SAML-based federation** section in [ Using SAML-based federation for API access to AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html#CreatingSAML-configuring).
+   1. For **Key**, choose **SAML:sub\_type**.
 
-1. Review your SAML 2.0 trust information, confirming the correct trusted entity and condition, and then choose **Next: Permissions**. 
+   1. For **Condition**, choose **StringEquals**.
 
-1. On the **Attach permissions policies** page, choose **Next: Tags**.
+   1. For **Value**, enter `persistent`.
 
-1. (Optional) Enter a key and value for each tag that you want to add. For more information, see [Tagging IAM users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html).
+   This value restricts role access to SAML user streaming requests. The request must include a SAML subject type assertion with a value of persistent. If the SAML:sub\_type attribute is set to persistent, your IdP sends the same unique value for the NameID element in all SAML requests from a particular user. For more information about the SAML:sub\_type assertion, see the **Uniquely identifying users in SAML-based federation** section in [ Using SAML-based federation for API access to AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html#CreatingSAML-configuring).
 
-1. When you're done, choose **Next: Review**. You'll create and embed an inline policy for this role later.
+1. Choose **Next**.
 
-1. For **Role name**, enter a name that identifies the purpose of this role. Because multiple entities might reference the role, you can't edit the role's name once it is created.
+1. On the **Add permissions** page, choose **Next**. Don't add a permissions policy here. You embed an inline policy for this role later, in [Step 3: Embed an inline policy for the IAM role](#embed-inline-policy).
 
-1. (Optional) For **Role description**, enter a description for the new role.
+1. On the **Name, review, and create** page, for **Role name**, enter a name that identifies the purpose of this role. Because multiple entities might reference the role, you can't edit the role's name after it is created.
 
-1. Review the role details and choose **Create role**.
+1. (Optional) For **Description**, enter a description for the new role.
 
-1. Add the sts:TagSession permission to your new IAM role's trust policy. For more information, see [Passing session tags in AWS STS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html). In your new IAM role's details, choose the **Trust relationships** tab, and then choose **Edit trust relationship\***. When Edit Trust Relationship policy editor opens, add the **sts:TagSession\*** permission, as follows:
+1. (Optional) Under **Step 3: Add tags**, choose **Add new tag** and enter a key and value for each tag that you want to add. For more information, see [Tagging IAM users and roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html).
 
-------
-#### [ JSON ]
+1. Choose **Create role**.
 
-****  
+1. Add the `sts:TagSession` permission to your new IAM role's trust policy. For more information, see [Passing session tags in AWS STS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html). In your new IAM role's details, choose the **Trust relationships** tab, and then choose **Edit trust policy**. When the Edit trust policy editor opens, add the `sts:TagSession` permission so that the policy matches the following:
 
    ```
    {
-       "Version":"2012-10-17",		 	 	 
+       "Version": "2012-10-17",
        "Statement": [
            {
                "Effect": "Allow",
                "Principal": {
-                   "Federated": "arn:aws:iam::{{111122223333}}:saml-provider/IDENTITY-PROVIDER"
+                   "Federated": "arn:aws:iam::{{111122223333}}:saml-provider/{{IDENTITY-PROVIDER}}"
                },
                "Action": [
                    "sts:AssumeRoleWithSAML",
@@ -126,7 +123,10 @@ Don't choose either of the two SAML 2.0 access methods, **Allow programmatic acc
                ],
                "Condition": {
                    "StringEquals": {
-                       "SAML:aud": "https://signin.aws.amazon.com/saml"
+                       "SAML:sub_type": "persistent"
+                   },
+                   "StringLike": {
+                       "SAML:aud": "https://*signin.aws.amazon.com/saml*"
                    }
                }
            }
@@ -134,9 +134,7 @@ Don't choose either of the two SAML 2.0 access methods, **Allow programmatic acc
    }
    ```
 
-------
-
-Replace `IDENTITY-PROVIDER` with the name of the SAML IdP you created in Step 1. Then choose **Update Trust Policy**.
+In the policy, {{IDENTITY-PROVIDER}} matches the name of the SAML IdP that you selected in Step 1, and {{111122223333}} is your AWS account ID. After you add the `sts:TagSession` permission, choose **Update policy**.
 
 ## Step 3: Embed an inline policy for the IAM role
 <a name="embed-inline-policy"></a>
@@ -275,9 +273,28 @@ You can use the WorkSpaces console to enable SAML 2.0 authentication on the Work
 
 1. Check **Enable SAML 2.0 authentication**.
 
-1. For the **User Access URL** and **IdP deep link parameter name**, enter values that are applicable to your IdP and the application you have configured in Step 1. The default value for the IdP deep link parameter name is “RelayState“ if you omit this parameter. The following table lists user access URL and parameter names that are unique to various identity providers for applications.   
-**Domains and IP addresses to add to your allow list**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/adminguide/setting-up-saml.html)
+1. For the **User Access URL** and **IdP deep link parameter name**, enter values that are applicable to your IdP and the application you have configured in Step 1. The default value for the IdP deep link parameter name is “RelayState“ if you omit this parameter. The following table lists user access URL and parameter names that are unique to various identity providers for applications. 
+
+
+**Domains and IP addresses to add to your allow list**  
+
+<table>
+<thead>
+  <tr><th>Identity provider</th><th>Parameter</th><th>User access URL</th></tr>
+</thead>
+<tbody>
+  <tr><td>ADFS</td><td><code>RelayState</code></td><td><code>https://&lt;host&gt;/adfs/ls/idpinitiatedsignon.aspx?RelayState=RPID=&lt;relaying-party-uri&gt;</code></td></tr>
+  <tr><td>Azure AD</td><td><code>RelayState</code></td><td><code>https://myapps.microsoft.com/signin/&lt;app_id&gt;?tenantId=&lt;tenant_id&gt;</code></td></tr>
+  <tr><td>Duo Single Sign-On</td><td><code>RelayState</code></td><td><code>https://&lt;sub-domain&gt;.sso.duosecurity.com/saml2/sp/&lt;app_id&gt;/sso</code></td></tr>
+  <tr><td>Okta</td><td><code>RelayState</code></td><td><code>https://&lt;sub_domain&gt;.okta.com/app/&lt;app_name&gt;/&lt;app_id&gt;/sso/saml</code></td></tr>
+  <tr><td>OneLogin</td><td><code>RelayState</code></td><td><code>https://&lt;sub-domain&gt;.onelogin.com/trust/saml2/http-post/sso/&lt;app-id&gt;</code></td></tr>
+  <tr><td>JumpCloud</td><td><code>RelayState</code></td><td><code>https://sso.jumpcloud.com/saml2/&lt;app-id&gt;</code></td></tr>
+  <tr><td>Auth0</td><td><code>RelayState</code></td><td><code>https://&lt;DefaultTenatName&gt;.us.auth0.com/samlp/&lt;Client_Id&gt;</code></td></tr>
+  <tr><td>PingFederate</td><td><code>TargetResource</code></td><td><code>https://&lt;host&gt;/idp/startSSO.ping?PartnerSpId=&lt;sp_id&gt;</code></td></tr>
+  <tr><td>PingOne for Enterprise</td><td><code>TargetResource</code></td><td><code>https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=&lt;app_id&gt;&amp;idpid=&lt;idp_id&gt;</code></td></tr>
+</tbody>
+</table>
+
 
    The user access URL is usually defined by the provider for unsolicited IdP-initiated SSO. A user can enter this URL in a web browser to federate directly to the SAML application. To test the user access URL and parameter values for your IdP, choose **Test**. Copy and paste the test URL to a private window in your current browser or another browser to test the SAML 2.0 logon without disrupting your current AWS management console session. When IdP-initiated flow opens, you can register your WorkSpaces client. For more information, see [ Identity provider (IdP)-initiated flow](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-saml.html).
 

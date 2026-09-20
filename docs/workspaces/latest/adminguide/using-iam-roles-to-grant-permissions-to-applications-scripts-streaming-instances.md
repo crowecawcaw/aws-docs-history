@@ -1,25 +1,27 @@
 
 
-# Access to WorkSpaces and scripts on streaming instances
+# Access to WorkSpaces and scripts on WorkSpaces Pool instances
 <a name="using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances"></a>
 
-Applications and scripts that run on WorkSpaces streaming instances must include AWS credentials in their AWS API requests. You can create an IAM role to manage these credentials. An IAM role specifies a set of permissions that you can use to access AWS resources. This role is not uniquely associated with one person, however. Instead, it can be assumed by anyone that needs it.
+In this topic, *WorkSpaces Pool instances* are the streaming instances that run your WorkSpaces Pools. This topic applies to WorkSpaces Pools and does not apply to WorkSpaces Personal.
 
-You can apply an IAM role to a WorkSpaces streaming instance. When the streaming instance switches to (assumes) the role, the role provides temporary security credentials. Your application or scripts use these credentials to perform API actions and management tasks on the streaming instance. WorkSpaces manages the temporary credential switch for you.
+Applications and scripts that run on WorkSpaces Pool instances must include AWS credentials in their AWS API requests. You can create an IAM role to manage these credentials. An IAM role specifies a set of permissions that you can use to access AWS resources. This role is not uniquely associated with one person, however. Instead, it can be assumed by anyone that needs it.
+
+You can apply an IAM role to a WorkSpaces Pool instance. When the WorkSpaces Pool instance switches to (assumes) the role, the role provides temporary security credentials. Your application or scripts use these credentials to perform API actions and management tasks on the WorkSpaces Pool instance. WorkSpaces manages the temporary credential switch for you.
 
 **Topics**
-+ [Best Practices for Using IAM Roles With WorkSpaces Streaming Instances](#best-practices-for-using-iam-role-with-streaming-instances)
-+ [Configuring an Existing IAM Role to Use With WorkSpaces Streaming Instances](#configuring-existing-iam-role-to-use-with-streaming-instances)
-+ [How to Create an IAM Role to Use With WorkSpaces Streaming Instances](#how-to-create-iam-role-to-use-with-streaming-instances)
-+ [How to Use the IAM Role With WorkSpaces Streaming Instances](#how-to-use-iam-role-with-streaming-instances)
++ [Best Practices for Using IAM Roles With WorkSpaces Pool instances](#best-practices-for-using-iam-role-with-streaming-instances)
++ [Configuring an Existing IAM Role to Use With WorkSpaces Pool instances](#configuring-existing-iam-role-to-use-with-streaming-instances)
++ [How to Create an IAM Role to Use With WorkSpaces Pool instances](#how-to-create-iam-role-to-use-with-streaming-instances)
++ [How to Use the IAM Role With WorkSpaces Pool instances](#how-to-use-iam-role-with-streaming-instances)
 
-## Best Practices for Using IAM Roles With WorkSpaces Streaming Instances
+## Best Practices for Using IAM Roles With WorkSpaces Pool instances
 <a name="best-practices-for-using-iam-role-with-streaming-instances"></a>
 
-When you use IAM roles with WorkSpaces streaming instances, we recommend that you follow these practices:
+When you use IAM roles with WorkSpaces Pool instances, we recommend that you follow these practices:
 + Limit the permissions that you grant to AWS API actions and resources.
 
-  Follow least privilege principles when you create and attach IAM policies to the IAM roles associated with WorkSpaces streaming instances. When you use an application or script that requires access to AWS API actions or resources, determine the specific actions and resources that are required. Then, create policies that allow the application or script to perform only those actions. For more information, see [Grant Least Privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege) in the *IAM User Guide*.
+  Follow least privilege principles when you create and attach IAM policies to the IAM roles associated with WorkSpaces Pool instances. When you use an application or script that requires access to AWS API actions or resources, determine the specific actions and resources that are required. Then, create policies that allow the application or script to perform only those actions. For more information, see [Grant Least Privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege) in the *IAM User Guide*.
 + Create an IAM role for each WorkSpaces resource.
 
   Creating a unique IAM role for each WorkSpaces resource is a practice that follows least privilege principles. Doing so also lets you modify permissions for a resource without affecting other resources.
@@ -27,7 +29,7 @@ When you use IAM roles with WorkSpaces streaming instances, we recommend that yo
 
   IAM policies let you define the conditions under which your IAM role can be used to access a resource. For example, you can include conditions to specify a range of IP addresses that requests can come from. Doing so prevents the credentials from being used outside of your environment. For more information, see [Use Policy Conditions for Extra Security](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#use-policy-conditions) in the *IAM User Guide*.
 
-## Configuring an Existing IAM Role to Use With WorkSpaces Streaming Instances
+## Configuring an Existing IAM Role to Use With WorkSpaces Pool instances
 <a name="configuring-existing-iam-role-to-use-with-streaming-instances"></a>
 
 This topic describes how to configure an existing IAM role so that you can use it with WorkSpaces .
@@ -35,7 +37,7 @@ This topic describes how to configure an existing IAM role so that you can use i
 **Prerequisites**
 
 The IAM role that you want to use with WorkSpaces must meet the following prerequisites:
-+ The IAM role must be in the same Amazon Web Services account as the WorkSpaces streaming instance.
++ The IAM role must be in the same Amazon Web Services account as the WorkSpaces Pool instance.
 + The IAM role cannot be a service role.
 + The trust relationship policy that is attached to the IAM role must include the WorkSpaces service as the principal. A *principal* is an entity in AWS that can perform actions and access resources. The policy must also include the `sts:AssumeRole` action. This policy configuration defines WorkSpaces as a trusted entity.
 
@@ -82,9 +84,9 @@ To perform the following steps, you must sign into the account as an IAM user wh
 
 1. When you are finished editing your trust policy, choose **Update Trust Policy** to save your changes. 
 
-1. The IAM role that you selected will display in the WorkSpaces console. This role grants permissions to applications and scripts to perform API actions and management tasks on streaming instances.
+1. The IAM role that you selected will display in the WorkSpaces console. This role grants permissions to applications and scripts to perform API actions and management tasks on WorkSpaces Pool instances.
 
-## How to Create an IAM Role to Use With WorkSpaces Streaming Instances
+## How to Create an IAM Role to Use With WorkSpaces Pool instances
 <a name="how-to-create-iam-role-to-use-with-streaming-instances"></a>
 
 This topic describes how to create a new IAM role so that you can use it with WorkSpaces
@@ -115,7 +117,7 @@ This topic describes how to create a new IAM role so that you can use it with Wo
 
 1. Review the role, and then choose **Create role**.
 
-## How to Use the IAM Role With WorkSpaces Streaming Instances
+## How to Use the IAM Role With WorkSpaces Pool instances
 <a name="how-to-use-iam-role-with-streaming-instances"></a>
 
 After you create an IAM role, you can apply it to WorkSpaces when you launch WorkSpaces. You can also apply an IAM role to existing WorkSpaces.
@@ -124,17 +126,17 @@ When you apply an IAM role to WorkSpaces, WorkSpaces retrieves temporary credent
 
 When you make the API calls, specify **workspaces\_machine\_role** as the credential profile. Otherwise, the operation fails due to insufficient permissions.
 
-WorkSpaces assumes the specified role while the streaming instance is provisioned. Because WorkSpaces uses the elastic network interface that is attached to your VPC for AWS API calls, your application or script must wait for the elastic network interface to become available before making AWS API calls. If API calls are made before the elastic network interface is available, the calls fail.
+WorkSpaces assumes the specified role while the WorkSpaces Pool instance is provisioned. Because WorkSpaces uses the elastic network interface that is attached to your VPC for AWS API calls, your application or script must wait for the elastic network interface to become available before making AWS API calls. If API calls are made before the elastic network interface is available, the calls fail.
 
-The following examples show how you can use the **workspaces\_machine\_role** credential profile to describe streaming instances (EC2 instances) and to create the Boto client. Boto is the Amazon Web Services (AWS) SDK for Python. 
+The following examples show how you can use the **workspaces\_machine\_role** credential profile to describe EC2 instances and to create the Boto client. Boto is the Amazon Web Services (AWS) SDK for Python. 
 
-**Describe Streaming Instances (EC2 instances) by Using the AWS CLI**
+**Describe EC2 instances by Using the AWS CLI**
 
 ```
 aws ec2 describe-instances --region us-east-1 --profile workspaces_machine_role
 ```
 
-**Describe Streaming Instances (EC2 instances) by Using AWS Tools for PowerShell**
+**Describe EC2 instances by Using AWS Tools for PowerShell**
 
 You must use AWS Tools for PowerShell version 3.3.563.1 or later, with the Amazon Web Services SDK for .NET version 3.3.103.22 or later. You can download the AWS Tools for Windows installer, which includes AWS Tools for PowerShell and the Amazon Web Services SDK for .NET, from the [AWS Tools for PowerShell](https://aws.amazon.com/powershell/) website.
 

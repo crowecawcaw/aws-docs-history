@@ -10,7 +10,7 @@ You can migrate a WorkSpace from one bundle to another, while retaining the data
 + You can migrate WorkSpaces from the Windows 7 desktop experience to the Windows 10 desktop experience.
 + You can migrate WorkSpaces from the PCoIP protocol to DCV. If you want to change only the streaming protocol, use the Modify protocols feature instead. Modify protocols retains your root volume and does not require a rebuild. For more information, see [Modify protocols](https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html#modify_protocols). Use the Migrate feature described in this section when you need to change the bundle or operating system.
 + You can migrate WorkSpaces from the 32-bit Microsoft Office on Windows Server 2016-powered WorkSpaces bundle to the 64-bit Microsoft Office on Windows Server 2019 and Windows Server 2022-powered WorkSpaces bundles.
-+ You can migrate WorkSpaces from one public or custom bundle to another. For example, you can migrate from GPU-enabled (Graphics.g6, Graphics.g4dn. GraphicsPro.g4dn, Graphics, and GraphicsPro) bundles to non-GPU-enabled bundles, as well as in the other direction.
++ You can migrate WorkSpaces from one public or custom bundle to another. For example, you can migrate from GPU-enabled (Graphics.g7, Graphics.g6, Graphics.g4dn, GraphicsPro.g4dn, Graphics, and GraphicsPro) bundles to non-GPU-enabled bundles, as well as in the other direction.
 + You can migrate WorkSpaces from the Windows 10 BYOL to the Windows 11 BYOL but migration from Windows 11 to Windows 10 is not supported.
 + Value bundles are not supported on Windows 11. To migrate your Windows 7 or 10 value bundle WorkSpaces to Windows 11, you need to switch your Value WorkSpaces to a bigger bundle offering first. 
 + Before migrating WorkSpaces from Windows 7 to Windows 11, you need to migrate it to Windows 10. Log in to Windows 10 WorkSpace at least once before migrating it to Windows 11. Migrating from Windows 7 WorkSpaces directly to Windows 11 is not supported.
@@ -41,7 +41,7 @@ The migration process takes up to one hour per WorkSpace. When you initiate the 
 + You cannot migrate to a public or custom Windows 7 desktop experience bundle. You also cannot migrate to Bring Your Own License (BYOL) Windows 7 bundles.
 + You can migrate BYOL WorkSpaces only to other BYOL bundles. To migrate a BYOL WorkSpace from PCoIP to DCV, you must first create a BYOL bundle with the DCV protocol. You can then migrate your PCoIP BYOL WorkSpaces to that DCV BYOL bundle. 
 + You cannot migrate a WorkSpace created from public or custom bundles to a BYOL bundle.
-+ DCV Protocol supports Graphics G6 bundles, Graphics.g4dn, and GraphicsPro.g4dn on Windows. On Ubuntu, only Graphics.g4dn and GraphicsPro.g4dn are available.
++ DCV Protocol supports Graphics.g7, Graphics.g6, Graphics.g4dn, and GraphicsPro.g4dn bundles on Windows. On Ubuntu, only Graphics.g4dn and GraphicsPro.g4dn are available.
 + PCoIP Protocol supports Graphics.g4dn and GraphicsPro.g4dn bundles on Windows only.
 + For information about migrating Linux WorkSpaces, see [Migrate a Linux WorkSpace to a different operating system](migrate-linux-workspaces.md).
 + In AWS Regions that support more than one language, you can migrate WorkSpaces between language bundles.

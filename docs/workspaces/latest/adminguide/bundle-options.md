@@ -19,6 +19,37 @@ Plus applications bundles with Office 2016 or Office 2019 will no longer be supp
 
 The following are the bundles that WorkSpaces offers:
 
+Each bundle provides the hardware specifications listed in the following table, including vCPU and memory (shown in GiB). For GPU-enabled bundles, the table also lists GPU count and video memory. Bundle specifications are subject to change. For more information about pricing, storage volume sizes, and Region availability, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/desktop-as-a-service/pricing/).
+
+
+| Bundle | vCPU | Memory (GiB) | GPU and video memory | 
+| --- | --- | --- | --- | 
+| Value | 1 | 2 | Not applicable | 
+| Standard | 2 | 4 | Not applicable | 
+| Performance | 2 | 8 | Not applicable | 
+| Power | 4 | 16 | Not applicable | 
+| PowerPro | 8 | 32 | Not applicable | 
+| GeneralPurpose.4xlarge | 16 | 64 | Not applicable | 
+| GeneralPurpose.8xlarge | 32 | 128 | Not applicable | 
+| Graphics.g4dn | 4 | 16 | 1 GPU, 16 GiB video memory | 
+| GraphicsPro.g4dn | 16 | 64 | 1 GPU, 16 GiB video memory | 
+| Graphics.g6f.large | 2 | 8 | 1/8 GPU, 3 GiB video memory | 
+| Graphics.g6f.xlarge | 4 | 16 | 1/8 GPU, 3 GiB video memory | 
+| Graphics.g6f.2xlarge | 8 | 32 | 1/4 GPU, 6 GiB video memory | 
+| Graphics.g6f.4xlarge | 16 | 64 | 1/2 GPU, 12 GiB video memory | 
+| Graphics.gr6f.4xlarge | 16 | 128 | 1/2 GPU, 12 GiB video memory | 
+| Graphics.g6.xlarge | 4 | 16 | 1 GPU, 24 GiB video memory | 
+| Graphics.g6.2xlarge | 8 | 32 | 1 GPU, 24 GiB video memory | 
+| Graphics.g6.4xlarge | 16 | 64 | 1 GPU, 24 GiB video memory | 
+| Graphics.g6.8xlarge | 32 | 128 | 1 GPU, 24 GiB video memory | 
+| Graphics.g6.16xlarge | 64 | 256 | 1 GPU, 24 GiB video memory | 
+| Graphics.gr6.4xlarge | 16 | 128 | 1 GPU, 24 GiB video memory | 
+| Graphics.gr6.8xlarge | 32 | 256 | 1 GPU, 24 GiB video memory | 
+| Graphics.g7.2xlarge | 8 | 32 | 1 GPU, 32 GiB video memory | 
+| Graphics.g7.4xlarge | 16 | 64 | 1 GPU, 32 GiB video memory | 
+| Graphics.g7.8xlarge | 32 | 128 | 1 GPU, 32 GiB video memory | 
+| Graphics.g7.12xlarge | 48 | 192 | 2 GPUs, 64 GiB video memory | 
+
 ## Value bundle
 <a name="value"></a>
 
@@ -105,6 +136,22 @@ These bundles, including GeneralPurpose.4xlarge and GeneralPurpose.8xlarge, are 
 + CPU-based ML (machine learning) model training
 
 This bundle is not recommended for 3D rendering, photo-realistic design, game streaming, or ML model training for complex models.
+
+## Graphics G7 bundles
+<a name="graphicsg7"></a>
+
+The Graphics G7 WorkSpace bundle is powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs. It delivers high GPU performance for graphics and AI inference workloads. Graphics G7 is available for WorkSpaces Personal (using the Amazon DCV protocol) and WorkSpaces Core (using Bring Your Own Protocol (BYOP)). It supports Windows Server 2022, Windows Server 2025, and Windows 11. For more information, see [Amazon EC2 G7 instances](https://aws.amazon.com/ec2/instance-types/g7/).
+
+The Graphics G7 WorkSpace bundle is well-suited for the following use cases:
++ Graphic design
++ CAD/CAM (computer-aided design/computer-aided manufacturing)
++ 3D rendering
++ Video transcoding
++ Game streaming
++ Machine learning (ML) model training and AI inference
+
+**Note**  
+Graphics G7 is available in US East (N. Virginia), US East (Ohio), and US West (Oregon).
 
 ## Graphics G6 bundles
 <a name="graphicsg6"></a>

@@ -85,7 +85,7 @@ The above list is not exhaustive, and it is recommended to use a VPC that has pu
 #### Windows versions supported for BYOL
 <a name="windows_images_supported_versions"></a>
 
-Your VM must run one of the following Windows versions:
+Your VM must run one of the following Windows versions with the x64 architecture:
 + Windows 10 Version 22H2 (November 2022 Update)
 + Windows 10 Enterprise LTSC 2019 (1809)
 + Windows 10 Enterprise LTSC 2021 (21H2)

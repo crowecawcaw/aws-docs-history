@@ -26,7 +26,7 @@ Manage applications is only available for Windows WorkSpaces.
 Manage applications is only available for application bundles that are subscribed through AWS.
 
 ## Supported bundles for Manage applications
-<a name="w2aac11c33c23c11"></a>
+<a name="w2aac11c35c23c11"></a>
 
 Manage applications allows you install and uninstall the following applications on your WorkSpaces. For Microsoft Office 2016 bundle and Microsoft Office 2019, you can only uninstall.
 
@@ -75,7 +75,7 @@ You can create a custom image of WorkSpaces with applications installed/uninstal
 For opt-in Regions, such as Africa (Cape Town), WorkSpaces internet connection must be enabled at the directory level.
 
 ## Update application bundles on a WorkSpace
-<a name="w2aac11c33c23c13"></a>
+<a name="w2aac11c35c23c13"></a>
 
 1. 
 
@@ -126,7 +126,7 @@ After you select **Deploy applications**, the end user session will terminate an
 If your users observe that their newly installed application bundles through Managed Applications are not license activated, you can perform a manual WorkSpace reboot. Your users can begin using those applications following a reboot. For additional support, contact [AWS Support](https://console.aws.amazon.com/support/home#/).
 
 ## Update Microsoft Visual Studio 2022 workloads on a WorkSpace
-<a name="w2aac11c33c23c15"></a>
+<a name="w2aac11c35c23c15"></a>
 
 By default Microsoft Visual Studio 2022 is installed with the following workloads and requires 18 GB of hard disk space:
 + Visual Studio core editor
@@ -140,7 +140,7 @@ By default Microsoft Visual Studio 2022 is installed with the following workload
 Users have the flexibility to add or remove workloads and individual components, allowing them to tailor the application to their specific requirements. It's important to note that installing additional workloads requires more disk space. To learn more about workload configurations, see [Modify Visual Studio workloads, components, and language packs](https://learn.microsoft.com/en-us/visualstudio/install/modify-visual-studio?view=vs-2022).
 
 ## Managing WorkSpaces modified using Manage applications
-<a name="w2aac11c33c23c17"></a>
+<a name="w2aac11c35c23c17"></a>
 
 After installing or uninstalling application bundles on your WorkSpaces, the following actions can impact existing configurations.
 + **Restore a WorkSpace** - Restoring a WorkSpace recreates both the root volume and user volume, based on the most recent snapshots of these volumes that were created when the WorkSpace was healthy. Full WorkSpace snapshots are taken every 12 hours. For more information, see [ Restore a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html). Ensure you wait for at least 12 hours before restoring your WorkSpaces that were modified using Manage applications. Restoring your WorkSpaces before the next full snapshot, which were modified using Manage applications, will result in the following:

@@ -152,7 +152,7 @@ Number of bootable partitions must not exceed one.
 ## BYOL import requires a 64 bit system.
 <a name="Requires64BitOS-collapsed"></a>
 
-A 64 bit OS image must be used. For more information, see [ Windows versions supported for BYOL](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html#windows_images_supported_versions).<a name="InPlaceUpgrade"></a>
+Use an x64 OS image. For more information, see [ Windows versions supported for BYOL](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html#windows_images_supported_versions).<a name="InPlaceUpgrade"></a>
 
 ## BYOL import requires a system that has not been upgraded in-place. This system has been upgraded in-place.
 <a name="InPlaceUpgrade-collapsed"></a>

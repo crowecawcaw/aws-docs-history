@@ -35,8 +35,8 @@ For information about using the Active Directory administration tools to work wi
 + [Manage Group Policy settings for PCoIP](#gp_configurations_pcoip)
 + [Set the maximum lifetime for a Kerberos ticket](#gp_kerberos_ticket)
 + [Configure device proxy server settings for internet access](#gp_device_proxy)
-  + [Proxying desktop traffic](#w2aac11c33c11c27c15)
-  + [Recommendation on the use of proxy servers](#w2aac11c33c11c27c17)
+  + [Proxying desktop traffic](#w2aac11c35c11c27c15)
+  + [Recommendation on the use of proxy servers](#w2aac11c35c11c27c17)
 + [Enable Zoom Meeting Media Plugin support](#zoom-integration)
   + [Enable Zoom Meeting Media Plugin for DCV](#zoom-wsp)
     + [Prerequisites](#zoom-integ-prerequisites-wsp)
@@ -131,7 +131,7 @@ You can use Group Policy settings to configure printer support as needed.
 **When to use Advanced Printing:** - Double-sided (duplex) printing - Specific paper tray selection - Finishing options (stapling, hole-punching) - Label printing (e.g., Zebra printers) - Color management and other advanced features of a printer.
 
 #### Configure Printer Support
-<a name="w2aac11c33c11c19b5b1c13"></a>
+<a name="w2aac11c35c11c19b5b1c13"></a>
 
 **To configure printer support**
 
@@ -151,7 +151,7 @@ You can use Group Policy settings to configure printer support as needed.
    + In an administrative command prompt, enter **gpupdate /force**.
 
 #### Configure Advanced Printer Redirection
-<a name="w2aac11c33c11c19b5b1c17"></a>
+<a name="w2aac11c35c11c19b5b1c17"></a>
 
 **Prerequisites**
 
@@ -165,7 +165,7 @@ You can use Group Policy settings to configure printer support as needed.
 Advanced printing is only supported on Windows clients connecting to Windows WorkSpaces. MacOS, Linux, and Web clients will use basic printing.
 
 #### Driver Version Matching
-<a name="w2aac11c33c11c19b5b1c23"></a>
+<a name="w2aac11c35c11c19b5b1c23"></a>
 
 When Advanced printing is selected, three driver validation modes are supported:
 
@@ -194,7 +194,7 @@ When driver validation fails, WorkSpaces automatically falls back to basic print
 1. Print a test document and click Printer Properties to verify advanced options are available.
 
 #### Troubleshooting
-<a name="w2aac11c33c11c19b5b1c27"></a>
+<a name="w2aac11c35c11c19b5b1c27"></a>
 
 **Advanced features not available**: - Verify "Enable Advanced Printing" is selected in the GPO - Check driver versions match according to your validation mode - Consider using partial validation mode instead of exact. Make sure to restart for any changes on the GPO to take effect.
 
@@ -418,12 +418,12 @@ Amazon WorkSpaces supports two versions of WebAuthn redirection:
 + **Enhanced WebAuthn** - No browser extension required, with additional native application support, supported on Windows WorkSpaces only
 
 #### Standard WebAuthn redirection
-<a name="w2aac11c33c11c19b5c21b9"></a>
+<a name="w2aac11c35c11c19b5c21b9"></a>
 
 Standard WebAuthn redirection requires a browser extension to facilitate the redirection of WebAuthn prompts to the client device.
 
 ##### Version requirements
-<a name="w2aac11c33c11c19b5c21b9b5"></a>
+<a name="w2aac11c35c11c19b5c21b9b5"></a>
 + **Windows WorkSpaces**: DCV host agent version 2.0.0.1425 or higher
 + **Client versions:**
   + Windows client: 5.19.0 or above
@@ -431,36 +431,36 @@ Standard WebAuthn redirection requires a browser extension to facilitate the red
   + Linux client: 2024.0 or above
 
 ##### Supported browsers on WorkSpaces
-<a name="w2aac11c33c11c19b5c21b9b7"></a>
+<a name="w2aac11c35c11c19b5c21b9b7"></a>
 + Google Chrome 116\+
 + Microsoft Edge 116\+
 
 #### Enhanced WebAuthn redirection
-<a name="w2aac11c33c11c19b5c21c11"></a>
+<a name="w2aac11c35c11c19b5c21c11"></a>
 
 Enhanced WebAuthn redirection eliminates the need for a browser extension and provides support for WebAuthn authentication in native Windows applications that support WebAuthn authentication.
 
 ##### Version requirements
-<a name="w2aac11c33c11c19b5c21c11b5"></a>
+<a name="w2aac11c35c11c19b5c21c11b5"></a>
 + **Windows WorkSpaces**: DCV host agent version 2.1.0.2000 or higher
 + **Client versions:**
   + Windows client: 5.29.0 or above
   + Mac client: 5.29.0 or above
 
 ##### Key benefits
-<a name="w2aac11c33c11c19b5c21c11b7"></a>
+<a name="w2aac11c35c11c19b5c21c11b7"></a>
 + No browser extension required
 + Improved performance
 + Support for WebAuthn in native Windows applications
 + Seamless authentication experience across browsers and desktop applications
 
 ##### Supported browsers on WorkSpaces
-<a name="w2aac11c33c11c19b5c21c11b9"></a>
+<a name="w2aac11c35c11c19b5c21c11b9"></a>
 + Google Chrome 116\+
 + Microsoft Edge 116\+
 
 #### Configure WebAuthn redirection
-<a name="w2aac11c33c11c19b5c21c13"></a>
+<a name="w2aac11c35c11c19b5c21c13"></a>
 
 **To configure WebAuthn redirection for Windows WorkSpaces**
 
@@ -478,12 +478,12 @@ Enhanced WebAuthn redirection eliminates the need for a browser extension and pr
 This Group Policy setting enables WebAuthn redirection. The version used (Standard or Enhanced) depends on your host agent version and operating system support.
 
 #### Configure WebAuthn process compatibility
-<a name="w2aac11c33c11c19b5c21c15"></a>
+<a name="w2aac11c35c11c19b5c21c15"></a>
 
 When WebAuthn redirection is enabled, you can configure which applications and processes are allowed to use WebAuthn redirection through the **WebAuthn Process Compatibility List**.
 
 ##### Default process compatibility list
-<a name="w2aac11c33c11c19b5c21c15b5"></a>
+<a name="w2aac11c35c11c19b5c21c15b5"></a>
 
 By default, the following processes are enabled for WebAuthn redirection:
 
@@ -492,7 +492,7 @@ By default, the following processes are enabled for WebAuthn redirection:
 ```
 
 ##### Required process for Standard WebAuthn
-<a name="w2aac11c33c11c19b5c21c15b7"></a>
+<a name="w2aac11c35c11c19b5c21c15b7"></a>
 + `dcvwebauthnnativemsghost.exe` - This process is **required** for Standard WebAuthn functionality and must remain in the compatibility list when using Standard WebAuthn.
 
 **To configure the WebAuthn process compatibility list**
@@ -512,25 +512,25 @@ By default, the following processes are enabled for WebAuthn redirection:
 1. The Group Policy setting change takes effect after the WorkSpace session is restarted.
 
 ##### Process compatibility list guidelines
-<a name="w2aac11c33c11c19b5c21c15c11"></a>
+<a name="w2aac11c35c11c19b5c21c15c11"></a>
 + **For Standard WebAuthn**: Always include `dcvwebauthnnativemsghost.exe` in the list
 + **Custom Applications**: Add any additional `.exe` process names that need WebAuthn support in your environment
 + **Format**: Use comma-separated process names enclosed in square brackets, with each process name in single quotes
 
 ##### Example custom process list
-<a name="w2aac11c33c11c19b5c21c15c11b5"></a>
+<a name="w2aac11c35c11c19b5c21c15c11b5"></a>
 
 ```
 ['chrome.exe','msedge.exe','firefox.exe','dcvwebauthnnativemsghost.exe','msedgewebview2.exe','Microsoft.AAD.BrokerPlugin.exe','myapp.exe','customapplication.exe']
 ```
 
 #### Transitioning from Standard to Enhanced WebAuthn
-<a name="w2aac11c33c11c19b5c21c17"></a>
+<a name="w2aac11c35c11c19b5c21c17"></a>
 
 When upgrading from Standard WebAuthn to Enhanced WebAuthn, **users will need to uninstall or disable the Amazon DCV WebAuthn Redirection browser extension** they previously installed for Standard WebAuthn before using Enhanced WebAuthn.
 
 ##### Why this step is important
-<a name="w2aac11c33c11c19b5c21c17b5"></a>
+<a name="w2aac11c35c11c19b5c21c17b5"></a>
 + Enhanced WebAuthn handles redirection natively without browser extensions
 + Leaving the extension enabled will default to Standard WebAuthn redirection
 
@@ -557,7 +557,7 @@ For more information, follow the guidance for your browser:
 + For Microsoft Edge, see [Native Messaging](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#native-messaging).
 
 ##### Manage and install the browser extension using Group Policy
-<a name="w2aac11c33c11c19b5c21c19c11"></a>
+<a name="w2aac11c35c11c19b5c21c19c11"></a>
 
 You can install the Amazon DCV WebAuthn Redirection Extension using Group Policy, either centrally from your domain for session hosts that are joined to an Active Directory (AD) domain or using the Local Group Policy Editor for each session host. This process will change depending on which browser you're using.
 
@@ -648,7 +648,7 @@ WebRTC redirection enhances real-time communication by offloading audio and vide
 This redirection is implemented as an extension and requires you to enable support for WorkSpaces extensions using Group Policy settings. If the extensions are disabled, WebRTC redirection will not function. 
 
 #### Requirements
-<a name="w2aac11c33c11c19b5c23b9"></a>
+<a name="w2aac11c35c11c19b5c23b9"></a>
 
 WebRTC redirection for DCV requires the following:
 + DCV host agent version 2.0.0.1622 or higher
@@ -660,7 +660,7 @@ WebRTC redirection for DCV requires the following:
   + Microsoft Edge 116\+
 
 #### Enabling or disabling WebRTC redirection for Windows WorkSpaces
-<a name="w2aac11c33c11c19b5c23c11"></a>
+<a name="w2aac11c35c11c19b5c23c11"></a>
 
 If needed, you can enable or disable support for WebRTC redirection for Windows WorkSpaces by using Group Policy settings. If you disable or don't configure this setting, WebRTC redirection will be disabled.
 
@@ -689,7 +689,7 @@ As a one-time browser prompt, users will get the notification when you enable We
 + Users can install the extension manually with [ Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/amazon-dcv-webrtc-redirec/kjbbkjjiecchbcdoollhgffghfjnbhef) or the [ Chrome Web Store](https://chromewebstore.google.com/detail/dcv-webrtc-redirection-ex/diilpfplcnhehakckkpmcmibmhbingnd?hl=en&authuser=0&pli=1).
 
 ##### Manage and install the browser extension using Group Policy
-<a name="w2aac11c33c11c19b5c23c13b7"></a>
+<a name="w2aac11c35c11c19b5c23c13b7"></a>
 
 You can install the Amazon DCV WebRTC Redirection Extension using Group Policy, either centrally from your domain, for session hosts joined to an Active Directory (AD) domain, or using the Local Group Policy Editor for each session host. This process will be different depending on which browser you're using.
 
@@ -798,7 +798,7 @@ To enable the use of smart cards with Windows WorkSpaces, additional steps are r
 Screen Capture Protection prevents screenshots, screen recordings, and screen sharing of WorkSpaces sessions from local client tools. When enabled, attempts to capture screen content from client side will show either the background or a black rectangle, helping protect sensitive information from exfiltration.
 
 #### Requirements
-<a name="w2aac11c33c11c19b5c27b5"></a>
+<a name="w2aac11c35c11c19b5c27b5"></a>
 
 Screen capture protection for DCV requires the following:
 + DCV host agent version 2.2.0.2116 or higher
@@ -812,7 +812,7 @@ Protection applies to captures initiated from the client device. Users can still
 The feature is not compatible with screen sharing on MS Teams. 
 
 #### Known limitations
-<a name="w2aac11c33c11c19b5c27b9"></a>
+<a name="w2aac11c35c11c19b5c27b9"></a>
 + The feature cannot prevent physical camera captures of screens.
 + The feature does not protect against direct RDP connections to the host server.
 + The feature does not protect against capture attempts initiated from within the WorkSpace itself, including screen share features of collaboration and chat tools.
@@ -1541,7 +1541,7 @@ For more information about configuring the proxy settings in the WorkSpaces macO
 For more information about configuring the proxy settings in the WorkSpaces Web Access client application, see [ Proxy Server](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-web-access.html#web-access-proxy) in the *Amazon WorkSpaces User Guide*.
 
 ### Proxying desktop traffic
-<a name="w2aac11c33c11c27c15"></a>
+<a name="w2aac11c35c11c27c15"></a>
 
 For PCoIP WorkSpaces, the desktop client applications do not support the use of a proxy server nor TLS decryption and inspection for port 4172 traffic in UDP (for desktop traffic). They require a direct connection to ports 4172. 
 
@@ -1553,7 +1553,7 @@ DCV does not support the use of proxy for desktop traffic over UDP. Only WorkSpa
 If you choose to use a proxy server, the API calls that the client application makes to the WorkSpaces services are also proxied. Both API calls and desktop traffic should pass through the same proxy server. 
 
 ### Recommendation on the use of proxy servers
-<a name="w2aac11c33c11c27c17"></a>
+<a name="w2aac11c35c11c27c17"></a>
 
 We do not recommend the use of a proxy server with your WorkSpaces desktop traffic.
 

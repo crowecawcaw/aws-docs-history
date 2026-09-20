@@ -160,7 +160,7 @@ Complete the following procedure to create a SAML 2.0 federation IAM role in the
            {
                "Effect": "Allow",
                "Action": "workspaces:Stream",
-               "Resource": "arn:aws:workspaces:{{<region-code>}}:{{<account-id>}}:directory/{{<directory-id>}}",
+               "Resource": "arn:aws:workspaces:{{us-east-1}}:{{111122223333}}:directory/{{<directory-id>}}",
                "Condition": {
                    "StringEquals": {"workspaces:userId": "${saml:sub}"}
                }
@@ -257,8 +257,26 @@ Complete the following procedure to enable SAML 2.0 authentication for the WorkS
 
 1. For the **IdP deep link parameter name**, enter the parameter that is applicable to your IdP and the application you have configured. The default value is `RelayState` if you omit the parameter name.
 
-   The following table lists the user access URLs and deep link parameter names that are unique to various identity providers for applications.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/workspaces/latest/adminguide/create-directory-pools.html)
+   The following table lists the user access URLs and deep link parameter names that are unique to various identity providers for applications.
+
+
+<table>
+<thead>
+  <tr><th>Identity provider</th><th>Parameter</th><th>User access URL</th></tr>
+</thead>
+<tbody>
+  <tr><td>ADFS</td><td><code>RelayState</code></td><td><code>https://&lt;host&gt;/adfs/ls/idpinitiatedsignon.aspx?RelayState=RPID=&lt;relaying-party-uri&gt;</code></td></tr>
+  <tr><td>Azure AD</td><td><code>RelayState</code></td><td><code>https://myapps.microsoft.com/signin/&lt;app-id&gt;?tenantId=&lt;tenant-id&gt;</code></td></tr>
+  <tr><td>Duo Single Sign-On</td><td><code>RelayState</code></td><td><code>https://&lt;sub-domain&gt;.sso.duosecurity.com/saml2/sp/&lt;app-id&gt;/sso</code></td></tr>
+  <tr><td>Okta</td><td><code>RelayState</code></td><td><code>https://&lt;sub-domain&gt;.okta.com/app/&lt;app-name&gt;/&lt;app-id&gt;/sso/saml</code></td></tr>
+  <tr><td>OneLogin</td><td><code>RelayState</code></td><td><code>https://&lt;sub-domain&gt;.onelogin.com/trust/saml2/http-post/sso/&lt;app-id&gt;</code></td></tr>
+  <tr><td>JumpCloud</td><td><code>RelayState</code></td><td><code>https://sso.jumpcloud.com/saml2/&lt;app-id&gt;</code></td></tr>
+  <tr><td>Auth0</td><td><code>RelayState</code></td><td><code>https://&lt;default-tenant-name&gt;.us.auth0.com/samlp/&lt;client-id&gt;</code></td></tr>
+  <tr><td>PingFederate</td><td><code>TargetResource</code></td><td><code>https://&lt;host&gt;/idp/startSSO.ping?PartnerSpId=&lt;sp-id&gt;</code></td></tr>
+  <tr><td>PingOne for Enterprise</td><td><code>TargetResource</code></td><td><code>https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=&lt;app-id&gt;&amp;idpid=&lt;idp-id&gt;</code></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save**.
 
