@@ -21,8 +21,19 @@ This service is available in the following AWS GovCloud (US) Regions:
 <a name="govcloud-elb-diffs"></a>
 
 The following differences apply to Elastic Load Balancing:
-+ When using the legacy bucket policy, specify the following AWS account IDs in the policy to grant Elastic Load Balancing permission to write logs to your S3 bucket:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-elb.html)
++ When using the legacy bucket policy, specify the following AWS account IDs in the policy to grant Elastic Load Balancing permission to write logs to your S3 bucket:
+
+
+<table>
+<thead>
+  <tr><th>Region</th><th> Elastic Load Balancing account ID</th></tr>
+</thead>
+<tbody>
+  <tr><td>AWS GovCloud (US-East)</td><td>190560391635</td></tr>
+  <tr><td>AWS GovCloud (US-West)</td><td>048591011584</td></tr>
+</tbody>
+</table>
+
 + Export data must be encrypted in transit outside of the export boundary. Because Elastic Load Balancing uses global DNS servers, export traffic across Elastic Load Balancing must be encrypted.
 + Cognito authentication is not available.
 

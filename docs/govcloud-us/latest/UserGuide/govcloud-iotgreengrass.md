@@ -17,9 +17,23 @@ This service is available in the following AWS GovCloud (US) Regions:
 
 The following differences apply to AWS IoT Greengrass V1:
 +  AWS IoT Greengrass Core software v1.9.2 is the minimum supported version.
-+ The following minimum versions of the AWS IoT Greengrass Core SDK are supported.  
-**​**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-iotgreengrass.html)
++ The following minimum versions of the AWS IoT Greengrass Core SDK are supported.
+
+
+**​**  
+
+<table>
+<thead>
+  <tr><th>Language or platform</th><th>Minimum version</th></tr>
+</thead>
+<tbody>
+  <tr><td>Python 3.7</td><td>1.4.0</td></tr>
+  <tr><td>Java 8</td><td>1.3.1</td></tr>
+  <tr><td>Node.js 8.10</td><td>1.4.0</td></tr>
+  <tr><td>C, C++</td><td>1.1.0</td></tr>
+</tbody>
+</table>
+
 + The following connectors are supported in AWS GovCloud (US-East):
   + Cloudwatch Metrics, v4
   + Device Defender, v3
