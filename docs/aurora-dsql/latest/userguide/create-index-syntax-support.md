@@ -13,6 +13,7 @@ CREATE [ UNIQUE ] INDEX ASYNC [ [ IF NOT EXISTS ] name ] ON table_name
     ( { column_name | ( expression ) } [ NULLS { FIRST | LAST } ] [, ...] )
     [ INCLUDE ( column_name [, ...] ) ]
     [ NULLS [ NOT ] DISTINCT ]
+    [ WHERE predicate ]
 ```
 
 ## Description
@@ -22,9 +23,11 @@ CREATE [ UNIQUE ] INDEX ASYNC [ [ IF NOT EXISTS ] name ] ON table_name
 
 You specify the key fields for the index as column names, or alternatively as expressions written in parentheses. You can specify multiple fields to create a multicolumn index.
 
-An index field can be an expression computed from the values of one or more columns of the table row. Use this feature to obtain fast access to data based on some transformation of the basic data. For example, an index computed on `upper(col)` allows the clause `WHERE upper(col) = 'JIM'` to use an index.
+An index field can be an expression computed from the values of one or more columns of the table row. Use this feature to obtain fast access to data based on some transformation of the basic data. For example, you can create an index on `upper(col)`, so a query with the condition `WHERE upper(col) = 'JIM'` can use that index.
 
 All functions and operators used in an index definition must be immutable. That is, their results must depend only on their arguments and never on any outside influence, such as the contents of another table or the current time. This restriction ensures that the behavior of the index is well-defined. To use a user-defined function in an index expression, remember to mark the function `IMMUTABLE` when you create it.
+
+The optional `WHERE` clause defines a *partial index*. A partial index contains entries for only the rows of the table that satisfy the predicate, rather than every row. When queries frequently target a well-defined subset of a table's rows, you can improve performance by creating an index on only that portion of the table. For example, a table might contain both active and archived records. If queries usually access only the active ones, you can index only the active rows.
 
 ## Parameters
 <a name="create-index-parameters"></a>
@@ -60,6 +63,10 @@ Specifies that nulls sort after non-nulls.
 **`NULLS DISTINCT``NULLS NOT DISTINCT`**  
 Specifies whether null values are considered distinct, that is, not equal, for a unique index. The default is that they are distinct, so that a unique index can contain multiple null values in a column.
 
+**`WHERE` {{predicate}}**  
+The optional `WHERE` clause specifies a Boolean expression, or predicate, that defines a partial index. The index includes only rows for which the predicate evaluates to true. The predicate can refer to any column of the table, not only the columns being indexed. As with index expressions, the predicate must contain only immutable functions, operators, and column references.  
+Aurora DSQL can use a partial index for a query only when it can prove that the query's `WHERE` conditions imply the index's predicate. If it can't, Aurora DSQL doesn't use the index for that query.
+
 ## Examples
 <a name="create-index-examples"></a>
 
@@ -87,4 +94,10 @@ To create an index with non-default sort ordering of nulls.
 
 ```
 CREATE INDEX ASYNC title_idx_nulls_low ON films (title NULLS FIRST);
+```
+
+To create a partial index on `title` that indexes only the rows where `rating` is greater than 5:
+
+```
+CREATE INDEX ASYNC high_rating_idx ON films (title) WHERE rating > 5;
 ```

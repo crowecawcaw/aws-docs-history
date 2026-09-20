@@ -98,25 +98,23 @@ AND created_at > '2025-01-01';
 ```
 
 ```
-                                                QUERY PLAN
-----------------------------------------------------------------------------------------------------------
- Index Scan using idx1 on account  (cost=728.18..1132.20 rows=3 width=18)
-   Filter: (balance > '100'::numeric)
+                                     QUERY PLAN
+------------------------------------------------------------------------------------
+ Index Scan using idx1 on account  (cost=826.05..1142.56 rows=3 width=20)
    Index Cond: (customer_id = '4b18a761-5870-4d7c-95ce-0a48eca3fceb'::uuid)
-   -> Storage Scan on idx1 (cost=12510.05..17793.38 rows=8 width=16)
-        Projections: balance
-        Filters: ((status)::text = 'pending'::text)
-        -> B-Tree Scan on account (cost=12510.05..17793.38 rows=10 width=30)
-            Index Cond: (customer_id = '4b18a761-5870-4d7c-95ce-0a48eca3fceb'::uuid)
-   -> Storage Lookup on account (cost=12510.05..17793.38 rows=4 width=16)
-        Filters: (created_at > '2025-01-01 00:00:00'::timestamp without time zone)
-        -> B-Tree Lookup on transaction (cost=12510.05..17793.38 rows=8 width=30)
+   -> Storage Scan on idx1  (cost=826.05..1142.56 rows=8 width=20 loops=1)
+       Filters: ((balance > '100'::numeric) AND ((status)::text = 'pending'::text))
+       -> B-Tree Scan on idx1  (cost=826.05..1142.56 rows=5000 width=20 loops=1)
+           Index Cond: (customer_id = '4b18a761-5870-4d7c-95ce-0a48eca3fceb'::uuid)
+   -> Storage Lookup on account  (cost=826.05..1142.56 rows=3 width=20 loops=1)
+       Projections: balance
+       Filters: (created_at > '2025-01-01 00:00:00'::timestamp without time zone)
+       -> B-Tree Lookup on account  (cost=826.05..1142.56 rows=8 width=20 loops=1)
 ```
 
  This plan shows how filtering happens across multiple stages: 
 +  The index condition on `customer_id ` filters data early. 
-+ The storage filter on `status` further narrows results before they’re sent to compute. 
-+ The query processor filter on `balance` is applied later, after transfer.
++ The storage filters on `status` and `balance` further narrow results before they’re sent to compute. 
 + The lookup filter on `created_at` is evaluated when fetching additional columns from the base table. 
 
 Adding frequently used columns as `INCLUDE` fields can often eliminate this lookup and improve performance. 
