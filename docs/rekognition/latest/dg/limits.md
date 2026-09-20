@@ -104,8 +104,20 @@ To create a case, go to [Create Case](https://console.aws.amazon.com/support/v1#
 + Are you able to spread the load across multiple regions?
 + How many images do you process daily?
 + How long do you expect to sustain this volume (Is it a one-time spike or ongoing)?
-+ How are you blocked by the default limit? Review the following exception table to confirm the scenario that you are encountering.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/rekognition/latest/dg/limits.html)
++ How are you blocked by the default limit? Review the following exception table to confirm the scenario that you are encountering.
+
+
+<table>
+<thead>
+  <tr><th>Error Code</th><th>Exception</th><th>Message</th><th>What does it mean?</th><th>Can it be retried?</th></tr>
+</thead>
+<tbody>
+  <tr><td>HTTP status code 400</td><td>ProvisionedThroughputExceededException</td><td><i>Provisioned Rate exceeded.</i></td><td>Indicates throttling. You can retry or evaluate a limit increase request.</td><td>Yes</td></tr>
+  <tr><td>HTTP status code 400</td><td>ThrottlingException</td><td><i>Slow down; sudden increase in rate of requests.</i></td><td>You might be sending spiky traffic and encountering throttling. You should shape the traffic and make it more smooth and consistent. Then configure additional retries. See best practices. </td><td>Yes</td></tr>
+  <tr><td>HTTP status code 5xx</td><td>ThrottlingException (HTTP 500)</td><td><i>Service Unavailable</i></td><td>Indicates that the backend is scaling up to support the action. You should retry the request.</td><td>Yes</td></tr>
+</tbody>
+</table>
+
 
   For a detailed understanding of the error codes, see [Error handling](error-handling.md).
 
