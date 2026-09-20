@@ -137,8 +137,20 @@ You can also run the scripts from your local machine.
 1. Install the required software:
    + Python 3
    + Boto (minimum version 1.15)
-   + GitHub scripts    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/detective/latest/userguide/detective-github-scripts.html)
+   + GitHub scripts
+
+
+<table>
+<thead>
+  <tr><th>Platform</th><th>Setup instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td>Windows</td><td> <ol><li> Install Python 3 (<a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>). </li><li> Open a command prompt. </li><li> To install Boto, run: <code>pip install boto3</code> </li><li> Download the script source code from GitHub (<a href="https://github.com/aws-samples/amazon-detective-multiaccount-scripts">https://github.com/aws-samples/amazon-detective-multiaccount-scripts</a>). </li></ol> </td></tr>
+  <tr><td>Mac</td><td> <ol><li> Install Python 3 (<a href="https://www.python.org/downloads/macos/">https://www.python.org/downloads/mac-osx/</a>). </li><li> Open a command prompt. </li><li> To install Boto, run: <code>pip install boto3</code> </li><li> Download the script source code from GitHub (<a href="https://github.com/aws-samples/amazon-detective-multiaccount-scripts">https://github.com/aws-samples/amazon-detective-multiaccount-scripts</a>). </li></ol> </td></tr>
+  <tr><td>Linux</td><td> <ol><li> To install Python 3, run one of the following: <ul><li> <code>sudo apt-get -y install install python3-pip python3 git</code> </li><li> <code>sudo yum install git python</code> </li></ul> </li><li> To install Boto, run: <code>sudo pip install boto3</code> </li><li> Clone the script source code from <a href="https://github.com/aws-samples/amazon-detective-multiaccount-scripts">https://github.com/aws-samples/amazon-detective-multiaccount-scripts</a>. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 ## Creating a `.csv` list of member accounts to add or remove
 <a name="github-scripts-csv-file"></a>
