@@ -154,8 +154,21 @@ The Amazon AppFlow console provides this setting on the **Configure flow** page 
 
 
 You can choose one of these options:
-+ **Automatic (default)** — For each flow run, Amazon AppFlow selects the API to use based on the number of records that the run transfers. The threshold of records that determines the API varies based on whether Salesforce is the source or the destination, as shown in the following table:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/appflow/latest/userguide/salesforce.html)
++ **Automatic (default)** — For each flow run, Amazon AppFlow selects the API to use based on the number of records that the run transfers. The threshold of records that determines the API varies based on whether Salesforce is the source or the destination, as shown in the following table:
+
+
+<table>
+<thead>
+  <tr><th><b>Is Salesforce the source or destination?</b></th><th><b>Number of records transferred</b></th><th><b>API used to transfer records</b></th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="2">Source</td><td>Fewer than 1,000,000</td><td>Salesforce REST API</td></tr>
+  <tr><td>1,000,000 or more</td><td>Salesforce Bulk API 2.0</td></tr>
+  <tr><td rowspan="2">Destination</td><td>Fewer than 1,000</td><td>Salesforce REST API</td></tr>
+  <tr><td>1,000 or more</td><td>Salesforce Bulk API 2.0</td></tr>
+</tbody>
+</table>
+
 **Notes**  
 If you choose this option, be aware that each of the potential Salesforce APIs structures data differently. For recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900 records, and it might use Bulk API 2.0 on the next day to transfer 1,100 records. For each of these runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and how null values are represented.
 Flow runs that use Bulk API 2.0 can't transfer Salesforce compound fields.
