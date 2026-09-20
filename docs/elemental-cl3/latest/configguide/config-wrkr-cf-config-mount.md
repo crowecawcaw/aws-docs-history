@@ -37,7 +37,21 @@ To create the mount point, you must use the CLI. Mount points you create using t
 
 1. On the web interface of the primary Conductor Live node, go to the **Settings** page and choose **Mount Points**.
 
-1. On the **Mount Points** page, choose **Add Mount Point**, complete the mount point fields as described in the following table, and choose **Create**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/configguide/config-wrkr-cf-config-mount.html)
+1. On the **Mount Points** page, choose **Add Mount Point**, complete the mount point fields as described in the following table, and choose **Create**.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Type</b></td><td>Choose the type of remote server:<ul><li> <b>CIFS</b>: Choose this for a Windows CIF server or for a Windows, Linux, or Mac SMB server. </li><li> <b>NFS</b>: Choose this for a Linux server. </li><li> <b>DAVFS</b>: Choose this for a DavFS server. </li></ul></td></tr>
+  <tr><td><b>Server Share</b></td><td>The address of the folder that you want to make available on this node. This is an address on the remote computer.</td></tr>
+  <tr><td><b>Mount Folder</b></td><td>The folder on the node where the remote folder is mounted. As shown, this folder must be under <code>/data/mnt</code>. You can specify a sub-subfolder; if that folder does not already exist, Conductor Live automatically creates it.</td></tr>
+  <tr><td><b>User name</b></td><td>If the remote server folder is protected with user credentials, enter the username here.</td></tr>
+  <tr><td><b>Password</b></td><td>If the remote server folder is protected with a user credentials, enter the password here.</td></tr>
+</tbody>
+</table>
+
 
 After a few minutes, the newly mounted folder appears on the web interface.

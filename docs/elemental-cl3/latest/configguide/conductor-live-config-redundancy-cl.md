@@ -23,8 +23,21 @@ This address serves as the constant *cluster ID* for the primary and secondary C
 
 1. On the **Redundancy** page, choose **New Redundancy Group** and select **Elemental Conductor Live**.
 
-1. In the **Add New Redundancy Group** dialog, complete the fields and choose **Add**. See the table for information on each field.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/configguide/conductor-live-config-redundancy-cl.html)
+1. In the **Add New Redundancy Group** dialog, complete the fields and choose **Add**. See the table for information on each field.
+
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Redundancy Group Name</b></td><td>Any name that you choose. </td><td></td></tr>
+  <tr><td><b>Virtual IP Address</b></td><td>A valid IPv4 address. The address must meet these conditions:<ul><li> It must be an address on your network that will never be allocated to any other host. </li><li> It must be on the same subnet as the Conductor Live nodes. </li></ul></td><td></td></tr>
+  <tr><td><b>Virtual Router Identifier (VRID)</b></td><td>The VRID must meet these conditions:<ul><li> It must be an integer 1–254.  </li><li> The value must not conflict with any other instance of <code>keepalived</code> (or any other VRRP service) that's running on the network. You must make sure that there are no conflicts. Elemental Live can't detect them.  </li></ul></td><td></td></tr>
+</tbody>
+</table>
+
 
 **To add Conductor Live nodes**
 

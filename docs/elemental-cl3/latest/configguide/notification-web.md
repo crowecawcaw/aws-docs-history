@@ -36,16 +36,40 @@ To receive web callback notifications, you must have a web server that supports 
 
    1. On the Conductor Live web interface, go to the **Settings** page and make sure that you're on the **General** tab.
 
-   1. Complete the **Global Alert Notification** fields as described in the following table and choose **Update**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/configguide/notification-web.html)  
+   1. Complete the **Global Alert Notification** fields as described in the following table and choose **Update**.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Email</b></td><td>Enter the email address of the alert recipient. Required if you don't provide a URL in the <b>Web Callback URL</b> field.</td></tr>
+  <tr><td><b>Web Callback URL</b></td><td>If you want to receive web server notifications too, enter the URL of the appropriate <code>.php</code> file on your web server.</td></tr>
+  <tr><td><b>Notify</b></td><td>Select when you want to be notified, either when the alert is raised or when it's cleared. You can choose both options.</td></tr>
+</tbody>
+</table>
+  
 **Subscribe to individual alerts**  
 
    1. On the Conductor Live web interface, go to the **Stats** page and choose **Notifications**.
 
    1. On the **Notifications** page, find the alert that you want to be notified on and choose the plus sign (\+) to expand it.
 
-   1. Complete the fields as described in the following table and choose **Save**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/configguide/notification-web.html)
+   1. Complete the fields as described in the following table and choose **Save**.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Instructions</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Email</b></td><td>Enter the email address of the alert recipient. Required if you don't provide a URL in the <b>Web Callback URL</b> field.</td></tr>
+  <tr><td><b>Web Callback URL</b></td><td>If you want to receive web server notifications too, enter the URL of the appropriate <code>.php</code> file on your web server.</td></tr>
+  <tr><td><b>Notify</b></td><td>Select when you want to be notified, either when the alert is raised or when it's cleared. You can choose both options.</td></tr>
+</tbody>
+</table>
+
 
    1. For each alert that you want to be notified on, find the alert, then expand and complete the fields.
 

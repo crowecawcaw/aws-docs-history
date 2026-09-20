@@ -22,8 +22,20 @@ You disable user authentication by running the configuration script in the same 
    [elemental@hostname elemental_se]$ sudo ./configure --config-auth
    ```
 
-1. Answer the prompts as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/configguide/conductor-live-config-auth-chg.html)
+1. Answer the prompts as follows:
+
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Value to enter</th><th></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Httpd must be restarted, which may interrupt REST commands. Restart now?</code></td><td><b>Y</b></td><td></td><td></td></tr>
+  <tr><td><code>Do you wish to update the admin user?</code></td><td><b>N</b></td><td></td><td></td></tr>
+</tbody>
+</table>
+
 
    When you return to the web interface, you are not prompted to log in, and the menu to enable or disable node authentication on the worker nodes has disappeared. 
 

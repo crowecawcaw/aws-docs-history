@@ -46,8 +46,24 @@ To enable user authentication, follow these steps.
 **Note**  
 Enter the `configure` command twice, as shown. Don't enter a command that combines the `--https` and `--config-auth` options because HTTPS won't get enabled.
 
-1. Answer the authentication prompts as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/configguide/conductor-live-config-auth.html)
+1. Answer the authentication prompts as follows:
+
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Value to enter</th><th></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>Do you wish to enable authentication?</code></td><td><b>Y</b></td><td></td><td></td></tr>
+  <tr><td><code>Do you wish to enable PAM?</code></td><td><b>Y</b> to enable PAM authentication<b>N</b> to enable local authentication</td><td></td><td></td></tr>
+  <tr><td><code>Enter admin login</code></td><td>We recommend that you set up this default user as the API admin. Therefore, don't accept the default. Instead, assign the name <i>apiadmin</i>.For information about this user, see <a href="users-types.md">Types of users</a>.</td><td></td><td></td></tr>
+  <tr><td><code>Enter admin email</code></td><td>Enter an email address.</td><td></td><td></td></tr>
+  <tr><td><code>Enter admin password</code>:</td><td>Create a strong password for <i>apiadmin</i>. The password must be strong: Minimum 8 characters, at least one uppercase letter, at least one lowercase letter, at least one number, and at least one symbol. </td><td></td><td></td></tr>
+  <tr><td><code>Httpd must be restarted, which may interrupt REST commands. Restart now?</code></td><td><b>Y</b></td><td></td><td></td></tr>
+</tbody>
+</table>
+
 
 1. After the configuration script has run, the following message appears. This message reminds you that users must include these additional HTTP headers in commands that they send. 
 
