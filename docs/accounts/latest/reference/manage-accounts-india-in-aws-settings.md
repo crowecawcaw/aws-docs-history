@@ -23,7 +23,7 @@ AWS India is a local seller of AWS in India. If your contact and billing address
 
 **To use Sign up for AWS (new) with AWS India**
 
-1. Go to [aws.amazon.com](https://aws.amazon.com) and choose **Sign up**.
+1. Go to [aws.amazon.com](https://aws.amazon.com) and choose **Create account**.
 
 1. On the banner explaining the differences between Sign up for AWS (new) and Sign up for AWS (advanced), choose **Sign up for AWS**.
 

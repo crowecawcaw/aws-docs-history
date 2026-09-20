@@ -222,8 +222,6 @@ The following services are available for Sign up for AWS (new) if you have a Pai
 + Amazon Transcribe
 + Amazon Translate
 + AWS AppFabric
-+ AWS App Runner
-  + Not supported in Europe (Stockholm).
 + AWS Data Exchange
 + AWS End User Messaging SMS
 + AWS Fault Injection Service
@@ -378,3 +376,4 @@ The following AWS services are not supported for our new AWS experience, unless 
 + Amazon Elastic VMware Service
 + Oracle Database@AWS
 + Red Hat OpenShift Service on AWS
++ AWS App Runner

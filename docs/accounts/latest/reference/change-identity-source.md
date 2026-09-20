@@ -16,7 +16,7 @@ After you've activated advanced features, you can change your identity source fr
 
 1. In **Manage this organization**, choose **Change identity source**.
 
-   This will open the IAM Identity Center. This is a task that requires root-level permission.
+   This will open the IAM Identity Center.
 
 1. On the **Settings** page of the IAM Identity Center console, choose **Actions**, and then **Change identity source**.
 

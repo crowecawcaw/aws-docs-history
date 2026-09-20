@@ -16,7 +16,7 @@ After you've activated advanced features, you can modify the Resource Control Po
 
 1. In **Manage this organization**, choose **Manage policies**.
 
-   This will open the AWS Organizations console. This is a task that requires root-level permission.
+   This will open the AWS Organizations console.
 
 1. Choose the **Service control policy** page.
 
@@ -39,7 +39,7 @@ After you've activated advanced features, you can modify the Resource Control Po
 
 1. In **Manage this organization**, choose **Manage policies**.
 
-   This will open the AWS Organizations console. This is a task that requires root-level permission.
+   This will open the AWS Organizations console.
 
 1. Choose the **Resource control policy** page.
 

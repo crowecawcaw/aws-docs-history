@@ -45,7 +45,7 @@ When you activate advanced features, the following changes are also applied to y
 ## How will AWS Settings change after I activate advanced features?
 <a name="activate-advanced-features-settings-change"></a>
 
-After you activate advanced features, AWS Settings will be available as long as you use AWS Builder ID as your identity source. AWS Settings will only be accessible from [https://settings.aws.com](https://settings.aws.com). You won't be able to access it from the AWS Management Console. AWS Settings will provide links to manage your account using your management account. With your management account, you can access the following AWS Management Console locations from AWS Settings. Only use the management account to perform administrative tasks that require root-level permissions, including:
+After you activate advanced features, AWS Settings will be available as long as you use AWS Builder ID as your identity source. AWS Settings will only be accessible from [https://settings.aws.com](https://settings.aws.com). You won't be able to access it from the AWS Management Console. AWS Settings will provide links to manage your account using your management account. With your management account, you can access the following AWS Management Console locations from AWS Settings. Only use the management account to perform administrative tasks, including:
 + Access the Billing and Cost Management Console to view your billing information.
 + Access the AWS Organization console to modify the SCPs and RCPs that govern your organization.
 + Access the AWS Account Access Manager console to modify the fine grain access for your workforce identities.
@@ -95,7 +95,7 @@ You can activate advanced features in AWS Settings. Activation cannot be reverse
 
    1. For **Team name**, enter a team name. This is the name of the IAM Identity Center instance used to store your workforce identities. Your workforce will see this name.
 
-   1. For **Choose management account email address**, choose an email address. This email address is used to access the management account and perform tasks that require root-level permissions. If you use a different email address, the AWS Builder ID email will still have access to the management account from AWS Settings, as long as you still use AWS Builder ID as your identity source.
+   1. For **Choose management account email address**, choose an email address. This email address is used to access the management account and perform tasks. If you use a different email address, the AWS Builder ID email will still have access to the management account from AWS Settings, as long as you still use AWS Builder ID as your identity source.
 
    1. Complete the verification process for the management account email address.
 

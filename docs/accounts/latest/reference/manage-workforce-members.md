@@ -16,7 +16,7 @@ After you've activated advanced features, you can invite new workforce members o
 
 1. For **Actions**, choose **Manage team**.
 
-   This will open the IAM Identity Center. This is a task that requires root-level permission.
+   This will open the IAM Identity Center.
 
 1. On the **Users** page of the IAM Identity Center console, choose **Invite new team member**.
 
@@ -34,7 +34,7 @@ After the workforce member accepts their invitation, you configure which AWS acc
 
 1. For **Actions**, choose **Manage team**.
 
-   This will open the IAM Identity Center. This is a task that requires root-level permission.
+   This will open the IAM Identity Center.
 
 1. On the **Users** page of the IAM Identity Center console, select a team member, and then choose **Remove**.
 
