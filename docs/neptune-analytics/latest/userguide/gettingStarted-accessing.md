@@ -180,8 +180,25 @@ MATCH (n) RETURN n LIMIT 1
      -DarchetypeVersion=2.25.7
    ```
 
-    Running the command above will present you with several prompts. When asked to provide a 'service' (i.e., the service whose client and APIs you plan to use for this tutorial), please enter `neptunegraph` as the service name. An updated table of prompts and values can be found below:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/gettingStarted-accessing.html)
+    Running the command above will present you with several prompts. When asked to provide a 'service' (i.e., the service whose client and APIs you plan to use for this tutorial), please enter `neptunegraph` as the service name. An updated table of prompts and values can be found below: 
+
+
+<table>
+<thead>
+  <tr><th>Prompt</th><th>Value to enter</th></tr>
+</thead>
+<tbody>
+  <tr><td> Define value for property 'service': </td><td> neptunegraph </td></tr>
+  <tr><td> Define value for property 'httpClient': </td><td> apache-client </td></tr>
+  <tr><td> Define value for property 'nativeImage': </td><td> false </td></tr>
+  <tr><td> Define value for property 'credentialProvider': </td><td> identity-center </td></tr>
+  <tr><td> Define value for property 'groupId': </td><td> org.example </td></tr>
+  <tr><td> Define value for property 'artifactId': </td><td> getstarted </td></tr>
+  <tr><td> Define value for property 'version' 1.0-SNAPSHOT: </td><td> &lt;Enter&gt; </td></tr>
+  <tr><td> Define value for property 'package' org.example: </td><td> &lt;Enter&gt; </td></tr>
+</tbody>
+</table>
+
 
 1.  After generating the project structure, you should see three Maven-generated classes defined in the `getstarted/src/main/java/org/example/` directory: `App.java`, `DependencyFactory.java`, and `Handler.java`. For details on each of these classes, see step 3 in the [ SDK for Java ](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html#get-started-code) guide. Since this example uses the `neptunegraph` service, the Maven-generated code in the DependencyFactor and Handler classes will be using a different client than the code samples provided there. Refer to the Neptune graph-specific equivalents of the auto-generated classes below: 
 
