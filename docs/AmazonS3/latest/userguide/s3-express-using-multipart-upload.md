@@ -192,7 +192,7 @@ The following examples show how to create a multipart upload.
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 **Example**  
 
@@ -299,9 +299,9 @@ The following example shows how to break a single object into parts and then upl
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-The following example shows how to break a single object into parts and then upload those parts to a directory bucket by using the SDK for Python. 
+The following example shows how to break a single object into parts and then upload those parts to a directory bucket by using the AWS SDK for Python (Boto3). 
 
 **Example**  
 
@@ -413,9 +413,9 @@ The following examples show how to complete a multipart upload by using the SDK 
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-The following examples show how to complete a multipart upload by using the SDK for Python.
+The following examples show how to complete a multipart upload by using the SDK for Python (Boto3).
 
 **Example**  
 
@@ -539,9 +539,9 @@ public static void abortMultiPartUploads( S3Client s3, String bucketName ) {
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-The following example shows how to abort a multipart upload by using the SDK for Python.
+The following example shows how to abort a multipart upload by using the SDK for Python (Boto3).
 
 **Example**  
 
@@ -719,9 +719,9 @@ The following example shows how to use a multipart upload to programmatically co
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-The following example shows how to use a multipart upload to programmatically copy an object from one bucket to another by using the SDK for Python.
+The following example shows how to use a multipart upload to programmatically copy an object from one bucket to another by using the SDK for Python (Boto3).
 
 **Example**  
 
@@ -902,9 +902,9 @@ The following examples show how to list in-progress (incomplete) multipart uploa
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-The following examples show how to list in-progress (incomplete) multipart uploads by using the SDK for Python.
+The following examples show how to list in-progress (incomplete) multipart uploads by using the SDK for Python (Boto3).
 
 **Example**  
 
@@ -996,9 +996,9 @@ public static void listMultiPartUploadsParts( S3Client s3, String bucketName, St
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-The following examples show how to list the parts of a multipart upload to a directory bucket by using SDK for Python.
+The following examples show how to list the parts of a multipart upload to a directory bucket by using SDK for Python (Boto3).
 
 ```
 import logging

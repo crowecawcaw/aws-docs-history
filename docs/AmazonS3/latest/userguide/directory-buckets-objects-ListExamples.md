@@ -44,7 +44,7 @@ The following example lists directory buckets by using the AWS SDK for Java 2.x.
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 **Example**  
 The following example lists directory buckets by using the AWS SDK for Python (Boto3).   

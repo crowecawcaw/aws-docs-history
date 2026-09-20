@@ -70,7 +70,7 @@ static void deleteObject(S3Client s3Client, String bucketName, String objectKey)
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 **Example**  
 The following example deletes objects in a directory bucket by using the AWS SDK for Python (Boto3).   

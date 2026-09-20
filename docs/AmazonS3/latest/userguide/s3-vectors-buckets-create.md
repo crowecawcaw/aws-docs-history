@@ -73,7 +73,7 @@ aws s3vectors create-vector-bucket \
 <a name="create-vector-bucket-SDK"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3

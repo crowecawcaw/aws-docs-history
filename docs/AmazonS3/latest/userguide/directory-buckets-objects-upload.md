@@ -62,7 +62,7 @@ public static void putObject(S3Client s3Client, String bucketName, String object
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 **Example**  
 

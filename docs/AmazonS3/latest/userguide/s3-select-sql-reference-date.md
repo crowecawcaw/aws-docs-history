@@ -156,8 +156,48 @@ TO_STRING ( {{timestamp}} {{time_format_pattern}} )
 The target timestamp that the function operates on.
 
  *`{{time_format_pattern}}`*   
-A string that has the following special character interpretations:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-select-sql-reference-date.html)
+A string that has the following special character interpretations:  
+
+
+<table>
+<thead>
+  <tr><th> Format </th><th> Example </th><th> Description </th></tr>
+</thead>
+<tbody>
+  <tr><td><code>yy</code></td><td><code>69</code></td><td>2-digit year</td></tr>
+  <tr><td><code>y</code></td><td><code>1969</code></td><td>4-digit year</td></tr>
+  <tr><td><code>yyyy</code></td><td><code>1969</code></td><td>Zero-padded 4-digit year</td></tr>
+  <tr><td><code>M</code></td><td><code>1</code></td><td>Month of year</td></tr>
+  <tr><td><code>MM</code></td><td><code>01</code></td><td>Zero-padded month of year</td></tr>
+  <tr><td><code>MMM</code></td><td><code>Jan</code></td><td>Abbreviated month year name</td></tr>
+  <tr><td><code>MMMM</code></td><td><code>January</code></td><td>Full month of year name</td></tr>
+  <tr><td><code>MMMMM</code></td><td><code>J</code></td><td>Month of year first letter (NOTE: This format is not valid for use with the <code>TO_TIMESTAMP</code> function.)</td></tr>
+  <tr><td><code>d</code></td><td><code>2</code></td><td>Day of month (1-31)</td></tr>
+  <tr><td><code>dd</code></td><td><code>02</code></td><td>Zero-padded day of month (01-31)</td></tr>
+  <tr><td><code>a</code></td><td><code>AM</code></td><td>AM or PM of day</td></tr>
+  <tr><td><code>h</code></td><td><code>3</code></td><td>Hour of day (1-12)</td></tr>
+  <tr><td><code>hh</code></td><td><code>03</code></td><td>Zero-padded hour of day (01-12)</td></tr>
+  <tr><td><code>H</code></td><td><code>3</code></td><td>Hour of day (0-23)</td></tr>
+  <tr><td><code>HH</code></td><td><code>03</code></td><td>Zero-padded hour of day (00-23)</td></tr>
+  <tr><td><code>m</code></td><td><code>4</code></td><td>Minute of hour (0-59)</td></tr>
+  <tr><td><code>mm</code></td><td><code>04</code></td><td>Zero-padded minute of hour (00-59)</td></tr>
+  <tr><td><code>s</code></td><td><code>5</code></td><td>Second of minute (0-59)</td></tr>
+  <tr><td><code>ss</code></td><td><code>05</code></td><td>Zero-padded second of minute (00-59)</td></tr>
+  <tr><td><code>S</code></td><td><code>0</code></td><td>Fraction of a second (precision: 0.1, range: 0.0-0.9)</td></tr>
+  <tr><td><code>SS</code></td><td><code>6</code></td><td>Fraction of a second (precision: 0.01, range: 0.0-0.99)</td></tr>
+  <tr><td><code>SSS</code></td><td><code>60</code></td><td>Fraction of a second (precision: 0.001, range: 0.0-0.999)</td></tr>
+  <tr><td><code>…</code></td><td><code>…</code></td><td>…</td></tr>
+  <tr><td><code>SSSSSSSSS</code></td><td><code>60000000</code></td><td>Fraction of a second (maximum precision: 1 nanosecond, range: 0.0-0.999999999)</td></tr>
+  <tr><td><code>n</code></td><td><code>60000000</code></td><td>Nano of a second</td></tr>
+  <tr><td><code>X</code></td><td><code>+07</code> or <code>Z</code></td><td>Offset in hours, or <code>Z</code> if the offset is 0</td></tr>
+  <tr><td><code>XX</code> or <code>XXXX</code></td><td><code>+0700</code> or <code>Z</code></td><td>Offset in hours and minutes, or <code>Z</code> if the offset is 0</td></tr>
+  <tr><td><code>XXX</code> or <code>XXXXX</code></td><td><code>+07:00</code> or <code>Z</code></td><td>Offset in hours and minutes, or <code>Z</code> if the offset is 0</td></tr>
+  <tr><td><code>x</code></td><td><code>7</code></td><td>Offset in hours</td></tr>
+  <tr><td><code>xx</code> or <code>xxxx</code></td><td><code>700</code></td><td>Offset in hours and minutes</td></tr>
+  <tr><td><code>xxx</code> or <code>xxxxx</code></td><td><code>+07:00</code></td><td>Offset in hours and minutes</td></tr>
+</tbody>
+</table>
+
 
 ### Examples
 <a name="s3-select-sql-reference-size-examples"></a>

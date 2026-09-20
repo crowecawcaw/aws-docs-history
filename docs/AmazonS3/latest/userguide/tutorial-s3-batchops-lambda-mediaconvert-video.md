@@ -250,7 +250,7 @@ To grant permissions to the MediaConvert resource that's needed for the Lambda f
 ## Step 4: Create a Lambda function for video transcoding
 <a name="batchops-s3-step4"></a>
 
-In this section of the tutorial, you build a Lambda function using the SDK for Python to integrate with S3 Batch Operations and MediaConvert. To start transcoding the videos already stored in your S3 source bucket, you run an S3 Batch Operations job that directly invokes the Lambda function for each video in the S3 source bucket. Then, the Lambda function submits a transcoding job for each video to MediaConvert.
+In this section of the tutorial, you build a Lambda function using the AWS SDK for Python (Boto3) to integrate with S3 Batch Operations and MediaConvert. To start transcoding the videos already stored in your S3 source bucket, you run an S3 Batch Operations job that directly invokes the Lambda function for each video in the S3 source bucket. Then, the Lambda function submits a transcoding job for each video to MediaConvert.
 
 **Topics**
 + [Write Lambda function code and create a deployment package](#batchops-s3-step4-write-function)

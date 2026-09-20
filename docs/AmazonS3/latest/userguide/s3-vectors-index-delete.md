@@ -33,7 +33,7 @@ For more information about how to verify whether the index is deleted, see [List
 <a name="sdk-delete-vector-index"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3

@@ -19,7 +19,7 @@ For performing similarity queries for your vector embeddings, several factors ca
 <a name="querty-vectors-sdk"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 # Query a vector index with an embedding from Amazon Titan Text Embeddings V2.

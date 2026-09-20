@@ -83,7 +83,7 @@ Example response:
 <a name="list-vectors-index-sdk"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 Example: List vectors in a vector index
 

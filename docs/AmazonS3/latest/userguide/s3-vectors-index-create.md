@@ -18,7 +18,7 @@ When inserting vector data into your vector index, you must provide the vector d
 <a name="s3-vectors-create-sdk"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 # Populate a vector index with embeddings from Amazon Titan Text Embeddings V2.

@@ -177,7 +177,7 @@ When using VPC endpoints with S3 Vectors, you can configure your S3 Vectors clie
 <a name="s3-vectors-privatelink-sdk-config"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 The following example shows how to configure the S3 Vectors client in SDK for Python (Boto3) to use a VPC endpoint:
 

@@ -151,7 +151,7 @@ The response will include all metadata associated with the vector, regardless of
 <a name="s3-vectors-create-index-sdk"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3

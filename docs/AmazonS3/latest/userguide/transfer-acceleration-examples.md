@@ -260,7 +260,7 @@ For an example of enabling Transfer Acceleration by using the AWS SDK for JavaSc
 ------
 #### [ Python (Boto) ]
 
-For an example of enabling Transfer Acceleration by using the SDK for Python, see [put\_bucket\_accelerate\_configuration](https://docs.aws.amazon.com/boto3/latest/reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration) in the *AWS SDK for Python (Boto3) API Reference*.
+For an example of enabling Transfer Acceleration by using the AWS SDK for Python (Boto3), see [put\_bucket\_accelerate\_configuration](https://docs.aws.amazon.com/boto3/latest/reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration) in the *AWS SDK for Python (Boto3) API Reference*.
 
 ------
 #### [ Other ]

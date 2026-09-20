@@ -251,8 +251,24 @@ Error: "format-version 3 is not supported"
 + Ensure that you are using the latest AWS service versions.
 + Verify your engine version supports V3
 
-  V3 support for Amazon AWS services is as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/userguide/working-with-apache-iceberg-v3.html)
+  V3 support for Amazon AWS services is as follows:
+
+
+<table>
+<thead>
+  <tr><th>Service</th><th>V3 Support</th><th>V3 variant support</th></tr>
+</thead>
+<tbody>
+  <tr><td>EMR Spark</td><td>Release 7.12+</td><td>Release 8.0+</td></tr>
+  <tr><td>AWS Glue ETL</td><td>Version 5.1+</td><td>Version 6.0+</td></tr>
+  <tr><td>Amazon SageMaker Unified Studio Notebooks</td><td>Yes</td><td>No</td></tr>
+  <tr><td>AWS Glue: Iceberg REST API, Table Maintenance</td><td>Yes</td><td>No</td></tr>
+  <tr><td>Amazon S3 Tables: Iceberg REST API, Table Maintenance</td><td>Yes</td><td>Yes*</td></tr>
+  <tr><td>Amazon Athena (Trino)</td><td>No</td><td>No</td></tr>
+  <tr><td>Amazon Redshift</td><td>Patch 204+</td><td>No</td></tr>
+</tbody>
+</table>
+
 
   \*Partial Region availability
 

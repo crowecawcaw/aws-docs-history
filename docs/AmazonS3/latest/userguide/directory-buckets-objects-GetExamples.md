@@ -39,7 +39,7 @@ public static void getObject(S3Client s3Client, String bucketName, String object
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 **Example**  
 The following code example shows how to read data from an object in a directory bucket by using the AWS SDK for Python (Boto3).   

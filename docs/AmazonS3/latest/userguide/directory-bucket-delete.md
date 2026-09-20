@@ -58,7 +58,7 @@ public static void deleteBucket(S3Client s3Client, String bucketName) {
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 **Example**  
 

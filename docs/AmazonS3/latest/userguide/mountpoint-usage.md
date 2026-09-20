@@ -37,8 +37,22 @@ Use Mountpoint for Amazon S3 to do the following:
       s3://{{{{amzn-s3-demo-bucket}}}}/{{example-prefix}}/ {{/mnt/mountpoint}} mount-s3 _netdev,nosuid,nodev,nofail,rw 0 0
       ```
 
-      See the following table for an explanation of the options used in the example.    
-<a name="auto-mount-commands"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonS3/latest/userguide/mountpoint-usage.html)
+      See the following table for an explanation of the options used in the example.
+
+<a name="auto-mount-commands"></a>
+<table>
+<thead>
+  <tr><th>Option</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>_netdev</code></td><td>Specifies that the filesystem requires networking to mount.</td></tr>
+  <tr><td><code>nosuid</code></td><td>Specifies that the filesystem cannot contain set user ID files.</td></tr>
+  <tr><td><code>nodev</code></td><td>Specifies that the filesystem cannot contain special devices.</td></tr>
+  <tr><td><code>nofail</code></td><td>Specifies that failure to mount the filesystem should still allow the system to boot.</td></tr>
+  <tr><td><code>rw</code></td><td>Specifies that the mount point is created with read and write permissions. Alternatively, use <code>ro</code> for read only.</td></tr>
+</tbody>
+</table>
+
 
       For new Amazon EC2 instances, you can modify user data on an Amazon EC2 template and set up the `fstab` file as follows. To use the following example, replace the {{user input placeholders}} with your own information.
 

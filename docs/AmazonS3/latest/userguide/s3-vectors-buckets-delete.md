@@ -44,7 +44,7 @@ aws s3vectors delete-vector-bucket \
 <a name="delete-vector-bucket-SDK"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3

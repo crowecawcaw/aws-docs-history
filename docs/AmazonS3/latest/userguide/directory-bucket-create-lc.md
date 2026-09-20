@@ -352,7 +352,7 @@ namespace Amazon.DocSamples.S3
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 **Example**  
 

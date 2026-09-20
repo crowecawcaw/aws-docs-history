@@ -232,7 +232,7 @@ $result = $s3Client->createBucket([
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 This example shows how to create a directory bucket in a Local Zone by using the AWS SDK for Python (Boto3). 
 

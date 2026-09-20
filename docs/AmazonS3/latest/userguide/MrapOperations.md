@@ -138,9 +138,9 @@ run()
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-The following SDK for Python code retrieves your Multi-Region Access Point route configuration so that you can see the current routing statuses for your buckets. To use this example syntax, replace the `{{user input placeholders}}` with your own information.
+The following AWS SDK for Python (Boto3) code retrieves your Multi-Region Access Point route configuration so that you can see the current routing statuses for your buckets. To use this example syntax, replace the `{{user input placeholders}}` with your own information.
 
 ```
 s3.get_multi_region_access_point_routes(
@@ -299,9 +299,9 @@ run()
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-The following SDK for Python code updates your Multi-Region Access Point route configuration. To use this example syntax, replace the `{{user input placeholders}}` with your own information.
+The following SDK for Python (Boto3) code updates your Multi-Region Access Point route configuration. To use this example syntax, replace the `{{user input placeholders}}` with your own information.
 
 ```
 s3.submit_multi_region_access_point_routes(
@@ -371,7 +371,7 @@ async function putObjectExample() {
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
@@ -441,7 +441,7 @@ async function getObjectExample() {
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
@@ -512,7 +512,7 @@ async function listObjectsExample() {
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
@@ -544,7 +544,7 @@ aws s3 presign arn:aws:s3::{{123456789012}}:accesspoint/{{MultiRegionAccessPoint
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import logging

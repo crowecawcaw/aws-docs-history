@@ -127,9 +127,9 @@ This code does the following:
 The operation will fail with a `412 Precondition Failed` error if an object exists with the new specified name and has the specified ETag. 
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
-You can use the SDK for Python to rename your objects. To use these examples, replace the {{user input placeholders}} with your own information.
+You can use the AWS SDK for Python (Boto3) to rename your objects. To use these examples, replace the {{user input placeholders}} with your own information.
 
 The following example demonstrates how to rename an object using the AWS SDK for Python (Boto3).
 

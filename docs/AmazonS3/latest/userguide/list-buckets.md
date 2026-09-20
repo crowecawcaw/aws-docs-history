@@ -91,7 +91,7 @@ $ aws s3api list-buckets /
 The following examples show you how to list your general purpose buckets by using the AWS SDKs
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 **Example – ListBuckets request (paginated)**  
 

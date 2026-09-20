@@ -98,7 +98,7 @@ Example response:
 <a name="s3-vectors-list-sdk"></a>
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto3) ]
 
 ```
 import boto3
