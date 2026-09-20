@@ -43,9 +43,9 @@ You can see the list of available images by going [here](https://gallery.ecr.aws
 ## Amazon Corretto on Alpine
 <a name="alpine-images"></a>
 
-Amazon Corretto on Alpine Linux images are available on [Amazon ECR Public Gallery](https://gallery.ecr.aws/docker/library/amazoncorretto) and [Dockerhub](https://hub.docker.com/_/amazoncorretto) 
+Amazon Corretto on Alpine Linux images are available on [Amazon ECR Public Gallery](https://gallery.ecr.aws/docker/library/amazoncorretto) and [Docker Hub](https://hub.docker.com/_/amazoncorretto) 
 
-Using dockerhub
+Using Docker Hub
 
 **Example**  
 
