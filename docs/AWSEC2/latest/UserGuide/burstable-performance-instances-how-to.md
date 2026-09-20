@@ -6,7 +6,7 @@
 The steps for launching, monitoring, and modifying burstable performance instances (T instances) are similar. The key difference is the default credit specification when they launch.
 
 Each T instance family comes with the following *default credit specification*:
-+ T4g, T3a, and T3 instances launch as `unlimited`
++ T8i, T4g, T3a, and T3 instances launch as `unlimited`
 + T3 instances on a Dedicated Host can only launch as `standard`
 + T2 instances launch as `standard`
 

@@ -17,6 +17,7 @@ The following procedures and tips can help you troubleshoot issues with your Ama
 + [Windows instance start issues](common-messages.md)
 + [Windows instance issues](win-ts-common-issues.md)
 + [Windows instance kernel debug over network](troubleshoot-windows-with-kdnet.md)
++ [Troubleshoot Windows with SAC](troubleshoot-windows-sac.md)
 + [Reset Windows administrator password](ResettingAdminPassword.md)
 + [Troubleshoot Sysprep issues](sysprep-troubleshoot.md)
 + [EC2Rescue for Linux instances](Linux-Server-EC2Rescue.md)

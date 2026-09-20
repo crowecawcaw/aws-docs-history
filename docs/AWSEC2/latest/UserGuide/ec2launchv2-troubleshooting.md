@@ -161,7 +161,7 @@ EC2Launch v2 is blocked, with log messages (`agent.log`) similar to the followin
 ```
 
 **Possible cause**  
-SAC is enabled and using the serial port. For more information, see [Use SAC to troubleshoot your Windows instance](troubleshoot-using-serial-console.md#troubleshooting-sac).
+SAC is enabled and using the serial port. For more information, see [Troubleshoot your Windows instance using SAC](troubleshoot-windows-sac.md).
 
 **Resolution**  
 Try the following steps to resolve this issue:

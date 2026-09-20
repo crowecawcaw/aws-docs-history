@@ -441,6 +441,10 @@ M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurab
   <tr><td>t4g.large 1</td><td>695</td><td>2780</td><td>86.88</td><td>347.50</td><td>4000</td><td>15700</td></tr>
   <tr><td>t4g.xlarge 1</td><td>695</td><td>2780</td><td>86.88</td><td>347.50</td><td>4000</td><td>15700</td></tr>
   <tr><td>t4g.2xlarge 1</td><td>695</td><td>2780</td><td>86.88</td><td>347.50</td><td>4000</td><td>15700</td></tr>
+  <tr><td>t8i.nano 1</td><td>43</td><td>5000</td><td>5.38</td><td>625.00</td><td>250</td><td>20000</td></tr>
+  <tr><td>t8i.micro 1</td><td>87</td><td>5000</td><td>10.88</td><td>625.00</td><td>500</td><td>20000</td></tr>
+  <tr><td>t8i.small 1</td><td>174</td><td>5000</td><td>21.75</td><td>625.00</td><td>1500</td><td>20000</td></tr>
+  <tr><td>t8i.medium 1</td><td>347</td><td>5000</td><td>43.38</td><td>625.00</td><td>2000</td><td>20000</td></tr>
 </tbody>
 </table>
 

@@ -90,9 +90,9 @@ If the instance uses Amazon EC2 Systems Manager, then SSM Agent version 3.0.854.
 ## Configure your chosen troubleshooting tool
 <a name="sc-prereqs-configure-troubleshooting-tool"></a>
 
-To troubleshoot your instance using the serial console, you can use GRUB or SysRq on Linux instances, and Special Admin Console (SAC) on Windows instances. Before you can use these tools, you must first perform configuration steps on every instance on which you'll use them.
+To troubleshoot your instance using the serial console, you can use GRUB or SysRq on Linux instances, and the Special Admin Console (SAC) on Windows instances. Before you can use these tools, you must first perform configuration steps on every instance on which you'll use them.
 
-Use the instructions for your instance's operating system to configure your chosen troubleshooting tool.
+Use the following instructions to configure GRUB or SysRq on a Linux instance. For Windows instances, to enable and use SAC, see [Troubleshoot your Windows instance using SAC](troubleshoot-windows-sac.md).
 
 ### (Linux instances) Configure GRUB
 <a name="configure-grub"></a>
@@ -266,69 +266,3 @@ To configure SysRq, you enable the SysRq commands for the current boot cycle. To
 1. At the `login` prompt, enter the username of the password-based user that you [set up previously](configure-access-to-serial-console.md#set-user-password), and then press **Enter**.
 
 1. At the `Password` prompt, enter the password, and then press **Enter**.
-
-### (Windows instances) Enable SAC and the boot menu
-<a name="configure-sac-bootmenu"></a>
-
-**Note**  
-If you enable SAC on an instance, the EC2 services that rely on password retrieval will not work from the Amazon EC2 console. Windows on Amazon EC2 launch agents (EC2Config, EC2Launch v1, and EC2Launch v2) rely on the serial console to execute various tasks. These tasks do not perform successfully when you enable SAC on an instance. For more information about Windows on Amazon EC2 launch agents, see [Configure your Amazon EC2 Windows instance](ec2-windows-instances.md). If you enable SAC, you can disable it later. For more information, see [Disable SAC and the boot menu](troubleshoot-using-serial-console.md#disable-sac-bootmenu).
-
-Use one of the following methods to enable SAC and the boot menu on an instance.
-
-------
-#### [ PowerShell ]
-
-**To enable SAC and the boot menu on a Windows instance**
-
-1. [Connect](connecting_to_windows_instance.md) to your instance and perform the following steps from an elevated PowerShell command line.
-
-1. Enable SAC.
-
-   ```
-   bcdedit /ems '{current}' on
-   bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
-   ```
-
-1. Enable the boot menu.
-
-   ```
-   bcdedit /set '{bootmgr}' displaybootmenu yes
-   bcdedit /set '{bootmgr}' timeout 15
-   bcdedit /set '{bootmgr}' bootems yes
-   ```
-
-1. Apply the updated configuration by rebooting the instance.
-
-   ```
-   shutdown -r -t 0
-   ```
-
-------
-#### [ Command prompt ]
-
-**To enable SAC and the boot menu on a Windows instance**
-
-1. [Connect](connecting_to_windows_instance.md) to your instance and perform the following steps from the command prompt.
-
-1. Enable SAC.
-
-   ```
-   bcdedit /ems {current} on
-   bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
-   ```
-
-1. Enable the boot menu.
-
-   ```
-   bcdedit /set {bootmgr} displaybootmenu yes
-   bcdedit /set {bootmgr} timeout 15
-   bcdedit /set {bootmgr} bootems yes
-   ```
-
-1. Apply the updated configuration by rebooting the instance.
-
-   ```
-   shutdown -r -t 0
-   ```
-
-------

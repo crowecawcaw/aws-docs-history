@@ -18,9 +18,7 @@ This topic describes burstable CPU. For information about burstable network perf
 ## EC2 burstable instance types
 <a name="burstable-instance-types"></a>
 
-The EC2 burstable instances consist of T4g, T3a, and T3 instance types, and the previous generation T2 instance types.
-
-The T4g instance types are the latest generation of burstable instances. They provide the best price for performance, and provide you with the lowest cost of all the EC2 instance types. The T4g instance types are powered by Arm-based [AWS Graviton2](https://aws.amazon.com/ec2/graviton/) processors with extensive ecosystem support from operating systems vendors, independent software vendors, and popular AWS services and applications.
+The EC2 burstable instances consist of T8i, T4g, T3a, and T3 instance types, and the previous generation T2 instance types.
 
 The following table summarizes the key differences between the burstable instance types.
 
@@ -32,6 +30,7 @@ The following table summarizes the key differences between the burstable instanc
 </thead>
 <tbody>
   <tr><td colspan="3"><b>Latest generation</b></td></tr>
+  <tr><td>T8i</td><td>Latest generation lower cost x86-based instances with up to 30% better price/performance compared to T3 instances</td><td>Intel Xeon Granite Rapids processors</td></tr>
   <tr><td>T4g</td><td>Lowest cost EC2 instance type with up to 40% higher price/performance and 20% lower costs vs T3</td><td>AWS Graviton2 processors with Arm Neoverse N1 cores</td></tr>
   <tr><td>T3a</td><td>Lowest cost x86-based instances with 10% lower costs vs T3 instances</td><td>AMD 1st gen EPYC processors</td></tr>
   <tr><td>T3</td><td>Best peak price/performance for x86 workloads with up to 30% lower price/performance vs previous generation T2 instances</td><td>Intel Xeon Scalable (Skylake, Cascade Lake processors)</td></tr>
@@ -43,7 +42,7 @@ The following table summarizes the key differences between the burstable instanc
 
 For information about instance pricing and additional specifications, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/) and [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/). For information about burstable network performance, see [Amazon EC2 instance network bandwidth](ec2-instance-network-bandwidth.md).
 
-If your created your AWS account before July 15, 2025 and it's less than 12 months old, you can use a `t2.micro` instance for free (or a `t3.micro` instance in Regions where `t2.micro` is unavailable) within certain usage limits. If you created your AWS account on or after July 15, 2025, you can use `t3.micro`, `t3.small`, `t4g.micro`, `t4g.small` instance types for 6 months or until your credits are used up. For more information, see [AWS Free Tier](https://aws.amazon.com/free/).
+If your created your AWS account before July 15, 2025 and it's less than 12 months old, you can use a `t2.micro` instance for free (or a `t3.micro` instance in Regions where `t2.micro` is unavailable) within certain usage limits. If you created your AWS account on or after July 15, 2025, you can use `t3.micro`, `t3.small`, `t4g.micro`, `t4g.small`, `t8i.micro`, `t8i.small` instance types for 6 months or until your credits are used up. For more information, see [AWS Free Tier](https://aws.amazon.com/free/).
 
 **Supported purchasing options for T instances**
 + On-Demand Instances

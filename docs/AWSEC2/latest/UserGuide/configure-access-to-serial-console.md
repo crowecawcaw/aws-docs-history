@@ -32,8 +32,15 @@ You can configure the serial console access policies by using IAM PrincipalTag a
 **User level**  
 You can configure access at the user level by configuring an IAM policy to allow or deny a specified user the permission to push the SSH public key to the serial console service of a particular instance. For more information, see [Configure IAM policies for EC2 Serial Console access](#serial-console-iam).
 
-**OS level** (Linux instances only)  
-You can set a user password at the guest OS level. This provides access to the serial console for some use cases. However, to monitor the logs, you don't need a password-based user. For more information, see [Set an OS user password on a Linux instance](#set-user-password).
+**OS level**  
++ **Linux**
+
+  You can set a user password at the guest OS level. This provides access to the serial console for some use cases. However, to monitor the logs, you don't need a password-based user. For more information, see [Set an OS user password on a Linux instance](#set-user-password).
++ **Windows**
+
+  Granting serial console permissions is equivalent to granting admin-level privileges on the instance. Further authentication is driven by Windows and you should consult Microsoft documentation for additional details.
+
+  For more information, see the Microsoft docs at [Emergency Management Services Tools and Settings](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)).
 
 ## Manage account access to the EC2 Serial Console
 <a name="serial-console-account-access"></a>

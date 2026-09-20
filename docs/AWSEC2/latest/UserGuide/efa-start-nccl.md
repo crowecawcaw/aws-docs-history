@@ -7,7 +7,7 @@ The NVIDIA Collective Communications Library (NCCL) is a library of standard col
 
 **Requirements**
 + Supported instance types include EFA-supported P series and G series instance types. For more information, see [ Amazon EC2 accelerated computing instances](https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html#ac-sizes).
-+ Supported base AMIs: Amazon Linux 2023, Ubuntu 26.04, Ubuntu 24.04, Ubuntu 22.04, Debian 12 and RHEL 10.
++ Supported base AMIs: Amazon Linux 2023, Ubuntu 26.04, Ubuntu 24.04, Ubuntu 22.04, Debian 12, Debian 13, and RHEL 10.
 + EFA supports only NCCL 2.4.2 and later.
 
 For more information about running machine learning workloads with EFA and NCCL using an AWS Deep Learning AMIs, see [ Using EFA on the DLAMI](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-efa-using.html) in the *AWS Deep Learning AMIs Developer Guide*.
@@ -350,7 +350,7 @@ You must provision an additional 10 to 20 GiB of storage for the NVIDIA CUDA Too
    The command should return information about the NVIDIA GPUs, NVIDIA GPU drivers, and NVIDIA CUDA Toolkit.
 
 ------
-#### [ Debian 12 ]
+#### [ Debian 12 and Debian 13 ]
 
 **To install the NVIDIA GPU drivers, NVIDIA CUDA Toolkit, and cuDNN**
 
@@ -368,18 +368,30 @@ You must provision an additional 10 to 20 GiB of storage for the NVIDIA CUDA Too
 
 1. Reboot the instance and reconnect to it.
 
-1. Add the CUDA repository and install the NVIDIA GPU drivers, NVIDIA CUDA Toolkit, and cuDNN.
+1. Add the CUDA repository and install the NVIDIA GPU drivers, NVIDIA CUDA Toolkit, and cuDNN:
+   + Debian 12
 
-   ```
-   $ wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb \
-   && sudo dpkg -i cuda-keyring_1.1-1_all.deb \
-   && sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y "deb https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/ /" \
-   && sudo apt-get update
-   ```
+     ```
+     $ wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb \
+     && sudo dpkg -i cuda-keyring_1.1-1_all.deb \
+     && sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y "deb https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/ /" \
+     && sudo apt-get update
+     ```
 
-   ```
-   $ sudo apt-get install -y nvidia-open cuda-toolkit-13-0 libcudnn9-cuda-13 libcudnn9-dev-cuda-13
-   ```
+     ```
+     $ sudo apt-get install -y nvidia-open cuda-toolkit-13-0 libcudnn9-cuda-13 libcudnn9-dev-cuda-13
+     ```
+   + Debian 13
+
+     ```
+     $ wget https://developer.download.nvidia.com/compute/cuda/repos/debian13/x86_64/cuda-keyring_1.1-1_all.deb \
+     && sudo dpkg -i cuda-keyring_1.1-1_all.deb \
+     && sudo apt-get update
+     ```
+
+     ```
+     $ sudo apt-get install -y nvidia-open cuda-toolkit-13-3 libcudnn9-cuda-13 libcudnn9-dev-cuda-13
+     ```
 
 1. Configure the NVIDIA UVM kernel module.
 
@@ -405,12 +417,19 @@ You must provision an additional 10 to 20 GiB of storage for the NVIDIA CUDA Too
 
       In the preceding example, major version `610` of the kernel module was installed.
 
-   1. Install the NVIDIA Fabric Manager using the major version identified in the previous step.
+   1. Install the NVIDIA Fabric Manager:
+      + Debian 12: Install the package that matches the major version identified in the previous step.
 
-      ```
-      $ sudo apt-get install -y nvidia-fabricmanager-{{major_version_number}} \
-      && sudo systemctl enable nvidia-fabricmanager && sudo systemctl start nvidia-fabricmanager
-      ```
+        ```
+        $ sudo apt-get install -y nvidia-fabricmanager-{{major_version_number}} \
+        && sudo systemctl enable nvidia-fabricmanager && sudo systemctl start nvidia-fabricmanager
+        ```
+      + Debian 13: Install the `nvidia-fabricmanager` package.
+
+        ```
+        $ sudo apt-get install -y nvidia-fabricmanager \
+        && sudo systemctl enable nvidia-fabricmanager && sudo systemctl start nvidia-fabricmanager
+        ```
 
 1. Ensure that the CUDA paths are set each time that the instance starts.
    + For *bash* shells, add the following statements to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`. 
@@ -591,7 +610,7 @@ On Ubuntu 22.04, also install the following additional dependencies:
    ```
 
 ------
-#### [ Debian 12 ]
+#### [ Debian 12 and Debian 13 ]
 
 **To install GDRCopy**
 

@@ -73,8 +73,22 @@ When you configure static IP addressing in your instance, the IP address must ma
 
 1. Choose **Internet Protocol Version 4 (TCP/IPv4)**, **Properties**.
 
-1. In the **Internet Protocol Version 4 (TCP/IPv4) Properties** dialog box, choose **Use the following IP address**, enter the following values, and then choose **OK**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/config-windows-multiple-ip.html)
+1. In the **Internet Protocol Version 4 (TCP/IPv4) Properties** dialog box, choose **Use the following IP address**, enter the following values, and then choose **OK**.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>IP address</b></td><td>The IPv4 address obtained in step 2 above.</td></tr>
+  <tr><td><b>Subnet mask</b></td><td>The subnet mask obtained in step 2 above.</td></tr>
+  <tr><td><b>Default gateway</b></td><td>The default gateway address obtained in step 2 above.</td></tr>
+  <tr><td><b>Preferred DNS server</b></td><td>The DNS server obtained in step 2 above.</td></tr>
+  <tr><td><b>Alternate DNS server</b></td><td>The alternate DNS server obtained in step 2 above. If an alternate DNS server was not listed, leave this field blank.</td></tr>
+</tbody>
+</table>
+
 **Important**  
 If you set the IP address to any value other than the current IP address, you will lose connectivity to the instance.  
 ![IP Addresses.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/windows-ip-static.png)

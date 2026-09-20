@@ -49,7 +49,7 @@ You must have sufficient licenses in your AWS account for your new Dedicated Hos
 ## Pricing
 <a name="dedicated-hosts-maintenance-pricing"></a>
 
-There are no additional charges for using host maintenance, but the usual Dedicated Host charges apply. For more information, see [ Amazon EC2 Dedicated Hosts Pricing](https://aws.amazon.com/ec2/dedicated-hosts/pricing/).
+There are no additional charges for using host maintenance, but the usual Dedicated Host charges apply. For more information, see [Amazon EC2 Dedicated Hosts Pricing](https://aws.amazon.com/ec2/dedicated-hosts/pricing/).
 
 As soon as host maintenance is initiated, you are no longer billed for the degraded Dedicated Host. Billing for the replacement Dedicated Host begins only after it enters the `available` state.
 

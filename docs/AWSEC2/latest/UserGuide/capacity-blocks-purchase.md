@@ -5,7 +5,7 @@
 
 To reserve a Capacity Block, you first need to find a block of time when capacity is available that matches your needs. To find a Capacity Block that is available to reserve, you specify the following.
 + The number of instances that you need
-+ The duration of time you that you need the instances
++ The duration of time that you need the instances
 + The date range that you need your reservation
 
 To search for an available Capacity Block offering, you specify a reservation duration and instance count. You must specify reservation durations in ** 1-day increments up to 14 days, and in 7-day increments up to 182 days**. Each Capacity Block can have up to 64 instances, and you can have up to 256 instances across Capacity Blocks.

@@ -39,8 +39,19 @@ To ensure that ENA Express can manage network traffic as intended, sending and r
 + Both sending and receiving instance types are supported. See the [Supported instance types for ENA Express](#ena-express-supported-instance-types) table for more information.
 + Both sending and receiving instances must have ENA Express configured. If there are differences in the configuration, you can run into situations where traffic defaults to standard ENA transmission. The following scenario shows what can happen.
 
-  **Scenario: Differences in configuration**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html)
+  **Scenario: Differences in configuration**
+
+
+<table>
+<thead>
+  <tr><th> Instance </th><th>ENA Express Enabled</th><th>UDP uses ENA Express</th></tr>
+</thead>
+<tbody>
+  <tr><td>Instance 1</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Instance 2</td><td>Yes</td><td>No</td></tr>
+</tbody>
+</table>
+
 
   In this case, TCP traffic between the two instances can use ENA Express, as both instances have enabled it. However, since one of the instances does not use ENA Express for UDP traffic, communication between these two instances over UDP uses standard ENA transmission.
 + The sending and receiving instances must run in the same Region.

@@ -30,8 +30,22 @@ The time taken to complete the copy operation for cross-Region and cross-account
   + If the source AMI is in a Region, you can copy it within that Region, to another Region, to an Outpost associated with that Region, or to a Local Zone in that Region.
   + If the source AMI is in a Local Zone, you can copy it within that Local Zone, to the parent Region of that Local Zone, or to certain other Local Zones with the same parent Region.
   + If the source AMI is on an Outpost, you can't copy it.
-+ **CLI parameters for source and destination** – When using the CLI, the following parameters are supported for specifying the source location of the AMI to copy and the destination of the new AMI. Note that the copy operation must be initiated in the destination Region; if you omit the `--region` parameter, the destination assumes the default Region configured in your AWS CLI settings.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html)
++ **CLI parameters for source and destination** – When using the CLI, the following parameters are supported for specifying the source location of the AMI to copy and the destination of the new AMI. Note that the copy operation must be initiated in the destination Region; if you omit the `--region` parameter, the destination assumes the default Region configured in your AWS CLI settings.
+
+
+<table>
+<thead>
+  <tr><th>Source to destination</th><th>Source parameter</th><th>Destination parameter</th></tr>
+</thead>
+<tbody>
+  <tr><td>Region to Region</td><td><code>--source-region</code></td><td><code>--region</code></td></tr>
+  <tr><td>Region to Outpost</td><td><code>--source-region</code></td><td><code>--destination-outpost-arn</code> (the ARN of the Outpost)</td></tr>
+  <tr><td>Region to Local Zone</td><td><code>--source-region</code><br />Must be the parent Region of the Local Zone.</td><td><code>--destination-availability-zone</code> (the name of the Local Zone) or <code>--destination-availability-zone-id</code> (the ID of the Local Zone)</td></tr>
+  <tr><td>Local Zone to Region</td><td><code>--source-region</code><br />Must be the parent Region of the Local Zone.<br />The source Local Zone is assumed from the location of the specified source AMI ID.</td><td><code>--region</code><br />Must be the parent Region of the Local Zone.</td></tr>
+  <tr><td>Local Zone to Local Zone</td><td><code>--source-region</code>Must be the parent Region of the Local Zone.<br />The source Local Zone is assumed from the location of the specified source AMI ID.</td><td><code>--destination-availability-zone</code> (the name of the Local Zone) or <code>--destination-availability-zone-id</code> (the ID of the Local Zone)</td></tr>
+</tbody>
+</table>
+
 
 ## Costs
 <a name="copy-ami-costs"></a>

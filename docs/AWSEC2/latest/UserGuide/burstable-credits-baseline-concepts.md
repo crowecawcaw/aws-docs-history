@@ -87,6 +87,7 @@ The following table summarizes the key credit differences between the burstable 
 </thead>
 <tbody>
   <tr><td colspan="4"><b>Latest generation</b></td></tr>
+  <tr><td>T8i</td><td>Earned credits, Accrued credits, Spent credits, Surplus credits (Unlimited mode only)</td><td>Standard, Unlimited (default)</td><td>7 days (credits persist for 7 days after an instance stops)</td></tr>
   <tr><td>T4g</td><td>Earned credits, Accrued credits, Spent credits, Surplus credits (Unlimited mode only)</td><td>Standard, Unlimited (default)</td><td>7 days (credits persist for 7 days after an instance stops)</td></tr>
   <tr><td>T3a</td><td>Earned credits, Accrued credits, Spent credits, Surplus credits (Unlimited mode only)</td><td>Standard, Unlimited (default)</td><td>7 days (credits persist for 7 days after an instance stops)</td></tr>
   <tr><td>T3</td><td>Earned credits, Accrued credits, Spent credits, Surplus credits (Unlimited mode only)</td><td>Standard, Unlimited (default)</td><td>7 days (credits persist for 7 days after an instance stops)</td></tr>
@@ -111,30 +112,11 @@ The following table lists the burstable performance instance types, the rate at 
 
 |  Instance type  |  CPU credits earned per hour  |  Maximum earned credits that can be accrued\*  |  vCPUs\*\*\*  |  Baseline utilization per vCPU  | 
 | --- | --- | --- | --- | --- | 
-| **T2** |  |  |  |  | 
-| t2.nano | 3 | 72 | 1 | 5% | 
-| t2.micro | 6 | 144 | 1 | 10% | 
-| t2.small | 12 | 288 | 1 | 20% | 
-| t2.medium | 24 | 576 | 2 | 20%\*\* | 
-| t2.large | 36 | 864 | 2 | 30%\*\* | 
-| t2.xlarge | 54 | 1296 | 4 | 22.5%\*\* | 
-| t2.2xlarge | 81.6 | 1958.4 | 8 | 17%\*\* | 
-| **T3** |  |  |  |  | 
-| t3.nano | 6 | 144 | 2 | 5%\*\* | 
-| t3.micro | 12 | 288 | 2 | 10%\*\* | 
-| t3.small | 24 | 576 | 2 | 20%\*\* | 
-| t3.medium | 24 | 576 | 2 | 20%\*\* | 
-| t3.large | 36 | 864 | 2 | 30%\*\* | 
-| t3.xlarge | 96 | 2304 | 4 | 40%\*\* | 
-| t3.2xlarge | 192 | 4608 | 8 | 40%\*\* | 
-| **T3a** |  |  |  |  | 
-| t3a.nano | 6 | 144 | 2 | 5%\*\* | 
-| t3a.micro | 12 | 288 | 2 | 10%\*\* | 
-| t3a.small | 24 | 576 | 2 | 20%\*\* | 
-| t3a.medium | 24 | 576 | 2 | 20%\*\* | 
-| t3a.large | 36 | 864 | 2 | 30%\*\* | 
-| t3a.xlarge | 96 | 2304 | 4 | 40%\*\* | 
-| t3a.2xlarge | 192 | 4608 | 8 | 40%\*\* | 
+| **T8i** |  |  |  |  | 
+| t8i.nano | 6 | 144 | 2 | 5%\*\* | 
+| t8i.micro | 12 | 288 | 2 | 10%\*\* | 
+| t8i.small | 24 | 576 | 2 | 20%\*\* | 
+| t8i.medium | 24 | 576 | 2 | 20%\*\* | 
 | **T4g** |  |  |  |  | 
 | t4g.nano | 6 | 144 | 2 | 5%\*\* | 
 | t4g.micro | 12 | 288 | 2 | 10%\*\* | 
@@ -143,6 +125,30 @@ The following table lists the burstable performance instance types, the rate at 
 | t4g.large | 36 | 864 | 2 | 30%\*\* | 
 | t4g.xlarge | 96 | 2304 | 4 | 40%\*\* | 
 | t4g.2xlarge | 192 | 4608 | 8 | 40%\*\* | 
+| **T3a** |  |  |  |  | 
+| t3a.nano | 6 | 144 | 2 | 5%\*\* | 
+| t3a.micro | 12 | 288 | 2 | 10%\*\* | 
+| t3a.small | 24 | 576 | 2 | 20%\*\* | 
+| t3a.medium | 24 | 576 | 2 | 20%\*\* | 
+| t3a.large | 36 | 864 | 2 | 30%\*\* | 
+| t3a.xlarge | 96 | 2304 | 4 | 40%\*\* | 
+| t3a.2xlarge | 192 | 4608 | 8 | 40%\*\* | 
+| **T3** |  |  |  |  | 
+| t3.nano | 6 | 144 | 2 | 5%\*\* | 
+| t3.micro | 12 | 288 | 2 | 10%\*\* | 
+| t3.small | 24 | 576 | 2 | 20%\*\* | 
+| t3.medium | 24 | 576 | 2 | 20%\*\* | 
+| t3.large | 36 | 864 | 2 | 30%\*\* | 
+| t3.xlarge | 96 | 2304 | 4 | 40%\*\* | 
+| t3.2xlarge | 192 | 4608 | 8 | 40%\*\* | 
+| **T2** |  |  |  |  | 
+| t2.nano | 3 | 72 | 1 | 5% | 
+| t2.micro | 6 | 144 | 1 | 10% | 
+| t2.small | 12 | 288 | 1 | 20% | 
+| t2.medium | 24 | 576 | 2 | 20%\*\* | 
+| t2.large | 36 | 864 | 2 | 30%\*\* | 
+| t2.xlarge | 54 | 1296 | 4 | 22.5%\*\* | 
+| t2.2xlarge | 81.6 | 1958.4 | 8 | 17%\*\* | 
 
 
 | Notes | 
@@ -168,7 +174,7 @@ The CPU credit balance limit differs for each instance size. For example, a `t3.
 
 T2 Standard instances also earn launch credits. Launch credits do not count towards the CPU credit balance limit. If a T2 instance has not spent its launch credits, and remains idle over a 24-hour period while accruing earned credits, its CPU credit balance appears as over the limit. For more information, see [Launch credits](burstable-performance-instances-standard-mode-concepts.md#launch-credits). 
 
-T4g, T3a, and T3 instances do not earn launch credits. These instances launch as `unlimited` by default, and therefore can burst immediately upon start without any launch credits. T3 instances launched on a Dedicated Host launch as `standard` by default; `unlimited` mode is not supported for T3 instances on a Dedicated Host.
+T8i, T4g, T3a, and T3 instances do not earn launch credits. These instances launch as `unlimited` by default, and therefore can burst immediately upon start without any launch credits. T3 instances launched on a Dedicated Host launch as `standard` by default; `unlimited` mode is not supported for T3 instances on a Dedicated Host.
 
 ## Accrued CPU credits life span
 <a name="accrued-CPU-credits-life-span"></a>
@@ -177,7 +183,7 @@ CPU credits on a running instance do not expire.
 
 For T2, the CPU credit balance does not persist between instance stops and starts. If you stop a T2 instance, the instance loses all its accrued credits.
 
-For T4g, T3a, and T3, the CPU credit balance persists for seven days after an instance stops and the credits are lost thereafter. If you start the instance within seven days, no credits are lost.
+For T8i, T4g, T3a, and T3, the CPU credit balance persists for seven days after an instance stops and the credits are lost thereafter. If you start the instance within seven days, no credits are lost.
 
 For more information, see `CPUCreditBalance` in the [CloudWatch metrics table](burstable-performance-instances-monitoring-cpu-credits.md#burstable-performance-instances-CW-metrics-table).
 

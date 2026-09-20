@@ -6,7 +6,7 @@
 The NVIDIA Inference Xfer Library (NIXL) is a high-throughput, low-latency communication library designed specifically for disaggregated inference workloads. NIXL can be used together with EFA and Libfabric to support KV-cache transfer between prefill and decode nodes, and it enables efficient KV-cache movement between various storage layers. For more information, see the [NIXL](https://github.com/ai-dynamo/nixl) website.
 
 **Requirements**
-+ Only Ubuntu 24.04 and Ubuntu 22.04 base AMIs are supported.
++ Supported base AMIs: Amazon Linux 2023, Ubuntu 24.04, and Ubuntu 22.04.
 + EFA supports only NIXL 1.0.0 and later.
 
 **Topics**
@@ -108,32 +108,37 @@ You must provision an additional 10 to 20 GiB of storage for the Nvidia CUDA Too
 **Important**  
 Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, and cuDNN, or if you are using a non-GPU instance.
 
-## Step 3: Install Nvidia GPU drivers, Nvidia CUDA toolkit, and cuDNN
+## Step 3: Install NVIDIA GPU drivers, NVIDIA CUDA Toolkit, and cuDNN
 <a name="nixl-start-base-drivers"></a>
 
-**To install the Nvidia GPU drivers, Nvidia CUDA toolkit, and cuDNN**
+------
+#### [ Amazon Linux 2023 ]
+
+**To install the NVIDIA GPU drivers, NVIDIA CUDA Toolkit, and cuDNN**
 
 1. To ensure that all of your software packages are up to date, perform a quick software update on your instance.
 
    ```
-   $ sudo apt-get update && sudo apt-get upgrade -y
+   $ sudo dnf upgrade -y && sudo reboot
    ```
 
-1. Install the utilities that are needed to install the Nvidia GPU drivers and the Nvidia CUDA toolkit.
+   After the instance has rebooted, reconnect to it.
+
+1. Install the utilities that are needed to install the NVIDIA GPU drivers and the NVIDIA CUDA Toolkit.
 
    ```
-   $ sudo apt-get install build-essential -y
+   $ sudo dnf groupinstall 'Development Tools' -y && sudo dnf install -y dkms kernel-devel-$(uname -r) kernel-headers-$(uname -r)
    ```
 
-1. To use the Nvidia GPU driver, you must first disable the `nouveau` open source drivers.
+1. Disable the `nouveau` open source drivers.
 
    1. Install the required utilities and the kernel headers package for the version of the kernel that you are currently running.
 
       ```
-      $ sudo apt-get install -y gcc make linux-headers-$(uname -r)
+      $ sudo yum install -y wget kernel-devel-$(uname -r) kernel-headers-$(uname -r)
       ```
 
-   1. Add `nouveau` to the `/etc/modprobe.d/blacklist.conf `deny list file.
+   1. Add `nouveau` to the `/etc/modprobe.d/blacklist.conf` deny list file.
 
       ```
       $ cat << EOF | sudo tee --append /etc/modprobe.d/blacklist.conf
@@ -145,75 +150,45 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
       EOF
       ```
 
-   1. Open `/etc/default/grub` using your preferred text editor and add the following.
+   1. Append `GRUB_CMDLINE_LINUX="rdblacklist=nouveau"` to the `grub` file and rebuild the GRUB configuration.
 
       ```
-      GRUB_CMDLINE_LINUX="rdblacklist=nouveau"
-      ```
-
-   1. Rebuild the Grub configuration.
-
-      ```
-      $ sudo update-grub
+      $ echo 'GRUB_CMDLINE_LINUX="rdblacklist=nouveau"' | sudo tee -a /etc/default/grub \
+      && sudo grub2-mkconfig -o /boot/grub2/grub.cfg
       ```
 
 1. Reboot the instance and reconnect to it.
 
-1. Add the CUDA repository and install the Nvidia GPU drivers, NVIDIA CUDA toolkit, and cuDNN.
+1. Add the CUDA network repository.
 
    ```
-   $ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64/7fa2af80.pub \
-   && wget -O /tmp/deeplearning.deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64/nvidia-machine-learning-repo-ubuntu2004_1.0.0-1_amd64.deb \
-   && sudo dpkg -i /tmp/deeplearning.deb \
-   && wget -O /tmp/cuda.pin https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin \
-   && sudo mv /tmp/cuda.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
-   && sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub \
-   && sudo add-apt-repository 'deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /' \
-   && sudo apt update \
-   && sudo apt install nvidia-dkms-535 \
-   && sudo apt install -o Dpkg::Options::='--force-overwrite' cuda-drivers-535 cuda-toolkit-12-3 libcudnn8 libcudnn8-dev -y
+   $ sudo yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+   ```
+
+1. Download and install the NVIDIA GPU driver.
+
+   ```
+   $ wget https://us.download.nvidia.com/tesla/580.167.08/NVIDIA-Linux-x86_64-580.167.08.run \
+   && sudo sh NVIDIA-Linux-x86_64-580.167.08.run -m kernel-open --no-drm --disable-nouveau --dkms --silent
+   ```
+
+1. Install the NVIDIA CUDA Toolkit and cuDNN.
+
+   ```
+   $ sudo dnf install -y cuda-toolkit-13-0 libcudnn9-cuda-13 libcudnn9-devel-cuda-13
    ```
 
 1. Reboot the instance and reconnect to it.
 
-1. (`p4d.24xlarge` and `p5.48xlarge` only) Install the Nvidia Fabric Manager.
+1. Install and start the NVIDIA Fabric Manager on instances with NVSwitch, such as P-series multi-GPU instances. G-series instances do not use NVSwitch and do not require Fabric Manager.
 
-   1. You must install the version of the Nvidia Fabric Manager that matches the version of the Nvidia kernel module that you installed in the previous step.
-
-      Run the following command to determine the version of the Nvidia kernel module.
-
-      ```
-      $ cat /proc/driver/nvidia/version | grep "Kernel Module"
-      ```
-
-      The following is example output.
-
-      ```
-      NVRM version: NVIDIA UNIX x86_64 Kernel Module  450.42.01  Tue Jun 15 21:26:37 UTC 2021
-      ```
-
-      In the example above, major version `450` of the kernel module was installed. This means that you need to install Nvidia Fabric Manager version `450`.
-
-   1. Install the Nvidia Fabric Manager. Run the following command and specify the major version identified in the previous step.
-
-      ```
-      $ sudo apt install -o Dpkg::Options::='--force-overwrite' nvidia-fabricmanager-{{major_version_number}}
-      ```
-
-      For example, if major version `450` of the kernel module was installed, use the following command to install the matching version of Nvidia Fabric Manager.
-
-      ```
-      $ sudo apt install -o Dpkg::Options::='--force-overwrite' nvidia-fabricmanager-450
-      ```
-
-   1. Start the service, and ensure that it starts automatically when the instance starts. Nvidia Fabric Manager is required for NV Switch Management.
-
-      ```
-      $ sudo systemctl start nvidia-fabricmanager && sudo systemctl enable nvidia-fabricmanager
-      ```
+   ```
+   $ sudo dnf install -y https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/nvidia-fabricmanager-580.167.08-1.el8.x86_64.rpm \
+   && sudo systemctl enable nvidia-fabricmanager && sudo systemctl start nvidia-fabricmanager
+   ```
 
 1. Ensure that the CUDA paths are set each time that the instance starts.
-   + For *bash* shells, add the following statements to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`.
+   + For *bash* shells, add the following statements to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`. 
 
      ```
      export PATH=/usr/local/cuda/bin:$PATH
@@ -222,17 +197,128 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
    + For *tcsh* shells, add the following statements to `/home/{{username}}/.cshrc`.
 
      ```
-     setenv PATH=/usr/local/cuda/bin:$PATH
-     setenv LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+     setenv PATH /usr/local/cuda/bin:$PATH
+     setenv LD_LIBRARY_PATH /usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
      ```
 
-1. To confirm that the Nvidia GPU drivers are functional, run the following command.
+1. To confirm that the NVIDIA GPU drivers are functional, run the following command.
 
    ```
    $ nvidia-smi -q | head
    ```
 
-   The command should return information about the Nvidia GPUs, Nvidia GPU drivers, and Nvidia CUDA toolkit.
+   The command should return information about the NVIDIA GPUs, NVIDIA GPU drivers, and NVIDIA CUDA Toolkit.
+
+------
+#### [ Ubuntu 24.04 and Ubuntu 22.04 ]
+
+**To install the NVIDIA GPU drivers, NVIDIA CUDA Toolkit, and cuDNN**
+
+1. To ensure that all of your software packages are up to date, perform a quick software update on your instance.
+
+   ```
+   $ sudo apt-get update && sudo apt-get upgrade -y
+   ```
+
+1. Install the utilities that are needed to install the NVIDIA GPU drivers and the NVIDIA CUDA Toolkit.
+
+   ```
+   $ sudo apt-get update && sudo apt-get install build-essential -y
+   ```
+
+1. To use the NVIDIA GPU driver, you must first disable the `nouveau` open source drivers.
+
+   1. Install the required utilities and the kernel headers package for the version of the kernel that you are currently running.
+
+      ```
+      $ sudo apt-get install -y gcc make linux-headers-$(uname -r)
+      ```
+
+   1. Add `nouveau` to the `/etc/modprobe.d/blacklist.conf` deny list file.
+
+      ```
+      $ cat << EOF | sudo tee --append /etc/modprobe.d/blacklist.conf
+      blacklist vga16fb
+      blacklist nouveau
+      blacklist rivafb
+      blacklist nvidiafb
+      blacklist rivatv
+      EOF
+      ```
+
+   1. Open `/etc/default/grub` using your preferred text editor and add the following. 
+
+      ```
+      GRUB_CMDLINE_LINUX="rdblacklist=nouveau"
+      ```
+
+   1. Rebuild the GRUB configuration.
+
+      ```
+      $ sudo update-grub
+      ```
+
+1. Reboot the instance and reconnect to it.
+
+1. Add the CUDA repository and install the NVIDIA GPU drivers, NVIDIA CUDA Toolkit, and cuDNN.
+   + Ubuntu 24.04
+
+     ```
+     $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb \
+     && sudo dpkg -i cuda-keyring_1.1-1_all.deb \
+     && sudo add-apt-repository -y 'deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64 /' \
+     && sudo apt-get update
+     ```
+
+     ```
+     $ sudo apt-get install -y nvidia-open-580 cuda-toolkit-13-0 libcudnn9-cuda-13 libcudnn9-dev-cuda-13
+     ```
+   + Ubuntu 22.04
+
+     ```
+     $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb \
+     && sudo dpkg -i cuda-keyring_1.1-1_all.deb \
+     && sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" \
+     && sudo apt-get update
+     ```
+
+     ```
+     $ sudo apt-get install -y nvidia-open-580 cuda-toolkit-13-0 libcudnn9-cuda-13 libcudnn9-dev-cuda-13
+     ```
+
+1. Reboot the instance and reconnect to it.
+
+1. Install and start the NVIDIA Fabric Manager on instances with NVSwitch, such as P-series multi-GPU instances. G-series instances do not use NVSwitch and do not require Fabric Manager.
+   + Ubuntu 24.04 and Ubuntu 22.04
+
+     ```
+     $ sudo apt-get install -y nvidia-fabricmanager-580 \
+     && sudo systemctl enable nvidia-fabricmanager && sudo systemctl start nvidia-fabricmanager
+     ```
+
+1. Ensure that the CUDA paths are set each time that the instance starts.
+   + For *bash* shells, add the following statements to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`. 
+
+     ```
+     export PATH=/usr/local/cuda/bin:$PATH
+     export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+     ```
+   + For *tcsh* shells, add the following statements to `/home/{{username}}/.cshrc`.
+
+     ```
+     setenv PATH /usr/local/cuda/bin:$PATH
+     setenv LD_LIBRARY_PATH /usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+     ```
+
+1. To confirm that the NVIDIA GPU drivers are functional, run the following command.
+
+   ```
+   $ nvidia-smi -q | head
+   ```
+
+   The command should return information about the NVIDIA GPUs, NVIDIA GPU drivers, and NVIDIA CUDA Toolkit.
+
+------
 
 **Important**  
 Skip Step 4 if your AMI already includes GDRCopy, or if you are using a non-GPU instance.
@@ -242,36 +328,74 @@ Skip Step 4 if your AMI already includes GDRCopy, or if you are using a non-GPU 
 
 Install GDRCopy to improve the performance of Libfabric on GPU-based platforms. For more information about GDRCopy, see the [GDRCopy repository](https://github.com/NVIDIA/gdrcopy).
 
+------
+#### [ Amazon Linux 2023 ]
+
 **To install GDRCopy**
 
 1. Install the required dependencies.
 
    ```
-   $ sudo apt -y install build-essential devscripts debhelper check libsubunit-dev fakeroot pkg-config dkms
+   $ sudo yum -y install dkms rpm-build make check check-devel
    ```
 
 1. Download and extract the GDRCopy package.
 
    ```
-   $ wget https://github.com/NVIDIA/gdrcopy/archive/refs/tags/v2.4.tar.gz \
-   && tar xf v2.4.tar.gz \
-   && cd gdrcopy-2.4/packages
+   $ wget https://github.com/NVIDIA/gdrcopy/archive/refs/tags/v2.5.2.tar.gz \
+   && tar xf v2.5.2.tar.gz && cd gdrcopy-2.5.2/packages
    ```
 
-1. Build the GDRCopy DEB packages.
+1. Build the GDRCopy RPM packages.
 
    ```
-   $ CUDA=/usr/local/cuda ./build-deb-packages.sh
+   $ CUDA=/usr/local/cuda ./build-rpm-packages.sh
+   ```
+
+1. Install the GDRCopy RPM packages.
+
+   ```
+   $ sudo rpm -Uvh gdrcopy-kmod-2.5.2*dkms*.rpm \
+   && sudo rpm -Uvh gdrcopy-2.5.2*.rpm \
+   && sudo rpm -Uvh gdrcopy-devel-2.5.2*.rpm
+   ```
+
+------
+#### [ Ubuntu 24.04 and Ubuntu 22.04 ]
+
+**To install GDRCopy**
+
+1. Install the required dependencies.
+
+   ```
+   $ sudo apt-get install -y build-essential devscripts debhelper fakeroot pkg-config dkms
+   ```
+**Note**  
+On Ubuntu 22.04 only, install these additional dependencies:  
+
+   ```
+   $ sudo apt-get install -y check libsubunit-dev
+   ```
+
+1. Download and extract the GDRCopy package, and build the packages.
+
+   ```
+   $ wget https://github.com/NVIDIA/gdrcopy/archive/refs/tags/v2.5.2.tar.gz \
+   && tar xf v2.5.2.tar.gz \
+   && cd gdrcopy-2.5.2/packages \
+   && CUDA=/usr/local/cuda ./build-deb-packages.sh
    ```
 
 1. Install the GDRCopy DEB packages.
 
    ```
-   $ sudo dpkg -i gdrdrv-dkms_2.4-1_amd64.*.deb \
-   && sudo dpkg -i libgdrapi_2.4-1_amd64.*.deb \
-   && sudo dpkg -i gdrcopy-tests_2.4-1_amd64.*.deb \
-   && sudo dpkg -i gdrcopy_2.4-1_amd64.*.deb
+   $ sudo dpkg -i gdrdrv-dkms_2.5.2-1_amd64.*.deb \
+   && sudo dpkg -i libgdrapi_2.5.2-1_amd64.*.deb \
+   && sudo dpkg -i gdrcopy-tests_2.5.2-1_amd64.*.deb \
+   && sudo dpkg -i gdrcopy_2.5.2-1_amd64.*.deb
    ```
+
+------
 
 **Important**  
 Skip Step 5 if your AMI already includes the latest EFA installer.
@@ -388,16 +512,28 @@ Install NIXL. For more information about NIXL, see the [NIXL repository](https:/
 **To install NIXL using PyPI**
 
 1. Install the required dependencies.
+   + Amazon Linux 2023
 
-   ```
-   $ sudo apt install pip
-   ```
+     ```
+     $ sudo dnf install -y python3.11 python3.11-pip
+     ```
+   + Ubuntu 24.04 and Ubuntu 22.04
+
+     ```
+     $ sudo apt install pip
+     ```
 
 1. Install NIXL.
+   + Amazon Linux 2023
 
-   ```
-   $ pip install nixl
-   ```
+     ```
+     $ pip3.11 install nixl
+     ```
+   + Ubuntu 24.04 and Ubuntu 22.04
+
+     ```
+     $ pip install nixl
+     ```
 
 ------
 #### [ Build from source ]
@@ -405,10 +541,23 @@ Install NIXL. For more information about NIXL, see the [NIXL repository](https:/
 **To build and install NIXL from source**
 
 1. Install the required dependencies.
+   + Amazon Linux 2023
+
+     ```
+     $ sudo dnf install -y cmake gcc-c++ git pkgconf-pkg-config ninja-build libaio-devel hwloc-devel numactl-devel python3-devel python3.11 python3.11-devel python3.11-pip \
+     && sudo pip3.11 install meson ninja pybind11
+     ```
+   + Ubuntu 24.04 and Ubuntu 22.04
+
+     ```
+     $ sudo apt install cmake pkg-config meson pybind11-dev libaio-dev nvidia-cuda-toolkit pip libhwloc-dev \
+     && pip install meson ninja pybind11
+     ```
+
+1. (Amazon Linux 2023 only) Create a `lib` symlink for the Libfabric installation. On Amazon Linux 2023, the EFA installer places the Libfabric libraries in `/opt/amazon/efa/lib64`, but the NIXL build expects them in `lib`.
 
    ```
-   $ sudo apt install cmake pkg-config meson pybind11-dev libaio-dev nvidia-cuda-toolkit pip libhwloc-dev \
-   && pip install meson ninja pybind11
+   $ sudo ln -s /opt/amazon/efa/lib64 /opt/amazon/efa/lib
    ```
 
 1. Navigate to your home directory.
@@ -460,10 +609,17 @@ NIXL Benchmark (nixlbench) requires ETCD for coordination between client and ser
    For more information about Docker build options, see the [nixlbench repository](https://github.com/ai-dynamo/nixl/tree/main/benchmark/nixlbench).
 
 1. Install Docker.
+   + Amazon Linux 2023
 
-   ```
-   $ sudo apt install docker.io -y
-   ```
+     ```
+     $ sudo dnf install -y docker \
+     && sudo systemctl enable --now docker
+     ```
+   + Ubuntu 24.04 and Ubuntu 22.04
+
+     ```
+     $ sudo apt install docker.io -y
+     ```
 
 1. Start the ETCD server for coordination.
 
@@ -513,23 +669,58 @@ Follow this tab only if you chose **Build from source** in Step 6.
 **To install NIXL Benchmark**
 
 1. Install the required system dependencies.
+   + Amazon Linux 2023
 
-   ```
-   $ sudo apt install libgflags-dev
-   ```
+     ```
+     $ sudo dnf install -y gflags-devel
+     ```
+   + Ubuntu 24.04 and Ubuntu 22.04
+
+     ```
+     $ sudo apt install libgflags-dev
+     ```
 
 1. Install ETCD Server and Client.
+   + Amazon Linux 2023 does not provide ETCD packages. Download the prebuilt release binaries and install them.
 
-   ```
-   $ sudo apt install -y etcd-server etcd-client
-   ```
+     ```
+     $ ETCD_VER=v3.5.18 \
+     && curl -L https://github.com/etcd-io/etcd/releases/download/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd.tar.gz \
+     && sudo mkdir -p /usr/local/etcd \
+     && sudo tar -xzf /tmp/etcd.tar.gz -C /usr/local/etcd --strip-components=1 \
+     && sudo ln -sf /usr/local/etcd/etcd /usr/local/bin/etcd \
+     && sudo ln -sf /usr/local/etcd/etcdctl /usr/local/bin/etcdctl
+     ```
+   + Ubuntu 24.04 and Ubuntu 22.04
+
+     ```
+     $ sudo apt install -y etcd-server etcd-client
+     ```
 
 1. Install the ETCD CPP API.
 
    1. Install the required dependencies for ETCD CPP API.
+      + Amazon Linux 2023
+
+        ```
+        $ sudo dnf install -y boost-devel openssl-devel grpc-devel grpc-plugins protobuf-devel protobuf-compiler
+        ```
+      + Ubuntu 24.04 and Ubuntu 22.04
+
+        ```
+        $ sudo apt install libboost-all-dev libssl-dev libgrpc-dev libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc libcpprest-dev
+        ```
+
+   1. (Amazon Linux 2023 only) The C\+\+ REST SDK (`cpprest`) isn't available in the Amazon Linux 2023 repositories, so build and install it from source.
 
       ```
-      $ sudo apt install libboost-all-dev libssl-dev libgrpc-dev libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc libcpprest-dev
+      $ cd $HOME
+      $ git clone https://github.com/microsoft/cpprestsdk.git
+      $ cd cpprestsdk
+      $ git submodule update --init
+      $ mkdir build && cd build
+      $ cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DWERROR=OFF
+      $ sudo make -j$(nproc) && sudo make install
       ```
 
    1. Clone and install ETCD CPP API.
@@ -593,6 +784,12 @@ Follow this tab only if you chose **Build from source** in Step 6.
           --backend 'LIBFABRIC' \
           --initiator_seg_type 'VRAM' \
           --target_seg_type 'VRAM'
+      ```
+
+      On Amazon Linux 2023, NIXL installs its libraries in `lib64` instead. Set the library path as follows.
+
+      ```
+      $ export LD_LIBRARY_PATH=/usr/local/nixl/lib64:/usr/local/nixl/lib64/plugins:$LD_LIBRARY_PATH
       ```
 **Note**  
 Use the value `DRAM` instead of `VRAM` for non-GPU instances.
@@ -828,6 +1025,12 @@ Follow this tab only if you chose **Build from source** in Step 6.
        --initiator_seg_type VRAM
    ```
 
+   On Amazon Linux 2023, NIXL installs its libraries in `lib64` instead. Set the library path as follows.
+
+   ```
+   $ export LD_LIBRARY_PATH=/usr/local/nixl/lib64:/usr/local/nixl/lib64/plugins:$LD_LIBRARY_PATH
+   ```
+
 1. Run the nixlbench benchmark on host 2.
 
    ```
@@ -838,6 +1041,12 @@ Follow this tab only if you chose **Build from source** in Step 6.
        --etcd-endpoints http://{{ETCD_SERVER_IP}}:2379 \
        --backend LIBFABRIC \
        --initiator_seg_type VRAM
+   ```
+
+   On Amazon Linux 2023, NIXL installs its libraries in `lib64` instead. Set the library path as follows.
+
+   ```
+   $ export LD_LIBRARY_PATH=/usr/local/nixl/lib64:/usr/local/nixl/lib64/plugins:$LD_LIBRARY_PATH
    ```
 
 ------

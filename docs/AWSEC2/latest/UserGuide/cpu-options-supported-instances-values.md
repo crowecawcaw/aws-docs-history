@@ -356,6 +356,10 @@ The following tables list the instance types that support specifying CPU options
 | t4g.large | 2 | 2 | 1 | 1, 2 | 1 | 
 | t4g.xlarge | 4 | 4 | 1 | 1, 2, 3, 4 | 1 | 
 | t4g.2xlarge | 8 | 8 | 1 | 1, 2, 3, 4, 5, 6, 7, 8 | 1 | 
+| t8i.nano | 2 | 1 | 2 | 1 | 1, 2 | 
+| t8i.micro | 2 | 1 | 2 | 1 | 1, 2 | 
+| t8i.small | 2 | 1 | 2 | 1 | 1, 2 | 
+| t8i.medium | 2 | 1 | 2 | 1 | 1, 2 | 
 
 ## Compute optimized instances
 <a name="cpu-options-compute-optimized"></a>

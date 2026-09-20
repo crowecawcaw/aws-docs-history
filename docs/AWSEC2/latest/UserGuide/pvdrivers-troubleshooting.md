@@ -264,8 +264,20 @@ Starting with AWS PV drivers 8.4.0, the load of the preparation phase and the co
 
 1. 
 
-**Choose which configuration to apply**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/pvdrivers-troubleshooting.html)
+**Choose which configuration to apply**
+
+
+<table>
+<thead>
+  <tr><th>Configuration name</th><th>When to apply this configuration</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="#default-config">Default configuration</a></td><td>Workload is driving less than 20,000 IOPS, or other configurations did not improve performance or stability.</td><td>For this configuration, IO occurs on a few cores, which may benefit smaller workloads by increasing cache locality and reducing context switching.</td></tr>
+  <tr><td><a href="#allow-driver">Allow driver to choose whether to distribute completion</a></td><td>Workload is driving more than 20,000 IOPS and moderate or high load is observed on core <code>0</code>.</td><td>This configuration is recommended for all Xen instances using PV 8.4.0 or later and leveraging more than 20,000 IOPS, whether problems are encountered.</td></tr>
+  <tr><td><a href="#distribute-both">Distribute both preparation and completion</a></td><td>Workload is driving more than 20,000 IOPS, and either allowing the driver to choose the distribution did not improve performance, or a core other than <code>0</code> is experiencing a high load.</td><td>This configuration enables distribution of both IO preparation and IO completion.</td></tr>
+</tbody>
+</table>
+
 **Note**  
 We recommend that you do not distribute IO preparation without also distributing IO completion (setting `DpcRedirection` without setting `NotifierDistributed`) because the completion phase is sensitive to overload by the preparation phase when the preparation phase is running in parallel.
 
