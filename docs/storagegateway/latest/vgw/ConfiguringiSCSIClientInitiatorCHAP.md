@@ -157,8 +157,21 @@ In this procedure, you configure CHAP in the Linux iSCSI initiator using the sam
       node.session.auth.password_in = {{password_in}}
       ```
 
-      For guidance on what values to specify, see the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/storagegateway/latest/vgw/ConfiguringiSCSIClientInitiatorCHAP.html)
+      For guidance on what values to specify, see the following table.
+
+
+<table>
+<thead>
+  <tr><th>Configuration Setting</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>{{username}}</td><td>The initiator name that you found in a previous step in this procedure. The value starts with <i>iqn</i>. For example, <b>iqn.1994-05.com.redhat:8e89b27b5b8</b> is a valid {{username}} value.</td></tr>
+  <tr><td>{{password}}</td><td>The secret key used to authenticate the initiator (the client you are using) when it communicates with the volume.</td></tr>
+  <tr><td>{{username_in}}</td><td>The IQN of the target volume. The value starts with <i>iqn</i> and ends with the target name. For example, <b>iqn.1997-05.com.amazon:myvolume</b> is a valid {{username_in}} value.</td></tr>
+  <tr><td>{{password_in}}</td><td>The secret key used to authenticate the target (the volume) when it communicates to the initiator.</td></tr>
+</tbody>
+</table>
+
 
    1. Save the changes in the configuration file, and then close the file.
 

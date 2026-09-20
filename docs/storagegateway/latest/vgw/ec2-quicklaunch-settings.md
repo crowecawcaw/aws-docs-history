@@ -29,7 +29,33 @@ VPC subnets will appear in the drop down only if they have the auto-assign publi
 **Note**  
 You will need Port 80 open during gateway activation. The port is closed immediately following activation. Thereafter, your EC2 instance can only be accessed over the other ports from the selected VPC.   
  The iSCSI targets on your gateway are only accessible from the hosts in the same VPC as the gateway. If the iSCSI targets need to be accessed from hosts outside of the VPC, you should update the appropriate security group rules.   
- You can edit security groups at any time by navigating to the Amazon EC2 instance details page, selecting **Security**, navigating to **Security group details**, and choosing the security group ID.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/storagegateway/latest/vgw/ec2-quicklaunch-settings.html)
-   + **Configure storage**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/storagegateway/latest/vgw/ec2-quicklaunch-settings.html)
+ You can edit security groups at any time by navigating to the Amazon EC2 instance details page, selecting **Security**, navigating to **Security group details**, and choosing the security group ID. 
+
+
+<table>
+<thead>
+  <tr><th><b>Port</b></th><th><b>Protocol</b></th><th><b>File System Protocol</b></th><th></th><th></th><th></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>80</td><td>TCP</td><td>HTTP access for activation</td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>3260</td><td>TCP</td><td>iSCSI</td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+   + **Configure storage**
+
+
+<table>
+<thead>
+  <tr><th><b>Default Settings</b></th><th><b>AMI Root Volume</b></th><th><b>Volume 2 Cache</b></th><th><b>Volume 3 Cache</b></th><th></th><th></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>Device Name</td><td></td><td>'/dev/sdb'</td><td>'/dev/sdc'</td><td></td><td></td><td></td></tr>
+  <tr><td>Size</td><td>80 Gib</td><td>165 GiB</td><td>150 GiB</td><td></td><td></td><td></td></tr>
+  <tr><td>Volume Type</td><td>gp3</td><td>gp3</td><td>gp3</td><td></td><td></td><td></td></tr>
+  <tr><td>IOPS</td><td>3000</td><td>3000</td><td>3000</td><td></td><td></td><td></td></tr>
+  <tr><td>Delete on termination</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td><td></td></tr>
+  <tr><td>Encrypted</td><td>No</td><td>No</td><td>No</td><td></td><td></td><td></td></tr>
+  <tr><td>Throughput</td><td>125</td><td>125</td><td>125</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>

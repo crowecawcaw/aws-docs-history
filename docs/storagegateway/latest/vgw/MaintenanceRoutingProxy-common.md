@@ -21,7 +21,19 @@ The following procedure shows you how to configure SOCKS proxy for Volume Gatewa
 
 1. From the **AWS Storage Gateway - Configuration** main menu, enter the corresponding numeral to select **SOCKS Proxy Configuration**.
 
-1. From the **AWS Storage Gateway SOCKS Proxy Configuration** menu, enter the corresponding numeral to perform one of the following tasks:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/storagegateway/latest/vgw/MaintenanceRoutingProxy-common.html)
+1. From the **AWS Storage Gateway SOCKS Proxy Configuration** menu, enter the corresponding numeral to perform one of the following tasks:
+
+
+<table>
+<thead>
+  <tr><th>To Perform This Task</th><th>Do This</th></tr>
+</thead>
+<tbody>
+  <tr><td>Configure a SOCKS proxy</td><td>Enter the corresponding numeral to select <b>Configure SOCKS Proxy</b>.<br />You will need to supply a host name and port to complete configuration.</td></tr>
+  <tr><td>View the current SOCKS proxy configuration</td><td>Enter the corresponding numeral to select <b>View Current SOCKS Proxy Configuration</b>.<br />If a SOCKS proxy is not configured, the message <code>SOCKS Proxy not configured</code> is displayed. If a SOCKS proxy is configured, the host name and port of the proxy are displayed.</td></tr>
+  <tr><td>Remove a SOCKS proxy configuration</td><td>Enter the corresponding numeral to select <b>Remove SOCKS Proxy Configuration</b>.<br />The message <code>SOCKS Proxy Configuration Removed</code> is displayed.</td></tr>
+</tbody>
+</table>
+
 
 1. Restart your VM to apply your HTTP configuration.

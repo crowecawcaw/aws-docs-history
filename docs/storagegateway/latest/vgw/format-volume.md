@@ -18,8 +18,19 @@ Use the following procedure to initialize and format your volume on Windows.<a n
 
 1. Start **diskmgmt.msc** to open the **Disk Management** console.
 
-1. In the **Initialize Disk** dialog box, initialize the volume as a **MBR (Master Boot Record)** partition. When selecting the partition style, you should take into account the type of volume you are connecting to—cached or stored—as shown in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/storagegateway/latest/vgw/format-volume.html)
+1. In the **Initialize Disk** dialog box, initialize the volume as a **MBR (Master Boot Record)** partition. When selecting the partition style, you should take into account the type of volume you are connecting to—cached or stored—as shown in the following table.
+
+
+<table>
+<thead>
+  <tr><th>Partition Style</th><th>Use in the Following Conditions</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>MBR (Master Boot Record)</b></td><td> <ul><li> If your gateway is a stored volume and the storage volume is limited to 1 TiB in size. </li><li> If your gateway is a cached volume and the storage volume is less than 2 TiB in size. </li></ul> </td></tr>
+  <tr><td><b>GPT (GUID Partition Table)</b></td><td>If your gateway's storage volume is 2 TiB or greater in size. </td></tr>
+</tbody>
+</table>
+
 
 1. Create a simple volume:
 
@@ -54,8 +65,19 @@ Use the following procedure to initialize and format your volume on Red Hat Ente
 
    An "unrecognized volumes label" error for the new unpartitioned volume appears.
 
-1. Initialize your new volume. When selecting the partition style, you should take into account the size and type of volume you are connecting to—cached or stored—as shown in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/storagegateway/latest/vgw/format-volume.html)
+1. Initialize your new volume. When selecting the partition style, you should take into account the size and type of volume you are connecting to—cached or stored—as shown in the following table.
+
+
+<table>
+<thead>
+  <tr><th>Partition Style</th><th>Use in the Following Conditions</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>MBR (Master Boot Record)</b></td><td> <ul><li> If your gateway is a stored volume and the storage volume is limited to 1 TiB in size. </li><li> If your gateway is a cached volume and the storage volume is less than 2 TiB in size. </li></ul> </td></tr>
+  <tr><td><b>GPT (GUID Partition Table)</b></td><td>If your gateway's storage volume is 2 TiB or greater in size. </td></tr>
+</tbody>
+</table>
+
 
    For an MBR partition, use the following command: `sudo parted /dev/{{your volume}} mklabel msdos`
 

@@ -11,7 +11,19 @@ When your gateway starts, it checks its virtual CPU cores, root volume size, and
 
 1. From the **AWS Appliance Activation - Configuration** main menu, enter the corresponding numeral to select **View System Resource Check**.
 
-   Each resource displays **[OK**], **[WARNING]**, or **[FAIL]**, indicating the status of the resource as follows:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/storagegateway/latest/vgw/EC2_system-resource-check-common.html)
+   Each resource displays **[OK**], **[WARNING]**, or **[FAIL]**, indicating the status of the resource as follows:
+
+
+<table>
+<thead>
+  <tr><th>Message</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>[OK]</b></td><td>The resource has passed the system resource check.</td></tr>
+  <tr><td><b>[WARNING]</b></td><td>The resource doesn't meet the recommended requirements, but your gateway can continue to function. Storage Gateway displays a message that describes the results of the resource check.</td></tr>
+  <tr><td><b>[FAIL]</b></td><td>The resource doesn't meet the minimum requirements. Your gateway might not function properly. Storage Gateway displays a message that describes the results of the resource check.</td></tr>
+</tbody>
+</table>
+
 
    The console also displays the number of errors and warnings next to the resource check menu option.
