@@ -55,6 +55,9 @@ If the number of prefixes advertised on a VIF exceeds the allocated count, the B
 **Note**  
 You cannot reduce the allocated prefix count for a VIF below the number of prefixes currently in use. To reduce the allocation, first reduce the number of prefixes advertised by your on-premises device.
 
+**Note**  
+A private virtual interface can be attached to a virtual private gateway that propagates routes into a VPC route table. When it is, the propagated routes are also subject to VPC route table quotas. This quota can be lower than the prefix allocation you set on the VIF, and increasing the VIF's inbound prefix allocation does not raise it. If your private virtual interface advertises more routes than the VPC route table quota allows, the route table might not install all of the propagated routes. For more information, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-route-tables) in the *Amazon VPC User Guide*.
+
 ## DXGW prefix limits
 <a name="prefix-controls-dx-gateway-limits"></a>
 

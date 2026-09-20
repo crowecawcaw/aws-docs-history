@@ -7,6 +7,7 @@ The following table describes the releases for AWS Direct Connect. For notificat
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Flat-rate billing for dedicated connections](#AboutThisGuide) | Direct Connect now supports flat-rate billing, a fixed-price billing mode for dedicated connections that you set per connection. For more information, see [Flat-rate billing for dedicated connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/flat-rate-connections.html). | September 15, 2026 | 
 | [BGP route visibility](#AboutThisGuide) | You can now view the BGP routes that AWS has accepted from your router and the routes that AWS is advertising to you on your Direct Connect virtual interfaces. For more information, see [BGP route visibility](https://docs.aws.amazon.com/directconnect/latest/UserGuide/bgp-route-visibility.html). | July 30, 2026 | 
 | [GDS No. 3 Data Center, Shenzhen end of support](#AboutThisGuide) | The GDS No. 3 Data Center, Shenzhen location is no longer accepting new connections after June 30, 2026. End of support July 2027. | June 30, 2026 | 
 | [Support for long ASN](#AboutThisGuide) | You can now use long ASN values for BGP sessions with Direct Connect virtual interfaces. | July 24, 2025 | 

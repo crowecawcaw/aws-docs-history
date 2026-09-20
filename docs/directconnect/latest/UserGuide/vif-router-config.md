@@ -29,5 +29,21 @@ If you use any of the following routers for virtual interfaces that have MACsec 
 
 1. Choose **Download**, and then use the appropriate configuration for your router to ensure that you can connect to Direct Connect.
 
-1. If you need to manually configure your router for MACsec, use the following table as a guideline.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-router-config.html)
+1. If you need to manually configure your router for MACsec, use the following table as a guideline.
+
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>CKN length</td><td>This is a 64 hexadecimal character (0–9, A–E) string. Use the full length to maximize cross-platform compatibility.</td></tr>
+  <tr><td>CAK length</td><td>This is a 64 hexadecimal character (0–9, A–E) string. Use the full length to maximize cross-platform compatibility.</td></tr>
+  <tr><td>Cryptographic algorithm</td><td>AES_256_CMAC</td></tr>
+  <tr><td>SAK Cipher Suite</td><td> <ul><li> For 100 Gbps connections: GCM_AES_XPN_256  </li><li> For 10 Gbps connections: GCM_AES_XPN_256 or GCM_AES _256 </li></ul> </td></tr>
+  <tr><td>Key Cipher Suite</td><td>16</td></tr>
+  <tr><td>Confidentiality Offset</td><td>0</td></tr>
+  <tr><td>ICV Indicator</td><td>No</td></tr>
+  <tr><td>SAK Rekey Time</td><td>PN Rollover&gt;</td></tr>
+</tbody>
+</table>
