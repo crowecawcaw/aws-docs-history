@@ -62,4 +62,4 @@ To generate batch recommendations with themes, you complete the batch workflow a
 
  When you create the batch inference job, you enable theme generation and specify the item title column of your Items dataset.
 + For information about using the Amazon Personalize console to create a batch inference job that generates themes, see [Creating a batch inference job](creating-batch-inference-job.md). 
-+ For a code sample that shows how to use the SDK for Python (Boto3) to create a batch inference job that generates themes, see [Creating a batch inference job that generates themes](creating-batch-inference-job.md#batch-sdk-themes). 
++ For a code sample that shows how to use the AWS SDK for Python (Boto3) to create a batch inference job that generates themes, see [Creating a batch inference job that generates themes](creating-batch-inference-job.md#batch-sdk-themes). 

@@ -53,7 +53,7 @@ With [User-Personalization-v2](native-recipe-user-personalization-v2.md) and [Pe
 
 Hyperparameters can be categorical, continuous, or integer-valued. The `hpoConfig` object has keys that correspond to each of these types, where you specify the hyperparameters and their ranges. You must provide each type in your request, but if a recipe doesn't have a parameter of a type, you can leave it empty. For example, User-Personalization does not have a tunable hyperparameter of continuous type. So for the `continousHyperParameterRange`, you would pass an empty array. 
 
-The following code shows how to create a solution with HPO enabled using the SDK for Python (Boto3). The solution in the example uses the [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md) recipe and has HPO set to `true`. The code provides a value for `hidden_dimension` and the `categoricalHyperParameterRanges` and `integerHyperParameterRanges`. The `continousHyperParameterRange` is empty and the `hpoResourceConfig` sets the `maxNumberOfTrainingJobs` and `maxParallelTrainingJobs`. 
+The following code shows how to create a solution with HPO enabled using the AWS SDK for Python (Boto3). The solution in the example uses the [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md) recipe and has HPO set to `true`. The code provides a value for `hidden_dimension` and the `categoricalHyperParameterRanges` and `integerHyperParameterRanges`. The `continousHyperParameterRange` is empty and the `hpoResourceConfig` sets the `maxNumberOfTrainingJobs` and `maxParallelTrainingJobs`. 
 
 ```
 import boto3

@@ -72,7 +72,7 @@ aws personalize update-dataset \
 
 To replace a dataset's schema with the AWS SDKs, you use the `UpdateDataset` API operation. Specify the Amazon Resource Name (ARN) of the dataset to update and the new schema to use. You can't update the schema of an Item interactions dataset, Action interactions dataset or Actions dataset. 
 
-The following code shows how to replace a dataset's schema with the SDK for Python (Boto3). To replace a dataset's schema with a new one, first use the [CreateSchema](API_CreateSchema.md) operation. Then use the following code to replace the current schema with the new one. For information about creating a schema with the AWS SDKs, see [Creating a dataset and a schema (AWS SDKs)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk). For information on dataset and schema requirements, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). 
+The following code shows how to replace a dataset's schema with the AWS SDK for Python (Boto3). To replace a dataset's schema with a new one, first use the [CreateSchema](API_CreateSchema.md) operation. Then use the following code to replace the current schema with the new one. For information about creating a schema with the AWS SDKs, see [Creating a dataset and a schema (AWS SDKs)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk). For information on dataset and schema requirements, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md). 
 
 ```
 import boto3

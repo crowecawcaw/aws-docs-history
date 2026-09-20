@@ -41,7 +41,7 @@ aws personalize create-solution \
 ## Configuring columns used when training (AWS SDKs)
 <a name="custom-configure-columns-sdk"></a>
 
-To exclude columns from training, provide the `excludedDatasetColumns` object in the `trainingDataConfig` as part of the solution configuration. For each key, provide the dataset type. For each value, provide the list of columns to exclude. The following code shows how to exclude columns from training when you create a solution with the SDK for Python (Boto3). 
+To exclude columns from training, provide the `excludedDatasetColumns` object in the `trainingDataConfig` as part of the solution configuration. For each key, provide the dataset type. For each value, provide the list of columns to exclude. The following code shows how to exclude columns from training when you create a solution with the AWS SDK for Python (Boto3). 
 
 ```
 import boto3

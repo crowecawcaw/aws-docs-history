@@ -82,7 +82,7 @@ The following is an example of the metrics output from a recommender created for
 ### Retrieving metrics (AWS SDKs)
 <a name="retrieving-recommender-metrics-sdk"></a>
 
-The following code shows how to get metrics for a recommender with the SDK for Python (Boto3).
+The following code shows how to get metrics for a recommender with the AWS SDK for Python (Boto3).
 
 ```
 import boto3

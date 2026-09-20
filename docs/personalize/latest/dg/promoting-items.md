@@ -163,7 +163,7 @@ aws personalize-runtime get-recommendations \
 ## Promoting items (AWS SDKs)
 <a name="promoting-items-sdk"></a>
 
-The following code shows how to promote items in recommendations with the SDK for Python (Boto3) and the SDK for Java 2.x and a custom campaign. To promote items with a recommender, replace the `campaignArn` parameter with `recommenderArn` and specify the Amazon Resource Name (ARN) for the recommender. For the promotion fields, specify the following: 
+The following code shows how to promote items in recommendations with the AWS SDK for Python (Boto3) and the SDK for Java 2.x and a custom campaign. To promote items with a recommender, replace the `campaignArn` parameter with `recommenderArn` and specify the Amazon Resource Name (ARN) for the recommender. For the promotion fields, specify the following: 
 + name: Specify the name of the promotion. The recommendation response includes the name to identify promoted items.
 + percentPromotedItems: The percentage of recommended items to apply the promotion to.
 + promotionFilterARN: The Amazon Resource Name (ARN) of the filter that defines the promotion criteria. For more information, see [Promotion filters](#promotion-filters).

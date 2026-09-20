@@ -54,7 +54,7 @@ To get the status of the update, use the `describe-solution` command (which uses
 ## Updating a solution (AWS SDKs)
 <a name="update-solution-sdk"></a>
 
-To update a solution with the AWS SDKs, use the [UpdateSolution](API_UpdateSolution.md) API operation. The following code shows you how to use the SDK for Python (Boto3) to update a solution to use automatic training with a training frequency of 5 days. The code gets the status of the update with the [DescribeSolution](API_DescribeSolution.md) API operation. 
+To update a solution with the AWS SDKs, use the [UpdateSolution](API_UpdateSolution.md) API operation. The following code shows you how to use the AWS SDK for Python (Boto3) to update a solution to use automatic training with a training frequency of 5 days. The code gets the status of the update with the [DescribeSolution](API_DescribeSolution.md) API operation. 
 
 The default training frequency is every 7 days. The expression must be in `rate(value unit)` format. For the value, specify a number between 1 and 30. For the unit, specify `day` or `days`.
 

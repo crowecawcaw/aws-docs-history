@@ -92,7 +92,7 @@ aws personalize describe-dataset-export-job \
 
  After you import your data into the dataset and create an output Amazon S3 bucket, you can export the dataset to the bucket for analysis. To export a dataset using the AWS SDKs, create a dataset export job using the [CreateDatasetExportJob](API_CreateDatasetExportJob.md) operation. For information about creating an Amazon S3 bucket, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon Simple Storage Service User Guide*. 
 
-The following code shows how to create a dataset export job using the SDK for Python (Boto3) or the SDK for Java 2.x SDK.
+The following code shows how to create a dataset export job using the AWS SDK for Python (Boto3) or the SDK for Java 2.x SDK.
 
 Before you export a dataset, make sure that the Amazon Personalize service role can access and write to your output Amazon S3 bucket. See [Dataset export job permissions requirements](export-permissions.md). 
 

@@ -19,7 +19,7 @@ You can choose item interaction data as follows:
    If your Item interactions dataset has multiple event types in an EVENT\_TYPE column, and you do not provide an event type when you configure your solution, Amazon Personalize uses all item interaction data for training with equal weight regardless of type. 
 + **Choose records based on type and value ** – When you configure a solution, if your Item interactions dataset includes EVENT\_TYPE and EVENT\_VALUE fields, you can set a specific value as a threshold to exclude records from training. For example, if your EVENT\_VALUE data for events with an EVENT\_TYPE of *watch* is the percentage of a video that a user watched, if you set the event value threshold to 0.5, and the event type to *watch*, Amazon Personalize trains the model using only *watch* interaction events with an EVENT\_VALUE greater than or equal to 0.5. 
 
-The following code shows how to use the SDK for Python (Boto3) to create a solution that uses only `watch` events where the use watched more than half of the video.
+The following code shows how to use the AWS SDK for Python (Boto3) to create a solution that uses only `watch` events where the user watched more than half of the video.
 
 ```
 import boto3

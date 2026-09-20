@@ -3,7 +3,7 @@
 # Setting up the AWS SDKs
 <a name="aws-personalize-set-up-sdks"></a>
 
-Download and install the AWS SDKs that you want to use. This guide provides examples for SDK for Python (Boto3), SDK for Java 2.x, and SDK for JavaScript v3. For information about other AWS SDKs, see [Tools for Amazon Web Services](https://aws.amazon.com/tools/). For information about setting up Amplify, see [Amplify documentation](https://docs.amplify.aws).
+Download and install the AWS SDKs that you want to use. This guide provides examples for AWS SDK for Python (Boto3), SDK for Java 2.x, and SDK for JavaScript v3. For information about other AWS SDKs, see [Tools for Amazon Web Services](https://aws.amazon.com/tools/). For information about setting up Amplify, see [Amplify documentation](https://docs.amplify.aws).
 + [AWS SDK for Python (Boto3)](https://docs.aws.amazon.com/boto3/latest/index.html)
 
   To install the SDK for Python (Boto3), follow the [Quickstart](https://docs.aws.amazon.com/boto3/latest/guide/quickstart.html) instructions in the Boto3 documentation.
