@@ -15,6 +15,7 @@ Apache Airflow configuration options can be attached to your Amazon Managed Work
   + [Using the Amazon MWAA console](#configuring-env-variables-console-add)
 + [Configuration reference](#configuring-env-variables-reference)
   + [Email configurations](#configuring-env-variables-email)
+    + [Customizing the email subject and content](#configuring-env-variables-email-customizing)
   + [Task configurations](#configuring-env-variables-tasks)
   + [Scheduler configurations](#configuring-env-variables-scheduler)
   + [Worker configurations](#configuring-env-variables-workers)
@@ -102,15 +103,81 @@ We recommend using port 587 for SMTP traffic. By default, AWS blocks outbound SM
 
 | Airflow configuration option | Description | Example value | 
 | --- | --- | --- | 
-| email.email\_backend | The Apache Airflow utility used for email notifications in [email\_backend](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#email-backend). | airflow.utils.email.send\_email\_smtp | 
-| smtp.smtp\_host | The name of the outbound server used for the email address in [smtp\_host](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-host). | localhost | 
-| smtp.smtp\_starttls | Transport Layer Security (TLS) is used to encrypt the email over the internet in [smtp\_starttls](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-starttls). | True | 
-| smtp.smtp\_ssl | Secure Sockets Layer (SSL) is used to connect the server and email client in [smtp\_ssl](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-ssl). | False | 
-| smtp.smtp\_port | The Transmission Control Protocol (TCP) port designated to the server in [smtp\_port](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-port). | 587 | 
-| smtp.smtp\_mail\_from | The outbound email address in [smtp\_mail\_from](https://airflow.apache.org/docs/apache-airflow/2.0.2/configurations-ref.html#smtp-mail-from). | myemail@domain.com | 
+| email.email\_backend | The Apache Airflow utility used for email notifications in [email\_backend](https://airflow.apache.org/docs/apache-airflow/2.11.2/configurations-ref.html#email-backend). | airflow.utils.email.send\_email\_smtp | 
+| email.subject\_template | The path to a Jinja2 template file used to render the **subject** of Apache Airflow alert emails in [subject\_template](https://airflow.apache.org/docs/apache-airflow/2.11.2/configurations-ref.html#subject-template). If this option is not set, Apache Airflow uses the default subject `Airflow alert: {{ti}}`. | /usr/local/airflow/dags/my\_subject\_template\_file | 
+| email.html\_content\_template | The path to a Jinja2 template file used to render the **body** of Apache Airflow alert emails in [html\_content\_template](https://airflow.apache.org/docs/apache-airflow/2.11.2/configurations-ref.html#html-content-template). If this option is not set, Apache Airflow uses the default built-in body template. | /usr/local/airflow/dags/my\_html\_content\_template\_file | 
+| smtp.smtp\_host | The name of the outbound server used for the email address in [smtp\_host](https://airflow.apache.org/docs/apache-airflow/2.11.2/configurations-ref.html#smtp-host). | localhost | 
+| smtp.smtp\_starttls | Transport Layer Security (TLS) is used to encrypt the email over the internet in [smtp\_starttls](https://airflow.apache.org/docs/apache-airflow/2.11.2/configurations-ref.html#smtp-starttls). | True | 
+| smtp.smtp\_ssl | Secure Sockets Layer (SSL) is used to connect the server and email client in [smtp\_ssl](https://airflow.apache.org/docs/apache-airflow/2.11.2/configurations-ref.html#smtp-ssl). | False | 
+| smtp.smtp\_port | The Transmission Control Protocol (TCP) port designated to the server in [smtp\_port](https://airflow.apache.org/docs/apache-airflow/2.11.2/configurations-ref.html#smtp-port). | 587 | 
+| smtp.smtp\_mail\_from | The outbound email address in [smtp\_mail\_from](https://airflow.apache.org/docs/apache-airflow/2.11.2/configurations-ref.html#smtp-mail-from). | myemail@domain.com | 
 
 **SMTP port and encryption settings**  
 Use 587 with STARTTLS (`smtp_starttls` : `True`, `smtp_ssl` : `False`), or 465 with the SSL/TLS wrapper (`smtp_ssl` : `True`).
+
+#### Customizing the email subject and content
+<a name="configuring-env-variables-email-customizing"></a>
+
+By default, Apache Airflow sends alert emails using its built-in subject and body templates. You can override these defaults to send customized notifications. Set the `email.subject_template` and `email.html_content_template` configuration options to point to your own Jinja2 template files. Jinja2 is an open-source templating engine; for more information, see the [Jinja website](https://jinja.palletsprojects.com/).
+
+**Note**  
+Customizing email content requires a working email backend. Configure your SMTP settings as described in the [Email configurations](#configuring-env-variables-email) table before you customize the subject and body. For example, you can use Amazon Simple Email Service (Amazon SES) as the SMTP host.
+
+If you do not set `subject_template` and `html_content_template`, Apache Airflow uses the following base templates:
+
+**Default subject**:
+
+```
+Airflow alert: {{ti}}
+```
+
+**Default HTML content**:
+
+```
+Try {{try_number}} out of {{max_tries + 1}}<br>
+Exception:<br>{{exception_html}}<br>
+Log: <a href="{{ti.log_url}}">Link</a><br>
+Host: {{ti.hostname}}<br>
+Mark success: <a href="{{ti.mark_success_url}}">Link</a><br>
+```
+
+**To use custom templates on Amazon MWAA**
+
+1. Create your subject and HTML content template files. The following are examples.
+
+   `my_subject_template_file`
+
+   ```
+   Production Airflow alert: {{ti}}
+   ```
+
+   `my_html_content_template_file`
+
+   ```
+   Exception:<br>{{exception_html}}<br>
+   State: {{ti.state}}<br>
+   Mark success: <a href="{{ti.mark_success_url}}">Link</a><br>
+   ```
+
+1. Upload the template files to the DAGs folder in your environment's Amazon S3 bucket. Amazon MWAA syncs this folder to `/usr/local/airflow/dags/` on the environment's containers.
+
+1. On the Amazon MWAA console, add the `email.subject_template` and `email.html_content_template` configuration options shown in the preceding Email configurations table, pointing each to the container path of the corresponding template file:
+
+
+<table>
+<thead>
+  <tr><th>Airflow configuration option</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>email.subject_template</td><td>/usr/local/airflow/dags/my_subject_template_file</td></tr>
+  <tr><td>email.html_content_template</td><td>/usr/local/airflow/dags/my_html_content_template_file</td></tr>
+</tbody>
+</table>
+
+
+1. Save your changes. After the environment finishes updating, alert emails use your custom subject and body templates.
+
+For more information about sending email through Amazon SES as the SMTP host, see the AWS re:Post article [How to send emails from MWAA DAG tasks using SES as the SMTP host](https://repost.aws/articles/AR_qekbw14R5GKsg3G9cWvjA/how-to-send-emails-from-mwaa-dag-tasks-using-ses-as-the-smtp-host).
 
 ### Task configurations
 <a name="configuring-env-variables-tasks"></a>

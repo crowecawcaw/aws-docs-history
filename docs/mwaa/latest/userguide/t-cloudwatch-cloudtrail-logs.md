@@ -36,7 +36,7 @@ Amazon MWAA has configured Apache Airflow to read and write logs directly from a
 
   1. Verify that the environment [execution role](mwaa-create-role.md) has the correct permission policies.
 
-  1. Verify that your operator or task is working correctly, has sufficient resources to parse the DAG, and has the appropriate Python libraries to load. To verify your whether you have the correct dependencies, try eliminating imports until you find the one that is causing the issue. We recommend testing your Python dependencies using [aws-mwaa-docker-images](https://github.com/aws/amazon-mwaa-docker-images).
+  1. Verify that your operator or task is working correctly, has sufficient resources to parse the DAG, and has the appropriate Python libraries to load. To verify whether you have the correct dependencies, try eliminating imports until you find the one that is causing the issue. We recommend testing your Python dependencies using [aws-mwaa-docker-images](https://github.com/aws/amazon-mwaa-docker-images).
 
 ### Tasks are failing without any logs
 <a name="t-task-failing-no-logs"></a>
@@ -61,7 +61,7 @@ with DAG(dag_id="any_command_dag", schedule_interval=None, catchup=False, defaul
     )
 ```
 
-To resovle the issue, remove `queue` from your code, and invoke the DAG again.
+To resolve the issue, remove `queue` from your code, and invoke the DAG again.
 
 ### I get a `ResourceAlreadyExistsException` error in CloudTrail
 <a name="t-cloudtrail"></a>
@@ -94,25 +94,25 @@ If you're creating an Amazon MWAA environment and an Amazon S3 bucket using the 
 
   ```
   ...
-    MaxWorkers: 5
-    NetworkConfiguration:
-      SecurityGroupIds:
-        - !GetAtt SecurityGroup.GroupId
-      SubnetIds: !Ref subnetIds
-    WebserverAccessMode: PUBLIC_ONLY
-  DependsOn: MwaaExecutionPolicy
+        MaxWorkers: 5
+        NetworkConfiguration:
+          SecurityGroupIds:
+            - !GetAtt SecurityGroup.GroupId
+          SubnetIds: !Ref subnetIds
+        WebserverAccessMode: PUBLIC_ONLY
+      DependsOn: MwaaExecutionPolicy
   
-   MwaaExecutionPolicy:
-   Type: AWS::IAM::ManagedPolicy
-   Properties:
-     Roles:
-      - !Ref MwaaExecutionRole
-    PolicyDocument:
-      Version: 2012-10-17		 	 	 
-      Statement:
-        - Effect: Allow
-          Action: airflow:PublishMetrics
-          Resource:
+    MwaaExecutionPolicy:
+      Type: AWS::IAM::ManagedPolicy
+      Properties:
+        Roles:
+          - !Ref MwaaExecutionRole
+        PolicyDocument:
+          Version: 2012-10-17		 	 	 
+          Statement:
+            - Effect: Allow
+              Action: airflow:PublishMetrics
+              Resource:
   ...
   ```
 

@@ -86,28 +86,28 @@ Ensure the Apache Airflow connection object includes the following key-value pai
 
    ```
    {
-   						"account": "<my account>",
-   						"warehouse": "<my warehouse>",
-   						"database": "<my database>",
-   						"region": "<my region if not using us-west-2 otherwise omit this line>"
-   						}
+       "account": "<my account>",
+       "warehouse": "<my warehouse>",
+       "database": "<my database>",
+       "region": "<my region if not using us-west-2 otherwise omit this line>"
+   }
    ```
 
 For example:
 
 ```
 >>> import json
-				>>> from airflow.models.connection import Connection
-				>>> myconn = Connection(
-				...    conn_id='snowflake_conn',
-				...    conn_type='Snowflake',
-				...    host='{{123456789012}}.{{us-east-1}}.snowflakecomputing.com',
-				...    schema='{{YOUR_SCHEMA}}'
-				...    login='{{YOUR_USERNAME}}',
-				...    password='{{YOUR_PASSWORD}}',
-				...    port='{{YOUR_PORT}}'
-				...    extra=json.dumps(dict(account='{{123456789012}}', warehouse='{{YOUR_WAREHOUSE}}', database='{{YOUR_DB_OPTION}}', region='{{us-east-1}}')),
-				... )
+>>> from airflow.models.connection import Connection
+>>> myconn = Connection(
+...    conn_id='snowflake_conn',
+...    conn_type='Snowflake',
+...    host='{{123456789012}}.{{us-east-1}}.snowflakecomputing.com',
+...    schema='{{YOUR_SCHEMA}}',
+...    login='{{YOUR_USERNAME}}',
+...    password='{{YOUR_PASSWORD}}',
+...    port='{{YOUR_PORT}}',
+...    extra=json.dumps(dict(account='{{123456789012}}', warehouse='{{YOUR_WAREHOUSE}}', database='{{YOUR_DB_OPTION}}', region='{{us-east-1}}')),
+... )
 ```
 
 ### I can't find my connection in the Airflow UI
@@ -227,7 +227,7 @@ The following applies only to Apache Airflow v2.0.2 environments.
 
 The `backfill` command, like other Apache Airflow CLI commands, parses all DAGs locally before any DAGs are processed, regardless of which DAG the CLI operation applies to. In Amazon MWAA environments using Apache Airflow v2.0.2, because plugins and requirements are not yet installed on the webserver by the time the CLI command runs, the parsing operation fails, and the `backfill` operation is not invoked. If you did not have any requirements nor plugins in your environment, the `backfill` operation would succeed.
 
-To be able to run the `backfill` CLI command, we recommend invoking it in a bash operator. In a bash operator, `backfill` is initiated from the worker, allowing the DAGs to parse successfully as all necessary requirements and plguins are available and installed. Use the following example to create a DAG with a `BashOperator` to run `backfill`.
+To be able to run the `backfill` CLI command, we recommend invoking it in a bash operator. In a bash operator, `backfill` is initiated from the worker, allowing the DAGs to parse successfully as all necessary requirements and plugins are available and installed. Use the following example to create a DAG with a `BashOperator` to run `backfill`.
 
 ```
 from airflow import DAG
@@ -280,19 +280,19 @@ We recommend the following steps if you're trying to run a shell script with the
 
    ```
    from airflow import DAG
-   						from airflow.providers.amazon.aws.operators.s3_file_transform import S3FileTransformOperator
-   						from airflow.utils.dates import days_ago
-   						import os
-   						
-   						DAG_ID = os.path.basename(__file__).replace(".py", "")
-   						
-   						with DAG (dag_id=DAG_ID, schedule_interval=None, catchup=False, start_date=days_ago(1)) as dag:
-   						file_transform = S3FileTransformOperator(
-   						task_id='file_transform',
-   						transform_script='/usr/local/airflow/plugins/transform_test.sh',
-   						source_s3_key='s3://{{amzn-s3-demo-bucket}}/files/input.txt',
-   						dest_s3_key='s3://{{amzn-s3-demo-bucket}}/files/output.txt'
-   						)
+   from airflow.providers.amazon.aws.operators.s3_file_transform import S3FileTransformOperator
+   from airflow.utils.dates import days_ago
+   import os
+   
+   DAG_ID = os.path.basename(__file__).replace(".py", "")
+   
+   with DAG (dag_id=DAG_ID, schedule_interval=None, catchup=False, start_date=days_ago(1)) as dag:
+       file_transform = S3FileTransformOperator(
+           task_id='file_transform',
+           transform_script='/usr/local/airflow/plugins/transform_test.sh',
+           source_s3_key='s3://{{amzn-s3-demo-bucket}}/files/input.txt',
+           dest_s3_key='s3://{{amzn-s3-demo-bucket}}/files/output.txt'
+       )
    ```
 
 1. Follow the steps in [Uploading DAG code to Amazon S3](configuring-dag-folder.md#configuring-dag-folder-uploading).

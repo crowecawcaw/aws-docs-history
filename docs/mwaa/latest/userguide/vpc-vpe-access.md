@@ -154,8 +154,18 @@ The following section displays the configurations you'll need to apply to an [Ap
 
 1. **Status codes**. We recommend using `200` and `302` status codes in your target group settings. Otherwise, the targets might be flagged as unhealthy if the VPC endpoint for the Apache Airflow webserver responds with a `302 Redirect` error.
 
-1. **HTTPS Listener**. You'll need to specify the target port for the Apache Airflow webserver. For example:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/mwaa/latest/userguide/vpc-vpe-access.html)
+1. **HTTPS Listener**. You'll need to specify the target port for the Apache Airflow webserver. For example:
+
+
+<table>
+<thead>
+  <tr><th>Protocol</th><th>Port</th></tr>
+</thead>
+<tbody>
+  <tr><td>HTTPS</td><td>443</td></tr>
+</tbody>
+</table>
+
 
 1. **ACM new domain**. If you want to associate an SSL/TLS certificate in AWS Certificate Manager, you'll need to create a new domain for the HTTPS listener for your load balancer.
 

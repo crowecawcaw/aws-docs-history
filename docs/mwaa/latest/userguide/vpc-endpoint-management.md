@@ -323,8 +323,19 @@ Complete the following steps to create the required Amazon VPC endpoints for you
 
 1. Sign in to the AWS Management Console using `Owner`, the open [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
-1. Choose **Security groups** from the left navigation panel, then create a new security group in the shared Amazon VPC using the following inbound, and outbound, rules:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/mwaa/latest/userguide/vpc-endpoint-management.html)
+1. Choose **Security groups** from the left navigation panel, then create a new security group in the shared Amazon VPC using the following inbound, and outbound, rules:
+
+
+<table>
+<thead>
+  <tr><th></th><th>Type</th><th>Protocol</th><th>Source type</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Inbound</b></td><td>All traffic</td><td>All</td><td>All</td><td>Your environment security group</td></tr>
+  <tr><td><b>Outbound</b></td><td>All traffic</td><td>All</td><td>All</td><td><code>0.0.0.0/0</code></td></tr>
+</tbody>
+</table>
+
 **Warning**  
 The `Owner` account must set up a security group in the `Owner` account to allow traffic from the new environment to the shared Amazon VPC. You can do this by creating a new security group in `Owner`, or editing an existing one.
 
@@ -343,8 +354,18 @@ Use the following reference to resolve issues you encounter when creating enviro
 **Environment in `CREATE_FAILED` after `PENDING` status**  
 + Verify that `Owner` is sharing the subnets with `Participant` using [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html).
 + Verify that the Amazon VPC endpoints for the database and webserver are created in the same subnets associated with the environment.
-+ Verify that the security group used with your endpoints allows traffic from the security groups used for the environment. The `Owner` account creates rules that reference the security group in `Participant` as `{{123456789012}}/{{security-group-id}}`:.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/mwaa/latest/userguide/vpc-endpoint-management.html)
++ Verify that the security group used with your endpoints allows traffic from the security groups used for the environment. The `Owner` account creates rules that reference the security group in `Participant` as `{{123456789012}}/{{security-group-id}}`:.
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Source type</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>All traffic</td><td>All</td><td>All</td><td>{{123456789012}}/{{sg-0909e8e81919}}</td></tr>
+</tbody>
+</table>
+
 
   For more information, refer to [Responsibilities and permissions for owners and participants](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html#vpc-share-limitations)
 

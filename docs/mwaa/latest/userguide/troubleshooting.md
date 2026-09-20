@@ -26,6 +26,7 @@ This chapter describes common issues and errors you can encounter when using Apa
 + [Troubleshooting: Creating and updating an Amazon MWAA environment](t-create-update-environment.md)
   + [Updating `requirements.txt`](t-create-update-environment.md#troubleshooting-reqs)
     + [I specified a new version of my `requirements.txt` and it's taking more than 20 minutes to update my environment](t-create-update-environment.md#t-requirements)
+    + [I get a `Could not install packages due to an OSError [Error 28] No space left on device` error](t-create-update-environment.md#t-requirements-no-space)
   + [Plugins](t-create-update-environment.md#troubleshooting-plugins)
     + [Does Amazon MWAA support implementing custom UI?](t-create-update-environment.md#custom-ui)
   + [Create bucket](t-create-update-environment.md#troubleshooting-create-bucket)

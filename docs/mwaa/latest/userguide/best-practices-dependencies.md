@@ -45,7 +45,7 @@ The following section describes how to specify Python dependencies from the [Pyt
 
 1. **Add a constraints statement**. Add the constraints file for your Apache Airflow v3 environment at the top of your `requirements.txt` file. Apache Airflow constraints files specify the provider versions available at the time of a Apache Airflow release.
 
-    In the following example, replace {{{environment-version}}} with your environment's version number, and {{{Python-version}}} with the version of Python that's compatible with your environment. 
+    In the following example, replace {{{Airflow-version}}} with your environment's version number, and {{{Python-version}}} with the version of Python that's compatible with your environment. 
 
     For information about the version of Python compatible with your Apache Airflow environment, refer to [Apache Airflow Versions](airflow-versions.md#airflow-versions-official). 
 
@@ -55,10 +55,10 @@ The following section describes how to specify Python dependencies from the [Pyt
 
     If the constraints file determines that `xyz==1.0` package is not compatible with other packages in your environment, `pip3 install` fails to prevent incompatible libraries from being installed to your environment. If installation fails for any packages, you can access error logs for each Apache Airflow component (the scheduler, worker, and webserver) in the corresponding log stream on CloudWatch Logs. For more information about log types, refer to [Accessing Airflow logs in Amazon CloudWatch](monitoring-airflow.md). 
 
-1. **Apache Airflow packages**. Add the [package extras](http://airflow.apache.org/docs/apache-airflow/2.5.1/extra-packages-ref.html) and the version (`==`). This helps to prevent packages of the same name, but different version, from being installed on your environment.
+1. **Apache Airflow packages**. Add the [package extras](http://airflow.apache.org/docs/apache-airflow/3.3.1/extra-packages-ref.html) and the version (`==`). This helps to prevent packages of the same name, but different version, from being installed on your environment.
 
    ```
-   apache-airflow[package-extra]==2.5.1
+   apache-airflow[package-extra]==3.3.1
    ```
 
 1. **Python libraries**. Add the package name and the version (`==`) in your `requirements.txt` file. This helps to prevent a future breaking update from [PyPi.org](https://pypi.org) from being automatically applied.
@@ -68,13 +68,12 @@ The following section describes how to specify Python dependencies from the [Pyt
    ```  
 **Example Boto3 and psycopg2-binary**  
 
-   This example is provided for demonstration purposes. The boto and psycopg2-binary libraries are included with the base install for Apache Airflow v3 and don't need to be specified in a `requirements.txt` file.
+   This example is provided for demonstration purposes. The psycopg2-binary library is included with the base install for Apache Airflow v3 and doesn't need to be specified in a `requirements.txt` file.
 
    ```
-   boto3==1.17.54
-   boto==2.49.0
-   botocore==1.20.54
-   psycopg2-binary==2.8.6
+   boto3==1.43.56
+   botocore==1.43.56
+   psycopg2-binary==2.9.12
    ```
 
    If a package is specified without a version, Amazon MWAA installs the latest version of the package from [PyPi.org](https://pypi.org). This version can conflict with other packages in your `requirements.txt`.
@@ -90,7 +89,7 @@ The following section describes how to specify Python dependencies from the [Pyt
 
     Beginning with Apache Airflow v2.7.2, your requirements file must include a `--constraint` statement. If you do not provide a constraint, Amazon MWAA will specify one for you to ensure the packages listed in your requirements are compatible with the version of Apache Airflow you are using. 
 
-   In the following example, replace {{{environment-version}}} with your environment's version number, and {{{Python-version}}} with the version of Python that's compatible with your environment.
+   In the following example, replace {{{Airflow-version}}} with your environment's version number, and {{{Python-version}}} with the version of Python that's compatible with your environment.
 
    For information about the version of Python compatible with your Apache Airflow environment, refer to [Apache Airflow Versions](airflow-versions.md#airflow-versions-official).
 
@@ -132,7 +131,7 @@ The following section describes how to specify Python dependencies from the [Pyt
 A Python wheel is a package format designed to ship libraries with compiled artifacts. There are several benefits to wheel packages as a method to install dependencies in Amazon MWAA:
 + **Faster installation** – the WHL files are copied to the container as a single ZIP, and then installed locally, without having to download each one.
 + **Fewer conflicts** – You can determine version compatibility for your packages in advance. As a result, there is no need for `pip` to recursively work out compatible versions.
-+ **More resilience** – With externally hosted libraries, downstream requirements can change, resulting in version incompatibility between containers on a Amazon MWAA environment. By not depending on an external source for dependencies, every container on has have the same libraries regardless of when the each container is instantiated.
++ **More resilience** – With externally hosted libraries, downstream requirements can change, resulting in version incompatibility between containers on a Amazon MWAA environment. By not depending on an external source for dependencies, every container will have the same libraries regardless of when each container is instantiated.
 
 We recommend the following methods to install Python dependencies from a Python wheel archive (`.whl`) in your `requirements.txt`.
 
@@ -209,7 +208,7 @@ from airflow import DAG
  with DAG(dag_id="create_whl_file", schedule_interval=None, catchup=False, start_date=days_ago(1)) as dag:
  cli_command = BashOperator(
  task_id="bash_command",
- bash_command=f"mkdir /tmp/whls;pip3 download -r /usr/local/airflow/requirements/requirements.txt -d /tmp/whls;zip -j /tmp/plugins.zip /tmp/whls/*;aws s3 cp /tmp/plugins.zip s3://{{amzn-s3-demo-bucket}}/{{{S3_KEY}}}"
+ bash_command=f"mkdir /tmp/whls;pip3 download -r /usr/local/airflow/requirements/requirements.txt -d /tmp/whls;zip -j /tmp/plugins.zip /tmp/whls/*;aws s3 cp /tmp/plugins.zip s3://{S3_BUCKET}/{S3_KEY}"
 )
 ```
 
