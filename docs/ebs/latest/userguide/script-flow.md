@@ -18,8 +18,23 @@ Steps 1 to 3 occur only if you run pre scripts. If you run post scripts only, st
 
    For example, if the SSM document is used to create application-consistent snapshots, the pre script might freeze and flush I/O to make sure that all buffered data is written to the volume before the snapshot is taken.
 
-1. Systems Manager sends pre script command status updates to Amazon Data Lifecycle Manager. If the pre script fails, Amazon Data Lifecycle Manager takes one of the following actions, depending on how you configure the pre and post script options:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ebs/latest/userguide/script-flow.html)
+1. Systems Manager sends pre script command status updates to Amazon Data Lifecycle Manager. If the pre script fails, Amazon Data Lifecycle Manager takes one of the following actions, depending on how you configure the pre and post script options:
+
+
+<table>
+<thead>
+  <tr><th>Retries</th><th>Default to crash-consistent snapshots</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Enabled with retries remaining</td><td>Enabled</td><td>Retry script until it succeeds or retries are exhausted</td></tr>
+  <tr><td>Exhausted without successful completion</td><td>Enabled</td><td>Create crash-consistent snapshots, and do not run post script.</td></tr>
+  <tr><td>Enabled with retries remaining</td><td>Disabled</td><td>Retry script until it succeeds or retries are exhausted</td></tr>
+  <tr><td>Exhausted without successful completion</td><td>Disabled</td><td>Skip snapshot creation for the target instance, and do not run post script.</td></tr>
+  <tr><td>Disabled</td><td>Enabled</td><td>Create crash-consistent snapshots, and do not run post script.</td></tr>
+  <tr><td>Disabled</td><td>Disabled</td><td>Skip snapshot creation for the target instance, and do not run post script.</td></tr>
+</tbody>
+</table>
+
 
 1. Amazon Data Lifecycle Manager initiates snapshot creation.
 
@@ -33,8 +48,20 @@ Steps 5 to 7 occur only if you run pre scripts. If you run post scripts only, st
 
 1. If you run a post script and Systems Manager indicates that it completed successfully, the process completes.
 
-   If the post script fails, Amazon Data Lifecycle Manager takes one of the following actions, depending on how you configure the pre and post script options:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/ebs/latest/userguide/script-flow.html)
+   If the post script fails, Amazon Data Lifecycle Manager takes one of the following actions, depending on how you configure the pre and post script options:
+
+
+<table>
+<thead>
+  <tr><th>Retries</th><th>Action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Enabled with retries remaining</td><td>Retry post script until it succeeds or retries are exhausted</td></tr>
+  <tr><td>Exhausted without success</td><td>Skip post script</td></tr>
+  <tr><td>Disabled</td><td>Skip post script</td></tr>
+</tbody>
+</table>
+
 
    Keep in mind that if the post script fails, the pre script (if enabled) will have completed successfully, and the snapshots might have been created. You might need to take further action on the instance to make sure that it is operating as expected. For example if the pre script paused and flushed I/O, but the post script failed to thaw I/O, you might need to configure your database to auto-thaw I/O or you need to manually thaw I/O.
 
