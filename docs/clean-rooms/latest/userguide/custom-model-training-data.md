@@ -16,8 +16,20 @@ After the collaboration creator has created the collaboration and invited member
 
 1. On the **Tables** page, choose **Configure new table**.
 
-1. For **Configure new table**, for **Data source,** choose **Amazon S3**, **Amazon Athena**, or **Snowflake** and complete the following steps, based on your data source:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/custom-model-training-data.html)
+1. For **Configure new table**, for **Data source,** choose **Amazon S3**, **Amazon Athena**, or **Snowflake** and complete the following steps, based on your data source:
+
+
+<table>
+<thead>
+  <tr><th>If you're using</th><th>Then</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Amazon S3</b></td><td> <ol><li> Choose a <b>Database</b> from the dropdown list, and then select the <b>Table</b> from the database. </li><li> For <b>Columns allowed in collaborations</b>, choose either <b>All columns</b> or <b>Custom list</b>. </li><li> For <b>Configured table details</b>, provide the <b>Name</b> and an optional <b>Description</b> for this table. </li><li> If you want to report model metrics, enter the <b>Name</b> of the metrics and the <b>Regex</b> statement that will search the output logs to find the metric.  </li><li> If you want to enable <b>Tags</b> for the configured table resource, choose <b>Add new tag</b> and then enter the <b>Key</b> and <b>Value</b> pair.  </li></ol> </td></tr>
+  <tr><td><b>Amazon Athena</b></td><td> <ol><li> Choose a <b>Database</b> from the dropdown list, and then select the <b>Table</b> from the database. </li><li> For <b>Columns allowed in collaborations</b>, choose either <b>All columns</b> or <b>Custom list</b>. </li><li> For <b>Configured table details</b>, provide the <b>Name</b> and an optional <b>Description</b> for this table. </li><li> If you want to report model metrics, enter the <b>Name</b> of the metrics and the <b>Regex</b> statement that will search the output logs to find the metric.  </li><li> If you want to enable <b>Tags</b> for the configured table resource, choose <b>Add new tag</b> and then enter the <b>Key</b> and <b>Value</b> pair.  </li></ol> </td></tr>
+  <tr><td><b>Snowflake</b></td><td> <ol><li> Specify the <b>Snowflake credentials</b> using an existing secret ARN or storing a new secret for this table. </li><li> For <b>Snowflake table and schema details</b>, enter the details manually or automatically import the details. </li><li> For the <b>Schema</b>, enter the <b>Column name</b> and choose the <b>Data type</b> from the dropdown list.  </li><li> If you want to enable <b>Tags</b> for the configured table resource, choose <b>Add new tag</b> and then enter the <b>Key</b> and <b>Value</b> pair.  </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Configure new table**. 
 

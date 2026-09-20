@@ -291,8 +291,14 @@ To create a collaboration and run a custom analysis, the companies do the follow
    GROUP BY event_date;
    ```
 
-1. AWS Clean Rooms returns only the rows backed by at least 100 distinct users and suppresses the rest, so Company B learns daily reach for the Holiday Promotion campaign without learning about any individual or small group.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html)
+1. AWS Clean Rooms returns only the rows backed by at least 100 distinct users and suppresses the rest, so Company B learns daily reach for the Holiday Promotion campaign without learning about any individual or small group.
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
    The date `2026-01-03` does not appear in the results because fewer than 100 distinct users saw the campaign that day, so AWS Clean Rooms suppressed that row.
 

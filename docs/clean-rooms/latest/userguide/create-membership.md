@@ -38,16 +38,39 @@ If the invited member is the member who is responsible to pay for compute costs,
 
 1. On the **Create membership** page, in the **Overview**, view the **Collaboration name**, **Collaboration description**, AWS account ID of the **Collaboration creator**, **Your member details**, and the AWS account ID of the member who will **Pay for queries**.
 
-1. If the collaboration creator has chosen to enable **Analysis logging**, choose one of the following options for **Log storage in Amazon CloudWatch Logs**:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-membership.html)
+1. If the collaboration creator has chosen to enable **Analysis logging**, choose one of the following options for **Log storage in Amazon CloudWatch Logs**:
+
+
+<table>
+<thead>
+  <tr><th>If you choose...</th><th>Then ...</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Turn on</b></td><td>The logs relevant to you are stored in Amazon CloudWatch Logs.Each member can receive only logs for queries that they initiated or that contain their data.<br />The member who can receive results also receives logs for all analyses run in a collaboration, even if their data isn't accessed in an analysis.<br />Under <b>Supported log types</b>, choose from the log types the collaboration creator has chosen to support:<ol><li> If you want to receive logs generated from SQL queries, choose the <b>Logs from queries</b> checkbox.  </li><li> If you want to receive logs generated from jobs using PySpark, choose the <b>Logs from jobs</b> checkbox. </li></ol></td></tr>
+  <tr><td><b>Turn off</b></td><td>The query logs relevant to you aren't stored in your Amazon CloudWatch Logs account.</td></tr>
+</tbody>
+</table>
+
 **Note**  
 After you turn on **Analysis logging**, it can take a few minutes for log storage to be set up and start receiving logs in Amazon CloudWatch Logs. During this brief period, the member who can query might run queries that don’t actually send logs.
 
 1. If the collaboration creator enabled **Detailed monitoring** for this collaboration, choose whether you want to receive detailed observability metrics in your CloudWatch account.
 
-   For **Detailed monitoring**:  
-**Detailed monitoring options**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-membership.html)
+   For **Detailed monitoring**:
+
+
+**Detailed monitoring options**  
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Turn on</b></td><td>AWS Clean Rooms will publish detailed monitoring metrics to CloudWatch for this collaboration in your account. You can use these metrics for operational monitoring, including query performance and resource utilization.Additional CloudWatch charges apply. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">CloudWatch Pricing</a>.</td></tr>
+  <tr><td><b>Turn off</b></td><td>No detailed metrics will be exported to your CloudWatch account. Other members can still view detailed monitoring metrics in their own accounts if they have enabled this option.</td></tr>
+</tbody>
+</table>
+
 **Note**  
 Detailed monitoring metrics are only available to members who can run queries (analysis runners) and members who are configured as payors for the collaboration.
 

@@ -25,8 +25,33 @@ Dataset preparation:
 + Avoid columns with a significantly imbalanced class distribution. This is especially important for the predicted value or “Y” column. Extreme imbalances reduce the synthetic dataset's overall privacy.
 + Clean Rooms ML doesn't support generating synthetic data from time series data where maintaining correlations across sequential records is important.
 + Clean Rooms ML doesn't support generating synthetic data from text or unstructured data.
-+  The following data types are supported:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/considerations-for-data-generation.html)
++  The following data types are supported: 
+
+
+<table>
+<thead>
+  <tr><th>Data type name</th></tr>
+</thead>
+<tbody>
+  <tr><td>BIGINT</td></tr>
+  <tr><td>BOOLEAN</td></tr>
+  <tr><td>CHAR</td></tr>
+  <tr><td>DATE</td></tr>
+  <tr><td>DECIMAL</td></tr>
+  <tr><td>FLOAT</td></tr>
+  <tr><td>INTEGER</td></tr>
+  <tr><td>LONG</td></tr>
+  <tr><td>REAL</td></tr>
+  <tr><td>SHORT</td></tr>
+  <tr><td>SMALLINT</td></tr>
+  <tr><td>TIME</td></tr>
+  <tr><td>TIMESTAMP_LTZ</td></tr>
+  <tr><td>TIMESTAMP_NTZ</td></tr>
+  <tr><td>TINYINT</td></tr>
+  <tr><td>VARCHAR</td></tr>
+</tbody>
+</table>
+
 
 Limitations:
 + For synthetic data generation, the maximum number of predictive columns is one.

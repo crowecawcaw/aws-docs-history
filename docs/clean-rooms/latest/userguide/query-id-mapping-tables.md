@@ -23,13 +23,38 @@ The **Analysis** section only displays if the member who can receive results and
 **Note**  
 If you don’t see the ID mapping tables that you expect in the list, it might be because the ID mapping tables haven't been successfully populated. For more information, see [Populating an existing ID mapping table](populate-id-mapping-table.md).
 
-1. Build the query by typing the query into the SQL code editor.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/query-id-mapping-tables.html)
+1. Build the query by typing the query into the SQL code editor.
+
+
+<table>
+<thead>
+  <tr><th>(Optional) If you want to use an example query </th><th>(Optional) If you want to insert a table name</th></tr>
+</thead>
+<tbody>
+  <tr><td> <ol><li> Select the three vertical dots next to the table. </li><li> Under <b>Insert in editor</b>, choose <b>Example JOIN statement</b>.  Inserting an <b>Example JOIN statements</b> appends the query already in the editor.  <br />The example JOIN statement appears.  </li><li> Edit the placeholder values in the query. </li></ol> </td><td> <ol><li> Select the three vertical dots next to a column. </li><li> Under <b>Insert in editor</b>, choose <b>Table name</b>. </li><li> Edit the placeholder values in the query. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Specify the supported **Worker type** and the **Number of workers**. 
 
-   Use the following table to determine the worker type and number of workers you need for your use case.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/query-id-mapping-tables.html)
+   Use the following table to determine the worker type and number of workers you need for your use case.
+
+
+<table>
+<thead>
+  <tr><th>Worker type</th><th>vCPU</th><th>Memory (GB)</th><th>Storage (GB)</th><th>Number of workers</th><th>Total Clean Rooms Processing Units (CRPU)</th></tr>
+</thead>
+<tbody>
+  <tr><td rowspan="2"><b>CR.1X</b> (default)</td><td rowspan="2">4</td><td rowspan="2">30</td><td rowspan="2">500</td><td>2</td><td>4</td></tr>
+  <tr><td>128</td><td>256</td></tr>
+  <tr><td rowspan="2"><b>CR.4X</b></td><td rowspan="2">16</td><td rowspan="2">120</td><td rowspan="2">2000</td><td>2</td><td>16</td></tr>
+  <tr><td>32</td><td>256</td></tr>
+  <tr><td rowspan="2"><b>CR.8X</b></td><td rowspan="2">32</td><td rowspan="2">244</td><td rowspan="2">2000</td><td>2</td><td>32</td></tr>
+  <tr><td>16</td><td>256</td></tr>
+</tbody>
+</table>
+
 **Note**  
 Different worker types and number of workers have associated costs. To learn more about the pricing, see [AWS Clean Rooms pricing](https://aws.amazon.com/clean-rooms/pricing/).
 

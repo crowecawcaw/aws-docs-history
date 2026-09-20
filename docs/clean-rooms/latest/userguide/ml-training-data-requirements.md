@@ -12,8 +12,22 @@ Zstandard (ZSTD) compressed Parquet data is not supported.
 + The training data must contain at least 100,000 unique user IDs with at least two item interactions each.
 + The training data must contain at least 1 million records.
 + The schema specified in the [CreateTrainingDataset](https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CreateTrainingDataset.html) action must align with the schema defined when the AWS Glue table was created.
-+ The required fields, as defined in the provided table, are defined in the [CreateTrainingDataset](https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CreateTrainingDataset.html) action.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/ml-training-data-requirements.html)
++ The required fields, as defined in the provided table, are defined in the [CreateTrainingDataset](https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CreateTrainingDataset.html) action.
+
+
+<table>
+<thead>
+  <tr><th>Field type</th><th>Supported data types</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>USER_ID</td><td>string, int, bigint </td><td>Yes</td><td>A unique identifier for each user in the dataset. It should be a non-Personally Identifiable Information (PII) value. This might be a hashed identifier or a customer ID.</td></tr>
+  <tr><td>ITEM_ID</td><td>string, int, bigint</td><td>Yes</td><td>A unique identifier for each item a user interacts with.</td></tr>
+  <tr><td>TIMESTAMP</td><td>bigint, int, timestamp</td><td>Yes</td><td>The time when a user interacted with the item. Values must be in the Unix epoch time in seconds format.</td></tr>
+  <tr><td>CATEGORICAL_FEATURE</td><td>string, int, float, bigint, double, boolean, array</td><td>No</td><td>Captures categorical data related to the user or the item. This can include things like an event type (such as click or purchase), user demographics (age group, gender - anonymized), user location (city, country - anonymized), item category (such as clothing or electronics), or item brand.</td></tr>
+  <tr><td>NUMERICAL_FEATURE</td><td>double, float, int, bigint</td><td>No</td><td>Captures numerical data related to the user or the item. This can include things like user purchase history (total amount spent), item price, number of times an item is visited, or user ratings for items.</td></tr>
+</tbody>
+</table>
+
 + Optionally, you can provide up to 10 total categorical or numerical features.
 
 Here is an example of a valid training data set in CSV format

@@ -171,8 +171,19 @@ The member who creates the PySpark analysis template must also be the member who
 
          If you don't select the checkbox, only queries that complete within 12 hours will be delivered to your S3 location. 
 
-      1. Specify the **Service access** permissions by selecting either **Create and use a new service role** or **Use an existing service role**.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-collab-queries-and-jobs.html)
+      1. Specify the **Service access** permissions by selecting either **Create and use a new service role** or **Use an existing service role**.
+
+
+<table>
+<thead>
+  <tr><th>If you choose to ...</th><th>Then ...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Create and use a new service role</td><td> <ul><li> AWS Clean Rooms creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>cleanrooms-result-receiver-&lt;timestamp&gt;</code> </li><li> You must have permissions to create roles and attach policies. </li></ul> </td></tr>
+  <tr><td>Use an existing service role</td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. <br />By default, AWS Clean Rooms doesn't attempt to update the existing role policy to add necessary permissions.  </li></ol> </td></tr>
+</tbody>
+</table>
+
 **Note**  
 AWS Clean Rooms requires permissions to query according to the analysis rules. For more information about permissions for AWS Clean Rooms, see [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md).
 If the role doesn’t have sufficient permissions for AWS Clean Rooms, you receive an error message stating that the role doesn't have sufficient permissions for AWS Clean Rooms. The role policy must be added before proceeding.
@@ -235,8 +246,19 @@ For more information about how pricing is calculated, see [Pricing for AWS Clean
 
    1. Review the selections that you made for the previous steps and edit if necessary. 
 
-   1. Choose one of the options.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-collab-queries-and-jobs.html)
+   1. Choose one of the options.
+
+
+<table>
+<thead>
+  <tr><th>If you have chosen to ...</th><th>Then choose ...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Create a membership with the collaboration (<b>Yes, join by creating membership now</b>)</td><td><b>Create collaboration and membership</b></td></tr>
+  <tr><td>Create the collaboration, and not to create a membership at this time (<b>No, I will create a membership later</b>)</td><td><b>Create collaboration</b></td></tr>
+</tbody>
+</table>
+
 
 After your collaboration has been created successfully, you can see the collaboration details page under **Collaborations**.
 

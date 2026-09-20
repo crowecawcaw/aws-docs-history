@@ -18,8 +18,20 @@ The results of the query are located in the **Results settings defaults** sectio
 
 1. To receive the query results directly from AWS Clean Rooms, on the **Analysis** tab, under **Analyses**, select **All queries** from the dropdown, and then under the **Protected query ID** column, select the query.
 
-1. On the **Query details** page, under **Results**, do one of the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/receive-results.html)
+1. On the **Query details** page, under **Results**, do one of the following:
+
+
+<table>
+<thead>
+  <tr><th>If you want to…</th><th>Then choose…</th></tr>
+</thead>
+<tbody>
+  <tr><td>Copy the results.</td><td><b>Copy</b></td></tr>
+  <tr><td>Download the results.</td><td><b>Download</b> By default, the downloaded ﬁle’s name is the corresponding <code>Query id</code> that was displayed when the query was run in AWS Clean Rooms. </td></tr>
+  <tr><td>View the results in Amazon S3.</td><td><b>View in Amazon S3</b>The Amazon S3 console opens in a separate tab.</td></tr>
+</tbody>
+</table>
+
 
 1. If you're using encrypted data, you can now [decrypt](glossary.md#glossary-decryption) the data tables.
 

@@ -29,7 +29,18 @@ As a collaboration member, you can edit the ID namespace associations that you h
 
    1. (Optional) For **Advanced ID mapping table configurations**, modify the default protections for the column that comes from the ID namepsace.
 
-      The ID mapping table is configured by default to only allow an `INNER JOIN` on both the `sourceID` column and the `targetID` column. You can modify this configuration so that the column that comes from this ID namespace (either `sourceID` or `targetID`) can be allowed anywhere in the query.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/edit-id-namespace-association.html)
+      The ID mapping table is configured by default to only allow an `INNER JOIN` on both the `sourceID` column and the `targetID` column. You can modify this configuration so that the column that comes from this ID namespace (either `sourceID` or `targetID`) can be allowed anywhere in the query.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Categorize the column as a "join column" and only allow it in an <code>INNER JOIN</code> clause</td><td><b>Yes</b></td></tr>
+  <tr><td>Categorize the column as a "dimension column" and allow it anywhere in the query, including a <code>JOIN</code> clause, <code>SELECT</code>, <code>WHERE</code> and <code>GROUP BY</code> statements of the query.</td><td><b>No, allow anywhere in the query</b></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save changes**.

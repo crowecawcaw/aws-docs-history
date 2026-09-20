@@ -114,8 +114,18 @@ The tables don't have an [analysis rule configured](add-analysis-rule.md).
 
 1. Build a query.
 
-   If the collaboration contains two tables that use the **Aggregation analysis rule** and two tables that use the **List analysis rule**, first choose **Aggregation** or **List**, and then follow the prompts based on the selected analysis rule.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/query-data-analysis-builder.html)
+   If the collaboration contains two tables that use the **Aggregation analysis rule** and two tables that use the **List analysis rule**, first choose **Aggregation** or **List**, and then follow the prompts based on the selected analysis rule.
+
+
+<table>
+<thead>
+  <tr><th>If the two tables use the aggregation analysis rule</th><th>If the two tables use the list analysis rule</th></tr>
+</thead>
+<tbody>
+  <tr><td> <ol><li> For <b>Choose metrics</b>, review the aggregate metrics that have been preselected by default and remove any metric if needed. </li><li> For <b>Match records</b>, choose one or more records.  When using the analysis builder, you can match only on a single pair of columns.  </li><li> (Optional) For <b>Add segments – optional</b>, choose one or more parameters.  <b>Add segments – optional</b> is only displayed if dimensions are specified for the table.  </li><li> (Optional) For <b>Add filters – optional</b>, choose <b>Add filter</b>, and then choose a parameter, operator, and value.  <br />To add more filters, choose <b>Add another filter</b>.  <br />To remove a filter, choose <b>Remove</b>.  ORDER BY is not supported for aggregation queries. <br />Only the AND operator is supported in filters.  </li><li> (Optional) For <b>Add description – optional</b>, enter a description to help identify the query in the list of recent queries. </li></ol> </td><td> <ol><li> For <b>Choose attributes</b>, review the list attributes that have been preselected by default and remove any metric if needed. </li><li> For <b>Match records</b>, choose one or more records.  When using the analysis builder, you can match only on a single pair of columns.  </li><li> (Optional) For <b>Add filters – optional</b>, choose <b>Add filter</b>, and then choose a parameter, operator, and value.  <br />To add more filters, choose <b>Add another filter</b>.  <br />To remove a filter, choose <b>Remove</b>.  LIMIT is not supported for list queries. <br />Only the AND operator is supported in filters.  </li><li> (Optional) For <b>Add description – optional</b>, enter a description to help identify the query in the list of recent queries. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Expand **Preview SQL code**.
 

@@ -19,8 +19,18 @@ As a collaboration member, you can add a data access budget to an existing assoc
 
 1. From the **Actions** dropdown list, under **Data access budget**, select **Add** (if there isn't already a budget).
 
-1. Choose one of the following budget configurations:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/add-access-budget-to-existing-associated-table.html)
+1. Choose one of the following budget configurations:
+
+
+<table>
+<thead>
+  <tr><th>Per period budget only</th><th>Lifetime budget only</th><th>Both per period and lifetime budgets</th></tr>
+</thead>
+<tbody>
+  <tr><td> <ol><li> Leave <b>Add per period budget</b> selected. </li><li> Enter a <b>Per period budget amount</b> between 1 and 1,000,000. </li><li> For <b>Period</b>, choose <b>Daily</b>, <b>Weekly</b>, or <b>Monthly</b>. </li><li> (Optional) Leave <b>Automatically refresh budget weekly</b> selected to renew the allocation. </li><li> Clear <b>Add lifetime budget</b>. </li></ol> </td><td> <ol><li> Clear <b>Add per period budget</b>. </li><li> Select <b>Add lifetime budget</b>. </li><li> Enter a <b>Lifetime budget amount</b> between 1 and 1,000,000. </li></ol> </td><td> <ol><li> Leave <b>Add per period budget </b>selected. </li><li> Enter a <b>Per period budget amount</b> between 1 and 1,000,000. </li><li> For <b>Period</b>, choose <b>Daily</b>, <b>Weekly</b>, or <b>Monthly</b>. </li><li> Leave <b>Automatically refresh budget weekly</b> selected. </li><li> Select <b>Add lifetime budget</b>. </li><li> Enter a <b>Lifetime budget amount</b> between 1 and 1,000,000. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Review your selections under **Data access budget summary**.
 

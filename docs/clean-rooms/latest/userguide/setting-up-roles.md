@@ -25,8 +25,22 @@ A member is an AWS customer who is a participant in a collaboration.
 
 1. For the **Create policy** step, select the **JSON** tab in the **Policy editor**, and then add policies depending on the abilities granted to the collaboration member. 
 
-   AWS Clean Rooms offers the following managed policies based on common use cases.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/setting-up-roles.html)
+   AWS Clean Rooms offers the following managed policies based on common use cases.
+
+
+<table>
+<thead>
+  <tr><th>If you want to ...</th><th>Then use ...</th></tr>
+</thead>
+<tbody>
+  <tr><td>View the resources and metadata</td><td><a href="security-iam-awsmanpol.md#security-iam-awsmanpol-readonly">AWS managed policy: `AWSCleanRoomsReadOnlyAccess`</a></td></tr>
+  <tr><td>Query</td><td><a href="security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess">AWS managed policy: `AWSCleanRoomsFullAccess`</a></td></tr>
+  <tr><td>Query and run jobs</td><td><a href="security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess">AWS managed policy: `AWSCleanRoomsFullAccess`</a></td></tr>
+  <tr><td>Query and receive results</td><td><a href="security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess">AWS managed policy: `AWSCleanRoomsFullAccess`</a></td></tr>
+  <tr><td>Manage collaboration resources but do not query</td><td> <a href="security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess-noquery">AWS managed policy: `AWSCleanRoomsFullAccessNoQuerying`</a> </td></tr>
+</tbody>
+</table>
+
 
    For information about the different managed policies offered by AWS Clean Rooms, see [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md),
 

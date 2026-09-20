@@ -53,11 +53,34 @@ Turn on **View schema from AWS Glue** to view the schema.
 
    1. Choose a **Workgroup** from the dropdown list.
 
-   1. For **S3 output location**, choose a recommended action, based on one of the following scenarios.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-config-table-athena.html)
+   1. For **S3 output location**, choose a recommended action, based on one of the following scenarios.
 
-1. For **Columns allowed in collaborations**, choose an option based on your goal.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-config-table-athena.html)
+
+<table>
+<thead>
+  <tr><th>Scenario</th><th>Recommended action</th></tr>
+</thead>
+<tbody>
+  <tr><td>Your <b>Workgroup</b> doesn’t have a default output location.</td><td>Enter the <b>S3 output location</b> or choose <b>Browse S3</b>.</td></tr>
+  <tr><td>Your <b>Workgroup</b> enforces your default output location.</td><td>The <b>S3 output location</b> is automatically chosen and you can't change it.</td></tr>
+  <tr><td>Your <b>Workgroup</b> doesn’t enforce your default output location.</td><td>Enter the <b>S3 output location</b> or choose <b>Browse S3</b>.</td></tr>
+</tbody>
+</table>
+
+
+1. For **Columns allowed in collaborations**, choose an option based on your goal. 
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow all columns for use in AWS Clean Rooms (subject to analysis rules)</td><td><b>All columns</b></td></tr>
+  <tr><td>Allow one or more columns from the <b>Specify allowed columns</b> dropdown list</td><td><b>Custom list</b></td></tr>
+</tbody>
+</table>
+
 
 1. For **Configured table details**, 
 

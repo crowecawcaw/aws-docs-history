@@ -23,8 +23,20 @@ You add a collaboration analysis rule to a configured table after you've [create
 
 1. On the **Configure collaboration analysis rule** page, expand **View configured table analysis rule** to view the details.
 
-1. For **Allowed additional analyses**, choose the option based on your goal.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/add-collaboration-analysis-rule.html)
+1. For **Allowed additional analyses**, choose the option based on your goal.
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow any additional analyses on the table.</td><td><b>Any</b></td></tr>
+  <tr><td>Allow only additional analyses on the table by a specific member.</td><td><b>Any by specific members</b></td></tr>
+  <tr><td>Allow only specific analyses on the table.</td><td><b>Custom list</b></td></tr>
+</tbody>
+</table>
+
 
 1. For **Results delivery**, specify who can receive results from the **Members allowed to receive results for query output** dropdown.
 

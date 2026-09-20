@@ -36,7 +36,18 @@ the only output destination is the result receiver's S3 bucket.
 
    The **Status** next to each table will read **Template not allowed**.
 
-1. Choose a table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/review-analysis-template.html)
+1. Choose a table.
+
+
+<table>
+<thead>
+  <tr><th>If you </th><th>Then choose </th></tr>
+</thead>
+<tbody>
+  <tr><td>Approve the analysis template</td><td><b>Allow template on table</b>. Confirm your approval by choosing <b>Allow</b>.</td></tr>
+  <tr><td>Don't approve the analysis template</td><td><b>Disallow</b></td></tr>
+</tbody>
+</table>
+
 
 You are now ready to query the configured table using a SQL analysis template. For more information, see [Running SQL queries](running-sql-queries.md).

@@ -87,8 +87,19 @@ To verify your AWS Glue table location:
 
 1. Specify the **Service access** permissions by selecting either **Create and use a new service role** or **Use an existing service role**.
 **Note**  
-If you are associating a configured table backed by Amazon Athena, choose an **Existing service role name** from the dropdown list. Ensure the service role has IAM and, if needed, Lake Formation permissions to the dataset.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/associate-configured-table.html)
+If you are associating a configured table backed by Amazon Athena, choose an **Existing service role name** from the dropdown list. Ensure the service role has IAM and, if needed, Lake Formation permissions to the dataset. 
+
+
+<table>
+<thead>
+  <tr><th>If you choose...</th><th>Then ...</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Create and use a new service role</b></td><td> <ul><li> AWS Clean Rooms creates a service role with the required policy for this table. </li><li> The default <b>Service role name</b> is <code>cleanrooms-&lt;timestamp&gt;</code> </li><li> You must have permissions to create roles and attach policies. </li><li> If your input data is encrypted, you can select <b>This data is encrypted with a KMS key</b> and then enter an AWS KMS key that will be used to decrypt your data input. </li></ul> </td></tr>
+  <tr><td><b>Use an existing service role</b></td><td> <ol><li> Choose an <b>Existing service role name</b> from the dropdown list. <br />The list of roles are displayed if you have permissions to list roles. <br />If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. </li><li> View the service role by choosing the <b>View in IAM</b> external link. <br />If there are no existing service roles, the option to <b>Use an existing service role</b> is unavailable. <br />By default, AWS Clean Rooms doesn't attempt to update the existing role policy to add necessary permissions.  </li><li> (Optional) Select the <b>Add a pre-configured policy with necessary permissions to this role</b> check box to add attach necessary permissions to the role. You must have permissions to modify roles and create policies. </li></ol> </td></tr>
+</tbody>
+</table>
+
 **Note**  
 AWS Clean Rooms requires permissions to query according to the analysis rules. For more information about permissions for AWS Clean Rooms, see [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md).
 If the role doesn’t have sufficient permissions for AWS Clean Rooms, you receive an error message stating that the role doesn't have sufficient permissions for AWS Clean Rooms. The role policy must be added before proceeding.
@@ -112,8 +123,18 @@ If you can’t modify the role policy, you receive an error message stating that
 
      If you select **No, I will add a data access budget later**, skip to step 15.
 
-1. If you choose **Yes, add a data access budget now**, choose one of the following budget configurations:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/associate-configured-table.html)
+1. If you choose **Yes, add a data access budget now**, choose one of the following budget configurations:
+
+
+<table>
+<thead>
+  <tr><th>Per period budget only</th><th>Lifetime budget only</th><th>Both per period and lifetime budgets</th></tr>
+</thead>
+<tbody>
+  <tr><td> <ol><li> Leave <b>Add per period budget</b> selected. </li><li> Enter a <b>Per period budget amount</b> between 1 and 1,000,000. </li><li> For <b>Period</b>, choose <b>Daily</b>, <b>Weekly</b>, or <b>Monthly</b>. </li><li> (Optional) Leave <b>Automatically refresh budget weekly</b> selected to renew the allocation. </li><li> Clear <b>Add lifetime budget</b>. </li></ol> </td><td> <ol><li> Clear <b>Add per period budget</b>. </li><li> Select <b>Add lifetime budget</b>. </li><li> Enter a <b>Lifetime budget amount</b> between 1 and 1,000,000. </li></ol> </td><td> <ol><li> Leave <b>Add per period budget </b>selected. </li><li> Enter a <b>Per period budget amount</b> between 1 and 1,000,000. </li><li> For <b>Period</b>, choose <b>Daily</b>, <b>Weekly</b>, or <b>Monthly</b>. </li><li> Leave <b>Automatically refresh budget weekly</b> selected. </li><li> Select <b>Add lifetime budget</b>. </li><li> Enter a <b>Lifetime budget amount</b> between 1 and 1,000,000. </li></ol> </td></tr>
+</tbody>
+</table>
+
 
 1. Review your selections under **Data access budget summary**.  
 **Example**  

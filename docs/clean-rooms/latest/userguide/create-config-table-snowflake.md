@@ -126,8 +126,19 @@ The secret ARN can be cross-account.
 
 ------
 
-1. For **Columns allowed in collaborations**, choose an option based on your goal.     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/create-config-table-snowflake.html)
+1. For **Columns allowed in collaborations**, choose an option based on your goal. 
+
+
+<table>
+<thead>
+  <tr><th>Your goal</th><th>Recommended option</th></tr>
+</thead>
+<tbody>
+  <tr><td>Allow all columns for use in AWS Clean Rooms (subject to analysis rules)</td><td><b>All columns</b></td></tr>
+  <tr><td>Allow one or more columns from the <b>Specify allowed columns</b> dropdown list</td><td><b>Custom list</b></td></tr>
+</tbody>
+</table>
+
 
 1. For **Configured table details**, 
 

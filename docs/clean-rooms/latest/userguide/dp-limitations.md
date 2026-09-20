@@ -13,8 +13,14 @@ AWS Clean Rooms Differential Privacy doesn't address the following situations:
 
    The following table is a list of some, but not all, SQL constructs that may produce run-time errors and should be verified in analysis templates. We recommend that you approve analysis templates that minimize the chances of such run-time errors and periodically review query logs to determine if the queries align with the collaboration agreement.
 
-   The following SQL constructs are vulnerable to overflow errors:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/clean-rooms/latest/userguide/dp-limitations.html)
+   The following SQL constructs are vulnerable to overflow errors:
+
+
+<table>
+<tbody>
+</tbody>
+</table>
+
 
 1. The CAST data type formatting function is vulnerable to invalid cast errors.
 
