@@ -103,8 +103,21 @@
 
 1. **Step 4: Enable CMS-0057-F interoperability endpoints.**
 
-   Route API calls through the HealthLake dedicated CMS endpoint paths:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/healthlake/latest/devguide/reference-industry-payers.html)
+   Route API calls through the HealthLake dedicated CMS endpoint paths:
+
+
+<table>
+<thead>
+  <tr><th>Endpoint path</th><th>CMS API</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>/patientaccess/v2/r4/</code></td><td>Patient Access API</td></tr>
+  <tr><td><code>/​provideraccess/v2/r4/</code></td><td>Provider Access API</td></tr>
+  <tr><td><code>/payertopayerdx/v2/r4/</code></td><td>Payer-to-Payer Data Exchange</td></tr>
+  <tr><td><code>/priorauthservice/v2/r4/</code></td><td>Prior Authorization API</td></tr>
+</tbody>
+</table>
+
 
    No code changes are required beyond updating the URL path. All FHIR CRUD and search operations work identically. For more information, see [CMS compliance features](reference-compliance-cms.md).
 

@@ -9,6 +9,7 @@
 + [FHIR R4 `$attribution-status` operation for HealthLake](reference-fhir-operations-attribution-status.md)
 + [Deleting Resource Types with `$bulk-delete`](reference-fhir-operations-bulk-delete.md)
 + [`$bulk-member-match` operation for HealthLake](reference-fhir-operations-bulk-member-match.md)
++ [Patching resources at scale with `$bulk-patch`](reference-fhir-operations-bulk-patch.md)
 + [FHIR R4 `$confirm-attribution-list` operation for HealthLake](reference-fhir-operations-confirm-attribution-list.md)
 + [FHIR R4 `$davinci-data-export` operation for HealthLake](reference-fhir-operations-davinci-data-export.md)
 + [Generating Clinical Documents with `$document`](reference-fhir-operations-document.md)

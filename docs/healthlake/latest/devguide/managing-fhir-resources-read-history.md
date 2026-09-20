@@ -19,9 +19,22 @@ You can opt out of `history` for specific FHIR resource types. To opt out, creat
 
    ```
    GET https://healthlake.{{region}}.amazonaws.com/datastore/{{datastoreId}}/r4/{{Resource}}/{{id}}/_history{?[parameters]}
-   ```  
-**HealthLake supported search parameters for FHIR `history` interaction**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/healthlake/latest/devguide/managing-fhir-resources-read-history.html)
+   ```
+
+
+**HealthLake supported search parameters for FHIR `history` interaction**  
+
+<table>
+<thead>
+  <tr><th>Parameter</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>_count : integer</code></td><td>The maximum number of search results on a page. The server will return the number requested or the maximum number of search results allowed by default for the data store, whichever is lower.</td></tr>
+  <tr><td><code>_since : instant</code></td><td>Only include resource versions that were created at or after the given instant in time.</td></tr>
+  <tr><td><code>_at : date(Time)</code></td><td>Only include resource versions that were current at some point during the time period specified in the date time value. For more information, see <a href="https://www.hl7.org/fhir/R4/search.html#date">https://www.hl7.org/fhir/R4/search.html#date</a> in the <i>HL7 FHIR RESTful API documentation</i>. </td></tr>
+</tbody>
+</table>
+
 
 1. Send the request. The FHIR `history` interaction uses a `GET` request with either [AWS Signature Version 4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) or SMART on FHIR authorization. The following `curl` example uses the `_count` search parameter to return 100 historical search results per page for a FHIR `Patient` resource in HealthLake. To view the entire example, scroll over the **Copy** button.
 
