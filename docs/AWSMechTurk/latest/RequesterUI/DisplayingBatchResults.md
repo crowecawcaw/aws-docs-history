@@ -51,8 +51,20 @@ You can customize the look and contents of the **Review Results** page.
 
    
 
-1. On the **Configure Data Results** page, do one or more of the actions listed in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/DisplayingBatchResults.html)
+1. On the **Configure Data Results** page, do one or more of the actions listed in the following table.
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do This...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Add fields listed in the results</td><td>Drag field names from the <b>Available fields</b> list into the <b>Current fields</b> list.</td></tr>
+  <tr><td>Remove fields listed in the results</td><td>Drag field names from the <b>Current fields</b> list into the <b>Available fields</b> list.</td></tr>
+  <tr><td>Change the order of the fields in the results</td><td>Drag the fields up or down the <b>Current fields</b> list.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Apply Settings**.
 

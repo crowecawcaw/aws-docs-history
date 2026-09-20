@@ -27,8 +27,20 @@ The following procedure describes how to publish an Amazon Mechanical Turk batch
 
 1. After you finish reviewing your HITs, choose **Next**.
 
-1. Review the information on the **Confirm and Publish Batch** page, which shows the total amount you will pay Workers and Mechanical Turk Mechanical Turk if you approve all of the assignments. The following table explains the sections of the **Confirm and Publish Batch** page.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/PublishingYourBatchofHITs.html)
+1. Review the information on the **Confirm and Publish Batch** page, which shows the total amount you will pay Workers and Mechanical Turk Mechanical Turk if you approve all of the assignments. The following table explains the sections of the **Confirm and Publish Batch** page.
+
+
+<table>
+<thead>
+  <tr><th>Section</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Batch Properties</td><td>Contains the values that you set on the <b>Design</b> tab for the batch properties, including the number of days the batch can exist before expiring, and the number of days you have to reject an assignment submitted by a Worker before the assignment is auto-approved and the Worker is paid. </td></tr>
+  <tr><td>Tasks</td><td>Calculates the number of assignments per batch.</td></tr>
+  <tr><td>Cost Summary</td><td>Calculates the cost of the batch assuming you approve all assignments. The total cost is the number of assignments multiplied by the price per assignment plus the Mechanical Turk fee. You must have enough money in your account to cover the total cost before you can publish the HIT. If you don't, you'll be asked to add money to your account.</td></tr>
+</tbody>
+</table>
+
 
 1. If you haven't already entered a payment method, enter it in **Payment Method**.
 

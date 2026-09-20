@@ -41,14 +41,53 @@ Follow the steps in this procedure to create a project.
 
 1. On the **Edit Project** page, choose the **Edit Properties** tab, and then enter the information for your HIT.
 
-   1. In the **Describe your HIT to Workers** section of the **Edit Properties** tab, do the following:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/CreatingYourBatchofHITs.html)
+   1. In the **Describe your HIT to Workers** section of the **Edit Properties** tab, do the following: 
 
-   1. In the **Setting up your task** section of the **Edit Properties** tab, do the following:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/CreatingYourBatchofHITs.html)
 
-   1. In the **Worker requirements** section of the **Edit Properties** tab, do the following:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/CreatingYourBatchofHITs.html)
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Project Name</td><td>The project name field is already created, but you can change it. Make sure the project name is descriptive so that you can easily identify the project when you want to publish a batch with the project. The project name is for your reference and is not displayed to workers.</td></tr>
+  <tr><td>Title</td><td>Enter the name of the task. Be specific. For example, enter <b>Tag landmark images</b> instead of <b>Tag photos</b>. The title is displayed to workers.</td></tr>
+  <tr><td>Description</td><td>Describe the task. The search mechanism searches using this description, so use words you think will help workers find your HITs. </td></tr>
+  <tr><td>Keywords</td><td>Enter a comma-separated list of words that workers can use to find your HIT.</td></tr>
+</tbody>
+</table>
+
+
+   1. In the **Setting up your task** section of the **Edit Properties** tab, do the following: 
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Reward per assignment</td><td>Specify how much money you'll pay the worker if you approve an assignment.</td></tr>
+  <tr><td>Number of assignments per task</td><td>Specify the number of unique workers you want to work on each task. One assignment per task means that only one worker works on a task. You might want multiple workers to work on a task to see if there is agreement between workers, which can increase your trust in the results. <br />A worker can only accept a task once and can only submit one assignment per task. This guarantees that multiple workers must complete a task that has multiple assignments.</td></tr>
+  <tr><td>Time Allotted Per Assignment</td><td>Specify how long the worker can hold on to individual assignments within your batch to work on them. After this time has passed, the tasks are withdrawn from the worker so others can work on them.</td></tr>
+  <tr><td>Task expires in</td><td>Specify how long workers can accept tasks in the batch. Workers can't accept tasks in the batch after this time expires. Workers can finish working on assignments they previously accepted even though the batch is no longer available for others to work on.</td></tr>
+  <tr><td>Auto-approve and pay Workers in</td><td>Specify when Mechanical Turk will automatically approve your tasks and pay workers. This determines the amount of time you have to reject an assignment submitted by a worker before the assignment is auto-approved and the worker is paid. This limit ensures that workers get paid in a timely manner.</td></tr>
+</tbody>
+</table>
+
+
+   1. In the **Worker requirements** section of the **Edit Properties** tab, do the following: 
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Require that workers be masters to do your tasks</td><td>Select to specify that you require Mechanical Turk master workers to work on your tasks. Masters are an elite group of workers, who have demonstrated superior performance while completing thousands of tasks across the Mechanical Turk marketplace. Masters must maintain this high level of performance or they may lose this distinction.</td></tr>
+  <tr><td>Specify any additional qualifications workers must meet to work on your tasks</td><td>Add up to five requirements, such as a worker's HIT approval rate, a geographic location, or a minimum number of HITs approved. Additionally, you can set <b>Premium qualifications</b> such as language fluency or demographic criteria, which will add to the cost of each completed task. If you have created custom qualifications, they are available at the bottom of the drop-down menu.</td></tr>
+  <tr><td>Project contains adult content</td><td>Select the check box to indicate that the project may contain potentially explicit or offensive content.</td></tr>
+</tbody>
+</table>
+
 
 1. Choose the **Design Layout** tab and edit the HTML of the template. You can copy the HTML in the editor into another file. To preview HTML the page, open the file in a browser. To ensure your form elements work well with Amazon Mechanical Turk, we recommend using [our Custom HTML Elements](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html).  
 ![Design Layout](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_task_template_editor.png)

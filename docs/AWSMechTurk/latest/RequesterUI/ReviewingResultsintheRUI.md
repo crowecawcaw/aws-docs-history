@@ -15,8 +15,21 @@ It's convenient to review small batches of results so that you can approve or re
 
 1. Choose **Results** on the batch you want to review.
 
-1. On the **Review Results** page, do one of the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/ReviewingResultsintheRUI.html)
+1. On the **Review Results** page, do one of the following:
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do This...</th></tr>
+</thead>
+<tbody>
+  <tr><td>Approve individual results</td><td>Select the check box in the rows of results you want to approve, and then choose <b>Approve</b>.</td></tr>
+  <tr><td>Reject individual results</td><td>Select the check box in the rows of results you want to reject, and the choose <b>Reject</b>.</td></tr>
+  <tr><td>Approve all results in the batch</td><td>Select <b>Approve All</b> or select the check box in the column heading of check boxes, and then choose <b>Approve</b>.</td></tr>
+  <tr><td>Reject all results in the batch</td><td>Select the check box in the column heading of check boxes, and then choose <b>Reject</b>.</td></tr>
+</tbody>
+</table>
+
 
 1. If you want to sort the list by Worker, choose the **Worker ID** column heading.
 
