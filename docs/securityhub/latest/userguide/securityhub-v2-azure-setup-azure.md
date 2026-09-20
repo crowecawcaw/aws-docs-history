@@ -106,20 +106,18 @@ Key values:
 ## Step 4: Assign RBAC roles
 <a name="securityhub-v2-azure-setup-azure-rbac"></a>
 
-Assign the following built-in roles to the service principal at the tenant root management group scope. Assigning them at this scope propagates the permissions to every subscription in the tenant.
-+ **Reader** – Grants read-only access to all Azure resources, so Security Hub can discover and evaluate your resource configurations.
-+ **Contributor** – Grants the write access that Amazon Inspector requires to scan your Azure virtual machines, Function Apps, and container images for vulnerabilities.
-+ **Azure Event Hubs Data Receiver** – Allows AWS to read events from the Event Hub.
+Assign the following built-in roles to the service principal:
++ **Reader** – Grants read-only access to all Azure resources, so Security Hub can discover and evaluate your resource configurations. Assign this role at the root scope (`/`).
++ **Contributor** – Grants the write access that Amazon Inspector requires to scan your Azure virtual machines, Function Apps, and container images for vulnerabilities. Assign this role at the tenant root management group scope, which propagates it to every subscription in the tenant.
++ **Azure Event Hubs Data Receiver** – Allows AWS to read events from the Event Hub. Assign this role at the tenant root management group scope.
 
-**Important**  
+**Assign Reader at the root scope**  
+Make sure to assign the **Reader** role at the **root scope** (`/`), not the tenant root management group scope. Security Hub reads Azure role-assignment resources at every scope, including assignments scoped at the tenant root. A Reader assignment at the root management group does not cover assignments whose scope is `/`, so without it those reads fail with an authorization error and the connector can enter a degraded state.
+
+**Contributor grants tenant-wide write access**  
 The **Contributor** role at the tenant root management group scope grants highly privileged, tenant-wide write access to your Azure resources. Security Hub requires this access so that Amazon Inspector can scan your compute resources for vulnerabilities. For example, Inspector uses the virtual machine run-command permissions that Contributor provides. Through Amazon EC2 Systems Manager Automation, Inspector runs commands on your Azure VMs to install and operate the VM Scanner agent.
 
 ```
-$ az role assignment create \
-  --assignee {{application-client-id}} \
-  --role "Reader" \
-  --scope "/providers/Microsoft.Management/managementGroups/{{tenant-id}}"
-
 $ az role assignment create \
   --assignee {{application-client-id}} \
   --role "Contributor" \
@@ -129,18 +127,35 @@ $ az role assignment create \
   --assignee {{application-client-id}} \
   --role "Azure Event Hubs Data Receiver" \
   --scope "/providers/Microsoft.Management/managementGroups/{{tenant-id}}"
+
+$ az role assignment create \
+  --assignee {{application-client-id}} \
+  --role "Reader" \
+  --scope "/"
 ```
 
-**Note**  
-If this step fails, verify that *Access management for Azure resources* is set to **Yes** in Microsoft Entra ID > Properties. Then sign out and sign back in to refresh your token.
+**Root-scope assignment requires elevated access**  
+Assigning a role at the root scope (`/`) requires elevated access. If a role assignment fails, verify that *Access management for Azure resources* is set to **Yes** in Microsoft Entra ID > Properties. Then sign out and sign back in to refresh your token.
+
+**Remove the temporary root elevation**  
+Enabling *Access management for Azure resources* grants the signed-in administrator the User Access Administrator role at the root scope (`/`), which can manage access across every subscription and management group in the tenant. After onboarding is complete, set *Access management for Azure resources* back to **No** in Microsoft Entra ID > Properties, save, and sign out so that this elevation does not remain active.
 
 ## Step 5: Configure Microsoft Graph API permissions
 <a name="securityhub-v2-azure-setup-azure-graph"></a>
 
 Grant the following Microsoft Graph API permissions (Application type) to the application, and then grant admin consent:
-+ `Directory.Read.All`
++ `Application.Read.All`
 + `AuditLog.Read.All`
++ `DelegatedPermissionGrant.Read.All`
++ `Device.Read.All`
++ `Group.Read.All`
++ `GroupMember.Read.All`
++ `GroupSettings.Read.All`
++ `Organization.Read.All`
 + `Policy.Read.All`
++ `RoleManagement.Read.Directory`
++ `User.Read.All`
++ `UserAuthenticationMethod.Read.All`
 
 ```
 $ az ad app permission admin-consent --id {{application-client-id}}

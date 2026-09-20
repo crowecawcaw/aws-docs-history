@@ -50,11 +50,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{$.userIdentity.type="Root" &amp;&amp; $.userIdentity.invokedBy NOT EXISTS &amp;&amp; $.eventType !="AwsServiceEvent"}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.2] Ensure a log metric filter and alarm exist for unauthorized API calls
 <a name="cloudwatch-2"></a>
@@ -101,11 +126,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.errorCode="*UnauthorizedOperation") || ($.errorCode="AccessDenied*")}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.3] Ensure a log metric filter and alarm exist for Management Console sign-in without MFA
 <a name="cloudwatch-3"></a>
@@ -152,11 +202,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{ ($.eventName = "ConsoleLogin") &amp;&amp; ($.additionalEventData.MFAUsed != "Yes") &amp;&amp; ($.userIdentity.type = "IAMUser") &amp;&amp; ($.responseElements.ConsoleLogin = "Success") }</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.4] Ensure a log metric filter and alarm exist for IAM policy changes
 <a name="cloudwatch-4"></a>
@@ -204,11 +279,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventSource=iam.amazonaws.com) &amp;&amp; (($.eventName=DeleteGroupPolicy) || ($.eventName=DeleteRolePolicy) || ($.eventName=DeleteUserPolicy) || ($.eventName=PutGroupPolicy) || ($.eventName=PutRolePolicy) || ($.eventName=PutUserPolicy) || ($.eventName=CreatePolicy) || ($.eventName=DeletePolicy) || ($.eventName=CreatePolicyVersion) || ($.eventName=DeletePolicyVersion) || ($.eventName=AttachRolePolicy) || ($.eventName=DetachRolePolicy) || ($.eventName=AttachUserPolicy) || ($.eventName=DetachUserPolicy) || ($.eventName=AttachGroupPolicy) || ($.eventName=DetachGroupPolicy))}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.5] Ensure a log metric filter and alarm exist for CloudTrail configuration changes
 <a name="cloudwatch-5"></a>
@@ -255,11 +355,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventName=CreateTrail) || ($.eventName=UpdateTrail) || ($.eventName=DeleteTrail) || ($.eventName=StartLogging) || ($.eventName=StopLogging)}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.6] Ensure a log metric filter and alarm exist for AWS Management Console authentication failures
 <a name="cloudwatch-6"></a>
@@ -306,11 +431,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventName=ConsoleLogin) &amp;&amp; ($.errorMessage="Failed authentication")}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.7] Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer managed keys
 <a name="cloudwatch-7"></a>
@@ -357,11 +507,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventSource=kms.amazonaws.com) &amp;&amp; (($.eventName=DisableKey) || ($.eventName=ScheduleKeyDeletion))}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.8] Ensure a log metric filter and alarm exist for S3 bucket policy changes
 <a name="cloudwatch-8"></a>
@@ -408,11 +583,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventSource=s3.amazonaws.com) &amp;&amp; (($.eventName=PutBucketAcl) || ($.eventName=PutBucketPolicy) || ($.eventName=PutBucketCors) || ($.eventName=PutBucketLifecycle) || ($.eventName=PutBucketReplication) || ($.eventName=DeleteBucketPolicy) || ($.eventName=DeleteBucketCors) || ($.eventName=DeleteBucketLifecycle) || ($.eventName=DeleteBucketReplication))}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.9] Ensure a log metric filter and alarm exist for AWS Config configuration changes
 <a name="cloudwatch-9"></a>
@@ -459,11 +659,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventSource=config.amazonaws.com) &amp;&amp; (($.eventName=StopConfigurationRecorder) || ($.eventName=DeleteDeliveryChannel) || ($.eventName=PutDeliveryChannel) || ($.eventName=PutConfigurationRecorder))}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.10] Ensure a log metric filter and alarm exist for security group changes
 <a name="cloudwatch-10"></a>
@@ -510,11 +735,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventName=AuthorizeSecurityGroupIngress) || ($.eventName=AuthorizeSecurityGroupEgress) || ($.eventName=RevokeSecurityGroupIngress) || ($.eventName=RevokeSecurityGroupEgress) || ($.eventName=CreateSecurityGroup) || ($.eventName=DeleteSecurityGroup)}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.11] Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)
 <a name="cloudwatch-11"></a>
@@ -561,11 +811,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventName=CreateNetworkAcl) || ($.eventName=CreateNetworkAclEntry) || ($.eventName=DeleteNetworkAcl) || ($.eventName=DeleteNetworkAclEntry) || ($.eventName=ReplaceNetworkAclEntry) || ($.eventName=ReplaceNetworkAclAssociation)}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.12] Ensure a log metric filter and alarm exist for changes to network gateways
 <a name="cloudwatch-12"></a>
@@ -612,11 +887,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventName=CreateCustomerGateway) || ($.eventName=DeleteCustomerGateway) || ($.eventName=AttachInternetGateway) || ($.eventName=CreateInternetGateway) || ($.eventName=DeleteInternetGateway) || ($.eventName=DetachInternetGateway)}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.13] Ensure a log metric filter and alarm exist for route table changes
 <a name="cloudwatch-13"></a>
@@ -664,11 +964,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventSource=ec2.amazonaws.com) &amp;&amp; (($.eventName=CreateRoute) || ($.eventName=CreateRouteTable) || ($.eventName=ReplaceRoute) || ($.eventName=ReplaceRouteTableAssociation) || ($.eventName=DeleteRouteTable) || ($.eventName=DeleteRoute) || ($.eventName=DisassociateRouteTable))}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.14] Ensure a log metric filter and alarm exist for VPC changes
 <a name="cloudwatch-14"></a>
@@ -715,11 +1040,36 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 
    Make note of the name of the CloudWatch Logs log group that you associate with the CloudTrail trail. You create the metric filter for that log group in the next step.
 
-1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+1. Create a metric filter. For instructions, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the *Amazon CloudWatch User Guide*. Use the following values:
 
-1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/cloudwatch-controls.html)
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Define pattern, Filter pattern</td><td><code>{($.eventName=CreateVpc) || ($.eventName=DeleteVpc) || ($.eventName=ModifyVpcAttribute) || ($.eventName=AcceptVpcPeeringConnection) || ($.eventName=CreateVpcPeeringConnection) || ($.eventName=DeleteVpcPeeringConnection) || ($.eventName=RejectVpcPeeringConnection) || ($.eventName=AttachClassicLinkVpc) || ($.eventName=DetachClassicLinkVpc) || ($.eventName=DisableVpcClassicLink) || ($.eventName=EnableVpcClassicLink)}</code></td></tr>
+  <tr><td>Metric namespace</td><td><b>LogMetrics</b></td></tr>
+  <tr><td>Metric value</td><td><b>1</b></td></tr>
+  <tr><td>Default value</td><td><b>0</b></td></tr>
+</tbody>
+</table>
+
+
+1. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the *Amazon CloudWatch User Guide*. Use the following values:
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Conditions, Threshold type</td><td>Static</td></tr>
+  <tr><td>Whenever {{your-metric-name}} is...</td><td>Greater/Equal</td></tr>
+  <tr><td>than...</td><td><b>1</b></td></tr>
+</tbody>
+</table>
+
 
 ## [CloudWatch.15] CloudWatch alarms should have specified actions configured
 <a name="cloudwatch-15"></a>

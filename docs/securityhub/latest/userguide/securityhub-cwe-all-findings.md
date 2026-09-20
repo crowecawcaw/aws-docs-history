@@ -94,8 +94,19 @@ You can use a predefined event pattern or a custom event pattern to create a rul
 
 1. Using the following values, create an EventBridge rule that monitors finding events:
    + For **Rule type**, choose **Rule with an event pattern**.
-   + Choose how to build the event pattern.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cwe-all-findings.html)
+   + Choose how to build the event pattern.
+
+
+<table>
+<thead>
+  <tr><th>To build the event pattern with...</th><th>Do this...</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>A template</td><td>In the <b>Event pattern</b> section, choose the following options:<ul><li> For <b>Event source</b>, choose <b>AWS services</b>. </li><li> For <b>AWS service</b>, choose <b>Security Hub</b>. </li><li> For <b>Event type</b>, choose <b>Security Hub Findings - Imported</b>. </li><li> (Optional) To make the rule more specific, add filter values. For example, to limit the rule to findings with active record states, for <b>Specific Record state(s)</b>, choose <b>Active</b>. </li></ul></td><td></td></tr>
+  <tr><td>A custom event pattern<br />(Use a custom pattern if you want to filter findings based on attributes that do not appear in the EventBridge console.)</td><td> <ul><li> In the <b>Event pattern</b> section, choose <b>Custom patterns (JSON editor)</b>, and then paste the following event pattern into the text area: <pre>{<br />  "source": [<br />    "aws.securityhub"<br />  ],<br />  "detail-type": [<br />    "Security Hub Findings - Imported"<br />  ],<br />  "detail": {<br />    "findings": {<br />      "{{<attribute name>}}": [ "{{<value1>}}", "{{<value2>}}"]<br />    }<br />  }<br />}</pre> </li></ul> <ul><li> Update the event pattern to include the attribute and attribute values that you want to use as a filter. <br />For example, to apply the rule to findings that have a verification state of <code>TRUE_POSITIVE</code>, use the following pattern example: <pre>{<br />  "source": [<br />    "aws.securityhub"<br />  ],<br />  "detail-type": [<br />    "Security Hub Findings - Imported"<br />  ],<br />  "detail": {<br />    "findings": {<br />      "VerificationState": ["TRUE_POSITIVE"]<br />    }<br />  }<br />}</pre> </li></ul> </td><td></td></tr>
+</tbody>
+</table>
+
    + For **Target types**, choose **AWS service**, and for **Select a target**, choose a target such as an Amazon SNS topic or AWS Lambda function. The target is triggered when an event is received that matches the event pattern defined in the rule.
 
    For details about creating rules, see [Creating Amazon EventBridge rules that react to events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html) in the *Amazon EventBridge User Guide*.

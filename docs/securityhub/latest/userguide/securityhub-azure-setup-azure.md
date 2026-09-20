@@ -78,25 +78,40 @@ Key values:
 ## Step 4: Assign the Reader role
 <a name="securityhub-azure-setup-azure-rbac"></a>
 
-Assign the **Reader** role to the service principal at the tenant root management group scope. This grants read-only access to all Azure resources across all subscriptions in the tenant.
+Assign the **Reader** role to the service principal at the root scope (`/`). This grants read-only access to all Azure resources across all subscriptions in the tenant.
+
+**Assign Reader at the root scope**  
+Make sure to assign the **Reader** role at the **root scope** (`/`), not the tenant root management group scope. Security Hub CSPM reads Azure role-assignment resources at every scope, including assignments scoped at the tenant root. A Reader assignment at the root management group does not cover assignments whose scope is `/`, so without it those reads fail with an authorization error and the connector can enter a degraded state.
 
 ```
 $ az role assignment create \
   --assignee {{application-client-id}} \
   --role "Reader" \
-  --scope "/providers/Microsoft.Management/managementGroups/{{tenant-id}}"
+  --scope "/"
 ```
 
-**Note**  
-If this step fails, verify that *Access management for Azure resources* is set to **Yes** in Microsoft Entra ID > Properties. Then sign out and sign back in to refresh your token.
+**Root-scope assignment requires elevated access**  
+Assigning a role at the root scope (`/`) requires elevated access. If a role assignment fails, verify that *Access management for Azure resources* is set to **Yes** in Microsoft Entra ID > Properties. Then sign out and sign back in to refresh your token.
+
+**Remove the temporary root elevation**  
+Enabling *Access management for Azure resources* grants the signed-in administrator the User Access Administrator role at the root scope (`/`), which can manage access across every subscription and management group in the tenant. After onboarding is complete, set *Access management for Azure resources* back to **No** in Microsoft Entra ID > Properties, save, and sign out so that this elevation does not remain active.
 
 ## Step 5: Configure Microsoft Graph API permissions
 <a name="securityhub-azure-setup-azure-graph"></a>
 
 Grant the following Microsoft Graph API permissions (Application type) to the application, and then grant admin consent:
-+ `Directory.Read.All`
++ `Application.Read.All`
 + `AuditLog.Read.All`
++ `DelegatedPermissionGrant.Read.All`
++ `Device.Read.All`
++ `Group.Read.All`
++ `GroupMember.Read.All`
++ `GroupSettings.Read.All`
++ `Organization.Read.All`
 + `Policy.Read.All`
++ `RoleManagement.Read.Directory`
++ `User.Read.All`
++ `UserAuthenticationMethod.Read.All`
 
 ```
 $ az ad app permission admin-consent --id {{application-client-id}}
