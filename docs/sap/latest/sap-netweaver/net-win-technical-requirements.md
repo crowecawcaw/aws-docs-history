@@ -9,9 +9,28 @@
 
    1. Ensure that your [VPC service limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_vpc) are sufficient to launch a new VPC (if necessary) or individual network resources within your VPC, such as Elastic IP addresses.
 
-1. Gather the following information about your existing AWS resources. You will need this information to create your Amazon EC2 and Amazon EBS resources using the AWS Command Line Interface (AWS CLI) commands:  
-**AWS Resource Information Required**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-netweaver/net-win-technical-requirements.html)
+1. Gather the following information about your existing AWS resources. You will need this information to create your Amazon EC2 and Amazon EBS resources using the AWS Command Line Interface (AWS CLI) commands:
+
+
+**AWS Resource Information Required**  
+
+<table>
+<thead>
+  <tr><th>Information Needed</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>Region ID</td><td>Region where you want to deploy your AWS resources</td></tr>
+  <tr><td>Availability Zone</td><td>Availability Zone within your target Region where you want to deploy your resources</td></tr>
+  <tr><td>Amazon VPC ID</td><td>Amazon VPC where you want to deploy your Amazon EC2 instance for SAP installation</td></tr>
+  <tr><td>Subnet ID</td><td>Subnet where you want to deploy your Amazon EC2 instance</td></tr>
+  <tr><td>AMI ID</td><td>Amazon Machine Image (AMI) that will be used to launch your Amazon EC2 instance. You can find the latest Linux AMIs in <a href="https://aws.amazon.com/marketplace/b/2649367011?page=1&amp;filters=operating_system&amp;operating_system=SUSE%2CRHEL">AWS Marketplace</a> </td></tr>
+  <tr><td>Key Pair</td><td>Make sure that you have generated the key pair in your target Region, and that you have access to the private key</td></tr>
+  <tr><td>Security Group ID</td><td>Name of the security group that you want to assign to your Amazon EC2 instance. See the appendix for detailed information about the security group for SAP instances</td></tr>
+  <tr><td>Access Key ID</td><td>Access key for your AWS account that will be used with AWS CLI tools</td></tr>
+  <tr><td>Secret Access Key</td><td>Secret key for your AWS account that will be used with AWS CLI tools</td></tr>
+</tbody>
+</table>
+
 
    1. Ensure that you have a key pair that you can use to launch your Amazon EC2 instances. To import or create a new key pair, see [Amazon EC2 Key Pairs and Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html).
 

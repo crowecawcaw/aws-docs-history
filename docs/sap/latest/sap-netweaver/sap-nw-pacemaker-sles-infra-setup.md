@@ -47,8 +47,8 @@ The SLES STONITH resource agent (`fence_aws` for SLES 15 SP5 and above, or `exte
         "ec2:StopInstances"
       ],
       "Resource": [
-        "arn:aws:ec2:us-east-1:123456789012:instance/arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
-        "arn:aws:ec2:us-east-1:123456789012:instance/arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0"
+        "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+        "arn:aws:ec2:us-east-1:123456789012:instance/i-0abcdef1234567890"
       ]
     }
   ]
@@ -164,8 +164,8 @@ In cluster account, create the following IAM policy, and attach it to an IAM rol
         "ec2:StopInstances"
       ],
       "Resource": [
-        "arn:aws:ec2:us-east-1:123456789012:instance/arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
-        "arn:aws:ec2:us-east-1:123456789012:instance/arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0"
+        "arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0",
+        "arn:aws:ec2:us-east-1:123456789012:instance/i-0abcdef1234567890"
       ]
     },
     {
@@ -213,11 +213,31 @@ Using either the Amazon VPC console, or an AWS CLI command add a route to the ta
 
 1. Choose **Actions** → **Edit routes**.
 
-1. Choose **Add route** and configure the ASCS route:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-netweaver/sap-nw-pacemaker-sles-infra-setup.html)
+1. Choose **Add route** and configure the ASCS route:
 
-1. Choose **Add route** and configure the ERS route:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sap/latest/sap-netweaver/sap-nw-pacemaker-sles-infra-setup.html)
+
+<table>
+<thead>
+  <tr><th>Destination</th><th>Target</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>&lt;ascs_overlayip&gt;/32</code> </td><td> <code>i-xxxxinstidforhost1</code> </td></tr>
+</tbody>
+</table>
+
+
+1. Choose **Add route** and configure the ERS route:
+
+
+<table>
+<thead>
+  <tr><th>Destination</th><th>Target</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>&lt;ers_overlayip&gt;/32</code> </td><td> <code>i-xxxxinstidforhost2</code> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Save changes**.
 
