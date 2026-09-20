@@ -54,22 +54,91 @@ When you create an ODB network, you specify information such as the following:
 
   You can use Oracle Database@AWS in the following AWS Regions:
 
-  **North America**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/odb/latest/UserGuide/how-it-works.html)
+  **North America**
 
-  **Europe**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/odb/latest/UserGuide/how-it-works.html)
 
-  **Asia Pacific**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/odb/latest/UserGuide/how-it-works.html)
+<table>
+<thead>
+  <tr><th>Region name</th><th>Region code</th><th>Availability Zones</th></tr>
+</thead>
+<tbody>
+  <tr><td>Canada (Central)</td><td><code>ca-central-1</code></td><td><code>cac1-az1</code>, <code>cac1-az4</code></td></tr>
+  <tr><td>US East (N. Virginia)</td><td><code>us-east-1</code></td><td><code>use1-az2</code>, <code>use1-az4</code>, <code>use1-az6</code></td></tr>
+  <tr><td>US East (Ohio)</td><td><code>us-east-2</code></td><td><code>use2-az1</code>, <code>use2-az2</code></td></tr>
+  <tr><td>US West (N. California)</td><td><code>us-west-1</code></td><td><code>usw1-az1</code>, <code>usw1-az3</code></td></tr>
+  <tr><td>US West (Oregon)</td><td><code>us-west-2</code></td><td><code>usw2-az3</code>, <code>usw2-az4</code></td></tr>
+</tbody>
+</table>
 
-  **South America**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/odb/latest/UserGuide/how-it-works.html)
+
+  **Europe**
+
+
+<table>
+<thead>
+  <tr><th>Region name</th><th>Region code</th><th>Availability Zones</th></tr>
+</thead>
+<tbody>
+  <tr><td>Europe (Frankfurt)</td><td><code>eu-central-1</code></td><td><code>euc1-az1</code>, <code>euc1-az2</code></td></tr>
+  <tr><td>Europe (Zurich)</td><td><code>eu-central-2</code></td><td><code>euc2-az1</code>, <code>euc2-az3</code></td></tr>
+  <tr><td>Europe (Stockholm)</td><td><code>eu-north-1</code></td><td><code>eun1-az1</code>, <code>eun1-az2</code></td></tr>
+  <tr><td>Europe (Milan)</td><td><code>eu-south-1</code></td><td><code>eus1-az3</code></td></tr>
+  <tr><td>Europe (Spain)</td><td><code>eu-south-2</code></td><td><code>eus2-az1</code>, <code>eus2-az3</code></td></tr>
+  <tr><td>Europe (Ireland)</td><td><code>eu-west-1</code></td><td><code>euw1-az1</code>, <code>euw1-az3</code></td></tr>
+  <tr><td>Europe (London)</td><td><code>eu-west-2</code></td><td><code>euw2-az1</code>, <code>euw2-az3</code></td></tr>
+  <tr><td>Europe (Paris)</td><td><code>eu-west-3</code></td><td><code>euw3-az1</code>, <code>euw3-az2</code></td></tr>
+</tbody>
+</table>
+
+
+  **Asia Pacific**
+
+
+<table>
+<thead>
+  <tr><th>Region name</th><th>Region code</th><th>Availability Zones</th></tr>
+</thead>
+<tbody>
+  <tr><td>Asia Pacific (Tokyo)</td><td><code>ap-northeast-1</code></td><td><code>apne1-az1</code>, <code>apne1-az4</code></td></tr>
+  <tr><td>Asia Pacific (Seoul)</td><td><code>ap-northeast-2</code></td><td><code>apne2-az1</code>, <code>apne2-az2</code></td></tr>
+  <tr><td>Asia Pacific (Osaka)</td><td><code>ap-northeast-3</code></td><td><code>apne3-az2</code></td></tr>
+  <tr><td>Asia Pacific (Mumbai)</td><td><code>ap-south-1</code></td><td><code>aps1-az2</code>, <code>aps1-az3</code></td></tr>
+  <tr><td>Asia Pacific (Hyderabad)</td><td><code>ap-south-2</code></td><td><code>aps2-az1</code>, <code>aps2-az3</code></td></tr>
+  <tr><td>Asia Pacific (Singapore)</td><td><code>ap-southeast-1</code></td><td><code>apse1-az1</code></td></tr>
+  <tr><td>Asia Pacific (Sydney)</td><td><code>ap-southeast-2</code></td><td><code>apse2-az1</code>, <code>apse2-az2</code></td></tr>
+  <tr><td>Asia Pacific (Melbourne)</td><td><code>ap-southeast-4</code></td><td><code>apse4-az1</code>, <code>apse4-az3</code></td></tr>
+</tbody>
+</table>
+
+
+  **South America**
+
+
+<table>
+<thead>
+  <tr><th>Region name</th><th>Region code</th><th>Availability Zones</th></tr>
+</thead>
+<tbody>
+  <tr><td>South America (São Paulo)</td><td><code>sa-east-1</code></td><td><code>sae1-az1</code>, <code>sae1-az2</code></td></tr>
+</tbody>
+</table>
+
 
   **Supported Availability Zones for Autonomous Database Serverless (ADB-S)**
 
-  ADB-S is available in the following Availability Zones:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/odb/latest/UserGuide/how-it-works.html)
+  ADB-S is available in the following Availability Zones:
+
+
+<table>
+<thead>
+  <tr><th>Region name</th><th>Region code</th><th>Availability Zones</th></tr>
+</thead>
+<tbody>
+  <tr><td>US East (N. Virginia)</td><td><code>us-east-1</code></td><td><code>use1-az6</code></td></tr>
+  <tr><td>US West (Oregon)</td><td><code>us-west-2</code></td><td><code>usw2-az3</code>, <code>usw2-az4</code></td></tr>
+</tbody>
+</table>
+
 
   To find the logical AZ names in your account that map to the preceding physical AZ IDs, run the following command.
 
