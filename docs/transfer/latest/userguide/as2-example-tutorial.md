@@ -88,8 +88,24 @@ If you prefer to manage keys with a GUI, [Portecle](http://portecle.sourceforge.
 
    The `-subj` argument consists of the following values.
 
-       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/transfer/latest/userguide/as2-example-tutorial.html)
+   
+
+
+
+<table>
+<thead>
+  <tr><th></th><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>C</code></td><td>Country code</td><td>A two-letter code for the country in which your organization is located.</td></tr>
+  <tr><td><code>ST</code></td><td>State, region, or province</td><td>The state, region, or province in which your organization is located. (In this case, <i>region</i> does not refer to your AWS Region.)</td></tr>
+  <tr><td><code>L</code></td><td>Locality name</td><td>The city in which your organization is located.</td></tr>
+  <tr><td><code>O</code></td><td>Organization name</td><td>The full legal name of your organization, including suffixes, such as LLC, Corp, and so on.</td></tr>
+  <tr><td><code>OU</code></td><td>Organizational unit name</td><td>The division in your organization that deals with this certificate.</td></tr>
+  <tr><td><code>CN</code></td><td>Common name or fully qualified domain name (FQDN)</td><td>In this case, we're creating a root certificate, so the value is <code>ROOTCA</code>. In these examples, we are using <code>CN</code> to describe the purpose of the certificate.</td></tr>
+</tbody>
+</table>
+
 
 1. Create a signing key and an encryption key for your local profile.
 

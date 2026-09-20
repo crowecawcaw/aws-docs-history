@@ -29,6 +29,7 @@ The following table contains details for log entry fields for Transfer Family SF
 | mode | Specifies how a client opens a file | CREATE \| TRUNCATE \| WRITE | 
 | operation | The client operation on a file | OPEN \| CLOSE | 
 | path | Actual file path affected | /amzn-s3-demo-bucket/test-file-1.pdf  | 
+| proxy-protocol-v2-header | Present only when the connection included a PROXY protocol v2 (PPv2) header. The value is ignored when the server's SftpMode is NONE, and applied when SftpMode is PROXY\_PROTOCOL\_V2\_ENFORCED and the server honored the header. For more information, see [Working with Network Load Balancers](working-with-nlb.md). | ignored | 
 | ssh-public-key | The public key body for the user that is connecting | AAAAC3NzaC1lZDI1NTE5AAAAIA9OY0qV6XYVHaaOiWAcj2spDJVbgjrqDPY4pxd6GnHl | 
 | ssh-public-key-fingerprint | The public key fingerprint, as shown in the console for service-managed users when listing their user keys. In the console, the fingerprint is displayed with the padding characters (if any): from 0 to 3 equal signs (=) at the end. In the log entry, this padding is stripped from the output.  | SHA256:BY3gNMHwTfjd4n2VuT4pTyLOk82zWZj4KEYEu7y4r/0 | 
 | ssh-public-key-type | Type of public key: Transfer Family supports RSA-, ECDSA-, and ED25519-formatted keys | ssh-ed25519 | 
@@ -59,7 +60,7 @@ The following table contains details for log entries for various Transfer Family
 | Custom step workflow | {"type":"CustomStepInvoked","details":{"output":{"token":"MzM4Mjg5YWUtYTEzMy00YjIzLWI3OGMtYzU4OGI2ZjQyMzE5"},"stepType":"CUSTOM","stepName":"efs-s3\_copy\_2"},"workflowId":"w-9283e49d33297c3f7","executionId":"1234abcd-1234-efgh-5678-ijklmnopqr90","transferDetails":{"serverId":"s-zzzz1111aaaa22223","username":"lhr","sessionId":"1234567890abcdef0"}} | 
 | Deletes | lhr.33a8fb495ffb383b DELETE Path=/bucket/user/123.jpg | 
 | Downloads | lhr.33a8fb495ffb383b OPEN Path=/bucket/user/123.jpg Mode=READ<br />llhr.33a8fb495ffb383b CLOSE Path=/bucket/user/123.jpg BytesOut=3618546 | 
-| Logins/Logouts | user.914984e553bcddb6 CONNECTED SourceIP=1.22.111.222 User=lhr HomeDir=LOGICAL Client=SSH-2.0-OpenSSH\_7.4 Role=arn:aws::iam::123456789012:role/sftp-s3-access<br />user.914984e553bcddb6 DISCONNECTED | 
+| Logins/Logouts | user.914984e553bcddb6 CONNECTED SourceIP=1.22.111.222 User=lhr HomeDir=LOGICAL Client=SSH-2.0-OpenSSH\_7.4 Role=arn:aws::iam::123456789012:role/sftp-s3-access ProxyProtocolV2Header=ignored<br />user.914984e553bcddb6 DISCONNECTED<br />The `ProxyProtocolV2Header` field is present only when the connection included a PROXY protocol v2 (PPv2) header. For more information, see the `proxy-protocol-v2-header` field description earlier in this topic. | 
 | Renames | lhr.33a8fb495ffb383b RENAME Path=/bucket/user/lambo.png NewPath=/bucket/user/ferrari.png  | 
 | Sample workflow error log | {"type":"StepErrored","details":{"errorType":"BAD\_REQUEST","errorMessage":"Cannot tag Efs file","stepType":"TAG","stepName":"successful\_tag\_step"},"workflowId":"w-1234abcd5678efghi","executionId":"81234abcd-1234-efgh-5678-ijklmnopqr90","transferDetails":{"serverId":"s-1234abcd5678efghi","username":"lhr","sessionId":"1234567890abcdef0"}}  | 
 | Symlinks | lhr.eb49cf7b8651e6d5 CREATE\_SYMLINK LinkPath=/fs-12345678/lhr/pqr.jpg TargetPath=abc.jpg  | 

@@ -5,11 +5,12 @@
 
 The following table describes the documentation for this release of AWS Transfer Family.
 + **API version:** transfer-2018-11-05
-+  **Latest documentation update:** November 19, 2025 
++  **Latest documentation update:** September 15, 2026 
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Source IP preservation for SFTP servers behind a Network Load Balancer | AWS Transfer Family SFTP servers behind a Network Load Balancer (NLB) can use PROXY protocol v2 to preserve the client's source IP address. IP-based access policies in your custom identity provider then see the real client address instead of the NLB private IP. For details, see [Working with Network Load Balancers](working-with-nlb.md). | September 15, 2026 | 
 | VPC endpoint support for Transfer Family web apps | AWS Transfer Family web apps now support VPC hosted endpoints, allowing you to host your web app endpoint inside a virtual private cloud for private data transfers to and from Amazon S3 without traversing the public internet. For details, see [Create a Transfer Family web app in a VPC](create-webapp-in-vpc.md). | November 19, 2025 | 
 | IPv6 support | AWS Transfer Family now supports dual-stack (IPv4 and IPv6) endpoints for SFTP public endpoints, VPC-internal endpoints for SFTP/FTPS/FTP/AS2, SFTP and AS2 connectors, and API endpoints. For details, see [IPv6 support for Transfer Family servers](ipv6-support.md). | June 30, 2025 | 
 | Enhancements to the SFTP connectors user experience | +  Ability to self-serve concurrent connections setting for your connectors <br />+  Ability to provide SSH private key in OpenSSH format that is used for authenticating connections <br />+  Ability to discover the public host key of remote servers using their SFTP connectors For details, see [Create an SFTP connector with service-managed egress](create-sftp-connector-procedure.md). | April 9, 2025 | 

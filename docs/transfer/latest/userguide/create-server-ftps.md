@@ -94,7 +94,8 @@ FIPS-enabled endpoints are only available in North American AWS Regions. For ava
    1. (Optional) You can configure the following additional options.
       + **SetStat option**: enable this option to ignore the error that is generated when a client attempts to use `SETSTAT` on a file you are uploading to an Amazon S3 bucket. For additional details, see the `SetStatOption` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic.
       + **TLS session resumption**: provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. For additional details, see the `TlsSessionResumptionMode` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic.
-      + **Passive IP**: indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For additional details, see the `PassiveIp` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic.  
+      + **Passive IP**: indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For additional details, see the `PassiveIp` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic.
+      + **PROXY protocol configuration**: this option appears but is unavailable when SFTP is not one of the protocols for this server.  
 ![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-configure-additional-items-all.png)
 
 1. In **Review and create**, review your choices.

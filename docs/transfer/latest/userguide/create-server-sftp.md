@@ -90,7 +90,8 @@ The **Server Host Key** section is used only for migrating users from an existin
    1. (Optional) You can configure the following additional options.
       + **SetStat option**: enable this option to ignore the error that is generated when a client attempts to use `SETSTAT` on a file you are uploading to an Amazon S3 bucket. For additional details, see the `SetStatOption` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html).
       + **TLS session resumption**: this option is only available if you have enabled FTPS as one of the protocols for this server.
-      + **Passive IP**: this option is only available if you have enabled FTPS or FTP as one of the protocols for this server.  
+      + **Passive IP**: this option is only available if you have enabled FTPS or FTP as one of the protocols for this server.
+      + **PROXY protocol configuration**: turn on this option to preserve source IP addresses if your server endpoint sits behind a Network Load Balancer (NLB) load balancer with PROXY protocol v2 (PPv2) enabled. For more information, see [Working with Network Load Balancers](working-with-nlb.md) and `ProxyConfig` in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) API reference.  
 ![Additional options screen for Server details page.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-configure-additional-items-sftp.png)
 
 1. In **Review and create**, review your choices.
