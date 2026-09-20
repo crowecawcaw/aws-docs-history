@@ -14,8 +14,20 @@ You can set up Amazon CloudWatch Events along with Amazon Simple Notification Se
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
-1. Choose **Invitations**, and then do one of the following:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/accept-invitation.html)
+1. Choose **Invitations**, and then do one of the following:
+
+
+<table>
+<thead>
+  <tr><th>To...</th><th>Do this...</th></tr>
+</thead>
+<tbody>
+  <tr><td>View details about the network, such as the network ID, the description, endpoints, voting policy details, and current members.</td><td>Select the invitation from the list and choose <b>View details</b>.</td></tr>
+  <tr><td>Use the invitation to create a member and join the network.</td><td>Select the invitation from the list and choose <b>Accept Invitation</b>. For next steps, see <a href="managed-blockchain-hyperledger-create-member.md">Create a Member and Join a Network</a></td></tr>
+  <tr><td>Reject the invitation.</td><td>Select the invitation from the list and choose <b>Reject Invitation</b>.</td></tr>
+</tbody>
+</table>
+
 
 ## To list blockchain network member invitations for your AWS account using the AWS CLI
 <a name="w2aac17c13b9b3"></a>
