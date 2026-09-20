@@ -50,7 +50,7 @@ For the add-on `version`, if you choose **1.5.0 or above**, Runtime Monitoring s
 You can use the following AWS CLI example when using configurable values supported for add-on versions *1.5.0 and above*. Make sure to replace the placeholder values highlighted in red and the associated `Example.json` with the configured values.
 
 ```
-aws eks update-addon --region {{us-east-1}} --cluster-name {{myClusterName}} --addon-name aws-guardduty-agent --addon-version {{v1.16.0-eksbuild.2}} --configuration-values {{'file://example.json'}}
+aws eks update-addon --region {{us-east-1}} --cluster-name {{myClusterName}} --addon-name aws-guardduty-agent --addon-version {{v1.17.1-eksbuild.2}} --configuration-values {{'file://example.json'}}
 ```
 
 **Example.json**  

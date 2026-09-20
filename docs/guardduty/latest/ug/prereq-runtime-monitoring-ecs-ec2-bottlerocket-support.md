@@ -88,8 +88,20 @@ GuardDuty limits the security agent to 10 percent of the total vCPU capacity on 
 
 **Memory limit**  
 From the memory associated with your Amazon EC2 instance, there is a limit on the memory that the GuardDuty security agent can use.  
-The following table shows the memory limit.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/prereq-runtime-monitoring-ecs-ec2-bottlerocket-support.html)
+The following table shows the memory limit.  
+
+
+<table>
+<thead>
+  <tr><th>Memory of the Amazon EC2 instance</th><th>Maximum memory for GuardDuty agent</th></tr>
+</thead>
+<tbody>
+  <tr><td>Less than 8 GB</td><td>128 MB</td></tr>
+  <tr><td>8 GB to less than 32 GB</td><td>256 MB</td></tr>
+  <tr><td>More than or equal to 32 GB</td><td>1 GB</td></tr>
+</tbody>
+</table>
+
 
 ## Next step
 <a name="next-step-after-prereq-bottlerocket"></a>

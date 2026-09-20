@@ -26,8 +26,21 @@ RDS Protection is not supported in Asia Pacific (Taipei) (`ap-east-2`) Region.
 RDS Protection is not supported in the AWS Dedicated Local Zones.
 
 **IAM finding type – [CredentialAccess:IAMUser/CompromisedCredentials](guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials)**  
-The CredentialAccess:IAMUser/CompromisedCredentials finding type is not supported in following regions.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html)
+The CredentialAccess:IAMUser/CompromisedCredentials finding type is not supported in following regions.  
+
+
+<table>
+<thead>
+  <tr><th>AWS Region</th><th>Region code</th></tr>
+</thead>
+<tbody>
+  <tr><td>AWS GovCloud (US-West)</td><td>us-gov-west-1</td></tr>
+  <tr><td>AWS GovCloud (US-East)</td><td>us-gov-east-1</td></tr>
+  <tr><td>China (Beijing)</td><td>cn-north-1</td></tr>
+  <tr><td>China (Ningxia)</td><td>cn-northwest-1</td></tr>
+</tbody>
+</table>
+
 
 **IAM finding type – [DefenseEvasion:IAMUser/BedrockLoggingDisabled](guardduty_finding-types-iam.md#defenseevasion-iam-bedrockloggingdisabled)**  
 The DefenseEvasion:IAMUser/BedrockLoggingDisabled finding type is not supported in Asia Pacific (Hong Kong) (`ap-east-1`) Region.
@@ -47,8 +60,20 @@ The following APIs in the Amazon GuardDuty API Reference may have regional diffe
 + [DescribeOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html) 
 
 **Amazon EC2 finding types – [DefenseEvasion:EC2/UnusualDoHActivity](guardduty_finding-types-ec2.md#defenseevasion-ec2-unsualdohactivity) and [DefenseEvasion:EC2/UnusualDoTActivity](guardduty_finding-types-ec2.md#defenseevasion-ec2-unusualdotactivity)**  
-The following table shows the AWS Regions where GuardDuty is available but these two Amazon EC2 finding types are not yet supported.       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html)
+The following table shows the AWS Regions where GuardDuty is available but these two Amazon EC2 finding types are not yet supported.   
+
+
+<table>
+<thead>
+  <tr><th>AWS Region</th><th>Region code</th></tr>
+</thead>
+<tbody>
+  <tr><td>Asia Pacific (Seoul)</td><td>ap-northeast-2</td></tr>
+  <tr><td>Asia Pacific (Osaka)</td><td>ap-northeast-3</td></tr>
+  <tr><td>Asia Pacific (Jakarta)</td><td>ap-southeast-3</td></tr>
+</tbody>
+</table>
+
 
 **AWS GovCloud (US) Regions**  
 For latest information, see [Amazon GuardDuty](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-guardduty.html) in the *AWS GovCloud (US) User Guide*.

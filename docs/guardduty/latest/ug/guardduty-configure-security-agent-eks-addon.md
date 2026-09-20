@@ -22,8 +22,20 @@ For information about the steps to configure the add-on parameters, see:
 
 The following tables provide the ranges and values that you can use to deploy the Amazon EKS add-on manually or update the existing add-on settings.
 
-**CPU settings**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty-configure-security-agent-eks-addon.html)
+**CPU settings**  
+
+
+<table>
+<thead>
+  <tr><th>Parameters</th><th>Default value</th><th>Configurable range</th></tr>
+</thead>
+<tbody>
+  <tr><td>Requests</td><td>200m</td><td>Between 200m and 10000m, both inclusive</td></tr>
+  <tr><td>Limits</td><td>1000m</td><td>Between 200m and 10000m, both inclusive</td></tr>
+  <tr><td><code>disableCpuLimits</code></td><td><code>false</code></td><td><code>true</code> or <code>false</code></td></tr>
+</tbody>
+</table>
+
 The `disableCpuLimits` parameter is available for GuardDuty security agent version 1.12.1-eksbuild.3 and later. On earlier versions, the add-on does not support this parameter, and the Amazon EKS add-on APIs (`CreateAddon`, `UpdateAddon`) return a validation error if you specify it.  
 When you set `disableCpuLimits` to `true`, the security agent pod does not enforce a CPU limit. Other resource settings are unaffected.  
 To disable CPU limits, use the following configuration:  
@@ -32,12 +44,36 @@ To disable CPU limits, use the following configuration:
 {"resources":{"disableCpuLimits":true}}
 ```
 
-**Memory settings**      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty-configure-security-agent-eks-addon.html)
+**Memory settings**  
+
+
+<table>
+<thead>
+  <tr><th>Parameters</th><th>Default value</th><th>Configurable range</th></tr>
+</thead>
+<tbody>
+  <tr><td>Requests</td><td>256Mi</td><td rowspan="2">Between 256Mi and 20000Mi, both inclusive</td></tr>
+  <tr><td>Limits</td><td>1024Mi</td></tr>
+</tbody>
+</table>
+
 
 **`PriorityClass` settings**  
-When GuardDuty creates an Amazon EKS add-on for you, the assigned `PriorityClass` is `aws-guardduty-agent.priorityclass`. This means that no action will be taken based on the priority of the agent pod. You can configure this add-on parameter by choosing one of the following `PriorityClass` options:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty-configure-security-agent-eks-addon.html)
+When GuardDuty creates an Amazon EKS add-on for you, the assigned `PriorityClass` is `aws-guardduty-agent.priorityclass`. This means that no action will be taken based on the priority of the agent pod. You can configure this add-on parameter by choosing one of the following `PriorityClass` options:  
+
+
+<table>
+<thead>
+  <tr><th>Configurable <code>PriorityClass</code></th><th><code>preemptionPolicy</code> value</th><th><code>preemptionPolicy</code> description</th><th>Pod value</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>aws-guardduty-agent.priorityclass</code></td><td><code>Never</code></td><td>No action</td><td>1000000</td></tr>
+  <tr><td><code>aws-guardduty-agent.priorityclass-high</code></td><td><code>PreemptLowerPriority</code></td><td rowspan="3">Assigning this value will preempt a pod running with the priority value lower than the agent pod value.</td><td>100000000</td></tr>
+  <tr><td><code>system-cluster-critical</code><b>1</b></td><td><code>PreemptLowerPriority</code></td><td>2000000000</td></tr>
+  <tr><td><code>system-node-critical</code><b>1</b></td><td><code>PreemptLowerPriority</code></td><td>2000001000</td></tr>
+</tbody>
+</table>
+
 **1** Kubernetes provides these two `PriorityClass` options – `system-cluster-critical` and `system-node-critical`. For more information, see [PriorityClass](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#how-to-use-priority-and-preemption) in the *Kubernetes documentation*.
 
 **`dnsPolicy` settings**  

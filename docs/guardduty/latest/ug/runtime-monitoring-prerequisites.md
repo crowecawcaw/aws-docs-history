@@ -14,3 +14,4 @@ The following sections include prerequisites based on the resource type.
 + [Prerequisites for ECS-EC2 Bottlerocket support](prereq-runtime-monitoring-ecs-ec2-bottlerocket-support.md)
 + [Prerequisites for AWS Fargate (Amazon ECS only) support](prereq-runtime-monitoring-ecs-support.md)
 + [Prerequisites for Amazon EKS cluster support](prereq-runtime-monitoring-eks-support.md)
++ [Supported CPU architectures, operating systems, and kernel versions](prereq-runtime-monitoring-cpu-os-kernel-support.md)

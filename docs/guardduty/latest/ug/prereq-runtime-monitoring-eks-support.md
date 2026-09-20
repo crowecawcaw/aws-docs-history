@@ -22,32 +22,9 @@ The platform that you use may impact how GuardDuty security agent supports Guard
 ### Verified platforms
 <a name="eksrunmon-verified-platform"></a>
 
-The OS distribution, kernel version, and CPU architecture affect the support provided by the GuardDuty security agent. Kernel support includes `eBPF`, `Tracepoints` and `Kprobe`. For CPU architectures, Runtime Monitoring supports AMD64 (`x64`) and ARM64(Graviton2 and above)[1](#runtime-monitoring-eks-graviton-2-support).
+For the verified CPU architectures, OS distributions, and kernel versions, see [Supported CPU architectures, operating systems, and kernel versions](prereq-runtime-monitoring-cpu-os-kernel-support.md).
 
-The following table shows the verified configuration for deploying the GuardDuty security agent and configuring EKS Runtime Monitoring.
-
-
-| OS distribution**[2](#runtime-monitoring-eks-os-support)** | Kernel version**[3](#runtime-monitoring-eks-kernel-version-required-flag)** | Supported Kubernetes version | 
-| --- | --- | --- | 
-| Bottlerocket | 5.4, 5.10, 5.15, 6.1[4](#v6.1-kernel-dns-findings-unsupported-eks) | v1.23 - v1.36 | 
-| Ubuntu | 5.4, 5.10, 5.15, 6.1, 6.15, 6.16, 6.17, 6.18[4](#v6.1-kernel-dns-findings-unsupported-eks) | v1.21 - v1.36 | 
-| Amazon Linux 2 | 5.4, 5.10, 5.15, 6.1[4](#v6.1-kernel-dns-findings-unsupported-eks) | v1.21 - v1.36 | 
-| Amazon Linux 2023*[5](#runtime-eks-al2023-support-v1.6.0)* | 5.4, 5.10, 5.15, 6.1, 6.8, 6.12[4](#v6.1-kernel-dns-findings-unsupported-eks) | v1.21 - v1.36 | 
-| RedHat 9.4 | 5.14[4](#v6.1-kernel-dns-findings-unsupported-eks) | v1.21 - v1.36 | 
-| Fedora 34 | 5.11, 5.17 | v1.21 - v1.36 | 
-| Fedora 40 | 6.8 | v1.28 - v1.36 | 
-| Fedora 41 | 6.12 | v1.28 - v1.36 | 
-| CentOS Stream 9 | 5.14 | v1.21 - v1.36 | 
-
-1. <a name="runtime-monitoring-eks-graviton-2-support"></a>Runtime Monitoring for Amazon EKS clusters doesn't support the first generation Graviton instance such as A1 instance types.
-
-1. <a name="runtime-monitoring-eks-os-support"></a>Support for various operating systems - GuardDuty has verified Runtime Monitoring support for the operating distribution listed in the preceding table. While the GuardDuty security agent may run on operating systems not listed in the preceding table, the GuardDuty team cannot guarantee the expected security value.
-
-1. <a name="runtime-monitoring-eks-kernel-version-required-flag"></a>For any kernel version, you must set the `CONFIG_DEBUG_INFO_BTF` flag to `y` (meaning *true*). This is required so that the GuardDuty security agent can run as expected.
-
-1. <a name="v6.1-kernel-dns-findings-unsupported-eks"></a>Presently, with Kernel version `6.1`, GuardDuty can't generate [GuardDuty Runtime Monitoring finding types](findings-runtime-monitoring.md) that are related to [Domain Name System (DNS) events](runtime-monitoring-collected-events.md#eks-runtime-dns-events).
-
-1. <a name="runtime-eks-al2023-support-v1.6.0"></a>Runtime Monitoring supports AL2023 with the release of the GuardDuty security agent v1.6.0 and above. For more information, see [GuardDuty security agent versions for Amazon EKS resources](runtime-monitoring-agent-release-history.md#eks-runtime-monitoring-agent-release-history).
+Presently, with kernel version `5.4` in ARM64(`aarch64`), GuardDuty can't generate [GuardDuty Runtime Monitoring finding types](findings-runtime-monitoring.md) that are related to [Domain Name System (DNS) events](runtime-monitoring-collected-events.md#eks-runtime-dns-events).
 
 #### Kubernetes versions supported by GuardDuty security agent
 <a name="gdu-agent-supported-k8-version"></a>
@@ -57,6 +34,7 @@ The following table shows the Kubernetes versions for your EKS clusters that are
 
 | Amazon EKS add-on GuardDuty security agent version | Kubernetes version | 
 | --- | --- | 
+| v1.17.1 (latest - v1.17.1-eksbuild.2) | 1.31 - 1.36 | 
 | v1.16.0 (latest - v1.16.0-eksbuild.2) | 1.28 - 1.36 | 
 | v1.15.0 (latest - v1.15.0-eksbuild.2) | 1.28 - 1.36 | 
 | v1.12.2 (latest - v1.12.2-eksbuild.2) | 1.28 - 1.36 | 

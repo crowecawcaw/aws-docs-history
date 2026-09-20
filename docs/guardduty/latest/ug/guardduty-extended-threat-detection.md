@@ -57,6 +57,7 @@ Extended Threat Detection is enabled automatically for all GuardDuty accounts, e
 + [Detecting attack sequences in Amazon S3 buckets](#extended-threat-detection-s3-buckets)
 + [Detecting attack sequences in Amazon ECS clusters](#extended-threat-detection-ecs-clusters)
 + [Detecting attack sequences in Amazon EC2 instance groups](#extended-threat-detection-ec2-instances)
++ [Detecting attack sequences involving AI workloads](#extended-threat-detection-ai-workloads)
 
 ### Detecting attack sequences in Amazon EKS clusters
 <a name="extended-threat-detection-eks-clusters"></a>
@@ -116,6 +117,20 @@ The attack sequence finding detects the following threat scenarios:
 Extended Threat Detection helps identify these threats. GuardDuty represents these related events as a single, critical-severity finding, called `AttackSequence:EC2/CompromisedInstanceGroup`.
 
 To enhance Extended Threat Detection for EC2 detection capabilities, enable Runtime Monitoring. The combination of foundational GuardDuty, which monitors CloudTrail and network activity, and Runtime Monitoring, which observes process behaviors and system calls within instances, provides more comprehensive threat detection. This integrated monitoring allows GuardDuty to detect sophisticated attack sequences such as unauthorized access through misconfigured credentials, privilege escalation attempts, and unauthorized access to sensitive data. By correlating these diverse signals, GuardDuty can identify complex attack patterns that might be missed by individual detections and map the complete attack vector.
+
+### Detecting attack sequences involving AI workloads
+<a name="extended-threat-detection-ai-workloads"></a>
+
+Enable [AI Protection](ai-protection.md) to help GuardDuty detect attack sequences that threaten the AI workloads in your account. AI Protection analyzes AWS CloudTrail data events from Amazon Bedrock and Amazon SageMaker AI. It can detect activities such as anomalous model invocations, cost harvesting attacks, and direct prompt injection attempts.
+
+To add signals from your AI workloads to [AttackSequence:IAM/CompromisedCredentials](guardduty-attack-sequence-finding-types.md#attack-sequence-iam-compromised-credentials) attack sequences, you must enable AI Protection. GuardDuty can then use the following finding types as correlation signals:
++ [Impact:IAMUser/AnomalousModelInvocation](findings-ai-protection.md#ai-protection-anomalousmodelinvocation)
++ [Impact:IAMUser/CostHarvesting](findings-ai-protection.md#ai-protection-costharvesting)
++ [Impact:IAMUser/PromptInjection.Direct](findings-ai-protection.md#ai-protection-promptinjection-direct)
+
+For example, a threat actor might use the same potentially compromised AWS credentials to make an anomalous Amazon Bedrock or Amazon SageMaker AI model invocation. GuardDuty can correlate that invocation with other suspicious actions taken with those credentials. It then represents them as a single [AttackSequence:IAM/CompromisedCredentials](guardduty-attack-sequence-finding-types.md#attack-sequence-iam-compromised-credentials) attack sequence finding. On their own, AI Protection findings do not generate an attack sequence.
+
+If AI Protection is not enabled, GuardDuty cannot generate individual [AI Protection finding types](findings-ai-protection.md). As a result, GuardDuty cannot detect multi-stage attack sequences that involve these findings. For more information about enabling this protection plan, see [AI Protection](ai-protection.md).
 
 ## Extended Threat Detection in GuardDuty console
 <a name="extended-threat-detection-in-guardduty-console"></a>

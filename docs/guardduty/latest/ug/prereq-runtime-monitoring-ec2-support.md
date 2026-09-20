@@ -24,18 +24,8 @@ To manage your Amazon EC2 instances with Systems Manager, see [Setting up System
 <a name="validating-architecture-req-ec2"></a>
 
 The architecture of your OS distribution might impact how the GuardDuty security agent will behave. You must meet the following requirements before using Runtime Monitoring for Amazon EC2 instances:
-+ Kernel support includes `eBPF`, `Tracepoints` and `Kprobe`. For CPU architectures, Runtime Monitoring supports AMD64 (`x64`) and ARM64 (Graviton2 and above)[1](#runtime-monitoring-ec2-graviton-2-support).
 
-  The following table shows the OS distribution that has been verified to support the GuardDuty security agent for Amazon EC2 instances.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/prereq-runtime-monitoring-ec2-support.html)
-
-  1. <a name="runtime-monitoring-ec2-graviton-2-support"></a>Runtime Monitoring for Amazon EC2 resources doesn't support the first generation Graviton instance such as A1 instance types.
-
-  1. <a name="runtime-monitoring-ec2-os-support"></a>Support for various operating systems - GuardDuty has verified Runtime Monitoring support for the operating distribution listed in the preceding table. While the GuardDuty security agent may run on operating systems not listed in the preceding table, the GuardDuty team cannot guarantee the expected security value.
-
-  1. <a name="runtime-monitoring-ec2-kernel-version-required-flag"></a>For any kernel version, you must set the `CONFIG_DEBUG_INFO_BTF` flag to `y` (meaning *true*). This is required so that the GuardDuty security agent can run as expected.
-
-  1. <a name="runtime-monitoring-ec2-kernel-5-10"></a>For kernel versions 5.10 and earlier, the GuardDuty security agent uses locked memory in RAM (`RLIMIT_MEMLOCK`) to function as expected. If your system's `RLIMIT_MEMLOCK` value is set too low, GuardDuty recommends setting both hard and soft limits to at least 32 MB. For information about verifying and modifying the default `RLIMIT_MEMLOCK` value, see [Viewing and updating `RLIMIT_MEMLOCK` values](#runtime-monitoring-ec2-modify-rlimit-memlock).
+For the verified CPU architectures, OS distributions, and kernel versions, see [Supported CPU architectures, operating systems, and kernel versions](prereq-runtime-monitoring-cpu-os-kernel-support.md).
 + Additional requirements - Only if you have Amazon ECS/Amazon EC2
 
   For Amazon ECS/Amazon EC2, we recommend that you use the latest Amazon ECS-optimized AMIs (dated September 29, 2023 or later), or use Amazon ECS agent version v1.77.0. 
@@ -93,8 +83,20 @@ GuardDuty limits the security agent to 10 percent of the total vCPU capacity on 
 
 **Memory limit**  
 From the memory associated with your Amazon EC2 instance, there is a limited memory that the GuardDuty security agent can use.   
-The following table shows the memory limit.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/prereq-runtime-monitoring-ec2-support.html)
+The following table shows the memory limit.  
+
+
+<table>
+<thead>
+  <tr><th>Memory of the Amazon EC2 instance</th><th>Maximum memory for GuardDuty agent</th></tr>
+</thead>
+<tbody>
+  <tr><td>Less than 8 GB</td><td>128 MB</td></tr>
+  <tr><td>8 GB to less than 32 GB</td><td>256 MB</td></tr>
+  <tr><td>More than or equal to 32 GB</td><td>1 GB</td></tr>
+</tbody>
+</table>
+
 
 ## Next step
 <a name="next-step-after-prereq-ec2"></a>

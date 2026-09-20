@@ -22,6 +22,7 @@ The following table shows the release version history for the GuardDuty security
 
 | SSM distributor version | Agent version | Release notes | Availability date | 
 | --- | --- | --- | --- | 
+| v1.17.1 | v1.17.1 | Added support for Kernel 7.2.<br />At startup, the agent detects the GuardDuty connectivity type and attempts to connect to the guardduty-data-v2 endpoint via link-local.<br />General security feature updates. | Sep 9, 2026 | 
 | v1.16.0 | v1.16.0 | Added support for Kernel 6.19, 7.0, 7.1.<br />Added support for Ubuntu 26.04, Debian 13, RedHat 10.2, CentOS Stream 10, Rocky Linux 10.1, Fedora 43, and Fedora 44. For a list of all verified OS distributions for Amazon EC2 resources, see [Validate architectural requirements](prereq-runtime-monitoring-ec2-support.md#validating-architecture-req-ec2).<br />General security feature updates. | July 17, 2026 | 
 | v1.15.0 | v1.15.0 | New agent capabilities to support optimized event collection, enabling faster filter deployment and improved detection velocity.<br />General security feature updates. | May 14, 2026 | 
 | v1.9.2 | v1.9.2 | Added support for Kernel 6.15, 6.16, 6.17, 6.18.<br />Added support for Alma Linux 9, Alma Linux 10 and SUSE Linux Enterprise Server 16. For a list of all verified OS distributions for Amazon EC2 resources, see [Validate architectural requirements](prereq-runtime-monitoring-ec2-support.md#validating-architecture-req-ec2). | Feb 24, 2026 | 
@@ -49,6 +50,7 @@ The following table shows the release version history for the GuardDuty security
 
 | SSM Distributor version | Agent version | Release notes | Availability date | 
 | --- | --- | --- | --- | 
+| v1.17.1 | v1.17.1 | Added support for Kernel 7.2.<br />At startup, the agent detects the GuardDuty connectivity type and attempts to connect to the guardduty-data-v2 endpoint via link-local.<br />General security feature updates. | Sep 9, 2026 | 
 | v1.16.0 | v1.16.0 | Initial release of GuardDuty security agent for Amazon ECS-EC2 Bottlerocket instances.<br />Supports Bottlerocket ECS-2 and ECS-3 variants (x86\_64 and aarch64). | July 17, 2026 | 
 
 ## GuardDuty security agent versions for AWS Fargate (Amazon ECS only)
@@ -59,6 +61,7 @@ The following table shows the release version history for the GuardDuty security
 
 | Agent version | Container image | Release notes | Availability date | 
 | --- | --- | --- | --- | 
+| v1.17.1 | **x86\_64 (AMD64)**: `sha256:27b27c489113ae83a272b5c98112e043f66faf8379838bb38e2d815dd6dfbf3a`<br />**Graviton (ARM64)**: `sha256:195078e48505cb05b06e61df255fc85a6d7917b28678956c75b11e69855bdff3` | Added support for Kernel 7.2.<br />At startup, the agent detects the GuardDuty connectivity type and attempts to connect to the guardduty-data-v2 endpoint via link-local.<br />General security feature updates. | September 09, 2026 | 
 | v1.16.0 | **x86\_64 (AMD64)**: `sha256:711fa37e2cce0417ba3310d81439d6b11170e446f685146b36916e4e38c1560d`<br />**Graviton (ARM64)**: `sha256:6851e00893eee958085adaccddf91bdc009ebddcd46b4da6fb1962b132d47454` | General security feature updates. | July 17, 2026 | 
 | v1.15.0 | **x86\_64 (AMD64)**: `sha256:66446df341bee1a1e218aa46b7807d0d0470266c8f374c5dbd97efcdb8356348`<br />**Graviton (ARM64)**: `sha256:b0def2aa8cab6b2060c703f386fdb29dc4166054e0509a9362b21a6ed7f9def7` | New agent capabilities to support optimized event collection, enabling faster filter deployment and improved detection velocity.<br />General security feature updates. | May 28, 2026 | 
 | v1.9.0 | **x86\_64 (AMD64)**: `sha256:fd9acaa2326f180f0ed0c5a25d8ff0a2d0498a6e900c34c68d4e973ea7fb26a8`<br />**Graviton (ARM64)**: `sha256:0b04f8c28956684e752677bfd83dbc45afc8a43f7791fa44667b8078ba48a295` | General performance tuning and security enhancements. | October 28, 2025 | 
@@ -86,6 +89,7 @@ The following table shows the release version history of [Amazon EKS add-on Guar
 
 | Agent version | Container image | Release notes | Availability date | End of standard support[1](#eks-security-agent-life-support-end) | 
 | --- | --- | --- | --- | --- | 
+| v1.17.1 | **x86\_64 (AMD64)**: `sha256:8d772f754e9af50a63ab6af74ea24c12a5a3fb8a803c7cbc35ffaca3746c0540`<br />**Graviton (ARM64)**: `sha256:e5531367e9ffa539e409e99bbf49e804f01fdd894ee9322858b9bca703cd4016` | Added support for Kernel 6.19, 7.0, 7.1.<br />At startup, the agent detects the GuardDuty connectivity type and attempts to connect to the guardduty-data-v2 endpoint via link-local.<br />General security feature updates. | September 09, 2026 | – | 
 | v1.16.0 | **x86\_64 (AMD64)**: `sha256:8a4ef4b5b5e6fce0a4b5a13922e65179293ee15a8812a2c7678b1c4b31e1f305`<br />**Graviton (ARM64)**: `sha256:0a73c1d905a39db94f6ea37d98784dac84961e9199935fae20345de7aa3a57b7` | Added support for Kernel 6.19, 7.0, 7.1.<br />General security feature updates. | July 17, 2026 | – | 
 | v1.15.0 | **x86\_64 (AMD64)**: `sha256:512642a5f9d9a316aa9100368acfdbae2481be7a5cfe9929571c1bb6e19c66fe`<br />**Graviton (ARM64)**: `sha256:f017e755615ae999fe5f163886f681508e8f53feea7e64e7ada733cdedb368d8` | New agent capabilities to support optimized event collection, enabling faster filter deployment and improved detection velocity.<br />General security feature updates. | May 14, 2026 | – | 
 | v1.12.2 | **x86\_64 (AMD64)**: `sha256:06c25ab9fff7ee93048e5f34148c96273663235937199b4bd2e28b5ee2e5c080`<br />**Graviton (ARM64)**: `sha256:f89962d971350ff6ab408cf6ec7bca9dd06152f0172b7f9c68ae770cc0fc4598` | General security feature updates. | March 26, 2026 | – | 

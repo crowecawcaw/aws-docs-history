@@ -21,17 +21,7 @@ The platform that you use may impact how GuardDuty security agent supports Guard
 The AWS Fargate platform for your Amazon ECS clusters must be Linux. The corresponding platform version must be at least `1.4.0`, or `LATEST`. For more information about the platform versions, see [Linux platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform-linux-fargate.html) in the *Amazon Elastic Container Service Developer Guide*.  
 The Windows platform versions are not yet supported. 
 
-### Verified platforms
-<a name="ecs-verified-platforms-gdu-agent"></a>
-
-The OS distribution and CPU architecture impacts the support provided by the GuardDuty security agent. The following table shows the verified configuration for deploying the GuardDuty security agent and configuring Runtime Monitoring.
-
-
-| OS distribution**[1](#runtime-monitoring-ecs-os-support)**  | Kernel support | CPU architecture x64 (AMD64) | CPU architecture Graviton (ARM64) | 
-| --- | --- | --- | --- | 
-| Linux | eBPF, Tracepoints, Kprobe | Supported | Supported | <a name="runtime-monitoring-ecs-os-support"></a>
-
-1Support for various operating systems - GuardDuty has verified Runtime Monitoring support for the operating distribution listed in the preceding table. While the GuardDuty security agent may run on operating systems not listed in the preceding table, the GuardDuty team cannot guarantee the expected security value.
+For the verified CPU architectures, OS distributions, and kernel versions, see [Supported CPU architectures, operating systems, and kernel versions](prereq-runtime-monitoring-cpu-os-kernel-support.md).
 
 ## Prerequisites for container image access
 <a name="before-enable-runtime-monitoring-ecs"></a>

@@ -37,8 +37,26 @@ Here are some of the key ways in which Amazon GuardDuty can help you monitor, de
 + **Custom Detection Rules** – Custom Detection Rules is a curated library of detection rules in Amazon GuardDuty that are aligned with threat actor techniques. Each rule detects a specific technique by evaluating fields in AWS CloudTrail management events. You can browse, enable, and manage rules from the GuardDuty console or through the GuardDuty API. For more information, see [Custom Detection Rules in GuardDuty](custom-detection-rules.md).
 + **Use-case focused GuardDuty protection plans** – For enhanced threat detection visibility into the security of your AWS environment, GuardDuty offers dedicated protection plans that you can choose to enable. Protection plans help you monitor logs and events from other AWS services. These sources include EKS audit logs, RDS login activity, Amazon S3 data events in CloudTrail, EBS volumes, Runtime Monitoring across Amazon EKS, Amazon EC2, and Amazon ECS-Fargate, Lambda network activity logs, and AWS CloudTrail data events from Amazon Bedrock, Amazon Bedrock AgentCore, and Amazon SageMaker AI for AI Protection. GuardDuty consolidates these log and event sources under the term - [Features](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html). You can enable one or more dedicated protection plans in a supported AWS Region at any time. GuardDuty will start monitoring, processing, and analyzing the activities based on which protection plan you enable. For more information about each protection plan and how it works, see the corresponding protection plan document.
 
-  When you enable GuardDuty for the first time, GuardDuty automatically enables all protection plans except Runtime Monitoring for your account, and includes them in the 30-day free trial. You can disable any protection plan at any time. If you are an existing GuardDuty customer, a protection plan that launches after you enabled GuardDuty is not enabled automatically, and you can choose to enable it. For information about which protection plans are enabled by default, see [Using GuardDuty 30-day free trial](guardduty-pricing.md#using-guardduty-30-day-free-trial).    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html)
+  When you enable GuardDuty for the first time, GuardDuty automatically enables all protection plans except Runtime Monitoring for your account, and includes them in the 30-day free trial. You can disable any protection plan at any time. If you are an existing GuardDuty customer, a protection plan that launches after you enabled GuardDuty is not enabled automatically, and you can choose to enable it. For information about which protection plans are enabled by default, see [Using GuardDuty 30-day free trial](guardduty-pricing.md#using-guardduty-30-day-free-trial).
+
+
+<table>
+<thead>
+  <tr><th>Protection plan</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="ai-protection.md">AI Protection</a></td><td>Detects threats to your AI workloads that use Amazon Bedrock, Amazon Bedrock AgentCore, and Amazon SageMaker AI, such as anomalous model invocations and cost harvesting attacks.</td></tr>
+  <tr><td><a href="s3-protection.md">S3 Protection</a></td><td>Identifies potential security risks such as data exfiltration and destruction attempts in your Amazon S3 buckets.</td></tr>
+  <tr><td><a href="kubernetes-protection.md">EKS Protection</a></td><td>EKS Audit Log Monitoring analyzes Kubernetes audit logs from your Amazon EKS clusters for potentially suspicious and malicious activities.</td></tr>
+  <tr><td><a href="runtime-monitoring.md">Runtime Monitoring</a></td><td>Monitors and analyzes operating system-level events on your Amazon EKS, Amazon EC2, and Amazon ECS (including AWS Fargate), to detect potential runtime threats.</td></tr>
+  <tr><td><a href="malware-protection.md">Malware Protection for EC2</a></td><td>Detects potential presence of malware by scanning the Amazon EBS volumes associated with your Amazon EC2 instances. There is an option to use this feature on-demand.</td></tr>
+  <tr><td><a href="gdu-malware-protection-s3.md">Malware Protection for S3</a></td><td>Detects potential presence of malware in the newly uploaded objects within your Amazon S3 buckets. There is an option to use this feature on-demand.</td></tr>
+  <tr><td><a href="malware-protection-backup.md">Malware Protection for AWS Backup</a></td><td>Detects potential presence of malware by scanning backup resources, including EBS Snapshots, EC2 AMI's, and AWS Backup recovery points. There is an option to use this feature on-demand.</td></tr>
+  <tr><td><a href="rds-protection.md">RDS Protection</a></td><td>Analyzes and profiles your RDS login activity for potential access threats to the supported Amazon Aurora and Amazon RDS databases.</td></tr>
+  <tr><td><a href="lambda-protection.md">Lambda Protection</a></td><td>Monitors Lambda network activity logs, starting with VPC flow logs, to detect threats to your AWS Lambda functions. Examples of these potential threats include cryptomining and communicating with malicious servers.</td></tr>
+</tbody>
+</table>
+
 **Enable Malware Protection for S3 independently**  
 GuardDuty offers flexibility to use Malware Protection for S3 independently, without enabling the Amazon GuardDuty service. For more information about getting started with only Malware Protection for S3, see [GuardDuty Malware Protection for S3](gdu-malware-protection-s3.md). To use all other protection plans, you must enable the GuardDuty service.
 

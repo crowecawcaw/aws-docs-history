@@ -321,11 +321,10 @@ Before you create this rule, create the Lambda function that you want the rule t
    1. Copy the following code and paste it into the **Template** field to format the email.
 
       ```
-      "You have a severity <severity> GuardDuty finding type <Finding_Type> in the <region> Region."
-      "Finding Description:"
-      "<Finding_Description>. "
-      "For more details open the GuardDuty console at https://console.aws.amazon.com/guardduty/home?region=<region>#/findings?search=id%3D<Finding_ID>"
+      {"message":"You have a severity <severity> GuardDuty finding type <Finding_Type> in the <region> Region.\n\nFinding Description:\n<Finding_Description>.\n\nFor more details open the GuardDuty console at https://console.aws.amazon.com/guardduty/home?region=<region>#/findings?search=id%3D<Finding_ID>"}
       ```
+**Important**  
+Provide the template as a single-line JSON object with the message wrapped in a key such as `message`, as shown in the preceding example, and use `\n` to add line breaks. GuardDuty finding fields such as `description` can contain unescaped control characters, including newlines. If you provide the template as a bare quoted string, or place such a field into a multi-line template (one that uses separate quoted strings on separate lines), the substituted value can produce invalid JSON, which causes EventBridge to reject the event and fail to deliver the notification.
 
 1. On the **Configure tags** page, optionally enter one or more tags to assign to the rule. Then choose **Next**.
 

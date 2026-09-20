@@ -21,8 +21,19 @@ Use the following steps to make your Amazon EC2 instances AWS Systems Manager ma
 + [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html) helps you manage your AWS applications and resources end-to-end and enable secure operations at scale. 
 
   To manage your Amazon EC2 instances with AWS Systems Manager, see [Setting up Systems Manager for Amazon EC2 instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-ec2.html) in the *AWS Systems Manager User Guide*.
-+ The following table shows the new GuardDuty managed AWS Systems Manager documents:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/installing-gdu-security-agent-ec2-manually.html)
++ The following table shows the new GuardDuty managed AWS Systems Manager documents:
+
+
+<table>
+<thead>
+  <tr><th>Document name</th><th>Document type</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>AmazonGuardDuty-RuntimeMonitoringSsmPlugin</code></td><td>Distributor</td><td>To package the GuardDuty security agent.</td></tr>
+  <tr><td><code>AmazonGuardDuty-ConfigureRuntimeMonitoringSsmPlugin</code></td><td>Command</td><td>To run installation/un-installation script to install the GuardDuty security agent.</td></tr>
+</tbody>
+</table>
+
 
   For more information about AWS Systems Manager, see [Amazon EC2 Systems Manager Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/documents.html) in the *AWS Systems Manager User Guide*.
 **For Debian Servers**  
@@ -70,31 +81,70 @@ We recommend verifying the GuardDuty security agent RPM signature before install
       + **Public key**: 
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.16.0}}/publickey.pem
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/publickey.pem
         ```
       + **GuardDuty security agent RPM signature**:  
 Signature of x86\_64 RPM  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.16.0}}/x86_64/amazon-guardduty-agent-{{1.16.0}}.x86_64.sig
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/x86_64/amazon-guardduty-agent-{{1.17.1}}.x86_64.sig
         ```  
 Signature of arm64 RPM  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.16.0}}/arm64/amazon-guardduty-agent-{{1.16.0}}.arm64.sig
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/arm64/amazon-guardduty-agent-{{1.17.1}}.arm64.sig
         ```
       + **Access links to the RPM scripts in Amazon S3 bucket**:  
 Access link for x86\_64 RPM  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.16.0}}/x86_64/amazon-guardduty-agent-{{1.16.0}}.x86_64.rpm
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/x86_64/amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm
         ```  
 Access link for arm64 RPM  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.16.0}}/arm64/amazon-guardduty-agent-{{1.16.0}}.arm64.rpm
-        ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/installing-gdu-security-agent-ec2-manually.html)
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/arm64/amazon-guardduty-agent-{{1.17.1}}.arm64.rpm
+        ```
+
+
+<table>
+<tbody>
+  <tr><td>AWS Region</td><td>Region name</td><td>AWS account ID</td></tr>
+  <tr><td><code>eu-west-1</code></td><td>Europe (Ireland)</td><td>694911143906</td></tr>
+  <tr><td><code>us-east-1</code></td><td>US East (N. Virginia)</td><td>593207742271</td></tr>
+  <tr><td><code>us-west-2</code></td><td>US West (Oregon)</td><td>733349766148</td></tr>
+  <tr><td><code>eu-west-3</code></td><td>Europe (Paris)</td><td>665651866788</td></tr>
+  <tr><td><code>us-east-2</code></td><td>US East (Ohio)</td><td>307168627858</td></tr>
+  <tr><td><code>eu-central-1</code></td><td>Europe (Frankfurt)</td><td>323658145986</td></tr>
+  <tr><td><code>ap-northeast-2</code></td><td>Asia Pacific (Seoul)</td><td>914738172881</td></tr>
+  <tr><td><code>eu-north-1</code></td><td>Europe (Stockholm)</td><td>591436053604</td></tr>
+  <tr><td><code>ap-east-1</code></td><td>Asia Pacific (Hong Kong)</td><td>258348409381</td></tr>
+  <tr><td><code>me-south-1</code></td><td>Middle East (Bahrain)</td><td>536382113932</td></tr>
+  <tr><td><code>eu-west-2</code></td><td>Europe (London)</td><td>892757235363</td></tr>
+  <tr><td><code>ap-northeast-1</code></td><td>Asia Pacific (Tokyo)</td><td>533107202818</td></tr>
+  <tr><td><code>ap-southeast-1</code></td><td>Asia Pacific (Singapore)</td><td>174946120834</td></tr>
+  <tr><td><code>ap-south-1</code></td><td>Asia Pacific (Mumbai)</td><td>251508486986</td></tr>
+  <tr><td><code>ap-southeast-3</code></td><td>Asia Pacific (Jakarta)</td><td>510637619217</td></tr>
+  <tr><td><code>sa-east-1</code></td><td>South America (São Paulo)</td><td>758426053663</td></tr>
+  <tr><td><code>ap-northeast-3</code></td><td>Asia Pacific (Osaka)</td><td>273192626886</td></tr>
+  <tr><td><code>eu-south-1</code></td><td>Europe (Milan)</td><td>266869475730</td></tr>
+  <tr><td><code>af-south-1</code></td><td>Africa (Cape Town)</td><td>197869348890</td></tr>
+  <tr><td><code>ap-southeast-2</code></td><td>Asia Pacific (Sydney)</td><td>005257825471</td></tr>
+  <tr><td><code>me-central-1</code></td><td>Middle East (UAE)</td><td>000014521398</td></tr>
+  <tr><td><code>us-west-1</code></td><td>US West (N. California)</td><td>684579721401</td></tr>
+  <tr><td><code>ca-central-1</code></td><td>Canada (Central)</td><td>354763396469</td></tr>
+  <tr><td><code>ca-west-1</code></td><td>Canada West (Calgary)</td><td>339712888787</td></tr>
+  <tr><td><code>ap-south-2</code></td><td>Asia Pacific (Hyderabad)</td><td>950823858135</td></tr>
+  <tr><td><code>eu-south-2</code></td><td>Europe (Spain)</td><td>919611009337</td></tr>
+  <tr><td><code>eu-central-2</code></td><td>Europe (Zurich)</td><td>529164026651</td></tr>
+  <tr><td><code>ap-southeast-4</code></td><td>Asia Pacific (Melbourne)</td><td>251357961535</td></tr>
+  <tr><td><code>ap-southeast-7</code></td><td>Asia Pacific (Thailand)</td><td>054037130133</td></tr>
+  <tr><td><code>il-central-1</code></td><td>Israel (Tel Aviv)</td><td>870907303882</td></tr>
+  <tr><td><code>mx-central-1</code></td><td>Mexico (Central)</td><td>982081086614</td></tr>
+  <tr><td><code>ap-east-2</code></td><td>Asia Pacific (Taipei)</td><td>259886477082</td></tr>
+</tbody>
+</table>
+
 
    1. 
 
@@ -103,9 +153,9 @@ Access link for arm64 RPM
       In the following command to download appropriate public key, signature of x86\_64 RPM, signature of arm64 RPM, and the corresponding access link to the RPM scripts hosted in Amazon S3 buckets, make sure to replace the account ID with the appropriate AWS account ID and the Region with your current Region. 
 
       ```
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.16.0}}/x86_64/amazon-guardduty-agent-{{1.16.0}}.x86_64.rpm ./amazon-guardduty-agent-{{1.16.0}}.x86_64.rpm
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.16.0}}/x86_64/amazon-guardduty-agent-{{1.16.0}}.x86_64.sig ./amazon-guardduty-agent-{{1.16.0}}.x86_64.sig
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.16.0}}/publickey.pem ./publickey.pem
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/x86_64/amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm ./amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/x86_64/amazon-guardduty-agent-{{1.17.1}}.x86_64.sig ./amazon-guardduty-agent-{{1.17.1}}.x86_64.sig
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/publickey.pem ./publickey.pem
       ```
 
    1. 
@@ -133,7 +183,7 @@ Access link for arm64 RPM
       Use the following command to verify the signature
 
       ```
-      gpg --verify amazon-guardduty-agent-{{1.16.0}}.x86_64.sig amazon-guardduty-agent-{{1.16.0}}.x86_64.rpm
+      gpg --verify amazon-guardduty-agent-{{1.17.1}}.x86_64.sig amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm
       ```
 
       If verification passes, you will see a message similar to the result below. You can now proceed to install the GuardDuty security agent using RPM.
@@ -170,7 +220,7 @@ Access link for arm64 RPM
 1. Install the GuardDuty security agent by using the following command:
 
    ```
-   sudo rpm -ivh amazon-guardduty-agent-{{1.16.0}}.x86_64.rpm
+   sudo rpm -ivh amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm
    ```
 
 1. Validate if the GuardDuty agent installation is healthy. For more information about the steps, see [Validating GuardDuty security agent installation status](#validate-ec2-gdu-agent-installation-healthy).
@@ -190,31 +240,69 @@ We recommend verifying the GuardDuty security agent Debian signature before inst
       + **Public key**: 
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.16.0}}/publickey.pem
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/publickey.pem
         ```
       + **GuardDuty security agent Debian signature**:  
 Signature of amd64  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.16.0}}/amd64/amazon-guardduty-agent-{{1.16.0}}.amd64.sig
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/amd64/amazon-guardduty-agent-{{1.17.1}}.amd64.sig
         ```  
 Signature of arm64  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.16.0}}/arm64/amazon-guardduty-agent-{{1.16.0}}.arm64.sig
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/arm64/amazon-guardduty-agent-{{1.17.1}}.arm64.sig
         ```
       + **Access links to the Debian scripts in Amazon S3 bucket**:  
 Access link for amd64  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.16.0}}/amd64/amazon-guardduty-agent-{{1.16.0}}.amd64.deb
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/amd64/amazon-guardduty-agent-{{1.17.1}}.amd64.deb
         ```  
 Access link for arm64  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.16.0}}/arm64/amazon-guardduty-agent-{{1.16.0}}.arm64.deb
-        ```    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/installing-gdu-security-agent-ec2-manually.html)
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/arm64/amazon-guardduty-agent-{{1.17.1}}.arm64.deb
+        ```
+
+
+<table>
+<tbody>
+  <tr><td>AWS Region</td><td>Region name</td><td>AWS account ID</td></tr>
+  <tr><td><code>eu-west-1</code></td><td>Europe (Ireland)</td><td>694911143906</td></tr>
+  <tr><td><code>us-east-1</code></td><td>US East (N. Virginia)</td><td>593207742271</td></tr>
+  <tr><td><code>us-west-2</code></td><td>US West (Oregon)</td><td>733349766148</td></tr>
+  <tr><td><code>eu-west-3</code></td><td>Europe (Paris)</td><td>665651866788</td></tr>
+  <tr><td><code>us-east-2</code></td><td>US East (Ohio)</td><td>307168627858</td></tr>
+  <tr><td><code>eu-central-1</code></td><td>Europe (Frankfurt)</td><td>323658145986</td></tr>
+  <tr><td><code>ap-northeast-2</code></td><td>Asia Pacific (Seoul)</td><td>914738172881</td></tr>
+  <tr><td><code>eu-north-1</code></td><td>Europe (Stockholm)</td><td>591436053604</td></tr>
+  <tr><td><code>ap-east-1</code></td><td>Asia Pacific (Hong Kong)</td><td>258348409381</td></tr>
+  <tr><td><code>me-south-1</code></td><td>Middle East (Bahrain)</td><td>536382113932</td></tr>
+  <tr><td><code>eu-west-2</code></td><td>Europe (London)</td><td>892757235363</td></tr>
+  <tr><td><code>ap-northeast-1</code></td><td>Asia Pacific (Tokyo)</td><td>533107202818</td></tr>
+  <tr><td><code>ap-southeast-1</code></td><td>Asia Pacific (Singapore)</td><td>174946120834</td></tr>
+  <tr><td><code>ap-south-1</code></td><td>Asia Pacific (Mumbai)</td><td>251508486986</td></tr>
+  <tr><td><code>ap-southeast-3</code></td><td>Asia Pacific (Jakarta)</td><td>510637619217</td></tr>
+  <tr><td><code>sa-east-1</code></td><td>South America (São Paulo)</td><td>758426053663</td></tr>
+  <tr><td><code>ap-northeast-3</code></td><td>Asia Pacific (Osaka)</td><td>273192626886</td></tr>
+  <tr><td><code>eu-south-1</code></td><td>Europe (Milan)</td><td>266869475730</td></tr>
+  <tr><td><code>af-south-1</code></td><td>Africa (Cape Town)</td><td>197869348890</td></tr>
+  <tr><td><code>ap-southeast-2</code></td><td>Asia Pacific (Sydney)</td><td>005257825471</td></tr>
+  <tr><td><code>me-central-1</code></td><td>Middle East (UAE)</td><td>000014521398</td></tr>
+  <tr><td><code>us-west-1</code></td><td>US West (N. California)</td><td>684579721401</td></tr>
+  <tr><td><code>ca-central-1</code></td><td>Canada (Central)</td><td>354763396469</td></tr>
+  <tr><td><code>ca-west-1</code></td><td>Canada West (Calgary)</td><td>339712888787</td></tr>
+  <tr><td><code>ap-south-2</code></td><td>Asia Pacific (Hyderabad)</td><td>950823858135</td></tr>
+  <tr><td><code>eu-south-2</code></td><td>Europe (Spain)</td><td>919611009337</td></tr>
+  <tr><td><code>eu-central-2</code></td><td>Europe (Zurich)</td><td>529164026651</td></tr>
+  <tr><td><code>ap-southeast-4</code></td><td>Asia Pacific (Melbourne)</td><td>251357961535</td></tr>
+  <tr><td><code>il-central-1</code></td><td>Israel (Tel Aviv)</td><td>870907303882</td></tr>
+  <tr><td><code>mx-central-1</code></td><td>Mexico (Central)</td><td>982081086614</td></tr>
+  <tr><td> <code>ap-east-2</code> </td><td>Asia Pacific (Taipei)</td><td>259886477082</td></tr>
+</tbody>
+</table>
+
 
    1. 
 
@@ -223,9 +311,9 @@ Access link for arm64
       In the following commands, replace the account ID with the appropriate AWS account ID, and the Region with your current Region. 
 
       ```
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.16.0}}/amd64/amazon-guardduty-agent-{{1.16.0}}.amd64.deb ./amazon-guardduty-agent-{{1.16.0}}.amd64.deb
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.16.0}}/amd64/amazon-guardduty-agent-{{1.16.0}}.amd64.sig ./amazon-guardduty-agent-{{1.16.0}}.amd64.sig
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.16.0}}/publickey.pem ./publickey.pem
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/amd64/amazon-guardduty-agent-{{1.17.1}}.amd64.deb ./amazon-guardduty-agent-{{1.17.1}}.amd64.deb
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/amd64/amazon-guardduty-agent-{{1.17.1}}.amd64.sig ./amazon-guardduty-agent-{{1.17.1}}.amd64.sig
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/publickey.pem ./publickey.pem
       ```
 
    1. Import the public key to the database
@@ -245,7 +333,7 @@ Access link for arm64
    1. Verify the signature
 
       ```
-      gpg --verify amazon-guardduty-agent-{{1.16.0}}.amd64.sig amazon-guardduty-agent-{{1.16.0}}.amd64.deb
+      gpg --verify amazon-guardduty-agent-{{1.17.1}}.amd64.sig amazon-guardduty-agent-{{1.17.1}}.amd64.deb
       ```
 
       After a successful verification, you will see a message similar to the following result:
@@ -284,7 +372,7 @@ Access link for arm64
 1. Install the GuardDuty security agent by using the following command:
 
    ```
-   sudo dpkg -i amazon-guardduty-agent-{{1.16.0}}.amd64.deb
+   sudo dpkg -i amazon-guardduty-agent-{{1.17.1}}.amd64.deb
    ```
 
 1. Validate if the GuardDuty agent installation is healthy. For more information about the steps, see [Validating GuardDuty security agent installation status](#validate-ec2-gdu-agent-installation-healthy).

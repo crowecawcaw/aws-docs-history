@@ -244,8 +244,39 @@ Provides details about the network endpoints that were used in this attack seque
 
 **Indicators**  
 Includes observed data that matches the pattern of a security issue. This data specifies as to why GuardDuty there is an indication of a potentially suspicious activity. For example, when the indicator name is `HIGH_RISK_API`, this indicates an action commonly used by threat actors, or a sensitive action that may cause potential impact to an AWS account, such as accessing credentials or modifying a resource.   
-The following table includes a list of potential indicators and their descriptions:      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html)
+The following table includes a list of potential indicators and their descriptions:  
+
+
+<table>
+<thead>
+  <tr><th>Indicator name</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>ATTACK_TACTIC</code></td><td>The MITRE tactics used by the threat actor in an attack sequence. Examples include <b>Discovery</b> and <b>Impact</b>.</td></tr>
+  <tr><td><code>ATTACK_TECHNIQUE</code></td><td>The MITRE technique used by the threat actor in an attack sequence. Examples include gaining access to resources and using them in an unintended way, and exploiting vulnerabilities.</td></tr>
+  <tr><td><code>CRYPTOMINING_DOMAIN</code></td><td>Indicates a domain name associated with cryptocurrency mining pools or infrastructure. For example, DNS queries or connections to these domains from container or Kubernetes environments may indicate unauthorized cryptomining activity.</td></tr>
+  <tr><td><code>CRYPTOMINING_IP</code></td><td>Indicates an IP address associated with cryptocurrency mining pools or infrastructure. For example, connections to these addresses from container or Kubernetes environments may indicate unauthorized cryptomining activity.</td></tr>
+  <tr><td><code>CRYPTOMINING_PROCESS</code></td><td>Indicates a process identified as cryptocurrency mining software running within container or Kubernetes environments. For example, these processes may consume excessive CPU resources.</td></tr>
+  <tr><td><code>HIGH_RISK_API</code></td><td>The AWS API that includes the AWS service name and <code>eventName</code> indicates an action commonly used by threat actors, or is a sensitive action that may cause potential impact to an AWS account, such as credential access or resource modification.</td></tr>
+  <tr><td><code>MALICIOUS_DOMAIN</code></td><td>Indicates a domain name with suspected threat intelligence indicating malicious intent. For example, this includes command and control (C&amp;C) servers, malware distribution sites, or phishing domains contacted from container or Kubernetes environments.</td></tr>
+  <tr><td><code>MALICIOUS_FILE</code></td><td>Indicates a file suspected to be malicious based on threat intelligence or behavioral analysis. For example, this includes known malware binaries, malicious scripts, or unauthorized executables.</td></tr>
+  <tr><td><code>MALICIOUS_IP</code></td><td>The IP address has confirmed threat intelligence indicating malicious intent.</td></tr>
+  <tr><td><code>MALICIOUS_PACKAGE</code></td><td>Indicates that a resource involved in the attack sequence contains a software package identified as malicious. The indicator values include malicious package identifiers using OSV designation (MAL-*) associated with the detected packages.</td></tr>
+  <tr><td><code>MALICIOUS_PROCESS</code></td><td>Indicates a process suspected to be malicious based on threat intelligence or behavioral analysis. For example, this includes known malware, backdoors, or unauthorized tools executing within an instance or container environment.</td></tr>
+  <tr><td><code>MISCONFIGURATION</code></td><td>Indicates that a resource involved in the attack sequence has a security misconfiguration that may increase the potential impact. Examples include administrative access policies, disabled versioning, or missing encryption. These misconfigurations are identified by AWS Security Hub CSPM. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/exposure-findings-supported-traits.html">Supported trait types</a> in the <i>AWS Security Hub CSPM User Guide</i>.</td></tr>
+  <tr><td><code>REACHABILITY</code></td><td>Indicates that a resource involved in the attack sequence is reachable from the internet or is publicly accessible. Examples include internet-reachable Amazon EC2 instances, Amazon EKS clusters, Amazon ECS clusters, or publicly accessible Amazon S3 buckets. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/exposure-findings-supported-traits.html">Supported trait types</a> in the <i>AWS Security Hub CSPM User Guide</i>.</td></tr>
+  <tr><td><code>SENSITIVE_DATA</code></td><td>Indicates that an Amazon S3 bucket involved in the attack sequence contains sensitive data, as identified by Amazon Macie through AWS Security Hub CSPM.</td></tr>
+  <tr><td><code>SUSPICIOUS_NETWORK</code></td><td>The network is associated with known low reputation scores, such as risky virtual private network (VPN) providers and proxy services.</td></tr>
+  <tr><td><code>SUSPICIOUS_PROCESS</code></td><td>Indicates a suspicious process identified as anomalous based on based on threat intelligence or behavioral analysis. For example, this includes unusual process execution patterns, unexpected parent-child relationships, or processes with suspicious characteristics within an instance, or container environment.</td></tr>
+  <tr><td><code>SUSPICIOUS_USER_AGENT</code></td><td>The user agent is associated with potentially known suspicious or exploited applications, such as Amazon S3 clients and attack tools.</td></tr>
+  <tr><td><code>TOR_IP</code></td><td>The IP address is associated with a Tor exit node.</td></tr>
+  <tr><td><code>UNUSUAL_API_FOR_ACCOUNT</code></td><td>Indicates that the AWS API was invoked anomalously, based on the account's historical baseline. For more information, see <a href="#finding-anomalous">Anomalous behavior</a>.</td></tr>
+  <tr><td><code>UNUSUAL_ASN_FOR_ACCOUNT</code></td><td>Indicates that the Autonomous System Number (ASN) was identified as anomalous, based on the account's historical baseline. For more information, see <a href="#finding-anomalous">Anomalous behavior</a>.</td></tr>
+  <tr><td><code>UNUSUAL_ASN_FOR_USER</code></td><td>Indicates that the Autonomous System Number (ASN) was identified as anomalous, based on the user's historical baseline. For more information, see <a href="#finding-anomalous">Anomalous behavior</a>.</td></tr>
+  <tr><td><code>VULNERABILITY</code></td><td>Indicates that a resource involved in the attack sequence has known vulnerabilities with critical, high, medium, or low severity. The indicator values include CVE identifiers and their severity levels. These vulnerabilities are detected by Amazon Inspector and may increase the potential impact of the attack sequence. For more information about severity levels, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Understanding severity levels</a> in the <i>Amazon Inspector User Guide</i>.</td></tr>
+</tbody>
+</table>
+
 **MITRE tactics**  
 This field specifies the MITRE ATT&CK tactics that the threat actor attempts through an attack sequence. GuardDuty uses the [MITRE ATT&ACK](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-format.html#guardduty_threat_purposes) framework that adds context to the entire attack sequence. The colors that the GuardDuty console uses to specify the threat purposes that have been used by the threat actor, align with the colors that indicate the critical, high, medium, and low [Findings severity levels](guardduty_findings-severity.md).
 
@@ -267,8 +298,34 @@ Indicators include a combination of network indicator values that explain why a 
 }
 ...
 ```
-The following table includes the network indicator values and their description. These tags are added based on the threat intelligence GuardDuty collects from sources such as Spur      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html)
+The following table includes the network indicator values and their description. These tags are added based on the threat intelligence GuardDuty collects from sources such as Spur  
+
+
+<table>
+<thead>
+  <tr><th>Network indicator value</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>TUNNEL_VPN</code></td><td>Network or IP address is associated with a VPN tunnel type. This refers to a specific protocol that helps establishing a secure, encrypted connection between two points over a public network. </td></tr>
+  <tr><td><code>TUNNEL_PROXY</code></td><td>Network or IP address is associated with a Proxy tunnel type. This refers to a specific protocol that helps establishing a connection through a proxy server. </td></tr>
+  <tr><td><code>TUNNEL_RDP</code></td><td>Network or IP address is associated with using a method of encapsulating remote desktop (RDP) traffic within another protocol to enhance security, bypass network restrictions, or enable remote access through firewalls. </td></tr>
+  <tr><td><code>IS_ANONYMOUS</code></td><td>Network or IP address is associated with a known anonymous or proxy services. This may indicate potential suspicious activities hiding behind anonymous networks.</td></tr>
+  <tr><td><code>KNOWN_THREAT_OPERATOR</code></td><td>Network or IP address is associated with a known risky tunnel provider. This indicates that suspicious activity has been detected from an IP address that is linked to a VPN, proxy, or other tunneling services frequently used for malicious purposes.</td></tr>
+  <tr><td><code>ALLOWS_FREE_ACCESS</code></td><td>Network or IP address is associated with a tunnel operator that allows access to it's service without requiring authentication or payment. It might also include trial accounts or limited usage experiences offered by various online services.</td></tr>
+  <tr><td><code>ALLOWS_CRYPTO</code></td><td>Network or IP address is associated with a tunnel provider (such as VPN or proxy service) that exclusively accepts cryptocurrency or other digital currencies as the method of payment.</td></tr>
+  <tr><td><code>ALLOWS_TORRENTS</code></td><td>Network or IP address is associated with services or platforms that allow torrent traffic. Such services are often associated with supporting and using torrent, and copyright circumvention activities.</td></tr>
+  <tr><td><code>RISK_CALLBACK_PROXY</code></td><td>Network or IP address is associated with devices known to route traffic for residential proxies, malware proxies, or other callback proxy-type networks. This <b>doesn't imply</b> all activity on the network is proxy-related, but rather that the network has the capability to route traffic on behalf of these proxy networks.</td></tr>
+  <tr><td><code>RISK_GEO_MISMATCH</code></td><td>This indicator suggests that the datacenter or hosting location of a network differs from the expected location of the users and devices behind it. If this indicator value is not present, it doesn't mean that there is no mismatch. It might imply that there is insufficient data to confirm the discrepancy.</td></tr>
+  <tr><td><code>IS_SCANNER</code></td><td>Network or IP address is associated with conducting persistent login attempts against web forms.</td></tr>
+  <tr><td><code>RISK_WEB_SCRAPING</code></td><td>Network of IP address is associated with automated web clients and other programmatic web activities.</td></tr>
+  <tr><td><code>CLIENT_BEHAVIOR_FILE_SHARING</code></td><td>Network or IP address is associated with client behavior indicative of file sharing activities, such as peer-to-peer (P2P) networks, or file sharing protocols.</td></tr>
+  <tr><td><code>CATEGORY_COMMERCIAL_VPN</code></td><td>Network or IP address is associated with a tunnel operator that is categorized as a traditional Commercial Virtual Private Network (VPN) service operating within datacenter space.</td></tr>
+  <tr><td><code>CATEGORY_FREE_VPN</code></td><td>Network or IP address is associated with a tunnel operator that is categorized as a completely free VPN service.</td></tr>
+  <tr><td><code>CATEGORY_RESIDENTIAL_PROXY</code></td><td>Network or IP address is associated with a tunnel operator that is categorized as an SDK, malware, or get-paid-to sourced proxy service.</td></tr>
+  <tr><td><code>OPERATOR_XXX</code></td><td>The name of the service provider that is operating this tunnel.</td></tr>
+</tbody>
+</table>
+
 
 ## Custom Detection Rules finding details
 <a name="custom-detection-rules-finding-details"></a>
