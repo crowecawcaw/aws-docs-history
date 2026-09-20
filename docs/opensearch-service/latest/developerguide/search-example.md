@@ -408,8 +408,18 @@ If this happens, try the following:
 
 1. Redeploy your API in API Gateway (**Actions**, **Deploy API**).
 
-1. Delete and re-add your Lambda function trigger. Add re-add it, choose **Add trigger** and create the HTTP endpoint that invokes your function. The trigger must have the following configuration:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/search-example.html)
+1. Delete and re-add your Lambda function trigger. Add re-add it, choose **Add trigger** and create the HTTP endpoint that invokes your function. The trigger must have the following configuration:
+
+
+<table>
+<thead>
+  <tr><th>Trigger</th><th>API</th><th>Deployment Stage</th><th>Security</th></tr>
+</thead>
+<tbody>
+  <tr><td>API Gateway</td><td>opensearch-api</td><td>opensearch-api-test</td><td>Open</td></tr>
+</tbody>
+</table>
+
 
 ## Next steps
 <a name="search-example-next"></a>

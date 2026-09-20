@@ -18,8 +18,8 @@ Before you create a collection using the AWS CLI, use the following procedure to
 **Note**  
 In each of the following procedures, when you specify a name for a collection, the name must meet the following criteria:  
 Is unique to your account and AWS Region
-Contains only lowercase letters a-z, the numbers 0–9, and the hyphen (-)
-Contains between 3 and 32 characters
+Contains only lowercase letters a-z, the numbers 0–9, the hyphen (-), and the underscore (\_)
+Contains between 3 and 64 characters
 
 **To create required policies for a collection**
 

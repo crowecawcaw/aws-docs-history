@@ -80,9 +80,22 @@ When experiencing slow query performance or high latency in vector search operat
   + ap-northeast-1
   + ap-southeast-1
 + **Collection types** - Auto-optimize is supported only for Vector Search Collections and OpenSearch Domains (2.19, 3.1, and 3.3).
-+ **Engine support**  
-**Engine support by deployment type**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-auto-optimize.html)
++ **Engine support**
+
+
+**Engine support by deployment type**  
+
+<table>
+<thead>
+  <tr><th>Engine</th><th>Serverless</th><th>OpenSearch Managed</th></tr>
+</thead>
+<tbody>
+  <tr><td>Lucene</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Faiss</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Nmslib</td><td>No</td><td>No</td></tr>
+</tbody>
+</table>
+
 + **Algorithm support** - Auto-optimize supports only HNSW-based vector indexes.
 + **Concurrent jobs** - You can run up to 10 concurrent optimization jobs per account per Region. No new jobs can be accepted if limit is reached.
 + **Job duration** - Optimization jobs can take from 15 minutes to several hours depending on dataset size, dimension, and required performance metrics.

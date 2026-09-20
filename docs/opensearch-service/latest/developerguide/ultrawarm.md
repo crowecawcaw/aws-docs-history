@@ -47,8 +47,20 @@ If you enable UltraWarm on a preexisting OpenSearch Service domain, the `ultrawa
 
 1. In OpenSearch Dashboards, go to **Security** and choose **Permissions**.
 
-1. Choose **Create action group** and configure the following groups:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html)
+1. Choose **Create action group** and configure the following groups: 
+
+
+<table>
+<thead>
+  <tr><th>Group name</th><th>Permissions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>ultrawarm_cluster</code></td><td> <ul><li> <code>cluster:admin/ultrawarm/migration/list</code> </li><li> <code>cluster:monitor/nodes/stats</code> </li></ul> </td></tr>
+  <tr><td><code>ultrawarm_index_read</code></td><td> <ul><li> <code>indices:admin/ultrawarm/migration/get</code> </li><li> <code>indices:admin/get</code> </li></ul> </td></tr>
+  <tr><td><code>ultrawarm_index_write</code></td><td> <ul><li> <code>indices:admin/ultrawarm/migration/warm</code> </li><li> <code>indices:admin/ultrawarm/migration/hot</code> </li><li> <code>indices:monitor/stats</code> </li><li> <code>indices:admin/ultrawarm/migration/cancel</code> </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Roles** and **Create role**.
 

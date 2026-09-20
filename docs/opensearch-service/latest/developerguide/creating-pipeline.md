@@ -139,8 +139,22 @@ Choose **Select blueprint**.
 
 1. Depending on which source you choose, configure additional settings for the source. For example, to use Amazon S3 as a source, you must specify the URL of the Amazon SQS queue from the pipeline receives messagess. For a list of supported source plugins and links to their documentation, see [Supported plugins and options for Amazon OpenSearch Ingestion pipelines](pipeline-config-reference.md).
 
-1. For some sources, you must specify **Source network options**. Choose either **VPC access** or **Public access**. If you choose **Public access**, skip to the next step. If you choose **VPC access**, configure the following settings:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html)
+1. For some sources, you must specify **Source network options**. Choose either **VPC access** or **Public access**. If you choose **Public access**, skip to the next step. If you choose **VPC access**, configure the following settings:
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Endpoint management</b></td><td>Choose whether you want to create your virtual private cloud (VPC) endpoints yourself, or have OpenSearch Ingestion create them for you. Endpoint management defaults to endpoints managed by OpenSearch Ingestion.</td></tr>
+  <tr><td><b>VPC</b></td><td>Choose the ID of the VPC that you want to use. The VPC and pipeline must be in the same AWS Region.</td></tr>
+  <tr><td><b>Subnets</b></td><td>Choose one or more subnets. OpenSearch Service will place a VPC endpoint and <i>elastic network interfaces</i> in the subnets.</td></tr>
+  <tr><td><b>Security groups</b></td><td>Choose one or more VPC security groups that allow your required application to reach the OpenSearch Ingestion pipeline on the ports (80 or 443) and protocols (HTTP or HTTPs) exposed by the pipeline.</td></tr>
+  <tr><td><b>VPC attachment options</b></td><td>If your source is a self-managed endpoint, attach your pipeline to a VPC. Choose one of the default CIDR options provided, or use a custom CIDR.</td></tr>
+</tbody>
+</table>
+
 
    For more information, see [Configuring VPC access for Amazon OpenSearch Ingestion pipelines](pipeline-security.md).
 

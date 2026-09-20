@@ -217,8 +217,20 @@ If you enable multi-tier storage on a preexisting Amazon OpenSearch Service doma
 
 1. In OpenSearch Dashboards, go to **Security** and choose **Permissions**.
 
-1. Choose **Create action group** and configure the following groups:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/multi-tier-storage.html)
+1. Choose **Create action group** and configure the following groups:
+
+
+<table>
+<thead>
+  <tr><th>Group Name</th><th>Permissions</th></tr>
+</thead>
+<tbody>
+  <tr><td>storage_tiering_cluster</td><td>indices:admin/_tier/all</td></tr>
+  <tr><td>storage_tiering_index_read</td><td>indices:admin/_tier/get, indices:admin/get</td></tr>
+  <tr><td>storage_tiering_index_write</td><td>indices:admin/_tier/hot_to_warm, indices:admin/_tier/warm_to_hot</td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Roles** and **Create role**.
 

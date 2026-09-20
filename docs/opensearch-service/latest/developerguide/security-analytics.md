@@ -75,8 +75,19 @@ If you enable Security Analytics on a preexisting OpenSearch Service domain, the
 
 1. In OpenSearch Dashboards, go to **Security** and choose **Permissions**.
 
-1. Choose **Create action group** and configure the following groups:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-analytics.html)
+1. Choose **Create action group** and configure the following groups: 
+
+
+<table>
+<thead>
+  <tr><th>Group name</th><th>Permissions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>security_analytics_full_access</code></td><td> <ul><li> <code>cluster:admin/opensearch/securityanalytics/alerts/*</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/detector/*</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/findings/*</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/mapping/*</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/rule/*</code> </li></ul> </td></tr>
+  <tr><td><code>security_analytics_read_access</code></td><td> <ul><li> <code>cluster:admin/opensearch/securityanalytics/alerts/get</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/detector/get</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/detector/search</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/findings/get</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/mapping/get</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/mapping/view/get</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/rule/get</code> </li><li> <code>cluster:admin/opensearch/securityanalytics/rule/search</code> </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Roles** and **Create role**.
 

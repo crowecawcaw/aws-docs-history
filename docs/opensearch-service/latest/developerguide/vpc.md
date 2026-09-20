@@ -111,8 +111,19 @@ The enhanced security of a VPC can make connecting to your domain and running ba
 
    For example, you might specify `123.123.123.123/32` for just your computer or `123.123.123.0/24` for a range of computers.
 
-1. For the security group, specify two inbound rules:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)
+1. For the security group, specify two inbound rules:
+
+
+<table>
+<thead>
+  <tr><th>Type</th><th>Protocol</th><th>Port Range</th><th>Source</th></tr>
+</thead>
+<tbody>
+  <tr><td>SSH (22)</td><td>TCP (6)</td><td>22</td><td>{{your-cidr-block}}</td></tr>
+  <tr><td>HTTPS (443)</td><td>TCP (6)</td><td>443</td><td>{{your-security-group-id}}</td></tr>
+</tbody>
+</table>
+
 
    The first rule lets you SSH into your EC2 instance. The second allows the EC2 instance to communicate with the OpenSearch Service domain over HTTPS.
 

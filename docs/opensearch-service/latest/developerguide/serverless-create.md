@@ -35,8 +35,8 @@ To create a Classic collection instead, choose **Switch to Classic** in the **Se
 
 1. Provide a name and description for the collection. The name must meet the following criteria:
    + Is unique to your account and AWS Region
-   + Contains only lowercase letters a-z, the numbers 0–9, and the hyphen (-)
-   + Contains between 3 and 32 characters
+   + Contains only lowercase letters a-z, the numbers 0–9, the hyphen (-), and the underscore (\_)
+   + Contains between 3 and 64 characters
 
 1. Choose a collection type:
    + **Search** – Full-text search that powers applications in your internal networks and internet-facing applications. All search data is stored in hot storage to ensure fast query response times.
@@ -170,8 +170,8 @@ To switch back to NextGen, choose **Switch to NextGen** in the **Serverless gene
 
 1. Provide a **name** and **description** for the collection. The name must meet the following criteria:
    + Is unique to your account and AWS Region
-   + Contains only lowercase letters a–z, the numbers 0–9, and the hyphen (-)
-   + Contains between 3 and 32 characters
+   + Contains only lowercase letters a–z, the numbers 0–9, the hyphen (-), and the underscore (\_)
+   + Contains between 3 and 64 characters
 
 1. Choose a **collection type**:
    + **Time series** – Log analytics segment that focuses on analyzing large volumes of semi-structured, machine-generated data. At least 24 hours of data is stored on hot indexes, and the rest remains in warm storage.

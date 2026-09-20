@@ -252,8 +252,20 @@ Network policies can apply to existing collections as well as future collections
 
 1. Provide one or more *rules*. These rules define access permissions for your OpenSearch Serverless collections and their OpenSearch Dashboards endpoints.
 
-   Each rule contains the following elements:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html)
+   Each rule contains the following elements:
+
+
+<table>
+<thead>
+  <tr><th>Element</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Rule name</b></td><td>A name that describes the contents of the rule. For example, "VPC access for marketing team".</td></tr>
+  <tr><td><b>Access type</b></td><td>Choose either public or private access. Then, select one or both of the following:<ul><li> <b>VPC endpoints for access</b> – Specify one or more <a href="serverless-vpc.md">OpenSearch Serverless-managed VPC endpoints</a>–managed VPC endpoints. </li><li> <b>AWS service private access</b> – Select one or more supported AWS services. </li></ul></td></tr>
+  <tr><td><b>Resource type</b></td><td>Select whether to provide access to OpenSearch endpoints (which allows making calls to the OpenSearch API), to OpenSearch Dashboards (which allows access to visualizations and the user interface for OpenSearch plugins), or both. AWS service private access only applies to the collection's OpenSearch endpoint, not to the OpenSearch Dashboards endpoint. Even if you select <b>OpenSearch Dashboards</b>, AWS services can only be granted endpoint access. </td></tr>
+</tbody>
+</table>
+
 
    For each resource type that you select, you can choose existing collections to apply the policy settings to, and/or create one or more resource patterns. Resource patterns consist of a prefix and a wildcard (\*), and define which collections the policy settings will apply to. 
 

@@ -7,8 +7,19 @@ If you create a new domain with version 2.13 or later, permissions are already i
 
 1. In OpenSearch Dashboards, go to **Security** and choose **Permissions**.
 
-1. Choose **Create action group** and configure the following groups:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/flow-framework-permissions.html)
+1. Choose **Create action group** and configure the following groups: 
+
+
+<table>
+<thead>
+  <tr><th>Group name</th><th>Permissions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>flow_framework_full_access</code></td><td> <ul><li> <code>cluster:admin/opensearch/flow_framework/*</code> </li><li> <code>cluster_monitor</code> </li></ul> </td></tr>
+  <tr><td><code>flow_framework_read_accesss</code></td><td> <ul><li> <code>cluster:admin/opensearch/flow_framework/workflow/get</code> </li><li> <code>cluster:admin/opensearch/flow_framework/workflow/search</code> </li><li> <code>cluster:admin/opensearch/flow_framework/workflow_state/get</code> </li><li> <code>cluster:admin/opensearch/flow_framework/workflow_state/search</code> </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Roles** and **Create role**.
 

@@ -177,12 +177,12 @@ The following table shows the minimum and maximum sizes for EBS volumes for each
 | or2.12xlarge.search | 20 GiB | N/A | 24 TiB | 
 | or2.16xlarge.search | 20 GiB | N/A | 36 TiB | 
 | om2.large.search | 20 GiB | N/A | 768 GiB | 
-| om2.xlarge.search | 20 GiB | N/A | 2 Tib | 
-| om2.2xlarge.search | 20 GiB | N/A | 3 Tib | 
-| om2.4xlarge.search | 20 GiB | N/A | 6 Tib | 
-| om2.8xlarge.search | 20 GiB | N/A | 12 Tib | 
-| om2.12xlarge.search | 20 GiB | N/A | 18 Tib | 
-| om2.16xlarge.search | 20 GiB | N/A | 24 Tib | 
+| om2.xlarge.search | 20 GiB | N/A | 2 TiB | 
+| om2.2xlarge.search | 20 GiB | N/A | 3 TiB | 
+| om2.4xlarge.search | 20 GiB | N/A | 6 TiB | 
+| om2.8xlarge.search | 20 GiB | N/A | 12 TiB | 
+| om2.12xlarge.search | 20 GiB | N/A | 18 TiB | 
+| om2.16xlarge.search | 20 GiB | N/A | 24 TiB | 
 | im4gn.large.search | N/A | N/A | N/A | 
 | im4gn.xlarge.search | N/A | N/A | N/A | 
 | im4gn.2xlarge.search | N/A | N/A | N/A | 

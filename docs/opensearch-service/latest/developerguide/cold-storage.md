@@ -45,8 +45,19 @@ If you enable cold storage on a preexisting OpenSearch Service domain, the `cold
 
 1. In OpenSearch Dashboards, go to **Security** and choose **Permissions**.
 
-1. Choose **Create action group** and configure the following groups:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html)
+1. Choose **Create action group** and configure the following groups: 
+
+
+<table>
+<thead>
+  <tr><th>Group name</th><th>Permissions</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>cold_cluster</code></td><td> <ul><li> <code>cluster:monitor/nodes/stats</code> </li><li> <code>cluster:admin/ultrawarm*</code> </li><li> <code>cluster:admin/cold/*</code> </li></ul> </td></tr>
+  <tr><td><code>cold_index</code></td><td> <ul><li> <code>indices:monitor/stats</code> </li><li> <code>indices:data/read/minmax</code> </li><li> <code>indices:admin/ultrawarm/migration/get</code> </li><li> <code>indices:admin/ultrawarm/migration/cancel</code> </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Roles** and **Create role**.
 

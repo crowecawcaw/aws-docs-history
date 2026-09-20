@@ -114,8 +114,19 @@ After you create the custom SAML application, complete the following steps:
 
    1. Set **user.login** for **RoleSessionName**. This is used as an identifier for the temporary credentials that are issued when the role is assumed.
 
-   For reference:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-enable-SAML-identity-federation.html)
+   For reference:
+
+
+<table>
+<thead>
+  <tr><th>Name</th><th>Name format</th><th>Format</th><th>Example</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>https://aws.amazon.com/SAML/Attributes/Role</code></td><td>Unspecified</td><td><code>arn:aws:iam::aws-account-id:role/role-name,arn:aws:iam::aws-account-id:saml-provider/provider-name</code></td><td><code>arn:aws:iam::111222333444:role/oktarole,arn:aws:iam::111222333444:saml-provider/oktaidp</code></td></tr>
+  <tr><td><code>https://aws.amazon.com/SAML/Attributes/RoleSessionName</code></td><td>Unspecified</td><td><code>user.login</code></td><td><code>user.login</code></td></tr>
+</tbody>
+</table>
+
 
 1. After you add the attribute properties, choose **Next**, and then choose **Finish**.
 

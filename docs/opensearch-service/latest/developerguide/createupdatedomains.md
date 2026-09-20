@@ -67,8 +67,20 @@ Not all Availability Zones support all instance types. If you choose Multi-AZ wi
 
 1. For **Storage type**, select Amazon EBS. The volume types available in the list depend on the instance type that you've chosen. For guidance on creating especially large domains, see [Petabyte scale in Amazon OpenSearch Service](petabyte-scale.md).
 
-1. For **EBS** storage, configure the following additional settings. Some settings might not appear depending on the type of volume you choose.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html)
+1. For **EBS** storage, configure the following additional settings. Some settings might not appear depending on the type of volume you choose.
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>EBS volume type</b></td><td>Choose between <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/general-purpose.html#gp3-ebs-volume-type">General Purpose (SSD) - gp3</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/general-purpose.html#EBSVolumeTypes_gp2">General Purpose (SSD) - gp2</a>, or the previous generation <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/provisioned-iops.html#EBSVolumeTypes_piops">Provisioned IOPS (SSD)</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes_standard.html">Magnetic</a> (standard).</td></tr>
+  <tr><td><b>EBS storage size per node</b></td><td>Enter the size of the EBS volume that you want to attach to each data node.<br />EBS volume size is per node. You can calculate the total cluster size for the OpenSearch Service domain by multiplying the number of data nodes by the EBS volume size. The minimum and maximum size of an EBS volume depends on both the specified EBS volume type and the instance type that it's attached to. To learn more, see <a href="limits.md#ebsresource">EBS volume size limits</a>.</td></tr>
+  <tr><td><b>Provisioned IOPS</b></td><td>If you selected a Provisioned IOPS SSD volume type, enter the number of I/O operations per second (IOPS) that the volume can support.</td></tr>
+</tbody>
+</table>
+
 
 1. (Optional) If you selected a `gp3` volume type, expand **Advanced settings** and specify additional IOPS (up to 16,000 for every 3 TiB volume size provisioned per data node) and throughput (up to 1,000 MiB/s for every 3 TiB volume size provisioned per data node) beyond what is included with the price of storage, for an additional cost. For more information, see the [Amazon OpenSearch Service pricing](https://aws.amazon.com/opensearch-service/pricing/).
 
@@ -84,8 +96,23 @@ You can choose different instance types for your dedicated master nodes and data
 
 1. If you want to use a custom endpoint rather than the standard one of `https://search-{{mydomain}}-{{1a2a3a4a5a6a7a8a9a0a9a8a7a}}.{{us-east-1}}.es.amazonaws.com` , choose **Enable custom endpoint** and provide a name and certificate. For more information, see [Creating a custom endpoint for Amazon OpenSearch Service](customendpoint.md).
 
-1. Under **Network**, choose either **VPC access** or **Public access**. If you choose **Public access**, skip to the next step. If you choose **VPC access**, make sure you meet the [prerequisites](vpc.md#prerequisites-vpc-endpoints), then configure the following settings:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html)
+1. Under **Network**, choose either **VPC access** or **Public access**. If you choose **Public access**, skip to the next step. If you choose **VPC access**, make sure you meet the [prerequisites](vpc.md#prerequisites-vpc-endpoints), then configure the following settings:
+
+
+<table>
+<thead>
+  <tr><th>Setting</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><b>VPC</b></td><td>Choose the ID of the virtual private cloud (VPC) that you want to use. The VPC and domain must be in the same AWS Region, and you must select a VPC with tenancy set to <b>Default</b>. OpenSearch Service does not yet support VPCs that use dedicated tenancy.</td></tr>
+  <tr><td><b>Subnet</b></td><td>Choose a subnet. If you enabled Multi-AZ, you must choose two or three subnets. OpenSearch Service will place a VPC endpoint and <i>elastic network interfaces</i> in the subnets.<br />You must reserve sufficient IP addresses for the network interfaces in the subnet(s). For more information, see <a href="vpc.md#reserving-ip-vpc-endpoints">Reserving IP addresses in a VPC subnet</a>.</td></tr>
+  <tr><td><b>Security groups</b></td><td>Choose one or more VPC security groups that allow your required application to reach the OpenSearch Service domain on the ports (80 or 443) and protocols (HTTP or HTTPS) exposed by the domain. For more information, see <a href="vpc.md">Launching your Amazon OpenSearch Service domains within a VPC</a>.</td></tr>
+  <tr><td><b>IAM Role</b></td><td>Keep the default role. OpenSearch Service uses this predefined role (also known as a <i>service-linked role</i>) to access your VPC and to place a VPC endpoint and network interfaces in the subnet of the VPC. For more information, see <a href="vpc.md#enabling-slr">Service-linked role for VPC access</a>.</td></tr>
+  <tr><td><b>VPC Egress</b></td><td>(Optional) Select <b>Enable Egress</b> to route the domain's egress traffic through your VPC instead of the public internet. For more information, see <a href="vpc-egress.md">Routing domain egress traffic through your VPC</a>.</td></tr>
+  <tr><td><b>IP Address Type</b></td><td>Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.</td></tr>
+</tbody>
+</table>
+
 
 1. Enable or disable fine-grained access control:
    + If you want to use IAM for user management, choose **Set IAM ARN as master user** and specify the ARN for an IAM role.
