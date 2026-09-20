@@ -142,8 +142,20 @@ This section provides step by step instructions on how to collect the necessary 
    You have two options to determine the read and write request rate of your Cassandra table.
    + Use existing Cassandra monitoring
 
-     You can use the metrics shown in the following table to observe read and write requests. Note that the metric names can change based on the monitoring tool that you're using.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/keyspaces/latest/devguide/migrating-cassandra.html)
+     You can use the metrics shown in the following table to observe read and write requests. Note that the metric names can change based on the monitoring tool that you're using.
+
+
+
+<table>
+<thead>
+  <tr><th>Dimension</th><th>Cassandra JMX metric</th></tr>
+</thead>
+<tbody>
+  <tr><td>Writes</td><td><code>org.apache.cassandra.metrics:type=ClientRequest, scope=Write,name=Latency#Count</code></td></tr>
+  <tr><td>Reads</td><td><code>org.apache.cassandra.metrics:type=ClientRequest, scope=Read,name=Latency#Count</code></td></tr>
+</tbody>
+</table>
+
    + Use the `nodetool`
 
      Use `nodetool tablestats` and `nodetool info` to capture average read and write operations from the table. `tablestats` returns the total read and write count from the time the node has been initiated. `nodetool info` provides the up-time for a node in seconds.

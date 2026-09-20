@@ -34,8 +34,26 @@ The `bootstrap` command automates the following tasks.
    $ ./keyspaces-bulk-cli bootstrap --stack {{aksglue}} --keyspace {{catalog}} --table {{book_awards}}
    ```
 
-   The following table describes the optional parameters you can pass to customize the bootstrap.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/keyspaces/latest/devguide/S3-tutorial-step1.html)
+   The following table describes the optional parameters you can pass to customize the bootstrap.
+
+
+<table>
+<thead>
+  <tr><th>Option</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>--stack</code></td><td><code>aksglue</code></td><td>CloudFormation stack name prefix</td></tr>
+  <tr><td><code>--bucket</code></td><td>Auto-generated from stack and account</td><td>Amazon S3 bucket for artifacts</td></tr>
+  <tr><td><code>--role-name</code></td><td>Auto-generated from stack</td><td>IAM service role name</td></tr>
+  <tr><td><code>--keyspace</code></td><td><code>mykeyspace</code></td><td>Default keyspace for deployed jobs</td></tr>
+  <tr><td><code>--table</code></td><td><code>mytable</code></td><td>Default table for deployed jobs</td></tr>
+  <tr><td><code>--s3-uri</code></td><td><code>s3://{bucket}/export</code></td><td>Default Amazon S3 path for exported data</td></tr>
+  <tr><td><code>--format</code></td><td><code>parquet</code></td><td>Default data format</td></tr>
+  <tr><td><code>--region</code></td><td>From AWS config</td><td>AWS Region</td></tr>
+  <tr><td><code>--profile</code></td><td>From AWS config</td><td>AWS named profile</td></tr>
+</tbody>
+</table>
+
 
    To confirm that the Amazon S3 bucket created by bootstrap exists, you can use the following AWS CLI command. Replace {{YOURACCOUNTID}} with your AWS account ID.
 

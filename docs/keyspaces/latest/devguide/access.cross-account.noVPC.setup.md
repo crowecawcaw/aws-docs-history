@@ -63,7 +63,7 @@ You can also access Amazon Keyspaces tables across different accounts without a 
 1. Configure the VPC endpoint in `Account A:111111111111` and attach permissions to the endpoint that allow the roles from `Account B:222222222222` and `Account C:333333333333` to assume the role in `Account A` using the VPC endpoint. These permissions are valid for the VPC endpoint that they are attached to. For more information about VPC endpoint policies, see [Controlling access to interface VPC endpoints for Amazon Keyspaces](vpc-endpoints.md#interface-vpc-endpoints-policies).
 
    ```
-   {{
+   {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
        {

@@ -48,11 +48,17 @@ Amazon Keyspaces is available in the following Regions.
 | US West (Oregon) | us-west-2 |  cassandra.us-west-2.amazonaws.com <br /> cassandra-fips.us-west-2.api.aws <br /> cassandra-fips.us-west-2.amazonaws.com <br /> cassandra.us-west-2.api.aws  | HTTPS and TLS<br />HTTPS and TLS<br />HTTPS and TLS<br />HTTPS and TLS | 
 | Africa (Cape Town) | af-south-1 |  cassandra.af-south-1.amazonaws.com <br /> cassandra.af-south-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | Asia Pacific (Hong Kong) | ap-east-1 |  cassandra.ap-east-1.amazonaws.com <br /> cassandra.ap-east-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  cassandra.ap-south-2.api.aws  | HTTPS and TLS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  cassandra.ap-southeast-3.api.aws  | HTTPS and TLS | 
 | Asia Pacific (Malaysia) | ap-southeast-5 |  cassandra.ap-southeast-5.amazonaws.com <br /> cassandra.ap-southeast-5.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  cassandra.ap-southeast-4.api.aws  | HTTPS and TLS | 
 | Asia Pacific (Mumbai) | ap-south-1 |  cassandra.ap-south-1.amazonaws.com <br /> cassandra.ap-south-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  cassandra.ap-southeast-6.api.aws  | HTTPS and TLS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  cassandra.ap-northeast-3.api.aws  | HTTPS and TLS | 
 | Asia Pacific (Seoul) | ap-northeast-2 |  cassandra.ap-northeast-2.amazonaws.com <br /> cassandra.ap-northeast-2.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | Asia Pacific (Singapore) | ap-southeast-1 |  cassandra.ap-southeast-1.amazonaws.com <br /> cassandra.ap-southeast-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | Asia Pacific (Sydney) | ap-southeast-2 |  cassandra.ap-southeast-2.amazonaws.com <br /> cassandra.ap-southeast-2.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
+| Asia Pacific (Taipei) | ap-east-2 |  cassandra.ap-east-2.api.aws  | HTTPS and TLS | 
 | Asia Pacific (Thailand) | ap-southeast-7 |  cassandra.ap-southeast-7.amazonaws.com <br /> cassandra.ap-southeast-7.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | Asia Pacific (Tokyo) | ap-northeast-1 |  cassandra.ap-northeast-1.amazonaws.com <br /> cassandra.ap-northeast-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | Canada (Central) | ca-central-1 |  cassandra.ca-central-1.amazonaws.com <br /> cassandra.ca-central-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
@@ -60,8 +66,13 @@ Amazon Keyspaces is available in the following Regions.
 | Europe (Frankfurt) | eu-central-1 |  cassandra.eu-central-1.amazonaws.com <br /> cassandra.eu-central-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | Europe (Ireland) | eu-west-1 |  cassandra.eu-west-1.amazonaws.com <br /> cassandra.eu-west-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | Europe (London) | eu-west-2 |  cassandra.eu-west-2.amazonaws.com <br /> cassandra.eu-west-2.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
+| Europe (Milan) | eu-south-1 |  cassandra.eu-south-1.api.aws  | HTTPS and TLS | 
 | Europe (Paris) | eu-west-3 |  cassandra.eu-west-3.amazonaws.com <br /> cassandra.eu-west-3.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
+| Europe (Spain) | eu-south-2 |  cassandra.eu-south-2.api.aws  | HTTPS and TLS | 
 | Europe (Stockholm) | eu-north-1 |  cassandra.eu-north-1.amazonaws.com <br /> cassandra.eu-north-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
+| Europe (Zurich) | eu-central-2 |  cassandra.eu-central-2.api.aws  | HTTPS and TLS | 
+| Israel (Tel Aviv) | il-central-1 |  cassandra.il-central-1.api.aws  | HTTPS and TLS | 
+| Mexico (Central) | mx-central-1 |  cassandra.mx-central-1.api.aws  | HTTPS and TLS | 
 | Middle East (Bahrain) | me-south-1 |  cassandra.me-south-1.amazonaws.com <br /> cassandra.me-south-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | Middle East (UAE) | me-central-1 |  cassandra.me-central-1.amazonaws.com <br /> cassandra.me-central-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
 | South America (São Paulo) | sa-east-1 |  cassandra.sa-east-1.amazonaws.com <br /> cassandra.sa-east-1.api.aws  | HTTPS and TLS<br />HTTPS and TLS | 
