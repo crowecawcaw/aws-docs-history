@@ -56,8 +56,22 @@ When Amazon GameLift Servers deploys container groups on a fleet instance, not a
 
 Amazon GameLift Servers calculates the memory available for your container groups using the following steps:
 
-1. **Determine the memory buffer percentage.** Amazon GameLift Servers reserves a percentage of the instance's total memory based on the following tiers:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/containers-design-fleet.html)
+1. **Determine the memory buffer percentage.** Amazon GameLift Servers reserves a percentage of the instance's total memory based on the following tiers:
+
+
+<table>
+<thead>
+  <tr><th>Instance memory (MiB)</th><th>Reserved percentage</th></tr>
+</thead>
+<tbody>
+  <tr><td>Less than 5,000</td><td>8%</td></tr>
+  <tr><td>5,000 to 9,999</td><td>6%</td></tr>
+  <tr><td>10,000 to 89,999</td><td>5%</td></tr>
+  <tr><td>90,000 to 199,999</td><td>4%</td></tr>
+  <tr><td>200,000 or more</td><td>3%</td></tr>
+</tbody>
+</table>
+
 
 1. **Calculate available memory.** Subtract the reserved memory from the total instance memory:
 

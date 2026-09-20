@@ -128,3 +128,26 @@ Amazon GameLift Servers streamlines the process of setting up VPC peering connec
 
 **Note**  
 VPC peering is not supported for container fleets.
+
+## Set the AWS Region for SDK requests
+<a name="gamelift-sdk-server-resources-region"></a>
+
+When an application on your fleet uses the AWS SDK to call another AWS service or resource, the SDK needs to know which AWS Region to send the request to. If your code doesn't set a Region explicitly, the AWS SDK uses its default Region resolution. Region resolution checks the following, in order:
+
+1. A Region set in code
+
+1. The `AWS_REGION` environment variable
+
+1. A Region in the shared AWS config file
+
+1. The Amazon Elastic Compute Cloud (Amazon EC2) instance metadata service
+
+On an Amazon GameLift Servers fleet compute, resolution typically reaches instance metadata. Instance metadata returns the Region where the compute is physically running.
+
+To help your applications target the correct Region, Amazon GameLift Servers sets the following environment variables on every compute in managed EC2 fleets and managed container fleets. Your applications can read these variables at runtime.
+
+
+| Environment variable | Description | 
+| --- | --- | 
+| `GAMELIFT_REGION` | The fleet's home Region (for example, `us-west-2`). This value is the same on every compute in the fleet. Use this variable when your game server needs to reach resources in the fleet's home Region. | 
+| `GAMELIFT_LOCATION` | The location where the compute is running (for example, `us-west-2` for a home-Region compute, or `ap-northeast-2` for a compute in a remote location). On a multi-location fleet, this value can differ between computes and matches the Region that instance metadata reports. | 
