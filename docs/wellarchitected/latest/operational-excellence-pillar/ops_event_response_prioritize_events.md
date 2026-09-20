@@ -28,17 +28,53 @@
 ### Implementation steps
 <a name="implementation-steps"></a>
 
-1.  **Assess impact:** Develop a classification system to evaluate the severity of events in terms of their potential impact on business operations and objectives. The following example shows impact categories:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_event_response_prioritize_events.html)
+1.  **Assess impact:** Develop a classification system to evaluate the severity of events in terms of their potential impact on business operations and objectives. The following example shows impact categories: 
 
-1.  **Assess urgency:** Define urgency levels for how quickly an event needs a response, considering factors such as safety, financial implications, and service-level agreements (SLAs). The following example demonstrates urgency categories:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_event_response_prioritize_events.html)
+
+<table>
+<thead>
+  <tr><th>Impact level</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>High</td><td>Affects many staff or customers, high financial impact, high reputational damage, or injury.</td></tr>
+  <tr><td>Medium</td><td>Affects a groups of staff or customers, moderate financial impact, or moderate reputational damage.</td></tr>
+  <tr><td>Low</td><td>Affects individual staff or customers, low financial impact, or low reputational damage.</td></tr>
+</tbody>
+</table>
+
+
+1.  **Assess urgency:** Define urgency levels for how quickly an event needs a response, considering factors such as safety, financial implications, and service-level agreements (SLAs). The following example demonstrates urgency categories: 
+
+
+<table>
+<thead>
+  <tr><th>Urgency level</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td>High</td><td>Exponentially increasing damage, time-sensitive work impacted, imminent escalation, or VIP users or groups affected.</td></tr>
+  <tr><td>Medium</td><td>Damage increases over time, or single VIP user or group affected.</td></tr>
+  <tr><td>Low</td><td>Marginal damage increase over time, or non-time-sensitive work impacted.</td></tr>
+</tbody>
+</table>
+
 
 1.  **Create a prioritization matrix:** 
    +  Use a matrix to cross-reference impact and urgency, assigning priority levels to different combinations. 
    +  Make the matrix accessible and understood by all team members responsible for operational event responses. 
-   +  The following example matrix displays incident severity according to urgency and impact:     
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/ops_event_response_prioritize_events.html)
+   +  The following example matrix displays incident severity according to urgency and impact: 
+
+
+<table>
+<thead>
+  <tr><th>Urgency and impact</th><th>High</th><th>Medium</th><th>Low</th></tr>
+</thead>
+<tbody>
+  <tr><td>High</td><td>Critical</td><td>Urgent</td><td>High</td></tr>
+  <tr><td>Medium</td><td>Urgent</td><td>High</td><td>Normal</td></tr>
+  <tr><td>Low</td><td>High</td><td>Normal</td><td>Low</td></tr>
+</tbody>
+</table>
+
 
 1.  **Train and communicate:** Train response teams on the prioritization matrix and the importance of following it during an event. Communicate the prioritization process to all stakeholders to set clear expectations. 
 
