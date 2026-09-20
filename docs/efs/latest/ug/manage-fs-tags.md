@@ -57,5 +57,16 @@ You can tag Amazon EFS file system and access point resources that already exist
 <a name="tag-resources-cli"></a>
 + If you're using the Amazon EFS API, the AWS CLI, or an AWS SDK, you can use the `TagResource` EFS API action to apply tags to existing resources. Additionally, some resource-creating actions enable you to specify tags for a resource when the resource is created. 
 
-  The AWS CLI commands for managing tags, and the equivalent Amazon EFS API actions, are listed in the following table.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/efs/latest/ug/manage-fs-tags.html)
+  The AWS CLI commands for managing tags, and the equivalent Amazon EFS API actions, are listed in the following table.
+
+
+<table>
+<thead>
+  <tr><th>CLI command</th><th>Description</th><th>Equivalent API operation</th></tr>
+</thead>
+<tbody>
+  <tr><td><a href="https://docs.aws.amazon.com/cli/latest/reference/efs/tag-resource.html">https://docs.aws.amazon.com/cli/latest/reference/efs/tag-resource.html</a></td><td>Add new tags or update existing tags</td><td><a href="https://docs.aws.amazon.com/efs/latest/APIReference/API_TagResource.html">TagResource</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/cli/latest/reference/efs/list-tags-for-resource.html">https://docs.aws.amazon.com/cli/latest/reference/efs/list-tags-for-resource.html</a></td><td>Retrieve existing tags</td><td><a href="https://docs.aws.amazon.com/efs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a></td></tr>
+  <tr><td><a href="https://docs.aws.amazon.com/cli/latest/reference/efs/untag-resource.html">https://docs.aws.amazon.com/cli/latest/reference/efs/untag-resource.html</a></td><td>Delete existing tags</td><td><a href="https://docs.aws.amazon.com/efs/latest/APIReference/API_UntagResource.html">UntagResource</a></td></tr>
+</tbody>
+</table>
