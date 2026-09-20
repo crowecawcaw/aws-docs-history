@@ -30,11 +30,39 @@ Complete the following steps to search your resource inventory. You can search f
 
 1. In the navigation pane, choose **Inventory search**.
 
-1. (Optional) You can specify filter options to streamline search results as follows.  
-**Amazon EC2 resources**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/license-manager/latest/userguide/discovery.html)  
-**Amazon RDS resources**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/license-manager/latest/userguide/discovery.html)
+1. (Optional) You can specify filter options to streamline search results as follows.
+
+
+**Amazon EC2 resources**  
+
+<table>
+<thead>
+  <tr><th>Filter name</th><th>Description</th><th>Logical operators</th><th>Supported values</th></tr>
+</thead>
+<tbody>
+  <tr><td>Resource ID</td><td>The ID of the resource.</td><td><code>Equals</code>, <code>Not equals</code></td><td></td></tr>
+  <tr><td>Account ID</td><td>The ID of the AWS account that owns the resource.</td><td><code>Equals</code>, <code>Not equals</code></td><td></td></tr>
+  <tr><td>Platform name</td><td>The operating system platform for the resource.</td><td><code>Equals</code>, <code>Not equals</code>, <code>Begins with</code>, <code>Contains</code></td><td></td></tr>
+  <tr><td>Application name</td><td>The name of the application.</td><td><code>Equals</code>, <code>Begins with</code></td><td></td></tr>
+  <tr><td>License included name</td><td>The type of license included.</td><td><code>Equals</code>, <code>Not equals</code></td><td> <ul><li> <code>SQL Server Enterprise</code> </li><li> <code>SQL Server Standard</code> </li><li> <code>SQL Server Web</code> </li><li> <code>Windows Server Datacenter</code> </li></ul> </td></tr>
+  <tr><td>Tag</td><td>A metadata tag key and optional value that's assigned to the resource.<br />Note, the <code>Not equals</code> logical operator is only available if cross-account discovery is enabled.</td><td><code>Equals</code>, <code>Not equals</code></td><td></td></tr>
+</tbody>
+</table>
+
+
+
+**Amazon RDS resources**  
+
+<table>
+<thead>
+  <tr><th>Filter name</th><th>Description</th><th>Logical operators</th><th>Supported values</th></tr>
+</thead>
+<tbody>
+  <tr><td>Engine Edition</td><td>The database engine edition.</td><td><code>Equals</code></td><td> <ul><li> <code>oracle-ee</code> </li><li> <code>oracle-se</code> </li><li> <code>oracle-se1</code> </li><li> <code>oracle-se2</code> </li><li> <code>db2-se</code> </li><li> <code>db2-ae</code> </li><li> <code>sqlserver-ee</code> </li><li> <code>sqlserver-se</code> </li></ul> </td></tr>
+  <tr><td>License Pack (Oracle only)</td><td>The management pack associated with an Amazon RDS for Oracle license.</td><td><code>Equals</code></td><td> <ul><li> <code>Spatial and Graph</code> </li><li> <code>Active Data Guard</code> </li><li> <code>Label Security</code> </li><li> <code>Oracle On-Line Analytical Processing (OLAP)</code> </li><li> <code>Diagnostic Pack and Tuning Pack</code> </li></ul> </td></tr>
+</tbody>
+</table>
+
 
    For more information about Amazon RDS database product licenses, see [RDS for Oracle licensing options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.html), [RDS for Db2 licensing options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html), or [RDS for SQL Server licensing options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.Licensing.html) in the *Amazon RDS User Guide*.
 
