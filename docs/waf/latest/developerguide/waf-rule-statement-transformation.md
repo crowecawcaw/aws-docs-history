@@ -78,8 +78,52 @@ AWS WAF decodes a string of hexadecimal characters into a binary.
 
 HTML entity decode – `HTML_ENTITY_DECODE`  
 AWS WAF replaces characters that are represented in hexadecimal format `&#xhhhh;` or decimal format `&#nnnn;` with the corresponding characters.  
-AWS WAF replaces the following HTML-encoded characters with unencoded characters. This list uses lowercase HTML encoding, but the handling is case insensitive, for example `&QuOt;` and `&quot;` are treated the same.       
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html)
+AWS WAF replaces the following HTML-encoded characters with unencoded characters. This list uses lowercase HTML encoding, but the handling is case insensitive, for example `&QuOt;` and `&quot;` are treated the same.   
+
+
+<table>
+<thead>
+  <tr><th>HTML-encoded character</th><th>replaced with...</th></tr>
+</thead>
+<tbody>
+  <tr><td><code>&amp;quot;</code></td><td><code>"</code></td></tr>
+  <tr><td><code>&amp;amp;</code></td><td><code>&amp;</code></td></tr>
+  <tr><td><code>&amp;lt;</code></td><td><code>&lt;</code></td></tr>
+  <tr><td><code>&amp;gt;</code></td><td><code>&gt;</code></td></tr>
+  <tr><td><code>&amp;nbsp;</code> or <code>&amp;NonBreakingSpace;</code></td><td>non-breaking space, decimal 160</td></tr>
+  <tr><td><code>&amp;NewLine;</code></td><td><code>\n</code>, decimal 10</td></tr>
+  <tr><td><code>&amp;Tab;</code></td><td><code>\t</code>, decimal 9</td></tr>
+  <tr><td><code>&amp;lcub;</code> or <code>&amp;lbrace;</code></td><td><code>{</code></td></tr>
+  <tr><td><code>&amp;verbar;</code>, <code>&amp;vert;</code>, or <code>&amp;VerticalLine;</code></td><td><code>|</code></td></tr>
+  <tr><td><code>&amp;rcub;</code> or <code>&amp;rbrace;</code></td><td><code>}</code></td></tr>
+  <tr><td><code>&amp;excl;</code></td><td><code>!</code></td></tr>
+  <tr><td><code>&amp;num;</code></td><td><code>#</code></td></tr>
+  <tr><td><code>&amp;dollar;</code></td><td><code>$</code></td></tr>
+  <tr><td><code>&amp;percent;</code> or <code>&amp;percnt;</code></td><td><code>%</code></td></tr>
+  <tr><td><code>&amp;apos;</code></td><td><code>\</code></td></tr>
+  <tr><td><code>&amp;lpar;</code></td><td><code>(</code></td></tr>
+  <tr><td><code>&amp;rpar;</code></td><td><code>)</code></td></tr>
+  <tr><td><code>&amp;ast;</code> or <code>&amp;midast;</code></td><td><code>*</code></td></tr>
+  <tr><td><code>&amp;plus;</code></td><td><code>+</code></td></tr>
+  <tr><td><code>&amp;comma;</code></td><td><code>,</code></td></tr>
+  <tr><td><code>&amp;period;</code></td><td><code>.</code></td></tr>
+  <tr><td><code>&amp;sol;</code></td><td><code>/</code></td></tr>
+  <tr><td><code>&amp;colon;</code></td><td><code>:</code></td></tr>
+  <tr><td><code>&amp;semi;</code></td><td><code>;</code></td></tr>
+  <tr><td><code>&amp;equals;</code></td><td><code>=</code></td></tr>
+  <tr><td><code>&amp;quest;</code></td><td><code>?</code></td></tr>
+  <tr><td><code>&amp;tilde;</code> or <code>&amp;DiacriticalTilde;</code></td><td><code>~</code></td></tr>
+  <tr><td><code>&amp;minus;</code></td><td><code>-</code></td></tr>
+  <tr><td><code>&amp;lsqb;</code> or <code>&amp;lbrack;</code></td><td><code>[</code></td></tr>
+  <tr><td><code>&amp;bsol;</code></td><td><code>\\</code></td></tr>
+  <tr><td><code>&amp;rsqb;</code> or <code>&amp;rbrack;</code></td><td><code>]</code></td></tr>
+  <tr><td><code>&amp;hat;</code></td><td><code>^</code></td></tr>
+  <tr><td><code>&amp;lowbar;</code> or <code>&amp;underbar;</code></td><td><code>_</code></td></tr>
+  <tr><td><code>&amp;grave;</code> or <code>&amp;DiacriticalGrave;</code></td><td><code>`</code></td></tr>
+  <tr><td></td><td></td></tr>
+</tbody>
+</table>
+
 
 JS decode – `JS_DECODE`  
 AWS WAF decodes JavaScript escape sequences. If a `\uHHHH` code is in the full-width ASCII code range of `FF01-FF5E`, then the higher byte is used to detect and adjust the lower byte. If not, only the lower byte is used and the higher byte is zeroed, causing a possible loss of information.

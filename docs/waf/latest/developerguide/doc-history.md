@@ -13,6 +13,7 @@ Service features are sometimes rolled out incrementally to the AWS Regions where
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated AWS Managed Rules for AWS WAF](aws-managed-rule-groups-changelog.md) | Released static version 2.5 of the SQL database managed rule group. | September 16, 2026 | 
 | [Updated AWS Managed Rules for AWS WAF](aws-managed-rule-groups-changelog.md) | Released static version 1.23 of the core rule set (CRS) managed rule group. | August 28, 2026 | 
 | [Updated AWS Managed Rules for AWS WAF](aws-managed-rule-groups-changelog.md) | Released static version 2.4 of the SQL database managed rule group. | August 12, 2026 | 
 | [AWS WAF pre-parse text transformations](waf-rule-statement-preparse-transformation.md) | Added pre-parse text transformations that normalize raw query strings before AWS WAF parses them into individual query arguments. | July 29, 2026 | 

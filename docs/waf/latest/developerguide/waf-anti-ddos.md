@@ -27,7 +27,7 @@ AWS WAF will not provide sampled requests or publish CloudWatch metrics without 
 
 AWS managed rule group DDoS protection  
 The advanced tier of DDoS protections is offered through the `AWSManagedRulesAntiDDoSRuleSet`. The managed rule group complements the resource-level tier of protection, with the following notable differences:  
-+ Protection extends to both Application Load Balancers and CloudFront distributions
++ Protection extends to CloudFront distributions, Application Load Balancers, and other AWS services supported by AWS WAF
 + Traffic baselines are created for your protected resources to improve detection of novel attack patterns.
 + Protective behavior is activated according to sensitivity levels you select.
 + Manages and labels requests to protected resources during probable DDoS events.

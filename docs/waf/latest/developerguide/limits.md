@@ -62,7 +62,7 @@ AWS WAF has fixed quotas on the following entity settings per account per Region
 | Maximum number of custom headers for a single custom response definition | 10 | 
 | Maximum number of custom headers for a single custom request definition | 10 | 
 | Maximum combined size of all response body content for a single rule group or a single protection pack (web ACL) | 50 KB | 
-| Maximum number of Geo match country codes inside a single rule  | 50 | 
+| Maximum number of Geo match country codes inside a single GeoMatchStatement | 50 | 
 
 \*Using more than 1,500 WCUs in a protection pack (web ACL) incurs costs beyond the basic protection pack (web ACL) price. For more information, see [Web ACL capacity units (WCUs) in AWS WAF](aws-waf-capacity-units.md) and [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/).
 
