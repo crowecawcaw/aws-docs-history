@@ -35,8 +35,20 @@ If you want to update an existing instance, provide the identifier associated wi
 
 1. Based on your choice of **Instance type**, perform the following steps.
 **Important**  
-You can't use the `AWS_` prefix (not case sensitive) in a key when you specify a custom attribute.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloud-map/latest/dg/registering-instances.html)
+You can't use the `AWS_` prefix (not case sensitive) in a key when you specify a custom attribute.
+
+
+<table>
+<thead>
+  <tr><th>Instance type</th><th>Steps</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>IP address</td><td> <ol><li> Under <b>Standard attributes</b>, for <b>IPv4 address</b>, provide an IPv4 address, if any, where your application can access the resource that's associated with this service instance. </li><li> For <b>IPv6 address</b>, provide an IPv6 IP address, if any, where your applications can access the resource that's associated with this service instance. </li><li>  For <b>Port</b>, specify any port your application must include to access the resource that's associated with this service instance. <b>Port</b> is required when the service includes an SRV record or an Amazon Route 53 health check. </li><li> (Optional) Under <b>Custom attributes</b>, specify any key-value pairs you want to associate with the resource. <br /> </li></ol> </td><td></td></tr>
+  <tr><td>EC2 instance</td><td> <ol><li> For <b>EC2 instance ID</b>, select the ID of the Amazon EC2 instance that you want to register as a AWS Cloud Map service instance. </li><li> (Optional) Under <b>Custom attributes</b>, specify any key-value pairs you want to associate with the resource. </li></ol> </td><td></td></tr>
+  <tr><td>Identifying information for another resource</td><td> <ol><li> Under <b>Standard attributes</b>, if the service configuration includes a <b>CNAME</b> DNS record, you'll see a <b>CNAME</b> field. For <b>CNAME</b>, specify the domain name that you want Route 53 to return in response to DNS queries (for example, <code>example.com</code>). </li><li> Under <b>Custom attributes</b>, specify any identifying information for a resource that isn't an IP address or an Amazon EC2 instance ID as a key-value pair. For example, you can register a Lambda function by specifying a key called <code>function</code> and providing the name of the Lambda function as a value. You can also specify a key called <code>name</code> and provide a name that you can use for programmatic instance discovery. </li></ol> </td><td></td></tr>
+</tbody>
+</table>
+
 
 1. Choose **Register service instance**.
 
