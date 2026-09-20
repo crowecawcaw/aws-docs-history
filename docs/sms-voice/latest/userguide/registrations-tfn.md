@@ -6,6 +6,9 @@
 **Important**  
 It can take up to 15 business days for your registration to be processed after it is submitted.
 
+**Important**  
+Starting September 15, 2026, all new toll-free number registrations require a **Privacy Policy URL** and a **Terms and Conditions URL**. Each URL must be publicly accessible and relevant to your business. Existing verified toll-free numbers are not affected by this requirement.
+
 If you use AWS End User Messaging SMS to send messages to recipients in the United States or the US territories of Puerto Rico, US Virgin Islands, Guam and American Samoa, you can use toll-free phone numbers (TFN) to deliver those messages. After you request a TFN you then complete and submit the registration for the TFN. Each TFN requires a specific use case. For example, if you register a TFN to use for one-time passwords, it can only be used for sending one-time passwords. If a TFN is used for anything other than the specified use case, it can be revoked. 
 
 **Register a toll-free number**

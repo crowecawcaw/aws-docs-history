@@ -31,7 +31,7 @@ The following table shows general MPS limits for dedicated long codes.
 
 | Geographic area | SMS MPS | MMS MPS | 
 | --- | --- | --- | 
-| United States (US) (10DLC) | Default: 1 MPS per 10DLC number. Higher limits require a separate MPS increase request and are not automatically increased when you externally vet your company or after your campaign is approved. Final eligible rates are carrier-dependent based on brand score and campaign type. To submit a limit increase for your 10DLC numbers to match 10DLC campaign qualifications, see [Quotas for AWS End User Messaging SMS](quotas.md). | 1 MPS | 
+| United States (US) (10DLC) | The send rate is determined by your approved 10DLC campaign and is applied automatically to the numbers associated with the campaign. The limit is shared across all numbers on the campaign. Final eligible rates are carrier-dependent, based on your campaign's throughput tier and campaign type. See [10DLC capabilities](registrations-10dlc.md#registrations-10dlc-capabilities). | 1 MPS | 
 | Canada (CA) | 1 MPS | 1 MPS | 
 | All other countries and regions | 10 MPS | N/A | 
 

@@ -71,8 +71,26 @@ The following are general prohibited content categories for all message types gl
 
   If you had a registration denied for a noncompliant use case and you feel that this designation is incorrect, you can submit a request through AWS support.
 
-  The following table describes the types of restricted content.    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sms-voice/latest/userguide/best-practices.html)
+  The following table describes the types of restricted content.
+
+
+<table>
+<thead>
+  <tr><th>Category</th><th>Examples</th></tr>
+</thead>
+<tbody>
+  <tr><td>Gambling</td><td> <ul><li> Casinos </li><li> Sweepstakes </li><li> App/Websites the offer gambling </li><li> 50/50 Raffles </li><li> Betting/Sports picks </li></ul> </td></tr>
+  <tr><td>High-risk financial services</td><td> <ul><li> Payday loans </li><li> Short-term high-interest loans </li><li> Auto loans </li><li> Mortgage loans </li><li> Student loans </li><li> Debt collection </li><li> Stock alerts </li><li> Cryptocurrency </li></ul> </td></tr>
+  <tr><td>Debt forgiveness</td><td> <ul><li> Debt consolidation </li><li> Debt reduction </li><li> Credit repair programs </li><li> Debt relief </li><li> Third-party debt collection </li></ul> </td></tr>
+  <tr><td>Get-rich-quick schemes</td><td> <ul><li> Work-from-home programs </li><li> Risk-investment opportunities </li><li> Pyramid or multi-level marketing schemes </li><li> Mystery shopping </li></ul> </td></tr>
+  <tr><td>Illegal substances</td><td> <ul><li> Cannabis/CBD </li><li> Kratom </li><li> Paraphernalia products </li><li> Fireworks </li><li> Vape/E-cig </li></ul> </td></tr>
+  <tr><td>Prescription drugs</td><td> <ul><li> Drugs that require a prescription </li></ul> </td></tr>
+  <tr><td>Phishing/smishing</td><td> <ul><li> Attempts to get users to reveal personal information or website login information. </li><li> Security awareness training that simulates phishing or smishing attacks. Even if the intended use is only for employee training purposes, these messages are not permitted via SMS. </li></ul> </td></tr>
+  <tr><td>S.H.A.F.T.</td><td> <ul><li> Sex </li><li> Hate </li><li> Alcohol </li><li> Firearms </li><li> Tobacco/Vape </li></ul> </td></tr>
+  <tr><td>Third-Party Lead Generation</td><td> <ul><li> Companies that buy, sell, or share consumer information </li><li> Affiliate lending </li><li> Affiliate marketing </li><li> deceptive marketing </li></ul> </td></tr>
+</tbody>
+</table>
+
 
 ### Obtain permission
 <a name="best-practices-sms-obtain-permission"></a>

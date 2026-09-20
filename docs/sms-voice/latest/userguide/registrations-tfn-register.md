@@ -72,6 +72,10 @@ Your business registration number is verified against official business registri
      +  **Booking confirmations** – Use this for sending booking and reservation confirmations.
      +  **Other** – Use this if your use case doesn't fall into any other category. Be sure that you fill out the **Use Case Details** for this option.
    + Complete **Use Case Details** to provide additional context to the selected **Use Case Category**.
+   + For **Privacy Policy URL**, enter the publicly accessible URL to your organization's privacy policy. The privacy policy must be relevant to your business and consistent with the opt-in disclosures presented to message recipients. The URL must be a valid, publicly accessible link with a maximum length of 500 characters.
+   + For **Terms and Conditions URL**, enter the publicly accessible URL to your organization's terms and conditions. The terms and conditions must be relevant to your business and consistent with the opt-in disclosures presented to message recipients. The URL must be a valid, publicly accessible link with a maximum length of 500 characters.
+**Note**  
+The **Privacy Policy URL** and **Terms and Conditions URL** fields are required for all new toll-free number registrations submitted on or after September 15, 2026. Existing verified toll-free numbers are not affected by this requirement. If you do not have publicly accessible URLs for these documents, you can use an [Amazon S3 presigned URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) to host them.
    + For **Opt-in category**, choose one of the following options:
      + **Verbal**
      + **Digital form**

@@ -22,3 +22,5 @@ This section explains how to check that status and capabilities of your phone nu
    + **Creation date** – The time the **Origination number** was requested.
 
    When you first purchase a phone number, the phone number's **Number status** is `PENDING`. When the phone number is ready to use, the phone number's **status** is `ACTIVE`. If the phone number requires registration then that must be completed before the phone number's **Number status** is changed to `ACTIVE`.
+
+To view the current send rate limits that apply to a phone number, choose the phone number and then choose the **Messaging limits** tab. For more information, see [View your current messaging limits](sms-limitations-mps-view.md).

@@ -22,8 +22,19 @@ It should take about 10–15 minutes to complete this tutorial.
 There are no country or regional restrictions associated with using this solution.
 
 **Resource Usage Costs**  
-There's no charge for creating an AWS account. However, by implementing this solution, you might incur some or all of the costs that are listed in the following table.      
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sms-voice/latest/userguide/getting-started-tutorial.html)
+There's no charge for creating an AWS account. However, by implementing this solution, you might incur some or all of the costs that are listed in the following table.  
+
+
+<table>
+<thead>
+  <tr><th>Description</th><th>Cost (US dollars)</th></tr>
+</thead>
+<tbody>
+  <tr><td>Message sending costs</td><td>You pay for each SMS message part that you send through AWS End User Messaging SMS. For more information about pricing, see <a href="https://aws.amazon.com/end-user-messaging/pricing/">AWS End User Messaging Pricing</a>.</td></tr>
+  <tr><td>Monthly phone number lease cost</td><td>You pay a recurring monthly fee to lease each phone number or sender ID. The monthly fee varies depending on the type of phone number and sender ID. For more information about pricing, see <a href="https://aws.amazon.com/end-user-messaging/pricing/">AWS End User Messaging Pricing</a>.</td></tr>
+</tbody>
+</table>
+
 
 **AWS account permissions**  
 The account that you use to sign in to the AWS Management Console has to be able to perform the following tasks:  

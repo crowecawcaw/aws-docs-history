@@ -9,9 +9,9 @@ You can set up 10DLC directly in the AWS End User Messaging SMS console. To set 
 
    The first step in setting up 10DLC is to register your company or brand. For information about company registration, see [10DLC brand registration form](registrations-10dlc-company.md). There is a one-time registration fee to register your company. This fee is shown on the registration page.
 
-1. **(Optional, but recommended) Apply for vetting**
+1. **(Optional) Apply for vetting**
 
-   If your company registration is successful, you can begin creating low-volume, mixed-use 10DLC campaigns. These campaigns can send 75 messages per minute to recipients who use AT&T, and your registered company can send 2,000 messages per day to recipients who use T-Mobile. If your use case requires a throughput rate that exceeds these values, you can apply for vetting of your company registration. Vetting your company registration can increase the throughput rates for your companies and campaigns, but it isn't guaranteed to do so. For more information about vetting, see [10DLC brand vetting form](registrations-10dlc-vetting.md).
+   We recommend completing this step if your use case requires higher throughput. If your company registration is successful, you can begin creating low-volume, mixed-use 10DLC campaigns. To increase the throughput that your campaigns qualify for, you can apply for vetting of your company registration. A higher vetting score can raise the throughput tier that your campaigns qualify for, but vetting is not guaranteed to increase your throughput. Because vetting scores are not applied retroactively to campaigns that you have already created, vet your company or brand *before* you create your 10DLC campaigns. For more information about vetting, see [10DLC brand vetting form](registrations-10dlc-vetting.md). For more information about how throughput is applied, see [10DLC capabilities](registrations-10dlc.md#registrations-10dlc-capabilities).
 
 1. **Register your campaign**
 
@@ -21,6 +21,6 @@ You can set up 10DLC directly in the AWS End User Messaging SMS console. To set 
 
 1. **Request your 10DLC number**
 
-   After your 10DLC campaign is approved, you can request a phone number and associate that number with the approved 10DLC campaign. Each phone number can only be associated with a single 10DLC campaign. For more information on requesting a 10DLC phone number, see [Request a phone number in AWS End User Messaging SMS](phone-numbers-request.md) and [Associating a long code with a 10DLC campaign](registrations-10dlc-associate.md). There is a monthly recurring fee for leasing the phone number. This fee is shown on the purchase page.
+   After your 10DLC campaign is approved, you can request a phone number and associate it with the approved campaign. When you request a number through the **Request originator** flow, you choose the registered brand and campaign to associate the number with as part of the request. You can also search for and choose a specific number by area code or pattern instead of receiving a random assignment. Each phone number can only be associated with a single 10DLC campaign, and a campaign can have more than one number associated with it. For more information, see [Request a phone number in AWS End User Messaging SMS](phone-numbers-request.md), [Choosing a 10DLC phone number by area code](phone-numbers-10dlc-select.md), and [Associating a long code with a 10DLC campaign](registrations-10dlc-associate.md). There is a monthly recurring fee for leasing the phone number. This fee is shown on the purchase page.
 **Note**  
 You are charged the monthly 10DLC number lease price regardless of status. For example, 10DLC numbers in a **Pending** state still generate a month fee. For more information about pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/).

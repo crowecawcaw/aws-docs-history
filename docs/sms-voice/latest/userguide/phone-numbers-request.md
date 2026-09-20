@@ -115,6 +115,10 @@ You must use a **Resource policy** to share the phone number with Amazon Pinpoin
 
 1. Choose **Next**.
 
+1. On the **Phone number selection – optional** page, you can search for and choose a specific phone number by area code or pattern, or continue without a selection to receive an available number. This option is available for United States 10DLC phone numbers. For more information about choosing a specific phone number, see [Choosing a 10DLC phone number by area code](phone-numbers-10dlc-select.md).
+
+1. Choose **Next**.
+
 1. On **Review and request** you can verify and edit your request before submitting it. Choose **Request**.
 
 1. A **Registration Required** window might appear depending on the type of phone number you requested. Your phone number or sender ID is associated with this registration and can't send messages until your registration has been approved. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md).

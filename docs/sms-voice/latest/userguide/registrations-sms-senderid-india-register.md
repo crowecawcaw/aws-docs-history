@@ -14,9 +14,23 @@ You may be charged a fee for registering your company.
 **Note**  
 If you are creating an account choose **Enterprise** as the entity type.
 
-1. You are required to create a chain of Telemarketers (TM) in your DLT platform for every Telemarketer in the table below. We use multiple providers so you are required to create multiple chains to ensure your SMS will be delivered.  
-**Telemarketer**    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sms-voice/latest/userguide/registrations-sms-senderid-india-register.html)
+1. You are required to create a chain of Telemarketers (TM) in your DLT platform for every Telemarketer in the table below. We use multiple providers so you are required to create multiple chains to ensure your SMS will be delivered.
+
+
+**Telemarketer**  
+
+<table>
+<thead>
+  <tr><th>Telemarketer Name</th><th>Telemarketer ID (TM ID)</th></tr>
+</thead>
+<tbody>
+  <tr><td>ROUTE LEDGER TECHNOLOGIES PRIVATE LIMITED</td><td>1002786139254391</td></tr>
+  <tr><td>Karix Mobile Pvt Ltd</td><td>110200001000</td></tr>
+  <tr><td>Sinch Cloud Communication Services India Private Limited</td><td>1102502720000073897</td></tr>
+  <tr><td>Infobip India Private Limited</td><td>110200001152</td></tr>
+</tbody>
+</table>
+
 **Note**  
 To complete your India sender ID registration in AWS End User Messaging SMS, only the **Karix Mobile Pvt Ltd** and **Sinch Cloud Communication Services India Private Limited** chain approvals are required. We recommend submitting chain requests for all telemarketers listed above, but you can proceed with your AWS End User Messaging SMS registration while awaiting approval from the remaining telemarketers.
 

@@ -3,7 +3,7 @@
 # Launching RCS in Brazil
 <a name="rcs-country-launch-br"></a>
 
-To launch your AWS RCS Agent in Brazil, submit a country launch registration using the `BR_RCS_LAUNCH_REGISTRATION` registration type. Brazil requires additional form fields and a brand approval email that you must send after submitting your registration.
+To launch your AWS RCS Agent in Brazil, submit a country launch registration using the `BR_RCS_LAUNCH_REGISTRATION` registration type. Brazil requires additional form fields, and ABR Telecom completes brand approval after you submit your registration.
 
 ## Registration form (console)
 <a name="rcs-country-launch-br-console"></a>
@@ -13,66 +13,29 @@ The Brazil launch registration uses a custom form with additional fields beyond 
 + **Use case selection** — Select the use case category for your RCS messaging.
 + **Tax code (CNPJ)** — Your Brazilian tax identification number (Cadastro Nacional da Pessoa Jurídica). This is required for all businesses operating in Brazil.
 + **Screenshot URL** — A URL to a screenshot demonstrating your RCS messaging experience.
-+ **Brand approval** — Confirmation that you have authorization to use the brand for RCS messaging in Brazil.
++ **Brand approval** — Confirmation that you have authorization to use the brand for RCS messaging in Brazil. ABR Telecom completes brand approval after you submit your registration. For details, see [Brand approval and launch timeline](#rcs-country-launch-br-timeline).
 + **Privacy policy and terms of service** — URLs to your privacy policy and terms of service pages.
 
 **Note**  
 The Brazil registration form does not require a video URL. A screenshot URL is used instead.
 
-## Brand approval email (required after registration)
-<a name="rcs-country-launch-br-loa"></a>
-
-**Important**  
-After you submit your registration in the AWS End User Messaging console, you must send a brand approval email. Your registration cannot be approved until this email is received and validated.
-
-The brand approval email is your authorization for AWS to operate an RCS agent on your behalf in Brazil. There is no separate document to sign or upload — the email itself serves as your Letter of Authorization (LOA).
-
-Send the following email after you submit your registration:
-
-```
-To: aws-end-user-messaging-rcs-approvals@amazon.com
-Subject: RCS Brand Approval [Agent Name] [Agent ID]
-
-I, [Name] as [Role] at [Company Name], grant Amazon Web Services the right
-to operate an RCS Business Messaging agent using the information specified
-in this email.
-
-Yours sincerely,
-
-[Name]
-[Role]
-[Company Name]
-
-Agent name: [Your Agent Display Name]
-Brand CNPJ: [Your CNPJ Number]
-Agent logo: [Attached or URL]
-Agent hero image: [Attached or URL]
-Agent description: [Your Agent Description]
-Terms of service: [Your Terms of Service URL]
-Privacy policy: [Your Privacy Policy URL]
-Agent ID: [Your RCS for Business ID]
-```
-
-**Note**  
-Your Agent ID (RCS for Business ID) can be found in the AWS End User Messaging console. Navigate to **SMS > RCS agents**, select your agent, then open the **Country launch status** tab. The Agent ID is listed as the **RCS for Business ID** in the Launch Status by Country section. The format is `{agent_name}_{unique_id}_agent`.
-
-**Important**  
-Send this email from the same email address you provided as the brand contact email in your registration form. Emails sent from a different address will not be accepted.
-+ The sender (From address) must be the brand contact person listed in your registration form.
-+ The CNPJ in the email must match what you entered in the registration form.
-+ No additional paperwork, signatures, or uploads are needed — the email is the complete authorization.
-
-## Approval timeline
+## Brand approval and launch timeline
 <a name="rcs-country-launch-br-timeline"></a>
 
-The Brazil approval process includes the following steps:
+In Brazil, ABR Telecom represents the three mobile operators (Claro, TIM, and Vivo) and manages the RCS agent launch workflow. You do not need to send a separate brand approval email to AWS. Complete brand approval as follows:
 
 1. Submit the country launch registration in the AWS End User Messaging console.
 
-1. Send the brand approval email to `aws-end-user-messaging-rcs-approvals@amazon.com`.
+1. ABR Telecom sends a brand approval email to the brand contact listed in your registration.
 
-1. AWS validates the email and forwards the authorization to the carriers on your behalf.
+1. The brand contact opens the email and chooses the confirmation button labeled **CONFIRMO** (Portuguese for "I confirm") to complete brand approval.
 
-1. Carrier review proceeds after brand authorization is validated.
+1. ABR Telecom launches the agent on the carriers, typically within 48 business hours after confirmation.
+
+**Note**  
+The approval email is sent from `rcs@abrtelecom.com.br`. If the brand contact does not see it, try the following:  
+Check the spam or junk folder.
+If your organization restricts external email, add the `abrtelecom.com.br` sender domain to your email allowlist.
+To resend the approval email, open the [status lookup page](https://rcs.abrportal.app/status-lookup) on the ABR Telecom website and choose **Reenviar E-mail de Aprovação da Marca** (Resend Brand Approval Email).
 
 For general compliance guidance that applies to all countries, see [RCS country launch compliance guide](rcs-country-launch-compliance.md).

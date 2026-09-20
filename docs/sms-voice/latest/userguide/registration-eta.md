@@ -24,6 +24,7 @@ The following table shows estimated registration processing times for different 
 | Country | ISO code | Origination identity type | Registration link | Estimated registration time | 
 | --- | --- | --- | --- | --- | 
 | United Arab Emirates | AE | Sender ID | [United Arab Emirates sender ID registration](registrations-united-arab-emirates.md) | 25 days | 
+| Austria | AT | Sender ID | [Austria](dedicated-number-austria.md) | 21 days | 
 | Austria | AT | Long Code | [Austria](dedicated-number-austria.md) | 15 days | 
 | Australia | AU | Sender ID | [Australia sender ID registration](registrations-australia.md) | 15 days | 
 | Australia | AU | Long Code | [Australia](dedicated-number-australia.md) | 15 days | 
@@ -36,7 +37,7 @@ The following table shows estimated registration processing times for different 
 | Egypt | EG | Sender ID | [Egypt sender ID registration](registrations-egypt.md) | 21 days | 
 | Spain | ES | Long Code | [Spain](dedicated-number-spain.md) | 15 days | 
 | Spain | ES | Short Code | [Spain](dedicated-number-spain.md) | 12 weeks | 
-| Spain | ES | Sender ID | [Spain sender ID registration](registrations-spain.md) | 4 weeks | 
+| Spain | ES | Sender ID | [Spain sender ID registration](registrations-spain.md) | 28 days | 
 | Finland | FI | Long Code | [Finland](dedicated-number-finland.md) | 15 days | 
 | Finland | FI | Short Code | [Finland](dedicated-number-finland.md) | 35 days | 
 | Finland | FI | Sender ID | [Finland sender ID registration](registrations-finland.md) | 25 days | 

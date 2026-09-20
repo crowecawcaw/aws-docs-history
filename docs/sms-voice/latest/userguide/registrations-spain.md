@@ -37,8 +37,20 @@ To complete your Spain sender ID registration, you must:
 1. **Create a Spain sender ID registration in the AWS console** – Start the registration process in the [AWS End User Messaging SMS console](https://console.aws.amazon.com/sms-voice/home) by creating a new Spain sender ID registration. This generates the TERCERO (third party) details you will need when registering in the CNMC portal. **Do not submit the AWS registration form yet** – you will complete and submit it in step 3 after your CNMC registration is done.
 
 1. **Register your sender ID in the CNMC National Alias Registry** (directly or through an appointed representative) – Go to [https://tramites.cnmc.gob.es/formulario/213/](https://tramites.cnmc.gob.es/formulario/213/) and authenticate with your valid digital certificate. During registration:
-   + Select each of our downstream SMS providers as **PRO** (Registered Provider of Origin) using the details provided in the AWS console in step 1:    
-[See the AWS documentation website for more details](http://docs.aws.amazon.com/sms-voice/latest/userguide/registrations-spain.html)
+   + Select each of our downstream SMS providers as **PRO** (Registered Provider of Origin) using the details provided in the AWS console in step 1:
+
+
+<table>
+<thead>
+  <tr><th>CNMC Portal Name</th><th>Provider</th></tr>
+</thead>
+<tbody>
+  <tr><td>SINCH COMMUNICATIONS SPAIN, S.L.</td><td>Sinch</td></tr>
+  <tr><td>VONAGE, B.V.</td><td>Vonage</td></tr>
+  <tr><td>Twilio Ireland Limited</td><td>Twilio</td></tr>
+</tbody>
+</table>
+
    + For the **TERCERO** (Third Party) field, enter the details provided in the AWS console.
    + Select the alias relationship type that applies to your sender ID.
 **Important**  

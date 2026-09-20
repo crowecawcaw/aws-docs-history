@@ -46,6 +46,11 @@ You will need to provide your companies address, a business contact, and a use c
 
 If your registration is rejected, its status will be changed to **Requires Updates** and you can make updates by following the directions in [Edit a registration in AWS End User Messaging SMS](registrations-edit.md).
 
+## What are the Privacy Policy URL and Terms and Conditions URL fields?
+<a name="registrations-tfn-register-faq9"></a>
+
+Starting September 15, 2026, all new toll-free number registrations require a **Privacy Policy URL** and a **Terms and Conditions URL**. Each field accepts a single publicly accessible URL with a maximum length of 500 characters. The URLs must point to documents that are relevant to your business and consistent with the opt-in disclosures presented to your message recipients. Existing verified toll-free numbers are not affected by this requirement.
+
 ## What permissions do I need?
 <a name="registrations-tfn-register-faq8"></a>
 

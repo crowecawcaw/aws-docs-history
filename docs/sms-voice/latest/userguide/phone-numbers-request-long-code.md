@@ -21,7 +21,6 @@ You can request a long code for the following countries through the AWS End User
 + Germany (DE)
 + Hong Kong (HK)
 + Hungary (HU)
-+ India (IN)
 + Italy (IT)
 + Netherlands (NL)
 + Norway (NO)

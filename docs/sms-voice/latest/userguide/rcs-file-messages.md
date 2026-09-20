@@ -7,7 +7,7 @@ You can use the `FileMessage` content type in the `SendRcsMessage` API to send i
 
 File messages are distinct from rich card media. A file message delivers a single piece of media as the entire message content, while rich cards combine media with text and suggested actions. For information about rich cards, see [Sending RCS rich cards](rcs-rich-cards.md).
 
-You can attach message-level suggestions (such as reply chips or action buttons) to file messages. For details about suggestions, see [Configuring RCS suggestions](rcs-suggestions.md).
+You can attach message-level suggestions, such as reply chips or action buttons, to file messages. For details about suggestions, see [Configuring RCS suggestions](rcs-suggestions.md).
 
 ## FileMessage structure
 <a name="rcs-file-messages-structure"></a>
@@ -18,8 +18,8 @@ The `FileMessage` object is nested inside the `Content` field of the `RcsMessage
 {
     "Content": {
         "FileMessage": {
-            "FileUrl": "s3://my-media-bucket/campaigns/welcome-image.png",
-            "ThumbnailUrl": "s3://my-media-bucket/thumbnails/welcome-thumb.jpg"
+            "FileUrl": "s3://amzn-s3-demo-bucket/campaigns/welcome-image.png",
+            "ThumbnailUrl": "s3://amzn-s3-demo-bucket/thumbnails/welcome-thumb.jpg"
         }
     },
     "Suggestions": []
@@ -27,29 +27,29 @@ The `FileMessage` object is nested inside the `Content` field of the `RcsMessage
 ```
 
 `FileUrl` (required)  
-The S3 or HTTPS URL of the file to send. Maximum length is 2,000 characters. The URL must match the pattern `^(https://|s3://).+$`. The maximum file size is 100 MB.
+The Amazon S3 or HTTPS URL of the file to send. Maximum length is 2,000 characters. The URL must match the pattern `^(https://|s3://).+$`. The maximum file size is 100 MB.
 
 `ThumbnailUrl` (optional)  
-The S3 or HTTPS URL of a thumbnail image. Maximum length is 2,000 characters. Follows the same URL pattern as `FileUrl`. Recommended for video and PDF files.
+The Amazon S3 or HTTPS URL of a thumbnail image. Maximum length is 2,000 characters. The URL follows the same URL pattern as `FileUrl`. Recommended for video and PDF files.
 
 ## File URL sources
 <a name="rcs-file-messages-url-sources"></a>
 
 The `FileUrl` parameter accepts two URL formats:
-+ **Amazon S3 URLs** (`s3://bucket-name/object-key`). When you specify an S3 URL, AWS End User Messaging retrieves the object, rehosts it, and generates a time-limited presigned URL for delivery to the recipient's device. The S3 bucket must have a resource-based policy that grants the service read access. See [S3 bucket policy for file delivery](#rcs-file-messages-s3-policy).
-+ **HTTPS URLs** (`https://cdn.example.com/path/to/file.jpg`). The URL is passed through to the carrier for delivery. The URL must be publicly accessible without authentication. Plain `http://` URLs are not supported.
++ **Amazon S3 URLs** (`s3://bucket-name/object-key`) – When you specify an Amazon S3 URL, AWS End User Messaging retrieves the object, rehosts it, and generates a time-limited presigned URL for delivery to the recipient's device. The S3 bucket must have a resource-based policy that grants the service read access. For more information, see [S3 bucket policy for file delivery](#rcs-file-messages-s3-policy).
++ **HTTPS URLs** (`https://cdn.example.com/path/to/file.jpg`) – The URL is passed through to the carrier for delivery. The URL must be publicly accessible without authentication. Plain `http://` URLs are not supported.
 
 **Note**  
-When you use an S3 URL, the API validates at request time that the object exists, is within size limits, and is accessible. If validation fails, the API returns a `ValidationException` with a descriptive error message. HTTPS URLs are not validated at request time in the same way.
+When you use an Amazon S3 URL, the API validates at request time that the object exists, is within size limits, and is accessible. If validation fails, the API returns a `ValidationException` error with a descriptive error message. HTTPS URLs are not validated at request time in the same way.
 
 ## S3 bucket policy for file delivery
 <a name="rcs-file-messages-s3-policy"></a>
 
-To allow AWS End User Messaging to retrieve files from your Amazon S3 bucket, attach the following resource-based policy to the bucket:
+To allow AWS End User Messaging to retrieve files from your S3 bucket, attach the following resource-based policy to the bucket:
 
 ```
 {
-    "Version": "2012-10-17", 		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -57,16 +57,21 @@ To allow AWS End User Messaging to retrieve files from your Amazon S3 bucket, at
                 "Service": "sms-voice.amazonaws.com"
             },
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::YOUR-BUCKET/*"
+            "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "{{123456789012}}"
+                }
+            }
         }
     ]
 }
 ```
 
-Replace `YOUR-BUCKET` with your bucket name. To restrict access to a specific prefix, replace `/*` with the desired path (for example, `arn:aws:s3:::YOUR-BUCKET/rcs-media/*`).
+Replace {{123456789012}} with the account ID for your AWS account. Replace {{amzn-s3-demo-bucket}} with the name of your S3 bucket. To restrict access to a specific prefix in the bucket, replace `/*` with the path—for example, `arn:aws:s3:::amzn-s3-demo-bucket/rcs-media/*`.
 
 **Note**  
-If your bucket uses SSE-KMS encryption, you must also grant the `sms-voice.amazonaws.com` service permission to use the KMS key in the key policy. SSE-S3 encryption does not require additional configuration.
+If your S3 bucket uses SSE-KMS encryption, the key policy for the AWS KMS key must also grant permissions for the `sms-voice.amazonaws.com` service to use the key. SSE-S3 encryption does not require additional configuration.
 
 ## Supported media types and size limits
 <a name="rcs-file-messages-media-types"></a>
@@ -91,24 +96,24 @@ The 100 MB file size limit is enforced at the API layer. Individual carriers mig
 ## Thumbnails
 <a name="rcs-file-messages-thumbnails"></a>
 
-You can provide a thumbnail image for video and PDF file messages using the `ThumbnailUrl` parameter. The thumbnail displays as a preview in the conversation before the recipient opens or downloads the full file.
-+ Supported thumbnail formats: JPEG, PNG.
-+ The thumbnail URL follows the same format rules as `FileUrl` (S3 or HTTPS, maximum 2,000 characters).
+You can provide a thumbnail image for video and PDF file messages by using the `ThumbnailUrl` parameter. The thumbnail displays as a preview in the conversation before the recipient opens or downloads the full file.
++ Supported thumbnail formats are JPEG and PNG.
++ The thumbnail URL follows the same format rules as `FileUrl` (Amazon S3 or HTTPS, maximum 2,000 characters).
 + Use an aspect ratio that matches the original file to avoid cropping on the device.
 
 ## Sending a file message
 <a name="rcs-file-messages-sending"></a>
 
-To send a file message, call the `SendRcsMessage` API with a `FileMessage` object inside the `RcsMessageContent` parameter. You specify the origination identity (a pool or an AWS RCS Agent) using the `--origination-identity` parameter.
+To send a file message, call the `SendRcsMessage` API with a `FileMessage` object inside the `RcsMessageContent` parameter. You specify the origination identity (a pool or an AWS RCS Agent) by using the `--origination-identity` parameter.
 
-The following JSON shows the `RcsMessageContent` value for a file message with suggestions:
+The following JSON example shows the `RcsMessageContent` value for a file message with suggestions.
 
 ```
 {
     "Content": {
         "FileMessage": {
-            "FileUrl": "s3://my-media-bucket/documents/invoice.pdf",
-            "ThumbnailUrl": "s3://my-media-bucket/thumbnails/invoice-thumb.jpg"
+            "FileUrl": "s3://amzn-s3-demo-bucket/documents/invoice.pdf",
+            "ThumbnailUrl": "s3://amzn-s3-demo-bucket/thumbnails/invoice-thumb.jpg"
         }
     },
     "Suggestions": [
@@ -125,7 +130,7 @@ The following JSON shows the `RcsMessageContent` value for a file message with s
 ## Delivery and fallback
 <a name="rcs-file-messages-delivery"></a>
 
-When you send a file message, AWS End User Messaging attempts to deliver it over the RCS channel. If the recipient's device does not support RCS, or if the message expires before delivery (based on the `TimeToLive` value), the service can fall back to SMS or MMS depending on your fallback configuration.
+When you send a file message, AWS End User Messaging attempts to deliver it over the RCS channel. If the recipient's device does not support RCS or the message expires before delivery (based on the `TimeToLive` value), the service can fall back to SMS or MMS depending on your fallback configuration.
 
 You can configure SMS or MMS fallback at the pool level or per message. For details about fallback behavior, see [Sending rich RCS messages](rcs-rich-messaging.md).
 
