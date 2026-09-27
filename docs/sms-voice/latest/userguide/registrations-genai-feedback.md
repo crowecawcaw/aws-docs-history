@@ -9,12 +9,12 @@ The registration reviewer is designed to provide early feedback on the quality o
 The registration reviewer is a Gen-AI feature available in public preview under AWS End User Messaging SMS. The registration reviewer provides you Gen-AI feedback on your phone number or sender ID registration before submitting for carrier review. The reviewer will check your registration for common denial reasons or format requirements and provide feedback saving time-to-approval. Once you submit your registration for feedback, it will move to carrier review if no additional updates are required or will move to "requires Updates" with feedback on the registration form. The registration reviewer provides two levels of feedback including a summary on the form itself, and field level feedback including a denial reason and descriptive feedback with possible suggestions.
 
 ## Improving the registration reviewer
-<a name="w2aac34c29b7"></a>
+<a name="w2aac37c29b7"></a>
 
 AWS End User Messaging may use certain information from your registrations and feedback to improve the registration reviewer feature. End User Messaging may use this information, for example, to provide better feedback on your registrations, such as providing better feedback on how to format your message samples or use-case descriptions. If you would like to opt-out from End User Messaging using registration information and registration feedback to improve the registration reviewer feature, you can submit your registration without using the registration reviewer feature.
 
 ## Data handling for registration reviewer
-<a name="w2aac34c29b9"></a>
+<a name="w2aac37c29b9"></a>
 
 The registration reviewer feature may require that your registration information and feedback be processed in a different AWS region than the AWS region you selected for End User Messaging. For example, when addressing a request for registration feedback, the feature uses Amazon Bedrock models to process your registration information and registration feedback. The models may process such requests from a region other than the AWS region you selected for End User Messaging. Your registration information and feedback are encrypted while transmitted across Amazon's secure network for the purpose of this cross-region processing. This cross-region processing does not change where your registration information and registration feedback is stored, and those items will still be stored in the AWS region you selected for End User Messaging.
 
@@ -22,7 +22,7 @@ The registration reviewer feature may require that your registration information
 The registration reviewer feature is a public preview feature governed by your agreement with AWS governing your use of AWS services and by sections 1 and 2 of the AWS Service Terms. While the feature is currently offered at no charge, feature pricing is subject to change. Standard pricing for AWS End User Messaging SMS still applies when you send SMS with End User Messaging.
 
 ## Using Gen-AI feedback
-<a name="w2aac34c29c13"></a>
+<a name="w2aac37c29c13"></a>
 
 ------
 #### [ Using Gen-AI feedback (Console) ]
@@ -71,8 +71,8 @@ In the preceding example, do the following:
 ------
 
 **Topics**
-+ [Improving the registration reviewer](#w2aac34c29b7)
-+ [Data handling for registration reviewer](#w2aac34c29b9)
-+ [Using Gen-AI feedback](#w2aac34c29c13)
++ [Improving the registration reviewer](#w2aac37c29b7)
++ [Data handling for registration reviewer](#w2aac37c29b9)
++ [Using Gen-AI feedback](#w2aac37c29c13)
 + [Understanding rejection reasons](understanding-rejection-reasons.md)
 + [Get help with registration issues](registrations-request-support.md)

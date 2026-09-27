@@ -47,6 +47,7 @@ The following table shows estimated registration processing times for different 
 | Hong Kong | HK | Long Code | [Hong Kong](dedicated-number-hong-kong.md) | 21 days | 
 | Hungary | HU | Long Code | [Hungary](dedicated-number-hungary.md) | 7 days | 
 | Indonesia | ID | Sender ID | [Indonesia sender ID registration](registrations-indonesia.md) | 50 days | 
+| Ireland | IE | Sender ID | [Ireland sender ID registration](registrations-ireland.md) | 15 days | 
 | India | IN | Short Code | [India](dedicated-number-india.md) | 25 days | 
 | India | IN | Sender ID | [India sender ID registration](registrations-sms-senderid-india.md) | 1 day | 
 | Italy | IT | Long Code | [Italy](dedicated-number-italy.md) | 10 days | 
