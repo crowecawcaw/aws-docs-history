@@ -64,7 +64,13 @@ Value Pattern: `([\p{L}\p{Z}\p{N}_.:/=+\-@]*)`
 Required: No
 
  ** [ResourceTypes](#API_ListResourceTelemetry_RequestSyntax) **   <a name="cwoa-ListResourceTelemetry-request-ResourceTypes"></a>
- A list of resource types used to filter resources supported by telemetry config. If this parameter is provided, the resources will be returned in the same order used in the request.   
+ A list of resource types used to filter resources supported by telemetry config. If this parameter is provided, the service returns the resources in the same order as specified in the request. Currently supported resource types for discovery are:  
++  `AWS::EC2::Instance` 
++  `AWS::EC2::VPC` 
++  `AWS::Lambda::Function` 
++  `AWS::EKS::Cluster` 
++  `AWS::WAFv2::WebACL` 
++  `AWS::ElasticLoadBalancingV2::LoadBalancer` (Network Load Balancers only)
 Type: Array of strings  
 Array Members: Minimum number of 1 item. Maximum number of 9 items.  
 Valid Values: `AWS::EC2::Instance | AWS::EC2::VPC | AWS::Lambda::Function | AWS::CloudTrail | AWS::EKS::Cluster | AWS::WAFv2::WebACL | AWS::ElasticLoadBalancingV2::LoadBalancer | AWS::Route53Resolver::ResolverEndpoint | AWS::BedrockAgentCore::Runtime | AWS::BedrockAgentCore::Browser | AWS::BedrockAgentCore::CodeInterpreter | AWS::BedrockAgentCore::Gateway | AWS::BedrockAgentCore::Memory | AWS::BedrockAgentCore::WorkloadIdentity | AWS::SecurityHub::Hub | AWS::CloudFront::Distribution | AWS::SecurityHub::HubV2 | AWS::CloudWatch::OTelEnrichment | AWS::MSK::Cluster | AWS::S3::Bucket | AWS::Bedrock::KnowledgeBase`   

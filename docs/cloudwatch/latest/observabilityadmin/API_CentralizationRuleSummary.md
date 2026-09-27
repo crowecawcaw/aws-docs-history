@@ -8,6 +8,12 @@ A summary of a centralization rule's key properties and status.
 ## Contents
 <a name="API_CentralizationRuleSummary_Contents"></a>
 
+ ** ContextGraphStatus **   <a name="cwoa-Type-CentralizationRuleSummary-ContextGraphStatus"></a>
+The status of context graph centralization for this rule. Returns `Provisioning` while the context graph is being set up, `Healthy` once it is active, or `Unhealthy` if provisioning failed. This status is independent of the overall `RuleHealth` for log delivery.  
+Type: String  
+Valid Values: `Healthy | Unhealthy | Provisioning`   
+Required: No
+
  ** CreatedRegion **   <a name="cwoa-Type-CentralizationRuleSummary-CreatedRegion"></a>
 The AWS region where the organization centralization rule was created.  
 Type: String  

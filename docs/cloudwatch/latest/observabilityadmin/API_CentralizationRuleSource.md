@@ -21,6 +21,11 @@ Type: String
 Length Constraints: Minimum length of 1. Maximum length of 2000.  
 Required: No
 
+ ** SourceContextGraphConfiguration **   <a name="cwoa-Type-CentralizationRuleSource-SourceContextGraphConfiguration"></a>
+Configuration that enables centralization of the context graph for the selected sources. Including this configuration in a rule's source opts the rule into centralizing the context graph for the selected sources.  
+Type: [SourceContextGraphConfiguration](API_SourceContextGraphConfiguration.md) object  
+Required: No
+
  ** SourceLogsConfiguration **   <a name="cwoa-Type-CentralizationRuleSource-SourceLogsConfiguration"></a>
 Log specific configuration for centralization source log groups.  
 Type: [SourceLogsConfiguration](API_SourceLogsConfiguration.md) object  

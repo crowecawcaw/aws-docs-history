@@ -73,6 +73,8 @@ Content-type: application/json
       "Source": { 
          "Regions": [ "string" ],
          "Scope": "string",
+         "SourceContextGraphConfiguration": { 
+         },
          "SourceLogsConfiguration": { 
             "DataSourceSelectionCriteria": "string",
             "EncryptedLogGroupStrategy": "string",
@@ -83,6 +85,7 @@ Content-type: application/json
          }
       }
    },
+   "ContextGraphStatus": "string",
    "CreatedRegion": "string",
    "CreatedTimeStamp": number,
    "CreatorAccountId": "string",
@@ -106,6 +109,11 @@ The following data is returned in JSON format by the service.
  ** [CentralizationRule](#API_GetCentralizationRuleForOrganization_ResponseSyntax) **   <a name="cwoa-GetCentralizationRuleForOrganization-response-CentralizationRule"></a>
 The configuration details for the organization centralization rule.  
 Type: [CentralizationRule](API_CentralizationRule.md) object
+
+ ** [ContextGraphStatus](#API_GetCentralizationRuleForOrganization_ResponseSyntax) **   <a name="cwoa-GetCentralizationRuleForOrganization-response-ContextGraphStatus"></a>
+The status of context graph centralization for this rule. Returns `Provisioning` while the context graph is being set up, `Healthy` once it is active, or `Unhealthy` if provisioning failed. This status is independent of the overall `RuleHealth` for log delivery.  
+Type: String  
+Valid Values: `Healthy | Unhealthy | Provisioning` 
 
  ** [CreatedRegion](#API_GetCentralizationRuleForOrganization_ResponseSyntax) **   <a name="cwoa-GetCentralizationRuleForOrganization-response-CreatedRegion"></a>
 The AWS region where the organization centralization rule was created.  
