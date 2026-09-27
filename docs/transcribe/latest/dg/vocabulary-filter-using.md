@@ -5,6 +5,8 @@
 
 Once your custom vocabulary filter is created, you can include it in your transcription requests; refer to the following sections for examples.
 
+A custom vocabulary filter is available for use as soon as you create it.
+
 The language of the custom vocabulary filter you're including in your request must match the language code you specify for your media. If you use language identification and specify multiple language options, you can include one custom vocabulary filter per specified language. If the languages of your custom vocabulary filters don't match the language identified in your audio, your filters are not applied to your transcription and there are no warnings or errors.
 
 ## Using a custom vocabulary filter in a batch transcription

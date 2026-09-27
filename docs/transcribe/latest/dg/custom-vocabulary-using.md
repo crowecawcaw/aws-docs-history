@@ -5,6 +5,8 @@
 
 Once your custom vocabulary is created, you can include it in your transcription requests; refer to the following sections for examples.
 
+A custom vocabulary must be in the `READY` state before you can use it in a transcription request.
+
 The language of the custom vocabulary you're including in your request must match the language code you specify for your media. If the languages don't match, your custom vocabulary is not applied to your transcription and there are no warnings or errors.
 
 ## Using a custom vocabulary in a batch transcription

@@ -10,7 +10,7 @@ Unlike custom vocabularies, which increase recognition of a word by providing hi
 To view the supported languages for custom language models, refer to [Supported languages and language-specific features](supported-languages.md). Note that if you include a custom language model in your request, you can't enable language identification (you must specify a language code).
 
 **API operations specific to custom language models**  
- [`CreateLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html), [`DeleteLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteLanguageModel.html), [`DescribeLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DescribeLanguageModel.html), [`ListLanguageModels`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListLanguageModels.html) 
+ [`CreateLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html), [`DeleteLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DeleteLanguageModel.html), [`DescribeLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DescribeLanguageModel.html), [`ListLanguageModels`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ListLanguageModels.html), [`UpdateLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_UpdateLanguageModel.html) 
 
 ## Data sources
 <a name="custom-language-models-data-sources"></a>

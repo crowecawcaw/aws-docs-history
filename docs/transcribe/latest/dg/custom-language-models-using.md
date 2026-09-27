@@ -5,6 +5,8 @@
 
 Once you've created your custom language model, you can include it in your transcription requests; refer to the following sections for examples.
 
+A custom language model must finish building before you can use it in a transcription request. Its `ModelStatus` is `COMPLETED` when the model is ready.
+
 The language of the model you're including in your request must match the language code you specify for your media. If the languages don't match, your custom language model is not applied to your transcription and there are no warnings or errors.
 
 ## Using a custom language model in a batch transcription

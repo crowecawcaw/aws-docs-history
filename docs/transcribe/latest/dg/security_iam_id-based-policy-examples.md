@@ -14,6 +14,7 @@ For details about actions and resource types defined by Amazon Transcribe, inclu
 + [Using the AWS Management Console](#security_iam_id-based-policy-examples-console)
 + [Permissions required for IAM roles](#auth-role-iam-user)
 + [Permissions required for Amazon S3 encryption keys](#auth-role-kms-key)
++ [Permissions required for customer-managed key encryption](#auth-role-cmk)
 + [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
 + [AWS KMS encryption context policy](#kms-context-policy)
 + [Confused deputy prevention policy](#confused-deputy-policy)
@@ -210,6 +211,67 @@ If you're using a KMS key to encrypt an Amazon S3 bucket, include the following 
       "Resource": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{KMS-Example-KeyId}}"
     }
   ]
+}
+```
+
+------
+
+## Permissions required for customer-managed key encryption
+<a name="auth-role-cmk"></a>
+
+If you use a customer-managed KMS key to encrypt your custom vocabularies, custom vocabulary filters, or custom language models, both the caller making the API request and the IAM role you specify in `DataAccessRoleArn` need access to the key. Both must have the following AWS KMS permissions on the key, and your key policy must grant permissions to both. For more information about encrypting resource artifacts with a customer-managed key, see [Encrypting resource artifacts with a customer-managed key](data-encryption.md#kms-resource-encryption).
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:DescribeKey",
+                "kms:GenerateDataKey*"
+            ],
+            "Resource": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{KMS-Example-KeyId}}"
+        }
+    ]
+}
+```
+
+------
+
+You must also add a key policy to your customer-managed key that grants the data access role permission to use the key. The following is an example key policy.
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "Allow use of the key",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{{111122223333}}:role/{{ExampleDataAccessRole}}"
+            },
+            "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:GenerateDataKey*",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        }
+    ]
 }
 ```
 

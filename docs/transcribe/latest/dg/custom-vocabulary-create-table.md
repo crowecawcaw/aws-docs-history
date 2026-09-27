@@ -180,3 +180,6 @@ print(status)
 
 **Note**  
 If you create a new Amazon S3 bucket for your custom vocabulary files, make sure the IAM role making the [`CreateVocabulary`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html) request has permissions to access this bucket. If the role doesn't have the correct permissions, your request fails. You can optionally specify an IAM role within your request by including the `DataAccessRoleArn` parameter. For more information on IAM roles and policies in Amazon Transcribe, see [Amazon Transcribe identity-based policy examples](security_iam_id-based-policy-examples.md).
+
+**Note**  
+To encrypt your custom vocabulary artifacts at rest with a customer-managed KMS key, include an `EncryptionConfiguration` in your [`CreateVocabulary`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateVocabulary.html) request. For more information about encrypting resource artifacts with a customer-managed key, see [Encrypting resource artifacts with a customer-managed key](data-encryption.md#kms-resource-encryption).

@@ -142,11 +142,14 @@ while True:
 print(status)
 ```
 
-## Updating your custom language model
+**Note**  
+To encrypt your custom language model artifacts at rest with a customer-managed KMS key, include an `EncryptionConfiguration` in your [`CreateLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_CreateLanguageModel.html) request. For more information about encrypting resource artifacts with a customer-managed key, see [Encrypting resource artifacts with a customer-managed key](data-encryption.md#kms-resource-encryption).
+
+## Upgrading your custom language model base
 <a name="update-custom-language-model"></a>
 
 Amazon Transcribe continually updates the base models available for custom language models. To benefit from these updates, we recommend training new custom language models every 6 to 12 months.
 
 To see if your custom language model is using the latest base model, run a [`DescribeLanguageModel`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_DescribeLanguageModel.html) request using the AWS CLI or an AWS SDK, then find the `UpgradeAvailability` field in your response.
 
-If `UpgradeAvailability` is `true`, your model is not running the latest version of the base model. To use the latest base model in a custom language model, you must create a new custom language model. Custom language models cannot be upgraded.
+If `UpgradeAvailability` is `true`, your model is not running the latest version of the base model. The base model of an existing custom language model cannot be upgraded in place. To use the latest base model, create a new custom language model.
