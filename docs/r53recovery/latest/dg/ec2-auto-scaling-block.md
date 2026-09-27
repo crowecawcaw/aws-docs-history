@@ -35,6 +35,12 @@ To configure a EC2 Auto Scaling group execution block, enter the following value
 
      To use this option, you must first enable group metrics for your Auto Scaling groups. For more information, see [Enable Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-metrics.html#as-enable-group-metrics) in the Amazon EC2 Auto Scaling User Guide.
 
+1. **Wait for target group health: ** Whether Region switch waits for the Auto Scaling group's instances to become healthy in their associated Elastic Load Balancing target groups before completing the step.
+   + When enabled, Region switch checks target group health after scaling capacity. Region switch does not proceed to the next step until every associated target group reports the required number of instances as `healthy`. The required number is the desired capacity Region switch calculates for the step, the same capacity it waits for when scaling.
+   + When disabled, the step completes as soon as the target Auto Scaling group reaches the desired capacity of `InService` instances, without checking target group health.
+
+   In the Region switch API, this option corresponds to specifying `waitELBTargetGroupHealthy` as either `enabled` or `disabled`.
+
 1. **Timeout: **Enter a timeout value.
 
 Then, choose **Save step.**
@@ -42,15 +48,18 @@ Then, choose **Save step.**
 ## How it works
 <a name="ec2-auto-scaling-block-how"></a>
 
-After you configure an EC2 Auto Scaling execution block, Region switch confirms that there is only one source Auto Scaling group and one destination Auto Scaling group. If there are multiple Auto Scaling groups, the execution block fails during plan evaluation. The target capacity is defined as the number of instances have a state that is set to `InService`. For more information, see [ EC2 Auto Scaling instance lifecycle](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html).
+When the block runs, Region switch reads the source Region's maximum running capacity over the last 24 hours, measured by the capacity monitoring approach you selected. It calculates the target capacity with the formula `ceil(percentToMatch * source capacity)`, where ceil() rounds up any fractional result, and measures capacity as the number of instances in the `InService` state. It then scales up the destination group to match this capacity. Region switch scales up the destination group only when its current desired capacity is less than the calculated target. If the current desired capacity is already greater than or equal to the target, the block proceeds without scaling (Region switch never scales down). This calculation applies to both active/passive and active/active plans.
 
-Based on the value that you specify (when you configure the Auto Scaling execution block) for a matching percentage, Region switch calculates the new desired capacity for the destination Auto Scaling group. The new desired capacity is compared against the destination Auto Scaling group's desired capacity. The formula that Region switch uses to calculate desired capacity is the following: `ceil(percentToMatch * Source Auto Scaling group capacity)`, where ceil() is a function that rounds up any fractional result. If the current desired capacity of the destination Auto Scaling group is greater than or equal to the desired capacity of the new Auto Scaling group that Region switch calculates, the execution block proceeds. Note that Region switch does not scale down Auto Scaling group capacity.
+The source capacity is always that of the other Region. In an active/active plan, Region switch uses the other configured Region as the source in both the activate and deactivate workflows.
 
-When Region switch executes an Auto Scaling block, Region switch attempts to scale up the target Region Auto Scaling group capacity to match the desired capacity. Then, Region switch waits until the requested Auto Scaling group capacity is fulfilled in the target Region's Auto Scaling group before Region switch proceeds to the next step in the plan.
+Region switch waits until the destination group's capacity is fulfilled before proceeding to the next step. When you enable **Wait for target group health**, Region switch checks target group health after the destination group reaches its desired capacity. It reads the Elastic Load Balancing target groups attached to the group and polls their health until every attached target group reports the desired capacity as `healthy`. This check runs whether or not scaling occurred, so even if the group already had the desired capacity, Region switch verifies target group health before completing the step. For ungraceful execution, it instead waits for the minimum percentage of capacity to be `healthy`.
+
+An instance counts toward the healthy total only when it is `InService` in the Auto Scaling group and its matching target group entry is `healthy`. Region switch identifies instances by EC2 instance ID and re-reads the group on each poll, so instances that are still launching, running a lifecycle hook, or held in a warm pool aren't counted until they reach `InService`. The step completes only after all required instances are healthy across every attached target group. If the group has no attached target groups, Region switch skips the check and completes the step. If the required instances don't become healthy before the timeout, the step fails.
 
 **Note**  
-Executing this block modifies the minimum and desired capacity settings of your Auto Scaling groups, which may cause configuration drift if you manage these values through infrastructure-as-code tools or other automation. Ensure your configuration management processes account for these changes to prevent unintended rollbacks.
+The **Wait for target group health** option supports only Application Load Balancer (ALB) and Network Load Balancer (NLB) target groups. It doesn't support Classic Load Balancer. If your Auto Scaling group is associated only with a Classic Load Balancer, enabling this option has no effect.
 
-If you’re using an active/active approach, Region switch uses the other configured Region as the source. That is, if a Region is being deactivated, Region switch uses the other active Region as the source to match for the percent to scale.
+The block supports both graceful and ungraceful execution. For ungraceful execution, you specify the minimum percentage of compute capacity to match in the destination Region before Region switch proceeds. The percentage of capacity you specify in the execution block, or as the minimum percentage for ungraceful execution, applies to both scaling and waiting for target group health.
 
-This block supports both graceful and ungraceful execution modes. You can configure ungraceful execution by specifying the minimum percentage of compute capacity to be matched in the target Region before Region switch proceeds to the next step in the plan.
+**Note**  
+Executing this block modifies the minimum and desired capacity settings of your Auto Scaling groups, which can cause configuration drift if you manage these values through infrastructure-as-code or other automation. Make sure your configuration management processes account for these changes to prevent unintended rollbacks.

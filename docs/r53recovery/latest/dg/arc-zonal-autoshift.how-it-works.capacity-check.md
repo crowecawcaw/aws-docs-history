@@ -11,7 +11,7 @@ Checks for balanced capacity are only completed for load balancers and Auto Scal
 
 For a load balancer resource, capacity checks validate that healthy hosts associated with the load balancer are distributed across Availability Zones. Specifically, capacity checks make sure that the number of healthy hosts across all Availability Zones where the resource is registered are balanced. For capacity checks, balanced means that the healthy capacity for each Availability Zone is in parity with the other zones, within a small variance.
 
-Note that capacity checks are not applied to load balancers with target groups of type Lambda nor to Application Load Balancers, because those targets are not configured zonally.
+Note that capacity checks are not applied to load balancers with target groups of type Lambda nor to load balancers with target groups of type Application Load Balancer, because those targets are not configured zonally.
 
 Capacity checks are also completed for Auto Scaling groups. For an Auto Scaling group, capacity checks validate that the total healthy zonal capacity of an Auto Scaling group–that is, the number of total healthy hosts across all the Availability Zones–meet the desired capacity set for that Auto Scaling group. 
 

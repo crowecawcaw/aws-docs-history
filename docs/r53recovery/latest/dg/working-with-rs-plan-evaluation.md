@@ -22,17 +22,17 @@ Region switch performs specific checks for each execution block type in your pla
 - **[Amazon EC2 Auto Scaling group execution block](ec2-auto-scaling-block.md)**
   - **Check category:** Resource accessibility / **Description:** Checks that Auto Scaling groups exist and are accessible to Region switch via the plan's configured execution role or cross-account role.
   - **Check category:** Capacity / **Description:** Checks that the maximum capacity of the target Region's Auto Scaling group is sufficient to scale up to the source Region's capacity.
-  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for Auto Scaling operations.
+  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for Auto Scaling operations. If the plan has service quota checks enabled, also checks that the role has the permissions required to read and compare quotas for this execution block (for example, servicequotas:GetServiceQuota, autoscaling:DescribeAutoScalingGroups, and ec2:DescribeInstances).
 
 - **[Amazon EKS resource scaling execution block](eks-resource-scaling-block.md)**
   - **Check category:** Resource accessibility / **Description:** Checks that the Amazon EKS cluster exists and the Kubernetes resource is present in the cluster.
   - **Check category:** Kubernetes permissions / **Description:** Checks that the IAM role is mapped to the AmazonARCRegionSwitchScalingPolicy EKS Access Entry so Region switch can act on the Kubernetes resources. The EKS Access Entry policy is not mandatory as long as the required EKS permissions are supplied through k8 User Groups.
-  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for Amazon EKS operations.
+  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for Amazon EKS operations. If the plan has service quota checks enabled, also checks that the role has the permissions required to read and compare quotas for this execution block (for example, servicequotas:GetServiceQuota and eks:ListNodegroups).
 
 - **[Amazon ECS service scaling execution block](ecs-service-scaling-block.md)**
   - **Check category:** Resource accessibility / **Description:** Checks that the Amazon ECS cluster and service exist and are correctly associated.
   - **Check category:** Capacity / **Description:** Checks that the maximum autoscaling capacity of the target Amazon ECS service is sufficient to handle the required traffic load during failover.
-  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for Amazon ECS operations.
+  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for Amazon ECS operations. If the plan has service quota checks enabled, also checks that the role has the permissions required to read and compare quotas for this execution block (for example, servicequotas:GetServiceQuota and ecs:DescribeServices).
 
 - **[ARC routing control execution block](arc-routing-controls-block.md)**
   - **Check category:** Resource accessibility / **Description:** Checks that the routing control exists and the role is authorized to access the control panel.
@@ -45,7 +45,7 @@ Region switch performs specific checks for each execution block type in your pla
 
 - **[Aurora Provisioned Scaling execution block](aurora-provisioned-scaling-block.md)**
   - **Check category:** Resource accessibility / **Description:** Checks that instance and cluster ARNs are well-formed, instances exist, instances belong to the expected cluster, and clusters are members of the specified global cluster.
-  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for Aurora provisioned scaling.
+  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for Aurora provisioned scaling. If the plan has service quota checks enabled, also checks that the role has the permissions required to read and compare quotas for this execution block (for example, servicequotas:GetServiceQuota and rds:DescribeDBInstances).
 
 - **[Aurora Serverless Scaling execution block](aurora-serverless-scaling-block.md)**
   - **Check category:** Resource accessibility / **Description:** Checks that Aurora Serverless clusters are present in the expected Regions and contain Serverless v2 instances.
@@ -68,7 +68,7 @@ Region switch performs specific checks for each execution block type in your pla
 
 - **[Amazon RDS Create Cross-Region Replica execution block](rds-create-cross-region-replica-block.md)**
   - **Check category:** Resource accessibility / **Description:** Checks that DB instances exist and backup is enabled on the source instance.
-  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for creating Amazon RDS read replicas.
+  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for creating Amazon RDS read replicas. If the plan has service quota checks enabled, also checks that the role has the permissions required to read and compare quotas for this execution block (for example, servicequotas:GetServiceQuota and rds:DescribeDBInstances).
 
 - **[Amazon RDS Switchover Read Replica execution block](rds-switchover-read-replica-block.md)**
   - **Check category:** Resource accessibility / **Description:** Checks that the standby instance is in mounted or open read-only state, is actively replicating, and has automatic backups enabled.
@@ -96,6 +96,9 @@ Region switch performs specific checks for each execution block type in your pla
   - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role is authorized to access the hosted zone.
 
 
+
+**Note**  
+When an execution block accesses a resource in a different AWS account through a cross-account role, grant that cross-account role the same permissions listed for the block in the preceding table. Region switch assumes the cross-account role to perform these checks, so the cross-account role must have the required IAM and service quota permissions for the resource that it accesses.
 
 ## Plan-level evaluation checks
 <a name="working-with-rs-plan-evaluation-plan-level"></a>

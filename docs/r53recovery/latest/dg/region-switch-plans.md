@@ -55,6 +55,18 @@ If Region switch finds an issue that might prevent a successful plan execution, 
 
 You can see details and suggested remediation for issues that plan evaluation surfaces in the **Plan evaluation** tab on the plan details page. We recommend that you also test application recovery by executing your Region switch plan, and that you don't rely solely on Region switch plan evaluation to test that your recovery plan will work as you expect it to. 
 
+## Service quota checks
+<a name="region-switch-plans.service-quota-checks"></a>
+
+In a multi-Region application, your standby Region often runs at reduced capacity until you need to recover into it. As demand grows in your active Region, you might raise service quotas there to keep up, but forget to request matching increases in your standby Region. This gap can cause a healthy-looking plan to fail during execution, because the standby Region can't launch enough resources to take over. To help you catch these gaps, Region switch performs service quota checks on the compute and database resources in your plan's execution blocks.
+
+A service quota check compares the applied quota values across the accounts and Regions in a plan, and flags any quota whose value is lower in one Region than the value for the matching resource in another Region or account. This comparison is called a parity check. When Region switch finds a mismatch, it can automatically request a service quota increase to raise the lower quota to match the higher one. If Region switch can't submit the request, it surfaces a warning instead. Service quota checks are advisory and run separately from plan evaluation, so they don't delay or block plan evaluation warnings.
+
+**Quota parity doesn't guarantee successful execution**  
+A parity check confirms that your Regions have matching quota values. It doesn't guarantee that an execution won't reach a quota limit. For example, an execution can still fail if several plans run at the same time in the same account, or if you increase resource usage in a Region while you're executing a plan.
+
+For more information about how service quota checks work, the permissions they require, and how to view service quota warnings, see [Working with service quota checks](working-with-rs-service-quota-checks.md).
+
 ## Automatic plan execution reports
 <a name="region-switch-plans.plan-execution-reports"></a>
 

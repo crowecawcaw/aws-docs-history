@@ -27,6 +27,7 @@ The following sections provide detailed information and steps for creating a pla
 
 **Topics**
 + [Plan evaluation](working-with-rs-plan-evaluation.md)
++ [Service quota checks](working-with-rs-service-quota-checks.md)
 + [Create a plan](working-with-rs-create-plan.md)
 + [Create workflows](working-with-rs-workflows.md)
 + [Add execution blocks](working-with-rs-execution-blocks.md)
