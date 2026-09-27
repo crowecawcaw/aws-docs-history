@@ -30,6 +30,8 @@ The following image shows the rule details panel with the detection logic.
 
 Custom Detection Rules use SQL conditions that evaluate AWS CloudTrail event fields. Some rules use specialized functions to inspect nested JSON structures within event fields like `requestParameters` and `responseElements`. The following table describes the functions that might appear in rule detection logic.
 
+A rule that inspects a nested field depends on that field being present in the event. For more information about fields that AWS CloudTrail does not record, see [Redacted event fields](custom-detection-rules-how-it-works.md#custom-detection-rules-how-it-works-redacted-fields).
+
 
 | Function | Returns | Description | 
 | --- | --- | --- | 

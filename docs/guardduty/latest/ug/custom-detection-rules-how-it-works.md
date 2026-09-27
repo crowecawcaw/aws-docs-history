@@ -25,3 +25,17 @@ For more information, see [Dry run](custom-detection-rules-managing.md#custom-de
 GuardDuty aggregates signals that share the same tactic, service, and technique into a single finding. Each finding follows the format `Tactic:Service/Technique`, for example, `Persistence:IAM/AccountManipulation`. A single finding can contain multiple signals when GuardDuty observes the same activity repeatedly from the same principal.
 
 For more information about the finding structure and fields, see [Custom Detection Rules finding details](guardduty_findings-summary.md#custom-detection-rules-finding-details).
+
+## Redacted event fields
+<a name="custom-detection-rules-how-it-works-redacted-fields"></a>
+
+Custom Detection Rules evaluate the fields that AWS CloudTrail records in an event. Redaction happens upstream of GuardDuty. An AWS service can redact the value of a field in the events that it publishes. This redaction protects potentially sensitive data. When a field is redacted, AWS CloudTrail records that the field was present but does not record its value.
+
+The service that publishes the event decides which fields it redacts. A service redacts a field when that field can carry sensitive information. The redaction applies to the field, not to a specific value. A service therefore redacts a field even when the value in a particular request is not sensitive. It redacts those fields for every request, regardless of whether you use the AWS Management Console, the AWS CLI, or an AWS SDK.
+
+GuardDuty cannot evaluate a value that is not in the event. If a rule's detection logic depends on a redacted field, the rule does not match. GuardDuty then produces no signal and no finding, even though the activity occurred. A rule is unaffected if it inspects only fields that services do not redact, such as the event name, the AWS service, and the calling identity.
+
+Redaction can also make a rule match one request but not another that had the same effect. When an API operation accepts more than one field for the same change, one field might be redacted and another might not. Whether the rule matches then depends on which field the request used.
+
+**Note**  
+Custom Detection Rules are a detection capability, not a complete audit record. To confirm whether a specific API call occurred in your account, review the event in AWS CloudTrail. For more information, see [Viewing events with AWS CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
