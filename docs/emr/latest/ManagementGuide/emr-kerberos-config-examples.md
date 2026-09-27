@@ -22,7 +22,7 @@ aws emr create-security-configuration --name {{LocalKDCSecurityConfig}} \
 **Create Cluster**
 
 ```
-aws emr create-cluster --release-label {{emr-7.13.0}} \
+aws emr create-cluster --release-label {{emr-7.14.0}} \
 --instance-count 3 --instance-type {{m5.xlarge}} \
 --applications Name={{Hadoop}} Name={{Hive}} --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName={{MyEC2Key}} \
 --service-role EMR_DefaultRole \
@@ -50,7 +50,7 @@ aws emr create-security-configuration --name {{LocalKDCWithADTrustSecurityConfig
 **Create Cluster**
 
 ```
-aws emr create-cluster --release-label {{emr-7.13.0}} \
+aws emr create-cluster --release-label {{emr-7.14.0}} \
 --instance-count {{3}} --instance-type {{m5.xlarge}} --applications Name={{Hadoop}} Name={{Hive}} \
 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName={{MyEC2Key}} \
 --service-role EMR_DefaultRole --security-configuration {{KDCWithADTrustSecurityConfig}} \
@@ -78,7 +78,7 @@ aws emr create-security-configuration --name {{ExtKDCOnDifferentCluster}} \
 **Create Cluster**
 
 ```
-aws emr create-cluster --release-label {{emr-7.13.0}} \
+aws emr create-cluster --release-label {{emr-7.14.0}} \
 --instance-count {{3}} --instance-type {{m5.xlarge}} \
 --applications Name=Hadoop Name=Hive \
 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName={{MyEC2Key}} \
@@ -108,7 +108,7 @@ aws emr create-security-configuration --name {{ExtKDCWithADIntegration}} \
 **Create Cluster**
 
 ```
-aws emr create-cluster --release-label {{emr-7.13.0}} \
+aws emr create-cluster --release-label {{emr-7.14.0}} \
 --instance-count {{3}} --instance-type {{m5.xlarge}} --applications Name={{Hadoop}} Name={{Hive}} \
 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole,KeyName={{MyEC2Key}} \
 --service-role EMR_DefaultRole --security-configuration {{ExtKDCWithADIntegration}} \

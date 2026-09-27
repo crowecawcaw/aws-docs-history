@@ -55,7 +55,7 @@ Termination after step execution is effective for clusters that perform a period
 Linux line continuation characters (\\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
   ```
-  aws emr create-cluster --name "{{Test cluster}}" --release-label {{emr-7.13.0}} \
+  aws emr create-cluster --name "{{Test cluster}}" --release-label {{emr-7.14.0}} \
   --applications Name={{Hive}} Name={{Pig}} --use-default-roles --ec2-attributes KeyName={{myKey}} \
   --steps Type=PIG,Name="Pig Program",ActionOnFailure=CONTINUE,\
   Args=[-f,s3://amzn-s3-demo-bucket/scripts/pigscript.pig,-p,\

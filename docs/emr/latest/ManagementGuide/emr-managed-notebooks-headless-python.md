@@ -3,7 +3,7 @@
 # Python samples for an EMR notebook
 <a name="emr-managed-notebooks-headless-python"></a>
 
-This topic contains a sample command file. The code example is an SDK for Python (Boto3) file called `demo.py`. It shows the notebook execution APIs.
+This topic contains a sample command file. The code example is a Python file called `demo.py`. It shows the notebook execution APIs.
 
 **Note**  
 EMR Notebooks are available as EMR Studio Workspaces in the console. The **Create Workspace** button in the console lets you create new notebooks. To access or create Workspaces, EMR Notebooks users need additional IAM role permissions. For more information, see [Amazon EMR Notebooks are Amazon EMR Studio Workspaces in the console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-migration.html) and [Amazon EMR console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/whats-new-in-console.html).

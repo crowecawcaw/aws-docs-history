@@ -99,7 +99,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 
    ```
    1. aws emr create-cluster --name "{{Test cluster}}" \
-   2. --release-label {{emr-7.13.0}} --applications Name={{Hive}} Name={{Pig}} \
+   2. --release-label {{emr-7.14.0}} --applications Name={{Hive}} Name={{Pig}} \
    3. --use-default-roles --ec2-attributes KeyName={{myKey}} --instance-type {{m5.xlarge}} \
    4. --instance-count {{3}} --configurations file://myConfig.json
    ```

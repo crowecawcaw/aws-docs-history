@@ -69,7 +69,7 @@ To archive log files to Amazon S3 using the AWS CLI, type the `create-cluster` c
 1. To log files to Amazon S3 type the following command and replace {{myKey}} with the name of your EC2 key pair.
 
    ```
-   aws emr create-cluster --name "{{Test cluster}}" --release-label {{emr-7.13.0}} --log-uri s3://{{DOC-EXAMPLE-BUCKET}}/logs --applications Name={{Hadoop}} Name={{Hive}} Name={{Pig}} --use-default-roles --ec2-attributes KeyName={{myKey}} --instance-type {{m5.xlarge}} --instance-count {{3}}
+   aws emr create-cluster --name "{{Test cluster}}" --release-label {{emr-7.14.0}} --log-uri s3://{{DOC-EXAMPLE-BUCKET}}/logs --applications Name={{Hadoop}} Name={{Hive}} Name={{Pig}} --use-default-roles --ec2-attributes KeyName={{myKey}} --instance-type {{m5.xlarge}} --instance-count {{3}}
    ```
 
 1. When you specify the instance count without using the `--instance-groups` parameter, a single primary node is launched, and the remaining instances are launched as core nodes. All nodes will use the instance type specified in the command.
@@ -190,7 +190,7 @@ Log aggregation (Hadoop 2.x) compiles logs from all containers for an individual
 
   ```
   aws emr create-cluster --name "{{Test cluster}}" \
-  --release-label {{emr-7.13.0}} \
+  --release-label {{emr-7.14.0}} \
   --applications Name={{Hadoop}} \
   --use-default-roles \
   --ec2-attributes KeyName={{myKey}} \

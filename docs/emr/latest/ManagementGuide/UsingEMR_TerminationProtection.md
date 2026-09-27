@@ -103,7 +103,7 @@ For high-availability clusters, default termination protection settings are as f
 Linux line continuation characters (\\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
 
   ```
-  aws emr create-cluster --name "{{TerminationProtectedCluster}}" --release-label {{emr-7.13.0}} \
+  aws emr create-cluster --name "{{TerminationProtectedCluster}}" --release-label {{emr-7.14.0}} \
   --applications Name={{Hadoop}} Name={{Hive}} Name={{Pig}} \
   --use-default-roles --ec2-attributes KeyName={{myKey}} --instance-type {{m5.xlarge}} \
   --instance-count {{3}} --termination-protected

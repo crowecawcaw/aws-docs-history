@@ -46,7 +46,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 
 ```
  1. aws emr create-cluster --name "{{ClusterCustomManagedAndAdditionalSGs}}" \
- 2. --release-label emr-{{emr-7.13.0}} --applications Name={{Hue}} Name={{Hive}} \
+ 2. --release-label emr-{{emr-7.14.0}} --applications Name={{Hue}} Name={{Hive}} \
  3. Name={{Pig}} --use-default-roles --ec2-attributes \
  4. SubnetIds={{subnet-xxxxxxxxxxxx}},KeyName={{myKey}},\
  5. ServiceAccessSecurityGroup={{sg-xxxxxxxxxxxx}},\
