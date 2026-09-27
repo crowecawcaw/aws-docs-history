@@ -34,7 +34,9 @@ The execution role must include these three permissions to use Amazon Bedrock Ag
 The Gateway Execution Role must trust the `bedrock-agentcore.amazonaws.com` service principal.
 
 **Important**  
-Replace the following placeholders: \* {{us-east-1}} with the AWS Region \* {{123456789012}} with the AWS account ID
+Replace the following placeholders:  
+ {{us-east-1}} with the AWS Region
+ {{123456789012}} with the AWS account ID
 
 ```
 {
@@ -66,7 +68,11 @@ Replace the following placeholders: \* {{us-east-1}} with the AWS Region \* {{12
 This policy grants the Amazon Bedrock AgentCore Gateway the necessary permissions to evaluate Cedar policies through Policy in AgentCore. The permissions are split into two statements following least-privilege principles.
 
 **Important**  
-Replace these placeholders: \* {{us-east-1}} with the AWS Region \* {{123456789012}} with the AWS account ID \* {{<gateway-id>}} with the Gateway ID (or use \* for all gateways) \* {{<policy-engine-id>}} with the policy engine ID (or use \* for all policy engines)
+Replace these placeholders:  
+ {{us-east-1}} with the AWS Region
+ {{123456789012}} with the AWS account ID
+ {{<gateway-id>}} with the Gateway ID, or \* for all gateways
+ {{<policy-engine-id>}} with the policy engine ID, or \* for all policy engines
 
 ```
 {
@@ -99,7 +105,7 @@ Replace these placeholders: \* {{us-east-1}} with the AWS Region \* {{1234567890
 ```
 
 **Note**  
-\* Additional permissions may be required depending on the Amazon Bedrock AgentCore Gateway integration type (e.g., Lambda functions, API Gateway endpoints). These permissions are not included here as they vary based on the specific integration. \* For Production: Replace the placeholders with specific resource IDs (e.g., `policy-engine/my-policy-engine-id` instead of `policy-engine/<policy-engine-id>` ) to follow least-privilege principles, or use wildcards ( \* ) to allow access to all resources of that type.
+\* Additional permissions may be required depending on the Amazon Bedrock AgentCore Gateway integration type (e.g., Lambda functions, API Gateway endpoints). These permissions are not included here as they vary based on the specific integration. \* For Production: Replace the placeholders with specific resource IDs (e.g., `policy-engine/my_policy_engine-a1b2c3d4e5` instead of `policy-engine/<policy-engine-id>` ) to follow least-privilege principles, or use wildcards ( \* ) to allow access to all resources of that type.
 
 ### IAM permissions for temporal policies
 <a name="policy-permissions-session-temporal"></a>
@@ -130,6 +136,12 @@ For an overview of this requirement in the context of temporal policy considerat
 <a name="policy-permissions-management-role"></a>
 
 The Resource Management Role is used by administrators to create and manage Amazon Bedrock AgentCore Gateway and Policy in AgentCore resources. This role requires permissions to:
+
+**Important**  
+Grant the summary actions — `ListPolicyEngineSummaries`, `GetPolicyEngineSummary`, `ListPolicySummaries`, and `GetPolicySummary` — even though the corresponding list and get actions look like they cover the same ground. They are separate IAM actions, and they are the only way to enumerate policy engines and policies when a customer managed key becomes unusable: the full list and get operations verify the key and decrypt before returning, so they fail, while the summary operations return identifiers and status without touching the key.  
+Granting them in advance is what makes that recovery possible. See [Key unavailable: you cannot list or read your policies](policy-encryption.md#policy-encryption-error-key-unavailable).
+
+For the managed policy that grants full access to AgentCore, see [AWS managed policies for Amazon Bedrock AgentCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/security-iam-awsmanpol.html). For the AWS KMS permissions an encrypted policy engine additionally requires, see [Customize your policy engine’s encryption](policy-encryption.md).
 + Create, update, and delete Gateways and Gateway targets
 + Create, update, and delete Policy Engines and Cedar policies
 + Call the Gateway during policy creation (`InvokeGateway`) so Policy in AgentCore can validate the actions in a Cedar statement against the target Gateway’s capabilities
@@ -143,7 +155,9 @@ This role is separate from the Gateway Execution Role and is only needed when se
 <a name="policy-permissions-management-permissions"></a>
 
 **Important**  
-Replace these placeholders: \* {{us-east-1}} with the AWS Region \* {{123456789012}} with the AWS account ID
+Replace these placeholders:  
+ {{us-east-1}} with the AWS Region
+ {{123456789012}} with the AWS account ID
 
 ```
 {
@@ -177,7 +191,9 @@ Replace these placeholders: \* {{us-east-1}} with the AWS Region \* {{1234567890
         "bedrock-agentcore:UpdatePolicyEngine",
         "bedrock-agentcore:GetPolicyEngine",
         "bedrock-agentcore:DeletePolicyEngine",
-        "bedrock-agentcore:ListPolicyEngines"
+        "bedrock-agentcore:ListPolicyEngines",
+        "bedrock-agentcore:ListPolicyEngineSummaries",
+        "bedrock-agentcore:GetPolicyEngineSummary"
       ],
       "Resource": [
         "arn:aws:bedrock-agentcore:us-east-1:123456789012:policy-engine/*"
@@ -191,7 +207,9 @@ Replace these placeholders: \* {{us-east-1}} with the AWS Region \* {{1234567890
         "bedrock-agentcore:UpdatePolicy",
         "bedrock-agentcore:GetPolicy",
         "bedrock-agentcore:DeletePolicy",
-        "bedrock-agentcore:ListPolicies"
+        "bedrock-agentcore:ListPolicies",
+        "bedrock-agentcore:ListPolicySummaries",
+        "bedrock-agentcore:GetPolicySummary"
       ],
       "Resource": [
         "arn:aws:bedrock-agentcore:us-east-1:123456789012:policy-engine/*/policy/*"

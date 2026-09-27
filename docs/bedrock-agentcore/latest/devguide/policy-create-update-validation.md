@@ -20,40 +20,126 @@ With `IGNORE_ALL_FINDINGS`, only schema checks run. Policies are accepted as lon
 
 Create a policy with strict validation that rejects policies with any findings:
 
-```
-aws bedrock-agentcore-control create-policy \
-  --policy-engine-id MyEngine-abc123 \
-  --name RestrictRefunds \
-  --validation-mode FAIL_ON_ANY_FINDINGS \
-  --definition '{
-    "cedar": {
-      "statement": "forbid(\n  principal,\n  action == Action::\"processRefund\",\n  resource\n) when {\n  context.amount > 1000\n};"
-    }
-  }'
-```
+**Example**  
+
+1. Save the statement to a file — for example `restrict_refunds.cedar`:
+
+   ```
+   forbid (
+     principal,
+     action == AgentCore::Action::"RefundTool___process_refund",
+     resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5"
+   )
+   when {
+     context.input.amount > 1000
+   };
+   ```
+
+1. Add the policy and deploy:
+
+   ```
+   agentcore add policy --name RestrictRefunds \
+     --engine MyEngine \
+     --source restrict_refunds.cedar \
+     --validation-mode FAIL_ON_ANY_FINDINGS
+   
+   agentcore deploy --yes
+   ```
+
+1. Run the following code in a terminal to create the policy using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control create-policy \
+     --policy-engine-id MyEngine-abc123defg \
+     --name RestrictRefunds \
+     --validation-mode FAIL_ON_ANY_FINDINGS \
+     --definition '{
+       "policy": {
+         "statement": "forbid (principal, action == AgentCore::Action::\"RefundTool___process_refund\", resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5\") when { context.input.amount > 1000 };"
+       }
+     }'
+   ```
+
+1. Run the following code to create the policy using the AWS SDK for Python:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   GATEWAY_ARN = (
+       'arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5'
+   )
+   
+   statement = (
+       'forbid (principal, '
+       'action == AgentCore::Action::"RefundTool___process_refund", '
+       f'resource == AgentCore::Gateway::"{GATEWAY_ARN}") '
+       'when { context.input.amount > 1000 };'
+   )
+   
+   response = client.create_policy(
+       policyEngineId='MyEngine-abc123defg',
+       name='RestrictRefunds',
+       validationMode='FAIL_ON_ANY_FINDINGS',
+       definition={'policy': {'statement': statement}},
+   )
+   print(response['policyId'], response['status'])
+   ```
 
 The response indicates the policy is being created:
 
 ```
 {
-  "policyId": "RestrictRefunds-ghi789",
+  "policyId": "RestrictRefunds-ghi789jklm",
   "status": "CREATING"
 }
 ```
 
 Check the policy status to confirm validation passed:
 
-```
-aws bedrock-agentcore-control get-policy \
-  --policy-engine-id MyEngine-abc123 \
-  --policy-id RestrictRefunds-ghi789
-```
+**Example**  
+
+1. Show the deployed state of the resources in the project:
+
+   ```
+   agentcore status
+   ```
+
+   The AgentCore CLI has no per-policy read operation. Use the AWS CLI or an SDK to inspect a single policy’s status and findings.
+
+1. Run the following code in a terminal to get the policy using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control get-policy \
+     --policy-engine-id MyEngine-abc123defg \
+     --policy-id RestrictRefunds-ghi789jklm
+   ```
+
+1. Run the following code to wait for the policy to become active using the AWS SDK for Python:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   client.get_waiter('policy_active').wait(
+       policyEngineId='MyEngine-abc123defg',
+       policyId='RestrictRefunds-ghi789jklm',
+   )
+   
+   policy = client.get_policy(
+       policyEngineId='MyEngine-abc123defg',
+       policyId='RestrictRefunds-ghi789jklm',
+   )
+   print(policy['status'], policy.get('statusReasons'))
+   ```
 
 When validation passes, the policy becomes active:
 
 ```
 {
-  "policyId": "RestrictRefunds-ghi789",
+  "policyId": "RestrictRefunds-ghi789jklm",
   "status": "ACTIVE",
   "statusReasons": []
 }
@@ -62,31 +148,85 @@ When validation passes, the policy becomes active:
 ## Example: Validation failure
 <a name="policy-validation-failure-example"></a>
 
-If a policy references an action that doesn’t exist in any associated gateway’s schema, validation fails:
+If a policy references an action that doesn’t exist in any associated gateway’s schema, validation fails. Note that this failure is **asynchronous**: the create call returns HTTP 202 with `CREATING`, and the policy then settles into `CREATE_FAILED`.
 
-```
-aws bedrock-agentcore-control create-policy \
-  --policy-engine-id MyEngine-abc123 \
-  --name InvalidPolicy \
-  --validation-mode FAIL_ON_ANY_FINDINGS \
-  --definition '{
-    "cedar": {
-      "statement": "permit(\n  principal,\n  action == Action::\"nonExistentTool\",\n  resource\n);"
-    }
-  }'
-```
+**Example**  
+
+1. A policy that fails validation fails the whole deploy, not just that resource:
+
+   ```
+   agentcore add policy --name InvalidPolicy \
+     --engine MyEngine \
+     --statement 'permit (principal, action == AgentCore::Action::"RefundTool___nonExistentTool", resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5");'
+   
+   agentcore deploy --yes
+   ```
+
+   The deploy reports the underlying `CREATE_FAILED` reason. Remove the bad policy with `agentcore remove policy --engine MyEngine --name InvalidPolicy` and deploy again.
+
+1. Run the following code in a terminal to create a policy that references an undefined action:
+
+   ```
+   aws bedrock-agentcore-control create-policy \
+     --policy-engine-id MyEngine-abc123defg \
+     --name InvalidPolicy \
+     --validation-mode FAIL_ON_ANY_FINDINGS \
+     --definition '{
+       "policy": {
+         "statement": "permit (principal, action == AgentCore::Action::\"RefundTool___nonExistentTool\", resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5\");"
+       }
+     }'
+   ```
+
+1. Check the status to see the validation failure:
+
+   ```
+   aws bedrock-agentcore-control get-policy \
+     --policy-engine-id MyEngine-abc123defg \
+     --policy-id InvalidPolicy-jkl012mnop
+   ```
+
+1. Run the following code to create the policy and read the failure reason using the AWS SDK for Python:
+
+   ```
+   import time
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   GATEWAY_ARN = (
+       'arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5'
+   )
+   
+   response = client.create_policy(
+       policyEngineId='MyEngine-abc123defg',
+       name='InvalidPolicy',
+       validationMode='FAIL_ON_ANY_FINDINGS',
+       definition={'policy': {'statement': (
+           'permit (principal, '
+           'action == AgentCore::Action::"RefundTool___nonExistentTool", '
+           f'resource == AgentCore::Gateway::"{GATEWAY_ARN}");'
+       )}},
+   )
+   
+   # The 202 above is not success - poll for the terminal status
+   while True:
+       policy = client.get_policy(
+           policyEngineId='MyEngine-abc123defg',
+           policyId=response['policyId'],
+       )
+       if policy['status'] != 'CREATING':
+           break
+       time.sleep(4)
+   
+   print(policy['status'], policy.get('statusReasons'))
+   ```
 
 When you check the policy status, the response shows the validation failure:
 
 ```
-aws bedrock-agentcore-control get-policy \
-  --policy-engine-id MyEngine-abc123 \
-  --policy-id InvalidPolicy-jkl012
-```
-
-```
 {
-  "policyId": "InvalidPolicy-jkl012",
+  "policyId": "InvalidPolicy-jkl012mnop",
   "status": "CREATE_FAILED",
   "statusReasons": [
     "Validation failed: Action 'nonExistentTool' is not defined in the schema for any associated gateway"

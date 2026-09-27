@@ -25,7 +25,7 @@ There are two important milestones you must remember for this migration:
 +  **August 6, 2026** — The new `agent-registry` namespace for AWS Agent Registry officially launches. Access the service in the [AWS Agent Registry console](https://console.aws.amazon.com/agent-registry/home?region=us-east-1#). If you have existing registries and records, you have simultaneous access to the `bedrock-agentcore` and `agent-registry` namespaces. Migration tooling becomes available in the [agentcore-samples repository](https://github.com/awslabs/agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/03-registry/04-migrate-to-new-namespace) on the GitHub website. You can begin the process of migration.
 **Note**  
 If you are a new customer without existing registries or records as of August 6, 2026, you cannot access AWS Agent Registry through the `bedrock-agentcore` namespace. Start using AWS Agent Registry directly from the `agent-registry` namespace.
-+  **September 17, 2026** — Migration window closes. The old `bedrock-agentcore` namespace shuts down on this date. You lose read/write access to the service and any remaining data in the old namespace. After this date, you must use the `agent-registry` namespace.
++  **October 30, 2026** — Migration window closes. The old `bedrock-agentcore` namespace shuts down on this date. You lose read/write access to the service and any remaining data in the old namespace. After this date, you must use the `agent-registry` namespace.
 
 ## Namespace and configuration changes
 <a name="registry-faq-namespace-changes"></a>
@@ -725,7 +725,7 @@ If a record has already failed for this reason, the migrated record exists in `C
 
 Your existing Registry usage on the `bedrock-agentcore` namespace continues to work without interruption during the migration window. However, we recommend that you begin your migration as soon as tooling becomes available to ensure you have sufficient time to complete both data migration and code updates.
 
-However, if you do not have existing registries or records as of August 6, 2026, you cannot access the `bedrock-agentcore` namespace for AWS Agent Registry from August 6, 2026. If you have existing registries or records as of August 6, 2026, you have access to the `bedrock-agentcore` namespace for AWS Agent Registry during the migration window (August 6, 2026 – September 17, 2026).
+However, if you do not have existing registries or records as of August 6, 2026, you cannot access the `bedrock-agentcore` namespace for AWS Agent Registry from August 6, 2026. If you have existing registries or records as of August 6, 2026, you have access to the `bedrock-agentcore` namespace for AWS Agent Registry during the migration window (August 6, 2026 – October 30, 2026).
 
 ### Will my data be automatically migrated?
 <a name="registry-faq-auto-migrate"></a>

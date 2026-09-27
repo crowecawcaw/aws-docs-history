@@ -4,7 +4,7 @@
 <a name="registry-browse-records"></a>
 
 **Migration Now Open**  
- AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
+ AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
 
 As a consumer, you can browse the catalog of approved records in a registry using two data-plane APIs — `ListDiscoverableRegistryRecords` for paginated listing, and `BatchGetDiscoverableRegistryRecord` for bulk retrieval of full record content by record ID. Both APIs are only available under the `agent-registry` namespace and return only records whose latest revision has status **Approved**. Records in **Draft**, **Pending approval**, **Rejected**, or **Deprecated** status are not returned. To search records with a natural-language query, use `SearchDiscoverableRegistryRecords` instead. See [Search for registry records](registry-search-records.md).
 

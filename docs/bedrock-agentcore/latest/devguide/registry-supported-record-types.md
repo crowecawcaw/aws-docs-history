@@ -4,7 +4,7 @@
 <a name="registry-supported-record-types"></a>
 
 **Migration Now Open**  
- AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
+ AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
 
  AWS Agent Registry validates record content against official protocol schemas. The console displays the reference schema side-by-side with your input and shows inline validation errors with a **Diagnose with Amazon Q** button. The registry supports all versions of the MCP Protocol Schema and the A2A Schema.
 

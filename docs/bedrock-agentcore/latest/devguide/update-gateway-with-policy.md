@@ -7,11 +7,28 @@ Associate a policy engine with an existing gateway:
 
 **Example**  
 
+1. In an AgentCore project that already contains the gateway, attach the engine to it:
+
+   ```
+   agentcore add policy-engine --name my_policy_engine \
+     --attach-to-gateways my-gateway \
+     --attach-mode ENFORCE
+   ```
+
+1. Deploy to apply the change:
+
+   ```
+   agentcore deploy --yes
+   ```
+
+   The CLI issues the `UpdateGateway` call for you and preserves the gateway’s other settings. To change only the mode on an already-attached engine, edit `attachMode` in `agentcore/agentcore.json` and deploy again.
+
 1. Run the following code in a terminal to update a gateway with a Policy Engine using the AWS CLI:
 
    ```
    aws bedrock-agentcore-control update-gateway \
      --gateway-identifier my-gateway-id \
+     --name my-gateway-name \
      --role-arn arn:aws:iam::123456789012:role/my-gateway-service-role \
      --protocol-type MCP \
      --authorizer-type CUSTOM_JWT \
@@ -23,11 +40,11 @@ Associate a policy engine with an existing gateway:
      }' \
      --policy-engine-configuration '{
        "mode": "ENFORCE",
-       "arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:policy-engine/my_policy_engine"
+       "arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:policy-engine/my_policy_engine-a1b2c3d4e5"
      }'
    ```
 
-   The gatewayUrl in the response is the endpoint to use when you invoke the gateway.
+   The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.
 
 1. The following Python code shows how to update a gateway with a Policy Engine using the AWS Python SDK (Boto3):
 
@@ -37,8 +54,8 @@ Associate a policy engine with an existing gateway:
    gateway_client = boto3.client('bedrock-agentcore-control')
    
    response = gateway_client.update_gateway(
+       gatewayIdentifier='my-gateway-id',
        name='my-gateway-name',
-       gatewayId='my-gateway-id',
        protocolType='MCP',
        authorizerType='CUSTOM_JWT',
        authorizerConfiguration={
@@ -50,7 +67,7 @@ Associate a policy engine with an existing gateway:
        roleArn='arn:aws:iam::123456789012:role/my-gateway-service-role',
        policyEngineConfiguration={
            'mode': 'ENFORCE',
-           'arn': 'arn:aws:bedrock-agentcore:us-west-2:123456789012:policy-engine/my_policy_engine'
+           'arn': 'arn:aws:bedrock-agentcore:us-west-2:123456789012:policy-engine/my_policy_engine-a1b2c3d4e5'
        }
    )
    
@@ -58,4 +75,4 @@ Associate a policy engine with an existing gateway:
    print(f"GATEWAY URL: {response['gatewayUrl']}")
    ```
 
-   The gatewayUrl in the response is the endpoint to use when you invoke the gateway.
+   The `gatewayUrl` in the response is the endpoint to use when you invoke the gateway.

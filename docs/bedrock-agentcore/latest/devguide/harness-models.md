@@ -134,6 +134,23 @@ response = client.invoke_harness(
 )
 ```
 Use `openAiModelConfig` with `"endpoint": {"bedrockMantle": {}}` to call OpenAI models through Amazon Bedrock Mantle — no API key required, uses your execution role credentials. Use `openAiModelConfig` with `apiKeyArn` when calling the OpenAI endpoint directly.
+To route a direct OpenAI request through an OpenAI-compatible gateway, proxy, self-hosted endpoint, or regional endpoint, set `apiBase`. The harness sends the API key referenced by `apiKeyArn` to this endpoint, so use only trusted endpoints. If you omit `apiBase`, the harness uses the default OpenAI endpoint.  
+
+```
+response = client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    model={
+        "openAiModelConfig": {
+            "modelId": "gpt-5.4",
+            "apiKeyArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-openai-key",
+            "apiBase": "https://gateway.example.com/v1",
+            "apiFormat": "responses",
+        }
+    },
+    messages=[{"role": "user", "content": [{"text": "Summarize this report."}]}],
+)
+```
 Add an API key to [AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html):  
 
 ```

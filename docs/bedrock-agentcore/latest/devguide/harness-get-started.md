@@ -162,16 +162,19 @@ For additional details, see the API Reference:
  `InvokeHarness` returns a stream of events. The key event types are:
 +  `messageStart` - beginning of a new message (includes `role`)
 +  `contentBlockStart` - beginning of a content block (text, `toolUse`, or `toolResult`)
-+  `contentBlockDelta` - incremental content (`text`, `toolUse` input, `reasoningContent`)
++  `contentBlockDelta` - incremental content (`text`, `toolUse` input, `toolResult` content, `reasoningContent`)
 +  `contentBlockStop` - end of a content block
 +  `messageStop` - end of the message (includes `stopReason`)
 +  `metadata` - token usage and latency metrics
++  `hookEvent` - a configured lifecycle hook fired. Lambda hook events include the applied decision and optional reason. See [Lifecycle hooks](harness-lifecycle-hooks.md).
 +  `runtimeClientError` - error during execution
 
-The `stopReason` in `messageStop` indicates why the agent stopped:
+The `stopReason` in `messageStop` indicates why the current streamed message ended:
 +  `end_turn` - the agent finished normally
-+  `tool_use` - the agent is calling an inline function and waiting for a client-side result
++  `tool_use` - the model requested one or more tools. The harness can continue with harness-executed tools. If this is the final `messageStop` in the completed response stream, the harness is waiting for an inline function result.
++  `tool_result` - the harness streamed one or more tool results; additional model output can follow
 +  `max_tokens` - the model’s per-turn token limit was reached
 +  `max_iterations_exceeded` - the `maxIterations` limit was hit
 +  `timeout_exceeded` - the `timeoutSeconds` limit was hit
 +  `max_output_tokens_exceeded` - the `maxTokens` budget was exhausted
++  `hook_stopped` - a `deny` decision from a `before_invocation` or `after_tool_call` Lambda hook stopped the invocation

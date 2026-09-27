@@ -163,7 +163,7 @@ The `dataSourceConfig` parameter specifies the CloudWatch Logs location where th
 | Field | Type | Description | 
 | --- | --- | --- | 
 |  `cloudWatchLogs.serviceNames`  | List of strings (exactly 1) | The service name that identifies your agent’s traces in CloudWatch. Convention: `{RuntimeName}.DEFAULT`. | 
-|  `cloudWatchLogs.logGroupNames`  | List of strings (1–5) | One way to select input log groups. Specify the exact CloudWatch log group names where agent telemetry is stored. Mutually exclusive with `logGroupNamePrefixes`. | 
+|  `cloudWatchLogs.logGroupNames`  | List of strings (1–10) | One way to select input log groups. Specify the exact CloudWatch log group names where agent telemetry is stored. Mutually exclusive with `logGroupNamePrefixes`. | 
 |  `cloudWatchLogs.logGroupNamePrefixes`  | List of strings (1–5) | One way to select input log groups. The service discovers sessions from every log group whose name starts with one of these prefixes, so newly created matching log groups are picked up automatically. Mutually exclusive with `logGroupNames`. | 
 
 Specify exactly one of `logGroupNames` or `logGroupNamePrefixes`. In both cases, `serviceNames` is required to identify your agent’s traces within the selected log groups.

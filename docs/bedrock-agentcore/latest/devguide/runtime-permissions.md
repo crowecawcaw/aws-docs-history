@@ -183,6 +183,9 @@ Attach the [BedrockAgentCoreFullAccess](https://docs.aws.amazon.com/aws-managed-
 
 To run agent or tool in AgentCore Runtime you need an AWS Identity and Access Management execution role. For information about creating an IAM role, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html).
 
+**Note**  
+If role manager is enabled in your account, AgentCore attaches the role for you, and the role-selection step described here is replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
+
 ### Amazon Bedrock AgentCore direct deploy execution role
 <a name="runtime-permissions-direct-deploy-execution"></a>
 

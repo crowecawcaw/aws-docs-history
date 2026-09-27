@@ -1,6 +1,6 @@
 
 
-# Encrypt your AgentCore policy engine with a customer-managed KMS key
+# Customize your policy engine’s encryption
 <a name="policy-encryption"></a>
 
 Policy in AgentCore provides encryption by default to protect sensitive customer data at rest using AWS owned encryption keys. As an extra layer of protection, Policy in AgentCore allows you to encrypt your policy engines using AWS Key Management Service (AWS KMS) customer managed keys (CMK). This functionality ensures protection of sensitive data via encryption at rest, which helps you:
@@ -144,7 +144,9 @@ You can use this encryption context in your key policy conditions to restrict wh
 Based on the concepts in the previous sections, the following example key policy provides the necessary permissions to encrypt a policy engine and use an encrypted policy engine. The policy contains condition keys to conform to security best practices.
 
 **Important**  
-Replace the following values in the key policy: \* {{111122223333}} — Replace with your AWS account ID \* {{us-east-1}} — Replace with your AWS Region
+Replace the following values in the key policy:  
+ {{111122223333}} with your AWS account ID
+ {{us-east-1}} with your AWS Region
 
 ```
 {
@@ -246,23 +248,53 @@ For more information about controlling IAM permissions for a KMS key, see [KMS k
 
 Before creating an encrypted policy engine, ensure that the customer managed key you are using has the proper key policy statements set for Policy in AgentCore to use the key for encryption and decryption. See [Authorizing use of your AWS KMS key for Policy in AgentCore](#policy-encryption-authorize-key) for the required permissions.
 
-To encrypt your policy engine using the AWS CLI, include the `--encryption-key-arn` parameter when sending a `create-policy-engine` request:
+To encrypt your policy engine, supply the key ARN when you create it:
 
-```
-aws bedrock-agentcore-control create-policy-engine \
-  --name "MyPolicyEngine" \
-  --description "Policy engine with customer-managed encryption" \
-  --encryption-key-arn "arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-```
+**Example**  
+
+1. Add the engine with `--encryption-key-arn`, then deploy:
+
+   ```
+   agentcore add policy-engine \
+     --name MyPolicyEngine \
+     --description "Policy engine with customer-managed encryption" \
+     --encryption-key-arn arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab
+   
+   agentcore deploy --yes
+   ```
+
+1. Run the following code in a terminal to create the encrypted policy engine using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control create-policy-engine \
+     --name MyPolicyEngine \
+     --description "Policy engine with customer-managed encryption" \
+     --encryption-key-arn "arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+   ```
+
+1. Run the following code to create the encrypted policy engine using the AWS SDK for Python:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   response = client.create_policy_engine(
+       name='MyPolicyEngine',
+       description='Policy engine with customer-managed encryption',
+       encryptionKeyArn='arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab',
+   )
+   print(response['policyEngineId'], response['status'])
+   ```
 
 The response includes the policy engine ARN and status:
 
 ```
 {
-  "policyEngineId": "MyPolicyEngine-abc123",
+  "policyEngineId": "MyPolicyEngine-abc123defg",
   "name": "MyPolicyEngine",
   "description": "Policy engine with customer-managed encryption",
-  "policyEngineArn": "arn:aws:bedrock-agentcore:us-east-1:123456789012:policy-engine/MyPolicyEngine-abc123",
+  "policyEngineArn": "arn:aws:bedrock-agentcore:us-east-1:123456789012:policy-engine/MyPolicyEngine-abc123defg",
   "status": "CREATING",
   "statusReasons": [],
   "encryptionKeyArn": "arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab",
@@ -317,3 +349,115 @@ This means that the key being referenced cannot be used for customer managed key
 + The key does not have `ENCRYPT_DECRYPT` key usage.
 
  **To resolve this issue:** Verify that the key meets the prerequisites described in [Prerequisites for encrypting your policy engine](#policy-encryption-prereqs).
+
+### Key unavailable: you cannot list or read your policies
+<a name="policy-encryption-error-key-unavailable"></a>
+
+If the customer managed key becomes unusable — deleted, disabled, pending deletion, or with the grant or key policy revoked — the operations that return encrypted content stop working. `ListPolicyEngines`, `GetPolicyEngine`, `ListPolicies`, and `GetPolicy` all verify the key and decrypt before returning, so each fails while the key is unavailable. That is by design: the policy definitions cannot be read without the key.
+
+The practical problem is recovery. Those are the operations you would normally use to find out what exists, so a lost key can leave you unable to enumerate the resources you need to clean up.
+
+ **To resolve this issue:** use the summary operations. They return identifiers and status only — no encrypted content — so they neither verify the key nor decrypt, and they keep working when the key does not.
+
+First, list the policy engines in the account, including the key each one uses. Then list the policies inside an affected engine.
+
+**Example**  
+
+1. Not available. The AgentCore CLI does not expose the summary operations, and `agentcore status` reports only resources the current project manages. Use the AWS CLI or an SDK to recover an inventory.
+
+1. List the engines, then the policies in an affected engine:
+
+   ```
+   aws bedrock-agentcore-control list-policy-engine-summaries
+   
+   aws bedrock-agentcore-control list-policy-summaries \
+     --policy-engine-id <policy-engine-id>
+   ```
+
+1. List the engines, then the policies in an affected engine:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   for engine in client.list_policy_engine_summaries()['policyEngineSummaries']:
+       print(engine['policyEngineId'], engine['status'], engine.get('encryptionKeyArn'))
+   
+   for policy in client.list_policy_summaries(
+       policyEngineId='<policy-engine-id>'
+   )['policySummaries']:
+       print(policy['policyId'], policy['name'], policy['status'], policy['enforcementMode'])
+   ```
+
+The engine summary gives each engine’s `policyEngineId`, `name`, `status`, and `encryptionKeyArn`. Use `encryptionKeyArn` to confirm which engines depend on the affected key. The policy summary gives each policy’s `policyId`, `name`, `status`, and `enforcementMode`, but not its `definition` — the statement is the encrypted part and is omitted. The summary operations give you a complete inventory. Deleting what you find, however, depends on the key.
+
+**Important**  
+ **An engine that still contains policies cannot be deleted while its key is unusable.**   
+Deleting a policy requires read and write access to the key, so `DeletePolicy` fails for the same reason the read operations do. Deleting a policy engine does **not** use the key, but it refuses to act on an engine that is not empty:  
+
+```
+Policy engine still contains 3 policies and cannot be deleted
+```
+Those two rules together close off deletion: you cannot remove the policies without the key, and you cannot remove the engine until the policies are gone. An **empty** engine can still be deleted with the key unusable, and so can one whose policies you managed to remove while the key was still working.
+
+ **Restore the key.** For any engine that holds policies this is not the preferable option, it is the only one.
+
+1. Re-enable a disabled key, or cancel a pending deletion.
+
+1. Restore the key policy statements and the grant described in [Complete AWS KMS key policy](#policy-encryption-key-policy).
+
+1. Confirm access with `aws kms describe-key --key-id <key-arn>` as the calling principal.
+
+Once the key works again, the read operations return the policy definitions and deletion behaves normally — delete the policies by ID, then the engine:
+
+**Example**  
+
+1. For resources the project manages, remove them and deploy:
+
+   ```
+   agentcore remove policy --engine <engine-name> --name <policy-name> --yes
+   agentcore remove policy-engine --name <engine-name> --yes
+   agentcore deploy --yes
+   ```
+
+1. Delete the policies by ID, then the engine:
+
+   ```
+   aws bedrock-agentcore-control delete-policy \
+     --policy-engine-id <policy-engine-id> \
+     --policy-id <policy-id>
+   
+   aws bedrock-agentcore-control delete-policy-engine \
+     --policy-engine-id <policy-engine-id>
+   ```
+
+1. Delete every policy, waiting for each, then delete the engine:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   ENGINE_ID = '<policy-engine-id>'
+   
+   for policy in client.list_policy_summaries(
+       policyEngineId=ENGINE_ID
+   )['policySummaries']:
+       client.delete_policy(policyEngineId=ENGINE_ID, policyId=policy['policyId'])
+       client.get_waiter('policy_deleted').wait(
+           policyEngineId=ENGINE_ID, policyId=policy['policyId']
+       )
+   
+   client.delete_policy_engine(policyEngineId=ENGINE_ID)
+   client.get_waiter('policy_engine_deleted').wait(policyEngineId=ENGINE_ID)
+   ```
+
+An engine also cannot be deleted while it is still associated with a gateway, whatever the state of the key. Disassociate it first; see [Update existing gateway with Policy Engine](update-gateway-with-policy.md).
+
+**Warning**  
+A AWS KMS key that has completed deletion cannot be recovered, and neither can the policy definitions encrypted under it. If that key protected an engine that still contains policies, the engine cannot be emptied and therefore cannot be deleted through the API. Contact AWS Support if you are left with an engine in that state.  
+This is worth planning around rather than discovering: before scheduling a key for deletion, delete the policies in every engine that uses it, or confirm those engines are already empty.
+
+**Note**  
+The summary operations are separate API actions and need their own IAM permissions: `bedrock-agentcore:ListPolicyEngineSummaries` and `bedrock-agentcore:ListPolicySummaries`. Grant them alongside the list and get actions so this recovery path is available before you need it — see [AgentCore Gateway and Policy in AgentCore IAM Permissions](policy-permissions.md).

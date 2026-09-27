@@ -6,6 +6,8 @@
 The harness gives you the same security primitives as the rest of AgentCore, wired in by configuration.
 +  **Isolated execution.** Every session runs in its own Firecracker microVM in [AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html). No shared state, no shared filesystem.
 +  **IAM execution role.** The harness assumes an IAM role you own, configurable to include Bedrock, ECR, CloudWatch, and the AgentCore primitives it touches. See sample [execution role policy](#harness-execution-role-policy) below.
+**Note**  
+If role manager is enabled in your account, AgentCore attaches the role for you, and the role-selection step described here is replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 +  **IAM permissions model.** Harness APIs require permissions on both the harness resource and the underlying [AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html) resource. For example, calling `InvokeHarness` requires both `bedrock-agentcore:InvokeHarness` and `bedrock-agentcore:InvokeAgentRuntime` permissions on the harness ARN. The same pattern applies to control plane operations: `UpdateHarness` requires `bedrock-agentcore:UpdateAgentRuntime`, `DeleteHarness` requires `bedrock-agentcore:DeleteAgentRuntime`, and so on. See [execution role policy](#harness-execution-role-policy) for the full list.
 +  **Inbound OAuth Support.** JWT configured Harness resources require callers to present a valid JWT issued by a configured identity provider before they can invoke the harness. [AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html) threads the end-user identity through the agent, so downstream tools can call APIs with scoped user credentials instead of a shared service account.
 +  **VPC.** Connect harness sessions to your VPC for private access to internal resources.
@@ -77,7 +79,7 @@ response = client.invoke_harness(
 
 The harness does not evaluate which tool the block names, so this applies to built-in server-side tools and to inline functions supplied on the call.
 
-Returning a tool result is still supported. The harness accepts a [toolResult](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_HarnessToolResultBlock.html) block in the final message, and the model resumes reasoning over that result. This is how [inline function tools](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-tools.html) work: the assistant `toolUse` message is followed by the `toolResult` in the same request, so the `toolUse` block is not in the final message.
+Returning a tool result is still supported. The harness accepts a [toolResult](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_HarnessToolResultBlock.html) block in the final message, and the model resumes reasoning over that result. For [inline function tools](harness-tools.md#harness-inline-functions), the harness stores the model-generated `toolUse` and pending execution in the session. Send only the matching `toolResult` in a later `InvokeHarness` request that uses the same `runtimeSessionId`. A result without a matching pending handoff cannot resume the inline function.
 
 ### Model configuration parameters
 <a name="harness-model-params-security"></a>
@@ -255,6 +257,7 @@ Harness APIs require permissions on both the harness resource and the underlying
 | --- | --- | 
 |  `InvokeHarness`  |  `bedrock-agentcore:InvokeHarness`, `bedrock-agentcore:InvokeAgentRuntime`  | 
 |  `InvokeAgentRuntimeCommand`  |  `bedrock-agentcore:InvokeAgentRuntimeCommand`, `bedrock-agentcore:InvokeAgentRuntime`  | 
+|  `InvokeAgentRuntimeCommandShell`  |  `bedrock-agentcore:InvokeAgentRuntimeCommandShell`  | 
 |  `CreateHarness`  |  `bedrock-agentcore:CreateHarness`, `bedrock-agentcore:CreateAgentRuntime`, `bedrock-agentcore:CreateMemory`  | 
 |  `UpdateHarness`  |  `bedrock-agentcore:UpdateHarness`, `bedrock-agentcore:UpdateAgentRuntime`, `bedrock-agentcore:UpdateMemory`  | 
 |  `DeleteHarness`  |  `bedrock-agentcore:DeleteHarness`, `bedrock-agentcore:DeleteAgentRuntime`, `bedrock-agentcore:DeleteMemory`  | 
@@ -429,6 +432,39 @@ For production workloads, scope `Resource` values down to the specific ARNs your
 <a name="_additional_permissions_for_optional_features"></a>
 
 Below are sample policies you can append to your execution role based on the features your harness uses. Follow the principle of least privilege - grant your harness agent only the specific tools and credentials it needs for inference. See [Placeholder reference](#harness-optional-placeholders) for placeholder definitions.
+
+#### Lifecycle hook targets
+<a name="harness-lifecycle-hook-permissions"></a>
+
+Add the permissions for each Lambda, SNS, or EventBridge target configured in [Lifecycle hooks](harness-lifecycle-hooks.md).
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "InvokeLifecycleHookLambda",
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunction",
+      "Resource": "<hookFunctionArn>"
+    },
+    {
+      "Sid": "PublishLifecycleHookSns",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "<hookTopicArn>"
+    },
+    {
+      "Sid": "PublishLifecycleHookEventBridge",
+      "Effect": "Allow",
+      "Action": "events:PutEvents",
+      "Resource": "<hookEventBusArn>"
+    }
+  ]
+}
+```
+
+Replace each resource with the exact target ARN from the hook configuration, including a Lambda version or alias qualifier when present. Remove statements for target types that the harness does not use. For a cross-account target, also configure the target’s resource-based policy to allow the harness execution role.
 
 #### Private ECR access (custom container images)
 <a name="harness-custom-container-ecr"></a>
@@ -706,13 +742,18 @@ Replace the following placeholders in the policies above with values specific to
 |  `<ecrRegion>`  | The region where your ECR repository is hosted. | 
 |  `<ecrAccountId>`  | The AWS account ID that owns the ECR repository. | 
 |  `<ecrRepoName>`  | The name of your ECR repository. | 
+|  `<hookFunctionArn>`  | The ARN of a Lambda lifecycle hook target, including a version or alias qualifier when present. | 
+|  `<hookTopicArn>`  | The ARN of an SNS lifecycle hook target. | 
+|  `<hookEventBusArn>`  | The ARN of an EventBridge lifecycle hook target. | 
 
 **Note**  
 The trailing `-*` on Secrets Manager resources accounts for the random suffix that Secrets Manager appends to secret ARNs.
 
 #### Related topics
 <a name="_related_topics"></a>
-+  [Tools](harness-tools.md) - tool types and allowedTools patterns
-+  [Environment and filesystem](harness-environment.md) - custom environments and ECR permissions
-+  [Control cost with limits](harness-operations.md#harness-limits) - execution limits to control cost
++  [Tools](harness-tools.md) – Review tool types and `allowedTools` patterns
++  [Lifecycle hooks](harness-lifecycle-hooks.md) – Configure hooks to validate invocations and tool calls
++  [Environment and filesystem](harness-environment.md) – Configure custom environments and ECR permissions
++  [Interactive shells](harness-command-shell.md) – Open an interactive terminal in a harness session
++  [Control cost with limits](harness-operations.md#harness-limits) – Set execution limits to control cost
 +  [API Documentation](harness-get-started.md#api-documentation) 

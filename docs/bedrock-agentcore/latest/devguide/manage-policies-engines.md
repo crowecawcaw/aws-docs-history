@@ -5,8 +5,11 @@
 
 Use these operations to manage your Policy Engines and policies.
 
+The AWS CLI and the AWS SDKs act on any policy engine in your account. The AgentCore CLI is scoped to a single AgentCore project: it can delete the engines and policies that project manages, and `agentcore status` shows their deployed state, but it has no equivalent for reading or updating a resource it did not create. Use the AWS CLI or an SDK for those.
+
 **Topics**
 + [List Policy Engines](#list-policy-engines)
++ [List summaries without decrypting](#list-summaries)
 + [Get Policy Engine](#get-policy-engine)
 + [List policies in a Policy Engine](#list-policies-in-engine)
 + [Get Policy](#get-policy)
@@ -44,6 +47,24 @@ Select one of the following methods:
        print(f"ARN: {engine['policyEngineArn']}")
    ```
 
+## List summaries without decrypting
+<a name="list-summaries"></a>
+
+Alongside `ListPolicyEngines` and `ListPolicies`, the service offers summary variants that return identifiers, names, and status but omit the encrypted content — a policy engine’s summary carries no description, and a policy’s summary carries no `definition`.
+
+```
+aws bedrock-agentcore-control list-policy-engine-summaries
+
+aws bedrock-agentcore-control list-policy-summaries \
+  --policy-engine-id my_policy_engine-a1b2c3d4e5
+```
+
+There are two reasons to prefer them.
++  **They work when a customer managed key does not.** The full list and get operations verify the key and decrypt before returning, so they fail while the key is disabled, deleted, or has its grant revoked. The summary operations touch neither, so they remain the only way to enumerate what exists. See [Key unavailable: you cannot list or read your policies](policy-encryption.md#policy-encryption-error-key-unavailable).
++  **They are cheaper for inventory.** If you only need to know which policies exist and whether they are `ACTIVE`, you do not need the statements decrypted.
+
+They are separate IAM actions — `bedrock-agentcore:ListPolicyEngineSummaries` and `bedrock-agentcore:ListPolicySummaries` — so grant them explicitly; see [AgentCore Gateway and Policy in AgentCore IAM Permissions](policy-permissions.md).
+
 ## Get Policy Engine
 <a name="get-policy-engine"></a>
 
@@ -54,7 +75,7 @@ Retrieve detailed information about a specific Policy Engine:
 1. 
 
    ```
-   aws bedrock-agentcore-control get-policy-engine --policy-engine-id my-policy-engine-id
+   aws bedrock-agentcore-control get-policy-engine --policy-engine-id my_policy_engine-a1b2c3d4e5
    ```
 
 1. 
@@ -65,7 +86,7 @@ Retrieve detailed information about a specific Policy Engine:
    client = boto3.client('bedrock-agentcore-control')
    
    response = client.get_policy_engine(
-       policyEngineId='my-policy-engine-id'
+       policyEngineId='my_policy_engine-a1b2c3d4e5'
    )
    
    print(f"Policy Engine: {response['name']}")
@@ -86,7 +107,7 @@ View all policies within a specific Policy Engine:
 1. 
 
    ```
-   aws bedrock-agentcore-control list-policies --policy-engine-id my-policy-engine-id
+   aws bedrock-agentcore-control list-policies --policy-engine-id my_policy_engine-a1b2c3d4e5
    ```
 
 1. 
@@ -97,7 +118,7 @@ View all policies within a specific Policy Engine:
    client = boto3.client('bedrock-agentcore-control')
    
    response = client.list_policies(
-       policyEngineId='my-policy-engine-id'
+       policyEngineId='my_policy_engine-a1b2c3d4e5'
    )
    
    for policy in response['policies']:
@@ -117,7 +138,7 @@ Retrieve detailed information about a specific policy:
 1. 
 
    ```
-   aws bedrock-agentcore-control get-policy --policy-engine-id my-policy-engine-id --policy-id my-policy-id
+   aws bedrock-agentcore-control get-policy --policy-engine-id my_policy_engine-a1b2c3d4e5 --policy-id my_policy-a1b2c3d4e5
    ```
 
 1. 
@@ -128,8 +149,8 @@ Retrieve detailed information about a specific policy:
    client = boto3.client('bedrock-agentcore-control')
    
    response = client.get_policy(
-       policyId='my-policy-id',
-       policyEngineId='my-policy-engine-id'
+       policyId='my_policy-a1b2c3d4e5',
+       policyEngineId='my_policy_engine-a1b2c3d4e5'
    )
    
    print(f"Policy: {response['name']}")
@@ -138,13 +159,15 @@ Retrieve detailed information about a specific policy:
    print(f"Status: {response['status']}")
    print(f"Created: {response['createdAt']}")
    print(f"Updated: {response['updatedAt']}")
-   print(f"Cedar Statement: {response['definition']['cedar']['statement']}")
+   print(f"Cedar Statement: {response['definition']['policy']['statement']}")
    ```
 
 ## Update existing policies
 <a name="update-existing-policies"></a>
 
-Update a policy’s definition.
+ `UpdatePolicy` replaces the policy’s definition outright — there is no partial update, so send the complete statement you want. Like `CreatePolicy`, it returns HTTP 202 and validates asynchronously; wait for `ACTIVE` rather than treating the response as success.
+
+A statement must constrain the resource, either to a specific gateway with `resource ==` or to the type with `resource is AgentCore::Gateway`. An unconstrained `resource` is rejected at the call with a `ValidationException`.
 
 **Note**  
 If the updated policy is a temporal policy, or the update adds or removes temporal expressions, updating it invalidates the engine’s active temporal policy sessions. In-flight sessions return an HTTP 409 `ConflictException` and must be restarted. For more information, see [Session invalidation](policy-temporal.md#policy-temporal-session-invalidation).
@@ -155,11 +178,11 @@ If the updated policy is a temporal policy, or the update adds or removes tempor
 
    ```
    aws bedrock-agentcore-control update-policy \
-     --policy-id my-policy-id \
-     --policy-engine-id my-policy-engine-id \
+     --policy-id my_policy-a1b2c3d4e5 \
+     --policy-engine-id my_policy_engine-a1b2c3d4e5 \
      --definition '{
-       "cedar": {
-         "statement": "permit(principal, action, resource);"
+       "policy": {
+         "statement": "permit (principal, action == AgentCore::Action::\"RefundTool___process_refund\", resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5\");"
        }
      }'
    ```
@@ -172,17 +195,21 @@ If the updated policy is a temporal policy, or the update adds or removes tempor
    client = boto3.client('bedrock-agentcore-control')
    
    client.update_policy(
-       policyId='my-policy-id',
-       policyEngineId='my-policy-engine-id',
+       policyId='my_policy-a1b2c3d4e5',
+       policyEngineId='my_policy_engine-a1b2c3d4e5',
        definition={
-           'cedar': {
-               'statement': 'permit(principal, action, resource);'
+           'policy': {
+               'statement': (
+                   'permit (principal, '
+                   'action == AgentCore::Action::"RefundTool___process_refund", '
+                   'resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5");'
+               )
            }
        }
    )
    
    waiter = client.get_waiter('policy_active')
-   waiter.wait(PolicyEngineId="my-policy-engine-id", PolicyId="my-policy-id")
+   waiter.wait(policyEngineId='my_policy_engine-a1b2c3d4e5', policyId='my_policy-a1b2c3d4e5')
    ```
 
 ## Delete policies
@@ -192,10 +219,19 @@ Delete a policy from the Policy Engine.
 
 **Example**  
 
+1. For a policy your AgentCore project manages, remove it from the project and deploy:
+
+   ```
+   agentcore remove policy --name my_policy --engine my_policy_engine --yes
+   agentcore deploy --yes
+   ```
+
+    `agentcore remove` only edits the project configuration; the policy is deleted from your account on the next `agentcore deploy`.
+
 1. 
 
    ```
-   aws bedrock-agentcore-control delete-policy --policy-engine-id my-policy-engine-id --policy-id my-policy-id
+   aws bedrock-agentcore-control delete-policy --policy-engine-id my_policy_engine-a1b2c3d4e5 --policy-id my_policy-a1b2c3d4e5
    ```
 
 1. 
@@ -205,9 +241,9 @@ Delete a policy from the Policy Engine.
    
    client = boto3.client('bedrock-agentcore-control')
    
-   client.delete_policy(policyId='my-policy-id', policyEngineId='my-policy-engine-id')
+   client.delete_policy(policyId='my_policy-a1b2c3d4e5', policyEngineId='my_policy_engine-a1b2c3d4e5')
    waiter = client.get_waiter('policy_deleted')
-   waiter.wait(PolicyEngineId="my-policy-engine-id", PolicyId="my-policy-id")
+   waiter.wait(policyEngineId='my_policy_engine-a1b2c3d4e5', policyId='my_policy-a1b2c3d4e5')
    ```
 
 ## Delete Policy Engine
@@ -216,14 +252,24 @@ Delete a policy from the Policy Engine.
 Delete an entire Policy Engine and all its policies.
 
 **Note**  
-\* You cannot delete a Policy Engine that is currently attached to a gateway. First detach it by updating the gateway configuration. \* You cannot delete a Policy Engine that has policies in it. First delete all the policies and then delete the engine
+You cannot delete a policy engine that is currently attached to a gateway. Detach it first by updating the gateway configuration; see [Update existing gateway with Policy Engine](update-gateway-with-policy.md).
+You cannot delete a policy engine that still has policies in it. Delete every policy first, then delete the engine.
 
 **Example**  
+
+1. For an engine your AgentCore project manages, remove it from the project and deploy:
+
+   ```
+   agentcore remove policy-engine --name my_policy_engine --yes
+   agentcore deploy --yes
+   ```
+
+   Removing a gateway does not remove the policy engine attached to it; remove the engine separately.
 
 1. 
 
    ```
-   aws bedrock-agentcore-control delete-policy-engine --policy-engine-id my-policy-engine-id
+   aws bedrock-agentcore-control delete-policy-engine --policy-engine-id my_policy_engine-a1b2c3d4e5
    ```
 
 1. 
@@ -233,5 +279,5 @@ Delete an entire Policy Engine and all its policies.
    
    client = boto3.client('bedrock-agentcore-control')
    
-   client.delete_policy_engine(policyEngineId='my-policy-engine-id')
+   client.delete_policy_engine(policyEngineId='my_policy_engine-a1b2c3d4e5')
    ```

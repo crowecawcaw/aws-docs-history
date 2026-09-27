@@ -14,7 +14,7 @@ Session-aware rules use temporal policies, which are written in Dogwood (compati
 + [Policy effects](#policy-effects)
 + [Default deny](#policy-default-deny)
 + [Authorization evaluation](#policy-authorization-evaluation)
-+ [Policy independence](#policy-independence)
++ [Policy isolation](#policy-isolation)
 + [Policy evaluation algorithm](#policy-evaluation-algorithm)
 
 ## Example policy
@@ -77,8 +77,8 @@ Cedar uses a forbid-overrides-permit evaluation model:
 
 1. If no policies match, the result is DENY (default deny)
 
-## Policy independence
-<a name="policy-independence"></a>
+## Policy isolation
+<a name="policy-isolation"></a>
 
 Each Cedar policy evaluates independently. A policy’s evaluation depends only on:
 + The scope (principal, action, resource)

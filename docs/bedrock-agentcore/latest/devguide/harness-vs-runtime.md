@@ -22,50 +22,53 @@ The grid below makes the per-feature exceptions explicit.
 <a name="_feature_grid"></a>
 
 The **Supported?** columns use the following legend:
-+ ✅ - Supported with no custom code required.
-+ 🔵 - Supported, but you must maintain your own implementation.
-+ 🟣 - Configuration enables it, but code is required to fully use it.
-+ ❌ - Not supported.
++  **Yes** (`✅ Yes`) – Supported with no custom code required.
++  **Custom** (`🔵 Custom`) – Supported, but you must maintain your own implementation.
++  **Mixed** (`🟣 Mixed`) – Configuration enables it, but code is required to fully use it.
++  **No** (`❌ No`) – Not supported.
 
 
 | Feature / Capability | Harness: supported? | Harness: customer code required? | Runtime: supported? | Runtime: customer code required? | 
 | --- | --- | --- | --- | --- | 
-| Model selection (Bedrock / OpenAI / Gemini / LiteLLM) | ✅ | No | 🔵 | Yes | 
-| Switch model provider mid-session | ✅ | No | 🔵 | Yes | 
-| Built-in shell and `file_operations` tools | ✅ | No | 🔵 | Yes | 
-| Agent Skills | ✅ | No | 🔵 | Yes | 
-| Observability | ✅ | No | 🔵 | Yes | 
-| AgentCore Memory - short-term | ✅ | No | 🔵 | Yes | 
-| AgentCore Memory - long-term (semantic, summarization, user-pref, episodic) | ✅ | No | 🔵 | Yes | 
-| Per-user memory scoping (actor ID) | ✅ | No | 🔵 | Yes | 
-| AgentCore Gateway | ✅ | No | 🔵 | Yes | 
-| AgentCore Browser | ✅ | No | 🔵 | Yes | 
-| AgentCore Code Interpreter | ✅ | No | 🔵 | Yes | 
-| MCP server tools (remote) | ✅ | No | 🔵 | Yes | 
-| Inline / client-side tools | 🔵 | Yes | 🔵 | Yes | 
-| Context-window truncation | ✅ | No | 🔵 | Yes | 
-| Custom container image / environment | 🟣 | Mixed | 🟣 | Mixed | 
-| Execution limits (`maxIterations`, `timeoutSeconds`, `maxTokens`, idle/lifetime) | ✅ | No | 🔵 | Yes | 
-| Filesystem - service-managed session storage | ✅ | No | ✅ | No | 
-| Filesystem - EFS access point | ✅ | No | ✅ | No | 
-| Filesystem - S3 Files access point | ✅ | No | ✅ | No | 
-| Environment variables | ✅ | No | ✅ | No | 
-| Direct shell command execution (`InvokeAgentRuntimeCommand` API) | ✅ | No | ✅ | No | 
-| Inbound auth - IAM (SigV4) | ✅ | No | ✅ | No | 
-| Inbound auth - OAuth | ✅ | No | ✅ | No | 
-| Outbound auth / Identity token vault (OAuth and API keys) | ✅ | No | 🔵 | Yes | 
-| Session isolation | ✅ | No | ✅ | No | 
-| VPC networking | ✅ | No | ✅ | No | 
-| Streaming responses | ✅ | No | 🔵 | Yes | 
-| Versioning and endpoints | ✅ | No | ✅ | No | 
-| Choice of agent framework | ❌ | N/A | 🔵 | Yes | 
-| Bidirectional streaming | ❌ | N/A | 🔵 | Yes | 
-| Non-agent-loop patterns (graph, workflow style) | ❌ | N/A | 🔵 | Yes | 
-| Hooks | ❌ | N/A | 🔵 | Yes | 
+| Model selection (Bedrock / OpenAI / Gemini / LiteLLM) | ✅ Yes | No | 🔵 Custom | Yes | 
+| Switch model provider mid-session | ✅ Yes | No | 🔵 Custom | Yes | 
+| Built-in shell and `file_operations` tools | ✅ Yes | No | 🔵 Custom | Yes | 
+| Agent Skills | ✅ Yes | No | 🔵 Custom | Yes | 
+| Observability | ✅ Yes | No | 🔵 Custom | Yes | 
+| AgentCore Memory - short-term | ✅ Yes | No | 🔵 Custom | Yes | 
+| AgentCore Memory - long-term (semantic, summarization, user-pref, episodic) | ✅ Yes | No | 🔵 Custom | Yes | 
+| Per-user memory scoping (actor ID) | ✅ Yes | No | 🔵 Custom | Yes | 
+| AgentCore Gateway | ✅ Yes | No | 🔵 Custom | Yes | 
+| AgentCore Browser | ✅ Yes | No | 🔵 Custom | Yes | 
+| AgentCore Code Interpreter | ✅ Yes | No | 🔵 Custom | Yes | 
+| MCP server tools (remote) | ✅ Yes | No | 🔵 Custom | Yes | 
+| Inline / client-side tools | 🔵 Custom | Yes | 🔵 Custom | Yes | 
+| Context-window truncation | ✅ Yes | No | 🔵 Custom | Yes | 
+| Custom container image / environment | 🟣 Mixed | Mixed | 🟣 Mixed | Mixed | 
+| Execution limits (`maxIterations`, `timeoutSeconds`, `maxTokens`, idle/lifetime) | ✅ Yes | No | 🔵 Custom | Yes | 
+| Filesystem - service-managed session storage | ✅ Yes | No | ✅ Yes | No | 
+| Filesystem - EFS access point | ✅ Yes | No | ✅ Yes | No | 
+| Filesystem - S3 Files access point | ✅ Yes | No | ✅ Yes | No | 
+| Environment variables | ✅ Yes | No | ✅ Yes | No | 
+| Direct shell command execution (`InvokeAgentRuntimeCommand` API) | ✅ Yes | No | ✅ Yes | No | 
+| Interactive shell sessions (`InvokeAgentRuntimeCommandShell` API) | ✅ Yes | No | ✅ Yes | No | 
+| Inbound auth - IAM (SigV4) | ✅ Yes | No | ✅ Yes | No | 
+| Inbound auth - OAuth | ✅ Yes | No | ✅ Yes | No | 
+| Outbound auth / Identity token vault (OAuth and API keys) | ✅ Yes | No | 🔵 Custom | Yes | 
+| Session isolation | ✅ Yes | No | ✅ Yes | No | 
+| VPC networking | ✅ Yes | No | ✅ Yes | No | 
+| Streaming responses | ✅ Yes | No | 🔵 Custom | Yes | 
+| Versioning and endpoints | ✅ Yes | No | ✅ Yes | No | 
+| Choice of agent framework | ❌ No | N/A | 🔵 Custom | Yes | 
+| Bidirectional streaming | ❌ No | N/A | 🔵 Custom | Yes | 
+| Non-agent-loop patterns (graph, workflow style) | ❌ No | N/A | 🔵 Custom | Yes | 
+| Lifecycle hooks | 🟣 Mixed | Mixed | 🔵 Custom | Yes | 
 
 ## Related topics
 <a name="_related_topics"></a>
-+  [Get started](harness-get-started.md) - create and invoke your first harness
-+  [Models and instructions](harness-models.md) - configure agents, models, and providers
-+  [Tools](harness-tools.md) - connect tools to your harness
-+  [Environment and filesystem](harness-environment.md) - bring a custom container image or environment
++  [Get started](harness-get-started.md) – Create and invoke your first harness
++  [Models and instructions](harness-models.md) – Configure agents, models, and providers
++  [Tools](harness-tools.md) – Connect tools to your harness
++  [Lifecycle hooks](harness-lifecycle-hooks.md) – Configure hooks to validate invocations and tool calls
++  [Environment and filesystem](harness-environment.md) – Bring a custom container image or environment
++  [Interactive shells](harness-command-shell.md) – Open an interactive terminal in a harness session

@@ -23,10 +23,10 @@ Harness operations are logged to AWS CloudTrail as management events (control pl
 
 All harness CloudTrail events use `resources.type` = `AWS::BedrockAgentCore::Runtime`. The event names are:
 +  `CreateHarness`, `UpdateHarness`, `DeleteHarness`, `GetHarness`, `ListHarnesses` (management events)
-+  `InvokeAgentRuntime`, `InvokeAgentRuntimeCommand` (data events)
++  `InvokeAgentRuntime`, `InvokeAgentRuntimeCommand`, `InvokeAgentRuntimeCommandShell` (data events)
 
 **Note**  
-Data plane operations appear as `InvokeAgentRuntime` and `InvokeAgentRuntimeCommand` in CloudTrail, matching the underlying Runtime API. The `resources.ARN` field contains the harness ARN for control plane events and the runtime ARN for data plane events.
+Data plane operations appear as `InvokeAgentRuntime`, `InvokeAgentRuntimeCommand`, and `InvokeAgentRuntimeCommandShell` in CloudTrail, matching the underlying Runtime API. The `resources.ARN` field contains the harness ARN for control plane events and the runtime ARN for data plane events.
 
 ## Understand harness costs
 <a name="harness-costs"></a>
@@ -136,5 +136,6 @@ Harness tags propagate to the managed Runtime, Runtime endpoint, and managed Mem
 <a name="_related_topics"></a>
 +  [Memory](harness-memory.md) - memory persists conversation context across sessions
 +  [Environment and filesystem](harness-environment.md) - environment variables and custom containers
++  [Interactive shells (terminals)](harness-command-shell.md) - interactive terminal access to harness sessions
 +  [Security and access controls](harness-security.md) - execution role policy and IAM permissions
 +  [API Documentation](harness-get-started.md#api-documentation) 

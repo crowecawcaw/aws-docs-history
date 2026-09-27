@@ -142,6 +142,30 @@ Create a policy engine and attach it to the gateway in ENFORCE mode:
      --attach-mode ENFORCE
    ```
 
+1. Create the engine, then attach it to the gateway in `ENFORCE` mode with `update-gateway`:
+
+   ```
+   aws bedrock-agentcore-control create-policy-engine --name RefundPolicyEngine
+   ```
+
+   See [Update existing gateway with Policy Engine](update-gateway-with-policy.md) for the attach request.
+
+1. 
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   engine = client.create_policy_engine(name='RefundPolicyEngine')
+   client.get_waiter('policy_engine_active').wait(
+       policyEngineId=engine['policyEngineId']
+   )
+   print(engine['policyEngineId'], engine['policyEngineArn'])
+   ```
+
+   Then attach it with `update_gateway`, passing `policyEngineConfiguration={'arn': engine['policyEngineArn'], 'mode': 'ENFORCE'}`.
+
 1. Run `agentcore` to open the TUI, then select **add** and choose **Policy Engine** :
 
 1. Enter the policy engine name:  
@@ -155,11 +179,23 @@ Create a policy engine and attach it to the gateway in ENFORCE mode:
 
  **Create a Cedar policy** 
 
-Provide a Cedar policy file directly. Cedar does not allow wildcard resources in policy statements. This requires a two-phase deployment: first deploy without the policy to create the gateway, then retrieve the gateway ARN. Then add the policy and redeploy.
+Provide a Cedar policy file directly.
 
-1. Deploy the gateway first (see [Step 3: Deploy](#policy-getting-started-run-setup)), then run **agentcore status** to get the gateway ARN.
+A policy that names a specific action must also name a specific gateway ARN — an unconstrained resource is rejected. You do not know the ARN until the gateway exists, so this takes **two deploys**: one to create the gateway, then a second to attach the policy. The full sequence, start to finish:
 
-1. Create a `refund_policy.cedar` file in your project directory, substituting the gateway ARN from the previous step:
+1.  `agentcore deploy` — creates the gateway, target, and policy engine.
+
+1.  `agentcore status` — read the gateway ARN from the output.
+
+1. Create `refund_policy.cedar` with that ARN substituted in, as shown below.
+
+1.  `agentcore add policy --source refund_policy.cedar` — records the policy in your project.
+
+1.  `agentcore deploy` again — creates the policy in your account.
+
+Steps 1 and 5 are both the deploy described in [Step 3: Deploy](#policy-getting-started-run-setup); you run it twice. Steps 3 and 4 are detailed here:
+
+1. Create a `refund_policy.cedar` file in your project directory, substituting the gateway ARN from `agentcore status`:
 
    ```
    permit(principal,
@@ -177,6 +213,50 @@ Provide a Cedar policy file directly. Cedar does not allow wildcard resources in
      --engine RefundPolicyEngine \
      --source refund_policy.cedar
    agentcore deploy
+   ```
+
+On the AWS CLI and boto3 you create the policy directly, once you know the gateway ARN:
+
+**Example**  
+
+1. 
+
+   ```
+   aws bedrock-agentcore-control create-policy \
+     --policy-engine-id RefundPolicyEngine-a1b2c3d4e5 \
+     --name RefundLimit \
+     --definition '{
+       "policy": {
+         "statement": "permit (principal, action == AgentCore::Action::\"RefundTarget___process_refund\", resource == AgentCore::Gateway::\"<gateway-arn>\") when { context.input.amount < 1000 };"
+       }
+     }'
+   ```
+
+1. 
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   statement = (
+       'permit (principal, '
+       'action == AgentCore::Action::"RefundTarget___process_refund", '
+       'resource == AgentCore::Gateway::"<gateway-arn>") '
+       'when { context.input.amount < 1000 };'
+   )
+   
+   response = client.create_policy(
+       policyEngineId='RefundPolicyEngine-a1b2c3d4e5',
+       name='RefundLimit',
+       definition={'policy': {'statement': statement}},
+   )
+   
+   # CreatePolicy returns 202 - wait for the terminal status
+   client.get_waiter('policy_active').wait(
+       policyEngineId='RefundPolicyEngine-a1b2c3d4e5',
+       policyId=response['policyId'],
+   )
    ```
 
 Alternatively, after deploying your resources in Step 3, you can generate a Cedar policy from a natural-language description:

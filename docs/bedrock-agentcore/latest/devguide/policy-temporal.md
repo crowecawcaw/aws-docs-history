@@ -137,7 +137,7 @@ The following quotas apply to temporal policies:
 
 | Quota | Value | 
 | --- | --- | 
-| Temporal policies per policy engine | 25 | 
+| Temporal policies per policy engine | 20 | 
 | Temporal operators per policy | 3 | 
 | Maximum time window per temporal condition | 24 hours | 
 

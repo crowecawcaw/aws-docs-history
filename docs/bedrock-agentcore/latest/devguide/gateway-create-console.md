@@ -35,6 +35,8 @@
      +  **Required custom claims** – Enter a list of required claims that will be validated against the claim name and value contained in the incoming JWT token. For details on configuring the authorizer, see [Configure inbound JWT authorizer](inbound-jwt-authorizer.md) 
 
 1. In the **Permissions** section, do the following:
+**Note**  
+If role manager is enabled in your account, AgentCore attaches the role for you, and the role-selection step described here is replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
    1. To use an IAM service role to invoke the gateway on the user’s behalf, select **Use an IAM service role**.
 

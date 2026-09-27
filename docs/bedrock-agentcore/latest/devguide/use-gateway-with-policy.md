@@ -94,7 +94,7 @@ Select one of the following methods:
        "method": "tools/call",
        "params": {
          "name": "tool_name",
-         "arguments": {arguments}
+         "arguments": {"orderId": "12345"}
        }
      }'
    ```
@@ -157,7 +157,7 @@ curl -X POST \
     "method": "tools/call",
     "params": {
       "name": "tool_name",
-      "arguments": {arguments}
+      "arguments": {"orderId": "12345"}
     }
   }'
 ```
@@ -172,7 +172,7 @@ When a policy allows the request:
 ```
 {
   "jsonrpc": "2.0",
-  "id": 2,
+  "id": "test-policy",
   "result": {
     "isError": false,
     "content": [
@@ -190,7 +190,7 @@ When a policy denies the request:
 ```
 {
   "jsonrpc": "2.0",
-  "id": 2,
+  "id": "test-policy",
   "result": {
     "content": [
       {

@@ -33,7 +33,7 @@ FGAC for Memory is built on the AgentCore Memory connector. Set up a gateway wit
 
 A policy engine holds a set of Cedar policies and evaluates them for each request that flows through an associated gateway. After the gateway authenticates the caller and resolves the request to a Memory operation, the policy engine evaluates the policies against the request’s **principal** (who is calling), **action** (which Memory operation), **resource** (which gateway), and **context** (the request’s attributes, such as path parameters and body fields). Evaluation is deny-by-default and `forbid` overrides `permit`.
 
-Because the Memory connector makes each Memory operation available as a Cedar action with its request fields, your policies can allow or deny specific Memory operations and condition on their request attributes. The generic Cedar model — policy structure, `permit`/`forbid`, the `AgentCore::OAuthUser` and `AgentCore::IamEntity` principal types, tags, and `context.input` — is described in [Understanding Cedar policies](policy-understanding-cedar.md) and [Core concepts](policy-core-concepts.md).
+Because the Memory connector makes each Memory operation available as a Cedar action with its request fields, your policies can allow or deny specific Memory operations and condition on their request attributes. The generic Cedar model — policy structure, `permit`/`forbid`, the `AgentCore::OAuthUser` and `AgentCore::IamEntity` principal types, tags, and `context.input` — is described in [Policy scope](policy-scope.md) and [Core concepts](policy-core-concepts.md).
 
 ## Set up fine-grained access control for Memory
 <a name="memory-gateway-fgac-setup"></a>

@@ -4,7 +4,7 @@
 <a name="registry-supported-auth-types"></a>
 
 **Migration Now Open**  
- AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on September 17, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
+ AWS Agent Registry has launched under the new `agent-registry` namespace. Support for the public preview `bedrock-agentcore` namespace will be discontinued on October 30, 2026. For migration instructions, see [Comprehensive registry migration guide](registry-faq.md).
 
 Inbound authorization allows registry administrators to control which consumers can discover records in the registry — search, browse the approved-record catalog, invoke the registry’s MCP endpoint — via the AWS CLI, SDK, console, or an MCP-compatible client. Administrators can configure inbound authorization using IAM or JWT.
 

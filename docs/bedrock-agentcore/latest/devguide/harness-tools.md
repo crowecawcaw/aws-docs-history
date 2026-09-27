@@ -241,7 +241,7 @@ agentcore invoke --harness research-agent "Search the web for the latest AWS ann
 ```
 
 ## Inline function calls
-<a name="_inline_function_calls"></a>
+<a name="harness-inline-functions"></a>
 
 Inline functions let you define a tool that executes in your code, not on the harness. This is useful for human-in-the-loop approvals, calling internal APIs, or any logic you want to control client-side.
 
@@ -249,65 +249,82 @@ Inline functions let you define a tool that executes in your code, not on the ha
 Pass an inline function tool at invoke time:  
 
 ```
-# 1. Invoke with an inline function tool
+import json
+
+tools = [{
+    "type": "inline_function",
+    "name": "get_weather",
+    "config": {"inlineFunction": {
+        "description": "Get the current weather for a city.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {"city": {"type": "string"}},
+            "required": ["city"]
+        }
+    }}
+}]
+
+# 1. Invoke with the inline function tool
 response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
-    tools=[{
-        "type": "inline_function",
-        "name": "get_weather",
-        "config": {"inlineFunction": {
-            "description": "Get the current weather for a city.",
-            "inputSchema": {
-                "type": "object",
-                "properties": {"city": {"type": "string"}},
-                "required": ["city"]
-            }
-        }}
-    }],
+    tools=tools,
     messages=[{"role": "user", "content": [{"text": "What's the weather in Seattle?"}]}],
 )
 
-# 2. The agent calls the tool - capture the toolUseId and input from the stream
+# 2. Capture the toolUseId and input, then wait for the handoff boundary
 tool_use_id = None
-tool_name = None
+tool_block_index = None
 tool_input = None
+last_stop_reason = None
 for event in response["stream"]:
     if "contentBlockStart" in event:
-        start = event["contentBlockStart"].get("start", {})
-        if "toolUse" in start and start["toolUse"].get("name") == "get_weather":
+        content_block_start = event["contentBlockStart"]
+        start = content_block_start.get("start", {})
+        if (
+            tool_use_id is None
+            and "toolUse" in start
+            and start["toolUse"].get("name") == "get_weather"
+        ):
             tool_use_id = start["toolUse"]["toolUseId"]
-            tool_name = start["toolUse"]["name"]
+            tool_block_index = content_block_start["contentBlockIndex"]
     if "contentBlockDelta" in event:
-        delta = event["contentBlockDelta"].get("delta", {})
-        if "toolUse" in delta:
+        content_block_delta = event["contentBlockDelta"]
+        delta = content_block_delta.get("delta", {})
+        if (
+            content_block_delta.get("contentBlockIndex") == tool_block_index
+            and "toolUse" in delta
+        ):
             tool_input = (tool_input or "") + delta["toolUse"].get("input", "")
+    if "messageStop" in event:
+        last_stop_reason = event["messageStop"].get("stopReason")
 
-# 3. Execute the tool yourself and send the result back
-# Include the assistant's toolUse message followed by your toolResult
-client.invoke_harness(
+if last_stop_reason != "tool_use" or tool_use_id is None:
+    raise RuntimeError("The inline function was not handed off for execution.")
+
+# 3. Execute the tool yourself and send the matching result back
+tool_arguments = json.loads(tool_input or "{}")
+# Run your client-side implementation with tool_arguments.
+tool_result = "72°F, partly cloudy"
+response = client.invoke_harness(
     harnessArn=HARNESS_ARN,
     runtimeSessionId=SESSION_ID,
-    messages=[
-        {
-            "role": "assistant",
-            "content": [{"toolUse": {"toolUseId": tool_use_id, "name": tool_name, "input": json.loads(tool_input)}}],
-        },
-        {
-            "role": "user",
-            "content": [{
-                "toolResult": {
-                    "toolUseId": tool_use_id,
-                    "content": [{"text": "72°F, partly cloudy"}],
-                    "status": "success",
-                }
-            }],
-        },
-    ],
+    tools=tools,
+    messages=[{
+        "role": "user",
+        "content": [{
+            "toolResult": {
+                "toolUseId": tool_use_id,
+                "content": [{"text": tool_result}],
+                "status": "success",
+            }
+        }],
+    }],
 )
 ```
-You must include both the assistant `toolUse` message and your `toolResult` in step 3. The harness intentionally does not persist the inline function turn to the session - if the client never returns a result, persisting a partial turn (assistant `toolUse` without a matching `toolResult`) would leave the session in a corrupted state. By requiring the client to send both messages, the session remains clean regardless of whether the client completes the tool call.
-The agent resumes reasoning with the tool result and streams the final response.
+Use the same `runtimeSessionId` for both requests. The harness stores the authoritative assistant `toolUse` and pending execution in that session. The follow-up request needs only the matching user `toolResult`. If you resend the assistant `toolUse`, the harness ignores that copy and resumes the original execution from session state. If you supplied the inline tool as an `InvokeHarness` override, include it again so the pending tool remains available. A missing, duplicate, stale, or replayed result cannot resume the handoff.
+Before using an `after_tool_call` event for an inline function as an authorization or audit signal, read [Use tool-call hooks with inline functions](harness-lifecycle-hooks.md#harness-hook-inline-functions).  
+Consume `response["stream"]` to receive the streamed tool result and any subsequent agent output. If the last `messageStop` has `stopReason` set to `tool_use`, repeat the handoff flow for the next inline function.
 Add an inline function tool to a harness:  
 
 ```
@@ -332,7 +349,7 @@ Then define the description and input schema in `app/my-agent/harness.json`:
   }
 }
 ```
-Run `agentcore deploy` to apply. When the agent calls the inline function during an invocation, the TUI pauses and prompts you to provide the tool result inline. In non-interactive (CLI) mode, the stream returns with `stopReason: "tool_use"` and you send the result back with a follow-up invoke call.
+Run `agentcore deploy` to apply. When the agent calls the inline function during an invocation, the TUI pauses and prompts you to provide the tool result inline. In non-interactive (CLI) mode, the stream returns with `stopReason: "tool_use"` and you send the result back with a follow-up invoke call that uses the same runtime session.
 
 Learn more about each tool:
 +  [AgentCore Gateway](gateway.md) · [create a gateway](gateway-create.md) · [policies](policy.md) 
@@ -341,7 +358,8 @@ Learn more about each tool:
 
 ### Related topics
 <a name="_related_topics"></a>
-+  [Models and instructions](harness-models.md) - configure models and override per invocation
-+  [Environment and filesystem](harness-environment.md) - bring your own container and run shell commands
-+  [Security and access controls](harness-security.md) - control which tools the agent can access with policies
++  [Models and instructions](harness-models.md) – Configure models and override per invocation
++  [Lifecycle hooks](harness-lifecycle-hooks.md) – Configure hooks to validate invocations and tool calls
++  [Environment and filesystem](harness-environment.md) – Bring your own container and run shell commands
++  [Security and access controls](harness-security.md) – Configure the harness execution role and control tool access
 +  [API Documentation](harness-get-started.md#api-documentation) 

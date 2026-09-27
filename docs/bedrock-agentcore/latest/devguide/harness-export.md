@@ -9,7 +9,7 @@ Export harness to code takes a managed harness configuration and generates the e
 <a name="_when_to_use_export"></a>
 
 Use export when you have a working harness and want to:
-+  **Customize beyond what the harness config allows** - add custom tool logic, change the agent loop, inject middleware/hooks, or integrate libraries the harness doesn’t expose
++  **Customize beyond what the harness config allows** – Add custom tool logic, change the agent loop, inject custom middleware or framework-specific hooks, or integrate libraries the harness doesn’t expose
 +  **Own the code** - move from a declarative config to source code you control, review, and version like the rest of your application.
 +  **Graduate a prototype** - start fast with a harness, then export when you’re ready to invest in a hand-maintained agent.
 

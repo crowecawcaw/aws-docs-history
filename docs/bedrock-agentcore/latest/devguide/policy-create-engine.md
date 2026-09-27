@@ -8,7 +8,7 @@ A policy engine is a collection of policies that evaluates and authorizes agent 
 **Topics**
 + [Prerequisites](#policy-engine-prerequisites)
 + [Create a policy engine](#create-policy-engine-methods)
-+ [Using the policy engine ARN](#policy-engine-arn-usage)
++ [Identifiers you need afterwards](#policy-engine-arn-usage)
 
 ## Prerequisites
 <a name="policy-engine-prerequisites"></a>
@@ -20,7 +20,27 @@ Before creating a policy engine, ensure you have a gateway setup. For more infor
 
 The following shows how to create a policy engine.
 
+A policy engine name must match `[A-Za-z][A-Za-z0-9_]*` and be at most 48 characters: it starts with a letter, and after that only letters, digits, and underscores are allowed. **Hyphens are not valid in a name** — use `my_policy_engine`, not `my-policy-engine`. The same rule applies to policy names.
+
 **Example**  
+
+1. In an AgentCore project, add a policy engine to the project configuration:
+
+   ```
+   agentcore add policy-engine \
+     --name my_policy_engine \
+     --description "My Policy Engine" \
+     --attach-to-gateways my-gateway \
+     --attach-mode LOG_ONLY
+   ```
+
+1. Deploy the project to create it in your account:
+
+   ```
+   agentcore deploy --yes
+   ```
+
+    `agentcore add` only records the engine in `agentcore/agentcore.json`; `agentcore deploy` is what creates it. The deploy output includes the engine ID and ARN. `--attach-to-gateways` and `--attach-mode` attach the engine to a gateway in the same step — start with `LOG_ONLY` so an engine with no policies does not deny live traffic. To encrypt the engine with your own KMS key, add `--encryption-key-arn`; see [Customize your policy engine’s encryption](policy-encryption.md).
 
 1. Run the following code in a terminal to create a policy engine using the AWS CLI:
 
@@ -30,7 +50,7 @@ The following shows how to create a policy engine.
      --description "My Policy Engine"
    ```
 
-   The `policyEngineArn` in the response is the ARN to use when creating policies or associating with gateway.
+   The response contains both `policyEngineId` and `policyEngineArn`. Keep both — they are used in different places, as described in [Identifiers you need afterwards](#policy-engine-arn-usage).
 
 1. The following Python code shows how to create a policy engine using the AWS Python SDK (Boto3):
 
@@ -48,11 +68,15 @@ The following shows how to create a policy engine.
    print(f"Policy Engine ARN: {response['policyEngineArn']}")
    ```
 
-## Using the policy engine ARN
+## Identifiers you need afterwards
 <a name="policy-engine-arn-usage"></a>
 
-The `policyEngineArn` returned when creating a policy engine is used for two main purposes:
-+  **Creating policies** - Use the ARN when adding policies to the engine
-+  **Associating with gateways** - Use the ARN to enable policy enforcement on gateways
+Creating an engine returns two identifiers, and they are not interchangeable:
 
-For more information about creating policies, see [Create a policy](policy-create-policies.md).
+ `policyEngineId`   
+Used by every policy operation — `CreatePolicy`, `ListPolicies`, `UpdatePolicy`, `DeletePolicy` — and by `--engine` in the AgentCore CLI. It looks like `my_policy_engine-a1b2c3d4e5`: your name, plus a generated ten-character suffix. Passing an ARN where an ID is expected is rejected as a validation error.
+
+ `policyEngineArn`   
+Used to attach the engine to a gateway, as `policyEngineConfiguration.arn` on `CreateGateway` or `UpdateGateway`, alongside a `mode` of `LOG_ONLY` or `ENFORCE`. The AgentCore CLI resolves this for you when you pass `--attach-to-gateways`.
+
+For more information about creating policies, see [Create a policy](policy-create-policies.md). For attaching an engine and switching modes, see [Policy enforcement modes](policy-enforcement-modes.md).
