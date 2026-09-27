@@ -432,6 +432,9 @@ We recommend that you use the RSA algorithms. Tokens issued by the provider must
 
 To validate multiple client IDs use the pipeline operator (“\|”) which is an “or” in regular expression. For example, if your OIDC application has four clients with client IDs such as 0A1S2D, 1F4G9H, 1J6L4B, 6GS5MG, to validate only the first three client IDs, you would place 1F4G9H\|1J6L4B\|6GS5MG in the client ID field.
 
+**Note**  
+For shared issuers, such as Amazon Cognito identity pools, the issuer URL (for example, `https://cognito-identity.amazonaws.com`) is not unique to your pool or application. In this case, be sure to set `clientId`, because it restricts access to tokens issued for your pool or application.
+
 If an API is configured with multiple authorization types, AWS AppSync validates the issuer (iss claim) present in the JWT token from request headers by comparing it against the issuer URL specified in the API configuration. However, when an API is configured with only OPENID\_CONNECT authorization, AWS AppSync skips this issuer URL validation step.
 
 ## AMAZON\_COGNITO\_USER\_POOLS authorization
