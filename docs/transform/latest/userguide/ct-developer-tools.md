@@ -38,7 +38,7 @@ The following table summarizes all `atx ct` subcommands.
 | atx ct source add | Add a source (GitHub, GitLab, Bitbucket, or local) | 
 | atx ct source list | List configured sources | 
 | atx ct source get | Show details for a single source | 
-| atx ct source update | Update the token for an existing source | 
+| atx ct source update | Update a source's token, commit message or branch name templates, or git committer identity | 
 | atx ct source remove | Remove a source | 
 | atx ct discovery scan | Discover repositories from a source | 
 | atx ct discovery status | Check discovery scan status | 

@@ -53,13 +53,34 @@ atx ct source add --name {{name}} --provider local --path {{parent-directory}}
 **Important**  
 `--path` must point to a parent directory containing git repos as subdirectories, not to a single repo.
 
+### Repository conventions
+<a name="ct-source-conventions"></a>
+
+Repositories can enforce rules that reject a push at the end of a remediation — a required commit message format (GitLab push rules, Bitbucket commit hooks, GitHub rulesets), a restricted branch namespace, or a known commit author. Record those conventions on the source so remediation commits and result branches are written in the shape the repositories require. Each option is available on both `atx ct source add` and `atx ct source update`.
+
+```
+# Commit message format ({PLACEHOLDER} is replaced with a description of each change)
+atx ct source update --name {{name}} --commit-message-template "fix: {PLACEHOLDER}"
+
+# Branch namespace ({PLACEHOLDER} is replaced with the branch name AWS Transform generates)
+atx ct source update --name {{name}} --branch-name-template "customized/{PLACEHOLDER}"
+
+# Git committer identity (both options are required together)
+atx ct source update --name {{name}} --git-committer-name "{{ATX Automation}}" --git-committer-email {{atx-automation@example.com}}
+```
+
+Pass an empty string to remove a template or to clear the committer pair. The options apply to security and transformation remediations, and to local sources whose repositories you push by hand.
+
 ### Managing sources
 <a name="ct-managing-sources"></a>
 
 ```
 atx ct source list
+atx ct source update --name {{name}} --token {{new-token}}
 atx ct source remove --name {{name}}
 ```
+
+`atx ct source update` accepts any combination of `--token` and the repository convention options above; passing no options is an error. You can update a source from any machine, not just the host that ran `atx ct source add`.
 
 ## Repository discovery and management
 <a name="ct-repository-discovery"></a>
@@ -102,6 +123,8 @@ atx ct analysis delete --id {{id}} [--cascade-findings]
 
 If you omit `--repo`, the command analyzes every repository under `--source`. To scope the run to specific repositories, pass `--repo` (comma-separated) — each a fully-qualified {{source}}::{{repo}}, or a bare name used with `--source`.
 
+To label a run so it's easy to find later, pass `--display-name "{{name}}"` on `atx ct analysis run` or `atx ct remote analysis`. The name is shown in `atx ct analysis list` and `atx ct analysis get`.
+
 ### Custom analysis
 <a name="ct-custom-analysis"></a>
 
@@ -118,7 +141,7 @@ List TDs: `atx custom def list`
 
 ```
 atx ct findings list --json
-atx ct findings list --repo {{source}}::{{repo}} --source {{name}} --severity {{high|medium|low}} --type {{analysis-type}} --status {{open|dismissed|obsolete}} --analysis-id {{id}} --fix-transform {{transform-name}} --json
+atx ct findings list --repo {{source}}::{{repo}} --source {{name}} --severity {{high|medium|low}} --type {{analysis-type}} --status {{open|dismissed|obsolete|change_ready}} --analysis-id {{id}} --fix-transform {{transform-name}} --json
 ```
 
 ### Finding statuses
@@ -126,6 +149,7 @@ atx ct findings list --repo {{source}}::{{repo}} --source {{name}} --severity {{
 + `open` — Active
 + `dismissed` — Manually dismissed (requires reason)
 + `obsolete` — System-set when re-analysis no longer produces the finding
++ `change_ready` — System-set when a remediation succeeds for the finding's repository: a code change is ready to review or was already applied. You can't set this status by hand, but you can still dismiss a `change_ready` finding if you decide not to take the change.
 
 ```
 atx ct findings update --id {{id}} --status dismissed --reason "{{reason}}"
@@ -271,11 +295,13 @@ We recommend dedicating subnets to remote execution. AWS Transform admits jobs d
 #### Running large fleets
 <a name="ct-remote-sizing-large-fleets"></a>
 
-A single submission covers up to 100 repositories. Submissions above that limit are rejected before any job starts, so a 1,000-repository fleet needs at least 10 submissions. Split them with `--repos`, and list the repositories in a source with `atx ct repository list --source {{name}} --json`.
+On Amazon EC2 and Batch infrastructure that you provision, a single submission covers up to 1,000 repositories (AWS Transform-managed runs are limited to 100). Submissions above the limit are rejected before any job starts. To cover larger fleets, split them with `--repos`, and list the repositories in a source with `atx ct repository list --source {{name}} --json`.
 
 Splitting a fleet does not reduce the addresses you need. Submissions that run at the same time draw from the same subnets, up to the concurrency limit for the analysis type.
 
-There is no option that limits how many repositories are scanned at once. The CLI submits every job in a submission, and AWS Transform releases jobs up to the concurrency limit for the analysis type and holds the rest. To pace a large fleet, size the subnets for that limit and submit in groups of 100 repositories or fewer.
+There is no option that limits how many repositories are scanned at once. The CLI submits every job in a submission, and AWS Transform releases jobs up to the concurrency limit for the analysis type and holds the rest. To pace a large fleet, size the subnets for that limit or submit in smaller groups.
+
+The CLI bounds the number of simultaneous connections it opens to the analysis service. On a very wide submission you may see `socket usage at capacity` on stderr — that message is informational, not an error. If your shell's open-file limit is at or below the bound, the CLI warns once at startup; raise the limit (for example `ulimit -n 4096`) or lower the bound with the `ATX_MAX_SOCKETS` environment variable.
 
 #### Choosing Amazon EC2 for constrained networks
 <a name="ct-remote-sizing-ec2"></a>

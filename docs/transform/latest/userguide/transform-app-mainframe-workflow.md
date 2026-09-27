@@ -100,19 +100,13 @@ If you prefer to use an existing VPC or other tools to create the required infra
 + Amazon Neptune Serverless with engine version 1.4.5.1 or later
   + IAM authentication enabled
   + Storage encryption enabled (AWS managed key or customer-managed KMS key)
-+ Serverless scaling configuration (recommended: 1–128 NCUs)
++ Serverless scaling configuration with a recommended range of 1–32 Neptune Capacity Units (NCUs)
 + (Recommended) Read replica in a second Availability Zone for high availability and improved read performance
 
 ##### Networking
 <a name="transform-app-mainframe-workflow-setup-connector-reimagine-custom-networking"></a>
 + A VPC with DNS support and DNS hostnames enabled
-+ At least two subnets in separate Availability Zones. AWS Transform creates ENIs in these subnets to access the Neptune cluster, which can reside in the same subnets or in dedicated subnets. Size subnets at /20 to accommodate VPC endpoint and application ENIs.
-+ Network connectivity from the subnets to the following AWS services through VPC interface endpoints (AWS PrivateLink):
-  + AWS Transform Agents API – Coordinates the mainframe modernization jobs
-  + Amazon Bedrock Runtime – Invokes foundation models for analysis and reasoning
-  + Amazon Relational Database Service (Amazon RDS) – Neptune cluster management
-  + Amazon Elastic Compute Cloud (Amazon EC2) – Management of ENIs
-  + Amazon CloudWatch – Metrics for AWS Transform observability
++ At least two subnets in separate Availability Zones. AWS Transform creates ENIs in these subnets to access Neptune. The Neptune cluster can reside in the same subnets or in dedicated subnets. Size subnets at /20 to accommodate VPC endpoint and application ENIs.
 + An S3 gateway endpoint attached to the route tables associated with your subnets. AWS Transform uses this endpoint to load data from the S3 bucket to the Neptune cluster.
 
 ##### Security groups
@@ -121,11 +115,8 @@ If you prefer to use an existing VPC or other tools to create the required infra
 Security groups are attached to ENIs, not subnets. Even when AWS Transform ENIs and Neptune reside in the same subnet, separate security groups control access between them.
 + A security group (attached to ENIs created by AWS Transform) that allows:
   + Outbound TCP 8182 to the Neptune security group
-  + Outbound TCP 443 to reach VPC endpoints
 + A security group (attached to the Neptune cluster) that allows:
   + Inbound TCP 8182 from the application security group
-+ A VPC endpoint security group (attached to the interface endpoint ENIs) that allows:
-  + Inbound TCP 443 from the application security group
 
 ##### IAM
 <a name="transform-app-mainframe-workflow-setup-connector-reimagine-custom-iam"></a>
@@ -134,7 +125,7 @@ Security groups are attached to ENIs, not subnets. Even when AWS Transform ENIs 
 
 The following diagram shows the recommended architecture.
 
-![Architecture diagram showing the customer VPC with Neptune subnet, application subnet, AWS PrivateLink connections, and AWS service integrations for the mainframe reimagine connector.](https://docs.aws.amazon.com/transform/latest/userguide/images/2026-06-Neptune-Infra.png)
+![Architecture diagram of the customer VPC with a Neptune subnet, an application subnet, and an S3 gateway endpoint.](https://docs.aws.amazon.com/transform/latest/userguide/images/2026-06-Neptune-Infra.png)
 
 
 ### S3 connector

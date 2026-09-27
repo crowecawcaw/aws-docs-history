@@ -3,9 +3,68 @@
 # Getting Started
 <a name="custom-get-started"></a>
 
-This section describes how to set up AWS Transform custom and run your first transformation.
+This section describes how to choose an interface, set up AWS Transform custom, and run your first transformation.
 
-## Prerequisites
+## Choose where to run AWS Transform custom
+<a name="custom-choose-interface"></a>
+
+Run AWS Transform custom from the command line, Kiro Power, an agent plugin, or an IDE plugin. Each option provides access to the same AWS-managed and custom transformation definitions.
+
+**Important**  
+**Recommended for guided setup:** Use Kiro Power or the AWS Transform agent plugin. During setup, the agent checks prerequisites and installs or updates the AWS Transform CLI when needed. It then guides you through your first transformation. You still need appropriate AWS permissions and access to the repository that you want to transform.
+
+------
+#### [ AWS Transform CLI ]
+
+Use the AWS Transform CLI for terminal workflows, scripts, and automation. With this option, you complete setup manually. Review the [AWS Transform CLI prerequisites](#custom-prerequisites), then [Installing the AWS Transform CLI](#custom-installation).
+
+------
+#### [ Kiro Power ]
+
+Use the AWS Transform Kiro Power for a guided, conversational workflow in Kiro IDE.
+
+1. Open Kiro IDE and navigate to the Powers panel.
+
+1. Find **AWS Transform** and install it.
+
+1. Open Kiro Chat, choose the Power, and then choose **Try power**.
+
+After installation, ask Kiro to set up AWS Transform custom and show you the transformations available for your repository.
+
+For the GitHub import option and authentication information, see [Kiro Power](developer-tools.md#developer-tools-kiro).
+
+------
+#### [ Agent plugin ]
+
+Use the AWS Transform agent plugin with Claude Code, Codex, or Cursor in the repository that you want to transform.
+
+Add the AWS agent plugin marketplace and install the AWS Transform plugin:
+
+```
+/plugin marketplace add awslabs/agent-plugins
+/plugin install aws-transform@agent-plugins-for-aws
+```
+
+Follow the installation instructions in the [agent-plugins repository README](https://github.com/awslabs/agent-plugins) on the GitHub website. For more information, see [Agent plugin](developer-tools.md#developer-tools-agent-plugin).
+
+After installation, ask your coding agent to set up AWS Transform custom and show you the transformations available for your repository.
+
+------
+#### [ IDE plugin ]
+
+Use the AWS Transform IDE plugin to create and run transformation definitions from VS Code or an Open VSX compatible editor.
++ **VS Code:** Install the plugin from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-transform-plugin).
++ **Open VSX:** Install the plugin from the [Open VSX registry](https://open-vsx.org/extension/amazonwebservices/aws-transform-plugin).
+
+For more information, see [IDE plugin](developer-tools.md#developer-tools-ide-plugin).
+
+------
+
+If you chose the AWS Transform CLI, continue with the CLI prerequisites that follow. If you chose another option, follow the setup instructions in the selected tab.
+
+For centralized monitoring of transformation campaigns across multiple repositories, see [AWS Transform Web Application (Optional)](#custom-web-application).
+
+## AWS Transform CLI prerequisites
 <a name="custom-prerequisites"></a>
 
 Before installing AWS Transform custom, ensure you have the following:
