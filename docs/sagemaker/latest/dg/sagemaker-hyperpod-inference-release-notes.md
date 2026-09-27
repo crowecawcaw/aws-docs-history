@@ -7,6 +7,106 @@ This topic covers release notes that track updates, fixes, and new features for 
 
 For information about SageMaker HyperPod Inference capabilities and deployment options, see [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md).
 
+## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v2.1.0-eksbuild.1 and Inference Operator v3.7
+<a name="sagemaker-hyperpod-inference-release-notes-v2-1-0-eksbuild-1"></a>
+
+**Release Date:** September 21, 2026
+
+**Summary**
+
+Amazon SageMaker HyperPod Inference Operator v3.7 adds pod tolerations and `priorityClassName` support for finer scheduling control, opt-in CloudWatch log publishing with configurable verbosity, and a MultiProcess (MP) mode for LMCache. It also updates the bundled Amazon FSx CSI driver.
+
+Amazon SageMaker HyperPod Inference Operator v3.7 is available in all AWS Regions where SageMaker HyperPod is supported.
+
+**Inference Operator**
+
+Inference Operator v3.7 includes the following features:
++ **Pod Tolerations** – Add the new `tolerations` field to your `InferenceEndpointConfig` or `JumpStartModel` to schedule inference pods onto tainted nodes, such as dedicated HyperPod GPU node pools. Set the field under `spec.kubernetes.tolerations` for `InferenceEndpointConfig`, or `spec.tolerations` for `JumpStartModel`. The field accepts the standard Kubernetes toleration structure. The operator propagates your tolerations to the managed deployment pods so they can run on nodes with matching taints.
++ **PriorityClass Configuration** – Set a Kubernetes `priorityClassName` on the inference operator, ALB controller, KEDA, and Inference Gateway pods through the EKS add-on `configurationValues` or the operator Helm chart. Use this to control scheduling priority and preemption order for these pods relative to other workloads on the cluster.
++ **CloudWatch Log Publishing** – Publish operator logs to Amazon CloudWatch through an opt-in FluentBit sidecar. The feature is **disabled by default**. Enable it in your deployment configuration when you want centralized log aggregation in CloudWatch.
++ **Configurable Log Verbosity** – Control console and CloudWatch log verbosity with new customer-settable knobs. Raise verbosity when troubleshooting a deployment, or lower it to reduce log volume and cost in steady state. Valid log levels are `debug`, `info`, `warn`, and `error`.
++ **LMCache MultiProcess (MP) Mode** – Enable MultiProcess mode for LMCache by setting `kvCacheSpec.mode`. MP mode runs a sidecar process that shares GPU memory through CUDA-IPC caching. This lets you offload KV cache data in multiple supported formats.
+
+**Dependency Updates**
++ **FSx CSI driver** – This release upgrades the bundled `aws-fsx-csi-driver` from 1.11.0 to 1.17.0 and realigns cert-manager to v1.18.2.
+
+**Prerequisites**
+
+To use the CloudWatch log publishing feature, your Inference Operator execution role must allow writing to CloudWatch Logs. If your execution role doesn't already include these permissions, add the following statement to the role's IAM policy:
+
+```
+{
+    "Sid": "CustomerSideOperatorLogs",
+    "Effect": "Allow",
+    "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+    ],
+    "Resource": "arn:aws:logs:*:*:log-group:/aws/hyperpod/*/inference-operator*"
+}
+```
+
+If you installed the Inference Operator as an EKS add-on, the managed execution-role policy already includes these permissions and no action is required.
+
+### Upgrade to v3.7 or v2.1.0-eksbuild.1
+<a name="sagemaker-hyperpod-inference-v3-7-upgrade"></a>
+
+**EKS Add-on upgrade:**
+
+If you installed the Inference Operator as an EKS Add-on, upgrade to the latest version:
+
+```
+CLUSTER=EKS_CLUSTER_NAME
+REGION=REGION
+
+aws eks update-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --addon-version v2.1.0-eksbuild.1 \
+  --resolve-conflicts OVERWRITE \
+  --region $REGION
+```
+
+To enable CloudWatch logging and configure log levels, add a `logging` block to the configuration you pass to `--configuration-values`. This parameter replaces the entire configuration, so include your existing keys along with the new block:
+
+```
+"logging": {
+  "cloudWatch": { "enabled": true, "logLevel": "info" },
+  "console": { "logLevel": "debug" }
+}
+```
+
+**Helm upgrade:**
+
+If you already have the Inference Operator installed by using Helm, use the following commands to upgrade:
+
+```
+helm get values -n kube-system hyperpod-inference-operator \
+> current-values.yaml
+
+cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
+charts/inference-operator
+
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.7
+
+# Verification
+kubectl get deployment hyperpod-inference-operator-controller-manager \
+  -n hyperpod-inference-system \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
+To enable CloudWatch logging and configure log levels, add the corresponding `--set` flags:
+
+```
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.7 \
+  --set logging.cloudWatch.enabled=true \
+  --set logging.cloudWatch.logLevel=info \
+  --set logging.console.logLevel=debug
+```
+
 ## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v2.0.0-eksbuild.2 and Inference Operator v3.6
 <a name="sagemaker-hyperpod-inference-release-notes-v2-0-0-eksbuild-2"></a>
 

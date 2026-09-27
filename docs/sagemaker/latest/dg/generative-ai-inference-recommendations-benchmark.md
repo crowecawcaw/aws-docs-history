@@ -550,6 +550,124 @@ response = client.create_ai_benchmark_job(
 + Endpoints with a single inference component are supported. Endpoints with multiple inference components are not supported in template mode because the service cannot determine which component to route each request to from an arbitrary payload format.
 + Both streaming and non-streaming endpoints are supported. Set `"streaming": true` or `"streaming": false` in the workload parameters.
 
+## Benchmark with a custom tokenizer from Amazon S3
+<a name="generative-ai-inference-recommendations-benchmark-custom-tokenizer"></a>
+
+The benchmarking service uses a tokenizer to generate synthetic prompts of the requested token length and to count input and output tokens in the results. By default, the service resolves the tokenizer automatically from one of the following sources:
++ The model artifacts on your endpoint.
++ The endpoint container's `HF_MODEL_ID` environment variable.
++ An explicit Hugging Face model ID that you set in the `tokenizer` parameter.
+
+If your model uses a custom or private tokenizer that isn't available on Hugging Face, you can supply the tokenizer files from Amazon S3. Upload the tokenizer files to Amazon S3, then set the `tokenizer` parameter in your workload configuration to the Amazon S3 URI. The benchmarking service downloads the tokenizer files into the benchmark container automatically. You don't need to configure a data channel yourself.
+
+### Upload the tokenizer files to Amazon S3
+<a name="generative-ai-inference-recommendations-benchmark-custom-tokenizer-upload"></a>
+
+Upload your tokenizer files to an Amazon S3 prefix. Include the complete set of files that `AutoTokenizer.from_pretrained` expects. At minimum, include a `tokenizer.json`, plus any related files such as `tokenizer_config.json`, `special_tokens_map.json`, `tokenizer.model`, `vocab.json`, and `merges.txt`:
+
+```
+s3://DOC-EXAMPLE-BUCKET/tokenizer/
+```
+
+**Note**  
+A `tokenizer.json` file is the format that loads reliably across model architectures. Upload it whenever your tokenizer provides one.
+
+### Create the workload configuration
+<a name="generative-ai-inference-recommendations-benchmark-custom-tokenizer-config"></a>
+
+Create a workload configuration and set the `tokenizer` parameter to the Amazon S3 URI of the prefix that holds your tokenizer files.
+
+```
+import json
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "tokenizer": "s3://DOC-EXAMPLE-BUCKET/tokenizer/",
+        "concurrency": 1,
+        "request_count": 100,
+        "streaming": True,
+        "output_tokens_mean": 50,
+    },
+    "tooling": {"api_standard": "openai"},
+}
+
+response = client.create_ai_workload_config(
+    AIWorkloadConfigName="custom-tokenizer-config",
+    AIWorkloadConfigs={"WorkloadSpec": {"Inline": json.dumps(workload_spec)}},
+)
+```
+
+When the `tokenizer` value is an Amazon S3 URI, the service creates an input data channel for it. The service mounts the files into the benchmark container automatically. We recommend pointing at the prefix, but you can also point at a specific file. A file-level Amazon S3 URI such as `s3://DOC-EXAMPLE-BUCKET/tokenizer/tokenizer.json` is automatically corrected to its parent prefix, so that the tokenizer loads from the full set of files.
+
+### Alternative: attach the tokenizer as a local channel
+<a name="generative-ai-inference-recommendations-benchmark-custom-tokenizer-local-channel"></a>
+
+Instead of passing an Amazon S3 URI, you can attach the tokenizer files yourself as a `DatasetConfig` input channel and set the `tokenizer` parameter to the local path where SageMaker AI mounts that channel. Define the `DatasetConfig` on the workload configuration.
+
+The `ChannelName` determines the mount path. A channel named `tokenizer` mounts at `/opt/ml/input/data/tokenizer/` in the benchmark container.
+
+```
+import json
+
+# The "tokenizer" channel mounts at /opt/ml/input/data/tokenizer/ in the container
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "tokenizer": "/opt/ml/input/data/tokenizer/",
+        "concurrency": 1,
+        "request_count": 100,
+        "streaming": True,
+        "output_tokens_mean": 50,
+    },
+    "tooling": {"api_standard": "openai"},
+}
+
+response = client.create_ai_workload_config(
+    AIWorkloadConfigName="custom-tokenizer-local-config",
+    AIWorkloadConfigs={"WorkloadSpec": {"Inline": json.dumps(workload_spec)}},
+    DatasetConfig={
+        "InputDataConfig": [
+            {
+                "ChannelName": "tokenizer",
+                "DataSource": {
+                    "S3DataSource": {
+                        "S3Uri": "s3://DOC-EXAMPLE-BUCKET/tokenizer/"
+                    }
+                },
+                "ContentType": "application/octet-stream",
+            }
+        ]
+    },
+)
+```
+
+Set the `tokenizer` parameter to the channel's mount path. If you point at a specific file, such as `/opt/ml/input/data/tokenizer/tokenizer.json`, the service corrects it to the parent directory.
+
+### Run the benchmark
+<a name="generative-ai-inference-recommendations-benchmark-custom-tokenizer-run"></a>
+
+Create a benchmark job that references the workload configuration. The service resolves the tokenizer from Amazon S3 and mounts it into the benchmark container.
+
+```
+response = client.create_ai_benchmark_job(
+    AIBenchmarkJobName="custom-tokenizer-benchmark",
+    BenchmarkTarget={"Endpoint": {"Identifier": "my-sagemaker-endpoint"}},
+    OutputConfig={"S3OutputLocation": "s3://DOC-EXAMPLE-BUCKET/results/"},
+    AIWorkloadConfigIdentifier="custom-tokenizer-config",
+    RoleArn="arn:aws:iam::111122223333:role/ExampleRole",
+)
+```
+
+### Considerations
+<a name="generative-ai-inference-recommendations-benchmark-custom-tokenizer-notes"></a>
++ The IAM execution role that you pass in `RoleArn` must have read access to the Amazon S3 location that holds the tokenizer files.
++ The `tokenizer` parameter accepts one of the following values:
+  + An Amazon S3 URI.
+  + A Hugging Face model ID, for example `meta-llama/Llama-3.2-1B`.
+  + A local container path, when you attach the tokenizer files through your own `DatasetConfig` channel.
++ The service resolves the tokenizer automatically when you don't set the `tokenizer` parameter. It uses the model artifacts on the target endpoint, or the endpoint container's `HF_MODEL_ID` environment variable.
+
 ## Correlate benchmark prompts and responses
 <a name="generative-ai-inference-recommendations-benchmark-correlate-io"></a>
 

@@ -7,6 +7,7 @@ To track the costs associated with your SageMaker Canvas application, you can us
 
 Billing in SageMaker Canvas consists of the following components:
 + Workspace instance charges – You are charged for the number of hours that you are logged in to or using SageMaker Canvas. We recommend that you log out or create a schedule to shut down any Canvas applications that you’re not actively using to reduce costs. For more information, see [Logging out of Amazon SageMaker Canvas](canvas-log-out.md).
++ Space storage charges – SageMaker AI runs your Canvas application in a space. When you launch the application, SageMaker AI provisions a 100 GB Amazon Elastic Block Store (Amazon EBS) gp3 volume for that space. You are charged for this volume for as long as the space exists, including while the Canvas application is stopped. SageMaker AI deletes the space, and the charge ends, when you delete the user profile that the space belongs to. For more information, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/).
 + AWS service charges – You are charged for building and making predictions with custom models, or for making predictions with Ready-to-use models:
   + Training charges – For all model types, you are charged based on your resource usage while the model builds. These resources include any compute instances that Canvas spins up. You may see these charges on your account as Hosting, Training, Processing, or Batch Transform jobs.
   + Prediction charges – You are charged for the resources used to generate predictions, depending on the type of custom model that you built or the type of Ready-to-use model you used.
@@ -26,6 +27,10 @@ You can add tags to your SageMaker Canvas app and users by doing the following:
 
 After you add tags to your domain, it might take up to 24 hours for the tags to appear in the AWS Billing and Cost Management console for activation. After they appear in the console, it takes another 24 hours for the tags to activate.
 
-On the **Cost explorer** page, you can group and filter your costs by tags and usage types to separate your Workspace instance charges from your Training charges. The charges for each are listed as the following:
+**Note**  
+SageMaker AI does not add your domain or user profile tags to the space that runs your Canvas application, or to the storage volume for that space. The only tag that SageMaker AI adds to the space is `ManagedByAmazonSageMakerResource`. To add your own tags to the space, use the [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) API with the ARN of the space.
+
+On the **Cost explorer** page, you can group and filter your costs by tags and usage types to separate your Workspace instance charges, Space storage charges, and Training charges. The charges for each are listed as the following:
 + Workspace instance charges: Charges show up under the usage type `REGION-Canvas:Session-Hrs (Hrs)`.
++ Space storage charges: Charges show up under the usage type `REGION-Studio:VolumeUsage.gp3`.
 + Training charges: Charges show up under the usage types for SageMaker AI Hosting, Training, Processing, or Batch Transform jobs.

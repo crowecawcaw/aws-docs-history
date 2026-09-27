@@ -18,7 +18,7 @@ The continuous provisioning system introduces a desired-state architecture that 
   **Tracks progress**: Monitors each instance launch attempt and records the status
 + **Handles failures**: Automatically retries failed launches
 
-Continuous provisioning is disabled by default. To use this feature, set `--node-provisioning-mode` to `Continuous`.
+Continuous provisioning is the default for new clusters. You can also explicitly set `--node-provisioning-mode` to `Continuous`.
 
 With continuous provisioning enabled, you can initiate multiple scaling operations simultaneously without waiting for previous operations to complete. This lets you scale different instance groups in the same cluster concurrently and submit multiple scaling requests to the same instance group. 
 
