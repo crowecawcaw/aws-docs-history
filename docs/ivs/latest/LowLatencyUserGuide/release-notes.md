@@ -5,6 +5,48 @@
 
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first, organized by date of release.
 
+## September 24, 2026
+<a name="sep24-26-broadcast-mobile-ll"></a>
+
+### Amazon IVS Broadcast SDK: Android 1.47.0, iOS 1.47.0 (Low-Latency Streaming)
+<a name="sep24-26-broadcast-mobile-ll-1470"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android Broadcast SDK 1.47.0](broadcast-android.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/android/)+  After an application calls `BroadcastSession.createSystemCaptureResources`, if capture is later stopped via system UI (e.g. stopping it from the status bar chip), the SDK will now call `onDeviceRemoved` with the `SCREEN_SOURCE` and/or `SYSTEM_AUDIO` device types so that the application can update its UI and stop or reconfigure its broadcast accordingly. When using the `BroadcastSession.createSystemAudioSource()` API, the `MediaProjection` is owned by the application itself and it should handle its own `MediaProjection.Callback` and detach the created device when the projection stops. <br />+  Fixed a bug where bitrate calculations were artificially low in extremely low bandwidth scenarios.  | 
+| [iOS Broadcast SDK 1.47.0](broadcast-ios.md) | **Download for low-latency streaming: ** [https://broadcast.live-video.net/1.47.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.47.0/AmazonIVSBroadcast.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/ios/)+  Fixed a bug where previews could freeze on iOS 27 before a broadcast has started. <br />+  Fixed a bug where bitrate calculations were artificially low in extremely low bandwidth scenarios.  | 
+
+#### Broadcast SDK Size: Android
+<a name="broadcast-1470-ll-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 2.009 MB | 5.413 MB | 
+| armeabi-v7a | 1.763 MB | 3.746 MB | 
+| x86\_64 | 2.096 MB | 5.751 MB | 
+| x86 | 2.119 MB | 5.553 MB | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1470-ll-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 1.024 MB | 2.248 MB | 
+
+## September 24, 2026
+<a name="sep24-26-broadcast-web-ll"></a>
+
+### IVS Broadcast SDK: Web 1.40.0 (Low-Latency Streaming)
+<a name="sep24-26-broadcast-web-ll-1400"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web Broadcast SDK 1.40.0](broadcast-web.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference)+  Bug fixes and stability improvements.  | 
+
 ## September 8, 2026
 <a name="sep08-26-player-web-ll"></a>
 

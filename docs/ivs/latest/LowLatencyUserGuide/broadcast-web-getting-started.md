@@ -13,7 +13,7 @@ Note that the IVSBroadcastClient leverages [reflect-metadata](https://www.npmjs.
 ### Using a Script Tag​
 <a name="broadcast-web-how-to-install-script"></a>
 
-The Web broadcast SDK is distributed as a JavaScript library and can be retrieved at [https://web-broadcast.live-video.net/1.39.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.39.0/amazon-ivs-web-broadcast.js).
+The Web broadcast SDK is distributed as a JavaScript library and can be retrieved at [https://web-broadcast.live-video.net/1.40.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.40.0/amazon-ivs-web-broadcast.js).
 
 When loaded via `<script>` tag, the library exposes a global variable in the window scope named `IVSBroadcastClient`.
 

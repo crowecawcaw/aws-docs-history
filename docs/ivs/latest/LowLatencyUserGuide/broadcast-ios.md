@@ -13,9 +13,9 @@ The `AmazonIVSBroadcast` module implements the interface described in this docum
 + Receive events. 
 + Receive errors. 
 
-**Latest version of iOS broadcast SDK:** 1.46.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#aug27-26-broadcast-mobile-ll)) 
+**Latest version of iOS broadcast SDK:** 1.47.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#sep24-26-broadcast-mobile-ll)) 
 
-**Reference documentation:** For information on the most important methods available in the Amazon IVS iOS broadcast SDK, see the reference documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.46.0/ios/).
+**Reference documentation:** For information on the most important methods available in the Amazon IVS iOS broadcast SDK, see the reference documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/ios/).
 
 **Sample code: **See the iOS sample repository on GitHub: [https://github.com/aws-samples/amazon-ivs-broadcast-ios-sample](https://github.com/aws-samples/amazon-ivs-broadcast-ios-sample).
 
