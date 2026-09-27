@@ -9,6 +9,8 @@ AWS DevOps Agent supports GitHub.com (SaaS), GitHub Enterprise Cloud with data r
 
 You can register GitHub in two ways. **App registration** installs the AWS DevOps Agent GitHub App in your account or organization. The GitHub App supports webhooks and fine-grained permissions, and we recommend it for most use cases. **Personal access token** authenticates with a token from your GitHub account. Use it for individual access when you do not need webhook-based features. For more information, see [Registering GitHub with a personal access token](#registering-github-with-a-personal-access-token).
 
+With **App registration**, you can also register a GitHub App that you own. AWS DevOps Agent creates this private app in your GitHub account or organization. For more information, see [Registering GitHub with a custom GitHub App](#registering-github-with-a-custom-github-app).
+
 ## Prerequisites
 <a name="prerequisites"></a>
 
@@ -63,8 +65,9 @@ Select whether you're connecting as a user or organization:
 + **Organization** – A shared GitHub account where multiple people can collaborate across many projects at once. If you select **Organization**, enter the GitHub organization name. The name must match your GitHub organization name exactly, because you must authorize and install the app on that organization in the following steps.
 
 Select the **GitHub App permissions** for your GitHub App. The permission level determines the actions the GitHub App can perform in your repository:
-+ **Read & Write** (default): The GitHub App requests both read and write permissions. This enables all features. DevOps Agent can post inline pull request comments, propose fixes, and trigger workflows.
-+ **Read Only**: The GitHub App requests only read permissions. DevOps Agent can view code and pull requests but cannot post comments, propose fixes, or trigger workflows.
++ **Read and write** (default): The GitHub App requests both read and write permissions. This enables all features. DevOps Agent can post inline pull request comments, propose fixes, and trigger workflows.
++ **Read-only**: The GitHub App requests only read permissions. DevOps Agent can view code and pull requests but cannot post comments, propose fixes, or trigger workflows.
++ **Custom app**: AWS DevOps Agent creates a private GitHub App in your GitHub account or organization. You own the app and choose its access level when GitHub creates it. For the remaining steps, see [Registering GitHub with a custom GitHub App](#registering-github-with-a-custom-github-app).
 
 #### Verification method
 <a name="verification-method"></a>
@@ -98,6 +101,8 @@ Choose **Submit** to begin the app setup process. The next steps differ dependin
 
 If you chose **Verify with a personal access token** in Step 3, registration completes without a redirect. Skip Step 4 and Step 5.
 
+If you chose **Custom app** in Step 3, see [Creating a custom GitHub App](#creating-a-custom-github-app) instead of Step 4.
+
 #### For GitHub.com
 <a name="for-githubcom"></a>
 
@@ -113,7 +118,7 @@ If you chose **Verify with a personal access token** in Step 3, registration com
 ** You must authorize and install the app on the same User or Organization you specified during registration. If you authorize or install on a different account or organization, registration fails and you must restart the process, selecting the correct account or organization.
 
 **Note**  
-** AWS DevOps Agent uses a separate GitHub App for each permission level (Read & Write and Read Only), and each app is authorized independently. GitHub remembers an authorization until you revoke it under Settings > Applications > Authorized GitHub Apps. If you previously authorized the app at this permission level, GitHub might skip the authorization screen. If you change the permission level, GitHub prompts you to authorize the corresponding app the first time.
+** AWS DevOps Agent uses a separate GitHub App for each permission level (Read and write, and Read-only), and each app is authorized independently. GitHub remembers an authorization until you revoke it under Settings > Applications > Authorized GitHub Apps. If you previously authorized the app at this permission level, GitHub might skip the authorization screen. If you change the permission level, GitHub prompts you to authorize the corresponding app the first time.
 
 #### For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency
 <a name="for-github-enterprise-server-and-github-enterprise-cloud-with-data-residency"></a>
@@ -203,6 +208,87 @@ The following errors apply to **Verify with a personal access token**:
 + `You do not have permission to install or access the DevOps Agent GitHub App on this organization` – Use a GitHub account with owner (admin) permissions on the organization.
 + `GitHub App verification is only supported for github.com` – For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, use **Browser-based callback**.
 
+## Registering GitHub with a custom GitHub App
+<a name="registering-github-with-a-custom-github-app"></a>
+
+A custom GitHub App registration connects GitHub through a GitHub App that you own. When you choose **Custom app**, AWS DevOps Agent creates this private app in your GitHub account or organization. You administer the app in GitHub. Use this option when your organization requires ownership of every GitHub App that accesses its repositories.
+
+A custom GitHub App supports the same features as the AWS DevOps Agent GitHub App. These features include webhooks, automated release readiness code reviews, and automated verification testing. A custom GitHub App is available only for GitHub.com. For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, AWS DevOps Agent already creates a GitHub App on your instance during App registration.
+
+When you choose **Custom app**, the console hides the **Verification method**, **Use GitHub Enterprise**, and private connection options. These options do not apply to a custom GitHub App.
+
+### How a custom GitHub App works
+<a name="how-a-custom-github-app-works"></a>
+
+AWS DevOps Agent uses the GitHub App Manifest flow to create the app. The manifest sets the app name, the webhook URL, and the callback URL. It also sets the permissions for the access level that you choose. The app name has the form `DevOpsAgent-<Region>-<identifier>`, and the app is private to your account or organization.
+
+GitHub returns the app credentials to AWS DevOps Agent, which stores them encrypted. You never handle the app private key or the webhook secret.
+
+You choose the access level when AWS DevOps Agent creates the app. **Read-only access** grants the read-level permissions listed in [Permissions of a custom GitHub App](#permissions-of-a-custom-github-app). **Read and write access** grants the read and write permissions in the same table. To change the permissions later, edit the app in GitHub, and then accept the new permissions on the installation.
+
+### Prerequisites for a custom GitHub App
+<a name="prerequisites-for-a-custom-github-app"></a>
+
+Before you register a custom GitHub App, confirm that you meet the following prerequisites:
++ You connect to GitHub.com. A custom GitHub App does not support a GitHub Enterprise URL or a private connection.
++ For an organization, you are an organization owner. GitHub allows only organization owners to create and install a GitHub App in an organization.
++ For a user account, you can create and install GitHub Apps in your personal GitHub account.
++ You can complete the registration flow within 10 minutes after you choose **Submit**.
+
+### Creating a custom GitHub App
+<a name="creating-a-custom-github-app"></a>
+
+1. Complete [Step 1: Navigate to pipeline providers](#step-1-navigate-to-pipeline-providers).
+
+1. On the **Register GitHub account / organization** screen, under **Connection type**, choose **App registration**.
+
+1. Select **User** or **Organization**. For an organization, enter the organization name in **Organization Name**.
+
+1. Under **GitHub App permissions**, choose **Custom app**.
+
+1. Choose **Submit**. The **Create your GitHub App for AWS DevOps Agent** page opens.
+
+1. Choose **Read-only access** or **Read and write access**. GitHub opens the **Create GitHub App** page with the app name and settings pre-filled.
+
+1. Review the app name, and then choose **Create GitHub App**. GitHub creates the app and redirects your browser back to AWS DevOps Agent.
+
+1. Complete [Step 5: Select repositories and complete installation](#step-5-select-repositories-and-complete-installation). After installation, GitHub appears as registered at the account level.
+
+### Permissions of a custom GitHub App
+<a name="permissions-of-a-custom-github-app"></a>
+
+The following table lists the permissions that AWS DevOps Agent sets in the app manifest for each access level. GitHub shows these permissions on the Create GitHub App page, and you can review them before you create the app. The app also subscribes to the push, pull request, issues, and workflow run events.
+
+
+| Permission | Read-only access | Read and write access | 
+| --- | --- | --- | 
+| Actions | Read | Read and write | 
+| Administration | Read | Read | 
+| Checks | Not requested | Read and write | 
+| Commit statuses | Not requested | Read and write | 
+| Contents | Read | Read and write | 
+| Issues | Read | Read and write | 
+| Metadata | Read | Read | 
+| Organization administration | Read | Read | 
+| Pull requests | Read | Read and write | 
+| Workflows | Not requested | Read and write | 
+
+### Managing a custom GitHub App
+<a name="managing-a-custom-github-app"></a>
+
+You administer a custom GitHub App in GitHub. To view or change the app definition, go to **Settings > Developer settings > GitHub Apps** in your account or organization. To change the repositories that the app can access, or to uninstall the app, go to **Settings > Applications > Installed GitHub Apps**.
+
+When you deregister the registration in the AWS DevOps Agent console, AWS DevOps Agent deletes the stored app credentials and stops receiving webhook events. The app definition and its installation remain in GitHub. To delete the app, go to **Settings > Developer settings > GitHub Apps** and choose the app. On the **Advanced** tab, choose **Delete GitHub App**.
+
+### Troubleshooting custom GitHub App registration
+<a name="troubleshooting-custom-github-app-registration"></a>
+
+If registration with a custom GitHub App fails, compare the error message with the following list.
++ `Installation requests from non-admin organization members are not supported. Please use a GitHub account with admin permissions to install the app directly.` – Sign in to GitHub as an organization owner, and then register again.
++ `Failed to register GitHub App` – The registration flow did not complete within 10 minutes, or GitHub did not return the app credentials. Register again and complete the GitHub steps without delay.
++ `A custom GitHub App is only supported for github.com. Omit the target URL.` – A custom GitHub App does not support a GitHub Enterprise URL. For GitHub Enterprise Server or GitHub Enterprise Cloud with data residency, choose **Read and write** or **Read-only** instead.
++ `A private connection is not supported for a custom github.com GitHub App.` – Remove the private connection from the registration. GitHub.com is publicly accessible and does not need a private connection.
+
 ## Connecting repositories to an Agent Space
 <a name="connecting-repositories-to-an-agent-space"></a>
 
@@ -291,10 +377,12 @@ The AWS DevOps Agent GitHub App:
 
 For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, AWS DevOps Agent automatically creates the GitHub App on your instance during registration. You can manage the app's repository access or uninstall it through **Settings > Applications > Installed GitHub Apps**. To delete the app definition entirely, go to **Settings > Developer settings > GitHub Apps**.
 
+For a custom GitHub App on GitHub.com, you own the app and manage it in the same GitHub settings pages. For more information, see [Managing a custom GitHub App](#managing-a-custom-github-app).
+
 ## GitHub App permission updates
 <a name="github-app-permission-updates"></a>
 
-AWS DevOps Agent may request permission updates after you install the GitHub App to support new features. When this happens:
+AWS DevOps Agent may request permission updates after you install the GitHub App to support new features. Permission update requests apply to the AWS DevOps Agent GitHub App. A custom GitHub App does not receive these requests, because you own the app and manage its permissions in GitHub. When AWS DevOps Agent requests a permission update:
 
 1. You will receive a notification from GitHub regarding the permission update request.
 
@@ -312,7 +400,7 @@ No changes are required in your service or application. After you accept the upd
 
 The following table describes each permission the AWS DevOps Agent GitHub App requests and why it is needed.
 
-If you selected **Read Only** during registration, the GitHub App requests read-level access only for each permission in the following table. With Read Only permissions, the GitHub App cannot perform write-level actions listed in the **Purpose** column.
+If you selected **Read-only** during registration, the GitHub App requests only read-level access for each permission. The following table lists these permissions. With Read-only permissions, the GitHub App cannot perform write-level actions listed in the **Purpose** column.
 
 
 | Permission | Access level | Purpose | 
