@@ -8,6 +8,7 @@ The following table describes important changes in each release of the *Amazon P
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Clarified CloudWatch metrics descriptions](#doc-history) | The Amazon Polly CloudWatch metric descriptions now clarify that `4XXCount` reflects client-side errors and `5XXCount` reflects server-side errors. For more information, see [Integrating CloudWatch with Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/cloud-watch.html). | September 15, 2026 | 
 | [Amazon Polly generative voices now available in Asia Pacific (Sydney)](#doc-history) | Amazon Polly generative voices and bidirectional streaming are now available in an additional AWS Region: Asia Pacific (Sydney). For more information, see [Generative voices](https://docs.aws.amazon.com/polly/latest/dg/generative-voices.html). | August 12, 2026 | 
 | [New region added for neural voices](#doc-history) | Amazon Polly is now available in the Asia Pacific (Thailand) AWS Region. This Region supports neural TTS (NTTS) voices. For more information, see [Neural voices](https://docs.aws.amazon.com/polly/latest/dg/neural-voices.html). | May 28, 2026 | 
 | [New region added for generative voices](#doc-history) | Amazon Polly generative voices and bidirectional streaming are now available in an additional AWS Region: Europe (Zurich). For more information, see [Generative voices](https://docs.aws.amazon.com/polly/latest/dg/generative-voices.html). | May 28, 2026 | 

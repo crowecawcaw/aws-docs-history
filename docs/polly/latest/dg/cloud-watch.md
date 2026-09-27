@@ -65,8 +65,8 @@ Amazon Polly produces the following metrics for each request. These metrics are 
 | `RequestCharacters` | The number of characters in the request. This is billable characters only and does not include SSML tags.<br />Valid Dimension: Operation<br />Valid Statistics: Minimum, Maximum, Average, SampleCount, Sum<br />Unit: Count | 
 | `ResponseLatency` | The latency between when the request was made and the start of the streaming response.<br />Valid Dimensions: Operation<br />Valid Statistics: Minimum, Maximum, Average, SampleCount<br />Unit: microseconds | 
 | `2XXCount` | HTTP 200 level code returned upon a successful response.<br />Valid Dimensions: Operation<br />Valid Statistics: Average, SampleCount, Sum<br />Unit: Count | 
-| `4XXCount` | HTTP 400 level error code returned upon an error. For each successful response, a zero (0) is emitted.<br />Valid Dimensions: Operation<br />Valid Statistics: Average, SampleCount, Sum<br />Unit: Count | 
-| `5XXCount` | HTTP 500 level error code returned upon an error. For each successful response, a zero (0) is emitted.<br />Valid Dimensions: Operation<br />Valid Statistics: Average, SampleCount, Sum<br />Unit: Count | 
+| `4XXCount` | HTTP 400 level error code returned when Amazon Polly rejects a request because of a client-side problem rather than a server-side error. Client-side problems include malformed or invalid input in the request.<br />For example, a lexicon name in a `PutLexicon` request exceeds the maximum allowed length. Other causes include an invalid parameter value or an otherwise malformed request.<br />For each successful response, a zero (0) is emitted.<br />Valid Dimensions: Operation<br />Valid Statistics: Average, SampleCount, Sum<br />Unit: Count | 
+| `5XXCount` | HTTP 500 level error code returned when a request fails because of a server-side problem on the Amazon Polly service.<br />For each successful response, a zero (0) is emitted.<br />Valid Dimensions: Operation<br />Valid Statistics: Average, SampleCount, Sum<br />Unit: Count | 
 
 ## Dimensions for Amazon Polly Metrics
 <a name="polly-metricdimensions"></a>
