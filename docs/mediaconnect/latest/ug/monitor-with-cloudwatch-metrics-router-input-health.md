@@ -38,7 +38,7 @@ The following table lists router input metrics that AWS Elemental MediaConnect s
 | RouterInputTR101PCRAccuracyError | The number of PCR accuracy errors in the transport stream.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputTR101TSByteError | The number of times that a transport stream byte error occurred. This error indicates that the sync byte did not appear after the prescribed number of bytes.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputTR101TSSyncLoss | The number of transport stream sync loss errors.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
-| RouterInputUptime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
+| RouterInputUpTime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
 
 ## Content quality metrics for router inputs
 <a name="monitor-with-cloudwatch-metrics-router-input-content-quality"></a>
@@ -102,7 +102,7 @@ For router inputs that are configured for failover, the basic router input metri
 | RouterInputTR101PCRAccuracyError | The number of PCR accuracy errors in the transport stream.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputFailoverSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputFailoverSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputTR101TSByteError | The number of times that a transport stream byte error occurred. This error indicates that the sync byte did not appear after the prescribed number of bytes.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputFailoverSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputFailoverSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputTR101TSSyncLoss | The number of transport stream sync loss errors.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputFailoverSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputFailoverSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
-| RouterInputUptime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputFailoverSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputFailoverSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
+| RouterInputUpTime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputFailoverSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputFailoverSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
 
 ## Merge metrics for router inputs
 <a name="monitor-with-cloudwatch-metrics-router-input-merge"></a>
@@ -151,7 +151,7 @@ For router inputs that are configured for merge, the basic router input metrics 
 | RouterInputTR101PCRAccuracyError | The number of PCR accuracy errors in the transport stream.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputMergeSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputMergeSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputTR101TSByteError | The number of times that a transport stream byte error occurred. This error indicates that the sync byte did not appear after the prescribed number of bytes.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputMergeSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputMergeSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputTR101TSSyncLoss | The number of transport stream sync loss errors.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputMergeSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputMergeSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
-| RouterInputUptime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputMergeSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputMergeSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
+| RouterInputUpTime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, RouterInputMergeSourceIndex, AvailabilityZone <br />+  RouterInputARN, RouterInputMergeSourceIndex <br />+  AvailabilityZone <br />Protocols: All | 
 
 ## Router input metrics for MediaConnect flow connections
 <a name="monitor-with-cloudwatch-metrics-router-input-flow"></a>
@@ -169,7 +169,7 @@ When a router input receives content from a MediaConnect flow, MediaConnect send
 | RouterInputTR101PCRAccuracyError | The number of PCR accuracy errors in the transport stream.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone, UpstreamFlowOutputName, UpstreamFlowARN <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputTR101TSByteError | The number of times that a transport stream byte error occurred. This error indicates that the sync byte did not appear after the prescribed number of bytes.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone, UpstreamFlowOutputName, UpstreamFlowARN <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputTR101TSSyncLoss | The number of transport stream sync loss errors.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone, UpstreamFlowOutputName, UpstreamFlowARN <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
-| RouterInputUptime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone, UpstreamFlowOutputName, UpstreamFlowARN <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
+| RouterInputUpTime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone, UpstreamFlowOutputName, UpstreamFlowARN <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
 
 **Note**  
 When no MediaConnect flow is connected to the router input, the UpstreamFlowOutputName and UpstreamFlowARN dimensions display as `<unconnected>`. 

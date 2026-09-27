@@ -15,12 +15,6 @@ The actions that can be automatically triggered using EventBridge include the fo
 For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 
 **Topics**
-+ [MediaConnect flow state change event](monitoring-cloudwatch-events-flow-state-change.md)
-+ [MediaConnect flow maintenance event](monitoring-cloudwatch-events-flow-maintenance.md)
-+ [MediaConnect flow health event](monitoring-cloudwatch-events-flow-health.md)
-+ [MediaConnect alert event](monitoring-cloudwatch-events-alert.md)
-+ [MediaConnect source health event](monitoring-cloudwatch-events-source-health.md)
-+ [MediaConnect output health event](monitoring-cloudwatch-events-output-health.md)
-+ [MediaConnect output status change event](monitoring-cloudwatch-events-output-status-change.md)
-+ [MediaConnect flow content quality event](monitoring-eventbridge-events-content-quality.md)
-+ [MediaConnect router input content quality event](monitoring-eventbridge-events-router-input-content-quality.md)
++ [MediaConnect flow events](monitoring-eventbridge-flow-events.md)
++ [MediaConnect router input events](monitoring-eventbridge-router-input-events.md)
++ [MediaConnect router output events](monitoring-eventbridge-router-output-events.md)

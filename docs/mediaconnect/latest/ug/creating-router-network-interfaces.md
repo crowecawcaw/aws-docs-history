@@ -13,7 +13,7 @@ You can create up to five router network interfaces in each AWS Region. Keep in 
 + You know the AWS Region where you want to create the router network interface.
 
 For VPC network interfaces:
-+ You have [set up MediaConnect as a trusted service ](mediaconnect/latest/ug/security-iam-trusted-entity.html) in IAM. 
++ You have [set up MediaConnect as a trusted service ](security-iam-trusted-entity.md) in IAM. 
 + You have created a VPC subnet and associated security groups in Amazon VPC. The subnet you choose determines the availability zone and network range for your network interface, while the security groups act as a virtual firewall.
 
   For more information about VPCs, see the [*Amazon VPC User Guide*](https://docs.aws.amazon.com/vpc/latest/userguide/). For information about configuring security groups to work with your VPC interface, see [ Security group considerations](https://docs.aws.amazon.com/mediaconnect/latest/ug/vpc-interface-security-groups.html).

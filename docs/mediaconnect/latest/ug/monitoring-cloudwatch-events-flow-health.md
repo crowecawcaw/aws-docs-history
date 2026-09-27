@@ -12,6 +12,7 @@ The following are flow health indicators:
   + Possible states: `connected`, `receiving`, `disconnected`, `idle`
 + **Failover switch**
   + Possible states: `true`, `false`
++ **isBitrateZero** is `true` when the bitrate of the flow is currently zero.
 + **TR-101**: TR-101 is an industry standard technical recommendation for the monitoring of transport streams (TS). The following events are only published for TS based protocols. 
   + **TS sync loss** is `true` when source payloads do not look like a valid transport stream.
   + **Continuity count error** is `true` when the source finds continuity count errors.
@@ -39,6 +40,7 @@ The following message is an example of this event.
     "current": {
       "failover_switch": false,
       "source_state": "CONNECTED",
+      "isBitrateZero": false,
       "tr101": {
         "ts_sync_loss": false,
         "continuity_count_error": true,
@@ -49,6 +51,7 @@ The following message is an example of this event.
     "previous": {
       "failover_switch": false,
       "source_state": "CONNECTED",
+      "isBitrateZero": false,
       "tr101": {
         "ts_sync_loss": false,
         "continuity_count_error": false,

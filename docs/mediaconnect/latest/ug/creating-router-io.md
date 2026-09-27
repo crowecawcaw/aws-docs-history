@@ -378,6 +378,31 @@ The SRT protocol uses a minimum latency configuration on each side of the connec
             1. Under **Secret ARN**, enter the ARN that AWS Secrets Manager assigned when you created the secret to store the encryption key.
 
 ------
+#### [ RTMP Push ]
+
+         1. Choose how to enter the destination:
+            + Choose **Enter a URL** to paste a complete RTMP or RTMPS URL. MediaConnect fills in the scheme, destination address, port, and application name from the URL. Use the format `rtmp(s)://{{Address}}[:{{Port}}]/{{ApplicationName}}`. If you omit the port, MediaConnect uses the default (1935 for RTMP, 443 for RTMPS).
+            + Choose **Enter fields separately** to specify each field individually:
+
+              1. **Scheme** - Choose **RTMP**, or **RTMPS** to encrypt the connection with TLS.
+
+              1. **Destination address** - Enter where you're sending the content. For RTMP, this can be an IP address or a domain name. For RTMPS, you must specify a domain name.
+
+              1. **Port** - Specify the port to use. For RTMP, use a port from 1024 to 65535. For RTMPS, use 443 or a port from 1024 to 65535.
+
+              1. **Application name** - Enter the application name that your destination expects.
+
+         1. **Stream name** - Enter the stream name that your destination expects.
+
+         1. **TLS encryption type** - If you chose **RTMPS**, keep this set to **Public**. MediaConnect supports public certificate-based TLS encryption only.
+
+**Note**  
+RTMP Push has the following requirements and limitations:  
+The application name and stream name can each be up to 1,024 characters, can contain only printable ASCII characters, can't begin or end with a space, and can't contain double quotation marks or backslashes.
+The content must use the H.264 video codec and the AAC audio codec.
+For RTMPS, MediaConnect supports public certificate-based TLS encryption only. Enhanced RTMP (E-RTMP) isn't supported.
+
+------
 
    1. **MediaConnect Flow** - To send content to a flow, follow these steps.
 **Note**  

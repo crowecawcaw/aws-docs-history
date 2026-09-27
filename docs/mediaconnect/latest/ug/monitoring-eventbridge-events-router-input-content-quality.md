@@ -44,7 +44,7 @@ The following message is an example of the `MediaConnect Router Input Content Qu
   "time": "2026-05-03T18:37:24Z",
   "region": "us-east-1",
   "resources": [
-    "arn:aws:mediaconnect:us-east-1:012345678901:routerInput:1-AbCdEfGhIjKlMnOp-abcdef123456"
+    "arn:aws:mediaconnect:us-east-1:012345678901:routerInput:a1b2c3d4e5f6"
   ],
   "detail": {
     "current": {

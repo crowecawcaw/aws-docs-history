@@ -7,6 +7,9 @@ The following table describes the documentation for this release of AWS Elementa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [RTMP Push protocol for router outputs](using-mediaconnect-router.md) | Router outputs can now send content using the RTMP Push protocol, including RTMPS (RTMP over TLS). | September 25, 2026 | 
+| [Added a getting started tutorial for the router](getting-started.md) | Added a new tutorial for creating router network interfaces, inputs, outputs, and routes. | September 11, 2026 | 
+| [Router input and output EventBridge events](monitoring-with-cloudwatch-events.md) | Added new EventBridge events for router inputs and router outputs, including state, route state, health, failover, and message events. | September 8, 2026 | 
 | [Recovery latency mode](using-mediaconnect-router.md) | You can now choose a recovery latency mode for the router fabric on each router output.  | August 10, 2026 | 
 | [Router input content quality EventBridge event](monitoring-eventbridge-events-router-input-content-quality.md) | You can now subscribe to EventBridge events for content quality changes on router inputs. | June 29, 2026 | 
 | [Content quality analysis for router inputs](monitor-content-quality-analysis.md) | You can now use MediaConnect content quality analysis to monitor your router inputs more effectively. | June 29, 2026 | 
