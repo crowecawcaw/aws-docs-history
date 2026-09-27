@@ -188,12 +188,7 @@ aws batch register-job-definition \
             "assignPublicIp": "ENABLED"
         },
         "executionRoleArn": "arn:aws:iam::{{123456789012}}:role/BatchEcsTaskExecutionRoleTutorial"
-    },
-{
-    "jobDefinitionName": "my-fargate-job-def",
-    "jobDefinitionArn": "arn:aws:batch:{{us-west-2}}:{{123456789012}}:job-definition/my-fargate-job-def:1",
-    "revision": 1
-}'
+    }'
 ```
 
 The job definition specifies 0.25 vCPU and 512 MB of memory, which are the minimum resources for a Fargate task. The `assignPublicIp` setting is enabled so the container can pull the busybox image from Docker Hub.
