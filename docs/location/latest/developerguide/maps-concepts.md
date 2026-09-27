@@ -24,7 +24,7 @@ With Amazon Location Service, you can customize maps with advanced styling featu
 | Buildings | Show three-dimensional building structures | Buildings3D | Standard, Monochrome | 
 | TravelModes | Optimize map style for travel modes | Transit and Truck | Standard, Monochrome, Hybrid | 
 | Language | Set local language | BCP47 language codes (e.g., en-US, es-ES, fr-CH) | Standard, Monochrome, Hybrid | 
-| PoliticalView | Tailored geopolitical views of specific country | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Standard, Monochrome, Hybrid | 
+| PoliticalView | Tailored geopolitical views of specific country | Argentina, Brazil, Cyprus, Egypt, Georgia, Greece, India, Israel, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, United States, Uruguay, Vietnam | Standard, Monochrome, Hybrid | 
 | PoiDensity | Control how many POIs render on the map | Off, VerySparse, Sparse, Default, Dense, VeryDense | Standard, Hybrid | 
 | PoiCategories | Show only specified POI categories | FoodAndDrink, Entertainment, SightsAndMuseums, Transportation, Accommodations, LeisureAndOutdoor, Shopping, BusinessAndServices, FacilitiesAndBuildings | Standard, Hybrid | 
 

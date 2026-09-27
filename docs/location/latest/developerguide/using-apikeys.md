@@ -6,6 +6,9 @@
 **Note**  
 API keys are available to use only with **map**, **place**, and **route** resources, and you can't modify or create those resources. If your application needs access to other resources or actions for unauthenticated users, you can use Amazon Cognito to provide access along with, or instead of, API keys. For more information, see [Use Amazon Cognito to authenticate](authenticating-using-cognito.md).
 
+**Note**  
+You can't use API keys over an Amazon Location interface Amazon VPC endpoint (AWS PrivateLink). For more information, see [AWS PrivateLink for Amazon Location](privatelink-interface-endpoints.md).
+
 *API keys* are a key value that is associated with specific Amazon Location Service resources or API in your AWS account, and specific actions that you can perform on those resources. You can use an API key in your application to make unauthenticated calls to the Amazon Location APIs for those resources. 
 
 For example, if you associate an API key with a resource and/or the `GetPlace*` API, then an application that uses that API key will be able to call specific APIs. That same API key would not give permissions to change or update any resource or call APIs that it isn't associated with.

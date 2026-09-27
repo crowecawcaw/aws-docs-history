@@ -8,9 +8,9 @@ Amazon Location Service supports localization features that enable you to custom
 
 | Style | Political View | Languages | 
 | --- | --- | --- | 
-| Standard | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library | 
-| Monochrome | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library | 
-| Hybrid | Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay | Supported through client-side library | 
+| Standard | Argentina, Brazil, Cyprus, Egypt, Georgia, Greece, India, Israel, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, United States, Uruguay, Vietnam | Supported through client-side library | 
+| Monochrome | Argentina, Brazil, Cyprus, Egypt, Georgia, Greece, India, Israel, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, United States, Uruguay, Vietnam | Supported through client-side library | 
+| Hybrid | Argentina, Brazil, Cyprus, Egypt, Georgia, Greece, India, Israel, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, United States, Uruguay, Vietnam | Supported through client-side library | 
 | Satellite | Not supported | Not supported | 
 
 ## Languages
@@ -28,7 +28,31 @@ For more information, see [How to set a preferred language for a map](how-to-set
 
 By default, Amazon Location Service presents an international perspective, which visually represents disputed territories with dashed borders. To switch from the international perspective to a country-specific geopolitical view, use the *political view* parameter in your API query. This helps businesses comply with local laws, as certain countries require adherence to their specific geopolitical views for maps and map data.
 
-In addition to the default international perspective, Amazon Location Service supports the geopolitical views of the following countries: Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay. To activate a geopolitical view, pass the appropriate value to the *political view* parameter.
+In addition to the default international perspective, Amazon Location Service supports the geopolitical views of the following countries: Argentina, Brazil, Cyprus, Egypt, Georgia, Greece, India, Israel, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, United States, Uruguay, Vietnam. To activate a geopolitical view, pass the appropriate value to the *political view* parameter.
+
+The following table lists the political view values that are currently available, and the perspective that each one applies.
+
+
+| Political view value | Description | 
+| --- | --- | 
+| `ARG` | Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands | 
+| `BRA` | Brazil's view on Rincon de Artigas in the Brazil/Uruguay dispute | 
+| `EGY` | Egypt's view on Bir Tawil | 
+| `IND` | India's view on Gilgit-Baltistan | 
+| `ISR` | Israel's view on the West Bank and Gaza Strip | 
+| `KEN` | Kenya's view on the Ilemi Triangle | 
+| `MAR` | Morocco's view on Western Sahara | 
+| `PSE` | Palestine's view on the West Bank and Gaza Strip | 
+| `RUS` | Russia's view on Crimea | 
+| `SDN` | Sudan's view on the Halaib Triangle | 
+| `SRB` | Serbia's view on Kosovo, Vukovar, and Sarengrad Islands | 
+| `SUR` | Suriname's view on the Courantyne Headwaters and Lawa Headwaters | 
+| `SYR` | Syria's view on the Golan Heights | 
+| `TUR` | Türkiye's view on Cyprus and Northern Cyprus | 
+| `TZA` | Tanzania's view on Lake Malawi | 
+| `URY` | Uruguay's view on Rincon de Artigas in the Brazil/Uruguay dispute | 
+| `USA` | United States' names for Lake Ontario and the Gulf of Mexico | 
+| `VNM` | Vietnam's view on the Paracel Islands and Spratly Islands | 
 
 For more information, see [How to set the political view of a map](how-to-set-political-view-map.md).
 

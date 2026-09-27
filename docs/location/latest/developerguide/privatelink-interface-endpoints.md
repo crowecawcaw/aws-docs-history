@@ -37,6 +37,7 @@ Interface endpoints for Amazon Location have the following properties:
 Amazon VPC considerations apply to AWS PrivateLink for Amazon Location Service. For more information, see [Interface endpoint considerations](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) and [AWS PrivateLink quotas](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-limits-endpoints.html) in the *AWS PrivateLink Guide*. In addition, the following restrictions apply.
 
 AWS PrivateLink for Amazon Location Service doesn't support the following:
++ API key authentication
 + Transport Layer Security (TLS) 1.1
 + Private and Hybrid Domain Name System (DNS) services
 
@@ -47,6 +48,9 @@ Amazon VPC endpoints:
 + Must allow incoming connections on port 443 from the private subnet of the VPC through the security group attached to the VPC endpoint
 
 You can submit up to 50,000 requests per second for each AWS PrivateLink endpoint that you enable.
+
+**Note**  
+Interface endpoints don't support API key authentication. Requests that pass an API key through an interface endpoint fail with `MissingAuthenticationTokenException`. To use API keys, send requests to the public Amazon Location endpoint instead.
 
 **Note**  
 Network connectivity timeouts to AWS PrivateLink endpoints are not within the scope of Amazon Location error responses and need to be appropriately handled by your applications connecting to the AWS PrivateLink endpoints.
@@ -144,7 +148,7 @@ You can attach an endpoint policy to your Amazon VPC endpoint that controls acce
 	"Version": "2012-10-17",		 	 	 
 	"Statement": [
 		{
-			"Sid": "Allow-access-to-location-service-places-opeartions",
+			"Sid": "AllowAccessToLocationServicePlacesOperations",
 			"Effect": "Allow",
 			"Action": [
 				"geo-places:*",
