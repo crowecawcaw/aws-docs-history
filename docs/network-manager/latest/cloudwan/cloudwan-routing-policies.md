@@ -50,17 +50,31 @@ Route summarization and BGP attribute modification are supported only on BGP-cap
 <a name="cloudwan-routing-policies-considerations"></a>
 
 The following is a list of considerations that should be taken into account before using Cloud WAN Routing Policies:
-+ VPC attachments don't support BGP attribute modification
-+ Summarization only works outbound and on BGP-capable attachments
-+ Routing policies associated across segments and regions are unidirectional
-+ No BGP community support on Direct Connect and TGW Peering attachments
-+ ASNs specified in the routing policy (replace/remove ASN, community tags) cannot overlap with the ASN range specified in the core network configuration. This also means you cannot advertise communities into a core network that contain an ASN currently in use by the core network.
-+ Replace ASN is not support cross-region (CNE-to-CNE)
-+ Prefix list alias's must be unique per prefix list core network association
-+ Prefix list modifications of entry values to the underlying core network routing state may not align with the prefix list state.
-+ Routing policies are not supported for NFGs (Service Insertion)
-+ Segment share policies are applied after attachment policies
-+ External AWS devices cannot advertise routes with BGP communities containing internal ASNs
-+ The list-core-network-routing-information API shows the routing information before routing policies have been applied
+
+### Route evaluation and ordering
+<a name="cloudwan-routing-policies-considerations-route-evaluation"></a>
 + Route summarization will remove all matched prefixes and replace them with a single summarized route. The summarized prefix will be advertised at the same time as matched prefixes are withdrawn.
-+ TGW Route Table Attachments that use the same Peering and are associated to the same segment will share the same outbound routing policies across all similar attachments. This means if you have TGW Route Table Attachment attachment-1 with outbound routing policy 1 on segment prod and peering 1 and you have TGW Route Table Attachment attachment-2 with outbound routing policy 2 on segment prod and peering 1, then both attachment-1 and attachment-2 will have both have routing policy 1 and routing policy 2 applied to both of the attachments.
++ The allow and drop actions are terminal. When a route matches either one, no further rules are evaluated for that route. Other actions, such as set-med and summarize, are non-terminal, so processing continues. A route that reaches the end of all rules without matching a terminal action is allowed, with any modifications applied.
++ Segment share policies are applied after attachment policies.
++ Routing policies associated across segments and Regions are unidirectional.
++ Routing policies are not supported for network function groups (service insertion).
+
+### Attachment type support
+<a name="cloudwan-routing-policies-considerations-attachment-support"></a>
++ VPC attachments don't support BGP attribute modification.
++ Summarization only works outbound and on BGP-capable attachments.
++ No BGP community support on Direct Connect and TGW peering attachments.
++ TGW route table attachments that use the same peering and are associated with the same segment share the same outbound routing policies across all similar attachments. For example, if attachment-1 has outbound routing policy 1 on segment prod and peering 1, and attachment-2 has outbound routing policy 2 on the same segment and peering, both policies apply to both attachments.
+
+### BGP and ASN constraints
+<a name="cloudwan-routing-policies-considerations-bgp-asn-constraints"></a>
++ ASNs specified in the routing policy (replace/remove ASN, community tags) cannot overlap with the ASN range specified in the core network configuration. This also means you cannot advertise communities into a core network that contain an ASN currently in use by the core network.
++ Replace ASN is not supported cross-Region (CNE-to-CNE).
++ External AWS devices cannot advertise routes with BGP communities containing internal ASNs.
++ Route summarization does not preserve the BGP attributes of the matched prefixes. The summarized route is advertised as a new route with reset attribute values: MED of 100, local-preference of 0, an empty AS-path, and empty communities.
+
+### Prefix lists and visibility
+<a name="cloudwan-routing-policies-considerations-prefix-list-visibility"></a>
++ Prefix list aliases must be unique per prefix list core network association.
++ Prefix list modifications of entry values to the underlying core network routing state may not align with the prefix list state.
++ The `list-core-network-routing-information` API shows the routing information before routing policies have been applied.

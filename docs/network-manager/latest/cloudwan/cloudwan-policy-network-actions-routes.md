@@ -9,7 +9,7 @@ The following steps guide you through optionally setting segment actions for a c
 + [Segment sharing](#cloudwan-policy-network-actions-sharing)
 + [Segment routes](#cloudwan-policy-version-routes)
 + [Edge location routing policy associations](#cloudwan-policy-routing-associations-console)
-+ [Service insertion](#cloudwan-policy-service-insertion)
++ [Service insertion](#cloudwan-policy-service-insertion-actions)
 
 ## Segment sharing
 <a name="cloudwan-policy-network-actions-sharing"></a>
@@ -136,7 +136,7 @@ For more information on the parameters used in the JSON file, see [Core network 
 ```
 
 ## Service insertion
-<a name="cloudwan-policy-service-insertion"></a>
+<a name="cloudwan-policy-service-insertion-actions"></a>
 
 Create a segment route for a policy version. 
 

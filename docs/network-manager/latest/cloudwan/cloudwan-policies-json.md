@@ -200,9 +200,9 @@ The following parameters are used in `segment-actions`:
     + `segments` — The list of segments that the `send-via` action uses. `segments` is not used for the `send-to` action. 
   + `via` parameters describe the network function groups and any edge overrides associated with the
     + `network-function-groups` — The network function group to use for the service insertion action.
-    + `with-edge-overrides` parameters describe any edge overrides and the preferred edge to use.
-      + `edge-sets` — The list of edges associated with the network function group.
-      + `use-edge-location` — The preferred edge to use.
+    + `with-edge-overrides` parameters describe the edge location pairs that traffic flows between and the preferred edge location to use for each pair. You can define multiple overrides. Each override has its own edge set and its own preferred edge location.
+      + `edge-sets` — Defines the edge location pairs that this override applies to. Each entry is a list of edge locations. An entry with two edge locations matches traffic between those two edge locations in either direction. An entry with three or more edge locations matches traffic between any combination of two edge locations in the set.
+      + `use-edge-location` — The preferred edge location for traffic that flows between the edge locations in `edge-sets`. When the network function group has attachments in both edge locations of a matched pair, Cloud WAN steers traffic to the edge location that you specify here. If you don't set an edge override, Cloud WAN uses the default priority list to select the edge location instead. For more information, see [AWS Cloud WAN service insertion.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-service-insertion.html)
 
   The following example shows an example of the `send-via` action:
   + Traffic is sent via a segment named `development`.
@@ -414,12 +414,12 @@ The following parameters are used in `routing-policies`:
     + `action` — Defines the action to take on matching routes. 
       + `type` — The type of action to take for the condition logic. Supported actions include:
 **Important**  
-drop and allow result in terminal states, this means if a route matches a policy with a drop/allow action then no other routing poliy rules after that rule will be evaluated. For example, if you have a routing policy with the following rules:   
+drop and allow result in terminal states, this means if a route matches a policy with a drop/allow action then no other routing policy rules after that rule will be evaluated. For example, if you have a routing policy with the following rules:   
 Rule 1: drop, prefix-in-cidr 0.0.0.0/0
 Rule 2: allow, prefix-in-cidr 10.0.0.0/8
-Rule 3: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
+Rule 3: set-local-preference, prefix-in-cidr 10.0.0.0/8
  The rule 1 drop rule would be terminal meaning all routes would be dropped and rule 2 and 3 will do nothing. If Rule 1 and 2 are reversed, then 10.0.0.0/8 will be allowed and not dropped but the local preference rule 3 will not work because allow is also terminal. The proper order would be as follows   
-Rule 1: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
+Rule 1: set-local-preference, prefix-in-cidr 10.0.0.0/8
 Rule 2: allow, prefix-in-cidr 10.0.0.0/8
 Rule 3: drop, prefix-in-cidr 0.0.0.0/0
         +  `drop` — Drop matched routes
@@ -479,6 +479,69 @@ The following example shows two inbound routing policies: `RP1` is a routing pol
             "condition-logic": "and",
             "action": {
               "type": "allow"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+The following example shows correct rule ordering when combining non-terminal and terminal actions in an outbound routing policy. Rule 10 sets local preference (non-terminal). Rule 20 allows the matched routes (terminal). Rule 30 drops everything else (terminal).
+
+```
+{
+  "routing-policies": [
+    {
+      "routing-policy-name": "outboundWithLocalPref",
+      "routing-policy-description": "Set local preference then allow, with default drop",
+      "routing-policy-direction": "outbound",
+      "routing-policy-number": 50,
+      "routing-policy-rules": [
+        {
+          "rule-number": 10,
+          "rule-definition": {
+            "match-conditions": [
+              {
+                "type": "prefix-in-cidr",
+                "value": "10.0.0.0/8"
+              }
+            ],
+            "condition-logic": "and",
+            "action": {
+              "type": "set-local-preference",
+              "value": 200
+            }
+          }
+        },
+        {
+          "rule-number": 20,
+          "rule-definition": {
+            "match-conditions": [
+              {
+                "type": "prefix-in-cidr",
+                "value": "10.0.0.0/8"
+              }
+            ],
+            "condition-logic": "and",
+            "action": {
+              "type": "allow"
+            }
+          }
+        },
+        {
+          "rule-number": 30,
+          "rule-definition": {
+            "match-conditions": [
+              {
+                "type": "prefix-in-cidr",
+                "value": "0.0.0.0/0"
+              }
+            ],
+            "condition-logic": "and",
+            "action": {
+              "type": "drop"
             }
           }
         }

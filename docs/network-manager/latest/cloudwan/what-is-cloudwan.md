@@ -52,6 +52,9 @@ The following are the key concepts for AWS Cloud WAN:
   AWS Cloud WAN supports built-in segmentation, which means that you can more easily manage network isolation across your AWS and on-premises locations. Using network segments, you can divide your global network into separate isolated networks. For example, you might want to isolate traffic between different parts of your business, such as between retail sites or IT networks. 
 
   You can create a segment and define whether resources that ask for access require approval. You can also define explicit route filters to be applied before those routes can be attached to a segment. Each attachment connects to one segment. Each segment will create a dedicated routing domain. You can create multiple network segments within your global network. Resources connected to the same segment can only communicate within the segment. Optionally, resources in the same segment can be isolated from each other, with access only to shared services. With segments, AWS maintains a consistent configuration across AWS Regions for you, instead of you needing to synchronize configuration across every device in your network.
++ **Network function group**
+
+  A network function group is a global construct. It contains core network attachments that host network or security functions, such as firewalls or intrusion detection and prevention systems (IDPS). A network function group is provisioned as a managed Cloud WAN segment. However, routing is fully managed, and no static routes are required. You define the segments or segment pairs in your core network policy whose traffic should be redirected. Cloud WAN then automatically steers both intra-Region and inter-Region traffic through the associated network function group attachments.
 + **Segment actions and attachment policies**
 
   Segment actions define how routing works between segments. After you create a segment, you can choose to map attachments to the segments either by explicitly mapping a resource to a segment (for example, "`VpcId: "vpc-2f09a348`) or by creating and using attachment policies. Instead of manually associating a segment to each attachment, attachments are tagged. Those tags are then associated with the applicable segment. When attachments are mapped to segments, you can choose how routes are shared between segments. For example, you might want to share access to a VPN across multiple segments, or allow access between two types of branch offices. You can also choose to configure centralized internet routing for a segment, or route traffic between segments through a firewall.
@@ -155,6 +158,9 @@ AWS Cloud WAN is available in the following AWS Regions:
 | il-central-1 | Israel (Tel Aviv) | 
 | me-central-1 | Middle East (UAE) | 
 | me-south-1 | Middle East (Bahrain) | 
+
+**Note**  
+ The order of Regions in this table is also used as the default priority list for [AWS Cloud WAN service insertion](cloudwan-policy-service-insertion.md). When Cloud WAN selects between multiple Regions for network function group traffic steering, it uses this order by default. If you haven't configured an explicit preference using `with-edge-overrides` in [`segment-actions`](cloudwan-policies-json.md#cloudwan-segment-actions-json), Cloud WAN selects the Region that appears first in the list. 
 
 AWS Cloud WAN is also available in the following AWS Regions in the GovCloud partition:
 

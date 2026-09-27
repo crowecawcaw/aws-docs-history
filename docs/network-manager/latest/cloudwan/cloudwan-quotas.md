@@ -65,7 +65,7 @@ Your AWS account has the following routing quotas for AWS Cloud WAN.
 
 | Quota | Default | Adjustable | 
 | --- | --- | --- | 
-| Routes per core network, across all segments | 10,000 | Contact your Solutions Architect (SA) or Technical Account Manager (TAM) for further assistance. | 
+| Routes per core network, across all segments  This quota counts all installed routes, including static, shared, and dynamically learned routes. Routes received through BGP but not installed in the route table (for example, non-preferred paths) do not count.  | 10,000 | Contact your Solutions Architect (SA) or Technical Account Manager (TAM) for further assistance. | 
 | Routes advertised over VPN to core network | 1,000 | Contact your Solutions Architect (SA) or Technical Account Manager (TAM) for further assistance. | 
 | Routes advertised from core network over VPN | 5,000 | Contact your Solutions Architect (SA) or Technical Account Manager (TAM) for further assistance. | 
 | Routes advertised over Connect peer to core network | 1,000 | Contact your Solutions Architect (SA) or Technical Account Manager (TAM) for further assistance. | 
