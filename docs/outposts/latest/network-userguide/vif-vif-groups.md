@@ -6,6 +6,7 @@
 Local gateway virtual interfaces (VIFs) is a logical interface component of Outposts racks that sets up VLAN, IP, and BGP connectivity between your Outposts networking devices and an on-premise networking device for local gateway connectivity. VIFs are created within VIF groups. VIF groups are logical groupings of VIFs and VIFs are created within VIF groups. You must create four local gateway VIFs within each VIF group.
 
 **Topics**
++ [Monitoring local gateway connectivity](#monitor-lgw-connectivity)
 
 **To create a local gateway VIF group and VIFs**
 
@@ -107,3 +108,11 @@ Deleting a local gateway routing domain can impact your local gateway local netw
 1. On the **Delete LGW VIF group** window that appears, choose **Delete LGW VIF group**.
 **Note**  
 Deleting a VIF group will delete all the VIFs in the group. You cannot undo this action.
+
+## Monitoring local gateway connectivity
+<a name="monitor-lgw-connectivity"></a>
+
+You can monitor the connection status and BGP session state of your local gateway virtual interfaces from the AWS Outposts console. In the console, navigate to your Outpost and choose the **Local Gateway Virtual Interfaces** tab. The **Network Status** column shows whether each VIF is up and ready to forward traffic. Choose the status link to open a pre-built Amazon CloudWatch graph showing `VifConnectionStatus` and `VifBgpSessionState` for that VIF. These metrics are published automatically to the `AWS/Outposts` namespace for all Outpost VIFs and require no additional setup. To receive proactive notification when a VIF goes down or a BGP session is no longer in the `Established` state, you can optionally create a CloudWatch alarm on either metric. For descriptions of metric values and dimensions, see [CloudWatch metrics for Outposts racks](outposts-cloudwatch-metrics.md).
+
+**Note**  
+If you build dashboards or alarms directly against the `VifConnectionStatus` or `VifBgpSessionState` metrics, note that the dimension name differs depending on which CloudWatch widget you use: the updated widget uses `OutpostId`, while the legacy widget still uses `OutpostsId` for backward compatibility. Confirm which dimension name your dashboard or alarm definition expects to avoid missing data. For more information, see [Metrics](outposts-cloudwatch-metrics.md#outposts-metrics).
