@@ -104,6 +104,37 @@ Amazon GameLift Servers SDKs and plugins are open source. See [Get Amazon GameLi
 
 The following release notes are in chronological order, with the latest updates listed first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those listed here, see the release date links in [SDK versions](#release-notes-history).
 
+### September 24, 2026: Amazon GameLift Servers adds location support in 13 new AWS Regions and Local Zones
+<a name="release-notes-09242026"></a>
+
+With Amazon GameLift Servers managed hosting, you can now deploy game server resources in 13 new locations across the Americas, Europe, Asia Pacific, and the Middle East. Use these locations to host game servers closer to your players and reduce latency.
+
+The following AWS Regions are available as remote locations for multi-location fleets:
++ Asia Pacific (Hyderabad) (`ap-south-2`)
++ Asia Pacific (Jakarta) (`ap-southeast-3`)
++ Europe (Spain) (`eu-south-2`)
++ Israel (Tel Aviv) (`il-central-1`)
++ Mexico (Central) (`mx-central-1`)
+
+The following Local Zones are available as remote locations for multi-location fleets:
++ Atlanta local zone 2 (`us-east-1-atl-2`)
++ Chicago local zone 2 (`us-east-1-chi-2`)
++ Houston local zone 2 (`us-east-1-iah-2`)
++ Miami local zone 2 (`us-east-1-mia-2`)
++ New York City local zone 2 (`us-east-1-nyc-2`)
++ Phoenix local zone 2 (`us-west-2-phx-2`)
++ Buenos Aires, Argentina local zone (`us-east-1-bue-1`)
++ Lima, Peru local zone (`us-east-1-lim-1`)
+
+To begin hosting game sessions in these locations, add them as remote locations to a new or existing multi-location fleet. With multi-location fleets, you manage hosting capacity in each location. If your game uses Amazon GameLift Servers FlexMatch, update the fleets in your matchmaking queue to include the new locations.
+
+These AWS Regions and all Local Zones are opt-in locations that are disabled by default for an AWS account. You must enable each location before you can deploy Amazon GameLift Servers resources there.
+
+****Learn more:****
++ [Amazon GameLift Servers service locations](gamelift-regions.md), *Amazon GameLift Servers Developer Guide*
++ [Update fleet locations](fleets-update-locations.md), *Amazon GameLift Servers Developer Guide*
++ [Enable or disable AWS Regions in your account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html), *AWS Account Management Reference Guide*
+
 ### August 25, 2026: Amazon GameLift Servers Enhanced DDoS Protection
 <a name="release-notes-08252026"></a>
 

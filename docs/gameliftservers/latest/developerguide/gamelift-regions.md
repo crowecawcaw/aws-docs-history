@@ -13,39 +13,52 @@ The following table is a list of AWS Regions and Local Zones that support Amazon
 
 | Geographic location | Location code | Home Region for managed fleets (single location) | Home Region for managed fleets (multi-location)  | Remote location for managed fleets (multi-location) | Anywhere fleet | Game session queue | FlexMatch matchmaker and rule set | DDoS protection (player gateway) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| US West (Oregon) | us-west-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
+| US West (N. California) | us-west-1 | Yes |  | Yes | Yes | Yes |  |  | 
 | US East (N. Virginia) | us-east-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
 | US East (Ohio) | us-east-2  | Yes |  | Yes | Yes | Yes |  |  | 
-| US West (N. California) | us-west-1 | Yes |  | Yes | Yes | Yes |  |  | 
-| US West (Oregon) | us-west-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
-| Africa (Cape Town) | af-south-1 |  |  | Yes |  |  |  |  | 
-| Asia Pacific (Thailand) | ap-southeast-7 |  |  | Yes |  |  |  |  | 
-| Asia Pacific (Hong Kong) | ap-east-1 |  |  | Yes |  |  |  |  | 
-| Asia Pacific (Malaysia) | ap-southeast-5 |  |  | Yes |  |  |  |  | 
-| Asia Pacific (Mumbai) | ap-south-1 | Yes |  | Yes | Yes | Yes |  |  | 
-| Asia Pacific (Osaka) | ap-northeast-3 |  |  | Yes |  |  |  |  | 
-| Asia Pacific (Seoul) | ap-northeast-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
-| Asia Pacific (Singapore) | ap-southeast-1 | Yes |  | Yes | Yes | Yes |  |  | 
-| Asia Pacific (Sydney) | ap-southeast-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
 | Asia Pacific (Tokyo) | ap-northeast-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
-| Canada (Central) | ca-central-1 | Yes |  | Yes | Yes | Yes |  |  | 
+| Asia Pacific (Seoul) | ap-northeast-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
+| Asia Pacific (Sydney) | ap-southeast-2 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
 | Europe (Frankfurt) | eu-central-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
 | Europe (Ireland) | eu-west-1 | Yes | Yes | Yes | Yes | Yes | Yes | Yes† | 
+| Asia Pacific (Mumbai) | ap-south-1 | Yes |  | Yes | Yes | Yes |  |  | 
+| Asia Pacific (Singapore) | ap-southeast-1 | Yes |  | Yes | Yes | Yes |  |  | 
+| Canada (Central) | ca-central-1 | Yes |  | Yes | Yes | Yes |  |  | 
 | Europe (London) | eu-west-2 | Yes |  | Yes | Yes | Yes |  |  | 
-| Europe (Milan) | eu-south-1 |  |  | Yes |  |  |  |  | 
-| Europe (Paris) | eu-west-3 |  |  | Yes |  |  |  |  | 
-| Europe (Stockholm) | eu-north-1 |  |  | Yes |  |  |  |  | 
-| Middle East (Bahrain) | me-south-1 |  |  | Yes |  |  |  |  | 
 | South America (São Paulo) | sa-east-1 | Yes |  | Yes | Yes | Yes |  |  | 
+| Africa (Cape Town) | af-south-1 |  |  | Yes |  |  |  |  | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  |  | Yes |  |  |  |  | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  |  | Yes |  |  |  |  | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  |  | Yes |  |  |  |  | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  |  | Yes |  |  |  |  | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  |  | Yes |  |  |  |  | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  |  | Yes |  |  |  |  | 
+| Europe (Stockholm) | eu-north-1 |  |  | Yes |  |  |  |  | 
+| Europe (Milan) | eu-south-1 |  |  | Yes |  |  |  |  | 
+| Europe (Spain) | eu-south-2 |  |  | Yes |  |  |  |  | 
+| Europe (Paris) | eu-west-3 |  |  | Yes |  |  |  |  | 
+| Israel (Tel Aviv) | il-central-1 |  |  | Yes |  |  |  |  | 
+| Middle East (Bahrain) | me-south-1 |  |  | Yes |  |  |  |  | 
+| Mexico (Central) | mx-central-1 |  |  | Yes |  |  |  |  | 
+| Lagos, Nigeria local zone | af-south-1-los-1 |  |  | Yes |  |  |  |  | 
 | Atlanta local zone | us-east-1-atl-1 |  |  | Yes |  |  |  |  | 
+| Atlanta local zone 2 | us-east-1-atl-2 |  |  | Yes |  |  |  |  | 
+| Buenos Aires, Argentina local zone | us-east-1-bue-1 |  |  | Yes |  |  |  |  | 
 | Chicago local zone | us-east-1-chi-1 |  |  | Yes |  |  |  |  | 
+| Chicago local zone 2 | us-east-1-chi-2 |  |  | Yes |  |  |  |  | 
 | Dallas local zone\* | us-east-1-dfw-1 |  |  | Yes |  |  |  |  | 
 | Dallas local zone 2 | us-east-1-dfw-2 |  |  | Yes |  |  |  |  | 
-| Denver local zone | us-west-2-den-1 |  |  | Yes |  |  |  |  | 
 | Houston local zone | us-east-1-iah-1 |  |  | Yes |  |  |  |  | 
+| Houston local zone 2 | us-east-1-iah-2 |  |  | Yes |  |  |  |  | 
+| Lima, Peru local zone | us-east-1-lim-1 |  |  | Yes |  |  |  |  | 
 | Kansas City local zone | us-east-1-mci-1 |  |  | Yes |  |  |  |  | 
+| Miami local zone 2 | us-east-1-mia-2 |  |  | Yes |  |  |  |  | 
+| New York City local zone 2 | us-east-1-nyc-2 |  |  | Yes |  |  |  |  | 
+| Denver local zone | us-west-2-den-1 |  |  | Yes |  |  |  |  | 
 | Los Angeles local zone | us-west-2-lax-1 |  |  | Yes |  |  |  |  | 
 | Phoenix local zone | us-west-2-phx-1 |  |  | Yes |  |  |  |  | 
-| Lagos, Nigeria local zone | af-south-1-los-1 |  |  | Yes |  |  |  |  | 
+| Phoenix local zone 2 | us-west-2-phx-2 |  |  | Yes |  |  |  |  | 
 
 \* Available to AWS accounts that have already opted in.
 
