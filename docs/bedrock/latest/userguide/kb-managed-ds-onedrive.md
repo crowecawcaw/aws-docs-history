@@ -10,6 +10,7 @@ Microsoft OneDrive is a cloud storage service that lets you store, share, and co
 + Crawl users' personal drives. The set of drives crawled depends on the authentication method — see [Authentication methods](#kb-managed-onedrive-auth-methods).
 + Automatic detection of common document fields (such as title, author, and created or modified dates)
 + Inclusion and exclusion content filters using user email addresses, drive item paths, MIME types, and date ranges
++ Exclude documents from the crawl by Microsoft Purview sensitivity label (default or custom labels)
 + Incremental content syncs for added, updated, and deleted content
 + User-managed (3LO), Microsoft Entra App ID, and OAuth 2.0 authentication
 + Document-level access control (ACLs), with Microsoft Entra App ID authentication

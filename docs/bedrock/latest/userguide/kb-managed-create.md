@@ -239,7 +239,9 @@ Managed knowledge bases support the following data source connectors:
 + Microsoft SharePoint Online
 + Google Drive
 + Microsoft OneDrive
++ Salesforce
 + ServiceNow
++ Zendesk
 + Web Crawler
 + Custom connector
 

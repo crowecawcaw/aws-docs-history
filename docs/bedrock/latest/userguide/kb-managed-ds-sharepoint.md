@@ -10,6 +10,7 @@ Microsoft SharePoint is a collaborative web-based service for working on documen
 + Crawl files and pages from multiple SharePoint sites
 + Automatic detection of common document fields (such as title, author, and created or modified dates)
 + Inclusion content filters using item paths and date ranges
++ Exclude documents from the crawl by Microsoft Purview sensitivity label (default or custom labels)
 + Incremental content syncs for added, updated, and deleted content
 + User-managed (3LO), Microsoft Entra ID App-Only, and OAuth 2.0 authentication
 + Document-level access control (ACLs), with Microsoft Entra ID App-Only authentication

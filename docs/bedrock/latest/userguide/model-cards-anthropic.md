@@ -8,6 +8,7 @@ The following Anthropic models are available in Amazon Bedrock:
 
 | **Model** | **Description** | 
 | --- | --- | 
+| [Claude Opus 5.5](model-card-anthropic-claude-opus-5-5.md) | Claude Opus 5.5 is Anthropic's most capable Opus model. Better at coding, knowledge work, and long-running tasks. It's easier to collaborate with and more cost efficient than ever. | 
 | [Claude Fable 5.1](model-card-anthropic-claude-fable-5-1.md) | Claude Fable 5.1 is Anthropic's frontier model for ambitious coding, long-horizon agents, and enterprise knowledge work. | 
 | [Claude Mythos 5.1](model-card-anthropic-claude-mythos-5-1.md) | Claude Mythos 5.1 is Anthropic's most capable model for cybersecurity defense and life sciences research, including threat intelligence, vulnerability discovery, red teaming, drug discovery, and biodefense screening. | 
 | [Claude Opus 5](model-card-anthropic-claude-opus-5.md) | Claude Opus 5 is Anthropic's most advanced Opus model, powering long-running agents while delivering improvements in coding and professional work. | 

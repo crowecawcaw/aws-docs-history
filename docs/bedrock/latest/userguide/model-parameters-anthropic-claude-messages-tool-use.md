@@ -890,13 +890,13 @@ Error examples:
 // Invalid: Example doesn't match schema (missing required field)
 {
     "type": "invalid_request_error",
-    "message": "Tool 'get_weather' input_examples[0] is invalid: Missing required property 'location'"
+    "message": "tools.0.custom: Example at index 0 is invalid: \"location\" is a required property. Each example must match the tool's input_schema."
 }
 
 // Invalid: Example has wrong type for field
 {
     "type": "invalid_request_error",
-    "message": "Tool 'search_products' input_examples[1] is invalid: Property 'filters.price_range.min' must be a number, got string"
+    "message": "tools.0.custom: Example at index 1 is invalid: \"cheap\" is not of type \"number\". Each example must match the tool's input_schema."
 }
 
 // Invalid: input_examples on server-side tool
@@ -910,9 +910,11 @@ Error examples:
 <a name="model-parameters-anthropic-claude-mid-conversation-tool-changes"></a>
 
 **Note**  
-This feature requires the beta flag `mid-conversation-tool-changes-2026-07-01` in `anthropic_beta`. Currently supported on Claude Opus 5 only.
+By-reference tool changes (the `tool_reference` and MCP variants described in the following section) require the beta flag `mid-conversation-tool-changes-2026-07-01` in `anthropic_beta`. By-value tool definitions (see [Inline tool definitions (Beta)](#model-parameters-anthropic-claude-mid-conversation-tool-changes-inline-definitions)) additionally require `inline-tools-2026-09-15`. Sending `inline-tools-2026-09-15` also enables the by-reference blocks, so it can be sent alone or alongside `mid-conversation-tool-changes-2026-07-01`.  
+Tool changes are supported on Claude Opus 5.5, Claude Mythos 5.1, Claude Fable 5.1, Claude Opus 5, Claude Mythos 5, Claude Fable 5, and Claude Opus 4.8.  
+Claude Sonnet 5, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, and the Claude 4.5 models return a `400`.
 
-Claude Opus 5 supports adding and removing tools mid-conversation through `tool_addition` and `tool_removal` content blocks on `role: "system"` messages, instead of re-sending the full top-level `tools` array (which would invalidate the prompt cache).
+Supported models add and remove tools mid-conversation through `tool_addition` and `tool_removal` content blocks on `role: "system"` messages, instead of re-sending the full top-level `tools` array (which would invalidate the prompt cache).
 
 ### Request shape
 <a name="model-parameters-anthropic-claude-mid-conversation-tool-changes-request"></a>
@@ -932,6 +934,115 @@ Claude Opus 5 supports adding and removing tools mid-conversation through `tool_
 
 Both block types support `cache_control` for prompt caching.
 
+### Inline tool definitions (Beta)
+<a name="model-parameters-anthropic-claude-mid-conversation-tool-changes-inline-definitions"></a>
+
+Instead of a `tool_reference`, a `tool_addition` block in a `role: "system"` message can carry the tool itself as `{"type": "tool_definition", "definition": {…}}` — the same object a `tools[]` entry holds. The tool is available from that position onward, exactly as if it had been declared in `tools[]`, and the model's `tool_use` is parsed against the definition's `input_schema`. Later turns carry only the definition in history, so adding a tool never invalidates the cached prefix or earlier thinking.
+
+The following request declares one tool (`get_time`) in `tools[]`, then adds a second tool (`convert_length`) by value through a `tool_addition` block on a `role: "system"` message, and asks the model to use it:
+
+```
+{
+  "anthropic_version": "bedrock-2023-05-31",
+  "max_tokens": 1024,
+  "anthropic_beta": ["inline-tools-2026-09-15"],
+  "tools": [
+    {
+      "name": "get_time",
+      "description": "Get the current time in a given time zone.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "timezone": {"type": "string"}
+        },
+        "required": ["timezone"]
+      }
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "What time is it in Tokyo?"
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "tool_use",
+          "id": "toolu_bdrk_01aBcDget_time",
+          "name": "get_time",
+          "input": {"timezone": "Asia/Tokyo"}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_bdrk_01aBcDget_time",
+          "content": "2026-09-19T14:30:00+09:00"
+        }
+      ]
+    },
+    {
+      "role": "system",
+      "content": [
+        {
+          "type": "tool_addition",
+          "tool": {
+            "type": "tool_definition",
+            "definition": {
+              "name": "convert_length",
+              "description": "Convert meters to feet.",
+              "input_schema": {
+                "type": "object",
+                "properties": {
+                  "meters": {"type": "integer"}
+                },
+                "required": ["meters"]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "I can convert lengths now."
+    },
+    {
+      "role": "user",
+      "content": "Convert 5 meters to feet."
+    }
+  ]
+}
+```
+
+**Semantics**
++ An equal re-definition of the same name is a no-op, so idempotent retries are safe.
++ A different definition of the same name replaces the earlier one from that position onward.
++ `tool_removal.tool` is always a reference, never a `tool_definition`.
++ `computer_*` tools and the `computer_toolset_*` and `browser_toolset_*` toolsets cannot be defined by value; declare them in `tools[]` and reference them.
++ MCP references and `mcp_toolset` definitions are not available on this platform.
++ `cache_control` can sit on the block **or** inside `definition`, but not both. It is one prompt-cache breakpoint after the rendered definition, and is not allowed with `defer_loading: true`.
+
+**Limits**
++ 10,000 deferred tools.
++ 10,000 tools defined after the first user message.
++ 4,194,304 bytes of definitions.
++ 4,194,304 bytes of rendered tool text in messages.
+
+Under `inline-tools-2026-09-15`, these limits replace the 512 `tool_addition` cap described in [Semantics](#model-parameters-anthropic-claude-mid-conversation-tool-changes-semantics).
+
+
+| **Condition** | **Error (400 invalid\_request\_error)** | 
+| --- | --- | 
+| tool\_definition sent without inline-tools-2026-09-15 | ...tool\_addition.tool: Input tag 'tool\_definition' found using 'type' does not match any of the expected tags ... | 
+| Tool definitions disabled on the platform | tool definitions in tool\_addition are not available on this platform | 
+| Model does not support tool changes | tool\_addition/tool\_removal is not supported on this model / ...requires a model that supports mid-conversation system content; this model does not | 
+| A definition that would be invalid in tools[] | Fails with the same message it would produce in tools[], reported at the block's path | 
+
 ### Tool reference variants
 <a name="model-parameters-anthropic-claude-mid-conversation-tool-changes-references"></a>
 
@@ -943,6 +1054,7 @@ The `tool` field is a discriminated union on `type`:
 | tool\_reference | name (string, pattern ^[a-zA-Z0-9\_-]{1,128}$) | A tool declared directly in top-level tools[] | — | 
 | mcp\_tool\_reference | server\_name, name | A single MCP tool | An mcp-client-\* beta | 
 | mcp\_toolset\_reference | server\_name | Every tool in the named MCP server's toolset | An mcp-client-\* beta | 
+| tool\_definition | definition — any entry valid in this platform's tools[] (custom, bash\_\*, text\_editor\_\*, memory\_\*, tool\_search\_tool\_\*) | The tool defined in place, available from that position onward | inline-tools-2026-09-15 (a dated tool type inside the definition needs its own beta, as in tools[]) | 
 
 `tool_reference` does **not** accept the composed `{server}_{name}` form assigned to MCP-resolved tools; use one of the MCP variants for those.
 
@@ -951,7 +1063,7 @@ The `tool` field is a discriminated union on `type`:
 + The available-tool set starts as everything in `tools[]` (after MCP resolution). Each `tool_removal` subtracts the referenced tool(s); each `tool_addition` re-adds them. A tool removed and later re-added is available at the end.
 + `tool_removal` renders a brief in-context notice so the model stops planning around the removed tool.
 + Mid-conversation tool changes do **not** trigger constrained decoding; `tool_choice` remains the only control for that.
-+ Maximum 512 `tool_addition` blocks per request.
++ Maximum 512 `tool_addition` blocks per request. Under `inline-tools-2026-09-15`, this 512-addition cap is replaced by the limits described in [Inline tool definitions (Beta)](#model-parameters-anthropic-claude-mid-conversation-tool-changes-inline-definitions).
 
 ### Error responses (400 invalid\_request\_error)
 <a name="model-parameters-anthropic-claude-mid-conversation-tool-changes-errors"></a>
@@ -972,7 +1084,7 @@ The `tool` field is a discriminated union on `type`:
 ## Forced tool use
 <a name="model-parameters-anthropic-claude-forced-tool-use"></a>
 
-Claude Fable 5.1 and Claude Mythos 5.1 do not support forced tool use. A request that sets `tool_choice` to `{"type": "any"}` or `{"type": "tool", "name": "..."}` returns a `400 invalid_request_error`:
+Claude Opus 5.5, Claude Fable 5.1, and Claude Mythos 5.1 do not support forced tool use. A request that sets `tool_choice` to `{"type": "any"}` or `{"type": "tool", "name": "..."}` returns a `400 invalid_request_error`:
 
 ```
 tool_choice: type "tool" and "any" are not supported for this model.

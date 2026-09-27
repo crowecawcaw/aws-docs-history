@@ -11,6 +11,8 @@ The following OpenAI models are available in Amazon Bedrock:
 | **Model** | **Description** | 
 | --- | --- | 
 | [GPT-6 Astra](model-card-openai-gpt-6-astra.md) | OpenAI's most capable model, built for complex reasoning, coding, computer use, research, and document creation. | 
+| [GPT-6 Sol](model-card-openai-gpt-6-sol.md) | GPT-6 Sol supports complex coding and agentic workflows. | 
+| [GPT-6 Luna](model-card-openai-gpt-6-luna.md) | GPT-6 Luna is designed for focused, high-volume tasks. | 
 | [GPT-5.6 Sol](model-card-openai-gpt-56-sol.md) | The most capable OpenAI model yet, delivering frontier reasoning and state-of-the-art agentic performance across coding, cybersecurity, and scientific research. | 
 | [GPT-5.6 Terra](model-card-openai-gpt-56-terra.md) | Balanced performance competitive with GPT-5.5 at half the cost, built for everyday production workloads at scale. | 
 | [GPT-5.6 Luna](model-card-openai-gpt-56-luna.md) | Fast and affordable inference at OpenAI's lowest cost, built for high-volume tasks where speed and efficiency matter. | 

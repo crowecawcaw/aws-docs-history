@@ -14,11 +14,11 @@ When you run model inference, there are quotas on the number of tokens that can 
 | CacheReadInputTokenCount | The CloudWatch Amazon Bedrock runtime metric that represents the number of input tokens that were successfully retrieved from a cache instead of being reprocessed by the model. This value is 0 if you don't use [prompt caching](prompt-caching.md). | 
 | CacheWriteInputTokenCount | The CloudWatch Amazon Bedrock runtime metric that represents the number of input tokens that were successfully written into the cache. This value is 0 if you don't use [prompt caching](prompt-caching.md). | 
 | Tokens per minute (TPM) | A quota set by AWS at the model level on the number of tokens (including both input and output) that you can use in one minute. | 
-| Tokens per day (TPD) | A quota set by AWS at the model level on the number of tokens (including both input and output) that you can use in one day. By default, this value is TPM x 24 x 60. However, new AWS accounts have reduced quotas. | 
+| Tokens per day (TPD) | Maximum tokens per day across all supported Amazon Bedrock models for this account. Token count is estimated based on on-demand pricing; actual token consumption varies by model, input/output ratio, and cache usage. | 
 | max\_tokens | A parameter you provide in your request to set a maximum amount of output tokens the model can generate. | 
 | Burndown rate | The rate at which input and output tokens are converted into token quota usage for the throttling system. | 
 
-The burndown rate for Anthropic Claude models version 4.8 is **15x for output tokens** (1 output token consumes 15 tokens from your quotas) and the burndown rate for Anthropic Claude Sonnet 5, Claude Opus 5, and Claude Fable 5.1 is **10x for output tokens**. For all other Anthropic models version 4.7 and below, the burndown is **5x for output tokens** (1 output token consumes 5 tokens from your quotas).
+The burndown rate for Anthropic Claude models version 4.8 is **15x for output tokens** (1 output token consumes 15 tokens from your quotas) and the burndown rate for Anthropic Claude Opus 5.5, Claude Sonnet 5, Claude Opus 5, and Claude Fable 5.1 is **10x for output tokens**. For all other Anthropic models version 4.7 and below, the burndown is **5x for output tokens** (1 output token consumes 5 tokens from your quotas).
 
 The burndown rate for OpenAI GPT-5.6 Sol, GPT-5.6 Terra, and GPT-5.6 Luna on the `bedrock-runtime` endpoint is **10x for output tokens** (1 output token consumes 10 tokens from your quotas).
 

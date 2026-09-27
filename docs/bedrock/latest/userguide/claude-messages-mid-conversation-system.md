@@ -12,7 +12,7 @@ This is useful in agentic workflows where the model needs to adapt as a task pro
 ## Supported models
 <a name="claude-messages-mid-conversation-system-supported-models"></a>
 
-This feature is available on Claude Opus 4.8 only. No beta header is required. Requests that include `role: "system"` in `messages[]` on unsupported models return a `400 invalid_request_error`.
+Mid-conversation system messages are supported on Claude Opus 4.8 and the Claude 5 family (for example, Claude Opus 5, Claude Opus 5.5, Claude Sonnet 5, Claude Fable 5, and Claude Fable 5.1). Sending text system messages does not require a beta header. Including `tool_addition` or `tool_removal` blocks in system-role content requires the mid-conversation tool-changes beta (see [Mid-conversation tool changes (Beta)](model-parameters-anthropic-claude-messages-tool-use.md#model-parameters-anthropic-claude-mid-conversation-tool-changes)). Requests that include `role: "system"` in `messages[]` on unsupported models return a `400 invalid_request_error`.
 
 ## Message fields
 <a name="claude-messages-mid-conversation-system-fields"></a>
@@ -21,7 +21,7 @@ This feature is available on Claude Opus 4.8 only. No beta header is required. R
 | **Field** | **Type** | **Description** | 
 | --- | --- | --- | 
 | role | String | Required. Must be system | 
-| content | String or list of text blocks | Required. Use a plain string or content blocks, the same as a user or assistant message. | 
+| content | String or list of content blocks | Required. Use a plain string or content blocks, the same as a user or assistant message. | 
 | cache\_control | Object | Optional. Same semantics as the top-level system parameter. | 
 
 ## Placement rules
@@ -29,18 +29,32 @@ This feature is available on Claude Opus 4.8 only. No beta header is required. R
 
 A `{"role": "system"}` message in `messages` has the following placement constraints:
 + Cannot be the first entry in `messages`. Use the top-level `system` field for instructions that apply from the very start.
-+ Must immediately follow a user message or an assistant message that ends in a server tool use.
++ Must immediately follow a user message or an assistant message that ends in a server tool result.
 + Must either be the last entry in `messages` or be followed by an assistant turn.
-+ Cannot be adjacent to another system message. Consecutive system messages are not allowed.
 
 Requests that violate these placement rules return a `400 invalid_request_error`.
 
 ## Content rules
 <a name="claude-messages-mid-conversation-system-content-rules"></a>
 
-System-role message content supports text blocks only. Images, documents, tool blocks, and citations are not supported.
+System-role message content supports text blocks. You can also include `tool_addition` and `tool_removal` blocks when using the mid-conversation tool-changes beta (see [Mid-conversation tool changes (Beta)](model-parameters-anthropic-claude-messages-tool-use.md#model-parameters-anthropic-claude-mid-conversation-tool-changes)). Images, documents, and citations are not supported. A system message can also be directive-only, with an empty `content` list and an `output_config` field (see [Directive-only system messages](#claude-messages-mid-conversation-system-directive-only)).
 
 Set `content` to either a plain string or content blocks. The instruction applies from that point in the conversation onward. Use the top-level `system` field for instructions that should apply to the entire conversation, and use mid-conversation system messages for instructions that become relevant later.
+
+## Directive-only system messages
+<a name="claude-messages-mid-conversation-system-directive-only"></a>
+
+A system-role message can carry a directive instead of instructional text. In this form, `content` is an empty list (`[]`) and the message carries an `output_config` field — for example, to change the thinking effort level for the turns that follow. This requires one of the per-turn control beta values; see [Setting effort per turn (beta)](claude-messages-adaptive-thinking.md#claude-messages-adaptive-thinking-per-turn-effort).
+
+```
+{
+    "role": "system",
+    "content": [],
+    "output_config": {"effort": "low"}
+}
+```
+
+Without a supporting beta value, or on a model that does not support per-turn directives, a system message that includes `output_config` returns `400 messages.N.output_config: Extra inputs are not permitted`.
 
 ## Prompt caching
 <a name="claude-messages-mid-conversation-system-caching"></a>

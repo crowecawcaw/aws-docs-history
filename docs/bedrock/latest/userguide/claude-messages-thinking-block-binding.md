@@ -34,14 +34,14 @@ Add `block_binding` to the `thinking` object and include the beta value in `anth
     "thinking": {
         "type": "adaptive",
         "block_binding": {
-            "mismatch_behavior": "drop_block"
+            "prefix_mismatch_behavior": "drop_block"
         }
     },
     "messages": [{ "role": "user", "content": "Your prompt here" }]
 }
 ```
 
-`block_binding` accepts one field, `mismatch_behavior`, which controls what the API does with a thinking block that fails the conversation prefix check. Sent without the beta value, `block_binding` returns a 400. Malformed values also return a 400 naming the field.
+`block_binding` accepts one field, `prefix_mismatch_behavior`, which controls what the API does with a thinking block that fails the conversation prefix check. `mismatch_behavior` is accepted as a deprecated alias for this field. Setting both `prefix_mismatch_behavior` and `mismatch_behavior` in the same request returns a `400 invalid_request_error`: `cannot set both block_binding.prefix_mismatch_behavior and block_binding.mismatch_behavior; send only prefix_mismatch_behavior`. Sent without the beta value, `block_binding` returns a 400. Malformed values also return a 400 naming the field.
 
 ## Controlling mismatch behavior
 <a name="claude-messages-thinking-block-binding-mismatch-behavior"></a>
@@ -75,23 +75,23 @@ This is a top-level array (a sibling of `usage`), present only with the beta val
 ## Error responses
 <a name="claude-messages-thinking-block-binding-error-responses"></a>
 
-When `mismatch_behavior` is `"error"`, a prefix mismatch returns:
+When `prefix_mismatch_behavior` is `"error"`, a prefix mismatch returns:
 
 ```
 {
     "type": "error",
     "error": {
         "type": "invalid_request_error",
-        "message": "messages.3.content.0: Invalid `signature` in `thinking` block. The block is bound to a different conversation. Remove the block, or set `thinking.block_binding.mismatch_behavior` to \"drop_block\"."
+        "message": "messages.3.content.0: Invalid `signature` in `thinking` block. The block is bound to a different conversation. Remove the block, or set `thinking.block_binding.prefix_mismatch_behavior` to \"drop_block\". The system prompt differs."
     }
 }
 ```
 
-This error is permanent for that request — an automatic retry loop will not clear it. When you catch it, either strip all thinking blocks from history and retry, or retry with `mismatch_behavior: "drop_block"` and the beta header.
+This error is permanent for that request — an automatic retry loop will not clear it. When you catch it, either strip all thinking blocks from history and retry, or retry with `prefix_mismatch_behavior: "drop_block"` and the beta header.
 
 ## Guidance for multi-turn and agentic applications
 <a name="claude-messages-thinking-block-binding-guidance"></a>
 + Replay assistant turns exactly as they were returned, and keep the system prompt and tools stable within a conversation.
 + Avoid one-off content injected into earlier turns (for example, a transient system message or reminder text appended to the last user turn). These change the conversation prefix and invalidate later thinking blocks. Use mid-conversation system messages instead.
-+ If your application rewrites conversation history, drop thinking blocks from the rewritten point onward, or set `mismatch_behavior` to `"drop_block"`.
++ If your application rewrites conversation history, drop thinking blocks from the rewritten point onward, or set `prefix_mismatch_behavior` to `"drop_block"`.
 + When using the Converse API with a model that supports it, pass the beta value and `thinking.block_binding` through `additionalModelRequestFields`.

@@ -127,6 +127,6 @@ Amazon Bedrock supports [100\+ foundation models](models.md) from industry-leadi
 
 |  |  | 
 | --- |--- |
-|  ![Cloud icon with bidirectional arrows indicating sync or data transfer.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/what-is/apis.jpg)  | Explore the [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md) supported by Amazon Bedrock. | 
+|  ![Cloud icon with bidirectional arrows indicating sync or data transfer.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/what-is/apis.jpg)  | Explore the [APIs](apis.md) and [Endpoints](endpoints.md) supported by Amazon Bedrock. | 
 |  ![Wrench and screwdriver icon on purple background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/what-is/build.jpg)  | Build using the [Making inference requests](inference.md) operations provided by Amazon Bedrock. | 
-|  ![Amazon Bedrock model customization options including fine-tuning, continued pre-training, and distillation.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/what-is/customize.png)  | Customize your models to improve performance and quality. [Customize your model to improve its performance for your use case](custom-models.md) | 
+|  ![Amazon Bedrock model customization options including fine-tuning, continued pre-training, and distillation.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/what-is/customize.png)  | [Customize your model to improve its performance for your use case](custom-models.md) | 

@@ -38,6 +38,8 @@ Complete authentication setup first. See [User-managed setup (3LO)](kb-managed-s
 
 1. (Optional) Expand **Item path pattern** to add specific paths to filter the items to be crawled.
 
+1. (Optional) Expand **Sensitivity labels** to exclude documents that carry specific Microsoft Purview sensitivity labels. Select default labels (such as **Confidential**) or enter custom label names. For details, see [Exclude documents by sensitivity label](#kb-managed-sharepoint-sensitivity-labels).
+
 ------
 #### [ API ]
 
@@ -126,6 +128,17 @@ The data source configuration uses the following connector parameters. To connec
 | Field | Required | Description | 
 | --- | --- | --- | 
 | aclEnabled | No | Set to true to enable document-level access control. Requires ENTRA\_ID\_APP\_ONLY authentication. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-sharepoint-acl.md). | 
+
+## Exclude documents by sensitivity label
+<a name="kb-managed-sharepoint-sensitivity-labels"></a>
+
+Organizations often need to keep sensitive files out of a shared knowledge base. You can exclude documents that carry specific Microsoft Purview sensitivity labels, so that labeled content is never synced or returned to users who query the knowledge base. You can exclude default Microsoft Purview labels (such as `Confidential`) or custom labels defined in your organization. For example, a financial services company can prevent files labeled `Confidential` from being synced to a shared knowledge base.
+
+To configure this in the API, add `excludedSensitivityLabelNames` to `connectorParameters`, alongside `connectionConfiguration` and `dataEntityConfiguration`. Set it to the list of sensitivity label names to exclude; the connector excludes any document assigned one of these labels from the crawl. For example:
+
+```
+"excludedSensitivityLabelNames": ["Confidential", "CustomConfidential1"]
+```
 
 ## Change the authentication method
 <a name="kb-managed-ds-sharepoint-change-auth"></a>
