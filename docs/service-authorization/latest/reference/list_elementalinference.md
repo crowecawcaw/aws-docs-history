@@ -52,6 +52,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteFeedPolicy  **
+  - **IAM action:**  [elemental-inference:DeleteFeedPolicy](#list_elementalinference-action-DeleteFeedPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DisassociateFeed  **
   - **IAM action:**  [elemental-inference:DisassociateFeed](#list_elementalinference-action-DisassociateFeed) 
   - **Condition key:** 
@@ -76,6 +82,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetFeedPolicy  **
+  - **IAM action:**  [elemental-inference:GetFeedPolicy](#list_elementalinference-action-GetFeedPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListDictionaries  **
   - **IAM action:**  [elemental-inference:ListDictionaries](#list_elementalinference-action-ListDictionaries) 
   - **Condition key:** 
@@ -93,6 +105,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   PutFeedPolicy  **
+  - **IAM action:**  [elemental-inference:PutFeedPolicy](#list_elementalinference-action-PutFeedPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   TagResource  **
   - **IAM action:**  [elemental-inference:TagResource](#list_elementalinference-action-TagResource) 
@@ -156,6 +174,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteFeedPolicy](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_DeleteFeedPolicy.html)  **
+  - **Description:** Grants permission to delete the resource-based policy of a feed
+  - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DisassociateFeed](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_DisassociateFeed.html)  **
   - **Description:** Grants permission to disassociate a feed from an AWS resource
   - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
@@ -176,6 +200,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetFeed](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_GetFeed.html)  **
   - **Description:** Grants permission to get feed details
+  - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFeedPolicy](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_GetFeedPolicy.html)  **
+  - **Description:** Grants permission to get the resource-based policy of a feed
   - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -203,6 +233,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
+
+- **   [PutFeedPolicy](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_PutFeedPolicy.html)  **
+  - **Description:** Grants permission to put a resource-based policy on a feed
+  - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [PutMedia](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_PutMedia.html)  **
   - **Description:** Grants permission to upload media data for a specified feed

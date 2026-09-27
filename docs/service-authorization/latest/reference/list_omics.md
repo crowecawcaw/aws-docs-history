@@ -721,7 +721,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateMultipartReadSetUpload](https://docs.aws.amazon.com/omics/latest/api/API_CreateMultipartReadSetUpload.html)  **
   - **Description:** Grants permission to create a multipart read set upload
   - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateReferenceStore](https://docs.aws.amazon.com/omics/latest/api/API_CreateReferenceStore.html)  **
@@ -1201,13 +1201,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [StartReadSetImportJob](https://docs.aws.amazon.com/omics/latest/api/API_StartReadSetImportJob.html)  **
   - **Description:** Grants permission to start a Read Set import job into the given Sequence Store
   - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
   - **Access level:** Write
 
 - **   [StartReferenceImportJob](https://docs.aws.amazon.com/omics/latest/api/API_StartReferenceImportJob.html)  **
   - **Description:** Grants permission to start a Reference import job into the given Reference Store
   - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
   - **Access level:** Write
 
 - **   [StartRun](https://docs.aws.amazon.com/omics/latest/api/API_StartRun.html)  **

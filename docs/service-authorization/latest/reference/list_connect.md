@@ -1578,6 +1578,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListSecurityProfileAIAgents  **
+  - **SDK client:** connect
+  - **IAM action:**  [connect:ListSecurityProfileAIAgents](#list_connect-action-ListSecurityProfileAIAgents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListSecurityProfileApplications  **
   - **SDK client:** connect
   - **IAM action:**  [connect:ListSecurityProfileApplications](#list_connect-action-ListSecurityProfileApplications) 
@@ -2969,8 +2976,10 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateSecurityProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateSecurityProfile.html)  **
   - **Description:** Grants permission to create a security profile for the specified Amazon Connect instance
-  - **Resource types (\*required):** [security-profile\*](#list_connect-resource-security-profile)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_connect-aws_TagKeys)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Resource types (\*required):** [application](#list_connect-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_connect-aws_TagKeys)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Resource types (\*required):** [contact-flow-module](#list_connect-resource-contact-flow-module) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_connect-aws_TagKeys)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Resource types (\*required):** [hierarchy-group](#list_connect-resource-hierarchy-group) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_connect-aws_TagKeys)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Resource types (\*required):** [security-profile\*](#list_connect-resource-security-profile) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_connect-aws_TagKeys)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
   - **Access level:** Write
 
 - **   [CreateTaskTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTaskTemplate.html)  **
@@ -4005,6 +4014,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
   - **Access level:** List
 
+- **   [ListSecurityProfileAIAgents](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListSecurityProfileAIAgents.html)  **
+  - **Description:** Grants permission to list the AI agents associated with a specific security profile in an Amazon Connect instance
+  - **Resource types (\*required):** [security-profile\*](#list_connect-resource-security-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Access level:** List
+
 - **   [ListSecurityProfileApplications](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListSecurityProfileApplications.html)  **
   - **Description:** Grants permission to list applications associated with a specific security profile in an Amazon Connect instance
   - **Resource types (\*required):** [security-profile\*](#list_connect-resource-security-profile)
@@ -4857,8 +4872,10 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateSecurityProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateSecurityProfile.html)  **
   - **Description:** Grants permission to update a security profile group for a user in an Amazon Connect instance
-  - **Resource types (\*required):** [security-profile\*](#list_connect-resource-security-profile)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Resource types (\*required):** [application](#list_connect-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Resource types (\*required):** [contact-flow-module](#list_connect-resource-contact-flow-module) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Resource types (\*required):** [hierarchy-group](#list_connect-resource-hierarchy-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Resource types (\*required):** [security-profile\*](#list_connect-resource-security-profile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
   - **Access level:** Write
 
 - **   [UpdateTaskTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTaskTemplate.html)  **
@@ -5035,6 +5052,7 @@ The following resource types are defined by this service and can be used in the 
 | --- | --- | --- | 
 |  [agent-status](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html)  | arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/agent-state/${AgentStatusId} | [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_) | 
 |  [ai-agent](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-agents.html)  | arn:${Partition}:wisdom:${Region}:${Account}:ai-agent/${AssistantId}/${AIAgentId}:${Version} | [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_) | 
+|  [application](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-app-integrations_CreateApplication.html)  | arn:${Partition}:app-integrations:${Region}:${Account}:application/${ApplicationId} | [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_) | 
 |  [attached-file](https://docs.aws.amazon.com/connect/latest/adminguide/enable-attachments.html)  | arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/file/${FileId} | [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_) | 
 |  [authentication-profile](https://docs.aws.amazon.com/connect/latest/adminguide/connect-authentication-profiles.html)  | arn:${Partition}:connect:${Region}:${Account}:instance/${InstanceId}/authentication-profile/${AuthenticationProfileId} | [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_) | 
 |  [aws-managed-view](https://docs.aws.amazon.com/connect/latest/adminguide/view-resources-sg.html)  | arn:${Partition}:connect:${Region}:aws:view/${ViewId} |   | 

@@ -154,7 +154,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateWorkspace](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
   - **Description:** Grants permission to create a workspace in an organization
   - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_aws-external-anthropic-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_aws-external-anthropic-aws_TagKeys)
+  - **Condition keys:** [aws-external-anthropic:KeyArn](#list_aws-external-anthropic-aws-external-anthropic_KeyArn)<br />[aws:RequestTag/${TagKey}](#list_aws-external-anthropic-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_aws-external-anthropic-aws_TagKeys)
   - **Access level:** Write
 
 - **   [DeleteBatchInference](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
@@ -205,6 +205,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DisableKey](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
+  - **Description:** Grants permission to disable an external encryption key
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws-external-anthropic:KeyArn](#list_aws-external-anthropic-aws-external-anthropic_KeyArn)
+  - **Access level:** Write
+
 - **   [GetAccountStatus](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
   - **Description:** Grants permission to retrieve the status of account setup and AWS Marketplace registration
   - **Resource types (\*required):** 
@@ -233,6 +239,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve a file or its content from a workspace
   - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetKey](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
+  - **Description:** Grants permission to get an external encryption key
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws-external-anthropic:KeyArn](#list_aws-external-anthropic-aws-external-anthropic_KeyArn)
   - **Access level:** Read
 
 - **   [GetMemoryStore](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
@@ -307,6 +319,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListKeys](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
+  - **Description:** Grants permission to list external encryption keys
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListMemoryStores](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
   - **Description:** Grants permission to list managed agent memory stores in a workspace
   - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
@@ -367,6 +385,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [RegisterKey](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
+  - **Description:** Grants permission to register an external encryption key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [RotateWebhookSecret](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
   - **Description:** Grants permission to rotate the signing secret of a webhook
   - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
@@ -395,6 +419,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update a managed agent environment
   - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateKey](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
+  - **Description:** Grants permission to update an external encryption key
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws-external-anthropic:KeyArn](#list_aws-external-anthropic-aws-external-anthropic_KeyArn)
   - **Access level:** Write
 
 - **   [UpdateMemoryStore](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
@@ -436,7 +466,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateWorkspace](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
   - **Description:** Grants permission to update a workspace
   - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws-external-anthropic:KeyArn](#list_aws-external-anthropic-aws-external-anthropic_KeyArn)<br />[aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 
@@ -475,6 +505,7 @@ Claude Platform on AWS defines the following condition keys that can be used in 
 |   [aws-external-anthropic:BearerTokenType](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-policies.html)  | Filters access by the Short-term or Long-term bearer tokens | String | 
 |   [aws-external-anthropic:CalledViaConsole](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-policies.html)  | Filters access by the use of the Claude Platform console | Bool | 
 |   [aws-external-anthropic:Capability](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-policies.html)  | Filters access by the Claude Platform role used for the console session | String | 
+|   [aws-external-anthropic:KeyArn](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-policies.html)  | Filters access by the KMS key ARN associated with the external key | ARN | 
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

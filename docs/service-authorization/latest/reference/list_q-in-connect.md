@@ -945,8 +945,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ActivateMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ActivateMessageTemplate.html)  **
   - **Description:** Grants permission to activate a message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Write
 
 - **   [CreateAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIAgent.html)  **
@@ -1005,8 +1005,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateContentAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContentAssociation.html)  **
   - **Description:** Grants permission to create a content association
-  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateKnowledgeBase.html)  **
@@ -1023,14 +1023,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateMessageTemplateAttachment](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateMessageTemplateAttachment.html)  **
   - **Description:** Grants permission to create an attachment to a message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Write
 
 - **   [CreateMessageTemplateVersion](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateMessageTemplateVersion.html)  **
   - **Description:** Grants permission to create a version of a message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Write
 
 - **   [CreateQuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateQuickResponse.html)  **
@@ -1047,8 +1047,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DeactivateMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeactivateMessageTemplate.html)  **
   - **Description:** Grants permission to deactivate a message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Write
 
 - **   [DeleteAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIAgent.html)  **
@@ -1101,15 +1101,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DeleteContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteContent.html)  **
   - **Description:** Grants permission to delete content
-  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteContentAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteContentAssociation.html)  **
   - **Description:** Grants permission to delete a content association
   - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [ContentAssociation\*](#list_q-in-connect-resource-ContentAssociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteImportJob](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteImportJob.html)  **
@@ -1126,20 +1125,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DeleteMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteMessageTemplate.html)  **
   - **Description:** Grants permission to delete a message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Write
 
 - **   [DeleteMessageTemplateAttachment](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteMessageTemplateAttachment.html)  **
   - **Description:** Grants permission to delete an attachment from a message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Write
 
 - **   [DeleteQuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteQuickResponse.html)  **
   - **Description:** Grants permission to delete quick response
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [GetAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAIAgent.html)  **
@@ -1174,21 +1173,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html)  **
   - **Description:** Grants permission to retrieve content, including a pre-signed URL to download the content
-  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetContentAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContentAssociation.html)  **
   - **Description:** Grants permission to retrieve information about a content association
   - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [ContentAssociation\*](#list_q-in-connect-resource-ContentAssociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetContentSummary](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContentSummary.html)  **
   - **Description:** Grants permission to retrieve summary information about the content
-  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetImportJob](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetImportJob.html)  **
@@ -1205,8 +1203,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetMessageTemplate.html)  **
   - **Description:** Grants permission to retrieve a message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Read
 
 - **   [GetNextMessage](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetNextMessage.html)  **
@@ -1217,8 +1215,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetQuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetQuickResponse.html)  **
   - **Description:** Grants permission to retrieve content
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html)  **
@@ -1283,8 +1281,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListContentAssociations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListContentAssociations.html)  **
   - **Description:** Grants permission to list information about content associations
-  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListContents](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListContents.html)  **
@@ -1307,8 +1305,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListMessageTemplateVersions](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListMessageTemplateVersions.html)  **
   - **Description:** Grants permission to list message template versions for the specified message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** List
 
 - **   [ListMessageTemplates](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListMessageTemplates.html)  **
@@ -1379,8 +1377,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [RenderMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RenderMessageTemplate.html)  **
   - **Description:** Grants permission to render a message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Read
 
 - **   [Retrieve](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_Retrieve.html)  **
@@ -1481,8 +1479,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html)  **
   - **Description:** Grants permission to update information about the content
-  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateKnowledgeBaseTemplateUri](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateKnowledgeBaseTemplateUri.html)  **
@@ -1493,20 +1491,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateMessageTemplate.html)  **
   - **Description:** Grants permission to update content of the message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Write
 
 - **   [UpdateMessageTemplateMetadata](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateMessageTemplateMetadata.html)  **
   - **Description:** Grants permission to update metadata of the message template
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
   - **Access level:** Write
 
 - **   [UpdateQuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateQuickResponse.html)  **
   - **Description:** Grants permission to update information or content of the quick response
-  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateSession](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateSession.html)  **

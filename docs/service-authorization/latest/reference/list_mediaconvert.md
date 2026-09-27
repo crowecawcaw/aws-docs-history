@@ -97,10 +97,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   GetJob  **
-  - **IAM action:**  [mediaconvert:GetJob](#list_mediaconvert-action-GetJob) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
+  - **IAM action:**  [mediaconvert:GetJob](#list_mediaconvert-action-GetJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [mediaconvert:ListJobs](#list_mediaconvert-action-ListJobs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
 
 - **   GetJobTemplate  **
   - **IAM action:**  [mediaconvert:GetJobTemplate](#list_mediaconvert-action-GetJobTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read

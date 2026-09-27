@@ -12,9 +12,115 @@ References:
 + View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/oam/oam.json) for this service.
 
 **Topics**
++ [API operations defined by Amazon CloudWatch Observability Access Manager](#list_oam-operations)
 + [Actions defined by Amazon CloudWatch Observability Access Manager](#list_oam-actions-as-permissions)
 + [Resource types defined by Amazon CloudWatch Observability Access Manager](#list_oam-resources-for-iam-policies)
 + [Condition keys for Amazon CloudWatch Observability Access Manager](#list_oam-policy-keys)
+
+## API operations defined by Amazon CloudWatch Observability Access Manager
+<a name="list_oam-operations"></a>
+
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_oam-actions-as-permissions).
+
+
+
+
+- **   CreateLink  **
+  - **IAM action:**  [oam:CreateLink](#list_oam-action-CreateLink)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [oam:TagResource](#list_oam-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [application-signals:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [applicationinsights:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cloudwatch:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [internetmonitor:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [logs:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [xray:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateSink  **
+  - **IAM action:**  [oam:CreateSink](#list_oam-action-CreateSink)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [oam:TagResource](#list_oam-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteLink  **
+  - **IAM action:**  [oam:DeleteLink](#list_oam-action-DeleteLink) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSink  **
+  - **IAM action:**  [oam:DeleteSink](#list_oam-action-DeleteSink) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetLink  **
+  - **IAM action:**  [oam:GetLink](#list_oam-action-GetLink) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSink  **
+  - **IAM action:**  [oam:GetSink](#list_oam-action-GetSink) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSinkPolicy  **
+  - **IAM action:**  [oam:GetSinkPolicy](#list_oam-action-GetSinkPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAttachedLinks  **
+  - **IAM action:**  [oam:ListAttachedLinks](#list_oam-action-ListAttachedLinks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListLinks  **
+  - **IAM action:**  [oam:ListLinks](#list_oam-action-ListLinks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListSinks  **
+  - **IAM action:**  [oam:ListSinks](#list_oam-action-ListSinks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [oam:ListTagsForResource](#list_oam-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutSinkPolicy  **
+  - **IAM action:**  [oam:PutSinkPolicy](#list_oam-action-PutSinkPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [oam:TagResource](#list_oam-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [oam:UntagResource](#list_oam-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateLink  **
+  - **IAM action:**  [oam:UpdateLink](#list_oam-action-UpdateLink)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [application-signals:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [applicationinsights:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cloudwatch:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [internetmonitor:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [logs:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [xray:Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+
 
 ## Actions defined by Amazon CloudWatch Observability Access Manager
 <a name="list_oam-actions-as-permissions"></a>

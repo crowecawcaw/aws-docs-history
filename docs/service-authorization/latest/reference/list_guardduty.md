@@ -862,7 +862,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetCustomDetectionRule](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetCustomDetectionRule.html)  **
   - **Description:** Grants permission to retrieve a GuardDuty custom detection rule
-  - **Resource types (\*required):** [customdetectionrule\*](#list_guardduty-resource-customdetectionrule)
+  - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
 

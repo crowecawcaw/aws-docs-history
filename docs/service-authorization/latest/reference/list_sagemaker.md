@@ -47,6 +47,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   AttachClusterNodeNetworkInterface  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:AttachClusterNodeNetworkInterface](#list_sagemaker-action-AttachClusterNodeNetworkInterface) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   AttachClusterNodeVolume  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:AttachClusterNodeVolume](#list_sagemaker-action-AttachClusterNodeVolume) 
@@ -2805,6 +2812,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [experiment-trial-component\*](#list_sagemaker-resource-experiment-trial-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [AttachClusterNodeNetworkInterface](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AttachClusterNodeNetworkInterface.html)  **
+  - **Description:** Grants permission to attach an elastic network interface to a SageMaker HyperPod cluster node
+  - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [AttachClusterNodeVolume](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AttachClusterNodeVolume.html)  **
   - **Description:** Grants permission to attach an Amazon EBS volume to a SageMaker HyperPod cluster node
   - **Resource types (\*required):** [cluster\*](#list_sagemaker-resource-cluster)
@@ -3467,7 +3480,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteFeatureGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteFeatureGroup.html)  **
   - **Description:** Grants permission to delete a feature group
   - **Resource types (\*required):** [feature-group\*](#list_sagemaker-resource-feature-group)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteFlowDefinition](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteFlowDefinition.html)  **

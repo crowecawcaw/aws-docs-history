@@ -111,6 +111,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [codeconnections:ListRepositoryLinks](#list_codeconnections-action-ListRepositoryLinks)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [codestar-connections:ListRepositoryLinks](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListRepositoryLinks.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
 
+- **   ListRepositorySyncDefinitions  **
+  - **IAM action:**  [codeconnections:ListRepositorySyncDefinitions](#list_codeconnections-action-ListRepositorySyncDefinitions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [codestar-connections:ListRepositorySyncDefinitions](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListRepositorySyncDefinitions.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
 - **   ListSyncConfigurations  **
   - **IAM action:**  [codeconnections:ListSyncConfigurations](#list_codeconnections-action-ListSyncConfigurations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [codestar-connections:ListSyncConfigurations](https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListSyncConfigurations.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List

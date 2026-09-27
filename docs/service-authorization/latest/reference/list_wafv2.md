@@ -798,6 +798,18 @@ The following actions are defined by AWS WAF V2 but are not directly invocable t
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [ValidateNetworkSecurityManagerRuleConfiguration](https://docs.aws.amazon.com/waf/latest/APIReference/API_ValidateNetworkSecurityManagerRuleConfiguration.html)  **
+  - **Description:** Grants permission to AWS Network Security Manager to validate a Rule configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ValidateNetworkSecurityManagerWebACLConfiguration](https://docs.aws.amazon.com/waf/latest/APIReference/API_ValidateNetworkSecurityManagerWebACLConfiguration.html)  **
+  - **Description:** Grants permission to AWS Network Security Manager to validate a WebACL configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 
 
 ## Resource types defined by AWS WAF V2

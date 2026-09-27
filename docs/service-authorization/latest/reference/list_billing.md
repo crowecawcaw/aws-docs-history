@@ -85,6 +85,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Permissions management, Write
 
+- **   ListBillingViewSegments  **
+  - **IAM action:**  [billing:ListBillingViewSegments](#list_billing-action-ListBillingViewSegments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListBillingViews  **
   - **IAM action:**  [billing:ListBillingViews](#list_billing-action-ListBillingViews) 
   - **Condition key:** 
@@ -210,6 +216,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [billingview\*](#list_billing-resource-billingview)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_billing-aws_ResourceTag___TagKey_)
   - **Access level:** Permissions management, Write
+
+- **   [ListBillingViewSegments](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_ListBillingViewSegments.html)  **
+  - **Description:** Grants permission to get the list of billing view segments for a specified billing view
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
 
 - **   [ListBillingViews](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_ListBillingViews.html)  **
   - **Description:** Grants permission to get a list of all your available billing views

@@ -1528,6 +1528,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateHarness  **
   - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:CreateAgentRuntime](#list_bedrock-agentcore-action-CreateAgentRuntime)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [bedrock-agentcore:GetMemory](#list_bedrock-agentcore-action-GetMemory)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [bedrock-agentcore:UpdateAgentRuntime](#list_bedrock-agentcore-action-UpdateAgentRuntime)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [bedrock-agentcore:UpdateHarness](#list_bedrock-agentcore-action-UpdateHarness)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

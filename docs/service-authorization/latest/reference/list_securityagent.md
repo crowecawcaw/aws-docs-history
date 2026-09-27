@@ -303,6 +303,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   ListActorMessages  **
+  - **IAM action:**  [securityagent:ListActorMessages](#list_securityagent-action-ListActorMessages) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListAgentSpaces  **
   - **IAM action:**  [securityagent:ListAgentSpaces](#list_securityagent-action-ListAgentSpaces) 
   - **Condition key:** 
@@ -927,6 +933,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [HandleProviderCallback](https://docs.aws.amazon.com/securityagent/API_HandleProviderCallback.html)  **
+  - **Description:** Grants permission to handle the provider OAuth registration callback that completes integration setup
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [HandleProviderRegistrationCallback](https://docs.aws.amazon.com/securityagent/API_HandleProviderRegistrationCallback.html)  **
   - **Description:** Grants permission to handle the provider OAuth registration callback that completes integration setup
   - **Resource types (\*required):** 
@@ -944,6 +956,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
+
+- **   [ListActorMessages](https://docs.aws.amazon.com/securityagent/API_ListActorMessages.html)  **
+  - **Description:** Grants permission to list the MFA messages received for an actor at its server-generated address
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
 
 - **   [ListAgentSpaces](https://docs.aws.amazon.com/securityagent/API_ListAgentSpaces.html)  **
   - **Description:** Grants permission to list agent spaces
@@ -1225,6 +1243,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update integrated resources for an agent space
   - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [Integration\*](#list_securityagent-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIntegration](https://docs.aws.amazon.com/securityagent/API_UpdateIntegration.html)  **
+  - **Description:** Grants permission to update an integration
+  - **Resource types (\*required):** [Integration\*](#list_securityagent-resource-Integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdatePentest](https://docs.aws.amazon.com/securityagent/API_UpdatePentest.html)  **

@@ -49,7 +49,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateAdvancedPromptOptimizationJob  **
   - **SDK client:** bedrock
-  - **IAM action:**  [bedrock:CallWithBearerToken](#list_bedrock-action-CallWithBearerToken)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [bedrock:CreateAdvancedPromptOptimizationJob](#list_bedrock-action-CreateAdvancedPromptOptimizationJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [bedrock:TagResource](#list_bedrock-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 

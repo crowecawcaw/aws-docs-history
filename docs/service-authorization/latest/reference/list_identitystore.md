@@ -192,6 +192,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [User\*](#list_identitystore-resource-User) / **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Access level:** Read
 
+- **   [DescribeIdentityStore](API_DescribeIdentityStore.html)  **
+  - **Description:** Grants permission to retrieve information about an IdentityStore
+  - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
+  - **Condition keys:** [identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
+  - **Access level:** Read
+
 - **   [DescribeRegion](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **
   - **Description:** Grants permission to retrieve configuration details for a specific IdentityStore region
   - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
@@ -250,6 +256,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve information about all groups in the specified IdentityStore
   - **Resource types (\*required):** [AllGroups\*](#list_identitystore-resource-AllGroups) / **Condition keys:** [identitystore:GroupExternalIdIssuers](#list_identitystore-identitystore_GroupExternalIdIssuers)<br />[identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
   - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore) / **Condition keys:** [identitystore:GroupExternalIdIssuers](#list_identitystore-identitystore_GroupExternalIdIssuers)<br />[identitystore:PrimaryRegion](#list_identitystore-identitystore_PrimaryRegion)
+  - **Access level:** List
+
+- **   [ListIdentityStores](API_ListIdentityStores.html)  **
+  - **Description:** Grants permission to list IdentityStores in an AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** List
 
 - **   [ListRegions](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **

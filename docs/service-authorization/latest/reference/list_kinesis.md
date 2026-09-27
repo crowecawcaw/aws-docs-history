@@ -280,6 +280,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateStreamRecordDistributionStrategy  **
+  - **IAM action:**  [kinesis:UpdateStreamRecordDistributionStrategy](#list_kinesis-action-UpdateStreamRecordDistributionStrategy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateStreamWarmThroughput  **
   - **IAM action:**  [kinesis:UpdateStreamWarmThroughput](#list_kinesis-action-UpdateStreamWarmThroughput) 
   - **Condition key:** 
@@ -561,6 +567,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update the capacity mode of the data stream
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateStreamRecordDistributionStrategy](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateStreamRecordDistributionStrategy.html)  **
+  - **Description:** Grants permission to update the record distribution strategy for a Kinesis data stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateStreamWarmThroughput](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UpdateStreamWarmThroughput.html)  **

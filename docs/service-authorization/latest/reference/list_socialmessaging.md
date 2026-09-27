@@ -96,6 +96,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetWhatsAppCallPermission  **
+  - **IAM action:**  [social-messaging:GetWhatsAppCallPermission](#list_socialmessaging-action-GetWhatsAppCallPermission) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetWhatsAppFlow  **
   - **IAM action:**  [social-messaging:GetWhatsAppFlow](#list_socialmessaging-action-GetWhatsAppFlow) 
   - **Condition key:** 
@@ -172,6 +178,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [social-messaging:PutWhatsAppBusinessAccountEventDestinations](#list_socialmessaging-action-PutWhatsAppBusinessAccountEventDestinations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** social-messaging.amazonaws.com / **Access level:** Write
 
+- **   SendWhatsAppCallEvent  **
+  - **IAM action:**  [social-messaging:SendWhatsAppCallEvent](#list_socialmessaging-action-SendWhatsAppCallEvent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   SendWhatsAppMessage  **
   - **IAM action:**  [social-messaging:SendWhatsAppMessage](#list_socialmessaging-action-SendWhatsAppMessage) 
   - **Condition key:** 
@@ -189,6 +201,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
+
+- **   UpdateLinkedWhatsAppBusinessAccountPhoneNumber  **
+  - **IAM action:**  [social-messaging:UpdateLinkedWhatsAppBusinessAccountPhoneNumber](#list_socialmessaging-action-UpdateLinkedWhatsAppBusinessAccountPhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateWhatsAppFlow  **
   - **IAM action:**  [social-messaging:UpdateWhatsAppFlow](#list_socialmessaging-action-UpdateWhatsAppFlow) 
@@ -290,6 +308,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetWhatsAppCallPermission](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetWhatsAppCallPermission.html)  **
+  - **Description:** Grants permission to retrieve voice calling permission for a WhatsApp phone number
+  - **Resource types (\*required):** [phone-number-id\*](#list_socialmessaging-resource-phone-number-id)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetWhatsAppFlow](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetWhatsAppFlow.html)  **
   - **Description:** Grants permission to retrieve the metadata and status of a WhatsApp Flow
   - **Resource types (\*required):** [waba\*](#list_socialmessaging-resource-waba)
@@ -368,6 +392,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [SendWhatsAppCallEvent](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_SendWhatsAppCallEvent.html)  **
+  - **Description:** Grants permission to send a voice calling event through WhatsApp
+  - **Resource types (\*required):** [phone-number-id\*](#list_socialmessaging-resource-phone-number-id)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [SendWhatsAppMessage](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_SendWhatsAppMessage.html)  **
   - **Description:** Grants permission to send a message through WhatsApp
   - **Resource types (\*required):** [phone-number-id\*](#list_socialmessaging-resource-phone-number-id)
@@ -385,6 +415,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [phone-number-id](#list_socialmessaging-resource-phone-number-id) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_socialmessaging-aws_TagKeys)
   - **Resource types (\*required):** [waba](#list_socialmessaging-resource-waba) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_socialmessaging-aws_TagKeys)
   - **Access level:** Tagging, Write
+
+- **   [UpdateLinkedWhatsAppBusinessAccountPhoneNumber](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_UpdateLinkedWhatsAppBusinessAccountPhoneNumber.html)  **
+  - **Description:** Grants permission to update the settings of a linked WhatsApp phone number
+  - **Resource types (\*required):** [phone-number-id\*](#list_socialmessaging-resource-phone-number-id)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [UpdateWhatsAppFlow](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_UpdateWhatsAppFlow.html)  **
   - **Description:** Grants permission to update the metadata of a WhatsApp Flow

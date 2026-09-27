@@ -107,6 +107,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetBillingTransferPreference  **
+  - **IAM action:**  [billingconductor:GetBillingTransferPreference](#list_billingconductor-action-GetBillingTransferPreference) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListAccountAssociations  **
   - **IAM action:**  [billingconductor:ListAccountAssociations](#list_billingconductor-action-ListAccountAssociations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [organizations:ListAccounts](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccounts.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
@@ -185,6 +191,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateBillingGroup  **
   - **IAM action:**  [billingconductor:UpdateBillingGroup](#list_billingconductor-action-UpdateBillingGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateBillingTransferPreference  **
+  - **IAM action:**  [billingconductor:UpdateBillingTransferPreference](#list_billingconductor-action-UpdateBillingTransferPreference) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -307,6 +319,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_billingconductor-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetBillingTransferPreference](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_GetBillingTransferPreference.html)  **
+  - **Description:** Grants permission to get the billing transfer preference
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [ListAccountAssociations](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_ListAccountAssociations.html)  **
   - **Description:** Grants permission to list the linked accounts of the payer account for the given billing period while also providing the billing group the linked accounts belong to
   - **Resource types (\*required):** 
@@ -397,6 +415,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_billingconductor-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateBillingTransferPreference](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_UpdateBillingTransferPreference.html)  **
+  - **Description:** Grants permission to update the billing transfer preference
+  - **Resource types (\*required):** 
+  - **Condition keys:** [billingconductor:PricingPlanArn](#list_billingconductor-billingconductor_PricingPlanArn)
+  - **Access level:** Write
+
 - **   [UpdateCustomLineItem](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_UpdateCustomLineItem.html)  **
   - **Description:** Grants permission to update a custom line item
   - **Resource types (\*required):** [customlineitem\*](#list_billingconductor-resource-customlineitem)
@@ -443,3 +467,4 @@ AWS Billing Conductor defines the following condition keys that can be used in t
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
+|   [billingconductor:PricingPlanArn](https://docs.aws.amazon.com/billingconductor/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by the pricing plan ARN specified in the request | ARN | 

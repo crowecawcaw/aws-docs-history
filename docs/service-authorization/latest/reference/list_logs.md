@@ -1465,6 +1465,12 @@ The following actions are defined by Amazon CloudWatch Logs but are not directly
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [IntegrateWithDataset](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/permissions-reference-cwl.html)  **
+  - **Description:** Grants permission to mirror log group data into CloudWatch Dataset
+  - **Resource types (\*required):** [log-group\*](#list_logs-resource-log-group)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_logs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [IntegrateWithS3Table](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/permissions-reference-cwl.html)  **
   - **Description:** Grants permission to deliver log events to S3 Tables
   - **Resource types (\*required):** [log-group\*](#list_logs-resource-log-group)
