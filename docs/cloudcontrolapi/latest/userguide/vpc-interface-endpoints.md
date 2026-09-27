@@ -48,7 +48,7 @@ For example, suppose you created an Amazon EC2 instance in a VPC instance with a
         "cloudformation:*",
         "ec2:*",
         "lambda:*"
-      ]
+      ],
       "Effect": "Allow",
       "Principal": "*",
       "Resource": "*"
