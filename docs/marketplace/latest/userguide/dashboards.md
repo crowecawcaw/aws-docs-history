@@ -25,7 +25,7 @@ Dashboards are available to AWS Marketplace sellers who have the appropriate per
 ## Accessing dashboards
 <a name="reports-accessing"></a>
 
-By default, AWS Marketplace system administrators for seller accounts have access to all dashboards on the Insights tab in the AWS Marketplace Management Portal. System administrators can create an AWS Identity and Access Management (IAM) policy to provide access for specific dashboards to other users in the seller company.
+By default, AWS Marketplace system administrators for seller accounts have access to all dashboards on the Insights tab in AWS Partner Central. System administrators can create an AWS Identity and Access Management (IAM) policy to provide access for specific dashboards to other users in the seller company.
 
 **Note**  
 In September 2023, we will no longer support access to seller dashboards enabled by legacy IAM permissions. Update your IAM permissions using the new Amazon Resource Name (ARN) format in the code examples below.

@@ -18,7 +18,7 @@ You can add a Region where buyers can use your product.
 
 **To add a Region**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Current server product** tab, select the product that you want to modify.
 
@@ -44,7 +44,7 @@ To prevent new buyers from using your product in a specific AWS Region, you can 
 
 **To restrict a Region**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Current server product** tab, select the product that you want to modify.
 
@@ -89,7 +89,7 @@ If you want your product to be onboarded to newly launched AWS Regions, you can 
 
 **To update future Region support**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Current server product** tab, select the product that you want to modify.
 
@@ -110,7 +110,7 @@ If you want to change the countries in which your product can be subscribed to a
 
 **To update availability by country**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Current server product** tab, then select the product that you want to modify.
 

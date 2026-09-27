@@ -16,7 +16,7 @@ To change which buyers can view your product in AWS Marketplace, you can use **U
 
 **To update visibility**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Current server product** tab, select the product that you want to modify.
 
@@ -35,7 +35,7 @@ To change the list of AWS account IDs that can see your product in a **Limited**
 
 **To update the allowlist**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Current server product** tab, select the product that you want to modify.
 

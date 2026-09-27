@@ -1,18 +1,18 @@
 
 
-# Controlling access to AWS Marketplace Management Portal
+# Controlling access to AWS Partner Central
 <a name="marketplace-management-portal-user-access"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps you control access to AWS resources. If you are an administrator, you control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS Marketplace resources. IAM is an AWS service that you can use with no additional charge. 
 
-The recommended way to control who can do what in AWS Marketplace Management Portal is to use IAM to create users and groups. Then you add the users to the groups, and manage the groups. For example, if John should be allowed to view your products, create a user for him and add his user to a group you create for read-only access. You can assign a policy or permissions to the group that provide read-only permissions. If you have other users that need read-only access, you can add them to the group you created rather than adding permissions to the user. If John's role changes and he no longer needs read-only access, you can remove John from the group. 
+The recommended way to control who can do what in AWS Partner Central is to use IAM to create users and groups. Then you add the users to the groups, and manage the groups. For example, if John should be allowed to view your products, create a user for him and add his user to a group you create for read-only access. You can assign a policy or permissions to the group that provide read-only permissions. If you have other users that need read-only access, you can add them to the group you created rather than adding permissions to the user. If John's role changes and he no longer needs read-only access, you can remove John from the group. 
 
 A *policy* is a document that defines the permissions that apply to a user, group, or role. In turn, the permissions determine what users can do in AWS. A policy typically allows access to specific actions, and can optionally grant that the actions are allowed for specific resources, like Amazon EC2 instances, Amazon S3 buckets, and so on. Policies can also explicitly deny access. A *permission* is a statement within a policy that allows or denies access to a particular resource. You can state any permission like this: "A has permission to do B to C." For example, Jane (A) has permission to read messages (B) from John's Amazon Simple Queue Service queue (C). Whenever Jane sends a request to Amazon SQS to use John's queue, the service checks to see if she has permission. It further checks to see if the request satisfies the conditions John specified in the permission. 
 
 **Important**  
 All of the users that you create authenticate by using their credentials. However, they use the same AWS account. Any change that a user makes can impact the whole account. 
 
- AWS Marketplace has permissions defined to control the actions that someone with those permissions can take in AWS Marketplace Management Portal. There are also policies that AWS Marketplace created and manage that combine several permissions. 
+ AWS Marketplace has permissions defined to control the actions that someone with those permissions can take in AWS Partner Central. There are also policies that AWS Marketplace created and manage that combine several permissions. 
 
  The following resources provide more information about getting started and using IAM. 
 +  [Create an administrative user](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) 
@@ -32,7 +32,7 @@ All of the users that you create authenticate by using their credentials. Howeve
 ## Creating users
 <a name="creating-iam-users"></a>
 
-To allow people in your company to sign in to the AWS Marketplace Management Portal, create a user for each person who needs access.
+To allow people in your company to sign in to AWS Partner Central, create a user for each person who needs access.
 
 **To create users**
 
@@ -63,7 +63,7 @@ Create sign-in credentials for yourself as well, even though you're the AWS acco
 ## Creating or using groups
 <a name="creating-iam-groups"></a>
 
- After you create users, create groups, create permissions to access the pages in the AWS Marketplace Management Portal, add those permissions to the groups, and then add users to the groups. 
+ After you create users, create groups, create permissions to access the pages in AWS Partner Central, add those permissions to the groups, and then add users to the groups. 
 
  When you assign permissions to a group, you allow any member of that group to perform specific actions. When you add a new user to the group, that user automatically gains the permissions that are assigned to the group. A group can have permissions for more than one action. We recommend using an [AWS Marketplace managed policy](https://docs.aws.amazon.com/marketplace/latest/userguide/security-iam-awsmanpol.html) rather than creating your own policy.
 
@@ -79,7 +79,7 @@ Create sign-in credentials for yourself as well, even though you're the AWS acco
 
 1. Choose the policy or policies that you want to attach, and then choose **Attach Policy**.
 
-**To create a policy with AWS Marketplace Management Portal permissions**
+**To create a policy with AWS Partner Central permissions**
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
@@ -91,7 +91,7 @@ Create sign-in credentials for yourself as well, even though you're the AWS acco
 
    1. For **Effect**, choose **Allow**.
 
-   1. For **AWS Service**, choose **AWS Marketplace Management Portal**.
+   1. For **AWS Service**, choose **AWS Partner Central**.
 
    1. For **Actions**, select the permission or permissions to allow.
 

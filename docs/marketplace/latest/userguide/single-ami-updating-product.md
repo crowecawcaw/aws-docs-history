@@ -10,7 +10,7 @@ You can use AI-assisted product listing in AWS Partner Assistant to generate pro
 
 **To update product information**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, and on the **Server products** tab, select the product that you want to modify.
 

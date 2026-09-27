@@ -34,6 +34,9 @@ If your SaaS product is integrated with another AWS managed service that handles
 ## Configure your product to meter usage
 <a name="configure-application-for-meter-usage"></a>
 
+**Tip**  
+If you use an AI coding agent, it can follow AWS-authored guidance for this integration through the **aws-marketplace-metering** agent skill. An agent connected to the AWS MCP server (`https://aws-mcp.us-east-1.api.aws/mcp`) discovers the skill with the `search_documentation` tool and loads it with the `retrieve_skill` tool. The skill is also published in the public [aws-marketplace-metering skill](https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/aws-marketplace-skills/aws-marketplace-metering) in the AWS Agent Toolkit repository on GitHub. For setup instructions, see the [AWS Agent Toolkit User Guide](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/). Review any code the agent generates before you use it in production, because metering errors affect billing.
+
  You use the `BatchMeterUsage` operation in the AWS Marketplace Metering Service to deliver metering records to AWS. Keep the following in mind: 
 +  We require sellers to use batching by using the `BatchMeterUsage` operation. 
 +  We deduplicate metering requests on the hour. 

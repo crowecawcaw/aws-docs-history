@@ -3,7 +3,7 @@
 # Submitting your product for publication on AWS Marketplace
 <a name="product-submission"></a>
 
-You use the product submission process to make your products available on AWS Marketplace. Products can be simple, such as a single Amazon Machine Image (AMI) with one price structure, or more complicated, with AWS CloudFormation templates, and complex pricing options and payment schedules. You define your product offering and submit it through the AWS Marketplace Management Portal in one of two ways:
+You use the product submission process to make your products available on AWS Marketplace. Products can be simple, such as a single Amazon Machine Image (AMI) with one price structure, or more complicated, with AWS CloudFormation templates, and complex pricing options and payment schedules. You define your product offering and submit it through AWS Partner Central in one of two ways:
 + Using the **Build** tab – For products that are less complex, you use the **Build** tab to completely define and submit your request.
 + Using the **Assets** tab – For products that are more complex and require more definition, you download a product load form (PLF), add product details, and then upload the completed form using the **File upload** option.
 
@@ -43,7 +43,7 @@ You can submit products individually or, if you use a product load form, you can
 ## Using the Build tab
 <a name="using-the-products-tab"></a>
 
-To access the **Build** tab, log in to the AWS Marketplace Management Portal. From the **Build** tab, choose either **Server**, **SaaS**, or **Machine learning**, depending on the type of product that you manage.
+To access the **Build** tab, log in to AWS Partner Central. From the **Build** tab, choose either **Server**, **SaaS**, or **Machine learning**, depending on the type of product that you manage.
 
 A dashboard for that product type appears and displays your current products. If you choose the **Requests** tab, the dashboard displays any outstanding requests and your completed request history. Once you start creating a product request, you can save your work in progress, and if necessary, create your request in several different sessions.
 
@@ -101,7 +101,7 @@ The sale of hardware products isn't permitted on AWS Marketplace. If you're subm
 **Note**  
 Some pricing models no longer require you to use the product load form described in this section to publish AMI with CloudFormation products. When you create a **Amazon Machine Image (AMI) or AMI with CloudFormation** on the [server products](https://aws.amazon.com/marketplace/management/products/server) page in the seller portal, and are not immediately prompted to download the product load form, see [Creating AMI-based products](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-single-ami-products.html) and [Add CloudFormation templates to your listing](https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html).
 
-Use a product load form (PLF) to submit products that AWS Marketplace customers launch by using CloudFormation templates. The PLF is available through the AWS Marketplace Management Portal. 
+Use a product load form (PLF) to submit products that AWS Marketplace customers launch by using CloudFormation templates. The PLF is available through AWS Partner Central. 
 
 You follow these broad steps to submit a product:
 + Choose a pricing model.
@@ -119,7 +119,7 @@ You must select a pricing model for your product. The model you choose controls 
 ### Downloading the PLF for a new product
 <a name="submitting-your-product"></a>
 
-1. Start the [AWS Partner Central](https://aws.amazon.com/marketplace/management/products/?). 
+1. Open [AWS Partner Central](https://aws.amazon.com/marketplace/management/products/?). 
 
 1. On the **Assets** tab, in the right-hand pane, choose the [Single AMI with CloudFormation product](https://s3.amazonaws.com/awsmp-loadforms/ProductDataLoad-Current.xlsx) link.
 
@@ -199,7 +199,7 @@ You must ensure that the instance type is available in the same Regions as the p
 
 The following steps explain how to submit a completed PLF.
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/?).
+1. Sign in to [AWS Partner Central](https://aws.amazon.com/marketplace/management/products/?).
 
 1. On the **Assets** tab, choose **File Upload**. 
 
@@ -210,11 +210,11 @@ The following steps explain how to submit a completed PLF.
 
 For products that you created by using the product load form (PLF), you also use the PLF to make changes to those products. You can make changes to the original PLF you completed or, if it's not available, you can start with a new PLF. Just like using the **Build** tab, you can add a new version, remove existing versions, and update pricing, instance types, Region availability, and metadata. To make an update, you prepare any updated product the same way you prepare a new product. After the product update is prepared, follow these steps: 
 
-1. Use your existing PLF, or start the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home), and on the **Assets** tab, choose **File upload**. Under **Product load forms and seller guides**, you can download the PLF for your product.
+1. Use your existing PLF, or open [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home), and on the **Assets** tab, choose **File upload**. Under **Product load forms and seller guides**, you can download the PLF for your product.
 
 1. Update the product in the PLF. 
 
-1. From the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/products/?), under the **Assets** tab, choose **File Upload**. 
+1. From [AWS Partner Central](https://aws.amazon.com/marketplace/management/products/?), under the **Assets** tab, choose **File Upload**. 
 
 1. On the **File Uploads** page, upload your updated PLF and any CloudFormation templates. The file uploader provides a secure transfer mechanism and a history of submitted files. The uploader automatically notifies the AWS Marketplace team to begin processing your request. Include a description of the submission (adding new version, changing price, changing metadata, and so forth). 
 
@@ -251,7 +251,7 @@ All AMIs built and submitted to AWS Marketplace must adhere to all product polic
 ### AMI self-service scanning
 <a name="ami-self-service-scanning"></a>
 
-AWS Marketplace offers AMI scanning within the AWS Marketplace Management Portal. For new products, the system automatically runs a scan and provides results upon submission. For new versions of existing products, use the Test 'Add Version' feature to initiate a scan. This process typically completes in less than an hour and delivers comprehensive feedback in a single, convenient location.
+AWS Marketplace offers AMI scanning within AWS Partner Central. For new products, the system automatically runs a scan and provides results upon submission. For new versions of existing products, use the Test 'Add Version' feature to initiate a scan. This process typically completes in less than an hour and delivers comprehensive feedback in a single, convenient location.
 
 **To begin sharing and scanning your AMI with self-service scanning**
 
@@ -269,7 +269,7 @@ AWS Marketplace offers AMI scanning within the AWS Marketplace Management Portal
 
 After your AMI has successfully been scanned, you can follow the current process to submit it to the AWS Marketplace Seller Operations team by [uploading](https://aws.amazon.com/marketplace/management/product-load/) your product load form (PLF). If you have any issues, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team.
 
-To include your AMI in the self-service scanning list, the AMI must be in the `us-east-1` (N. Virginia) Region and owned by your AWS Marketplace seller account. If you need to grant other accounts access to the AWS Marketplace Management Portal, you must register those accounts as sellers. For more information, see [Registration process](registration-process.md). 
+To include your AMI in the self-service scanning list, the AMI must be in the `us-east-1` (N. Virginia) Region and owned by your AWS Marketplace seller account. If you need to grant other accounts access to AWS Partner Central, you must register those accounts as sellers. For more information, see [Registration process](registration-process.md). 
 
 ### AMI cloning and product code assignment
 <a name="ami-cloning-and-product-code-assignment"></a>
@@ -297,7 +297,7 @@ To help avoid delays in publishing your product, use this checklist before you s
 + Use hardware virtual machine (HVM) virtualization and 64-bit architecture. 
 + Does not contain any known vulnerabilities, malware, or viruses. 
 + Buyers have operating system-level administration access to the AMI. 
-+ Use Test 'Add Version' in the AWS Marketplace Management Portal to scan your AMI.
++ Use Test 'Add Version' in AWS Partner Central to scan your AMI.
 
  **For Windows AMIs** 
 + Use the most recent version of `Ec2ConfigService`, as described in [Configuring a Windows instance using the EC2Config service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2config-service.html) in the *Amazon EC2 User Guide*. 

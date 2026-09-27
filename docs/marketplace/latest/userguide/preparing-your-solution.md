@@ -68,7 +68,7 @@ Solution listings do not currently support Amazon Data Exchange (ADX) products.
 
  To create a solution listing: 
 
-1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/partners/management-tour) with your seller credentials, or go directly to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/dashboard?region=us-east-1).
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/dashboard?region=us-east-1) with your seller credentials.
 
 1. Go to [Solutions](https://us-east-1.console.aws.amazon.com/partnercentral/solutions) on the left-hand navigation pane.
 

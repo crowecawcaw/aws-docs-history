@@ -30,7 +30,7 @@ Sellers in India can create private offers in USD and INR, and can extend these 
 ## How private offers work
 <a name="how-private-offers-work"></a>
 
-You use the **Offers** page in the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home) to create, update, and manage your private offers. You specify the product for the offer, which generates a unique ID and URL. You create a pricing plan for the private offer, add legal terms and sales documents, and extend the offer to specific buyer AWS accounts. The offer is only visible to the accounts for which you create the offer.
+You use the **Offers** page in [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home) to create, update, and manage your private offers. You specify the product for the offer, which generates a unique ID and URL. You create a pricing plan for the private offer, add legal terms and sales documents, and extend the offer to specific buyer AWS accounts. The offer is only visible to the accounts for which you create the offer.
 
 After you create a private offer and notify potential buyers, they can view and accept the offer. To view the offer, the buyer must be signed into the AWS account that received the offer.
 
@@ -59,7 +59,7 @@ When working with private offers, consider the following:
 ## Private offer experience for buyers
 <a name="private-offer-experience-buyers"></a>
 
-When the buyer navigates to your product's subscription page, a banner indicates that a private offer is available. After the buyer accepts the offer, they're invoiced for the purchase using the same portal tools used for all AWS Marketplace transactions. Accepted offers become agreements. Buyers can find agreement details in the **Manage Subscriptions** section of the AWS Management Console, and sellers can find details in the **Agreements** tab of AWS Marketplace Management Portal.
+When the buyer navigates to your product's subscription page, a banner indicates that a private offer is available. After the buyer accepts the offer, they're invoiced for the purchase using the same portal tools used for all AWS Marketplace transactions. Accepted offers become agreements. Buyers can find agreement details in the **Manage Subscriptions** section of the AWS Management Console, and sellers can find details in the **Agreements** tab of AWS Partner Central.
 
 AWS Marketplace buyers can access third-party financing for private offers. For more information, see [Customer financing is now available in AWS Marketplace](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Financing+External+Briefing+Document+Customer+Facing.pdf).
 

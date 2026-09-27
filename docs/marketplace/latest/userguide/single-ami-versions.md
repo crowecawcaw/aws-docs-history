@@ -13,11 +13,11 @@ When you create an Amazon Machine Image (AMI) based product on AWS Marketplace, 
 ## Update version information
 <a name="single-ami-updating-version"></a>
 
-After a version is created, it can be helpful to provide updated information to your buyers by modifying the information associated with the version. For example, if you plan to restrict version 1.0 after version 1.1 is released, you can update the description of version 1.0 to direct buyers to version 1.1, with the date that the version will be restricted. You update the version information from the AWS Marketplace Management Portal.
+After a version is created, it can be helpful to provide updated information to your buyers by modifying the information associated with the version. For example, if you plan to restrict version 1.0 after version 1.1 is released, you can update the description of version 1.0 to direct buyers to version 1.1, with the date that the version will be restricted. You update the version information from AWS Partner Central.
 
 **To update version information**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Current server product**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Server products** tab, then select the product that you want to modify.
 
@@ -42,14 +42,14 @@ You can check the status of your request at any time from the **Requests** tab o
 ## Add a new version
 <a name="single-ami-adding-version"></a>
 
-You can add a new version of your product when you make changes to the product, the base image, or any other time you need to modify the AMI for the product. Add a new version of your product from the AWS Marketplace Management Portal. 
+You can add a new version of your product when you make changes to the product, the base image, or any other time you need to modify the AMI for the product. Add a new version of your product from AWS Partner Central. 
 
 **Note**  
 For information about creating an AMI for AWS Marketplace, see [Best practices for building AMIs for use with AWS Marketplace](best-practices-for-building-your-amis.md).
 
 **To add a new version**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Current server product** tab, then select the product that you want to modify. 
 
@@ -138,7 +138,7 @@ All subscribers can use the current version regardless of the restriction status
 
 **To restrict a version**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. Go to the [**Server products**](https://aws.amazon.com/marketplace/management/products/server) page, on the **Current server product** tab, then select the product that you want to modify.
 

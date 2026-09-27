@@ -206,26 +206,17 @@ The buyer's current subscription must be cancelled before accepting a new privat
 ## How do I request a refund or contract cancellation?
 <a name="request-refund-cancellation"></a>
 
-Refunds and contract cancellations are handled by the AWS Customer Service team.
+AWS Marketplace sellers (ISV for MPPO; CP for CPPO) can now self-serve refunds and agreement cancellations directly from the **Agreements** tab in AWS Partner Central, without requiring AWS Customer Service involvement.
 
-Sellers—ISVs for Marketplace private offers, channel partners for channel partner private offers—must use the [refund/cancellation form](https://aws.amazon.com/marketplace/management/support/refund-request) to initiate the refund or cancellation.
+**Agreement cancellations** can be initiated from the **Agreements** page. Cancellation requests are sent to the buyer for approval, with a 7-day response window. If the buyer doesn't respond within 7 days, the cancellation is automatically approved.
 
-[This video](https://www.youtube.com/watch?v=eQpadPl0ROs) explains the entire process.
+**Billing adjustments (refunds)** can also be initiated from the **Agreements** page. Billing adjustments don't require buyer approval and are processed automatically after validation.
 
-Sellers must enter the following data.
-+ **Buyer account ID**: This information can be found in the offer detail or on Billed Revenue Dashboard. This must be the subscriber account ID.
-+ **Seller account ID**: This is the seller's AWS account ID used to create the private offer.
-+ **Product ID**: You can find this information in the offer details or on the [Billed revenue dashboard](billed-revenue-dashboard.md) in the **Legacy Product ID** column.
-+ **Billing date**: You can find this information in the offer details or on the [Billed revenue dashboard](billed-revenue-dashboard.md) in the **Usage Begin Period** column.
-+ **Refund amount**: If a refund is not required, the seller can set this to $0.
-+ **Additional details**: See the following notes.
-**Important**  
-For requests that include a contract cancellation, include the following text"  
-Please cancel *account X's *subscription to *offer-X*.  
-For refunds, specifying the buyer's AWS invoice ID in this section helps but is not mandatory.
-Save the reference ID provided after submission for future reference in case of follow-ups.
+For detailed step-by-step instructions, see [Refunds and cancellations in AWS Marketplace](refunds.md).
 
-After you submit the request, check the [AWS Support Console](https://support.console.aws.amazon.com/support/home?) for status updates.
+**Resources:**
++ Seller Guide: [Refunds and cancellations in AWS Marketplace](refunds.md)
++ Buyer Guide: [Canceling a subscription](https://docs.aws.amazon.com/marketplace/latest/buyerguide/cancel-subscription.html) and [Refunds and cancellations](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-refunds.html)
 
 ## When is a buyer invoiced?
 <a name="buyer-invoicing"></a>

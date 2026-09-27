@@ -10,19 +10,19 @@ AWS Marketplace Channel Partner private offers give Channel Partners the opportu
 
 To register as a Channel Partner to resell products on AWS Marketplace, you must meet the following requirements:
 + Registered as a paid seller on AWS Marketplace.
++ Create the [service-linked role (SLR) in AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/using-roles-for-resale-authorization.html#create-slr).
+
+**Important**  
+To create, share, and accept selling authorizations, you must create a service-linked role (SLR) that allows ISVs to create and share the authorizations, and allows Channel Partners to accept them. For more information about creating the SLR, see [Creating a service-linked role for AWS Marketplace](using-roles-for-resale-authorization.md#create-slr).
 + Your tax interview location matches your business location.
 + USD is set as one of your disbursement methods. *This is required for public offers and Professional Services product creation.*
 
 **Sellers in India**  
 Sellers in India have specific registration requirements and can only set INR for disbursement. For more information, see [Getting started as a seller in India](https://docs.aws.amazon.com/marketplace/latest/userguide/getting-started-seller-india.html). For step-by-step onboarding instructions, see the [AWS Marketplace India Seller Registration Guide](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/AWS+Marketplace+India+Registration+Guide.pdf).
-+ Create the [service-linked role (SLR) in AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/using-roles-for-resale-authorization.html#create-slr).
 
-**Important**  
-To create, share, and accept selling authorizations, you must create a service-linked role (SLR) that allows ISVs to create and share the authorizations, and allows Channel Partners to accept them. For more information about creating the SLR, see [Creating a service-linked role for AWS Marketplace](using-roles-for-resale-authorization.md#create-slr).
+For step-by-step onboarding instructions, see the [Channel Partner Onboarding Guide](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Consulting+Partner+Private+Offers+-Seller+Sign+Up+Onboarding+Guide+2019.pdf).
 
-For step-by-step onboarding instructions, see the [Channel Partner Onboarding Guide](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Consulting+Partner+Private+Offers+-Seller+Sign+Up+Onboarding+Guide+2019.pdf). After you complete these requirements, submit a request using the [Contact Us](https://aws.amazon.com/marketplace/management/contact-us/?form=true) form to complete your Channel Partner registration.
-
-Upon approval, ISVs can create selling authorizations for approved Channel Partners to resell their products.
+Once you have completed these requirements, please provide the ISV with your 12-digit AWS account ID so they can create a selling authorization that allows you to resell their products. For a step-by-step walkthrough of the process, see this [interactive demo](https://awsmarketplace.storylane.io/share/5oeofjaq5s4s).
 
 ## Understanding Channel Partner Private Offers (CPPO)
 <a name="understanding-cppo"></a>

@@ -16,7 +16,7 @@ The Amazon Machine Image (AMI) self-service experience guides you as you create 
 
 Before you create an AMI product listing, you must complete the following prerequisites:
 
-1. Have access to the AWS Marketplace Management Portal. This is the tool that you use to register as a seller and manage the products that you sell on AWS Marketplace. To learn more about getting access to the AWS Marketplace Management Portal, see [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md).
+1. You need access to AWS Partner Central. This is the tool that you use to register as a seller and manage the products that you sell on AWS Marketplace. To learn more about getting access to AWS Partner Central, see [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md).
 
 1. Register as a seller and, if you want to charge for your products, submit your tax and banking information. To learn more about becoming a seller, see [Getting started as an AWS Marketplace seller](user-guide-for-sellers.md).
 
@@ -46,7 +46,7 @@ You can only go to the next step when you complete the required fields in the cu
 
 **To create a single-AMI product**
 
-1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
+1. Open AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home), and then sign in to your seller account.
 
 1. From the **Build** menu, choose **Server**. Or, you can go directly to the [**Server Products**](https://aws.amazon.com/marketplace/management/products/server) page.
 

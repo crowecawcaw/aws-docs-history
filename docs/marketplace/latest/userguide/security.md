@@ -23,7 +23,7 @@ To learn about security on AWS Data Exchange for data products, see [Security](h
 To learn about security for buyers in AWS Marketplace, see [Security on AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-security.html) in the *AWS Marketplace Buyer Guide*.
 
 **Topics**
-+ [Controlling access to AWS Marketplace Management Portal](marketplace-management-portal-user-access.md)
++ [Controlling access to AWS Partner Central](marketplace-management-portal-user-access.md)
 + [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md)
 + [AWS managed policies for AWS Marketplace sellers](security-iam-awsmanpol.md)
 + [AWS Marketplace Commerce Analytics Service account permissions](set-aws-iam-cas-permissions.md)
