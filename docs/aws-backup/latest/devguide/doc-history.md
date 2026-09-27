@@ -3,13 +3,14 @@
 # Document history for AWS Backup
 <a name="doc-history"></a>
 + **API version: **November 19, 2025
-+ **Latest documentation update: **September 1, 2026
++ **Latest documentation update: **September 24, 2026
 
 The following table lists all AWS Backup launches since the launch of the service in January 2019 to present. For notifications about updates to this documentation you can subscribe to the RSS feed above.
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Aurora DSQL multi-Region backup and restore Regional expansion | Aurora DSQL multi-Region backup and restore support is now available in Asia Pacific (Hong Kong). For more information, see [Amazon Aurora DSQL backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-aurora.html). | September 24, 2026 | 
 | Expanded Amazon S3 bucket support | AWS Backup now supports protecting more than 1,000 Amazon S3 buckets per account by integrating with Amazon S3 Event Notifications with system-generated tags. See [Amazon S3 backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/s3-backups.html) for more details. | September 1, 2026 | 
 | AWS Backup adds cross-Region and cross-account copy support for FSx for ONTAP | AWS Backup now supports cross-account and cross-Region copy of FSx for ONTAP backups in most AWS Regions where FSx for ONTAP is supported. For more information, see [Creating backup copies across AWS Regions](https://docs.aws.amazon.com/aws-backup/latest/devguide/cross-region-backup.html). | August 27, 2026 | 
 | Cross-account backup copy and cross-account management in the China Regions | AWS Backup now supports cross-account backup copy and cross-account management in China (Beijing) and China (Ningxia). See [Feature availability by AWS Region](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-region). | August 27, 2026 | 
