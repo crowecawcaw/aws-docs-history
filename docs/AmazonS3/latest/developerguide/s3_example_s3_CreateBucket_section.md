@@ -11,6 +11,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 +  [Getting started with machine learning feature stores](s3_example_iam_GettingStarted_028_section.md) 
 +  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
 +  [Manage large messages using S3](s3_example_sqs_Scenario_SqsExtendedClient_section.md) 
++  [Manage object annotations](s3_example_s3_Scenario_ObjectAnnotations_section.md) 
 +  [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md) 
 
 ------

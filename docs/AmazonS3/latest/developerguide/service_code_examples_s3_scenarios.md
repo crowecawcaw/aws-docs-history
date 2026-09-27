@@ -39,6 +39,7 @@ Scenarios target an intermediate level of experience to help you understand serv
 + [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md)
 + [Manage access control lists (ACLs)](s3_example_s3_Scenario_ManageACLs_section.md)
 + [Manage large messages using S3](s3_example_sqs_Scenario_SqsExtendedClient_section.md)
++ [Manage object annotations](s3_example_s3_Scenario_ObjectAnnotations_section.md)
 + [Manage versioned objects in batches with a Lambda function](s3_example_s3_Scenario_BatchObjectVersioning_section.md)
 + [Parse URIs](s3_example_s3_Scenario_URIParsing_section.md)
 + [Perform a multipart copy](s3_example_s3_MultipartCopy_section.md)

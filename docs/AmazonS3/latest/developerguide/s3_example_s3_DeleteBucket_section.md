@@ -10,6 +10,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 +  [Getting started with configuration management](s3_example_config_service_GettingStarted_053_section.md) 
 +  [Getting started with machine learning feature stores](s3_example_iam_GettingStarted_028_section.md) 
 +  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
++  [Manage object annotations](s3_example_s3_Scenario_ObjectAnnotations_section.md) 
 
 ------
 #### [ .NET ]

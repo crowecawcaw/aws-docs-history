@@ -6,6 +6,7 @@
 The following code examples show how to use `DeleteObject`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Manage object annotations](s3_example_s3_Scenario_ObjectAnnotations_section.md) 
 +  [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md) 
 +  [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md) 
 
