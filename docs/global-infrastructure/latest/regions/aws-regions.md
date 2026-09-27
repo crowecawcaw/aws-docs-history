@@ -21,7 +21,7 @@ For more information about the availability of AWS services by Region for AWS ac
 
 The geography for a Region is the specific physical location of its infrastructure. This information can help you meet your regulatory, compliance, and operational requirements.
 
-The following table lists the Regions provided by an AWS account.
+There are currently 34 Regions. The following table lists the Regions provided by an AWS account.
 
 
 | Code | Name | AZs | Geography | Opt-in status | 
