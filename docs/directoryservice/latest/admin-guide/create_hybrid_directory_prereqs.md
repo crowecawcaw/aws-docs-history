@@ -25,7 +25,7 @@ Your self-managed AD environment must meet the following requirements:
   + Match the DNS IPs of your self-managed instances for the directory
 
   You can add additional IP routes for the directory after the hybrid directory is created.
-+ Ensure DNS `_msdcs` zones are modernized. See [DNS `_msdcs` zone modernization](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/hybrid_directory_msdcs.html).
++ Ensure DNS `_msdcs` zones are AD-integrated. The `_msdcs.{{domain}}` zone must be hosted as an AD-integrated DNS zone on the domain controllers. Hosting this zone on third-party DNS servers is not supported. See [DNS `_msdcs` zone modernization](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/hybrid_directory_msdcs.html).
 
 ### Required information
 <a name="required_information"></a>

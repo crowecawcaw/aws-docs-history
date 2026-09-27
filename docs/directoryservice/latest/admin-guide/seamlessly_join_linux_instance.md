@@ -211,7 +211,7 @@ Make sure you replace the Region and Resource ARN with the actual Region and ARN
                    "secretsmanager:DescribeSecret"
                ],
                "Resource": [
-                   "arn:aws:secretsmanager:{{us-east-1:xxxxxxxxx}}:secret:aws/directory-services/{{d-xxxxxxxxx}}/seamless-domain-join"
+                   "arn:aws:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:aws/directory-services/{{d-xxxxxxxxx}}/seamless-domain-join"
                ]
            }
        ]
