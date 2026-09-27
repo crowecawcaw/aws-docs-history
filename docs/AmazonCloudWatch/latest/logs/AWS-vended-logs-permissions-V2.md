@@ -21,6 +21,21 @@ To configure logs delivery between a supported AWS service and a destination, yo
 
 The following examples create the delivery source and delivery destination in the same AWS account. Replace the source resource ARN and log type with values supported by the service that generates the logs. These examples don't require a delivery destination policy.
 
+### Create a delivery source for CloudWatch Logs Insights query execution logs
+<a name="vended-logs-insights-query-execution-source"></a>
+
+The following example creates a delivery source for CloudWatch Logs Insights query execution logs. For the full `logType` and resource ARN requirements, see [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html).
+
+**Note**  
+The trailing wildcard in `log-group:*` is required because query execution logs are not tied to one log group. AWS does not support a specific log group ARN for this log type.
+
+```
+aws logs put-delivery-source \
+    --name insights-query-logs \
+    --resource-arn arn:aws:logs:{{region}}:{{account-id}}:log-group:* \
+    --log-type INSIGHTS_QUERY_LOGS
+```
+
 ### Create a delivery source
 <a name="vended-logs-same-account-example-source"></a>
 
@@ -131,6 +146,7 @@ If the `DeliveryDestination` associated with the `DeliverySource` that you just 
 
 **Contents**
 + [Log delivery setup examples](#vended-logs-same-account-examples)
+  + [Create a delivery source for CloudWatch Logs Insights query execution logs](#vended-logs-insights-query-execution-source)
   + [Create a delivery source](#vended-logs-same-account-example-source)
   + [Create a delivery to CloudWatch Logs](#vended-logs-same-account-example-cwl)
   + [Create a delivery to Amazon S3](#vended-logs-same-account-example-s3)
