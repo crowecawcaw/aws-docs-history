@@ -46,7 +46,7 @@ aws bedrock delete-custom-model-deployment \
 ## Delete a custom model deployment (AWS SDKs)
 <a name="delete-deployment-sdk"></a>
 
-To delete a custom model deployment programmatically, use the [DeleteCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html) API operation with the deployment's Amazon Resource Name (ARN) or name. The following code shows how to use the SDK for Python (Boto3) to delete a custom model deployment. 
+To delete a custom model deployment programmatically, use the [DeleteCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html) API operation with the deployment's Amazon Resource Name (ARN) or name. The following code shows how to use the AWS SDK for Python (Boto3) to delete a custom model deployment. 
 
 ```
 def delete_custom_model_deployment(bedrock_client):
