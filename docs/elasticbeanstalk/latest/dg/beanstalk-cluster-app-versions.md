@@ -7,6 +7,9 @@ A Beanstalk Cluster environment runs an application from a container image. As w
 
 For a Beanstalk Cluster deployment, create the application version with an `ImageConfiguration` that carries exactly one of two members. `Source` identifies a container image that is already built, and `Build` specifies how Elastic Beanstalk builds an image from a source bundle. Elastic Beanstalk rejects a `CreateApplicationVersion` request whose `ImageConfiguration` supplies both members or neither, a request that supplies both `ImageConfiguration.Source` and a `SourceBundle`, and a request that combines `ImageConfiguration` with the `BuildConfiguration` parameter, which configures AWS CodeBuild application versions for Beanstalk Standard. The following sections describe each path.
 
+**Note**  
+Elastic Beanstalk uses AWS CodeBuild to build a container image from source, so this feature is available in AWS Regions that support AWS CodeBuild. For a list of Regions where AWS CodeBuild is available, see [AWS CodeBuild endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/codebuild.html) in the *Amazon Web Services General Reference*. In other Regions, provide a prebuilt container image with `ImageConfiguration.Source`.
+
 ## Prerequisites
 <a name="beanstalk-cluster-app-versions-prerequisites"></a>
 
