@@ -15,6 +15,7 @@ The following information is for users of Amazon VPC. For more information, see 
 + [VPC endpoint availability](#reference_vpc_endpoint_availability)
 + [Create a VPC endpoint for IAM](reference_iam_vpc_endpoint_create.md)
 + [Create a VPC endpoint for AWS STS](reference_sts_vpc_endpoint_create.md)
++ [Create a VPC endpoint for AWS STS OIDC discovery](reference_sts_oidc_vpc_endpoint_create.md)
 + [Control access to AWS STS with VPC endpoint policies](reference_sts_vpc_endpoint_policies.md)
 + [Use VPC condition keys to control federated access](reference_sts_vpc_condition_keys_federated.md)
 

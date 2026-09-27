@@ -36,17 +36,16 @@ The following table lists the role template for each service that role manager s
 | AWS Elastic Beanstalk | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
 | Amazon EventBridge | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
 | AWS Lambda | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
+| Amazon RDS | AmazonRDSDirectoryServiceIntegrationRoleTemplate | arn:aws:iam::aws:role-template/rds.amazonaws.com/AmazonRDSDirectoryServiceIntegrationRoleTemplate:1 | RoleName, accountId | 
+| Amazon RDS | AmazonRDSExportToS3RoleTemplate | arn:aws:iam::aws:role-template/rds.amazonaws.com/AmazonRDSExportToS3RoleTemplate:1 | RoleName, accountId, bucketName | 
+| Amazon RDS | AmazonRDSImportFromS3RoleTemplate | arn:aws:iam::aws:role-template/rds.amazonaws.com/AmazonRDSImportFromS3RoleTemplate:1 | CUSTOM\_KMS\_KEY, RoleName, accountId, bucketName, keyAccountId, keyRegion, kmsKeyId, prefix | 
+| Amazon RDS | AmazonRDSMonitoringRoleTemplate | arn:aws:iam::aws:role-template/rds.amazonaws.com/AmazonRDSMonitoringRoleTemplate:1 | RoleName, accountId | 
+| Amazon RDS | AmazonRDSProxyRoleTemplate | arn:aws:iam::aws:role-template/rds.amazonaws.com/AmazonRDSProxyRoleTemplate:2 | PROXY\_WITH\_CUSTOM\_KEY, PROXY\_WITH\_DB\_CONNECTION, PROXY\_WITH\_SECRET, RoleName, accountId, dbResourceId, dbUser, keyId, region, secretId | 
+| Amazon RDS | AmazonRDSSecretAccessForDMSRoleTemplate | arn:aws:iam::aws:role-template/rds.amazonaws.com/AmazonRDSSecretAccessForDMSRoleTemplate:1 | CUSTOM\_KMS\_KEY, RoleName, accountId, kmsKeyId, region, secretId | 
 | Amazon SageMaker Unified Studio | AmazonSageMakerAdminIAMPermissiveExecutionRoleTemplate | arn:aws:iam::aws:role-template/datazone.amazonaws.com/AmazonSageMakerAdminIAMPermissiveExecutionRoleTemplate:1 | CMK\_ENABLED, RoleName, accountId, keyAccountId, keyRegion, kmsKeyId | 
 | Amazon SageMaker Unified Studio | AmazonSageMakerUserIAMPermissiveExecutionRoleTemplate | arn:aws:iam::aws:role-template/datazone.amazonaws.com/AmazonSageMakerUserIAMPermissiveExecutionRoleTemplate:1 | RoleName, accountId | 
 | AWS Secrets Manager | AWSSecretsManagerRotationRoleTemplate | arn:aws:iam::aws:role-template/secretsmanager.amazonaws.com/AWSSecretsManagerRotationRoleTemplate:1 | ADMIN\_RESOURCE\_ENABLED, CMK\_ENABLED, RoleName, accountId, adminType, kmsKeyArn, region, resourceType | 
 | Amazon CloudWatch | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
-| Amazon CloudWatch | AmazonCloudWatchLogsScheduledQueryExecutionRoleTemplate | arn:aws:iam::aws:role-template/logs.amazonaws.com/AmazonCloudWatchLogsScheduledQueryExecutionRoleTemplate:1 | RoleName, account, region | 
-| Amazon CloudWatch | AmazonCloudWatchMetricStreamsFirehosePutRecordsRoleTemplate | arn:aws:iam::aws:role-template/streams.metrics.cloudwatch.amazonaws.com/AmazonCloudWatchMetricStreamsFirehosePutRecordsRoleTemplate:1 | RoleName, accountId, deliveryStreamName, region | 
-| Amazon CloudWatch | AmazonCloudWatchMetricStreamsFirehoseToS3RoleTemplate | arn:aws:iam::aws:role-template/firehose.amazonaws.com/AmazonCloudWatchMetricStreamsFirehoseToS3RoleTemplate:1 | RoleName, accountId, bucketName, logGroupName, logStreamName, region | 
-| Amazon CloudWatch | AmazonCloudWatchRUMPutEventsRoleTemplate | arn:aws:iam::aws:role-template/rum.amazonaws.com/AmazonCloudWatchRUMPutEventsRoleTemplate:1 | RoleName, accountId, appMonitor, identityPool, region | 
-| Amazon CloudWatch | AmazonCloudWatchSyntheticsExecutionRoleTemplate | arn:aws:iam::aws:role-template/synthetics.amazonaws.com/AmazonCloudWatchSyntheticsExecutionRoleTemplate:1 | RoleName, account\_id, canary\_name, region\_name, role\_uuid | 
-| Amazon CloudWatch | AmazonCloudWatchSyntheticsKmsExecutionRoleTemplate | arn:aws:iam::aws:role-template/synthetics.amazonaws.com/AmazonCloudWatchSyntheticsKmsExecutionRoleTemplate:1 | RoleName, account\_id, canary\_name, region\_name, role\_uuid | 
-| Amazon CloudWatch | AmazonCloudWatchSyntheticsVpcExecutionRoleTemplate | arn:aws:iam::aws:role-template/synthetics.amazonaws.com/AmazonCloudWatchSyntheticsVpcExecutionRoleTemplate:1 | RoleName, account\_id, canary\_name, region\_name, role\_uuid | 
 
 ## Related information
 <a name="id_roles_create_role-template_related"></a>

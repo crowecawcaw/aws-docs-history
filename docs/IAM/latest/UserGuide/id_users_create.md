@@ -4,7 +4,8 @@
 <a name="id_users_create"></a>
 
 **Important**  
- IAM [best practices](best-practices.md) recommend that you require human users to use federation with an identity provider to access AWS using temporary credentials instead of using IAM users with long-term credentials. We recommend that you only use IAM users for [specific use cases](gs-identities-iam-users.md) not supported by federated users.
+ IAM [best practices](best-practices.md) recommend that you require human users to use federation with an identity provider to access AWS using temporary credentials instead of using IAM users with long-term credentials. We recommend that you only use IAM users for [specific use cases](gs-identities-iam-users.md) not supported by federated users.  
+If you're using our [new AWS experience](https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html) and want to provide human users with access to your projects or AWS Settings, you must add them to your team. In our new experience, you cannot create IAM users with console access. For more information, see [Invite team members](https://docs.aws.amazon.com/accounts/latest/reference/invite-team-members.html).
 
 The process of creating an IAM user and enabling that user to perform tasks consists of the following steps:
 
