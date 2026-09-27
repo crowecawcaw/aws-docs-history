@@ -38,8 +38,8 @@ Red Hat OpenShift Service on AWS (ROSA) currently does not support programmatic 
 | Middle East (Bahrain) | me-south-1 | Yes | Yes | 
 | Middle East (UAE) | me-central-1 | Yes | Yes | 
 | South America (São Paulo) | sa-east-1 | Yes | Yes | 
-| AWS GovCloud (US-East) | us-gov-east-1 | No | Yes | 
-| AWS GovCloud (US-West) | us-gov-west-1 | No | Yes | 
+| AWS GovCloud (US-East) | us-gov-east-1 | Yes | Yes | 
+| AWS GovCloud (US-West) | us-gov-west-1 | Yes | Yes | 
 
 ## Service quotas
 <a name="limits_rosa"></a>

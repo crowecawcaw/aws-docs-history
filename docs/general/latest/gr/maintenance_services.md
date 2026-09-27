@@ -64,3 +64,4 @@ Customers can't on-board to services and features in the maintenance stage. Cust
 | Amazon SageMaker AI – Model Monitor | June 30, 2026 | [Amazon SageMaker AI – Model Monitor availability change](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-availability-change.html) | 
 | Amazon SageMaker AI – Role Manager | June 30, 2026 | [Amazon SageMaker AI – Role Manager availability change](https://docs.aws.amazon.com/sagemaker/latest/dg/role-manager-availability-change.html) | 
 | Amazon SageMaker AI – Studio Lab | June 30, 2026 | [Amazon SageMaker AI – Studio Lab availability change](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-lab-availability-change.html) | 
+| Amazon Fraud Detector | October 7, 2025 | [Amazon Fraud Detector availability change](https://docs.aws.amazon.com/frauddetector/latest/ug/frauddetector-availability-change.html) | 

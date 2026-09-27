@@ -201,6 +201,7 @@ Choose one of the following links to go to the page for that service. To view th
 + [Amazon MQ](amazon-mq.md)
 + [Neptune](neptune.md)
 + [Network Firewall](network-firewall.md)
++ [Network Security Manager](network-security-manager.md)
 + [OpenSearch Service](opensearch-service.md)
 + [Oracle Database@AWS](odb-service.md)
 + [Organizations](ao.md)

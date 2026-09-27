@@ -100,7 +100,6 @@ The following are the service endpoints and service quotas for this service.
 | Maximum artifact file size | Each supported Region: 500 Megabytes | No | The maximum size in megabytes (MBs) of a single artifact stored in personal space. | 
 | Maximum concurrent runs per user | Each supported Region: 30 | No | The maximum number of active conversations with concurrent runs a user can have. | 
 | Maximum concurrent tool executions | Each supported Region: 20 | No | The maximum number of tool executions that can run concurrently within a conversation. | 
-| Maximum conversation folders | Each supported Region: 20 | No | The maximum number of conversation folders a user can create. | 
 | Maximum custom agent files size | Each supported Region: 1 Gigabytes | No | The maximum total size in gigabytes (GBs) of files associated with a custom agent. | 
 | Maximum custom agent instruction length | Each supported Region: 50,000 | No | The maximum number of characters allowed in a custom agent instruction. | 
 | Maximum file attachment size | Each supported Region: 50 Megabytes | No | The maximum size in megabytes (MBs) of a single file attachment. | 
@@ -114,7 +113,6 @@ The following are the service endpoints and service quotas for this service.
 | Maximum number of resources per chat agent | Each supported Region: 20 | No | The maximum number of resources that can be associated with a chat agent. | 
 | Maximum number of resources per space | Each supported Region: 100 | No | The maximum number of resources that can be linked to a space. | 
 | Maximum number of uploaded files per space | Each supported Region: 10,000 | No | The maximum number of files that can be uploaded to a space. | 
-| Maximum pinned conversations | Each supported Region: 100 | No | The maximum number of conversations a user can pin. | 
 | Maximum reference file size | Each supported Region: 50 Megabytes | No | The maximum size in megabytes (MBs) of a single reference file. | 
 | Maximum scheduled task instruction length | Each supported Region: 50,000 | No | The maximum number of characters allowed in a scheduled task instruction. | 
 | Maximum scheduled tasks per user | Each supported Region: 20 | No | The maximum number of scheduled tasks a user can create across all triggers. | 

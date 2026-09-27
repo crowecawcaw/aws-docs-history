@@ -10,7 +10,6 @@ Customers already using services and features in the sunset stage should plan to
 | Service | Announcement Date | End of Support Date | Resources | 
 | --- | --- | --- | --- | 
 | Amazon FinSpace | October 7, 2025 | October 7, 2026 | [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html) | 
-| Amazon Fraud Detector | October 7, 2025 | October 7, 2026 | [Amazon Fraud Detector availability change](https://docs.aws.amazon.com/frauddetector/latest/ug/frauddetector-availability-change.html) | 
 | AWS IoT Greengrass V1 | October 7, 2025 | October 7, 2026 | [Migrate from AWS IoT Greengrass Version 1](https://aws.amazon.com/greengrass/) | 
 | Amazon Lookout for Equipment | October 7, 2025 | October 7, 2026 | [Preserve access and explore alternatives for Amazon Lookout for Equipment](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/) | 
 | Amazon Pinpoint | May 20, 2025 | October 30, 2026 | [Amazon Pinpoint end of support](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) | 
