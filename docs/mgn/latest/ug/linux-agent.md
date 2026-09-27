@@ -137,7 +137,7 @@ This flag may only be used when adding new source servers to MGN. You cannot use
 
      Linux Installer only.
 
-     Use this parameter to configure the agent to use a specific proxy server: `--proxy-address https://PROXY:PORT/`. Make sure the proxy configuration has the trailing forward slash (/).
+     Use this parameter to configure the agent to use a specific proxy server: `--proxy-address https://PROXY:PORT/`. Make sure to set the environment variables `https_proxy`, `http_proxy`, and `no_proxy` (for metadata) according to your environment. The proxy value must end with a trailing forward slash (/).
 
    The installer confirms that the installation of the AWS Replication Agent has started.   
 ![Terminal output showing successful start of AWS Replication Agent installation.](https://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent1.png)

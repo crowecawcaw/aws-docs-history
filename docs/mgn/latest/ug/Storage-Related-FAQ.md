@@ -2,7 +2,7 @@
 
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
 
-# Storage related FAQs
+# Storage questions
 <a name="Storage-Related-FAQ"></a>
 
 This section contains answers to frequently asked questions about storage options in AWS Transform MGN.
@@ -33,7 +33,7 @@ For the required packages by operating system, see the [Supported Linux operatin
 ## What happens to FSx replication volumes after finalize cutover?
 <a name="faq-fsx-replication-volumes-after-cutover"></a>
 
-After finalize cutover, MGN creates a FlexClone of the replication volume, splits it to make it independent, and then deletes the original replication volume. The target volume (FlexClone) remains attached to your cutover instance. This process is automatic and typically completes within minutes, though it may take longer for large volumes.
+After finalize cutover, MGN creates a FlexClone of the replication volume, splits it to make it independent, and then deletes the original replication volume. The target volume (FlexClone) remains attached to your cutover instance. This process is automatic and typically completes within minutes, although it might take longer for large volumes.
 
 ## I initialized MGN before FSx for ONTAP support was available. Do I need to do anything?
 <a name="faq-fsx-reinitialize"></a>

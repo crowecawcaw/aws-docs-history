@@ -13,6 +13,7 @@ For additional details regarding new features and major updates, [see the MGN re
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Update support matrix with new OS | Added Debian 12 to the list of supported Linux operating systems. | September 23, 2026 | 
 | Added Amazon EBS volume settings to the default EC2 launch template | You can now configure the **Volume initialization rate** and **Delete on termination** Amazon EBS volume settings in the default EC2 launch template. For more information, see [Default EC2 launch template settings](launch-template.md#default-ec2-launch-template). | September 8, 2026 | 
 | Added AlmaLinux 8 support | Added AlmaLinux 8.6, 8.7, 8.8, 8.9, and 8.10 to the list of supported Linux operating systems. | September 6, 2026 | 
 | FSx for ONTAP target storage type is now generally available | FSx for ONTAP as a target storage type for migrated workloads is now generally available. You can migrate block storage workloads directly to FSx for ONTAP as part of the same migration wave. For setup instructions, see [FSx for ONTAP configuration](fsx-ontap.md). | August 30, 2026 | 

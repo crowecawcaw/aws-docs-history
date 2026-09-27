@@ -2,7 +2,7 @@
 
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
 
-# Agentless replication related FAQs
+# Agentless replication questions
 <a name="Agentless-Replication-Related-FAQ"></a>
 
 This section contains answers to questions about agentless replication.
@@ -30,7 +30,7 @@ Agentless replication best serves customers whose company's security policies do
 ## In which situations would you recommend using agent-based replication?
 <a name="faq-agentless-situations-agent"></a>
 
-Agent-based replication is our default recommendation for all use cases, except when your company's security policies prevent you from using this method or if the OS is not supported. Using agent-based replication provides Continuous Data Replication, and ensures a cutover window of minutes . When using agentless replication, the data is transferred using snapshot shipping. Upon cutover, you may need to wait to have a fully updated snapshot, and your cutover window may be longer.
+Agent-based replication is the default recommendation for all use cases, except when your company's security policies prevent you from using this method or if the OS is not supported. Using agent-based replication provides Continuous Data Replication, and ensures a cutover window of minutes . When using agentless replication, the data is transferred using snapshot shipping. Upon cutover, you might need to wait to have a fully updated snapshot, and your cutover window might be longer.
 
 ## How does agentless replication work?
 <a name="faq-agentless-work"></a>
@@ -40,7 +40,7 @@ You can learn more about how agentless replication works and see a high-level di
 ## Does agentless replication require installing any component in the customer's source data center?
 <a name="faq-agentless-component"></a>
 
-Yes. To use agentless replication, customers must install the MGN vCenter Client in their source data center. The client discovers the source servers and replicates their data to AWS. 
+Yes. To use agentless replication, you must install the MGN vCenter Client in your source data center. The client discovers the source servers and replicates their data to AWS. 
 
 ## Is the agentless feature available in all Regions that MGN service supports?
 <a name="faq-agentless-regions"></a>

@@ -12,10 +12,10 @@ This section contains answers to questions about what AWS Transform MGN works wi
 
 Yes.
 
-## Does MGN work with Bitlocker encryption?
+## Does MGN work with BitLocker encryption?
 <a name="does-mgn-bitlocker"></a>
 
-AWS Transform MGN does not support OS-based disk encryption features such as BitLocker. These should be deactivated before using MGN. 
+AWS Transform MGN does not support OS-based disk encryption features such as BitLocker. You must deactivate these before using MGN. 
 
 ## Does MGN work with FSx for ONTAP?
 <a name="does-mgn-fsx-ontap"></a>
@@ -33,3 +33,13 @@ Yes. MGN can replicate data volumes to an FSx for ONTAP file system. The followi
 + Up to 5 FSx for ONTAP file systems per account concurrently.
 
 For full setup instructions, see [FSx for ONTAP configuration guide](fsx-ontap.md).
+
+## Does AWS Transform MGN work with LVM and RAID configurations?
+<a name="Does-LVM-RAID-Work"></a>
+
+Yes, AWS Transform MGN works with any such configuration.
+
+## Can AWS Transform MGN migrate containers?
+<a name="Can-Containers"></a>
+
+AWS Transform MGN only supports the replication of full servers. Nevertheless, MGN replicates on a server level and therefore any containers within the selected servers are replicated.

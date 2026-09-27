@@ -7,13 +7,15 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## September 2026
 <a name="release-notes-sep-2026"></a>
++ Added support for the following operating systems:
+  + Debian 12
 + Added support for local snapshots in the following Local Zones:
   + Hanoi, Vietnam (ap-southeast-1-han-1a)
   + Athens, Greece (eu-central-1-ath-1a)
   + Istanbul, Türkiye (eu-central-1-ist-1a)
 
   For more information, see [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots).
-+ You can now configure the following Amazon EBS volume settings: **Volume initialization rate** and **Delete on termination** through the AWS Transform MGN account launch template. You can set the configuration in the template under the **Default EC2 launch template** section. These parameters can now be configured at the account level for new servers, or at the individual server level via their EC2 launch template. For more information, see this section in the [Launch template](launch-template.md#default-ec2-launch-template).
++ You can now configure the following Amazon EBS volume settings: **Volume initialization rate** and **Delete on termination** through the AWS Transform MGN account launch template. You can set the configuration in the template under the **Default EC2 launch template** section. These parameters can now be configured at the account level for new servers, or at the individual server level via their EC2 launch template. For more information, see [Launch template](launch-template.md#default-ec2-launch-template).
 
 ## August 2026
 <a name="release-notes-aug-2026"></a>
@@ -57,7 +59,7 @@ Added support for the following operating systems:
 
 ## April 2026
 <a name="release-notes-apr-2026"></a>
-+ Service launch in these regions: *Asia Pacific (New Zealand)*, *Asia Pacific (Taipei)*, *Canada West (Calgary)*, and *Mexico (Central)* Regions.
++ Service launch in these Regions: *Asia Pacific (New Zealand)*, *Asia Pacific (Taipei)*, *Canada West (Calgary)*, and *Mexico (Central)* Regions.
 
 ## March 2026
 <a name="release-notes-mar-2026"></a>
@@ -81,7 +83,7 @@ Added support for the following operating systems:
 
 ## September 2025
 <a name="release-notes-sept-2025"></a>
-+ Specify your operating system licensing approach (BYOL / LI) and tenancy when importing inventory. Learn more in [Inventory Import parameters](import-parameters.md).
++ Specify your operating system licensing approach (BYOL/LI) and tenancy when importing inventory. Learn more in [Inventory Import parameters](import-parameters.md).
 + Added support for Windows Server 2025 operating system.
 
 ## August 2025
@@ -91,7 +93,7 @@ Added support for the following operating systems:
 ## July 2025
 <a name="release-notes-july-2025"></a>
 + You can now reset launch template values during the inventory import process. Learn more in [Editing your configuration](https://docs.aws.amazon.com/mgn/latest/ug/configuration-editing.html).
-+ Service launch in these regions: *Asia Pacific (Thailand) *, and *Asia Pacific (Malaysia) * Regions. 
++ Service launch in these Regions: *Asia Pacific (Thailand)*, and *Asia Pacific (Malaysia)*.
 
 ## April 2025
 <a name="release-notes-april-2025"></a>
@@ -128,7 +130,7 @@ Added support for the following operating systems:
 
 ## June 2024
 <a name="release-notes-june-2024"></a>
-+  Added support for deploying AWS Replication Agent on a secured network in the Europe (Spain), Europe (Zurich), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Osaka) and Asia Pacific (Melbourne) regions. [Learn about installing the agent on a secured network](installing-agent-blocked.md). 
++  Added support for deploying AWS Replication Agent on a secured network in the Europe (Spain), Europe (Zurich), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Osaka) and Asia Pacific (Melbourne) Regions. [Learn about installing the agent on a secured network](installing-agent-blocked.md). 
 +  Added support for encrypting post-launch action parameters. Learn about [post launch action.](post-launch-settings.md#post-launch-settings-editing) 
 +  [AWS managed policy updates ](security-iam-awsmanpol.md) - Updated the AWSApplicationMigrationFullAccess policy to support SecureString parameter type in SSM Parameters Store for post-migration framework actions. 
 +  Added support for migrating servers with Kernel versions up to 6.8. 
@@ -181,11 +183,11 @@ Added support for the following operating systems:
 
 ## July 2023
 <a name="release-notes-july-2023"></a>
-+ You can use MGN with workloads that require FedRAMP Moderate categorization level in the AWS US East/West regions.
++ You can use MGN with workloads that require FedRAMP Moderate categorization level in the US East and US West Regions.
 
 ## June 2023
 <a name="release-notes-june-2023"></a>
-+ Service launch in the following regions: Europe (Zurich), Europe (Spain), Asia Pacific (Hyderabad), Asia Pacific (Melbourne). 
++ Service launch in the following Regions: Europe (Zurich), Europe (Spain), Asia Pacific (Hyderabad), Asia Pacific (Melbourne). 
 + Introduced Import and export from local disk. You can now import and export your source servers, applications, and waves from and to a CSV file on your local disk. [Learn more about the import and export feature. ](import-export.md) 
 + Introduced 4 new predefined post-launch actions:
   +  [Configure Time Sync](predefined-post-launch-actions.md#predefined-time-sync) 
@@ -200,7 +202,7 @@ Added support for the following operating systems:
 
 ## May 2023
 <a name="release-notes-may-2023"></a>
-+ Service launch in the following regions: AWS GovCloud (US-East) and AWS GovCloud (US-West).
++ Service launch in the following Regions: AWS GovCloud (US-East) and AWS GovCloud (US-West).
 
 ## April 2023
 <a name="release-notes-april-2023"></a>
@@ -217,7 +219,7 @@ Added support for the following operating systems:
   +  [Conduct EC2 connectivity checks ](predefined-post-launch-actions.md#predefined-ec2-connectivity-check) 
   +  [Validate volume integrity ](predefined-post-launch-actions.md#predefined-volume-integrity-validation) 
   +  [Verify process status](predefined-post-launch-actions.md#predefined-process-status-validation) 
-  +  [Convert MS-SQL license conversion ](predefined-post-launch-actions.md#predefined-windows-ms-sql-conversion) 
+  +  [Convert MS-SQL license ](predefined-post-launch-actions.md#predefined-windows-ms-sql-conversion) 
   +  [Install a CloudWatch Agent ](predefined-post-launch-actions.md#predefined-cloudwatch-agent-installation) 
   +  [Upgrade Windows](predefined-post-launch-actions.md#predefined-windows-upgrade) 
   +  [Create AMI from instance ](predefined-post-launch-actions.md#predefined-create-ami-from-instance) 
@@ -226,7 +228,7 @@ Added support for the following operating systems:
    [Learn more about predefined post-launch actions. ](predefined-post-launch-actions.md) 
 + Introduced major UI enhancements to the post-launch action feature. [Learn more about the new post-launch actions layout. ](predefined-post-launch-actions.md) 
 + Enhanced the source server page dashboard, adding migration metrics view of the displayed servers. 
-+ Service launch in the following regions: Middle East (UAE).
++ Service launch in the following Regions: Middle East (UAE).
 +  [AWS managed policy updates ](security-iam-awsmanpol.md) – Updated the AWSApplicationMigrationFullAccess policy, the AWSApplicationMigrationSSMAccess policy, and the AWSApplicationMigrationReadOnlyAccess policy. 
 
 ## January 2023
@@ -284,16 +286,16 @@ Added support for the following operating systems:
 
 ## November 2021
 <a name="release-notes-november-2021"></a>
-+ Service launch in the following regions: Europe (Paris), Europe (Milan), Middle East (Bahrain), and Africa (Cape Town). 
++ Service launch in the following Regions: Europe (Paris), Europe (Milan), Middle East (Bahrain), and Africa (Cape Town). 
 + MGN now supports an additional replication method that does not require agent installation on each source server. This option is available for source servers running on VMware vCenter versions 6.7 and 7.0. [Learn more about agentless replication](agentless-mgn.md). 
 
 ## October 2021
 <a name="release-notes-october-2021"></a>
-+ Service launch in the following regions: Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Hong Kong), Europe (London). 
++ Service launch in the following Regions: Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Hong Kong), Europe (London). 
 
 ## July 2021
 <a name="release-notes-july-2021"></a>
-+ Service launch in the following regions: US West (N. California), South America (São Paulo), Canada (Central), Asia Pacific (Osaka). 
++ Service launch in the following Regions: US West (N. California), South America (São Paulo), Canada (Central), Asia Pacific (Osaka). 
 
 ## April 2021
 <a name="release-notes-april-2021"></a>
