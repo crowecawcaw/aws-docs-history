@@ -20,7 +20,6 @@ With the supported Amazon Quick capabilities in AWS GovCloud (US), you can explo
 The following differences apply to Amazon Quick:
 +  Amazon Quick Automate is not available.
 +  Amazon Quick Flows is not available.
-+  Amazon Quick Research is not available.
 + Quick Agents is not available.
 + Quick Integrations and Extensions is not available.
 + Quick Sight - Agentic experiences is not available.

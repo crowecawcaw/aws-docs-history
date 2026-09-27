@@ -8,7 +8,7 @@
 **Important**  
 Do not enter any export-controlled data in your support cases.
 
-To sign up for AWS Customer Support for the AWS GovCloud (US) Region, go to the customer support [sign-up page](https://aws.amazon.com/premiumsupport/signup/). You sign up for support by using the standard AWS account root user credentials that were used to sign up for your AWS GovCloud (US) account. You can sign up for Business Level support or submit a request for Enterprise Level support by completing the Enterprise Support [form](https://aws.amazon.com/premiumsupport/enterprise/).
+To sign up for AWS Customer Support for the AWS GovCloud (US) Region, go to the customer support [sign-up page](https://aws.amazon.com/premiumsupport/signup/). You sign up for support by using the standard AWS account root user credentials that were used to sign up for your AWS GovCloud (US) account. You can sign up for Business Level support or submit a request for Enterprise Level support by completing the Enterprise Support [form](https://aws.amazon.com/premiumsupport/enterprise/) or submit a request for Unified Operations level support by completing the Unified Operations [form](https://aws.amazon.com/premiumsupport/enterprise/).
 
 **Note**  
 Your support options are associated with your standard AWS account, but also apply to your AWS GovCloud (US) account. If you already have support on your standard AWS account, you aren’t required to sign up for support again.
