@@ -32,9 +32,35 @@ To learn more about versioning policy for RDS for PostgreSQL, see [Amazon RDS FA
 <a name="postgresql-version19"></a>
 
 **Topics**
++ [PostgreSQL version 19 Beta 4 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta4)
 + [PostgreSQL version 19 Beta 3 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta3)
 + [PostgreSQL version 19 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta2)
 + [PostgreSQL version 19 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version19Beta1)
+
+### PostgreSQL version 19 Beta 4 in the Amazon RDS Preview environment
+<a name="postgresql-versions-version19Beta4"></a>
+
+PostgreSQL 19 Beta 4 contains many new features and enhancements that can be seen in the release documentation: [PostgreSQL 19 Beta 4 Released\!](https://www.postgresql.org/about/news/postgresql-19-beta-4-released-3386/).
+
+This version also includes the following extension changes:
++ The `pg_partman` extension was updated to version 5.5.0.
+
+The following extensions that are supported in Amazon RDS PostgreSQL version 18 aren't supported for Amazon RDS PostgreSQL version 19 Beta 4 in preview:
++ `address_standardizer`
++ `address_standardizer_data_us`
++ `h3-pg`
++ `pg_hint_plan`
++ `pg_similarity`
++ `pg_stat_monitor`
++ `pgactive`
++ `pgrouting`
++ `plprofiler`
++ `postgis`
++ `postgis_raster`
++ `postgis_tiger_geocoder`
++ `postgis_topology`
+
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 19](postgresql-extensions.md#postgresql-extensions-19x).
 
 ### PostgreSQL version 19 Beta 3 in the Amazon RDS Preview environment
 <a name="postgresql-versions-version19Beta3"></a>
@@ -182,7 +208,7 @@ This version also includes the following extension changes:
 ### PostgreSQL version 18.4 on Amazon RDS
 <a name="postgresql-versions-version184"></a>
 
-PostgreSQL version 18.4 is now available on Amazon RDS. This release contains several fixes and improvements for PostgreSQL announced in the [PostgreSQL 18.4 release](https://www.postgresql.org/docs/release/18.4/).
+PostgreSQL version 18.4 is available on Amazon RDS. This release contains several fixes and improvements for PostgreSQL announced in the [PostgreSQL 18.4 release](https://www.postgresql.org/docs/release/18.4/).
 
 **General enhancements**
 + Fixed `pgactive` extension unavailability issue during TRUNCATE operations.

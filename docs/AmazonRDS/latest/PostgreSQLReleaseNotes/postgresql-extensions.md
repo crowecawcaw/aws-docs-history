@@ -39,108 +39,108 @@ The following sections show the extensions supported by Amazon RDS for the major
 The following table shows PostgreSQL extensions for PostgreSQL version 19 that are currently supported on Amazon RDS. For more information on PostgreSQL extensions, see [Packaging related objects into an extension](https://www.postgresql.org/docs/19/extend-extensions.html). 
 
 **Note**  
-The preview documentation is subject to change for Amazon RDS for PostgreSQL versions 19 Beta 1, 19 Beta 2, and 19 Beta 3.
+The preview documentation is subject to change for Amazon RDS for PostgreSQL versions 19 Beta 1, 19 Beta 2, 19 Beta 3, and 19 Beta 4.
 
 
-| Extension | 19 Beta 3 | 19 Beta 2 | 19 Beta 1 | 
-| --- | --- | --- | --- | 
-| [address\_standardizer](https://postgis.net/docs/standardize_address.html) | N/A | N/A | N/A | 
-| [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html) | N/A | N/A | N/A | 
-| [amcheck](https://www.postgresql.org/docs/19/amcheck.html) | 1.5 | 1.5 | 1.5 | 
-| [auto\_explain](https://www.postgresql.org/docs/19/auto-explain.html) | yes | yes | yes | 
-| [autoinc (contrib-spi)](https://www.postgresql.org/docs/19/contrib-spi.html) | 1.0 | 1.0 | 1.0 | 
-| [aws\_commons](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html#USER_PostgreSQL.S3Import.Reference) | 1.2 | 1.2 | 1.2 | 
-| [aws\_lambda](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL-Lambda.html) | 1.0 | 1.0 | 1.0 | 
-| [aws\_s3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html#USER_PostgreSQL.S3Import.FileFormats) | 1.2 | 1.2 | 1.2 | 
-| [bloom](https://www.postgresql.org/docs/19/bloom.html) | 1.0 | 1.0 | 1.0 | 
-| bool\_plperl | 1.0 | 1.0 | 1.0 | 
-| [btree\_gin](http://www.postgresql.org/docs/19/btree-gin.html) | 1.4 | 1.4 | 1.4 | 
-| [btree\_gist](http://www.postgresql.org/docs/19/btree-gist.html) | 1.9 | 1.9 | 1.9 | 
-| [citext](http://www.postgresql.org/docs/19/citext.html) | 1.8 | 1.8 | 1.8 | 
-| [collection](https://github.com/aws/pgcollection) | 1.1.1 | 1.1.1 | 1.1.1 | 
-| [cube](http://www.postgresql.org/docs/19/cube.html) | 1.5 | 1.5 | 1.5 | 
-| [dblink](http://www.postgresql.org/docs/19/dblink.html) | 1.2 | 1.2 | 1.2 | 
-| decoder\_raw | yes | yes | yes | 
-| [dict\_int](http://www.postgresql.org/docs/19/dict-int.html) | 1.0 | 1.0 | 1.0 | 
-| [dict\_xsyn](https://www.postgresql.org/docs/19/dict-xsyn.html) | 1.0 | 1.0 | 1.0 | 
-| [earthdistance](http://www.postgresql.org/docs/19/earthdistance.html) | 1.2 | 1.2 | 1.2 | 
-| flow\_control | 1.0 | 1.0 | 1.0 | 
-| [fuzzystrmatch](http://www.postgresql.org/docs/19/fuzzystrmatch.html) | 1.2 | 1.2 | 1.2 | 
-| [h3-pg](https://github.com/zachasme/h3-pg) | N/A | N/A | N/A | 
-| [hll](https://github.com/citusdata/postgresql-hll) | 2.18 | 2.18 | 2.18 | 
-| [hstore](http://www.postgresql.org/docs/19/hstore.html) | 1.8 | 1.8 | 1.8 | 
-| [hstore\_plperl](https://www.postgresql.org/docs/19/hstore.html) | 1.0 | 1.0 | 1.0 | 
-| [hypopg](https://github.com/HypoPG/hypopg) | 1.4.2 | 1.4.2 | N/A | 
-| [ICU module](http://site.icu-project.org/) | 60.2 | 60.2 | 60.2 | 
-| [insert\_username (contrib-spi)](https://www.postgresql.org/docs/19/contrib-spi.html) | 1.0 | 1.0 | 1.0 | 
-| [intagg](http://www.postgresql.org/docs/19/intagg.html) | 1.1 | 1.1 | 1.1 | 
-| [intarray](http://www.postgresql.org/docs/19/intarray.html) | 1.5 | 1.5 | 1.5 | 
-| [ip4r](https://github.com/RhodiumToad/ip4r) | 2.4.2 | 2.4.2 | N/A | 
-| [isn](http://www.postgresql.org/docs/19/isn.html) | 1.3 | 1.3 | 1.3 | 
-| jsonb\_plperl | 1.0 | 1.0 | 1.0 | 
-| [lo](https://www.postgresql.org/docs/19/lo.html) | 1.2 | 1.2 | 1.2 | 
-| [log\_fdw](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.html#CHAP_PostgreSQL.Extensions.log_fdw) | 1.3 | 1.3 | 1.3 | 
-| [ltree](http://www.postgresql.org/docs/19/ltree.html) | 1.3 | 1.3 | 1.3 | 
-| [moddatetime (contrib-spi)](https://www.postgresql.org/docs/19/contrib-spi.html) | 1.0 | 1.0 | 1.0 | 
-| [mysql\_fdw](https://github.com/EnterpriseDB/mysql_fdw) | 2.9.3 | N/A | N/A | 
-| [oracle\_fdw](https://github.com/laurenz/oracle_fdw) | 2.8.0 | 2.8.0 | 2.8.0 | 
-| [orafce](https://github.com/orafce/orafce) | 4.16.5 | 4.16.5 | 4.16.5 | 
-| [pageinspect](https://www.postgresql.org/docs/19/pageinspect.html) | 1.13 | 1.13 | 1.13 | 
-| [pg\_bigm](https://github.com/pgbigm/pg_bigm/blob/master/docs/pg_bigm_en.md) | 1.2\_20250903 | N/A | N/A | 
-| [pg\_buffercache](http://www.postgresql.org/docs/19/pgbuffercache.html) | 1.7 | 1.7 | 1.7 | 
-| [pg\_cron](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_pg_cron.html) | 1.6.7 | 1.6.7 | N/A | 
-| [pg\_freespacemap](https://www.postgresql.org/docs/19/pgfreespacemap.html) | 1.3 | 1.3 | 1.3 | 
-| [pg\_hint\_plan](https://github.com/ossc-db/pg_hint_plan) | N/A | N/A | N/A | 
-| [pg\_logicalinspect](https://www.postgresql.org/docs/19/pglogicalinspect.html) | 1.0 | 1.0 | 1.0 | 
-| [pg\_partman](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_Partitions.html) | 5.2.4 | 5.2.4 | N/A | 
-| [pg\_plan\_advice](https://www.postgresql.org/docs/19/pgplanadvice.html) | 1.0 | 1.0 | 1.0 | 
-| [pg\_prewarm](https://www.postgresql.org/docs/19/pgprewarm.html) | 1.2 | 1.2 | 1.2 | 
-| [pg\_proctab](https://github.com/markwkm/pg_proctab) | 0.0.12 | 0.0.12 | 0.0.12 | 
-| [pg\_repack](https://reorg.github.io/pg_repack/) | 1.5.3 | 1.5.3 | 1.5.3 | 
-| [pg\_similarity](https://github.com/eulerto/pg_similarity) | N/A | N/A | N/A | 
-| [pg\_stat\_statements](http://www.postgresql.org/docs/19/pgstatstatements.html) | 1.13 | 1.13 | 1.13 | 
-| [pg\_stat\_monitor](https://github.com/percona/pg_stat_monitor) | N/A | N/A | N/A | 
-| [pg\_stash\_advice](https://www.postgresql.org/docs/19/pgstashadvice.html) | 1.0 | 1.0 | 1.0 | 
-| [pg\_tle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_trusted_language_extension.html) | 1.5.2 | 1.5.2 | 1.5.2 | 
-| [pg\_transport](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.TransportableDB.html) | 1.0 | N/A | N/A | 
-| [pg\_trgm](http://www.postgresql.org/docs/19/pgtrgm.html) | 1.6 | 1.6 | 1.6 | 
-| [pg\_visibility](https://www.postgresql.org/docs/19/pgvisibility.html) | 1.2 | 1.2 | 1.2 | 
-| [pg\_walinspect](https://www.postgresql.org/docs/19/pgwalinspect.html) | 1.1 | 1.1 | 1.1 | 
-| [pgactive](https://github.com/aws/pgactive) | N/A | N/A | N/A | 
-| [pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md) | 19 | 19 | N/A | 
-| [pgcrypto](https://www.postgresql.org/docs/19/pgcrypto.html) | 1.4 | 1.4 | 1.4 | 
-| [pglogical](https://github.com/2ndQuadrant/pglogical) | 2.4.6 | 2.4.6 | 2.4.6 | 
-| [pgrouting](http://docs.pgrouting.org/latest/en/index.html) | N/A | N/A | N/A | 
-| [pgrowlocks](http://www.postgresql.org/docs/19/pgrowlocks.html) | 1.2 | 1.2 | 1.2 | 
-| [pgstattuple](http://www.postgresql.org/docs/19/pgstattuple.html) | 1.5 | 1.5 | 1.5 | 
-| [pgTAP](https://pgtap.org/) | 1.3.4 | 1.3.4 | 1.3.4 | 
-| [pgvector](https://github.com/pgvector/pgvector) | 0.8.2 | 0.8.2 | 0.8.2 | 
-| [plperl](https://www.postgresql.org/docs/19/plperl.html) | 1.0 | 1.0 | 1.0 | 
-| [plpgsql](https://www.postgresql.org/docs/19/plpgsql.html) | 1.0 | 1.0 | 1.0 | 
-| [plprofiler](https://github.com/bigsql/plprofiler) | N/A | N/A | N/A | 
-| [pltcl](https://www.postgresql.org/docs/19/pltcl-overview.html) | 1.0 | 1.0 | 1.0 | 
-| [plv8](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.html#PostgreSQL.Concepts.General.UpgradingPLv8) | 3.2.4 | 3.2.4 | N/A | 
-| [PostGIS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.html) | N/A | N/A | N/A | 
-| [postgis\_raster](https://postgis.net/docs/raster.html) | N/A | N/A | N/A | 
-| [postgis\_tiger\_geocoder](http://postgis.net/docs/Geocode.html) | N/A | N/A | N/A | 
-| [postgis\_topology](http://postgis.net/docs/manual-dev/Topology.html) | N/A | N/A | N/A | 
-| [postgres\_fdw](https://www.postgresql.org/docs/19/postgres-fdw.html) | 1.3 | 1.3 | 1.3 | 
-| [prefix](https://github.com/dimitri/prefix) | 1.2.10 | 1.2.10 | 1.2.10 | 
-| [rdkit](https://github.com/rdkit/rdkit) | 2024\_09\_6(4.6.1) | 2024\_09\_6(4.6.1) | 2024\_09\_6(4.6.1) | 
-| rds\_casts | 1.0 | 1.0 | 1.0 | 
-| rds\_tools | 1.9 | 1.9 | 1.9 | 
-| [refint (contrib-spi)](https://www.postgresql.org/docs/19/contrib-spi.html) | 1.0 | 1.0 | 1.0 | 
-| [roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap) | 1.1.0 | 1.1.0 | 1.1.0 | 
-| [seg](https://www.postgresql.org/docs/19/seg.html) | 1.4 | 1.4 | 1.4 | 
-| [sslinfo](http://www.postgresql.org/docs/19/sslinfo.html) | 1.2 | 1.2 | 1.2 | 
-| [tablefunc](http://www.postgresql.org/docs/19/tablefunc.html) | 1.0 | 1.0 | 1.0 | 
-| [tcn](https://www.postgresql.org/docs/19/tcn.html) | 1.0 | 1.0 | 1.0 | 
-| [tds\_fdw](https://github.com/tds-fdw/tds_fdw) | 2.0.5 | N/A | N/A | 
-| [tsm\_system\_rows](https://www.postgresql.org/docs/19/tsm-system-rows.html) | 1.0 | 1.0 | 1.0 | 
-| [tsm\_system\_time](https://www.postgresql.org/docs/19/tsm-system-time.html) | 1.0 | 1.0 | 1.0 | 
-| [unaccent](http://www.postgresql.org/docs/19/unaccent.html) | 1.1 | 1.1 | 1.1 | 
-| [uuid-ossp](http://www.postgresql.org/docs/19/uuid-ossp.html) | 1.1 | 1.1 | 1.1 | 
-| [wal2json](https://github.com/eulerto/wal2json) | 2.6 | 2.6 | 2.6 | 
+| Extension | 19 Beta 4 | 19 Beta 3 | 19 Beta 2 | 19 Beta 1 | 
+| --- | --- | --- | --- | --- | 
+| [address\_standardizer](https://postgis.net/docs/standardize_address.html) | N/A | N/A | N/A | N/A | 
+| [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html) | N/A | N/A | N/A | N/A | 
+| [amcheck](https://www.postgresql.org/docs/19/amcheck.html) | 1.5 | 1.5 | 1.5 | 1.5 | 
+| [auto\_explain](https://www.postgresql.org/docs/19/auto-explain.html) | yes | yes | yes | yes | 
+| [autoinc (contrib-spi)](https://www.postgresql.org/docs/19/contrib-spi.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [aws\_commons](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html#USER_PostgreSQL.S3Import.Reference) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| [aws\_lambda](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL-Lambda.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [aws\_s3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html#USER_PostgreSQL.S3Import.FileFormats) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| [bloom](https://www.postgresql.org/docs/19/bloom.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| bool\_plperl | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [btree\_gin](http://www.postgresql.org/docs/19/btree-gin.html) | 1.4 | 1.4 | 1.4 | 1.4 | 
+| [btree\_gist](http://www.postgresql.org/docs/19/btree-gist.html) | 1.9 | 1.9 | 1.9 | 1.9 | 
+| [citext](http://www.postgresql.org/docs/19/citext.html) | 1.8 | 1.8 | 1.8 | 1.8 | 
+| [collection](https://github.com/aws/pgcollection) | 1.1.1 | 1.1.1 | 1.1.1 | 1.1.1 | 
+| [cube](http://www.postgresql.org/docs/19/cube.html) | 1.5 | 1.5 | 1.5 | 1.5 | 
+| [dblink](http://www.postgresql.org/docs/19/dblink.html) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| decoder\_raw | yes | yes | yes | yes | 
+| [dict\_int](http://www.postgresql.org/docs/19/dict-int.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [dict\_xsyn](https://www.postgresql.org/docs/19/dict-xsyn.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [earthdistance](http://www.postgresql.org/docs/19/earthdistance.html) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| flow\_control | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [fuzzystrmatch](http://www.postgresql.org/docs/19/fuzzystrmatch.html) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| [h3-pg](https://github.com/zachasme/h3-pg) | N/A | N/A | N/A | N/A | 
+| [hll](https://github.com/citusdata/postgresql-hll) | 2.18 | 2.18 | 2.18 | 2.18 | 
+| [hstore](http://www.postgresql.org/docs/19/hstore.html) | 1.8 | 1.8 | 1.8 | 1.8 | 
+| [hstore\_plperl](https://www.postgresql.org/docs/19/hstore.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [hypopg](https://github.com/HypoPG/hypopg) | 1.4.2 | 1.4.2 | 1.4.2 | N/A | 
+| [ICU module](http://site.icu-project.org/) | 60.2 | 60.2 | 60.2 | 60.2 | 
+| [insert\_username (contrib-spi)](https://www.postgresql.org/docs/19/contrib-spi.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [intagg](http://www.postgresql.org/docs/19/intagg.html) | 1.1 | 1.1 | 1.1 | 1.1 | 
+| [intarray](http://www.postgresql.org/docs/19/intarray.html) | 1.5 | 1.5 | 1.5 | 1.5 | 
+| [ip4r](https://github.com/RhodiumToad/ip4r) | 2.4.2 | 2.4.2 | 2.4.2 | N/A | 
+| [isn](http://www.postgresql.org/docs/19/isn.html) | 1.3 | 1.3 | 1.3 | 1.3 | 
+| jsonb\_plperl | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [lo](https://www.postgresql.org/docs/19/lo.html) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| [log\_fdw](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.html#CHAP_PostgreSQL.Extensions.log_fdw) | 1.3 | 1.3 | 1.3 | 1.3 | 
+| [ltree](http://www.postgresql.org/docs/19/ltree.html) | 1.3 | 1.3 | 1.3 | 1.3 | 
+| [moddatetime (contrib-spi)](https://www.postgresql.org/docs/19/contrib-spi.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [mysql\_fdw](https://github.com/EnterpriseDB/mysql_fdw) | 2.9.3 | 2.9.3 | N/A | N/A | 
+| [oracle\_fdw](https://github.com/laurenz/oracle_fdw) | 2.8.0 | 2.8.0 | 2.8.0 | 2.8.0 | 
+| [orafce](https://github.com/orafce/orafce) | 4.16.5 | 4.16.5 | 4.16.5 | 4.16.5 | 
+| [pageinspect](https://www.postgresql.org/docs/19/pageinspect.html) | 1.13 | 1.13 | 1.13 | 1.13 | 
+| [pg\_bigm](https://github.com/pgbigm/pg_bigm/blob/master/docs/pg_bigm_en.md) | 1.2\_20250903 | 1.2\_20250903 | N/A | N/A | 
+| [pg\_buffercache](http://www.postgresql.org/docs/19/pgbuffercache.html) | 1.7 | 1.7 | 1.7 | 1.7 | 
+| [pg\_cron](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_pg_cron.html) | 1.6.7 | 1.6.7 | 1.6.7 | N/A | 
+| [pg\_freespacemap](https://www.postgresql.org/docs/19/pgfreespacemap.html) | 1.3 | 1.3 | 1.3 | 1.3 | 
+| [pg\_hint\_plan](https://github.com/ossc-db/pg_hint_plan) | N/A | N/A | N/A | N/A | 
+| [pg\_logicalinspect](https://www.postgresql.org/docs/19/pglogicalinspect.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [pg\_partman](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_Partitions.html) | 5.5.0 | 5.2.4 | 5.2.4 | N/A | 
+| [pg\_plan\_advice](https://www.postgresql.org/docs/19/pgplanadvice.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [pg\_prewarm](https://www.postgresql.org/docs/19/pgprewarm.html) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| [pg\_proctab](https://github.com/markwkm/pg_proctab) | 0.0.12 | 0.0.12 | 0.0.12 | 0.0.12 | 
+| [pg\_repack](https://reorg.github.io/pg_repack/) | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 
+| [pg\_similarity](https://github.com/eulerto/pg_similarity) | N/A | N/A | N/A | N/A | 
+| [pg\_stat\_statements](http://www.postgresql.org/docs/19/pgstatstatements.html) | 1.13 | 1.13 | 1.13 | 1.13 | 
+| [pg\_stat\_monitor](https://github.com/percona/pg_stat_monitor) | N/A | N/A | N/A | N/A | 
+| [pg\_stash\_advice](https://www.postgresql.org/docs/19/pgstashadvice.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [pg\_tle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_trusted_language_extension.html) | 1.5.2 | 1.5.2 | 1.5.2 | 1.5.2 | 
+| [pg\_transport](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.TransportableDB.html) | 1.0 | 1.0 | N/A | N/A | 
+| [pg\_trgm](http://www.postgresql.org/docs/19/pgtrgm.html) | 1.6 | 1.6 | 1.6 | 1.6 | 
+| [pg\_visibility](https://www.postgresql.org/docs/19/pgvisibility.html) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| [pg\_walinspect](https://www.postgresql.org/docs/19/pgwalinspect.html) | 1.1 | 1.1 | 1.1 | 1.1 | 
+| [pgactive](https://github.com/aws/pgactive) | N/A | N/A | N/A | N/A | 
+| [pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md) | 19 | 19 | 19 | N/A | 
+| [pgcrypto](https://www.postgresql.org/docs/19/pgcrypto.html) | 1.4 | 1.4 | 1.4 | 1.4 | 
+| [pglogical](https://github.com/2ndQuadrant/pglogical) | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 
+| [pgrouting](http://docs.pgrouting.org/latest/en/index.html) | N/A | N/A | N/A | N/A | 
+| [pgrowlocks](http://www.postgresql.org/docs/19/pgrowlocks.html) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| [pgstattuple](http://www.postgresql.org/docs/19/pgstattuple.html) | 1.5 | 1.5 | 1.5 | 1.5 | 
+| [pgTAP](https://pgtap.org/) | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 
+| [pgvector](https://github.com/pgvector/pgvector) | 0.8.2 | 0.8.2 | 0.8.2 | 0.8.2 | 
+| [plperl](https://www.postgresql.org/docs/19/plperl.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [plpgsql](https://www.postgresql.org/docs/19/plpgsql.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [plprofiler](https://github.com/bigsql/plprofiler) | N/A | N/A | N/A | N/A | 
+| [pltcl](https://www.postgresql.org/docs/19/pltcl-overview.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [plv8](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.html#PostgreSQL.Concepts.General.UpgradingPLv8) | 3.2.4 | 3.2.4 | 3.2.4 | N/A | 
+| [PostGIS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.html) | N/A | N/A | N/A | N/A | 
+| [postgis\_raster](https://postgis.net/docs/raster.html) | N/A | N/A | N/A | N/A | 
+| [postgis\_tiger\_geocoder](http://postgis.net/docs/Geocode.html) | N/A | N/A | N/A | N/A | 
+| [postgis\_topology](http://postgis.net/docs/manual-dev/Topology.html) | N/A | N/A | N/A | N/A | 
+| [postgres\_fdw](https://www.postgresql.org/docs/19/postgres-fdw.html) | 1.3 | 1.3 | 1.3 | 1.3 | 
+| [prefix](https://github.com/dimitri/prefix) | 1.2.10 | 1.2.10 | 1.2.10 | 1.2.10 | 
+| [rdkit](https://github.com/rdkit/rdkit) | 2024\_09\_6(4.6.1) | 2024\_09\_6(4.6.1) | 2024\_09\_6(4.6.1) | 2024\_09\_6(4.6.1) | 
+| rds\_casts | 1.0 | 1.0 | 1.0 | 1.0 | 
+| rds\_tools | 1.9 | 1.9 | 1.9 | 1.9 | 
+| [refint (contrib-spi)](https://www.postgresql.org/docs/19/contrib-spi.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap) | 1.1.0 | 1.1.0 | 1.1.0 | 1.1.0 | 
+| [seg](https://www.postgresql.org/docs/19/seg.html) | 1.4 | 1.4 | 1.4 | 1.4 | 
+| [sslinfo](http://www.postgresql.org/docs/19/sslinfo.html) | 1.2 | 1.2 | 1.2 | 1.2 | 
+| [tablefunc](http://www.postgresql.org/docs/19/tablefunc.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [tcn](https://www.postgresql.org/docs/19/tcn.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [tds\_fdw](https://github.com/tds-fdw/tds_fdw) | 2.0.5 | 2.0.5 | N/A | N/A | 
+| [tsm\_system\_rows](https://www.postgresql.org/docs/19/tsm-system-rows.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [tsm\_system\_time](https://www.postgresql.org/docs/19/tsm-system-time.html) | 1.0 | 1.0 | 1.0 | 1.0 | 
+| [unaccent](http://www.postgresql.org/docs/19/unaccent.html) | 1.1 | 1.1 | 1.1 | 1.1 | 
+| [uuid-ossp](http://www.postgresql.org/docs/19/uuid-ossp.html) | 1.1 | 1.1 | 1.1 | 1.1 | 
+| [wal2json](https://github.com/eulerto/wal2json) | 2.6 | 2.6 | 2.6 | 2.6 | 
 
 ## Extensions supported for RDS for PostgreSQL 18
 <a name="postgresql-extensions-18x"></a>
