@@ -58,7 +58,7 @@ The following Local Zones are available in North America:
 | US West (Denver) | us-west-2-den-1a | usw2-den1-az1 | us-west-2-den-1 | us-west-2 | usw2-az4 | Colorado, United States of America | 
 | US West (Honolulu) | us-west-2-hnl-1a | usw2-hnl1-az1 | us-west-2-hnl-1 | us-west-2 | usw2-az3 | Hawaii, United States of America | 
 | US West (Las Vegas) 2 | us-west-2-las-2a | usw2-las2-az1 | us-west-2-las-2 | us-west-2 | usw2-az1 | Nevada, United States of America | 
-| US West (Las Vegas) | us-west-2-las-1a | usw2-las1-az1 | us-west-2-las-1 | us-west-2 | usw2-az3 | Nevada, United States of America | 
+| US West (Las Vegas)\* | us-west-2-las-1a | usw2-las1-az1 | us-west-2-las-1 | us-west-2 | usw2-az3 | Nevada, United States of America | 
 | US West (Los Angeles) | us-west-2-lax-1a | usw2-lax1-az1 | us-west-2-lax-1 | us-west-2 | usw2-az2 | California, United States of America | 
 | US West (Los Angeles) | us-west-2-lax-1b | usw2-lax1-az2 | us-west-2-lax-1 | us-west-2 | usw2-az4 | California, United States of America | 
 | US West (Phoenix) 2 | us-west-2-phx-2a | usw2-phx2-az1 | us-west-2-phx-2 | us-west-2 | usw2-az2 | Arizona, United States of America | 
