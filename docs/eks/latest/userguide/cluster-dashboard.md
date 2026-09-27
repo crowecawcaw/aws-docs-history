@@ -10,7 +10,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 ## What is the Amazon EKS Dashboard?
 <a name="_what_is_the_amazon_eks_dashboard"></a>
 
-![screenshot of account level cluster metrics](https://docs.aws.amazon.com/eks/latest/userguide/images/eks-dashboard.png)
+![Aggregated data about your clusters](https://docs.aws.amazon.com/eks/latest/userguide/images/eks-dashboard.png)
 
 
 The Amazon EKS Dashboard provides consolidated visibility into your Kubernetes clusters across multiple AWS Regions and AWS Accounts. With this dashboard, you can:
@@ -132,6 +132,10 @@ You can configure the view of the dashboard, and filter resources.
   + Number of installations per add-on.
   + Add-ons with health issues.
   + Version distribution per add-on.
++  **Capabilities**: Review the capabilities enabled across your EKS Clusters and their status.
+  + Distribution of capabilities by type.
+  + Capabilities with health issues.
+  + Breakdown of health issues by code.
 
 ### Available views
 <a name="_available_views"></a>

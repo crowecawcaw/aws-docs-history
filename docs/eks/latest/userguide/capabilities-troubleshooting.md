@@ -126,6 +126,8 @@ The response includes:
 +  **status**: Current capability state (`CREATING`, `ACTIVE`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`)
 +  **health**: Health information including any issues detected by the capability
 
+To review capability health across all of your clusters, see [View aggregated data about cluster resources with the EKS Dashboard](cluster-dashboard.md).
+
 ## Common capability statuses
 <a name="_common_capability_statuses"></a>
 

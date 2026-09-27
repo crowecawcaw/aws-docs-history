@@ -217,7 +217,8 @@ If you created a cluster that uses the `IPv6` family and the cluster has version
                    "ec2:DescribeInstances",
                    "ec2:DescribeTags",
                    "ec2:DescribeNetworkInterfaces",
-                   "ec2:DescribeInstanceTypes"
+                   "ec2:DescribeInstanceTypes",
+                   "ec2:DescribeSubnets"
                ],
                "Resource": "*"
            },
