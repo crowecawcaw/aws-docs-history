@@ -31,13 +31,13 @@ Use questionnaire upload mode to submit an entire questionnaire at once. This mo
 
 1. If this is your first time using Assurance Assistant, the upload option is available directly. Otherwise, choose **Ask question** to access the submission interface.
 
-1. Choose **Choose file** and select your questionnaire. Supported formats: Excel spreadsheet (XLSX), Word (.docx), PDF, maximum 5 MB, up to 1,000 questions.
+1. Choose **Choose file** and select your questionnaire. Supported formats: CSV (comma-separated values), Excel spreadsheet (XLSX), Word (.docx), PDF, maximum 5 MB, up to 1,000 questions.
 
 1. (Optional) Add tags as key-value pairs to help organize questionnaires and manage access.
 
 1. Choose **Submit**.
 
-1. For Excel file upload, Assurance Assistant takes you to the **Configure responses** page. Select the tabs that you want to process, then choose **Configure**. For Word (.docx) and PDF files, this step is skipped and processing begins directly.
+1. For Excel file upload, Assurance Assistant takes you to the **Configure responses** page. Select the tabs that you want to process, then choose **Configure**. For CSV, Word (.docx), and PDF files, this step is skipped and processing begins directly.
 
 1. Processing begins immediately. Assurance Assistant takes you to the details page where you can monitor the status of your questionnaire.
 

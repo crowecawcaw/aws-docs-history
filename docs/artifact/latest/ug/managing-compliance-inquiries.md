@@ -16,7 +16,7 @@ Assurance Assistant is designed for anyone involved in compliance assessments or
 Assurance Assistant is optimized for industry-standard due diligence formats, including:
 + Consensus Assessments Initiative Questionnaire (CAIQ)
 + Standardized Information Gathering questionnaire (SIG)
-+ Custom due diligence questionnaires (DDQs) in XLSX, Word (.docx), and PDF format
++ Custom due diligence questionnaires (DDQs) in CSV (comma-separated values), XLSX, Word (.docx), and PDF format
 
 Assurance Assistant addresses questions about AWS's security controls, compliance posture, and operational practices. Assurance Assistant might not respond to questions that are incomplete, not compliance-related, or contain inappropriate content. Questions about customer-side implementation are outside its scope.
 
