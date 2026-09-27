@@ -331,7 +331,8 @@ For detailed architecture information, see [Migration Assistant architecture det
 Use advanced options to configure the following:
 
 **Indices in request bodies**  
-Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. Setting this property to `false` prevents users from bypassing access control for subresources. By default, the value is `true`. For more information, see [Advanced options and API considerations](ac.md#ac-advanced).
+Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. Setting this property to `false` prevents users from bypassing access control for subresources. By default, the value is `true`. For more information, see [Advanced options and API considerations](ac.md#ac-advanced).  
+Setting this property to `false` breaks OpenSearch Dashboards. Dashboards depends on the bulk, mget, and msearch APIs. Saved objects such as index patterns, visualizations, and dashboards become unreadable. Dashboards might also fail to start after an engine version upgrade, which can prevent the upgrade from finishing. Dashboards isn't supported on domains where this property is `false`, so only set it if you don't need Dashboards on the domain. For more information, see [Advanced options and API considerations](ac.md#ac-advanced) and [Dashboards fails to load or start because explicit indexes are disabled](dashboards-troubleshooting.md#dashboards-troubleshooting-allow-explicit-index).
 
 **Fielddata cache allocation**  
 Specifies the percentage of Java heap space that is allocated to field data. By default, this setting is 20% of the JVM heap.  

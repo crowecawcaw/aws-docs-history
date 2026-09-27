@@ -75,6 +75,9 @@ Update your OpenSearch Serverless collection group settings to modify configurat
 
 Changes to capacity limits take effect immediately and might affect the scaling behavior of collections in the group.
 
+**Capacity limit updates are not incremental**  
+When you update a collection group, any field you don't include in the `capacityLimits` object reverts to its default value. For example, if the current configuration sets `maxIndexingCapacityInOCU` and you omit it from an update, that value resets to the default.
+
 ## Delete collection groups
 <a name="delete-collection-group"></a>
 
@@ -90,8 +93,6 @@ Before you can delete a collection group, you must first remove all collections 
 1. Choose the **Collection groups** tab. Your account's collection groups are displayed.
 
 1.  Choose the **Name** of the collection group you want to delete.
-**Important**  
-Remove all collections from the collection group by updating each collection to remove the collection group association or by moving them to other collection groups.
 
 1. At the top of the page, choose **Delete**.
 

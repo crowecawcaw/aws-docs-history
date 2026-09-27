@@ -66,6 +66,9 @@ aws opensearchserverless update-collection-group \
     --capacity-limits maxIndexingCapacityInOCU={{48}},maxSearchCapacityInOCU={{48}},minIndexingCapacityInOCU={{8}},minSearchCapacityInOCU={{8}}
 ```
 
+**Capacity limit updates are not incremental**  
+When you update a collection group, any field you don't include in the `capacityLimits` object reverts to its default value. For example, if the current configuration sets `maxIndexingCapacityInOCU` and you omit it from an update, that value resets to the default.
+
 ## Monitor collection group capacity
 <a name="collection-groups-capacity-monitoring"></a>
 

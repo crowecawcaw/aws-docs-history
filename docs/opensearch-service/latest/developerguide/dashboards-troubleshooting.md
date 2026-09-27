@@ -25,6 +25,7 @@ Dashboards reports "server is not ready yet" until all of its core services fini
   + An OpenSearch Dashboards index left over from a previous version prevents the new alias from being created.
   + An upgrade from an older engine version whose Dashboards didn't use an alias conflicts with an existing index.
   + Documents written by a newer (self-managed) Dashboards instance can't be automatically migrated to the target version.
+  + The `rest.action.multi.allow_explicit_index` advanced cluster option is set to `false`, which blocks the bulk requests that the migration uses. Unlike the other causes in this list, you can correct this one yourself. For more information, see [Dashboards fails to load or start because explicit indexes are disabled](#dashboards-troubleshooting-allow-explicit-index).
 + Without an upgrade, a blocked migration can happen for these reasons:
   + A corrupted OpenSearch Dashboards index created by a UI request or a restore blocks the alias.
   + Two or more versioned OpenSearch Dashboards indexes point at the same alias. This can also surface as an `Internal Server Error` (HTTP 500) even when cluster health is green.
@@ -36,6 +37,10 @@ How to mitigate
 1. If a configuration change or version upgrade is in progress, wait for the domain to return to **Active**. The message is often transient and clears on its own. A normal change or upgrade completes within a few hours. If Dashboards is still unavailable more than 4 hours after the domain returns to **Active**, treat it as a persistent problem. Continue with the following steps. (You can't start a service software update while the domain is still processing a change.)
 
 1. If cluster health is red or yellow, resolve the cluster issue first (see [Related cluster and access issues](#dashboards-troubleshooting-related)). Dashboards can't start on an unhealthy cluster.
+
+1. Check whether the `rest.action.multi.allow_explicit_index` advanced cluster option is set to `false`. If it is, that alone prevents Dashboards from starting. Set it back to `true` as described in [Dashboards fails to load or start because explicit indexes are disabled](#dashboards-troubleshooting-allow-explicit-index), then skip the remaining steps.
+
+   You can usually make this change yourself without a Support case. The exception is a domain that is stuck part-way through a version upgrade. You can't change advanced options while an upgrade is in progress, so the request is rejected. In that case, contact [AWS Support](https://aws.amazon.com/premiumsupport/) to clear the upgrade first.
 
 1. If the message persists while cluster health is green, gather some read-only diagnostics that help AWS Support resolve the issue faster, then contact [AWS Support](https://aws.amazon.com/premiumsupport/) to repair the OpenSearch Dashboards index. Include the output of the following commands in your case:
 
@@ -53,18 +58,31 @@ How to mitigate
 Suggested action  
 Keep your domain on a current service software version and take a snapshot before each upgrade. If you rely on Dashboards for production monitoring, consider the centralized [Using OpenSearch UI in Amazon OpenSearch Service](application.md), which is not tied to a single domain's per-domain OpenSearch Dashboards index migration.
 
-## Dashboards fails to load with an allow\_explicit\_index message
+## Dashboards fails to load or start because explicit indexes are disabled
 <a name="dashboards-troubleshooting-allow-explicit-index"></a>
 
 Symptom  
-Dashboards fails to load and displays a message similar to the following:  
+Dashboards is unavailable or unusable, in one of three ways.  
+On older engine versions, Dashboards loads and displays a message that names the option:  
 
 ```
 Kibana must be able to specify the index within Elasticsearch multi-requests (rest.action.multi.allow_explicit_index=true).
 ```
+On current versions there is no such message. If a saved-object migration is pending, Dashboards reports `OpenSearch Dashboards server is not ready yet` and never finishes starting. This looks the same as any other blocked migration (see [Dashboards is stuck at "server is not ready yet" (HTTP 503 not ready error)](#dashboards-troubleshooting-not-ready)).  
+If no migration is pending, Dashboards starts and reports that it is healthy, but it can't read its saved objects. The page loads, and index patterns, saved searches, visualizations, and dashboards are missing or fail to load. Your browser's developer console shows HTTP 400 responses from requests to `api/saved_objects/_bulk_get`. Your saved objects have not been lost. Dashboards can't read them while this option is `false`.  
+Because none of these messages names the option, check its value directly before you assume another cause. You can see the current value in the console under **Advanced cluster settings**, or with the AWS CLI:  
+
+```
+aws opensearch describe-domain-config \
+  --domain-name {{my-domain}} \
+  --query "DomainConfig.AdvancedOptions"
+```
 
 Root cause  
-The `rest.action.multi.allow_explicit_index` advanced cluster option is set to `false`. Set this option to `true` so that Dashboards can perform its bulk, mget, and msearch operations.
+The `rest.action.multi.allow_explicit_index` advanced cluster option is set to `false`. Dashboards needs the bulk, mget, and msearch APIs with index names in the request body. It needs them both to load data and to migrate its own saved objects, so this option prevents it from working:  
++ Dashboards can't read its own saved objects, because it retrieves them with mget and msearch. This happens as soon as the option is set, whether or not a migration is pending, and it happens even when Dashboards reports that it is healthy.
++ Dashboards can fail to start entirely. Whenever the saved-object format changes (for example, after an engine version upgrade), Dashboards migrates the OpenSearch Dashboards index into a new index on startup. This migration uses the bulk API with the index named in the request body. It fails while this option is `false`, and Dashboards doesn't recover on its own.
++ An engine version upgrade can stop before it finishes, because the upgrade verifies that Dashboards is healthy before it completes.
 
 How to mitigate  
 Set `rest.action.multi.allow_explicit_index` back to `true` in the domain's advanced options. This is a management-plane change you make with your own AWS credentials, either in the console (open the domain, choose **Edit**, and update **Advanced cluster settings**) or with the AWS Command Line Interface (AWS CLI):  
@@ -74,10 +92,15 @@ aws opensearch update-domain-config \
   --domain-name {{my-domain}} \
   --advanced-options rest.action.multi.allow_explicit_index=true
 ```
-Changing an advanced option triggers a blue/green deployment, so the change takes a few minutes to apply. For more information about advanced cluster settings, see [Advanced cluster settings](createupdatedomains.md#createdomain-configure-advanced-options).
+Changing an advanced option triggers a blue/green deployment, so the change takes a few minutes to apply. For more information about advanced cluster settings, see [Advanced cluster settings](createupdatedomains.md#createdomain-configure-advanced-options).  
+You can't change advanced options while a configuration change or version upgrade is in progress. If an upgrade has already stalled because Dashboards can't start, this request is rejected. You can't apply the fix yourself in this case—contact [AWS Support](https://aws.amazon.com/premiumsupport/). To avoid this, set the option to `true` before you start an upgrade.
+If the domain was already upgraded while this option was `false`, Dashboards might have left behind one or more unused OpenSearch Dashboards indexes from the failed migration attempts. Setting the option back to `true` doesn't always clear them. If Dashboards still reports `OpenSearch Dashboards server is not ready yet` after the change is applied, contact [AWS Support](https://aws.amazon.com/premiumsupport/) to repair the OpenSearch Dashboards index. Don't delete it yourself—it holds your index patterns, visualizations, and dashboards.
 
 Suggested action  
-Don't set `rest.action.multi.allow_explicit_index` to `false` unless you intend to restrict index access through resource-based policies. Leaving it at the default (`true`) keeps Dashboards operational.
+Don't set `rest.action.multi.allow_explicit_index` to `false` unless both of the following are true:  
++ You intend to restrict index access through resource-based policies.
++ You don't need Dashboards on the domain.
+Leaving it at the default (`true`) keeps Dashboards operational. If you do need to restrict subresource access this way, see [Advanced options and API considerations](ac.md#ac-advanced) for the tradeoff and for a per-user alternative that keeps Dashboards working. Before any engine version upgrade, confirm this option is `true`. An upgrade started while it is `false` can leave both Dashboards and the upgrade stuck.
 
 ## Dashboards runs out of memory
 <a name="dashboards-troubleshooting-oom"></a>
@@ -193,6 +216,7 @@ Clear your browser cache after a service software update, and use a supported, u
 <a name="dashboards-troubleshooting-unsupported-configs"></a>
 
 Avoid these configurations, which are common sources of Dashboards problems:
++ **Dashboards isn't supported on domains where `rest.action.multi.allow_explicit_index` is set to `false`.** Dashboards requires the bulk, mget, and msearch APIs with index names in the request body, so this option is not compatible with running Dashboards. Setting the option back to `true` is the only way to restore Dashboards. No configuration keeps both. AWS Support can help you repair the OpenSearch Dashboards index after you re-enable the option, but can't make Dashboards work while it stays disabled. Decide per domain which one you need. For more information, see [Dashboards fails to load or start because explicit indexes are disabled](#dashboards-troubleshooting-allow-explicit-index).
 + **Reverse proxies (for example, nginx) in front of Dashboards are supported only for access control**, as described in [Using a proxy to access OpenSearch Service from Dashboards](dashboards.md#dashboards-proxy). If you run Dashboards through third-party proxy software and hit an unexpected error, reproduce the issue without the proxy before you contact AWS Support.
 + **Manual edits to node configuration files aren't persistent.** Any blue/green deployment or node replacement reverts them. Use supported settings and options instead of node-level edits. You can't use SSH to access nodes or directly modify configuration files.
 
