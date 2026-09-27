@@ -19,6 +19,7 @@ The following actions are supported:
 +  [ListCustomPlugins](API_ListCustomPlugins.md) 
 +  [ListTagsForResource](API_ListTagsForResource.md) 
 +  [ListWorkerConfigurations](API_ListWorkerConfigurations.md) 
++  [RestartConnector](API_RestartConnector.md) 
 +  [TagResource](API_TagResource.md) 
 +  [UntagResource](API_UntagResource.md) 
 +  [UpdateConnector](API_UpdateConnector.md) 

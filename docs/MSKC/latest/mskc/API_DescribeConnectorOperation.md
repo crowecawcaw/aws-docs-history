@@ -117,12 +117,12 @@ Type: String
  ** [connectorOperationState](#API_DescribeConnectorOperation_ResponseSyntax) **   <a name="MSKC-DescribeConnectorOperation-response-connectorOperationState"></a>
 The state of the connector operation.  
 Type: String  
-Valid Values: `PENDING | UPDATE_IN_PROGRESS | UPDATE_COMPLETE | UPDATE_FAILED | ROLLBACK_IN_PROGRESS | ROLLBACK_FAILED | ROLLBACK_COMPLETE` 
+Valid Values: `PENDING | UPDATE_IN_PROGRESS | UPDATE_COMPLETE | UPDATE_FAILED | ROLLBACK_IN_PROGRESS | ROLLBACK_FAILED | ROLLBACK_COMPLETE | RESTART_IN_PROGRESS | RESTART_COMPLETE | RESTART_FAILED` 
 
  ** [connectorOperationType](#API_DescribeConnectorOperation_ResponseSyntax) **   <a name="MSKC-DescribeConnectorOperation-response-connectorOperationType"></a>
 The type of connector operation performed.  
 Type: String  
-Valid Values: `UPDATE_WORKER_SETTING | UPDATE_CONNECTOR_CONFIGURATION | ISOLATE_CONNECTOR | RESTORE_CONNECTOR` 
+Valid Values: `UPDATE_WORKER_SETTING | UPDATE_CONNECTOR_CONFIGURATION | ISOLATE_CONNECTOR | RESTORE_CONNECTOR | RESTART_CONNECTOR` 
 
  ** [creationTime](#API_DescribeConnectorOperation_ResponseSyntax) **   <a name="MSKC-DescribeConnectorOperation-response-creationTime"></a>
 The time when the operation was created.  

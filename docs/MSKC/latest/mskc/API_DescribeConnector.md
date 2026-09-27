@@ -145,7 +145,7 @@ Type: String
  ** [connectorState](#API_DescribeConnector_ResponseSyntax) **   <a name="MSKC-DescribeConnector-response-connectorState"></a>
 The state of the connector.  
 Type: String  
-Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED` 
+Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED | RESTARTING` 
 
  ** [creationTime](#API_DescribeConnector_ResponseSyntax) **   <a name="MSKC-DescribeConnector-response-creationTime"></a>
 The time the connector was created.  

@@ -56,7 +56,7 @@ Type: String
  ** [connectorState](#API_DeleteConnector_ResponseSyntax) **   <a name="MSKC-DeleteConnector-response-connectorState"></a>
 The state of the connector that you requested to delete.  
 Type: String  
-Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED` 
+Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED | RESTARTING` 
 
 ## Errors
 <a name="API_DeleteConnector_Errors"></a>

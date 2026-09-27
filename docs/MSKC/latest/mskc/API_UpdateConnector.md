@@ -97,7 +97,7 @@ Type: String
  ** [connectorState](#API_UpdateConnector_ResponseSyntax) **   <a name="MSKC-UpdateConnector-response-connectorState"></a>
 The state of the connector.  
 Type: String  
-Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED` 
+Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED | RESTARTING` 
 
 ## Errors
 <a name="API_UpdateConnector_Errors"></a>

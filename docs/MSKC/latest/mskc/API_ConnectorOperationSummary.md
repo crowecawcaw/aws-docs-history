@@ -16,13 +16,13 @@ Required: No
  ** connectorOperationState **   <a name="MSKC-Type-ConnectorOperationSummary-connectorOperationState"></a>
 The state of the connector operation.  
 Type: String  
-Valid Values: `PENDING | UPDATE_IN_PROGRESS | UPDATE_COMPLETE | UPDATE_FAILED | ROLLBACK_IN_PROGRESS | ROLLBACK_FAILED | ROLLBACK_COMPLETE`   
+Valid Values: `PENDING | UPDATE_IN_PROGRESS | UPDATE_COMPLETE | UPDATE_FAILED | ROLLBACK_IN_PROGRESS | ROLLBACK_FAILED | ROLLBACK_COMPLETE | RESTART_IN_PROGRESS | RESTART_COMPLETE | RESTART_FAILED`   
 Required: No
 
  ** connectorOperationType **   <a name="MSKC-Type-ConnectorOperationSummary-connectorOperationType"></a>
 The type of connector operation performed.  
 Type: String  
-Valid Values: `UPDATE_WORKER_SETTING | UPDATE_CONNECTOR_CONFIGURATION | ISOLATE_CONNECTOR | RESTORE_CONNECTOR`   
+Valid Values: `UPDATE_WORKER_SETTING | UPDATE_CONNECTOR_CONFIGURATION | ISOLATE_CONNECTOR | RESTORE_CONNECTOR | RESTART_CONNECTOR`   
 Required: No
 
  ** creationTime **   <a name="MSKC-Type-ConnectorOperationSummary-creationTime"></a>

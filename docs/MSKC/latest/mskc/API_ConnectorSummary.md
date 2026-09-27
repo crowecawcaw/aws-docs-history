@@ -31,7 +31,7 @@ Required: No
  ** connectorState **   <a name="MSKC-Type-ConnectorSummary-connectorState"></a>
 The state of the connector.  
 Type: String  
-Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED`   
+Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED | RESTARTING`   
 Required: No
 
  ** creationTime **   <a name="MSKC-Type-ConnectorSummary-creationTime"></a>
