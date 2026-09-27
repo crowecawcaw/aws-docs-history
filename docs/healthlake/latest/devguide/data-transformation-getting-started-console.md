@@ -73,7 +73,7 @@ To roll back: choose a previous version and publish it again. This creates a new
 1. Choose Start new job.
 
 1. Fill in Job details:
-   + Job name: a descriptive name (appears in CloudWatch logs and metrics).
+   + Job name: a descriptive name for the job.
    + Description: optional.
 
 1. Configure Transformation settings:

@@ -165,7 +165,7 @@ The service creates a job-scoped folder under your output Amazon S3 URI using th
 ### Monitoring
 <a name="data-transformation-bulk-jobs-monitoring"></a>
 
-Track a running job through the AWS Management Console job detail page or the DescribeDataTransformationJob API: status, files processed (rows for CSV), resources generated, and failures. Job metrics and logs are also available in Amazon CloudWatch.
+Track a running job through the AWS Management Console job detail page or the DescribeDataTransformationJob API: status, files processed (rows for CSV), resources generated, and failures. Job logs and per-job metrics are not available in your account. To audit the API calls that start and describe jobs, use AWS CloudTrail and filter on the event name, for example `StartDataTransformationJob`. These events reference the data transformation profile, so the associated resource is the profile ARN rather than the job ID. For more information, see [Logging HealthLake API calls using AWS CloudTrail](monitoring-cloudtrail.md).
 
 ## Validation
 <a name="data-transformation-validation"></a>

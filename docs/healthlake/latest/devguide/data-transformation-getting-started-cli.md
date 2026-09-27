@@ -35,6 +35,9 @@ aws healthlake create-data-transformation-profile \
   --source '{"SampleData": {"S3Uri": "s3://amzn-s3-demo-bucket/samples/patient-data.csv"}}'
 ```
 
+**Note**  
+The profile that this call returns has an empty mapping. The agent analyzes your sample data and generates the mapping on its first conversational turn, so an empty mapping immediately after you create the profile is expected and does not indicate a failure.
+
 Run the AI agent to create initial YAML mapping.
 
 Initiate a new conversation with the agent to get a new conversation ID. Call the API again, this time passing the ConversationId from the previous response and your actual request. For a CSV profile, this is where the agent analyzes the sample files you provided at creation and generates the YAML mapping:
