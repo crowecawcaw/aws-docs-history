@@ -30,10 +30,10 @@
    https://idp.awsevents.com/oidc/logout?redirect_uri={{encoded-url}}
    ```
 
-    That one navigation clears both sessions and lands back on your application. The Builder ID endpoint has to come first: it accepts a redirect back to the sign-in domain, not to your application. `logout_uri` is exact-matched like `redirect_uri`, but against a separate list of sign-out URLs — `/logout` on the same reserved ports, in both host forms. 
+    That one navigation clears both sessions and lands back on your application. The Builder ID endpoint has to come first: it accepts a redirect back to the sign-in domain, not to your application. `logout_uri` is matched exactly, like `redirect_uri`, but against a separate list of sign-out URLs — `/logout` on the same reserved ports, in both host forms. 
 
 **Important**  
- Both endpoints are required. Skip the Builder ID one and the attendee appears to sign out, then is signed straight back in without a prompt. You cannot force a prompt instead: `prompt=login` and `max_age=0` are dropped from authorization requests. It does not reproduce unless you test sign-out and sign-in in the same browser. 
+ Both endpoints are required. Skip the Builder ID one and the attendee appears to sign out, then is signed straight back in without a prompt. You cannot force a prompt instead: `prompt=login` and `max_age=0` are dropped from authorization requests. You notice this only when you test sign-out and sign-in in the same browser. 
 
  Offer both steps separately. Clearing your own tokens signs the attendee out of your application. The second step also ends their AWS Builder ID session in that browser, which is not always what they want. 
 

@@ -5,7 +5,7 @@
 
  All requests go to `https://api.awsevents.com`. Every path is versioned and begins with `/v1`. Requests and responses are JSON. 
 
- Reading a registration event's catalog, and every operation on your own schedule, needs a bearer token from an attendee registered for that event. For more information, see [Authentication](authentication.md). Examples use `reinvent2026`, which requires registration, and shell variables for the IDs and token you supply. 
+ Reading the catalog of an event that requires registration, and every operation on your own schedule, needs a bearer token from an attendee registered for that event. For more information, see [Authentication](authentication.md). Examples use `reinvent2026`, which requires registration, and shell variables for the IDs and token you supply. 
 
 **Note**  
  The full OpenAPI description of these operations is served at `https://api.awsevents.com/v1/openapi.json`. 

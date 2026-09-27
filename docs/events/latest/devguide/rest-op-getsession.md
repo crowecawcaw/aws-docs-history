@@ -3,7 +3,7 @@
 # GetSession
 <a name="rest-op-getsession"></a>
 
-Gets one session in an event. The session has the same shape as a list entry. See [What a session contains](rest-op-listsessions.md#rest-session-shape). Session IDs come from `ListSessions`. No sign-in is needed, unless the event requires registration.
+Gets one session in an event. The session has the same shape as a list entry. See [What a session contains](rest-op-listsessions.md#rest-session-shape). Session IDs come from `ListSessions`. It takes the same optional `locale` query parameter and reports the served language the same way. No sign-in is needed, unless the event requires registration.
 
 ```
 GET /v1/events/{eventId}/sessions/{sessionId}

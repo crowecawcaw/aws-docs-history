@@ -12,7 +12,14 @@
 
  The server requires sign-in, and the client handles that flow for you. On the first call it receives a challenge naming where to sign in, opens that page in a browser, and stores the resulting token. The sign-in itself is the flow described in [Authentication](authentication.md). 
 
-**Kiro**
+**Important**  
+ Use the callback values shown for your client in the following sections, and always set the port. Both clients pick a random port otherwise, and a random port cannot sign in. The API matches a callback in full, port and path included, with no wildcards, and one it does not recognize fails without reporting the callback as the cause. 
+
+**Note**  
+ The client stores your token on the machine it runs on, and not every client protects it well. Deleting a client's configuration does not invalidate the token it already holds. An MCP client has no redirect chain to sign you out with, so to sign out fully, revoke the token as described in [Signing an attendee out](auth-signing-out.md), then end the Builder ID session at `https://profile.aws.amazon.com`. 
+
+### Kiro
+<a name="mcp-connecting-kiro"></a>
 
  Add the server to your MCP configuration file: 
 
@@ -33,7 +40,8 @@
 
  End `redirectUri` at the port, as shown. Kiro reads the port from the last colon onward and adds the `/oauth/callback` path itself. Give it a value with a path and it cannot read the port, so it falls back to a random one and sign-in fails with `redirect_mismatch`. Reload the window after editing the file. 
 
-**Claude Code**
+### Claude Code
+<a name="mcp-connecting-claude-code"></a>
 
 ```
 claude mcp add --transport http --scope user awsevents \
@@ -41,13 +49,10 @@ claude mcp add --transport http --scope user awsevents \
   --callback-port 8484 --client-id 7vmom55m1qstvq8i71ph127bfq
 ```
 
-**Important**  
- Use the preceding callback values, and always set the port. Both clients pick a random port otherwise, and a random port cannot sign in. The API matches a callback in full, port and path included, with no wildcards, and one it does not recognize fails without reporting the callback as the cause. 
+### Confirming the connection
+<a name="mcp-connecting-confirm"></a>
 
-**Note**  
- The client stores your token on the machine it runs on, and not every client protects it well. Deleting a client's configuration does not invalidate the token it already holds. An MCP client has no redirect chain to sign you out with, so to sign out fully, revoke the token as described in [Signing an attendee out](auth-signing-out.md), then end the Builder ID session at `https://profile.aws.amazon.com`. 
-
- To confirm the connection, ask the assistant to list events. 
+ Ask the assistant to list events. 
 
 ## Available tools
 <a name="mcp-tools"></a>
@@ -59,7 +64,7 @@ claude mcp add --transport http --scope user awsevents \
 
 | Tool | Description | 
 | --- | --- | 
-| ListEvents | Lists AWS events that are running or upcoming, such as AWS re:Invent. | 
+| ListEvents | Lists AWS events that are ongoing or upcoming, such as AWS re:Invent. | 
 | GetEvent | Gets one event by ID. | 
 | ListSessions | Lists an event's sessions, a page at a time. | 
 | GetSession | Gets one session within an event. | 

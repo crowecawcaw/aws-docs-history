@@ -37,6 +37,6 @@ The following table describes the fields on a personal time entry.
 | --- | --- | --- | 
 | `title` | Yes | 1–128 characters. | 
 | `description` | Yes | 1–250 characters. | 
-| `startDateTime` | Yes | UTC, formatted `YYYY-MM-DDTHH:mm:ss`, with no offset or trailing `Z`. | 
-| `endDateTime` | Yes | Same format. The duration from start to end must be a whole number of 5-minute increments. | 
+| `startDateTime` | Yes | UTC, formatted `YYYY-MM-DDTHH:mm:ss`, with no offset or trailing `Z`. A block is stored to the minute, so the seconds must be `00`. | 
+| `endDateTime` | Yes | Same format, also to the minute. Must be after `startDateTime`, and the duration from start to end must be a whole number of 5-minute increments. | 
 | `location` | No | Up to 255 characters. | 

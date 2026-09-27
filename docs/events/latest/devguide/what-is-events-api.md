@@ -4,7 +4,7 @@
 <a name="what-is-events-api"></a>
 
 **Note**  
-Reserved seating for AWS re:Invent opens on October 6, 2026, and opens through this API on October 8, 2026. Until then, reserving and canceling return `409`. Reading the catalog and marking favorites work as normal.
+Reserved seating for AWS re:Invent opens October 6, 2026, but does not open through this API until October 8, 2026. Until then, reserving or canceling returns `409`. Reading the catalog and marking favorites work as normal.
 
  AWS re:Invent, AWS Summits, and other AWS conferences publish session catalogs listing talks, workshops, and labs. 
 
@@ -12,7 +12,7 @@ Reserved seating for AWS re:Invent opens on October 6, 2026, and opens through t
 
  You sign in on your own machine. There is no hosted option. An application you distribute runs on each attendee's machine and signs that person in. The API always acts for the attendee who is signed in. 
 
- You can use the API two ways. Both offer the same features. 
+ You can use the API in two ways. Both offer the same features. 
 +  A *REST API*, for applications and scripts. For more information, see [Using the REST API](rest-api.md). 
 +  A *Model Context Protocol (MCP) server*, for AI assistants and agents. An MCP client finds the available tools and calls them for you. You can ask an assistant to find sessions or build a schedule. Unlike the REST API, the MCP server requires sign-in for every call, even catalog reads. For more information, see [Using the MCP server](mcp-server.md). 
 
