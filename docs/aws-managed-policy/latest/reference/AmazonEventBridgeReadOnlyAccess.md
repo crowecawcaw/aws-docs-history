@@ -16,13 +16,13 @@ You can attach `AmazonEventBridgeReadOnlyAccess` to your users, groups, and role
 <a name="AmazonEventBridgeReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 11, 2019, 13:59 UTC 
-+ **Edited time:** December 01, 2022, 17:02 UTC
++ **Edited time:** September 24, 2026, 21:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonEventBridgeReadOnlyAccess`
 
 ## Policy version
 <a name="AmazonEventBridgeReadOnlyAccess-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -55,6 +55,11 @@ The policy's default version is the version that defines the permissions for the
         "events:ListApiDestinations",
         "events:DescribeEndpoint",
         "events:ListEndpoints",
+        "events:DescribeSubscriber",
+        "events:ListSubscribers",
+        "events:GetResourcePolicy",
+        "events:ListResourcePolicies",
+        "events:ListTagsForResource",
         "schemas:DescribeCodeBinding",
         "schemas:DescribeDiscoverer",
         "schemas:DescribeRegistry",

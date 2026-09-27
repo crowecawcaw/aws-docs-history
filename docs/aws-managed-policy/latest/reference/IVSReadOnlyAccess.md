@@ -16,13 +16,13 @@ You can attach `IVSReadOnlyAccess` to your users, groups, and roles.
 <a name="IVSReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: December 05, 2023, 18:00 UTC 
-+ **Edited time:** February 12, 2026, 18:03 UTC
++ **Edited time:** September 25, 2026, 19:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/IVSReadOnlyAccess`
 
 ## Policy version
 <a name="IVSReadOnlyAccess-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -38,6 +38,7 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "ivs:BatchGetChannel",
+        "ivs:GetAdConfiguration",
         "ivs:GetChannel",
         "ivs:GetComposition",
         "ivs:GetEncoderConfiguration",
@@ -52,6 +53,7 @@ The policy's default version is the version that defines the permissions for the
         "ivs:GetStorageConfiguration",
         "ivs:GetStream",
         "ivs:GetStreamSession",
+        "ivs:ListAdConfigurations",
         "ivs:ListChannels",
         "ivs:ListCompositions",
         "ivs:ListEncoderConfigurations",

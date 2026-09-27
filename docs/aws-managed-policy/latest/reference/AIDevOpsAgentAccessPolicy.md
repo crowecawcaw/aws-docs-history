@@ -16,13 +16,13 @@ You can attach `AIDevOpsAgentAccessPolicy` to your users, groups, and roles.
 <a name="AIDevOpsAgentAccessPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: March 26, 2026, 03:42 UTC 
-+ **Edited time:** August 12, 2026, 23:07 UTC
++ **Edited time:** September 24, 2026, 20:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AIDevOpsAgentAccessPolicy`
 
 ## Policy version
 <a name="AIDevOpsAgentAccessPolicy-version"></a>
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -66,6 +66,7 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:ListAssetTypes",
         "aidevops:ListAssetVersions",
         "aidevops:ListKnowledgeItems",
+        "airflow:GetEnvironment",
         "airflow:List*",
         "amplify:GetApp",
         "amplify:GetBranch",
@@ -206,6 +207,7 @@ The policy's default version is the version that defines the permissions for the
         "cloudwatch:GetMetricData",
         "cloudwatch:GetMetricStatistics",
         "cloudwatch:GetMetricStream",
+        "cloudwatch:GetOTelEnrichment",
         "cloudwatch:GetService",
         "cloudwatch:GetServiceLevelObjective",
         "cloudwatch:List*",
@@ -293,6 +295,7 @@ The policy's default version is the version that defines the permissions for the
         "config:List*",
         "config:SelectAggregateResourceConfig",
         "connect:Describe*",
+        "connect:GetMetricDataV2",
         "connect:GetTaskTemplate",
         "connect:List*",
         "cur:Describe*",
@@ -432,6 +435,7 @@ The policy's default version is the version that defines the permissions for the
         "glue:GetDatabase",
         "glue:GetDatabases",
         "glue:GetDataCatalogEncryptionSettings",
+        "glue:GetDataQualityResult",
         "glue:GetJob",
         "glue:GetJobBookmark",
         "glue:GetJobRun",
@@ -489,6 +493,7 @@ The policy's default version is the version that defines the permissions for the
         "iam:GetUserPolicy",
         "iam:ListAccountAliases",
         "iam:ListAttachedRolePolicies",
+        "iam:ListEntitiesForPolicy",
         "iam:ListOpenIDConnectProviders",
         "iam:ListRolePolicies",
         "iam:ListRoles",
@@ -780,6 +785,7 @@ The policy's default version is the version that defines the permissions for the
         "rum:List*",
         "s3-outposts:ListEndpoints",
         "s3-outposts:ListOutpostsWithS3",
+        "s3:GetAccelerateConfiguration",
         "s3:GetAccessGrant",
         "s3:GetAccessGrantsInstance",
         "s3:GetAccessGrantsLocation",
@@ -789,6 +795,7 @@ The policy's default version is the version that defines the permissions for the
         "s3:GetAccessPointPolicy",
         "s3:GetAccessPointPolicyForObjectLambda",
         "s3:GetAccessPointPolicyStatusForObjectLambda",
+        "s3:GetAnalyticsConfiguration",
         "s3:GetBucketAbac",
         "s3:GetBucketAcl",
         "s3:GetBucketCORS",
@@ -802,10 +809,12 @@ The policy's default version is the version that defines the permissions for the
         "s3:GetBucketPublicAccessBlock",
         "s3:GetBucketTagging",
         "s3:GetBucketVersioning",
+        "s3:GetBucketWebsite",
         "s3:GetEncryptionConfiguration",
         "s3:GetIntelligentTieringConfiguration",
         "s3:GetInventoryConfiguration",
         "s3:GetLifecycleConfiguration",
+        "s3:GetMetricsConfiguration",
         "s3:GetMultiRegionAccessPoint",
         "s3:GetMultiRegionAccessPointPolicy",
         "s3:GetMultiRegionAccessPointPolicyStatus",
@@ -814,6 +823,7 @@ The policy's default version is the version that defines the permissions for the
         "s3:GetStorageLensConfigurationTagging",
         "s3:GetStorageLensGroup",
         "s3:ListAllMyBuckets",
+        "s3:ListTagsForResource",
         "sagemaker:Describe*",
         "sagemaker:List*",
         "scheduler:GetSchedule",
@@ -937,9 +947,15 @@ The policy's default version is the version that defines the permissions for the
         "wafv2:GetLoggingConfiguration",
         "wafv2:GetRegexPatternSet",
         "wafv2:GetRuleGroup",
+        "wafv2:GetSampledRequests",
         "wafv2:GetWebACL",
         "wafv2:GetWebACLForResource",
         "wafv2:List*",
+        "wisdom:Get*",
+        "wisdom:List*",
+        "wisdom:Query*",
+        "wisdom:Retrieve",
+        "wisdom:Search*",
         "workspaces-web:GetBrowserSettings",
         "workspaces-web:GetIdentityProvider",
         "workspaces-web:GetNetworkSettings",
@@ -986,6 +1002,20 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:apigateway:*::/domainnames",
         "arn:aws:apigateway:*::/domainnames/*"
       ]
+    },
+    {
+      "Sid" : "AllowListBucketAWSLogs",
+      "Effect" : "Allow",
+      "Action" : "s3:ListBucket",
+      "Resource" : "arn:aws:s3:::*",
+      "Condition" : {
+        "StringLike" : {
+          "s3:prefix" : [
+            "AWSLogs/*",
+            "*/AWSLogs/*"
+          ]
+        }
+      }
     }
   ]
 }

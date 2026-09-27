@@ -16,13 +16,13 @@ You can attach `CloudWatchReadOnlyAccess` to your users, groups, and roles.
 <a name="CloudWatchReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 06, 2015, 18:40 UTC 
-+ **Edited time:** February 12, 2026, 18:01 UTC
++ **Edited time:** September 22, 2026, 16:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess`
 
 ## Policy version
 <a name="CloudWatchReadOnlyAccess-version"></a>
 
-**Policy version:** v24 (default)
+**Policy version:** v25 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -48,6 +48,7 @@ The policy's default version is the version that defines the permissions for the
         "cloudwatch:GenerateQuery",
         "cloudwatch:Get*",
         "cloudwatch:List*",
+        "cloudwatch:CreateOneTimeDeepLinkCode",
         "logs:Get*",
         "logs:List*",
         "logs:StartQuery",
@@ -76,6 +77,8 @@ The policy's default version is the version that defines the permissions for the
         "observabilityadmin:ValidateTelemetryPipelineConfiguration",
         "observabilityadmin:GetS3TableIntegration",
         "observabilityadmin:ListS3TableIntegrations",
+        "observabilityadmin:GetDatasetIntegration",
+        "observabilityadmin:ListDatasetIntegrations",
         "sns:Get*",
         "sns:List*",
         "rum:BatchGet*",

@@ -16,7 +16,7 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 01, 2025, 18:04 UTC 
-+ **Edited time:** September 11, 2026, 00:37 UTC
++ **Edited time:** September 23, 2026, 22:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy`
 
 ## Policy version

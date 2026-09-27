@@ -16,13 +16,13 @@ You can attach `AnthropicLimitedAccess` to your users, groups, and roles.
 <a name="AnthropicLimitedAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 01, 2026, 04:57 UTC 
-+ **Edited time:** June 12, 2026, 16:57 UTC
++ **Edited time:** September 25, 2026, 20:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AnthropicLimitedAccess`
 
 ## Policy version
 <a name="AnthropicLimitedAccess-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -83,7 +83,9 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "aws-external-anthropic:GetAccountStatus",
-        "aws-external-anthropic:CallWithBearerToken"
+        "aws-external-anthropic:CallWithBearerToken",
+        "aws-external-anthropic:ListKeys",
+        "aws-external-anthropic:GetKey"
       ],
       "Resource" : "*"
     },

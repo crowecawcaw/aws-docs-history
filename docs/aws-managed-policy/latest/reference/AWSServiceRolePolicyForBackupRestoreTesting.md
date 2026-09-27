@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSServiceRolePolicyForBackupRestoreTesting-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: November 10, 2023, 23:37 UTC 
-+ **Edited time:** March 18, 2026, 22:12 UTC
++ **Edited time:** September 25, 2026, 01:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupRestoreTesting`
 
 ## Policy version
 <a name="AWSServiceRolePolicyForBackupRestoreTesting-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -80,7 +80,8 @@ The policy's default version is the version that defines the permissions for the
         "rds:DescribeDBInstanceAutomatedBackups",
         "rds:DescribeDBClusterAutomatedBackups",
         "rds:ListTagsForResource",
-        "redshift:DescribeClusters"
+        "redshift:DescribeClusters",
+        "redshift:DescribeTags"
       ],
       "Resource" : "*"
     },

@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="NetworkSecurityDirectorServiceLinkedRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: June 13, 2025, 20:07 UTC 
-+ **Edited time:** February 12, 2026, 17:57 UTC
++ **Edited time:** September 24, 2026, 18:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/NetworkSecurityDirectorServiceLinkedRolePolicy`
 
 ## Policy version
 <a name="NetworkSecurityDirectorServiceLinkedRolePolicy-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -249,6 +249,19 @@ The policy's default version is the version that defines the permissions for the
         }
       },
       "Resource" : "*"
+    },
+    {
+      "Sid" : "DisableNSDPolicyType",
+      "Effect" : "Allow",
+      "Action" : [
+        "organizations:DisablePolicyType"
+      ],
+      "Resource" : "arn:aws:organizations::*:root/o-*/r-*",
+      "Condition" : {
+        "StringEquals" : {
+          "organizations:PolicyType" : "NETWORK_SECURITY_DIRECTOR_POLICY"
+        }
+      }
     }
   ]
 }

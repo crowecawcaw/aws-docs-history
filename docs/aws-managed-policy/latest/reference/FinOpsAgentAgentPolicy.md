@@ -16,13 +16,13 @@ You can attach `FinOpsAgentAgentPolicy` to your users, groups, and roles.
 <a name="FinOpsAgentAgentPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 03, 2026, 19:57 UTC 
-+ **Edited time:** September 01, 2026, 16:27 UTC
++ **Edited time:** September 24, 2026, 13:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/FinOpsAgentAgentPolicy`
 
 ## Policy version
 <a name="FinOpsAgentAgentPolicy-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -162,7 +162,9 @@ The policy's default version is the version that defines the permissions for the
         "savingsplans:DescribeSavingsPlanRates",
         "savingsplans:DescribeSavingsPlansOfferings",
         "savingsplans:DescribeSavingsPlansOfferingRates",
-        "savingsplans:ListTagsForResource"
+        "savingsplans:ListTagsForResource",
+        "cost-optimization-hub:ListEfficiencyMetrics",
+        "billing:GetBillingPreferences"
       ],
       "Resource" : "*"
     },

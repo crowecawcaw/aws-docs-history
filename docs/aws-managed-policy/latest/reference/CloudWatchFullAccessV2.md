@@ -16,13 +16,13 @@ You can attach `CloudWatchFullAccessV2` to your users, groups, and roles.
 <a name="CloudWatchFullAccessV2-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 01, 2023, 11:32 UTC 
-+ **Edited time:** June 08, 2026, 13:27 UTC
++ **Edited time:** September 22, 2026, 16:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchFullAccessV2`
 
 ## Policy version
 <a name="CloudWatchFullAccessV2-version"></a>
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -92,6 +92,11 @@ The policy's default version is the version that defines the permissions for the
         "observabilityadmin:GetS3TableIntegration",
         "observabilityadmin:ListS3TableIntegrations",
         "observabilityadmin:DeleteS3TableIntegration",
+        "observabilityadmin:CreateDatasetIntegration",
+        "observabilityadmin:GetDatasetIntegration",
+        "observabilityadmin:ListDatasetIntegrations",
+        "observabilityadmin:UpdateDatasetIntegration",
+        "observabilityadmin:DeleteDatasetIntegration",
         "rum:*",
         "synthetics:*",
         "xray:*"

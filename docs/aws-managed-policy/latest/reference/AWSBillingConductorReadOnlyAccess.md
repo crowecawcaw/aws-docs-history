@@ -16,13 +16,13 @@ You can attach `AWSBillingConductorReadOnlyAccess` to your users, groups, and ro
 <a name="AWSBillingConductorReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 13, 2022, 18:02 UTC 
-+ **Edited time:** February 12, 2026, 17:57 UTC
++ **Edited time:** September 21, 2026, 18:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSBillingConductorReadOnlyAccess`
 
 ## Policy version
 <a name="AWSBillingConductorReadOnlyAccess-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -38,6 +38,7 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "billingconductor:List*",
         "billingconductor:GetBillingGroupCostReport",
+        "billingconductor:GetBillingTransferPreference",
         "organizations:ListAccounts",
         "pricing:DescribeServices",
         "pricing:GetAttributeValues",
@@ -45,7 +46,9 @@ The policy's default version is the version that defines the permissions for the
         "organizations:ListRoots",
         "organizations:ListOrganizationalUnitsForParent",
         "organizations:ListChildren",
-        "organizations:DescribeAccount"
+        "organizations:DescribeAccount",
+        "organizations:DescribeResponsibilityTransfer",
+        "organizations:ListInboundResponsibilityTransfers"
       ],
       "Resource" : "*"
     }
