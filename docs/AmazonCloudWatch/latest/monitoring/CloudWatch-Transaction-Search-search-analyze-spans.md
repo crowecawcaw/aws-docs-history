@@ -6,7 +6,7 @@
  Transaction Search provides you with a visual editor to search and analyze all ingested spans using attributes. You can use the visual editor to narrow down transaction spans and create interactive visualizations to troubleshoot issues in your distributed applications. You can also use the CloudWatch Logs Insights query language to analyze your spans. This topic describes how to access and use the visual editor. 
 
 ## The visual editor
-<a name="w2aac25c21c17c15b5"></a>
+<a name="w2aac27c21c17c15b5"></a>
 
  The following procedure describes how to access the visual editor. 
 
@@ -29,12 +29,12 @@
 
 
 ### Query formats
-<a name="w2aac25c21c17c15b5c17"></a>
+<a name="w2aac27c21c17c15b5c17"></a>
 
  You can run queries in the visual editor using different formats. This section describes each of these formats. 
 
 #### List
-<a name="w2aac25c21c17c15b5c17b5"></a>
+<a name="w2aac27c21c17c15b5c17b5"></a>
 
  View spans or span events in a list format, which displays information about each span. Use this type of analysis to analyze individual spans, understand specific transactions, or identify unique patterns in transaction events. Other use cases include the following: 
 
@@ -57,7 +57,7 @@
 
 
 #### Timeseries
-<a name="w2aac25c21c17c15b5c17b7"></a>
+<a name="w2aac27c21c17c15b5c17b7"></a>
 
  View spans or span events over time. Use this type of analysis to look at trends and spikes in transaction activity. Other use cases include the following: 
 +  Visualize latency 
@@ -88,7 +88,7 @@
 
 
 #### Group analysis
-<a name="w2aac25c21c17c15b5c17b9"></a>
+<a name="w2aac27c21c17c15b5c17b9"></a>
 
  Aggregate spans or span events based on specific attributes, such as account IDs and status codes, to display statistical metrics. Use this type of analysis to analyze spans in clusters, compare different groups, and uncover trends at the macro level. Other use cases include the following: 
 
@@ -116,7 +116,7 @@
 
 
 ## CloudWatch Logs Insights
-<a name="w2aac25c21c17c15b7"></a>
+<a name="w2aac27c21c17c15b7"></a>
 
  You can use [CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) to analyze your spans. 
 

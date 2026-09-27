@@ -6,7 +6,6 @@
 The following code examples show how to use `DescribeAlarms`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
-+  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
 +  [Get started with alarms](example_cloudwatch_Scenario_GettingStarted_section.md) 
 +  [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md) 
 
@@ -137,20 +136,11 @@ Output:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
-suspend fun describeAlarms() {
-    val typeList = ArrayList<AlarmType>()
-    typeList.add(AlarmType.MetricAlarm)
-    val alarmsRequest =
-        DescribeAlarmsRequest {
-            alarmTypes = typeList
-            maxRecords = 10
-        }
-
+suspend fun desCWAlarms() {
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.describeAlarms(alarmsRequest)
+        val response = cwClient.describeAlarms(DescribeAlarmsRequest {})
         response.metricAlarms?.forEach { alarm ->
-            println("Alarm name: ${alarm.alarmName}")
-            println("Alarm description: ${alarm.alarmDescription}")
+            println("Retrieved alarm ${alarm.alarmName}")
         }
     }
 }

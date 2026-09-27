@@ -5,9 +5,6 @@
 
 The following code examples show how to use `GetMetricWidgetImage`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
-+  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
-
 ------
 #### [ .NET ]
 
@@ -154,7 +151,7 @@ This command produces no output.
 
 ```
 suspend fun getAndOpenMetricImage(fileName: String) {
-    println("Getting Image data for custom metric.")
+    println("Getting image data for a custom metric.")
     val myJSON = """{
         "title": "Example Metric Graph",
         "view": "timeSeries",
@@ -172,19 +169,19 @@ suspend fun getAndOpenMetricImage(fileName: String) {
         ]
         }"""
 
-    val imageRequest =
+    val request =
         GetMetricWidgetImageRequest {
             metricWidget = myJSON
         }
 
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.getMetricWidgetImage(imageRequest)
+        val response = cwClient.getMetricWidgetImage(request)
         val bytes = response.metricWidgetImage
         if (bytes != null) {
             File(fileName).writeBytes(bytes)
+            println("You have successfully written data to $fileName.")
         }
     }
-    println("You have successfully written data to $fileName")
 }
 ```
 +  For API details, see [GetMetricWidgetImage](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 

@@ -5,8 +5,7 @@
 
 The following code examples show how to use `DescribeAlarmsForMetric`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
-+  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
 +  [Manage custom metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
 ------
@@ -330,34 +329,26 @@ cw.describeAlarms({ StateValue: "INSUFFICIENT_DATA" }, function (err, data) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
-suspend fun checkForMetricAlarm(fileName: String?) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-    var hasAlarm = false
-    var retries = 10
-
-    val metricRequest =
+suspend fun describeAlarmsForMetric(
+    namespaceVal: String,
+    metricNameVal: String,
+) {
+    val request =
         DescribeAlarmsForMetricRequest {
-            metricName = customMetricName
-            namespace = customMetricNamespace
+            namespace = namespaceVal
+            metricName = metricNameVal
         }
+
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        while (!hasAlarm && retries > 0) {
-            val response = cwClient.describeAlarmsForMetric(metricRequest)
-            if (response.metricAlarms?.count()!! > 0) {
-                hasAlarm = true
-            }
-            retries--
-            delay(20000)
-            println(".")
-        }
-        if (!hasAlarm) {
-            println("No Alarm state found for $customMetricName after 10 retries.")
+        val response = cwClient.describeAlarmsForMetric(request)
+        val alarms = response.metricAlarms
+        if (alarms.isNullOrEmpty()) {
+            println("No alarms found for $metricNameVal in $namespaceVal.")
         } else {
-            println("Alarm state found for $customMetricName.")
+            for (alarm in alarms) {
+                println("Alarm name: ${alarm.alarmName}")
+                println("Alarm state: ${alarm.stateValue}")
+            }
         }
     }
 }

@@ -5,7 +5,8 @@
 
 The following code examples show how to use `DescribeAlarmContributors`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
 +  [Send OpenTelemetry metrics and alarm on them with PromQL](example_cloudwatch_Scenario_OTelMetrics_section.md) 
 
 ------

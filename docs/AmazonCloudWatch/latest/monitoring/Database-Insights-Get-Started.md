@@ -22,7 +22,7 @@ For information about setting up monitoring for a self-managed database, see the
 + [Monitoring Self-Managed PostgreSQL](Database-Insights-Self-Managed-PostgreSQL.md)
 
 ## Required permissions for Database Insights
-<a name="w2aac23c13c33c21"></a>
+<a name="w2aac25c13c33c21"></a>
 
 Certain IAM permissions are required to use Database Insights. Database Insights requires permissions for CloudWatch, CloudWatch Logs, Amazon RDS, and Amazon RDS Performance Insights. You might not need to provide these permissions to your user or role if you have broader permissions.
 

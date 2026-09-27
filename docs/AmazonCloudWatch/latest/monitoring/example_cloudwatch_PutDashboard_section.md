@@ -18,55 +18,6 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 ```
     /// <summary>
-    /// Set up a dashboard using a call to the wrapper class.
-    /// </summary>
-    /// <param name="customMetricNamespace">The metric namespace.</param>
-    /// <param name="customMetricName">The metric name.</param>
-    /// <param name="dashboardName">The name of the dashboard.</param>
-    /// <returns>A list of validation messages.</returns>
-    private static async Task<List<DashboardValidationMessage>> SetupDashboard(
-        string customMetricNamespace, string customMetricName, string dashboardName)
-    {
-        // Get the dashboard model from configuration.
-        var newDashboard = new DashboardModel();
-        _configuration.GetSection("dashboardExampleBody").Bind(newDashboard);
-
-        // Add a new metric to the dashboard.
-        newDashboard.Widgets.Add(new Widget
-        {
-            Height = 8,
-            Width = 8,
-            Y = 8,
-            X = 0,
-            Type = "metric",
-            Properties = new Properties
-            {
-                Metrics = new List<List<object>>
-                    { new() { customMetricNamespace, customMetricName } },
-                View = "timeSeries",
-                Region = "us-east-1",
-                Stat = "Sum",
-                Period = 86400,
-                YAxis = new YAxis { Left = new Left { Min = 0, Max = 100 } },
-                Title = "Custom Metric Widget",
-                LiveData = true,
-                Sparkline = true,
-                Trend = true,
-                Stacked = false,
-                SetPeriodToTimeRange = false
-            }
-        });
-
-        var newDashboardString = JsonSerializer.Serialize(newDashboard,
-            new JsonSerializerOptions
-            { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
-        var validationMessages =
-            await _cloudWatchWrapper.PutDashboard(dashboardName, newDashboardString);
-
-        return validationMessages;
-    }
-
-    /// <summary>
     /// Wrapper to create or add to a dashboard with metrics.
     /// </summary>
     /// <param name="dashboardName">The name for the dashboard.</param>
@@ -119,15 +70,13 @@ For more information, see [Creating a CloudWatch dashboard](https://docs.aws.ama
 
 ```
     /**
-     * Creates a new dashboard with the specified name and metrics from the given file.
+     * Creates a new dashboard with the specified name and body.
      *
      * @param dashboardName the name of the dashboard to be created
-     * @param fileName      the name of the file containing the dashboard body
+     * @param dashboardBody the dashboard body, as JSON
      * @return a {@link CompletableFuture} representing the asynchronous operation of creating the dashboard
-     * @throws IOException if there is an error reading the dashboard body from the file
      */
-    public CompletableFuture<PutDashboardResponse> createDashboardWithMetricsAsync(String dashboardName, String fileName) throws IOException {
-        String dashboardBody = readFileAsString(fileName);
+    public CompletableFuture<PutDashboardResponse> createDashboardAsync(String dashboardName, String dashboardBody) {
         PutDashboardRequest dashboardRequest = PutDashboardRequest.builder()
             .dashboardName(dashboardName)
             .dashboardBody(dashboardBody)
@@ -163,17 +112,17 @@ For more information, see [Creating a CloudWatch dashboard](https://docs.aws.ama
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
-suspend fun createDashboardWithMetrics(
+suspend fun createDashboard(
     dashboardNameVal: String,
-    fileNameVal: String,
+    dashboardBodyVal: String,
 ) {
     val dashboardRequest =
         PutDashboardRequest {
             dashboardName = dashboardNameVal
-            dashboardBody = readFileAsString(fileNameVal)
+            dashboardBody = dashboardBodyVal
         }
 
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         val response = cwClient.putDashboard(dashboardRequest)
         println("$dashboardNameVal was successfully created.")
         val messages = response.dashboardValidationMessages

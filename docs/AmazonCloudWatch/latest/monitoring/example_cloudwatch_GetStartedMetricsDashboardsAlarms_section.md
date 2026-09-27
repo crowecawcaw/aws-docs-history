@@ -5,12 +5,12 @@
 
 The following code examples show how to:
 + List CloudWatch namespaces and metrics.
-+ Get statistics for a metric and for estimated billing.
-+ Create and update a dashboard.
-+ Create and add data to a metric.
-+ Create and trigger an alarm, then view alarm history.
-+ Add an anomaly detector.
-+ Get a metric image, then clean up resources.
++ Start OpenTelemetry enrichment so CloudWatch correlates incoming OTLP metrics with the resources that produced them.
++ See how OTLP metrics reach the CloudWatch metrics endpoint. Metric ingestion over OTLP is not an AWS SDK operation.
++ Create an alarm that evaluates a PromQL query.
++ Inspect the alarm's contributors, the individual series that the query matched.
++ Get statistics for a metric and chart it on a dashboard.
++ Mute the alarm for a maintenance window, then clean up.
 
 ------
 #### [ .NET ]
@@ -25,35 +25,53 @@ public class CloudWatchScenario
     /*
     Before running this .NET code example, set up your development environment, including your credentials.
 
-    To enable billing metrics and statistics for this example, make sure billing alerts are enabled for your account:
-    https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#turning_on_billing_metrics
+    This scenario demonstrates the Amazon CloudWatch OpenTelemetry (OTel) experience.
+    CloudWatch ingests OpenTelemetry metrics natively, and this example walks through what
+    you do with them: turning on enrichment so CloudWatch can correlate incoming OTLP
+    metrics with the resources that produced them, alarming on those metrics with a PromQL
+    query, and finding out which individual series drove the alarm.
+
+    A PromQL alarm works differently from a classic metric alarm. Rather than watching one
+    metric and counting breaching periods, it evaluates a query that can match many series
+    at once, and tracks each matching series separately as a contributor.
+
+    Note that sending OTLP metrics to CloudWatch is not an AWS SDK operation. Metrics
+    arrive over the OTLP protocol through the CloudWatch agent, an OpenTelemetry
+    Collector, or an ADOT SDK. Everything this scenario does is configuration and querying
+    around that ingestion path.
 
     This .NET example performs the following tasks:
-        1. List and select a CloudWatch namespace.
-        2. List and select a CloudWatch metric.
-        3. Get statistics for a CloudWatch metric.
-        4. Get estimated billing statistics for the last week.
-        5. Create a new CloudWatch dashboard with two metrics.
-        6. List current CloudWatch dashboards.
-        7. Create a CloudWatch custom metric and add metric data.
-        8. Add the custom metric to the dashboard.
-        9. Create a CloudWatch alarm for the custom metric.
-       10. Describe current CloudWatch alarms.
-       11. Get recent data for the custom metric.
-       12. Add data to the custom metric to trigger the alarm.
-       13. Wait for an alarm state.
-       14. Get history for the CloudWatch alarm.
-       15. Add an anomaly detector.
-       16. Describe current anomaly detectors.
-       17. Get and display a metric image.
-       18. Clean up resources.
+        1. List metrics and namespaces from CloudWatch.
+        2. Start OpenTelemetry enrichment for the account.
+        3. Explain how OTLP metrics reach CloudWatch.
+        4. Create an alarm that evaluates a PromQL query.
+        5. Inspect the contributors to the PromQL alarm.
+        6. Get metric statistics and chart the metric on a dashboard.
+        7. Mute the alarm for a maintenance window.
+        8. Clean up resources.
     */
 
     private static ILogger logger = null!;
     private static CloudWatchWrapper _cloudWatchWrapper = null!;
+    private static CloudWatchOTelWrapper _otelWrapper = null!;
     private static IConfiguration _configuration = null!;
-    private static readonly List<string> _statTypes = new List<string> { "SampleCount", "Average", "Sum", "Minimum", "Maximum" };
-    private static SingleMetricAnomalyDetector? anomalyDetector = null!;
+
+    private const string DefaultQuery = "avg by (host) (system_cpu_utilization) > 80";
+
+    // Valid evaluation intervals are 10, 20, 30, or any multiple of 60 up to 3600 seconds.
+    private const int EvaluationInterval = 60;
+    private const int PendingPeriod = 300;
+    private const int RecoveryPeriod = 120;
+
+    private static string _alarmName = null!;
+    private static string _dashboardName = null!;
+    private static string _muteRuleName = null!;
+
+    // Tracks whether this run turned enrichment on, so that cleanup only turns off
+    // enrichment that this run started.
+    private static bool _startedEnrichment;
+    private static bool _dashboardCreated;
+    private static string _region = null!;
 
     static async Task Main(string[] args)
     {
@@ -66,6 +84,7 @@ public class CloudWatchScenario
             .ConfigureServices((_, services) =>
             services.AddAWSService<IAmazonCloudWatch>()
             .AddTransient<CloudWatchWrapper>()
+            .AddTransient<CloudWatchOTelWrapper>()
         )
         .Build();
 
@@ -80,714 +99,491 @@ public class CloudWatchScenario
             .CreateLogger<CloudWatchScenario>();
 
         _cloudWatchWrapper = host.Services.GetRequiredService<CloudWatchWrapper>();
+        _otelWrapper = host.Services.GetRequiredService<CloudWatchOTelWrapper>();
+
+        // A metric widget must name its region, because a dashboard can chart
+        // metrics from several.
+        _region = host.Services.GetRequiredService<IAmazonCloudWatch>()
+            .Config.RegionEndpoint.SystemName;
+
+        // Suffix the resource names so repeated runs do not collide.
+        var suffix = Random.Shared.Next(1000, 9999).ToString();
+        _alarmName = $"doc-example-promql-alarm-{suffix}";
+        _dashboardName = $"doc-example-dashboard-{suffix}";
+        _muteRuleName = $"doc-example-mute-rule-{suffix}";
 
         Console.WriteLine(new string('-', 80));
-        Console.WriteLine("Welcome to the Amazon CloudWatch example scenario.");
+        Console.WriteLine("Welcome to the Amazon CloudWatch Basics scenario.");
         Console.WriteLine(new string('-', 80));
+        Console.WriteLine(
+            "\nCloudWatch now ingests OpenTelemetry metrics natively. This scenario walks through" +
+            "\nthat experience: it turns on OTel enrichment so CloudWatch can correlate incoming" +
+            "\nOTLP metrics with the resources that produced them, alarms on those metrics with a" +
+            "\nPromQL query, and shows you which individual series drove the alarm." +
+            "\n" +
+            "\nA PromQL alarm works differently from a classic metric alarm. Rather than watching" +
+            "\none metric and counting breaching periods, it evaluates a query that can match many" +
+            "\nseries at once, and tracks each one separately as a contributor.\n");
 
         try
         {
-            var selectedNamespace = await SelectNamespace();
-            var selectedMetric = await SelectMetric(selectedNamespace);
-            await GetAndDisplayMetricStatistics(selectedNamespace, selectedMetric);
-            await GetAndDisplayEstimatedBilling();
-            await CreateDashboardWithMetrics();
-            await ListDashboards();
-            await CreateNewCustomMetric();
-            await AddMetricToDashboard();
-            await CreateMetricAlarm();
-            await DescribeAlarms();
-            await GetCustomMetricData();
-            await AddMetricDataForAlarm();
-            await CheckForMetricAlarm();
-            await GetAlarmHistory();
-            anomalyDetector = await AddAnomalyDetector();
-            await DescribeAnomalyDetectors();
-            await GetAndOpenMetricImage();
-            await CleanupResources();
+            var namespaces = await ListMetricsAndNamespaces();
+            await StartOTelEnrichment();
+            ExplainOtlpIngestion();
+            await CreatePromQlAlarm();
+            await InspectAlarmContributors();
+            await GetStatisticsAndChartMetric(namespaces);
+            await MuteAlarmForMaintenance();
+            await CleanUp();
+
+            Console.WriteLine(new string('-', 80));
+            Console.WriteLine("CloudWatch Basics scenario is complete.");
+            Console.WriteLine(new string('-', 80));
         }
         catch (Exception ex)
         {
+            Console.WriteLine(new string('-', 80));
             logger.LogError(ex, "There was a problem executing the scenario.");
-            await CleanupResources();
+            await CleanUp();
+            Console.WriteLine(new string('-', 80));
         }
-
     }
 
     /// <summary>
-    /// Select a namespace.
+    /// List the metrics and namespaces already present in the account, to orient the
+    /// reader before any configuration happens.
     /// </summary>
-    /// <returns>The selected namespace.</returns>
-    private static async Task<string> SelectNamespace()
+    /// <returns>The distinct namespaces found.</returns>
+    private static async Task<List<string>> ListMetricsAndNamespaces()
     {
         Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"1. Select a CloudWatch Namespace from a list of Namespaces.");
+        Console.WriteLine("1. List metrics and namespaces");
+        Console.WriteLine(
+            "\nBefore configuring anything, let's see what CloudWatch is already collecting in" +
+            "\nthis account by calling ListMetrics.\n");
+
         var metrics = await _cloudWatchWrapper.ListMetrics();
-        // Get a distinct list of namespaces.
-        var namespaces = metrics.Select(m => m.Namespace).Distinct().ToList();
-        for (int i = 0; i < namespaces.Count; i++)
+
+        // Order by metric count descending, so the most-populated namespace comes first.
+        // Step 6 charts a metric from that namespace, and a busy namespace is the one most
+        // likely to have datapoints worth looking at.
+        var namespaceCounts = metrics
+            .GroupBy(m => m.Namespace)
+            .Select(g => new { Namespace = g.Key, Count = g.Count() })
+            .OrderByDescending(n => n.Count)
+            .ToList();
+        var namespaces = namespaceCounts.Select(n => n.Namespace).ToList();
+
+        Console.WriteLine($"\tFound {metrics.Count} metrics across {namespaces.Count} namespaces:");
+        foreach (var entry in namespaceCounts.Take(10))
         {
-            Console.WriteLine($"\t{i + 1}. {namespaces[i]}");
+            Console.WriteLine($"\t  {entry.Namespace} ({entry.Count} metrics)");
         }
 
-        var namespaceChoiceNumber = 0;
-        while (namespaceChoiceNumber < 1 || namespaceChoiceNumber > namespaces.Count)
+        if (!namespaces.Any())
         {
             Console.WriteLine(
-                "Select a namespace by entering a number from the preceding list:");
-            var choice = Console.ReadLine();
-            Int32.TryParse(choice, out namespaceChoiceNumber);
+                "\tNo metrics found in this account. The statistics and dashboard steps later on" +
+                "\n\tneed an existing metric, so they will be skipped.");
         }
 
-        var selectedNamespace = namespaces[namespaceChoiceNumber - 1];
-
         Console.WriteLine(new string('-', 80));
-
-        return selectedNamespace;
+        return namespaces;
     }
 
     /// <summary>
-    /// Select a metric from a namespace.
+    /// Start OTel enrichment, but only if it is not already running. Enrichment is what
+    /// makes CloudWatch attach AWS resource context to incoming OTLP metrics.
     /// </summary>
-    /// <param name="metricNamespace">The namespace for metrics.</param>
-    /// <returns>The metric name.</returns>
-    private static async Task<Metric> SelectMetric(string metricNamespace)
+    private static async Task StartOTelEnrichment()
     {
         Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"2. Select a CloudWatch metric from a namespace.");
+        Console.WriteLine("2. Start OpenTelemetry enrichment");
+        Console.WriteLine(
+            "\nEnrichment is what lets CloudWatch attach AWS resource context to the OTLP metrics" +
+            "\nyou send it. Without it, your metrics arrive as opaque series with no connection to" +
+            "\nthe resources that emitted them." +
+            "\n" +
+            "\nWe check the current state first, and only start enrichment if it isn't already on.\n");
 
-        var namespaceMetrics = await _cloudWatchWrapper.ListMetrics(metricNamespace);
+        var status = await _otelWrapper.GetOTelEnrichmentStatus();
+        Console.WriteLine($"\tEnrichment status: {status}");
 
-        for (int i = 0; i < namespaceMetrics.Count && i < 15; i++)
+        if (status != OTelEnrichmentStatus.Running)
         {
-            var dimensionsWithValues = namespaceMetrics[i].Dimensions
-                .Where(d => !string.Equals("None", d.Value));
-            Console.WriteLine($"\t{i + 1}. {namespaceMetrics[i].MetricName} " +
-                              $"{string.Join(", :", dimensionsWithValues.Select(d => d.Value))}");
-        }
+            // Record the attempt before making it. We already know enrichment was not running,
+            // so stopping it during cleanup is always safe, and a call that starts enrichment
+            // but then fails to report back (a timeout, say) would otherwise leave it running.
+            _startedEnrichment = true;
+            await _otelWrapper.StartOTelEnrichment();
 
-        var metricChoiceNumber = 0;
-        while (metricChoiceNumber < 1 || metricChoiceNumber > namespaceMetrics.Count)
+            status = await _otelWrapper.GetOTelEnrichmentStatus();
+            Console.WriteLine($"\tEnrichment status: {status}");
+            Console.WriteLine(
+                "\n\tNote: this run started enrichment, so the cleanup step will stop it again.");
+        }
+        else
         {
             Console.WriteLine(
-                "Select a metric by entering a number from the preceding list:");
-            var choice = Console.ReadLine();
-            Int32.TryParse(choice, out metricChoiceNumber);
+                "\n\tEnrichment was already running, so we will leave it alone. The cleanup step" +
+                "\n\twill not stop it, because other workloads in this account may depend on it.");
         }
 
-        var selectedMetric = namespaceMetrics[metricChoiceNumber - 1];
-
         Console.WriteLine(new string('-', 80));
-
-        return selectedMetric;
     }
 
     /// <summary>
-    /// Get and display metric statistics for a specific metric.
+    /// Explain that OTLP metric ingestion is not an AWS SDK operation. This step makes no
+    /// service call; naming the gap explicitly is the point.
     /// </summary>
-    /// <param name="metricNamespace">The namespace for metrics.</param>
-    /// <param name="metric">The CloudWatch metric.</param>
-    /// <returns>Async task.</returns>
-    private static async Task GetAndDisplayMetricStatistics(string metricNamespace, Metric metric)
+    private static void ExplainOtlpIngestion()
     {
         Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"3. Get CloudWatch metric statistics for the last day.");
+        Console.WriteLine("3. Send OTLP metrics to CloudWatch");
+        Console.WriteLine(
+            "\nThis step is not an AWS SDK operation, and that's worth being explicit about." +
+            "\nMetrics reach CloudWatch over the OTLP protocol, through the CloudWatch agent, an" +
+            "\nOpenTelemetry Collector, or an ADOT SDK. There is no PutOTelMetrics API to call." +
+            "\n" +
+            "\nPoint your collector at the CloudWatch metrics endpoint, which follows the pattern" +
+            "\n\thttps://monitoring.<region>.amazonaws.com/v1/metrics" +
+            "\n" +
+            "\nThe endpoint is HTTP/1.1 only and does not support gRPC, so use an otlphttp" +
+            "\nexporter rather than otlp. The metrics endpoint signs as \"monitoring\".\n");
+        Console.WriteLine(new string('-', 80));
+    }
 
-        for (int i = 0; i < _statTypes.Count; i++)
-        {
-            Console.WriteLine($"\t{i + 1}. {_statTypes[i]}");
-        }
+    /// <summary>
+    /// Create an alarm whose evaluation is a PromQL query.
+    /// </summary>
+    private static async Task CreatePromQlAlarm()
+    {
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine("4. Create a PromQL alarm");
+        Console.WriteLine(
+            "\nNow we alarm on those metrics. The comparison goes inside the query itself: a" +
+            "\nPromQL alarm has no separate threshold, comparison operator, statistic, or period.\n");
 
-        var statisticChoiceNumber = 0;
-        while (statisticChoiceNumber < 1 || statisticChoiceNumber > _statTypes.Count)
+        Console.WriteLine($"Enter a PromQL query, or press <ENTER> for the default\n[{DefaultQuery}]:");
+        var input = Console.ReadLine();
+        var query = string.IsNullOrWhiteSpace(input) ? DefaultQuery : input.Trim();
+
+        await _otelWrapper.PutPromQLMetricAlarm(_alarmName, query,
+            EvaluationInterval, PendingPeriod, RecoveryPeriod);
+
+        Console.WriteLine($"\tCreated alarm {_alarmName}:");
+        Console.WriteLine($"\t  query:              {query}");
+        Console.WriteLine($"\t  evaluationInterval: {EvaluationInterval} seconds");
+        Console.WriteLine($"\t  pendingPeriod:      {PendingPeriod} seconds");
+        Console.WriteLine($"\t  recoveryPeriod:     {RecoveryPeriod} seconds");
+        Console.WriteLine(
+            "\n\tA PromQL alarm starts in the OK state rather than INSUFFICIENT_DATA, which is" +
+            "\n\tanother way it differs from a classic alarm.");
+
+        Console.WriteLine(new string('-', 80));
+    }
+
+    /// <summary>
+    /// Show which individual series the alarm's query matched. This is the step with no
+    /// classic-alarm equivalent.
+    /// </summary>
+    private static async Task InspectAlarmContributors()
+    {
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine("5. Inspect the alarm's contributors");
+        Console.WriteLine(
+            "\nEach contributor is one series the query matched, identified by its label set." +
+            "\nThis is how you find out which host is unhealthy rather than only that something" +
+            "\nis. Classic alarms have no equivalent.\n");
+
+        var contributors = await _otelWrapper.DescribeAlarmContributors(_alarmName);
+
+        if (!contributors.Any())
         {
             Console.WriteLine(
-                "Select a metric statistic by entering a number from the preceding list:");
-            var choice = Console.ReadLine();
-            Int32.TryParse(choice, out statisticChoiceNumber);
+                "\tNo contributors yet. The query matched no series, which usually means no OTel" +
+                "\n\tmetrics with these labels have arrived. Once your collector is sending data," +
+                "\n\teach matching series appears here with its labels and why it breached.");
         }
-
-        var selectedStatistic = _statTypes[statisticChoiceNumber - 1];
-        var statisticsList = new List<string> { selectedStatistic };
-
-        var metricStatistics = await _cloudWatchWrapper.GetMetricStatistics(metricNamespace, metric.MetricName, statisticsList, metric.Dimensions, 1, 60);
-
-        if (!metricStatistics.Any())
+        else
         {
-            Console.WriteLine($"No {selectedStatistic} statistics found for {metric} in namespace {metricNamespace}.");
-        }
-
-        metricStatistics = metricStatistics.OrderBy(s => s.Timestamp).ToList();
-        for (int i = 0; i < metricStatistics.Count && i < 10; i++)
-        {
-            var metricStat = metricStatistics[i];
-            var statValue = metricStat.GetType().GetProperty(selectedStatistic)!.GetValue(metricStat, null);
-            Console.WriteLine($"\t{i + 1}. Timestamp {metricStatistics[i].Timestamp:G} {selectedStatistic}: {statValue}");
-        }
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Get and display estimated billing statistics.
-    /// </summary>
-    /// <param name="metricNamespace">The namespace for metrics.</param>
-    /// <param name="metric">The CloudWatch metric.</param>
-    /// <returns>Async task.</returns>
-    private static async Task GetAndDisplayEstimatedBilling()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"4. Get CloudWatch estimated billing for the last week.");
-
-        var billingStatistics = await SetupBillingStatistics();
-
-        for (int i = 0; i < billingStatistics.Count; i++)
-        {
-            Console.WriteLine($"\t{i + 1}. Timestamp {billingStatistics[i].Timestamp:G} : {billingStatistics[i].Maximum}");
-        }
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Get billing statistics using a call to a wrapper class.
-    /// </summary>
-    /// <returns>A collection of billing statistics.</returns>
-    private static async Task<List<Datapoint>> SetupBillingStatistics()
-    {
-        // Make a request for EstimatedCharges with a period of one day for the past seven days.
-        var billingStatistics = await _cloudWatchWrapper.GetMetricStatistics(
-            "AWS/Billing",
-            "EstimatedCharges",
-            new List<string>() { "Maximum" },
-            new List<Dimension>() { new Dimension { Name = "Currency", Value = "USD" } },
-            7,
-            86400);
-
-        billingStatistics = billingStatistics.OrderBy(n => n.Timestamp).ToList();
-
-        return billingStatistics;
-    }
-
-    /// <summary>
-    /// Create a dashboard with metrics.
-    /// </summary>
-    /// <param name="metricNamespace">The namespace for metrics.</param>
-    /// <param name="metric">The CloudWatch metric.</param>
-    /// <returns>Async task.</returns>
-    private static async Task CreateDashboardWithMetrics()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"5. Create a new CloudWatch dashboard with metrics.");
-        var dashboardName = _configuration["dashboardName"];
-        var newDashboard = new DashboardModel();
-        _configuration.GetSection("dashboardExampleBody").Bind(newDashboard);
-        var newDashboardString = JsonSerializer.Serialize(
-            newDashboard,
-            new JsonSerializerOptions
+            Console.WriteLine($"\tFound {contributors.Count} contributors:");
+            foreach (var contributor in contributors)
             {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-            });
-        var validationMessages =
-            await _cloudWatchWrapper.PutDashboard(dashboardName, newDashboardString);
-
-        Console.WriteLine(validationMessages.Any() ? $"\tValidation messages:" : null);
-        for (int i = 0; i < validationMessages.Count; i++)
-        {
-            Console.WriteLine($"\t{i + 1}. {validationMessages[i].Message}");
-        }
-        Console.WriteLine($"\tDashboard {dashboardName} was created.");
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// List dashboards.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task ListDashboards()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"6. List the CloudWatch dashboards in the current account.");
-
-        var dashboards = await _cloudWatchWrapper.ListDashboards();
-
-        for (int i = 0; i < dashboards.Count; i++)
-        {
-            Console.WriteLine($"\t{i + 1}. {dashboards[i].DashboardName}");
-        }
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Create and add data for a new custom metric.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task CreateNewCustomMetric()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"7. Create and add data for a new custom metric.");
-
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-
-        var customData = await PutRandomMetricData(customMetricName, customMetricNamespace);
-
-        var valuesString = string.Join(',', customData.Select(d => d.Value));
-        Console.WriteLine($"\tAdded metric values for for metric {customMetricName}: \n\t{valuesString}");
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-
-    /// <summary>
-    /// Add some metric data using a call to a wrapper class.
-    /// </summary>
-    /// <param name="customMetricName">The metric name.</param>
-    /// <param name="customMetricNamespace">The metric namespace.</param>
-    /// <returns></returns>
-    private static async Task<List<MetricDatum>> PutRandomMetricData(string customMetricName,
-        string customMetricNamespace)
-    {
-        List<MetricDatum> customData = new List<MetricDatum>();
-        Random rnd = new Random();
-
-        // Add 10 random values up to 100, starting with a timestamp 15 minutes in the past.
-        var utcNowMinus15 = DateTime.UtcNow.AddMinutes(-15);
-        for (int i = 0; i < 10; i++)
-        {
-            var metricValue = rnd.Next(0, 100);
-            customData.Add(
-                new MetricDatum
-                {
-                    MetricName = customMetricName,
-                    Value = metricValue,
-                    Timestamp = utcNowMinus15.AddMinutes(i)
-                }
-            );
-        }
-
-        await _cloudWatchWrapper.PutMetricData(customMetricNamespace, customData);
-        return customData;
-    }
-
-    /// <summary>
-    /// Add the custom metric to the dashboard.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task AddMetricToDashboard()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"8. Add the new custom metric to the dashboard.");
-
-        var dashboardName = _configuration["dashboardName"];
-
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-
-        var validationMessages = await SetupDashboard(customMetricNamespace, customMetricName, dashboardName);
-
-        Console.WriteLine(validationMessages.Any() ? $"\tValidation messages:" : null);
-        for (int i = 0; i < validationMessages.Count; i++)
-        {
-            Console.WriteLine($"\t{i + 1}. {validationMessages[i].Message}");
-        }
-        Console.WriteLine($"\tDashboard {dashboardName} updated with metric {customMetricName}.");
-        Console.WriteLine(new string('-', 80));
-    }
-
-
-    /// <summary>
-    /// Set up a dashboard using a call to the wrapper class.
-    /// </summary>
-    /// <param name="customMetricNamespace">The metric namespace.</param>
-    /// <param name="customMetricName">The metric name.</param>
-    /// <param name="dashboardName">The name of the dashboard.</param>
-    /// <returns>A list of validation messages.</returns>
-    private static async Task<List<DashboardValidationMessage>> SetupDashboard(
-        string customMetricNamespace, string customMetricName, string dashboardName)
-    {
-        // Get the dashboard model from configuration.
-        var newDashboard = new DashboardModel();
-        _configuration.GetSection("dashboardExampleBody").Bind(newDashboard);
-
-        // Add a new metric to the dashboard.
-        newDashboard.Widgets.Add(new Widget
-        {
-            Height = 8,
-            Width = 8,
-            Y = 8,
-            X = 0,
-            Type = "metric",
-            Properties = new Properties
-            {
-                Metrics = new List<List<object>>
-                    { new() { customMetricNamespace, customMetricName } },
-                View = "timeSeries",
-                Region = "us-east-1",
-                Stat = "Sum",
-                Period = 86400,
-                YAxis = new YAxis { Left = new Left { Min = 0, Max = 100 } },
-                Title = "Custom Metric Widget",
-                LiveData = true,
-                Sparkline = true,
-                Trend = true,
-                Stacked = false,
-                SetPeriodToTimeRange = false
+                var labels = string.Join(", ",
+                    contributor.ContributorAttributes.Select(a => $"{a.Key}={a.Value}"));
+                Console.WriteLine($"\t  {contributor.ContributorId}: {labels}");
+                Console.WriteLine($"\t    reason: {contributor.StateReason}");
             }
-        });
-
-        var newDashboardString = JsonSerializer.Serialize(newDashboard,
-            new JsonSerializerOptions
-            { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull });
-        var validationMessages =
-            await _cloudWatchWrapper.PutDashboard(dashboardName, newDashboardString);
-
-        return validationMessages;
-    }
-
-    /// <summary>
-    /// Create a CloudWatch alarm for the new metric.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task CreateMetricAlarm()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"9. Create a CloudWatch alarm for the new metric.");
-
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-
-        var alarmName = _configuration["exampleAlarmName"];
-        var accountId = _configuration["accountId"];
-        var region = _configuration["region"];
-        var emailTopic = _configuration["emailTopic"];
-        var alarmActions = new List<string>();
-
-        if (GetYesNoResponse(
-                $"\tAdd an email action for topic {emailTopic} to alarm {alarmName}? (y/n)"))
-        {
-            _cloudWatchWrapper.AddEmailAlarmAction(accountId, region, emailTopic, alarmActions);
-        }
-
-        await _cloudWatchWrapper.PutMetricEmailAlarm(
-            "Example metric alarm",
-            alarmName,
-            ComparisonOperator.GreaterThanOrEqualToThreshold,
-            customMetricName,
-            customMetricNamespace,
-            100,
-            alarmActions);
-
-        Console.WriteLine($"\tAlarm {alarmName} added for metric {customMetricName}.");
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Describe Alarms.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task DescribeAlarms()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"10. Describe CloudWatch alarms in the current account.");
-
-        var alarms = await _cloudWatchWrapper.DescribeAlarms();
-        alarms = alarms.OrderByDescending(a => a.StateUpdatedTimestamp).ToList();
-
-        for (int i = 0; i < alarms.Count && i < 10; i++)
-        {
-            var alarm = alarms[i];
-            Console.WriteLine($"\t{i + 1}. {alarm.AlarmName}");
-            Console.WriteLine($"\tState: {alarm.StateValue} for {alarm.MetricName} {alarm.ComparisonOperator} {alarm.Threshold}");
         }
 
         Console.WriteLine(new string('-', 80));
     }
 
     /// <summary>
-    /// Get the recent data for the metric.
+    /// Get statistics for an existing metric and chart it on a dashboard, so the reader can
+    /// see what the alarm is evaluating.
     /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task GetCustomMetricData()
+    /// <param name="namespaces">The namespaces discovered in step 1.</param>
+    private static async Task GetStatisticsAndChartMetric(List<string> namespaces)
     {
         Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"11. Get current data for new custom metric.");
+        Console.WriteLine("6. Get statistics and chart the metric on a dashboard");
+        Console.WriteLine("\nStatistics and dashboards are how you see what the alarm is evaluating.\n");
 
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-        var accountId = _configuration["accountId"];
-
-        var query = new List<MetricDataQuery>
+        if (!namespaces.Any())
         {
-            new MetricDataQuery
+            Console.WriteLine("\tSkipping statistics and dashboard because no metrics exist yet.");
+            Console.WriteLine(new string('-', 80));
+            return;
+        }
+
+        var metricNamespace = namespaces.First();
+        var metrics = await _cloudWatchWrapper.ListMetrics(metricNamespace);
+        var metric = metrics.FirstOrDefault();
+
+        if (metric != null)
+        {
+            var datapoints = await _cloudWatchWrapper.GetMetricStatistics(
+                metricNamespace, metric.MetricName, new List<string> { "Average", "Maximum" },
+                metric.Dimensions, 1, 3600);
+
+            Console.WriteLine(
+                $"\tStatistics for {metricNamespace} {metric.MetricName} over the last day:");
+            Console.WriteLine($"\t  Datapoints: {datapoints.Count}");
+            foreach (var datapoint in datapoints.Take(3))
             {
-                AccountId = accountId,
-                Id = "m1",
-                Label = "Custom Metric Data",
-                MetricStat = new MetricStat
+                Console.WriteLine(
+                    $"\t  {datapoint.Timestamp:u} average {datapoint.Average}, maximum {datapoint.Maximum}");
+            }
+
+            var dashboardBody = BuildDashboardBody(metricNamespace, metric, _region);
+            var validationMessages = await _cloudWatchWrapper.PutDashboard(_dashboardName, dashboardBody);
+            _dashboardCreated = true;
+
+            if (validationMessages.Any())
+            {
+                foreach (var message in validationMessages)
                 {
-                    Metric = new Metric
-                    {
-                        MetricName = customMetricName,
-                        Namespace = customMetricNamespace,
-                    },
-                    Period = 1,
-                    Stat = "Maximum"
+                    Console.WriteLine($"\tDashboard validation message: {message.Message}");
                 }
             }
-        };
 
-        var metricData = await _cloudWatchWrapper.GetMetricData(
-            20,
-            true,
-            DateTime.UtcNow.AddMinutes(1),
-            20,
-            query);
+            Console.WriteLine($"\tCreated dashboard {_dashboardName}.");
 
-        for (int i = 0; i < metricData.Count; i++)
+            var dashboard = await _cloudWatchWrapper.GetDashboard(_dashboardName);
+            Console.WriteLine($"\tRead the dashboard back, {dashboard.Length} characters of widget JSON.");
+        }
+        else
         {
-            if (metricData[i].Values != null)
+            Console.WriteLine($"\tNo metrics found in namespace {metricNamespace}, skipping.");
+        }
+
+        Console.WriteLine(new string('-', 80));
+    }
+
+    /// <summary>
+    /// Build a single-widget dashboard body that charts the given metric.
+    /// </summary>
+    /// <param name="metricNamespace">The namespace of the metric to chart.</param>
+    /// <param name="metric">The metric to chart.</param>
+    /// <param name="region">The region the metric is in. A metric widget must name its
+    /// region, because a dashboard can chart metrics from several.</param>
+    internal static string BuildDashboardBody(string metricNamespace, Metric metric, string region)
+    {
+        var dimensionParts = string.Concat(
+            metric.Dimensions.Select(d => $", \"{d.Name}\", \"{d.Value}\""));
+
+        return $@"{{
+    ""widgets"": [
+        {{
+            ""type"": ""text"",
+            ""x"": 0, ""y"": 0, ""width"": 24, ""height"": 2,
+            ""properties"": {{
+                ""markdown"": ""This dashboard was created programmatically by an AWS SDK code example.""
+            }}
+        }},
+        {{
+            ""type"": ""metric"",
+            ""x"": 0, ""y"": 2, ""width"": 12, ""height"": 6,
+            ""properties"": {{
+                ""metrics"": [[ ""{metricNamespace}"", ""{metric.MetricName}""{dimensionParts} ]],
+                ""view"": ""timeSeries"",
+                ""stat"": ""Average"",
+                ""period"": 300,
+                ""region"": ""{region}"",
+                ""title"": ""{metric.MetricName}""
+            }}
+        }}
+    ]
+}}";
+    }
+
+    /// <summary>
+    /// Create a mute rule so the alarm's actions are suppressed during a maintenance
+    /// window, then read it back and find it in the account's rules.
+    /// </summary>
+    private static async Task MuteAlarmForMaintenance()
+    {
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine("7. Mute the alarm for a maintenance window");
+        Console.WriteLine(
+            "\nWhile a mute rule is active the targeted alarms keep evaluating and keep changing" +
+            "\nstate, but their actions do not fire. This is the supported way to suppress" +
+            "\nnotifications during planned maintenance, instead of disabling alarm actions and" +
+            "\nhoping someone remembers to turn them back on.\n");
+
+        // The expression is a five-field cron expression,
+        // cron(Minutes Hours Day-of-month Month Day-of-week). Note that this is five fields,
+        // not the six that Amazon EventBridge uses. For a one-time window, use
+        // at(yyyy-MM-ddThh:mm), with no seconds. The duration is an ISO 8601 duration from
+        // PT1M to P15D, so PT2H rather than 2h.
+        const string expression = "cron(0 2 * * SUN)";
+        const string duration = "PT2H";
+        const string timezone = "America/Los_Angeles";
+
+        await _otelWrapper.PutAlarmMuteRule(_muteRuleName, expression, duration, timezone,
+            new List<string> { _alarmName });
+
+        Console.WriteLine($"\tCreated mute rule {_muteRuleName}:");
+        Console.WriteLine($"\t  schedule: {expression} for {duration}");
+        Console.WriteLine($"\t  timezone: {timezone}");
+        Console.WriteLine($"\t  targets:  {_alarmName}");
+        Console.WriteLine(
+            "\n\tNote the two formats here. The expression is a five-field cron expression, five" +
+            "\n\trather than the six Amazon EventBridge uses. The duration is an ISO 8601" +
+            "\n\tduration, so 'PT2H' and not '2h'." +
+            "\n" +
+            "\n\tAlso note that MuteTargets is set explicitly. If you leave it out, the rule" +
+            "\n\tapplies to every alarm in the account.");
+
+        var muteRule = await _otelWrapper.GetAlarmMuteRule(_muteRuleName);
+        Console.WriteLine(
+            $"\tRead the rule back: status {muteRule.Status}, mute type {muteRule.MuteType}.");
+
+        var summaries = await _otelWrapper.ListAlarmMuteRules(_alarmName);
+        Console.WriteLine($"\tFound {summaries.Count} mute rules targeting this alarm.");
+
+        // Mute rule summaries carry no name field, only an ARN, so match on the ARN suffix.
+        var match = summaries.FirstOrDefault(s =>
+            s.AlarmMuteRuleArn.EndsWith($"/{_muteRuleName}") ||
+            s.AlarmMuteRuleArn.EndsWith($":{_muteRuleName}"));
+
+        if (match != null)
+        {
+            Console.WriteLine($"\t  matched by ARN: {match.AlarmMuteRuleArn} ({match.Status})");
+        }
+
+        Console.WriteLine(new string('-', 80));
+    }
+
+    /// <summary>
+    /// Delete the resources the scenario created. Each deletion is attempted independently
+    /// so that one failure does not leave the remaining resources behind.
+    /// </summary>
+    private static async Task CleanUp()
+    {
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine("8. Clean up");
+        Console.WriteLine("\nDelete the resources this scenario created? (y/n)");
+
+        var response = Console.ReadLine();
+        if (!string.Equals(response?.Trim(), "y", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine(
+                "\tSkipping cleanup. Note that the alarm, dashboard, and mute rule are still in" +
+                "\n\tyour account, and enrichment may still be running.");
+            Console.WriteLine(new string('-', 80));
+            return;
+        }
+
+        try
+        {
+            await _otelWrapper.DeleteAlarmMuteRule(_muteRuleName);
+            Console.WriteLine($"\tDeleted mute rule {_muteRuleName}.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"\tCould not delete the mute rule: {ex.Message}");
+        }
+
+        try
+        {
+            await _cloudWatchWrapper.DeleteAlarms(new List<string> { _alarmName });
+            Console.WriteLine($"\tDeleted alarm {_alarmName}.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"\tCould not delete the alarm: {ex.Message}");
+        }
+
+        if (_dashboardCreated)
+        {
+            try
             {
-                for (int j = 0; j < metricData[i].Values.Count; j++)
-                {
-                    Console.WriteLine(
-                        $"\tTimestamp {metricData[i].Timestamps[j]:G} Value: {metricData[i].Values[j]}");
-                }
+                await _cloudWatchWrapper.DeleteDashboards(new List<string> { _dashboardName });
+                Console.WriteLine($"\tDeleted dashboard {_dashboardName}.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"\tCould not delete the dashboard: {ex.Message}");
             }
         }
 
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Add metric data to trigger an alarm.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task AddMetricDataForAlarm()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"12. Add metric data to the custom metric to trigger an alarm.");
-
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-        var nowUtc = DateTime.UtcNow;
-        List<MetricDatum> customData = new List<MetricDatum>
+        if (_startedEnrichment)
         {
-            new MetricDatum
+            try
             {
-                MetricName = customMetricName,
-                Value = 101,
-                Timestamp = nowUtc.AddMinutes(-2)
-            },
-            new MetricDatum
-            {
-                MetricName = customMetricName,
-                Value = 101,
-                Timestamp = nowUtc.AddMinutes(-1)
-            },
-            new MetricDatum
-            {
-                MetricName = customMetricName,
-                Value = 101,
-                Timestamp = nowUtc
+                await _otelWrapper.StopOTelEnrichment();
+                Console.WriteLine("\tStopped OTel enrichment, because this run started it.");
             }
-        };
-        var valuesString = string.Join(',', customData.Select(d => d.Value));
-        Console.WriteLine($"\tAdded metric values for for metric {customMetricName}: \n\t{valuesString}");
-        await _cloudWatchWrapper.PutMetricData(customMetricNamespace, customData);
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Check for a metric alarm using the DescribeAlarmsForMetric action.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task CheckForMetricAlarm()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"13. Checking for an alarm state.");
-
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-        var hasAlarm = false;
-        var retries = 10;
-        while (!hasAlarm && retries > 0)
-        {
-            var alarms = await _cloudWatchWrapper.DescribeAlarmsForMetric(customMetricNamespace, customMetricName);
-            hasAlarm = alarms.Any(a => a.StateValue == StateValue.ALARM);
-            retries--;
-            Thread.Sleep(20000);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"\tCould not stop OTel enrichment: {ex.Message}");
+            }
         }
-
-        Console.WriteLine(hasAlarm
-            ? $"\tAlarm state found for {customMetricName}."
-            : $"\tNo Alarm state found for {customMetricName} after 10 retries.");
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Get history for an alarm.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task GetAlarmHistory()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"14. Get alarm history.");
-
-        var exampleAlarmName = _configuration["exampleAlarmName"];
-
-        var alarmHistory = await _cloudWatchWrapper.DescribeAlarmHistory(exampleAlarmName, 2);
-
-        for (int i = 0; i < alarmHistory.Count; i++)
+        else
         {
-            var history = alarmHistory[i];
-            Console.WriteLine($"\t{i + 1}. {history.HistorySummary}, time {history.Timestamp:g}");
-        }
-        if (!alarmHistory.Any())
-        {
-            Console.WriteLine($"\tNo alarm history data found for {exampleAlarmName}.");
+            Console.WriteLine(
+                "\tLeft OTel enrichment running, because it was already on before this run.");
         }
 
         Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Add an anomaly detector.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task<SingleMetricAnomalyDetector> AddAnomalyDetector()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"15. Add an anomaly detector.");
-
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-
-        var detector = new SingleMetricAnomalyDetector
-        {
-            MetricName = customMetricName,
-            Namespace = customMetricNamespace,
-            Stat = "Maximum"
-        };
-        await _cloudWatchWrapper.PutAnomalyDetector(detector);
-        Console.WriteLine($"\tAdded anomaly detector for metric {customMetricName}.");
-
-        Console.WriteLine(new string('-', 80));
-        return detector;
-    }
-
-    /// <summary>
-    /// Describe anomaly detectors.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task DescribeAnomalyDetectors()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"16. Describe anomaly detectors in the current account.");
-
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-
-        var detectors = await _cloudWatchWrapper.DescribeAnomalyDetectors(customMetricNamespace, customMetricName);
-
-        for (int i = 0; i < detectors.Count; i++)
-        {
-            var detector = detectors[i];
-            Console.WriteLine($"\t{i + 1}. {detector.SingleMetricAnomalyDetector.MetricName}, state {detector.StateValue}");
-        }
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Fetch and open a metrics image for a CloudWatch metric and namespace.
-    /// </summary>
-    /// <returns>Async task.</returns>
-    private static async Task GetAndOpenMetricImage()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine("17. Get a metric image from CloudWatch.");
-
-        Console.WriteLine($"\tGetting Image data for custom metric.");
-        var customMetricNamespace = _configuration["customMetricNamespace"];
-        var customMetricName = _configuration["customMetricName"];
-
-        var memoryStream = await _cloudWatchWrapper.GetTimeSeriesMetricImage(customMetricNamespace, customMetricName, "Maximum", 10);
-        var file = _cloudWatchWrapper.SaveMetricImage(memoryStream, "MetricImages");
-
-        ProcessStartInfo info = new ProcessStartInfo();
-
-        Console.WriteLine($"\tFile saved as {Path.GetFileName(file)}.");
-        Console.WriteLine($"\tPress enter to open the image.");
-        Console.ReadLine();
-        info.FileName = Path.Combine("ms-photos://", file);
-        info.UseShellExecute = true;
-        info.CreateNoWindow = true;
-        info.Verb = string.Empty;
-
-        Process.Start(info);
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Clean up created resources.
-    /// </summary>
-    /// <param name="metricNamespace">The namespace for metrics.</param>
-    /// <param name="metric">The CloudWatch metric.</param>
-    /// <returns>Async task.</returns>
-    private static async Task CleanupResources()
-    {
-        Console.WriteLine(new string('-', 80));
-        Console.WriteLine($"18. Clean up resources.");
-
-        var dashboardName = _configuration["dashboardName"];
-        if (GetYesNoResponse($"\tDelete dashboard {dashboardName}? (y/n)"))
-        {
-            Console.WriteLine($"\tDeleting dashboard.");
-            var dashboardList = new List<string> { dashboardName };
-            await _cloudWatchWrapper.DeleteDashboards(dashboardList);
-        }
-
-        var alarmName = _configuration["exampleAlarmName"];
-        if (GetYesNoResponse($"\tDelete alarm {alarmName}? (y/n)"))
-        {
-            Console.WriteLine($"\tCleaning up alarms.");
-            var alarms = new List<string> { alarmName };
-            await _cloudWatchWrapper.DeleteAlarms(alarms);
-        }
-
-        if (GetYesNoResponse($"\tDelete anomaly detector? (y/n)") && anomalyDetector != null)
-        {
-            Console.WriteLine($"\tCleaning up anomaly detector.");
-
-            await _cloudWatchWrapper.DeleteAnomalyDetector(
-                anomalyDetector);
-        }
-
-        Console.WriteLine(new string('-', 80));
-    }
-
-    /// <summary>
-    /// Get a yes or no response from the user.
-    /// </summary>
-    /// <param name="question">The question string to print on the console.</param>
-    /// <returns>True if the user responds with a yes.</returns>
-    private static bool GetYesNoResponse(string question)
-    {
-        Console.WriteLine(question);
-        var ynResponse = Console.ReadLine();
-        var response = ynResponse != null &&
-                       ynResponse.Equals("y",
-                           StringComparison.InvariantCultureIgnoreCase);
-        return response;
     }
 }
 ```
-Wrapper methods used by the scenario for CloudWatch actions.  
+Wrapper methods used by the scenario for the CloudWatch OpenTelemetry actions.  
+
+```
+/// <summary>
+/// Wrapper class for the OpenTelemetry features of Amazon CloudWatch: turning on OTel
+/// enrichment so that CloudWatch vended metrics are queryable with PromQL, alarming on a
+/// PromQL query, inspecting the individual series (contributors) that put a PromQL alarm
+/// into ALARM, and muting alarm actions on a schedule.
+///
+/// Note that OTLP metric ingestion is not an AWS SDK operation. To send OpenTelemetry
+/// metrics to CloudWatch, point an OpenTelemetry collector or the AWS Distro for
+/// OpenTelemetry (ADOT) SDK at the CloudWatch OTLP metrics endpoint,
+/// https://monitoring.{region}.amazonaws.com/v1/metrics. The operations here cover
+/// everything you do after those metrics land in CloudWatch.
+/// </summary>
+public class CloudWatchOTelWrapper
+{
+    private readonly IAmazonCloudWatch _amazonCloudWatch;
+    private readonly ILogger<CloudWatchOTelWrapper> _logger;
+
+    /// <summary>
+    /// Constructor for the CloudWatch OpenTelemetry wrapper.
+    /// </summary>
+    /// <param name="amazonCloudWatch">The injected CloudWatch client.</param>
+    /// <param name="logger">The injected logger for the wrapper.</param>
+    public CloudWatchOTelWrapper(IAmazonCloudWatch amazonCloudWatch, ILogger<CloudWatchOTelWrapper> logger)
+    {
+        _logger = logger;
+        _amazonCloudWatch = amazonCloudWatch;
+    }
+```
+Wrapper methods used by the scenario for the metric, statistic, and dashboard actions.  
 
 ```
 /// <summary>
@@ -1370,639 +1166,1293 @@ Example settings.json values for the scenario.
 }
 ```
 + For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [DeleteAlarmMuteRule](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarmMuteRule)
   + [DeleteAlarms](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarms)
-  + [DeleteAnomalyDetector](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector)
   + [DeleteDashboards](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards)
-  + [DescribeAlarmHistory](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmHistory)
-  + [DescribeAlarms](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarms)
-  + [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmsForMetric)
-  + [DescribeAnomalyDetectors](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAnomalyDetectors)
-  + [GetMetricData](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricData)
+  + [DescribeAlarmContributors](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmContributors)
+  + [GetAlarmMuteRule](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetAlarmMuteRule)
+  + [GetDashboard](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetDashboard)
   + [GetMetricStatistics](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricStatistics)
-  + [GetMetricWidgetImage](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricWidgetImage)
+  + [GetOTelEnrichment](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetOTelEnrichment)
+  + [ListAlarmMuteRules](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/ListAlarmMuteRules)
+  + [ListDashboards](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/ListDashboards)
   + [ListMetrics](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics)
-  + [PutAnomalyDetector](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutAnomalyDetector)
+  + [PutAlarmMuteRule](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutAlarmMuteRule)
   + [PutDashboard](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutDashboard)
   + [PutMetricAlarm](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricAlarm)
-  + [PutMetricData](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricData)
+  + [StartOTelEnrichment](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/StartOTelEnrichment)
+  + [StopOTelEnrichment](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/StopOTelEnrichment)
+
+------
+#### [ C\+\+ ]
+
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
+Run an interactive scenario at a command prompt.  
+
+```
+#include <aws/core/Aws.h>
+#include <aws/core/utils/json/JsonSerializer.h>
+#include <aws/monitoring/CloudWatchClient.h>
+#include <aws/monitoring/model/AlarmPromQLCriteria.h>
+#include <aws/monitoring/model/DeleteAlarmMuteRuleRequest.h>
+#include <aws/monitoring/model/DeleteAlarmsRequest.h>
+#include <aws/monitoring/model/DeleteDashboardsRequest.h>
+#include <aws/monitoring/model/DescribeAlarmContributorsRequest.h>
+#include <aws/monitoring/model/EvaluationCriteria.h>
+#include <aws/monitoring/model/GetAlarmMuteRuleRequest.h>
+#include <aws/monitoring/model/GetDashboardRequest.h>
+#include <aws/monitoring/model/GetMetricStatisticsRequest.h>
+#include <aws/monitoring/model/GetOTelEnrichmentRequest.h>
+#include <aws/monitoring/model/ListAlarmMuteRulesRequest.h>
+#include <aws/monitoring/model/ListMetricsRequest.h>
+#include <aws/monitoring/model/MuteTargets.h>
+#include <aws/monitoring/model/PutAlarmMuteRuleRequest.h>
+#include <aws/monitoring/model/PutDashboardRequest.h>
+#include <aws/monitoring/model/PutMetricAlarmRequest.h>
+#include <aws/monitoring/model/Rule.h>
+#include <aws/monitoring/model/Schedule.h>
+#include <aws/monitoring/model/StartOTelEnrichmentRequest.h>
+#include <aws/monitoring/model/StopOTelEnrichmentRequest.h>
+#include <chrono>
+#include <iostream>
+#include <map>
+#include <random>
+
+namespace {
+    const Aws::String DASHES(80, '-');
+    const char DEFAULT_QUERY[] = "avg by (host) (system_cpu_utilization) > 80";
+
+    // Valid evaluation intervals are 10, 20, 30, or any multiple of 60 up to 3600
+    // seconds.
+    const int EVALUATION_INTERVAL = 60;
+    const int PENDING_PERIOD = 300;
+    const int RECOVERY_PERIOD = 120;
+
+    //! Wait for the reader before moving to the next step.
+    void pressEnter() {
+        std::cout << "Press Enter to continue..." << std::endl;
+        std::cin.get();
+    }
+
+    //! List the account's metrics and report how they are spread across namespaces.
+    /*!
+      \param client: A CloudWatch client.
+      \param metric: Receives the first metric found, for later steps to chart.
+      \return bool: Function succeeded.
+     */
+    bool listMetricsAndNamespaces(const Aws::CloudWatch::CloudWatchClient &client,
+                                  Aws::CloudWatch::Model::Metric &metric) {
+        std::cout << "1. List metrics and namespaces" << std::endl << std::endl;
+        std::cout << "Before configuring anything, let's see what CloudWatch is already"
+                  << std::endl
+                  << "collecting in this account." << std::endl << std::endl;
+
+        std::map<Aws::String, int> counts;
+        int metricCount = 0;
+        bool haveMetric = false;
+
+        Aws::CloudWatch::Model::ListMetricsRequest request;
+        bool done = false;
+        while (!done) {
+            auto outcome = client.ListMetrics(request);
+            if (!outcome.IsSuccess()) {
+                std::cerr << "Failed to list metrics: " << outcome.GetError().GetMessage()
+                          << std::endl;
+                return false;
+            }
+
+            for (const auto &found : outcome.GetResult().GetMetrics()) {
+                ++counts[found.GetNamespace()];
+                ++metricCount;
+                if (!haveMetric) {
+                    metric = found;
+                    haveMetric = true;
+                }
+            }
+
+            const auto &nextToken = outcome.GetResult().GetNextToken();
+            request.SetNextToken(nextToken);
+            // This account may have a very large number of metrics, so stop once there
+            // are enough to give the reader a sense of what is there.
+            done = nextToken.empty() || metricCount >= 500;
+        }
+
+        std::cout << "Found " << metricCount << " metrics across " << counts.size()
+                  << " namespaces:" << std::endl;
+        for (const auto &entry : counts) {
+            std::cout << "  " << entry.first << " (" << entry.second << " metrics)"
+                      << std::endl;
+        }
+        if (!haveMetric) {
+            std::cout << "No metrics found in this account. The statistics and dashboard"
+                      << std::endl
+                      << "steps later on need an existing metric, so they will be "
+                         "skipped."
+                      << std::endl;
+        }
+
+        return true;
+    }
+
+    //! Start OTel enrichment, but only if it is not already running.
+    /*!
+      \param client: A CloudWatch client.
+      \param startedEnrichment: Set to true if this run started enrichment, so that
+             cleanup only stops what this run turned on.
+      \return bool: Function succeeded.
+     */
+    bool startOTelEnrichment(const Aws::CloudWatch::CloudWatchClient &client,
+                             bool &startedEnrichment) {
+        std::cout << "2. Start OpenTelemetry enrichment" << std::endl << std::endl;
+        std::cout << "Enrichment is what lets CloudWatch attach AWS resource context to"
+                  << std::endl
+                  << "the OTLP metrics you send it. Without it, your metrics arrive as"
+                  << std::endl
+                  << "opaque series with no connection to the resources that emitted "
+                     "them."
+                  << std::endl << std::endl;
+
+        Aws::CloudWatch::Model::GetOTelEnrichmentRequest getRequest;
+        auto getOutcome = client.GetOTelEnrichment(getRequest);
+        if (!getOutcome.IsSuccess()) {
+            std::cerr << "Failed to get OTel enrichment status: "
+                      << getOutcome.GetError().GetMessage() << std::endl;
+            return false;
+        }
+
+        auto status = getOutcome.GetResult().GetStatus();
+        std::cout << "Enrichment status: "
+                  << Aws::CloudWatch::Model::OTelEnrichmentStatusMapper::
+                         GetNameForOTelEnrichmentStatus(status)
+                  << std::endl;
+
+        if (status == Aws::CloudWatch::Model::OTelEnrichmentStatus::Running) {
+            std::cout << std::endl
+                      << "Enrichment was already running, so it will be left alone. The"
+                      << std::endl
+                      << "cleanup step will not stop it, because other workloads in this"
+                      << std::endl
+                      << "account may depend on it." << std::endl;
+            return true;
+        }
+
+        Aws::CloudWatch::Model::StartOTelEnrichmentRequest startRequest;
+        auto startOutcome = client.StartOTelEnrichment(startRequest);
+        if (!startOutcome.IsSuccess()) {
+            std::cerr << "Failed to start OTel enrichment: "
+                      << startOutcome.GetError().GetMessage() << std::endl;
+            return false;
+        }
+        startedEnrichment = true;
+
+        auto afterOutcome = client.GetOTelEnrichment(getRequest);
+        if (afterOutcome.IsSuccess()) {
+            std::cout << "Enrichment status: "
+                      << Aws::CloudWatch::Model::OTelEnrichmentStatusMapper::
+                             GetNameForOTelEnrichmentStatus(
+                                 afterOutcome.GetResult().GetStatus())
+                      << std::endl;
+        }
+        std::cout << std::endl
+                  << "Note: this run started enrichment, so the cleanup step will stop it"
+                  << std::endl
+                  << "again." << std::endl;
+
+        return true;
+    }
+
+    //! Explain how OTLP metrics reach CloudWatch. There is no SDK call for this step.
+    void explainOtlpIngestion() {
+        std::cout << "3. Send OTLP metrics to CloudWatch" << std::endl << std::endl;
+        std::cout << "This step is not an AWS SDK operation, and that is worth being"
+                  << std::endl
+                  << "explicit about. Metrics reach CloudWatch over the OTLP protocol,"
+                  << std::endl
+                  << "through the CloudWatch agent, an OpenTelemetry Collector, or an "
+                     "ADOT"
+                  << std::endl
+                  << "SDK. There is no PutOTelMetrics API to call." << std::endl
+                  << std::endl;
+        std::cout << "Point your collector at the CloudWatch metrics endpoint, which"
+                  << std::endl
+                  << "follows the pattern" << std::endl
+                  << "  https://monitoring.<region>.amazonaws.com/v1/metrics" << std::endl
+                  << std::endl;
+        std::cout << "The endpoint is HTTP/1.1 only and does not support gRPC, so use an"
+                  << std::endl
+                  << "otlphttp exporter rather than otlp. The metrics endpoint signs as"
+                  << std::endl
+                  << "\"monitoring\"." << std::endl;
+    }
+
+    //! Create an alarm that evaluates a PromQL query.
+    /*!
+      \param client: A CloudWatch client.
+      \param alarmName: The name of the alarm to create.
+      \param query: The PromQL query to evaluate.
+      \return bool: Function succeeded.
+     */
+    bool createPromQLAlarm(const Aws::CloudWatch::CloudWatchClient &client,
+                           const Aws::String &alarmName, const Aws::String &query) {
+        std::cout << "4. Create a PromQL alarm" << std::endl << std::endl;
+        std::cout << "The comparison goes inside the query itself: a PromQL alarm has no"
+                  << std::endl
+                  << "separate threshold, comparison operator, statistic, or period."
+                  << std::endl << std::endl;
+
+        Aws::CloudWatch::Model::AlarmPromQLCriteria promQLCriteria;
+        promQLCriteria.SetQuery(query);
+        promQLCriteria.SetPendingPeriod(PENDING_PERIOD);
+        promQLCriteria.SetRecoveryPeriod(RECOVERY_PERIOD);
+
+        Aws::CloudWatch::Model::EvaluationCriteria evaluationCriteria;
+        evaluationCriteria.SetPromQLCriteria(promQLCriteria);
+
+        // EvaluationCriteria is mutually exclusive with the classic MetricName and
+        // Metrics fields. When you use it you must also set EvaluationInterval, and you
+        // must not set Period, Statistic, Threshold, ComparisonOperator,
+        // EvaluationPeriods, DatapointsToAlarm, or TreatMissingData.
+        Aws::CloudWatch::Model::PutMetricAlarmRequest request;
+        request.SetAlarmName(alarmName);
+        request.SetAlarmDescription(
+            "A PromQL alarm created by the AWS SDK for C++ Basics scenario.");
+        request.SetEvaluationCriteria(evaluationCriteria);
+        request.SetEvaluationInterval(EVALUATION_INTERVAL);
+        request.SetActionsEnabled(false);
+
+        auto outcome = client.PutMetricAlarm(request);
+        if (!outcome.IsSuccess()) {
+            std::cerr << "Failed to create PromQL alarm: "
+                      << outcome.GetError().GetMessage() << std::endl;
+            return false;
+        }
+
+        std::cout << "Created alarm " << alarmName << ":" << std::endl;
+        std::cout << "  query:              " << query << std::endl;
+        std::cout << "  evaluationInterval: " << EVALUATION_INTERVAL << " seconds"
+                  << std::endl;
+        std::cout << "  pendingPeriod:      " << PENDING_PERIOD << " seconds" << std::endl;
+        std::cout << "  recoveryPeriod:     " << RECOVERY_PERIOD << " seconds"
+                  << std::endl << std::endl;
+        std::cout << "A PromQL alarm starts in the OK state rather than "
+                     "INSUFFICIENT_DATA,"
+                  << std::endl
+                  << "which is another way it differs from a classic alarm." << std::endl;
+
+        return true;
+    }
+
+    //! Report the alarm's contributors, one per series the query matched.
+    /*!
+      \param client: A CloudWatch client.
+      \param alarmName: The name of the alarm.
+      \return bool: Function succeeded.
+     */
+    bool inspectAlarmContributors(const Aws::CloudWatch::CloudWatchClient &client,
+                                 const Aws::String &alarmName) {
+        std::cout << "5. Inspect the alarm's contributors" << std::endl << std::endl;
+        std::cout << "Each contributor is one series the query matched, identified by its"
+                  << std::endl
+                  << "label set. This is how you find out which host is unhealthy rather"
+                  << std::endl
+                  << "than only that something is. Classic alarms have no equivalent."
+                  << std::endl << std::endl;
+
+        Aws::Vector<Aws::CloudWatch::Model::AlarmContributor> contributors;
+        Aws::CloudWatch::Model::DescribeAlarmContributorsRequest request;
+        request.SetAlarmName(alarmName);
+
+        bool done = false;
+        while (!done) {
+            auto outcome = client.DescribeAlarmContributors(request);
+            if (!outcome.IsSuccess()) {
+                std::cerr << "Failed to describe alarm contributors: "
+                          << outcome.GetError().GetMessage() << std::endl;
+                return false;
+            }
+
+            const auto &page = outcome.GetResult().GetAlarmContributors();
+            contributors.insert(contributors.end(), page.begin(), page.end());
+
+            const auto &nextToken = outcome.GetResult().GetNextToken();
+            request.SetNextToken(nextToken);
+            // A page can come back empty while still carrying a token, so keep going
+            // until the token itself is gone rather than stopping at the first empty
+            // page.
+            done = nextToken.empty();
+        }
+
+        if (contributors.empty()) {
+            std::cout << "No contributors yet. The query matched no series, which usually"
+                      << std::endl
+                      << "means no OTel metrics with these labels have arrived. Once your"
+                      << std::endl
+                      << "collector is sending data, each matching series appears here"
+                      << std::endl
+                      << "with its labels and the reason it breached." << std::endl;
+            return true;
+        }
+
+        std::cout << "Found " << contributors.size() << " contributors:" << std::endl;
+        for (const auto &contributor : contributors) {
+            std::cout << "  " << contributor.GetContributorId() << ": ";
+            bool first = true;
+            for (const auto &label : contributor.GetContributorAttributes()) {
+                if (!first) {
+                    std::cout << ", ";
+                }
+                std::cout << label.first << "=" << label.second;
+                first = false;
+            }
+            std::cout << std::endl;
+            std::cout << "    reason: " << contributor.GetStateReason() << std::endl;
+        }
+
+        return true;
+    }
+
+    //! Build a single-widget dashboard body that charts the given metric.
+    /*!
+      \param metric: The metric to chart.
+      \param region: The region the metric is in. A metric widget must name its
+       region, because a dashboard can chart metrics from several.
+      \return Aws::String: The dashboard body, as JSON.
+     */
+    Aws::String buildDashboardBody(const Aws::CloudWatch::Model::Metric &metric,
+                                   const Aws::String &region) {
+        const auto &dimensions = metric.GetDimensions();
+
+        // A metric is specified in a widget as a flat array,
+        // [namespace, metricName, dimensionName, dimensionValue, ...].
+        Aws::Utils::Array<Aws::Utils::Json::JsonValue> metricSpec(
+            2 + 2 * dimensions.size());
+        metricSpec[0].AsString(metric.GetNamespace());
+        metricSpec[1].AsString(metric.GetMetricName());
+        size_t index = 2;
+        for (const auto &dimension : dimensions) {
+            metricSpec[index++].AsString(dimension.GetName());
+            metricSpec[index++].AsString(dimension.GetValue());
+        }
+
+        Aws::Utils::Array<Aws::Utils::Json::JsonValue> metricsArray(1);
+        metricsArray[0].AsArray(metricSpec);
+
+        Aws::Utils::Json::JsonValue textProperties;
+        textProperties.WithString(
+            "markdown",
+            "This dashboard was created programmatically by an AWS SDK code example.");
+
+        Aws::Utils::Json::JsonValue textWidget;
+        textWidget.WithString("type", "text")
+            .WithInteger("x", 0)
+            .WithInteger("y", 0)
+            .WithInteger("width", 24)
+            .WithInteger("height", 2)
+            .WithObject("properties", textProperties);
+
+        Aws::Utils::Json::JsonValue metricProperties;
+        metricProperties.WithArray("metrics", metricsArray)
+            .WithString("view", "timeSeries")
+            .WithString("stat", "Average")
+            .WithInteger("period", 300)
+            .WithString("region", region)
+            .WithString("title", metric.GetMetricName());
+
+        Aws::Utils::Json::JsonValue metricWidget;
+        metricWidget.WithString("type", "metric")
+            .WithInteger("x", 0)
+            .WithInteger("y", 2)
+            .WithInteger("width", 12)
+            .WithInteger("height", 6)
+            .WithObject("properties", metricProperties);
+
+        Aws::Utils::Array<Aws::Utils::Json::JsonValue> widgets(2);
+        widgets[0] = textWidget;
+        widgets[1] = metricWidget;
+
+        Aws::Utils::Json::JsonValue body;
+        body.WithArray("widgets", widgets);
+
+        return body.View().WriteCompact();
+    }
+
+    //! Get statistics for a metric and chart it on a dashboard.
+    /*!
+      \param client: A CloudWatch client.
+      \param metric: The metric to chart. If its name is empty, this step is skipped.
+      \param dashboardName: The name of the dashboard to create.
+      \param dashboardCreated: Set to true if a dashboard was created, so that cleanup
+             only deletes a dashboard that exists.
+      \return bool: Function succeeded.
+     */
+    bool getStatisticsAndChartMetric(const Aws::CloudWatch::CloudWatchClient &client,
+                                     const Aws::CloudWatch::Model::Metric &metric,
+                                     const Aws::String &dashboardName,
+                                     const Aws::String &region,
+                                     bool &dashboardCreated) {
+        std::cout << "6. Get statistics and chart the metric on a dashboard" << std::endl
+                  << std::endl;
+        std::cout << "Statistics and dashboards are how you see what the alarm is"
+                  << std::endl << "evaluating." << std::endl << std::endl;
+
+        if (metric.GetMetricName().empty()) {
+            std::cout << "Skipping statistics and dashboard because no metrics exist yet."
+                      << std::endl;
+            return true;
+        }
+
+        const auto now = std::chrono::system_clock::now();
+        Aws::CloudWatch::Model::GetMetricStatisticsRequest statsRequest;
+        statsRequest.SetNamespace(metric.GetNamespace());
+        statsRequest.SetMetricName(metric.GetMetricName());
+        statsRequest.SetDimensions(metric.GetDimensions());
+        statsRequest.SetStartTime(Aws::Utils::DateTime(now - std::chrono::hours(24)));
+        statsRequest.SetEndTime(Aws::Utils::DateTime(now));
+        statsRequest.SetPeriod(3600);
+        statsRequest.AddStatistics(Aws::CloudWatch::Model::Statistic::Average);
+        statsRequest.AddStatistics(Aws::CloudWatch::Model::Statistic::Maximum);
+
+        auto statsOutcome = client.GetMetricStatistics(statsRequest);
+        if (!statsOutcome.IsSuccess()) {
+            std::cerr << "Failed to get metric statistics: "
+                      << statsOutcome.GetError().GetMessage() << std::endl;
+            return false;
+        }
+
+        const auto &datapoints = statsOutcome.GetResult().GetDatapoints();
+        std::cout << "Statistics for " << metric.GetNamespace() << " "
+                  << metric.GetMetricName() << " over the last day:" << std::endl;
+        std::cout << "  Datapoints: " << datapoints.size() << std::endl;
+        size_t shown = 0;
+        for (const auto &datapoint : datapoints) {
+            if (shown++ >= 3) {
+                break;
+            }
+            std::cout << "  " << datapoint.GetTimestamp().ToGmtString(
+                                     Aws::Utils::DateFormat::ISO_8601)
+                      << " average " << datapoint.GetAverage() << ", maximum "
+                      << datapoint.GetMaximum() << std::endl;
+        }
+
+        Aws::CloudWatch::Model::PutDashboardRequest putRequest;
+        putRequest.SetDashboardName(dashboardName);
+        putRequest.SetDashboardBody(buildDashboardBody(metric, region));
+
+        auto putOutcome = client.PutDashboard(putRequest);
+        if (!putOutcome.IsSuccess()) {
+            std::cerr << "Failed to put dashboard: " << putOutcome.GetError().GetMessage()
+                      << std::endl;
+            return false;
+        }
+        dashboardCreated = true;
+
+        for (const auto &message :
+             putOutcome.GetResult().GetDashboardValidationMessages()) {
+            std::cout << "Dashboard validation message: " << message.GetMessage()
+                      << std::endl;
+        }
+        std::cout << "Created dashboard " << dashboardName << "." << std::endl;
+
+        Aws::CloudWatch::Model::GetDashboardRequest getRequest;
+        getRequest.SetDashboardName(dashboardName);
+        auto getOutcome = client.GetDashboard(getRequest);
+        if (getOutcome.IsSuccess()) {
+            std::cout << "Read the dashboard back, "
+                      << getOutcome.GetResult().GetDashboardBody().size()
+                      << " characters of widget JSON." << std::endl;
+        }
+
+        return true;
+    }
+
+    //! Mute the alarm for a recurring maintenance window.
+    /*!
+      \param client: A CloudWatch client.
+      \param muteRuleName: The name of the mute rule to create.
+      \param alarmName: The alarm to target.
+      \return bool: Function succeeded.
+     */
+    bool muteAlarmForMaintenance(const Aws::CloudWatch::CloudWatchClient &client,
+                                 const Aws::String &muteRuleName,
+                                 const Aws::String &alarmName) {
+        std::cout << "7. Mute the alarm for a maintenance window" << std::endl
+                  << std::endl;
+        std::cout << "While a mute rule is active the targeted alarms keep evaluating and"
+                  << std::endl
+                  << "keep changing state, but their actions do not fire. This is the"
+                  << std::endl
+                  << "supported way to suppress notifications during planned maintenance,"
+                  << std::endl
+                  << "instead of disabling alarm actions and hoping someone remembers to"
+                  << std::endl
+                  << "turn them back on." << std::endl << std::endl;
+
+        // The expression is a five-field cron expression,
+        // cron(Minutes Hours Day-of-month Month Day-of-week). Note that this is five
+        // fields, not the six that Amazon EventBridge uses. For a one-time window, use
+        // at(yyyy-MM-ddThh:mm), with no seconds. The duration is an ISO 8601 duration
+        // from PT1M to P15D, so PT2H rather than 2h.
+        const Aws::String expression("cron(0 2 * * SUN)");
+        const Aws::String duration("PT2H");
+        const Aws::String timezone("America/Los_Angeles");
+
+        Aws::CloudWatch::Model::Schedule schedule;
+        schedule.SetExpression(expression);
+        schedule.SetDuration(duration);
+        schedule.SetTimezone(timezone);
+
+        Aws::CloudWatch::Model::Rule rule;
+        rule.SetSchedule(schedule);
+
+        // Target up to 100 alarms. If MuteTargets is not set, the rule applies to every
+        // alarm in the account.
+        Aws::CloudWatch::Model::MuteTargets muteTargets;
+        muteTargets.AddAlarmNames(alarmName);
+
+        Aws::CloudWatch::Model::PutAlarmMuteRuleRequest putRequest;
+        putRequest.SetName(muteRuleName);
+        putRequest.SetDescription(
+            "A mute rule created by the AWS SDK for C++ Basics scenario.");
+        putRequest.SetRule(rule);
+        putRequest.SetMuteTargets(muteTargets);
+
+        auto putOutcome = client.PutAlarmMuteRule(putRequest);
+        if (!putOutcome.IsSuccess()) {
+            std::cerr << "Failed to put alarm mute rule: "
+                      << putOutcome.GetError().GetMessage() << std::endl;
+            return false;
+        }
+
+        std::cout << "Created mute rule " << muteRuleName << ":" << std::endl;
+        std::cout << "  schedule: " << expression << " for " << duration << std::endl;
+        std::cout << "  timezone: " << timezone << std::endl;
+        std::cout << "  targets:  " << alarmName << std::endl << std::endl;
+        std::cout << "Note the two formats here. The expression is a five-field cron"
+                  << std::endl
+                  << "expression, five rather than the six Amazon EventBridge uses. The"
+                  << std::endl
+                  << "duration is an ISO 8601 duration, so \"PT2H\" and not \"2h\"."
+                  << std::endl << std::endl;
+        std::cout << "Also note that MuteTargets is set explicitly. If you leave it out,"
+                  << std::endl
+                  << "the rule applies to every alarm in the account." << std::endl;
+
+        Aws::CloudWatch::Model::GetAlarmMuteRuleRequest getRequest;
+        getRequest.SetAlarmMuteRuleName(muteRuleName);
+        auto getOutcome = client.GetAlarmMuteRule(getRequest);
+        if (getOutcome.IsSuccess()) {
+            const auto &result = getOutcome.GetResult();
+            std::cout << "Read the rule back: status "
+                      << Aws::CloudWatch::Model::AlarmMuteRuleStatusMapper::
+                             GetNameForAlarmMuteRuleStatus(result.GetStatus())
+                      << ", mute type " << result.GetMuteType() << "." << std::endl;
+        }
+
+        Aws::Vector<Aws::CloudWatch::Model::AlarmMuteRuleSummary> summaries;
+        Aws::CloudWatch::Model::ListAlarmMuteRulesRequest listRequest;
+        listRequest.SetAlarmName(alarmName);
+        bool done = false;
+        while (!done) {
+            auto listOutcome = client.ListAlarmMuteRules(listRequest);
+            if (!listOutcome.IsSuccess()) {
+                std::cerr << "Failed to list alarm mute rules: "
+                          << listOutcome.GetError().GetMessage() << std::endl;
+                return false;
+            }
+
+            const auto &page = listOutcome.GetResult().GetAlarmMuteRuleSummaries();
+            summaries.insert(summaries.end(), page.begin(), page.end());
+
+            const auto &nextToken = listOutcome.GetResult().GetNextToken();
+            listRequest.SetNextToken(nextToken);
+            done = nextToken.empty();
+        }
+
+        std::cout << "Found " << summaries.size()
+                  << " mute rules targeting this alarm." << std::endl;
+        // Mute rule summaries carry no name field, only an ARN, so match on the ARN
+        // suffix.
+        for (const auto &summary : summaries) {
+            const auto &arn = summary.GetAlarmMuteRuleArn();
+            const Aws::String slashSuffix = "/" + muteRuleName;
+            const Aws::String colonSuffix = ":" + muteRuleName;
+            if ((arn.size() >= slashSuffix.size() &&
+                 arn.compare(arn.size() - slashSuffix.size(), slashSuffix.size(),
+                             slashSuffix) == 0) ||
+                (arn.size() >= colonSuffix.size() &&
+                 arn.compare(arn.size() - colonSuffix.size(), colonSuffix.size(),
+                             colonSuffix) == 0)) {
+                std::cout << "  matched by ARN: " << arn << " ("
+                          << Aws::CloudWatch::Model::AlarmMuteRuleStatusMapper::
+                                 GetNameForAlarmMuteRuleStatus(summary.GetStatus())
+                          << ")" << std::endl;
+            }
+        }
+
+        return true;
+    }
+
+    //! Delete everything the scenario created.
+    /*!
+      \param client: A CloudWatch client.
+      \param alarmName: The alarm to delete.
+      \param dashboardName: The dashboard to delete.
+      \param muteRuleName: The mute rule to delete.
+      \param dashboardCreated: Whether a dashboard was created.
+      \param startedEnrichment: Whether this run started OTel enrichment.
+      \return bool: Every deletion succeeded.
+     */
+    bool cleanUp(const Aws::CloudWatch::CloudWatchClient &client,
+                 const Aws::String &alarmName, const Aws::String &dashboardName,
+                 const Aws::String &muteRuleName, bool dashboardCreated,
+                 bool startedEnrichment) {
+        std::cout << "8. Clean up" << std::endl << std::endl;
+
+        // Each deletion is attempted independently so that one failure does not leave
+        // the remaining resources behind.
+        bool result = true;
+
+        Aws::CloudWatch::Model::DeleteAlarmMuteRuleRequest muteRuleRequest;
+        muteRuleRequest.SetAlarmMuteRuleName(muteRuleName);
+        auto muteRuleOutcome = client.DeleteAlarmMuteRule(muteRuleRequest);
+        if (muteRuleOutcome.IsSuccess()) {
+            std::cout << "Deleted mute rule " << muteRuleName << "." << std::endl;
+        } else {
+            std::cerr << "Could not delete the mute rule: "
+                      << muteRuleOutcome.GetError().GetMessage() << std::endl;
+            result = false;
+        }
+
+        Aws::CloudWatch::Model::DeleteAlarmsRequest alarmRequest;
+        alarmRequest.AddAlarmNames(alarmName);
+        auto alarmOutcome = client.DeleteAlarms(alarmRequest);
+        if (alarmOutcome.IsSuccess()) {
+            std::cout << "Deleted alarm " << alarmName << "." << std::endl;
+        } else {
+            std::cerr << "Could not delete the alarm: "
+                      << alarmOutcome.GetError().GetMessage() << std::endl;
+            result = false;
+        }
+
+        if (dashboardCreated) {
+            Aws::CloudWatch::Model::DeleteDashboardsRequest dashboardRequest;
+            dashboardRequest.AddDashboardNames(dashboardName);
+            auto dashboardOutcome = client.DeleteDashboards(dashboardRequest);
+            if (dashboardOutcome.IsSuccess()) {
+                std::cout << "Deleted dashboard " << dashboardName << "." << std::endl;
+            } else {
+                std::cerr << "Could not delete the dashboard: "
+                          << dashboardOutcome.GetError().GetMessage() << std::endl;
+                result = false;
+            }
+        }
+
+        if (!startedEnrichment) {
+            std::cout << "Left OTel enrichment running, because it was already on before"
+                      << std::endl << "this run." << std::endl;
+            return result;
+        }
+
+        Aws::CloudWatch::Model::StopOTelEnrichmentRequest stopRequest;
+        auto stopOutcome = client.StopOTelEnrichment(stopRequest);
+        if (stopOutcome.IsSuccess()) {
+            std::cout << "Stopped OTel enrichment, because this run started it."
+                      << std::endl;
+        } else {
+            std::cerr << "Could not stop OTel enrichment: "
+                      << stopOutcome.GetError().GetMessage() << std::endl;
+            result = false;
+        }
+
+        return result;
+    }
+} // namespace
+
+//! Run the Amazon CloudWatch Basics scenario.
+/*!
+  \param query: The PromQL query to alarm on.
+  \param clientConfig: AWS client configuration.
+  \return bool: Function succeeded.
+ */
+bool runCloudWatchScenario(const Aws::String &query,
+                           const Aws::Client::ClientConfiguration &clientConfig) {
+    Aws::CloudWatch::CloudWatchClient client(clientConfig);
+
+    // Suffix the resource names so repeated runs do not collide.
+    std::mt19937 generator(std::random_device{}());
+    const int suffix = std::uniform_int_distribution<int>(1000, 9999)(generator);
+    const Aws::String alarmName =
+        "doc-example-promql-alarm-" + std::to_string(suffix);
+    const Aws::String dashboardName = "doc-example-dashboard-" + std::to_string(suffix);
+    const Aws::String muteRuleName = "doc-example-mute-rule-" + std::to_string(suffix);
+
+    Aws::CloudWatch::Model::Metric metric;
+    bool startedEnrichment = false;
+    bool dashboardCreated = false;
+    bool result = true;
+
+    std::cout << DASHES << std::endl;
+    std::cout << "Welcome to the Amazon CloudWatch Basics scenario." << std::endl
+              << std::endl;
+    std::cout << "CloudWatch now ingests OpenTelemetry metrics natively. This scenario"
+              << std::endl
+              << "walks through that experience: it turns on OTel enrichment so"
+              << std::endl
+              << "CloudWatch can correlate incoming OTLP metrics with the resources that"
+              << std::endl
+              << "produced them, alarms on those metrics with a PromQL query, and shows"
+              << std::endl
+              << "you which individual series drove the alarm." << std::endl << std::endl;
+    std::cout << "A PromQL alarm works differently from a classic metric alarm. Rather"
+              << std::endl
+              << "than watching one metric and counting breaching periods, it evaluates"
+              << std::endl
+              << "a query that can match many series at once, and tracks each one"
+              << std::endl << "separately as a contributor." << std::endl;
+    std::cout << DASHES << std::endl;
+    pressEnter();
+
+    // Every step prompts for Enter before the next one, but only while the scenario is
+    // still healthy. Once a step fails the remaining steps are skipped, so there is
+    // nothing left to wait for and the run goes straight to cleanup.
+    if (!listMetricsAndNamespaces(client, metric)) {
+        result = false;
+    }
+    std::cout << DASHES << std::endl;
+    if (result) {
+        pressEnter();
+    }
+
+    if (result && !startOTelEnrichment(client, startedEnrichment)) {
+        result = false;
+    }
+    std::cout << DASHES << std::endl;
+    if (result) {
+        pressEnter();
+    }
+
+    if (result) {
+        explainOtlpIngestion();
+        std::cout << DASHES << std::endl;
+        pressEnter();
+    }
+
+    if (result && !createPromQLAlarm(client, alarmName, query)) {
+        result = false;
+    }
+    std::cout << DASHES << std::endl;
+    if (result) {
+        pressEnter();
+    }
+
+    if (result && !inspectAlarmContributors(client, alarmName)) {
+        result = false;
+    }
+    std::cout << DASHES << std::endl;
+    if (result) {
+        pressEnter();
+    }
+
+    if (result && !getStatisticsAndChartMetric(client, metric, dashboardName,
+                                               clientConfig.region,
+                                               dashboardCreated)) {
+        result = false;
+    }
+    std::cout << DASHES << std::endl;
+    if (result) {
+        pressEnter();
+    }
+
+    if (result && !muteAlarmForMaintenance(client, muteRuleName, alarmName)) {
+        result = false;
+    }
+    std::cout << DASHES << std::endl;
+    if (result) {
+        pressEnter();
+    }
+
+    // Clean up regardless of whether an earlier step failed, so a partial run does not
+    // leave resources behind.
+    if (!cleanUp(client, alarmName, dashboardName, muteRuleName, dashboardCreated,
+                 startedEnrichment)) {
+        result = false;
+    }
+    std::cout << DASHES << std::endl;
+
+    std::cout << "This concludes the Amazon CloudWatch Basics scenario." << std::endl;
+    std::cout << DASHES << std::endl;
+
+    return result;
+}
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [DeleteAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/DeleteAlarmMuteRule)
+  + [DeleteAlarms](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/DeleteAlarms)
+  + [DeleteDashboards](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/DeleteDashboards)
+  + [DescribeAlarmContributors](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/DescribeAlarmContributors)
+  + [GetAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/GetAlarmMuteRule)
+  + [GetDashboard](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/GetDashboard)
+  + [GetMetricStatistics](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/GetMetricStatistics)
+  + [GetOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/GetOTelEnrichment)
+  + [ListAlarmMuteRules](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/ListAlarmMuteRules)
+  + [ListDashboards](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/ListDashboards)
+  + [ListMetrics](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/ListMetrics)
+  + [PutAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/PutAlarmMuteRule)
+  + [PutDashboard](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/PutDashboard)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/PutMetricAlarm)
+  + [StartOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/StartOTelEnrichment)
+  + [StopOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/StopOTelEnrichment)
 
 ------
 #### [ Java ]
 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
-Run an interactive scenario demonstrating CloudWatch features.  
+Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
 
 ```
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.services.cloudwatch.model.CloudWatchException;
-import software.amazon.awssdk.services.cloudwatch.model.DashboardInvalidInputErrorException;
-import software.amazon.awssdk.services.cloudwatch.model.DeleteAlarmsResponse;
-import software.amazon.awssdk.services.cloudwatch.model.DeleteAnomalyDetectorResponse;
-import software.amazon.awssdk.services.cloudwatch.model.DeleteDashboardsResponse;
+import software.amazon.awssdk.services.cloudwatch.model.AlarmContributor;
+import software.amazon.awssdk.services.cloudwatch.model.AlarmMuteRuleSummary;
 import software.amazon.awssdk.services.cloudwatch.model.Dimension;
-import software.amazon.awssdk.services.cloudwatch.model.GetMetricStatisticsResponse;
-import software.amazon.awssdk.services.cloudwatch.model.LimitExceededException;
-import software.amazon.awssdk.services.cloudwatch.model.PutDashboardResponse;
-import software.amazon.awssdk.services.cloudwatch.model.PutMetricDataResponse;
-import java.io.IOException;
+import software.amazon.awssdk.services.cloudwatch.model.GetAlarmMuteRuleResponse;
+
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.CompletableFuture;
 
 /**
- * Before running this Java V2 code example, set up your development
- * environment, including your credentials.
+ * Before running this Java V2 code example, set up your development environment,
+ * including your credentials.
  *
  * For more information, see the following documentation topic:
  *
  * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
  *
- * To enable billing metrics and statistics for this example, make sure billing
- * alerts are enabled for your account:
- * https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#turning_on_billing_metrics
+ * This scenario demonstrates the Amazon CloudWatch OpenTelemetry (OTel) experience.
+ * CloudWatch ingests OpenTelemetry metrics natively, and this example walks through what
+ * you do with them: turning on enrichment so CloudWatch can correlate incoming OTLP
+ * metrics with the resources that produced them, alarming on those metrics with a PromQL
+ * query, and finding out which individual series drove the alarm.
+ *
+ * A PromQL alarm works differently from a classic metric alarm. Rather than watching one
+ * metric and counting breaching periods, it evaluates a query that can match many series
+ * at once, and tracks each matching series separately as a contributor.
+ *
+ * Note that sending OTLP metrics to CloudWatch is not an AWS SDK operation. Metrics
+ * arrive over the OTLP protocol through the CloudWatch agent, an OpenTelemetry
+ * Collector, or an ADOT SDK. Everything this scenario does is configuration and querying
+ * around that ingestion path.
  *
  * This Java code example performs the following tasks:
  *
- * 1. List available namespaces from Amazon CloudWatch.
- * 2. List available metrics within the selected Namespace.
- * 3. Get statistics for the selected metric over the last day.
- * 4. Get CloudWatch estimated billing for the last week.
- * 5. Create a new CloudWatch dashboard with metrics.
- * 6. List dashboards using a paginator.
- * 7. Create a new custom metric by adding data for it.
- * 8. Add the custom metric to the dashboard.
- * 9. Create an alarm for the custom metric.
- * 10. Describe current alarms.
- * 11. Get current data for the new custom metric.
- * 12. Push data into the custom metric to trigger the alarm.
- * 13. Check the alarm state using the action DescribeAlarmsForMetric.
- * 14. Get alarm history for the new alarm.
- * 15. Add an anomaly detector for the custom metric.
- * 16. Describe current anomaly detectors.
- * 17. Get a metric image for the custom metric.
- * 18. Clean up the Amazon CloudWatch resources.
+ * 1. List metrics and namespaces from Amazon CloudWatch.
+ * 2. Start OpenTelemetry enrichment for the account.
+ * 3. Explain how OTLP metrics reach CloudWatch.
+ * 4. Create an alarm that evaluates a PromQL query.
+ * 5. Inspect the contributors to the PromQL alarm.
+ * 6. Get metric statistics and chart the metric on a dashboard.
+ * 7. Mute the alarm for a maintenance window.
+ * 8. Clean up the Amazon CloudWatch resources.
  */
 public class CloudWatchScenario {
     public static final String DASHES = new String(new char[80]).replace("\0", "-");
+
+    private static final String DEFAULT_QUERY = "avg by (host) (system_cpu_utilization) > 80";
+
+    // Valid evaluation intervals are 10, 20, 30, or any multiple of 60 up to 3600 seconds.
+    private static final int EVALUATION_INTERVAL = 60;
+    private static final int PENDING_PERIOD = 300;
+    private static final int RECOVERY_PERIOD = 120;
 
     static CloudWatchActions cwActions = new CloudWatchActions();
 
     private static final Logger logger = LoggerFactory.getLogger(CloudWatchScenario.class);
     static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) throws Throwable {
 
-        final String usage = """
-
-            Usage:
-              <myDate> <costDateWeek> <dashboardName> <dashboardJson> <dashboardAdd> <settings> <metricImage> \s
-
-            Where:
-              myDate - The start date to use to get metric statistics. (For example, 2023-01-11T18:35:24.00Z.)\s
-              costDateWeek - The start date to use to get AWS/Billing statistics. (For example, 2023-01-11T18:35:24.00Z.)\s
-              dashboardName - The name of the dashboard to create.\s
-              dashboardJson - The location of a JSON file to use to create a dashboard. (See jsonWidgets.json in javav2/example_code/cloudwatch.)\s
-              dashboardAdd - The location of a JSON file to use to update a dashboard. (See CloudDashboard.json in javav2/example_code/cloudwatch.)\s
-              settings - The location of a JSON file from which various values are read. (See settings.json in javav2/example_code/cloudwatch.)\s
-              metricImage - The location of a BMP file that is used to create a graph.\s
-            """;
-
-        if (args.length != 7) {
-            logger.info(usage);
-            return;
-        }
-        String myDate = args[0];
-        String costDateWeek = args[1];
-        String dashboardName = args[2];
-        String dashboardJson = args[3];
-        String dashboardAdd = args[4];
-        String settings = args[5];
-        String metricImage = args[6];
+        // Suffix the resource names so repeated runs do not collide.
+        String suffix = String.valueOf(new Random().nextInt(9000) + 1000);
+        String alarmName = "doc-example-promql-alarm-" + suffix;
+        String dashboardName = "doc-example-dashboard-" + suffix;
+        String muteRuleName = "doc-example-mute-rule-" + suffix;
 
         logger.info(DASHES);
         logger.info("Welcome to the Amazon CloudWatch Basics scenario.");
         logger.info("""
-            Amazon CloudWatch is a comprehensive monitoring and observability service 
-            provided by Amazon Web Services (AWS). It is designed to help you monitor your 
-            AWS resources, applications, and services, as well as on-premises resources, 
-            in real-time.
-                        
-            CloudWatch collects and tracks various types of data, including metrics, 
-            logs, and events, from your AWS and on-premises resources. It allows you to set 
-            alarms and automatically respond to changes in your environment, 
-            enabling you to quickly identify and address issues before they impact your 
-            applications or services. 
-                        
-            With CloudWatch, you can gain visibility into your entire infrastructure, from the cloud 
-            to the edge, and use this information to make informed decisions and optimize your 
-            resource utilization.
-                        
-            This scenario guides you through how to perform Amazon CloudWatch tasks by using the 
-            AWS SDK for Java v2. Let's get started...
+            CloudWatch now ingests OpenTelemetry metrics natively. This scenario walks through
+            that experience: it turns on OTel enrichment so CloudWatch can correlate incoming
+            OTLP metrics with the resources that produced them, alarms on those metrics with a
+            PromQL query, and shows you which individual series drove the alarm.
+
+            A PromQL alarm works differently from a classic metric alarm. Rather than watching
+            one metric and counting breaching periods, it evaluates a query that can match many
+            series at once, and tracks each one separately as a contributor.
+
+            Let's get started...
             """);
         waitForInputToContinue(scanner);
 
         try {
-            runScenario(myDate, costDateWeek, dashboardName, dashboardJson, dashboardAdd, settings, metricImage);
+            runScenario(alarmName, dashboardName, muteRuleName);
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
         logger.info(DASHES);
     }
 
-    private static void runScenario(String myDate, String costDateWeek, String dashboardName, String dashboardJson, String dashboardAdd, String settings, String metricImage ) throws Throwable {
-        Double dataPoint = Double.parseDouble("10.0");
+    private static void runScenario(String alarmName, String dashboardName, String muteRuleName)
+            throws Throwable {
+
+        // Tracks whether this run turned enrichment on, so that cleanup only turns off
+        // enrichment that this run started.
+        boolean startedEnrichment = false;
+
         logger.info(DASHES);
         logger.info("""
-        1. List at least five available unique namespaces from Amazon CloudWatch. 
-        Select one from the list.
-        """);
-        String selectedNamespace;
-        String selectedMetrics;
-        int num;
-        try {
-            CompletableFuture<ArrayList<String>> future = cwActions.listNameSpacesAsync();
-            ArrayList<String> list = future.join();
-            for (int z = 0; z < 5; z++) {
-                int index = z + 1;
-                logger.info("    " + index + ". {}", list.get(z));
-            }
+            1. List metrics and namespaces
 
-            num = Integer.parseInt(scanner.nextLine());
-            if (1 <= num && num <= 5) {
-                selectedNamespace = list.get(num - 1);
-            } else {
-                logger.info("You did not select a valid option.");
-                return;
-            }
-            logger.info("You selected {}", selectedNamespace);
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: " + rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("2. List available metrics within the selected namespace.");
-        logger.info("""
-            A metric is a measure of the performance or health of your AWS resources, 
-            applications, or custom resources. Metrics are the basic building blocks of CloudWatch 
-            and provide data points that represent a specific aspect of your system or application over time.
-            
-            Select a metric from the list.
-            """);
-
-        Dimension myDimension = null;
-        try {
-            CompletableFuture<ArrayList<String>> future = cwActions.listMetsAsync(selectedNamespace);
-            ArrayList<String> metList = future.join();
-            logger.info("Metrics successfully retrieved. Total metrics: {}", metList.size());
-            for (int z = 0; z < 5; z++) {
-                int index = z + 1;
-                logger.info("    " + index + ". " + metList.get(z));
-            }
-            num = Integer.parseInt(scanner.nextLine());
-            if (1 <= num && num <= 5) {
-                selectedMetrics = metList.get(num - 1);
-            } else {
-                logger.info("You did not select a valid option.");
-                return;
-            }
-            logger.info("You selected {}", selectedMetrics);
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-
-        try {
-            myDimension = cwActions.getSpecificMetAsync(selectedNamespace).join();
-            logger.info("Metric statistics successfully retrieved and displayed.");
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("3. Get statistics for the selected metric over the last day.");
-        logger.info("""
-            Statistics refer to the various mathematical calculations that can be performed on the 
-            collected metrics to derive meaningful insights. Statistics provide a way to summarize and 
-            analyze the data collected for a specific metric over a specified time period.
+            Before configuring anything, let's see what CloudWatch is already collecting in
+            this account by calling ListMetrics.
             """);
         waitForInputToContinue(scanner);
-        String metricOption = "";
-        ArrayList<String> statTypes = new ArrayList<>();
-        statTypes.add("SampleCount");
-        statTypes.add("Average");
-        statTypes.add("Sum");
-        statTypes.add("Minimum");
-        statTypes.add("Maximum");
 
-        for (int t = 0; t < 5; t++) {
-            logger.info("    " + (t + 1) + ". {}", statTypes.get(t));
+        ArrayList<String> namespaces = cwActions.listNameSpacesAsync().join();
+        logger.info("Found {} namespaces in this account:", namespaces.size());
+        namespaces.stream().limit(10).forEach(namespace -> logger.info("  {}", namespace));
+        if (namespaces.isEmpty()) {
+            logger.info("""
+                No metrics found in this account. The statistics and dashboard steps later on
+                need an existing metric, so they will be skipped.
+                """);
         }
-        logger.info("Select a metric statistic by entering a number from the preceding list:");
-        num = Integer.parseInt(scanner.nextLine());
-        if (1 <= num && num <= 5) {
-            metricOption = statTypes.get(num - 1);
+        waitForInputToContinue(scanner);
+
+        logger.info(DASHES);
+        logger.info("""
+            2. Start OpenTelemetry enrichment
+
+            Enrichment is what lets CloudWatch attach AWS resource context to the OTLP metrics
+            you send it. Without it, your metrics arrive as opaque series with no connection to
+            the resources that emitted them.
+
+            We check the current state first, and only start enrichment if it isn't already on.
+            """);
+        waitForInputToContinue(scanner);
+
+        String status = cwActions.getOTelEnrichmentStatusAsync().join();
+        logger.info("Enrichment status: {}", status);
+
+        if (!"Running".equalsIgnoreCase(status)) {
+            cwActions.startOTelEnrichmentAsync().join();
+            startedEnrichment = true;
+            status = cwActions.getOTelEnrichmentStatusAsync().join();
+            logger.info("Enrichment status: {}", status);
+            logger.info("""
+                Note: this run started enrichment, so the cleanup step will stop it again.
+                """);
         } else {
-            logger.info("You did not select a valid option.");
+            logger.info("""
+                Enrichment was already running, so we will leave it alone. The cleanup step
+                will not stop it, because other workloads in this account may depend on it.
+                """);
+        }
+        waitForInputToContinue(scanner);
+
+        logger.info(DASHES);
+        logger.info("""
+            3. Send OTLP metrics to CloudWatch
+
+            This step is not an AWS SDK operation, and that's worth being explicit about.
+            Metrics reach CloudWatch over the OTLP protocol, through the CloudWatch agent, an
+            OpenTelemetry Collector, or an ADOT SDK. There is no PutOTelMetrics API to call.
+
+            Point your collector at the CloudWatch metrics endpoint, which follows the pattern
+            https://monitoring.<region>.amazonaws.com/v1/metrics
+
+            The endpoint is HTTP/1.1 only and does not support gRPC, so use an otlphttp
+            exporter rather than otlp. The metrics endpoint signs as "monitoring".
+            """);
+        waitForInputToContinue(scanner);
+
+        logger.info(DASHES);
+        logger.info("""
+            4. Create a PromQL alarm
+
+            Now we alarm on those metrics. The comparison goes inside the query itself: a
+            PromQL alarm has no separate threshold, comparison operator, statistic, or period.
+            """);
+        logger.info("Enter a PromQL query, or press <ENTER> for the default");
+        logger.info("[{}]:", DEFAULT_QUERY);
+        String queryInput = scanner.nextLine();
+        String query = queryInput == null || queryInput.isBlank() ? DEFAULT_QUERY : queryInput.trim();
+
+        cwActions.putPromQLMetricAlarmAsync(alarmName, query, EVALUATION_INTERVAL,
+                PENDING_PERIOD, RECOVERY_PERIOD).join();
+        logger.info("Created alarm {}:", alarmName);
+        logger.info("  query:              {}", query);
+        logger.info("  evaluationInterval: {} seconds", EVALUATION_INTERVAL);
+        logger.info("  pendingPeriod:      {} seconds", PENDING_PERIOD);
+        logger.info("  recoveryPeriod:     {} seconds", RECOVERY_PERIOD);
+        logger.info("""
+
+            A PromQL alarm starts in the OK state rather than INSUFFICIENT_DATA, which is
+            another way it differs from a classic alarm.
+            """);
+        waitForInputToContinue(scanner);
+
+        logger.info(DASHES);
+        logger.info("""
+            5. Inspect the alarm's contributors
+
+            Each contributor is one series the query matched, identified by its label set. This
+            is how you find out which host is unhealthy rather than only that something is.
+            Classic alarms have no equivalent.
+            """);
+        waitForInputToContinue(scanner);
+
+        List<AlarmContributor> contributors = cwActions.describeAlarmContributorsAsync(alarmName).join();
+        if (contributors.isEmpty()) {
+            logger.info("""
+                No contributors yet. The query matched no series, which usually means no OTel
+                metrics with these labels have arrived. Once your collector is sending data,
+                each matching series appears here with its labels and the reason it breached.
+                """);
+        } else {
+            logger.info("Found {} contributors:", contributors.size());
+            for (AlarmContributor contributor : contributors) {
+                StringBuilder labels = new StringBuilder();
+                for (Map.Entry<String, String> attribute : contributor.contributorAttributes().entrySet()) {
+                    if (labels.length() > 0) {
+                        labels.append(", ");
+                    }
+                    labels.append(attribute.getKey()).append("=").append(attribute.getValue());
+                }
+                logger.info("  {}: {}", contributor.contributorId(), labels);
+                logger.info("    reason: {}", contributor.stateReason());
+            }
+        }
+        waitForInputToContinue(scanner);
+
+        logger.info(DASHES);
+        logger.info("""
+            6. Get statistics and chart the metric on a dashboard
+
+            Statistics and dashboards are how you see what the alarm is evaluating.
+            """);
+        waitForInputToContinue(scanner);
+
+        boolean dashboardCreated = false;
+        if (!namespaces.isEmpty()) {
+            String namespace = namespaces.get(0);
+            ArrayList<String> metrics = cwActions.listMetsAsync(namespace).join();
+            if (metrics != null && !metrics.isEmpty()) {
+                String metricName = metrics.get(0);
+                String startDate = Instant.now().minus(24, ChronoUnit.HOURS).toString();
+                Dimension dimension = null;
+                try {
+                    dimension = cwActions.getSpecificMetAsync(namespace).join();
+                    cwActions.getAndDisplayMetricStatisticsAsync(namespace, metricName,
+                            "Average", startDate, dimension).join();
+                } catch (RuntimeException e) {
+                    logger.info("Could not get statistics for {}/{}: {}", namespace, metricName,
+                            e.getMessage());
+                }
+
+                // Chart the metric this run just discovered. Reading the widgets from a
+                // file would chart metrics that may not exist in this account.
+                try {
+                    String dashboardBody = buildDashboardBody(namespace, metricName, dimension,
+                            cwActions.getRegion());
+                    cwActions.createDashboardAsync(dashboardName, dashboardBody).join();
+                    dashboardCreated = true;
+                    cwActions.listDashboardsAsync().join();
+                } catch (RuntimeException e) {
+                    logger.info("Could not create the dashboard: {}", e.getMessage());
+                }
+            } else {
+                logger.info("No metrics found in namespace {}, skipping statistics and the "
+                        + "dashboard.", namespace);
+            }
+        } else {
+            logger.info("Skipping statistics and dashboard because no metrics exist yet.");
+        }
+        waitForInputToContinue(scanner);
+
+        logger.info(DASHES);
+        logger.info("""
+            7. Mute the alarm for a maintenance window
+
+            While a mute rule is active the targeted alarms keep evaluating and keep changing
+            state, but their actions do not fire. This is the supported way to suppress
+            notifications during planned maintenance, instead of disabling alarm actions and
+            hoping someone remembers to turn them back on.
+            """);
+        waitForInputToContinue(scanner);
+
+        // The expression is a five-field cron expression,
+        // cron(Minutes Hours Day-of-month Month Day-of-week). Note that this is five fields,
+        // not the six that Amazon EventBridge uses. For a one-time window, use
+        // at(yyyy-MM-ddThh:mm), with no seconds. The duration is an ISO 8601 duration from
+        // PT1M to P15D, so PT2H rather than 2h.
+        String expression = "cron(0 2 * * SUN)";
+        String duration = "PT2H";
+        String timezone = "America/Los_Angeles";
+
+        cwActions.putAlarmMuteRuleAsync(muteRuleName, expression, duration, timezone,
+                List.of(alarmName)).join();
+        logger.info("Created mute rule {}:", muteRuleName);
+        logger.info("  schedule: {} for {}", expression, duration);
+        logger.info("  timezone: {}", timezone);
+        logger.info("  targets:  {}", alarmName);
+        logger.info("""
+
+            Note the two formats here. The expression is a five-field cron expression, five
+            rather than the six Amazon EventBridge uses. The duration is an ISO 8601 duration,
+            so 'PT2H' and not '2h'.
+
+            Also note that muteTargets is set explicitly. If you leave it out, the rule applies
+            to every alarm in the account.
+            """);
+
+        GetAlarmMuteRuleResponse muteRule = cwActions.getAlarmMuteRuleAsync(muteRuleName).join();
+        logger.info("Read the rule back: status {}, mute type {}.", muteRule.statusAsString(),
+                muteRule.muteType());
+
+        List<AlarmMuteRuleSummary> summaries = cwActions.listAlarmMuteRulesAsync(alarmName).join();
+        logger.info("Found {} mute rules targeting this alarm.", summaries.size());
+        // Mute rule summaries carry no name field, only an ARN, so match on the ARN suffix.
+        summaries.stream()
+                .filter(summary -> summary.alarmMuteRuleArn().endsWith("/" + muteRuleName)
+                        || summary.alarmMuteRuleArn().endsWith(":" + muteRuleName))
+                .findFirst()
+                .ifPresent(summary -> logger.info("  matched by ARN: {} ({})",
+                        summary.alarmMuteRuleArn(), summary.statusAsString()));
+        waitForInputToContinue(scanner);
+
+        logger.info(DASHES);
+        logger.info("8. Clean up");
+        logger.info("Delete the resources this scenario created? (y/n)");
+        String cleanUp = scanner.nextLine();
+        if (cleanUp == null || !cleanUp.trim().equalsIgnoreCase("y")) {
+            logger.info("""
+                Skipping cleanup. Note that the alarm, dashboard, and mute rule are still in
+                your account, and enrichment may still be running.
+                """);
+            logger.info(DASHES);
+            logger.info("This concludes the Amazon CloudWatch Basics scenario.");
             return;
         }
-        logger.info("You selected " + metricOption);
-        waitForInputToContinue(scanner);
+
+        // Each deletion is attempted independently so that one failure does not leave the
+        // remaining resources behind.
         try {
-            CompletableFuture<GetMetricStatisticsResponse> future = cwActions.getAndDisplayMetricStatisticsAsync(selectedNamespace, selectedMetrics, metricOption, myDate, myDimension);
-            future.join();
-            logger.info("Metric statistics retrieved successfully.");
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("4. Get CloudWatch estimated billing for the last week.");
-        waitForInputToContinue(scanner);
-         try {
-            CompletableFuture<GetMetricStatisticsResponse> future = cwActions.getMetricStatisticsAsync(costDateWeek);
-            future.join();
-
-            logger.info("Metric statistics successfully retrieved and displayed.");
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-             throw cause;
-         }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("5. Create a new CloudWatch dashboard with metrics.");
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<PutDashboardResponse> future = cwActions.createDashboardWithMetricsAsync(dashboardName, dashboardJson);
-            future.join();
-
-        } catch (RuntimeException | IOException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof DashboardInvalidInputErrorException cwEx) {
-                logger.info("Invalid CloudWatch data. Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("6. List dashboards using a paginator.");
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<Void> future = cwActions.listDashboardsAsync();
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("7. Create a new custom metric by adding data to it.");
-        logger.info("""
-            The primary benefit of using a custom metric in Amazon CloudWatch is the ability to 
-            monitor and collect data that is specific to your application or infrastructure.
-            """);
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<PutMetricDataResponse> future = cwActions.createNewCustomMetricAsync(dataPoint);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("8. Add an additional metric to the dashboard.");
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<PutDashboardResponse> future = cwActions.addMetricToDashboardAsync(dashboardAdd, dashboardName);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof DashboardInvalidInputErrorException cwEx) {
-                logger.info("Invalid CloudWatch data. Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("9. Create an alarm for the custom metric.");
-        waitForInputToContinue(scanner);
-        String alarmName = "" ;
-        try {
-            CompletableFuture<String> future = cwActions.createAlarmAsync(settings);
-            alarmName = future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof LimitExceededException cwEx) {
-                logger.info("The quota for alarms has been reached: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("10. Describe ten current alarms.");
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<Void> future = cwActions.describeAlarmsAsync();
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("11. Get current data for new custom metric.");
-        try {
-            CompletableFuture<Void> future = cwActions.getCustomMetricDataAsync(settings);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("12. Push data into the custom metric to trigger the alarm.");
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<PutMetricDataResponse> future = cwActions.addMetricDataForAlarmAsync(settings);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("13. Check the alarm state using the action DescribeAlarmsForMetric.");
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<Void> future = cwActions.checkForMetricAlarmAsync(settings);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("14. Get alarm history for the new alarm.");
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<Void> future = cwActions.getAlarmHistoryAsync(settings, myDate);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("15. Add an anomaly detector for the custom metric.");
-        logger.info("""
-            An anomaly detector is a feature that automatically detects unusual patterns or deviations in your 
-            monitored metrics. It uses machine learning algorithms to analyze the historical behavior 
-            of your metrics and establish a baseline. 
-            
-            The anomaly detector then compares the current metric values against this baseline and 
-            identifies any anomalies or outliers that may indicate potential issues or unexpected changes 
-            in your system's performance or behavior. 
-            
-            """);
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<Void> future = cwActions.addAnomalyDetectorAsync(settings);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("16. Describe current anomaly detectors.");
-        waitForInputToContinue(scanner);
-        try {
-            CompletableFuture<Void> future = cwActions.describeAnomalyDetectorsAsync(settings);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("17. Get a metric image for the custom metric.");
-        try {
-            CompletableFuture<Void> future = cwActions.downloadAndSaveMetricImageAsync(metricImage);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
-        }
-        logger.info(DASHES);
-
-        logger.info(DASHES);
-        logger.info("18. Clean up the Amazon CloudWatch resources.");
-
-        try {
-            logger.info(". Delete the Dashboard.");
-            waitForInputToContinue(scanner);
-            CompletableFuture<DeleteDashboardsResponse> future = cwActions.deleteDashboardAsync(dashboardName);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
+            cwActions.deleteAlarmMuteRuleAsync(muteRuleName).join();
+        } catch (RuntimeException e) {
+            logger.info("Could not delete the mute rule: {}", e.getMessage());
         }
 
         try {
-            logger.info("Delete the alarm.");
-            waitForInputToContinue(scanner);
-            CompletableFuture<DeleteAlarmsResponse> future = cwActions.deleteCWAlarmAsync(alarmName);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
-            }
-            throw cause;
+            cwActions.deleteCWAlarmAsync(alarmName).join();
+            logger.info("Deleted alarm {}.", alarmName);
+        } catch (RuntimeException e) {
+            logger.info("Could not delete the alarm: {}", e.getMessage());
         }
 
-        try {
-            logger.info("Delete the anomaly detector.");
-            waitForInputToContinue(scanner);
-            CompletableFuture<DeleteAnomalyDetectorResponse> future = cwActions.deleteAnomalyDetectorAsync(settings);
-            future.join();
-
-        } catch (RuntimeException rt) {
-            Throwable cause = rt.getCause();
-            if (cause instanceof CloudWatchException cwEx) {
-                logger.info("CloudWatch error occurred: Error message: {}, Error code {}", cwEx.getMessage(), cwEx.awsErrorDetails().errorCode());
-            } else {
-                logger.info("An unexpected error occurred: {}", rt.getMessage());
+        if (dashboardCreated) {
+            try {
+                cwActions.deleteDashboardAsync(dashboardName).join();
+                logger.info("Deleted dashboard {}.", dashboardName);
+            } catch (RuntimeException e) {
+                logger.info("Could not delete the dashboard: {}", e.getMessage());
             }
-            throw cause;
         }
-        waitForInputToContinue(scanner);
-        logger.info(DASHES);
+
+        if (startedEnrichment) {
+            try {
+                cwActions.stopOTelEnrichmentAsync().join();
+                logger.info("Stopped OTel enrichment, because this run started it.");
+            } catch (RuntimeException e) {
+                logger.info("Could not stop OTel enrichment: {}", e.getMessage());
+            }
+        } else {
+            logger.info("""
+                Left OTel enrichment running, because it was already on before this run.
+                """);
+        }
 
         logger.info(DASHES);
-        logger.info("The Amazon CloudWatch example scenario is complete.");
+        logger.info("This concludes the Amazon CloudWatch Basics scenario.");
         logger.info(DASHES);
+    }
+
+    /**
+     * Builds a single-widget dashboard body that charts the given metric.
+     *
+     * @param metricNamespace the namespace of the metric to chart
+     * @param metricName      the name of the metric to chart
+     * @param dimension       a dimension to narrow the metric to, or null for none
+     * @param region          the Region the metric is in. A metric widget must name its
+     *                        Region, because a dashboard can chart metrics from several.
+     * @return the dashboard body, as JSON
+     */
+    static String buildDashboardBody(String metricNamespace, String metricName,
+            Dimension dimension, String region) {
+        String dimensionParts = dimension == null ? ""
+                : String.format(", \"%s\", \"%s\"", dimension.name(), dimension.value());
+
+        return String.format("""
+            {
+                "widgets": [
+                    {
+                        "type": "text",
+                        "x": 0, "y": 0, "width": 24, "height": 2,
+                        "properties": {
+                            "markdown": "This dashboard was created programmatically by an AWS SDK code example."
+                        }
+                    },
+                    {
+                        "type": "metric",
+                        "x": 0, "y": 2, "width": 12, "height": 6,
+                        "properties": {
+                            "metrics": [[ "%s", "%s"%s ]],
+                            "view": "timeSeries",
+                            "stat": "Average",
+                            "period": 300,
+                            "region": "%s",
+                            "title": "%s"
+                        }
+                    }
+                ]
+            }
+            """, metricNamespace, metricName, dimensionParts, region, metricName);
     }
 
     private static void waitForInputToContinue(Scanner scanner) {
         while (true) {
             logger.info("");
-            logger.info("Enter 'c' followed by <ENTER> to continue:");
+            logger.info("Press <ENTER> to continue:");
             String input = scanner.nextLine();
-            if (input.trim().equalsIgnoreCase("c")) {
+
+            if (input == null || input.trim().isEmpty()) {
                 logger.info("Continuing with the program...");
                 logger.info("");
                 break;
             } else {
-                // Handle invalid input.
                 logger.info("Invalid input. Please try again.");
             }
         }
     }
 }
 ```
-A wrapper class for CloudWatch SDK methods.  
+A wrapper class for the CloudWatch SDK methods that the scenario calls.  
 
 ```
 public class CloudWatchActions {
@@ -2050,6 +2500,15 @@ public class CloudWatchActions {
                 .build();
         }
         return cloudWatchAsyncClient;
+    }
+
+    /**
+     * Returns the Region the client resolved, which a dashboard's metric widgets must name.
+     *
+     * @return the Region ID, such as us-east-1
+     */
+    public String getRegion() {
+        return getAsyncClient().serviceClientConfiguration().region().id();
     }
 
     /**
@@ -2745,9 +3204,8 @@ public class CloudWatchActions {
         });
     }
 
-
     /**
-     * Creates a new dashboard with the specified name and metrics from the given file.
+     * Creates a new dashboard with the specified name and the metrics described by the given file.
      *
      * @param dashboardName the name of the dashboard to be created
      * @param fileName      the name of the file containing the dashboard body
@@ -2755,7 +3213,18 @@ public class CloudWatchActions {
      * @throws IOException if there is an error reading the dashboard body from the file
      */
     public CompletableFuture<PutDashboardResponse> createDashboardWithMetricsAsync(String dashboardName, String fileName) throws IOException {
-        String dashboardBody = readFileAsString(fileName);
+        return createDashboardAsync(dashboardName, readFileAsString(fileName));
+    }
+
+
+    /**
+     * Creates a new dashboard with the specified name and body.
+     *
+     * @param dashboardName the name of the dashboard to be created
+     * @param dashboardBody the dashboard body, as JSON
+     * @return a {@link CompletableFuture} representing the asynchronous operation of creating the dashboard
+     */
+    public CompletableFuture<PutDashboardResponse> createDashboardAsync(String dashboardName, String dashboardBody) {
         PutDashboardRequest dashboardRequest = PutDashboardRequest.builder()
             .dashboardName(dashboardName)
             .dashboardBody(dashboardBody)
@@ -2963,34 +3432,924 @@ public class CloudWatchActions {
         });
     }
 
+    /**
+     * Gets the current OTel enrichment status for the account. Enrichment is what makes
+     * CloudWatch attach AWS resource context to incoming OTLP metrics, so the metrics
+     * become correlatable with the rest of CloudWatch rather than opaque series.
+     *
+     * @return a {@link CompletableFuture} that completes with the status, such as
+     * {@code Running} or {@code NotStarted}
+     */
+    public CompletableFuture<String> getOTelEnrichmentStatusAsync() {
+        return getAsyncClient().getOTelEnrichment(GetOTelEnrichmentRequest.builder().build())
+            .handle((response, exception) -> {
+                if (exception != null) {
+                    throw new RuntimeException("Failed to get OTel enrichment status: "
+                        + exception.getMessage(), exception);
+                }
+                return response.statusAsString();
+            });
+    }
+
+    /**
+     * Turns on OTel enrichment for the account.
+     *
+     * @return a {@link CompletableFuture} that completes when enrichment has started
+     */
+    public CompletableFuture<Void> startOTelEnrichmentAsync() {
+        return getAsyncClient().startOTelEnrichment(StartOTelEnrichmentRequest.builder().build())
+            .handle((response, exception) -> {
+                if (exception != null) {
+                    throw new RuntimeException("Failed to start OTel enrichment: "
+                        + exception.getMessage(), exception);
+                }
+                logger.info("Started OTel enrichment for this account.");
+                return null;
+            });
+    }
+
+    /**
+     * Turns off OTel enrichment for the account. Existing PromQL alarms are not deleted,
+     * but vended metrics stop being enriched, so queries that select on the added labels
+     * stop matching.
+     *
+     * @return a {@link CompletableFuture} that completes when enrichment has stopped
+     */
+    public CompletableFuture<Void> stopOTelEnrichmentAsync() {
+        return getAsyncClient().stopOTelEnrichment(StopOTelEnrichmentRequest.builder().build())
+            .handle((response, exception) -> {
+                if (exception != null) {
+                    throw new RuntimeException("Failed to stop OTel enrichment: "
+                        + exception.getMessage(), exception);
+                }
+                logger.info("Stopped OTel enrichment for this account.");
+                return null;
+            });
+    }
+
+    /**
+     * Creates an alarm that evaluates a PromQL query.
+     *
+     * <p>A PromQL alarm differs from a classic metric alarm in a few ways. The query can
+     * match many series at once, and each matching series is tracked separately as a
+     * contributor. Instead of counting breaching periods, you specify durations: a
+     * contributor moves to ALARM after it breaches continuously for the pending period,
+     * and back to OK after it stops breaching for the recovery period. A PromQL alarm
+     * starts in the OK state rather than INSUFFICIENT_DATA.
+     *
+     * <p>{@link EvaluationCriteria} is a union and is mutually exclusive with the classic
+     * {@code metricName} and {@code metrics} parameters. When you use it you must also set
+     * {@code evaluationInterval}, and you must not set {@code period}, {@code statistic},
+     * {@code threshold}, {@code comparisonOperator}, or {@code evaluationPeriods}.
+     *
+     * @param alarmName          the name of the alarm, unique within the Region
+     * @param query              the PromQL query to evaluate. The comparison belongs in
+     *                           the query itself; there is no separate threshold.
+     * @param evaluationInterval how often, in seconds, to run the query. Valid values are
+     *                           10, 20, 30, and any multiple of 60, up to 3600.
+     * @param pendingPeriod      how long, in seconds, a contributor must breach
+     *                           continuously before it moves to ALARM
+     * @param recoveryPeriod     how long, in seconds, a contributor must stop breaching
+     *                           before it moves back to OK
+     * @return a {@link CompletableFuture} that completes when the alarm is created
+     */
+    public CompletableFuture<Void> putPromQLMetricAlarmAsync(String alarmName, String query,
+            int evaluationInterval, int pendingPeriod, int recoveryPeriod) {
+        AlarmPromQLCriteria promQLCriteria = AlarmPromQLCriteria.builder()
+            .query(query)
+            .pendingPeriod(pendingPeriod)
+            .recoveryPeriod(recoveryPeriod)
+            .build();
+
+        PutMetricAlarmRequest request = PutMetricAlarmRequest.builder()
+            .alarmName(alarmName)
+            .alarmDescription("PromQL alarm created by the AWS SDK for Java 2.x Basics scenario.")
+            .evaluationCriteria(EvaluationCriteria.builder()
+                .promQLCriteria(promQLCriteria)
+                .build())
+            .evaluationInterval(evaluationInterval)
+            .build();
+
+        return getAsyncClient().putMetricAlarm(request).handle((response, exception) -> {
+            if (exception != null) {
+                throw new RuntimeException("Failed to create PromQL alarm: "
+                    + exception.getMessage(), exception);
+            }
+            logger.info("Created PromQL alarm {} for query {}.", alarmName, query);
+            return null;
+        });
+    }
+
+    /**
+     * Gets the contributors for a PromQL alarm. Each contributor is one series that the
+     * alarm's query matched, identified by its label set. This is how you find out which
+     * hosts, services, or pods are breaching, rather than only that something is.
+     *
+     * <p>The paging loop continues until the next token is empty. A page can come back
+     * empty while still carrying a next token, so stopping at the first empty page would
+     * silently drop later results.
+     *
+     * @param alarmName the name of the PromQL alarm
+     * @return a {@link CompletableFuture} that completes with the list of contributors,
+     * which is empty when the query matched no series
+     */
+    public CompletableFuture<List<AlarmContributor>> describeAlarmContributorsAsync(String alarmName) {
+        List<AlarmContributor> contributors = new ArrayList<>();
+        return collectContributorsPage(alarmName, null, contributors);
+    }
+
+    private CompletableFuture<List<AlarmContributor>> collectContributorsPage(String alarmName,
+            String nextToken, List<AlarmContributor> accumulated) {
+        DescribeAlarmContributorsRequest request = DescribeAlarmContributorsRequest.builder()
+            .alarmName(alarmName)
+            .nextToken(nextToken)
+            .build();
+
+        return getAsyncClient().describeAlarmContributors(request)
+            .thenCompose(response -> {
+                accumulated.addAll(response.alarmContributors());
+                String token = response.nextToken();
+                if (token == null || token.isEmpty()) {
+                    return CompletableFuture.completedFuture(accumulated);
+                }
+                return collectContributorsPage(alarmName, token, accumulated);
+            })
+            .exceptionally(exception -> {
+                throw new RuntimeException("Failed to describe alarm contributors: "
+                    + exception.getMessage(), exception);
+            });
+    }
+
+    /**
+     * Creates or updates an alarm mute rule. While a mute rule is active the targeted
+     * alarms keep evaluating and keep changing state, but their configured actions do not
+     * fire. This is the supported way to suppress notifications during planned
+     * maintenance, instead of disabling alarm actions and relying on someone to turn them
+     * back on.
+     *
+     * @param name       the name of the mute rule
+     * @param expression when the rule activates. For a recurring window, a five-field
+     *                   cron expression, {@code cron(Minutes Hours Day-of-month Month
+     *                   Day-of-week)}, such as {@code cron(0 2 * * SUN)}. Note that this
+     *                   is five fields, not the six that Amazon EventBridge uses. For a
+     *                   one-time window, {@code at(yyyy-MM-ddThh:mm)}, such as
+     *                   {@code at(2026-09-05T02:00)}, with no seconds.
+     * @param duration   how long the window lasts once it activates, as an ISO 8601
+     *                   duration from {@code PT1M} to {@code P15D}. For example,
+     *                   {@code PT2H} is two hours. Plain forms such as {@code 2h} are
+     *                   rejected.
+     * @param timezone   a standard timezone identifier. Defaults to UTC when omitted.
+     * @param alarmNames the names of up to 100 alarms to mute. If empty, the rule applies
+     *                   to every alarm in the account.
+     * @return a {@link CompletableFuture} that completes when the rule is written
+     */
+    public CompletableFuture<Void> putAlarmMuteRuleAsync(String name, String expression,
+            String duration, String timezone, List<String> alarmNames) {
+        Schedule schedule = Schedule.builder()
+            .expression(expression)
+            .duration(duration)
+            .timezone(timezone)
+            .build();
+
+        PutAlarmMuteRuleRequest.Builder request = PutAlarmMuteRuleRequest.builder()
+            .name(name)
+            .description("Mute rule created by the AWS SDK for Java 2.x Basics scenario.")
+            .rule(Rule.builder().schedule(schedule).build());
+
+        if (alarmNames != null && !alarmNames.isEmpty()) {
+            request.muteTargets(MuteTargets.builder().alarmNames(alarmNames).build());
+        }
+
+        return getAsyncClient().putAlarmMuteRule(request.build()).handle((response, exception) -> {
+            if (exception != null) {
+                throw new RuntimeException("Failed to put alarm mute rule: "
+                    + exception.getMessage(), exception);
+            }
+            logger.info("Put alarm mute rule {}.", name);
+            return null;
+        });
+    }
+
+    /**
+     * Gets the full configuration of an alarm mute rule, including its schedule, the
+     * alarms it targets, and its current status.
+     *
+     * @param name the name of the mute rule
+     * @return a {@link CompletableFuture} that completes with the mute rule
+     */
+    public CompletableFuture<GetAlarmMuteRuleResponse> getAlarmMuteRuleAsync(String name) {
+        return getAsyncClient().getAlarmMuteRule(GetAlarmMuteRuleRequest.builder()
+                .alarmMuteRuleName(name)
+                .build())
+            .handle((response, exception) -> {
+                if (exception != null) {
+                    throw new RuntimeException("Failed to get alarm mute rule: "
+                        + exception.getMessage(), exception);
+                }
+                return response;
+            });
+    }
+
+    /**
+     * Lists the alarm mute rules in the account, optionally filtered to the rules that
+     * target one alarm.
+     *
+     * <p>Note that {@link AlarmMuteRuleSummary} carries no name field, only an ARN,
+     * status, mute type, and last-updated timestamp. To find a rule by name, match on the
+     * ARN suffix.
+     *
+     * @param alarmName when non-null, only rules that target this alarm are returned
+     * @return a {@link CompletableFuture} that completes with the mute rule summaries
+     */
+    public CompletableFuture<List<AlarmMuteRuleSummary>> listAlarmMuteRulesAsync(String alarmName) {
+        List<AlarmMuteRuleSummary> summaries = new ArrayList<>();
+        return collectMuteRulesPage(alarmName, null, summaries);
+    }
+
+    private CompletableFuture<List<AlarmMuteRuleSummary>> collectMuteRulesPage(String alarmName,
+            String nextToken, List<AlarmMuteRuleSummary> accumulated) {
+        ListAlarmMuteRulesRequest request = ListAlarmMuteRulesRequest.builder()
+            .alarmName(alarmName)
+            .nextToken(nextToken)
+            .build();
+
+        return getAsyncClient().listAlarmMuteRules(request)
+            .thenCompose(response -> {
+                accumulated.addAll(response.alarmMuteRuleSummaries());
+                String token = response.nextToken();
+                if (token == null || token.isEmpty()) {
+                    return CompletableFuture.completedFuture(accumulated);
+                }
+                return collectMuteRulesPage(alarmName, token, accumulated);
+            })
+            .exceptionally(exception -> {
+                throw new RuntimeException("Failed to list alarm mute rules: "
+                    + exception.getMessage(), exception);
+            });
+    }
+
+    /**
+     * Deletes an alarm mute rule. The alarms it targeted resume firing their actions.
+     *
+     * @param name the name of the mute rule
+     * @return a {@link CompletableFuture} that completes when the rule is deleted
+     */
+    public CompletableFuture<Void> deleteAlarmMuteRuleAsync(String name) {
+        return getAsyncClient().deleteAlarmMuteRule(DeleteAlarmMuteRuleRequest.builder()
+                .alarmMuteRuleName(name)
+                .build())
+            .handle((response, exception) -> {
+                if (exception != null) {
+                    throw new RuntimeException("Failed to delete alarm mute rule: "
+                        + exception.getMessage(), exception);
+                }
+                logger.info("Deleted alarm mute rule {}.", name);
+                return null;
+            });
+    }
+
     public static String readFileAsString(String file) throws IOException {
         return new String(Files.readAllBytes(Paths.get(file)));
     }
 }
 ```
 + For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [DeleteAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAlarmMuteRule)
   + [DeleteAlarms](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAlarms)
-  + [DeleteAnomalyDetector](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector)
   + [DeleteDashboards](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards)
-  + [DescribeAlarmHistory](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmHistory)
-  + [DescribeAlarms](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarms)
-  + [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmsForMetric)
-  + [DescribeAnomalyDetectors](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAnomalyDetectors)
-  + [GetMetricData](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricData)
+  + [DescribeAlarmContributors](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmContributors)
+  + [GetAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetAlarmMuteRule)
+  + [GetDashboard](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetDashboard)
   + [GetMetricStatistics](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricStatistics)
-  + [GetMetricWidgetImage](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricWidgetImage)
+  + [GetOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetOTelEnrichment)
+  + [ListAlarmMuteRules](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/ListAlarmMuteRules)
+  + [ListDashboards](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/ListDashboards)
   + [ListMetrics](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics)
-  + [PutAnomalyDetector](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutAnomalyDetector)
+  + [PutAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutAlarmMuteRule)
   + [PutDashboard](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutDashboard)
   + [PutMetricAlarm](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricAlarm)
-  + [PutMetricData](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricData)
+  + [StartOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/StartOTelEnrichment)
+  + [StopOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/StopOTelEnrichment)
+
+------
+#### [ JavaScript ]
+
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
+Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
+
+```
+import {
+  Scenario,
+  ScenarioAction,
+  ScenarioInput,
+  ScenarioOutput,
+} from "@aws-doc-sdk-examples/lib/scenario/index.js";
+import {
+  CloudWatchClient,
+  DeleteAlarmMuteRuleCommand,
+  DeleteAlarmsCommand,
+  DeleteDashboardsCommand,
+  DescribeAlarmContributorsCommand,
+  GetAlarmMuteRuleCommand,
+  GetDashboardCommand,
+  GetMetricStatisticsCommand,
+  GetOTelEnrichmentCommand,
+  ListAlarmMuteRulesCommand,
+  ListMetricsCommand,
+  PutAlarmMuteRuleCommand,
+  PutDashboardCommand,
+  PutMetricAlarmCommand,
+  StartOTelEnrichmentCommand,
+  StopOTelEnrichmentCommand,
+} from "@aws-sdk/client-cloudwatch";
+import { parseArgs } from "node:util";
+import { fileURLToPath } from "node:url";
+
+const DEFAULT_QUERY = "avg by (host) (system_cpu_utilization) > 80";
+
+// Valid evaluation intervals are 10, 20, 30, or any multiple of 60 up to 3600 seconds.
+const EVALUATION_INTERVAL = 60;
+const PENDING_PERIOD = 300;
+const RECOVERY_PERIOD = 120;
+
+/**
+ * @typedef {{
+ *   client: import('@aws-sdk/client-cloudwatch').CloudWatchClient,
+ *   alarmName: string,
+ *   dashboardName: string,
+ *   muteRuleName: string,
+ *   namespaces: [string, number][],
+ *   metric: import('@aws-sdk/client-cloudwatch').Metric | undefined,
+ *   query: string,
+ *   startedEnrichment: boolean,
+ *   dashboardCreated: boolean,
+ *   deleteResources: boolean,
+ * }} State
+ */
+
+/**
+ * Used repeatedly to have the user press enter.
+ * @type {ScenarioInput}
+ */
+const pressEnter = new ScenarioInput("continue", "Press Enter to continue", {
+  type: "confirm",
+});
+
+const greet = new ScenarioOutput(
+  "greet",
+  `Welcome to the Amazon CloudWatch Basics scenario.
+
+CloudWatch now ingests OpenTelemetry metrics natively. This scenario walks through that experience: it turns on OTel enrichment so CloudWatch can correlate incoming OTLP metrics with the resources that produced them, alarms on those metrics with a PromQL query, and shows you which individual series drove the alarm.
+
+A PromQL alarm works differently from a classic metric alarm. Rather than watching one metric and counting breaching periods, it evaluates a query that can match many series at once, and tracks each one separately as a contributor.
+
+Note that sending OTLP metrics to CloudWatch is not an AWS SDK operation. Metrics arrive over the OTLP protocol through the CloudWatch agent, an OpenTelemetry Collector, or an ADOT SDK. Everything this scenario does is configuration and querying around that ingestion path.
+
+Let's get started...`,
+  { header: true },
+);
+
+// Step 1: List metrics and namespaces. This orients the reader before any configuration
+// happens.
+const displayListMetrics = new ScenarioOutput(
+  "displayListMetrics",
+  "1. List metrics and namespaces\n\nBefore configuring anything, let's see what CloudWatch is already collecting in this account by calling ListMetrics.",
+);
+
+const sdkListMetrics = new ScenarioAction(
+  "sdkListMetrics",
+  async (/** @type {State} */ state) => {
+    const counts = new Map();
+    let metricCount = 0;
+    let nextToken;
+
+    do {
+      const response = await state.client.send(
+        new ListMetricsCommand({ NextToken: nextToken }),
+      );
+      for (const metric of response.Metrics ?? []) {
+        counts.set(metric.Namespace, (counts.get(metric.Namespace) ?? 0) + 1);
+        metricCount += 1;
+        // Keep the first metric we see so later steps have something to chart.
+        if (!state.metric) {
+          state.metric = metric;
+        }
+      }
+      nextToken = response.NextToken;
+      // This account may have a very large number of metrics, so stop once we have
+      // enough to give the reader a sense of what is there.
+    } while (nextToken && metricCount < 500);
+
+    state.namespaces = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+
+    console.log(
+      `\tFound ${metricCount} metrics across ${state.namespaces.length} namespaces:`,
+    );
+    for (const [namespace, count] of state.namespaces.slice(0, 10)) {
+      console.log(`\t  ${namespace} (${count} metrics)`);
+    }
+    if (state.namespaces.length === 0) {
+      console.log(
+        "\tNo metrics found in this account. The statistics and dashboard steps later on need an existing metric, so they will be skipped.",
+      );
+    }
+  },
+);
+
+// Step 2: Start OTel enrichment. Enrichment is what makes CloudWatch attach AWS resource
+// context to incoming OTLP metrics.
+const displayStartEnrichment = new ScenarioOutput(
+  "displayStartEnrichment",
+  "2. Start OpenTelemetry enrichment\n\nEnrichment is what lets CloudWatch attach AWS resource context to the OTLP metrics you send it. Without it, your metrics arrive as opaque series with no connection to the resources that emitted them.\n\nWe check the current state first, and only start enrichment if it isn't already on.",
+);
+
+const sdkStartEnrichment = new ScenarioAction(
+  "sdkStartEnrichment",
+  async (/** @type {State} */ state) => {
+    const { Status } = await state.client.send(
+      new GetOTelEnrichmentCommand({}),
+    );
+    console.log(`\tEnrichment status: ${Status}`);
+
+    if (Status === "Running") {
+      console.log(
+        "\n\tEnrichment was already running, so we will leave it alone. The cleanup step will not stop it, because other workloads in this account may depend on it.",
+      );
+      return;
+    }
+
+    await state.client.send(new StartOTelEnrichmentCommand({}));
+    // Record that *this run* started enrichment, so cleanup only stops what it turned on.
+    state.startedEnrichment = true;
+
+    const after = await state.client.send(new GetOTelEnrichmentCommand({}));
+    console.log(`\tEnrichment status: ${after.Status}`);
+    console.log(
+      "\n\tNote: this run started enrichment, so the cleanup step will stop it again.",
+    );
+  },
+);
+
+// Step 3: Explain OTLP ingestion. This step makes no service call; naming the gap
+// explicitly is the point.
+const displayOtlpIngestion = new ScenarioOutput(
+  "displayOtlpIngestion",
+  `3. Send OTLP metrics to CloudWatch
+
+This step is not an AWS SDK operation, and that's worth being explicit about. Metrics reach CloudWatch over the OTLP protocol, through the CloudWatch agent, an OpenTelemetry Collector, or an ADOT SDK. There is no PutOTelMetrics API to call.
+
+Point your collector at the CloudWatch metrics endpoint, which follows the pattern
+\thttps://monitoring.<region>.amazonaws.com/v1/metrics
+
+The endpoint is HTTP/1.1 only and does not support gRPC, so use an otlphttp exporter rather than otlp. The metrics endpoint signs as "monitoring".`,
+);
+
+// Step 4: Create a PromQL alarm.
+const displayCreateAlarm = new ScenarioOutput(
+  "displayCreateAlarm",
+  "4. Create a PromQL alarm\n\nNow we alarm on those metrics. The comparison goes inside the query itself: a PromQL alarm has no separate threshold, comparison operator, statistic, or period.",
+);
+
+const inputQuery = new ScenarioInput("query", "Enter a PromQL query:", {
+  type: "input",
+  default: DEFAULT_QUERY,
+});
+
+const sdkCreateAlarm = new ScenarioAction(
+  "sdkCreateAlarm",
+  async (/** @type {State} */ state) => {
+    const query = state.query?.trim() || DEFAULT_QUERY;
+    state.query = query;
+
+    // EvaluationCriteria is a union and is mutually exclusive with the classic MetricName
+    // and Metrics parameters. When you use it you must also set EvaluationInterval, and
+    // you must not set Period, Statistic, Threshold, ComparisonOperator,
+    // EvaluationPeriods, DatapointsToAlarm, or TreatMissingData.
+    await state.client.send(
+      new PutMetricAlarmCommand({
+        AlarmName: state.alarmName,
+        AlarmDescription:
+          "A PromQL alarm created by the AWS SDK for JavaScript Basics scenario.",
+        EvaluationCriteria: {
+          PromQLCriteria: {
+            Query: query,
+            PendingPeriod: PENDING_PERIOD,
+            RecoveryPeriod: RECOVERY_PERIOD,
+          },
+        },
+        EvaluationInterval: EVALUATION_INTERVAL,
+        ActionsEnabled: false,
+      }),
+    );
+
+    console.log(`\tCreated alarm ${state.alarmName}:`);
+    console.log(`\t  query:              ${query}`);
+    console.log(`\t  evaluationInterval: ${EVALUATION_INTERVAL} seconds`);
+    console.log(`\t  pendingPeriod:      ${PENDING_PERIOD} seconds`);
+    console.log(`\t  recoveryPeriod:     ${RECOVERY_PERIOD} seconds`);
+    console.log(
+      "\n\tA PromQL alarm starts in the OK state rather than INSUFFICIENT_DATA, which is another way it differs from a classic alarm.",
+    );
+  },
+);
+
+// Step 5: Inspect the alarm's contributors. This is the step with no classic-alarm
+// equivalent.
+const displayContributors = new ScenarioOutput(
+  "displayContributors",
+  "5. Inspect the alarm's contributors\n\nEach contributor is one series the query matched, identified by its label set. This is how you find out which host is unhealthy rather than only that something is. Classic alarms have no equivalent.",
+);
+
+const sdkContributors = new ScenarioAction(
+  "sdkContributors",
+  async (/** @type {State} */ state) => {
+    const contributors = [];
+    let nextToken;
+
+    do {
+      const response = await state.client.send(
+        new DescribeAlarmContributorsCommand({
+          AlarmName: state.alarmName,
+          NextToken: nextToken,
+        }),
+      );
+      contributors.push(...(response.AlarmContributors ?? []));
+      nextToken = response.NextToken;
+      // A page can come back empty while still carrying a token, so keep going until the
+      // token itself is gone rather than stopping at the first empty page.
+    } while (nextToken);
+
+    if (contributors.length === 0) {
+      console.log(
+        "\tNo contributors yet. The query matched no series, which usually means no OTel metrics with these labels have arrived. Once your collector is sending data, each matching series appears here with its labels and the reason it breached.",
+      );
+      return;
+    }
+
+    console.log(`\tFound ${contributors.length} contributors:`);
+    for (const contributor of contributors) {
+      const labels = Object.entries(contributor.ContributorAttributes ?? {})
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([key, value]) => `${key}=${value}`)
+        .join(", ");
+      console.log(`\t  ${contributor.ContributorId}: ${labels}`);
+      console.log(`\t    reason: ${contributor.StateReason}`);
+    }
+  },
+);
+
+// Step 6: Get statistics and chart the metric on a dashboard.
+const displayDashboard = new ScenarioOutput(
+  "displayDashboard",
+  "6. Get statistics and chart the metric on a dashboard\n\nStatistics and dashboards are how you see what the alarm is evaluating.",
+);
+
+const sdkDashboard = new ScenarioAction(
+  "sdkDashboard",
+  async (/** @type {State} */ state) => {
+    if (!state.metric) {
+      console.log(
+        "\tSkipping statistics and dashboard because no metrics exist yet.",
+      );
+      return;
+    }
+
+    const metric = state.metric;
+    const stats = await state.client.send(
+      new GetMetricStatisticsCommand({
+        Namespace: metric.Namespace,
+        MetricName: metric.MetricName,
+        Dimensions: metric.Dimensions,
+        StartTime: new Date(Date.now() - 24 * 60 * 60 * 1000),
+        EndTime: new Date(),
+        Period: 3600,
+        Statistics: ["Average", "Maximum"],
+      }),
+    );
+
+    const datapoints = stats.Datapoints ?? [];
+    console.log(
+      `\tStatistics for ${metric.Namespace} ${metric.MetricName} over the last day:`,
+    );
+    console.log(`\t  Datapoints: ${datapoints.length}`);
+    for (const datapoint of datapoints.slice(0, 3)) {
+      console.log(
+        `\t  ${datapoint.Timestamp?.toISOString()} average ${datapoint.Average}, maximum ${datapoint.Maximum}`,
+      );
+    }
+
+    const region = await state.client.config.region();
+    const response = await state.client.send(
+      new PutDashboardCommand({
+        DashboardName: state.dashboardName,
+        DashboardBody: buildDashboardBody(metric, region),
+      }),
+    );
+    state.dashboardCreated = true;
+
+    for (const message of response.DashboardValidationMessages ?? []) {
+      console.log(`\tDashboard validation message: ${message.Message}`);
+    }
+    console.log(`\tCreated dashboard ${state.dashboardName}.`);
+
+    const stored = await state.client.send(
+      new GetDashboardCommand({ DashboardName: state.dashboardName }),
+    );
+    console.log(
+      `\tRead the dashboard back, ${stored.DashboardBody?.length} characters of widget JSON.`,
+    );
+  },
+);
+
+/**
+ * Build a single-widget dashboard body that charts the given metric.
+ * @param {import('@aws-sdk/client-cloudwatch').Metric} metric
+ * @param {string} region The region the metric is in. A metric widget must name
+ *   its region, because a dashboard can chart metrics from several.
+ * @returns {string} The dashboard body, as JSON.
+ */
+const buildDashboardBody = (metric, region) => {
+  const metricSpec = [metric.Namespace, metric.MetricName];
+  for (const dimension of metric.Dimensions ?? []) {
+    metricSpec.push(dimension.Name, dimension.Value);
+  }
+
+  return JSON.stringify({
+    widgets: [
+      {
+        type: "text",
+        x: 0,
+        y: 0,
+        width: 24,
+        height: 2,
+        properties: {
+          markdown:
+            "This dashboard was created programmatically by an AWS SDK code example.",
+        },
+      },
+      {
+        type: "metric",
+        x: 0,
+        y: 2,
+        width: 12,
+        height: 6,
+        properties: {
+          metrics: [metricSpec],
+          view: "timeSeries",
+          stat: "Average",
+          period: 300,
+          region,
+          title: metric.MetricName,
+        },
+      },
+    ],
+  });
+};
+
+// Step 7: Mute the alarm for a maintenance window.
+const displayMuteRule = new ScenarioOutput(
+  "displayMuteRule",
+  "7. Mute the alarm for a maintenance window\n\nWhile a mute rule is active the targeted alarms keep evaluating and keep changing state, but their actions do not fire. This is the supported way to suppress notifications during planned maintenance, instead of disabling alarm actions and hoping someone remembers to turn them back on.",
+);
+
+const sdkMuteRule = new ScenarioAction(
+  "sdkMuteRule",
+  async (/** @type {State} */ state) => {
+    // The expression is a five-field cron expression,
+    // cron(Minutes Hours Day-of-month Month Day-of-week). Note that this is five fields,
+    // not the six that Amazon EventBridge uses. For a one-time window, use
+    // at(yyyy-MM-ddThh:mm), with no seconds. The duration is an ISO 8601 duration from
+    // PT1M to P15D, so PT2H rather than 2h.
+    const expression = "cron(0 2 * * SUN)";
+    const duration = "PT2H";
+    const timezone = "America/Los_Angeles";
+
+    await state.client.send(
+      new PutAlarmMuteRuleCommand({
+        Name: state.muteRuleName,
+        Description:
+          "A mute rule created by the AWS SDK for JavaScript Basics scenario.",
+        Rule: {
+          Schedule: {
+            Expression: expression,
+            Duration: duration,
+            Timezone: timezone,
+          },
+        },
+        // Target up to 100 alarms. If MuteTargets is omitted, the rule applies to every
+        // alarm in the account.
+        MuteTargets: { AlarmNames: [state.alarmName] },
+      }),
+    );
+
+    console.log(`\tCreated mute rule ${state.muteRuleName}:`);
+    console.log(`\t  schedule: ${expression} for ${duration}`);
+    console.log(`\t  timezone: ${timezone}`);
+    console.log(`\t  targets:  ${state.alarmName}`);
+    console.log(
+      "\n\tNote the two formats here. The expression is a five-field cron expression, five rather than the six Amazon EventBridge uses. The duration is an ISO 8601 duration, so 'PT2H' and not '2h'.",
+    );
+    console.log(
+      "\n\tAlso note that MuteTargets is set explicitly. If you leave it out, the rule applies to every alarm in the account.",
+    );
+
+    const rule = await state.client.send(
+      new GetAlarmMuteRuleCommand({ AlarmMuteRuleName: state.muteRuleName }),
+    );
+    console.log(
+      `\tRead the rule back: status ${rule.Status}, mute type ${rule.MuteType}.`,
+    );
+
+    const summaries = [];
+    let nextToken;
+    do {
+      const response = await state.client.send(
+        new ListAlarmMuteRulesCommand({
+          AlarmName: state.alarmName,
+          NextToken: nextToken,
+        }),
+      );
+      summaries.push(...(response.AlarmMuteRuleSummaries ?? []));
+      nextToken = response.NextToken;
+    } while (nextToken);
+
+    console.log(`\tFound ${summaries.length} mute rules targeting this alarm.`);
+    // Mute rule summaries carry no name field, only an ARN, so match on the ARN suffix.
+    const match = summaries.find(
+      (summary) =>
+        summary.AlarmMuteRuleArn?.endsWith(`/${state.muteRuleName}`) ||
+        summary.AlarmMuteRuleArn?.endsWith(`:${state.muteRuleName}`),
+    );
+    if (match) {
+      console.log(
+        `\t  matched by ARN: ${match.AlarmMuteRuleArn} (${match.Status})`,
+      );
+    }
+  },
+);
+
+// Step 8: Clean up.
+const askToDeleteResources = new ScenarioInput(
+  "deleteResources",
+  "8. Clean up\n\nDelete the resources this scenario created?",
+  { type: "confirm" },
+);
+
+const displaySkipCleanUp = new ScenarioOutput(
+  "displaySkipCleanUp",
+  "\tSkipping cleanup. Note that the alarm, dashboard, and mute rule are still in your account, and enrichment may still be running.",
+  { skipWhen: (/** @type {State} */ state) => state.deleteResources },
+);
+
+const sdkCleanUp = new ScenarioAction(
+  "sdkCleanUp",
+  async (/** @type {State} */ state) => {
+    // Each deletion is attempted independently so that one failure does not leave the
+    // remaining resources behind.
+    try {
+      await state.client.send(
+        new DeleteAlarmMuteRuleCommand({
+          AlarmMuteRuleName: state.muteRuleName,
+        }),
+      );
+      console.log(`\tDeleted mute rule ${state.muteRuleName}.`);
+    } catch (caught) {
+      console.log(`\tCould not delete the mute rule: ${caught.message}`);
+    }
+
+    try {
+      await state.client.send(
+        new DeleteAlarmsCommand({ AlarmNames: [state.alarmName] }),
+      );
+      console.log(`\tDeleted alarm ${state.alarmName}.`);
+    } catch (caught) {
+      console.log(`\tCould not delete the alarm: ${caught.message}`);
+    }
+
+    if (state.dashboardCreated) {
+      try {
+        await state.client.send(
+          new DeleteDashboardsCommand({
+            DashboardNames: [state.dashboardName],
+          }),
+        );
+        console.log(`\tDeleted dashboard ${state.dashboardName}.`);
+      } catch (caught) {
+        console.log(`\tCould not delete the dashboard: ${caught.message}`);
+      }
+    }
+
+    if (!state.startedEnrichment) {
+      console.log(
+        "\tLeft OTel enrichment running, because it was already on before this run.",
+      );
+      return;
+    }
+
+    try {
+      await state.client.send(new StopOTelEnrichmentCommand({}));
+      console.log("\tStopped OTel enrichment, because this run started it.");
+    } catch (caught) {
+      console.log(`\tCould not stop OTel enrichment: ${caught.message}`);
+    }
+  },
+  { skipWhen: (/** @type {State} */ state) => !state.deleteResources },
+);
+
+const goodbye = new ScenarioOutput(
+  "goodbye",
+  "This concludes the Amazon CloudWatch Basics scenario.",
+);
+
+// Suffix the resource names so repeated runs do not collide.
+const suffix = Math.floor(Math.random() * 9000) + 1000;
+
+const myScenario = new Scenario(
+  "CloudWatch Basics",
+  [
+    greet,
+    pressEnter,
+    displayListMetrics,
+    sdkListMetrics,
+    pressEnter,
+    displayStartEnrichment,
+    sdkStartEnrichment,
+    pressEnter,
+    displayOtlpIngestion,
+    pressEnter,
+    displayCreateAlarm,
+    inputQuery,
+    sdkCreateAlarm,
+    pressEnter,
+    displayContributors,
+    sdkContributors,
+    pressEnter,
+    displayDashboard,
+    sdkDashboard,
+    pressEnter,
+    displayMuteRule,
+    sdkMuteRule,
+    pressEnter,
+    askToDeleteResources,
+    displaySkipCleanUp,
+    sdkCleanUp,
+    goodbye,
+  ],
+  {
+    client: new CloudWatchClient({}),
+    alarmName: `doc-example-promql-alarm-${suffix}`,
+    dashboardName: `doc-example-dashboard-${suffix}`,
+    muteRuleName: `doc-example-mute-rule-${suffix}`,
+    namespaces: [],
+    metric: undefined,
+    startedEnrichment: false,
+    dashboardCreated: false,
+  },
+);
+
+/** @type {{ stepHandlerOptions: StepHandlerOptions }} */
+export const main = async (stepHandlerOptions) => {
+  await myScenario.run(stepHandlerOptions);
+};
+
+// Invoke main function if this file was run directly.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const { values } = parseArgs({
+    options: {
+      yes: {
+        type: "boolean",
+        short: "y",
+      },
+    },
+  });
+  main({ confirmAll: values.yes });
+}
+```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [DeleteAlarmMuteRule](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DeleteAlarmMuteRuleCommand)
+  + [DeleteAlarms](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DeleteAlarmsCommand)
+  + [DeleteDashboards](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DeleteDashboardsCommand)
+  + [DescribeAlarmContributors](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DescribeAlarmContributorsCommand)
+  + [GetAlarmMuteRule](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/GetAlarmMuteRuleCommand)
+  + [GetDashboard](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/GetDashboardCommand)
+  + [GetMetricStatistics](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/GetMetricStatisticsCommand)
+  + [GetOTelEnrichment](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/GetOTelEnrichmentCommand)
+  + [ListAlarmMuteRules](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/ListAlarmMuteRulesCommand)
+  + [ListDashboards](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/ListDashboardsCommand)
+  + [ListMetrics](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/ListMetricsCommand)
+  + [PutAlarmMuteRule](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/PutAlarmMuteRuleCommand)
+  + [PutDashboard](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/PutDashboardCommand)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/PutMetricAlarmCommand)
+  + [StartOTelEnrichment](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/StartOTelEnrichmentCommand)
+  + [StopOTelEnrichment](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/StopOTelEnrichmentCommand)
 
 ------
 #### [ Kotlin ]
 
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
-Run an interactive scenario demonstrating CloudWatch features.  
+Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
 
 ```
 /**
@@ -3000,238 +4359,359 @@ Run an interactive scenario demonstrating CloudWatch features.
  For more information, see the following documentation topic:
  https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/setup.html
 
- To enable billing metrics and statistics for this example, make sure billing alerts are enabled for your account:
- https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html#turning_on_billing_metrics
+ This scenario demonstrates the Amazon CloudWatch OpenTelemetry (OTel) experience.
+ CloudWatch ingests OpenTelemetry metrics natively, and this example walks through what
+ you do with them: turning on enrichment so CloudWatch can correlate incoming OTLP
+ metrics with the resources that produced them, alarming on those metrics with a PromQL
+ query, and finding out which individual series drove the alarm.
+
+ A PromQL alarm works differently from a classic metric alarm. Rather than watching one
+ metric and counting breaching periods, it evaluates a query that can match many series
+ at once, and tracks each matching series separately as a contributor.
+
+ Note that sending OTLP metrics to CloudWatch is not an AWS SDK operation. Metrics
+ arrive over the OTLP protocol through the CloudWatch agent, an OpenTelemetry
+ Collector, or an ADOT SDK. Everything this scenario does is configuration and querying
+ around that ingestion path.
 
  This Kotlin code example performs the following tasks:
 
- 1. List available namespaces from Amazon CloudWatch. Select a namespace from the list.
- 2. List available metrics within the selected namespace.
- 3. Get statistics for the selected metric over the last day.
- 4. Get CloudWatch estimated billing for the last week.
- 5. Create a new CloudWatch dashboard with metrics.
- 6. List dashboards using a paginator.
- 7. Create a new custom metric by adding data for it.
- 8. Add the custom metric to the dashboard.
- 9. Create an alarm for the custom metric.
- 10. Describe current alarms.
- 11. Get current data for the new custom metric.
- 12. Push data into the custom metric to trigger the alarm.
- 13. Check the alarm state using the action DescribeAlarmsForMetric.
- 14. Get alarm history for the new alarm.
- 15. Add an anomaly detector for the custom metric.
- 16. Describe current anomaly detectors.
- 17. Get a metric image for the custom metric.
- 18. Clean up the Amazon CloudWatch resources.
+ 1. List metrics and namespaces from Amazon CloudWatch.
+ 2. Start OpenTelemetry enrichment for the account.
+ 3. Explain how OTLP metrics reach CloudWatch.
+ 4. Create an alarm that evaluates a PromQL query.
+ 5. Inspect the contributors to the PromQL alarm.
+ 6. Get metric statistics and chart the metric on a dashboard.
+ 7. Mute the alarm for a maintenance window.
+ 8. Clean up the Amazon CloudWatch resources.
  */
 
-val DASHES: String? = String(CharArray(80)).replace("\u0000", "-")
+val DASHES: String = "-".repeat(80)
 
-suspend fun main(args: Array<String>) {
-    val usage = """
-        Usage:
-            <myDate> <costDateWeek> <dashboardName> <dashboardJson> <dashboardAdd> <settings> <metricImage>  
+private const val REGION = "us-east-1"
 
-        Where:
-            myDate - The start date to use to get metric statistics. (For example, 2023-01-11T18:35:24.00Z.) 
-            costDateWeek - The start date to use to get AWS Billing and Cost Management statistics. (For example, 2023-01-11T18:35:24.00Z.) 
-            dashboardName - The name of the dashboard to create. 
-            dashboardJson - The location of a JSON file to use to create a dashboard. (See Readme file.) 
-            dashboardAdd - The location of a JSON file to use to update a dashboard. (See Readme file.) 
-            settings - The location of a JSON file from which various values are read. (See Readme file.) 
-            metricImage - The location of a BMP file that is used to create a graph. 
-    """
+private const val DEFAULT_QUERY = "avg by (host) (system_cpu_utilization) > 80"
 
-    if (args.size != 7) {
-        println(usage)
-        System.exit(1)
+// Valid evaluation intervals are 10, 20, 30, or any multiple of 60 up to 3600 seconds.
+private const val EVALUATION_INTERVAL = 60
+private const val PENDING_PERIOD = 300
+private const val RECOVERY_PERIOD = 120
+
+val scenarioScanner = Scanner(System.`in`)
+
+suspend fun main() {
+    // Suffix the resource names so repeated runs do not collide.
+    val suffix = (Random().nextInt(9000) + 1000).toString()
+    val alarmName = "doc-example-promql-alarm-$suffix"
+    val dashboardName = "doc-example-dashboard-$suffix"
+    val muteRuleName = "doc-example-mute-rule-$suffix"
+
+    println(DASHES)
+    println("Welcome to the Amazon CloudWatch Basics scenario.")
+    println(
+        """
+        CloudWatch now ingests OpenTelemetry metrics natively. This scenario walks through
+        that experience: it turns on OTel enrichment so CloudWatch can correlate incoming
+        OTLP metrics with the resources that produced them, alarms on those metrics with a
+        PromQL query, and shows you which individual series drove the alarm.
+
+        A PromQL alarm works differently from a classic metric alarm. Rather than watching
+        one metric and counting breaching periods, it evaluates a query that can match many
+        series at once, and tracks each one separately as a contributor.
+
+        Let's get started...
+        """.trimIndent(),
+    )
+    waitForInputToContinue()
+
+    // Tracks whether this run turned enrichment on, so that cleanup only turns off
+    // enrichment that this run started.
+    var startedEnrichment = false
+    var dashboardCreated = false
+
+    println(DASHES)
+    println(
+        """
+        1. List metrics and namespaces
+
+        Before configuring anything, let's see what CloudWatch is already collecting in
+        this account by calling ListMetrics.
+        """.trimIndent(),
+    )
+    waitForInputToContinue()
+
+    val namespaces = listNameSpaces()
+    println("Found ${namespaces.size} namespaces in this account:")
+    namespaces.take(10).forEach { println("  $it") }
+    if (namespaces.isEmpty()) {
+        println(
+            """
+            No metrics found in this account. The statistics and dashboard steps later on
+            need an existing metric, so they will be skipped.
+            """.trimIndent(),
+        )
     }
-
-    val myDate = args[0]
-    val costDateWeek = args[1]
-    val dashboardName = args[2]
-    val dashboardJson = args[3]
-    val dashboardAdd = args[4]
-    val settings = args[5]
-    var metricImage = args[6]
-    val dataPoint = "10.0".toDouble()
-    val inOb = Scanner(System.`in`)
+    waitForInputToContinue()
 
     println(DASHES)
-    println("Welcome to the Amazon CloudWatch example scenario.")
-    println(DASHES)
+    println(
+        """
+        2. Start OpenTelemetry enrichment
 
-    println(DASHES)
-    println("1. List at least five available unique namespaces from Amazon CloudWatch. Select a CloudWatch namespace from the list.")
-    val list: ArrayList<String> = listNameSpaces()
-    for (z in 0..4) {
-        println("    ${z + 1}. ${list[z]}")
-    }
+        Enrichment is what lets CloudWatch attach AWS resource context to the OTLP metrics
+        you send it. Without it, your metrics arrive as opaque series with no connection to
+        the resources that emitted them.
 
-    var selectedNamespace: String
-    var selectedMetrics = ""
-    var num = inOb.nextLine().toInt()
-    println("You selected $num")
+        We check the current state first, and only start enrichment if it isn't already on.
+        """.trimIndent(),
+    )
+    waitForInputToContinue()
 
-    if (1 <= num && num <= 5) {
-        selectedNamespace = list[num - 1]
+    val status = getOTelEnrichmentStatus()
+    if (status !is OTelEnrichmentStatus.Running) {
+        // Record the attempt before making it. We already know enrichment was not running, so
+        // stopping it during cleanup is always safe, and a start that succeeds but fails to
+        // report back would otherwise leave it running.
+        startedEnrichment = true
+        startOTelEnrichment()
+
+        val newStatus = getOTelEnrichmentStatus()
+        println(
+            "Note: this run started enrichment (status is now ${newStatus?.value}), so the " +
+                "cleanup step will stop it again.",
+        )
     } else {
-        println("You did not select a valid option.")
-        exitProcess(1)
+        println(
+            """
+            Enrichment was already running, so we will leave it alone. The cleanup step
+            will not stop it, because other workloads in this account may depend on it.
+            """.trimIndent(),
+        )
     }
-    println("You selected $selectedNamespace")
-    println(DASHES)
+    waitForInputToContinue()
 
     println(DASHES)
-    println("2. List available metrics within the selected namespace and select one from the list.")
-    val metList = listMets(selectedNamespace)
-    for (z in 0..4) {
-        println("    ${ z + 1}. ${metList?.get(z)}")
-    }
-    num = inOb.nextLine().toInt()
-    if (1 <= num && num <= 5) {
-        selectedMetrics = metList!![num - 1]
+    println(
+        """
+        3. Send OTLP metrics to CloudWatch
+
+        This step is not an AWS SDK operation, and that's worth being explicit about.
+        Metrics reach CloudWatch over the OTLP protocol, through the CloudWatch agent, an
+        OpenTelemetry Collector, or an ADOT SDK. There is no PutOTelMetrics API to call.
+
+        Point your collector at the CloudWatch metrics endpoint, which follows the pattern
+        https://monitoring.<region>.amazonaws.com/v1/metrics
+
+        The endpoint is HTTP/1.1 only and does not support gRPC, so use an otlphttp
+        exporter rather than otlp. The metrics endpoint signs as "monitoring".
+        """.trimIndent(),
+    )
+    waitForInputToContinue()
+
+    println(DASHES)
+    println(
+        """
+        4. Create a PromQL alarm
+
+        Now we alarm on those metrics. The comparison goes inside the query itself: a
+        PromQL alarm has no separate threshold, comparison operator, statistic, or period.
+        """.trimIndent(),
+    )
+    println("Enter a PromQL query, or press <ENTER> for the default")
+    println("[$DEFAULT_QUERY]:")
+    val queryInput = scenarioScanner.nextLine()
+    val query = if (queryInput.isBlank()) DEFAULT_QUERY else queryInput.trim()
+
+    putPromQlMetricAlarm(alarmName, query, EVALUATION_INTERVAL, PENDING_PERIOD, RECOVERY_PERIOD)
+    println("Created alarm $alarmName:")
+    println("  query:              $query")
+    println("  evaluationInterval: $EVALUATION_INTERVAL seconds")
+    println("  pendingPeriod:      $PENDING_PERIOD seconds")
+    println("  recoveryPeriod:     $RECOVERY_PERIOD seconds")
+    println(
+        """
+        A PromQL alarm starts in the OK state rather than INSUFFICIENT_DATA, which is
+        another way it differs from a classic alarm.
+        """.trimIndent(),
+    )
+    waitForInputToContinue()
+
+    println(DASHES)
+    println(
+        """
+        5. Inspect the alarm's contributors
+
+        Each contributor is one series the query matched, identified by its label set. This
+        is how you find out which host is unhealthy rather than only that something is.
+        Classic alarms have no equivalent.
+        """.trimIndent(),
+    )
+    waitForInputToContinue()
+
+    describeAlarmContributors(alarmName)
+    waitForInputToContinue()
+
+    println(DASHES)
+    println(
+        """
+        6. Get statistics and chart the metric on a dashboard
+
+        Statistics and dashboards are how you see what the alarm is evaluating.
+        """.trimIndent(),
+    )
+    waitForInputToContinue()
+
+    if (namespaces.isNotEmpty()) {
+        val namespace = namespaces[0]
+        val metrics = listMets(namespace)
+        if (metrics != null && metrics.isNotEmpty()) {
+            val metricName = metrics[0]
+            val startDate = Instant.now().minus(24, ChronoUnit.HOURS).toString()
+            var dimension: Dimension? = null
+            try {
+                dimension = getSpecificMet(namespace)
+                if (dimension != null) {
+                    getAndDisplayMetricStatistics(namespace, metricName, "Average", startDate, dimension)
+                }
+            } catch (e: Exception) {
+                println("Could not get statistics for $namespace/$metricName: ${e.message}")
+            }
+
+            // Chart the metric this run just discovered. Reading the widgets from a file
+            // would chart metrics that may not exist in this account.
+            try {
+                createDashboard(dashboardName, buildDashboardBody(namespace, metricName, dimension, REGION))
+                dashboardCreated = true
+                listDashboards()
+            } catch (e: Exception) {
+                println("Could not create the dashboard: ${e.message}")
+            }
+        } else {
+            println("No metrics found in namespace $namespace, skipping statistics and the dashboard.")
+        }
     } else {
-        println("You did not select a valid option.")
-        System.exit(1)
+        println("Skipping statistics and dashboard because no metrics exist yet.")
     }
-    println("You selected $selectedMetrics")
-    val myDimension = getSpecificMet(selectedNamespace)
-    if (myDimension == null) {
-        println("Error - Dimension is null")
-        exitProcess(1)
-    }
-    println(DASHES)
+    waitForInputToContinue()
 
     println(DASHES)
-    println("3. Get statistics for the selected metric over the last day.")
-    val metricOption: String
-    val statTypes = ArrayList<String>()
-    statTypes.add("SampleCount")
-    statTypes.add("Average")
-    statTypes.add("Sum")
-    statTypes.add("Minimum")
-    statTypes.add("Maximum")
+    println(
+        """
+        7. Mute the alarm for a maintenance window
 
-    for (t in 0..4) {
-        println("    ${t + 1}. ${statTypes[t]}")
+        While a mute rule is active the targeted alarms keep evaluating and keep changing
+        state, but their actions do not fire. This is the supported way to suppress
+        notifications during planned maintenance, instead of disabling alarm actions and
+        hoping someone remembers to turn them back on.
+        """.trimIndent(),
+    )
+    waitForInputToContinue()
+
+    // The expression is a five-field cron expression,
+    // cron(Minutes Hours Day-of-month Month Day-of-week). Note that this is five fields,
+    // not the six that Amazon EventBridge uses. For a one-time window, use
+    // at(yyyy-MM-ddThh:mm), with no seconds. The duration is an ISO 8601 duration from
+    // PT1M to P15D, so PT2H rather than 2h.
+    val expression = "cron(0 2 * * SUN)"
+    val duration = "PT2H"
+    val timezone = "America/Los_Angeles"
+
+    putAlarmMuteRule(muteRuleName, expression, duration, listOf(alarmName), timezone)
+    println("Created mute rule $muteRuleName:")
+    println("  schedule: $expression for $duration")
+    println("  timezone: $timezone")
+    println("  targets:  $alarmName")
+    println(
+        """
+        Note the two formats here. The expression is a five-field cron expression, five
+        rather than the six Amazon EventBridge uses. The duration is an ISO 8601 duration,
+        so 'PT2H' and not '2h'.
+
+        Also note that muteTargets is set explicitly. If you leave it out, the rule applies
+        to every alarm in the account.
+        """.trimIndent(),
+    )
+
+    val muteRule = getAlarmMuteRule(muteRuleName)
+    println("Read the rule back: status ${muteRule.status?.value}, mute type ${muteRule.muteType}.")
+
+    val summaries = listAlarmMuteRules(alarmName)
+    println("Found ${summaries.size} mute rules targeting this alarm.")
+    // Mute rule summaries carry no name field, only an ARN, so match on the ARN suffix.
+    summaries
+        .firstOrNull { summary ->
+            summary.alarmMuteRuleArn?.endsWith("/$muteRuleName") == true ||
+                summary.alarmMuteRuleArn?.endsWith(":$muteRuleName") == true
+        }?.let { summary ->
+            println("  matched by ARN: ${summary.alarmMuteRuleArn} (${summary.status?.value})")
+        }
+    waitForInputToContinue()
+
+    println(DASHES)
+    println("8. Clean up")
+    println("Delete the resources this scenario created? (y/n)")
+    val cleanUp = scenarioScanner.nextLine()
+    if (!cleanUp.trim().equals("y", ignoreCase = true)) {
+        println(
+            """
+            Skipping cleanup. Note that the alarm, dashboard, and mute rule are still in
+            your account, and enrichment may still be running.
+            """.trimIndent(),
+        )
+        println(DASHES)
+        println("This concludes the Amazon CloudWatch Basics scenario.")
+        return
     }
-    println("Select a metric statistic by entering a number from the preceding list:")
-    num = inOb.nextLine().toInt()
-    if (1 <= num && num <= 5) {
-        metricOption = statTypes[num - 1]
+
+    // Each deletion is attempted independently so that one failure does not leave the
+    // remaining resources behind.
+    try {
+        deleteAlarmMuteRule(muteRuleName)
+    } catch (e: Exception) {
+        println("Could not delete the mute rule: ${e.message}")
+    }
+
+    try {
+        deleteAlarm(alarmName)
+    } catch (e: Exception) {
+        println("Could not delete the alarm: ${e.message}")
+    }
+
+    if (dashboardCreated) {
+        try {
+            deleteDashboard(dashboardName)
+        } catch (e: Exception) {
+            println("Could not delete the dashboard: ${e.message}")
+        }
+    }
+
+    if (startedEnrichment) {
+        try {
+            stopOTelEnrichment()
+            println("Stopped OTel enrichment, because this run started it.")
+        } catch (e: Exception) {
+            println("Could not stop OTel enrichment: ${e.message}")
+        }
     } else {
-        println("You did not select a valid option.")
-        exitProcess(1)
+        println("Left OTel enrichment running, because it was already on before this run.")
     }
-    println("You selected $metricOption")
-    getAndDisplayMetricStatistics(selectedNamespace, selectedMetrics, metricOption, myDate, myDimension)
-    println(DASHES)
 
     println(DASHES)
-    println("4. Get CloudWatch estimated billing for the last week.")
-    getMetricStatistics(costDateWeek)
-    println(DASHES)
-
-    println(DASHES)
-    println("5. Create a new CloudWatch dashboard with metrics.")
-    createDashboardWithMetrics(dashboardName, dashboardJson)
-    println(DASHES)
-
-    println(DASHES)
-    println("6. List dashboards using a paginator.")
-    listDashboards()
-    println(DASHES)
-
-    println(DASHES)
-    println("7. Create a new custom metric by adding data to it.")
-    createNewCustomMetric(dataPoint)
-    println(DASHES)
-
-    println(DASHES)
-    println("8. Add an additional metric to the dashboard.")
-    addMetricToDashboard(dashboardAdd, dashboardName)
-    println(DASHES)
-
-    println(DASHES)
-    println("9. Create an alarm for the custom metric.")
-    val alarmName: String = createAlarm(settings)
-    println(DASHES)
-
-    println(DASHES)
-    println("10. Describe 10 current alarms.")
-    describeAlarms()
-    println(DASHES)
-
-    println(DASHES)
-    println("11. Get current data for the new custom metric.")
-    getCustomMetricData(settings)
-    println(DASHES)
-
-    println(DASHES)
-    println("12. Push data into the custom metric to trigger the alarm.")
-    addMetricDataForAlarm(settings)
-    println(DASHES)
-
-    println(DASHES)
-    println("13. Check the alarm state using the action DescribeAlarmsForMetric.")
-    checkForMetricAlarm(settings)
-    println(DASHES)
-
-    println(DASHES)
-    println("14. Get alarm history for the new alarm.")
-    getAlarmHistory(settings, myDate)
-    println(DASHES)
-
-    println(DASHES)
-    println("15. Add an anomaly detector for the custom metric.")
-    addAnomalyDetector(settings)
-    println(DASHES)
-
-    println(DASHES)
-    println("16. Describe current anomaly detectors.")
-    describeAnomalyDetectors(settings)
-    println(DASHES)
-
-    println(DASHES)
-    println("17. Get a metric image for the custom metric.")
-    getAndOpenMetricImage(metricImage)
-    println(DASHES)
-
-    println(DASHES)
-    println("18. Clean up the Amazon CloudWatch resources.")
-    deleteDashboard(dashboardName)
-    deleteAlarm(alarmName)
-    deleteAnomalyDetector(settings)
-    println(DASHES)
-
-    println(DASHES)
-    println("The Amazon CloudWatch example scenario is complete.")
+    println("This concludes the Amazon CloudWatch Basics scenario.")
     println(DASHES)
 }
 
-suspend fun deleteAnomalyDetector(fileName: String) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-
-    val singleMetricAnomalyDetectorVal =
-        SingleMetricAnomalyDetector {
-            metricName = customMetricName
-            namespace = customMetricNamespace
-            stat = "Maximum"
+private fun waitForInputToContinue() {
+    while (true) {
+        println("")
+        println("Press <ENTER> to continue:")
+        val input = scenarioScanner.nextLine()
+        if (input.trim().isEmpty()) {
+            println("Continuing with the program...")
+            println("")
+            break
         }
-
-    val request =
-        DeleteAnomalyDetectorRequest {
-            singleMetricAnomalyDetector = singleMetricAnomalyDetectorVal
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        cwClient.deleteAnomalyDetector(request)
-        println("Successfully deleted the Anomaly Detector.")
+        println("Invalid input. Please try again.")
     }
 }
 
@@ -3241,7 +4721,7 @@ suspend fun deleteAlarm(alarmNameVal: String) {
             alarmNames = listOf(alarmNameVal)
         }
 
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         cwClient.deleteAlarms(request)
         println("Successfully deleted alarm $alarmNameVal")
     }
@@ -3252,372 +4732,9 @@ suspend fun deleteDashboard(dashboardName: String) {
         DeleteDashboardsRequest {
             dashboardNames = listOf(dashboardName)
         }
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         cwClient.deleteDashboards(dashboardsRequest)
         println("$dashboardName was successfully deleted.")
-    }
-}
-
-suspend fun getAndOpenMetricImage(fileName: String) {
-    println("Getting Image data for custom metric.")
-    val myJSON = """{
-        "title": "Example Metric Graph",
-        "view": "timeSeries",
-        "stacked ": false,
-        "period": 10,
-        "width": 1400,
-        "height": 600,
-        "metrics": [
-            [
-            "AWS/Billing",
-            "EstimatedCharges",
-            "Currency",
-            "USD"
-            ]
-        ]
-        }"""
-
-    val imageRequest =
-        GetMetricWidgetImageRequest {
-            metricWidget = myJSON
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.getMetricWidgetImage(imageRequest)
-        val bytes = response.metricWidgetImage
-        if (bytes != null) {
-            File(fileName).writeBytes(bytes)
-        }
-    }
-    println("You have successfully written data to $fileName")
-}
-
-suspend fun describeAnomalyDetectors(fileName: String) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-
-    val detectorsRequest =
-        DescribeAnomalyDetectorsRequest {
-            maxResults = 10
-            metricName = customMetricName
-            namespace = customMetricNamespace
-        }
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.describeAnomalyDetectors(detectorsRequest)
-        response.anomalyDetectors?.forEach { detector ->
-            println("Metric name: ${detector.singleMetricAnomalyDetector?.metricName}")
-            println("State: ${detector.stateValue}")
-        }
-    }
-}
-
-suspend fun addAnomalyDetector(fileName: String?) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-
-    val singleMetricAnomalyDetectorVal =
-        SingleMetricAnomalyDetector {
-            metricName = customMetricName
-            namespace = customMetricNamespace
-            stat = "Maximum"
-        }
-
-    val anomalyDetectorRequest =
-        PutAnomalyDetectorRequest {
-            singleMetricAnomalyDetector = singleMetricAnomalyDetectorVal
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        cwClient.putAnomalyDetector(anomalyDetectorRequest)
-        println("Added anomaly detector for metric $customMetricName.")
-    }
-}
-
-suspend fun getAlarmHistory(
-    fileName: String,
-    date: String,
-) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val alarmNameVal = rootNode.findValue("exampleAlarmName").asText()
-    val start = Instant.parse(date)
-    val endDateVal = Instant.now()
-
-    val historyRequest =
-        DescribeAlarmHistoryRequest {
-            startDate =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(start)
-            endDate =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(endDateVal)
-            alarmName = alarmNameVal
-            historyItemType = HistoryItemType.Action
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.describeAlarmHistory(historyRequest)
-        val historyItems = response.alarmHistoryItems
-        if (historyItems != null) {
-            if (historyItems.isEmpty()) {
-                println("No alarm history data found for $alarmNameVal.")
-            } else {
-                for (item in historyItems) {
-                    println("History summary ${item.historySummary}")
-                    println("Time stamp: ${item.timestamp}")
-                }
-            }
-        }
-    }
-}
-
-suspend fun checkForMetricAlarm(fileName: String?) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-    var hasAlarm = false
-    var retries = 10
-
-    val metricRequest =
-        DescribeAlarmsForMetricRequest {
-            metricName = customMetricName
-            namespace = customMetricNamespace
-        }
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        while (!hasAlarm && retries > 0) {
-            val response = cwClient.describeAlarmsForMetric(metricRequest)
-            if (response.metricAlarms?.count()!! > 0) {
-                hasAlarm = true
-            }
-            retries--
-            delay(20000)
-            println(".")
-        }
-        if (!hasAlarm) {
-            println("No Alarm state found for $customMetricName after 10 retries.")
-        } else {
-            println("Alarm state found for $customMetricName.")
-        }
-    }
-}
-
-suspend fun addMetricDataForAlarm(fileName: String?) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-
-    // Set an Instant object.
-    val time = ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT)
-    val instant = Instant.parse(time)
-    val datum =
-        MetricDatum {
-            metricName = customMetricName
-            unit = StandardUnit.None
-            value = 1001.00
-            timestamp =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(instant)
-        }
-
-    val datum2 =
-        MetricDatum {
-            metricName = customMetricName
-            unit = StandardUnit.None
-            value = 1002.00
-            timestamp =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(instant)
-        }
-
-    val metricDataList = ArrayList<MetricDatum>()
-    metricDataList.add(datum)
-    metricDataList.add(datum2)
-
-    val request =
-        PutMetricDataRequest {
-            namespace = customMetricNamespace
-            metricData = metricDataList
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        cwClient.putMetricData(request)
-        println("Added metric values for for metric $customMetricName")
-    }
-}
-
-suspend fun getCustomMetricData(fileName: String) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-
-    // Set the date.
-    val nowDate = Instant.now()
-    val hours: Long = 1
-    val minutes: Long = 30
-    val date2 =
-        nowDate.plus(hours, ChronoUnit.HOURS).plus(
-            minutes,
-            ChronoUnit.MINUTES,
-        )
-
-    val met =
-        Metric {
-            metricName = customMetricName
-            namespace = customMetricNamespace
-        }
-
-    val metStat =
-        MetricStat {
-            stat = "Maximum"
-            period = 1
-            metric = met
-        }
-
-    val dataQUery =
-        MetricDataQuery {
-            metricStat = metStat
-            id = "foo2"
-            returnData = true
-        }
-
-    val dq = ArrayList<MetricDataQuery>()
-    dq.add(dataQUery)
-    val getMetReq =
-        GetMetricDataRequest {
-            maxDatapoints = 10
-            scanBy = ScanBy.TimestampDescending
-            startTime =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(nowDate)
-            endTime =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(date2)
-            metricDataQueries = dq
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.getMetricData(getMetReq)
-        response.metricDataResults?.forEach { item ->
-            println("The label is ${item.label}")
-            println("The status code is ${item.statusCode}")
-        }
-    }
-}
-
-suspend fun describeAlarms() {
-    val typeList = ArrayList<AlarmType>()
-    typeList.add(AlarmType.MetricAlarm)
-    val alarmsRequest =
-        DescribeAlarmsRequest {
-            alarmTypes = typeList
-            maxRecords = 10
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.describeAlarms(alarmsRequest)
-        response.metricAlarms?.forEach { alarm ->
-            println("Alarm name: ${alarm.alarmName}")
-            println("Alarm description: ${alarm.alarmDescription}")
-        }
-    }
-}
-
-suspend fun createAlarm(fileName: String): String {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode: JsonNode = ObjectMapper().readTree(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-    val alarmNameVal = rootNode.findValue("exampleAlarmName").asText()
-    val emailTopic = rootNode.findValue("emailTopic").asText()
-    val accountId = rootNode.findValue("accountId").asText()
-    val region2 = rootNode.findValue("region").asText()
-
-    // Create a List for alarm actions.
-    val alarmActionObs: MutableList<String> = ArrayList()
-    alarmActionObs.add("arn:aws:sns:$region2:$accountId:$emailTopic")
-    val alarmRequest =
-        PutMetricAlarmRequest {
-            alarmActions = alarmActionObs
-            alarmDescription = "Example metric alarm"
-            alarmName = alarmNameVal
-            comparisonOperator = ComparisonOperator.GreaterThanOrEqualToThreshold
-            threshold = 100.00
-            metricName = customMetricName
-            namespace = customMetricNamespace
-            evaluationPeriods = 1
-            period = 10
-            statistic = Statistic.Maximum
-            datapointsToAlarm = 1
-            treatMissingData = "ignore"
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        cwClient.putMetricAlarm(alarmRequest)
-        println("$alarmNameVal was successfully created!")
-        return alarmNameVal
-    }
-}
-
-suspend fun addMetricToDashboard(
-    fileNameVal: String,
-    dashboardNameVal: String,
-) {
-    val dashboardRequest =
-        PutDashboardRequest {
-            dashboardName = dashboardNameVal
-            dashboardBody = readFileAsString(fileNameVal)
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        cwClient.putDashboard(dashboardRequest)
-        println("$dashboardNameVal was successfully updated.")
-    }
-}
-
-suspend fun createNewCustomMetric(dataPoint: Double) {
-    val dimension =
-        Dimension {
-            name = "UNIQUE_PAGES"
-            value = "URLS"
-        }
-
-    // Set an Instant object.
-    val time = ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT)
-    val instant = Instant.parse(time)
-    val datum =
-        MetricDatum {
-            metricName = "PAGES_VISITED"
-            unit = StandardUnit.None
-            value = dataPoint
-            timestamp =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(instant)
-            dimensions = listOf(dimension)
-        }
-
-    val request =
-        PutMetricDataRequest {
-            namespace = "SITE/TRAFFIC"
-            metricData = listOf(datum)
-        }
-
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        cwClient.putMetricData(request)
-        println("Added metric values for for metric PAGES_VISITED")
     }
 }
 
@@ -3633,17 +4750,17 @@ suspend fun listDashboards() {
     }
 }
 
-suspend fun createDashboardWithMetrics(
+suspend fun createDashboard(
     dashboardNameVal: String,
-    fileNameVal: String,
+    dashboardBodyVal: String,
 ) {
     val dashboardRequest =
         PutDashboardRequest {
             dashboardName = dashboardNameVal
-            dashboardBody = readFileAsString(fileNameVal)
+            dashboardBody = dashboardBodyVal
         }
 
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         val response = cwClient.putDashboard(dashboardRequest)
         println("$dashboardNameVal was successfully created.")
         val messages = response.dashboardValidationMessages
@@ -3659,47 +4776,45 @@ suspend fun createDashboardWithMetrics(
     }
 }
 
-fun readFileAsString(file: String): String = String(Files.readAllBytes(Paths.get(file)))
+/**
+ * Builds a single-widget dashboard body that charts the given metric.
+ *
+ * A metric widget must name its Region, because a dashboard can chart metrics from several.
+ */
+fun buildDashboardBody(
+    metricNamespace: String,
+    metricName: String,
+    dimension: Dimension?,
+    region: String,
+): String {
+    val dimensionParts =
+        if (dimension == null) "" else ", \"${dimension.name}\", \"${dimension.value}\""
 
-suspend fun getMetricStatistics(costDateWeek: String?) {
-    val start = Instant.parse(costDateWeek)
-    val endDate = Instant.now()
-    val dimension =
-        Dimension {
-            name = "Currency"
-            value = "USD"
-        }
-
-    val dimensionList: MutableList<Dimension> = ArrayList()
-    dimensionList.add(dimension)
-
-    val statisticsRequest =
-        GetMetricStatisticsRequest {
-            metricName = "EstimatedCharges"
-            namespace = "AWS/Billing"
-            dimensions = dimensionList
-            statistics = listOf(Statistic.Maximum)
-            startTime =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(start)
-            endTime =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(endDate)
-            period = 86400
-        }
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.getMetricStatistics(statisticsRequest)
-        val data: List<Datapoint>? = response.datapoints
-        if (data != null) {
-            if (!data.isEmpty()) {
-                for (datapoint in data) {
-                    println("Timestamp:  ${datapoint.timestamp} Maximum value: ${datapoint.maximum}")
+    return """
+        {
+            "widgets": [
+                {
+                    "type": "text",
+                    "x": 0, "y": 0, "width": 24, "height": 2,
+                    "properties": {
+                        "markdown": "This dashboard was created programmatically by an AWS SDK code example."
+                    }
+                },
+                {
+                    "type": "metric",
+                    "x": 0, "y": 2, "width": 12, "height": 6,
+                    "properties": {
+                        "metrics": [[ "$metricNamespace", "$metricName"$dimensionParts ]],
+                        "view": "timeSeries",
+                        "stat": "Average",
+                        "period": 300,
+                        "region": "$region",
+                        "title": "$metricName"
+                    }
                 }
-            } else {
-                println("The returned data list is empty")
-            }
+            ]
         }
-    }
+    """.trimIndent()
 }
 
 suspend fun getAndDisplayMetricStatistics(
@@ -3747,7 +4862,7 @@ suspend fun listMets(namespaceVal: String?): ArrayList<String>? {
         ListMetricsRequest {
             namespace = namespaceVal
         }
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         val reponse = cwClient.listMetrics(request)
         reponse.metrics?.forEach { metrics ->
             val data = metrics.metricName
@@ -3764,7 +4879,7 @@ suspend fun getSpecificMet(namespaceVal: String?): Dimension? {
         ListMetricsRequest {
             namespace = namespaceVal
         }
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         val response = cwClient.listMetrics(request)
         val myList = response.metrics
         if (myList != null) {
@@ -3776,7 +4891,7 @@ suspend fun getSpecificMet(namespaceVal: String?): Dimension? {
 
 suspend fun listNameSpaces(): ArrayList<String> {
     val nameSpaceList = ArrayList<String>()
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         val response = cwClient.listMetrics(ListMetricsRequest {})
         response.metrics?.forEach { metrics ->
             val data = metrics.namespace
@@ -3788,22 +4903,1665 @@ suspend fun listNameSpaces(): ArrayList<String> {
     return nameSpaceList
 }
 ```
+The OpenTelemetry functions that the scenario calls.  
+
+```
+suspend fun getOTelEnrichmentStatus(): OTelEnrichmentStatus? {
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        val response = cwClient.getOTelEnrichment(GetOTelEnrichmentRequest {})
+        val status = response.status
+        when (status) {
+            is OTelEnrichmentStatus.Running ->
+                println("OTel enrichment is running. Vended metrics are queryable with PromQL")
+            is OTelEnrichmentStatus.Stopped ->
+                println("OTel enrichment is stopped. Start it to enrich vended metrics")
+            else -> println("OTel enrichment status is ${status?.value}")
+        }
+        return status
+    }
+}
+
+suspend fun startOTelEnrichment() {
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        cwClient.startOTelEnrichment(StartOTelEnrichmentRequest {})
+        println("Successfully started OTel enrichment for this account")
+    }
+}
+
+suspend fun putPromQlMetricAlarm(
+    alarmNameVal: String,
+    queryVal: String,
+    evaluationIntervalVal: Int = 60,
+    pendingPeriodVal: Int = 300,
+    recoveryPeriodVal: Int = 120,
+) {
+    // The comparison belongs in the query itself. A PromQL alarm has no separate
+    // threshold, comparison operator, statistic, period, or evaluation periods.
+    //
+    // Note that the Kotlin SDK spells this AlarmPromQlCriteria, with a lowercase l in
+    // "Ql". Every other AWS SDK spells it PromQL, so don't be thrown by the difference
+    // when comparing this example against the other language versions.
+    val promQlCriteria =
+        AlarmPromQlCriteria {
+            query = queryVal
+            pendingPeriod = pendingPeriodVal
+            recoveryPeriod = recoveryPeriodVal
+        }
+
+    // EvaluationCriteria is a union and is mutually exclusive with the classic
+    // metricName and metrics parameters. When you use it, you must also set
+    // evaluationInterval.
+    val request =
+        PutMetricAlarmRequest {
+            alarmName = alarmNameVal
+            alarmDescription = "A PromQL alarm created by the Kotlin SDK"
+            evaluationCriteria = EvaluationCriteria.PromQlCriteria(promQlCriteria)
+            evaluationInterval = evaluationIntervalVal
+        }
+
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        cwClient.putMetricAlarm(request)
+        println("Successfully created PromQL alarm $alarmNameVal for query $queryVal")
+    }
+}
+
+suspend fun describeAlarmContributors(alarmNameVal: String): List<AlarmContributor> {
+    val contributors = mutableListOf<AlarmContributor>()
+
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        var token: String? = null
+        do {
+            val response =
+                cwClient.describeAlarmContributors(
+                    DescribeAlarmContributorsRequest {
+                        alarmName = alarmNameVal
+                        nextToken = token
+                    },
+                )
+
+            response.alarmContributors?.let { contributors.addAll(it) }
+            token = response.nextToken
+        } while (token != null)
+
+        if (contributors.isEmpty()) {
+            println(
+                "No contributors yet. The query matched no series, which usually means no " +
+                    "OTel metrics with these labels have arrived",
+            )
+        }
+
+        contributors.forEach { contributor ->
+            val labels =
+                contributor.contributorAttributes
+                    ?.entries
+                    ?.sortedBy { it.key }
+                    ?.joinToString(", ") { "${it.key}=${it.value}" }
+            println("${contributor.contributorId}: $labels")
+            println("  reason: ${contributor.stateReason}")
+        }
+    }
+    return contributors
+}
+
+suspend fun putAlarmMuteRule(
+    muteRuleName: String,
+    expressionVal: String,
+    durationVal: String,
+    alarmNamesVal: List<String>,
+    timezoneVal: String = "America/Los_Angeles",
+) {
+    // For a recurring window, use a five-field cron expression,
+    // cron(Minutes Hours Day-of-month Month Day-of-week), such as cron(0 2 * * SUN).
+    // Note that this is five fields, not the six that Amazon EventBridge uses. For a
+    // one-time window, use at(yyyy-MM-ddThh:mm), such as at(2026-09-05T02:00). The
+    // duration is in ISO 8601 duration format, from PT1M (one minute) to P15D (15 days).
+    val scheduleOb =
+        Schedule {
+            expression = expressionVal
+            duration = durationVal
+            timezone = timezoneVal
+        }
+
+    val request =
+        PutAlarmMuteRuleRequest {
+            name = muteRuleName
+            description = "A mute rule created by the Kotlin SDK"
+            rule =
+                Rule {
+                    schedule = scheduleOb
+                }
+            // Target up to 100 alarms. If muteTargets is omitted, the rule applies to
+            // every alarm in the account.
+            if (alarmNamesVal.isNotEmpty()) {
+                muteTargets =
+                    MuteTargets {
+                        alarmNames = alarmNamesVal
+                    }
+            }
+        }
+
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        cwClient.putAlarmMuteRule(request)
+        println("Successfully put alarm mute rule $muteRuleName")
+    }
+}
+
+suspend fun getAlarmMuteRule(muteRuleName: String): GetAlarmMuteRuleResponse {
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        val response =
+            cwClient.getAlarmMuteRule(
+                GetAlarmMuteRuleRequest {
+                    alarmMuteRuleName = muteRuleName
+                },
+            )
+
+        println("Mute rule ${response.name} is ${response.status?.value}")
+        println("  ARN: ${response.alarmMuteRuleArn}")
+        println("  schedule: ${response.rule?.schedule?.expression} for ${response.rule?.schedule?.duration}")
+        response.muteTargets?.alarmNames?.let { println("  muted alarms: ${it.joinToString(", ")}") }
+        return response
+    }
+}
+
+suspend fun listAlarmMuteRules(alarmNameVal: String? = null): List<AlarmMuteRuleSummary> {
+    val summaries = mutableListOf<AlarmMuteRuleSummary>()
+
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        var token: String? = null
+        do {
+            val response =
+                cwClient.listAlarmMuteRules(
+                    ListAlarmMuteRulesRequest {
+                        alarmName = alarmNameVal
+                        nextToken = token
+                    },
+                )
+
+            response.alarmMuteRuleSummaries?.let { summaries.addAll(it) }
+            token = response.nextToken
+        } while (token != null)
+
+        summaries.forEach { summary ->
+            println("${summary.alarmMuteRuleArn} (${summary.status?.value})")
+        }
+    }
+    return summaries
+}
+
+suspend fun deleteAlarmMuteRule(muteRuleName: String) {
+    val request =
+        DeleteAlarmMuteRuleRequest {
+            alarmMuteRuleName = muteRuleName
+        }
+
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        cwClient.deleteAlarmMuteRule(request)
+        println("Successfully deleted alarm mute rule $muteRuleName")
+    }
+}
+
+suspend fun stopOTelEnrichment() {
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        cwClient.stopOTelEnrichment(StopOTelEnrichmentRequest {})
+        println("Successfully stopped OTel enrichment for this account")
+    }
+}
+```
 + For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [DeleteAlarmMuteRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
   + [DeleteAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [DeleteAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
   + [DeleteDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [DescribeAlarmHistory](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [DescribeAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [DescribeAlarmsForMetric](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [DescribeAnomalyDetectors](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [GetMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeAlarmContributors](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetAlarmMuteRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetDashboard](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
   + [GetMetricStatistics](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [GetMetricWidgetImage](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetOTelEnrichment](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListAlarmMuteRules](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
   + [ListMetrics](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [PutAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutAlarmMuteRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
   + [PutDashboard](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
   + [PutMetricAlarm](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
-  + [PutMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartOTelEnrichment](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StopOTelEnrichment](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
+Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
+
+```
+from collections import Counter
+from datetime import datetime, timedelta, timezone
+import json
+import logging
+import random
+import sys
+import boto3
+from botocore.exceptions import ClientError
+
+from cloudwatch_basics import CloudWatchWrapper
+from cloudwatch_otel import CloudWatchOTelWrapper
+
+logger = logging.getLogger(__name__)
+
+DEFAULT_QUERY = "avg by (host) (system_cpu_utilization) > 80"
+
+# Valid evaluation intervals are 10, 20, 30, or any multiple of 60 up to 3600 seconds.
+EVALUATION_INTERVAL = 60
+PENDING_PERIOD = 300
+RECOVERY_PERIOD = 120
+
+DASHES = "-" * 80
+
+
+class CloudWatchScenario:
+    """Runs an interactive scenario that shows how to use Amazon CloudWatch."""
+
+    def __init__(self, cloudwatch_wrapper, otel_wrapper):
+        """
+        :param cloudwatch_wrapper: An object that wraps CloudWatch metric, statistic,
+                                   and dashboard actions.
+        :param otel_wrapper: An object that wraps CloudWatch OTel enrichment, PromQL
+                             alarm, and alarm mute rule actions.
+        """
+        self.cloudwatch_wrapper = cloudwatch_wrapper
+        self.otel_wrapper = otel_wrapper
+
+        # Suffix the resource names so repeated runs do not collide.
+        suffix = random.randint(1000, 9999)
+        self.alarm_name = f"doc-example-promql-alarm-{suffix}"
+        self.dashboard_name = f"doc-example-dashboard-{suffix}"
+        self.mute_rule_name = f"doc-example-mute-rule-{suffix}"
+
+        # Tracks whether this run turned enrichment on, so that cleanup only turns off
+        # enrichment that this run started.
+        self.started_enrichment = False
+        self.dashboard_created = False
+
+    def run_scenario(self):
+        """Runs the eight steps of the scenario in order."""
+        print(DASHES)
+        print("Welcome to the Amazon CloudWatch Basics scenario.")
+        print(
+            "\nCloudWatch now ingests OpenTelemetry metrics natively. This scenario walks\n"
+            "through that experience: it turns on OTel enrichment so CloudWatch can\n"
+            "correlate incoming OTLP metrics with the resources that produced them, alarms\n"
+            "on those metrics with a PromQL query, and shows you which individual series\n"
+            "drove the alarm.\n"
+            "\nA PromQL alarm works differently from a classic metric alarm. Rather than\n"
+            "watching one metric and counting breaching periods, it evaluates a query that\n"
+            "can match many series at once, and tracks each one separately as a contributor."
+        )
+        print(DASHES)
+
+        namespaces = self.list_metrics_and_namespaces()
+        self.start_otel_enrichment()
+        self.explain_otlp_ingestion()
+        self.create_promql_alarm()
+        self.inspect_alarm_contributors()
+        self.get_statistics_and_chart_metric(namespaces)
+        self.mute_alarm_for_maintenance()
+
+    def list_metrics_and_namespaces(self):
+        """
+        Lists the metrics and namespaces already present in the account, to orient the
+        reader before any configuration happens.
+
+        :return: A Counter of namespace to metric count, most common first.
+        """
+        print("1. List metrics and namespaces")
+        print(
+            "\nBefore configuring anything, let's see what CloudWatch is already\n"
+            "collecting in this account by calling ListMetrics.\n"
+        )
+
+        namespaces = Counter()
+        metric_count = 0
+        for metric in self.cloudwatch_wrapper.list_all_metrics():
+            namespaces[metric.namespace] += 1
+            metric_count += 1
+            # This account may have a very large number of metrics, so stop once we
+            # have enough to give the reader a sense of what is there.
+            if metric_count >= 500:
+                break
+
+        print(f"\tFound {metric_count} metrics across {len(namespaces)} namespaces:")
+        for namespace, count in namespaces.most_common(10):
+            print(f"\t  {namespace} ({count} metrics)")
+
+        if not namespaces:
+            print(
+                "\tNo metrics found in this account. The statistics and dashboard steps\n"
+                "\tlater on need an existing metric, so they will be skipped."
+            )
+
+        print(DASHES)
+        return namespaces
+
+    def start_otel_enrichment(self):
+        """
+        Starts OTel enrichment, but only if it is not already running. Enrichment is
+        what makes CloudWatch attach AWS resource context to incoming OTLP metrics.
+        """
+        print("2. Start OpenTelemetry enrichment")
+        print(
+            "\nEnrichment is what lets CloudWatch attach AWS resource context to the OTLP\n"
+            "metrics you send it. Without it, your metrics arrive as opaque series with no\n"
+            "connection to the resources that emitted them.\n"
+            "\nWe check the current state first, and only start enrichment if it isn't\n"
+            "already on.\n"
+        )
+
+        status = self.otel_wrapper.get_otel_enrichment_status()
+        print(f"\tEnrichment status: {status}")
+
+        if status != "Running":
+            self.otel_wrapper.start_otel_enrichment()
+            self.started_enrichment = True
+            status = self.otel_wrapper.get_otel_enrichment_status()
+            print(f"\tEnrichment status: {status}")
+            print(
+                "\n\tNote: this run started enrichment, so the cleanup step will stop it\n"
+                "\tagain."
+            )
+        else:
+            print(
+                "\n\tEnrichment was already running, so we will leave it alone. The cleanup\n"
+                "\tstep will not stop it, because other workloads in this account may\n"
+                "\tdepend on it."
+            )
+
+        print(DASHES)
+
+    @staticmethod
+    def explain_otlp_ingestion():
+        """
+        Explains that OTLP metric ingestion is not an AWS SDK operation. This step makes
+        no service call; naming the gap explicitly is the point.
+        """
+        print("3. Send OTLP metrics to CloudWatch")
+        print(
+            "\nThis step is not an AWS SDK operation, and that's worth being explicit\n"
+            "about. Metrics reach CloudWatch over the OTLP protocol, through the CloudWatch\n"
+            "agent, an OpenTelemetry Collector, or an ADOT SDK. There is no PutOTelMetrics\n"
+            "API to call.\n"
+            "\nPoint your collector at the CloudWatch metrics endpoint, which follows the\n"
+            "pattern\n"
+            "\thttps://monitoring.<region>.amazonaws.com/v1/metrics\n"
+            "\nThe endpoint is HTTP/1.1 only and does not support gRPC, so use an otlphttp\n"
+            "exporter rather than otlp. The metrics endpoint signs as 'monitoring'.\n"
+            "\nSee otlp_collector_config.yaml in this folder for a working collector\n"
+            "configuration."
+        )
+        print(DASHES)
+
+    def create_promql_alarm(self):
+        """Creates an alarm whose evaluation is a PromQL query."""
+        print("4. Create a PromQL alarm")
+        print(
+            "\nNow we alarm on those metrics. The comparison goes inside the query itself:\n"
+            "a PromQL alarm has no separate threshold, comparison operator, statistic, or\n"
+            "period.\n"
+        )
+
+        query = (
+            input(
+                f"Enter a PromQL query, or press ENTER for [{DEFAULT_QUERY}]: "
+            ).strip()
+            or DEFAULT_QUERY
+        )
+
+        self.otel_wrapper.create_promql_alarm(
+            self.alarm_name,
+            query,
+            EVALUATION_INTERVAL,
+            pending_period=PENDING_PERIOD,
+            recovery_period=RECOVERY_PERIOD,
+            description="A PromQL alarm created by the Boto3 Basics scenario.",
+        )
+
+        print(f"\tCreated alarm {self.alarm_name}:")
+        print(f"\t  query:              {query}")
+        print(f"\t  evaluationInterval: {EVALUATION_INTERVAL} seconds")
+        print(f"\t  pendingPeriod:      {PENDING_PERIOD} seconds")
+        print(f"\t  recoveryPeriod:     {RECOVERY_PERIOD} seconds")
+        print(
+            "\n\tA PromQL alarm starts in the OK state rather than INSUFFICIENT_DATA, which\n"
+            "\tis another way it differs from a classic alarm."
+        )
+        print(DASHES)
+
+    def inspect_alarm_contributors(self):
+        """
+        Shows which individual series the alarm's query matched. This is the step with
+        no classic-alarm equivalent.
+        """
+        print("5. Inspect the alarm's contributors")
+        print(
+            "\nEach contributor is one series the query matched, identified by its label\n"
+            "set. This is how you find out which host is unhealthy rather than only that\n"
+            "something is. Classic alarms have no equivalent.\n"
+        )
+
+        contributors = self.otel_wrapper.describe_alarm_contributors(self.alarm_name)
+
+        if not contributors:
+            print(
+                "\tNo contributors yet. The query matched no series, which usually means no\n"
+                "\tOTel metrics with these labels have arrived. Once your collector is\n"
+                "\tsending data, each matching series appears here with its labels and the\n"
+                "\treason it breached."
+            )
+        else:
+            print(f"\tFound {len(contributors)} contributors:")
+            for contributor in contributors:
+                labels = ", ".join(
+                    f"{key}={value}"
+                    for key, value in sorted(
+                        contributor.get("ContributorAttributes", {}).items()
+                    )
+                )
+                print(f"\t  {contributor['ContributorId']}: {labels}")
+                print(f"\t    reason: {contributor.get('StateReason')}")
+
+        print(DASHES)
+
+    def get_statistics_and_chart_metric(self, namespaces):
+        """
+        Gets statistics for an existing metric and charts it on a dashboard, so the
+        reader can see what the alarm is evaluating.
+
+        :param namespaces: The Counter of namespaces discovered in step 1.
+        """
+        print("6. Get statistics and chart the metric on a dashboard")
+        print(
+            "\nStatistics and dashboards are how you see what the alarm is evaluating.\n"
+        )
+
+        if not namespaces:
+            print("\tSkipping statistics and dashboard because no metrics exist yet.")
+            print(DASHES)
+            return
+
+        namespace = namespaces.most_common(1)[0][0]
+        metric = next(
+            (
+                candidate
+                for candidate in self.cloudwatch_wrapper.list_all_metrics()
+                if candidate.namespace == namespace
+            ),
+            None,
+        )
+
+        if metric is None:
+            print(f"\tNo metrics found in namespace {namespace}, skipping.")
+            print(DASHES)
+            return
+
+        try:
+            stats = self.cloudwatch_wrapper.get_metric_statistics(
+                metric.namespace,
+                metric.name,
+                datetime.now(timezone.utc) - timedelta(days=1),
+                datetime.now(timezone.utc),
+                3600,
+                ["Average", "Maximum"],
+            )
+            datapoints = stats["Datapoints"]
+            print(
+                f"\tStatistics for {metric.namespace} {metric.name} over the last day:"
+            )
+            print(f"\t  Datapoints: {len(datapoints)}")
+            for datapoint in datapoints[:3]:
+                print(
+                    f"\t  {datapoint['Timestamp']} average {datapoint.get('Average')}, "
+                    f"maximum {datapoint.get('Maximum')}"
+                )
+        except ClientError as error:
+            print(f"\tCould not get statistics: {error}")
+
+        try:
+            region = self.otel_wrapper.cloudwatch_client.meta.region_name
+            body = self.build_dashboard_body(metric, region)
+            messages = self.cloudwatch_wrapper.put_dashboard(self.dashboard_name, body)
+            self.dashboard_created = True
+            for message in messages:
+                print(f"\tDashboard validation message: {message.get('Message')}")
+            print(f"\tCreated dashboard {self.dashboard_name}.")
+
+            stored = self.cloudwatch_wrapper.get_dashboard(self.dashboard_name)
+            print(
+                f"\tRead the dashboard back, {len(stored)} characters of widget JSON."
+            )
+        except ClientError as error:
+            print(f"\tCould not create the dashboard: {error}")
+
+        print(DASHES)
+
+    @staticmethod
+    def build_dashboard_body(metric, region):
+        """
+        Builds a single-widget dashboard body that charts the given metric.
+
+        :param metric: A Boto3 CloudWatch Metric resource.
+        :param region: The region the metric is in. A metric widget must name its
+                       region, because a dashboard can chart metrics from several.
+        :return: The dashboard body, as a JSON string.
+        """
+        metric_spec = [metric.namespace, metric.name]
+        for dimension in metric.dimensions or []:
+            metric_spec.extend([dimension["Name"], dimension["Value"]])
+
+        return json.dumps(
+            {
+                "widgets": [
+                    {
+                        "type": "text",
+                        "x": 0,
+                        "y": 0,
+                        "width": 24,
+                        "height": 2,
+                        "properties": {
+                            "markdown": "This dashboard was created programmatically "
+                            "by an AWS SDK code example."
+                        },
+                    },
+                    {
+                        "type": "metric",
+                        "x": 0,
+                        "y": 2,
+                        "width": 12,
+                        "height": 6,
+                        "properties": {
+                            "metrics": [metric_spec],
+                            "view": "timeSeries",
+                            "stat": "Average",
+                            "period": 300,
+                            "region": region,
+                            "title": metric.name,
+                        },
+                    },
+                ]
+            }
+        )
+
+    def mute_alarm_for_maintenance(self):
+        """
+        Creates a mute rule so the alarm's actions are suppressed during a maintenance
+        window, then reads it back and finds it in the account's rules.
+        """
+        print("7. Mute the alarm for a maintenance window")
+        print(
+            "\nWhile a mute rule is active the targeted alarms keep evaluating and keep\n"
+            "changing state, but their actions do not fire. This is the supported way to\n"
+            "suppress notifications during planned maintenance, instead of disabling alarm\n"
+            "actions and hoping someone remembers to turn them back on.\n"
+        )
+
+        # The expression is a five-field cron expression,
+        # cron(Minutes Hours Day-of-month Month Day-of-week). Note that this is five
+        # fields, not the six that Amazon EventBridge uses. For a one-time window, use
+        # at(yyyy-MM-ddThh:mm), with no seconds. The duration is an ISO 8601 duration
+        # from PT1M to P15D, so PT2H rather than 2h.
+        expression = "cron(0 2 * * SUN)"
+        duration = "PT2H"
+        tz = "America/Los_Angeles"
+
+        self.otel_wrapper.put_alarm_mute_rule(
+            self.mute_rule_name,
+            expression,
+            duration,
+            alarm_names=[self.alarm_name],
+            timezone=tz,
+            description="A mute rule created by the Boto3 Basics scenario.",
+        )
+
+        print(f"\tCreated mute rule {self.mute_rule_name}:")
+        print(f"\t  schedule: {expression} for {duration}")
+        print(f"\t  timezone: {tz}")
+        print(f"\t  targets:  {self.alarm_name}")
+        print(
+            "\n\tNote the two formats here. The expression is a five-field cron expression,\n"
+            "\tfive rather than the six Amazon EventBridge uses. The duration is an ISO 8601\n"
+            "\tduration, so 'PT2H' and not '2h'.\n"
+            "\n\tAlso note that MuteTargets is set explicitly. If you leave it out, the rule\n"
+            "\tapplies to every alarm in the account."
+        )
+
+        mute_rule = self.otel_wrapper.get_alarm_mute_rule(self.mute_rule_name)
+        print(
+            f"\tRead the rule back: status {mute_rule.get('Status')}, "
+            f"mute type {mute_rule.get('MuteType')}."
+        )
+
+        summaries = self.otel_wrapper.list_alarm_mute_rules(alarm_name=self.alarm_name)
+        print(f"\tFound {len(summaries)} mute rules targeting this alarm.")
+        # Mute rule summaries carry no name field, only an ARN, so match on the ARN
+        # suffix.
+        for summary in summaries:
+            arn = summary.get("AlarmMuteRuleArn", "")
+            if arn.endswith(f"/{self.mute_rule_name}") or arn.endswith(
+                f":{self.mute_rule_name}"
+            ):
+                print(f"\t  matched by ARN: {arn} ({summary.get('Status')})")
+                break
+
+        print(DASHES)
+
+    def clean_up(self):
+        """
+        Deletes the resources the scenario created. Each deletion is attempted
+        independently so that one failure does not leave the remaining resources behind.
+        """
+        print("8. Clean up")
+        answer = input("Delete the resources this scenario created? (y/n) ")
+        if answer.strip().lower() != "y":
+            print(
+                "\tSkipping cleanup. Note that the alarm, dashboard, and mute rule are\n"
+                "\tstill in your account, and enrichment may still be running."
+            )
+            print(DASHES)
+            return
+
+        try:
+            self.otel_wrapper.delete_alarm_mute_rule(self.mute_rule_name)
+            print(f"\tDeleted mute rule {self.mute_rule_name}.")
+        except ClientError as error:
+            print(f"\tCould not delete the mute rule: {error}")
+
+        try:
+            self.otel_wrapper.delete_alarms([self.alarm_name])
+            print(f"\tDeleted alarm {self.alarm_name}.")
+        except ClientError as error:
+            print(f"\tCould not delete the alarm: {error}")
+
+        if self.dashboard_created:
+            try:
+                self.cloudwatch_wrapper.delete_dashboards([self.dashboard_name])
+                print(f"\tDeleted dashboard {self.dashboard_name}.")
+            except ClientError as error:
+                print(f"\tCould not delete the dashboard: {error}")
+
+        if self.started_enrichment:
+            try:
+                self.otel_wrapper.stop_otel_enrichment()
+                print("\tStopped OTel enrichment, because this run started it.")
+            except ClientError as error:
+                print(f"\tCould not stop OTel enrichment: {error}")
+        else:
+            print(
+                "\tLeft OTel enrichment running, because it was already on before this run."
+            )
+
+        print(DASHES)
+
+
+def main():
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+
+    scenario = CloudWatchScenario(
+        CloudWatchWrapper(boto3.resource("cloudwatch")),
+        CloudWatchOTelWrapper(boto3.client("cloudwatch")),
+    )
+    try:
+        scenario.run_scenario()
+    except Exception:  # pylint: disable=broad-except
+        logging.exception("Something went wrong with the scenario.")
+    finally:
+        scenario.clean_up()
+
+    print("This concludes the Amazon CloudWatch Basics scenario.")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+```
+The class that wraps the CloudWatch OpenTelemetry operations the scenario calls.  
+
+```
+import logging
+import time
+
+import boto3
+from botocore.exceptions import ClientError
+
+logger = logging.getLogger(__name__)
+
+
+class CloudWatchOTelWrapper:
+    """Encapsulates the OpenTelemetry-oriented Amazon CloudWatch operations."""
+
+    def __init__(self, cloudwatch_client):
+        """
+        :param cloudwatch_client: A Boto3 CloudWatch client. The OpenTelemetry
+                                  operations are only available on the client
+                                  interface, not on the higher-level
+                                  ``boto3.resource("cloudwatch")`` interface.
+        """
+        self.cloudwatch_client = cloudwatch_client
+
+    @classmethod
+    def from_client(cls):
+        """
+        Creates a wrapper backed by a default CloudWatch client.
+
+        :return: A CloudWatchOTelWrapper.
+        """
+        return cls(boto3.client("cloudwatch"))
+
+
+    def get_otel_enrichment_status(self):
+        """
+        Gets the current OTel enrichment status for the account.
+
+        :return: The status, either 'Running' or 'Stopped'.
+        """
+        try:
+            response = self.cloudwatch_client.get_o_tel_enrichment()
+        except ClientError:
+            logger.exception("Couldn't get the OTel enrichment status.")
+            raise
+        else:
+            status = response["Status"]
+            logger.info("OTel enrichment status is %s.", status)
+            return status
+
+
+    def start_otel_enrichment(self):
+        """
+        Turns on OTel enrichment for the account. Once enrichment is running,
+        CloudWatch vended metrics that carry a resource identifier dimension, such as
+        the EC2 CPUUtilization metric with its InstanceId dimension, are decorated with
+        resource ARN and resource tag labels and become queryable with PromQL.
+
+        Resource tags on telemetry must already be enabled for the account before you
+        call this operation.
+        """
+        try:
+            # Boto3 splits the OTel prefix when it converts the StartOTelEnrichment
+            # operation name to snake case, so the method is start_o_tel_enrichment.
+            self.cloudwatch_client.start_o_tel_enrichment()
+            logger.info("Started OTel enrichment for this account.")
+        except ClientError:
+            logger.exception("Couldn't start OTel enrichment.")
+            raise
+
+
+    def create_promql_alarm(
+        self,
+        alarm_name,
+        query,
+        evaluation_interval,
+        pending_period=300,
+        recovery_period=120,
+        description=None,
+        alarm_actions=None,
+    ):
+        """
+        Creates an alarm that evaluates a PromQL query.
+
+        A PromQL alarm differs from a classic metric alarm in a few ways. The query can
+        match many series at once, and each matching series is tracked separately as a
+        *contributor*. Instead of counting breaching periods, you specify durations: a
+        contributor moves to ALARM after it breaches continuously for the pending
+        period, and back to OK after it stops breaching for the recovery period. A
+        PromQL alarm starts in the OK state rather than INSUFFICIENT_DATA.
+
+        The PromQL evaluation parameters live in the EvaluationCriteria union, which is
+        mutually exclusive with the classic MetricName and Metrics parameters. When you
+        use EvaluationCriteria you must also set EvaluationInterval, and you must not
+        set Period, Statistic, Threshold, ComparisonOperator, EvaluationPeriods,
+        DatapointsToAlarm, or TreatMissingData.
+
+        :param alarm_name: The name of the alarm. Must be unique within the Region.
+        :param query: The PromQL query to evaluate, such as
+                      'avg(cpu_utilization_percent) > 80'. The comparison belongs in
+                      the query itself; there is no separate threshold parameter.
+        :param evaluation_interval: How often, in seconds, to run the query. Valid
+                                    values are 10, 20, 30, and any multiple of 60, up
+                                    to 3600.
+        :param pending_period: How long, in seconds, a contributor must breach
+                               continuously before it moves to ALARM.
+        :param recovery_period: How long, in seconds, a contributor must stop breaching
+                                before it moves back to OK.
+        :param description: The description of the alarm.
+        :param alarm_actions: A list of ARNs to notify when the alarm fires, such as an
+                              Amazon SNS topic.
+        """
+        promql_criteria = {
+            "Query": query,
+            "PendingPeriod": pending_period,
+            "RecoveryPeriod": recovery_period,
+        }
+        kwargs = {
+            "AlarmName": alarm_name,
+            "EvaluationCriteria": {"PromQLCriteria": promql_criteria},
+            "EvaluationInterval": evaluation_interval,
+        }
+        if description is not None:
+            kwargs["AlarmDescription"] = description
+        if alarm_actions is not None:
+            kwargs["AlarmActions"] = alarm_actions
+
+        try:
+            self.cloudwatch_client.put_metric_alarm(**kwargs)
+            logger.info("Created PromQL alarm %s for query %s.", alarm_name, query)
+        except ClientError:
+            logger.exception("Couldn't create PromQL alarm %s.", alarm_name)
+            raise
+
+
+    def describe_alarm_contributors(self, alarm_name):
+        """
+        Gets the contributors for a PromQL alarm. Each contributor is one series that
+        the alarm's query matched, identified by its label set. This is how you find out
+        *which* hosts, services, or pods are breaching, rather than only that something
+        is.
+
+        :param alarm_name: The name of the PromQL alarm.
+        :return: The list of contributors. Each contributor has a ContributorId, a
+                 ContributorAttributes map of the labels that identify the series, a
+                 StateReason, and the time it last changed state.
+        """
+        contributors = []
+        try:
+            next_token = None
+            while True:
+                kwargs = {"AlarmName": alarm_name}
+                if next_token is not None:
+                    kwargs["NextToken"] = next_token
+                response = self.cloudwatch_client.describe_alarm_contributors(**kwargs)
+                contributors.extend(response["AlarmContributors"])
+                next_token = response.get("NextToken")
+                if not next_token:
+                    break
+        except ClientError:
+            logger.exception("Couldn't get contributors for alarm %s.", alarm_name)
+            raise
+        else:
+            logger.info(
+                "Got %s contributors for alarm %s.", len(contributors), alarm_name
+            )
+            return contributors
+
+
+    def put_alarm_mute_rule(
+        self,
+        name,
+        expression,
+        duration,
+        alarm_names=None,
+        timezone=None,
+        description=None,
+    ):
+        """
+        Creates or updates an alarm mute rule. While a mute rule is active the targeted
+        alarms keep evaluating and keep transitioning between states, but their
+        configured actions do not fire. This is the supported way to suppress
+        notifications during a known maintenance window instead of disabling alarm
+        actions and hoping someone remembers to turn them back on.
+
+        :param name: The name of the mute rule.
+        :param expression: When the rule activates. For a recurring window, use a
+                           five-field cron expression,
+                           'cron(Minutes Hours Day-of-month Month Day-of-week)', such as
+                           'cron(0 2 * * SUN)' for every Sunday at 2:00 AM. Note that
+                           this is five fields, not the six that Amazon EventBridge
+                           uses. For a one-time window, use 'at(yyyy-MM-ddThh:mm)',
+                           such as 'at(2026-09-05T02:00)'.
+        :param duration: How long the mute window lasts once it activates, in ISO 8601
+                         duration format, from 'PT1M' (one minute) to 'P15D' (15 days).
+                         For example, 'PT2H' is two hours and 'P2DT12H' is two days and
+                         12 hours.
+        :param alarm_names: The names of up to 100 alarms to mute. If omitted, the rule
+                            applies to all alarms in the account.
+        :param timezone: The time zone the expression is evaluated in, such as
+                         'America/Los_Angeles'.
+        :param description: The description of the mute rule.
+        """
+        schedule = {"Expression": expression, "Duration": duration}
+        if timezone is not None:
+            schedule["Timezone"] = timezone
+
+        kwargs = {"Name": name, "Rule": {"Schedule": schedule}}
+        if alarm_names is not None:
+            kwargs["MuteTargets"] = {"AlarmNames": alarm_names}
+        if description is not None:
+            kwargs["Description"] = description
+
+        try:
+            self.cloudwatch_client.put_alarm_mute_rule(**kwargs)
+            logger.info("Put alarm mute rule %s.", name)
+        except ClientError:
+            logger.exception("Couldn't put alarm mute rule %s.", name)
+            raise
+
+
+    def get_alarm_mute_rule(self, name):
+        """
+        Gets the full configuration of an alarm mute rule, including its schedule, the
+        alarms it targets, and whether it is currently SCHEDULED, ACTIVE, or EXPIRED.
+
+        :param name: The name of the mute rule.
+        :return: The mute rule.
+        """
+        try:
+            response = self.cloudwatch_client.get_alarm_mute_rule(
+                AlarmMuteRuleName=name
+            )
+        except ClientError:
+            logger.exception("Couldn't get alarm mute rule %s.", name)
+            raise
+        else:
+            logger.info("Got alarm mute rule %s.", name)
+            return response
+
+
+    def list_alarm_mute_rules(self, alarm_name=None, statuses=None):
+        """
+        Lists alarm mute rules in the account.
+
+        :param alarm_name: When specified, only rules that target this alarm are
+                           returned.
+        :param statuses: When specified, only rules in these statuses are returned.
+                         Valid values are 'SCHEDULED', 'ACTIVE', and 'EXPIRED'.
+        :return: The list of mute rule summaries.
+        """
+        summaries = []
+        try:
+            next_token = None
+            while True:
+                kwargs = {}
+                if alarm_name is not None:
+                    kwargs["AlarmName"] = alarm_name
+                if statuses is not None:
+                    kwargs["Statuses"] = statuses
+                if next_token is not None:
+                    kwargs["NextToken"] = next_token
+                response = self.cloudwatch_client.list_alarm_mute_rules(**kwargs)
+                summaries.extend(response.get("AlarmMuteRuleSummaries", []))
+                next_token = response.get("NextToken")
+                if not next_token:
+                    break
+        except ClientError:
+            logger.exception("Couldn't list alarm mute rules.")
+            raise
+        else:
+            logger.info("Got %s alarm mute rules.", len(summaries))
+            return summaries
+
+
+    def delete_alarm_mute_rule(self, name):
+        """
+        Deletes an alarm mute rule.
+
+        :param name: The name of the mute rule.
+        """
+        try:
+            self.cloudwatch_client.delete_alarm_mute_rule(AlarmMuteRuleName=name)
+            logger.info("Deleted alarm mute rule %s.", name)
+        except ClientError:
+            logger.exception("Couldn't delete alarm mute rule %s.", name)
+            raise
+
+
+    def stop_otel_enrichment(self):
+        """
+        Turns off OTel enrichment for the account. Existing PromQL alarms are not
+        deleted, but vended metrics stop being enriched with resource ARN and tag
+        labels, so queries that select on those labels stop matching.
+        """
+        try:
+            self.cloudwatch_client.stop_o_tel_enrichment()
+            logger.info("Stopped OTel enrichment for this account.")
+        except ClientError:
+            logger.exception("Couldn't stop OTel enrichment.")
+            raise
+```
+The metric, statistic, and dashboard operations the scenario calls.  
+
+```
+    def list_all_metrics(self):
+        """
+        Gets every metric in the account, without filtering by namespace or name. Use
+        this to discover what CloudWatch is already collecting before you configure
+        anything.
+
+        :return: An iterator that yields the retrieved metrics.
+        """
+        try:
+            metric_iter = self.cloudwatch_resource.metrics.all()
+            logger.info("Got all metrics for the account.")
+        except ClientError:
+            logger.exception("Couldn't get metrics for the account.")
+            raise
+        else:
+            return metric_iter
+
+
+    def get_metric_statistics(self, namespace, name, start, end, period, stat_types):
+        """
+        Gets statistics for a metric within a specified time span. Metrics are grouped
+        into the specified period.
+
+        :param namespace: The namespace of the metric.
+        :param name: The name of the metric.
+        :param start: The UTC start time of the time span to retrieve.
+        :param end: The UTC end time of the time span to retrieve.
+        :param period: The period, in seconds, in which to group metrics. The period
+                       must match the granularity of the metric, which depends on
+                       the metric's age. For example, metrics that are older than
+                       three hours have a one-minute granularity, so the period must
+                       be at least 60 and must be a multiple of 60.
+        :param stat_types: The type of statistics to retrieve, such as average value
+                           or maximum value.
+        :return: The retrieved statistics for the metric.
+        """
+        try:
+            metric = self.cloudwatch_resource.Metric(namespace, name)
+            stats = metric.get_statistics(
+                StartTime=start, EndTime=end, Period=period, Statistics=stat_types
+            )
+            logger.info(
+                "Got %s statistics for %s.", len(stats["Datapoints"]), stats["Label"]
+            )
+        except ClientError:
+            logger.exception("Couldn't get statistics for %s.%s.", namespace, name)
+            raise
+        else:
+            return stats
+
+
+    def put_dashboard(self, name, body):
+        """
+        Creates or replaces a dashboard. The body is a JSON document describing the
+        dashboard's widgets.
+
+        :param name: The name of the dashboard.
+        :param body: The dashboard body, as a JSON string.
+        :return: Any validation messages the service returned. An empty list means the
+                 dashboard body was accepted as written.
+        """
+        try:
+            response = self.cloudwatch_resource.meta.client.put_dashboard(
+                DashboardName=name, DashboardBody=body
+            )
+            logger.info("Put dashboard %s.", name)
+        except ClientError:
+            logger.exception("Couldn't put dashboard %s.", name)
+            raise
+        else:
+            return response.get("DashboardValidationMessages", [])
+
+
+    def get_dashboard(self, name):
+        """
+        Gets a dashboard's body, so you can confirm what the service actually stored.
+
+        :param name: The name of the dashboard.
+        :return: The dashboard body, as a JSON string.
+        """
+        try:
+            response = self.cloudwatch_resource.meta.client.get_dashboard(
+                DashboardName=name
+            )
+            logger.info("Got dashboard %s.", name)
+        except ClientError:
+            logger.exception("Couldn't get dashboard %s.", name)
+            raise
+        else:
+            return response["DashboardBody"]
+
+
+    def delete_dashboards(self, names):
+        """
+        Deletes the specified dashboards.
+
+        :param names: The names of the dashboards to delete.
+        """
+        try:
+            self.cloudwatch_resource.meta.client.delete_dashboards(DashboardNames=names)
+            logger.info("Deleted dashboards %s.", ", ".join(names))
+        except ClientError:
+            logger.exception("Couldn't delete dashboards %s.", ", ".join(names))
+            raise
+```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [DeleteAlarmMuteRule](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DeleteAlarmMuteRule)
+  + [DeleteAlarms](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DeleteAlarms)
+  + [DeleteDashboards](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DeleteDashboards)
+  + [DescribeAlarmContributors](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DescribeAlarmContributors)
+  + [GetAlarmMuteRule](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/GetAlarmMuteRule)
+  + [GetDashboard](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/GetDashboard)
+  + [GetMetricStatistics](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/GetMetricStatistics)
+  + [GetOTelEnrichment](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/GetOTelEnrichment)
+  + [ListAlarmMuteRules](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/ListAlarmMuteRules)
+  + [ListDashboards](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/ListDashboards)
+  + [ListMetrics](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/ListMetrics)
+  + [PutAlarmMuteRule](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/PutAlarmMuteRule)
+  + [PutDashboard](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/PutDashboard)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/PutMetricAlarm)
+  + [StartOTelEnrichment](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/StartOTelEnrichment)
+  + [StopOTelEnrichment](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/StopOTelEnrichment)
+
+------
+#### [ Ruby ]
+
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
+Run an interactive scenario demonstrating the CloudWatch OpenTelemetry experience.  
+
+```
+DASHES = ('-' * 80).freeze
+DEFAULT_QUERY = 'avg by (host) (system_cpu_utilization) > 80'.freeze
+
+# Valid evaluation intervals are 10, 20, 30, or any multiple of 60 up to 3600 seconds.
+EVALUATION_INTERVAL = 60
+PENDING_PERIOD = 300
+RECOVERY_PERIOD = 120
+
+# Lists the metrics and namespaces already present in the account, to orient the reader
+# before any configuration happens.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @return [Hash] A hash of namespace to the metrics found in it, most populated first.
+def metrics_by_namespace(cloudwatch_client)
+  by_namespace = {}
+  metric_count = 0
+
+  cloudwatch_client.list_metrics.each_page do |page|
+    page.metrics.each do |metric|
+      (by_namespace[metric.namespace] ||= []) << metric
+      metric_count += 1
+    end
+    # This account may have a very large number of metrics, so stop once we have enough
+    # to give the reader a sense of what is there.
+    break if metric_count >= 500
+  end
+
+  puts "\tFound #{metric_count} metrics across #{by_namespace.size} namespaces:"
+  by_namespace
+    .sort_by { |_namespace, metrics| -metrics.size }
+    .first(10)
+    .each { |namespace, metrics| puts "\t  #{namespace} (#{metrics.size} metrics)" }
+
+  if by_namespace.empty?
+    puts "\tNo metrics found in this account. The statistics and dashboard steps later"
+    puts "\ton need an existing metric, so they will be skipped."
+  end
+
+  by_namespace
+rescue StandardError => e
+  puts "Error listing metrics: #{e.message}"
+  {}
+end
+
+# Turns on OTel enrichment, but only if it is not already running. Enrichment is an
+# account-wide setting, so this scenario only turns it off again if it was the thing that
+# turned it on.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @return [Boolean] true if this run started enrichment; otherwise, false.
+def enrichment_started_by_example?(cloudwatch_client)
+  # The Ruby SDK renders the OTel prefix as +o_tel+, so the methods are
+  # +get_o_tel_enrichment+ and +start_o_tel_enrichment+.
+  status = cloudwatch_client.get_o_tel_enrichment.status
+  puts "\tEnrichment status: #{status}"
+
+  if status == 'Running'
+    puts
+    puts "\tEnrichment was already running, so we will leave it alone. The cleanup step"
+    puts "\twill not stop it, because other workloads in this account may depend on it."
+    return false
+  end
+
+  cloudwatch_client.start_o_tel_enrichment
+  puts "\tEnrichment status: #{cloudwatch_client.get_o_tel_enrichment.status}"
+  puts
+  puts "\tNote: this run started enrichment, so the cleanup step will stop it again."
+  true
+rescue StandardError => e
+  puts "Error starting OTel enrichment: #{e.message}"
+  false
+end
+
+# Creates an alarm whose evaluation is a PromQL query.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param alarm_name [String] The name of the alarm to create.
+# @param query [String] The PromQL query to evaluate.
+# @return [Boolean] true if the alarm was created; otherwise, false.
+def promql_alarm_created?(cloudwatch_client, alarm_name, query)
+  # The comparison belongs in the query itself. A PromQL alarm has no separate threshold,
+  # comparison operator, statistic, period, or evaluation periods. Note that the Ruby SDK
+  # spells the criteria member +prom_ql_criteria+.
+  cloudwatch_client.put_metric_alarm(
+    alarm_name: alarm_name,
+    alarm_description: 'A PromQL alarm created by the AWS SDK for Ruby Basics scenario.',
+    evaluation_criteria: {
+      prom_ql_criteria: {
+        query: query,
+        pending_period: PENDING_PERIOD,
+        recovery_period: RECOVERY_PERIOD
+      }
+    },
+    evaluation_interval: EVALUATION_INTERVAL
+  )
+  true
+rescue StandardError => e
+  puts "Error creating PromQL alarm: #{e.message}"
+  false
+end
+
+# Prints the contributors to a PromQL alarm. Each contributor is one series the query
+# matched, identified by its label set.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param alarm_name [String] The name of the PromQL alarm.
+# @return [void]
+def report_alarm_contributors(cloudwatch_client, alarm_name)
+  contributors = []
+  next_token = nil
+
+  loop do
+    response = cloudwatch_client.describe_alarm_contributors(
+      alarm_name: alarm_name,
+      next_token: next_token
+    )
+    contributors.concat(response.alarm_contributors)
+    next_token = response.next_token
+    # A page can come back empty while still carrying a token, so keep going until the
+    # token itself is gone rather than stopping at the first empty page.
+    break if next_token.nil? || next_token.empty?
+  end
+
+  if contributors.empty?
+    puts "\tNo contributors yet. The query matched no series, which usually means no"
+    puts "\tOTel metrics with these labels have arrived. Once your collector is sending"
+    puts "\tdata, each matching series appears here with its labels and why it breached."
+    return
+  end
+
+  puts "\tFound #{contributors.size} contributors:"
+  contributors.each do |contributor|
+    labels = contributor.contributor_attributes.sort.map { |k, v| "#{k}=#{v}" }.join(', ')
+    puts "\t  #{contributor.contributor_id}: #{labels}"
+    puts "\t    reason: #{contributor.state_reason}"
+  end
+rescue StandardError => e
+  puts "Error describing alarm contributors: #{e.message}"
+end
+
+# Builds a single-widget dashboard body that charts the given metric.
+#
+# @param metric [Aws::CloudWatch::Types::Metric] The metric to chart.
+# @param region [String] The region the metric is in. A metric widget must name its
+#   region, because a dashboard can chart metrics from several.
+# @return [String] The dashboard body, as JSON.
+def dashboard_body(metric, region)
+  metric_spec = [metric.namespace, metric.metric_name]
+  metric.dimensions.each { |dimension| metric_spec.push(dimension.name, dimension.value) }
+
+  {
+    widgets: [
+      {
+        type: 'text',
+        x: 0, y: 0, width: 24, height: 2,
+        properties: {
+          markdown: 'This dashboard was created programmatically by an AWS SDK code example.'
+        }
+      },
+      {
+        type: 'metric',
+        x: 0, y: 2, width: 12, height: 6,
+        properties: {
+          metrics: [metric_spec],
+          view: 'timeSeries',
+          stat: 'Average',
+          period: 300,
+          region: region,
+          title: metric.metric_name
+        }
+      }
+    ]
+  }.to_json
+end
+
+# Gets statistics for an existing metric and charts it on a dashboard, so the reader can
+# see what the alarm is evaluating.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param dashboard_name [String] The name of the dashboard to create.
+# @param by_namespace [Hash] The namespaces and metrics discovered in step 1.
+# @return [Boolean] true if a dashboard was created; otherwise, false.
+def chart_metric_on_dashboard(cloudwatch_client, dashboard_name, by_namespace)
+  if by_namespace.empty?
+    puts "\tSkipping statistics and dashboard because no metrics exist yet."
+    return false
+  end
+
+  metric = by_namespace.max_by { |_namespace, metrics| metrics.size }.last.first
+
+  stats = cloudwatch_client.get_metric_statistics(
+    namespace: metric.namespace,
+    metric_name: metric.metric_name,
+    dimensions: metric.dimensions,
+    start_time: Time.now - (60 * 60 * 24),
+    end_time: Time.now,
+    period: 3600,
+    statistics: %w[Average Maximum]
+  )
+  puts "\tStatistics for #{metric.namespace} #{metric.metric_name} over the last day:"
+  puts "\t  Datapoints: #{stats.datapoints.size}"
+  stats.datapoints.first(3).each do |datapoint|
+    puts "\t  #{datapoint.timestamp} average #{datapoint.average}, maximum #{datapoint.maximum}"
+  end
+
+  response = cloudwatch_client.put_dashboard(
+    dashboard_name: dashboard_name,
+    dashboard_body: dashboard_body(metric, cloudwatch_client.config.region)
+  )
+  response.dashboard_validation_messages.each do |message|
+    puts "\tDashboard validation message: #{message.message}"
+  end
+  puts "\tCreated dashboard #{dashboard_name}."
+
+  stored = cloudwatch_client.get_dashboard(dashboard_name: dashboard_name)
+  puts "\tRead the dashboard back, #{stored.dashboard_body.length} characters of widget JSON."
+  true
+rescue StandardError => e
+  puts "Error getting statistics or creating the dashboard: #{e.message}"
+  false
+end
+
+# Creates a mute rule so the alarm's actions are suppressed during a maintenance window,
+# then reads it back and finds it in the account's rules.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param mute_rule_name [String] The name of the mute rule to create.
+# @param alarm_name [String] The name of the alarm to mute.
+# @return [void]
+def mute_alarm_for_maintenance(cloudwatch_client, mute_rule_name, alarm_name)
+  # The expression is a five-field cron expression,
+  # cron(Minutes Hours Day-of-month Month Day-of-week). Note that this is five fields, not
+  # the six that Amazon EventBridge uses. For a one-time window, use at(yyyy-MM-ddThh:mm),
+  # with no seconds. The duration is an ISO 8601 duration from PT1M to P15D, so PT2H
+  # rather than 2h.
+  expression = 'cron(0 2 * * SUN)'
+  duration = 'PT2H'
+  timezone = 'America/Los_Angeles'
+
+  cloudwatch_client.put_alarm_mute_rule(
+    name: mute_rule_name,
+    description: 'A mute rule created by the AWS SDK for Ruby Basics scenario.',
+    rule: {
+      schedule: {
+        expression: expression,
+        duration: duration,
+        timezone: timezone
+      }
+    },
+    # Target up to 100 alarms. If mute_targets is omitted, the rule applies to every alarm
+    # in the account.
+    mute_targets: { alarm_names: [alarm_name] }
+  )
+
+  puts "\tCreated mute rule #{mute_rule_name}:"
+  puts "\t  schedule: #{expression} for #{duration}"
+  puts "\t  timezone: #{timezone}"
+  puts "\t  targets:  #{alarm_name}"
+  puts
+  puts "\tNote the two formats here. The expression is a five-field cron expression, five"
+  puts "\trather than the six Amazon EventBridge uses. The duration is an ISO 8601"
+  puts "\tduration, so 'PT2H' and not '2h'."
+  puts
+  puts "\tAlso note that mute_targets is set explicitly. If you leave it out, the rule"
+  puts "\tapplies to every alarm in the account."
+
+  rule = cloudwatch_client.get_alarm_mute_rule(alarm_mute_rule_name: mute_rule_name)
+  puts "\tRead the rule back: status #{rule.status}, mute type #{rule.mute_type}."
+
+  summaries = cloudwatch_client.list_alarm_mute_rules(alarm_name: alarm_name)
+                               .alarm_mute_rule_summaries
+  puts "\tFound #{summaries.size} mute rules targeting this alarm."
+  # Mute rule summaries carry no name field, only an ARN, so match on the ARN suffix.
+  match = summaries.find do |summary|
+    summary.alarm_mute_rule_arn.end_with?("/#{mute_rule_name}", ":#{mute_rule_name}")
+  end
+  puts "\t  matched by ARN: #{match.alarm_mute_rule_arn} (#{match.status})" if match
+rescue StandardError => e
+  puts "Error muting the alarm: #{e.message}"
+end
+
+# Deletes the resources the scenario created. Each deletion is attempted independently so
+# that one failure does not leave the remaining resources behind.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param names [Hash] The alarm, dashboard, and mute rule names to delete.
+# @param started_here [Boolean] Whether this run turned OTel enrichment on.
+# @return [void]
+def clean_up(cloudwatch_client, names, started_here)
+  begin
+    cloudwatch_client.delete_alarm_mute_rule(alarm_mute_rule_name: names[:mute_rule])
+    puts "\tDeleted mute rule #{names[:mute_rule]}."
+  rescue StandardError => e
+    puts "\tCould not delete the mute rule: #{e.message}"
+  end
+
+  begin
+    cloudwatch_client.delete_alarms(alarm_names: [names[:alarm]])
+    puts "\tDeleted alarm #{names[:alarm]}."
+  rescue StandardError => e
+    puts "\tCould not delete the alarm: #{e.message}"
+  end
+
+  if names[:dashboard]
+    begin
+      cloudwatch_client.delete_dashboards(dashboard_names: [names[:dashboard]])
+      puts "\tDeleted dashboard #{names[:dashboard]}."
+    rescue StandardError => e
+      puts "\tCould not delete the dashboard: #{e.message}"
+    end
+  end
+
+  unless started_here
+    puts "\tLeft OTel enrichment running, because it was already on before this run."
+    return
+  end
+
+  begin
+    cloudwatch_client.stop_o_tel_enrichment
+    puts "\tStopped OTel enrichment, because this run started it."
+  rescue StandardError => e
+    puts "\tCould not stop OTel enrichment: #{e.message}"
+  end
+end
+
+# Prints the scenario's introduction.
+#
+# @return [void]
+def print_intro
+  puts DASHES
+  puts 'Welcome to the Amazon CloudWatch Basics scenario.'
+  puts
+  puts 'CloudWatch now ingests OpenTelemetry metrics natively. This scenario walks through'
+  puts 'that experience: it turns on OTel enrichment so CloudWatch can correlate incoming'
+  puts 'OTLP metrics with the resources that produced them, alarms on those metrics with a'
+  puts 'PromQL query, and shows you which individual series drove the alarm.'
+  puts
+  puts 'A PromQL alarm works differently from a classic metric alarm. Rather than watching'
+  puts 'one metric and counting breaching periods, it evaluates a query that can match many'
+  puts 'series at once, and tracks each one separately as a contributor.'
+  puts DASHES
+end
+
+# Explains that OTLP metric ingestion is not an AWS SDK operation. This step makes no
+# service call; naming the gap explicitly is the point.
+#
+# @return [void]
+def explain_otlp_ingestion
+  puts '3. Send OTLP metrics to CloudWatch'
+  puts
+  puts 'This step is not an AWS SDK operation, and that\'s worth being explicit about.'
+  puts 'Metrics reach CloudWatch over the OTLP protocol, through the CloudWatch agent, an'
+  puts 'OpenTelemetry Collector, or an ADOT SDK. There is no PutOTelMetrics API to call.'
+  puts
+  puts 'Point your collector at the CloudWatch metrics endpoint, which follows the pattern'
+  puts "\thttps://monitoring.<region>.amazonaws.com/v1/metrics"
+  puts
+  puts 'The endpoint is HTTP/1.1 only and does not support gRPC, so use an otlphttp'
+  puts 'exporter rather than otlp. The metrics endpoint signs as "monitoring".'
+  puts DASHES
+end
+
+# Prompts for a PromQL query and creates an alarm that evaluates it.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param alarm_name [String] The name of the alarm to create.
+# @return [void]
+def create_promql_alarm_step(cloudwatch_client, alarm_name)
+  puts '4. Create a PromQL alarm'
+  puts
+  puts 'Now we alarm on those metrics. The comparison goes inside the query itself: a'
+  puts 'PromQL alarm has no separate threshold, comparison operator, statistic, or period.'
+  puts
+  print "Enter a PromQL query, or press ENTER for [#{DEFAULT_QUERY}]: "
+  input = $stdin.gets
+  query = input.nil? || input.strip.empty? ? DEFAULT_QUERY : input.strip
+
+  if promql_alarm_created?(cloudwatch_client, alarm_name, query)
+    puts "\tCreated alarm #{alarm_name}:"
+    puts "\t  query:              #{query}"
+    puts "\t  evaluationInterval: #{EVALUATION_INTERVAL} seconds"
+    puts "\t  pendingPeriod:      #{PENDING_PERIOD} seconds"
+    puts "\t  recoveryPeriod:     #{RECOVERY_PERIOD} seconds"
+    puts
+    puts "\tA PromQL alarm starts in the OK state rather than INSUFFICIENT_DATA, which is"
+    puts "\tanother way it differs from a classic alarm."
+  end
+  puts DASHES
+end
+
+# Runs the eight steps of the scenario in order.
+def run_me
+  region = 'us-east-1'
+  cloudwatch_client = Aws::CloudWatch::Client.new(region: region)
+
+  # Suffix the resource names so repeated runs do not collide.
+  suffix = rand(1000..9999)
+  alarm_name = "doc-example-promql-alarm-#{suffix}"
+  dashboard_name = "doc-example-dashboard-#{suffix}"
+  mute_rule_name = "doc-example-mute-rule-#{suffix}"
+
+  print_intro
+
+  puts '1. List metrics and namespaces'
+  puts
+  puts 'Before configuring anything, let\'s see what CloudWatch is already collecting in'
+  puts 'this account by calling ListMetrics.'
+  puts
+  by_namespace = metrics_by_namespace(cloudwatch_client)
+  puts DASHES
+
+  puts '2. Start OpenTelemetry enrichment'
+  puts
+  puts 'Enrichment is what lets CloudWatch attach AWS resource context to the OTLP metrics'
+  puts 'you send it. Without it, your metrics arrive as opaque series with no connection to'
+  puts 'the resources that emitted them.'
+  puts
+  puts 'We check the current state first, and only start enrichment if it isn\'t already on.'
+  puts
+  started_here = enrichment_started_by_example?(cloudwatch_client)
+  puts DASHES
+
+  explain_otlp_ingestion
+  create_promql_alarm_step(cloudwatch_client, alarm_name)
+
+  puts '5. Inspect the alarm\'s contributors'
+  puts
+  puts 'Each contributor is one series the query matched, identified by its label set. This'
+  puts 'is how you find out which host is unhealthy rather than only that something is.'
+  puts 'Classic alarms have no equivalent.'
+  puts
+  report_alarm_contributors(cloudwatch_client, alarm_name)
+  puts DASHES
+
+  puts '6. Get statistics and chart the metric on a dashboard'
+  puts
+  puts 'Statistics and dashboards are how you see what the alarm is evaluating.'
+  puts
+  dashboard_created = chart_metric_on_dashboard(cloudwatch_client, dashboard_name, by_namespace)
+  puts DASHES
+
+  mute_alarm_step(cloudwatch_client, mute_rule_name, alarm_name)
+
+  clean_up_step(
+    cloudwatch_client,
+    { alarm: alarm_name, dashboard: dashboard_created ? dashboard_name : nil,
+      mute_rule: mute_rule_name },
+    started_here
+  )
+
+  puts 'This concludes the Amazon CloudWatch Basics scenario.'
+end
+
+# Explains what a mute rule does, then creates one for the scenario's alarm.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param mute_rule_name [String] The name of the mute rule to create.
+# @param alarm_name [String] The name of the alarm to mute.
+# @return [void]
+def mute_alarm_step(cloudwatch_client, mute_rule_name, alarm_name)
+  puts '7. Mute the alarm for a maintenance window'
+  puts
+  puts 'While a mute rule is active the targeted alarms keep evaluating and keep changing'
+  puts 'state, but their actions do not fire. This is the supported way to suppress'
+  puts 'notifications during planned maintenance, instead of disabling alarm actions and'
+  puts 'hoping someone remembers to turn them back on.'
+  puts
+  mute_alarm_for_maintenance(cloudwatch_client, mute_rule_name, alarm_name)
+  puts DASHES
+end
+
+# Asks whether to delete the resources the scenario created, and deletes them if so.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param names [Hash] The alarm, dashboard, and mute rule names to delete.
+# @param started_here [Boolean] Whether this run turned OTel enrichment on.
+# @return [void]
+def clean_up_step(cloudwatch_client, names, started_here)
+  puts '8. Clean up'
+  print 'Delete the resources this scenario created? (y/n) '
+  answer = $stdin.gets
+  if answer.nil? || answer.strip.downcase != 'y'
+    puts "\tSkipping cleanup. Note that the alarm, dashboard, and mute rule are still in"
+    puts "\tyour account, and enrichment may still be running."
+  else
+    clean_up(cloudwatch_client, names, started_here)
+  end
+  puts DASHES
+end
+```
++ For API details, see the following topics in *AWS SDK for Ruby API Reference*.
+  + [DeleteAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/DeleteAlarmMuteRule)
+  + [DeleteAlarms](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/DeleteAlarms)
+  + [DeleteDashboards](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/DeleteDashboards)
+  + [DescribeAlarmContributors](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarmContributors)
+  + [GetAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/GetAlarmMuteRule)
+  + [GetDashboard](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/GetDashboard)
+  + [GetMetricStatistics](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/GetMetricStatistics)
+  + [GetOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/GetOTelEnrichment)
+  + [ListAlarmMuteRules](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/ListAlarmMuteRules)
+  + [ListDashboards](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/ListDashboards)
+  + [ListMetrics](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/ListMetrics)
+  + [PutAlarmMuteRule](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/PutAlarmMuteRule)
+  + [PutDashboard](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/PutDashboard)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/PutMetricAlarm)
+  + [StartOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/StartOTelEnrichment)
+  + [StopOTelEnrichment](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/StopOTelEnrichment)
 
 ------
 

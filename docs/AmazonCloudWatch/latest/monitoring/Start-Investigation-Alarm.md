@@ -8,7 +8,7 @@ Start a CloudWatch investigations from an alarm, or from any point in the last t
 For more information about CloudWatch investigations, see [CloudWatch investigations](Investigations.md).
 
 ## Prerequisites
-<a name="w2aac18c25b7c17b7"></a>
+<a name="w2aac20c25b7c17b7"></a>
 
 Before you can start a CloudWatch investigations from a CloudWatch alarm, you must create a resource policy for the function to allow the CloudWatch service principal to start the investigation. To do this using the AWS CLI, use a command similar to the following example:
 

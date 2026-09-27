@@ -92,6 +92,7 @@ The following is an example for bridge mode. When bridge mode networking is enab
               "name": "cwagent",
               "mountPoints": [],
               "image": "public.ecr.aws/cloudwatch-agent/cloudwatch-agent:latest",
+              "essential": false,
               "memory": 256,
               "cpu": 256,
               "portMappings": [{
@@ -126,6 +127,7 @@ The following is an example for host mode or awsvpc mode. When running on these 
               "name": "cwagent",
               "mountPoints": [],
               "image": "public.ecr.aws/cloudwatch-agent/cloudwatch-agent:latest",
+              "essential": false,
               "memory": 256,
               "cpu": 256,
               "portMappings": [{

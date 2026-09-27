@@ -26,6 +26,6 @@ For more information, see [Encrypt Log Data in CloudWatch Logs Using AWS KMS](ht
 **Topics**
 + [Amazon EKS](deploy-container-insights-EKS.md)
 + [Amazon ECS](deploy-container-insights-ECS.md)
-+ [Setting up Container Insights on RedHat OpenShift on AWS (ROSA)](deploy-container-insights-RedHatOpenShift.md)
++ [Setting up Container Insights on Red Hat OpenShift on AWS (ROSA)](deploy-container-insights-RedHatOpenShift.md)
 + [Viewing Container Insights metrics](Container-Insights-view-metrics.md)
 + [Metrics collected by Container Insights](Container-Insights-metrics.md)

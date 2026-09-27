@@ -5,9 +5,6 @@
 
 The following code examples show how to use `PutAnomalyDetector`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
-+  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
-
 ------
 #### [ .NET ]
 
@@ -110,28 +107,25 @@ For more information, see [Using CloudWatch anomaly detection](https://docs.aws.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
-suspend fun addAnomalyDetector(fileName: String?) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-
+suspend fun addAnomalyDetector(
+    namespaceVal: String,
+    metricNameVal: String,
+) {
     val singleMetricAnomalyDetectorVal =
         SingleMetricAnomalyDetector {
-            metricName = customMetricName
-            namespace = customMetricNamespace
+            namespace = namespaceVal
+            metricName = metricNameVal
             stat = "Maximum"
         }
 
-    val anomalyDetectorRequest =
+    val request =
         PutAnomalyDetectorRequest {
             singleMetricAnomalyDetector = singleMetricAnomalyDetectorVal
         }
 
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        cwClient.putAnomalyDetector(anomalyDetectorRequest)
-        println("Added anomaly detector for metric $customMetricName.")
+        cwClient.putAnomalyDetector(request)
+        println("Added an anomaly detector for metric $metricNameVal.")
     }
 }
 ```

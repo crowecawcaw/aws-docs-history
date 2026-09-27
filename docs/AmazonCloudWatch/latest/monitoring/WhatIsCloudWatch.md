@@ -6,6 +6,7 @@
 Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time, and offers many tools to give you system-wide observability of your application performance, operational health, and resource utilization.
 
 **Topics**
++ [Monitor applications and AI agents with CloudWatch Omni](#cloudwatch-omni-overview)
 + [Operational visibility with metrics, alarms, and dashboards](#cloudwatch-monitoring-overview)
 + [Application performance monitoring (APM)](#cloudwatch-APM-overview)
 + [Infrastructure monitoring](#cloudwatch-infrastructure-monitoring-overview)
@@ -17,6 +18,13 @@ Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the appl
 + [Network and internet monitoring](#cloudwatch-network-monitoring-overview)
 + [Billing and costs](#BillingPointer)
 + [Amazon CloudWatch resources](#RelatedResources)
+
+## Monitor applications and AI agents with CloudWatch Omni
+<a name="cloudwatch-omni-overview"></a>
+
+CloudWatch Omni is an AI-powered observability experience in CloudWatch for your applications and AI agents. Omni discovers your services and their dependencies from your telemetry. Ask a question in plain language, and Omni writes the query for you, in SQL or PromQL (Prometheus Query Language). For AI agents, Omni scores response quality with evaluators, which catches failures that error rates do not show: an agent can return a well-formed response that is wrong. The scores appear alongside latency, errors, and token usage on the same trace.
+
+Omni is built on CloudWatch and OpenTelemetry, and it does not replace anything you already run. Telemetry you already send to CloudWatch appears in Omni with nothing to reconfigure, and your existing metrics, alarms, and dashboards keep working unchanged. You reach Omni through a dedicated URL for your organization and sign in with the identities you already manage, or work in the IDE extension for VS Code, Kiro, and Cursor while you develop AI agents. For more information, see [CloudWatch Omni](cloudwatch-omni.md).
 
 ## Operational visibility with metrics, alarms, and dashboards
 <a name="cloudwatch-monitoring-overview"></a>

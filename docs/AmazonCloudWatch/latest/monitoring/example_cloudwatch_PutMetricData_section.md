@@ -5,8 +5,7 @@
 
 The following code examples show how to use `PutMetricData`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
-+  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
 +  [Manage custom metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
 ------
@@ -16,37 +15,6 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
-    /// <summary>
-    /// Add some metric data using a call to a wrapper class.
-    /// </summary>
-    /// <param name="customMetricName">The metric name.</param>
-    /// <param name="customMetricNamespace">The metric namespace.</param>
-    /// <returns></returns>
-    private static async Task<List<MetricDatum>> PutRandomMetricData(string customMetricName,
-        string customMetricNamespace)
-    {
-        List<MetricDatum> customData = new List<MetricDatum>();
-        Random rnd = new Random();
-
-        // Add 10 random values up to 100, starting with a timestamp 15 minutes in the past.
-        var utcNowMinus15 = DateTime.UtcNow.AddMinutes(-15);
-        for (int i = 0; i < 10; i++)
-        {
-            var metricValue = rnd.Next(0, 100);
-            customData.Add(
-                new MetricDatum
-                {
-                    MetricName = customMetricName,
-                    Value = metricValue,
-                    Timestamp = utcNowMinus15.AddMinutes(i)
-                }
-            );
-        }
-
-        await _cloudWatchWrapper.PutMetricData(customMetricNamespace, customData);
-        return customData;
-    }
-
     /// <summary>
     /// Wrapper to add metric data to a CloudWatch metric.
     /// </summary>
@@ -319,49 +287,39 @@ cw.putMetricData(params, function (err, data) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
-suspend fun addMetricDataForAlarm(fileName: String?) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
+suspend fun addMetricData(
+    namespaceVal: String,
+    metricNameVal: String,
+) {
+    val time =
+        aws.smithy.kotlin.runtime.time.Instant
+            .now()
 
-    // Set an Instant object.
-    val time = ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT)
-    val instant = Instant.parse(time)
     val datum =
         MetricDatum {
-            metricName = customMetricName
+            metricName = metricNameVal
             unit = StandardUnit.None
             value = 1001.00
-            timestamp =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(instant)
+            timestamp = time
         }
 
     val datum2 =
         MetricDatum {
-            metricName = customMetricName
+            metricName = metricNameVal
             unit = StandardUnit.None
             value = 1002.00
-            timestamp =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(instant)
+            timestamp = time
         }
-
-    val metricDataList = ArrayList<MetricDatum>()
-    metricDataList.add(datum)
-    metricDataList.add(datum2)
 
     val request =
         PutMetricDataRequest {
-            namespace = customMetricNamespace
-            metricData = metricDataList
+            namespace = namespaceVal
+            metricData = listOf(datum, datum2)
         }
 
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
         cwClient.putMetricData(request)
-        println("Added metric values for for metric $customMetricName")
+        println("Added metric values for metric $metricNameVal.")
     }
 }
 ```

@@ -1,14 +1,14 @@
 
 
-# Setting up Container Insights on RedHat OpenShift on AWS (ROSA)
+# Setting up Container Insights on Red Hat OpenShift on AWS (ROSA)
 <a name="deploy-container-insights-RedHatOpenShift"></a>
 
-CloudWatch Container Insights with enhanced observability supports RedHat OpenShift on AWS (ROSA). This version supports enhanced observability for ROSA clusters. After you install the CloudWatch agent operator Helm chart, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment. It then displays this performance data in curated dashboards removing the heavy lifting in observability setup. 
+CloudWatch Container Insights with enhanced observability supports Red Hat OpenShift on AWS (ROSA). This version supports enhanced observability for ROSA clusters. After you install the CloudWatch agent operator Helm chart, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment. It then displays this performance data in curated dashboards removing the heavy lifting in observability setup. 
 
 **Note**  
-For RedHat for OpenShift on AWS (ROSA), when you install the CloudWatch agent operator using helm charts, the CloudWatch agent is by default also enabled to receive both metrics and traces from your applications that are instrumented for Application Signals. If you would like to optionally pass in custom configuration rules, you can do so by passing in a custom agent configuration by using the Helm chart, as outlined in (Optional) [Additional configuration], as outlined in [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration).
+For Red Hat OpenShift on AWS (ROSA), when you install the CloudWatch agent operator using helm charts, the CloudWatch agent is by default also enabled to receive both metrics and traces from your applications that are instrumented for Application Signals. If you would like to optionally pass in custom configuration rules, you can do so by passing in a custom agent configuration by using the Helm chart, as outlined in (Optional) [Additional configuration], as outlined in [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration).
 
-**To install Container Insights with enhanced observability on a RedHat OpenShift on AWS (ROSA) cluster**
+**To install Container Insights with enhanced observability on a Red Hat OpenShift on AWS (ROSA) cluster**
 
 1. If necessary, install Helm. For more information, see [Quickstart Guide](https://helm.sh/docs/intro/quickstart/) in the Helm documentation.
 

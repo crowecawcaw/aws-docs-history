@@ -357,7 +357,7 @@ suspend fun listMets(namespaceVal: String?): ArrayList<String>? {
         ListMetricsRequest {
             namespace = namespaceVal
         }
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         val reponse = cwClient.listMetrics(request)
         reponse.metrics?.forEach { metrics ->
             val data = metrics.metricName

@@ -13,7 +13,7 @@
  For information about adding custom attributes or span events in a different language, see [Language APIs and SDKS](https://opentelemetry.io/docs/languages/) in the *OpenTelemetry website*. 
 
 ## Custom attributes
-<a name="w2aac25c21c19c11"></a>
+<a name="w2aac27c21c19c11"></a>
 
  You can add business related attributes or any other attributes to your spans in all languages OpenTelemetry supports. The following is a Java code snippet that adds an order id and customer details to a span. 
 
@@ -37,7 +37,7 @@ public class OrderProcessor {
  After these attributes have been added to the span, they become available to search and analyze in [the Transaction Search visual editor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-search-analyze-spans.html). 
 
 ## Span events
-<a name="w2aac25c21c19c13"></a>
+<a name="w2aac27c21c19c13"></a>
 
  A span event is typically used to denote a meaningful, singular point in time during a span duration. Exceptions are auto-captured as span events through auto-instrumentation, but you can also add custom business events, such as payment-status or cart-abandonment. For more information, see [Span events](https://opentelemetry.io/docs/concepts/signals/traces/#span-events) on the OpenTelemetry website. 
 
@@ -61,7 +61,7 @@ public class OrderProcessor {
 ```
 
 ### Prerequisites for the CloudWatch agent
-<a name="w2aac25c21c19c13b9"></a>
+<a name="w2aac27c21c19c13b9"></a>
 
  When using the CloudWatch agent to emit span events to X-Ray, you must turn on the ``transit_spans_in_otlp_format`` flag in your configuration. 
 
@@ -78,7 +78,7 @@ public class OrderProcessor {
  After you add these events, they become available in the [Transaction Search visual editor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-search-analyze-spans.html). 
 
 ## CloudWatch Logs queries
-<a name="w2aac25c21c19c15"></a>
+<a name="w2aac27c21c19c15"></a>
 
  You can query span events in CloudWatch Logs to view advanced insights. The following example query commands show how to analyze exceptions thrown by your application: 
 

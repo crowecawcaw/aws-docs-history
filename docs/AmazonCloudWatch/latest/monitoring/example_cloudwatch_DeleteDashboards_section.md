@@ -93,7 +93,7 @@ suspend fun deleteDashboard(dashboardName: String) {
         DeleteDashboardsRequest {
             dashboardNames = listOf(dashboardName)
         }
-    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+    CloudWatchClient.fromEnvironment { region = REGION }.use { cwClient ->
         cwClient.deleteDashboards(dashboardsRequest)
         println("$dashboardName was successfully deleted.")
     }

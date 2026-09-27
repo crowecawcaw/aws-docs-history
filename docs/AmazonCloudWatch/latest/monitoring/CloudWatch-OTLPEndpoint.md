@@ -85,7 +85,7 @@ The table lists the endpoint limits and restrictions for metrics.
 | Maximum metadata size | 40 KB | The maximum combined size of all labels and label values accepted for a series per datapoint. | 400 - all metrics in the requests are invalid; 200 - metrics in the requests are partially invalid | 
 | Maximum attribute value length | 1024 characters | The maximum length of a string attribute value. Longer values are rejected with the following message: `Attribute string value exceeds maximum length: 1024`. | 400 | 
 | Maximum label count | 150 | Maximum number of labels across Resource/Scope/Datapoint attributes per datapoint. | 400 - all metrics in the requests are invalid; 200 - metrics in the requests are partially invalid | 
-| Metrics created timestamps | 10 minutes in the future and 14 days in the past | Metrics can be created with a timestamp that is at most 10 minutes in the future and at most 14 days in the past. | 400 | 
+| Metrics created timestamps | 2 hours in the future and 14 days in the past | Metrics can be created with a timestamp that is at most 2 hours in the future and at most 14 days in the past. | 400 | 
 
 The table lists the endpoint limits and restrictions for logs.
 

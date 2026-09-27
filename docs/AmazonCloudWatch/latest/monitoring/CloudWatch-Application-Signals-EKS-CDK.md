@@ -63,6 +63,7 @@ To enable Application Signals on Amazon ECS using AWS CDK, do the following.
               cloudWatchAgentSidecar: {
                 containerName: 'ecs-cwagent',
                 enableLogging: true,
+                essential: false,
                 cpu: 256,
                 memoryLimitMiB: 512,
               }
@@ -324,6 +325,7 @@ Running CloudWatch Agent service using replica mode requires specific security g
             const cwAgent = new appsignals.CloudWatchAgentIntegration(stack, 'AddCloudWatchAgent', {
               containerName: 'ecs-cwagent',
               taskDefinition: fargateTaskDefinition,
+              essential: false,
               memoryReservationMiB: 50,
             });
             appContainer.addContainerDependencies({

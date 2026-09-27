@@ -14,17 +14,7 @@
 
 If you create or edit the agent configuration file manually, you can give it any name. For simplicity in troubleshooting, we recommend that you name it `/opt/aws/amazon-cloudwatch-agent/etc/cloudwatch-agent.json` on a Linux server and `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.json` on servers running Windows Server. After you have created the file, you can copy it to other servers where you want to install the agent.
 
-**Note**  
-Giving the file a name does not apply it to the agent. After you create or edit a source configuration file, apply it by running `amazon-cloudwatch-agent-ctl -a fetch-config -c file:{{configuration-file-path}}`. When you apply a source file, the agent copies it into the `amazon-cloudwatch-agent.d` directory and generates the `amazon-cloudwatch-agent.toml` file that the systemd or upstart service uses to run the agent. Keep your source configuration file in a location that you choose, and do not use the `amazon-cloudwatch-agent.d` directory to store source files.
-
 When the agent is started, it creates a copy of each configuration file in `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d` directory, with the filename prefixed with either `file_` (for local file sources) or `ssm_` (for Systems Manager parameter store sources) to indicate the configuration origin.
-
-The `amazon-cloudwatch-agent.d` directory holds the active configuration that the agent manages. Treat this directory as agent-managed, and do not use it as a permanent location for your source configuration files. Use the following commands to change the active configuration:
-+ `fetch-config` applies the initial configuration or replaces the active configuration set. In its default mode, `fetch-config` can replace existing active configuration fragments in the `amazon-cloudwatch-agent.d` directory.
-+ `append-config` adds a configuration and preserves the existing fragments, unless the filename matches an existing configuration.
-
-**Note**  
-The systemd and upstart services use the generated `amazon-cloudwatch-agent.toml` file to run the agent. If this generated file is absent, starting the agent can apply the default configuration, which can replace the active configuration fragments in the `amazon-cloudwatch-agent.d` directory. This behavior is most likely during bootstrap workflows. Apply your configuration with `fetch-config` or `append-config` before you start the agent.
 
 **Note**  
 Metrics, logs, and traces collected by the CloudWatch agent incur charges. For more information about pricing, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing).
@@ -1368,6 +1358,29 @@ The following is an example of a complete CloudWatch agent configuration file fo
 <a name="Saving-Agent-Configuration-File"></a>
 
 If you create or edit the CloudWatch agent configuration file manually, you can give it any name. After you have created the file, you can copy it to other servers where you want to run the agent.
+
+## Update the CloudWatch agent configuration file manually
+<a name="Update-CloudWatch-Agent-Configuration-File-Manually"></a>
+
+Creating or naming a configuration file does not apply it to the agent. When you apply a configuration, the agent stores it and generates the files that it uses at runtime. On a Linux server, these files are in the `/opt/aws/amazon-cloudwatch-agent/etc` directory, as shown in the following structure.
+
+```
+/opt/aws/amazon-cloudwatch-agent/etc/
+    cloudwatch-agent.json         (your source configuration file; you can give it any name)
+    amazon-cloudwatch-agent.d/    (agent-managed directory of active configuration fragments)
+        file_{{name}}              (a fragment copied from a local file source)
+        ssm_{{name}}               (a fragment copied from a Systems Manager Parameter Store source)
+    amazon-cloudwatch-agent.toml  (generated file that the systemd or upstart service uses to run the agent)
+```
+
+The `amazon-cloudwatch-agent.d` directory holds the active configuration that the agent manages. Keep your source configuration file in a location that you choose, and do not use the `amazon-cloudwatch-agent.d` directory to store source files.
+
+To apply or update the configuration, use the following commands. For the full command syntax and the behavior when configuration file names match, see [Creating multiple CloudWatch agent configuration files](create-cloudwatch-agent-configuration-file.md#CloudWatch-Agent-multiple-config-files).
++ To apply a source configuration file, run `amazon-cloudwatch-agent-ctl -a fetch-config -c file:{{configuration-file-path}}`. This command applies the initial configuration or replaces the active configuration set.
++ To add another configuration to a running agent without replacing the current one, use the `append-config` option. The `append-config` option preserves the existing configuration fragments, unless a configuration file name matches one that the agent is already using.
+
+**Note**  
+The systemd and upstart services use the generated `amazon-cloudwatch-agent.toml` file to run the agent. If this file is absent, starting the agent can apply the default configuration. The default configuration can replace the active configuration in the `amazon-cloudwatch-agent.d` directory. Apply your configuration with `fetch-config` or `append-config` before you start the agent.
 
 ## Uploading the CloudWatch agent configuration file to Systems Manager Parameter Store
 <a name="Upload-CloudWatch-Agent-Configuration-To-Parameter-Store"></a>

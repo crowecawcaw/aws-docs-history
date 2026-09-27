@@ -6,7 +6,7 @@
  With Application Signals, you can troubleshoot rarely occurring latency spikes in your applications. After you enable Transaction Search and configure a head sampling rate capturing 100% of spans, you get complete visibility into any application issue. The following scenario describes how Application Signals can be used with transaction spans to monitor your services and identify service quality issues. 
 
 ## Example troubleshooting scenario
-<a name="w2aac25c21c25b5"></a>
+<a name="w2aac27c21c25b5"></a>
 
  This scenario focuses on a pet clinic application composed of several micro-services calling third-party payment APIs. These calls have been intermittently slow, thus impacting revenue. 
 

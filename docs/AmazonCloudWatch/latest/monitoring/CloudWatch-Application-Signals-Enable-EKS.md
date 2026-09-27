@@ -165,7 +165,7 @@ We've also identified other considerations that you should keep in mind when ena
 
 We provide limited support for Node.js applications with the ESM module format. For details, see [Known limitations about Node.js with ESM](CloudWatch-Application-Signals-supportmatrix.md#ESM-limitations).
 
-For the ESM module format, enabling Application Signals through the console or by annotating the manifest file doesn't work. Skip step 8 of the previous procedure, and do the following instead.
+For the ESM module format, enabling Application Signals through the console or by annotating the manifest file doesn't work. Skip step 6 of the previous procedure, and do the following instead.
 
 **To enable Application Signals for a Node.js application with ESM**
 
@@ -217,12 +217,12 @@ For the ESM module format, enabling Application Signals through the console or b
          labels:
            app: nodejs-app
          # annotations:
-         # make sure this annotation doesn't exit
+         # make sure this annotation doesn't exist
          #   instrumentation.opentelemetry.io/inject-nodejs: 'true'
        spec:
          containers:
          - name: nodejs-app
-           image:{{your-nodejs-application-image}} #replace with a proper image uri
+           image: {{your-nodejs-application-image}} #replace with a proper image uri
            imagePullPolicy: Always
            ports:
            - containerPort: 8000

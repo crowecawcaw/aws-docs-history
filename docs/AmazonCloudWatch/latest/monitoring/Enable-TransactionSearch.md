@@ -115,7 +115,7 @@ You can enable [Transaction Search](CloudWatch-Transaction-Search.md) through th
  The following procedure describes how to enable Transaction Search using an API. 
 
 ### Step 1. Create a policy that grants access to ingest spans in CloudWatch Logs
-<a name="w2aac25c21c15c11b5"></a>
+<a name="w2aac27c21c15c11b5"></a>
 
  When using the AWS CLI or SDK to enable Transaction Search, you must configure permissions using a resource-based policy with [`PutResourcePolicy`](https://docs.aws.amazon.com/xray/latest/api/API_PutResourcePolicy.html). 
 
@@ -165,7 +165,7 @@ aws logs put-resource-policy --policy-name MyResourcePolicy --policy-document '{
 ```
 
 ### Step 2. Configure the destination of trace segments
-<a name="w2aac25c21c15c11b7"></a>
+<a name="w2aac27c21c15c11b7"></a>
 
  Configure the ingestion of spans with [`UpdateTraceSegmentDestination`](https://docs.aws.amazon.com/xray/latest/api/API_UpdateTraceSegmentDestination.html). 
 
@@ -177,7 +177,7 @@ aws xray update-trace-segment-destination --destination CloudWatchLogs
 ```
 
 ### Step 3. Configure the amount of spans to index
-<a name="w2aac25c21c15c11b9"></a>
+<a name="w2aac27c21c15c11b9"></a>
 
  Configure your desired sampling percentage with [`UpdateIndexingRule`](https://docs.aws.amazon.com/xray/latest/api/API_UpdateIndexingRule.html) 
 
@@ -192,7 +192,7 @@ aws xray update-indexing-rule --name "Default" --rule '{"Probabilistic": {"Desir
  After you enable Transaction Search, it can take 10 minutes for spans to become available for search and analysis. 
 
 ### Step 4. Verify spans are available for search and analysis
-<a name="w2aac25c21c15c11c11"></a>
+<a name="w2aac27c21c15c11c11"></a>
 
  To verify spans are available for search and analysis, use [`GetTraceSegmentDestination`](https://docs.aws.amazon.com/xray/latest/api/API_GetTraceSegmentDestination.html). 
 

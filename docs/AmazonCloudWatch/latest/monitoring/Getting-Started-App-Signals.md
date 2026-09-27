@@ -6,12 +6,12 @@
  You can enable CloudWatch Application Signals with different instrumentation setups. This topic describes each of the setup methods and recommendations based on the method you choose. 
 
 ## Use AWS Distro for OpenTelemetry with the CloudWatch Agent
-<a name="w2aac25c17c31b5"></a>
+<a name="w2aac27c17c31b5"></a>
 
  The most integrated application performance monitoring(APM) experience in CloudWatch is delivered through the AWS Distro for OpenTelemetry (ADOT) SDKs and are used with the CloudWatch Agent to collect application metrics and traces. This option works best if you want to get started with APM in CloudWatch quickly and also use out-of-the box integrations with features, such as Container Insights and CloudWatch Logs. For more information, see [Enable Application Signals on Amazon EKS Clusters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-EKS.html) and [Enable Application Signals on Amazon EC2, Amazon ECS, or Kubernetes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-Other.html). 
 
 ## Use the OpenTelemetry SDK and Collector
-<a name="w2aac25c17c31b7"></a>
+<a name="w2aac27c17c31b7"></a>
 
  This setup works for the following use cases: 
 
@@ -22,14 +22,14 @@
  For more information, see [OpenTelemetry with CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OpenTelemetry-Sections.html). 
 
 ## Use the AWS X-Ray SDK and daemon
-<a name="w2aac25c17c31c11"></a>
+<a name="w2aac27c17c31c11"></a>
 
  This option is best if you instrumented your application using X-Ray SDKs and haven't migrated ADOT SDKs or OpenTelemetry SDKs. 
 
  For more information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html). 
 
 ## Feature comparison
-<a name="w2aac25c17c31c13"></a>
+<a name="w2aac27c17c31c13"></a>
 
 
 | Feature | ADOT SDK \+ CloudWatch Agent | Open Telemetry SDK \+ OpenTelemetry Collector | X-Ray SDKs | 

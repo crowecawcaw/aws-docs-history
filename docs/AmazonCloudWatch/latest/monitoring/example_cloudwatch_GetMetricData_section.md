@@ -5,8 +5,7 @@
 
 The following code examples show how to use `GetMetricData`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
-+  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
 +  [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md) 
 
 ------
@@ -268,33 +267,23 @@ For more information, see [Using math expressions with CloudWatch metrics](https
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
-suspend fun getCustomMetricData(fileName: String) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val customMetricNamespace = rootNode.findValue("customMetricNamespace").asText()
-    val customMetricName = rootNode.findValue("customMetricName").asText()
-
-    // Set the date.
-    val nowDate = Instant.now()
-    val hours: Long = 1
-    val minutes: Long = 30
-    val date2 =
-        nowDate.plus(hours, ChronoUnit.HOURS).plus(
-            minutes,
-            ChronoUnit.MINUTES,
-        )
-
+suspend fun getMetData() {
+    val start =
+        aws.smithy.kotlin.runtime.time.Instant
+            .fromIso8601("2019-10-23T10:12:35Z")
+    val endDate =
+        aws.smithy.kotlin.runtime.time.Instant
+            .now()
     val met =
         Metric {
-            metricName = customMetricName
-            namespace = customMetricNamespace
+            metricName = "DiskReadBytes"
+            namespace = "AWS/EC2"
         }
 
     val metStat =
         MetricStat {
-            stat = "Maximum"
-            period = 1
+            stat = "Minimum"
+            period = 60
             metric = met
         }
 
@@ -305,23 +294,19 @@ suspend fun getCustomMetricData(fileName: String) {
             returnData = true
         }
 
-    val dq = ArrayList<MetricDataQuery>()
+    val dq = mutableListOf<MetricDataQuery>()
     dq.add(dataQUery)
-    val getMetReq =
+
+    val request =
         GetMetricDataRequest {
-            maxDatapoints = 10
-            scanBy = ScanBy.TimestampDescending
-            startTime =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(nowDate)
-            endTime =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(date2)
+            maxDatapoints = 100
+            startTime = start
+            endTime = endDate
             metricDataQueries = dq
         }
 
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.getMetricData(getMetReq)
+        val response = cwClient.getMetricData(request)
         response.metricDataResults?.forEach { item ->
             println("The label is ${item.label}")
             println("The status code is ${item.statusCode}")

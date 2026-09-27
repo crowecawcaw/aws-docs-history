@@ -74,7 +74,7 @@ The next step is to instrument your application for CloudWatch Application Signa
    {
      "name": "ecs-cwagent",
      "image": "{{$IMAGE}}",
-     "essential": true,
+     "essential": false,
      "secrets": [
        {
          "name": "CW_CONFIG_CONTENT",
@@ -242,7 +242,7 @@ Before you enable Application Signals for your Python applications, be aware of 
    {
      "name": "ecs-cwagent",
      "image": "{{$IMAGE}}",
-     "essential": true,
+     "essential": false,
      "secrets": [
        {
          "name": "CW_CONFIG_CONTENT",
@@ -484,7 +484,7 @@ Before you enable Application Signals for your Python applications, be aware of 
    {
      "name": "ecs-cwagent",
      "image": "{{$IMAGE}}",
-     "essential": true,
+     "essential": false,
      "secrets": [
        {
          "name": "CW_CONFIG_CONTENT",
@@ -832,7 +832,7 @@ If you are enabling Application Signals for a Node.js application with ESM, see 
    {
      "name": "ecs-cwagent",
      "image": "{{$IMAGE}}",
-     "essential": true,
+     "essential": false,
      "secrets": [
        {
          "name": "CW_CONFIG_CONTENT",

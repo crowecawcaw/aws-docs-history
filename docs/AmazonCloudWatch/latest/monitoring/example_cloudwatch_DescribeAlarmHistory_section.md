@@ -5,9 +5,6 @@
 
 The following code examples show how to use `DescribeAlarmHistory`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
-+  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
-
 ------
 #### [ .NET ]
 
@@ -150,39 +147,30 @@ Output:
 
 ```
 suspend fun getAlarmHistory(
-    fileName: String,
-    date: String,
+    alarmNameVal: String,
+    startDateVal: String,
 ) {
-    // Read values from the JSON file.
-    val parser = JsonFactory().createParser(File(fileName))
-    val rootNode = ObjectMapper().readTree<JsonNode>(parser)
-    val alarmNameVal = rootNode.findValue("exampleAlarmName").asText()
-    val start = Instant.parse(date)
-    val endDateVal = Instant.now()
-
-    val historyRequest =
+    val request =
         DescribeAlarmHistoryRequest {
-            startDate =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(start)
-            endDate =
-                aws.smithy.kotlin.runtime.time
-                    .Instant(endDateVal)
             alarmName = alarmNameVal
+            startDate =
+                aws.smithy.kotlin.runtime.time.Instant
+                    .fromIso8601(startDateVal)
+            endDate =
+                aws.smithy.kotlin.runtime.time.Instant
+                    .now()
             historyItemType = HistoryItemType.Action
         }
 
     CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
-        val response = cwClient.describeAlarmHistory(historyRequest)
+        val response = cwClient.describeAlarmHistory(request)
         val historyItems = response.alarmHistoryItems
-        if (historyItems != null) {
-            if (historyItems.isEmpty()) {
-                println("No alarm history data found for $alarmNameVal.")
-            } else {
-                for (item in historyItems) {
-                    println("History summary ${item.historySummary}")
-                    println("Time stamp: ${item.timestamp}")
-                }
+        if (historyItems.isNullOrEmpty()) {
+            println("No alarm history data found for $alarmNameVal.")
+        } else {
+            for (item in historyItems) {
+                println("History summary: ${item.historySummary}")
+                println("Time stamp: ${item.timestamp}")
             }
         }
     }

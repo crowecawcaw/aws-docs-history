@@ -20,5 +20,6 @@ Use Classic metrics when you have existing integrations with the CloudWatch API,
 + [Use metric streams](CloudWatch-Metric-Streams.md)
 + [Math expressions with metrics](using-metric-math.md)
 + [Using CloudWatch anomaly detection](CloudWatch_Anomaly_Detection.md)
++ [Query metrics from other data sources](MultiDataSourceQuerying.md)
 + [Grafana integration](CloudWatch-Grafana-support.md)
 + [AWS services that publish CloudWatch metrics](aws-services-cloudwatch-metrics.md)

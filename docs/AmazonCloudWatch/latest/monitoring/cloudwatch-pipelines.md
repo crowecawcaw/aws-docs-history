@@ -88,6 +88,7 @@ CloudWatch pipelines is available in the following AWS Regions:
 + Europe (Spain)
 + Europe (Stockholm)
 + Europe (Zurich)
++ AWS European Sovereign Cloud (Germany)
 + Israel (Tel Aviv)
 + Mexico (Central)
 + South America (São Paulo)

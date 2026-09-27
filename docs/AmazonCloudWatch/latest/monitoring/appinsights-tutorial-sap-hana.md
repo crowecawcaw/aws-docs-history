@@ -306,7 +306,7 @@ Component cannot have more than 60 monitored metrics
 Use the following information to find out why SAP metrics don't appear on the dashboard after the onboarding process. The first step is to troubleshoot why the SAP metrics don't appear using the AWS Management Console or Exporter logs from an Amazon EC2 instance. Next, review the error output to find a resolution.
 
 #### Troubleshoot why SAP metrics don't appear after onboarding
-<a name="w2aac23c24c27c27b7b5"></a>
+<a name="w2aac25c24c27c27b7b5"></a>
 
 You can use the AWS Management Console or exporter logs from an Amazon EC2 instance for troubleshooting.
 

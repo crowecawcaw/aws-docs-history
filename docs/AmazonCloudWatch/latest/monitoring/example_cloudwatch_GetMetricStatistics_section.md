@@ -17,26 +17,6 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 ```
     /// <summary>
-    /// Get billing statistics using a call to a wrapper class.
-    /// </summary>
-    /// <returns>A collection of billing statistics.</returns>
-    private static async Task<List<Datapoint>> SetupBillingStatistics()
-    {
-        // Make a request for EstimatedCharges with a period of one day for the past seven days.
-        var billingStatistics = await _cloudWatchWrapper.GetMetricStatistics(
-            "AWS/Billing",
-            "EstimatedCharges",
-            new List<string>() { "Maximum" },
-            new List<Dimension>() { new Dimension { Name = "Currency", Value = "USD" } },
-            7,
-            86400);
-
-        billingStatistics = billingStatistics.OrderBy(n => n.Timestamp).ToList();
-
-        return billingStatistics;
-    }
-
-    /// <summary>
     /// Wrapper to get statistics for a specific CloudWatch metric.
     /// </summary>
     /// <param name="metricNamespace">The namespace of the metric.</param>

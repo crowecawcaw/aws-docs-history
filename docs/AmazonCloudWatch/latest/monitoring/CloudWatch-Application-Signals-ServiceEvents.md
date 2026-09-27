@@ -24,7 +24,7 @@ Service Events is automatically disabled in Lambda environments.
 ## Data storage
 <a name="Application-Signals-ServiceEvents-DataStorage"></a>
 
-Service Events stores data in CloudWatch Logs. CloudWatch publishes service event data to a log group with the prefix `/aws/application-signals/{{service-name}}`, where {{service-name}} is the value of your `OTEL_SERVICE_NAME` environment variable. One log group is created per service.
+Service Events stores data in CloudWatch Logs. CloudWatch publishes service event data to a log group with the prefix `/aws/service-events/{{service-name}}`, where {{service-name}} is the value of your `OTEL_SERVICE_NAME` environment variable. One log group is created per service.
 
 You are billed for log ingestion and storage at standard CloudWatch Logs rates.
 
