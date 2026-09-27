@@ -39,10 +39,10 @@ The following steps describe how to customize the base image you pulled from Ama
 
 1. Create a new `Dockerfile` on your local Workspace.
 
-1. Edit the `Dockerfile` and add the following content. This `Dockerfile` uses the container image you pulled from `public.ecr.aws/emr-on-eks/flink/emr-7.13.0-flink:latest`.
+1. Edit the `Dockerfile` and add the following content. This `Dockerfile` uses the container image you pulled from `public.ecr.aws/emr-on-eks/flink/emr-7.14.0-flink:latest`.
 
    ```
-   FROM public.ecr.aws/emr-on-eks/flink/emr-7.13.0-flink:latest
+   FROM public.ecr.aws/emr-on-eks/flink/emr-7.14.0-flink:latest
    USER root
    ### Add customization commands here ####
    USER hadoop:hadoop
@@ -51,7 +51,7 @@ The following steps describe how to customize the base image you pulled from Ama
    Use the following configuration if you're using `Fluentd`.
 
    ```
-   FROM public.ecr.aws/emr-on-eks/fluentd/emr-7.13.0:latest
+   FROM public.ecr.aws/emr-on-eks/fluentd/emr-7.14.0:latest
    USER root
    ### Add customization commands here ####
    USER hadoop:hadoop
@@ -60,7 +60,7 @@ The following steps describe how to customize the base image you pulled from Ama
 1. Add commands in the `Dockerfile` to customize the base image. The following command demonstrates how to install Python libraries.
 
    ```
-   FROM public.ecr.aws/emr-on-eks/flink/emr-7.13.0-flink:latest
+   FROM public.ecr.aws/emr-on-eks/flink/emr-7.14.0-flink:latest
    USER root
    RUN pip3 install --upgrade boto3 pandas numpy // For python 3
    USER hadoop:hadoop

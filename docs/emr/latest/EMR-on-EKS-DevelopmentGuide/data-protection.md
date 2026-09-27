@@ -12,9 +12,14 @@ For data protection purposes, we recommend that you protect AWS account credenti
 + Use AWS encryption solutions, along with all default security controls within AWS services.
 + Use advanced managed security services such as Amazon Macie, which assists in discovering and securing personal data that is stored in Amazon S3.
 + Use Amazon EMR on EKS encryption options to encrypt data at rest and in transit.
-+ If you require FIPS 140-2 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/).
++ If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
 
 We strongly recommend that you never put sensitive identifying information, such as your customers' account numbers, into free-form fields such as a **Name** field. This includes when you work with Amazon EMR on EKS or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into Amazon EMR on EKS or other services might get picked up for inclusion in diagnostic logs. When you provide a URL to an external server, don't include credentials information in the URL to validate your request to that server.
+
+## FIPS 140-2/140-3 compliance for the Amazon EMR on EKS runtime image
+<a name="fips-compliance-runtime-image"></a>
+
+The Amazon EMR on EKS runtime images do not operate in FIPS mode, and a FIPS-enabled variant of the image is not available.
 
 ## Encryption at rest
 <a name="encryption-at-rest"></a>

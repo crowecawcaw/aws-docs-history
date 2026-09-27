@@ -90,9 +90,9 @@ This mapping is supported only for the server service account.
    ```
    helm install livy-demo \
      oci://895885662937.dkr.ecr.us-west-2.amazonaws.com/livy \
-     --version 7.13.0 \
+     --version 7.14.0 \
      --namespace {{livy-ns}} \
-     --set image={{ECR-registry-account.dkr.ecr.region-id}}.amazonaws.com/livy/emr-7.13.0:latest \
+     --set image={{ECR-registry-account.dkr.ecr.region-id}}.amazonaws.com/livy/emr-7.14.0:latest \
      --set sparkNamespace={{spark-ns}} \
      --set serviceAccount.executionRoleArn=arn:aws:iam::123456789012:role/{{my-role}}
    ```

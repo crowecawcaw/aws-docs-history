@@ -32,9 +32,9 @@ By default, SSL is not enabled within this Livy endpoint and the endpoint is onl
    ```
    helm install livy-demo \
      oci://895885662937.dkr.ecr.region-id.amazonaws.com/livy \
-     --version 7.13.0 \
+     --version 7.14.0 \
      --namespace livy-ns \
-     --set image=ECR-registry-account.dkr.ecr.region-id.amazonaws.com/livy/emr-7.13.0:latest \
+     --set image=ECR-registry-account.dkr.ecr.region-id.amazonaws.com/livy/emr-7.14.0:latest \
      --set sparkNamespace={{<spark-ns>}} \
      --create-namespace
    ```
@@ -80,7 +80,7 @@ By default, SSL is not enabled within this Livy endpoint and the endpoint is onl
 
    ```
    app_version: 0.7.1-incubating
-   chart: livy-emr-7.13.0
+   chart: livy-emr-7.14.0
    name: livy-demo
    namespace: livy-ns
    revision: "1"

@@ -96,7 +96,7 @@ See the following steps to learn how to submit an Apache Hudi job.
        taskmanager.numberOfTaskSlots: "2"
        hudi.enabled: "true"
      executionRoleArn: "{{<JobExecutionRole>}}"
-     emrReleaseLabel: "emr-7.13.0-flink-latest"
+     emrReleaseLabel: "emr-7.14.0-flink-latest"
      jobManager:
        highAvailabilityEnabled: false
        replicas: 1

@@ -106,9 +106,9 @@ After enabling SSL on your Livy server, you must set up the `serviceAccount` to 
    ```
    helm install {{<livy-app-name>}} \
      oci://895885662937.dkr.ecr.region-id.amazonaws.com/livy \
-     --version 7.13.0 \
+     --version 7.14.0 \
      --namespace {{livy-namespace-name}} \
-     --set image={{<ECR-registry-account.dkr.ecr>.<region>}}.amazonaws.com/livy/emr-7.13.0:latest \
+     --set image={{<ECR-registry-account.dkr.ecr>.<region>}}.amazonaws.com/livy/emr-7.14.0:latest \
      --set sparkNamespace={{spark-namespace}} \
      --set ssl.enabled=true
      --set ssl.CertificateArn=livy-acm-certificate-arn
