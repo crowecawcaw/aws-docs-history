@@ -3,7 +3,7 @@
 # Configuring Security Hub to integrate with Microsoft Azure
 <a name="securityhub-v2-azure-setup-securityhub-v2"></a>
 
-After you complete the [prerequisite tasks](securityhub-v2-azure-prereqs.md) and [configure your Microsoft Azure environment](securityhub-v2-azure-setup-azure.md), you can configure AWS Security Hub to integrate with Azure. To configure Security Hub to integrate with Azure, you create a connector. You can create the connector from a Delegated Administrator account or the management account. After you create the connector, the following events occur:
+After you complete the [prerequisite tasks](securityhub-v2-azure-prereqs.md) and [configure your Microsoft Azure environment](securityhub-v2-azure-setup-azure.md), you can configure AWS Security Hub to integrate with Azure. To configure Security Hub to integrate with Azure, you create a connector. You can create the connector from a delegated administrator account or the management account. After you create the connector, the following events occur:
 
 1. Security Hub validates the Azure credentials and connectivity to your Azure environment. This process can take several minutes.
 
@@ -82,7 +82,12 @@ Used by the Amazon Inspector VM Scanner agent running on Azure VMs to send scan 
             "Principal": {
                 "Federated": "arn:aws:iam::{{account-id}}:oidc-provider/sts.windows.net/{{tenant-id}}/"
             },
-            "Action": "sts:AssumeRoleWithWebIdentity"
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "sts.windows.net/{{tenant-id}}/:aud": "api://{{app-id}}"
+                }
+            }
         }
     ]
 }

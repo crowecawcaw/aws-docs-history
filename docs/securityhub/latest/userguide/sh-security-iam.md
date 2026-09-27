@@ -10,7 +10,7 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 + [Authenticating with identities](#security_iam_authentication)
 + [Managing access using policies](#security_iam_access-manage)
 + [How Security Hub works with IAM](sh_security_iam_service-with-iam.md)
-+ [Identity-based policy examples for AWS Security Hub CSPM](sh_security_iam_id-based-policy-examples.md)
++ [Identity-based policy examples for AWS Security Hub](sh_security_iam_id-based-policy-examples.md)
 + [Service-linked roles for AWS Security Hub](sh-using-service-linked-roles.md)
 + [AWS managed policies for Security Hub](sh-security-iam-awsmanpol.md)
 + [Troubleshooting AWS Security Hub identity and access](sh-security_iam_troubleshoot.md)
@@ -21,7 +21,7 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 + **Service user** - request permissions from your administrator if you cannot access features (see [Troubleshooting AWS Security Hub identity and access](sh-security_iam_troubleshoot.md))
 + **Service administrator** - determine user access and submit permission requests (see [How Security Hub works with IAM](sh_security_iam_service-with-iam.md))
-+ **IAM administrator** - write policies to manage access (see [Identity-based policy examples for AWS Security Hub CSPM](sh_security_iam_id-based-policy-examples.md))
++ **IAM administrator** - write policies to manage access (see [Identity-based policy examples for AWS Security Hub](sh_security_iam_id-based-policy-examples.md))
 
 ## Authenticating with identities
 <a name="security_iam_authentication"></a>

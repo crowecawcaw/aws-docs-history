@@ -18,6 +18,8 @@ A single exposure finding contains issues identified in multiple remediation top
 + [Misconfiguration traits for Lambda functions](#lambda-function-misconfiguration)
   + [Lambda function is deployed outside of an Amazon VPC](#deployed-outside-vpc)
   + [The Lambda function is accessible through API Gateway without authorization](#api-gateway-no-authorization)
+  + [The Lambda function is exposed through an Amazon Bedrock AgentCore gateway with no authorizer configured](#agentcore-gateway-no-authorizer)
+  + [The Lambda function is exposed through an Amazon Bedrock AgentCore gateway that allows unauthenticated public access](#agentcore-gateway-permissive-resource-policy)
 + [Reachability traits for Lambda functions](#lambda-function-reachability)
   + [The Lambda function can be publicly invoked](#publicly-invocable)
 + [Vulnerability traits for Lambda functions](#lambda-function-vulnerability)
@@ -67,6 +69,26 @@ Here are misconfiguration traits for Lambda functions and suggested remediation 
  In the **Resources** tab of the exposure, choose the resource link to access the API Gateway method. Review the current authorization configuration and implement appropriate authentication mechanisms. 
 
  API Gateway supports several authentication options including AWS IAM, Amazon Cognito User Pools, Lambda authorizers, and API keys. Choose the authentication method that best fits your security requirements and use case. For detailed instructions on configuring authentication, see [Controlling and managing access to a REST API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-to-api.html) in the *API Gateway Developer Guide*. 
+
+### The Lambda function is exposed through an Amazon Bedrock AgentCore gateway with no authorizer configured
+<a name="agentcore-gateway-no-authorizer"></a>
+
+ Amazon Bedrock AgentCore gateways expose Lambda functions as tools that AI agents can discover and invoke. A gateway without an authorizer accepts requests without verifying the identity of the caller. Any caller who obtains the gateway endpoint can list the tools the gateway exposes and invoke the integrated Lambda function without authentication. This creates security risks, because unauthenticated invocations could lead to abuse of function capabilities, access to sensitive data, or unauthorized operations in your environment. Following security best practices, configure inbound authorization on Amazon Bedrock AgentCore gateways that front Lambda functions. 
+
+**Remediation: Configure gateway inbound authorization**  
+ In the **Resources** section of the exposure finding, note the gateway identifier. Open the Amazon Bedrock AgentCore console, choose the gateway, and review its inbound authorization configuration. 
+
+ Amazon Bedrock AgentCore gateways support inbound authorization with a JSON Web Token (JWT) authorizer through an OAuth-compliant identity provider such as Amazon Cognito. Configure an authorizer so that the gateway validates the caller's token before it serves tool requests. For detailed instructions, see [Prerequisites for using the Amazon Bedrock AgentCore gateway service](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-prerequisites.html) in the *Amazon Bedrock AgentCore Developer Guide*. 
+
+### The Lambda function is exposed through an Amazon Bedrock AgentCore gateway that allows unauthenticated public access
+<a name="agentcore-gateway-permissive-resource-policy"></a>
+
+ Amazon Bedrock AgentCore gateways can carry a resource-based policy that controls which principals can invoke the gateway. A gateway policy that includes "\*" as the principal allows any caller to invoke the tools the gateway exposes, including the integrated Lambda function. This configuration bypasses identity-based access controls and creates significant risk because unauthenticated callers can invoke the function. This could lead to abuse of function capabilities, access to sensitive data, or unauthorized operations. Following security best practices, restrict gateway access to only authorized principals. 
+
+**Remediation: Restrict the gateway resource-based policy**  
+ Open the gateway identified in the **Resources** section of the exposure finding and review its resource-based policy. Remove statements that allow "\*" as the principal. Grant access only to the specific AWS account IDs or IAM principals that need to invoke the gateway. 
+
+ For more information about restricting access to Amazon Bedrock AgentCore gateways, see [Fine-grained access control for Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-fine-grained-access-control.html) in the *Amazon Bedrock AgentCore Developer Guide*. 
 
 ## Reachability traits for Lambda functions
 <a name="lambda-function-reachability"></a>

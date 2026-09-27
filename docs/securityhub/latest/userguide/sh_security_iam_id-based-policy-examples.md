@@ -1,15 +1,15 @@
 
 
-# Identity-based policy examples for AWS Security Hub CSPM
+# Identity-based policy examples for AWS Security Hub
 <a name="sh_security_iam_id-based-policy-examples"></a>
 
-By default, users and roles do not have permission to create or modify Security Hub CSPM resources. They also cannot perform tasks using the AWS Management Console, AWS CLI, or AWS API. An administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the users or groups that require those permissions.
+By default, users and roles do not have permission to create or modify AWS Security Hub resources. They also cannot perform tasks using the AWS Management Console, AWS CLI, or AWS API. An administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the users or groups that require those permissions.
 
 To learn how to create an IAM identity-based policy using these example JSON policy documents, see [Creating Policies on the JSON Tab](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*.
 
 **Topics**
 + [Policy best practices](#sh_security_iam_service-with-iam-policy-best-practices)
-+ [Using the Security Hub CSPM console](#sh_security_iam_id-based-policy-examples-console)
++ [Using the Security Hub console](#sh_security_iam_id-based-policy-examples-console)
 + [Example: Allow users to view their own permissions](#sh_security_iam_id-based-policy-examples-view-own-permissions)
 + [Example: Allow users to view findings](#sh_security_iam_id-based-policy-examples-view-findings)
 + [Example: Allow users to create and manage automation rules](#sh_security_iam_id-based-policy-examples-create-automation-rule)
@@ -26,14 +26,14 @@ Identity-based policies determine whether someone can create, access, or delete 
 
 For more information about best practices in IAM, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*.
 
-## Using the Security Hub CSPM console
+## Using the Security Hub console
 <a name="sh_security_iam_id-based-policy-examples-console"></a>
 
-To access the AWS Security Hub CSPM console, you must have a minimum set of permissions. These permissions must allow you to list and view details about the Security Hub CSPM resources in your AWS account. If you create an identity-based policy that is more restrictive than the minimum required permissions, the console will not function as intended for entities (users or roles) with that policy.
+To access the AWS Security Hub console, you must have a minimum set of permissions. These permissions must allow you to list and view details about the Security Hub resources in your AWS account. If you create an identity-based policy that is more restrictive than the minimum required permissions, the console will not function as intended for entities (users or roles) with that policy.
 
 You do not need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match the API operation that they're trying to perform.
 
-To ensure that those users and roles can use the Security Hub CSPM console, also attach the following AWS managed policy to the entity. For more information, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*:
+To ensure that those users and roles can use the Security Hub console, also attach the following AWS managed policy to the entity. For more information, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*:
 
 ------
 #### [ JSON ]
@@ -108,11 +108,11 @@ This example shows how you might create a policy that allows IAM users to view t
 ## Example: Allow users to view findings
 <a name="sh_security_iam_id-based-policy-examples-view-findings"></a>
 
-This example shows how you might create an IAM policy that allows a user to view Security Hub CSPM findings.
+This example shows how you might create an IAM policy that allows a user to view Security Hub findings.
 
 ```
 {
-    "Version":"2012-10-17",			 	 	  	 	 	 
+    "Version":"2012-10-17", 	 	 	 
     "Statement": [
         {
             "Sid": "ReviewFindings",
@@ -129,17 +129,17 @@ This example shows how you might create an IAM policy that allows a user to view
 ## Example: Allow users to create and manage automation rules
 <a name="sh_security_iam_id-based-policy-examples-create-automation-rule"></a>
 
-This example shows how you might create an IAM policy that allows a user to create, view, update, and delete Security Hub CSPM automation rules. For this IAM policy to work, the user must be a Security Hub CSPM administrator. To limit permissions— for example, to allow a user to only view automation rules—you can remove the create, update, and delete permissions.
+This example shows how you might create an IAM policy that allows a user to create, view, update, and delete Security Hub automation rules. For this IAM policy to work, the user must be a Security Hub administrator. To limit permissions— for example, to allow a user to only view automation rules—you can remove the create, update, and delete permissions.
 
 ```
 {
-            "Version":"2012-10-17",	 		 	 	  	 	 	 
+    "Version":"2012-10-17", 	 	 	 
     "Statement": [
         {
             "Sid": "CreateAndUpdateAutomationRules",
             "Effect": "Allow",
             "Action": [
-                "securityhub:CreateAutomationRuleV2",
+                "securityhub:CreateAutomationRuleV2"
             ],
             "Resource": "*"
         },

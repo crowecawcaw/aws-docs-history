@@ -22,6 +22,8 @@ These AWS Security Hub CSPM controls evaluate the Amazon Bedrock AgentCore servi
 
 This control checks whether an Amazon Bedrock AgentCore runtime is configured with VPC network mode. The control fails if the runtime has its network mode set to PUBLIC.
 
+The control doesn't produce findings for runtimes that are backed by a capacity provider. These runtimes define their network configuration on the capacity provider instead of on the runtime, so they are out of scope for this control.
+
 Using public network mode for Amazon Bedrock AgentCore runtimes exposes the runtime directly to the internet, increasing the attack surface and risk of unauthorized access. Configuring runtimes with VPC network mode ensures that runtime traffic is confined within your private network, enabling you to apply network-level security controls such as security groups, network ACLs, and VPC flow logs.
 
 ### Remediation
