@@ -65,7 +65,9 @@ To access the Apache Airflow REST API using AWS credentials, you must grant the 
 ```
 
 **Note**  
-While configuring a private webserver, the `InvokeRestApi` action cannot be invoked from outside of a Virtual Private Cloud (VPC). You can use the `aws:SourceVpc` key to apply more granular access control for this operation. For more information, refer to [aws:SourceVpc](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpc).
+`InvokeRestApi` is an Amazon MWAA service API call authenticated with AWS credentials (SigV4/IAM). When you call it, Amazon MWAA retrieves data from the Apache Airflow webserver over AWS internal networking. The webserver itself is never exposed to the public internet.  
+For environments with a private webserver, you can call `InvokeRestApi` over the public internet. This requires the `airflow:InvokeRestApi` and `airflow:CreateWebLoginToken` permissions in your IAM policy. Interactive access to the Apache Airflow web UI is restricted to the Virtual Private Cloud (VPC).  
+To confine `InvokeRestApi` calls to a VPC, apply an IAM policy condition using the `aws:SourceVpc` or `aws:SourceVpce` key. For more information about this condition key, see [aws:SourceVpc](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpc).
 
 ## Calling the Apache Airflow REST API
 <a name="listing-DAGs-creating-variables-using-restapi-script"></a>

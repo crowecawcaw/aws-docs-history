@@ -608,7 +608,8 @@ To access the Apache Airflow REST API, you must grant the `airflow:InvokeRestApi
 ------
 
 **Note**  
-While configuring a private webserver, the `InvokeRestApi` action cannot be invoked from outside of a Virtual Private Cloud (VPC). You can use the `aws:SourceVpc` key to apply more granular access control for this operation. For more information, refer to [aws:SourceVpc](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpc)
+For environments with a private webserver, you can invoke the `InvokeRestApi` action over the public internet. This requires the `airflow:InvokeRestApi` and `airflow:CreateWebLoginToken` permissions in your IAM policy.
+To confine `InvokeRestApi` calls to a Virtual Private Cloud (VPC), use the `aws:SourceVpc` or `aws:SourceVpce` key to apply more granular access control for this operation. For more information about this condition key, see [aws:SourceVpc](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpc)
 The `Resource` field in this policy can be used to specify the Apache Airflow role-based access control roles for the Amazon MWAA environment. However, it does not support the Amazon MWAA environment ARN (Amazon Resource Name) in the `Resource` field of the policy.
 
 ## Apache Airflow CLI policy: AmazonMWAAAirflowCliAccess
