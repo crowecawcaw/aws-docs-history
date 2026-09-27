@@ -13,7 +13,7 @@ The Web broadcast SDK enables participants to send and receive video. The SDK su
 + Get WebRTC statistics for each peer connection
 + All operations from the IVS low-latency streaming Web broadcast SDK
 
-**Latest version of Web broadcast SDK:** 1.39.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#aug27-26-broadcast-web-rt)) 
+**Latest version of Web broadcast SDK:** 1.40.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#sep24-26-broadcast-web-rt)) 
 
 **Reference documentation:** For information on the most important methods available in the Amazon IVS Web Broadcast SDK, see [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference). Make sure the most current version of the SDK is selected.
 

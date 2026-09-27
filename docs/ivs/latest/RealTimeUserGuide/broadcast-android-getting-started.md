@@ -18,7 +18,7 @@ repositories {
 }
  
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.46.0:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.47.0:stages@aar'
 }
 ```
 
@@ -37,7 +37,7 @@ Then include the following in the `libs.version.toml` file (for the latest versi
 
 ```
 [versions]
-ivs="1.46.0"
+ivs="1.47.0"
 
 [libraries]
 ivs = {module = "com.amazonaws:ivs-broadcast", version.ref = "ivs"}

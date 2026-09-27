@@ -5,6 +5,48 @@
 
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first, organized by date of release.
 
+## September 24, 2026
+<a name="sep24-26-broadcast-mobile-rt"></a>
+
+### Amazon IVS Broadcast SDK: Android 1.47.0, iOS 1.47.0 (Real-Time Streaming)
+<a name="sep24-26-broadcast-mobile-rt-1470"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android Broadcast SDK 1.47.0](broadcast-android.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/android/)+  Fixed a bug where audio playback may not recover after unsubscribing and resubscribing to a participant on certain Bluetooth headsets. <br />+  Audio is now silenced immediately when calling `leave` on a `Stage`. <br />+  Improved state recovery after network loss.  | 
+| [iOS Broadcast SDK 1.47.0](broadcast-ios.md) | **Download for real-time streaming: ** [https://broadcast.live-video.net/1.47.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.47.0/AmazonIVSBroadcast-Stages.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.47.0/ios/)+  Audio is now silenced immediately when calling `leave` on an `IVSStage`. <br />+  Improved state recovery after network loss.  | 
+
+#### Broadcast SDK Size: Android
+<a name="broadcast-1470-rt-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 6.121 MB | 14.863 MB | 
+| armeabi-v7a | 5.306 MB | 10.296 MB | 
+| x86\_64 | 6.240 MB | 15.463 MB | 
+| x86 | 6.516 MB | 16.096 MB | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1470-rt-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 4.105 MB | 8.347 MB | 
+
+## September 24, 2026
+<a name="sep24-26-broadcast-web-rt"></a>
+
+### IVS Broadcast SDK: Web 1.40.0 (Real-Time Streaming)
+<a name="sep24-26-broadcast-web-rt-1400"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web Broadcast SDK 1.40.0](broadcast-web.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference)+  Bug fixes and stability improvements.  | 
+
 ## August 27, 2026
 <a name="aug27-26-broadcast-mobile-rt"></a>
 

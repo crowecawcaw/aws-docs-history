@@ -30,7 +30,7 @@ You can install the broadcast SDK using a script tag or npm. Our example uses th
 ### Using a Script Tag
 <a name="getting-started-broadcast-sdk-web-script"></a>
 
-The Web broadcast SDK is distributed as a JavaScript library and can be retrieved at [https://web-broadcast.live-video.net/1.39.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.39.0/amazon-ivs-web-broadcast.js).
+The Web broadcast SDK is distributed as a JavaScript library and can be retrieved at [https://web-broadcast.live-video.net/1.40.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.40.0/amazon-ivs-web-broadcast.js).
 
 When loaded via `<script>` tag, the library exposes a global variable in the window scope named `IVSBroadcastClient`.
 
@@ -78,7 +78,7 @@ repositories {
 }
  
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.46.0:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.47.0:stages@aar'
 }
 ```
 
