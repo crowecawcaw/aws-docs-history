@@ -6,70 +6,74 @@
 CloudTrail network activity events enable VPC endpoint owners to record AWS API calls made using their VPC endpoints from a private VPC to the AWS service. Network activity events provide visibility into the resource operations performed within a VPC. For example, logging network activity events can help VPC endpoint owners detect when credentials from outside their organization attempt to access their VPC endpoints. 
 
 You can log network activity events for the following services:
-+ AWS AppConfig
-+ AWS App Mesh
-+ Amazon Athena
-+ AWS B2B Data Interchange
-+ AWS Backup gateway
++ Amazon Aurora DSQL
 + Amazon Bedrock
-+ Billing and Cost Management
-+ AWS Pricing Calculator
-+ AWS Cost Explorer
-+ AWS Cloud Control API
-+ AWS CloudHSM
-+ AWS Cloud Map
-+ AWS CloudFormation
-+ AWS CloudTrail
-+ Amazon CloudWatch
-+ CloudWatch Application Signals
-+ AWS CodeDeploy
-+ Amazon Comprehend Medical
-+ AWS Config
-+ AWS Data Exports
-+ Amazon Data Firehose
-+ AWS Directory Service
-+ Amazon DynamoDB
-+ Amazon EC2
-+ Amazon Elastic Container Service
-+ Amazon Elastic File System
-+ Elastic Load Balancing
-+ Amazon EventBridge
++ Amazon Connect Voice ID
 + Amazon EventBridge Scheduler
 + Amazon Fraud Detector
-+ AWS Free Tier
-+ Amazon FSx
-+ AWS Glue
-+ AWS HealthLake
-+ AWS IoT FleetWise
-+ AWS IoT Secure Tunneling
-+ AWS Invoicing
-+ Amazon Keyspaces (for Apache Cassandra)
-+ AWS KMS
-+ AWS Lake Formation
-+ AWS Lambda
-+ AWS License Manager
++ Amazon HealthLake
 + Amazon Lookout for Equipment
 + Amazon Lookout for Vision
-+ Amazon Personalize
-+ Amazon Q Business
++ Amazon Q Subscriptions
++ Amazon QuickSight
 + Amazon Rekognition
-+ Amazon Relational Database Service
-+ Amazon S3
-**Note**  
-Amazon S3 [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html) are not supported.
-+ Amazon SageMaker AI
-+ AWS Secrets Manager
-+ Amazon Simple Notification Service
-+ Amazon Simple Queue Service
-+ Amazon Simple Workflow Service
-+ AWS Storage Gateway
-+ AWS Systems Manager Incident Manager
++ Amazon SageMaker
 + Amazon Textract
-+ Amazon Transcribe
-+ Amazon Translate
-+ AWS Transform
++ Amazon Transcribe Streaming Service
 + Amazon Verified Permissions
 + Amazon WorkMail
++ Anthropic Claude Developer Platform on AWS
++ Athena
++ AWS Agent Registry
++ AWS AppConfig
++ aws assurance
++ AWS B2B Data Interchange
++ AWS BCM Pricing Calculator
++ AWS Billing
++ AWS Cloud Map
++ AWS Glue
++ AWS IdentityStore Service
++ AWS Invoicing
++ AWS IoT FleetWise
++ AWS IoT Secured Tunneling
++ AWS IoT SiteWise
++ AWS License Manager
++ AWS Partner Central Revenue Measurement
++ AWS Secrets Manager
++ AWS SSO
++ AWS Step Functions
++ AWS Transfer Family
++ AWS Transform
++ AWSBillingAndCostManagementDataExports
++ AWSLakeFormation
++ Backup Gateway
++ Bedrock Agent Core
++ Cloud Control API
++ CloudFormation
++ CloudHSM
++ CloudTrail
++ CodeDeploy
++ Comprehend medical
++ Compute Optimizer Automation
++ DynamoDB
++ EC2 Auto Scaling
++ Elastic Compute Cloud (EC2)
++ Elastic File System (EFS)
++ IoT
++ Key Management Service (KMS)
++ Lambda
++ Relational Database Service (RDS) Core Control Plane
++ Route 53 Public DNS
++ S3 Vectors
++ Security Token Service (STS)
++ Sign-In Portal
++ Simple Email Service (SES)
++ Simple Notification Service (SNS)
++ Simple Queue Service (SQS)
++ Simple Storage Service (S3)
++ Simple Workflow Service (SWF)
++ SSM Contacts
++ Storage Gateway
 
 You can configure both trails and event data stores to log network activity events.
 
@@ -106,10 +110,14 @@ The following advanced event selector fields are required to log network activit
 
   Valid values include:
   + `aco-automation.amazonaws.com`
+  + `agent-registry.amazonaws.com`
   + `appconfig.amazonaws.com`
   + `application-signals.amazonaws.com`
   + `appmesh.amazonaws.com`
+  + `assurance.amazonaws.com`
   + `athena.amazonaws.com`
+  + `autoscaling.amazonaws.com`
+  + `aws-external-anthropic.amazonaws.com`
   + `b2bi.amazonaws.com`
   + `backup-gateway.amazonaws.com`
   + `bcm-data-exports.amazonaws.com`
@@ -119,18 +127,21 @@ The following advanced event selector fields are required to log network activit
   + `billing.amazonaws.com`
   + `cassandra.amazonaws.com`
   + `ce.amazonaws.com`
+  + `chime-sdk-media-pipelines.amazonaws.com`
+  + `chime-sdk-voice.amazonaws.com`
   + `cloudcontrolapi.amazonaws.com`
   + `cloudformation.amazonaws.com`
   + `cloudhsm.amazonaws.com`
-  + `cloudoptimization.amazonaws.com`
   + `cloudtrail.amazonaws.com`
   + `codedeploy.amazonaws.com`
   + `comprehend.amazonaws.com`
   + `comprehendmedical.amazonaws.com`
   + `config.amazonaws.com`
   + `ds.amazonaws.com`
+  + `dsql.amazonaws.com`
   + `dynamodb.amazonaws.com`
   + `ec2.amazonaws.com`
+  + `ecr.amazonaws.com`
   + `ecs.amazonaws.com`
   + `elasticfilesystem.amazonaws.com`
   + `elasticloadbalancing.amazonaws.com`
@@ -141,10 +152,12 @@ The following advanced event selector fields are required to log network activit
   + `fsx.amazonaws.com`
   + `glue.amazonaws.com`
   + `healthlake.amazonaws.com`
+  + `identitystore.amazonaws.com`
   + `invoicing.amazonaws.com`
   + `iot.amazonaws.com`
   + `iotfleetwise.amazonaws.com`
   + `iotsecuredtunneling.amazonaws.com`
+  + `iotsitewise.amazonaws.com`
   + `kms.amazonaws.com`
   + `lakeformation.amazonaws.com`
   + `lambda.amazonaws.com`
@@ -152,28 +165,39 @@ The following advanced event selector fields are required to log network activit
   + `lookoutequipment.amazonaws.com`
   + `lookoutvision.amazonaws.com`
   + `monitoring.amazonaws.com`
-  + `nova-act.amazonaws.com`
+  + `partnercentral-prm.amazonaws.com`
   + `personalize.amazonaws.com`
   + `qbusiness.amazonaws.com`
+  + `quicksight.amazonaws.com`
   + `rds.amazonaws.com`
+  + `rdsdata.amazonaws.com`
+  + `rdsdataapi.amazonaws.com`
   + `rekognition.amazonaws.com`
   + `rolesanywhere.amazonaws.com`
+  + `route53.amazonaws.com`
   + `s3.amazonaws.com`
+  + `s3vectors.amazonaws.com`
   + `sagemaker.amazonaws.com`
   + `scheduler.amazonaws.com`
   + `secretsmanager.amazonaws.com`
   + `servicediscovery.amazonaws.com`
+  + `ses.amazonaws.com`
+  + `signin.amazonaws.com`
   + `sns.amazonaws.com`
   + `sqs.amazonaws.com`
   + `ssm-contacts.amazonaws.com`
   + `ssm.amazonaws.com`
+  + `sso-directory.amazonaws.com`
+  + `sso-oauth.amazonaws.com`
+  + `sso.amazonaws.com`
+  + `states.amazonaws.com`
   + `storagegateway.amazonaws.com`
+  + `sts.amazonaws.com`
   + `swf.amazonaws.com`
   + `textract.amazonaws.com`
   + `transcribe.amazonaws.com`
   + `transcribestreaming.amazonaws.com`
-  + `transform-agents.amazonaws.com`
-  + `transform-custom.amazonaws.com`
+  + `transfer.amazonaws.com`
   + `transform.amazonaws.com`
   + `translate.amazonaws.com`
   + `user-subscriptions.amazonaws.com`

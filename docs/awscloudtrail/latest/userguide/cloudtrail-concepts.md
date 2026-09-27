@@ -74,182 +74,256 @@ For event data stores, you can use only advanced event selectors to include data
 
 | AWS service | Description | Resource type (console) | resources.type value | 
 | --- | --- | --- | --- | 
-| Amazon RDS | [Amazon RDS API activity](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.html#logging-using-cloudtrail-data-api.including-excluding-cloudtrail-events) on a DB Cluster. | RDS Data API - DB Cluster | AWS::RDS::DBCluster | 
-| Amazon S3 | [Amazon S3 object-level API activity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events) (for example, `GetObject`, `DeleteObject`, and `PutObject` API operations) on objects in general purpose buckets. | S3 | AWS::S3::Object | 
-| Amazon S3 | [Amazon S3 API activity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events) on access points. | S3 Access Point | AWS::S3::AccessPoint | 
-| Amazon S3 | [Amazon S3 object-level API activity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events) (for example, `GetObject`, `DeleteObject`, and `PutObject` API operations) on objects in directory buckets. | S3 Express | AWS::S3Express::Object | 
-| Amazon S3 | [Amazon S3 Object Lambda access points API activity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events), such as calls to `CompleteMultipartUpload` and `GetObject`. | S3 Object Lambda | AWS::S3ObjectLambda::AccessPoint | 
-| Amazon S3 | Amazon FSx API activity on volumes.  | FSx Volume | AWS::FSx::Volume | 
-| Amazon S3 Tables | Amazon S3 API activity on [tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-create.html). | S3 table | AWS::S3Tables::Table | 
-| Amazon S3 Tables | Amazon S3 API activity on [table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html). | S3 table bucket | AWS::S3Tables::TableBucket | 
-| Amazon S3 Vectors | Amazon S3 API activity on [vector buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-buckets.html). | S3 vector bucket | AWS::S3Vectors::VectorBucket | 
-| Amazon S3 Vectors | Amazon S3 API activity on [vector indexes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-indexes.html). | S3 vector index | AWS::S3Vectors::Index | 
-| Amazon S3 on Outposts | [Amazon S3 on Outposts object-level API activity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events). | S3 Outposts | AWS::S3Outposts::Object | 
-| Amazon SNS | Amazon SNS [`Publish`](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) API operations on platform endpoints. | SNS platform endpoint | AWS::SNS::PlatformEndpoint | 
-| Amazon SNS | Amazon SNS [`Publish`](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) and [`PublishBatch`](https://docs.aws.amazon.com/sns/latest/api/API_PublishBatch.html) API operations on topics. | SNS topic | AWS::SNS::Topic | 
-| Amazon SQS | [Amazon SQS API activity](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-logging-using-cloudtrail.html#sqs-data-events-in-cloud-trail) on messages. | SQS | AWS::SQS::Queue | 
-| Supply Chain | Supply Chain API activity on an instance. | Supply Chain | AWS::SCN::Instance | 
-| Amazon SWF | [Amazon SWF API activity](https://docs.aws.amazon.com/amazonswf/latest/developerguide/ct-logging.html#cloudtrail-data-events) on [domains](https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-domains.html). | SWF domain | AWS::SWF::Domain | 
-| AWS AppConfig | [AWS AppConfig API activity](https://docs.aws.amazon.com/appconfig/latest/userguide/logging-using-cloudtrail.html#appconfig-data-events-cloudtrail) for configuration operations such as calls to `StartConfigurationSession` and `GetLatestConfiguration`. | AWS AppConfig | AWS::AppConfig::Configuration | 
-| AWS AppSync | [AWS AppSync API activity](https://docs.aws.amazon.com/appsync/latest/devguide/cloudtrail-logging.html#cloudtrail-data-events) on AppSync GraphQL APIs. | AppSync GraphQL | AWS::AppSync::GraphQLApi | 
-| Amazon Aurora DSQL | Amazon Aurora DSQL API activity on cluster resources.  | Amazon Aurora DSQL | AWS::DSQL::Cluster | 
-| AWS B2B Data Interchange | B2B Data Interchange API activity for Transformer operations such as calls to `GetTransformerJob` and `StartTransformerJob`. | B2B Data Interchange | AWS::B2BI::Transformer | 
-| AWS Backup | AWS Backup Search Data API activity on search jobs. | AWS Backup Search Data APIs | AWS::Backup::SearchJob | 
-| Amazon Bedrock | [Amazon Bedrock API activity](https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail) on an agent alias. | Bedrock agent alias | AWS::Bedrock::AgentAlias | 
-| Amazon Bedrock | Amazon Bedrock API activity on async invocations. | Bedrock async invoke | AWS::Bedrock::AsyncInvoke | 
-| Amazon Bedrock | Amazon Bedrock API activity on a flow alias. | Bedrock flow alias | AWS::Bedrock::FlowAlias | 
-| Amazon Bedrock | Amazon Bedrock API activity on guardrails. | Bedrock guardrail | AWS::Bedrock::Guardrail | 
-| Amazon Bedrock | Amazon Bedrock API activity on inline agents. | Bedrock Invoke Inline-Agent | AWS::Bedrock::InlineAgent | 
-| Amazon Bedrock | [Amazon Bedrock API activity](https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail) on a knowledge base. | Bedrock knowledge base | AWS::Bedrock::KnowledgeBase | 
-| Amazon Bedrock | Amazon Bedrock API activity on models. | Bedrock model | AWS::Bedrock::Model | 
-| Amazon Bedrock | Amazon Bedrock API activity on prompts. | Bedrock prompt | AWS::Bedrock::PromptVersion | 
-| Amazon Bedrock | Amazon Bedrock API activity on sessions. | Bedrock session | AWS::Bedrock::Session | 
-| Amazon Bedrock | Amazon Bedrock API activity on flow executions.  | Bedrock flow execution | AWS::Bedrock::FlowExecution | 
-| Amazon Bedrock | Amazon Bedrock API activity on an automated reasoning policy.  | Bedrock automated reasoning policy | AWS::Bedrock::AutomatedReasoningPolicy | 
-| Amazon Bedrock | Amazon Bedrock API activity on an automated reasoning policy version.  | Bedrock automated reasoning policy version | AWS::Bedrock::AutomatedReasoningPolicyVersion | 
-| Amazon Bedrock | Amazon Bedrock data automation project API activity. | **Bedrock Data Automation project** | `AWS::Bedrock::DataAutomationProject` | 
-| Amazon Bedrock | Bedrock data automation invocation API activity. | **Bedrock Data Automation invocation** | `AWS::Bedrock::DataAutomationInvocation` | 
-| Amazon Bedrock | Amazon Bedrock data automation profile API activity. | **Bedrock Data Automation profile** | `AWS::Bedrock::DataAutomationProfile` | 
-| Amazon Bedrock | Amazon Bedrock blueprint API activity. | **Bedrock blueprint** | `AWS::Bedrock::Blueprint` | 
-| Amazon Bedrock | Amazon Bedrock Code-Interpreter API activity. | **Bedrock-AgentCore Code-Interpreter** | `AWS::BedrockAgentCore::CodeInterpreter` | 
-| Amazon Bedrock | Amazon Bedrock Browser API activity. | **Bedrock-AgentCore Browser** | `AWS::BedrockAgentCore::Browser` | 
-| Amazon Bedrock | Amazon Bedrock Workload Identity API activity. | **Bedrock-AgentCore Workload Identity** | `AWS::BedrockAgentCore::WorkloadIdentity` | 
-| Amazon Bedrock | Amazon Bedrock Workload Identity Directory API activity. | **Bedrock-AgentCore Workload Identity Directory** | `AWS::BedrockAgentCore::WorkloadIdentityDirectory` | 
-| Amazon Bedrock | Amazon Bedrock Token Vault API activity. | **Bedrock-AgentCore Token Vault** | `AWS::BedrockAgentCore::TokenVault` | 
-| Amazon Bedrock | Amazon Bedrock APIKey CredentialProvider API activity. | **Bedrock-AgentCore APIKey CredentialProvider** | `AWS::BedrockAgentCore::APIKeyCredentialProvider` | 
-| Amazon Bedrock | Amazon Bedrock Runtime API activity. | **Bedrock-AgentCore Runtime** | `AWS::BedrockAgentCore::Runtime` | 
-| Amazon Bedrock | Amazon Bedrock Runtime-Endpoint API activity. | **Bedrock-AgentCore Runtime-Endpoint** | `AWS::BedrockAgentCore::RuntimeEndpoint` | 
-| Amazon Bedrock | Amazon Bedrock Gateway API activity. | **Bedrock-AgentCore Gateway** | `AWS::BedrockAgentCore::Gateway` | 
-| Amazon Bedrock | Amazon Bedrock Memory API activity. | **Bedrock-AgentCore Memory** | `AWS::BedrockAgentCore::Memory` | 
-| Amazon Bedrock | Amazon Bedrock Oauth2 CredentialProvider API activity. | **Bedrock-AgentCore Oauth2 CredentialProvider** | `AWS::BedrockAgentCore::OAuth2CredentialProvider` | 
-| Amazon Bedrock | Amazon Bedrock Browser-Custom API activity. | **Bedrock-AgentCore Browser-Custom** | `AWS::BedrockAgentCore::BrowserCustom` | 
-| Amazon Bedrock | Amazon Bedrock Code-Interpreter-Custom API activity. | **Bedrock-AgentCore Code-Interpreter-Custom** | `AWS::BedrockAgentCore::CodeInterpreterCustom` | 
-| Amazon Bedrock | Amazon Bedrock Tool API activity. | Bedrock Tool | AWS::Bedrock::Tool | 
-| AWS Cloud Map | [AWS Cloud Map API activity](https://docs.aws.amazon.com/cloud-map/latest/dg/cloudtrail-data-events.html) on a [namespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_Namespace.html). | AWS Cloud Map namespace | AWS::ServiceDiscovery::Namespace | 
-| AWS Cloud Map | [AWS Cloud Map API activity](https://docs.aws.amazon.com/cloud-map/latest/dg/cloudtrail-data-events.html) on a [service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html). | AWS Cloud Map service | AWS::ServiceDiscovery::Service | 
-| Amazon CloudFront | CloudFront API activity on a [KeyValueStore](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_KeyValueStore.html). | CloudFront KeyValueStore | AWS::CloudFront::KeyValueStore | 
-| AWS CloudTrail | CloudTrail [`PutAuditEvents`](https://docs.aws.amazon.com/awscloudtraildata/latest/APIReference/API_PutAuditEvents.html) activity on a [CloudTrail Lake channel](query-event-data-store-integration.md) that is used to log events from outside AWS. | CloudTrail channel | AWS::CloudTrail::Channel | 
-| Amazon CloudWatch | [Amazon CloudWatch API activity](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html#CloudWatch-data-plane-events) on metrics. | CloudWatch metric | AWS::CloudWatch::Metric | 
-| Amazon CloudWatch Network Flow Monitor | Amazon CloudWatch Network Flow Monitor API activity on monitors. | Network Flow Monitor monitor | AWS::NetworkFlowMonitor::Monitor | 
-| Amazon CloudWatch Network Flow Monitor | Amazon CloudWatch Network Flow Monitor API activity on scopes. | Network Flow Monitor scope | AWS::NetworkFlowMonitor::Scope | 
-| Amazon CloudWatch RUM | Amazon CloudWatch RUM API activity on app monitors. | RUM app monitor | AWS::RUM::AppMonitor | 
-| Amazon CodeGuru Profiler | CodeGuru Profiler API activity on profiling groups. | CodeGuru Profiler profiling group | AWS::CodeGuruProfiler::ProfilingGroup | 
-| Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a customization. | CodeWhisperer customization | AWS::CodeWhisperer::Customization | 
-| Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a profile. | CodeWhisperer | AWS::CodeWhisperer::Profile | 
-| Amazon Cognito | Amazon Cognito API activity on Amazon Cognito [identity pools](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-info-in-cloudtrail.html#identity-pools-cloudtrail-events). | Cognito Identity Pools | AWS::Cognito::IdentityPool | 
-| AWS Data Exchange | AWS Data Exchange API activity on assets. | **Data Exchange asset** | `AWS::DataExchange::Asset` | 
-| Amazon Data Firehose | Amazon Data Firehose delivery stream API activity. | **Amazon Data Firehose** | `AWS::KinesisFirehose::DeliveryStream` | 
-| AWS Deadline Cloud | [Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events) API activity on fleets. | **Deadline Cloud fleet** | `AWS::Deadline::Fleet` | 
-| AWS Deadline Cloud | [Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events) API activity on jobs. | **Deadline Cloud job** | `AWS::Deadline::Job` | 
-| AWS Deadline Cloud | [Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events) API activity on queues. | **Deadline Cloud queue** | `AWS::Deadline::Queue` | 
-| AWS Deadline Cloud | [Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events) API activity on workers. | **Deadline Cloud worker** | `AWS::Deadline::Worker` | 
-| Amazon DynamoDB | [Amazon DynamoDB item-level API activity](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/logging-using-cloudtrail.html#ddb-data-plane-events-in-cloudtrail) on tables (for example, `PutItem`, `DeleteItem`, and `UpdateItem` API operations).For tables with streams enabled, the `resources` field in the data event contains both `AWS::DynamoDB::Stream` and `AWS::DynamoDB::Table`. If you specify `AWS::DynamoDB::Table` for the `resources.type`, it will log both DynamoDB table and DynamoDB streams events by default. To exclude [streams events](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/logging-using-cloudtrail.html#ddb-data-plane-events-in-cloudtrail), add a filter on the `eventName` field.  | DynamoDB | `AWS::DynamoDB::Table` | 
-| Amazon DynamoDB | [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/logging-using-cloudtrail.html#ddb-data-plane-events-in-cloudtrail) API activity on streams. | DynamoDB Streams | AWS::DynamoDB::Stream | 
-| Amazon Elastic Block Store | [Amazon Elastic Block Store (EBS)](https://docs.aws.amazon.com/ebs/latest/userguide/logging-ebs-apis-using-cloudtrail.html) direct APIs, such as `PutSnapshotBlock`, `GetSnapshotBlock`, and `ListChangedBlocks` on Amazon EBS snapshots. | Amazon EBS direct APIs | AWS::EC2::Snapshot | 
-| Amazon Elastic Compute Cloud | Amazon EC2 instance connect endpoint API activity. | **EC2 instance connect endpoint** | `AWS::EC2::InstanceConnectEndpoint` | 
-| Amazon Elastic Container Service | Amazon Elastic Container Service API activity on a container instance. | ECS container instance | AWS::ECS::ContainerInstance | 
-| Amazon Elastic Kubernetes Service | Amazon Elastic Kubernetes Service API activity on dashboards.  | Amazon Elastic Kubernetes Service dashboard | AWS::EKS::Dashboard | 
-| Amazon EMR | [Amazon EMR API activity](https://docs.aws.amazon.com/emr/latest/ManagementGuide/logging-using-cloudtrail.html#cloudtrail-data-events) on a write-ahead log workspace. | EMR write-ahead log workspace | AWS::EMRWAL::Workspace | 
-| AWS End User Messaging SMS | [AWS End User Messaging SMS](https://docs.aws.amazon.com/sms-voice/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events) API activity on origination identities. | SMS Voice origination identity | AWS::SMSVoice::OriginationIdentity | 
-| AWS End User Messaging SMS | [AWS End User Messaging SMS](https://docs.aws.amazon.com/sms-voice/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events) API activity on messages. | SMS Voice message | AWS::SMSVoice::Message | 
-| AWS End User Messaging Social | [AWS End User Messaging Social](https://docs.aws.amazon.com/social-messaging/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events) API activity on phone number IDs. | Social-Messaging Phone Number Id | AWS::SocialMessaging::PhoneNumberId | 
-| AWS End User Messaging Social | AWS End User Messaging Social API activity on Waba IDs. | Social-Messaging Waba ID | AWS::SocialMessaging::WabaId | 
-| Amazon FinSpace | [Amazon FinSpace](https://docs.aws.amazon.com/finspace/latest/userguide/logging-cloudtrail-events.html#finspace-dataplane-events) API activity on environments. | FinSpace | AWS::FinSpace::Environment | 
-| Amazon GameLift Streams | Amazon GameLift Streams [streaming API activity](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/logging-using-cloudtrail.html#cloudtrail-data-events) on applications. | GameLift Streams application | AWS::GameLiftStreams::Application | 
-| Amazon GameLift Streams | Amazon GameLift Streams [streaming API activity](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/logging-using-cloudtrail.html#cloudtrail-data-events) on stream groups. | GameLift Streams stream group | AWS::GameLiftStreams::StreamGroup | 
-| AWS Glue | AWS Glue API activity on tables that were created by Lake Formation. | Lake Formation | AWS::Glue::Table | 
-| Amazon GuardDuty | Amazon GuardDuty API activity for a [detector](https://docs.aws.amazon.com/guardduty/latest/ug/logging-using-cloudtrail.html#guardduty-data-events-in-cloudtrail). | GuardDuty detector | AWS::GuardDuty::Detector | 
-| AWS HealthImaging | AWS HealthImaging API activity on data stores. | MedicalImaging data store | AWS::MedicalImaging::Datastore | 
-| AWS HealthImaging | AWS HealthImaging image set API activity. | **MedicalImaging image set** | `AWS::MedicalImaging::Imageset` | 
-| AWS IoT | [AWS IoT API activity](https://docs.aws.amazon.com/greengrass/v2/developerguide/logging-using-cloudtrail.html#greengrass-data-events-cloudtrail) on [certificates](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html). | IoT certificate | AWS::IoT::Certificate | 
-| AWS IoT | [AWS IoT API activity](https://docs.aws.amazon.com/greengrass/v2/developerguide/logging-using-cloudtrail.html#greengrass-data-events-cloudtrail) on [things](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html). | IoT thing | AWS::IoT::Thing | 
-| AWS IoT Greengrass Version 2 | [Greengrass API activity](https://docs.aws.amazon.com/greengrass/v2/developerguide/logging-using-cloudtrail.html#greengrass-data-events-cloudtrail) from a Greengrass core device on a component version.Greengrass doesn't log access denied events. | IoT Greengrass component version | AWS::GreengrassV2::ComponentVersion | 
-| AWS IoT Greengrass Version 2 | [Greengrass API activity](https://docs.aws.amazon.com/greengrass/v2/developerguide/logging-using-cloudtrail.html#greengrass-data-events-cloudtrail) from a Greengrass core device on a deployment.Greengrass doesn't log access denied events. | IoT Greengrass deployment | AWS::GreengrassV2::Deployment | 
-| AWS IoT SiteWise | [IoT SiteWise API activity](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail) on [assets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAsset.html). | IoT SiteWise asset | AWS::IoTSiteWise::Asset | 
-| AWS IoT SiteWise | [IoT SiteWise API activity](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail) on [time series](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeTimeSeries.html). | IoT SiteWise time series | AWS::IoTSiteWise::TimeSeries | 
-| AWS IoT SiteWise Assistant | Sitewise Assistant API activity on conversations. | Sitewise Assistant conversation | AWS::SitewiseAssistant::Conversation | 
-| AWS IoT TwinMaker | IoT TwinMaker API activity on an [entity](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateEntity.html). | IoT TwinMaker entity | AWS::IoTTwinMaker::Entity | 
-| AWS IoT TwinMaker | IoT TwinMaker API activity on a [workspace](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateWorkspace.html). | IoT TwinMaker workspace | AWS::IoTTwinMaker::Workspace | 
-| Amazon Kendra Intelligent Ranking | Amazon Kendra Intelligent Ranking API activity on [rescore execution plans](https://docs.aws.amazon.com/kendra/latest/dg/cloudtrail-intelligent-ranking.html#cloud-trail-intelligent-ranking-log-entry). | Kendra Ranking | AWS::KendraRanking::ExecutionPlan | 
-| Amazon Keyspaces (for Apache Cassandra) | [Amazon Keyspaces API activity](https://docs.aws.amazon.com/keyspaces/latest/devguide/logging-using-cloudtrail.html#keyspaces-in-cloudtrail-dml) on a table. | Cassandra table | AWS::Cassandra::Table | 
-| Amazon Keyspaces (for Apache Cassandra) | Amazon Keyspaces (for Apache Cassandra) API activity on Cassandra CDC streams.  | Cassandra CDC streams | AWS::Cassandra::Stream | 
-| Amazon Kinesis Data Streams | Kinesis Data Streams API activity on [streams](https://docs.aws.amazon.com/streams/latest/dev/working-with-streams.html). | Kinesis stream | AWS::Kinesis::Stream | 
-| Amazon Kinesis Data Streams | Kinesis Data Streams API activity on [stream consumers](https://docs.aws.amazon.com/streams/latest/dev/building-consumers.html). | Kinesis stream consumer | AWS::Kinesis::StreamConsumer | 
-| Amazon Kinesis Video Streams | Kinesis Video Streams API activity on video streams, such as calls to GetMedia and PutMedia. | Kinesis video stream | AWS::KinesisVideo::Stream | 
-| Amazon Kinesis Video Streams | Kinesis Video Streams video signaling channel API activity. | **Kinesis video signaling channel** | `AWS::KinesisVideo::SignalingChannel` | 
-| AWS Lambda | AWS Lambda function execution activity (the `Invoke` API). | Lambda | AWS::Lambda::Function | 
-| Amazon Location Maps | Amazon Location Maps API activity. | Geo Maps | AWS::GeoMaps::Provider | 
-| Amazon Location Places | Amazon Location Places API activity. | Geo Places | AWS::GeoPlaces::Provider | 
-| Amazon Location Routes | Amazon Location Routes API activity. | Geo Routes | AWS::GeoRoutes::Provider | 
-| Amazon Machine Learning | Machine Learning API activity on ML models. | Maching Learning MlModel | AWS::MachineLearning::MlModel | 
-| Amazon Managed Blockchain | Amazon Managed Blockchain API activity on a network. | Managed Blockchain network | AWS::ManagedBlockchain::Network | 
-| Amazon Managed Blockchain | [Amazon Managed Blockchain](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/logging-using-cloudtrail.html#ethereum-jsonrpc-logging) JSON-RPC calls on Ethereum nodes, such as `eth_getBalance` or `eth_getBlockByNumber`. | Managed Blockchain | AWS::ManagedBlockchain::Node | 
-| Amazon Managed Blockchain Query | Amazon Managed Blockchain Query API activity. | Managed Blockchain Query | AWS::ManagedBlockchainQuery::QueryAPI | 
-| Amazon Managed Workflows for Apache Airflow | Amazon MWAA API activity on environments. | Managed Apache Airflow | AWS::MWAA::Environment | 
-| Amazon Neptune Graph | Data API activities, for example queries, algorithms, or vector search, on a Neptune Graph. | Neptune Graph | AWS::NeptuneGraph::Graph | 
-| Amazon One Enterprise | Amazon One Enterprise API activity on a UKey. | Amazon One UKey | AWS::One::UKey | 
-| Amazon One Enterprise | Amazon One Enterprise API activity on users. | Amazon One User | AWS::One::User | 
-| AWS Payment Cryptography | AWS Payment Cryptography API activity on aliases. | Payment Cryptography Alias | AWS::PaymentCryptography::Alias | 
-| AWS Payment Cryptography | AWS Payment Cryptography API activity on keys. | Payment Cryptography Key | AWS::PaymentCryptography::Key | 
-| Amazon Pinpoint | Amazon Pinpoint API activity on mobile targeting applications. | Mobile Targeting Application | AWS::Pinpoint::App | 
-| AWS Private CA | AWS Private CA Connector for Active Directory API activity. | AWS Private CA Connector for Active Directory | AWS::PCAConnectorAD::Connector | 
-| AWS Private CA | AWS Private CA Connector for SCEP API activity. | AWS Private CA Connector for SCEP | AWS::PCAConnectorSCEP::Connector | 
-| Amazon Q Apps | Data API activity on [Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/purpose-built-qapps.html). | Amazon Q Apps | AWS::QApps::QApp | 
-| Amazon Q Apps | Data API activity on Amazon Q App sessions. | Amazon Q App Session | AWS::QApps::QAppSession | 
-| Amazon Q Business | [Amazon Q Business API activity](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html#service-name-data-plane-events-cloudtrail) on an application. | Amazon Q Business application | AWS::QBusiness::Application | 
-| Amazon Q Business | [Amazon Q Business API activity](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html#service-name-data-plane-events-cloudtrail) on a data source. | Amazon Q Business data source | AWS::QBusiness::DataSource | 
-| Amazon Q Business | [Amazon Q Business API activity](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html#service-name-data-plane-events-cloudtrail) on an index. | Amazon Q Business index | AWS::QBusiness::Index | 
-| Amazon Q Business | [Amazon Q Business API activity](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html#service-name-data-plane-events-cloudtrail) on a web experience. | Amazon Q Business web experience | AWS::QBusiness::WebExperience | 
-| Amazon Q Business  | Amazon Q Business integration API activity. | **Amazon Q Business integration** | `AWS::QBusiness::Integration` | 
-| Amazon Q Developer | Amazon Q Developer API activity on an integration. | Q Developer integration | AWS::QDeveloper::Integration | 
-| Amazon Q Developer | [Amazon Q Developer API activity](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html#Q-Developer-Investigations-Cloudtrail) on operational investigations. | AIOps Investigation Group | AWS::AIOps::InvestigationGroup | 
-| Amazon Quick | Amazon Quick API activity on an action connector. | AWSQuickSuite Actions | AWS::Quicksight::ActionConnector | 
-| Amazon Quick | Amazon Quick Flow API activity. | **QuickSight flow** | `AWS::QuickSight::Flow` | 
-| Amazon Quick | Amazon Quick FlowSession API activity. | **QuickSight flow session** | `AWS::QuickSight::FlowSession` | 
-| Amazon SageMaker AI |  Amazon SageMaker AI [`InvokeEndpointWithResponseStream`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.html) activity on endpoints. | SageMaker AI endpoint | AWS::SageMaker::Endpoint | 
-| Amazon SageMaker AI | Amazon SageMaker AI API activity on feature stores. | SageMaker AI feature store | AWS::SageMaker::FeatureGroup | 
-| Amazon SageMaker AI | Amazon SageMaker AI API activity on [experiment trial components](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-monitoring.html). | SageMaker AI metrics experiment trial component | AWS::SageMaker::ExperimentTrialComponent | 
-| Amazon SageMaker AI | Amazon SageMaker AI MLflow API activity. | **SageMaker MLflow** | `AWS::SageMaker::MlflowTrackingServer` | 
-| AWS Signer | Signer API activity on signing jobs. | Signer signing job | AWS::Signer::SigningJob | 
-| AWS Signer | Signer API activity on signing profiles. | Signer signing profile | AWS::Signer::SigningProfile | 
-| Amazon Simple Email Service | Amazon Simple Email Service (Amazon SES) API activity on configuration sets. | SES configuration set | AWS::SES::ConfigurationSet | 
-| Amazon Simple Email Service | Amazon Simple Email Service (Amazon SES) API activity on email identities. | SES identity | AWS::SES::EmailIdentity | 
-| Amazon Simple Email Service | Amazon Simple Email Service (Amazon SES) API activity on templates. | SES template | AWS::SES::Template | 
-| Amazon SimpleDB | Amazon SimpleDB API activity on domains. | SimpleDB domain | AWS::SDB::Domain | 
-| AWS Step Functions | [Step Functions API activity](https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cloud-trail.html#cloudtrail-data-events) on activities. | Step Functions | AWS::StepFunctions::Activity | 
-| AWS Step Functions | [Step Functions API activity](https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cloud-trail.html#cloudtrail-data-events) on state machines. | Step Functions state machine | AWS::StepFunctions::StateMachine | 
-| AWS Systems Manager | [Systems Manager API activity](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-cloudtrail-logs.html#cloudtrail-data-events) on control channels. | Systems Manager | AWS::SSMMessages::ControlChannel | 
-| AWS Systems Manager | Systems Manager API activity on impact assessments. | SSM Impact Assessment  | AWS::SSM::ExecutionPreview | 
-| AWS Systems Manager | [Systems Manager API activity](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-cloudtrail-logs.html#cloudtrail-data-events) on managed nodes. | Systems Manager managed node | AWS::SSM::ManagedNode | 
-| Amazon Timestream | Amazon Timestream [`Query`](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html) API activity on databases. | Timestream database | AWS::Timestream::Database | 
-| Amazon Timestream | Amazon Timestream API activity on regional endpoints. | Timestream regional endpoint | AWS::Timestream::RegionalEndpoint | 
-| Amazon Timestream | Amazon Timestream [`Query`](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html) API activity on tables. | Timestream table | AWS::Timestream::Table | 
-| Amazon Verified Permissions | Amazon Verified Permissions API activity on a policy store. | Amazon Verified Permissions | AWS::VerifiedPermissions::PolicyStore | 
-| Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on a Device. | Thin Client Device | AWS::ThinClient::Device | 
-| Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on an Environment. | Thin Client Environment | AWS::ThinClient::Environment | 
-| AWS X-Ray | [X-Ray API activity](https://docs.aws.amazon.com/xray/latest/devguide/xray-api-cloudtrail.html#cloudtrail-data-events) on [traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-traces). | X-Ray trace | AWS::XRay::Trace | 
-| Amazon AIDevOps | AIDevOps API activity on agent spaces. | Agent Space | AWS::AIDevOps::AgentSpace | 
-| Amazon AIDevOps | AIDevOps API activity on associations. | AIDevOps association | AWS::AIDevOps::Association | 
-| Amazon AIDevOps | AIDevOps API activity on operator app teams. | AIDevOps operator app team | AWS::AIDevOps::OperatorAppTeam | 
-| Amazon AIDevOps | AIDevOps API activity on pipeline metadata. | AIDevOps Pipelines Metadata | AWS::AIDevOps::PipelineMetadata | 
-| Amazon AIDevOps | AIDevOps API activity on services. | AIDevOps service | AWS::AIDevOps::Service | 
-| Amazon Bedrock | Bedrock API activity on advanced optimize prompt jobs. | AdvancedOptimizePromptJob | AWS::Bedrock::AdvancedOptimizePromptJob | 
-| Amazon Bedrock AgentCore | Bedrock AgentCore API activity on evaluators. | Bedrock-AgentCore Evaluator | AWS::BedrockAgentCore::Evaluator | 
-| Amazon Cost Optimization | CloudOptimization API activity on profiles. | CloudOptimization Profile | AWS::CloudOptimization::Profile | 
-| Amazon Cost Optimization | CloudOptimization API activity on recommendations. | CloudOptimization Recommendation | AWS::CloudOptimization::Recommendation | 
-| Amazon GuardDuty | GuardDuty API activity on malware scans. | GuardDuty malware scan | AWS::GuardDuty::MalwareScan | 
-| Amazon NovaAct | Amazon NovaAct API activity on workflow definitions. | Workflow definition | AWS::NovaAct::WorkflowDefinition | 
-| Amazon NovaAct | Amanzon NovaAct API activity on workflow runs. | Workflow run | AWS::NovaAct::WorkflowRun | 
-| Amazon Redshift | Redshift API activity on clusters. | Amazon Redshift Cluster | AWS::Redshift::Cluster | 
-| Amazon Support | SupportAccess API activity on tenants. | SupportAccess tenant | AWS::SupportAccess::Tenant | 
-| Amazon Support | SupportAccess API activity on trusting accounts. | SupportAccess trusting account | AWS::SupportAccess::TrustingAccount | 
-| Amazon Support | SupportAccess API activity on trusting roles. | SupportAccess trusting role | AWS::SupportAccess::TrustingRole | 
-| Amazon Transform | Transform API activity on agent instances. | Transform agent instance | AWS::Transform::AgentInstance | 
-| Amazon Transform Custom | Transform Custom API activity on campaigns. | Transform-Custom campaign | AWS::TransformCustom::Campaign | 
-| Amazon Transform Custom | Transform Custom API activity on conversations. | Transform-Custom conversation | AWS::TransformCustom::Conversation | 
-| Amazon Transform Custom | Transform Custom API activity on knowledge items. | Transform-Custom knowledge item | AWS::TransformCustom::KnowledgeItem | 
-| Amazon Transform Custom | Transform Custom API activity on packages. | Transform-Custom package | AWS::TransformCustom::Package | 
-| Amazon WorkSpaces Applications | Agents accessing WorkSpaces Applications MCP tool events | Agent Access MCP Tools | AWS::AgentAccessMCP::Tools | 
+| Amazon WorkSpaces Applications | Agents accessing WorkSpaces Applications MCP tool events | Agent Access MCP Tools | `AWS::AgentAccessMCP::Tools` | 
+| AWS Agent Registry | API activity on `AWS::AgentRegistry::Registry` resources. | AWS Agent Registry | `AWS::AgentRegistry::Registry` | 
+| Amazon AIDevOps | AIDevOps API activity on agent spaces. | Agent Space | `AWS::AIDevOps::AgentSpace` | 
+| Amazon AIDevOps | AIDevOps API activity on associations. | AIDevOps association | `AWS::AIDevOps::Association` | 
+| Amazon AIDevOps | AIDevOps API activity on operator app teams. | AIDevOps operator app team | `AWS::AIDevOps::OperatorAppTeam` | 
+| Amazon AIDevOps | AIDevOps API activity on pipeline metadata. | AIDevOps Pipelines Metadata | `AWS::AIDevOps::PipelineMetadata` | 
+| Amazon AIDevOps | AIDevOps API activity on services. | AIDevOps service | `AWS::AIDevOps::Service` | 
+| Amazon Q Developer | Amazon Q Developer API activity on operational investigations. For more information, see [Amazon Q Developer](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html#Q-Developer-Investigations-Cloudtrail). | AIOps Investigation Group | `AWS::AIOps::InvestigationGroup` | 
+| Amazon OpenSearch Serverless | API activity on `AWS::AOSS::Collection` resources. | AWS::AOSS::Collection | `AWS::AOSS::Collection` | 
+| AWS AppConfig | AWS AppConfig API activity for configuration operations such as calls to StartConfigurationSession and GetLatestConfiguration. For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/logging-using-cloudtrail.html#appconfig-data-events-cloudtrail). | AWS AppConfig | `AWS::AppConfig::Configuration` | 
+| CloudWatch Application Signals | API activity on `AWS::ApplicationSignals::InstrumentationConfig` resources. | AWS::ApplicationSignals::InstrumentationConfig | `AWS::ApplicationSignals::InstrumentationConfig` | 
+| AWS AppSync | AWS AppSync API activity on AppSync GraphQL APIs. For more information, see [AWS AppSync](https://docs.aws.amazon.com/appsync/latest/devguide/cloudtrail-logging.html#cloudtrail-data-events). | AppSync GraphQL | `AWS::AppSync::GraphQLApi` | 
+| External anthropic workspace | API activity on `AWS::AWSExternalAnthropic::Workspace` resources. | External anthropic workspace | `AWS::AWSExternalAnthropic::Workspace` | 
+| AWS B2B Data Interchange | B2B Data Interchange API activity for Transformer operations such as calls to GetTransformerJob and StartTransformerJob. | B2B Data Interchange | `AWS::B2BI::Transformer` | 
+| AWS Backup access point | API activity on `AWS::Backup::BackupAccessPoint` resources. | AWS Backup access point | `AWS::Backup::BackupAccessPoint` | 
+| AWS Backup | AWS Backup Search Data API activity on search jobs. | AWS Backup Search Data APIs | `AWS::Backup::SearchJob` | 
+| Amazon Bedrock | Bedrock API activity on advanced optimize prompt jobs. | AdvancedOptimizePromptJob | `AWS::Bedrock::AdvancedOptimizePromptJob` | 
+| Amazon Bedrock | Amazon Bedrock API activity on an agent alias. For more information, see [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail). | Bedrock agent alias | `AWS::Bedrock::AgentAlias` | 
+| Amazon Bedrock | Amazon Bedrock API activity on async invocations. | Bedrock async invoke | `AWS::Bedrock::AsyncInvoke` | 
+| Amazon Bedrock | Amazon Bedrock API activity on an automated reasoning policy. | Bedrock Automated Reasoning Policy | `AWS::Bedrock::AutomatedReasoningPolicy` | 
+| Amazon Bedrock | Amazon Bedrock API activity on an automated reasoning policy version. | Bedrock Automated Reasoning Policy Version | `AWS::Bedrock::AutomatedReasoningPolicyVersion` | 
+| Amazon Bedrock | Amazon Bedrock blueprint API activity. | Bedrock blueprint | `AWS::Bedrock::Blueprint` | 
+| Amazon Bedrock | Bedrock data automation invocation API activity. | Bedrock Data Automation invocation | `AWS::Bedrock::DataAutomationInvocation` | 
+| Amazon Bedrock | Amazon Bedrock data automation profile API activity. | Bedrock Data Automation profile | `AWS::Bedrock::DataAutomationProfile` | 
+| Amazon Bedrock | Amazon Bedrock data automation project API activity. | Bedrock Data Automation project | `AWS::Bedrock::DataAutomationProject` | 
+| Amazon Bedrock | Amazon Bedrock API activity on a flow alias. | Bedrock flow alias | `AWS::Bedrock::FlowAlias` | 
+| Amazon Bedrock | Amazon Bedrock API activity on flow executions. | Flow Execution | `AWS::Bedrock::FlowExecution` | 
+| Amazon Bedrock | Amazon Bedrock API activity on guardrails. | Bedrock guardrail | `AWS::Bedrock::Guardrail` | 
+| Amazon Bedrock | Amazon Bedrock API activity on inline agents. | Bedrock Invoke Inline-Agent | `AWS::Bedrock::InlineAgent` | 
+| Amazon Bedrock | Amazon Bedrock API activity on a knowledge base. For more information, see [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail). | Bedrock knowledge base | `AWS::Bedrock::KnowledgeBase` | 
+| Amazon Bedrock | Amazon Bedrock API activity on models. | Bedrock model | `AWS::Bedrock::Model` | 
+| Amazon Bedrock | Amazon Bedrock API activity on prompts. | Bedrock prompt | `AWS::Bedrock::PromptVersion` | 
+| Amazon Bedrock | Amazon Bedrock API activity on sessions. | Bedrock session | `AWS::Bedrock::Session` | 
+| Amazon Bedrock | Amazon Bedrock Tool API activity. | Bedrock Tool | `AWS::Bedrock::Tool` | 
+| Bedrock-AgentCore ABTest | API activity on `AWS::BedrockAgentCore::ABTest` resources. | Bedrock-AgentCore ABTest | `AWS::BedrockAgentCore::ABTest` | 
+| Amazon Bedrock | Amazon Bedrock APIKey CredentialProvider API activity. | Bedrock-AgentCore APIKey CredentialProvider | `AWS::BedrockAgentCore::APIKeyCredentialProvider` | 
+| BedrockAgentCore batch evaluate | API activity on `AWS::BedrockAgentCore::BatchEvaluate` resources. | BedrockAgentCore batch evaluate | `AWS::BedrockAgentCore::BatchEvaluate` | 
+| Amazon Bedrock | Amazon Bedrock Browser API activity. | Bedrock-AgentCore Browser | `AWS::BedrockAgentCore::Browser` | 
+| Amazon Bedrock | Amazon Bedrock Browser-Custom API activity. | Bedrock-AgentCore Browser-Custom | `AWS::BedrockAgentCore::BrowserCustom` | 
+| Bedrock-AgentCore Browser Profile | API activity on `AWS::BedrockAgentCore::BrowserProfile` resources. | Bedrock-AgentCore Browser Profile | `AWS::BedrockAgentCore::BrowserProfile` | 
+| BedrockAgentCore CapacityProvider | API activity on `AWS::BedrockAgentCore::CapacityProvider` resources. | BedrockAgentCore CapacityProvider | `AWS::BedrockAgentCore::CapacityProvider` | 
+| Amazon Bedrock | Amazon Bedrock Code-Interpreter API activity. | Bedrock-AgentCore Code-Interpreter | `AWS::BedrockAgentCore::CodeInterpreter` | 
+| Amazon Bedrock | Amazon Bedrock Code-Interpreter-Custom API activity. | Bedrock-AgentCore Code-Interpreter-Custom | `AWS::BedrockAgentCore::CodeInterpreterCustom` | 
+| Amazon Bedrock AgentCore | Bedrock AgentCore API activity on evaluators. | Bedrock-AgentCore Evaluator | `AWS::BedrockAgentCore::Evaluator` | 
+| Amazon Bedrock | Amazon Bedrock Gateway API activity. | Bedrock-AgentCore Gateway | `AWS::BedrockAgentCore::Gateway` | 
+| Amazon Bedrock | Amazon Bedrock Memory API activity. | Bedrock-AgentCore Memory | `AWS::BedrockAgentCore::Memory` | 
+| Amazon Bedrock | Amazon Bedrock Oauth2 CredentialProvider API activity. | Bedrock-AgentCore Oauth2 CredentialProvider | `AWS::BedrockAgentCore::OAuth2CredentialProvider` | 
+| Bedrock-AgentCore payments | API activity on `AWS::BedrockAgentCore::Payments` resources. | Bedrock-AgentCore payments | `AWS::BedrockAgentCore::Payments` | 
+| Bedrock-AgentCore policy | API activity on `AWS::BedrockAgentCore::Policy` resources. | Bedrock-AgentCore policy | `AWS::BedrockAgentCore::Policy` | 
+| Bedrock-AgentCore policy engine | API activity on `AWS::BedrockAgentCore::PolicyEngine` resources. | Bedrock-AgentCore policy engine | `AWS::BedrockAgentCore::PolicyEngine` | 
+| Bedrock-AgentCore Recommendation | API activity on `AWS::BedrockAgentCore::Recommendation` resources. | Bedrock-AgentCore Recommendation | `AWS::BedrockAgentCore::Recommendation` | 
+| Bedrock-AgentCore Registry | API activity on `AWS::BedrockAgentCore::Registry` resources. | Bedrock-AgentCore Registry | `AWS::BedrockAgentCore::Registry` | 
+| Amazon Bedrock | Amazon Bedrock Runtime API activity. | Bedrock-AgentCore Runtime | `AWS::BedrockAgentCore::Runtime` | 
+| Amazon Bedrock | Amazon Bedrock Runtime-Endpoint API activity. | Bedrock-AgentCore Runtime-Endpoint | `AWS::BedrockAgentCore::RuntimeEndpoint` | 
+| Amazon Bedrock | Amazon Bedrock Token Vault API activity. | Bedrock-AgentCore Token Vault | `AWS::BedrockAgentCore::TokenVault` | 
+| Amazon Bedrock | Amazon Bedrock Workload Identity API activity. | Bedrock-AgentCore Workload Identity | `AWS::BedrockAgentCore::WorkloadIdentity` | 
+| Amazon Bedrock | Amazon Bedrock Workload Identity Directory API activity. | Bedrock-AgentCore Workload Identity Directory | `AWS::BedrockAgentCore::WorkloadIdentityDirectory` | 
+| Bedrock Mantle Project | API activity on `AWS::BedrockMantle::Project` resources. | Bedrock Mantle Project | `AWS::BedrockMantle::Project` | 
+| Bedrock Web Search Tool | API activity on `AWS::BedrockWebSearch::Tool` resources. | Bedrock Web Search Tool | `AWS::BedrockWebSearch::Tool` | 
+| Amazon Keyspaces (for Apache Cassandra) | Amazon Keyspaces (for Apache Cassandra) API activity on Cassandra CDC streams. | Cassandra CDC streams | `AWS::Cassandra::Stream` | 
+| Amazon Keyspaces (for Apache Cassandra) | Amazon Keyspaces API activity on a table. For more information, see [Amazon Keyspaces (for Apache Cassandra)](https://docs.aws.amazon.com/keyspaces/latest/devguide/logging-using-cloudtrail.html#keyspaces-in-cloudtrail-dml). | Cassandra table | `AWS::Cassandra::Table` | 
+| Certificate Manager | API activity on `AWS::CertificateManager::AcmeEndpoint` resources. | AWS::CertificateManager::AcmeEndpoint | `AWS::CertificateManager::AcmeEndpoint` | 
+| Clinical Trials Tech codelist | API activity on `AWS::ClinicalTrialsTech::Codelist` resources. | Clinical Trials Tech codelist | `AWS::ClinicalTrialsTech::Codelist` | 
+| Clinical Trials Tech dataset | API activity on `AWS::ClinicalTrialsTech::Dataset` resources. | Clinical Trials Tech dataset | `AWS::ClinicalTrialsTech::Dataset` | 
+| Clinical Trials Tech execution | API activity on `AWS::ClinicalTrialsTech::Execution` resources. | Clinical Trials Tech execution | `AWS::ClinicalTrialsTech::Execution` | 
+| Clinical Trials Tech instance | API activity on `AWS::ClinicalTrialsTech::Instance` resources. | Clinical Trials Tech instance | `AWS::ClinicalTrialsTech::Instance` | 
+| Clinical Trials Tech mapping | API activity on `AWS::ClinicalTrialsTech::Mapping` resources. | Clinical Trials Tech mapping | `AWS::ClinicalTrialsTech::Mapping` | 
+| Clinical Trials Tech schedule | API activity on `AWS::ClinicalTrialsTech::Schedule` resources. | Clinical Trials Tech schedule | `AWS::ClinicalTrialsTech::Schedule` | 
+| Clinical Trials Tech study | API activity on `AWS::ClinicalTrialsTech::Study` resources. | Clinical Trials Tech study | `AWS::ClinicalTrialsTech::Study` | 
+| Amazon CloudFront | CloudFront API activity on a KeyValueStore. For more information, see [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_KeyValueStore.html). | CloudFront KeyValueStore | `AWS::CloudFront::KeyValueStore` | 
+| Amazon Cost Optimization | CloudOptimization API activity on profiles. | AWS::CloudOptimization::Profile | `AWS::CloudOptimization::Profile` | 
+| Amazon Cost Optimization | CloudOptimization API activity on recommendations. | AWS::CloudOptimization::Recommendation | `AWS::CloudOptimization::Recommendation` | 
+| AWS CloudTrail | CloudTrail PutAuditEvents activity on a CloudTrail Lake channel that is used to log events from outside AWS. For more information, see [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtraildata/latest/APIReference/API_PutAuditEvents.html). | CloudTrail channel | `AWS::CloudTrail::Channel` | 
+| CloudWatch dataset | API activity on `AWS::CloudWatch::Dataset` resources. | CloudWatch dataset | `AWS::CloudWatch::Dataset` | 
+| Observability ingestion endpoint | API activity on `AWS::CloudWatch::IngestionEndpoint` resources. | Observability ingestion endpoint | `AWS::CloudWatch::IngestionEndpoint` | 
+| Amazon CloudWatch | Amazon CloudWatch API activity on metrics. For more information, see [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.html#CloudWatch-data-plane-events). | CloudWatch metric | `AWS::CloudWatch::Metric` | 
+| Amazon CodeGuru Profiler | CodeGuru Profiler API activity on profiling groups. | CodeGuru Profiler profiling group | `AWS::CodeGuruProfiler::ProfilingGroup` | 
+| Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a customization. | CodeWhisperer customization | `AWS::CodeWhisperer::Customization` | 
+| Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a profile. | CodeWhisperer | `AWS::CodeWhisperer::Profile` | 
+| Amazon Cognito | Amazon Cognito API activity on Amazon Cognito identity pools. For more information, see [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-info-in-cloudtrail.html#identity-pools-cloudtrail-events). | Cognito Identity Pools | `AWS::Cognito::IdentityPool` | 
+| AWS Data Exchange | AWS Data Exchange API activity on assets. | Data Exchange asset | `AWS::DataExchange::Asset` | 
+| AWS Deadline Cloud | Deadline Cloud API activity on fleets. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud fleet | `AWS::Deadline::Fleet` | 
+| AWS Deadline Cloud | Deadline Cloud API activity on jobs. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud job | `AWS::Deadline::Job` | 
+| AWS Deadline Cloud | Deadline Cloud API activity on queues. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud queue | `AWS::Deadline::Queue` | 
+| AWS Deadline Cloud | Deadline Cloud API activity on workers. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud worker | `AWS::Deadline::Worker` | 
+| Diode Alerting linked alert | API activity on `AWS::DiodeAlerting::LinkedAlert` resources. | Diode Alerting linked alert | `AWS::DiodeAlerting::LinkedAlert` | 
+| Amazon Aurora DSQL | Amazon Aurora DSQL API activity on cluster resources. | Amazon Aurora DSQL | `AWS::DSQL::Cluster` | 
+| Amazon DynamoDB | Amazon DynamoDB API activity on streams. For more information, see [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/logging-using-cloudtrail.html#ddb-data-plane-events-in-cloudtrail). | DynamoDB Streams | `AWS::DynamoDB::Stream` | 
+| Amazon DynamoDB | Amazon DynamoDB item-level API activity on tables (for example, PutItem, DeleteItem, and UpdateItem API operations). For tables with streams enabled, the resources field in the data event contains both AWS::DynamoDB::Stream and AWS::DynamoDB::Table. If you specify AWS::DynamoDB::Table for the resources.type, it will log both DynamoDB table and DynamoDB streams events by default. To exclude streams events, add a filter on the eventName field. For more information, see [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/logging-using-cloudtrail.html#ddb-data-plane-events-in-cloudtrail). | DynamoDB | `AWS::DynamoDB::Table` | 
+| Amazon Elastic Compute Cloud | Amazon EC2 instance connect endpoint API activity. | EC2 instance connect endpoint | `AWS::EC2::InstanceConnectEndpoint` | 
+| Amazon Elastic Block Store | Amazon Elastic Block Store (EBS) direct APIs, such as PutSnapshotBlock, GetSnapshotBlock, and ListChangedBlocks on Amazon EBS snapshots. For more information, see [Amazon Elastic Block Store](https://docs.aws.amazon.com/ebs/latest/userguide/logging-ebs-apis-using-cloudtrail.html). | EBS direct APIs | `AWS::EC2::Snapshot` | 
+| Amazon Elastic Container Service | Amazon Elastic Container Service API activity on a container instance. | ECS container instance | `AWS::ECS::ContainerInstance` | 
+| Amazon Elastic Kubernetes Service | Amazon Elastic Kubernetes Service API activity on dashboards. | EKS dashboard | `AWS::EKS::Dashboard` | 
+| Amazon EMR | Amazon EMR API activity on a write-ahead log workspace. For more information, see [Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/logging-using-cloudtrail.html#cloudtrail-data-events). | EMR write-ahead log workspace | `AWS::EMRWAL::Workspace` | 
+| EventBridge endpoint | API activity on `AWS::Events::Endpoint` resources. | EventBridge endpoint | `AWS::Events::Endpoint` | 
+| EventBridge event bus | API activity on `AWS::Events::EventBus` resources. | EventBridge event bus | `AWS::Events::EventBus` | 
+| EventBridge partner event source | API activity on `AWS::Events::EventSource` resources. | EventBridge partner event source | `AWS::Events::EventSource` | 
+| EventBridge rule | API activity on `AWS::Events::Rule` resources. | EventBridge rule | `AWS::Events::Rule` | 
+| Amazon FinSpace | Amazon FinSpace API activity on environments. For more information, see [Amazon FinSpace](https://docs.aws.amazon.com/finspace/latest/userguide/logging-cloudtrail-events.html#finspace-dataplane-events). | FinSpace | `AWS::FinSpace::Environment` | 
+| Amazon FSx | Amazon FSx API activity on volumes. | FSx Volume | `AWS::FSx::Volume` | 
+| Amazon GameLift Streams | Amazon GameLift Streams streaming API activity on applications. For more information, see [Amazon GameLift Streams](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/logging-using-cloudtrail.html#cloudtrail-data-events). | GameLift Streams application | `AWS::GameLiftStreams::Application` | 
+| Amazon GameLift Streams | Amazon GameLift Streams streaming API activity on stream groups. For more information, see [Amazon GameLift Streams](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/logging-using-cloudtrail.html#cloudtrail-data-events). | GameLift Streams stream group | `AWS::GameLiftStreams::StreamGroup` | 
+| Amazon Location Maps | Amazon Location Maps API activity. | Geo Maps | `AWS::GeoMaps::Provider` | 
+| Amazon Location Places | Amazon Location Places API activity. | Geo Places | `AWS::GeoPlaces::Provider` | 
+| Amazon Location Routes | Amazon Location Routes API activity. | Geo Routes | `AWS::GeoRoutes::Provider` | 
+| AWS Glue | AWS Glue API activity on tables that were created by Lake Formation. | Lake Formation | `AWS::Glue::Table` | 
+| AWS IoT Greengrass Version 2 | Greengrass API activity from a Greengrass core device on a component version. Greengrass doesn't log access denied events. For more information, see [AWS IoT Greengrass Version 2](https://docs.aws.amazon.com/greengrass/v2/developerguide/logging-using-cloudtrail.html#greengrass-data-events-cloudtrail). | IoT Greengrass component version | `AWS::GreengrassV2::ComponentVersion` | 
+| AWS IoT Greengrass Version 2 | Greengrass API activity from a Greengrass core device on a deployment. Greengrass doesn't log access denied events. For more information, see [AWS IoT Greengrass Version 2](https://docs.aws.amazon.com/greengrass/v2/developerguide/logging-using-cloudtrail.html#greengrass-data-events-cloudtrail). | IoT Greengrass deployment | `AWS::GreengrassV2::Deployment` | 
+| Amazon GuardDuty | Amazon GuardDuty API activity for a detector. For more information, see [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/logging-using-cloudtrail.html#guardduty-data-events-in-cloudtrail). | GuardDuty detector | `AWS::GuardDuty::Detector` | 
+| Amazon GuardDuty | GuardDuty API activity on malware scans. | GuardDuty malware scan | `AWS::GuardDuty::MalwareScan` | 
+| Health agent domain | API activity on `AWS::HealthAgent::Domain` resources. | Health agent domain | `AWS::HealthAgent::Domain` | 
+| Amazon Connect Health | API activity on `AWS::HealthAgent::Integration` resources. | AWS::HealthAgent::Integration | `AWS::HealthAgent::Integration` | 
+| Amazon Connect Health | API activity on `AWS::HealthAgent::PatientInsightsJob` resources. | health-agent.amazonaws.com | `AWS::HealthAgent::PatientInsightsJob` | 
+| Amazon Connect Health | API activity on `AWS::HealthAgent::Session` resources. | AWS::HealthAgent::Session | `AWS::HealthAgent::Session` | 
+| Health agent subscription | API activity on `AWS::HealthAgent::Subscription` resources. | Health agent subscription | `AWS::HealthAgent::Subscription` | 
+| Health Lake data transformation profile | API activity on `AWS::HealthLake::DataTransformationProfile` resources. | Health Lake data transformation profile | `AWS::HealthLake::DataTransformationProfile` | 
+| AWS IoT | AWS IoT API activity on certificates. For more information, see [AWS IoT](https://docs.aws.amazon.com/greengrass/v2/developerguide/logging-using-cloudtrail.html#greengrass-data-events-cloudtrail). | IoT certificate | `AWS::IoT::Certificate` | 
+| AWS IoT | AWS IoT API activity on things. For more information, see [AWS IoT](https://docs.aws.amazon.com/greengrass/v2/developerguide/logging-using-cloudtrail.html#greengrass-data-events-cloudtrail). | IoT thing | `AWS::IoT::Thing` | 
+| AWS IoT tunnel | API activity on `AWS::IoT::Tunnel` resources. | AWS IoT tunnel | `AWS::IoT::Tunnel` | 
+| AWS IoT SiteWise | IoT SiteWise API activity on assets. For more information, see [AWS IoT SiteWise](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail). | IoT SiteWise asset | `AWS::IoTSiteWise::Asset` | 
+| IoT SiteWise dataset | API activity on `AWS::IoTSiteWise::Dataset` resources. | IoT SiteWise dataset | `AWS::IoTSiteWise::Dataset` | 
+| IoT SiteWise pipeline | API activity on `AWS::IoTSiteWise::Pipeline` resources. | IoT SiteWise pipeline | `AWS::IoTSiteWise::Pipeline` | 
+| AWS IoT SiteWise | IoT SiteWise API activity on time series. For more information, see [AWS IoT SiteWise](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/logging-using-cloudtrail.html#service-name-data-events-cloudtrail). | IoT SiteWise time series | `AWS::IoTSiteWise::TimeSeries` | 
+| IoT SiteWise workspace | API activity on `AWS::IoTSiteWise::Workspace` resources. | IoT SiteWise workspace | `AWS::IoTSiteWise::Workspace` | 
+| AWS IoT TwinMaker | IoT TwinMaker API activity on an entity. For more information, see [AWS IoT TwinMaker](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateEntity.html). | IoT TwinMaker entity | `AWS::IoTTwinMaker::Entity` | 
+| AWS IoT TwinMaker | IoT TwinMaker API activity on a workspace. For more information, see [AWS IoT TwinMaker](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateWorkspace.html). | IoT TwinMaker workspace | `AWS::IoTTwinMaker::Workspace` | 
+| Amazon Kendra Intelligent Ranking | Amazon Kendra Intelligent Ranking API activity on rescore execution plans. For more information, see [Amazon Kendra Intelligent Ranking](https://docs.aws.amazon.com/kendra/latest/dg/cloudtrail-intelligent-ranking.html#cloud-trail-intelligent-ranking-log-entry). | Kendra Ranking | `AWS::KendraRanking::ExecutionPlan` | 
+| Amazon Kinesis Data Streams | Kinesis Data Streams API activity on streams. For more information, see [Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/working-with-streams.html). | Kinesis stream | `AWS::Kinesis::Stream` | 
+| Amazon Kinesis Data Streams | Kinesis Data Streams API activity on stream consumers. For more information, see [Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/building-consumers.html). | Kinesis stream consumer | `AWS::Kinesis::StreamConsumer` | 
+| Amazon Data Firehose | Amazon Data Firehose delivery stream API activity. | Amazon Data Firehose | `AWS::KinesisFirehose::DeliveryStream` | 
+| Amazon Kinesis Video Streams | Kinesis Video Streams video signaling channel API activity. | Kinesis video signaling channel | `AWS::KinesisVideo::SignalingChannel` | 
+| Amazon Kinesis Video Streams | Kinesis Video Streams API activity on video streams, such as calls to GetMedia and PutMedia. | Kinesis video stream | `AWS::KinesisVideo::Stream` | 
+| AWS Lambda | AWS Lambda function execution activity (the Invoke API). | Lambda | `AWS::Lambda::Function` | 
+| Lambda microvm image | API activity on `AWS::Lambda::MicrovmImage` resources. | Lambda microvm image | `AWS::Lambda::MicrovmImage` | 
+| Lex Bot | API activity on `AWS::Lex::Bot` resources. | Lex Bot | `AWS::Lex::Bot` | 
+| AWS Lex Bot Alias | API activity on `AWS::Lex::BotAlias` resources. | AWS Lex Bot Alias | `AWS::Lex::BotAlias` | 
+| CloudWatch Logs log group authorization | API activity on `AWS::Logs::LogGroupAuthorization` resources. | CloudWatch Logs log group authorization | `AWS::Logs::LogGroupAuthorization` | 
+| Logs ScheduledQuery | API activity on `AWS::Logs::ScheduledQuery` resources. | Logs ScheduledQuery | `AWS::Logs::ScheduledQuery` | 
+| Amazon Machine Learning | Machine Learning API activity on ML models. | Machine Learning MlModel | `AWS::MachineLearning::MlModel` | 
+| Amazon Managed Blockchain | Amazon Managed Blockchain API activity on a network. | Managed Blockchain network | `AWS::ManagedBlockchain::Network` | 
+| Amazon Managed Blockchain | Amazon Managed Blockchain JSON-RPC calls on Ethereum nodes, such as eth\_getBalance or eth\_getBlockByNumber. For more information, see [Amazon Managed Blockchain](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/logging-using-cloudtrail.html#ethereum-jsonrpc-logging). | Managed Blockchain | `AWS::ManagedBlockchain::Node` | 
+| Amazon Managed Blockchain Query | Amazon Managed Blockchain Query API activity. | Managed Blockchain Query | `AWS::ManagedBlockchainQuery::QueryAPI` | 
+| AWS HealthImaging | AWS HealthImaging API activity on data stores. | MedicalImaging data store | `AWS::MedicalImaging::Datastore` | 
+| AWS HealthImaging | AWS HealthImaging image set API activity. | MedicalImaging image set | `AWS::MedicalImaging::Imageset` | 
+| Amazon Managed Workflows for Apache Airflow | Amazon MWAA API activity on environments. | Managed Apache Airflow | `AWS::MWAA::Environment` | 
+| Amazon Neptune Graph | Data API activities, for example queries, algorithms, or vector search, on a Neptune Graph. | Neptune Graph | `AWS::NeptuneGraph::Graph` | 
+| Amazon CloudWatch Network Flow Monitor | Amazon CloudWatch Network Flow Monitor API activity on monitors. | Network Flow Monitor monitor | `AWS::NetworkFlowMonitor::Monitor` | 
+| Amazon CloudWatch Network Flow Monitor | Amazon CloudWatch Network Flow Monitor API activity on scopes. | Network Flow Monitor scope | `AWS::NetworkFlowMonitor::Scope` | 
+| Amazon NovaAct | Amazon NovaAct API activity on workflow definitions. | Workflow definition | `AWS::NovaAct::WorkflowDefinition` | 
+| Amazon NovaAct | Amanzon NovaAct API activity on workflow runs. | Workflow run | `AWS::NovaAct::WorkflowRun` | 
+| Amazon One Enterprise | Amazon One Enterprise API activity on a UKey. | Amazon One UKey | `AWS::One::UKey` | 
+| Amazon One Enterprise | Amazon One Enterprise API activity on users. | Amazon One User | `AWS::One::User` | 
+| AWS Payment Cryptography | AWS Payment Cryptography API activity on aliases. | Payment Cryptography alias | `AWS::PaymentCryptography::Alias` | 
+| AWS Payment Cryptography | AWS Payment Cryptography API activity on keys. | Payment Cryptography key | `AWS::PaymentCryptography::Key` | 
+| AWS Private CA | AWS Private CA Connector for Active Directory API activity. | Private CA Connector for Active Directory | `AWS::PCAConnectorAD::Connector` | 
+| AWS Private CA | AWS Private CA Connector for SCEP API activity. | Private CA Connector for SCEP | `AWS::PCAConnectorSCEP::Connector` | 
+| Amazon Pinpoint | Amazon Pinpoint API activity on mobile targeting applications. | Mobile Targeting Application | `AWS::Pinpoint::App` | 
+| Amazon Q Apps | Data API activity on Amazon Q Apps. For more information, see [Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/purpose-built-qapps.html). | Amazon Q Apps | `AWS::QApps::QApp` | 
+| Amazon Q Apps | Data API activity on Amazon Q App sessions. | Amazon Q App Session | `AWS::QApps::QAppSession` | 
+| Amazon Q Business | Amazon Q Business API activity on an application. For more information, see [Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html#service-name-data-plane-events-cloudtrail). | Amazon Q Business application | `AWS::QBusiness::Application` | 
+| Amazon Q Business | Amazon Q Business API activity on a data source. For more information, see [Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html#service-name-data-plane-events-cloudtrail). | Amazon Q Business data source | `AWS::QBusiness::DataSource` | 
+| Amazon Q Business | Amazon Q Business API activity on an index. For more information, see [Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html#service-name-data-plane-events-cloudtrail). | Amazon Q Business index | `AWS::QBusiness::Index` | 
+| Amazon Q Business | Amazon Q Business integration API activity. | Amazon Q Business integration | `AWS::QBusiness::Integration` | 
+| Amazon Q Business | Amazon Q Business API activity on a web experience. For more information, see [Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html#service-name-data-plane-events-cloudtrail). | Amazon Q Business web experience | `AWS::QBusiness::WebExperience` | 
+| Amazon Q Developer | Amazon Q Developer API activity on an integration. | Q Developer integration | `AWS::QDeveloper::Integration` | 
+| Amazon Quick | Amazon Quick API activity on an action connector. | AWS QuickSuite Actions | `AWS::Quicksight::ActionConnector` | 
+| Amazon QuickSight App | API activity on `AWS::QuickSight::App` resources. | Amazon QuickSight App | `AWS::QuickSight::App` | 
+| QuickSight automation | API activity on `AWS::QuickSight::Automation` resources. | QuickSight automation | `AWS::QuickSight::Automation` | 
+| QuickSight automation job | API activity on `AWS::QuickSight::AutomationJob` resources. | QuickSight automation job | `AWS::QuickSight::AutomationJob` | 
+| AWS QuickSight Extension | API activity on `AWS::QuickSight::Extension` resources. | AWS QuickSight Extension | `AWS::QuickSight::Extension` | 
+| AWS QuickSight Extension Access | API activity on `AWS::QuickSight::ExtensionAccess` resources. | AWS QuickSight Extension Access | `AWS::QuickSight::ExtensionAccess` | 
+| Amazon Quick | Amazon Quick Flow API activity. | AWS QuickSight flow | `AWS::QuickSight::Flow` | 
+| Amazon Quick | Amazon Quick FlowSession API activity. | AWS QuickSight flow session | `AWS::QuickSight::FlowSession` | 
+| Amazon QuickSight Page | API activity on `AWS::QuickSight::Page` resources. | Amazon QuickSight Page | `AWS::QuickSight::Page` | 
+| QuickSight Task | API activity on `AWS::QuickSight::Task` resources. | QuickSight Task | `AWS::QuickSight::Task` | 
+| Amazon RDS | Amazon RDS API activity on a DB Cluster. For more information, see [Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/logging-using-cloudtrail-data-api.html#logging-using-cloudtrail-data-api.including-excluding-cloudtrail-events). | RDS Data API - DB Cluster | `AWS::RDS::DBCluster` | 
+| Amazon Redshift | Redshift API activity on clusters. | Redshift Cluster | `AWS::Redshift::Cluster` | 
+| AWS Resource Explorer managed-view | API activity on `AWS::ResourceExplorer2::ManagedView` resources. | AWS Resource Explorer managed-view | `AWS::ResourceExplorer2::ManagedView` | 
+| AWS Resource Explorer view | API activity on `AWS::ResourceExplorer2::View` resources. | AWS Resource Explorer view | `AWS::ResourceExplorer2::View` | 
+| Amazon CloudWatch RUM | Amazon CloudWatch RUM API activity on app monitors. | RUM app monitor | `AWS::RUM::AppMonitor` | 
+| Amazon S3 | Amazon S3 API activity on access points. For more information, see [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events). | S3 Access Point | `AWS::S3::AccessPoint` | 
+| Amazon S3 | Amazon S3 object-level API activity (for example, GetObject, DeleteObject, and PutObject API operations) on objects in general purpose buckets. For more information, see [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events). | S3 | `AWS::S3::Object` | 
+| S3 Express Access Point | API activity on `AWS::S3Express::AccessPoint` resources. | S3 Express Access Point | `AWS::S3Express::AccessPoint` | 
+| Amazon S3 | Amazon S3 object-level API activity (for example, GetObject, DeleteObject, and PutObject API operations) on objects in directory buckets. For more information, see [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events). | S3 Express | `AWS::S3Express::Object` | 
+| Amazon S3 | Amazon S3 Object Lambda access points API activity, such as calls to CompleteMultipartUpload and GetObject. For more information, see [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events). | S3 Object Lambda | `AWS::S3ObjectLambda::AccessPoint` | 
+| Amazon S3 on Outposts | Amazon S3 on Outposts object-level API activity. For more information, see [Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudtrail-logging-s3-info.html#cloudtrail-data-events). | S3 Outposts | `AWS::S3Outposts::Object` | 
+| Amazon S3 Tables | Amazon S3 API activity on tables. For more information, see [Amazon S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-create.html). | S3 table | `AWS::S3Tables::Table` | 
+| Amazon S3 Tables | Amazon S3 API activity on table buckets. For more information, see [Amazon S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html). | S3 table bucket | `AWS::S3Tables::TableBucket` | 
+| Amazon S3 Vectors | Amazon S3 API activity on vector indexes. For more information, see [Amazon S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-indexes.html). | S3 vector index | `AWS::S3Vectors::Index` | 
+| Amazon S3 Vectors | Amazon S3 API activity on vector buckets. For more information, see [Amazon S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-buckets.html). | S3 vector bucket | `AWS::S3Vectors::VectorBucket` | 
+| Amazon SageMaker AI | Amazon SageMaker AI InvokeEndpointWithResponseStream activity on endpoints. For more information, see [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.html). | SageMaker endpoint | `AWS::SageMaker::Endpoint` | 
+| Amazon SageMaker AI | Amazon SageMaker AI API activity on experiment trial components. For more information, see [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-monitoring.html). | SageMaker metrics experiment trial component | `AWS::SageMaker::ExperimentTrialComponent` | 
+| Amazon SageMaker AI | Amazon SageMaker AI API activity on feature stores. | SageMaker Feature Store | `AWS::SageMaker::FeatureGroup` | 
+| SageMaker hub | API activity on `AWS::SageMaker::Hub` resources. | SageMaker hub | `AWS::SageMaker::Hub` | 
+| SageMaker jobs | API activity on `AWS::SageMaker::Job` resources. | SageMaker jobs | `AWS::SageMaker::Job` | 
+| AWS SageMaker MlflowApp | API activity on `AWS::SageMaker::MlflowApp` resources. | AWS SageMaker MlflowApp | `AWS::SageMaker::MlflowApp` | 
+| Amazon SageMaker AI | Amazon SageMaker AI MLflow API activity. | SageMaker MLflow | `AWS::SageMaker::MlflowTrackingServer` | 
+| SageMaker training session | API activity on `AWS::SageMaker::TrainingSession` resources. | SageMaker training session | `AWS::SageMaker::TrainingSession` | 
+| AWS Supply Chain | API activity on `AWS::SCN::BusinessRule` resources. | AWS::SCN::BusinessRule | `AWS::SCN::BusinessRule` | 
+| AWS Supply Chain | API activity on `AWS::SCN::DataLakeException` resources. | AWS::SCN::DataLakeException | `AWS::SCN::DataLakeException` | 
+| AWS Supply Chain | API activity on `AWS::SCN::ExceptionInvestigation` resources. | AWS::SCN::ExceptionInvestigation | `AWS::SCN::ExceptionInvestigation` | 
+| AWS Supply Chain | API activity on `AWS::SCN::ExceptionRule` resources. | AWS::SCN::ExceptionRule | `AWS::SCN::ExceptionRule` | 
+| AWS Supply Chain | Supply Chain API activity on an instance. | Amazon Connect Decisions | `AWS::SCN::Instance` | 
+| AWS Supply Chain | API activity on `AWS::SCN::Metric` resources. | AWS::SCN::Metric | `AWS::SCN::Metric` | 
+| AWS Supply Chain | API activity on `AWS::SCN::MetricEvaluation` resources. | AWS::SCN::MetricEvaluation | `AWS::SCN::MetricEvaluation` | 
+| AWS Supply Chain | API activity on `AWS::SCN::Outcome` resources. | AWS::SCN::Outcome | `AWS::SCN::Outcome` | 
+| AWS Supply Chain | API activity on `AWS::SCN::OutcomeTemplate` resources. | AWS::SCN::OutcomeTemplate | `AWS::SCN::OutcomeTemplate` | 
+| Amazon SimpleDB | Amazon SimpleDB API activity on domains. | SimpleDB domain | `AWS::SDB::Domain` | 
+| AWS Cloud Map | AWS Cloud Map API activity on a namespace. For more information, see [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/cloudtrail-data-events.html). | AWS Cloud Map namespace | `AWS::ServiceDiscovery::Namespace` | 
+| AWS Cloud Map | AWS Cloud Map API activity on a service. For more information, see [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map/latest/dg/cloudtrail-data-events.html). | AWS Cloud Map service | `AWS::ServiceDiscovery::Service` | 
+| Amazon Simple Email Service | Amazon Simple Email Service (Amazon SES) API activity on configuration sets. | SES configuration set | `AWS::SES::ConfigurationSet` | 
+| Amazon Simple Email Service | Amazon Simple Email Service (Amazon SES) API activity on email identities. | SES identity | `AWS::SES::EmailIdentity` | 
+| Amazon Simple Email Service | Amazon Simple Email Service (Amazon SES) API activity on templates. | SES template | `AWS::SES::Template` | 
+| AWS Signer | Signer API activity on signing jobs. | Signer signing job | `AWS::Signer::SigningJob` | 
+| AWS Signer | Signer API activity on signing profiles. | Signer signing profile | `AWS::Signer::SigningProfile` | 
+| AWS IoT SiteWise Assistant | Sitewise Assistant API activity on conversations. | Sitewise Assistant conversation | `AWS::SitewiseAssistant::Conversation` | 
+| Carrier Lookup | API activity on `AWS::SMSVoice::CarrierLookup` resources. | Carrier Lookup | `AWS::SMSVoice::CarrierLookup` | 
+| Configuration Set | API activity on `AWS::SMSVoice::ConfigurationSet` resources. | Configuration Set | `AWS::SMSVoice::ConfigurationSet` | 
+| AWS End User Messaging SMS | AWS End User Messaging SMS API activity on messages. For more information, see [AWS End User Messaging SMS](https://docs.aws.amazon.com/sms-voice/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | SMS Voice message | `AWS::SMSVoice::Message` | 
+| Notify Configuration | API activity on `AWS::SMSVoice::NotifyConfiguration` resources. | Notify Configuration | `AWS::SMSVoice::NotifyConfiguration` | 
+| AWS End User Messaging SMS | AWS End User Messaging SMS API activity on origination identities. For more information, see [AWS End User Messaging SMS](https://docs.aws.amazon.com/sms-voice/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | SMS Voice origination identity | `AWS::SMSVoice::OriginationIdentity` | 
+| Amazon SNS | Amazon SNS Publish API operations on platform endpoints. For more information, see [Amazon SNS](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html). | SNS platform endpoint | `AWS::SNS::PlatformEndpoint` | 
+| Amazon SNS | Amazon SNS Publish and PublishBatch API operations on topics. For more information, see [Amazon SNS](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html). | SNS topic | `AWS::SNS::Topic` | 
+| AWS End User Messaging Social | AWS End User Messaging Social API activity on phone number IDs. For more information, see [AWS End User Messaging Social](https://docs.aws.amazon.com/social-messaging/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Social-Messaging Phone Number ID | `AWS::SocialMessaging::PhoneNumberId` | 
+| AWS End User Messaging Social | AWS End User Messaging Social API activity on Waba IDs. | Social-Messaging Waba ID | `AWS::SocialMessaging::WabaId` | 
+| Amazon SQS | Amazon SQS API activity on messages. For more information, see [Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-logging-using-cloudtrail.html#sqs-data-events-in-cloud-trail). | SQS | `AWS::SQS::Queue` | 
+| AWS Systems Manager | Systems Manager API activity on impact assessments. | SSM Impact Assessment | `AWS::SSM::ExecutionPreview` | 
+| AWS Systems Manager | Systems Manager API activity on managed nodes. For more information, see [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-cloudtrail-logs.html#cloudtrail-data-events). | Systems Manager managed node | `AWS::SSM::ManagedNode` | 
+| AWS Systems Manager | Systems Manager API activity on control channels. For more information, see [AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-cloudtrail-logs.html#cloudtrail-data-events). | Systems Manager | `AWS::SSMMessages::ControlChannel` | 
+| AWS Step Functions | Step Functions API activity on activities. For more information, see [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cloud-trail.html#cloudtrail-data-events). | Step Functions activity | `AWS::StepFunctions::Activity` | 
+| AWS Step Functions | Step Functions API activity on state machines. For more information, see [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cloud-trail.html#cloudtrail-data-events). | Step Functions state machine | `AWS::StepFunctions::StateMachine` | 
+| Amazon Support | SupportAccess API activity on tenants. | SupportAccess tenant | `AWS::SupportAccess::Tenant` | 
+| Amazon Support | SupportAccess API activity on trusting accounts. | SupportAccess trusting account | `AWS::SupportAccess::TrustingAccount` | 
+| Amazon Support | SupportAccess API activity on trusting roles. | SupportAccess trusting role | `AWS::SupportAccess::TrustingRole` | 
+| Amazon SWF | Amazon SWF API activity on domains. For more information, see [Amazon SWF](https://docs.aws.amazon.com/amazonswf/latest/developerguide/ct-logging.html#cloudtrail-data-events). | SWF domain | `AWS::SWF::Domain` | 
+| Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on a Device. | Thin Client Device | `AWS::ThinClient::Device` | 
+| Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on an Environment. | Thin Client Environment | `AWS::ThinClient::Environment` | 
+| Amazon Timestream | Amazon Timestream Query API activity on databases. For more information, see [Amazon Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html). | Timestream database | `AWS::Timestream::Database` | 
+| Amazon Timestream | Amazon Timestream API activity on regional endpoints. | Timestream regional endpoint | `AWS::Timestream::RegionalEndpoint` | 
+| Amazon Timestream | Amazon Timestream Query API activity on tables. For more information, see [Amazon Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html). | Timestream table | `AWS::Timestream::Table` | 
+| Amazon Transform | Transform API activity on agent instances. | Transform agent instance | `AWS::Transform::AgentInstance` | 
+| Amazon Q Transform AKA AWS Transform | API activity on `AWS::Transform::Profile` resources. | transform | `AWS::Transform::Profile` | 
+| Amazon Transform Custom | Transform Custom API activity on campaigns. | Transform-Custom campaign | `AWS::TransformCustom::Campaign` | 
+| Amazon Transform Custom | Transform Custom API activity on conversations. | Transform-Custom conversation | `AWS::TransformCustom::Conversation` | 
+| Amazon Transform Custom | Transform Custom API activity on knowledge items. | Transform-Custom knowledge item | `AWS::TransformCustom::KnowledgeItem` | 
+| Amazon Transform Custom | Transform Custom API activity on packages. | Transform-Custom package | `AWS::TransformCustom::Package` | 
+| UXC account customization | API activity on `AWS::UXC::AccountCustomization` resources. | UXC account customization | `AWS::UXC::AccountCustomization` | 
+| Amazon Verified Permissions | Amazon Verified Permissions API activity on a policy store. | Amazon Verified Permissions | `AWS::VerifiedPermissions::PolicyStore` | 
+| Well-Architected agent recommendation | API activity on `AWS::WellArchitected::AgentRecommendation` resources. | Well-Architected agent recommendation | `AWS::WellArchitected::AgentRecommendation` | 
+| AWS X-Ray | X-Ray API activity on traces. For more information, see [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/xray-api-cloudtrail.html#cloudtrail-data-events). | X-Ray trace | `AWS::XRay::Trace` | 
 
 Data events are not logged by default when you create a trail or event data store. To record CloudTrail data events, you must explicitly add each resource type for which you want to collect activity. For more information about logging data events, see [Logging data events](logging-data-events-with-cloudtrail.md).
 
@@ -261,70 +335,74 @@ Additional charges apply for logging data events. For CloudTrail pricing, see [A
 CloudTrail network activity events enable VPC endpoint owners to record AWS API calls made using their VPC endpoints from a private VPC to the AWS service. Network activity events provide visibility into the resource operations performed within a VPC.
 
 You can log network activity events for the following services:
-+ AWS AppConfig
-+ AWS App Mesh
-+ Amazon Athena
-+ AWS B2B Data Interchange
-+ AWS Backup gateway
++ Amazon Aurora DSQL
 + Amazon Bedrock
-+ Billing and Cost Management
-+ AWS Pricing Calculator
-+ AWS Cost Explorer
-+ AWS Cloud Control API
-+ AWS CloudHSM
-+ AWS Cloud Map
-+ AWS CloudFormation
-+ AWS CloudTrail
-+ Amazon CloudWatch
-+ CloudWatch Application Signals
-+ AWS CodeDeploy
-+ Amazon Comprehend Medical
-+ AWS Config
-+ AWS Data Exports
-+ Amazon Data Firehose
-+ AWS Directory Service
-+ Amazon DynamoDB
-+ Amazon EC2
-+ Amazon Elastic Container Service
-+ Amazon Elastic File System
-+ Elastic Load Balancing
-+ Amazon EventBridge
++ Amazon Connect Voice ID
 + Amazon EventBridge Scheduler
 + Amazon Fraud Detector
-+ AWS Free Tier
-+ Amazon FSx
-+ AWS Glue
-+ AWS HealthLake
-+ AWS IoT FleetWise
-+ AWS IoT Secure Tunneling
-+ AWS Invoicing
-+ Amazon Keyspaces (for Apache Cassandra)
-+ AWS KMS
-+ AWS Lake Formation
-+ AWS Lambda
-+ AWS License Manager
++ Amazon HealthLake
 + Amazon Lookout for Equipment
 + Amazon Lookout for Vision
-+ Amazon Personalize
-+ Amazon Q Business
++ Amazon Q Subscriptions
++ Amazon QuickSight
 + Amazon Rekognition
-+ Amazon Relational Database Service
-+ Amazon S3
-**Note**  
-Amazon S3 [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html) are not supported.
-+ Amazon SageMaker AI
-+ AWS Secrets Manager
-+ Amazon Simple Notification Service
-+ Amazon Simple Queue Service
-+ Amazon Simple Workflow Service
-+ AWS Storage Gateway
-+ AWS Systems Manager Incident Manager
++ Amazon SageMaker
 + Amazon Textract
-+ Amazon Transcribe
-+ Amazon Translate
-+ AWS Transform
++ Amazon Transcribe Streaming Service
 + Amazon Verified Permissions
 + Amazon WorkMail
++ Anthropic Claude Developer Platform on AWS
++ Athena
++ AWS Agent Registry
++ AWS AppConfig
++ aws assurance
++ AWS B2B Data Interchange
++ AWS BCM Pricing Calculator
++ AWS Billing
++ AWS Cloud Map
++ AWS Glue
++ AWS IdentityStore Service
++ AWS Invoicing
++ AWS IoT FleetWise
++ AWS IoT Secured Tunneling
++ AWS IoT SiteWise
++ AWS License Manager
++ AWS Partner Central Revenue Measurement
++ AWS Secrets Manager
++ AWS SSO
++ AWS Step Functions
++ AWS Transfer Family
++ AWS Transform
++ AWSBillingAndCostManagementDataExports
++ AWSLakeFormation
++ Backup Gateway
++ Bedrock Agent Core
++ Cloud Control API
++ CloudFormation
++ CloudHSM
++ CloudTrail
++ CodeDeploy
++ Comprehend medical
++ Compute Optimizer Automation
++ DynamoDB
++ EC2 Auto Scaling
++ Elastic Compute Cloud (EC2)
++ Elastic File System (EFS)
++ IoT
++ Key Management Service (KMS)
++ Lambda
++ Relational Database Service (RDS) Core Control Plane
++ Route 53 Public DNS
++ S3 Vectors
++ Security Token Service (STS)
++ Sign-In Portal
++ Simple Email Service (SES)
++ Simple Notification Service (SNS)
++ Simple Queue Service (SQS)
++ Simple Storage Service (S3)
++ Simple Workflow Service (SWF)
++ SSM Contacts
++ Storage Gateway
 
 Network activity events are not logged by default when you create a trail or event data store. To record CloudTrail network activity events, you must explicitly set the event source for which you want to collect activity. For more information, see [Logging network activity events](logging-network-events-with-cloudtrail.md).
 
