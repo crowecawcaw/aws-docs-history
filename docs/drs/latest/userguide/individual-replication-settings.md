@@ -69,7 +69,7 @@ The **Staging area subnet** setting defines which VPC Subnet that the Replicatio
 ### Replication server instance type
 <a name="instance-type"></a>
 
- The **Replication server instance type** determines the EC2 Instance type and size that is used for the launch of a source server's replication server. DRS Replicators only support EC2 Instances with x86\_64 CPU architecture. 
+ The **Replication server instance type** determines the EC2 Instance type and size that is used for the launch of a source server's replication server. AWS Elastic Disaster Recovery replication servers support only `x86_64` Amazon EC2 instance types. This applies even when the source server uses `arm64`. 
 
  By default, AWS Elastic Disaster Recovery utilizes the t3.small instance type, and should work well for most common workloads. We recommend monitoring the Cloudwatch metrics of a replication server, if your Source Server is experiencing frequent Lag or Backlog. Metrics to monitor include EBSWriteBytes or EBSWriteOps, which may indicate the **Replication server instance type** is improperly sized to protect your source server. 
 

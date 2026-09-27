@@ -28,7 +28,7 @@ Elastic Disaster Recovery Agents can only be installed on instances that are in 
 ## Source server requirements
 <a name="general-requirements2"></a>
 + Verify that your source server has at least 300 MB of free RAM to run the AWS Replication Agent. 
-+ AWS Elastic Disaster Recovery only supports 64-bit operating systems built for the x86 system architecture.
++ AWS Elastic Disaster Recovery supports 64-bit operating systems on the `x86_64` architecture. AWS Elastic Disaster Recovery also supports 64-bit Arm (`arm64`) Linux source servers on AWS Graviton-based Amazon EC2 instances that recover to AWS. Elastic Disaster Recovery supports `arm64` only for AWS-to-AWS recovery. For details, see [AWS DRS supported Linux operating systems](Supported-Operating-Systems-Linux.md).
 + AWS Elastic Disaster Recovery does not support paravirtualized source servers.
 + The AWS Replication Agent installer supports multipath. 
 
@@ -44,7 +44,7 @@ Ensure that your Linux source server meets the following installation requiremen
 + The active bootloader software is GRUB 1 or 2. 
 + Secure Boot is not supported in Linux.
 + Machines that boot off a disk configured with GPT partitioning must have the package 'grub2-pc-modules' installed
-+ When performing a failback for a Linux server, you must boot the Failback Client with BIOS boot mode.
++ When performing a failback for a Linux server, you must boot the Failback Client with BIOS boot mode. The Failback Client supports `x86_64` servers only. For `arm64` source servers, fail back within AWS. See [Performing a failback with Elastic Disaster Recovery](failback-performing-main.md).
 + Ensure that /tmp is mounted as read\+write. 
 + Boot disks that span multiple physical disks are not supported.
 + Ensure that /tmp is mounted with the exec option. Verify that the /tmp directory is mounted in a way that allows you to run scripts and applications from it.

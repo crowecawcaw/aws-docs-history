@@ -21,7 +21,7 @@ AWS Elastic Disaster Recovery (AWS DRS) Amazon EC2 launch settings are divided i
 The basic settings include:
 + **Subnet –** When you specify a subnet, this field defines where the instance is launched. When selecting a subnet, only the default network interface is updated. If you do not include a subnet, the launched instance uses the Region’s default subnet. 
 +  **Security groups –** The selected security groups to assign to the instance, applied to the subnet selected for the default network interface. If no security group is selected, there is no default value and no group is used. Security groups can only be selected if a subnet is included.
-+  **Instance type –** The default instance type to use when launching. If instance type right-sizing is active, the system disregards this setting. If no instance type is included, a default value is used. You can either select an instance type, or you can specify instance attributes and let Amazon EC2 identify the instance types with those attributes. 
++  **Instance type –** The default instance type to use when launching. If instance type right-sizing is active, the system disregards this setting. If no instance type is included, a default value is used. You can either select an instance type, or you can specify instance attributes and let Amazon EC2 identify the instance types with those attributes. For source-server architecture requirements, see [Key considerations for EC2 launch templates](ec2-key-considerations.md). 
 +  **EBS volume type –** Applies to all volumes for which this type is relevant. If an unmatching type exists, the default type (GP3) is used instead. Some volume types require setting additional values such as IOPS or throughput. 
 
 **Instance type attributes:**

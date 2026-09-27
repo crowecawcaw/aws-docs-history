@@ -6,7 +6,7 @@
 ## What source infrastructure does AWS Elastic Disaster Recovery support?
 <a name="drs-source-support"></a>
 
-With AWS Elastic Disaster Recovery, you can recover your applications on AWS from any source infrastructure on which you can install the AWS Replication Agent, and on which you can run the DRS Failback Client. This includes physical infrastructure, virtual machines on hypervisors by VMware, Microsoft, and others, and cloud infrastructure from other cloud providers. 
+With AWS Elastic Disaster Recovery, you can recover applications on AWS from physical infrastructure, virtual machines, and other clouds. These source servers must use the `x86_64` architecture. You must be able to install the AWS Replication Agent and run the Failback Client. AWS Elastic Disaster Recovery also supports 64-bit Arm (`arm64`) Linux source servers on AWS Graviton-based Amazon EC2 instances. Elastic Disaster Recovery supports `arm64` only for AWS-to-AWS recovery. See [AWS DRS supported Linux operating systems](Supported-Operating-Systems-Linux.md).
 
 ## How do I upgrade from CloudEndure Disaster Recovery to AWS Elastic Disaster Recovery?
 <a name="cedr-to-drs"></a>

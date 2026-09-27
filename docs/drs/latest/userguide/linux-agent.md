@@ -11,26 +11,33 @@ To install the agent on a Linux source server, you should ensure that your sourc
 
 1. Download the agent installer `aws-replication-installer-init` onto your Linux source server. 
 
-   The Agent installer download location follows this format:
-
-    `https://aws-elastic-disaster-recovery-<REGION>.s3.<REGION>.amazonaws.com/latest/linux/aws-replication-installer-init` 
+   The installer is architecture-specific. Download the installer that matches the source server architecture:
+   + `x86_64`: `https://aws-elastic-disaster-recovery-<REGION>.s3.<REGION>.amazonaws.com/latest/linux/aws-replication-installer-init`
+   + `arm64`: `https://aws-elastic-disaster-recovery-<REGION>.s3.<REGION>.amazonaws.com/latest/linux_arm64/aws-replication-installer-init`
 **Note**  
-Replace `<REGION>` with the AWS Region into which you are replicating.
+Replace `<REGION>` with the AWS Region into which you are replicating.  
+Run `uname -m` on the source server to find its architecture. `aarch64` means `arm64`. The `x86_64` installer does not run on `arm64` servers. Elastic Disaster Recovery supports `arm64` only for AWS Graviton-based Amazon EC2 source instances that recover to AWS.
 
-   The following is an example for downloading the installer file from the us-east-1 region:
+   The following examples download the installer file from the us-east-1 region.
 
 ------
 #### [ wget ]
 
    ```
+   # x86_64
    wget -O ./aws-replication-installer-init https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init
+   # arm64
+   wget -O ./aws-replication-installer-init https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/linux_arm64/aws-replication-installer-init
    ```
 
 ------
 #### [ curl ]
 
    ```
+   # x86_64
    curl -o aws-replication-installer-init https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init
+   # arm64
+   curl -o aws-replication-installer-init https://aws-elastic-disaster-recovery-us-east-1.s3.us-east-1.amazonaws.com/latest/linux_arm64/aws-replication-installer-init
    ```
 
 ------
@@ -39,14 +46,16 @@ If you are using a legacy Linux OS that does not support TLS 1.2, you need to do
 
    The command line indicates when the installer has been successfully downloaded. 
 **Important**  
-If you need to validate the installer hash, the correct hash is here:  
- `https://aws-elastic-disaster-recovery-hashes-<REGION>.s3.<REGION>.amazonaws.com/latest/linux/aws-replication-installer-init.sha512`   
+If you need to validate the installer hash, use the hash file that matches the installer architecture:  
+`x86_64`: `https://aws-elastic-disaster-recovery-hashes-<REGION>.s3.<REGION>.amazonaws.com/latest/linux/aws-replication-installer-init.sha512`
+`arm64`: `https://aws-elastic-disaster-recovery-hashes-<REGION>.s3.<REGION>.amazonaws.com/latest/linux_arm64/aws-replication-installer-init.sha512`
  Replace `<REGION>` with the AWS Region into which you are replicating.  
 For example, when using the **us-east-1** Region:  
-`https://aws-elastic-disaster-recovery-hashes-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init.sha512`
+`x86_64`: `https://aws-elastic-disaster-recovery-hashes-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/aws-replication-installer-init.sha512`
+`arm64`: `https://aws-elastic-disaster-recovery-hashes-us-east-1.s3.us-east-1.amazonaws.com/latest/linux_arm64/aws-replication-installer-init.sha512`
 **Note**  
 AWS Regions that are not opt-in also support the shorter installer path:   
-`https://aws-elastic-disaster-recovery-<REGION>.s3.amazonaws.com/latest/linux/aws-replication-installer-init`. Replace `<REGION>` with the AWS Region into which you are replicating.
+`https://aws-elastic-disaster-recovery-<REGION>.s3.amazonaws.com/latest/linux/aws-replication-installer-init`. Replace `<REGION>` with the AWS Region into which you are replicating. For an `arm64` server, use `linux_arm64` instead of `linux`.
 
 1. Use this command on your source server in order to run the installation script.
 

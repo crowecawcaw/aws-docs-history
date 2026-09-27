@@ -6,6 +6,7 @@
 ## General Notes
 <a name="General-Notes"></a>
 + [Review the AWS Replication Agent installation requirements.](installation-requirements.md)
++ For `arm64` support, see [AWS Graviton source servers](#arm64-source-servers).
 + Linux kernel versions up to 6.14 are supported.
 + For source machines configured with LVM, on RHEL/Oracle version less than or equal to 9.4, please make sure to update the lvm package to `lvm2-2.03.23-1.el9` or later.
 + AWS Elastic Disaster Recovery does not support 32 bit versions of Linux.
@@ -16,6 +17,15 @@
   + AL 2 and AL 2023
   + Rocky 8\+
   + Debian 9\+
+
+## AWS Graviton source servers
+<a name="arm64-source-servers"></a>
+
+`arm64` is the 64-bit Arm processor architecture used by AWS Graviton processors. AWS Elastic Disaster Recovery supports `arm64` source servers that run on AWS Graviton-based Amazon EC2 instances and recover to AWS. Elastic Disaster Recovery supports `arm64` only for AWS-to-AWS recovery. Source servers in on-premises environments or other clouds must use `x86_64`.
+
+The AWS Replication Agent installer is architecture-specific. For an `arm64` server, download the `arm64` installer. See [Installing the AWS Replication Agent on Linux](linux-agent.md).
+
+For the launch requirements that apply to `arm64` source servers, see [Key considerations for EC2 launch templates](ec2-key-considerations.md).
 
 **Support removal notices**  
 The following operating systems are no longer supported, or will no longer be supported after the listed date. AWS does not provide troubleshooting assistance or compatibility fixes for unsupported operating systems.  

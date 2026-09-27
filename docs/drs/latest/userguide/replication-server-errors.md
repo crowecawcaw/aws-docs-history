@@ -12,6 +12,7 @@ This topic covers errors related to the replication server infrastructure, inclu
 + [Error: Failed to attach staging disks](#common-failed-attach-staging-disks)
 + [Error: Failed to create firewall rules](#common-failed-create-firewall)
 + [Error: Failed to start data transfer](#common-failed-start-data-transfer)
++ [Error: arm64 replication server instance type is not supported](#common-replication-server-arm64-instance-type)
 + [Error: Snapshot failure](#common-snapshot-failure)
 
 ## Error: Failed to launch replication server
@@ -110,6 +111,15 @@ Compare the quota value against the number of running instances in the staging a
 + Check network connectivity and bandwidth between the source server and the replication server.
 + Check replication agent logs for details. For more information, see [Agent logs](agent-diagnostics.md#agent-log-locations).
 + If the issue persists, contact AWS Support.
+
+## Error: arm64 replication server instance type is not supported
+<a name="common-replication-server-arm64-instance-type"></a>
+
+**Error message:** Instance type '{{instance-type}}' is not supported. Only instance types with 'x86\_64' architecture are supported.
+
+**Cause:** You selected an `arm64` instance type for a replication server.
+
+**Resolution:** Select an `x86_64` replication server instance type. Replication servers use `x86_64` even when the source server uses `arm64`.
 
 ## Error: Snapshot failure
 <a name="common-snapshot-failure"></a>

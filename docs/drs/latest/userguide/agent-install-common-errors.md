@@ -18,7 +18,9 @@ This topic covers platform-agnostic installation errors related to AWS credentia
 + [Error: Source server already exists](#error-source-server-exists)
 + [Error: Missing marketplace license permissions](#error-marketplace-permissions)
 + [Error: Secure connection failed while downloading installation files](#error-download-ssl-failure)
++ [Error: DRS cannot confirm that the arm64 source is an EC2 instance](#error-arm64-requires-ec2)
 + [Error: Operating system is not supported](#error-unsupported-os)
++ [Error: Operating system has reached its end of life](#error-end-of-life-os)
 + [Error: Invalid endpoint](#error-invalid-endpoint)
 + [Error: Connection attempt failed on port 443](#error-connection-timeout)
 + [Error: Root or administrator privileges required](#error-root-privileges)
@@ -228,14 +230,34 @@ AWS Elastic Disaster Recovery volume limits:
 
 1. Verify that the system time on the source server is correct. Clock skew invalidates certificates that are otherwise valid.
 
+## Error: DRS cannot confirm that the arm64 source is an EC2 instance
+<a name="error-arm64-requires-ec2"></a>
+
+**Error:** ARM64 recovery is only supported for verified EC2 instances
+
+A verified Amazon EC2 instance is one that Elastic Disaster Recovery can confirm is an `arm64` Amazon EC2 instance with the instance ID that the agent reports. When you install the agent on an `arm64` source server, Elastic Disaster Recovery confirms this from the instance's signed Amazon EC2 instance identity document, which the agent reads from the instance metadata service.
+
+**Cause:** The `arm64` source server is not an Amazon EC2 instance, Elastic Disaster Recovery could not read its signed identity document, or the document reports a different instance ID or architecture.
+
+**Resolution:** Install the agent on the `arm64` Amazon EC2 instance itself. AWS Elastic Disaster Recovery does not support `arm64` source servers in on-premises, vCenter, or other cloud environments. Make sure that the instance can reach the Amazon EC2 instance metadata service. For more information, see [AWS DRS supported Linux operating systems](Supported-Operating-Systems-Linux.md).
+
 ## Error: Operating system is not supported
 <a name="error-unsupported-os"></a>
 
 **Error:** The operating system is not supported by the AWS Replication Agent.
 
-**Cause:** The operating system of the source server is not on the AWS Elastic Disaster Recovery supported list. Elastic Disaster Recovery checks the operating system during installation.
+**Cause:** The source operating system is not supported. For `arm64`, this includes Windows on `arm64`. Elastic Disaster Recovery checks the operating system during installation.
 
-**Resolution:** Verify that Elastic Disaster Recovery supports the operating system of the source server, then run the installer again. For the supported versions, see [Supported Linux operating systems](Supported-Operating-Systems-Linux.md) or [Supported Windows operating systems](Supported-Operating-Systems-Windows.md).
+**Resolution:** `arm64` source servers must run a 64-bit Linux operating system on an Amazon EC2 instance. Windows on `arm64` is not supported. For `x86_64` source servers, verify that Elastic Disaster Recovery supports the operating system, then run the installer again. For the supported versions, see [AWS DRS supported Linux operating systems](Supported-Operating-Systems-Linux.md) or [Supported Windows operating systems](Supported-Operating-Systems-Windows.md).
+
+## Error: Operating system has reached its end of life
+<a name="error-end-of-life-os"></a>
+
+**Error:** The operating system has reached its vendor end of life and is not supported for new source servers.
+
+**Cause:** The operating system of the source server has passed the end-of-life date published by its vendor. AWS Elastic Disaster Recovery does not accept new source servers on an operating system that the vendor no longer supports. Unsupported operating systems can no longer receive security or compatibility fixes.
+
+**Resolution:** Upgrade the source server to an operating system version that its vendor still supports. Then run the installer again. Source servers that were already registered before the end-of-life date continue to replicate, and can be recovered while they have an approved exception.
 
 ## Error: Invalid endpoint
 <a name="error-invalid-endpoint"></a>

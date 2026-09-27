@@ -18,7 +18,7 @@ You can update the version description to track changes you make to the template
 AWS Elastic Disaster Recovery creates the appropriate AMI from the replicated source server data during drill or recovery. Setting an AMI manually overrides this behavior and can result in an instance that does not match your source server.
 
 **Instance type – You can edit**  
-Set the instance type to use when launching drill or recovery instances. If Instance type right-sizing is active, the right-sizing value overrides this setting. If no instance type is specified, AWS Elastic Disaster Recovery uses a default value.
+Set the instance type to use when launching drill or recovery instances. If Instance type right-sizing is active, the right-sizing value overrides this setting. If no instance type is specified, AWS Elastic Disaster Recovery uses a default value. For source-server architecture requirements, see [Key considerations for EC2 launch templates](ec2-key-considerations.md).
 
 ## Storage (volumes)
 <a name="ec2-full-setting-storage"></a>

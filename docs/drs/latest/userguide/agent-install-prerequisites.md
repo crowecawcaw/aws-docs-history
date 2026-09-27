@@ -14,7 +14,7 @@ Before installing the AWS Replication Agent, verify that your source server meet
 <a name="prereq-common"></a>
 
 The following requirements apply to both Linux and Windows source servers.
-+ **64-bit operating system** — The AWS Replication Agent supports only 64-bit architectures. 32-bit systems are not compatible.
++ **64-bit operating system** — The AWS Replication Agent supports `x86_64` source servers and `arm64` Linux source servers that run on Amazon EC2. It does not support 32-bit systems or Windows on `arm64`.
 + **Supported operating system version** — Verify that your OS is on the supported list. See [Supported Linux operating systems](https://docs.aws.amazon.com/drs/latest/userguide/Supported-Operating-Systems-Linux.html) or [Supported Windows operating systems](https://docs.aws.amazon.com/drs/latest/userguide/Supported-Operating-Systems-Windows.html).
 + **AWS credentials** — You must have an IAM user or role with the `AWSElasticDisasterRecoveryAgentInstallationPolicy` managed policy attached. The installer uses these credentials to register the source server with Elastic Disaster Recovery.
 + **Network connectivity** — The source server must allow outbound TCP 443 to the Elastic Disaster Recovery, Amazon S3, and Amazon EC2 endpoints in your target Region. The agent uses these connections to communicate with the replication infrastructure.

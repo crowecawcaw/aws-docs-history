@@ -13,6 +13,9 @@ AWS Elastic Disaster Recovery allows replication of physical, virtual or cloud-b
 
 [Review the AWS Replication Agent installation requirements.](installation-requirements.md)
 
+**Note**  
+AWS Elastic Disaster Recovery supports Windows source servers on the `x86_64` architecture only. Elastic Disaster Recovery does not support Windows on `arm64`.
+
 **These Windows operating systems are supported:**
 
 

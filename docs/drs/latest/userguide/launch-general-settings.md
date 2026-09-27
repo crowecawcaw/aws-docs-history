@@ -30,7 +30,9 @@ The DRS launch settings include the following parameters:
 +  **Instance type right-sizing –** choose whether to allow AWS Elastic Disaster Recovery to launch a drill, recovery, or failback instance type that best matches the hardware configuration of the source server. If you activate this feature, any modification you make to the instance type in the EC2 launch template will be overwritten by the service.
 + 
   + If you select the **Active (basic)** option, AWS Elastic Disaster Recovery will launch an AWS instance type that best matches the OS, CPU, and RAM of your source server. AWS Elastic Disaster Recovery will launch a new instance type after every change of configuration on the source server (for example, added/removed disks, added/removed RAM). Instance types are only chosen from the C5 family.
-  + If you select the **Active (in-aws)** option, AWS Elastic Disaster Recovery will periodically update the EC2 launch template based on the hardware configuration of the EC2 instance source server.
+**Note**  
+If your default launch settings use **Active (basic)**, Elastic Disaster Recovery applies **Active (in-aws)** to new `arm64` source servers. You cannot select **Active (basic)** for an `arm64` source server.
+  + If you select the **Active (in-aws)** option, AWS Elastic Disaster Recovery will periodically update the EC2 launch template based on the hardware configuration of the EC2 instance source server. For source servers replicated from another account, the failback and in-AWS right-sizing roles must exist in the source account. Otherwise, Elastic Disaster Recovery uses the recommended instance type. See [Creating the Failback and in-AWS right-sizing roles](adding-trusted-account.md#trusted-accounts-failback-role).
   + If you select **Inactive**, AWS Elastic Disaster Recovery will launch the AWS instance type as configured in your EC2 launch template. Select this option if you want to determine the instance type that will be launched in AWS for all your drill or recovery servers.
 **Important**  
 The AWS instance type selected by AWS Elastic Disaster Recovery when this feature is activated will overwrite the instance type defined in your EC2 launch template.
@@ -77,9 +79,12 @@ Tags that are added on the EC2 launch template will take precedence over tags th
 
   1. The instance to launch into must have the same operating system platform (Linux or Windows) as that of the server it is protecting. 
 
-  1. If the instance to launch into is a Linux it must have the BIOS boot mode, and if Windows it must have the same boot mode as that of the server it is protecting.
+  1. The instance to launch into must support the boot mode of the server it is protecting. If the protected server uses the UEFI boot mode, the instance to launch into must also use the UEFI boot mode. If the protected server uses the legacy BIOS boot mode, the instance to launch into can use either boot mode. This applies to both Linux and Windows.
 
-  1. The instance to launch into must have the x86\_64 architecture, HVM virtualization and an EBS root device.
+  1. The instance to launch into must meet these requirements:
+     + The same processor architecture as the source server: `x86_64` or `arm64`.
+     + Hardware virtual machine (HVM) virtualization.
+     + An Amazon Elastic Block Store (Amazon EBS) root device.
 
   1.  **OS licensing** can only be **Bring Your Own License (BYOL)** if the instance’s platform is Linux or if the instance’s **tenancy** is **dedicated host**. 
 

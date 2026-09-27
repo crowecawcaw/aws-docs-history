@@ -9,6 +9,7 @@ The following are the latest documentation updates for AWS Elastic Disaster Reco
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| AWS Graviton source servers | Added documentation for replicating and recovering source servers that run on AWS Graviton (`arm64`) Amazon EC2 instances. For more information, see [AWS Graviton source servers](Supported-Operating-Systems-Linux.md#arm64-source-servers). | September 25, 2026 | 
 | Recovery plans | Added documentation for [Orchestrating recovery with recovery plans](recovery-plans.md), which recover groups of source servers in a defined order with wait times between groups. | August 18, 2026 | 
 | Updated AWS managed policy | Updates the [AWSElasticDisasterRecoveryReadOnlyAccess](security-iam-awsmanpol-AWSElasticDisasterRecoveryReadOnlyAccess.md) policy with new read-only permissions for recovery plans and recovery plan executions. | August 18, 2026 | 
 | Amazon EBS volume initialization rate passthrough | AWS Elastic Disaster Recovery now preserves and passes through `VolumeInitializationRate` values set on EC2 launch template block device mappings during drill and recovery launches. For more information, see [Key considerations for EC2 launch templates](https://docs.aws.amazon.com/drs/latest/userguide/ec2-key-considerations.html). | July 10, 2026 | 

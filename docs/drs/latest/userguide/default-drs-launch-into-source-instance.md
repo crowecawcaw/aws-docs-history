@@ -14,9 +14,12 @@
 
 1. The instance to launch into must have the same operating system platform (Linux or Windows) as that of the recovery instance the **Start reversed replication** or **Protect recovered instance** was called on. 
 
-1. If the instance to launch into is Linux, it must have the BIOS boot mode, and if this is Windows, it must have the same boot mode as that of the recovery instance the **Start reversed replication** or **Protect recovered instance** was called on. 
+1. The instance to launch into must support the boot mode of the recovery instance the **Start reversed replication** or **Protect recovered instance** was called on. If the recovery instance uses the UEFI boot mode, the instance to launch into must also use the UEFI boot mode. If the recovery instance uses the legacy BIOS boot mode, the instance to launch into can use either boot mode. This applies to both Linux and Windows. Elastic Disaster Recovery checks the boot mode when it launches into the instance, and the instance to launch into must report its boot mode to Amazon EC2. Instances launched before March 2023 might not report a boot mode. 
 
-1. The instance to launch into must have the x86\_64 architecture, HVM virtualization and an EBS root device.
+1. The instance to launch into must meet these requirements:
+   + The same processor architecture as the source server: `x86_64` or `arm64`.
+   + Hardware virtual machine (HVM) virtualization.
+   + An Amazon Elastic Block Store (Amazon EBS) root device.
 
 1. **OS licensing** in **Default DRS launch settings** can only be **Bring Your Own License (BYOL)** if the instance’s platform is Linux or if the instance’s **tenancy** is **dedicated host**. 
 

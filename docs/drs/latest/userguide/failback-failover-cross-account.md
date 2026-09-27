@@ -112,7 +112,7 @@ If you have started reversed replication for the recovery instance (A3), you wil
  Do not perform step 3, Protecting the failed back instances would affect your production data. 
 
 #### Cleaning up after a drill
-<a name="w2aac22c15c13b7b5b7"></a>
+<a name="w2aac22c15c15b7b5b7"></a>
 
  After a successful drill your AWS environment should look like this: 
 

@@ -112,6 +112,8 @@ Here you can see your **General launch settings** and your **EC2 launch template
 
 Launch settings include:
 +  **Instance type right-sizing** – The Instance type right-sizing feature allows AWS Elastic Disaster Recovery to launch a drill or recovery instance type that best matches the hardware configuration of the source server. When activated, this feature overrides the instance type selected in the EC2 launch template. 
+**Note**  
+You cannot select **Active (basic)** right-sizing for `arm64` source servers. Select **Active (in-aws)** or **Inactive** instead. See [DRS launch settings parameters](launch-general-settings.md#server-launch-settings-parameters).
 + **Start instance upon launch** – Choose whether you want to start your Initiate recovery job instances automatically upon launch or whether you want to start them manually through the Amazon EC2 Console. 
 +  **Copy private IP** – Choose whether you want AWS Elastic Disaster Recovery to verify that the private IP used by the drill or recovery instance matches the private IP used by the source server. 
 +  **Transfer server tags** – Choose whether you want AWS Elastic Disaster Recovery to transfer any user-configured custom tags from your source servers to your drill or recovery instance.

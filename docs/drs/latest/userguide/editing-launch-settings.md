@@ -19,7 +19,7 @@ The default launch settings are applied to every newly launched source server in
 <a name="edit-launch-settings-parameters"></a>
 
 AWS Elastic Disaster Recovery (AWS DRS) launch settings include:
-+ **Instance type right sizing –** Allow the service to automatically update the instance type on the EC2 launch template, based on the CPU and RAM of the source server. If this setting is active (default), any modification you make to the instance type in the EC2 launch template is overwritten by the service.
++ **Instance type right sizing –** Allow the service to automatically update the instance type on the EC2 launch template, based on the CPU and RAM of the source server. If this setting is active (default), any modification you make to the instance type in the EC2 launch template is overwritten by the service. For `arm64` right-sizing requirements, see [DRS launch settings parameters](launch-general-settings.md#server-launch-settings-parameters).
 +  **Start instance upon launch –** Configure how the EC2 recovery instance should be launched – running or in a stopped state. 
 +  **Copy private IP –** Define whether the private IP should be copied from the source server’s primary network interface to the EC2 launch template. If this setting is on, make sure that the subnet defined in the EC2 launch template includes that IP in its range. 
 +  **Transfer server tags –** Define if the launched EC2 instance should have the same tags as the source server resource. 

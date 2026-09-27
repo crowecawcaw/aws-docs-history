@@ -6,6 +6,8 @@
 Review the following key rules and interactions before you modify an EC2 launch template for use with AWS Elastic Disaster Recovery.
 
 1. **Instance type** – AWS Elastic Disaster Recovery uses the instance type set on the launch template unless Instance type right-sizing is activated. If right-sizing is active, it overrides the launch template value.
+**Note**  
+The recovery instance type must use the same processor architecture as the source server. For an `arm64` source server, choose an AWS Graviton instance type. Elastic Disaster Recovery validates the architecture before launch. The launch fails if the instance type, instance requirements, or Amazon Machine Image (AMI) do not match.
 
 1. **Subnet** – If you do not have a default VPC, you must explicitly define the subnet. Failure to do so results in errors when launching drill or recovery instances.
 
@@ -29,4 +31,4 @@ Review the following key rules and interactions before you modify an EC2 launch 
 
 1. **Tags** – Launch template tags always take precedence over tags set in the AWS Elastic Disaster Recovery console or tags manually added to the server.
 
-1. **Launch template AMI** – Make sure your launch template AMI matches the boot mode of your source server. If the source uses Unified Extensible Firmware Interface (UEFI), the chosen AMI must support UEFI.
+1. **Launch template AMI** – Make sure your launch template AMI matches the boot mode of your source server. If the source uses Unified Extensible Firmware Interface (UEFI), the chosen AMI must support UEFI. For an `arm64` source server, use an `arm64` AMI, or remove the AMI override so that Elastic Disaster Recovery creates an architecture-matched AMI. An `arm64` AMI must use UEFI boot mode; if you leave the AMI boot mode unset, Amazon EC2 uses UEFI on Graviton instance types.

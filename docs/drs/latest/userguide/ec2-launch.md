@@ -52,6 +52,8 @@ For cross-AZ recovery, ensure that the staging area subnet and the subnets that 
 If you have multiple on-premises servers that represent the same resources you can use different AZs for recovery instances to increase resiliency.
 +  **Security groups –** The selected security groups to assign to the instance, applied to the subnet selected for the default network interface. If no security group is selected, there is no default value and no group will be used. Security groups can only be selected if a subnet is included.
 +  **Instance type –** The default instance type to use when launching. If instance type right-sizing is active, the system will disregard this setting. If no instance type is included, a default value will be used. You can either select an instance type, or you can specify instance attributes and let Amazon EC2 identify the instance types with those attributes.
+**Note**  
+Select an instance type that uses the same processor architecture as the source server. For `arm64` source servers, AWS Elastic Disaster Recovery uses `arm64`-compatible recovery instance types. See [Key considerations for EC2 launch templates](ec2-key-considerations.md).
 
  **Instance type attributes: ** 
 +  **Number of vCPUs:** Enter the minimum and maximum number of vCPUs for your compute requirements. To indicate no limits, mark the no minimum or no maximum checkboxes, or leave them blank. 

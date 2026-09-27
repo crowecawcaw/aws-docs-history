@@ -3,6 +3,10 @@
 # AWS Elastic Disaster Recovery Service Release Notes
 <a name="drs-service-release-notes"></a>
 
+## September 2026
+<a name="release-notes-september-2026"></a>
++ AWS Elastic Disaster Recovery now supports source servers that run on AWS Graviton (`arm64`) Amazon EC2 instances. You can replicate a 64-bit Linux `arm64` Amazon EC2 instance and recover it to an `arm64` instance type. Install the architecture-specific `arm64` AWS Replication Agent installer on the source server. Recovery instances boot with UEFI, and replication servers continue to use `x86_64` instance types. `arm64` source servers support recovery and failback within AWS only. On-premises and other cloud sources, Windows on `arm64`, and the Failback Client are not supported. For more information, see [AWS Graviton source servers](Supported-Operating-Systems-Linux.md#arm64-source-servers).
+
 ## August 2026
 <a name="release-notes-august-2026"></a>
 + AWS Elastic Disaster Recovery now supports **recovery plans**. With recovery plans, you can recover groups of source servers in a defined order, with wait times between groups. A recovery plan contains up to 20 ordered steps and up to 100 source servers. Each server step recovers its servers in parallel and must finish before the next step begins, and each server can be marked critical or optional to control whether its failure stops the plan. You can run a plan as a drill or as a recovery, follow its progress per step and per server, and retry, skip, or cancel steps while it runs. Recovery plans are available in the AWS Elastic Disaster Recovery console and through the AWS Elastic Disaster Recovery API. For more information, see [Orchestrating recovery with recovery plans](recovery-plans.md).
