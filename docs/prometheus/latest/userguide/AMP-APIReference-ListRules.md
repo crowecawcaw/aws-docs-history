@@ -3,7 +3,9 @@
 # ListRules
 <a name="AMP-APIReference-ListRules"></a>
 
-The `ListRules` retrieves information about the rules configured in the workspace.
+The `ListRules` operation retrieves information about the rules configured in the workspace.
+
+A single response contains at most 100,000 rules. Because rule groups are never split across pages, truncation always lands on a rule group boundary. A response can therefore contain fewer than 100,000 rules if including the next rule group exceeds the cap. When truncation occurs, the response includes the `groupNextToken` property. To retrieve the next page, pass that value as the `group_next_token` query parameter, which you must send together with `group_limit`.
 
 Valid HTTP verbs:  
 `GET`
@@ -19,7 +21,7 @@ URL query parameters:
 `exclude_alerts=<true|false>` Filters rules without any active alerts when set to `true`. Optional  
 `match[]=<series_selector>` Only return rules that have configured labels that satisfy the label selectors. If the parameter is repeated, rules that match any of the sets of label selectors are returned. Note that matching is on the labels in the definition of each rule, not on the values after template expansion (for alerting rules). Optional  
 `group_limit=<number>` Maximum number of rule groups returned in a single response. In subsequent requests to paginate, use the `groupNextToken` property from this response to set the `group_next_token` parameter. Optional  
-`group_next_token=<string>` The pagination token returned in the previous request when the `group_limit` property was set. This token is used to iteratively paginate over the remaining rule groups. Optional
+`group_next_token=<string>` The pagination token returned by a previous request when you set the `group_limit` property or when the response reaches the 100,000-rule cap. Use this token to iteratively paginate over the remaining rule groups. When you use this parameter, you must also send the `group_limit` parameter. Optional
 
 **Sample request**
 

@@ -566,7 +566,7 @@ scrape_configs:
       - __address__
       action: replace
       target_label: __address__
-      regex: (.+?)(\\:\\d+)?
+      regex: '(.+?)(:\d+)?'
       replacement: $1:10249
   # Scheduler metrics
   - job_name: 'ksh-metrics'
