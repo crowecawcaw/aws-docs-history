@@ -51,7 +51,7 @@ Knowledge of:
 Skills in:
 + Locating AWS whitepapers, blogs, and documentation on official AWS websites
 + Identifying and locating AWS technical resources (for example, AWS Prescriptive Guidance, AWS Knowledge Center, AWS re:Post)
-+ Identifying AWS Support options for AWS customers (for example, customer service and communities, AWS Developer Support, AWS Business Support, AWS Enterprise On-Ramp Support, AWS Enterprise Support)
++ Identifying AWS Support options for AWS customers (for example, customer service and communities, Basic Support, AWS Business Support\+, AWS Enterprise Support, AWS Unified Operations)
 + Identifying the role of AWS Trusted Advisor, AWS Health Dashboard, and the AWS Health API to help manage and monitor environments for cost optimization
 + Identifying the role of the AWS Trust and Safety team to report abuse of AWS resources
 + Understanding the role of AWS Partners (for example, AWS Marketplace, independent software vendors, system integrators)
