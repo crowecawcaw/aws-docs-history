@@ -7,9 +7,9 @@ Here you can find detailed release notes for all currently supported AWS Deep Le
 
 For release notes for DLAMI frameworks that we no longer support, see the **Unsupported Framework Release Notes Archive** section of the [DLAMI Framework Support Policy](https://docs.aws.amazon.com/dlami/latest/devguide/dlami-support-policy-table.html) page.
 
-**Security patches not available for PyTorch 2.9 DLAMIs**  
-PyTorch DLAMIs for versions earlier than 2.10 (that is, PyTorch 2.9) contain known common vulnerabilities and exposures (CVEs) that cannot be patched. Because we maintain a separate DLAMI currency release for each PyTorch version, we do not backport security fixes to these images.  
-We recommend that you migrate to PyTorch 2.10 or later DLAMIs, which continue to receive security patches.
+**Security patches not available for PyTorch 2.9 through 2.12 DLAMIs**  
+PyTorch DLAMIs for versions 2.9 through 2.12 (that is, PyTorch 2.9, 2.10, 2.11, and 2.12) contain known common vulnerabilities and exposures (CVEs) that cannot be patched. Because we maintain a separate DLAMI currency release for each PyTorch version, we do not backport security fixes to these images.  
+We recommend that you migrate to PyTorch 2.13 or later DLAMIs, which continue to receive security patches.
 
 **Topics**
 + [Release Notes for Base DLAMIs](#appendix-ami-release-notes-base)
