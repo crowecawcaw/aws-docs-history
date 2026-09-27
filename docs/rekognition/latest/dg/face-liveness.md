@@ -15,7 +15,7 @@ Face Liveness uses multiple components:
  When you configure your application to integrate with Face Liveness feature, it uses the following API operations: 
 + [CreateFaceLivenessSession](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateFaceLivenessSession.html) - Starts a Face Liveness session, letting the Face Liveness detection model be used in your application. Returns a SessionId for the created session. Also allows you to set your ChallengePrefrence, so you can use the FaceMovementChallenge option.
 +  [StartFaceLivenessSession](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_rekognitionstreaming_StartFaceLivenessSession.html) - Called by the AWS Amplify FaceLivenessDetector. Starts an event stream containing information about relevant events and attributes in the current session.
-+  [GetFaceLivenessSessionResults](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceLivenessSessionResults.html) - Retrieves the results of a specific Face Liveness session, including a Face Liveness confidence score, reference image, and audit images.
++  [GetFaceLivenessSessionResults](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceLivenessSessionResults.html) - Retrieves the results of a specific Face Liveness session, including a Face Liveness confidence score, reference image, and audit images. The response also includes the SDK type used and, for low-confidence sessions, one or more feedback codes.
 
 You will use the AWS Amplify SDK to integrate the Face Liveness feature with your face-based verification workflows for web applications. When users onboard or authenticate through your application, send them to the Face Liveness check workflow in the Amplify SDK. The Amplify SDK handles user interface and real-time feedback for users while they capture their video selfie.
 
@@ -23,6 +23,7 @@ When using FaceMovementAndLightChallenge the user’s face moves into the oval d
 + A Face Liveness confidence score (between 0 and 100)
 + A high-quality image called reference image that can be used for face match or face search
 + A set of up to four images, called audit images, selected from the selfie video 
++ A set of one or more feedback codes for low-confidence sessions. The JSON response returns these codes so you can surface them as retry guidance to help end users improve their score.
 
 Face Liveness can be leveraged for a variety of use cases. For example, Face Liveness can be used along with face matching (with [CompareFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html) and [SearchFacesByImage](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html)) for identity verification, for [age estimation](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html) on platforms with age-based access restriction, and for detecting real human users while detering bots. 
 

@@ -79,33 +79,83 @@ The GetFaceLivenessSessionResults API operation retrieves the results of a speci
 
 **Response Example**
 
+The following is a response for a high-confidence session. The response includes `Metadata` with the `SDKType` that streamed the session.
+
 ```
 {
     "SessionId": "0f959dbb-37cc-45d8-a08d-dc42cce85fa8",
     "Confidence": 98.9735,
     "ReferenceImage": {
-        "S3Object": { 
+        "S3Object": {
             "Bucket": "s3-bucket-name",
             "Name": "file-name",
         },
-        "BoundingBox": { 
-           "Height": 0.4943420886993408, 
-            "Left": 0.8435328006744385, 
-            "Top": 0.8435328006744385, 
+        "BoundingBox": {
+           "Height": 0.4943420886993408,
+            "Left": 0.8435328006744385,
+            "Top": 0.8435328006744385,
             "Width": 0.9521094560623169}
     },
     "AuditImages": [{
-        "S3Object": { 
+        "S3Object": {
             "Bucket": "s3-bucket-name",
             "Name": "audit-image-name",
         },
-        "BoundingBox": { 
+        "BoundingBox": {
            "Width": 0.6399999856948853,
            "Height": 0.47999998927116394,
            "Left": 0.1644444465637207,
            "Top": 0.17666666209697723}
     }],
-    "Status": "SUCCEEDED"
+    "Status": "SUCCEEDED",
+    "Metadata": {
+        "SDKType": "js"
+    }
+}
+```
+
+The following is a response for a low-confidence session. In addition to the confidence score, the response includes a `Feedback` list of one or more codes identifying conditions detected during the session, which you can surface as retry guidance to the end user.
+
+```
+{
+    "SessionId": "3b2d1f0a-9c4e-4a7b-8f2d-1e6c5a4b3d2e",
+    "Confidence": 45.2,
+    "ReferenceImage": {
+        "S3Object": {
+            "Bucket": "s3-bucket-name",
+            "Name": "file-name",
+        },
+        "BoundingBox": {
+           "Height": 0.4943420886993408,
+            "Left": 0.8435328006744385,
+            "Top": 0.8435328006744385,
+            "Width": 0.9521094560623169}
+    },
+    "AuditImages": [{
+        "S3Object": {
+            "Bucket": "s3-bucket-name",
+            "Name": "audit-image-name",
+        },
+        "BoundingBox": {
+           "Width": 0.6399999856948853,
+           "Height": 0.47999998927116394,
+           "Left": 0.1644444465637207,
+           "Top": 0.17666666209697723}
+    }],
+    "Status": "SUCCEEDED",
+    "Feedback": [
+        {
+            "Code": "LOW_LIGHTING_DETECTED",
+            "Message": "Please move to a brighter location or add more lighting."
+        },
+        {
+            "Code": "FACE_NOT_ALIGNED",
+            "Message": "Please look directly at the camera without tilting your head."
+        }
+    ],
+    "Metadata": {
+        "SDKType": "js"
+    }
 }
 ```
 

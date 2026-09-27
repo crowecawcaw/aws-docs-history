@@ -86,3 +86,20 @@ Use the following FAQ items to find answers to commonly asked questions about Re
   
 
   You may opt out of having your image and video inputs used to improve or develop the quality of Rekognition and other Amazon machine-learning/artificial-intelligence technologies by using an AWS Organizations opt-out policy. For information about how to opt out, see [Managing AI Services opt-out policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html).
++ **What are Feedback Codes, and when should I use them?**
+
+  
+
+  Feedback codes are returned in the `Feedback` field of the JSON response for liveness sessions with a low confidence score. They identify likely reasons the session scored low, so you can surface specific, actionable guidance to help end users adjust conditions and achieve a higher score on their next attempt. Use them as retry guidance whenever a session falls below your confidence threshold. The following feedback codes are available:
+  + `FACE_NOT_VISIBLE` — the face was not kept visible throughout the session
+  + `FACE_OBSTRUCTION_DETECTED` — the face was obstructed by an object such as a mask, sunglasses, or hands
+  + `LOW_VIDEO_QUALITY_DETECTED` — the video quality was insufficient for liveness analysis
+  + `FACE_NOT_ALIGNED` — the face was not looking directly at the camera
+  + `EYES_CLOSED_DETECTED` — the eyes were closed during the session
+  + `LOW_LIGHTING_DETECTED` — poor lighting conditions were detected during the liveness check
+  + `HIGH_LIGHTING_DETECTED` — harsh bright lighting or glare interfered with the check
++ **What do multiple Feedback Codes mean?**
+
+  
+
+  A single session can return more than one feedback code when several factors contribute to a low confidence score. For example, if both low lighting and face misalignment are detected during a session, you see both feedback codes. Multiple codes indicate that more than one condition should be addressed before retrying, so surfacing all of them together helps end users correct every issue in a single retry rather than through repeated attempts. The feedback codes are not returned in any particular order, so they should be treated as a set rather than a ranked list.
